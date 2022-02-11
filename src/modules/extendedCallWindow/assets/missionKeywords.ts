@@ -8,7 +8,7 @@ export default async (
         autotextcolor: boolean;
         textcolor: string;
         prefix: boolean;
-        missions: (string | number)[];
+        missions: (number | string)[];
     }[]
 ): Promise<void> => {
     const missionHelpBtn = document.getElementById('mission_help');

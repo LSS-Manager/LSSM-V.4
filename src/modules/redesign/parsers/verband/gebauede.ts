@@ -43,7 +43,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
             ({
                 groups: { lat, long, id } = {},
             }: {
-                groups?: Partial<Record<'lat' | 'long' | 'id', string>>;
+                groups?: Partial<Record<'id' | 'lat' | 'long', string>>;
             }) => {
                 if (!lat || !long || !id) {
                     throw new Error(

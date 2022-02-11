@@ -72,7 +72,7 @@ export function getTimeReplacers(): Record<
 
 export function shareMission(
     LSSM: Vue,
-    missionId: string | number,
+    missionId: number | string,
     isCallList = false
 ) {
     return LSSM.$store.dispatch('api/request', {
@@ -83,7 +83,7 @@ export function shareMission(
 
 export function sendReply(
     LSSM: Vue,
-    missionId: string | number,
+    missionId: number | string,
     message: string,
     post: boolean,
     authToken: string,
@@ -114,7 +114,7 @@ export function sendReply(
 
 export function createIcon(
     icon: string,
-    style: 'fas' | 'far' | 'fab' = 'fas',
+    style: 'fab' | 'far' | 'fas' = 'fas',
     ...classes: string[]
 ) {
     const iconElement = document.createElement('i');

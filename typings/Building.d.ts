@@ -58,9 +58,10 @@ export interface InternalBuilding {
     schoolingTypes: string[];
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
     [key: string]:
-        | string
-        | number
-        | string[]
         | InternalExtension[]
-        | ((() => number) | undefined);
+        | string[]
+        | number
+        | string
+        | (() => number)
+        | undefined;
 }

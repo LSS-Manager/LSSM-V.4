@@ -28,7 +28,7 @@ export default <ModuleSettingFunction>(() => ({
         default: true,
         dependsOn: '.showSales',
     },
-    alerts: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+    alerts: <Omit<AppendableList, 'isDisabled' | 'value'>>{
         type: 'appendable-list',
         default: [],
         listItem: [

@@ -2,13 +2,13 @@ import type { Games } from './Game';
 import type { RegisterSettings } from './Setting';
 import type VueI18n from 'vue-i18n';
 
-export type Module = { location: RegExp | string } & Partial<{
+export type Module = Partial<{
     active: boolean;
     alpha: boolean;
     dev: boolean;
     github: number;
-    locales: null | (keyof Games)[];
-    collisions: null | (keyof Modules)[];
+    locales: (keyof Games)[] | null;
+    collisions: (keyof Modules)[] | null;
     noapp: boolean;
     noMapkit: boolean;
     settings: boolean;
@@ -16,7 +16,7 @@ export type Module = { location: RegExp | string } & Partial<{
 
     // being generated in AppStore
     description: string;
-}>;
+}> & { location: RegExp | string };
 
 export type Modules = Record<string, Module>;
 
@@ -37,16 +37,16 @@ export type ModuleMainFunction = (parameters: {
     $m: $m;
     $mc: $mc;
     getSetting<T = boolean>(settingId: string, defaultValue?: T): Promise<T>;
-}) => void | Promise<void>;
+}) => Promise<void> | void;
 
 export type ModuleSettingFunction =
-    | ((MODULE_ID: string) => RegisterSettings | Promise<RegisterSettings>)
     | ((
           MODULE_ID: string,
           LSSM: Vue
-      ) => RegisterSettings | Promise<RegisterSettings>)
+      ) => Promise<RegisterSettings> | RegisterSettings)
     | ((
           MODULE_ID: string,
           LSSM: Vue,
           $m: $m
-      ) => RegisterSettings | Promise<RegisterSettings>);
+      ) => Promise<RegisterSettings> | RegisterSettings)
+    | ((MODULE_ID: string) => Promise<RegisterSettings> | RegisterSettings);

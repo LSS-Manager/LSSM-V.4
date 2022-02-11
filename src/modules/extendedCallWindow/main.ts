@@ -125,7 +125,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
             AppendableListSetting<
                 {
                     icon: string;
-                    type: 'fas' | 'far' | 'fab';
+                    type: 'fab' | 'far' | 'fas';
                     vehicleTypes: (number | string)[];
                 }[]
             >
@@ -210,7 +210,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         AppendableListSetting<
             {
                 name: string;
-                vehicleTypes: (string | number)[];
+                vehicleTypes: (number | string)[];
             }[]
         >
     >('tailoredTabs');

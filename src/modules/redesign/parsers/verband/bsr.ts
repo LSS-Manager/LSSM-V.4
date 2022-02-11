@@ -39,7 +39,7 @@ export default <RedesignParser<VerbandBSRWindow>>(({
             ({
                 groups: { lat, long, id } = {},
             }: {
-                groups?: Partial<Record<'lat' | 'long' | 'id', string>>;
+                groups?: Partial<Record<'id' | 'lat' | 'long', string>>;
             }) => {
                 if (!lat || !long || !id) {
                     throw new Error(

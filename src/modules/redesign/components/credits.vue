@@ -86,7 +86,7 @@ interface Link {
 
 type Component = RedesignComponent<
     'data',
-    'credits/list' | 'credits/daily' | 'credits/overview' | 'coins/list',
+    'coins/list' | 'credits/daily' | 'credits/list' | 'credits/overview',
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     {

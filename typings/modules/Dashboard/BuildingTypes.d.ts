@@ -22,12 +22,12 @@ export interface Category {
         {
             type: 'building' | 'extension';
             color:
-                | 'bright'
-                | 'dark'
                 | 'bright-bright'
                 | 'bright-dark'
+                | 'bright'
                 | 'dark-bright'
-                | 'dark-dark';
+                | 'dark-dark'
+                | 'dark';
             children: number;
             total: number;
             enabled: number;
@@ -57,6 +57,6 @@ export interface BuildingTypesMethods {
     showBuildings(
         listType: string,
         type: string,
-        buildings: buildingWithExtension[] | Building[]
+        buildings: Building[] | buildingWithExtension[]
     ): void;
 }

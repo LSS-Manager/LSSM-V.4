@@ -120,10 +120,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     mapId,
                 }: {
                     position:
-                        | 'top-left'
-                        | 'top-right'
                         | 'bottom-left'
-                        | 'bottom-right';
+                        | 'bottom-right'
+                        | 'top-left'
+                        | 'top-right';
                     bar: HTMLDivElement;
                     mapId: string;
                 }
@@ -339,10 +339,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     mapId = 'map',
                 }: {
                     position:
-                        | 'top-left'
-                        | 'top-right'
                         | 'bottom-left'
-                        | 'bottom-right';
+                        | 'bottom-right'
+                        | 'top-left'
+                        | 'top-right';
                     mapId: string;
                 }
             ) {

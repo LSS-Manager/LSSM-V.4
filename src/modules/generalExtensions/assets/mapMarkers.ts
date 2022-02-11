@@ -267,7 +267,7 @@ export default async (
                 _: unknown,
                 __: unknown,
                 [coordinates, zoom = window.map.getZoom()]: [
-                    [number, number] | { lat: number; lng: number },
+                    { lat: number; lng: number } | [number, number],
                     number
                 ]
             ) {

@@ -16,7 +16,7 @@ export default (LSSM: Vue): void => {
         number,
         number
     >;
-    const smallBuildingsArray: (string | number)[] = Object.entries(
+    const smallBuildingsArray: (number | string)[] = Object.entries(
         smallBuildings
     ).find(ids =>
         ids.map(id => parseInt(id.toString())).includes(building.building_type)

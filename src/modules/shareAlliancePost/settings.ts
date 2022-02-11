@@ -19,7 +19,7 @@ export default (async (MODULE_ID, LSSM, $m) => {
                 !activeModules.includes('extendedCallList') ||
                 !settings.extendedCallList.shareMissions.value,
         },
-        messages: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        messages: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [

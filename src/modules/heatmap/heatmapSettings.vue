@@ -161,22 +161,19 @@ import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 type Mode = 'buildings' | 'vehicles';
 
 type Subsetting<Scope extends Mode | ''> = Record<
-    `${Scope}StaticRadius`,
-    boolean
+    `${Scope}IntensityMaxZoom` | `${Scope}RadiusM` | `${Scope}RadiusPx`,
+    number
 > &
-    Record<
-        `${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`,
-        number
-    > &
-    Record<`${Scope}Includes`, { value: string | number; label: string }[]>;
+    Record<`${Scope}Includes`, { value: number | string; label: string }[]> &
+    Record<`${Scope}StaticRadius`, boolean>;
 
-export type Settings = {
-    position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-    active: boolean;
-    livePreview: boolean;
-    heatmapMode: Mode;
-} & Subsetting<'buildings'> &
-    Subsetting<'vehicles'>;
+export type Settings = Subsetting<'buildings'> &
+    Subsetting<'vehicles'> & {
+        position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+        active: boolean;
+        livePreview: boolean;
+        heatmapMode: Mode;
+    };
 
 export type UpdateSettings = (updated: Omit<Settings, 'active'>) => void;
 
@@ -201,8 +198,8 @@ export default Vue.extend<
         dropdownClosed(): void;
     },
     {
-        includeOptions: { value: string | number; label: string }[];
-        inputHandler(): void | Promise<void>;
+        includeOptions: { value: number | string; label: string }[];
+        inputHandler(): Promise<void> | void;
     },
     {
         setSetting<T>(settingId: string, value: T): Promise<void>;

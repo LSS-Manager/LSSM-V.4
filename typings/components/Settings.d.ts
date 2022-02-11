@@ -32,7 +32,7 @@ export interface SettingsMethods {
     $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     getSelectOptions(
         module: string,
-        setting: Select | MultiSelect,
+        setting: MultiSelect | Select,
         settingId: string
     ): { label: string; value: string }[];
 }

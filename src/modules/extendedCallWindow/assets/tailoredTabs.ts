@@ -5,7 +5,7 @@ import type { $m, $mc } from 'typings/Module';
 
 export default (
     LSSM: Vue,
-    tabs: { name: string; vehicleTypes: (string | number)[] }[],
+    tabs: { name: string; vehicleTypes: (number | string)[] }[],
     stagingMode: boolean,
     $m: $m,
     $mc: $mc

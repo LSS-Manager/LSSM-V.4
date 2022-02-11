@@ -37,7 +37,7 @@ interface ChartOptions extends BasicChartOptions {
 
 export interface DailyCreditsSummary {
     hidden: boolean;
-    sort: 'desc' | 'total' | 'amount';
+    sort: 'amount' | 'desc' | 'total';
     sortDir: 'asc' | 'desc';
     search: '';
     showAverage: boolean;

@@ -572,7 +572,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             callback(mission: MissionMarkerAdd) {
                 const color = ['red', 'yellow', 'green'][
                     mission.vehicle_state
-                ] as 'red' | 'yellow' | 'green';
+                ] as 'green' | 'red' | 'yellow';
                 // mission_getred(_alliance)? | mission_new
                 const missionElement = document.getElementById(
                     `mission_${mission.id}`

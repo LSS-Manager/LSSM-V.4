@@ -17,7 +17,7 @@ export interface OwnSchoolingTabs {
     tabTitles: string[];
     currentTab: string;
     search: string;
-    sort: 'name' | 'end' | 'owner';
+    sort: 'end' | 'name' | 'owner';
     sortDir: string;
     all: string;
 }

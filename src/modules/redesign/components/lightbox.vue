@@ -608,7 +608,7 @@ export default Vue.extend<
                 this.clickableLinks.pictures = showImg;
             });
         window['lssmv4-redesign-lightbox'] = this;
-        const trySetIframe = (): void | number =>
+        const trySetIframe = (): number | void =>
             this.$refs.iframe
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);

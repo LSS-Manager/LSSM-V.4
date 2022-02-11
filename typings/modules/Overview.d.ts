@@ -5,7 +5,7 @@ import type { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 
 interface ResolvedSchooling extends Pick<Schooling, 'caption' | 'duration'> {
     required_for: string[];
-    [key: string]: string | string[];
+    [key: string]: string[] | string;
 }
 
 export interface Overview {

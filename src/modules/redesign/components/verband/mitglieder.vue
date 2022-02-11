@@ -255,11 +255,11 @@ type Component = RedesignSubComponent<
             user_id: number,
             right:
                 | 'admin'
-                | 'coadmin'
-                | 'sprechwunsch_admin'
                 | 'aufsichtsrat'
+                | 'coadmin'
                 | 'finance'
                 | 'schooling'
+                | 'sprechwunsch_admin'
                 | 'staff',
             new_state: 0 | 1
         ): void;

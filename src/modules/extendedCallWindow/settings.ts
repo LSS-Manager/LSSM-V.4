@@ -217,7 +217,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.arrSearch',
         },
-        tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,
             listItem: [
@@ -247,7 +247,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             orderable: true,
             disableable: true,
         },
-        missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        missionKeywords: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [
@@ -322,7 +322,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             orderable: true,
             disableable: false,
         },
-        alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        alarmIcons: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [

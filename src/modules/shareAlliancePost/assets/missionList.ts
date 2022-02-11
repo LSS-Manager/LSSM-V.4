@@ -16,7 +16,7 @@ import type { ButtonGroupCallback } from '../../extendedCallList/assets/utils/bu
 import type { Message } from '../main';
 import type { Mission } from 'typings/Mission';
 
-const createLi = <I extends 'comment' | 'comment-slash'>(
+const createLi = <I extends 'comment-slash' | 'comment'>(
     content: string,
     icon?: I,
     editBtnClass = ''

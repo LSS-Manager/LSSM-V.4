@@ -17,10 +17,10 @@ export interface LSSMAQLMethods {
 
 export interface LSSMAQLComputed {
     result:
-        | APIState['vehicles']
-        | APIState['buildings']
         | APIState['allianceinfo']
+        | APIState['buildings']
         | APIState['missions']
+        | APIState['vehicles']
         | null;
     resultLength: number;
 }

@@ -336,8 +336,8 @@ ${docsLangs
             label: string;
             nav: { text: string; link: string }[];
             sidebar: (
-                | { title: string; collapsable: boolean; children: string[] }
                 | string
+                | { title: string; collapsable: boolean; children: string[] }
             )[];
         }
     > = {};

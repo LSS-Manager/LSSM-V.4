@@ -19,7 +19,7 @@ export interface OpenSchoolingTabs {
     tabTitles: string[];
     currentTab: string;
     search: string;
-    sort: 'name' | 'seats' | 'price' | 'end' | 'owner';
+    sort: 'end' | 'name' | 'owner' | 'price' | 'seats';
     sortDir: string;
     all: string;
 }

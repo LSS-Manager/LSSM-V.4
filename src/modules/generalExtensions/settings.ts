@@ -18,7 +18,7 @@ export default ((_, __, $m) => {
             default: true,
             dependsOn: '.clickableLinks',
         },
-        linkPreviews: <Omit<MultiSelect, 'value' | 'isDisabled'>>{
+        linkPreviews: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
             default: [],
             values: ['buildings', 'missions', 'vehicles', 'profile'],

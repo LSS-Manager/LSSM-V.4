@@ -18,7 +18,7 @@ export interface BuildingListMethods {
     setSort(type: string): void;
     $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setDispatchCenter(
-        building: buildingWithExtension | Building,
+        building: Building | buildingWithExtension,
         dispatchBuilding: Building
     ): void;
     getDispatchCenterCaption(
@@ -28,12 +28,12 @@ export interface BuildingListMethods {
 }
 
 export interface BuildingListComputed {
-    buildingsFiltered: buildingWithExtension[] | Building[];
-    buildingsSorted: buildingWithExtension[] | Building[];
+    buildingsFiltered: Building[] | buildingWithExtension[];
+    buildingsSorted: Building[] | buildingWithExtension[];
 }
 
 export interface BuildingListProps {
     title: string;
-    buildings: buildingWithExtension[] | Building[];
+    buildings: Building[] | buildingWithExtension[];
     listType: string;
 }

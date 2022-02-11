@@ -2,7 +2,7 @@ export default (
     LSSM: Vue,
     icons: {
         icon: string;
-        type: 'fas' | 'far' | 'fab';
+        type: 'fab' | 'far' | 'fas';
         vehicleTypes: (number | string)[];
     }[]
 ): void => {

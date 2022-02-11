@@ -4,8 +4,6 @@ import type { Issue } from './types/issues';
 
 declare module 'vue/types/vue' {
     type MomentShort =
-        | 'LT'
-        | 'LTS'
         | 'L'
         | 'l'
         | 'LL'
@@ -13,20 +11,22 @@ declare module 'vue/types/vue' {
         | 'LLL'
         | 'lll'
         | 'LLLL'
-        | 'llll';
+        | 'llll'
+        | 'LT'
+        | 'LTS';
 
     type MomentVariableCategories =
-        | 'month'
-        | 'quarter'
-        | 'dom'
-        | 'doy'
-        | 'dow'
-        | 'week'
-        | 'year'
         | 'ampm'
+        | 'dom'
+        | 'dow'
+        | 'doy'
         | 'hour'
         | 'minute'
-        | 'second';
+        | 'month'
+        | 'quarter'
+        | 'second'
+        | 'week'
+        | 'year';
 
     interface Vue {
         $lang: string;
@@ -52,15 +52,15 @@ declare module 'vue/types/vue' {
                     {
                         titles: {
                             shorts: Record<
-                                'variable' | 'description' | 'example',
+                                'description' | 'example' | 'variable',
                                 string
                             >;
                             variables: Record<
+                                | MomentVariableCategories
                                 | 'category'
-                                | 'variable'
-                                | 'output'
                                 | 'description'
-                                | MomentVariableCategories,
+                                | 'output'
+                                | 'variable',
                                 string
                             >;
                         };

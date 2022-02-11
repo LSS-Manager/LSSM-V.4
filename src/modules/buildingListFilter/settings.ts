@@ -37,7 +37,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     });
 
     return {
-        filters: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        filters: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultFilters,
             listItem: [

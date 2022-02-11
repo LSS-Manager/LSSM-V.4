@@ -21,7 +21,7 @@ export interface VehicleListMethods {
     setSort(type: string): void;
     toggleFMS(vehicle: Vehicle): void;
     $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
-    startResolve(type: 'mission' | 'building', id: number): void;
+    startResolve(type: 'building' | 'mission', id: number): void;
     endResolve(): void;
     resolveMission(id: number): string;
 }

@@ -7,7 +7,7 @@ interface Mission {
     type: number;
     adress: string;
     distance: string;
-    list: 'mission_own' | 'mission_alliance';
+    list: 'mission_alliance' | 'mission_own';
     progress: {
         active: boolean;
         width: number;
@@ -16,7 +16,7 @@ interface Mission {
         current: number;
         total: number;
     };
-    status: 'red' | 'yellow' | 'green';
+    status: 'green' | 'red' | 'yellow';
 }
 
 interface Hospital {
@@ -25,8 +25,8 @@ interface Hospital {
     distance: string;
     beds: number;
     department: boolean;
-    state: 'success' | 'danger' | 'warning';
-    list: 'own_hospitals' | 'alliance_hospitals';
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance_hospitals' | 'own_hospitals';
     tax: number;
 }
 
@@ -35,8 +35,8 @@ interface Cell {
     id: number;
     distance: string;
     free: number;
-    state: 'success' | 'danger' | 'warning';
-    list: 'own_cells' | 'alliance_cells';
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance_cells' | 'own_cells';
     tax: number;
 }
 
@@ -148,7 +148,7 @@ export default <RedesignParser<VehicleWindow>>(({
     const own_cells: Cell[] = [];
     const alliance_cells: Cell[] = [];
     if (hasCells) {
-        let list: 'own_cells' | 'alliance_cells' = 'own_cells';
+        let list: 'alliance_cells' | 'own_cells' = 'own_cells';
         doc.querySelectorAll<HTMLAnchorElement>(
             `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
         ).forEach(cell => {
@@ -187,7 +187,7 @@ export default <RedesignParser<VehicleWindow>>(({
     // because missions may appear in own and alliance lists
     const mission_ids: number[] = [];
     const get_hospitals = (
-        list: 'own_hospitals' | 'alliance_hospitals'
+        list: 'alliance_hospitals' | 'own_hospitals'
     ): Hospital[] => {
         if (!hasHospitals) return [];
         return Array.from(

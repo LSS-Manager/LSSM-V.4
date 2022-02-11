@@ -36,10 +36,10 @@ export interface DOM {
     toggle(node: HTMLElement): void;
     css(
         node: HTMLElement,
-        rule: unknown | string,
-        value?: string | number,
+        rule: string | unknown,
+        value?: number | string,
         ...args: unknown[]
-    ): string | number | undefined;
+    ): number | string | undefined;
     data(
         node: Node,
         key?: string,
@@ -93,7 +93,7 @@ export interface DOM {
     hasStyle(
         elm: HTMLElement,
         property: string,
-        values?: string | unknown[]
+        values?: unknown[] | string
     ): boolean;
     ELEMENT_NODE: number;
     TEXT_NODE: number;

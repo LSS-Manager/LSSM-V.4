@@ -4,7 +4,7 @@ export default (
     placeholder: string,
     addToPanelHeading: boolean,
     mapSearchOnMap: boolean,
-    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right',
+    position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right',
     LSSM: Vue
 ): void => {
     const addToMap = (map = window.map, id = 'map') => {

@@ -111,7 +111,7 @@ import Vue from 'vue';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 import type { VerbandProtokollWindow } from '../../parsers/verband/protokoll';
 
-type sort = 'time' | 'executor' | 'description' | 'affected';
+type sort = 'affected' | 'description' | 'executor' | 'time';
 type types = Exclude<VerbandProtokollWindow['entries'][0]['type'], ''>;
 
 type Component = RedesignSubComponent<

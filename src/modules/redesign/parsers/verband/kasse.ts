@@ -46,7 +46,7 @@ interface DisabledVerbandskasse extends Verbandskasse {
     enabled: false;
 }
 
-export type VerbandskasseWindow = EnabledVerbandskasse | DisabledVerbandskasse;
+export type VerbandskasseWindow = DisabledVerbandskasse | EnabledVerbandskasse;
 
 export default <RedesignParser<VerbandskasseWindow>>(({
     doc,

@@ -91,7 +91,7 @@ type RedesignWindow = Redesigns[RedesignKey];
 
 export type routeChecks = Record<string, RedesignKey>;
 
-interface Data<T extends RedesignKey | 'default' | ''> {
+interface Data<T extends RedesignKey | '' | 'default'> {
     faSyncAlt: IconDefinition;
     clipboardIconId: string;
     type: T;
@@ -133,7 +133,7 @@ interface Data<T extends RedesignKey | 'default' | ''> {
 }
 
 export interface RedesignLightbox<
-    Type extends RedesignKey | 'default' | '' = RedesignKey | 'default' | ''
+    Type extends RedesignKey | '' | 'default' = RedesignKey | '' | 'default'
 > {
     Data: Data<Type>;
     Methods: {
@@ -181,7 +181,7 @@ interface ParserParam {
 
 export type RedesignParser<Window extends RedesignWindow = RedesignWindow> = (
     data: ParserParam
-) => Window | Promise<Window>;
+) => Promise<Window> | Window;
 
 export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
     Vue,

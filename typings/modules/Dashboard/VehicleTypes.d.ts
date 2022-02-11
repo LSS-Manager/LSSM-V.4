@@ -24,7 +24,7 @@ interface Type {
     sum: number;
     vehicles: Vehicle[];
     fms: Record<string, Vehicle[]>;
-    [key: string]: string | number | Vehicle[] | Record<string, Vehicle[]>;
+    [key: string]: Record<string, Vehicle[]> | Vehicle[] | number | string;
 }
 
 export interface VehicleTypesMethods {

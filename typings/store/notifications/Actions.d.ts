@@ -9,7 +9,7 @@ export type NotificationsActionStoreParams = ActionContext<
 
 export interface NotificationsSend {
     group: NotificationsState['groups'][0];
-    type: 'warning' | 'danger' | 'success' | 'info' | 'unimportant';
+    type: 'danger' | 'info' | 'success' | 'unimportant' | 'warning';
     title: string;
     text: string;
     icon?: string;

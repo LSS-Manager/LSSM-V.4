@@ -7,14 +7,14 @@ export interface Hook {
     post: boolean;
     event: string;
     abortOnFalse: boolean;
-    callback(...args: unknown[]): void | unknown;
+    callback(...args: unknown[]): unknown | void;
 }
 
 export interface ProxyParams {
     post: boolean;
     name: string;
     trap: keyof ProxyHandler<never>;
-    callback(...args: unknown[]): void | unknown;
+    callback(...args: unknown[]): unknown | void;
 }
 
 export interface addStyle {

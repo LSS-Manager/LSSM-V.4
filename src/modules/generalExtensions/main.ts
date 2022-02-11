@@ -96,7 +96,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             addToPanelHeading,
             mapSearchOnMap,
             await getSetting<
-                'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+                'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'
             >('mapSearchOnMapPosition'),
             LSSM
         )

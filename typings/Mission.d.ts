@@ -46,13 +46,13 @@ interface Additional {
 
     // General:
     [key: string]:
-        | number
         | number[]
-        | boolean
-        | string
-        | string[]
-        | Record<string, number>
         | Record<number, string>
+        | Record<string, number>
+        | string[]
+        | boolean
+        | number
+        | string
         | undefined;
 }
 
@@ -128,7 +128,7 @@ interface Prerequisites {
     police_service_group_leader?: number;
 
     // General:
-    [key: string]: number | Record<string, number> | undefined;
+    [key: string]: Record<string, number> | number | undefined;
 }
 
 interface Requirements {
@@ -225,6 +225,6 @@ export interface Mission {
     chances: Chances; // What is the chance for a need at scene?
     additional: Additional; // Any further information on this mission-type
     prerequisites: Prerequisites; // What is needed for the mission to be generated?
-    overlay_index: null | number;
+    overlay_index: number | null;
     base_mission_id: number;
 }

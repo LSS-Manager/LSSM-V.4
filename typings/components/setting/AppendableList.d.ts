@@ -32,7 +32,7 @@ export interface AppendableListMethods {
         item: AppendableListSettingSetting
     ): void;
     getOptions(
-        setting: AppendableListSettingSetting<Select | MultiSelect>,
+        setting: AppendableListSettingSetting<MultiSelect | Select>,
         currentValue: string
     ): { label: string; value: string }[];
     moveUp(index: number): void;

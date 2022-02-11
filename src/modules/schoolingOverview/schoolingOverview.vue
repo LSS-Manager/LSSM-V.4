@@ -126,7 +126,7 @@ export default Vue.extend<
                 key: string;
 
                 // General
-                [key: string]: string | number;
+                [key: string]: number | string;
             }[];
 
             return (
@@ -158,7 +158,7 @@ export default Vue.extend<
                 key: string;
 
                 // General
-                [key: string]: string | number;
+                [key: string]: number | string;
             }[];
 
             return (

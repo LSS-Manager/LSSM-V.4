@@ -1117,7 +1117,7 @@ type Component = RedesignComponent<
         faTrash: IconDefinition;
         missionListSrc: number;
         search: string;
-        searchTimeout: null | number;
+        searchTimeout: number | null;
         sort: string;
         sortDir: 'asc' | 'desc';
         hospitalListSrc: number;
@@ -1129,7 +1129,7 @@ type Component = RedesignComponent<
         };
         filter: {
             mission: {
-                status: ('red' | 'green' | 'yellow')[];
+                status: ('green' | 'red' | 'yellow')[];
                 participation: boolean[];
                 distance: number;
                 credits: number;

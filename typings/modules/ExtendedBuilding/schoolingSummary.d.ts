@@ -14,10 +14,10 @@ export type SchoolingSummaryObject<schooling> = Record<string, schooling>;
 
 export interface SchoolingSummary {
     hidden: boolean;
-    sortAll: 'schooling' | 'amount' | 'bound';
+    sortAll: 'amount' | 'bound' | 'schooling';
     sortAllDir: 'asc' | 'desc';
     allSchoolingsSearch: string;
-    sortEach: 'schooling' | 'amount' | 'bound';
+    sortEach: 'amount' | 'bound' | 'schooling';
     sortEachDir: 'asc' | 'desc';
     eachSchoolingsSearch: string;
 }

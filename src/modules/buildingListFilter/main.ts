@@ -11,11 +11,11 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     LSSM.$store.commit('useFontAwesome');
 
     interface Filter {
-        contentType: 'text' | 'icon';
-        icon_style: 'fas' | 'far' | 'fab';
+        contentType: 'icon' | 'text';
+        icon_style: 'fab' | 'far' | 'fas';
         title: string;
         buildings: number[];
-        state: 'enabled' | 'disabled';
+        state: 'disabled' | 'enabled';
     }
     const filters = [
         {

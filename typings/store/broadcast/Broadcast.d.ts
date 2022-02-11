@@ -1,11 +1,11 @@
 interface BroadcastMessage {
     type:
+        | 'custom'
         | 'var_request'
         | 'var_response'
-        | 'vuex_request'
-        | 'vuex_response'
         | 'vuex_broadcast'
-        | 'custom';
+        | 'vuex_request'
+        | 'vuex_response';
     sender: string;
     receiver: string;
     data: unknown;
@@ -62,9 +62,9 @@ type BroadcastRequestMessageType =
     | VuexRequestBroadcastMessage;
 
 type BroadcastMessageType =
+    | CustomBroadcastMessage
     | VarRequestBroadcastMessage
     | VarResponseBroadcastMessage
-    | VuexRequestBroadcastMessage
-    | VuexResponseBroadcastMessage
     | VuexBroadcastMessage
-    | CustomBroadcastMessage;
+    | VuexRequestBroadcastMessage
+    | VuexResponseBroadcastMessage;

@@ -644,7 +644,7 @@ export default Vue.extend<
                     fileReader.result as string
                 ) as Record<
                     string,
-                    string[] | Record<string, SettingType['value']>
+                    Record<string, SettingType['value']> | string[]
                 >;
                 if (result.activeModules) {
                     await this.$store.dispatch('storage/set', {

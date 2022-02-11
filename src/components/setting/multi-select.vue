@@ -86,7 +86,7 @@ export default Vue.extend<
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            set(values: ({ label: string; value: string } | string)[]) {
+            set(values: (string | { label: string; value: string })[]) {
                 this.$emit(
                     'input',
                     !values.length && this.allOnNone

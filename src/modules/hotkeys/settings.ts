@@ -43,7 +43,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     );
 
     return {
-        hotkeys: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        hotkeys: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [

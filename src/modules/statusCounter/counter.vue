@@ -42,7 +42,7 @@ export default Vue.extend<
         vehicles: number;
         vehicle_states: Record<string, { real: string; amount: number }>;
     },
-    { settings: { percentRounding: number } & Record<string, boolean> }
+    { settings: Record<string, boolean> & { percentRounding: number } }
 >({
     name: 'lssmv4-status-counter',
     data() {

@@ -47,7 +47,7 @@ export class SCEditor {
     inSourceMode: () => boolean;
     sourceMode: (enable: boolean) => this;
     toggleSourceMode: () => void;
-    execCommand: (command: string, param?: string | boolean) => void;
+    execCommand: (command: string, param?: boolean | string) => void;
     currentNode: () => Node | null;
     currentBlockNode: () => Node | null;
     _: (...args: string[]) => string;

@@ -7,11 +7,11 @@ import type {
 } from 'typings/Ingame';
 
 export type Sort =
-    | 'id'
-    | 'credits'
-    | 'remaining_patients'
     | 'alphabet'
-    | 'default';
+    | 'credits'
+    | 'default'
+    | 'id'
+    | 'remaining_patients';
 
 export default (
     LSSM: Vue,
