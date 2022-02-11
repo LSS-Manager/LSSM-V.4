@@ -141,7 +141,7 @@ export default async (
                                 '#building_panel_body .alert'
                             );
                         if (!successAlert) return;
-                        form.insertAdjacentElement('beforebegin', successAlert);
+                        form.before(successAlert);
                         btn.setAttribute('type', 'submit');
                         form['building[name]'].value = '';
                         form.build_with_coins.removeAttribute('value');

@@ -136,7 +136,7 @@ export default async (
             }
             if (vehicleTypes) {
                 const typeWrapper = document.createElement('td');
-                vehicle.insertBefore(typeWrapper, linkWrapper);
+                linkWrapper.before(typeWrapper);
                 if (storedVehicle) {
                     if (
                         !vehicleTypesOnlyOwn ||

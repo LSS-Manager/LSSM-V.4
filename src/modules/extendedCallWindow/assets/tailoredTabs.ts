@@ -226,7 +226,7 @@ export default (
         tabLink.setAttribute('tabload', tabId);
         tabLink.textContent = name;
         tabSelector.append(tabLink);
-        tabList.insertBefore(tabSelector, occupiedTab);
+        occupiedTab.before(tabSelector);
 
         const tabPane = document.createElement('div');
         tabPane.classList.add('tab-pane');
