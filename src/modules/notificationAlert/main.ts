@@ -591,8 +591,10 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         : 0) || `/images/${mission.icon}.png`;
                 const isEventMission =
                     isAllianceMission && mission.user_id === null;
-                let { caption } = mission;
-                if (isAllianceMission) caption = `📤 ${caption}`;
+                const { caption, address, id } = mission;
+                const processedCaption = isAllianceMission
+                    ? `📤 ${caption}`
+                    : caption;
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission) {
                         events['mission_new']?.forEach(alert =>
@@ -601,16 +603,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: caption,
-                                    text: mission.address,
+                                    title: processedCaption,
+                                    text: address,
                                     icon,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
                                     clickHandler() {
-                                        window.lightboxOpen(
-                                            `/missions/${mission.id}`
-                                        );
+                                        window.lightboxOpen(`/missions/${id}`);
                                     },
                                 }
                             )
@@ -626,13 +626,13 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: caption,
+                                    title: processedCaption,
                                     text: $m(
                                         `messages.mission_getred${
                                             isAllianceMission ? '_alliance' : ''
                                         }.body`,
                                         {
-                                            address: mission.address,
+                                            address,
                                         }
                                     ),
                                     icon,
@@ -640,9 +640,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
                                     clickHandler() {
-                                        window.lightboxOpen(
-                                            `/missions/${mission.id}`
-                                        );
+                                        window.lightboxOpen(`/missions/${id}`);
                                     },
                                 }
                             )
@@ -658,14 +656,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: caption,
-                            text: mission.address,
+                            title: processedCaption,
+                            text: address,
                             icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                window.lightboxOpen(`/missions/${mission.id}`);
+                                window.lightboxOpen(`/missions/${id}`);
                             },
                         })
                     );
@@ -674,14 +672,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: caption,
-                            text: mission.address,
+                            title: processedCaption,
+                            text: address,
                             icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                window.lightboxOpen(`/missions/${mission.id}`);
+                                window.lightboxOpen(`/missions/${id}`);
                             },
                         })
                     );

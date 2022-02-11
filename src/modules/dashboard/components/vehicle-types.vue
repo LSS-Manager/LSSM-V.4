@@ -204,13 +204,13 @@ export default Vue.extend<
             return types;
         },
         vehicleTypesFiltered() {
-            const { vehicleTypes } = this;
+            const { vehicleTypes, search } = this;
             const filtered = {} as TypeList;
             Object.keys(vehicleTypes).filter(
                 type =>
                     JSON.stringify(Object.values(vehicleTypes[type]))
                         .toLowerCase()
-                        .match(this.search.toLowerCase()) &&
+                        .match(search.toLowerCase()) &&
                     (filtered[type] = vehicleTypes[type])
             );
             return filtered;
