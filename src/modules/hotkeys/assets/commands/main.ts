@@ -56,7 +56,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             Scope<
                 {
                     lssmMenuTrigger: HTMLAnchorElement | null;
-                    lssmMenuIsOpened: () => boolean;
+                    lssmMenuIsOpened(): boolean;
                 },
                 [],
                 ['toggle']

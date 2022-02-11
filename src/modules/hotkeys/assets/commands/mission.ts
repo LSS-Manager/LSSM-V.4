@@ -8,7 +8,7 @@ export default <Scope<Empty, ['sorted'], [], true>>{
                 LSSM: Vue;
                 moduleId: 'extendedCallList';
                 toggleId: string;
-                nodeAttr: (attr: string) => string;
+                nodeAttr(attr: string): string;
             },
             [],
             ['alert_next', 'prev', 'next', 'alert_share_next']

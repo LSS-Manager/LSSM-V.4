@@ -7,7 +7,7 @@ import type { LatLng, Map } from 'leaflet';
 import type { Settings, UpdateSettings } from './heatmapSettings.vue';
 
 interface HeatLayer {
-    setLatLngs: (points: LatLng[]) => void;
+    setLatLngs(points: LatLng[]): void;
 }
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {

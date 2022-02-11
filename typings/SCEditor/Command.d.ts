@@ -20,6 +20,6 @@ export interface Command {
           ) => void);
     errorMessage?: string;
     txtExec?: (() => void) | ((caller: unknown) => void);
-    _date?: (editor: unknown) => unknown;
-    _time?: () => string;
+    _date?(editor: unknown): unknown;
+    _time?(): string;
 }

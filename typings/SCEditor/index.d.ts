@@ -7,9 +7,9 @@ import type { Utils } from './Utils';
 
 export interface sceditor {
     command: {
-        get: (name: string) => unknown;
-        set: (name: string, cmd: unknown) => unknown;
-        remove: (name: string) => unknown;
+        get(name: string): unknown;
+        set(name: string, cmd: unknown): unknown;
+        remove(name: string): unknown;
     };
     commands: Record<string, Command>;
     defaultOptions: Options;

@@ -248,7 +248,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function (event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel(): void }) {
                         if (!LSSM.$store.state.appstore.changes) {
                             if (LSSM.$store.state.appstore.reload) {
                                 event.cancel();
@@ -334,7 +334,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function (event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel(): void }) {
                         if (!LSSM.$store.state.settings.changes) {
                             if (LSSM.$store.state.settings.reload) {
                                 event.cancel();

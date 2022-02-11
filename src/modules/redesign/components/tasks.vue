@@ -129,16 +129,16 @@ type Component = RedesignComponent<
         collapseAll: boolean;
     },
     {
-        getTaskId: (id: number, extra: string) => string;
+        getTaskId(id: number, extra: string): string;
         checkConfirmation(
             confirmation: string | false,
             callback: (id: number) => void,
             id: number
         ): void;
-        claimReward: (id: number) => void;
-        claimAll: () => void;
-        cleanUpCollapsedTasks: () => void;
-        toggleCollapseAll: () => void;
+        claimReward(id: number): void;
+        claimAll(): void;
+        cleanUpCollapsedTasks(): void;
+        toggleCollapseAll(): void;
     },
     {
         categories: Categories;

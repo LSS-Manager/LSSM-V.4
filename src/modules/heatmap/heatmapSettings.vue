@@ -193,20 +193,20 @@ export default Vue.extend<
         dropdownStyle: HTMLStyleElement;
     },
     {
-        mode: <Setting extends keyof Subsetting<''>>(
+        mode<Setting extends keyof Subsetting<''>>(
             setting: Setting
-        ) => `${Mode}${Setting}`;
-        save: () => Promise<void>;
-        dropdownOpened: () => void;
-        dropdownClosed: () => void;
+        ): `${Mode}${Setting}`;
+        save(): Promise<void>;
+        dropdownOpened(): void;
+        dropdownClosed(): void;
     },
     {
         includeOptions: { value: string | number; label: string }[];
-        inputHandler: () => void | Promise<void>;
+        inputHandler(): void | Promise<void>;
     },
     {
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
-        getModuleSettings: () => Promise<Settings>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
+        getModuleSettings(): Promise<Settings>;
         updateSettings: UpdateSettings;
         $m: $m;
     }

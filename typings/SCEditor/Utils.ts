@@ -10,8 +10,8 @@ export interface Utils {
         obj: unknown | unknown[],
         fn: (arg0: unknown, arg1: unknown) => unknown
     ): void;
-    isString: (arg0: unknown) => boolean;
-    isUndefined: (arg0: unknown) => boolean;
-    isFunction: (arg0: unknown) => boolean;
-    isNumber: (arg0: unknown) => boolean;
+    isString(arg0: unknown): boolean;
+    isUndefined(arg0: unknown): boolean;
+    isFunction(arg0: unknown): boolean;
+    isNumber(arg0: unknown): boolean;
 }

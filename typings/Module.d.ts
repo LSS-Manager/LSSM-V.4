@@ -36,10 +36,7 @@ export type ModuleMainFunction = (parameters: {
     MODULE_ID: string;
     $m: $m;
     $mc: $mc;
-    getSetting: <T = boolean>(
-        settingId: string,
-        defaultValue?: T
-    ) => Promise<T>;
+    getSetting<T = boolean>(settingId: string, defaultValue?: T): Promise<T>;
 }) => void | Promise<void>;
 
 export type ModuleSettingFunction =

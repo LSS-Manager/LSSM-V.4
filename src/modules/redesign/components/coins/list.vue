@@ -97,8 +97,8 @@ export default Vue.extend<
             amount: number,
             args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
     }
 >({
     name: 'lssmv4-redesign-coins-list',

@@ -126,7 +126,7 @@ interface Data<T extends RedesignKey | 'default' | ''> {
             | 'verband/regeln'
         >,
         {
-            component: () => Promise<unknown>;
+            component(): Promise<unknown>;
             data: string;
         }
     >;
@@ -171,7 +171,7 @@ export interface RedesignLightbox<
 interface ParserParam {
     doc: Document;
     href?: string;
-    getIdFromEl?: (el: HTMLAnchorElement | null) => number;
+    getIdFromEl?(el: HTMLAnchorElement | null): number;
     LSSM: Vue;
     $m: $m;
     $sm: $m;
@@ -206,8 +206,8 @@ export interface RedesignComponent<
         Record<DataName, Redesigns[Type] & { authenticity_token: string }> & {
             url: string;
             lightbox: RedesignLightboxVue<Type>;
-            getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-            setSetting: <T>(settingId: string, value: T) => Promise<void>;
+            getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+            setSetting<T>(settingId: string, value: T): Promise<void>;
         };
 }
 
