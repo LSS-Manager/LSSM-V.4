@@ -172,7 +172,7 @@ export default async (
         'navbar-btn',
         'hidden-xs'
     );
-    resetBtn.onclick = resetCounters;
+    resetBtn.addEventListener('click', resetCounters);
     resetBtn.textContent = $m('arrCounter.reset', {
         text: $m(`arrCounter.resetTexts.${resetBtnTexts.join('_')}`),
     }).toString();

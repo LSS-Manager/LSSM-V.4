@@ -82,11 +82,11 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
             hideBtn.classList.add('btn', 'btn-xs', 'btn-default');
             hideBtn.href = '#';
             hideBtn.textContent = $sm('hide').toString();
-            hideBtn.onclick = () => {
+            hideBtn.addEventListener('click', () => {
                 $(holder).hide('fast');
                 if (holder.previousElementSibling)
                     $(holder.previousElementSibling).show('fast');
-            };
+            });
             holder.prepend(hideBtn);
             const roleHolder =
                 holder.parentElement?.parentElement?.querySelector(

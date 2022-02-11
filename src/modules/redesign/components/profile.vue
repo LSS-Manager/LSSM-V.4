@@ -797,7 +797,7 @@ export default Vue.extend<
                     if (!this.buildingMarkerIds.includes(building.id)) {
                         const img = document.createElement('img');
                         img.src = building.icon;
-                        img.onload = () =>
+                        img.addEventListener('load', () =>
                             this.mapLayerGroups[
                                 building.building_type
                             ].addLayer(
@@ -820,7 +820,8 @@ export default Vue.extend<
                                             `/buildings/${building.id}`
                                         )
                                     )
-                            );
+                            )
+                        );
                         this.buildingMarkerIds.push(building.id);
                     }
                     if (dispatchCenters[0].buildingTypes.sum) {

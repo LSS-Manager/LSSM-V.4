@@ -4,7 +4,7 @@
         "commonjs": true,
         "es6": true
     },
-    "plugins": ["vue", "@typescript-eslint", "prettier"],
+    "plugins": ["vue", "@typescript-eslint", "unicorn","prettier"],
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -76,6 +76,7 @@
             "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
         }],
         "template-curly-spacing": "error",
+        "unicorn/prefer-add-event-listener": ["error"],
         "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true

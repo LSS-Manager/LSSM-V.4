@@ -144,8 +144,9 @@ export default {
                     requireInteraction: duration <= 0,
                 });
                 if (clickHandler) {
-                    notification.onclick = e =>
-                        clickHandler(null, e as MouseEvent);
+                    notification.addEventListener('click', e =>
+                        clickHandler(null, e as MouseEvent)
+                    );
                 }
                 if (duration > 0)
                     window.setTimeout(() => notification.close(), duration);

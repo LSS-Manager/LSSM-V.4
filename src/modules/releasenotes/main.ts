@@ -77,7 +77,7 @@ export default async (LSSM: Vue): Promise<void> => {
 
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
-        .then(element => (element.onclick = () => openNotes()));
+        .then(element => element.addEventListener('click', () => openNotes()));
 
     LSSM.$store
         .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
