@@ -251,15 +251,18 @@ export default <ModuleMainFunction>(async ({
             }
             return (
                 missingRequirements?.missingRequirements
+                    .map(({ vehicle, total, missing, selected }) => [
+                        vehicle,
+                        total ??
+                            (typeof selected === 'number'
+                                ? missing - selected
+                                : missing - selected.max) ??
+                            0,
+                    ])
+                    .filter(([, remaining]) => remaining > 0)
                     .map(
-                        ({ vehicle, total, missing, selected }) =>
-                            `${(
-                                total ??
-                                (typeof selected === 'number'
-                                    ? missing - selected
-                                    : missing - selected.max) ??
-                                0
-                            ).toLocaleString()} ${vehicle}`
+                        ([vehicle, remaining]) =>
+                            `${remaining.toLocaleString()} ${vehicle}`
                     )
                     .join(', ') ??
                 remainingVehicles ??
