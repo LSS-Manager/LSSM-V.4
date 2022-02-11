@@ -62,12 +62,7 @@ export interface DailyCreditsSummaryComputed {
 
 export interface DailyCreditsSummaryMethods {
     setSort(s: DailyCreditsSummary['sort']): void;
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
 }
 
 export interface DailyCreditsSummaryProps {

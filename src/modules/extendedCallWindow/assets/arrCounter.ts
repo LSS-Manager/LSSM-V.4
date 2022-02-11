@@ -72,7 +72,7 @@ export default async (
         ]);
     }
 
-    const counterNodes = {} as { [aao_id: string]: HTMLSpanElement };
+    const counterNodes = {} as Record<string, HTMLSpanElement>;
 
     const resetCounters = () => {
         if (counter) {

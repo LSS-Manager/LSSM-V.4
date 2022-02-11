@@ -31,16 +31,12 @@ export interface Vehicle {
 
 export interface VehicleCategory {
     color: string;
-    vehicles: {
-        [group: string]: number[];
-    };
+    vehicles: Record<string, number[]>;
 }
 
 export interface ResolvedVehicleCategory {
     color: string;
-    vehicles: {
-        [group: string]: InternalVehicle[];
-    };
+    vehicles: Record<string, InternalVehicle[]>;
 }
 
 export type VehicleSchooling = Partial<{

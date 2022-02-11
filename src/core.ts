@@ -107,12 +107,12 @@ utils(Vue);
             }
             filteredActiveModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
-                const $m = (key: string, args?: { [key: string]: unknown }) =>
+                const $m = (key: string, args?: Record<string, unknown>) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);
                 const $mc = (
                     key: string,
                     amount?: number,
-                    args?: { [key: string]: unknown }
+                    args?: Record<string, unknown>
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
                 if (
                     LSSM.$store.state.modules[moduleId].settings &&

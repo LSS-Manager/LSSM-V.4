@@ -59,7 +59,7 @@ const modules = {
             sync: 'aktuelle Position verwenden',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
@@ -1652,9 +1652,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -1666,9 +1666,9 @@ export default {
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2269,9 +2269,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2425,9 +2425,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2439,9 +2439,9 @@ export default {
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /

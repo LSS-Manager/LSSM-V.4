@@ -18,19 +18,17 @@ export type Module = { location: RegExp | string } & Partial<{
     description: string;
 }>;
 
-export interface Modules {
-    [moduleId: string]: Module;
-}
+export type Modules = Record<string, Module>;
 
 export type $m = (
     key: string,
-    args?: { [key: string]: unknown }
+    args?: Record<string, unknown>
 ) => VueI18n.TranslateResult;
 
 export type $mc = (
     key: string,
     amount: number,
-    args?: { [key: string]: unknown }
+    args?: Record<string, unknown>
 ) => VueI18n.TranslateResult;
 
 export type ModuleMainFunction = (parameters: {

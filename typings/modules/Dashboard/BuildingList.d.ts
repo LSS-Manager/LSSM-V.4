@@ -8,7 +8,7 @@ interface buildingWithExtension extends Building {
 }
 
 export interface BuildingList {
-    buildingTypeNames: { [id: number]: string };
+    buildingTypeNames: Record<number, string>;
     search: string;
     sort: string;
     sortDir: string;
@@ -16,12 +16,7 @@ export interface BuildingList {
 
 export interface BuildingListMethods {
     setSort(type: string): void;
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setDispatchCenter(
         building: buildingWithExtension | Building,
         dispatchBuilding: Building

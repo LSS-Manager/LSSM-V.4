@@ -38,9 +38,9 @@ interface InternalExtension {
     credits: number;
     coins: number;
     duration: number;
-    maxExtensionsFunction?(buildingsByType?: {
-        [type: number]: Building[];
-    }): number;
+    maxExtensionsFunction?(
+        buildingsByType?: Record<number, Building[]>
+    ): number;
 }
 
 export interface InternalBuilding {

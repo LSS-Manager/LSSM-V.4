@@ -11,9 +11,7 @@ export interface RootState {
     readonly games: Games;
     readonly server: string;
     readonly fontAwesomeIconSearch: string;
-    readonly hooks: {
-        [event: string]: returnTypeFunction;
-    };
+    readonly hooks: Record<string, returnTypeFunction>;
     readonly mapkit: boolean;
     readonly darkmode: boolean;
     readonly premium: boolean;
@@ -35,7 +33,5 @@ export interface RootState {
     };
     credits: number;
     coins: number;
-    osmBars: {
-        [mapId: string]: { [position: string]: HTMLDivElement };
-    };
+    osmBars: Record<string, Record<string, HTMLDivElement>>;
 }

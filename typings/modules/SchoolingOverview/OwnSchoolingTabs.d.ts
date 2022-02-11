@@ -8,11 +8,12 @@ export interface OwnSchooling {
 }
 
 export interface OwnSchoolingTabs {
-    heads: {
-        [key: string]: {
+    heads: Record<
+        string,
+        {
             title: string;
-        };
-    };
+        }
+    >;
     tabTitles: string[];
     currentTab: string;
     search: string;

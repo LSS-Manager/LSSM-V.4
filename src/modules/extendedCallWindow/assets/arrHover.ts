@@ -13,9 +13,10 @@ export default (
 
     if (!ARRContainer) return;
 
-    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as {
-        [spec: string]: string;
-    };
+    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as Record<
+        string,
+        string
+    >;
 
     const infoBox = document.createElement('div');
     infoBox.id = LSSM.$store.getters.nodeAttribute(
@@ -135,7 +136,7 @@ export default (
         buildings: number[],
         attributes: Record<string, number>,
         custom: Record<string, number>
-    ): { [attribute: string]: number } => {
+    ): Record<string, number> => {
         let hlf_or_rw_lf = 0;
         let naw_or_rtw_nef = 0;
         let naw_or_rtw_nef_rth = 0;

@@ -27,7 +27,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles = LSSM.$t('vehicles') as { [id: number]: InternalVehicle };
+    const vehicles = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {

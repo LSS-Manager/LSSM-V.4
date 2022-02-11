@@ -19,10 +19,5 @@ export interface AppstoreMethods {
     toggleModule(moduleId: string, event: { value: boolean }): void;
     save(): void;
     reset(): void;
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
 }

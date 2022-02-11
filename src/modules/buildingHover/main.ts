@@ -14,9 +14,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         feature: MODULE_ID,
     });
 
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
 
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.${LSSM.$store.getters.nodeAttribute(
@@ -29,9 +27,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    let vehiclesByBuilding: {
-        [buildingId: number]: Vehicle[];
-    };
+    let vehiclesByBuilding: Record<number, Vehicle[]>;
 
     let buildings: Building[];
 

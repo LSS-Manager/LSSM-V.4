@@ -1174,39 +1174,43 @@ type Component = RedesignComponent<
     },
     {
         participated_missions: number[];
-        mission_head: {
-            [key: string]: {
+        mission_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         missionList: VehicleWindow['mission_own'];
         missionListFiltered: VehicleWindow['mission_own'];
         missionListSorted: VehicleWindow['mission_own'];
-        hospital_head: {
-            [key: string]: {
+        hospital_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         hospitalList: VehicleWindow['own_hospitals'];
         hospitalListFiltered: VehicleWindow['own_hospitals'];
         hospitalListSorted: VehicleWindow['own_hospitals'];
-        cell_head: {
-            [key: string]: {
+        cell_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         cellList: VehicleWindow['own_cells'];
         cellListFiltered: VehicleWindow['own_cells'];
         cellListSorted: VehicleWindow['own_cells'];
-        wlf_head: {
-            [key: string]: {
+        wlf_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         wlfListFiltered: VehicleWindow['wlfs'];
         wlfListSorted: VehicleWindow['wlfs'];
     }

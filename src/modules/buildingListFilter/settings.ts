@@ -30,7 +30,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const buildingCaptions = [] as string[];
     const buildingIds = [] as string[];
     Object.entries(
-        LSSM.$t('buildings') as { [id: number]: InternalBuilding }
+        LSSM.$t('buildings') as Record<number, InternalBuilding>
     ).forEach(([id, { caption }]) => {
         buildingCaptions.push(caption);
         buildingIds.push(id);

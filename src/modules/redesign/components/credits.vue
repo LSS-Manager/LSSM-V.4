@@ -128,9 +128,10 @@ export default Vue.extend<
             return {
                 title: this.lightbox.$m('credits.nav.title').toString(),
                 links: Object.values(
-                    this.lightbox.$m('credits.nav.links') as unknown as {
-                        [index: number]: Link;
-                    }
+                    this.lightbox.$m('credits.nav.links') as unknown as Record<
+                        number,
+                        Link
+                    >
                 ).filter(
                     ({ href }) =>
                         new URL(

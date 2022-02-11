@@ -5,9 +5,10 @@ export default ((MODULE_ID, LSSM, $m) => {
     const noVehicleRequirements = [] as string[];
     const noVehicleRequirementLabels = [] as string[];
     Object.entries(
-        $m('noVehicleRequirements') as unknown as {
-            [key: string]: { badge: boolean; text: string };
-        }
+        $m('noVehicleRequirements') as unknown as Record<
+            string,
+            { badge: boolean; text: string }
+        >
     ).forEach(([key, { text }]) => {
         noVehicleRequirements.push(key);
         noVehicleRequirementLabels.push(text);

@@ -46,7 +46,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     document.head.append(style);
     expansionWrapper.classList.add('col-md-4');
     dlWrapper.append(expansionWrapper);
-    const expansionIndex = {} as { [name: string]: HTMLSpanElement[] };
+    const expansionIndex = {} as Record<string, HTMLSpanElement[]>;
     expansionRows.forEach(expansion => {
         const name =
             expansion.firstElementChild?.querySelector('b')?.textContent;

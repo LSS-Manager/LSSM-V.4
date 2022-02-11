@@ -85,9 +85,7 @@ export default (
 
     Object.values(
         Object.entries(
-            LSSM.$t('schoolings') as unknown as {
-                [category: string]: Schooling[];
-            }
+            LSSM.$t('schoolings') as unknown as Record<string, Schooling[]>
         ).flatMap(([cat, schoolings]) =>
             Object.values(schoolings).map(
                 ({ caption }) => `${cat} - ${caption}`

@@ -9,20 +9,17 @@ interface buildingWithExtension extends Building {
 }
 
 export interface BuildingTypes {
-    buildingTypes: { [id: number]: InternalBuilding };
-    categoryColors: {
-        [category: string]: string;
-    };
-    groups: {
-        [category: string]: Category;
-    };
+    buildingTypes: Record<number, InternalBuilding>;
+    categoryColors: Record<string, string>;
+    groups: Record<string, Category>;
     faBuilding: IconDefinition;
 }
 
 export interface Category {
     color: string;
-    rows: {
-        [caption: string]: {
+    rows: Record<
+        string,
+        {
             type: 'building' | 'extension';
             color:
                 | 'bright'
@@ -36,8 +33,8 @@ export interface Category {
             enabled: number;
             unavailable: number;
             maximum: number;
-        };
-    };
+        }
+    >;
 }
 
 export interface BuildingTypesComputed {
@@ -45,31 +42,17 @@ export interface BuildingTypesComputed {
 }
 
 export interface BuildingTypesMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
-    $sm(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
+    $sm(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     $mc(
         key: string,
         amount: number,
-        args?: {
-            [key: string]: unknown;
-        }
+        args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
     $smc(
         key: string,
         amount: number,
-        args?: {
-            [key: string]: unknown;
-        }
+        args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
     showBuildings(
         listType: string,

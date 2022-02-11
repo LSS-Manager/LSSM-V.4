@@ -1,9 +1,7 @@
 export interface DOM {
     createElement(
         tag: string,
-        attributes?: {
-            [x: string]: string;
-        },
+        attributes?: Record<string, string>,
         context?: Document
     ): HTMLElement;
     parents(node: HTMLElement, selector?: string): HTMLElement[];

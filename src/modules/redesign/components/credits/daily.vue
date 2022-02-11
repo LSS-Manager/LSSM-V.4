@@ -208,12 +208,13 @@ export default Vue.extend<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         filter: {
             total: {
                 min: number;
@@ -228,16 +229,12 @@ export default Vue.extend<
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         setSort(type: string): void;
         updateFilter(filter: string, value: unknown): void;
@@ -254,16 +251,12 @@ export default Vue.extend<
         lightbox: RedesignLightboxVue<'credits/daily'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
@@ -356,21 +349,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/daily.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/daily.${key}`, amount, args);
         },
         setSort(type) {

@@ -170,9 +170,10 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: this.$t('vehicles') as unknown as {
-                [id: number]: InternalVehicle;
-            },
+            vehicleTypes: this.$t('vehicles') as unknown as Record<
+                number,
+                InternalVehicle
+            >,
             vehicleBuildings: Object.values(
                 this.$t('vehicleBuildings')
             ) as number[],
@@ -263,7 +264,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (this.$t('buildings') as { [id: number]: InternalBuilding })[
+                (this.$t('buildings') as Record<number, InternalBuilding>)[
                     building.building_type
                 ].caption
             );

@@ -32,9 +32,7 @@ export default async (
             id: vehicleId,
             feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
         })) as Vehicle);
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
     if (vehicleId < 0 || !vehicle) return;
 
     const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[

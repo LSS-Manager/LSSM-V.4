@@ -66,7 +66,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
         const allianceName = alliance?.innerText;
         const allianceInfo: AllianceInfo = LSSM.$store.state.api.allianceinfo;
-        const allianceRoles = {} as { [role: string]: number };
+        const allianceRoles = {} as Record<string, number>;
         const allianceListPage = alliance
             ? Math.ceil(allianceInfo.rank / 20)
             : 0;

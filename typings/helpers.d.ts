@@ -147,9 +147,7 @@ declare module 'vue/types/vue' {
         >;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     }
 }

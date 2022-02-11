@@ -41,15 +41,11 @@ export default {
             }
             return state.localforage.setItem(key, value);
         },
-        getAllItems({ state }: StorageActionStoreParams): Promise<{
-            [key: string]: unknown;
-        }> {
-            return new Promise<{
-                [key: string]: unknown;
-            }>(resolve => {
-                const storage = {} as {
-                    [key: string]: unknown;
-                };
+        getAllItems({
+            state,
+        }: StorageActionStoreParams): Promise<Record<string, unknown>> {
+            return new Promise<Record<string, unknown>>(resolve => {
+                const storage = {} as Record<string, unknown>;
                 state.localforage
                     .iterate((value, key) => {
                         storage[key] = value;

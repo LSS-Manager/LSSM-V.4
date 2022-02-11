@@ -496,21 +496,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`${this.type}.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`${this.type}.${key}`, amount, args);
         },
         getSetting() {

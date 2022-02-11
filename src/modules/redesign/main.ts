@@ -71,18 +71,12 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                         ),
                     {
                         url: href,
-                        $m: (
-                            key: string,
-                            args?: {
-                                [key: string]: unknown;
-                            }
-                        ) => LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
+                        $m: (key: string, args?: Record<string, unknown>) =>
+                            LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
                         $mc: (
                             key: string,
                             amount: number,
-                            args?: {
-                                [key: string]: unknown;
-                            }
+                            args?: Record<string, unknown>
                         ) =>
                             LSSM.$tc(
                                 `modules.${MODULE_ID}.${key}`,
@@ -198,9 +192,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                                     : window.location.href,
                                 $m: (
                                     key: string,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$t(
                                         `modules.${MODULE_ID}.${key}`,
@@ -209,9 +201,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                                 $mc: (
                                     key: string,
                                     amount: number,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$tc(
                                         `modules.${MODULE_ID}.${key}`,

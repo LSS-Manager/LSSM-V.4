@@ -29,7 +29,7 @@ declare interface EmojiData {
 
 const rel = (pathName: string) => path.resolve(__dirname, pathName);
 
-const writeFile = (emojis: { [unicode: string]: string[] }) => {
+const writeFile = (emojis: Record<string, string[]>) => {
     fs.writeFileSync(
         rel('../../src/utils/emojis.json'),
         JSON.stringify(emojis),
@@ -46,9 +46,7 @@ export default () =>
                 data += chunk;
             });
             res.on('end', () => {
-                const emojis = JSON.parse(data) as {
-                    [unicode: string]: EmojiData;
-                };
+                const emojis = JSON.parse(data) as Record<string, EmojiData>;
 
                 writeFile(
                     Object.fromEntries(

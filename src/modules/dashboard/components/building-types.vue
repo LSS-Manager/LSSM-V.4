@@ -117,23 +117,23 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as {
-            [id: number]: InternalBuilding;
-        };
-        const categories = this.$t('buildingCategories') as unknown as {
-            [category: string]: BuildingCategory;
-        };
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
+        const categories = this.$t('buildingCategories') as unknown as Record<
+            string,
+            BuildingCategory
+        >;
         const categoryColors = Object.fromEntries(
             Object.entries(categories).map(([category, { color }]) => [
                 category,
                 color,
             ])
-        ) as {
-            [category: string]: string;
-        };
-        const buildingsByType = this.$store.getters['api/buildingsByType'] as {
-            [type: number]: Building[];
-        };
+        ) as Record<string, string>;
+        const buildingsByType = this.$store.getters[
+            'api/buildingsByType'
+        ] as Record<number, Building[]>;
         const groups = {} as BuildingTypes['groups'];
         Object.entries(categories).forEach(
             ([category, { buildings, color }]) => {
@@ -143,12 +143,14 @@ export default Vue.extend<
                         Object.values(buildings).flatMap(buildingType => {
                             const buildingsOfType =
                                 buildingsByType[buildingType];
-                            const extensionsOfType = {} as {
-                                [caption: string]: Extension[];
-                            };
-                            const buildingsWithExtensionOfType = {} as {
-                                [caption: string]: buildingWithExtension[];
-                            };
+                            const extensionsOfType = {} as Record<
+                                string,
+                                Extension[]
+                            >;
+                            const buildingsWithExtensionOfType = {} as Record<
+                                string,
+                                buildingWithExtension[]
+                            >;
                             [
                                 ...new Set(
                                     Object.values(

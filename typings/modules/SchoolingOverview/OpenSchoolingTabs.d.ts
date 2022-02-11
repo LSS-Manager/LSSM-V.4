@@ -10,11 +10,12 @@ export interface OpenSchooling {
 }
 
 export interface OpenSchoolingTabs {
-    heads: {
-        [key: string]: {
+    heads: Record<
+        string,
+        {
             title: string;
-        };
-    };
+        }
+    >;
     tabTitles: string[];
     currentTab: string;
     search: string;

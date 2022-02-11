@@ -99,12 +99,13 @@ type Component = RedesignComponent<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
     },

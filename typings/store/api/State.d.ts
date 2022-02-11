@@ -26,9 +26,7 @@ export type StorageGetterReturn<T extends StorageAPIKey> = {
 };
 
 export interface APIState extends StorageAPIs {
-    vehicleStates: {
-        [state: number]: number;
-    };
+    vehicleStates: Record<number, number>;
     autoUpdates: StorageAPIKey[];
     currentlyUpdating: StorageAPIKey[];
     key: string | null;

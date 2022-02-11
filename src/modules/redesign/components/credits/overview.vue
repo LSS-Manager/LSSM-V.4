@@ -56,27 +56,24 @@ HighchartsMore(Highcharts);
 export default Vue.extend<
     {
         moment: typeof moment;
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort: true;
-            };
-        };
+            }
+        >;
         chartId: string;
     },
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     },
     {
@@ -87,16 +84,12 @@ export default Vue.extend<
         lightbox: RedesignLightboxVue<'credits/overview'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
@@ -131,21 +124,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/overview.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/overview.${key}`, amount, args);
         },
     },
@@ -193,9 +175,7 @@ export default Vue.extend<
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
         Highcharts.chart(this.chartId, {

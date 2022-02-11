@@ -9,7 +9,7 @@ import { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
 export default async (LSSM: Vue): Promise<void> => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.releasenotes.${key}`, args);
 
     const sdConverter = new Showdown.Converter({

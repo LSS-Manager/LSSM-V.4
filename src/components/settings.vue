@@ -640,13 +640,12 @@ export default Vue.extend<
             fileReader.readAsText(file);
 
             fileReader.onload = async () => {
-                const result = JSON.parse(fileReader.result as string) as {
-                    [key: string]:
-                        | string[]
-                        | {
-                              [key: string]: SettingType['value'];
-                          };
-                };
+                const result = JSON.parse(
+                    fileReader.result as string
+                ) as Record<
+                    string,
+                    string[] | Record<string, SettingType['value']>
+                >;
                 if (result.activeModules) {
                     await this.$store.dispatch('storage/set', {
                         key: 'activeModules',

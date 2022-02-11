@@ -18,7 +18,7 @@ export interface LinkPreview {
         x: number;
         y: number;
     };
-    vehicleTypes: { [id: number]: InternalVehicle };
+    vehicleTypes: Record<number, InternalVehicle>;
     vehicleBuildings: number[];
     cellBuildings: number[];
     cellExtensions: string[];
@@ -48,7 +48,7 @@ export interface LinkPreviewComputed {
     link: string;
     parent: HTMLElement | null;
     buildings: Building[];
-    vehicles: { [buildingId: number]: Vehicle[] };
+    vehicles: Record<number, Vehicle[]>;
     buildingVehicles: Vehicle[];
     buildingCells: number[];
 }

@@ -61,9 +61,10 @@ export default (
 
     if (vehiclesNotInTabs.length) {
         const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
-        const vehicleTypes = LSSM.$t('vehicles') as {
-            [type: number]: InternalVehicle;
-        };
+        const vehicleTypes = LSSM.$t('vehicles') as Record<
+            number,
+            InternalVehicle
+        >;
 
         const warningBtnWrapper = document.createElement('span');
         const warningBtn = document.createElement('i');
@@ -199,20 +200,17 @@ export default (
         document.querySelector('#vehicle_list_step')?.appendChild(panelWrapper);
     }
 
-    const panels = {} as {
-        [key: string]: HTMLDivElement;
-    };
+    const panels = {} as Record<string, HTMLDivElement>;
     const tabBar = {
         all: { tablesorterId: null },
         occupied: { tablesorterId: 'vehicle_show_table_occupied' },
-    } as {
-        [key: string]: {
+    } as Record<
+        string,
+        {
             tablesorterId: string | null;
-        };
-    };
-    const vehicleTypeMap = {} as {
-        [id: string]: string[];
-    };
+        }
+    >;
+    const vehicleTypeMap = {} as Record<string, string[]>;
     const idByName: Record<string, string> = {};
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;

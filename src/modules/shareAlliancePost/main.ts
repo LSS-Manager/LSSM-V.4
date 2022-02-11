@@ -53,7 +53,7 @@ export default <ModuleMainFunction>(async ({
         (addEmvKey = true) =>
         (
             key: string,
-            args?: { [key: string]: unknown }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult =>
             LSSM.$t(
                 `modules.extendedCallWindow.${

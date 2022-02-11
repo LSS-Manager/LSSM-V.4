@@ -14,18 +14,10 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown as
-        | {
-              [group: string]: number[];
-          }
-        | string;
+    ) as unknown as Record<string, number[]> | string;
     const staffGroupTranslation = $m(
         'enhancedMissingVehicles.staff'
-    ) as unknown as
-        | {
-              [group: string]: number[];
-          }
-        | string;
+    ) as unknown as Record<string, number[]> | string;
     const vehicleGroups =
         typeof vehicleGroupTranslation === 'string'
             ? {}

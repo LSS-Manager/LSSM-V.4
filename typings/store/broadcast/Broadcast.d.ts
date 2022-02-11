@@ -54,9 +54,7 @@ interface CustomBroadcastMessage extends BroadcastMessage {
     type: 'custom';
     name: string;
     handler: string;
-    data: {
-        [data: string]: unknown;
-    };
+    data: Record<string, unknown>;
 }
 
 type BroadcastRequestMessageType =

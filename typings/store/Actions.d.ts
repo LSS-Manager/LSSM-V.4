@@ -19,7 +19,7 @@ export interface ProxyParams {
 
 export interface addStyle {
     selectorText: string;
-    style: { [index: string]: string };
+    style: Record<string, string>;
 }
 
 export interface premodifyParams {

@@ -15,9 +15,7 @@ export interface NotificationsSend {
     icon?: string;
     duration: number;
     speed: number;
-    data: {
-        [key: string]: unknown;
-    };
+    data: Record<string, unknown>;
     clean: boolean;
     ingame: boolean;
     desktop: boolean;

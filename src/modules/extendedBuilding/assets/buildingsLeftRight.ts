@@ -9,12 +9,13 @@ export default (LSSM: Vue): void => {
         ({ id }) => id === buildingId
     );
     if (!building) return;
-    const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
-        [type: number]: Building[];
-    };
-    const smallBuildings = LSSM.$t('small_buildings') as unknown as {
-        [type: number]: number;
-    };
+    const buildingsByType = LSSM.$store.getters[
+        'api/buildingsByType'
+    ] as Record<number, Building[]>;
+    const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
+        number,
+        number
+    >;
     const smallBuildingsArray: (string | number)[] = Object.entries(
         smallBuildings
     ).find(ids =>

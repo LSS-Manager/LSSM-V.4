@@ -148,15 +148,14 @@ export default Vue.extend<
     data() {
         const statuses = Object.values(this.$sm('statuses')) as number[];
         const statusText = this.$sm('status');
-        const fmsTexts = this.$t('fmsTexts') as {
-            [status: number]: string;
-        };
-        const statusHeads = {} as {
-            [status: string]: {
+        const fmsTexts = this.$t('fmsTexts') as Record<number, string>;
+        const statusHeads = {} as Record<
+            string,
+            {
                 title: string;
                 titleAttr: string;
-            };
-        };
+            }
+        >;
         Object.values(statuses).forEach(
             status =>
                 (statusHeads[`s${status}`] = {
@@ -167,9 +166,7 @@ export default Vue.extend<
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as {
-                        [id: number]: InternalVehicle;
-                    }
+                    this.$t('vehicles') as Record<number, InternalVehicle>
                 ).map(([index, { caption }]) => [index, caption])
             ),
             statuses,
@@ -184,12 +181,13 @@ export default Vue.extend<
     },
     computed: {
         vehicleTypes() {
-            const vbt = this.$store.getters['api/vehiclesByType'] as {
-                [type: string]: Vehicle[];
-            };
+            const vbt = this.$store.getters['api/vehiclesByType'] as Record<
+                string,
+                Vehicle[]
+            >;
             const types = {} as TypeList;
             Object.keys(vbt).forEach(type => {
-                const fms = {} as { [status: string]: Vehicle[] };
+                const fms = {} as Record<string, Vehicle[]>;
                 Object.values(this.statuses).forEach(
                     status => (fms[`s${status}`] = [])
                 );
@@ -240,7 +238,7 @@ export default Vue.extend<
             const vehicleTypes = (
                 this.search ? this.vehicleTypesFiltered : this.vehicleTypes
             ) as TypeList;
-            const FMSsum = {} as { [state: string]: Vehicle[] };
+            const FMSsum = {} as Record<string, Vehicle[]>;
             Object.values(this.statuses).forEach(status => {
                 FMSsum[`s${status}`] = Object.values(vehicleTypes).flatMap(
                     ({ fms }) => fms[`s${status}`]

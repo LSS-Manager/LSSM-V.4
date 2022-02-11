@@ -43,7 +43,7 @@ const modules = {
             false: 'Deaktivovat',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,

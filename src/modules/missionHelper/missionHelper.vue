@@ -594,13 +594,16 @@ export default Vue.extend<
             return this.getVehicles(this.missionSpecs, false);
         },
         specialRequirements() {
-            const reqi18n = this.$m('noVehicleRequirements') as unknown as {
-                [key: string]: {
+            const reqi18n = this.$m(
+                'noVehicleRequirements'
+            ) as unknown as Record<
+                string,
+                {
                     badge: boolean;
                     text: string;
                     in: 'additional' | 'prerequisites';
-                };
-            };
+                }
+            >;
             const reqs = { badge: [], nonbadge: [] } as {
                 badge: string[];
                 nonbadge: string[];
@@ -857,9 +860,7 @@ export default Vue.extend<
             if (this.settings.vehicles.patient_additionals) {
                 const patientAdditionals = this.$m(
                     'vehicles.patient_additionals'
-                ) as {
-                    [amount: number]: string;
-                };
+                ) as Record<number, string>;
                 Object.keys(patientAdditionals).forEach(
                     patients =>
                         this.currentPatients >= parseInt(patients) &&
@@ -877,11 +878,7 @@ export default Vue.extend<
             if (missionSpecs?.additional) {
                 const optionalAlternatives = this.$m(
                     'vehicles.optional_alternatives'
-                ) as {
-                    [alternative: string]: {
-                        [vehicle: string]: string;
-                    };
-                };
+                ) as Record<string, Record<string, string>>;
                 Object.keys(optionalAlternatives).forEach(alt => {
                     if (
                         !optionalAlternatives[alt].not_customizable &&
@@ -911,13 +908,14 @@ export default Vue.extend<
             }
             const multifunctionals = this.$m(
                 'vehicles.multifunctionals'
-            ) as unknown as {
-                [multi: string]: {
+            ) as unknown as Record<
+                string,
+                {
                     additional_text: string;
                     reduce_from: string;
                     not_customizable?: boolean;
-                };
-            };
+                }
+            >;
             Object.keys(multifunctionals).forEach(vehicle => {
                 if (
                     !multifunctionals[vehicle].not_customizable &&

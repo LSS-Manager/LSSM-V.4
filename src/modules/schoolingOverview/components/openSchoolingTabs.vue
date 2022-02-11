@@ -59,11 +59,12 @@ export default Vue.extend<
             ),
     },
     data() {
-        const heads = {} as {
-            [key: string]: {
+        const heads = {} as Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         ['name', 'seats', 'price', 'end', 'owner'].forEach(
             head =>
                 (heads[head] = {

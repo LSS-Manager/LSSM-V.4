@@ -234,9 +234,7 @@ export default Vue.extend<
             );
         },
         creditsTypeSum() {
-            const result: {
-                [key: string]: Category;
-            } = Object.fromEntries(
+            const result: Record<string, Category> = Object.fromEntries(
                 Object.entries(this.creditsTypes as CreditsTypes).map(
                     ([key, { regex, title, backgroundColor, textColor }]) => [
                         key,

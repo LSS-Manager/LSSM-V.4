@@ -48,7 +48,7 @@ const scriptHandlers = {
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
     },
-} as { [key: string]: () => string | void | Promise<string | void> };
+} as Record<string, () => string | void | Promise<string | void>>;
 
 (async () => {
     const execute = async (script: string) => {

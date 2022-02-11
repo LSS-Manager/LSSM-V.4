@@ -11,7 +11,7 @@ export default (
     LSSM: Vue,
     getSetting: <t = boolean>(settingId: string) => Promise<t>
 ): void => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.telemetry.${key}`, args);
 
     const sendStats = async () => {

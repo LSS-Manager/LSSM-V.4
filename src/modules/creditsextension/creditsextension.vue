@@ -208,9 +208,7 @@ export default Vue.extend<
     {
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         highlight(): void;
     },

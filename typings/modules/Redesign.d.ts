@@ -139,16 +139,12 @@ export interface RedesignLightbox<
     Methods: {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         getIdFromEl(el: HTMLAnchorElement | null): number;
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;

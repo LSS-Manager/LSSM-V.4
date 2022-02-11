@@ -83,12 +83,13 @@ type Component = RedesignComponent<
         faEdit: IconDefinition;
         faUserSlash: IconDefinition;
         notes_editing: number[];
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';

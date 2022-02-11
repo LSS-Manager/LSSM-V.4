@@ -8,9 +8,7 @@ export default (LSSM: Vue, $m: $m): void => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    const requirements = {} as {
-        [requirement: string]: number;
-    };
+    const requirements = {} as Record<string, number>;
     Array.from(document.querySelectorAll('.mission_patient .alert-danger'))
         .flatMap(alert =>
             (alert.textContent?.replace(/^[^:]*:/, '').trim() || '')

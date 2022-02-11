@@ -8,9 +8,7 @@ interface Browser {
 
 export interface Config {
     admins: string[];
-    browser: {
-        [browser: string]: Browser;
-    };
+    browser: Record<string, Browser>;
     discord: {
         invite: string;
         id: string;

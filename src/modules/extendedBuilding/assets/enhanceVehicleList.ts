@@ -31,13 +31,12 @@ export default async (
             vehiclesPersonnelAssigned: await getSetting(
                 'vehiclesPersonnelAssigned'
             ),
-        } as {
-            [setting: string]: boolean;
-        };
+        } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$t('vehicles') as {
-            [id: number]: InternalVehicle;
-        };
+        const internalVehicleTypes = LSSM.$t('vehicles') as Record<
+            number,
+            InternalVehicle
+        >;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 
@@ -127,9 +126,9 @@ export default async (
                                     `building_list_fms_${nextFms}`
                                 );
                                 fmsBtn.textContent = (
-                                    LSSM.$t('fmsReal2Show') as unknown as {
-                                        [status: number]: number;
-                                    }
+                                    LSSM.$t(
+                                        'fmsReal2Show'
+                                    ) as unknown as Record<number, number>
                                 )[nextFms].toString();
                             }
                         });
@@ -234,9 +233,7 @@ export default async (
                                             vehiclesPersonnelMax: maxPersonnel,
                                             vehiclesPersonnelAssigned:
                                                 assignedPersonnel,
-                                        } as {
-                                            [key: string]: number;
-                                        }
+                                        } as Record<string, number>
                                     )[item])
                             )
                             .join(' / ')})`;

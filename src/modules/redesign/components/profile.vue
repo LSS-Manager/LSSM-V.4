@@ -578,15 +578,16 @@ import { AllianceInfo, User } from 'typings/api/AllianceInfo';
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
 
-type DispatchCenter = {
-    [id: number]: Partial<ProfileWindow['buildings'][0]> & {
+type DispatchCenter = Record<
+    number,
+    Partial<ProfileWindow['buildings'][0]> & {
         buildings: ProfileWindow['buildings'];
         buildingTypes: {
             [type: number]: number;
-            sum?: { [type: number]: number };
+            sum?: Record<number, number>;
         };
-    };
-};
+    }
+>;
 
 type Component = RedesignComponent<
     'profile',
@@ -605,11 +606,9 @@ type Component = RedesignComponent<
         faUnlock: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
-        buildingTypes: {
-            [type: number]: InternalBuilding;
-        };
+        buildingTypes: Record<number, InternalBuilding>;
         buildingTypesSorted: number[];
-        mapLayerGroups: { [id: number]: LayerGroup };
+        mapLayerGroups: Record<number, LayerGroup>;
         buildingMarkerIds: number[];
         expandedDispatches: number[];
         search: string;
@@ -649,9 +648,10 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
-        const buildingTypes = this.$t('buildings') as {
-            [type: number]: InternalBuilding;
-        };
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
         return {
             moment,
             he,
@@ -766,7 +766,7 @@ export default Vue.extend<
                         ? 'policechief'
                         : 'missionchief'
                 }`
-            ) as { [credits: number]: string };
+            ) as Record<number, string>;
             return (
                 Object.entries(ranks)
                     .reverse()
@@ -946,9 +946,7 @@ export default Vue.extend<
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
         Highcharts.chart(this.awardsChartId, {

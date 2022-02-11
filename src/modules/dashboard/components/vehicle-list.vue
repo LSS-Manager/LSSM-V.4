@@ -138,9 +138,7 @@ export default Vue.extend<
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as {
-                        [id: number]: InternalVehicle;
-                    }
+                    this.$t('vehicles') as Record<number, InternalVehicle>
                 ).map(([index, { caption }]) => [index, caption])
             ),
             vehiclesWithBuildings: [],
@@ -207,9 +205,10 @@ export default Vue.extend<
                 .then(() => {
                     vehicle.fms_real = target;
                     vehicle.fms_show = (
-                        this.$t('fmsReal2Show') as unknown as {
-                            [status: number]: number;
-                        }
+                        this.$t('fmsReal2Show') as unknown as Record<
+                            number,
+                            number
+                        >
                     )[target];
                 });
         },

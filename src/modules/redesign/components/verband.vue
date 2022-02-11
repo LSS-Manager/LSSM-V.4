@@ -167,16 +167,12 @@ type Component = RedesignComponent<
     {
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     },
     { nav: Link[] },
@@ -275,21 +271,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $m(key: string, args?: Record<string, unknown>) {
             return this.lightbox.$m(`verband.${key}`, args);
         },
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $mc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.lightbox.$mc(`verband.${key}`, amount, args);
         },
     },

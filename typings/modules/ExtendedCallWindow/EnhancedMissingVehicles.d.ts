@@ -56,12 +56,7 @@ export interface EnhancedMissingVehiclesComputed {
 }
 
 export interface EnhancedMissingVehiclesMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setSort(s: string): void;
     toggleOverlay(): void;
     toggleMinified(): void;

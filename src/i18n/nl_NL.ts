@@ -59,7 +59,7 @@ const modules = {
             sync: 'Gebruik huidige positie',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
@@ -1146,9 +1146,9 @@ export default {
                     credits: 400_000,
                     coins: 25,
                     duration: '7 Dagen',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
                 ...new Array(10).fill({
@@ -1589,9 +1589,9 @@ export default {
                     credits: 400_000,
                     coins: 25,
                     duration: '7 Dagen',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
                 ...new Array(2).fill({

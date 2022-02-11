@@ -107,9 +107,7 @@ interface Hidden<Type = boolean> extends SettingTemplate {
     value: Type;
 }
 
-interface AppendableListItem {
-    [key: string]: unknown;
-}
+type AppendableListItem = Record<string, unknown>;
 
 interface AppendableListSetting<Type extends SettingType = SettingType> {
     setting: Omit<Type, 'value' | 'isDisabled'>;
@@ -168,14 +166,11 @@ type SettingType<
 
 export type Setting<Type extends SettingType = SettingType> = Type;
 
-export interface Settings {
-    [key: string]: Setting;
-}
+export type Settings = Record<string, Setting>;
 
-export interface RegisterSettings {
-    [key: string]: Omit<Setting, 'value' | 'isDisabled'>;
-}
+export type RegisterSettings = Record<
+    string,
+    Omit<Setting, 'value' | 'isDisabled'>
+>;
 
-export interface ModuleSettings {
-    [moduleId: string]: Settings;
-}
+export type ModuleSettings = Record<string, Settings>;

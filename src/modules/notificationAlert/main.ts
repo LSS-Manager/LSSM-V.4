@@ -13,15 +13,16 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
         )
     ).value;
 
-    const events = {} as {
-        [event: string]: {
+    const events = {} as Record<
+        string,
+        {
             alertStyle: NotificationSetting['alertStyle'];
             duration: NotificationSetting['duration'];
             ingame: NotificationSetting['ingame'];
             desktop: NotificationSetting['desktop'];
             position: NotificationSetting['position'];
-        }[];
-    };
+        }[]
+    >;
     alerts.forEach(alert =>
         alert.events.forEach(event => {
             if (!events.hasOwnProperty(event)) events[event] = [];

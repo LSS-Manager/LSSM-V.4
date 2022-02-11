@@ -11,9 +11,7 @@ export default (
 
     if (!dataList) return;
 
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
 
     let sumMinPersonnel = 0;
     let sumMaxPersonnel = 0;

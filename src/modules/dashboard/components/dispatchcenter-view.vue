@@ -386,9 +386,10 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as {
-            [id: number]: InternalBuilding;
-        };
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );
@@ -431,9 +432,7 @@ export default Vue.extend<
             return this.board ? this.board.buildingSelection : {};
         },
         buildingsById() {
-            const buildings = {} as {
-                [id: number]: Building;
-            };
+            const buildings = {} as Record<number, Building>;
             Object.values(this.buildings).forEach(
                 building => (buildings[building.id] = building)
             );
@@ -496,7 +495,7 @@ export default Vue.extend<
             ).length;
         },
         vehiclesByBuildingSorted() {
-            const vehiclesSorted = {} as { [building: number]: Vehicle[] };
+            const vehiclesSorted = {} as Record<number, Vehicle[]>;
             Object.keys(this.vehiclesByBuilding).forEach(building => {
                 vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
                     parseInt(building)

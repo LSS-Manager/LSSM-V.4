@@ -86,12 +86,13 @@ export default (LSSM: Vue): void => {
             min: 0,
             max: 65535,
         },
-    } as {
-        [name: string]: {
+    } as Record<
+        string,
+        {
             min: number;
             max: number;
-        };
-    };
+        }
+    >;
 
     LSSM.$store
         .dispatch('addStyle', {

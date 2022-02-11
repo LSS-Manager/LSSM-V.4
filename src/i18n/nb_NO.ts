@@ -48,7 +48,7 @@ const modules = {
             sync: 'bruk nåværende posisjon',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,

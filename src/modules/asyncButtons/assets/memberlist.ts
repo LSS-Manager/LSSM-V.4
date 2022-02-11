@@ -4,13 +4,9 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const $sm = (key: string, args?: Parameters<$m>[1]) =>
         $m(`memberlistManageUser.${key}`, args);
     const roles = {
-        ...($m(`memberlistRoles`) as unknown as {
-            [role: string]: string;
-        }),
+        ...($m(`memberlistRoles`) as unknown as Record<string, string>),
         '': '',
-    } as {
-        [role: string]: string;
-    };
+    } as Record<string, string>;
 
     const storeDispatch = async (
         roleHolder: HTMLElement,

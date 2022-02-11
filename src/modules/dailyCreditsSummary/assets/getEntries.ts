@@ -7,7 +7,7 @@ export default async (
     LSSM: Vue,
     doc = document
 ): Promise<CreditsDailyWindow> => {
-    const $m: $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m: $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.dailyCreditsSummary.${key}`, args);
 
     const missions = (await LSSM.$store.dispatch('api/getMissions', {
