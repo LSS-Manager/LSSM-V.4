@@ -80,11 +80,11 @@ export default (LSSM: Vue): void => {
         },
         'note[message]': {
             min: 0,
-            max: 1048576,
+            max: 1_048_576,
         },
         'friend[comment]': {
             min: 0,
-            max: 65535,
+            max: 65_535,
         },
     } as Record<
         string,

@@ -46,7 +46,7 @@ export default async (
         selectorText: `.${infoBoxClass}`,
         style: {
             'position': 'fixed',
-            'z-index': 20000,
+            'z-index': 20_000,
         },
     });
 
