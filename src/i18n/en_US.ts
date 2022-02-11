@@ -147,8 +147,7 @@ export default {
             coins: 30,
             credits: 10_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 0,
+            maxPersonnel: 3,            
             possibleBuildings: [0, 13],
             special: 'Required once you have built 3 firehouses',
         },
@@ -158,8 +157,7 @@ export default {
             coins: 25,
             credits: 10_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 0,
+            maxPersonnel: 3,            
             possibleBuildings: [0, 13],
             special: 'Required once you have built 6 firehouses',
         },
@@ -169,8 +167,7 @@ export default {
             coins: 25,
             credits: 12_180,
             minPersonnel: 1,
-            maxPersonnel: 4,
-            wtank: 0,
+            maxPersonnel: 4,            
             possibleBuildings: [0, 13],
             special: 'Required once you have built 4 firehouses',
         },
@@ -180,8 +177,7 @@ export default {
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 0,
+            maxPersonnel: 3,            
             possibleBuildings: [0, 3, 14, 16],
         },
         6: {
@@ -190,8 +186,7 @@ export default {
             coins: 25,
             credits: 11_860,
             minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 0,
+            maxPersonnel: 3,            
             possibleBuildings: [0, 13],
             special: 'Required once you have built 5 firehouses',
         },
@@ -212,8 +207,7 @@ export default {
             coins: 25,
             credits: 12_180,
             minPersonnel: 1,
-            maxPersonnel: 4,
-            wtank: 0,
+            maxPersonnel: 4,            
             possibleBuildings: [0, 11, 12, 13],
             special: 'Required once you have built 4 firehouses',
         },
@@ -223,8 +217,7 @@ export default {
             coins: 25,
             credits: 19_200,
             minPersonnel: 1,
-            maxPersonnel: 6,
-            wtank: 0,
+            maxPersonnel: 6,            
             possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
@@ -242,8 +235,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [5, 15],
-            wtank: 0,
+            possibleBuildings: [5, 15],            
         },
         11: {
             caption: 'HEMS',
@@ -251,8 +243,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 1,
-            wtank: 0,
+            maxPersonnel: 1,            
             possibleBuildings: [6],
         },
         12: {
@@ -261,8 +252,7 @@ export default {
             coins: 25,
             credits: 25_500,
             minPersonnel: 1,
-            maxPersonnel: 6,
-            wtank: 0,
+            maxPersonnel: 6,            
             possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
@@ -292,8 +282,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 0,
+            maxPersonnel: 3,            
             possibleBuildings: [8],
             schooling: {
                 Police: {
@@ -309,8 +298,7 @@ export default {
             coins: 20,
             credits: 4_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
-            wtank: 0,
+            maxPersonnel: 2,            
             possibleBuildings: [0, 3, 12, 14, 16],
         },
         16: {
@@ -319,8 +307,7 @@ export default {
             coins: 25,
             credits: 10_000,
             minPersonnel: 6,
-            maxPersonnel: 6,
-            wtank: 0,
+            maxPersonnel: 6,            
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -368,8 +355,7 @@ export default {
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
-            wtank: 0,
+            maxPersonnel: 2,            
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -386,8 +372,7 @@ export default {
             coins: 25,
             credits: 25_000,
             minPersonnel: 6,
-            maxPersonnel: 6,
-            wtank: 0,
+            maxPersonnel: 6,            
             possibleBuildings: [0, 3, 16],
             special:
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
@@ -398,8 +383,7 @@ export default {
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
-            maxPersonnel: 5,
-            wtank: 0,
+            maxPersonnel: 5,            
             possibleBuildings: [0],
             schooling: {
                 'Fire Station': {
@@ -417,8 +401,7 @@ export default {
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
-            maxPersonnel: 0,
-            wtank: 0,
+            maxPersonnel: 0,            
             possibleBuildings: [0, 11, 12],
             special:
                 'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
@@ -429,8 +412,7 @@ export default {
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
-            maxPersonnel: 1,
-            wtank: 0,
+            maxPersonnel: 1,            
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -446,8 +428,7 @@ export default {
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
-            maxPersonnel: 7,
-            wtank: 0,
+            maxPersonnel: 7,            
             possibleBuildings: [11],
             schooling: {
                 'Fire Station': {
@@ -463,8 +444,7 @@ export default {
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
-            maxPersonnel: 6,
-            wtank: 0,
+            maxPersonnel: 6,            
             possibleBuildings: [12],
             schooling: {
                 'Fire Station': {
@@ -480,8 +460,7 @@ export default {
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
-            maxPersonnel: 4,
-            wtank: 0,
+            maxPersonnel: 4,            
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -570,8 +549,7 @@ export default {
             coins: 10,
             credits: 10_000,
             minPersonnel: 1,
-            maxPersonnel: 12,
-            wtank: 0,
+            maxPersonnel: 12,            
             possibleBuildings: [0, 13],
         },
         35: {
