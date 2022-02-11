@@ -79,6 +79,7 @@
         "unicorn/consistent-destructuring": ["error"],
         "unicorn/no-array-push-push": ["error"],
         "unicorn/no-for-loop": ["error"],
+        "unicorn/no-zero-fractions": ["error"],
         "unicorn/prefer-add-event-listener": ["error"],
         "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
