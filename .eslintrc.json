@@ -24,6 +24,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "@typescript-eslint/array-type": ["error"],
         "array-callback-return": ["error"],
         "block-scoped-var": "warn",
         "curly": ["error", "multi-or-nest", "consistent"],

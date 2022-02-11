@@ -6,7 +6,7 @@ export interface DOM {
         },
         context?: Document
     ): HTMLElement;
-    parents(node: HTMLElement, selector?: string): Array<HTMLElement>;
+    parents(node: HTMLElement, selector?: string): HTMLElement[];
     parent(node: HTMLElement, selector?: string): HTMLElement | undefined;
     closest(node: HTMLElement, selector: string): HTMLElement | undefined;
     remove(node: HTMLElement): void;
