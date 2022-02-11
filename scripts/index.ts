@@ -60,8 +60,7 @@ const scriptHandlers = {
     };
 
     try {
-        for (let i = 0; i < scripts.length; i++) {
-            const script = scripts[i];
+        for (const script of scripts) {
             await execute(script);
             console.log('\n\n\n');
         }
