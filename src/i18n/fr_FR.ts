@@ -66,6 +66,17 @@ export default {
     error: {
         title: 'LSS Manager: Erreur',
         msg: "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
+        requestIssue: {
+            title: 'requête erronée: Status {status}',
+            text: `Aïe, malheureusement une erreur s'est produite avec cette requête du serveur :<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustext</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<br>
+Veuillez réessayer d'effectuer l'action souhaitée.<br>
+Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû à des problèmes de serveur. Veuillez réessayer ultérieurement.`,
+            close: 'Fermer la remarque',
+        },
     },
     warnings: {
         version: {

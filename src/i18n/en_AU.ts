@@ -75,7 +75,7 @@ export default {
 <br>
 Please try to perform the desired action again.<br>
 If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
-            close: 'Hinweis schließen',
+            close: 'Dismiss',
         },
     },
     warnings: {

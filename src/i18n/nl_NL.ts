@@ -1,4 +1,4 @@
-import type { Building } from '../../typings/Building';
+import type { Building } from 'typings/Building';
 
 const modules = {
     appstore: {
@@ -66,6 +66,17 @@ export default {
     error: {
         title: 'LSS Manager: Error',
         msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
+        requestIssue: {
+            title: 'Foutieve serververzoek: Status {status}',
+            text: `Oh, helaas heeft er een error plaats gevondenan met dit verzoek bij de server:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustekst</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<br>
+Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
+Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
+            close: 'Mededeling sluiten',
+        },
     },
     warnings: {
         version: {
