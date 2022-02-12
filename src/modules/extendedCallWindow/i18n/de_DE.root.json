@@ -53,6 +53,10 @@
 			"description": "Schließt die Dropdown der AAO-Suche nach dem Auswählen einer AAO.",
 			"title": "Dropdown nach Auswahl schließen"
 		},
+		"arrSearchDissolveCategories": {
+			"description": "Zeigt alle Kategorien untereinander an, wenn nach einem Begriff gesucht wird",
+			"title": "AAO-Suche: Alle Kategorien anzeigen"
+		},
 		"arrSearchDropdown": {
 			"description": "Blendet die komplette AAO aus und zeigt stattdessen ein durchsuchbares Dropdown an. Ermöglicht eine sehr kompakte AAO-Darstellung.",
 			"title": "AAO-Suche als Dropdown"

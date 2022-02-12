@@ -4,6 +4,7 @@ export default (
     LSSM: Vue,
     autoFocus: boolean,
     dropdown: boolean,
+    dissolveCategories: boolean,
     closeDropdownOnSelect: boolean,
     $sm: $m
 ) => {
@@ -27,6 +28,14 @@ export default (
         const hideStyle = document.createElement('style');
         let styleAdded = false;
 
+        const panels = document.querySelectorAll<HTMLDivElement>(
+            '#mission-aao-group .tab-content [id^="aao_category_"]'
+        );
+
+        const panelHasResultsClass = LSSM.$store.getters.nodeAttribute(
+            'ecw-arrsearch-panel_has_results'
+        );
+
         searchField.addEventListener('input', () => {
             const search = searchField.value;
             if (search && !styleAdded) {
@@ -37,10 +46,50 @@ export default (
                 hideStyle.remove();
                 styleAdded = false;
             }
-            hideStyle.textContent = `.aao_searchable:not([search_attribute*="${search}"i]), .aao_searchable:not([search_attribute*="${search}"i]) + br {
-            display: none;
-        }`;
+            panels.forEach(panel =>
+                panel.classList[
+                    panel.querySelector(
+                        `.aao_searchable[search_attribute*="${search}"i]`
+                    )
+                        ? 'add'
+                        : 'remove'
+                ](panelHasResultsClass)
+            );
+            hideStyle.textContent = `
+                .aao_searchable:not([search_attribute*="${search}"i]), .aao_searchable:not([search_attribute*="${search}"i]) + br {
+                    display: none;
+                }`;
+            if (dissolveCategories) {
+                hideStyle.textContent += `
+                    #aao-tabs {
+                        display: none;
+                    }
+                    #mission-aao-group .tab-content .${panelHasResultsClass} {
+                        display: block;
+                        opacity: 1;
+                    }
+                    #mission-aao-group .tab-content .${panelHasResultsClass}::before {
+                        content: attr(data-category-title);
+                        font-weight: bold;
+                    }`;
+            }
         });
+
+        if (dissolveCategories) {
+            document
+                .querySelectorAll<HTMLAnchorElement>(
+                    '#aao-tabs li a[href^="#aao_category_"]'
+                )
+                .forEach(tab => {
+                    const panel = document.querySelector<HTMLDivElement>(
+                        tab.getAttribute('href') ?? ''
+                    );
+                    if (panel) {
+                        panel.dataset.categoryTitle =
+                            tab.textContent?.trim() ?? '';
+                    }
+                });
+        }
 
         aaoGroupElement.before(searchField);
         if (autoFocus) searchField.focus();

@@ -207,6 +207,13 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        arrSearchDissolveCategories: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
         arrSearchAutoFocus: <Toggle>{
             type: 'toggle',
             default: false,

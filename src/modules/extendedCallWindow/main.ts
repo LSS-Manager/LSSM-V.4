@@ -200,6 +200,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
                     LSSM,
                     await getSetting('arrSearchAutoFocus'),
                     await getSetting('arrSearchDropdown'),
+                    await getSetting('arrSearchDissolveCategories'),
                     await getSetting('arrSearchCloseDropdownOnSelect'),
                     $m
                 )
