@@ -190,7 +190,7 @@ export default (
 
                     missionReplies.prepend(reply);
 
-                    replyButton.disabled = false;
+                    replyButton.disabled = true;
                     replyInputField.value = '';
                     replyInputField.disabled = false;
                 });

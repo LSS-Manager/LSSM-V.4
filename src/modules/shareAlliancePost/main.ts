@@ -395,6 +395,7 @@ export default <ModuleMainFunction>(async ({
             );
             if (liElement) {
                 replyField.value = liElement.dataset.message ?? '';
+                replyField.dispatchEvent(new Event('input'));
                 if (allianceChatCheckbox) {
                     allianceChatCheckbox.checked =
                         liElement.dataset.post === 'true';
