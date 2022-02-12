@@ -37,7 +37,7 @@ export default (
         );
 
         searchField.addEventListener('input', () => {
-            const search = searchField.value;
+            const search = searchField.value.replace(/"/g, '\\"');
             if (search && !styleAdded) {
                 document.head.append(hideStyle);
                 styleAdded = true;
