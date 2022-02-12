@@ -341,10 +341,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultProps } from 'vue/types/options';
-import { Vehicle } from 'typings/Vehicle';
-import { Building, InternalBuilding } from 'typings/Building';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Vehicle } from 'typings/Vehicle';
+import type { Building, InternalBuilding } from 'typings/Building';
+import type {
     DispatchcenterView,
     DispatchcenterViewComputed,
     DispatchcenterViewMethods,
@@ -386,9 +386,10 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as {
-            [id: number]: InternalBuilding;
-        };
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );
@@ -431,9 +432,7 @@ export default Vue.extend<
             return this.board ? this.board.buildingSelection : {};
         },
         buildingsById() {
-            const buildings = {} as {
-                [id: number]: Building;
-            };
+            const buildings = {} as Record<number, Building>;
             Object.values(this.buildings).forEach(
                 building => (buildings[building.id] = building)
             );
@@ -472,7 +471,7 @@ export default Vue.extend<
                                 )
                             ) &&
                         vehicleBuildingTypes.includes(building.building_type) &&
-                        !Object.values(this.columns).find(
+                        !Object.values(this.columns).some(
                             column => column.building === building.id
                         )
                     );
@@ -496,7 +495,7 @@ export default Vue.extend<
             ).length;
         },
         vehiclesByBuildingSorted() {
-            const vehiclesSorted = {} as { [building: number]: Vehicle[] };
+            const vehiclesSorted = {} as Record<number, Vehicle[]>;
             Object.keys(this.vehiclesByBuilding).forEach(building => {
                 vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
                     parseInt(building)
@@ -574,9 +573,9 @@ export default Vue.extend<
             if (this.selectedBuilding) {
                 this.columns.push({ building: this.selectedBuilding });
                 await this.$nextTick();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 const column =
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     this.$refs[`building-${this.selectedBuilding}`][0].item;
                 this.selectedBuilding = null;
                 this.modifyBuilding({
@@ -596,9 +595,9 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 this.$refs.buildingListSelection[0].search = '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 const title_field =
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     this.$refs[
                         `${this.currentBoard}_${title}_${
                             this.board.titles.length - 1
@@ -641,9 +640,9 @@ export default Vue.extend<
                         currentRow = 0;
                     }
                     await this.$nextTick();
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     const column =
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         this.$refs[`building-${building.id}`][0].item;
                     this.selectedBuilding = null;
                     this.modifyBuilding({

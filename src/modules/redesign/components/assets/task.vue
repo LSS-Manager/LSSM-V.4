@@ -152,7 +152,7 @@ export default Vue.extend<
 
 .task_panel.collapsed
     width: max-content
-    display: inline flow-root
+    display: inline-block
     margin-right: 2rem
 
     .panel-heading

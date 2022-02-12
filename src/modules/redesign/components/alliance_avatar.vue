@@ -27,8 +27,8 @@ import Vue from 'vue';
 
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'alliance',
@@ -188,19 +188,20 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.input.onchange = () => {
+        this.input.addEventListener('change', () => {
             if (!this.input.files?.length) return;
             const reader = new FileReader();
-            reader.onload = () => {
+            reader.addEventListener('load', () => {
                 this.image = reader.result?.toString() ?? '';
                 this.imageFile = this.input.files?.[0] ?? null;
-            };
+            });
+            // eslint-disable-next-line unicorn/prefer-add-event-listener
             reader.onerror = () => {
                 this.image = '';
                 this.imageFile = null;
             };
             reader.readAsDataURL(this.input.files[0]);
-        };
+        });
         this.lightbox.finishLoading('alliance-avatar-edit-mounted');
     },
 });

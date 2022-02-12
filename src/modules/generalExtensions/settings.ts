@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Hidden, MultiSelect, Select, Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Hidden, MultiSelect, Select, Toggle } from 'typings/Setting';
 
 export default ((_, __, $m) => {
     const positions = $m('positions');
@@ -18,7 +18,7 @@ export default ((_, __, $m) => {
             default: true,
             dependsOn: '.clickableLinks',
         },
-        linkPreviews: <Omit<MultiSelect, 'value' | 'isDisabled'>>{
+        linkPreviews: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
             default: [],
             values: ['buildings', 'missions', 'vehicles', 'profile'],

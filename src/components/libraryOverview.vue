@@ -51,8 +51,8 @@ import Vue from 'vue';
 
 import libraries from '../libraries.json';
 
-import { DefaultMethods, DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultMethods, DefaultProps } from 'vue/types/options';
+import type {
     LibraryOverviewComputed,
     LibraryOverviewData,
 } from '../../typings/components/LibraryOverview';

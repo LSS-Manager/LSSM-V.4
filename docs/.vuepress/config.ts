@@ -7,7 +7,7 @@ import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
 import { version } from '../../package.json';
 
-import { Module } from '../../typings/Module';
+import type { Module } from '../../typings/Module';
 
 interface Translation {
     [key: string]: Translation | string;
@@ -336,8 +336,8 @@ ${docsLangs
             label: string;
             nav: { text: string; link: string }[];
             sidebar: (
-                | { title: string; collapsable: boolean; children: string[] }
                 | string
+                | { title: string; collapsable: boolean; children: string[] }
             )[];
         }
     > = {};
@@ -538,6 +538,7 @@ module.exports = async () => {
                 discord: config.discord,
                 github: `https://github.com/${config.github.repo}`,
                 server: config.server,
+                fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
                 versions: {
                     beta: version,
                     stable,

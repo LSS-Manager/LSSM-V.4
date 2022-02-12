@@ -49,8 +49,8 @@ import coerce from 'semver/functions/coerce';
 import moment from 'moment';
 import semverLt from 'semver/functions/lt';
 
-import { DefaultData, DefaultMethods } from 'vue/types/options';
-import {
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type {
     ReleaseNoteComputed,
     ReleaseNoteProps,
 } from 'typings/modules/Releasenotes';

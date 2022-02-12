@@ -7,7 +7,7 @@ import packageJson from '../package.json';
 
 const script = packageJson.userscript;
 
-const tlds = {} as { [tld: string]: string[] };
+const tlds = {} as Record<string, string[]>;
 
 Object.values(config.games).forEach(({ shortURL, police }) => {
     const tld = shortURL

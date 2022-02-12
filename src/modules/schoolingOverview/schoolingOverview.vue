@@ -72,8 +72,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
-import {
+import type { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type {
     SchoolingOverview,
     SchoolingOverviewComputed,
     SchoolingOverviewMethods,
@@ -126,7 +126,7 @@ export default Vue.extend<
                 key: string;
 
                 // General
-                [key: string]: string | number;
+                [key: string]: number | string;
             }[];
 
             return (
@@ -158,7 +158,7 @@ export default Vue.extend<
                 key: string;
 
                 // General
-                [key: string]: string | number;
+                [key: string]: number | string;
             }[];
 
             return (

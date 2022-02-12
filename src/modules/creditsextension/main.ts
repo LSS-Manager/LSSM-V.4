@@ -1,6 +1,6 @@
 import creditsextension from './creditsextension.vue';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     const wrapper = document.querySelector('#navigation_top')?.parentElement;

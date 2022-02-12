@@ -1,5 +1,5 @@
 export default (LSSM: Vue): void => {
-    const title = document.getElementById('missionH1');
+    const title = document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!title) return;
 
     const greyClass = LSSM.$store.getters.nodeAttribute('arr-grey');
@@ -23,7 +23,7 @@ export default (LSSM: Vue): void => {
                 document.querySelectorAll<HTMLAnchorElement>('.aao')
             ).forEach(arr => {
                 const arrText = arr.textContent?.trim().toLowerCase() || '';
-                if (!words.find(w => arrText.match(w)))
+                if (!words.some(w => arrText.match(w)))
                     arr.classList.add(greyClass);
             });
         });

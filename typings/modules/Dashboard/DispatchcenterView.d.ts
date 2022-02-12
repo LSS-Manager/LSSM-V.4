@@ -1,6 +1,6 @@
-import { Vehicle } from 'typings/Vehicle';
-import VueI18n from 'vue-i18n';
-import { Building, InternalBuilding } from 'typings/Building';
+import type { Vehicle } from 'typings/Vehicle';
+import type VueI18n from 'vue-i18n';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 interface Title {
     id?: string;
@@ -45,11 +45,9 @@ export interface DispatchcenterView {
     buildingListOffset: number;
     buildingListSearch: string;
     newBoardTitle: string;
-    buildingTypes: { [id: number]: InternalBuilding };
+    buildingTypes: Record<number, InternalBuilding>;
     currentBoard: number;
-    vehiclesByBuilding: {
-        [building: number]: Vehicle[];
-    };
+    vehiclesByBuilding: Record<number, Vehicle[]>;
     vehicleBuildings: {
         type: number;
         caption: string;
@@ -61,16 +59,12 @@ export interface DispatchcenterViewComputed {
     board: Board;
     columns: Column[];
     buildingSelection: BuildingSelection;
-    buildingsById: {
-        [id: number]: Building;
-    };
+    buildingsById: Record<number, Building>;
     buildingList: Building[];
     buildingListFiltered: Building[];
     buildingListHasPrevPage: boolean;
     buildingListHasNextPage: boolean;
-    vehiclesByBuildingSorted: {
-        [building: number]: Vehicle[];
-    };
+    vehiclesByBuildingSorted: Record<number, Vehicle[]>;
 }
 
 interface Selection {
@@ -80,18 +74,8 @@ interface Selection {
 }
 
 export interface DispatchcenterViewMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
-    $sm(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
+    $sm(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setBoardName(id: number): void;
     addBoard(): void;
     removeBoard(id: number): void;

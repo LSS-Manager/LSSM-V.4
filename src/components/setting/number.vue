@@ -19,8 +19,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData } from 'vue/types/options';
-import {
+import type { DefaultData } from 'vue/types/options';
+import type {
     NumberComputed,
     NumberMethods,
     NumberProps,

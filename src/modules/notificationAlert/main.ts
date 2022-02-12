@@ -1,6 +1,6 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { NotificationSetting } from 'typings/modules/NotificationAlert';
-import {
+import type { ModuleMainFunction } from 'typings/Module';
+import type { NotificationSetting } from 'typings/modules/NotificationAlert';
+import type {
     AllianceChatMessage,
     MissionMarkerAdd,
     RadioMessage,
@@ -13,15 +13,16 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
         )
     ).value;
 
-    const events = {} as {
-        [event: string]: {
+    const events = {} as Record<
+        string,
+        {
             alertStyle: NotificationSetting['alertStyle'];
             duration: NotificationSetting['duration'];
             ingame: NotificationSetting['ingame'];
             desktop: NotificationSetting['desktop'];
             position: NotificationSetting['position'];
-        }[];
-    };
+        }[]
+    >;
     alerts.forEach(alert =>
         alert.events.forEach(event => {
             if (!events.hasOwnProperty(event)) events[event] = [];
@@ -316,7 +317,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 const newAmount = parseInt(amount);
                 const prevAmount = parseInt(
                     document
-                        .getElementById('message_top')
+                        .querySelector<HTMLSpanElement>('#message_top')
                         ?.textContent?.trim() || '-1'
                 );
                 if (newAmount <= prevAmount) return;
@@ -383,7 +384,9 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 const newAmount = parseInt(amount);
                 const prevAmount = parseInt(
                     document
-                        .getElementById('alliance_candidature_count')
+                        .querySelector<HTMLSpanElement>(
+                            '#alliance_candidature_count'
+                        )
                         ?.textContent?.trim()
                         ?.replace(/(^\()|\)$/g, '') || '-1'
                 );
@@ -524,8 +527,9 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 if (
                     !amount ||
                     newTasks ||
-                    document.getElementById('completed_tasks_counter')
-                        ?.textContent === amount.toString()
+                    document.querySelector<HTMLSpanElement>(
+                        '#completed_tasks_counter'
+                    )?.textContent === amount.toString()
                 )
                     return;
                 events['tasks_update'].forEach(async alert =>
@@ -571,10 +575,10 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             callback(mission: MissionMarkerAdd) {
                 const color = ['red', 'yellow', 'green'][
                     mission.vehicle_state
-                ] as 'red' | 'yellow' | 'green';
+                ] as 'green' | 'red' | 'yellow';
                 // mission_getred(_alliance)? | mission_new
-                const missionElement = document.getElementById(
-                    `mission_${mission.id}`
+                const missionElement = document.querySelector<HTMLDivElement>(
+                    `#mission_${mission.id}`
                 );
                 const isAllianceMission = mission.user_id !== window.user_id;
                 const isAllianceOnlyMission =
@@ -590,8 +594,10 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         : 0) || `/images/${mission.icon}.png`;
                 const isEventMission =
                     isAllianceMission && mission.user_id === null;
-                let { caption } = mission;
-                if (isAllianceMission) caption = `📤 ${caption}`;
+                const { caption, address, id } = mission;
+                const processedCaption = isAllianceMission
+                    ? `📤 ${caption}`
+                    : caption;
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission) {
                         events['mission_new']?.forEach(alert =>
@@ -600,16 +606,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: caption,
-                                    text: mission.address,
+                                    title: processedCaption,
+                                    text: address,
                                     icon,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
                                     clickHandler() {
-                                        window.lightboxOpen(
-                                            `/missions/${mission.id}`
-                                        );
+                                        window.lightboxOpen(`/missions/${id}`);
                                     },
                                 }
                             )
@@ -625,13 +629,13 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: caption,
+                                    title: processedCaption,
                                     text: $m(
                                         `messages.mission_getred${
                                             isAllianceMission ? '_alliance' : ''
                                         }.body`,
                                         {
-                                            address: mission.address,
+                                            address,
                                         }
                                     ),
                                     icon,
@@ -639,9 +643,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
                                     clickHandler() {
-                                        window.lightboxOpen(
-                                            `/missions/${mission.id}`
-                                        );
+                                        window.lightboxOpen(`/missions/${id}`);
                                     },
                                 }
                             )
@@ -657,14 +659,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: caption,
-                            text: mission.address,
+                            title: processedCaption,
+                            text: address,
                             icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                window.lightboxOpen(`/missions/${mission.id}`);
+                                window.lightboxOpen(`/missions/${id}`);
                             },
                         })
                     );
@@ -673,14 +675,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: caption,
-                            text: mission.address,
+                            title: processedCaption,
+                            text: address,
                             icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                window.lightboxOpen(`/missions/${mission.id}`);
+                                window.lightboxOpen(`/missions/${id}`);
                             },
                         })
                     );

@@ -1,16 +1,17 @@
-import { InternalVehicle } from 'typings/Vehicle';
-import { StorageSet } from 'typings/store/storage/Actions';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type { StorageSet } from 'typings/store/storage/Actions';
 
-import { $m, $mc } from 'typings/Module';
+import type { $m, $mc } from 'typings/Module';
 
 export default (
     LSSM: Vue,
-    tabs: { name: string; vehicleTypes: (string | number)[] }[],
+    tabs: { name: string; vehicleTypes: (number | string)[] }[],
     stagingMode: boolean,
     $m: $m,
     $mc: $mc
 ): void => {
-    const missionHelpBtn = document.getElementById('mission_help');
+    const missionHelpBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_help');
     const isDiyMission = !missionHelpBtn;
     let missionTypeID = -1;
     if (!isDiyMission) {
@@ -43,12 +44,16 @@ export default (
         e.parentElement?.remove();
     });
 
-    let tabList = document.getElementById('tabs');
-    let allTab = tabList?.querySelector('#tabs > li:first-child');
-    let occupiedTab = tabList?.querySelector('#tabs > li:last-child');
+    let tabList = document.querySelector<HTMLUListElement>('#tabs');
+    let allTab = tabList?.querySelector<HTMLLIElement>(
+        '#tabs > li:first-child'
+    );
+    let occupiedTab = tabList?.querySelector<HTMLLIElement>(
+        '#tabs > li:last-child'
+    );
     const occupiedTabActive =
         occupiedTab?.classList.contains('active') ?? false;
-    let panelWrapper = document.querySelector(
+    let panelWrapper = document.querySelector<HTMLDivElement>(
         '#vehicle_list_step .tab-content'
     );
 
@@ -61,9 +66,10 @@ export default (
 
     if (vehiclesNotInTabs.length) {
         const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
-        const vehicleTypes = LSSM.$t('vehicles') as {
-            [type: number]: InternalVehicle;
-        };
+        const vehicleTypes = LSSM.$t('vehicles') as Record<
+            number,
+            InternalVehicle
+        >;
 
         const warningBtnWrapper = document.createElement('span');
         const warningBtn = document.createElement('i');
@@ -167,9 +173,9 @@ export default (
         allTabA.setAttribute('role', 'tab');
         allTabA.setAttribute('data-toggle', 'tab');
         allTabA.setAttribute('aria-expanded', 'true');
-        allTabA.innerText = $m(`tailoredTabs.allTab`) as string;
-        allTab.appendChild(allTabA);
-        tabList.appendChild(allTab);
+        allTabA.textContent = $m(`tailoredTabs.allTab`) as string;
+        allTab.append(allTabA);
+        tabList.append(allTab);
     }
     if (!occupiedTab) {
         occupiedTab = document.createElement('li');
@@ -178,9 +184,9 @@ export default (
         const occupiedTabA = document.createElement('a');
         occupiedTabA.setAttribute('href', '#occupied');
         occupiedTabA.setAttribute('tabload', 'occupied');
-        occupiedTabA.innerText = <string>$m(`tailoredTabs.occupiedTab`);
-        occupiedTab.appendChild(occupiedTabA);
-        tabList.appendChild(occupiedTab);
+        occupiedTabA.textContent = <string>$m(`tailoredTabs.occupiedTab`);
+        occupiedTab.append(occupiedTabA);
+        tabList.append(occupiedTab);
     }
     if (!panelWrapper) {
         panelWrapper = document.createElement('div');
@@ -195,24 +201,21 @@ export default (
         if (!allVehicleTable) return;
         allVehicleTable?.setAttribute('role', 'grid');
         panelDiv.append(allVehicleTable);
-        panelWrapper.appendChild(panelDiv);
+        panelWrapper.append(panelDiv);
         document.querySelector('#vehicle_list_step')?.appendChild(panelWrapper);
     }
 
-    const panels = {} as {
-        [key: string]: HTMLDivElement;
-    };
+    const panels = {} as Record<string, HTMLDivElement>;
     const tabBar = {
         all: { tablesorterId: null },
         occupied: { tablesorterId: 'vehicle_show_table_occupied' },
-    } as {
-        [key: string]: {
+    } as Record<
+        string,
+        {
             tablesorterId: string | null;
-        };
-    };
-    const vehicleTypeMap = {} as {
-        [id: string]: string[];
-    };
+        }
+    >;
+    const vehicleTypeMap = {} as Record<string, string[]>;
     const idByName: Record<string, string> = {};
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
@@ -227,8 +230,8 @@ export default (
         tabLink.href = `#${tabId}`;
         tabLink.setAttribute('tabload', tabId);
         tabLink.textContent = name;
-        tabSelector.appendChild(tabLink);
-        tabList.insertBefore(tabSelector, occupiedTab);
+        tabSelector.append(tabLink);
+        occupiedTab.before(tabSelector);
 
         const tabPane = document.createElement('div');
         tabPane.classList.add('tab-pane');
@@ -272,22 +275,22 @@ export default (
         const tbody = document.createElement('tbody');
         tbody.id = `vehicle_show_table_body_${tabId}`;
 
-        searchLink.appendChild(searchSpan);
-        searchHead.appendChild(searchLink);
-        headRow.appendChild(searchHead);
-        headRow.appendChild(emptyHead);
-        headRow.appendChild(vehicleHead);
-        headRow.appendChild(distanceHead);
-        headRow.appendChild(stationHead);
-        thead.appendChild(headRow);
-        searchWrapper.appendChild(searchInput);
-        searchRow.appendChild(searchWrapper);
-        thead.appendChild(searchRow);
-        tabTable.appendChild(thead);
-        tabTable.appendChild(tbody);
-        tabPane.appendChild(tabTable);
+        searchLink.append(searchSpan);
+        searchHead.append(searchLink);
+        headRow.append(searchHead);
+        headRow.append(emptyHead);
+        headRow.append(vehicleHead);
+        headRow.append(distanceHead);
+        headRow.append(stationHead);
+        thead.append(headRow);
+        searchWrapper.append(searchInput);
+        searchRow.append(searchWrapper);
+        thead.append(searchRow);
+        tabTable.append(thead);
+        tabTable.append(tbody);
+        tabPane.append(tabTable);
 
-        panelWrapper.appendChild(tabPane);
+        panelWrapper.append(tabPane);
 
         panels[tabId] = tabPane;
         tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
@@ -297,7 +300,9 @@ export default (
 
     if (stagingMode) {
         document
-            .getElementById('vehicle_show_table_body_all')
+            .querySelector<HTMLTableSectionElement>(
+                '#vehicle_show_table_body_all'
+            )
             ?.addEventListener('change', ({ target }) => {
                 const checkbox = target as HTMLInputElement;
                 document
@@ -319,15 +324,21 @@ export default (
 
         tabList.querySelector('li.active')?.classList.remove('active');
         tabSelector.parentElement?.classList.add('active');
-        document.getElementById('all')?.classList.remove('active');
-        document.getElementById('occupied')?.classList.remove('active');
+        document
+            .querySelector<HTMLDivElement>('#all')
+            ?.classList.remove('active');
+        document
+            .querySelector<HTMLDivElement>('#occupied')
+            ?.classList.remove('active');
         Object.entries(panels).forEach(([id, panel]) =>
             panel.classList[id === tab ? 'add' : 'remove']('active')
         );
 
         const tableSorterId = tabBar[tab].tablesorterId;
         if (!tableSorterId) return;
-        const tableSorterEl = document.getElementById(tableSorterId);
+        const tableSorterEl = document.querySelector<HTMLTableElement>(
+            `#${tableSorterId}`
+        );
         if (!tableSorterEl) return;
 
         const vehicles = Array.from(

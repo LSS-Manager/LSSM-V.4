@@ -1,8 +1,8 @@
 import aipreview from './components/alarmIcons/preview.vue';
 import mkpreview from './components/missionKeywords/preview.vue';
 
-import { $m, ModuleSettingFunction } from 'typings/Module';
-import {
+import type { $m, ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Color,
@@ -14,7 +14,7 @@ import {
     Text,
     Toggle,
 } from 'typings/Setting';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
@@ -27,7 +27,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles = LSSM.$t('vehicles') as { [id: number]: InternalVehicle };
+    const vehicles = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {
@@ -217,7 +217,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.arrSearch',
         },
-        tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,
             listItem: [
@@ -247,7 +247,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             orderable: true,
             disableable: true,
         },
-        missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        missionKeywords: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [
@@ -322,7 +322,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             orderable: true,
             disableable: false,
         },
-        alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        alarmIcons: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [

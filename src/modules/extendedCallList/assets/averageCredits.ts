@@ -1,5 +1,5 @@
-import { Mission } from 'typings/Mission';
-import {
+import type { Mission } from 'typings/Mission';
+import type {
     MissionUpdateCallback,
     ProgressPrependCallback,
 } from './utils/progressPrepend';
@@ -8,8 +8,8 @@ export default (
     LSSM: Vue,
     MODULE_ID: string
 ): {
-    addAverageCredits: (mission: ProgressPrependCallback) => number;
-    updateAverageCredits: (mission: MissionUpdateCallback) => void;
+    addAverageCredits(mission: ProgressPrependCallback): number;
+    updateAverageCredits(mission: MissionUpdateCallback): void;
 } => {
     const missionsById: Record<string, Mission> =
         LSSM.$store.getters['api/missionsById'];

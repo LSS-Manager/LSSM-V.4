@@ -42,7 +42,7 @@ export default async (
                         imgNode.remove();
                         linkNode.textContent = link.toString();
                     });
-                    linkNode.appendChild(imgNode);
+                    linkNode.append(imgNode);
                 } else {
                     linkNode.textContent = link.toString();
                 }

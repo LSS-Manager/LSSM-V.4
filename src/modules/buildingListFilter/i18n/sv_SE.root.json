@@ -65,7 +65,7 @@
 			"title": "Text eller Ikon?"
 		},
 		"filters": {
-			"description": "Visa Ikoner i \"Alarm\" visnings knappen, baserat på dina val. Du kan välja melllan alla <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alla gratis ikoner ifrån Font-Awesome</a>.  Du kan direkt förhandsgranska den valda ikonen.",
+			"description": "Visa Ikoner i \"Alarm\" visnings knappen, baserat på dina val. Du kan välja melllan alla <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alla gratis ikoner ifrån Font-Awesome</a>.  Du kan direkt förhandsgranska den valda ikonen.",
 			"title": "biggnadslistsfiltrering"
 		},
 		"icon_style": "Ikontyp",

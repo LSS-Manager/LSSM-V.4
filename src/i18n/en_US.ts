@@ -59,7 +59,7 @@ const modules = {
             sync: 'use current position',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
@@ -123,7 +123,7 @@ export default {
             caption: 'Type 1 fire engine',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 750,
@@ -134,7 +134,7 @@ export default {
             caption: 'Type 2 fire engine',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 500,
@@ -148,7 +148,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             possibleBuildings: [0, 13],
             special: 'Required once you have built 3 firehouses',
         },
@@ -159,7 +158,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             possibleBuildings: [0, 13],
             special: 'Required once you have built 6 firehouses',
         },
@@ -170,7 +168,6 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             possibleBuildings: [0, 13],
             special: 'Required once you have built 4 firehouses',
         },
@@ -178,10 +175,9 @@ export default {
             caption: 'ALS Ambulance',
             color: '#9c6d1c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             possibleBuildings: [0, 3, 14, 16],
         },
         6: {
@@ -191,7 +187,6 @@ export default {
             credits: 11_860,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             possibleBuildings: [0, 13],
             special: 'Required once you have built 5 firehouses',
         },
@@ -202,7 +197,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 3_000,
+            wtank: 3000,
             possibleBuildings: [0, 13],
             special: 'Required once you have built 7 firehouses',
         },
@@ -213,7 +208,6 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             possibleBuildings: [0, 11, 12, 13],
             special: 'Required once you have built 4 firehouses',
         },
@@ -224,7 +218,6 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
@@ -239,11 +232,10 @@ export default {
             caption: 'Patrol Car',
             color: '#488b18',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [5, 15],
-            wtank: 0,
         },
         11: {
             caption: 'HEMS',
@@ -252,7 +244,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             possibleBuildings: [6],
         },
         12: {
@@ -262,7 +253,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
@@ -293,7 +283,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             possibleBuildings: [8],
             schooling: {
                 Police: {
@@ -307,10 +296,9 @@ export default {
             caption: 'Fly-Car',
             color: '#b88f14',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             possibleBuildings: [0, 3, 12, 14, 16],
         },
         16: {
@@ -320,7 +308,6 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -366,10 +353,9 @@ export default {
             caption: 'K-9 Unit',
             color: '#30aa22',
             coins: 25,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -387,7 +373,6 @@ export default {
             credits: 25_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [0, 3, 16],
             special:
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
@@ -399,7 +384,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            wtank: 0,
             possibleBuildings: [0],
             schooling: {
                 'Fire Station': {
@@ -415,10 +399,9 @@ export default {
             caption: 'Light Boat Trailer',
             color: '#772222',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            wtank: 0,
             possibleBuildings: [0, 11, 12],
             special:
                 'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
@@ -427,10 +410,9 @@ export default {
             caption: 'Police Motorcycle',
             color: '#638a2a',
             coins: 18,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -447,7 +429,6 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 7,
-            wtank: 0,
             possibleBuildings: [11],
             schooling: {
                 'Fire Station': {
@@ -464,7 +445,6 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [12],
             schooling: {
                 'Fire Station': {
@@ -478,10 +458,9 @@ export default {
             caption: 'SWAT SUV',
             color: '#415a30',
             coins: 23,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
@@ -496,7 +475,7 @@ export default {
             caption: 'BLS Ambulance',
             color: '#a4752e',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0, 3, 14, 16],
@@ -537,7 +516,7 @@ export default {
             caption: 'Type 5 engine',
             color: '#b01d2f',
             coins: 8,
-            credits: 8_000,
+            credits: 8000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 400,
@@ -547,7 +526,7 @@ export default {
             caption: 'Type 7 engine',
             color: '#a01717',
             coins: 5,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 50,
@@ -571,7 +550,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 12,
-            wtank: 0,
             possibleBuildings: [0, 13],
         },
         35: {
@@ -615,7 +593,7 @@ export default {
             credits: 1_500_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            wtank: 12000,
+            wtank: 12_000,
             possibleBuildings: [17],
             schooling: {
                 'Fire Station': {
@@ -639,7 +617,7 @@ export default {
             caption: 'Type 6 engine',
             color: '#a70e0e',
             coins: 5,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0],
@@ -667,7 +645,7 @@ export default {
             caption: 'Crew cap semi',
             color: '#9f1616',
             coins: 12,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             possibleBuildings: [0, 3, 13],
@@ -999,7 +977,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             possibleBuildings: [0],
-            ftank: 6_500,
+            ftank: 6500,
         },
         65: {
             caption: 'Foam Trailer',
@@ -1066,7 +1044,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Dispatch Center',
@@ -1233,7 +1211,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Patrol car'],
             schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         6: {
             caption: 'Helicopter station',
@@ -1418,7 +1396,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         14: {
             caption: 'Clinic',
@@ -1473,7 +1451,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Patrol Car'],
             schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         16: {
             caption: 'Ambulance station (Small station)',

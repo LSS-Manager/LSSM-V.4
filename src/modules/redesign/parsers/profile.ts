@@ -1,5 +1,5 @@
-import { BuildingMarkerAdd } from 'typings/Ingame';
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { BuildingMarkerAdd } from 'typings/Ingame';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 type Building = BuildingMarkerAdd;
 
@@ -49,7 +49,9 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
     const alliance = pageHeader?.querySelector<HTMLAnchorElement>(
         'a[href^="/alliances"]'
     );
-    const profileText = doc.getElementById('profile_text_photo');
+    const profileText = doc.querySelector<HTMLDivElement>(
+        '#profile_text_photo'
+    );
     const allianceIgnore = doc.querySelector<HTMLAnchorElement>(
         '.page-header a[href^="/allianceIgnore/"]'
     );
@@ -70,7 +72,7 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
         registration: self
             ? new Date(
                   doc
-                      .getElementById('signup_date')
+                      .querySelector<HTMLSpanElement>('#signup_date')
                       ?.getAttribute('data-signup-date') ?? 0
               )
             : undefined,
@@ -93,11 +95,11 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                     .querySelector<HTMLDivElement>('.panel-body')
                     ?.textContent?.trim() ?? '',
         })),
-        has_map: !!doc.getElementById('profile_map'),
+        has_map: !!doc.querySelector<HTMLDivElement>('#profile_map'),
         buildings: (
             Array.from(doc.scripts)
                 .flatMap(script =>
-                    script.innerText.match(
+                    script.textContent?.match(
                         /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
                     )
                 )

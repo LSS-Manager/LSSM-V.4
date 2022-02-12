@@ -1,7 +1,7 @@
 import verbandParser from './verbandParser';
 
-import { RedesignParser } from 'typings/modules/Redesign';
-import { VerbandWindow } from 'typings/modules/Redesign/Verband';
+import type { RedesignParser } from 'typings/modules/Redesign';
+import type { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 interface Earning {
     user: {
@@ -46,7 +46,7 @@ interface DisabledVerbandskasse extends Verbandskasse {
     enabled: false;
 }
 
-export type VerbandskasseWindow = EnabledVerbandskasse | DisabledVerbandskasse;
+export type VerbandskasseWindow = DisabledVerbandskasse | EnabledVerbandskasse;
 
 export default <RedesignParser<VerbandskasseWindow>>(({
     doc,

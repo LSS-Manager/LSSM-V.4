@@ -73,8 +73,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { EnhancedMissingVehiclesTableProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehiclesTable';
-import {
+import type { EnhancedMissingVehiclesTableProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehiclesTable';
+import type {
     DefaultComputed,
     DefaultData,
     DefaultMethods,

@@ -72,9 +72,9 @@ import Vue from 'vue';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faUserSlash } from '@fortawesome/free-solid-svg-icons/faUserSlash';
 
-import { FreundeWindow } from '../parsers/freunde';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { FreundeWindow } from '../parsers/freunde';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'friends',
@@ -83,12 +83,13 @@ type Component = RedesignComponent<
         faEdit: IconDefinition;
         faUserSlash: IconDefinition;
         notes_editing: number[];
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';

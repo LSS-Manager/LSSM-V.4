@@ -1,16 +1,12 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const $sm = (key: string, args?: Parameters<$m>[1]) =>
         $m(`memberlistManageUser.${key}`, args);
     const roles = {
-        ...($m(`memberlistRoles`) as unknown as {
-            [role: string]: string;
-        }),
+        ...($m(`memberlistRoles`) as unknown as Record<string, string>),
         '': '',
-    } as {
-        [role: string]: string;
-    };
+    } as Record<string, string>;
 
     const storeDispatch = async (
         roleHolder: HTMLElement,
@@ -86,11 +82,11 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
             hideBtn.classList.add('btn', 'btn-xs', 'btn-default');
             hideBtn.href = '#';
             hideBtn.textContent = $sm('hide').toString();
-            hideBtn.onclick = () => {
+            hideBtn.addEventListener('click', () => {
                 $(holder).hide('fast');
                 if (holder.previousElementSibling)
                     $(holder.previousElementSibling).show('fast');
-            };
+            });
             holder.prepend(hideBtn);
             const roleHolder =
                 holder.parentElement?.parentElement?.querySelector(

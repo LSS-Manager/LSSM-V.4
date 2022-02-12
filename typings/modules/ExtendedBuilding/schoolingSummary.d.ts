@@ -1,4 +1,4 @@
-import VueI18n from 'vue-i18n';
+import type VueI18n from 'vue-i18n';
 
 interface Schooling {
     amount: number;
@@ -10,16 +10,14 @@ interface EachSchooling extends Schooling {
     max: number;
 }
 
-export interface SchoolingSummaryObject<schooling = Schooling> {
-    [schooling: string]: schooling;
-}
+export type SchoolingSummaryObject<schooling> = Record<string, schooling>;
 
 export interface SchoolingSummary {
     hidden: boolean;
-    sortAll: 'schooling' | 'amount' | 'bound';
+    sortAll: 'amount' | 'bound' | 'schooling';
     sortAllDir: 'asc' | 'desc';
     allSchoolingsSearch: string;
-    sortEach: 'schooling' | 'amount' | 'bound';
+    sortEach: 'amount' | 'bound' | 'schooling';
     sortEachDir: 'asc' | 'desc';
     eachSchoolingsSearch: string;
 }
@@ -38,18 +36,8 @@ export interface SchoolingSummaryComputed {
 }
 
 export interface SchoolingSummaryMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
-    $sm(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
+    $sm(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setSortAll(s: string): void;
     setSortEach(s: string): void;
 }

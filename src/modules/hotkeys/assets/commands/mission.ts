@@ -1,5 +1,5 @@
 import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets/sort/mission';
-import { Empty, Scope } from 'typings/modules/Hotkeys';
+import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 export default <Scope<Empty, ['sorted'], [], true>>{
     sorted: <
@@ -8,7 +8,7 @@ export default <Scope<Empty, ['sorted'], [], true>>{
                 LSSM: Vue;
                 moduleId: 'extendedCallList';
                 toggleId: string;
-                nodeAttr: (attr: string) => string;
+                nodeAttr(attr: string): string;
             },
             [],
             ['alert_next', 'prev', 'next', 'alert_share_next']

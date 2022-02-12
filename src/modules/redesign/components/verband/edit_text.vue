@@ -106,8 +106,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { SCEditor } from 'typings/SCEditor/SCEditor';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { SCEditor } from 'typings/SCEditor/SCEditor';
 
 type Component = RedesignSubComponent<
     'alliance',
@@ -292,9 +292,9 @@ export default Vue.extend<
         },
     },
     mounted() {
-        const textArea = document.getElementById(
-            this.textId
-        ) as HTMLTextAreaElement | null;
+        const textArea = document.querySelector<HTMLTextAreaElement>(
+            `#${this.textId}`
+        );
         if (textArea) {
             window.sceditor.create(textArea, {
                 format: 'bbcode',
@@ -305,9 +305,9 @@ export default Vue.extend<
             });
             this.textEditor = window.sceditor.instance(textArea);
         }
-        const rulesArea = document.getElementById(
-            this.rulesId
-        ) as HTMLTextAreaElement | null;
+        const rulesArea = document.querySelector<HTMLTextAreaElement>(
+            `#${this.rulesId}`
+        );
         if (rulesArea) {
             window.sceditor.create(rulesArea, {
                 format: 'bbcode',

@@ -1,4 +1,4 @@
-import { OwnSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type { OwnSchoolings } from 'typings/modules/SchoolingOverview/main';
 
 export interface OwnSchooling {
     end: number;
@@ -8,15 +8,16 @@ export interface OwnSchooling {
 }
 
 export interface OwnSchoolingTabs {
-    heads: {
-        [key: string]: {
+    heads: Record<
+        string,
+        {
             title: string;
-        };
-    };
+        }
+    >;
     tabTitles: string[];
     currentTab: string;
     search: string;
-    sort: 'name' | 'end' | 'owner';
+    sort: 'end' | 'name' | 'owner';
     sortDir: string;
     all: string;
 }

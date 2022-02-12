@@ -80,7 +80,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     SchoolingSummary,
     SchoolingSummaryComputed,
     SchoolingSummaryMethods,

@@ -1,4 +1,4 @@
-import { ChildProcess, execSync } from 'child_process';
+import { type ChildProcess, execSync } from 'child_process';
 
 import fetchEmojis from './utils/fetchEmojis';
 import sort from './sort';
@@ -48,7 +48,7 @@ const scriptHandlers = {
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
     },
-} as { [key: string]: () => string | void | Promise<string | void> };
+} as Record<string, () => Promise<string | void> | string | void>;
 
 (async () => {
     const execute = async (script: string) => {
@@ -60,8 +60,7 @@ const scriptHandlers = {
     };
 
     try {
-        for (let i = 0; i < scripts.length; i++) {
-            const script = scripts[i];
+        for (const script of scripts) {
             await execute(script);
             console.log('\n\n\n');
         }

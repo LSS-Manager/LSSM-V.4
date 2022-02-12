@@ -4,12 +4,12 @@ import semverLte from 'semver/functions/lte';
 import semverRcompare from 'semver/functions/rcompare';
 import Showdown from 'showdown';
 
-import { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
+import type { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
 export default async (LSSM: Vue): Promise<void> => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.releasenotes.${key}`, args);
 
     const sdConverter = new Showdown.Converter({
@@ -77,7 +77,7 @@ export default async (LSSM: Vue): Promise<void> => {
 
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
-        .then(element => (element.onclick = () => openNotes()));
+        .then(element => element.addEventListener('click', () => openNotes()));
 
     LSSM.$store
         .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })

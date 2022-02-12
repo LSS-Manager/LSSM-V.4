@@ -14,7 +14,7 @@ import Vue from 'vue';
 
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 
-import {
+import type {
     LocationComputed,
     LocationData,
     LocationMethods,

@@ -1,17 +1,17 @@
-import { $m } from 'typings/Module';
-import { Mission } from 'typings/Mission';
-import {
+import type { $m } from 'typings/Module';
+import type { Mission } from 'typings/Mission';
+import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
     PatientMarkerAddCombined,
 } from 'typings/Ingame';
 
 export type Sort =
-    | 'id'
-    | 'credits'
-    | 'remaining_patients'
     | 'alphabet'
-    | 'default';
+    | 'credits'
+    | 'default'
+    | 'id'
+    | 'remaining_patients';
 
 export default (
     LSSM: Vue,
@@ -76,16 +76,16 @@ export default (
     };
 
     enum faSortIcon {
-        id = 'history',
+        id = 'clock-rotate-left',
         credits = 'dollar-sign',
         remaining_patients = 'user-injured',
         alphabet = 'font',
-        default = 'meh-rolling-eyes',
+        default = 'face-rolling-eyes',
     }
 
     enum faDirectionIcon {
-        desc = 'sort-amount-down',
-        asc = 'sort-amount-down-alt',
+        desc = 'arrow-down-wide-short',
+        asc = 'arrow-down-short-wide',
     }
 
     const sortBtn = document.createElement('button');
@@ -223,7 +223,7 @@ export default (
                 },
             },
             {
-                selectorText: `#${sortIcon.id}[data-icon="meh-rolling-eyes"], #${sortSelectionList.id} [data-icon="meh-rolling-eyes"]`,
+                selectorText: `#${sortIcon.id}[data-icon="face-rolling-eyes"], #${sortSelectionList.id} [data-icon="face-rolling-eyes"]`,
                 style: {
                     display: 'none',
                 },

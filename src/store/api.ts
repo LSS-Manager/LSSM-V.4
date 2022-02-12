@@ -1,18 +1,18 @@
-import Vue from 'vue';
+import type Vue from 'vue';
 
-import { ActionStoreParams } from 'typings/store/Actions';
-import { APIActionStoreParams } from '../../typings/store/api/Actions';
-import { Mission } from 'typings/Mission';
-import { RootState } from '../../typings/store/RootState';
-import { Vehicle } from '../../typings/Vehicle';
-import { VehicleRadioMessage } from '../../typings/Ingame';
-import { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
-import {
+import type { ActionStoreParams } from 'typings/store/Actions';
+import type { APIActionStoreParams } from '../../typings/store/api/Actions';
+import type { Mission } from 'typings/Mission';
+import type { RootState } from '../../typings/store/RootState';
+import type { Vehicle } from '../../typings/Vehicle';
+import type { VehicleRadioMessage } from '../../typings/Ingame';
+import type { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
+import type {
     APIState,
     StorageAPIKey,
     StorageGetterReturn,
 } from '../../typings/store/api/State';
-import { Building, BuildingCategory } from '../../typings/Building';
+import type { Building, BuildingCategory } from '../../typings/Building';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -226,9 +226,7 @@ export default {
             if (!buildings) return;
             const smallBuildings = (window[PREFIX] as Vue).$t(
                 'small_buildings'
-            ) as unknown as {
-                [type: number]: number;
-            };
+            ) as unknown as Record<number, number>;
             buildings.forEach(
                 building =>
                     building.small_building &&
@@ -258,12 +256,13 @@ export default {
             state.lastUpdates.allianceinfo = lastUpdate;
             state.allianceinfo = allianceinfo;
         },
-        setVehicleStates(state: APIState, states: { [state: number]: number }) {
+        setVehicleStates(state: APIState, states: Record<number, number>) {
             const LSSM = window[PREFIX] as Vue;
-            const fmsReal2Show = LSSM.$t('fmsReal2Show') as unknown as {
-                [status: number]: number;
-            };
-            const states_show = {} as { [state: number]: number };
+            const fmsReal2Show = LSSM.$t('fmsReal2Show') as unknown as Record<
+                number,
+                number
+            >;
+            const states_show = {} as Record<number, number>;
             Object.entries(fmsReal2Show).forEach(
                 ([real, show]) =>
                     (states_show[show] = states[parseInt(real)] ?? 0)
@@ -361,7 +360,7 @@ export default {
             return state.vehicles.find(v => v.id === id);
         },
         vehiclesByBuilding(state) {
-            const buildings = {} as { [buildingId: number]: Vehicle[] };
+            const buildings = {} as Record<number, Vehicle[]>;
             state.vehicles.forEach(vehicle => {
                 if (!buildings.hasOwnProperty(vehicle.building_id))
                     buildings[vehicle.building_id] = [];
@@ -370,9 +369,7 @@ export default {
             return buildings;
         },
         buildingsByType(state) {
-            const types = {} as {
-                [type: number]: Building[];
-            };
+            const types = {} as Record<number, Building[]>;
             state.buildings.forEach(b => {
                 if (!types.hasOwnProperty(b.building_type))
                     types[b.building_type] = [];
@@ -382,12 +379,10 @@ export default {
         },
         buildingsByCategory(state, getters) {
             const LSSM = window[PREFIX] as Vue;
-            const categories = LSSM.$t('buildingCategories') as unknown as {
-                [category: string]: BuildingCategory;
-            };
-            const buildingsByCategory = {} as {
-                [category: string]: Building[];
-            };
+            const categories = LSSM.$t(
+                'buildingCategories'
+            ) as unknown as Record<string, BuildingCategory>;
+            const buildingsByCategory = {} as Record<string, Building[]>;
             const { buildingsByType } = getters;
             Object.entries(categories).forEach(
                 ([category, { buildings }]) =>
@@ -400,9 +395,7 @@ export default {
             return buildingsByCategory;
         },
         vehiclesByType(state) {
-            const types = {} as {
-                [type: string]: Vehicle[];
-            };
+            const types = {} as Record<string, Vehicle[]>;
             state.vehicles.forEach(vehicle => {
                 if (!types.hasOwnProperty(vehicle.vehicle_type))
                     types[vehicle.vehicle_type] = [];
@@ -412,8 +405,8 @@ export default {
         },
         vehiclesByTarget(state) {
             const result = {} as {
-                mission: { [id: number]: Vehicle[] };
-                building: { [id: number]: Vehicle[] };
+                mission: Record<number, Vehicle[]>;
+                building: Record<number, Vehicle[]>;
             };
             state.vehicles.forEach(vehicle => {
                 if (!vehicle.target_type || !vehicle.target_id) return;

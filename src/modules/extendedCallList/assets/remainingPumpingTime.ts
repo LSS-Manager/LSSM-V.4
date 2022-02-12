@@ -1,4 +1,4 @@
-import { ProgressbarTimer } from 'typings/Ingame';
+import type { ProgressbarTimer } from 'typings/Ingame';
 
 export default (LSSM: Vue): Promise<void> =>
     LSSM.$store
@@ -18,7 +18,7 @@ export default (LSSM: Vue): Promise<void> =>
                     outer.style.setProperty('display', 'inline-block');
                     barOuter.before(outer);
                 }
-                outer.innerText = window.formatTime(
+                outer.textContent = window.formatTime(
                     Math.floor(endTime / 1000 - window.unix_timestamp()),
                     false
                 );

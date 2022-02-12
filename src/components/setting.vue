@@ -27,8 +27,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { SettingProps } from '../../typings/components/Setting';
-import {
+import type { SettingProps } from '../../typings/components/Setting';
+import type {
     DefaultComputed,
     DefaultData,
     DefaultMethods,

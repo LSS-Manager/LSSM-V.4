@@ -104,9 +104,9 @@ import Vue from 'vue';
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons/faChevronCircleDown';
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons/faChevronCircleUp';
 
-import { $m } from 'typings/Module';
-import { DefaultMethods } from 'vue/types/options';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { $m } from 'typings/Module';
+import type { DefaultMethods } from 'vue/types/options';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
     {

@@ -85,7 +85,10 @@ import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
-import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
+import type {
+    RedesignLightbox,
+    RedesignParser,
+} from 'typings/modules/Redesign';
 
 const windows: RedesignLightbox['Data']['windows'] = {
     'aaos': {
@@ -435,8 +438,9 @@ export default Vue.extend<
                                         'text/html'
                                     );
                                     const script = Array.from(doc.scripts)
-                                        .map(({ innerText }) =>
-                                            innerText.trim()
+                                        .map(
+                                            ({ textContent }) =>
+                                                textContent?.trim() ?? ''
                                         )
                                         .join('\n');
                                     window.coinsUpdate(
@@ -496,21 +500,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`${this.type}.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`${this.type}.${key}`, amount, args);
         },
         getSetting() {
@@ -616,7 +609,7 @@ export default Vue.extend<
                 this.clickableLinks.pictures = showImg;
             });
         window['lssmv4-redesign-lightbox'] = this;
-        const trySetIframe = (): void | number =>
+        const trySetIframe = (): number | void =>
             this.$refs.iframe
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);

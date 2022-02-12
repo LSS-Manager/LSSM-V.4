@@ -207,9 +207,9 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { Building } from 'typings/Building';
-import { Mission } from 'typings/Mission';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { Building } from 'typings/Building';
+import type { Mission } from 'typings/Mission';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type MissionEntry = Omit<Mission, 'prerequisites'> & {
     prerequisites: Record<string, number>;
@@ -217,20 +217,20 @@ type MissionEntry = Omit<Mission, 'prerequisites'> & {
     main_building_extensions: Mission['prerequisites']['main_building_extensions'];
     unfullfilled_prerequisites: [
         string,
-        Record<'have' | 'need' | 'diff', number>
+        Record<'diff' | 'have' | 'need', number>
     ][];
     date_not_fitting: boolean;
 };
 
 type cols =
+    | 'average_credits'
+    | 'duration'
+    | 'generated_by'
     | 'id'
+    | 'missing'
     | 'name'
     | 'place'
-    | 'average_credits'
-    | 'generated_by'
-    | 'prerequisites'
-    | 'duration'
-    | 'missing';
+    | 'prerequisites';
 
 type sort = Exclude<cols, 'missing' | 'prerequisites'>;
 
@@ -420,7 +420,7 @@ export default Vue.extend<
                             .map<
                                 [
                                     string,
-                                    Record<'have' | 'need' | 'diff', number>
+                                    Record<'diff' | 'have' | 'need', number>
                                 ]
                             >(([req, amount]) => {
                                 const have = req.match(/\d+\.\d+/)

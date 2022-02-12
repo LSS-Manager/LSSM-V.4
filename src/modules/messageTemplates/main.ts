@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
     moment.locale(LSSM.$store.state.lang);
@@ -31,7 +31,7 @@ export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
         const aEl = document.createElement('a');
         aEl.textContent = name;
         aEl.title = `${subject}\n---\n${template}`;
-        aEl.onclick = () => {
+        aEl.addEventListener('click', () => {
             const titleEl =
                 document.querySelector<HTMLInputElement>('#message_subject');
             if (titleEl) titleEl.value = subject;
@@ -55,7 +55,7 @@ export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
                                 .format('L')
                     );
             }
-        };
+        });
         if (preselected === index) aEl.click();
         liEl.append(aEl);
         optionList.append(liEl);

@@ -1,4 +1,4 @@
-import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 
 export interface OpenSchooling {
     end: number;
@@ -10,15 +10,16 @@ export interface OpenSchooling {
 }
 
 export interface OpenSchoolingTabs {
-    heads: {
-        [key: string]: {
+    heads: Record<
+        string,
+        {
             title: string;
-        };
-    };
+        }
+    >;
     tabTitles: string[];
     currentTab: string;
     search: string;
-    sort: 'name' | 'seats' | 'price' | 'end' | 'owner';
+    sort: 'end' | 'name' | 'owner' | 'price' | 'seats';
     sortDir: string;
     all: string;
 }

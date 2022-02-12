@@ -9,11 +9,11 @@ import notifications from './store/notifications';
 import settings from './store/settings';
 import storage from './store/storage';
 
-import { LSSMEvent } from '../typings/helpers';
-import { Modules } from '../typings/Module';
-import { RootState } from '../typings/store/RootState';
-import { VueConstructor } from 'vue/types/vue';
-import {
+import type { LSSMEvent } from '../typings/helpers';
+import type { Modules } from '../typings/Module';
+import type { RootState } from '../typings/store/RootState';
+import type { VueConstructor } from 'vue/types/vue';
+import type {
     ActionStoreParams,
     addStyle,
     Hook,
@@ -23,7 +23,7 @@ import {
 } from '../typings/store/Actions';
 // to seperate typings
 // eslint-disable-next-line no-duplicate-imports
-import {
+import type {
     ActionTree,
     GetterTree,
     ModuleTree,
@@ -53,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             discord: `https://discord.gg/${config.discord.invite}`,
             games: config.games,
             server: config.server,
+            fontAwesomeIconSearch: config.fontAwesomeIconSearch,
             hooks: {},
             mapkit: typeof window.mapkit !== 'undefined',
             darkmode: document.body.classList.contains('dark'),
@@ -100,15 +101,15 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             insertStyleSheet(state: RootState) {
                 state.styles.styleSheet = document.createElement('style');
-                document.head.appendChild(state.styles.styleSheet);
+                document.head.append(state.styles.styleSheet);
                 state.styles.inserted = true;
             },
             useFontAwesome(state: RootState) {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
-                fa.src =
-                    'https://use.fontawesome.com/releases/v5.15.4/js/all.js';
-                document.head.appendChild(fa);
+                fa.src = `${state.server}static/fontawesome_free_6.0.0_all.min.js?uid=${state.lang}-${window.user_id}`;
+                fa.crossOrigin = 'anonymous';
+                document.head.append(fa);
                 state.fontAwesome.inserted = true;
             },
             addOSMBar(
@@ -119,10 +120,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     mapId,
                 }: {
                     position:
-                        | 'top-left'
-                        | 'top-right'
                         | 'bottom-left'
-                        | 'bottom-right';
+                        | 'bottom-right'
+                        | 'top-left'
+                        | 'top-right';
                     bar: HTMLDivElement;
                     mapId: string;
                 }
@@ -273,12 +274,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
                 script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
-                document.body.appendChild(script);
+                document.body.append(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {
                 const menuItem = document.createElement('a');
                 menuItem.href = '#';
-                menuItem.innerText = text;
+                menuItem.textContent = text;
                 commit('addMenuItem', menuItem);
                 return menuItem;
             },
@@ -320,7 +321,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 const observer = new MutationObserver(mutations => {
                     mutations.forEach(record => {
                         if (
-                            Array.from(record.addedNodes).find(
+                            Array.from(record.addedNodes).some(
                                 node => node.nodeName === 'SCRIPT'
                             )
                         )
@@ -338,10 +339,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     mapId = 'map',
                 }: {
                     position:
-                        | 'top-left'
-                        | 'top-right'
                         | 'bottom-left'
-                        | 'bottom-right';
+                        | 'bottom-right'
+                        | 'top-left'
+                        | 'top-right';
                     mapId: string;
                 }
             ) {

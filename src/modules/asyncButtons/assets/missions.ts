@@ -8,13 +8,14 @@ export default (
         document.querySelector('.vehicle_prisoner_select') &&
         missionSettings.includes('missionPrisoners')
     ) {
-        const prisonersLabel = document.getElementById('h2_prisoners');
+        const prisonersLabel =
+            document.querySelector<HTMLHeadingElement>('#h2_prisoners');
         let currentPrisoners = parseInt(
             prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
         );
         if (prisonersLabel && currentPrisoners) {
             document
-                .getElementById('mission_vehicle_at_mission')
+                .querySelector<HTMLTableElement>('#mission_vehicle_at_mission')
                 ?.addEventListener('click', e => {
                     const target = e.target as HTMLElement;
                     if (
@@ -70,7 +71,9 @@ export default (
                             });
 
                             document
-                                .getElementById(`vehicle_row_${vehicleId}`)
+                                .querySelector<HTMLTableRowElement>(
+                                    `#vehicle_row_${vehicleId}`
+                                )
                                 ?.remove();
                             target.parentElement?.parentElement?.remove();
                             currentPrisoners -= amount;
@@ -93,7 +96,7 @@ export default (
         }
     }
 
-    // MissionReply [WIP]
+    // MissionReply
     const replyButton = document.querySelector<HTMLButtonElement>(
         '#mission_reply_content ~ div button[type="submit"]'
     );
@@ -174,10 +177,7 @@ export default (
                     reply.setAttribute('title', new Date().toLocaleString());
                     const userLink = document.createElement('a');
                     userLink.setAttribute('href', `/profile/${user_id}`);
-                    userLink.textContent =
-                        window.user_name ??
-                        LSSM.$store.state.api.credits.user_name ??
-                        '¶'; // TODO: Remove fallbacks once name is available ingame
+                    userLink.textContent = window.username;
                     reply.append(
                         document.createTextNode(
                             `[${new Date()

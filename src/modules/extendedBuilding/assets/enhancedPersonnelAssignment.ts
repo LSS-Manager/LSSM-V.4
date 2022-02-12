@@ -1,7 +1,7 @@
-import { $m } from 'typings/Module';
-import { Schooling } from 'typings/Schooling';
-import { Building, InternalBuilding } from 'typings/Building';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { $m } from 'typings/Module';
+import type { Schooling } from 'typings/Schooling';
+import type { Building, InternalBuilding } from 'typings/Building';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
@@ -32,9 +32,7 @@ export default async (
             id: vehicleId,
             feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
         })) as Vehicle);
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
     if (vehicleId < 0 || !vehicle) return;
 
     const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[

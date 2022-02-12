@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Toggle } from 'typings/Setting';
 
 export default (() => ({
     buildingTax: <Toggle>{
@@ -13,7 +13,6 @@ export default (() => ({
     missionReply: <Toggle>{
         type: 'toggle',
         default: false,
-        disabled: () => true,
     },
     memberlistManageUser: <Toggle>{
         type: 'toggle',

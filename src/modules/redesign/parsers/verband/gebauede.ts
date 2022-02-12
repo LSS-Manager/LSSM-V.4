@@ -1,7 +1,7 @@
 import verbandParser from './verbandParser';
 
-import { RedesignParser } from 'typings/modules/Redesign';
-import { VerbandWindow } from 'typings/modules/Redesign/Verband';
+import type { RedesignParser } from 'typings/modules/Redesign';
+import type { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 interface Extension {
     name: string;
@@ -29,7 +29,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
     getIdFromEl = () => -1,
 }) => {
     const markerScript = Array.from(doc.scripts)
-        .map(({ innerText }) => innerText.trim())
+        .map(({ textContent }) => textContent?.trim() ?? '')
         .find(t => t.match(/L\.map/));
     if (!markerScript)
         throw new Error('Could not find a script that sets the map!');
@@ -43,7 +43,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
             ({
                 groups: { lat, long, id } = {},
             }: {
-                groups?: Partial<Record<'lat' | 'long' | 'id', string>>;
+                groups?: Partial<Record<'id' | 'lat' | 'long', string>>;
             }) => {
                 if (!lat || !long || !id) {
                     throw new Error(

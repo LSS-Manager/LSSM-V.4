@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+import type { Building } from 'typings/Building';
 
 export default (LSSM: Vue): void => {
     const buildingId = parseInt(
@@ -9,13 +9,14 @@ export default (LSSM: Vue): void => {
         ({ id }) => id === buildingId
     );
     if (!building) return;
-    const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
-        [type: number]: Building[];
-    };
-    const smallBuildings = LSSM.$t('small_buildings') as unknown as {
-        [type: number]: number;
-    };
-    const smallBuildingsArray: (string | number)[] = Object.entries(
+    const buildingsByType = LSSM.$store.getters[
+        'api/buildingsByType'
+    ] as Record<number, Building[]>;
+    const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
+        number,
+        number
+    >;
+    const smallBuildingsArray: (number | string)[] = Object.entries(
         smallBuildings
     ).find(ids =>
         ids.map(id => parseInt(id.toString())).includes(building.building_type)
@@ -30,7 +31,9 @@ export default (LSSM: Vue): void => {
         .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
     const position = buildings.indexOf(buildingId);
     if (position < 0) return;
-    const btnGroup = document.getElementById('building-navigation-container');
+    const btnGroup = document.querySelector<HTMLDivElement>(
+        '#building-navigation-container'
+    );
     if (!btnGroup) return;
     btnGroup.children[0].textContent = `[←${position}] ${btnGroup.children[0].textContent}`;
     btnGroup.children[btnGroup.children.length - 1].textContent += ` [${

@@ -1,4 +1,4 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export default (
     LSSM: Vue,
@@ -6,7 +6,7 @@ export default (
     $m: $m,
     MODULE_ID: string
 ): void => {
-    const BUILDING_MODE = document.getElementById('ausbauten')
+    const BUILDING_MODE = document.querySelector<HTMLDivElement>('#ausbauten')
         ? 'building'
         : 'dispatch';
 
@@ -49,7 +49,7 @@ export default (
     // Extension State
     if (buildingSettings.includes('switchExtensionState')) {
         const newState = (btn: HTMLElement): boolean => {
-            return btn.innerText != $m('buildings.active');
+            return btn.textContent != $m('buildings.active');
         };
         const extensionStateBtns = Array.from(
             document.querySelectorAll<HTMLAnchorElement>(
@@ -91,13 +91,13 @@ export default (
                             extensionStateBtns.forEach(tbtn =>
                                 tbtn.classList.remove('disabled')
                             );
-                            btn.innerText = newState(btn as HTMLElement)
+                            btn.textContent = newState(btn as HTMLElement)
                                 ? ($m('buildings.active') as string)
                                 : ($m('buildings.nonactive') as string);
                             const label =
                                 btn.parentElement?.querySelector('span');
                             if (!label) return;
-                            label.innerText = newState(btn as HTMLElement)
+                            label.textContent = newState(btn as HTMLElement)
                                 ? ($m('buildings.active') as string)
                                 : ($m('buildings.nonactive') as string);
                             // eslint-disable-next-line no-unused-expressions

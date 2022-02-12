@@ -1,6 +1,6 @@
-import { $m } from 'typings/Module';
-import { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
-import { InternalVehicle } from 'typings/Vehicle';
+import type { $m } from 'typings/Module';
+import type { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { InternalVehicle } from 'typings/Vehicle';
 
 type Requirements = EnhancedMissingVehiclesProps['missingRequirements'];
 

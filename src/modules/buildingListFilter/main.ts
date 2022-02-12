@@ -1,8 +1,10 @@
-import { Building } from 'typings/Building';
-import { ModuleMainFunction } from 'typings/Module';
+import type { Building } from 'typings/Building';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
-    let wrapper = document.getElementById('btn-group-building-select');
+    let wrapper = document.querySelector<HTMLDivElement>(
+        '#btn-group-building-select'
+    );
     if (!wrapper) return;
 
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
@@ -11,11 +13,11 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     LSSM.$store.commit('useFontAwesome');
 
     interface Filter {
-        contentType: 'text' | 'icon';
-        icon_style: 'fas' | 'far' | 'fab';
+        contentType: 'icon' | 'text';
+        icon_style: 'fab' | 'far' | 'fas';
         title: string;
         buildings: number[];
-        state: 'enabled' | 'disabled';
+        state: 'disabled' | 'enabled';
     }
     const filters = [
         {
@@ -99,7 +101,9 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     >;
 
     const updateFilters = async () => {
-        wrapper = document.getElementById('btn-group-building-select');
+        wrapper = document.querySelector<HTMLDivElement>(
+            '#btn-group-building-select'
+        );
         if (!wrapper) return;
         wrapper.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
@@ -133,7 +137,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 const btn = document.createElement('button');
                 btn.classList.add('btn', 'btn-xs', 'btn-success');
                 if (contentType === 'text') {
-                    if (title) btn.innerText = title;
+                    if (title) btn.textContent = title;
                     else btn.innerHTML = '&nbsp;';
                 } else {
                     const icon = document.createElement('i');
@@ -215,8 +219,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             const icon = sortBtn.querySelector('svg');
             if (!icon) return;
             const state = buildingList.classList.toggle(reversedListClass);
-            if (state) icon.setAttribute('data-icon', 'sort-alpha-up-alt');
-            else icon.setAttribute('data-icon', 'sort-alpha-down');
+            if (state) icon.setAttribute('data-icon', 'arrow-up-a-z');
+            else icon.setAttribute('data-icon', 'arrow-down-z-a');
             LSSM.$store
                 .dispatch('settings/setSetting', {
                     moduleId: MODULE_ID,
@@ -283,7 +287,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
     const observer = new MutationObserver(updateFilters);
 
-    const buildingsElement = document.getElementById('buildings');
+    const buildingsElement =
+        document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 

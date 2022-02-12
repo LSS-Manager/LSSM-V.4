@@ -1,4 +1,4 @@
-import { AllianceChatMessage } from 'typings/Ingame';
+import type { AllianceChatMessage } from 'typings/Ingame';
 
 export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
     const { urlRegex } = LSSM.$utils;

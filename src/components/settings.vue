@@ -137,6 +137,8 @@
                                 ),
                                 {
                                     wiki: $store.getters.wiki,
+                                    fontAwesomeIconSearch:
+                                        $store.state.fontAwesomeIconSearch,
                                 }
                             )
                         "
@@ -295,13 +297,13 @@ import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
 
-import { DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type {
     AppendableList,
     ModuleSettings,
     Setting as SettingType,
 } from '../../typings/Setting';
-import {
+import type {
     SettingsComputed,
     SettingsData,
     SettingsMethods,
@@ -457,7 +459,7 @@ export default Vue.extend<
                         this.settings[moduleId][settingId].value,
                         this.startSettings[moduleId][settingId].value
                     )) ||
-                !!Object.entries(this.settings).find(([module, settings]) =>
+                Object.entries(this.settings).some(([module, settings]) =>
                     Object.entries(settings).find(
                         ([setting, { value }]) =>
                             !isEqual(
@@ -637,14 +639,13 @@ export default Vue.extend<
 
             fileReader.readAsText(file);
 
-            fileReader.onload = async () => {
-                const result = JSON.parse(fileReader.result as string) as {
-                    [key: string]:
-                        | string[]
-                        | {
-                              [key: string]: SettingType['value'];
-                          };
-                };
+            fileReader.addEventListener('load', async () => {
+                const result = JSON.parse(
+                    fileReader.result as string
+                ) as Record<
+                    string,
+                    Record<string, SettingType['value']> | string[]
+                >;
                 if (result.activeModules) {
                     await this.$store.dispatch('storage/set', {
                         key: 'activeModules',
@@ -666,7 +667,7 @@ export default Vue.extend<
                                 window.location.reload();
                         });
                 });
-            };
+            });
         },
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.settings.${key}`, args),

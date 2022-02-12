@@ -7,7 +7,7 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
 
     const generationDate = moment(
         document
-            .getElementById('mission_general_info')
+            .querySelector<HTMLDivElement>('#mission_general_info')
             ?.getAttribute('data-generation-time')
     );
 
@@ -19,7 +19,7 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
     const generationDateNode = document.createElement('span');
     generationDateNode.innerHTML = `&nbsp;|&nbsp;<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
     document
-        .querySelector('#mission_general_info > small')
+        .querySelector<HTMLElement>('#mission_general_info > small')
         ?.append(generationDateNode);
 
     generationDateNode.style.paddingLeft = '2px';

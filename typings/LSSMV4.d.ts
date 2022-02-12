@@ -1,5 +1,5 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { NotificationsState } from './store/notifications/State';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { NotificationsState } from './store/notifications/State';
 
 export interface LSSMV4Data {
     id: string;

@@ -146,8 +146,8 @@ import Vue from 'vue';
 
 import { Chart } from 'highcharts-vue';
 
-import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
-import {
+import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
+import type {
     Category,
     DailyCreditsSummary,
     DailyCreditsSummaryComputed,
@@ -234,9 +234,7 @@ export default Vue.extend<
             );
         },
         creditsTypeSum() {
-            const result: {
-                [key: string]: Category;
-            } = Object.fromEntries(
+            const result: Record<string, Category> = Object.fromEntries(
                 Object.entries(this.creditsTypes as CreditsTypes).map(
                     ([key, { regex, title, backgroundColor, textColor }]) => [
                         key,

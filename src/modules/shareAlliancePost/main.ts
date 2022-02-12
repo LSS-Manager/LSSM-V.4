@@ -14,9 +14,9 @@ import {
     shareMission,
 } from './assets/util';
 
-import { Mission } from 'typings/Mission';
-import { ModuleMainFunction } from 'typings/Module';
-import VueI18n from 'vue-i18n';
+import type { Mission } from 'typings/Mission';
+import type { ModuleMainFunction } from 'typings/Module';
+import type VueI18n from 'vue-i18n';
 
 export interface Message {
     name: string;
@@ -53,7 +53,7 @@ export default <ModuleMainFunction>(async ({
         (addEmvKey = true) =>
         (
             key: string,
-            args?: { [key: string]: unknown }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult =>
             LSSM.$t(
                 `modules.extendedCallWindow.${
@@ -69,7 +69,8 @@ export default <ModuleMainFunction>(async ({
         },
     });
 
-    const missionHelpBtn = document.getElementById('mission_help');
+    const missionHelpBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_help');
     let missionType =
         missionHelpBtn
             ?.getAttribute('href')
@@ -77,13 +78,13 @@ export default <ModuleMainFunction>(async ({
     if (missionType !== '-1') {
         const overlayIndex =
             document
-                .getElementById('mission_general_info')
+                .querySelector<HTMLDivElement>('#mission_general_info')
                 ?.getAttribute('data-overlay-index') ?? 'null';
         if (overlayIndex && overlayIndex !== 'null')
             missionType += `-${overlayIndex}`;
         const additionalOverlay =
             document
-                .getElementById('mission_general_info')
+                .querySelector<HTMLDivElement>('#mission_general_info')
                 ?.getAttribute('data-additive-overlays') ?? 'null';
         if (additionalOverlay && additionalOverlay !== 'null')
             missionType += `/${additionalOverlay}`;
@@ -251,15 +252,18 @@ export default <ModuleMainFunction>(async ({
             }
             return (
                 missingRequirements?.missingRequirements
+                    .map(({ vehicle, total, missing, selected }) => [
+                        vehicle,
+                        total ??
+                            (typeof selected === 'number'
+                                ? missing - selected
+                                : missing - selected.max) ??
+                            0,
+                    ])
+                    .filter(([, remaining]) => remaining > 0)
                     .map(
-                        ({ vehicle, total, missing, selected }) =>
-                            `${(
-                                total ??
-                                (typeof selected === 'number'
-                                    ? missing - selected
-                                    : missing - selected.max) ??
-                                0
-                            ).toLocaleString()} ${vehicle}`
+                        ([vehicle, remaining]) =>
+                            `${remaining.toLocaleString()} ${vehicle}`
                     )
                     .join(', ') ??
                 remainingVehicles ??

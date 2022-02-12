@@ -1,7 +1,7 @@
 import verbandParser from './verbandParser';
 
-import { RedesignParser } from 'typings/modules/Redesign';
-import { VerbandWindow } from 'typings/modules/Redesign/Verband';
+import type { RedesignParser } from 'typings/modules/Redesign';
+import type { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 export interface VerbandHomeWindow extends VerbandWindow {
     image: string;

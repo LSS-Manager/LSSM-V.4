@@ -1098,9 +1098,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { VehicleWindow } from '../parsers/vehicle';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { VehicleWindow } from '../parsers/vehicle';
 
 type Component = RedesignComponent<
     'vehicle',
@@ -1117,7 +1117,7 @@ type Component = RedesignComponent<
         faTrash: IconDefinition;
         missionListSrc: number;
         search: string;
-        searchTimeout: null | number;
+        searchTimeout: number | null;
         sort: string;
         sortDir: 'asc' | 'desc';
         hospitalListSrc: number;
@@ -1129,7 +1129,7 @@ type Component = RedesignComponent<
         };
         filter: {
             mission: {
-                status: ('red' | 'green' | 'yellow')[];
+                status: ('green' | 'red' | 'yellow')[];
                 participation: boolean[];
                 distance: number;
                 credits: number;
@@ -1174,39 +1174,43 @@ type Component = RedesignComponent<
     },
     {
         participated_missions: number[];
-        mission_head: {
-            [key: string]: {
+        mission_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         missionList: VehicleWindow['mission_own'];
         missionListFiltered: VehicleWindow['mission_own'];
         missionListSorted: VehicleWindow['mission_own'];
-        hospital_head: {
-            [key: string]: {
+        hospital_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         hospitalList: VehicleWindow['own_hospitals'];
         hospitalListFiltered: VehicleWindow['own_hospitals'];
         hospitalListSorted: VehicleWindow['own_hospitals'];
-        cell_head: {
-            [key: string]: {
+        cell_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         cellList: VehicleWindow['own_cells'];
         cellListFiltered: VehicleWindow['own_cells'];
         cellListSorted: VehicleWindow['own_cells'];
-        wlf_head: {
-            [key: string]: {
+        wlf_head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         wlfListFiltered: VehicleWindow['wlfs'];
         wlfListSorted: VehicleWindow['wlfs'];
     }

@@ -1,4 +1,4 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export default (command: string, $m: $m): string =>
     `${command

@@ -95,7 +95,7 @@
 			"title": "Text oder Icon?"
 		},
 		"filters": {
-			"description": "Lege hier die Filter fest. Du kannst statt Text auch ein Icon angeben, zur Auswahl stehen dir hierbei <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
+			"description": "Lege hier die Filter fest. Du kannst statt Text auch ein Icon angeben, zur Auswahl stehen dir hierbei <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
 			"title": "Gebäudefilter"
 		},
 		"icon_style": "Icon-Typ",

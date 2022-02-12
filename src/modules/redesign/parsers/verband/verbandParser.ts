@@ -1,5 +1,5 @@
-import { ParserParam } from 'typings/modules/Redesign';
-import { VerbandWindow } from 'typings/modules/Redesign/Verband';
+import type { ParserParam } from 'typings/modules/Redesign';
+import type { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 export default ({
     doc,

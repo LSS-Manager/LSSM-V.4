@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Hidden, Select } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Hidden, Select } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((_, __, $m) => {
     const positions = $m('positions');

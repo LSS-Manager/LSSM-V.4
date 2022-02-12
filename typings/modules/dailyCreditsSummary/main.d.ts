@@ -1,8 +1,9 @@
-export interface CreditsTypes {
-    [key: string]: {
+export type CreditsTypes = Record<
+    string,
+    {
         regex?: RegExp | string;
         title?: string;
         backgroundColor: string;
         textColor: string;
-    };
-}
+    }
+>;

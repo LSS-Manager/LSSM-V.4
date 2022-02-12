@@ -106,7 +106,7 @@ module.exports = {
             [/^N\.B\.C\.R\.$/]: [6],
             [/^Ambulanz[ae] BLSD?$/]: [4, 20],
             [/^Volanti?$/]: [7, 16, 15, 21],
-            [/^Furgon[ie] artificieri$/]: [22],
+            [/^Furgon[ei] artificieri$/]: [22],
             [/^Elicotter[io] della polizia?$/]: [13],
             [/^Unità antisommossa$/]: [14],
             [/^Unità cinofila antidroga$/]: [15],

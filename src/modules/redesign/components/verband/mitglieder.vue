@@ -219,9 +219,9 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandMitgliederWindow } from '../../parsers/verband/mitglieder';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { VerbandMitgliederWindow } from '../../parsers/verband/mitglieder';
 
 type Component = RedesignSubComponent<
     'mitglieder',
@@ -231,12 +231,13 @@ type Component = RedesignSubComponent<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
         caption_editing: number[];
@@ -254,11 +255,11 @@ type Component = RedesignSubComponent<
             user_id: number,
             right:
                 | 'admin'
-                | 'coadmin'
-                | 'sprechwunsch_admin'
                 | 'aufsichtsrat'
+                | 'coadmin'
                 | 'finance'
                 | 'schooling'
+                | 'sprechwunsch_admin'
                 | 'staff',
             new_state: 0 | 1
         ): void;

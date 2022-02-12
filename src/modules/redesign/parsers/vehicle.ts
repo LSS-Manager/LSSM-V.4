@@ -1,4 +1,4 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface Mission {
     image: string;
@@ -7,7 +7,7 @@ interface Mission {
     type: number;
     adress: string;
     distance: string;
-    list: 'mission_own' | 'mission_alliance';
+    list: 'mission_alliance' | 'mission_own';
     progress: {
         active: boolean;
         width: number;
@@ -16,7 +16,7 @@ interface Mission {
         current: number;
         total: number;
     };
-    status: 'red' | 'yellow' | 'green';
+    status: 'green' | 'red' | 'yellow';
 }
 
 interface Hospital {
@@ -25,8 +25,8 @@ interface Hospital {
     distance: string;
     beds: number;
     department: boolean;
-    state: 'success' | 'danger' | 'warning';
-    list: 'own_hospitals' | 'alliance_hospitals';
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance_hospitals' | 'own_hospitals';
     tax: number;
 }
 
@@ -35,8 +35,8 @@ interface Cell {
     id: number;
     distance: string;
     free: number;
-    state: 'success' | 'danger' | 'warning';
-    list: 'own_cells' | 'alliance_cells';
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance_cells' | 'own_cells';
     tax: number;
 }
 
@@ -148,7 +148,7 @@ export default <RedesignParser<VehicleWindow>>(({
     const own_cells: Cell[] = [];
     const alliance_cells: Cell[] = [];
     if (hasCells) {
-        let list: 'own_cells' | 'alliance_cells' = 'own_cells';
+        let list: 'alliance_cells' | 'own_cells' = 'own_cells';
         doc.querySelectorAll<HTMLAnchorElement>(
             `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
         ).forEach(cell => {
@@ -187,7 +187,7 @@ export default <RedesignParser<VehicleWindow>>(({
     // because missions may appear in own and alliance lists
     const mission_ids: number[] = [];
     const get_hospitals = (
-        list: 'own_hospitals' | 'alliance_hospitals'
+        list: 'alliance_hospitals' | 'own_hospitals'
     ): Hospital[] => {
         if (!hasHospitals) return [];
         return Array.from(
@@ -252,10 +252,12 @@ export default <RedesignParser<VehicleWindow>>(({
         can_move: !!doc.querySelector('a[href$="/move"]'),
         fms,
         max_staff: parseInt(
-            doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
-                '-1'
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-max-personnel')
+                ?.textContent ?? '-1'
         ),
-        mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
+        mileage:
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-total-km')
+                ?.textContent ?? '',
         image:
             imageEl?.getAttribute('image_replace_allowed') === 'true'
                 ? (doc.documentElement.innerHTML.match(
@@ -263,8 +265,8 @@ export default <RedesignParser<VehicleWindow>>(({
                   )
                       ? JSON.parse(
                             Array.from(doc.scripts)
-                                .find(({ innerText }) =>
-                                    innerText.match(/vehicle_graphics/)
+                                .find(({ textContent }) =>
+                                    textContent?.match(/vehicle_graphics/)
                                 )
                                 ?.innerText.match(
                                     new RegExp(
@@ -306,11 +308,11 @@ export default <RedesignParser<VehicleWindow>>(({
             )
         ),
         water_amount:
-            doc.getElementById('vehicle-attr-water-amount')?.textContent ??
-            undefined,
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-water-amount')
+                ?.textContent ?? undefined,
         foam_amount:
-            doc.getElementById('vehicle-attr-foam-amount')?.textContent ??
-            undefined,
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-foam-amount')
+                ?.textContent ?? undefined,
         ...(Object.fromEntries(
             ['mission_own', 'mission_alliance'].map(list => [
                 list,

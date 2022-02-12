@@ -1,7 +1,7 @@
-import { LayersControlEvent } from 'leaflet';
-import { ModuleMainFunction } from 'typings/Module';
-import { POI } from 'typings/modules/EnhancedPOI';
-import { POIMarker } from 'typings/Ingame';
+import type { LayersControlEvent } from 'leaflet';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { POI } from 'typings/modules/EnhancedPOI';
+import type { POIMarker } from 'typings/Ingame';
 
 export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
@@ -141,10 +141,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             'poi-hider-style',
             true
         );
-        document.getElementById(extraStyleId)?.remove();
+        document.querySelector<HTMLStyleElement>(`#${extraStyleId}`)?.remove();
         const style = document.createElement('style');
         style.id = extraStyleId;
-        style.innerText = `${selector} {display: block !important;}`;
+        style.textContent = `${selector} {display: block !important;}`;
         document.body.append(style);
     };
     refresh_shown_pois();
@@ -167,7 +167,12 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                     .forEach(el => el.classList.remove(poiHighlightedClass));
                 return;
             }
-            if (isPOIWindow && document.getElementById(poiSettingsWrapperId))
+            if (
+                isPOIWindow &&
+                document.querySelector<HTMLDivElement>(
+                    `#${poiSettingsWrapperId}`
+                )
+            )
                 return;
             isPOIWindow = true;
 
@@ -292,7 +297,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         });
     });
 
-    const buildingsElement = document.getElementById('buildings');
+    const buildingsElement =
+        document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 }) as ModuleMainFunction;

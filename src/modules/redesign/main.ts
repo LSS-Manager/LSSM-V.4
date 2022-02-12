@@ -1,5 +1,5 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { routeChecks } from 'typings/modules/Redesign';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { routeChecks } from 'typings/modules/Redesign';
 
 export default (async ({ LSSM, MODULE_ID, getSetting }) => {
     const routeChecks: routeChecks = {
@@ -71,18 +71,12 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                         ),
                     {
                         url: href,
-                        $m: (
-                            key: string,
-                            args?: {
-                                [key: string]: unknown;
-                            }
-                        ) => LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
+                        $m: (key: string, args?: Record<string, unknown>) =>
+                            LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
                         $mc: (
                             key: string,
                             amount: number,
-                            args?: {
-                                [key: string]: unknown;
-                            }
+                            args?: Record<string, unknown>
                         ) =>
                             LSSM.$tc(
                                 `modules.${MODULE_ID}.${key}`,
@@ -198,9 +192,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                                     : window.location.href,
                                 $m: (
                                     key: string,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$t(
                                         `modules.${MODULE_ID}.${key}`,
@@ -209,9 +201,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                                 $mc: (
                                     key: string,
                                     amount: number,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$tc(
                                         `modules.${MODULE_ID}.${key}`,
@@ -224,8 +214,9 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                             },
                         }),
                 }).$mount(
-                    document.getElementById('iframe-inside-container') ??
-                        document.body
+                    document.querySelector<HTMLDivElement>(
+                        '#iframe-inside-container'
+                    ) ?? document.body
                 );
                 lightboxAdjust();
             });

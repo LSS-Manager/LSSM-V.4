@@ -1,4 +1,4 @@
-import { AllianceChatMessage } from 'typings/Ingame';
+import type { AllianceChatMessage } from 'typings/Ingame';
 import moment from 'moment';
 
 export default (LSSM: Vue, format: string): void => {

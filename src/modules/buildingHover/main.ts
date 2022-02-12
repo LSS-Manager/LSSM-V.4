@@ -1,8 +1,8 @@
-import { Building } from 'typings/Building';
-import { ModuleMainFunction } from 'typings/Module';
-import { PointTuple } from 'leaflet';
-import { BuildingMarker, RadioMessage } from 'typings/Ingame';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { Building } from 'typings/Building';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { PointTuple } from 'leaflet';
+import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
@@ -14,9 +14,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         feature: MODULE_ID,
     });
 
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
 
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.${LSSM.$store.getters.nodeAttribute(
@@ -29,9 +27,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    let vehiclesByBuilding: {
-        [buildingId: number]: Vehicle[];
-    };
+    let vehiclesByBuilding: Record<number, Vehicle[]>;
 
     let buildings: Building[];
 

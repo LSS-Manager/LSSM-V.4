@@ -131,7 +131,7 @@ import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
-import {
+import type {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
     EnhancedMissingVehiclesMethods,
@@ -328,14 +328,14 @@ export default Vue.extend<
                     this.pushedRight = !this.pushedRight;
                     if (!this.pushedRight) {
                         document
-                            .querySelector(
+                            .querySelector<HTMLDivElement>(
                                 '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
                             )
                             ?.after(this.$el);
                     } else {
                         document
-                            .getElementById('mission-form')
-                            ?.insertAdjacentElement('afterbegin', this.$el);
+                            .querySelector<HTMLFormElement>('#mission-form')
+                            ?.prepend(this.$el);
                     }
                 });
         },
@@ -402,7 +402,7 @@ export default Vue.extend<
             (requirement, value) => this.$set(requirement, 'selected', value),
             this.$m
         );
-        const amountElement = document.getElementById('vehicle_amount');
+        const amountElement = document.querySelector('#vehicle_amount');
 
         if (!observeHandler || !amountElement) return;
 

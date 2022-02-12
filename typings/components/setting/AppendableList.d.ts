@@ -1,6 +1,6 @@
-import cloneDeep from 'lodash/cloneDeep';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import {
+import type cloneDeep from 'lodash/cloneDeep';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type {
     AppendableList as AppendableListSetting,
     AppendableListSetting as AppendableListSettingSetting,
     MultiSelect,
@@ -32,7 +32,7 @@ export interface AppendableListMethods {
         item: AppendableListSettingSetting
     ): void;
     getOptions(
-        setting: AppendableListSettingSetting<Select | MultiSelect>,
+        setting: AppendableListSettingSetting<MultiSelect | Select>,
         currentValue: string
     ): { label: string; value: string }[];
     moveUp(index: number): void;

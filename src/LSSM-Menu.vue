@@ -100,8 +100,8 @@ import svgToMiniDataURI from 'mini-svg-data-uri';
 import LibraryOverview from './components/libraryOverview.vue';
 import lssmLogo from './img/lssm_logo';
 
-import { DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type {
     lssmMenuComputed,
     lssmMenuData,
     lssmMenuMethods,
@@ -218,7 +218,7 @@ export default Vue.extend<
     directives: {
         child: {
             inserted(el, dir) {
-                el.appendChild(dir.value);
+                el.append(dir.value);
             },
         },
     },
@@ -248,7 +248,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function (event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel(): void }) {
                         if (!LSSM.$store.state.appstore.changes) {
                             if (LSSM.$store.state.appstore.reload) {
                                 event.cancel();
@@ -334,7 +334,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function (event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel(): void }) {
                         if (!LSSM.$store.state.settings.changes) {
                             if (LSSM.$store.state.settings.reload) {
                                 event.cancel();
@@ -463,7 +463,8 @@ export default Vue.extend<
                 this.iconBgAsNavBg = iconBgAsNavBg;
 
                 if (iconBgAsNavBg) {
-                    this.navbg.navbar = document.getElementById('main_navbar');
+                    this.navbg.navbar =
+                        document.querySelector<HTMLElement>('#main_navbar');
                     const bgImg = this.navbg.navbar
                         ? window.getComputedStyle(this.navbg.navbar)
                               .backgroundImage

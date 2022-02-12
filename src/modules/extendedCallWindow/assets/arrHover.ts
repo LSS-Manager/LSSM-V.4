@@ -1,4 +1,4 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export default (
     LSSM: Vue,
@@ -7,15 +7,15 @@ export default (
     MODULE_ID: string,
     $m: $m
 ): void => {
-    const ARRContainer = document.getElementById(
-        'mission-aao-group'
-    ) as HTMLDivElement;
+    const ARRContainer =
+        document.querySelector<HTMLDivElement>('#mission-aao-group');
 
     if (!ARRContainer) return;
 
-    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as {
-        [spec: string]: string;
-    };
+    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as Record<
+        string,
+        string
+    >;
 
     const infoBox = document.createElement('div');
     infoBox.id = LSSM.$store.getters.nodeAttribute(
@@ -135,7 +135,7 @@ export default (
         buildings: number[],
         attributes: Record<string, number>,
         custom: Record<string, number>
-    ): { [attribute: string]: number } => {
+    ): Record<string, number> => {
         let hlf_or_rw_lf = 0;
         let naw_or_rtw_nef = 0;
         let naw_or_rtw_nef_rth = 0;
@@ -316,9 +316,9 @@ export default (
         .dispatch('hook', {
             event: 'aao_available',
             callback(id: number) {
-                const arr = document.getElementById(
-                    `aao_${id}`
-                ) as HTMLAnchorElement | null;
+                const arr = document.querySelector<HTMLAnchorElement>(
+                    `#aao_${id}`
+                );
                 if (!arr) return;
                 const buildingIds: number[] = JSON.parse(
                     arr.getAttribute('building_ids') || '[]'

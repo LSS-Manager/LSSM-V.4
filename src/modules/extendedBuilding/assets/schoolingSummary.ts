@@ -1,12 +1,12 @@
-import { $m } from 'typings/Module';
-import { Schooling } from 'typings/Schooling';
+import type { $m } from 'typings/Module';
+import type { Schooling } from 'typings/Schooling';
 import SchoolingSummary from '../components/schoolingSummary.vue';
-import { Building, InternalBuilding } from 'typings/Building';
-import {
+import type { Building, InternalBuilding } from 'typings/Building';
+import type {
     EachSchooling,
     SchoolingSummaryObject,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
@@ -69,9 +69,10 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes = LSSM.$t('vehicles') as unknown as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
+        number,
+        InternalVehicle
+    >;
 
     const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[
         (LSSM.$store.state.api.buildings as Building[]).find(

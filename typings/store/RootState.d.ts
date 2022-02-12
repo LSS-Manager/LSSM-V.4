@@ -1,6 +1,6 @@
-import { Games } from '../Game';
-import { Modules } from '../Module';
-import { returnTypeFunction } from 'typings/helpers';
+import type { Games } from '../Game';
+import type { Modules } from '../Module';
+import type { returnTypeFunction } from 'typings/helpers';
 
 export interface RootState {
     readonly prefix: string;
@@ -10,9 +10,8 @@ export interface RootState {
     readonly discord: string;
     readonly games: Games;
     readonly server: string;
-    readonly hooks: {
-        [event: string]: returnTypeFunction;
-    };
+    readonly fontAwesomeIconSearch: string;
+    readonly hooks: Record<string, returnTypeFunction>;
     readonly mapkit: boolean;
     readonly darkmode: boolean;
     readonly premium: boolean;
@@ -34,7 +33,5 @@ export interface RootState {
     };
     credits: number;
     coins: number;
-    osmBars: {
-        [mapId: string]: { [position: string]: HTMLDivElement };
-    };
+    osmBars: Record<string, Record<string, HTMLDivElement>>;
 }
