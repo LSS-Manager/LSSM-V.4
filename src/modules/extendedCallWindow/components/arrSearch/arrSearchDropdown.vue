@@ -6,7 +6,7 @@
         multiple
         :placeholder="$sm('settings.arrSearch.title')"
         :selectable="option => !option.category"
-        :close-on-select="false"
+        :close-on-select="closeDropdownOnSelect"
         :clear-search-on-select="false"
         :components="{ Deselect }"
         @option:selecting="selected"
@@ -49,7 +49,7 @@ export default Vue.extend<
     },
     { selected(option: ARROption): void },
     DefaultComputed,
-    { $sm: $m }
+    { closeDropdownOnSelect: boolean; $sm: $m }
 >({
     name: 'lssmv4-ecw-arr-search-dropdown',
     components: {
@@ -115,6 +115,10 @@ export default Vue.extend<
         },
     },
     props: {
+        closeDropdownOnSelect: {
+            type: Boolean,
+            required: true,
+        },
         $sm: {
             type: Function,
             required: true,

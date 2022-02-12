@@ -217,6 +217,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.arrSearch',
         },
+        arrSearchCloseDropdownOnSelect: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearchDropdown',
+        },
         tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,

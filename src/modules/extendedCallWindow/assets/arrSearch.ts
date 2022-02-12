@@ -1,6 +1,12 @@
 import type { $m } from 'typings/Module';
 
-export default (LSSM: Vue, autoFocus: boolean, dropdown: boolean, $sm: $m) => {
+export default (
+    LSSM: Vue,
+    autoFocus: boolean,
+    dropdown: boolean,
+    closeDropdownOnSelect: boolean,
+    $sm: $m
+) => {
     const aaoGroupElement =
         document.querySelector<HTMLDivElement>('#mission-aao-group');
     if (!aaoGroupElement) return;
@@ -50,7 +56,7 @@ export default (LSSM: Vue, autoFocus: boolean, dropdown: boolean, $sm: $m) => {
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(arrSearchDropdown, {
-                        props: { $sm },
+                        props: { closeDropdownOnSelect, $sm },
                     }),
             }).$mount(wrapper)
         );
