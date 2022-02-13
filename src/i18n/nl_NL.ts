@@ -67,8 +67,8 @@ export default {
         title: 'LSS Manager: Error',
         msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
         requestIssue: {
-            title: 'Foutieve serververzoek: Status {status}',
-            text: `Oh, helaas heeft er een error plaats gevondenan met dit verzoek bij de server:<br>
+            title: 'Foutief serververzoek: Status {status}',
+            text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
 <b>Statuscode</b>: <code>{status}</code><br>
 <b>Statustekst</b>: <code>{statusText}</code><br>
 <b>URL</b>: <code>{url}</code><br>
