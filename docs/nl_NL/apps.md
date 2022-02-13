@@ -64,9 +64,9 @@ In principe willen we alle functies van V.3 in de loop van de tijd in V.4 integr
 |    Totaalweergave in dagsamenvatting   | [Totaalweergave dagsamenvatting][dailyCreditsSummary]  |                              |                                               |
 |                User-ID                 |                [User-ID][userid]                 |                                    |                                               |
 |            Team-uitbreiding            |                                                  |                                    |                                               |
-|      Verbeterde spraakaanvragen        |                                                  |                                    |                                               | Is reeds in redesign opgenomen, een zelfstandige module komt nog.
+|      Verbeterde spraakaanvragen        |                                                  |                                    |Is reeds in redesign opgenomen, een zelfstandige module komt nog. | 
 |      Voertuigstatus bij gebouwen       |     [Korte gebouwinformatie][buildingHover]      |                                    |                                               |
-|           Bestemming Filter            |                                                  |                                    |                                               | Is reeds in redesign opgenomen, een zelfstandige module komt nog.
+|           Bestemming Filter            |                                                  |                                    |Is reeds in redesign opgenomen, een zelfstandige module komt nog. | 
 |               Overzicht                |              [Overzicht][overview]               |                                    |                                               |
 
 [extendedCallWindow]: modules/extendedCallWindow.md
