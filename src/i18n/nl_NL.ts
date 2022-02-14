@@ -72,7 +72,7 @@ export default {
 <b>Statuscode</b>: <code>{status}</code><br>
 <b>Statustekst</b>: <code>{statusText}</code><br>
 <b>URL</b>: <code>{url}</code><br>
-<b>Feature</b>: <code>{feature}</code><br>
+<b>Functie</b>: <code>{feature}</code><br>
 <b>Duur</b>: <code>{duration}ms</code><br>
 <br>
 Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
