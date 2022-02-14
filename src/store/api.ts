@@ -856,6 +856,7 @@ export default {
                     btoa(`${state.key}:${rootState.version}-${MODE}`)
                 );
             }
+            const startTime = Date.now();
             return fetch(target, init).then(
                 res =>
                     new Promise((resolve, reject) => {
@@ -922,6 +923,8 @@ export default {
                                         url: res.url,
                                         status: res.status,
                                         statusText: res.statusText,
+                                        feature,
+                                        duration: Date.now() - startTime,
                                     }),
                                     buttons: [
                                         {

@@ -72,6 +72,8 @@ export default {
 <b>Statuscode</b>: <code>{status}</code><br>
 <b>Statustekst</b>: <code>{statusText}</code><br>
 <b>URL</b>: <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duur</b>: <code>{duration}ms</code><br>
 <br>
 Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
 Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
