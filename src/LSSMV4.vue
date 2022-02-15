@@ -210,6 +210,9 @@ body.dark
         overflow: auto !important
         max-height: 100vh !important
 
+        &.vue-dialog code
+            word-break: break-word
+
 .vue-tablist
     list-style: none
     display: flex
