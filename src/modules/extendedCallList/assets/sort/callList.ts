@@ -36,7 +36,10 @@ export default (
     const sortingDirection = direction;
     let updateOrderListTimeout = 0;
 
-    const missionOrderValuesById: Record<string, Record<string, number>> = {};
+    const missionOrderValuesById: Record<
+        string,
+        Record<string, { order: number; el: HTMLDivElement }>
+    > = {};
 
     const missionsById: Record<string, Mission> =
         LSSM.$store.getters['api/missionsById'];
@@ -305,14 +308,35 @@ export default (
                         ([list, missions]) => [
                             list,
                             Object.entries(missions)
-                                .sort(([idA, valueA], [idB, valueB]) =>
-                                    panelBody.classList.contains(reverseClass)
-                                        ? valueB === valueA
-                                            ? parseInt(idB) - parseInt(idA)
-                                            : valueB - valueA
-                                        : valueB === valueA
-                                        ? parseInt(idA) - parseInt(idB)
-                                        : valueA - valueB
+                                .sort(
+                                    (
+                                        [, { order: valueA, el: elA }],
+                                        [, { order: valueB, el: elB }]
+                                    ) => {
+                                        const position =
+                                            elA.compareDocumentPosition(elB);
+                                        return panelBody.classList.contains(
+                                            reverseClass
+                                        )
+                                            ? valueB === valueA
+                                                ? position &
+                                                  Node.DOCUMENT_POSITION_FOLLOWING
+                                                    ? 1
+                                                    : position &
+                                                      Node.DOCUMENT_POSITION_PRECEDING
+                                                    ? -1
+                                                    : 0
+                                                : valueB - valueA
+                                            : valueB === valueA
+                                            ? position &
+                                              Node.DOCUMENT_POSITION_FOLLOWING
+                                                ? -1
+                                                : position &
+                                                  Node.DOCUMENT_POSITION_PRECEDING
+                                                ? 1
+                                                : 0
+                                            : valueA - valueB;
+                                    }
                                 )
                                 .map(([mission]) => mission),
                         ]
@@ -335,9 +359,13 @@ export default (
             delete missionOrderValuesById[list][missionId];
         } else if (
             !missionOrderValuesById[list].hasOwnProperty(missionId) ||
-            missionOrderValuesById[list][missionId] !== parseInt(orderValue)
+            missionOrderValuesById[list][missionId].order !==
+                parseInt(orderValue)
         ) {
-            missionOrderValuesById[list][missionId] = parseInt(orderValue);
+            missionOrderValuesById[list][missionId] = {
+                order: parseInt(orderValue),
+                el: mission,
+            };
             if (updateOrderListTimeout)
                 window.clearTimeout(updateOrderListTimeout);
             updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
