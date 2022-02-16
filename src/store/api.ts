@@ -134,6 +134,7 @@ const get_api_values = async <API extends StorageAPIKey>(
             value: await dispatch('request', {
                 url: `/api/${key}`,
                 feature,
+                dialogOnError: key !== 'vehicles',
             }).then(res => res.json()),
             user_id: window.user_id,
         };
@@ -573,6 +574,7 @@ export default {
                     .dispatch('request', {
                         url: `/api/vehicles/${id}`,
                         feature: `store/api/fetchVehicle(${feature})`,
+                        dialogOnError: false,
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
