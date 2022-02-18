@@ -66,6 +66,19 @@ export default {
     error: {
         title: 'LSS Manager: Error',
         msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
+        requestIssue: {
+            title: 'Foutief serververzoek: Status {status}',
+            text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustekst</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Functie</b>: <code>{feature}</code><br>
+<b>Duur</b>: <code>{duration}ms</code><br>
+<br>
+Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
+Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
+            close: 'Mededeling sluiten',
+        },
     },
     warnings: {
         version: {

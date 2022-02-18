@@ -207,6 +207,13 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        arrSearchDissolveCategories: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
         arrSearchAutoFocus: <Toggle>{
             type: 'toggle',
             default: false,
@@ -216,6 +223,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
             dependsOn: '.arrSearch',
+        },
+        arrSearchCloseDropdownOnSelect: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearchDropdown',
         },
         tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',

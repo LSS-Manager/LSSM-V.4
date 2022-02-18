@@ -49,6 +49,14 @@
 			"description": "Automatically focuses ARR-Search so that you can start typing without clicking the search field before.",
 			"title": "ARR-Search: autofocus"
 		},
+		"arrSearchCloseDropdownOnSelect": {
+			"description": "closes dropdown after selecting an ARR.",
+			"title": "close dropdown after select"
+		},
+		"arrSearchDissolveCategories": {
+			"description": "Shows all categories at once, when searching.",
+			"title": "ARR-Search: Show all categories"
+		},
 		"arrSearchDropdown": {
 			"description": "Hides the ARR completely and shows a searchable dropdown instead. Allows a very compact ARR.",
 			"title": "ARR-Search as Dropdown"

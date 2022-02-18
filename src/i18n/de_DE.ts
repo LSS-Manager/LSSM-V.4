@@ -66,6 +66,19 @@ export default {
     error: {
         title: 'LSS-Manager: Fehler',
         msg: 'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
+        requestIssue: {
+            title: 'Fehlerhafte Anfrage: Status {status}',
+            text: `Huch, bei dieser Serveranfrage ist leider ein Fehler aufgetreten:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustext</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Dauer</b>: <code>{duration}ms</code><br>
+<br>
+Bitte versuche, die gewünschte Aktion nochmals auszuführen.<br>
+Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverproblemen liegen. Bitte versuche es dann zu einem späteren Zeitpunkt erneut.`,
+            close: 'Hinweis schließen',
+        },
     },
     warnings: {
         version: {

@@ -49,6 +49,14 @@
 			"description": "Met automatiquement le focus sur Rai-Recherche pour que vous puissiez commencer à taper sans cliquer sur le champ de recherche.",
 			"title": "RAI-Recherche: autofocus"
 		},
+		"arrSearchCloseDropdownOnSelect": {
+			"description": "ferme la liste déroulante après avoir sélectionné une RAI.",
+			"title": "Fermer la liste déroulante après la sélection"
+		},
+		"arrSearchDissolveCategories": {
+			"description": "Affiche toutes les catégories à la fois, lors de la recherche.",
+			"title": "RAI-Recherche: Afficher toutes les catégories"
+		},
 		"arrSearchDropdown": {
 			"description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",
 			"title": "RAI-Recherche en liste déroulante"

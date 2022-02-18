@@ -1,18 +1,18 @@
 import type Vue from 'vue';
 
 import type { ActionStoreParams } from 'typings/store/Actions';
-import type { APIActionStoreParams } from '../../typings/store/api/Actions';
+import type { APIActionStoreParams } from 'typings/store/api/Actions';
 import type { Mission } from 'typings/Mission';
-import type { RootState } from '../../typings/store/RootState';
-import type { Vehicle } from '../../typings/Vehicle';
-import type { VehicleRadioMessage } from '../../typings/Ingame';
+import type { RootState } from 'typings/store/RootState';
+import type { Vehicle } from 'typings/Vehicle';
+import type { VehicleRadioMessage } from 'typings/Ingame';
 import type { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
 import type {
     APIState,
     StorageAPIKey,
     StorageGetterReturn,
-} from '../../typings/store/api/State';
-import type { Building, BuildingCategory } from '../../typings/Building';
+} from 'typings/store/api/State';
+import type { Building, BuildingCategory } from 'typings/Building';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -134,6 +134,7 @@ const get_api_values = async <API extends StorageAPIKey>(
             value: await dispatch('request', {
                 url: `/api/${key}`,
                 feature,
+                dialogOnError: key !== 'vehicles',
             }).then(res => res.json()),
             user_id: window.user_id,
         };
@@ -573,6 +574,7 @@ export default {
                     .dispatch('request', {
                         url: `/api/vehicles/${id}`,
                         feature: `store/api/fetchVehicle(${feature})`,
+                        dialogOnError: false,
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
@@ -760,7 +762,19 @@ export default {
         },
         async request(
             { rootState, dispatch, state, commit }: APIActionStoreParams,
-            { input, url = '', init = {}, feature }
+            {
+                input,
+                url = '',
+                init = {},
+                feature,
+                dialogOnError = true,
+            }: {
+                input: Request;
+                url: string;
+                init: RequestInit;
+                feature: string;
+                dialogOnError: boolean;
+            }
         ) {
             if (input && url) {
                 await dispatch(
@@ -778,12 +792,41 @@ export default {
                 );
             }
             init.headers = init.headers || {};
+            if (Array.isArray(init.headers)) {
+                init.headers = Object.fromEntries(init.headers) as Record<
+                    string,
+                    string
+                >;
+            }
+
+            const getHeader = (
+                headers: Exclude<
+                    RequestInit['headers'],
+                    string[][] | undefined
+                >,
+                header: string
+            ) =>
+                headers instanceof Headers
+                    ? headers.get(header)
+                    : headers[header];
+            const setHeader = (
+                headers: Exclude<
+                    RequestInit['headers'],
+                    string[][] | undefined
+                >,
+                header: string,
+                value: string
+            ) =>
+                headers instanceof Headers
+                    ? headers.set(header, value)
+                    : (headers[header] = value);
+
             if (init.headers.hasOwnProperty('X-LSS-Manager')) {
                 await dispatch(
                     'console/warn',
                     [
                         `Request Header "X-LSS-Manager" with value ${JSON.stringify(
-                            init.headers['X-LSS-Manager']
+                            getHeader(init.headers, 'X-LSS-Manager')
                         )} will be overwritten by ${JSON.stringify(
                             rootState.version
                         )}!`,
@@ -793,8 +836,9 @@ export default {
                     }
                 );
             }
-            init.headers['X-LSS-Manager'] = rootState.version;
-            init.headers['X-LSS-Manager-Feature'] = feature;
+            setHeader(init.headers, 'X-LSS-Manager', rootState.version);
+            setHeader(init.headers, 'X-LSS-Manager-Feature', feature);
+
             init.cache = init.cache || 'no-cache';
             const target = input || url;
             if (target.toString().startsWith(rootState.server)) {
@@ -808,53 +852,96 @@ export default {
                             .then(({ code }) => code)
                     );
                 }
-                init.headers['X-LSSM-User'] = btoa(
-                    `${state.key}:${rootState.version}-${MODE}`
+                setHeader(
+                    init.headers,
+                    'X-LSSM-User',
+                    btoa(`${state.key}:${rootState.version}-${MODE}`)
                 );
             }
+            const startTime = Date.now();
             return fetch(target, init).then(
                 res =>
                     new Promise((resolve, reject) => {
                         if (!res.ok) {
-                            return res.json().then(data => {
-                                if (data.error === 'outdated version') {
-                                    const LSSM = window[PREFIX] as Vue;
-                                    LSSM.$modal.show('dialog', {
-                                        title: LSSM.$t(
-                                            'warnings.version.title'
-                                        ),
-                                        text: LSSM.$t('warnings.version.text', {
-                                            version: data.version,
-                                            curver: rootState.version,
-                                        }),
-                                        buttons: [
-                                            {
-                                                title: LSSM.$t(
-                                                    'warnings.version.close'
-                                                ),
-                                                default: true,
-                                                handler() {
-                                                    window.location.reload(
-                                                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                                        // @ts-ignore
-                                                        true
-                                                    );
+                            if (
+                                res.url.startsWith(rootState.server) &&
+                                res.headers
+                                    .get('content-type')
+                                    ?.startsWith('application/json')
+                            ) {
+                                return res.json().then(data => {
+                                    if (data.error === 'outdated version') {
+                                        const LSSM = window[PREFIX] as Vue;
+                                        LSSM.$modal.show('dialog', {
+                                            title: LSSM.$t(
+                                                'warnings.version.title'
+                                            ),
+                                            text: LSSM.$t(
+                                                'warnings.version.text',
+                                                {
+                                                    version: data.version,
+                                                    curver: rootState.version,
+                                                }
+                                            ),
+                                            buttons: [
+                                                {
+                                                    title: LSSM.$t(
+                                                        'warnings.version.close'
+                                                    ),
+                                                    default: true,
+                                                    handler() {
+                                                        window.location.reload(
+                                                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                            // @ts-ignore
+                                                            true
+                                                        );
+                                                    },
                                                 },
-                                            },
-                                            {
-                                                title: LSSM.$t(
-                                                    'warnings.version.abort'
-                                                ),
-                                                handler() {
-                                                    LSSM.$modal.hide('dialog');
+                                                {
+                                                    title: LSSM.$t(
+                                                        'warnings.version.abort'
+                                                    ),
+                                                    handler() {
+                                                        LSSM.$modal.hide(
+                                                            'dialog'
+                                                        );
+                                                    },
                                                 },
+                                            ],
+                                        });
+                                        window.focus();
+                                    }
+                                    return reject(res);
+                                });
+                            }
+                            if (dialogOnError) {
+                                const LSSM = window[PREFIX] as Vue;
+                                LSSM.$modal.show('dialog', {
+                                    title: LSSM.$t('error.requestIssue.title', {
+                                        status: res.status,
+                                        statusText: res.statusText,
+                                    }),
+                                    text: LSSM.$t('error.requestIssue.text', {
+                                        url: res.url,
+                                        status: res.status,
+                                        statusText: res.statusText,
+                                        feature,
+                                        duration: Date.now() - startTime,
+                                    }),
+                                    buttons: [
+                                        {
+                                            title: LSSM.$t(
+                                                'error.requestIssue.close'
+                                            ),
+                                            default: true,
+                                            handler() {
+                                                LSSM.$modal.hide('dialog');
                                             },
-                                        ],
-                                    });
-                                    window.focus();
-                                }
-                                return reject(res);
-                            });
+                                        },
+                                    ],
+                                });
+                            }
+                            return reject(res);
                         }
                         return resolve(res);
                     })

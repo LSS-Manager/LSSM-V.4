@@ -614,7 +614,7 @@ export default Vue.extend<
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);
                       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' eventListener results in a MouseEvent…
+                      // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' event results in a MouseEvent…
                       this.$el.addEventListener('mouseup', (e: MouseEvent) => {
                           const target = (e.target as HTMLElement)?.closest<
                               HTMLAnchorElement | HTMLButtonElement
@@ -659,6 +659,22 @@ export default Vue.extend<
                               !target ||
                               !href ||
                               target.hasAttribute('download')
+                          )
+                              return;
+                          e.preventDefault();
+                      });
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore // Yes, Typescript does not understand that a 'auxclick' event results in a MouseEvent…
+                      this.$el.addEventListener('auxclick', (e: MouseEvent) => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (
+                              !target ||
+                              !href ||
+                              target.hasAttribute('download') ||
+                              e.button !== 1
                           )
                               return;
                           e.preventDefault();

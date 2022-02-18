@@ -131,7 +131,7 @@ export default {
             special: 'Wymagane po zbudowaniu 6 remiz',
         },
         4: {
-            caption: 'Samochód ratownictwa technicznego',
+            caption: 'SRt',
             color: '#990000',
             coins: 25,
             credits: 12_180,
@@ -150,7 +150,7 @@ export default {
             possibleBuildings: [2, 20],
         },
         6: {
-            caption: 'Cysterna gaśnicza',
+            caption: 'SCCn',
             color: '#990000',
             coins: 25,
             credits: 17_300,
@@ -161,7 +161,7 @@ export default {
             special: 'Wymagane po zbudowaniu 7 remiz',
         },
         7: {
-            caption: 'Samochód ratownictwa chemicznego',
+            caption: 'Srchem',
             color: '#990000',
             coins: 25,
             credits: 19_200,
@@ -192,7 +192,7 @@ export default {
             possibleBuildings: [5],
         },
         10: {
-            caption: 'SPGaz',
+            caption: 'Spgaz',
             color: '#990000',
             coins: 25,
             credits: 11_680,
@@ -202,7 +202,7 @@ export default {
             special: 'Wymagane po zbudowaniu 5 remiz',
         },
         11: {
-            caption: 'Samochód Dowodzenia i Łączności',
+            caption: 'SDł',
             color: '#990000',
             coins: 25,
             credits: 25_500,
@@ -366,7 +366,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (Kurs Nurka MSWiA)',
         },
         25: {
-            caption: 'Dźwig SP',
+            caption: 'SCDź',
             color: '#990000',
             coins: 25,
             credits: 14_500,
@@ -473,7 +473,7 @@ export default {
             possibleBuildings: [2, 20],
         },
         35: {
-            caption: 'SRMed',
+            caption: 'SLRmed',
             color: '#FFFFCC',
             coins: 20,
             credits: 4000,
@@ -482,7 +482,7 @@ export default {
             possibleBuildings: [0, 18],
         },
         36: {
-            caption: 'Kontenerowiec',
+            caption: 'SCKn',
             color: '#990000',
             coins: 15,
             credits: 50_000,
