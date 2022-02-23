@@ -2,7 +2,7 @@
     <div class="form-horizontal">
         <v-select
             :placeholder="placeholder"
-            :multiple="true"
+            multiple
             v-model="updateValue"
             :options="filteredOptions"
             :disabled="disabled"

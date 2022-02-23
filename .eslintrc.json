@@ -95,6 +95,7 @@
         "unicorn/prefer-object-from-entries": ["error"],
         "unicorn/prefer-query-selector": ["error"],
         "vue/no-unused-refs": "warn",
+        "vue/prefer-true-attribute-shorthand": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
         }]

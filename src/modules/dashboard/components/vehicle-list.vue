@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="vehicle-list" :no-title-hide="true" :no-fullscreen="true">
+    <lightbox name="vehicle-list" no-title-hide no-fullscreen>
         <h4>{{ title }}: {{ vehicles.length }}</h4>
         <enhanced-table
             :head="{

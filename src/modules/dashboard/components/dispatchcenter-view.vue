@@ -255,7 +255,7 @@
                             true
                         ),
                     }"
-                    :noSearch="true"
+                    no-search
                 >
                     <tr
                         :id="board.id"

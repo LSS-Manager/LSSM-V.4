@@ -31,7 +31,7 @@
         @sort="k => $emit('sort', k)"
         :sort="sort"
         :sort-dir="sortDir"
-        :no-search="true"
+        no-search
         :search="search"
         @search="k => $emit('search', k)"
     >

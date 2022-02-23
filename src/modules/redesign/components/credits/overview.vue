@@ -6,7 +6,7 @@
             <enhanced-table
                 :head="head"
                 :table-attrs="{ class: 'table table-striped' }"
-                :no-search="true"
+                no-search
             >
                 <tr
                     v-for="(entry, id) in data.entries"

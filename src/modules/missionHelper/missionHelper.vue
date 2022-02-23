@@ -9,7 +9,7 @@
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
-            :fixed-width="true"
+            fixed-width
             @click="toggleMinified"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -20,7 +20,7 @@
             :icon="faArrowsAlt"
             class="pull-right dragging-field"
             :class="{ 'hover-tip': settings.hoverTip }"
-            :fixed-width="true"
+            fixed-width
             @mousedown="dragStart"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -31,7 +31,7 @@
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="faSyncAlt"
             :spin="isReloading"
-            :fixed-width="true"
+            fixed-width
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -41,7 +41,7 @@
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
-            :fixed-width="true"
+            fixed-width
             @click="toggleOverlay"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -51,7 +51,7 @@
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="maxState ? faSubscript : faSuperscript"
-            :fixed-width="true"
+            fixed-width
             @click="toggleMaximum"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">

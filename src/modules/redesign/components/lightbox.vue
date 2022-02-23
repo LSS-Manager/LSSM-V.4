@@ -2,7 +2,7 @@
     <lightbox
         :name="`redesign-lightbox-${creation}`"
         :full-height="!type"
-        :no-title-hide="true"
+        no-title-hide
         :no-modal="noModal"
     >
         <template v-slot:control-buttons v-if="!noModal">

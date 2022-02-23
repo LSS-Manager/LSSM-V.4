@@ -27,7 +27,7 @@
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table table-striped' }"
-            :no-search="true"
+            no-search
         >
             <tr v-for="(entry, id) in coins.entries" :key="id">
                 <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">

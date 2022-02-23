@@ -58,7 +58,7 @@
                     :color="arr.color"
                     :type="arr.type"
                     :title="arr.title"
-                    :editable="true"
+                    editable
                     @click="edit(arr.id, arr.type)"
                     @edit="edit(arr.id, arr.type)"
                     @copy="copy(arr.id, arr.type)"
@@ -87,7 +87,7 @@
                             :color="arr.color"
                             :type="arr.type"
                             :title="arr.title"
-                            :editable="true"
+                            editable
                             @click="edit(arr.id, arr.type)"
                             @edit="edit(arr.id, arr.type)"
                             @copy="copy(arr.id, arr.type)"
@@ -112,7 +112,7 @@
                         :color="arr.color"
                         :type="arr.type"
                         :title="arr.title"
-                        :editable="true"
+                        editable
                         @click="edit(arr.id, arr.type)"
                         @edit="edit(arr.id, arr.type)"
                         @copy="copy(arr.id, arr.type)"
@@ -131,7 +131,7 @@
                 :color="arr.color"
                 :type="arr.type"
                 :title="arr.title"
-                :editable="true"
+                editable
                 @click="edit(arr.id, arr.type)"
                 @edit="edit(arr.id, arr.type)"
                 @copy="copy(arr.id, arr.type)"

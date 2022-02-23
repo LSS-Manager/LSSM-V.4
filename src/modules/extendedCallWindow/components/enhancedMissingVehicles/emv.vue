@@ -15,7 +15,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="textMode ? faTable : faParagraph"
-            :fixed-width="true"
+            fixed-width
             @click="toggleTextMode"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -25,7 +25,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
-            :fixed-width="true"
+            fixed-width
             @click="toggleMinified"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -36,7 +36,7 @@
             :icon="faArrowsAlt"
             class="pull-right dragging-field"
             :class="{ 'hover-tip': hoverTip }"
-            :fixed-width="true"
+            fixed-width
             @mousedown="dragStart"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -46,7 +46,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
-            :fixed-width="true"
+            fixed-width
             @click="toggleOverlay"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -56,7 +56,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
-            :fixed-width="true"
+            fixed-width
             @click="toggleRight"
             v-if="!overlay"
         ></font-awesome-icon>

@@ -10,8 +10,8 @@
                 maximum: { title: $sm('maximum'), noSort: true },
             }"
             :table-attrs="{ class: 'table' }"
-            :no-search="true"
-            :no-body="true"
+            no-search
+            no-body
         >
             <tbody v-for="(category, title) in coloredGroups" :key="title">
                 <tr
