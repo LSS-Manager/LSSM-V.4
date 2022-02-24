@@ -252,7 +252,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
                 ]);
 
                 const backgroundStyle = document.createElement('style');
-                backgroundStyle.textContent = `#modals-container .vm--container {
+                backgroundStyle.textContent = `#modals-container .vm--container.scrollable:first-of-type {
                     pointer-events: none;
                 }
                 #modals-container .vm--container .vm--overlay[data-modal="heatmap-settings"] {
