@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'NAVN',
             free: 'Ledig',
             max: 'Maks',
+            status: 'Status',
         },
         titles: {
             set: 'Så ofte velges denne kombinasjonen når du trykker på AAR',

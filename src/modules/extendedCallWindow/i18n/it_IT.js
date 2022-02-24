@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Nome',
             free: 'Libero',
             max: 'Max',
+            status: 'Status',
         },
         titles: {
             set: "Spesso questa combinazione viene selezionata quando si preme l'AAR",

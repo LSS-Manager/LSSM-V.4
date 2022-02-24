@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Name',
             free: 'Frei',
             max: 'max. mgl.',
+            status: 'Status',
         },
         titles: {
             set: 'So oft wird diese Kombination ausgewählt, wenn du auf die AAO drückst',

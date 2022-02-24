@@ -21,6 +21,7 @@ module.exports = {
             attribute: 'Nom',
             free: 'Libre',
             max: 'Max',
+            status: 'Status',
         },
         titles: {
             set: "C'est le nombre de fois que cette régulations est sélectionnée lorsque vous appuiez sur ce bouton.",

@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Nombre',
             free: 'Gratis',
             max: 'Máximo',
+            status: 'Status',
         },
         titles: {
             set: 'Muy a menudo, esta combinación se selecciona cuando presiona al ARR',
