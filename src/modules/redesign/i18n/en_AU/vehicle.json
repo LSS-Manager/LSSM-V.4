@@ -89,6 +89,7 @@
 	"release": {
 		"cancel": "Abort",
 		"confirm": "Yes, discharge!",
+		"disable": "discharge and disable confirmation",
 		"patient": {
 			"text": "Do you really want to discharge the patient of this vehicle? No payment will be credited for the patient!",
 			"title": "Discharge patient"
