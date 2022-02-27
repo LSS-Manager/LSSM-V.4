@@ -90,6 +90,7 @@
 	"release": {
 		"cancel": "Abbrechen",
 		"confirm": "Ja, entlassen!",
+		"disable": "Entlassen und Bestätigung deaktivieren",
 		"patient": {
 			"text": "Möchtest du wirklich den Patienten dieses Fahrzeugs entlassen? Es wird keine Vergütung für den Patienten gutgeschrieben werden!",
 			"title": "Patienten entlassen"

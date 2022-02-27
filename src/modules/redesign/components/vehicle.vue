@@ -1122,6 +1122,7 @@ type Component = RedesignComponent<
         sortDir: 'asc' | 'desc';
         hospitalListSrc: number;
         cellListSrc: number;
+        releaseDisables: ('patient' | 'prisoner')[];
         color2Class: {
             red: 'danger';
             yellow: 'warning';
@@ -1255,6 +1256,7 @@ export default Vue.extend<
             sortDir: 'asc',
             hospitalListSrc: 0,
             cellListSrc: 0,
+            releaseDisables: [],
             color2Class: {
                 red: 'danger',
                 yellow: 'warning',
@@ -1906,8 +1908,60 @@ export default Vue.extend<
                 });
         },
         release(type) {
-            // eslint-disable-next-line @typescript-eslint/no-this-alias
-            const LSSM = this;
+            const releaseHandler = async () => {
+                if (type === 'patient') {
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/vehicles/${this.vehicle.id}/patient/-1`
+                    );
+                    return this.$modal.hide('dialog');
+                }
+                const url = new URL(
+                    `/missions/${
+                        this.vehicle.current_mission?.id ?? 0
+                    }/gefangene/entlassen`,
+                    window.location.origin
+                );
+                url.searchParams.append('_method', 'post');
+                url.searchParams.append(
+                    'authenticity_token',
+                    this.vehicle.authenticity_token
+                );
+                this.$store
+                    .dispatch('api/request', {
+                        url: url.pathname,
+                        init: {
+                            credentials: 'include',
+                            headers: {
+                                'Content-Type':
+                                    'application/x-www-form-urlencoded',
+                            },
+                            referrer: new URL(
+                                `vehicles/${this.vehicle.id}`,
+                                window.location.origin
+                            ),
+                            body: url.searchParams.toString(),
+                            method: 'POST',
+                            mode: 'cors',
+                        },
+                        feature: `redesign-vehicle-release-prisoners`,
+                    })
+                    .then((res: Response) => {
+                        this.$set(
+                            this.lightbox,
+                            'src',
+                            new URL(res.url, window.location.origin)
+                                .pathname === url.pathname
+                                ? `/vehicles/${this.vehicle.id}`
+                                : res.url
+                        );
+                        this.$modal.hide('dialog');
+                    });
+            };
+
+            if (this.releaseDisables.includes(type)) return releaseHandler();
+
             this.$modal.show('dialog', {
                 title: this.lightbox.$sm(`release.${type}.title`),
                 text: this.lightbox.$sm(`release.${type}.text`),
@@ -1915,63 +1969,21 @@ export default Vue.extend<
                     {
                         title: this.lightbox.$sm('release.cancel'),
                         default: true,
-                        handler() {
-                            LSSM.$modal.hide('dialog');
+                        handler: () => this.$modal.hide('dialog'),
+                    },
+                    {
+                        title: this.lightbox.$sm(`release.disable`),
+                        handler: () => {
+                            this.releaseDisables.push(type);
+                            this.setSetting(
+                                'releaseDisables',
+                                this.releaseDisables
+                            ).then(() => releaseHandler());
                         },
                     },
                     {
                         title: this.lightbox.$sm('release.confirm'),
-                        async handler() {
-                            if (type === 'patient') {
-                                LSSM.$set(
-                                    LSSM.lightbox,
-                                    'src',
-                                    `/vehicles/${LSSM.vehicle.id}/patient/-1`
-                                );
-                                return LSSM.$modal.hide('dialog');
-                            }
-                            const url = new URL(
-                                `/missions/${
-                                    LSSM.vehicle.current_mission?.id ?? 0
-                                }/gefangene/entlassen`,
-                                window.location.origin
-                            );
-                            url.searchParams.append('_method', 'post');
-                            url.searchParams.append(
-                                'authenticity_token',
-                                LSSM.vehicle.authenticity_token
-                            );
-                            LSSM.$store
-                                .dispatch('api/request', {
-                                    url: url.pathname,
-                                    init: {
-                                        credentials: 'include',
-                                        headers: {
-                                            'Content-Type':
-                                                'application/x-www-form-urlencoded',
-                                        },
-                                        referrer: new URL(
-                                            `vehicles/${LSSM.vehicle.id}`,
-                                            window.location.origin
-                                        ),
-                                        body: url.searchParams.toString(),
-                                        method: 'POST',
-                                        mode: 'cors',
-                                    },
-                                    feature: `redesign-vehicle-release-prisoners`,
-                                })
-                                .then((res: Response) => {
-                                    LSSM.$set(
-                                        LSSM.lightbox,
-                                        'src',
-                                        new URL(res.url, window.location.origin)
-                                            .pathname === url.pathname
-                                            ? `/vehicles/${LSSM.vehicle.id}`
-                                            : res.url
-                                    );
-                                    LSSM.$modal.hide('dialog');
-                                });
-                        },
+                        handler: releaseHandler,
                     },
                 ],
             });
@@ -2067,6 +2079,9 @@ export default Vue.extend<
         );
         this.getSetting(`${mode}.sortDir`, this.sortDir).then(
             dir => (this.sortDir = dir)
+        );
+        this.getSetting('releaseDisables', this.releaseDisables).then(
+            disables => (this.releaseDisables = disables)
         );
         if (!this.vehicle.has_wlfs) {
             this.$nextTick(() => {

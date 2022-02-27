@@ -87,6 +87,7 @@
 	"release": {
 		"cancel": "Annulla",
 		"confirm": "Si, dimetti!",
+		"disable": "discharge and disable confirmation",
 		"patient": {
 			"text": "Vuoi veramente congedare il paziente di questo veicolo? Nessun pagamento sarà accreditato per il paziente!",
 			"title": "Congeda paziente"
