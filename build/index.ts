@@ -3,7 +3,9 @@ import * as path from 'path';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 import lodash from 'lodash';
 import moment from 'moment';
-import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+
+// TODO: Find a way to use SpeedMeasurePlugin with webpack@5 and vue-loader
+// import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
 import addToBuildStats from './addToBuildStats';
 import config from '../src/config';
@@ -91,39 +93,33 @@ entry.plugins?.push(
 );
 
 console.log('Generated configurations. Building…');
-webpack(
-    new SpeedMeasurePlugin({
-        disable: mode !== 'development',
-        outputFormat: 'humanVerbose',
-    }).wrap(entry),
-    (err, stats) => {
-        if (err) {
-            console.error(err.stack || err);
+webpack(entry, (err, stats) => {
+    if (err) {
+        console.error(err.stack || err);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (err.details) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            if (err.details) {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                console.error(err.details);
-            }
+            console.error(err.details);
         }
-
-        if (!stats) {
-            console.error('Build Error: stats is a falsy value!');
-            return process.exit(-1);
-        } else {
-            fs.writeFileSync(
-                `./dist/webpack.out.${
-                    mode === 'production' ? 'public' : 'beta'
-                }.json`,
-                JSON.stringify(stats.toJson(), null, '\t')
-            );
-            addToBuildStats({ version });
-        }
-        console.log('Stats:');
-        console.log(stats?.toString({ colors: true }));
-        console.timeEnd(`build`);
-        console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
-        if (stats?.hasErrors()) process.exit(-1);
     }
-);
+
+    if (!stats) {
+        console.error('Build Error: stats is a falsy value!');
+        return process.exit(-1);
+    } else {
+        fs.writeFileSync(
+            `./dist/webpack.out.${
+                mode === 'production' ? 'public' : 'beta'
+            }.json`,
+            JSON.stringify(stats.toJson(), null, '\t')
+        );
+        addToBuildStats({ version });
+    }
+    console.log('Stats:');
+    console.log(stats?.toString({ colors: true }));
+    console.timeEnd(`build`);
+    console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
+    if (stats?.hasErrors()) process.exit(-1);
+});
