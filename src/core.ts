@@ -11,7 +11,7 @@ import LSSMV4 from './LSSMV4.vue';
 import store from './store';
 import utils from './utils';
 
-import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
+import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
@@ -19,7 +19,7 @@ require('./natives/lightbox');
 Vue.config.productionTip = false;
 
 const appContainer = document.createElement('div') as HTMLDivElement;
-document.body.appendChild(appContainer);
+document.body.append(appContainer);
 
 window.keepAlive = true;
 
@@ -107,12 +107,12 @@ utils(Vue);
             }
             filteredActiveModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
-                const $m = (key: string, args?: { [key: string]: unknown }) =>
+                const $m = (key: string, args?: Record<string, unknown>) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);
                 const $mc = (
                     key: string,
                     amount?: number,
-                    args?: { [key: string]: unknown }
+                    args?: Record<string, unknown>
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
                 if (
                     LSSM.$store.state.modules[moduleId].settings &&
@@ -140,6 +140,13 @@ utils(Vue);
                         LSSM.$store.state.modules[moduleId].location
                     )
                 ) {
+                    if (moduleId === 'redesign') {
+                        document
+                            .querySelector<HTMLButtonElement>(
+                                '#lightbox_close_inside'
+                            )
+                            ?.remove();
+                    }
                     try {
                         LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                             modules: {

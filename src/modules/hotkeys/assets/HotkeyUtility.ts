@@ -6,8 +6,8 @@ type NormalizedSequence = string[];
 export type CallbackFunction = (sequence: string[]) => void;
 type Listener = [NormalizedSequence, CallbackFunction];
 
-type ModifierAttributes = 'ctrlKey' | 'metaKey' | 'shiftKey' | 'altKey';
-type Modifiers = 'control' | 'meta' | 'shift' | 'alt';
+type ModifierAttributes = 'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey';
+type Modifiers = 'alt' | 'control' | 'meta' | 'shift';
 
 export default class HotkeyUtility {
     private static readonly modifiers: Record<ModifierAttributes, Modifiers> = {

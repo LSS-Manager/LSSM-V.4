@@ -1,6 +1,6 @@
 // import { InternalBuilding } from 'typings/Building';
-import { ModuleSettingFunction } from 'typings/Module';
-import { Location, Select, Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Location, Select, Toggle } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');

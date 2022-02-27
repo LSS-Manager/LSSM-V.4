@@ -1,4 +1,4 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 import moment from 'moment';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
@@ -46,7 +46,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     document.head.append(style);
     expansionWrapper.classList.add('col-md-4');
     dlWrapper.append(expansionWrapper);
-    const expansionIndex = {} as { [name: string]: HTMLSpanElement[] };
+    const expansionIndex = {} as Record<string, HTMLSpanElement[]>;
     expansionRows.forEach(expansion => {
         const name =
             expansion.firstElementChild?.querySelector('b')?.textContent;
@@ -63,7 +63,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         if (countdown) {
             countdown.classList.add(countdown.id);
             label.classList.add(countdown.id);
-            label.appendChild(countdown.cloneNode(true));
+            label.append(countdown.cloneNode(true));
             label.classList.add(
                 `label-${
                     expansion.querySelector('a[href*="extension_finish"]')

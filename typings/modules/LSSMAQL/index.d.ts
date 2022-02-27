@@ -29,22 +29,22 @@ export interface Token {
 
 export interface Condition {
     left: Token[];
-    comparison: '>' | '<' | '<=' | '>=' | '=' | '!=' | 'IN' | 'NOT IN';
+    comparison: '!=' | '<' | '<=' | '=' | '>' | '>=' | 'IN' | 'NOT IN';
     right: Token[];
 }
 
 export interface ObjectTree {
     type: 'object';
-    base: 'allianceinfo' | 'buildings' | 'vehicles' | 'missions' | string;
-    attributes: (string | number)[];
+    base: string | 'allianceinfo' | 'buildings' | 'missions' | 'vehicles';
+    attributes: (number | string)[];
     filter: (Condition | 'AND' | 'OR')[];
 }
 
 export interface FunctionTree {
     type: 'function';
-    function: 'len' | 'sum' | 'min' | 'max';
+    function: 'len' | 'max' | 'min' | 'sum';
     base: string;
     body: QueryTree | null;
 }
 
-export type QueryTree = ObjectTree | FunctionTree;
+export type QueryTree = FunctionTree | ObjectTree;

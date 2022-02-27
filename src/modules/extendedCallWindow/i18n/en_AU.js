@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Name',
             free: 'Free',
             max: 'Max',
+            status: 'Status',
         },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
@@ -91,7 +92,7 @@ module.exports = {
             [/^BASU$/]: [10],
             [/^Water Carrier(s)?$/]: [6, 30],
             [/^Mobile Command Vehicle(s)?$/]: [11],
-            [/^HAZMAT Truck(s)$/]: [7],
+            [/^HAZMAT Truck(s)?$/]: [7],
             [/^Ambulance(s)?$/]: [5],
             [/^Police car(s)?$/]: [8, 16, 17],
             [/^HEMS$/]: [9],

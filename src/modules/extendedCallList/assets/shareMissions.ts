@@ -1,6 +1,6 @@
-import { Message } from '../../shareAlliancePost/main';
-import { Mission } from 'typings/Mission';
-import {
+import type { Message } from '../../shareAlliancePost/main';
+import type { Mission } from 'typings/Mission';
+import type {
     ButtonGroupCallback,
     MissionUpdateCallback,
 } from './utils/buttonGroup';

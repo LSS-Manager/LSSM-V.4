@@ -2,7 +2,7 @@
 	"name": "Fenêtre de déploiement étendue",
 	"settings": {
 		"alarmIcons": {
-			"description": "Affiche des pictogrammes devant le bouton \"Déployer\" selon les véhicules sélectionnés. Le choix se fait parmi les pictos gratuits de <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">Font-Awesome</a>. Il suffit d'indiquer le nom de l'icône. La prévisualisation se fait directement.",
+			"description": "Affiche des pictogrammes devant le bouton \"Déployer\" selon les véhicules sélectionnés. Le choix se fait parmi les pictos gratuits de <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">Font-Awesome</a>. Il suffit d'indiquer le nom de l'icône. La prévisualisation se fait directement.",
 			"icon": "Nom",
 			"preview": "Prévisualiser",
 			"style": "Type de pictogramme",
@@ -48,6 +48,14 @@
 		"arrSearchAutoFocus": {
 			"description": "Met automatiquement le focus sur Rai-Recherche pour que vous puissiez commencer à taper sans cliquer sur le champ de recherche.",
 			"title": "RAI-Recherche: autofocus"
+		},
+		"arrSearchCloseDropdownOnSelect": {
+			"description": "ferme la liste déroulante après avoir sélectionné une RAI.",
+			"title": "Fermer la liste déroulante après la sélection"
+		},
+		"arrSearchDissolveCategories": {
+			"description": "Affiche toutes les catégories à la fois, lors de la recherche.",
+			"title": "RAI-Recherche: Afficher toutes les catégories"
 		},
 		"arrSearchDropdown": {
 			"description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",

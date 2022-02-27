@@ -141,7 +141,7 @@ export default async (
                                 '#building_panel_body .alert'
                             );
                         if (!successAlert) return;
-                        form.insertAdjacentElement('beforebegin', successAlert);
+                        form.before(successAlert);
                         btn.setAttribute('type', 'submit');
                         form['building[name]'].value = '';
                         form.build_with_coins.removeAttribute('value');
@@ -216,7 +216,8 @@ export default async (
         });
     });
 
-    const buildingsElement = document.getElementById('buildings');
+    const buildingsElement =
+        document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 };

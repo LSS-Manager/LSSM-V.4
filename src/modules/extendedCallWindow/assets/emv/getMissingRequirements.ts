@@ -1,5 +1,5 @@
-import { $m } from 'typings/Module';
-import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { $m } from 'typings/Module';
+import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
     const missingRequirementsText = missingDialogContent
@@ -14,18 +14,10 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown as
-        | {
-              [group: string]: number[];
-          }
-        | string;
+    ) as unknown as Record<string, number[]> | string;
     const staffGroupTranslation = $m(
         'enhancedMissingVehicles.staff'
-    ) as unknown as
-        | {
-              [group: string]: number[];
-          }
-        | string;
+    ) as unknown as Record<string, number[]> | string;
     const vehicleGroups =
         typeof vehicleGroupTranslation === 'string'
             ? {}
@@ -85,7 +77,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                 requirement.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
             ),
             vehicle,
-            selected: Object.keys(staffGroups).find(group =>
+            selected: Object.keys(staffGroups).some(group =>
                 vehicle.match(new RegExp(group.replace(/(^\/)|(\/$)/g, '')))
             )
                 ? { min: 0, max: 0 }

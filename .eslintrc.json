@@ -4,7 +4,7 @@
         "commonjs": true,
         "es6": true
     },
-    "plugins": ["vue", "@typescript-eslint", "prettier"],
+    "plugins": ["vue", "@typescript-eslint", "unicorn","prettier"],
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -24,6 +24,12 @@
         "sourceType": "module"
     },
     "rules": {
+        "@typescript-eslint/array-type": ["error"],
+        "@typescript-eslint/consistent-indexed-object-style": [ "error", "record"],
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "@typescript-eslint/consistent-type-imports": ["error"],
+        "@typescript-eslint/method-signature-style": ["error", "method"],
+        "@typescript-eslint/sort-type-union-intersection-members": ["error"],
         "array-callback-return": ["error"],
         "block-scoped-var": "warn",
         "curly": ["error", "multi-or-nest", "consistent"],
@@ -70,7 +76,26 @@
             "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
         }],
         "template-curly-spacing": "error",
+        "unicorn/consistent-destructuring": ["error"],
+        "unicorn/no-array-push-push": ["error"],
+        "unicorn/no-for-loop": ["error"],
+        "unicorn/no-zero-fractions": ["error"],
+        "unicorn/numeric-separators-style": ["error"],
+        "unicorn/prefer-add-event-listener": ["error"],
+        "unicorn/prefer-array-find": ["error"],
+        "unicorn/prefer-array-flat": ["error"],
+        "unicorn/prefer-array-flat-map": ["error"],
+        "unicorn/prefer-array-some": ["error"],
+        "unicorn/prefer-dom-node-append": ["error"],
+        "unicorn/prefer-dom-node-remove": ["error"],
+        "unicorn/prefer-dom-node-text-content": ["error"],
+        "unicorn/prefer-keyboard-event-key": ["error"],
+        "unicorn/prefer-modern-dom-apis": ["error"],
+        "unicorn/prefer-negative-index": ["error"],
+        "unicorn/prefer-object-from-entries": ["error"],
+        "unicorn/prefer-query-selector": ["error"],
         "vue/no-unused-refs": "warn",
+        "vue/prefer-true-attribute-shorthand": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
         }]

@@ -563,30 +563,31 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import moment from 'moment';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { InternalBuilding } from 'typings/Building';
-import { LayerGroup } from 'leaflet';
-import { MapVue } from 'typings/components/LeafletMap';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { InternalBuilding } from 'typings/Building';
+import type { LayerGroup } from 'leaflet';
+import type { MapVue } from 'typings/components/LeafletMap';
 // to separate typings
 // eslint-disable-next-line no-duplicate-imports
-import { PlotGaugeOptions } from 'highcharts';
-import { ProfileWindow } from '../parsers/profile';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { TranslateResult } from 'vue-i18n';
-import { AllianceInfo, User } from 'typings/api/AllianceInfo';
+import type { PlotGaugeOptions } from 'highcharts';
+import type { ProfileWindow } from '../parsers/profile';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { TranslateResult } from 'vue-i18n';
+import type { AllianceInfo, User } from 'typings/api/AllianceInfo';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
 
-type DispatchCenter = {
-    [id: number]: Partial<ProfileWindow['buildings'][0]> & {
+type DispatchCenter = Record<
+    number,
+    Partial<ProfileWindow['buildings'][0]> & {
         buildings: ProfileWindow['buildings'];
         buildingTypes: {
             [type: number]: number;
-            sum?: { [type: number]: number };
+            sum?: Record<number, number>;
         };
-    };
-};
+    }
+>;
 
 type Component = RedesignComponent<
     'profile',
@@ -605,11 +606,9 @@ type Component = RedesignComponent<
         faUnlock: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
-        buildingTypes: {
-            [type: number]: InternalBuilding;
-        };
+        buildingTypes: Record<number, InternalBuilding>;
         buildingTypesSorted: number[];
-        mapLayerGroups: { [id: number]: LayerGroup };
+        mapLayerGroups: Record<number, LayerGroup>;
         buildingMarkerIds: number[];
         expandedDispatches: number[];
         search: string;
@@ -649,9 +648,10 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
-        const buildingTypes = this.$t('buildings') as {
-            [type: number]: InternalBuilding;
-        };
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
         return {
             moment,
             he,
@@ -766,7 +766,7 @@ export default Vue.extend<
                         ? 'policechief'
                         : 'missionchief'
                 }`
-            ) as { [credits: number]: string };
+            ) as Record<number, string>;
             return (
                 Object.entries(ranks)
                     .reverse()
@@ -797,7 +797,7 @@ export default Vue.extend<
                     if (!this.buildingMarkerIds.includes(building.id)) {
                         const img = document.createElement('img');
                         img.src = building.icon;
-                        img.onload = () =>
+                        img.addEventListener('load', () =>
                             this.mapLayerGroups[
                                 building.building_type
                             ].addLayer(
@@ -820,7 +820,8 @@ export default Vue.extend<
                                             `/buildings/${building.id}`
                                         )
                                     )
-                            );
+                            )
+                        );
                         this.buildingMarkerIds.push(building.id);
                     }
                     if (dispatchCenters[0].buildingTypes.sum) {
@@ -946,9 +947,7 @@ export default Vue.extend<
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
         Highcharts.chart(this.awardsChartId, {

@@ -3,7 +3,7 @@
 	"name": "Uitgebreid meldingsvenster",
 	"settings": {
 		"alarmIcons": {
-			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
+			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
 			"icon": "Icoon",
 			"preview": "Voorvertoning",
 			"style": "Icoon-Type",
@@ -49,6 +49,14 @@
 		"arrSearchAutoFocus": {
 			"description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
 			"title": "Inzetvoorstellen zoeken: Focussen"
+		},
+		"arrSearchCloseDropdownOnSelect": {
+			"description": "sluit de dropdown na het selecteren van een inzetvoorstel.",
+			"title": "sluit dropdown na selectie"
+		},
+		"arrSearchDissolveCategories": {
+			"description": "Toon alle categoriën tegelijk bij het zoeken in de inzetvoorstellen.",
+			"title": "Inzetvoorstellen zoeken: Toon alle categoriën"
 		},
 		"arrSearchDropdown": {
 			"description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",

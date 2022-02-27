@@ -1,6 +1,6 @@
-import { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
-import { CreditsTypes } from './main';
-import VueI18n from 'vue-i18n';
+import type { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
+import type { CreditsTypes } from './main';
+import type VueI18n from 'vue-i18n';
 
 interface BasicChartOptions {
     chart: {
@@ -37,7 +37,7 @@ interface ChartOptions extends BasicChartOptions {
 
 export interface DailyCreditsSummary {
     hidden: boolean;
-    sort: 'desc' | 'total' | 'amount';
+    sort: 'amount' | 'desc' | 'total';
     sortDir: 'asc' | 'desc';
     search: '';
     showAverage: boolean;
@@ -62,12 +62,7 @@ export interface DailyCreditsSummaryComputed {
 
 export interface DailyCreditsSummaryMethods {
     setSort(s: DailyCreditsSummary['sort']): void;
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
 }
 
 export interface DailyCreditsSummaryProps {

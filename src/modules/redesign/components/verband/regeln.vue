@@ -18,8 +18,8 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignSubComponent<
     'rules',

@@ -37,8 +37,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { InternalVehicle } from 'typings/Vehicle';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'fahrzeugfarbe',

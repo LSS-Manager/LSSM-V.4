@@ -64,7 +64,7 @@
 			"title": "Texte ou Icône?"
 		},
 		"filters": {
-			"description": "Laissez les icônes dans l'onglet \"Alarme\". Afficher le bouton, en fonction de votre sélection. Vous pouvez choisir entre <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">toutes les icônes gratuites de Font-Awesome</a>. Il suffit de préciser le nom de l'icône. Un aperçu en direct vous montrera alors l'icône.",
+			"description": "Laissez les icônes dans l'onglet \"Alarme\". Afficher le bouton, en fonction de votre sélection. Vous pouvez choisir entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">toutes les icônes gratuites de Font-Awesome</a>. Il suffit de préciser le nom de l'icône. Un aperçu en direct vous montrera alors l'icône.",
 			"title": "Filtre pour liste des bâtiments"
 		},
 		"icon_style": "Icon-Type",

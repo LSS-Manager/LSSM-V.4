@@ -9,7 +9,7 @@ const loadLSSM = () => {
     }-${user_id}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
-    document.body.appendChild(script);
+    document.body.append(script);
 };
 
 if (

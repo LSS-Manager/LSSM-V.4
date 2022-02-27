@@ -1,12 +1,10 @@
 export interface DOM {
     createElement(
         tag: string,
-        attributes?: {
-            [x: string]: string;
-        },
+        attributes?: Record<string, string>,
         context?: Document
     ): HTMLElement;
-    parents(node: HTMLElement, selector?: string): Array<HTMLElement>;
+    parents(node: HTMLElement, selector?: string): HTMLElement[];
     parent(node: HTMLElement, selector?: string): HTMLElement | undefined;
     closest(node: HTMLElement, selector: string): HTMLElement | undefined;
     remove(node: HTMLElement): void;
@@ -38,10 +36,10 @@ export interface DOM {
     toggle(node: HTMLElement): void;
     css(
         node: HTMLElement,
-        rule: unknown | string,
-        value?: string | number,
+        rule: string | unknown,
+        value?: number | string,
         ...args: unknown[]
-    ): string | number | undefined;
+    ): number | string | undefined;
     data(
         node: Node,
         key?: string,
@@ -95,7 +93,7 @@ export interface DOM {
     hasStyle(
         elm: HTMLElement,
         property: string,
-        values?: string | unknown[]
+        values?: unknown[] | string
     ): boolean;
     ELEMENT_NODE: number;
     TEXT_NODE: number;

@@ -1,17 +1,17 @@
-import { $m } from 'typings/Module';
-import { Mission } from 'typings/Mission';
-import {
+import type { $m } from 'typings/Module';
+import type { Mission } from 'typings/Mission';
+import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
     PatientMarkerAddCombined,
 } from 'typings/Ingame';
 
 export type Sort =
-    | 'id'
-    | 'credits'
-    | 'remaining_patients'
     | 'alphabet'
-    | 'default';
+    | 'credits'
+    | 'default'
+    | 'id'
+    | 'remaining_patients';
 
 export default (
     LSSM: Vue,
@@ -36,7 +36,10 @@ export default (
     const sortingDirection = direction;
     let updateOrderListTimeout = 0;
 
-    const missionOrderValuesById: Record<string, Record<string, number>> = {};
+    const missionOrderValuesById: Record<
+        string,
+        Record<string, { order: number; el: HTMLDivElement }>
+    > = {};
 
     const missionsById: Record<string, Mission> =
         LSSM.$store.getters['api/missionsById'];
@@ -76,16 +79,16 @@ export default (
     };
 
     enum faSortIcon {
-        id = 'history',
+        id = 'clock-rotate-left',
         credits = 'dollar-sign',
         remaining_patients = 'user-injured',
         alphabet = 'font',
-        default = 'meh-rolling-eyes',
+        default = 'face-rolling-eyes',
     }
 
     enum faDirectionIcon {
-        desc = 'sort-amount-down',
-        asc = 'sort-amount-down-alt',
+        desc = 'arrow-down-wide-short',
+        asc = 'arrow-down-short-wide',
     }
 
     const sortBtn = document.createElement('button');
@@ -223,7 +226,7 @@ export default (
                 },
             },
             {
-                selectorText: `#${sortIcon.id}[data-icon="meh-rolling-eyes"], #${sortSelectionList.id} [data-icon="meh-rolling-eyes"]`,
+                selectorText: `#${sortIcon.id}[data-icon="face-rolling-eyes"], #${sortSelectionList.id} [data-icon="face-rolling-eyes"]`,
                 style: {
                     display: 'none',
                 },
@@ -305,14 +308,35 @@ export default (
                         ([list, missions]) => [
                             list,
                             Object.entries(missions)
-                                .sort(([idA, valueA], [idB, valueB]) =>
-                                    panelBody.classList.contains(reverseClass)
-                                        ? valueB === valueA
-                                            ? parseInt(idB) - parseInt(idA)
-                                            : valueB - valueA
-                                        : valueB === valueA
-                                        ? parseInt(idA) - parseInt(idB)
-                                        : valueA - valueB
+                                .sort(
+                                    (
+                                        [, { order: valueA, el: elA }],
+                                        [, { order: valueB, el: elB }]
+                                    ) => {
+                                        const position =
+                                            elA.compareDocumentPosition(elB);
+                                        return panelBody.classList.contains(
+                                            reverseClass
+                                        )
+                                            ? valueB === valueA
+                                                ? position &
+                                                  Node.DOCUMENT_POSITION_FOLLOWING
+                                                    ? 1
+                                                    : position &
+                                                      Node.DOCUMENT_POSITION_PRECEDING
+                                                    ? -1
+                                                    : 0
+                                                : valueB - valueA
+                                            : valueB === valueA
+                                            ? position &
+                                              Node.DOCUMENT_POSITION_FOLLOWING
+                                                ? -1
+                                                : position &
+                                                  Node.DOCUMENT_POSITION_PRECEDING
+                                                ? 1
+                                                : 0
+                                            : valueA - valueB;
+                                    }
                                 )
                                 .map(([mission]) => mission),
                         ]
@@ -335,9 +359,13 @@ export default (
             delete missionOrderValuesById[list][missionId];
         } else if (
             !missionOrderValuesById[list].hasOwnProperty(missionId) ||
-            missionOrderValuesById[list][missionId] !== parseInt(orderValue)
+            missionOrderValuesById[list][missionId].order !==
+                parseInt(orderValue)
         ) {
-            missionOrderValuesById[list][missionId] = parseInt(orderValue);
+            missionOrderValuesById[list][missionId] = {
+                order: parseInt(orderValue),
+                el: mission,
+            };
             if (updateOrderListTimeout)
                 window.clearTimeout(updateOrderListTimeout);
             updateOrderListTimeout = window.setTimeout(updateOrderList, 100);

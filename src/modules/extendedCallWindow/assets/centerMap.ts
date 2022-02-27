@@ -1,5 +1,7 @@
 export default (LSSM: Vue): void => {
-    const mission_info = document.getElementById('mission_general_info');
+    const mission_info = document.querySelector<HTMLDivElement>(
+        '#mission_general_info'
+    );
     if (!mission_info) return;
     const latitude = parseFloat(
         mission_info.getAttribute('data-latitude') ?? '0'
@@ -7,7 +9,9 @@ export default (LSSM: Vue): void => {
     const longitude = parseFloat(
         mission_info.getAttribute('data-longitude') ?? '0'
     );
-    const icon = document.querySelector('#missionH1 span.glyphicon');
+    const icon = document.querySelector<HTMLSpanElement>(
+        '#missionH1 span.glyphicon'
+    );
     const centerImg = document.createElement('img');
     centerImg.src = '/images/icons8-location_off.svg';
     centerImg.style.cursor = 'pointer';

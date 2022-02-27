@@ -21,7 +21,7 @@ import Vue from 'vue';
 
 import HotkeyUtility from '../../modules/hotkeys/assets/HotkeyUtility';
 
-import {
+import type {
     Hotkey,
     HotkeyComputed,
     HotkeyMethods,
@@ -71,7 +71,7 @@ export default Vue.extend<Hotkey, HotkeyMethods, HotkeyComputed, HotkeyProps>({
             this.utility.record(input, sequence => {
                 if (
                     esc ||
-                    sequence.find(combination =>
+                    sequence.some(combination =>
                         combination.split('+').includes('f1')
                     )
                 )

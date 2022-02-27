@@ -1,7 +1,5 @@
 export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
-    const head = document.querySelector(
-        '.mission_header_info'
-    ) as HTMLDivElement | null;
+    const head = document.querySelector<HTMLDivElement>('.mission_header_info');
     if (!head) return;
     if (sticky) {
         const clearfix = document.createElement('div');
@@ -32,7 +30,8 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
         '.missing_vehicles_load'
     ) as HTMLAnchorElement | null;
     if (load && loadBtn) {
-        const people_amount = document.getElementById('amount_of_people');
+        const people_amount =
+            document.querySelector<HTMLSpanElement>('#amount_of_people');
         if (people_amount && people_amount.parentElement) {
             people_amount.parentElement.classList.add(
                 `col-md-${
@@ -48,10 +47,10 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
         if (people_amount && people_amount.parentElement)
             btnWrapper.classList.add('col-md-5');
         const clonedBtn = loadBtn.cloneNode(true) as HTMLAnchorElement;
-        clonedBtn.onclick = e => {
+        clonedBtn.addEventListener('click', e => {
             e.preventDefault();
             loadBtn.click();
-        };
+        });
         btnWrapper.append(clonedBtn);
         if (people_amount && people_amount.parentElement) {
             people_amount.parentElement.before(wrapper);

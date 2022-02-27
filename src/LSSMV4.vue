@@ -49,8 +49,8 @@ import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-import { DefaultMethods, DefaultProps } from 'vue/types/options';
-import { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
+import type { DefaultMethods, DefaultProps } from 'vue/types/options';
+import type { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,
@@ -96,7 +96,8 @@ export default Vue.extend<
             });
 
         // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
-        const modalsContainer = document.getElementById('modals-container');
+        const modalsContainer =
+            document.querySelector<HTMLDivElement>('#modals-container');
         if (
             modalsContainer &&
             this.$el.compareDocumentPosition(modalsContainer) &
@@ -208,6 +209,9 @@ body.dark
         padding: 1rem
         overflow: auto !important
         max-height: 100vh !important
+
+        &.vue-dialog code
+            word-break: break-word
 
 .vue-tablist
     list-style: none

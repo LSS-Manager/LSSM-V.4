@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Name',
             free: 'Free',
             max: 'Max',
+            status: 'Status',
         },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
@@ -128,6 +129,7 @@ module.exports = {
             [/^Airborne firefighting vehicle(s)?$/]: [35, 36, 37],
             [/^FBI Unit(s)?$/]: [42],
             [/^FBI Investigation wagon(s)?$/]: [43],
+            [/^FBI Investigation wagons? or Surveillance Drones?$/]: [43, 46],
             [/^FBI Mobile Command Center(s)?$/]: [44],
             [/^FBI Bomb Technician Vehicle(s)?$/]: [45],
             [/^FBI Surveillance Drone(s)?$/]: [46],

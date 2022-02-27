@@ -1,5 +1,7 @@
 export default (): void => {
-    const listenerTarget = document.getElementById('radio_messages_important');
+    const listenerTarget = document.querySelector<HTMLDivElement>(
+        '#radio_messages_important'
+    );
     if (!listenerTarget) return;
     listenerTarget.addEventListener('click', event => {
         const clickedBtn = event.target as HTMLElement | null;

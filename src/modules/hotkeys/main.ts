@@ -1,8 +1,8 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { Empty, Scope } from 'typings/modules/Hotkeys';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 import getCommandName from './assets/getCommandName';
-import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
+import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 
 const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
 

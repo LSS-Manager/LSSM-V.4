@@ -36,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     OwnSchoolingTabs,
     OwnSchoolingTabsComputed,
     OwnSchoolingTabsMethods,
@@ -57,11 +57,12 @@ export default Vue.extend<
             ),
     },
     data() {
-        const heads = {} as {
-            [key: string]: {
+        const heads = {} as Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         ['name', 'end', 'owner'].forEach(
             head =>
                 (heads[head] = {

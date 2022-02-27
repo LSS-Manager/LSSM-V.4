@@ -2,7 +2,7 @@
     <div class="form-horizontal">
         <v-select
             :placeholder="placeholder"
-            :multiple="true"
+            multiple
             v-model="updateValue"
             :options="filteredOptions"
             :disabled="disabled"
@@ -18,8 +18,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData, DefaultMethods } from 'vue/types/options';
-import {
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type {
     MultiSelectComputed,
     MultiSelectProps,
 } from 'typings/components/setting/MultiSelect';
@@ -86,7 +86,7 @@ export default Vue.extend<
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            set(values: ({ label: string; value: string } | string)[]) {
+            set(values: (string | { label: string; value: string })[]) {
                 this.$emit(
                     'input',
                     !values.length && this.allOnNone
@@ -97,7 +97,7 @@ export default Vue.extend<
         },
         filteredOptions() {
             const filtered = this.options.filter(
-                o => !this.updateValue.find(v => v.value === o.value)
+                o => !this.updateValue.some(v => v.value === o.value)
             );
             return filtered.every(({ label }) => label.match(/^\d+/))
                 ? filtered.sort((a, b) => {

@@ -59,13 +59,26 @@ const modules = {
             sync: 'use current position',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
         msg: 'If this error occurs frequently, please report it to the LSSM team!',
+        requestIssue: {
+            title: 'Erroneous request: Status {status}',
+            text: `Ouch, unfortunately an error occurred with this server request:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustext</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duration</b>: <code>{duration}ms</code><br>
+<br>
+Please try to perform the desired action again.<br>
+If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
+            close: 'Dismiss',
+        },
     },
     warnings: {
         version: {
@@ -123,20 +136,20 @@ export default {
             caption: 'Pumper',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 2_000,
+            wtank: 2000,
             possibleBuildings: [0, 18],
         },
         1: {
             caption: 'Medium Tanker',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 1_800,
+            wtank: 1800,
             possibleBuildings: [0, 18],
         },
         2: {
@@ -173,7 +186,7 @@ export default {
             caption: 'Ambulance',
             color: '#9c691c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0, 2, 20],
@@ -210,7 +223,7 @@ export default {
             caption: 'Police car',
             color: '#0b6911',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6, 19],
@@ -238,7 +251,6 @@ export default {
             coins: 25,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             possibleBuildings: [0, 18],
             special: 'Required from 5 fire stations',
         },
@@ -249,7 +261,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
@@ -267,7 +278,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a MRU and a Fire Truck.',
@@ -279,7 +289,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Turntable Ladder and a Fire Truck.',
@@ -321,10 +330,9 @@ export default {
             caption: 'K-9 Unit',
             color: '#15791a',
             coins: 25,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             possibleBuildings: [6, 19],
             schooling: {
                 Police: {
@@ -339,10 +347,9 @@ export default {
             caption: 'Police Motorcycle',
             color: '#346622',
             coins: 18,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             possibleBuildings: [6, 19],
             schooling: {
                 Police: {
@@ -356,7 +363,7 @@ export default {
             caption: 'TOG SUV',
             color: '#2c642e',
             coins: 23,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 2,
             maxPersonnel: 4,
             possibleBuildings: [6, 19],
@@ -373,10 +380,10 @@ export default {
             caption: 'Heavy Tanker',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            wtank: 4_000,
+            wtank: 4000,
             possibleBuildings: [0, 18],
         },
         20: {
@@ -386,7 +393,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             possibleBuildings: [15],
             schooling: {
                 'Fire Station': {
@@ -400,10 +406,9 @@ export default {
             caption: 'Rescue Boat',
             color: '#229b7a',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            wtank: 0,
             possibleBuildings: [15],
             special: 'SES Vehicle is the towing vehicle',
         },
@@ -501,7 +506,7 @@ export default {
             caption: 'Ultra-Light Tanker',
             color: '#bb0000',
             coins: 5,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 500,
@@ -511,10 +516,10 @@ export default {
             caption: 'Light Tanker',
             color: '#bb0000',
             coins: 8,
-            credits: 8_000,
+            credits: 8000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 3_000,
+            wtank: 3000,
             possibleBuildings: [0],
         },
         30: {
@@ -524,7 +529,7 @@ export default {
             credits: 19_000,
             minPersonnel: 4,
             maxPersonnel: 6,
-            wtank: 3_000,
+            wtank: 3000,
             possibleBuildings: [0, 18],
         },
         31: {
@@ -534,7 +539,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 1_500,
+            wtank: 1500,
             possibleBuildings: [23],
             schooling: {
                 'Fire Station': {
@@ -551,7 +556,7 @@ export default {
             credits: 1_000_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 3_200,
+            wtank: 3200,
             possibleBuildings: [23],
             schooling: {
                 'Fire Station': {
@@ -607,7 +612,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
             schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Fire academy',
@@ -780,7 +785,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Police Car'],
             schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Dispatch Center',
@@ -917,7 +922,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
             schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Police Station (Small station)',
@@ -951,7 +956,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Police Car'],
             schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Ambulance Station (Small station)',

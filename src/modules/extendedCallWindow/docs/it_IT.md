@@ -75,6 +75,6 @@ Questo permette di inserire una parola chiave prima o dopo il nome della mission
 ![Parole chiave della missione](keyword.png)
 
 ## Icone di invio
-Questo aggiungerà un'icona prima del pulsante di invio se hai selezionato quel tipo di veicolo. È possibile personalizzare i veicoli che danno l'icona, si’re in grado di scegliere una gamma di icone da [FontAwesome](https://fontawesome.com/icons?d=gallery&m=free).
+Questo aggiungerà un'icona prima del pulsante di invio se hai selezionato quel tipo di veicolo. È possibile personalizzare i veicoli che danno l'icona, si’re in grado di scegliere una gamma di icone da <a :href="$themeConfig.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a>.
 
 ![Icone d'Invio](dispatchIcon.png)

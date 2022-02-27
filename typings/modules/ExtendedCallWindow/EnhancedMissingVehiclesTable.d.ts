@@ -1,4 +1,4 @@
-import { Requirement } from './EnhancedMissingVehicles';
+import type { Requirement } from './EnhancedMissingVehicles';
 
 export interface EnhancedMissingVehiclesTableProps {
     missingRequirements: Requirement[];

@@ -12,8 +12,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData, DefaultMethods } from 'vue/types/options';
-import {
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type {
     ToggleComputed,
     ToggleProps,
 } from '../../../typings/components/setting/Toggle';

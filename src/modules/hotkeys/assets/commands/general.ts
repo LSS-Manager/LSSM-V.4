@@ -1,5 +1,5 @@
-import { Building } from 'typings/Building';
-import { Empty, Scope } from 'typings/modules/Hotkeys';
+import type { Building } from 'typings/Building';
+import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 export default <
     Scope<Empty, ['alliance', 'credits', 'profile', 'tasks'], ['protocol']>

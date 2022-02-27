@@ -9,7 +9,7 @@
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
-            :fixed-width="true"
+            fixed-width
             @click="toggleMinified"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -20,7 +20,7 @@
             :icon="faArrowsAlt"
             class="pull-right dragging-field"
             :class="{ 'hover-tip': settings.hoverTip }"
-            :fixed-width="true"
+            fixed-width
             @mousedown="dragStart"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -31,7 +31,7 @@
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="faSyncAlt"
             :spin="isReloading"
-            :fixed-width="true"
+            fixed-width
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -41,7 +41,7 @@
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
-            :fixed-width="true"
+            fixed-width
             @click="toggleOverlay"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -51,7 +51,7 @@
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="maxState ? faSubscript : faSuperscript"
-            :fixed-width="true"
+            fixed-width
             @click="toggleMaximum"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
@@ -454,15 +454,15 @@ import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
 import cloneDeep from 'lodash/cloneDeep';
-import { Mission } from 'typings/Mission';
-import {
+import type { Mission } from 'typings/Mission';
+import type {
     MissionHelper,
     MissionHelperComputed,
     MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
 
-import { DefaultProps } from 'vue/types/options';
+import type { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     MissionHelper,
@@ -574,7 +574,7 @@ export default Vue.extend<
         currentPrisoners() {
             return parseInt(
                 document
-                    .getElementById('h2_prisoners')
+                    .querySelector<HTMLHeadingElement>('#h2_prisoners')
                     ?.textContent?.trim()
                     .match(/^\d+/)?.[0] || '0'
             );
@@ -594,13 +594,16 @@ export default Vue.extend<
             return this.getVehicles(this.missionSpecs, false);
         },
         specialRequirements() {
-            const reqi18n = this.$m('noVehicleRequirements') as unknown as {
-                [key: string]: {
+            const reqi18n = this.$m(
+                'noVehicleRequirements'
+            ) as unknown as Record<
+                string,
+                {
                     badge: boolean;
                     text: string;
                     in: 'additional' | 'prerequisites';
-                };
-            };
+                }
+            >;
             const reqs = { badge: [], nonbadge: [] } as {
                 badge: string[];
                 nonbadge: string[];
@@ -629,7 +632,8 @@ export default Vue.extend<
                 feature: 'missionHelper-getMission',
             });
 
-            const missionHelpBtn = document.getElementById('mission_help');
+            const missionHelpBtn =
+                document.querySelector<HTMLAnchorElement>('#mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;
@@ -642,13 +646,13 @@ export default Vue.extend<
             if (!this.isDiyMission) {
                 const overlayIndex =
                     document
-                        .getElementById('mission_general_info')
+                        .querySelector<HTMLDivElement>('#mission_general_info')
                         ?.getAttribute('data-overlay-index') ?? 'null';
                 if (overlayIndex && overlayIndex !== 'null')
                     missionType += `-${overlayIndex}`;
                 const additionalOverlay =
                     document
-                        .getElementById('mission_general_info')
+                        .querySelector<HTMLDivElement>('#mission_general_info')
                         ?.getAttribute('data-additive-overlays') ?? 'null';
                 if (additionalOverlay && additionalOverlay !== 'null')
                     missionType += `/${additionalOverlay}`;
@@ -857,13 +861,11 @@ export default Vue.extend<
             if (this.settings.vehicles.patient_additionals) {
                 const patientAdditionals = this.$m(
                     'vehicles.patient_additionals'
-                ) as {
-                    [amount: number]: string;
-                };
+                ) as Record<number, string>;
                 Object.keys(patientAdditionals).forEach(
                     patients =>
                         this.currentPatients >= parseInt(patients) &&
-                        !Object.values(vehicles).find(
+                        !Object.values(vehicles).some(
                             ({ caption }) =>
                                 caption ===
                                 patientAdditionals[parseInt(patients)]
@@ -877,11 +879,7 @@ export default Vue.extend<
             if (missionSpecs?.additional) {
                 const optionalAlternatives = this.$m(
                     'vehicles.optional_alternatives'
-                ) as {
-                    [alternative: string]: {
-                        [vehicle: string]: string;
-                    };
-                };
+                ) as Record<string, Record<string, string>>;
                 Object.keys(optionalAlternatives).forEach(alt => {
                     if (
                         !optionalAlternatives[alt].not_customizable &&
@@ -911,13 +909,14 @@ export default Vue.extend<
             }
             const multifunctionals = this.$m(
                 'vehicles.multifunctionals'
-            ) as unknown as {
-                [multi: string]: {
+            ) as unknown as Record<
+                string,
+                {
                     additional_text: string;
                     reduce_from: string;
                     not_customizable?: boolean;
-                };
-            };
+                }
+            >;
             Object.keys(multifunctionals).forEach(vehicle => {
                 if (
                     !multifunctionals[vehicle].not_customizable &&

@@ -1,4 +1,4 @@
-import { MissionMarkerAdd } from 'typings/Ingame';
+import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export interface ButtonGroupCallback {
     element: HTMLDivElement;

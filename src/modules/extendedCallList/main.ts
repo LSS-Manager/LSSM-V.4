@@ -1,9 +1,9 @@
-import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
-import { AddStarrableButton } from './assets/starrableMissions/missionlist';
-import { Message } from '../shareAlliancePost/main';
-import { ModuleMainFunction } from 'typings/Module';
-import { Sort } from './assets/sort/callList';
-import { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
+import type { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
+import type { AddStarrableButton } from './assets/starrableMissions/missionlist';
+import type { Message } from '../shareAlliancePost/main';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { Sort } from './assets/sort/callList';
+import type { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
 
 interface AppendableListSetting<valueType> {
     value: valueType;
@@ -72,7 +72,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             LSSM.$store.commit('useFontAwesome');
 
             starredMissions = starredMissions.filter(
-                missionId => !!document.getElementById(`mission_${missionId}`)
+                missionId =>
+                    !!document.querySelector<HTMLDivElement>(
+                        `#mission_${missionId}`
+                    )
             );
             await LSSM.$store.dispatch('settings/setSetting', {
                 moduleId: MODULE_ID,
@@ -96,7 +99,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             const collapsedMissions = (
                 (await getSetting<string[]>('collapsedMissions')) ?? []
             ).filter(
-                missionId => !!document.getElementById(`mission_${missionId}`)
+                missionId =>
+                    !!document.querySelector<HTMLDivElement>(
+                        `#mission_${missionId}`
+                    )
             );
             const allMissionsCollapsed =
                 (await getSetting<boolean>('allMissionsCollapsed')) ?? false;

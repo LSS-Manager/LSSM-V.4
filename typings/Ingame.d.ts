@@ -1,4 +1,4 @@
-import { Marker } from 'leaflet';
+import type { Marker } from 'leaflet';
 
 export interface BuildingMarker extends Marker {
     building_id: number;
@@ -55,11 +55,11 @@ interface SicherheitswacheRadioMessage extends BasicRadioMessage {
     credits: number;
 }
 
-export type RadioMessage = VehicleRadioMessage | SicherheitswacheRadioMessage;
+export type RadioMessage = SicherheitswacheRadioMessage | VehicleRadioMessage;
 
 export interface MissionMarkerAdd {
     address: string;
-    alliance_id: null | number;
+    alliance_id: number | null;
     caption: string;
     captionOld: string;
     date_end: number;
@@ -74,18 +74,18 @@ export interface MissionMarkerAdd {
     live_current_value: number;
     missing_text: string;
     missing_text_short: string;
-    mtid: null | number; // mission type id (null => diy mission)
+    mtid: number | null; // mission type id (null => diy mission)
     patients_count: number;
     prisoners_count: number;
     sw: boolean;
     sw_start_in: number;
-    tlat: null | number;
-    tlng: null | number;
+    tlat: number | null;
+    tlng: number | null;
     tv: number; // target progress
     user_id: number;
     vehicle_state: 0 | 1 | 2; // red | yellow | green
-    overlay_index: null | number;
-    additive_overlays: null | string;
+    overlay_index: number | null;
+    additive_overlays: string | null;
     pumping_mission_value: number;
     pumping_date_start: number;
     pumping_date_end: number;

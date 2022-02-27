@@ -1,5 +1,5 @@
 export interface NumberMethods {
-    normalize(num: string | number): number;
+    normalize(num: number | string): number;
 }
 
 export interface NumberProps {

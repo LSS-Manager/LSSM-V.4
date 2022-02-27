@@ -1,16 +1,16 @@
 import toggle from './toggle';
 
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export interface CollapsableButton extends HTMLButtonElement {
     switch?(): Promise<void>;
 }
 
 const COLOR_ACTIVE = 'danger';
-const ICON_ACTIVE = 'expand-alt';
+const ICON_ACTIVE = 'up-right-and-down-left-from-center';
 
 const COLOR_INACTIVE = 'success';
-const ICON_INACTIVE = 'compress-alt';
+const ICON_INACTIVE = 'down-left-and-up-right-to-center';
 
 const BTN_ACTIVE = `btn-${COLOR_ACTIVE}`;
 const BTN_INACTIVE = `btn-${COLOR_INACTIVE}`;

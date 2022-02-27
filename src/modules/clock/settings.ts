@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Text, Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Text, Toggle } from 'typings/Setting';
 
 export default (() => ({
     displayNav: <Toggle>{

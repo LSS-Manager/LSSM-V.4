@@ -83,7 +83,7 @@
                                     },
                                 }"
                                 :table-attrs="{ class: 'table table-striped' }"
-                                :no-search="true"
+                                no-search
                             >
                                 <template v-slot:head>
                                     <span>
@@ -176,7 +176,7 @@
                                     },
                                 }"
                                 :table-attrs="{ class: 'table table-striped' }"
-                                :no-search="true"
+                                no-search
                             >
                                 <tr
                                     v-for="(entry, id) in kasse.spendings
@@ -211,7 +211,7 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignSubComponent<
     'kasse',

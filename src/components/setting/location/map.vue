@@ -25,8 +25,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultComputed } from 'vue/types/options';
-import { Map as LMap, Marker } from 'leaflet';
+import type { DefaultComputed } from 'vue/types/options';
+import type { Map as LMap, Marker } from 'leaflet';
 
 export default Vue.extend<
     { locationMarker: Marker | null },

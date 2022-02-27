@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import {
+import type { ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Text,
@@ -7,7 +7,7 @@ import {
 } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => ({
-    templates: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+    templates: <Omit<AppendableList, 'isDisabled' | 'value'>>{
         type: 'appendable-list',
         default: [],
         listItem: [

@@ -1,5 +1,6 @@
 export default (LSSM: Vue): void => {
-    const alarmBtn = document.getElementById('mission_alarm_btn');
+    const alarmBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_alarm_btn');
     if (!alarmBtn) return;
 
     LSSM.$store
@@ -17,8 +18,9 @@ export default (LSSM: Vue): void => {
                 const lastVehicle = vehicles[vehicles.length - 1];
                 const vehicleId = lastVehicle?.getAttribute('value');
                 const alarmTime =
-                    document.getElementById(`vehicle_sort_${vehicleId}`)
-                        ?.childNodes[0]?.textContent ?? '';
+                    document.querySelector<HTMLTableCellElement>(
+                        `#vehicle_sort_${vehicleId}`
+                    )?.childNodes[0]?.textContent ?? '';
                 return { lastVehicle, alarmTime };
             };
 
@@ -32,7 +34,9 @@ export default (LSSM: Vue): void => {
                 const vehicleId = lastVehicle?.getAttribute('value');
                 const sortValue =
                     document
-                        .getElementById(`vehicle_sort_${vehicleId}`)
+                        .querySelector<HTMLTableCellElement>(
+                            `#vehicle_sort_${vehicleId}`
+                        )
                         ?.getAttribute('sortvalue')
                         ?.toString() || '99999999999';
                 if (!sortValue.startsWith('9999999999')) observer.disconnect();
@@ -55,7 +59,8 @@ export default (LSSM: Vue): void => {
 
             const amountObserver = new MutationObserver(update);
 
-            const amountElement = document.getElementById('vehicle_amount');
+            const amountElement =
+                document.querySelector<HTMLSpanElement>('#vehicle_amount');
 
             if (amountElement) {
                 amountObserver.observe(amountElement, {

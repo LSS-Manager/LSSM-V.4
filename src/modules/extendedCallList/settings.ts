@@ -1,5 +1,5 @@
-import { $m, ModuleSettingFunction } from 'typings/Module';
-import {
+import type { $m, ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Hidden,
@@ -91,7 +91,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
-        shareMissionsTypes: <Omit<MultiSelect, 'value' | 'isDisabled'>>{
+        shareMissionsTypes: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
             values: ['', 'sicherheitswache'],
             labels: [
@@ -154,7 +154,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.currentPatients',
         },
-        eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        eventMissions: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultEventmissions,
             listItem: [

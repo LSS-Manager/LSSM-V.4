@@ -71,7 +71,7 @@ Deze functie geeft de mogelijkheid om trefwoorden bij de naam van de melding te 
 ![Meldingstrefwoord](missionKeyword.png)
 
 ## Alarm-iconen
-Koppel hiermee icoontjes aan de voertuigen welke dan in de alarmknop worden getoond als je ze geselecteerd hebt. Je kan kiezen uit alle gratis iconen van font-awesome. Die zijn [hier](https://fontawesome.com/icons?d=gallery&m=free) te vinden. 
+Koppel hiermee icoontjes aan de voertuigen welke dan in de alarmknop worden getoond als je ze geselecteerd hebt. Je kan kiezen uit alle gratis iconen van font-awesome. Die zijn <a :href="$themeConfig.variables.fontAwesomeIconSearchLink" target="_blank">hier</a> te vinden. 
 Je moet de naam exact overnemen van de naam op die site en daarbij het goede type selecteren. Dat type kan je vinden door op de site op het icoon te drukken, maar je kan ze ook alle 3 proberen tot het icoontje zichtbaar wordt in de voorvertoning. 
 
 ![Alarm-iconen](alarmIcons.png)

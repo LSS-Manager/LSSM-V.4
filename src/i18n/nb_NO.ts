@@ -48,7 +48,7 @@ const modules = {
             sync: 'bruk nåværende posisjon',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
@@ -97,7 +97,7 @@ export default {
             caption: 'Mannskapsbil',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2500,
@@ -107,7 +107,7 @@ export default {
             caption: 'Lett mannskapsbil',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 500,
@@ -144,7 +144,7 @@ export default {
             caption: 'Ambulanse',
             color: '#9c691c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
         },
@@ -156,7 +156,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             ftank: 400,
-            wtank: 10000,
+            wtank: 10_000,
             special: 'Nødvendig etter at du har bygd 7 brannstasjoner.',
         },
         7: {
@@ -179,7 +179,7 @@ export default {
             caption: 'Patruljebil',
             color: '#378b18',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
@@ -236,7 +236,7 @@ export default {
             caption: 'Hundepatrulje',
             color: '#1a6d22',
             coins: 25,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
@@ -252,7 +252,7 @@ export default {
             caption: 'Politimotorsykkel',
             color: '#3a6622',
             coins: 18,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
@@ -267,7 +267,7 @@ export default {
             caption: 'Delta kjøretøy',
             color: '#253322',
             coins: 23,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 2,
             maxPersonnel: 4,
             schooling: {
@@ -333,7 +333,7 @@ export default {
             caption: 'Lett redningsbåt',
             color: '#22776d',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
@@ -386,7 +386,7 @@ export default {
             caption: 'Legebil',
             color: '#9c1c1c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
@@ -411,7 +411,7 @@ export default {
             caption: 'Akuttbil',
             color: '#9c1c1c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 2,
             maxPersonnel: 2,
         },
@@ -419,7 +419,7 @@ export default {
             caption: 'Ambulansemotorsykkel',
             color: '#9c1c1c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
@@ -434,7 +434,7 @@ export default {
             caption: 'Syketransport',
             color: '#9c1c1c',
             coins: 12,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 2,
             maxPersonnel: 2,
         },
@@ -442,7 +442,7 @@ export default {
             caption: 'First responder bil',
             color: '#9c1c1c',
             coins: 25,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 1,
         },
@@ -450,7 +450,7 @@ export default {
             caption: 'Akutthjelper',
             color: '#9c1c1c',
             coins: 12,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
@@ -482,7 +482,7 @@ export default {
             caption: 'Akuttbil',
             color: '#9c1c1c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 2,
             maxPersonnel: 4,
         },
@@ -493,7 +493,7 @@ export default {
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            wtank: 2_000,
+            wtank: 2000,
             schooling: {
                 Brannstasjon: {
                     'Skogbrann helikopterutdanning': {
@@ -506,10 +506,10 @@ export default {
             caption: 'ATV',
             color: '#570f0f',
             coins: 5,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 2_000,
+            wtank: 2000,
             schooling: {
                 Brannstasjon: {
                     ATV: {
@@ -525,7 +525,7 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            ftank: 3_000,
+            ftank: 3000,
         },
         36: {
             caption: 'Tilhengerpumpe',
@@ -603,7 +603,7 @@ export default {
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Brannskole',
@@ -778,7 +778,7 @@ export default {
                 'Fra og med den 24. politistasjonen øker kostnadene for nybygging av en politistasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende politistasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 2,
             startVehicles: ['Patruljebil'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Nødetatssenter',
@@ -915,7 +915,7 @@ export default {
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> (50.000+100.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22)) / 2 </code>. maks. 1 million kreditter. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Politistasjon (liten)',
@@ -948,7 +948,7 @@ export default {
                 'Fra og med den 24. politistasjonen beregnes kostnadene for nybygging av en politistasjon i henhold til følgende formel: <code> (50.000+100.000 * LOG <sub> 2 </sub> (Antall eksisterende politistasjoner - 22 )) / 2 </code>. Myntprisen forblir konstant!',
             startPersonnel: 2,
             startVehicles: ['Patruljebil'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Ambulansestasjon (liten)',

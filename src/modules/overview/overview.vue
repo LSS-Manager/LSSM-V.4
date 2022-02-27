@@ -279,19 +279,19 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 
-import { DefaultProps } from 'vue/types/options';
-import { Schooling } from 'typings/Schooling';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Schooling } from 'typings/Schooling';
+import type {
     BuildingCategory,
     InternalBuilding,
     ResolvedBuildingCategory,
 } from 'typings/Building';
-import {
+import type {
     InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
-import {
+import type {
     Overview,
     OverviewComputed,
     OverviewMethods,
@@ -317,18 +317,19 @@ export default Vue.extend<
     data() {
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
-        ) as {
-            [name: string]: VehicleCategory;
-        };
-        const vehicleTypes = this.$t('vehicles') as {
-            [id: number]: InternalVehicle;
-        };
-        const resolvedVehicleCategories = {} as {
-            [name: string]: ResolvedVehicleCategory;
-        };
-        const schoolings = this.$t('schoolings') as unknown as {
-            [category: string]: Schooling[];
-        };
+        ) as Record<string, VehicleCategory>;
+        const vehicleTypes = this.$t('vehicles') as Record<
+            number,
+            InternalVehicle
+        >;
+        const resolvedVehicleCategories = {} as Record<
+            string,
+            ResolvedVehicleCategory
+        >;
+        const schoolings = this.$t('schoolings') as unknown as Record<
+            string,
+            Schooling[]
+        >;
         const resolvedSchoolings = {} as Overview['schoolingCategories'];
         Object.entries(schoolings).forEach(([school, schoolings]) => {
             resolvedSchoolings[school] = Object.values(schoolings).map(
@@ -368,22 +369,16 @@ export default Vue.extend<
         );
         const buildingCategories = cloneDeep(
             this.$t('buildingCategories') as unknown
-        ) as {
-            [name: string]: BuildingCategory | ResolvedBuildingCategory;
-        };
+        ) as Record<string, BuildingCategory | ResolvedBuildingCategory>;
         const buildingTypes = Object.fromEntries(
             Object.entries(
                 cloneDeep(
-                    this.$t('buildings') as {
-                        [id: number]: InternalBuilding;
-                    }
+                    this.$t('buildings') as Record<number, InternalBuilding>
                 )
             ).map(([index, building]) => {
                 const extensions = Object.values(building.extensions);
                 const minifiedExtensions = [] as InternalBuilding['extensions'];
-                const multipleExtensions = {} as {
-                    [caption: string]: number;
-                };
+                const multipleExtensions = {} as Record<string, number>;
                 extensions.forEach(extension => {
                     if (!extension) return;
                     const e = minifiedExtensions.find(
@@ -430,9 +425,10 @@ export default Vue.extend<
         );
         return {
             vehicles: Object.values(vehicleTypes),
-            vehicleCategories: resolvedVehicleCategories as unknown as {
-                [name: string]: ResolvedVehicleCategory;
-            },
+            vehicleCategories: resolvedVehicleCategories as unknown as Record<
+                string,
+                ResolvedVehicleCategory
+            >,
             vehiclesTab: {
                 head: {
                     caption: { title: this.$m('titles.vehicles.caption') },
@@ -495,9 +491,10 @@ export default Vue.extend<
                 },
             },
             buildings: Object.values(buildingTypes),
-            buildingCategories: buildingCategories as unknown as {
-                [name: string]: ResolvedBuildingCategory;
-            },
+            buildingCategories: buildingCategories as unknown as Record<
+                string,
+                ResolvedBuildingCategory
+            >,
             buildingsTab: {
                 head: {
                     caption: { title: this.$m('titles.buildings.caption') },

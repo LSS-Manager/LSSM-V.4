@@ -1,5 +1,5 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import VueI18n from 'vue-i18n';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type VueI18n from 'vue-i18n';
 
 export interface Requirement {
     missing: number;
@@ -56,12 +56,7 @@ export interface EnhancedMissingVehiclesComputed {
 }
 
 export interface EnhancedMissingVehiclesMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setSort(s: string): void;
     toggleOverlay(): void;
     toggleMinified(): void;

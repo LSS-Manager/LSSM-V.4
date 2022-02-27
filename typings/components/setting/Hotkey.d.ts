@@ -1,4 +1,4 @@
-import HotkeyUtility from '../../../src/modules/hotkeys/assets/HotkeyUtility';
+import type HotkeyUtility from '../../../src/modules/hotkeys/assets/HotkeyUtility';
 
 export interface Hotkey {
     readonly: boolean;

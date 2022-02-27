@@ -1,4 +1,4 @@
-import { Building } from '../../typings/Building';
+import type { Building } from '../../typings/Building';
 
 const modules = {
     appstore: {
@@ -59,13 +59,26 @@ const modules = {
             sync: 'aktuelle Position verwenden',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
     error: {
         title: 'LSS-Manager: Fehler',
         msg: 'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
+        requestIssue: {
+            title: 'Fehlerhafte Anfrage: Status {status}',
+            text: `Huch, bei dieser Serveranfrage ist leider ein Fehler aufgetreten:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustext</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Dauer</b>: <code>{duration}ms</code><br>
+<br>
+Bitte versuche, die gewünschte Aktion nochmals auszuführen.<br>
+Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverproblemen liegen. Bitte versuche es dann zu einem späteren Zeitpunkt erneut.`,
+            close: 'Hinweis schließen',
+        },
     },
     warnings: {
         version: {
@@ -149,10 +162,9 @@ export default {
             caption: 'DLK 23',
             color: '#d92626',
             coins: 30,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 3 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -161,10 +173,9 @@ export default {
             caption: 'ELW 1',
             color: '#d02525',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'car-side',
             possibleBuildings: [0, 18],
@@ -173,10 +184,9 @@ export default {
             caption: 'RW',
             color: '#ad1f1f',
             coins: 25,
-            credits: 12180,
+            credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 4 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -185,10 +195,9 @@ export default {
             caption: 'GW-A',
             color: '#9c1c1c',
             coins: 25,
-            credits: 11680,
+            credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 5 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -236,7 +245,6 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             pumpcap: 1600,
             icon: 'truck-moving',
             possibleBuildings: [0, 18],
@@ -245,10 +253,9 @@ export default {
             caption: 'GW-Öl',
             color: '#8b1818',
             coins: 25,
-            credits: 12000,
+            credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -257,10 +264,9 @@ export default {
             caption: 'GW-L2-Wasser',
             color: '#e61919',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -270,10 +276,9 @@ export default {
             caption: 'GW-Messtechnik',
             color: '#791515',
             coins: 25,
-            credits: 18300,
+            credits: 18_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'GW-Messtechnik Lehrgang': {
@@ -289,10 +294,9 @@ export default {
             caption: 'SW 1000',
             color: '#dc1818',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -302,10 +306,9 @@ export default {
             caption: 'SW 2000',
             color: '#ca1616',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -315,10 +318,9 @@ export default {
             caption: 'SW 2000-Tr',
             color: '#b81414',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -328,10 +330,9 @@ export default {
             caption: 'SW Kats',
             color: '#a51212',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -461,10 +462,9 @@ export default {
             caption: 'GW-Gefahrgut',
             color: '#681212',
             coins: 25,
-            credits: 19200,
+            credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'GW-Gefahrgut Lehrgang': {
@@ -490,7 +490,7 @@ export default {
             caption: 'NEF',
             color: '#e09200',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
@@ -513,7 +513,7 @@ export default {
             caption: 'HLF 20',
             color: '#440000',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
@@ -525,7 +525,7 @@ export default {
             caption: 'RTH',
             color: '#ddaa3c',
             coins: 30,
-            credits: 300000,
+            credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
@@ -553,10 +553,9 @@ export default {
             caption: 'GW-Höhenrettung',
             color: '#570f0f',
             coins: 25,
-            credits: 19500,
+            credits: 19_500,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     ['Höhenrettung Lehrgang']: {
@@ -572,10 +571,9 @@ export default {
             caption: 'ELW 2',
             color: '#bf2222',
             coins: 25,
-            credits: 25500,
+            credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'ELW 2 Lehrgang': {
@@ -591,7 +589,7 @@ export default {
             caption: 'leBefKw',
             color: '#288f28',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: {
@@ -611,7 +609,6 @@ export default {
             credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             icon: 'shuttle-van',
             possibleBuildings: [0, 18],
         },
@@ -641,7 +638,7 @@ export default {
             caption: 'GKW',
             color: '#00138f',
             coins: 25,
-            credits: 13000,
+            credits: 13_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'truck-moving',
@@ -668,7 +665,7 @@ export default {
             caption: 'MzKW',
             color: '#0018b8',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'truck-moving',
@@ -678,7 +675,7 @@ export default {
             caption: 'LKW K 9',
             color: '#001bcc',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: {
@@ -695,7 +692,7 @@ export default {
             caption: 'BRmG R',
             color: '#001ee0',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
@@ -706,7 +703,7 @@ export default {
             caption: 'Anh DLE',
             color: '#0021f5',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
@@ -738,7 +735,6 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'Wechsellader Lehrgang': {
@@ -783,7 +779,7 @@ export default {
             caption: 'GruKw',
             color: '#2d9f29',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'bus',
@@ -793,7 +789,7 @@ export default {
             caption: 'FüKw',
             color: '#31af31',
             coins: 25,
-            credits: 17500,
+            credits: 17_500,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: {
@@ -810,7 +806,7 @@ export default {
             caption: 'GefKw',
             color: '#36bf36',
             coins: 25,
-            credits: 13000,
+            credits: 13_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'bus-alt',
@@ -820,7 +816,7 @@ export default {
             caption: 'Dekon-P',
             color: '#450909',
             coins: 25,
-            credits: 23100,
+            credits: 23_100,
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: {
@@ -849,10 +845,9 @@ export default {
             caption: 'KdoW-LNA',
             color: '#805c0f',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: {
                 Rettungsdienst: {
                     'LNA-Ausbildung': {
@@ -868,10 +863,9 @@ export default {
             caption: 'KdoW-OrgL',
             color: '#926911',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: {
                 Rettungsdienst: {
                     'OrgL-Ausbildung': {
@@ -887,10 +881,9 @@ export default {
             caption: 'FwK',
             color: '#230606',
             coins: 25,
-            credits: 30000,
+            credits: 30_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'Feuerwehrkran Lehrgang': {
@@ -918,7 +911,7 @@ export default {
             caption: 'ELW 1 (SEG)',
             color: '#a34100',
             coins: 25,
-            credits: 25500,
+            credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
@@ -937,7 +930,7 @@ export default {
             caption: 'GW-San',
             color: '#8f3900',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
             schooling: {
@@ -956,7 +949,7 @@ export default {
             caption: 'Polizeihubschrauber',
             color: '#14743f',
             coins: 30,
-            credits: 300000,
+            credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: {
@@ -983,7 +976,7 @@ export default {
             caption: 'GW-Taucher',
             color: '#88ecc4',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
             schooling: {
@@ -1005,7 +998,7 @@ export default {
             caption: 'GW-Wasserrettung',
             color: '#91dab5',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: {
@@ -1027,7 +1020,7 @@ export default {
             caption: 'LKW 7 Lkr 19 tm',
             color: '#123183',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'truck-pickup',
@@ -1073,7 +1066,7 @@ export default {
             caption: 'Tauchkraftwagen',
             color: '#36759e',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
@@ -1114,7 +1107,7 @@ export default {
             caption: 'WaWe 10',
             color: '#36b15d',
             coins: 25,
-            credits: 13000,
+            credits: 13_000,
             minPersonnel: 5,
             maxPersonnel: 5,
             schooling: {
@@ -1131,7 +1124,7 @@ export default {
             caption: 'GRTW',
             color: '#cc8500',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 6,
             maxPersonnel: 6,
             schooling: {
@@ -1155,7 +1148,7 @@ export default {
             caption: 'NAW',
             color: '#b87700',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: {
@@ -1179,10 +1172,10 @@ export default {
             caption: 'FLF',
             color: '#7a534a',
             coins: 25,
-            credits: 80000,
+            credits: 80_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 12000,
+            wtank: 12_000,
             schooling: {
                 Feuerwehr: {
                     ['Flugfeldlöschfahrzeug-Ausbildung']: {
@@ -1197,10 +1190,9 @@ export default {
             caption: 'Rettungstreppe',
             color: '#6f6157',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'Rettungstreppen-Ausbildung': {
@@ -1235,7 +1227,7 @@ export default {
             caption: 'SEK - ZF',
             color: '#217d1a',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 4,
             schooling: {
@@ -1252,7 +1244,7 @@ export default {
             caption: 'SEK - MTF',
             color: '#1a7d1b',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 9,
             maxPersonnel: 9,
             schooling: {
@@ -1269,7 +1261,7 @@ export default {
             caption: 'MEK - ZF',
             color: '#1a7d22',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 4,
             schooling: {
@@ -1286,7 +1278,7 @@ export default {
             caption: 'MEK - MTF',
             color: '#1a7d2a',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 9,
             maxPersonnel: 9,
             schooling: {
@@ -1303,10 +1295,9 @@ export default {
             caption: 'GW-Werkfeuerwehr',
             color: '#99222b',
             coins: 30,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'Werkfeuerwehr-Ausbildung': {
@@ -1321,7 +1312,7 @@ export default {
             caption: 'ULF mit Löscharm',
             color: '#992234',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 5000,
@@ -1339,10 +1330,9 @@ export default {
             caption: 'TM 50',
             color: '#992b22',
             coins: 30,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'Werkfeuerwehr-Ausbildung': {
@@ -1357,10 +1347,9 @@ export default {
             caption: 'Turbolöscher',
             color: '#993422',
             coins: 30,
-            credits: 12500,
+            credits: 12_500,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: {
                 Feuerwehr: {
                     'Werkfeuerwehr-Ausbildung': {
@@ -1411,7 +1400,7 @@ export default {
             caption: 'HLF 10',
             color: '#330000',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1000,
@@ -1423,7 +1412,7 @@ export default {
             caption: 'Rettungshundefahrzeug',
             color: '#864708',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: {
@@ -1454,7 +1443,7 @@ export default {
             caption: 'MTW-OV',
             color: '#14165e',
             coins: 0,
-            credits: 19000,
+            credits: 19_000,
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: {
@@ -1471,7 +1460,7 @@ export default {
             caption: 'DHuFüKw',
             color: '#339900',
             coins: 10,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
@@ -1507,7 +1496,7 @@ export default {
             caption: 'Außenlastbehälter (allgemein)',
             color: '#0a580c',
             coins: 10,
-            credits: 50000,
+            credits: 50_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
@@ -1519,7 +1508,7 @@ export default {
             caption: 'ITW',
             color: '#b87700',
             coins: 25,
-            credits: 30000,
+            credits: 30_000,
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: {
@@ -1568,7 +1557,7 @@ export default {
             caption: 'LKW 7 Lbw',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: {
@@ -1585,7 +1574,7 @@ export default {
             caption: 'MLW 4',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 7,
             schooling: {
@@ -1602,10 +1591,10 @@ export default {
             caption: 'Anh SwPu',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            pumpcap: 15000,
+            pumpcap: 15_000,
             icon: 'trailer',
             possibleBuildings: [9],
         },
@@ -1613,10 +1602,10 @@ export default {
             caption: 'Anh 7',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            pumpcap: 12400,
+            pumpcap: 12_400,
             icon: 'trailer',
             possibleBuildings: [9],
         },
@@ -1624,7 +1613,7 @@ export default {
             caption: 'FuStW (DGL)',
             color: '#339900',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
@@ -1676,9 +1665,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -1690,9 +1679,9 @@ export default {
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -1731,7 +1720,7 @@ export default {
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
             schoolingTypes: ['Feuerwehr'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Feuerwehrschule',
@@ -1912,7 +1901,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['FuStW'],
             schoolingTypes: ['Polizei'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Leitstelle',
@@ -2293,9 +2282,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2333,7 +2322,7 @@ export default {
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
             ],
             schoolingTypes: ['Feuerwehr'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Polizeiwache (Kleinwache)',
@@ -2379,7 +2368,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['FuStW'],
             schoolingTypes: ['Polizei'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Rettungswache (Kleinwache)',
@@ -2449,9 +2438,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2463,9 +2452,9 @@ export default {
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /

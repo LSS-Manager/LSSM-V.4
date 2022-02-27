@@ -78,9 +78,9 @@ import Vue from 'vue';
 
 import isEqual from 'lodash/isEqual';
 
-import { DefaultProps } from 'vue/types/options';
-import { Modules } from '../../typings/Module';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Modules } from '../../typings/Module';
+import type {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,

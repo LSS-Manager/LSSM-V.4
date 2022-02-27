@@ -1,6 +1,6 @@
-import { RootState } from '../../typings/store/RootState';
-import { ActionTree, Module } from 'vuex';
-import {
+import type { RootState } from '../../typings/store/RootState';
+import type { ActionTree, Module } from 'vuex';
+import type {
     CreateEvent,
     EventActionStoreParams,
 } from 'typings/store/event/Actions';

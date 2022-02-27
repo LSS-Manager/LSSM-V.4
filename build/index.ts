@@ -10,7 +10,7 @@ import config from '../src/config';
 import { version } from '../package.json';
 import webpackConfig from '../webpack.config';
 
-import webpack, { Configuration } from 'webpack';
+import webpack from 'webpack';
 
 console.time(`build`);
 
@@ -34,7 +34,7 @@ const entry = {
         publicPath: `${config.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
-} as Configuration;
+} as webpack.Configuration;
 
 const modules = moduleDirs.filter(
     module =>

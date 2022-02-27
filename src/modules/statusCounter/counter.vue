@@ -33,7 +33,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultMethods } from 'vue/types/options';
+import type { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     { fmsReal2Show: Record<string, number> },
@@ -42,7 +42,7 @@ export default Vue.extend<
         vehicles: number;
         vehicle_states: Record<string, { real: string; amount: number }>;
     },
-    { settings: { percentRounding: number } & Record<string, boolean> }
+    { settings: Record<string, boolean> & { percentRounding: number } }
 >({
     name: 'lssmv4-status-counter',
     data() {

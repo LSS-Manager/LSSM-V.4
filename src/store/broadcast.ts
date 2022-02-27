@@ -1,8 +1,8 @@
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
 
-import { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
-import { RootState } from '../../typings/store/RootState';
-import { ActionTree, Module } from 'vuex';
+import type { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
+import type { RootState } from '../../typings/store/RootState';
+import type { ActionTree, Module } from 'vuex';
 
 const STORAGE_NAME_KEY = `${PREFIX}_windowname`;
 

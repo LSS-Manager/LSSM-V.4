@@ -1,4 +1,4 @@
-import {
+import type {
     OpenSchoolings,
     OwnSchoolings,
 } from 'typings/modules/SchoolingOverview/main';

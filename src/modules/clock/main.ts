@@ -1,4 +1,4 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 import moment from 'moment';
 
 export default (async ({ LSSM, MODULE_ID, getSetting }) => {
@@ -58,7 +58,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                 },
             });
         });
-        document.body.appendChild(clock);
+        document.body.append(clock);
     }
 
     const clocks = document.querySelectorAll(`.${className}`);

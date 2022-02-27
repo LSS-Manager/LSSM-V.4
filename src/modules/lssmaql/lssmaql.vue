@@ -46,9 +46,9 @@ import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import parser from './assets/parser';
 import tokenizer from './assets/tokenizer';
 
-import { DefaultProps } from 'vue/types/options';
-import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
+import type {
     LSSMAQL,
     LSSMAQLComputed,
     LSSMAQLMethods,
@@ -104,7 +104,7 @@ const parse_filter = (
         typeof oneside === 'boolean'
             ? oneside
             : [...oneside.base.split('.'), ...oneside.attributes]
-    ) as string | number | Record<string, unknown> | (string | number)[];
+    ) as (number | string)[] | Record<string, unknown> | number | string;
     if (!sideObject) return;
     if (Array.isArray(sideObject)) {
         while (sideObject.includes('..')) {
@@ -121,10 +121,10 @@ const parse_filter = (
                 newObject = (newObject as never[]).map(e => e[attr]);
             } else {
                 newObject = (newObject as Record<string, unknown>)[attr] as
-                    | string
-                    | number
+                    | never[]
                     | Record<string, unknown>
-                    | never[];
+                    | number
+                    | string;
             }
         });
         sideObject = newObject;

@@ -5,8 +5,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
 type Component = RedesignComponent<
     'mission',

@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import {
+import type { ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     MultiSelect,

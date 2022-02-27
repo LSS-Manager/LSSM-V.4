@@ -33,12 +33,13 @@ const fmsColors = {
         background: '#f3d470',
         color: 'black',
     },
-} as {
-    [fms: number]: {
+} as Record<
+    number,
+    {
         background: string;
         color: 'black' | 'white';
-    };
-};
+    }
+>;
 
 export default (fms_real: number, fms: number): string =>
     svgToMiniDataURI(

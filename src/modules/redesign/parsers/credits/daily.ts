@@ -1,6 +1,6 @@
-import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
+import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
 import getEntries from '../../../dailyCreditsSummary/assets/getEntries';
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 export interface Entry {
     total: number;

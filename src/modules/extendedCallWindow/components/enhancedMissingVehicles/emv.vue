@@ -15,7 +15,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="textMode ? faTable : faParagraph"
-            :fixed-width="true"
+            fixed-width
             @click="toggleTextMode"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -25,7 +25,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
-            :fixed-width="true"
+            fixed-width
             @click="toggleMinified"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -36,7 +36,7 @@
             :icon="faArrowsAlt"
             class="pull-right dragging-field"
             :class="{ 'hover-tip': hoverTip }"
-            :fixed-width="true"
+            fixed-width
             @mousedown="dragStart"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -46,7 +46,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
-            :fixed-width="true"
+            fixed-width
             @click="toggleOverlay"
         ></font-awesome-icon>
         <div v-if="hoverTip" class="alert alert-info">
@@ -56,7 +56,7 @@
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
-            :fixed-width="true"
+            fixed-width
             @click="toggleRight"
             v-if="!overlay"
         ></font-awesome-icon>
@@ -131,7 +131,7 @@ import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
-import {
+import type {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
     EnhancedMissingVehiclesMethods,
@@ -328,14 +328,14 @@ export default Vue.extend<
                     this.pushedRight = !this.pushedRight;
                     if (!this.pushedRight) {
                         document
-                            .querySelector(
+                            .querySelector<HTMLDivElement>(
                                 '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
                             )
                             ?.after(this.$el);
                     } else {
                         document
-                            .getElementById('mission-form')
-                            ?.insertAdjacentElement('afterbegin', this.$el);
+                            .querySelector<HTMLFormElement>('#mission-form')
+                            ?.prepend(this.$el);
                     }
                 });
         },
@@ -402,7 +402,7 @@ export default Vue.extend<
             (requirement, value) => this.$set(requirement, 'selected', value),
             this.$m
         );
-        const amountElement = document.getElementById('vehicle_amount');
+        const amountElement = document.querySelector('#vehicle_amount');
 
         if (!observeHandler || !amountElement) return;
 

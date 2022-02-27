@@ -74,7 +74,7 @@ export default async (
 
     const historyIcon = document.createElement('i');
     historyIcon.classList.add('fas', 'fa-history');
-    historyBtn.appendChild(historyIcon);
+    historyBtn.append(historyIcon);
 
     const historyList = document.createElement('ul');
     historyList.id = historyListId;
@@ -159,10 +159,10 @@ export default async (
             }
         });
 
-        historyRemoveBtn.appendChild(historyRemoveIcon);
-        historyEntry.appendChild(historyText);
-        historyEntry.appendChild(historyRemoveBtn);
-        historyList.appendChild(historyEntry);
+        historyRemoveBtn.append(historyRemoveIcon);
+        historyEntry.append(historyText);
+        historyEntry.append(historyRemoveBtn);
+        historyList.append(historyEntry);
     };
 
     const ownMarkers =
@@ -193,8 +193,8 @@ export default async (
             updateHistoryList();
         });
 
-        historyAddWrapper.appendChild(historyAddBtn);
-        historyList.appendChild(historyAddWrapper);
+        historyAddWrapper.append(historyAddBtn);
+        historyList.append(historyAddWrapper);
 
         ownMarkers.forEach(marker => {
             history.push(marker);
@@ -267,7 +267,7 @@ export default async (
                 _: unknown,
                 __: unknown,
                 [coordinates, zoom = window.map.getZoom()]: [
-                    [number, number] | { lat: number; lng: number },
+                    { lat: number; lng: number } | [number, number],
                     number
                 ]
             ) {

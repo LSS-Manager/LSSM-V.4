@@ -2,9 +2,9 @@ import he from 'he';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
-import { Building } from 'typings/Building';
-import { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
-import { Color, Hidden, Toggle } from 'typings/Setting';
+import type { Building } from 'typings/Building';
+import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
+import type { Color, Hidden, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
     window.console.info(

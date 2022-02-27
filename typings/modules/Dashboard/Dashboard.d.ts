@@ -1,10 +1,5 @@
-import VueI18n from 'vue-i18n';
+import type VueI18n from 'vue-i18n';
 
 export interface DashboardMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
 }

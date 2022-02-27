@@ -59,13 +59,26 @@ const modules = {
             sync: 'use current position',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
         msg: 'If this error occurs frequently, please report it to the LSSM team!',
+        requestIssue: {
+            title: 'Erroneous request: Status {status}',
+            text: `Ouch, unfortunately an error occurred with this server request:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustext</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duration</b>: <code>{duration}ms</code><br>
+<br>
+Please try to perform the desired action again.<br>
+If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
+            close: 'Dismiss',
+        },
     },
     warnings: {
         version: {
@@ -123,7 +136,7 @@ export default {
             caption: 'Water Ladder',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
@@ -133,7 +146,7 @@ export default {
             caption: 'Light 4X4 Pump (L4P)',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [0, 18],
@@ -176,7 +189,7 @@ export default {
             caption: 'Ambulance',
             color: '#9c871c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0, 2, 20, 21, 25],
@@ -216,7 +229,7 @@ export default {
             caption: 'Incident response vehicle (IRV)',
             color: '#188b35',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6, 19],
@@ -243,7 +256,7 @@ export default {
             caption: 'Rapid Response Vehicle',
             color: '#b89d14',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [0, 2, 5, 20, 21, 22, 25],
@@ -272,7 +285,7 @@ export default {
             caption: 'Dog Support Unit (DSU)',
             color: '#1f7915',
             coins: 25,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6, 19, 22],
@@ -290,7 +303,7 @@ export default {
             caption: 'Armed Response Vehicle (ARV)',
             color: '#438a17',
             coins: 23,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [6, 19],
@@ -359,7 +372,7 @@ export default {
             caption: 'Co-Responder Vehicle',
             color: '#bb2222',
             coins: 25,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [0, 18],
@@ -377,7 +390,7 @@ export default {
             caption: 'Joint Response Unit',
             color: '#48832e',
             coins: 30,
-            credits: 6_000,
+            credits: 6000,
             minPersonnel: 1,
             maxPersonnel: 3,
             possibleBuildings: [2, 6, 19, 20, 25],
@@ -399,7 +412,7 @@ export default {
             caption: 'General Practitioner',
             color: '#99631f',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [21, 22],
@@ -417,7 +430,7 @@ export default {
             caption: 'Community First Responder',
             color: '#996719',
             coins: 12,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [22],
@@ -428,7 +441,7 @@ export default {
             caption: 'Crew Carrier',
             color: '#662222',
             coins: 10,
-            credits: 8_000,
+            credits: 8000,
             minPersonnel: 1,
             maxPersonnel: 12,
             possibleBuildings: [0, 2, 18, 20, 25],
@@ -779,7 +792,7 @@ export default {
             caption: 'Misting Pod',
             color: '#aa0000',
             coins: 8,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
@@ -892,7 +905,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
             schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Fire academy',
@@ -1070,7 +1083,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
             schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Dispatch Center',
@@ -1224,7 +1237,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
             schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Police station (Small station)',
@@ -1258,7 +1271,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
             schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Ambulance station (Small station)',

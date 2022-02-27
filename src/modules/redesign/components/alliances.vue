@@ -80,8 +80,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { AllianceListWindow } from '../parsers/alliances';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { AllianceListWindow } from '../parsers/alliances';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'alliances',
@@ -90,12 +90,13 @@ type Component = RedesignComponent<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
     },

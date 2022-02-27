@@ -1,26 +1,23 @@
-import { Schooling } from 'typings/Schooling';
-import VueI18n from 'vue-i18n';
-import { InternalBuilding, ResolvedBuildingCategory } from '../Building';
-import { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
+import type { Schooling } from 'typings/Schooling';
+import type VueI18n from 'vue-i18n';
+import type { InternalBuilding, ResolvedBuildingCategory } from '../Building';
+import type { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 
 interface ResolvedSchooling extends Pick<Schooling, 'caption' | 'duration'> {
     required_for: string[];
-    [key: string]: string | string[];
+    [key: string]: string[] | string;
 }
 
 export interface Overview {
-    vehicles: {
-        [id: number]: InternalVehicle;
-    };
-    vehicleCategories: {
-        [name: string]: ResolvedVehicleCategory;
-    };
+    vehicles: Record<number, InternalVehicle>;
+    vehicleCategories: Record<string, ResolvedVehicleCategory>;
     vehiclesTab: {
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         search: string;
         sort: string;
         sortDir: string;
@@ -29,16 +26,15 @@ export interface Overview {
             group: number;
         };
     };
-    buildings: { [id: number]: InternalBuilding };
-    buildingCategories: {
-        [name: string]: ResolvedBuildingCategory;
-    };
+    buildings: Record<number, InternalBuilding>;
+    buildingCategories: Record<string, ResolvedBuildingCategory>;
     buildingsTab: {
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         search: string;
         sort: string;
         sortDir: string;
@@ -46,15 +42,14 @@ export interface Overview {
             category: number;
         };
     };
-    schoolingCategories: {
-        [category: string]: ResolvedSchooling[];
-    };
+    schoolingCategories: Record<string, ResolvedSchooling[]>;
     schoolingsTab: {
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         search: string;
         sort: string;
         sortDir: string;
@@ -76,18 +71,11 @@ export interface OverviewComputed {
 }
 
 export interface OverviewMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     $mc(
         key: string,
         n: number,
-        args?: {
-            [key: string]: unknown;
-        }
+        args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
     setSortBuildings(type: string): void;
     setSortVehicles(type: string): void;

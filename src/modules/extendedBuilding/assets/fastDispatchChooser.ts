@@ -1,5 +1,5 @@
-import { $m } from 'typings/Module';
-import { Building } from 'typings/Building';
+import type { $m } from 'typings/Module';
+import type { Building } from 'typings/Building';
 
 export default async (
     LSSM: Vue,
@@ -34,9 +34,9 @@ export default async (
         const buildings = [
             { caption: $m('fastDispatchChooser.noDispatch'), id: 0 },
         ] as Building[];
-        const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
-            [type: number]: Building[];
-        };
+        const buildingsByType = LSSM.$store.getters[
+            'api/buildingsByType'
+        ] as Record<number, Building[]>;
         (Object.values(LSSM.$t('dispatchCenterBuildings')) as number[]).forEach(
             type => buildings.push(...(buildingsByType[type] ?? []))
         );
@@ -101,7 +101,7 @@ export default async (
             dropdownBtn.setAttribute('aria-expanded', 'false');
             const dropdownCaret = document.createElement('span');
             dropdownCaret.classList.add('caret');
-            dropdownBtn.appendChild(dropdownCaret);
+            dropdownBtn.append(dropdownCaret);
             const dropdown = document.createElement('ul');
             dropdown.classList.add('dropdown-menu');
             buildings
@@ -149,10 +149,10 @@ export default async (
                     });
                     const setCheck = document.createElement('i');
                     setCheck.classList.add('fas', 'fa-check');
-                    setBtn.appendChild(setCheck);
-                    link.appendChild(setBtn);
-                    wrapper.appendChild(link);
-                    dropdown.appendChild(wrapper);
+                    setBtn.append(setCheck);
+                    link.append(setBtn);
+                    wrapper.append(link);
+                    dropdown.append(wrapper);
                 });
             dispatchBtn.after(dropdownBtn, dropdown);
         });

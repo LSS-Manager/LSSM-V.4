@@ -1,10 +1,10 @@
 import linkPreview from '../components/linkPreview.vue';
 
-import { Building } from 'typings/Building';
-import { CombinedVueInstance } from 'vue/types/vue';
-import { DefaultProps } from 'vue/types/options';
-import { Vehicle } from 'typings/Vehicle';
-import {
+import type { Building } from 'typings/Building';
+import type { CombinedVueInstance } from 'vue/types/vue';
+import type { DefaultProps } from 'vue/types/options';
+import type { Vehicle } from 'typings/Vehicle';
+import type {
     LinkPreview,
     LinkPreviewComputed,
     LinkPreviewMethods,
@@ -46,7 +46,7 @@ export default async (
         selectorText: `.${infoBoxClass}`,
         style: {
             'position': 'fixed',
-            'z-index': 20000,
+            'z-index': 20_000,
         },
     });
 
@@ -56,12 +56,12 @@ export default async (
     const infoBox = document.createElement('div');
     infoBox.classList.add(infoBoxClass, 'hidden', 'panel', 'panel-default');
     const infoBoxContent = document.createElement('div');
-    infoBox.appendChild(infoBoxContent);
+    infoBox.append(infoBoxContent);
 
     infoBox.addEventListener('mouseover', () => (infoBoxHovered = true));
     infoBox.addEventListener('mouseout', () => (infoBoxHovered = false));
 
-    document.body.appendChild(infoBox);
+    document.body.append(infoBox);
 
     const LinkPreviewInstance = new LSSM.$vue<
         LinkPreview,

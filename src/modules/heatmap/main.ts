@@ -1,12 +1,14 @@
 import 'leaflet.heat';
 
-import { Building } from 'typings/Building';
-import { ModuleMainFunction } from 'typings/Module';
-import { Vehicle } from 'typings/Vehicle';
-import { LatLng, Map } from 'leaflet';
-import { Settings, UpdateSettings } from './heatmapSettings.vue';
+import type { Building } from 'typings/Building';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { Vehicle } from 'typings/Vehicle';
+import type { LatLng, Map } from 'leaflet';
+import type { Settings, UpdateSettings } from './heatmapSettings.vue';
 
-type HeatLayer = { setLatLngs: (points: LatLng[]) => void };
+interface HeatLayer {
+    setLatLngs(points: LatLng[]): void;
+}
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
@@ -250,7 +252,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
                 ]);
 
                 const backgroundStyle = document.createElement('style');
-                backgroundStyle.textContent = `#modals-container .vm--container {
+                backgroundStyle.textContent = `#modals-container .vm--container.scrollable:first-of-type {
                     pointer-events: none;
                 }
                 #modals-container .vm--container .vm--overlay[data-modal="heatmap-settings"] {

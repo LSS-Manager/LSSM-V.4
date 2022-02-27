@@ -20,7 +20,7 @@ export default (LSSM: Vue): Promise<void> =>
                         outer.style.setProperty('display', 'inline-block');
                         barOuter.before(outer);
                     }
-                    outer.innerText = window.formatTime(
+                    outer.textContent = window.formatTime(
                         Math.floor(
                             (patient.miliseconds_by_percent / 1000) *
                                 patient.params.live_current_value

@@ -90,9 +90,9 @@ import Vue from 'vue';
 
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { FeatureGroup, Marker } from 'leaflet';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { FeatureGroup, Marker } from 'leaflet';
 
 type Component = RedesignSubComponent<
     'gebauede',

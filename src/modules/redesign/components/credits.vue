@@ -76,8 +76,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
 interface Link {
     href: string;
@@ -86,7 +86,7 @@ interface Link {
 
 type Component = RedesignComponent<
     'data',
-    'credits/list' | 'credits/daily' | 'credits/overview' | 'coins/list',
+    'coins/list' | 'credits/daily' | 'credits/list' | 'credits/overview',
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     {
@@ -128,9 +128,10 @@ export default Vue.extend<
             return {
                 title: this.lightbox.$m('credits.nav.title').toString(),
                 links: Object.values(
-                    this.lightbox.$m('credits.nav.links') as unknown as {
-                        [index: number]: Link;
-                    }
+                    this.lightbox.$m('credits.nav.links') as unknown as Record<
+                        number,
+                        Link
+                    >
                 ).filter(
                     ({ href }) =>
                         new URL(

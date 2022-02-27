@@ -1,45 +1,25 @@
-import VueI18n from 'vue-i18n';
-import { Building, BuildingCategory } from 'typings/Building';
-import { Vehicle, VehicleCategory } from 'typings/Vehicle';
+import type VueI18n from 'vue-i18n';
+import type { Building, BuildingCategory } from 'typings/Building';
+import type { Vehicle, VehicleCategory } from 'typings/Vehicle';
 
 export interface ChartSummary {
     buildingsId: string;
-    buildings: {
-        [category: string]: Building[];
-    };
-    buildingCategories: {
-        [category: string]: BuildingCategory;
-    };
-    buildingTypeNames: { [id: number]: string };
-    buildingTypeColors: { [id: number]: string };
+    buildings: Record<string, Building[]>;
+    buildingCategories: Record<string, BuildingCategory>;
+    buildingTypeNames: Record<number, string>;
+    buildingTypeColors: Record<number, string>;
     vehiclesId: string;
-    vehicles: {
-        [type: string]: Vehicle[];
-    };
-    vehicleCategories: {
-        [category: string]: VehicleCategory;
-    };
-    vehicleTypeNames: { [id: number]: string };
-    vehicleTypeColors: { [id: number]: string };
-    vehiclesByBuilding: {
-        [building: string]: Vehicle[];
-    };
+    vehicles: Record<string, Vehicle[]>;
+    vehicleCategories: Record<string, VehicleCategory>;
+    vehicleTypeNames: Record<number, string>;
+    vehicleTypeColors: Record<number, string>;
+    vehiclesByBuilding: Record<string, Vehicle[]>;
     buildingsAsColumn: boolean;
 }
 
 export interface ChartSummaryMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
-    $sm(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
+    $sm(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     changeBuildingChart(): void;
     mountBuildingChart(): void;
 }

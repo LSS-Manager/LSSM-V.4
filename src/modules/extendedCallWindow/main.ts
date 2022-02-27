@@ -1,4 +1,4 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 interface AppendableListSetting<valueType> {
     value: valueType;
@@ -20,14 +20,14 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
 
     if (
         !window.location.pathname.match(/^\/(missions|buildings)\/\d+$\/?/) ||
-        document.querySelector('.missionNotFound')
+        document.querySelector<HTMLDivElement>('.missionNotFound')
     )
         return;
 
     const stagingMode = !!window.location.pathname.match(
         /^\/buildings\/\d+\/?$/
     );
-    if (stagingMode && !document.getElementById('education_schooling_-1'))
+    if (stagingMode && !document.querySelector('#education_schooling_-1'))
         return;
 
     if (!stagingMode) {
@@ -125,7 +125,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
             AppendableListSetting<
                 {
                     icon: string;
-                    type: 'fas' | 'far' | 'fab';
+                    type: 'fab' | 'far' | 'fas';
                     vehicleTypes: (number | string)[];
                 }[]
             >
@@ -200,6 +200,8 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
                     LSSM,
                     await getSetting('arrSearchAutoFocus'),
                     await getSetting('arrSearchDropdown'),
+                    await getSetting('arrSearchDissolveCategories'),
+                    await getSetting('arrSearchCloseDropdownOnSelect'),
                     $m
                 )
             );
@@ -210,7 +212,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         AppendableListSetting<
             {
                 name: string;
-                vehicleTypes: (string | number)[];
+                vehicleTypes: (number | string)[];
             }[]
         >
     >('tailoredTabs');

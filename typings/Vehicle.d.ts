@@ -1,4 +1,4 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface Vehicle {
     id: number;
@@ -14,33 +14,29 @@ export interface Vehicle {
     max_personnel_override: number | null;
     assigned_personnel_count: number;
     ignore_aao: boolean;
-    target_type: 'mission' | 'building' | null; // Where the vehicle is currently driving to
+    target_type: 'building' | 'mission' | null; // Where the vehicle is currently driving to
     target_id: number | null; // The ID of where the vehicle is currently driving to
     tractive_vehicle_id: number | null;
     queued_mission_id: number | null;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
     [key: string]:
+        | IconDefinition
+        | boolean
         | number
         | string
         | null
-        | IconDefinition
-        | boolean
         | undefined;
 }
 
 export interface VehicleCategory {
     color: string;
-    vehicles: {
-        [group: string]: number[];
-    };
+    vehicles: Record<string, number[]>;
 }
 
 export interface ResolvedVehicleCategory {
     color: string;
-    vehicles: {
-        [group: string]: InternalVehicle[];
-    };
+    vehicles: Record<string, InternalVehicle[]>;
 }
 
 export type VehicleSchooling = Partial<{
@@ -65,9 +61,9 @@ export interface InternalVehicle {
 
     // general
     [key: string]:
-        | string
-        | number
         | number[]
         | Record<string, Record<string, VehicleSchooling>>
+        | number
+        | string
         | undefined;
 }

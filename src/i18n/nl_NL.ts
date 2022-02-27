@@ -1,4 +1,4 @@
-import { Building } from '../../typings/Building';
+import type { Building } from '../../typings/Building';
 
 const modules = {
     appstore: {
@@ -59,13 +59,26 @@ const modules = {
             sync: 'Gebruik huidige positie',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
         msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
+        requestIssue: {
+            title: 'Foutief serververzoek: Status {status}',
+            text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustekst</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Functie</b>: <code>{feature}</code><br>
+<b>Duur</b>: <code>{duration}ms</code><br>
+<br>
+Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
+Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
+            close: 'Mededeling sluiten',
+        },
     },
     warnings: {
         version: {
@@ -124,7 +137,7 @@ export default {
             color: '#cc0000',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 500,
             icon: 'shuttle-van',
@@ -135,7 +148,7 @@ export default {
             color: '#990000',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
@@ -190,7 +203,7 @@ export default {
             color: '#880000',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 3000,
             icon: 'truck-moving',
@@ -201,7 +214,7 @@ export default {
             color: '#9c1c1c',
             minPersonnel: 1,
             maxPersonnel: 7,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 3000,
             icon: 'truck-moving',
@@ -212,7 +225,7 @@ export default {
             color: '#d92626',
             minPersonnel: 1,
             maxPersonnel: 5,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
@@ -223,7 +236,7 @@ export default {
             color: '#bb0000',
             minPersonnel: 1,
             maxPersonnel: 5,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 1500,
             icon: 'truck-moving',
@@ -264,7 +277,7 @@ export default {
             color: '#770000',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
@@ -275,7 +288,7 @@ export default {
             color: '#aa0000',
             minPersonnel: 1,
             maxPersonnel: 7,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
@@ -286,7 +299,7 @@ export default {
             color: '#d02525',
             minPersonnel: 1,
             maxPersonnel: 5,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
@@ -297,7 +310,7 @@ export default {
             color: '#f59f00',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             icon: 'ambulance',
             possibleBuildings: [3, 13],
@@ -307,7 +320,7 @@ export default {
             color: '#ad1f1f',
             minPersonnel: 1,
             maxPersonnel: 7,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
@@ -347,7 +360,7 @@ export default {
             color: '#ca1616',
             minPersonnel: 1,
             maxPersonnel: 4,
-            credits: 2_000,
+            credits: 2000,
             coins: 10,
             icon: 'car-side',
             possibleBuildings: [0, 17],
@@ -357,7 +370,7 @@ export default {
             color: '#cc2222',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 2_500,
+            credits: 2500,
             coins: 12,
             icon: 'shuttle-van',
             possibleBuildings: [0, 17],
@@ -367,7 +380,7 @@ export default {
             color: '#001bcc',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             icon: 'car-side',
             possibleBuildings: [5],
@@ -414,7 +427,7 @@ export default {
             color: '#142ab8',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 6_000,
+            credits: 6000,
             coins: 25,
             icon: 'shuttle-van',
             possibleBuildings: [5],
@@ -424,7 +437,7 @@ export default {
             color: '#bb2222',
             minPersonnel: 1,
             maxPersonnel: 3,
-            credits: 5_000,
+            credits: 5000,
             coins: 12,
             schooling: {
                 Brandweer: {
@@ -441,7 +454,7 @@ export default {
             color: '#552222',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
@@ -469,9 +482,9 @@ export default {
             color: '#332222',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
-            wtank: 10000,
+            wtank: 10_000,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
             possibleBuildings: [0, 17],
@@ -481,7 +494,7 @@ export default {
             color: '#ffb61a',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             icon: 'ambulance',
             possibleBuildings: [3, 13],
@@ -509,7 +522,7 @@ export default {
             color: '#442222',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
@@ -539,7 +552,7 @@ export default {
             maxPersonnel: 3,
             credits: 17_000,
             coins: 25,
-            wtank: 15000,
+            wtank: 15_000,
             special: 'Benodigd vanaf 7 brandweerposten.',
             icon: 'truck-moving',
             possibleBuildings: [0, 17],
@@ -566,7 +579,7 @@ export default {
             color: '#288f28',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 9_000,
+            credits: 9000,
             coins: 12,
             special:
                 'TS, TST, TST-NB, WO, HV, DB-K, SL, VEB, PM-OR of TS-OR benodigd',
@@ -651,7 +664,7 @@ export default {
             maxPersonnel: 3,
             credits: 60_000,
             coins: 25,
-            wtank: 13300,
+            wtank: 13_300,
             ftank: 1600,
             schooling: {
                 Brandweer: {
@@ -670,7 +683,7 @@ export default {
             maxPersonnel: 3,
             credits: 40_000,
             coins: 25,
-            wtank: 10000,
+            wtank: 10_000,
             ftank: 1300,
             schooling: {
                 Brandweer: {
@@ -723,7 +736,7 @@ export default {
             color: '#681212',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special:
                 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
@@ -735,7 +748,7 @@ export default {
             color: '#0008e7',
             minPersonnel: 1,
             maxPersonnel: 1,
-            credits: 2_500,
+            credits: 2500,
             coins: 18,
             icon: 'motorcycle',
             possibleBuildings: [5],
@@ -745,7 +758,7 @@ export default {
             color: '#0d0d73',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 8_000,
+            credits: 8000,
             coins: 25,
             schooling: {
                 Politie: {
@@ -814,7 +827,7 @@ export default {
             color: '#440000',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
@@ -825,7 +838,7 @@ export default {
             color: '#b16b00',
             minPersonnel: 1,
             maxPersonnel: 1,
-            credits: 2_500,
+            credits: 2500,
             coins: 18,
             icon: 'car-side',
             possibleBuildings: [3, 13],
@@ -921,7 +934,7 @@ export default {
         58: {
             caption: 'DB Arrestantenvervoer',
             color: '#0B21F7',
-            minPersonnel: 2,
+            minPersonnel: 1,
             maxPersonnel: 2,
             credits: 20_000,
             coins: 25,
@@ -935,7 +948,7 @@ export default {
             color: '#0A20F7',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 6_000,
+            credits: 6000,
             coins: 25,
             icon: 'car-side',
             possibleBuildings: [5],
@@ -945,7 +958,7 @@ export default {
             color: '#091FF7',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 8_000,
+            credits: 8000,
             coins: 25,
             schooling: {
                 Politie: {
@@ -962,7 +975,7 @@ export default {
             color: '#550000',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special:
                 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
@@ -986,7 +999,7 @@ export default {
             color: '#9f6000',
             minPersonnel: 1,
             maxPersonnel: 1,
-            credits: 2_500,
+            credits: 2500,
             coins: 18,
             icon: 'motorcycle',
             possibleBuildings: [3, 13],
@@ -1013,7 +1026,7 @@ export default {
             color: '#F49A13',
             minPersonnel: 2,
             maxPersonnel: 4,
-            credits: 7_500,
+            credits: 7500,
             coins: 15,
             schooling: {
                 Brandweer: {
@@ -1030,7 +1043,7 @@ export default {
             color: '#F5A42A',
             minPersonnel: 2,
             maxPersonnel: 6,
-            credits: 8_000,
+            credits: 8000,
             coins: 15,
             schooling: {
                 Brandweer: {
@@ -1047,7 +1060,7 @@ export default {
             color: '#F5A42A',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 5_000,
+            credits: 5000,
             coins: 15,
             special: 'DAT-RB of KHV benodigd',
             icon: 'trailer',
@@ -1060,7 +1073,7 @@ export default {
             maxPersonnel: 3,
             credits: 35_000,
             coins: 10,
-            wtank: 10000,
+            wtank: 10_000,
             ftank: 1000,
             schooling: {
                 Brandweer: {
@@ -1146,9 +1159,9 @@ export default {
                     credits: 400_000,
                     coins: 25,
                     duration: '7 Dagen',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
                 ...new Array(10).fill({
@@ -1183,7 +1196,7 @@ export default {
                 'TS 6/7',
             ],
             schoolingTypes: ['Brandweer'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Meldkamer',
@@ -1330,7 +1343,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['DA Noodhulp'],
             schoolingTypes: ['Politie'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         6: {
             caption: 'MMT Standplaats',
@@ -1589,9 +1602,9 @@ export default {
                     credits: 400_000,
                     coins: 25,
                     duration: '7 Dagen',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
                 ...new Array(2).fill({
@@ -1631,7 +1644,7 @@ export default {
                 'TS 6/7',
             ],
             schoolingTypes: ['Brandweer'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
     },
     buildingCategories: {

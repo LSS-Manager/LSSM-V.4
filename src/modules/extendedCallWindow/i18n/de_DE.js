@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Name',
             free: 'Frei',
             max: 'max. mgl.',
+            status: 'Status',
         },
         titles: {
             set: 'So oft wird diese Kombination ausgewählt, wenn du auf die AAO drückst',
@@ -210,7 +211,7 @@ module.exports = {
             [/^Rettungshundestaffel\/n$/]: [91, 92],
             [/^Rettungstreppen?$/]: [76],
             [/^RTW$/]: [28, 74, 97],
-            [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58, 74, 97],
+            [/^R(?:TW oder K){2}TW-B$/]: [28, 38, 58, 74, 97],
             [/^Rüstwagen oder HLF$/]: [4, 30, 39, 47, 90],
             [/^SEK-Fahrzeuge?$/]: [79, 80],
             [/^DHuFüKw$/]: [94],

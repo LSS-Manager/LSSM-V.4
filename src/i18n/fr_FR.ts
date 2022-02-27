@@ -59,13 +59,26 @@ const modules = {
             sync: 'utiliser la position actuelle',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
     error: {
         title: 'LSS Manager: Erreur',
         msg: "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
+        requestIssue: {
+            title: 'requête erronée: Status {status}',
+            text: `Aïe, malheureusement une erreur s'est produite avec cette requête du serveur :<br>
+<b>Statuscode</b>: <code>{status}</code><br>
+<b>Statustext</b>: <code>{statusText}</code><br>
+<b>URL</b>: <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Durée</b>: <code>{duration}ms</code><br>
+<br>
+Veuillez réessayer d'effectuer l'action souhaitée.<br>
+Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû à des problèmes de serveur. Veuillez réessayer ultérieurement.`,
+            close: 'Fermer la remarque',
+        },
     },
     warnings: {
         version: {
@@ -123,7 +136,7 @@ export default {
             caption: 'FPT',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 4,
             maxPersonnel: 6,
             wtank: 3000,
@@ -133,7 +146,7 @@ export default {
             caption: 'FPTL',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 4,
             maxPersonnel: 6,
             wtank: 2000,
@@ -176,7 +189,7 @@ export default {
             caption: 'ASSU',
             color: '#9c691c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 3,
             maxPersonnel: 3,
             possibleBuildings: [2, 20],
@@ -188,7 +201,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 11000,
+            wtank: 11_000,
             possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
@@ -215,7 +228,7 @@ export default {
             caption: 'Véhicule de patrouille',
             color: '#3a8b18',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 2,
             maxPersonnel: 4,
             possibleBuildings: [6, 19],
@@ -335,7 +348,7 @@ export default {
             caption: 'BLS',
             color: '#225f77',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
@@ -361,7 +374,7 @@ export default {
             caption: 'Equipe cynophile',
             color: '#27aa22',
             coins: 25,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6, 19],
@@ -379,7 +392,7 @@ export default {
             caption: 'Unité motocycliste',
             color: '#22aa30',
             coins: 18,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [6, 19],
@@ -398,7 +411,7 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 14500,
+            wtank: 14_500,
             possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
@@ -407,7 +420,7 @@ export default {
             caption: 'CCFM',
             color: '#d71919',
             coins: 8,
-            credits: 8_000,
+            credits: 8000,
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 4000,
@@ -419,7 +432,7 @@ export default {
             caption: 'CCFL',
             color: '#d71919',
             coins: 5,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 2000,
@@ -442,7 +455,7 @@ export default {
             caption: 'VSAV',
             color: '#9c691c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 3,
             maxPersonnel: 3,
             possibleBuildings: [0],
@@ -451,7 +464,7 @@ export default {
             caption: 'VL SSSM',
             color: '#9c691c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0],
@@ -467,7 +480,7 @@ export default {
             caption: 'VLM',
             color: '#9c691c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 3,
             maxPersonnel: 3,
             possibleBuildings: [2, 20],
@@ -517,7 +530,7 @@ export default {
             caption: 'Ambulance Type A',
             color: '#9c691c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [2, 20],
@@ -571,7 +584,7 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 12000,
+            wtank: 12_000,
             possibleBuildings: [0],
         },
         36: {
@@ -638,7 +651,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             schoolingTypes: ['Centre de secours'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Centre de Formation Départemental',
@@ -805,7 +818,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
             schoolingTypes: ['Poste de police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Centre de Traitement des Appels',
@@ -940,7 +953,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             schoolingTypes: ['Centre de secours'],
-            maxBuildingsFunction: (): number => 6_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Poste de police (petit)',
@@ -974,7 +987,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
             schoolingTypes: ['Poste de police'],
-            maxBuildingsFunction: (): number => 1_700,
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Poste Ambulancier (petit)',

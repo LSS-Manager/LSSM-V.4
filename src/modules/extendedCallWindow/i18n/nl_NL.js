@@ -19,6 +19,7 @@ module.exports = {
             attribute: 'Naam',
             free: 'Vrij',
             max: 'Max',
+            status: 'Status',
         },
         titles: {
             set: 'Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt',

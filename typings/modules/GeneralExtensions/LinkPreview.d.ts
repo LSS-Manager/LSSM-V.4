@@ -1,6 +1,6 @@
-import { Building } from 'typings/Building';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { Building } from 'typings/Building';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export interface LinkPreview {
     faParking: IconDefinition;
@@ -18,7 +18,7 @@ export interface LinkPreview {
         x: number;
         y: number;
     };
-    vehicleTypes: { [id: number]: InternalVehicle };
+    vehicleTypes: Record<number, InternalVehicle>;
     vehicleBuildings: number[];
     cellBuildings: number[];
     cellExtensions: string[];
@@ -48,7 +48,7 @@ export interface LinkPreviewComputed {
     link: string;
     parent: HTMLElement | null;
     buildings: Building[];
-    vehicles: { [buildingId: number]: Vehicle[] };
+    vehicles: Record<number, Vehicle[]>;
     buildingVehicles: Vehicle[];
     buildingCells: number[];
 }

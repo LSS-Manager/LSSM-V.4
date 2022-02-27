@@ -153,30 +153,27 @@ import Vue from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 
-import { $m } from 'typings/Module';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { InternalBuilding } from 'typings/Building';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { $m } from 'typings/Module';
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 type Mode = 'buildings' | 'vehicles';
 
 type Subsetting<Scope extends Mode | ''> = Record<
-    `${Scope}StaticRadius`,
-    boolean
+    `${Scope}IntensityMaxZoom` | `${Scope}RadiusM` | `${Scope}RadiusPx`,
+    number
 > &
-    Record<
-        `${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`,
-        number
-    > &
-    Record<`${Scope}Includes`, { value: string | number; label: string }[]>;
+    Record<`${Scope}Includes`, { value: number | string; label: string }[]> &
+    Record<`${Scope}StaticRadius`, boolean>;
 
-export type Settings = {
-    position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-    active: boolean;
-    livePreview: boolean;
-    heatmapMode: Mode;
-} & Subsetting<'buildings'> &
-    Subsetting<'vehicles'>;
+export type Settings = Subsetting<'buildings'> &
+    Subsetting<'vehicles'> & {
+        position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+        active: boolean;
+        livePreview: boolean;
+        heatmapMode: Mode;
+    };
 
 export type UpdateSettings = (updated: Omit<Settings, 'active'>) => void;
 
@@ -193,20 +190,20 @@ export default Vue.extend<
         dropdownStyle: HTMLStyleElement;
     },
     {
-        mode: <Setting extends keyof Subsetting<''>>(
+        mode<Setting extends keyof Subsetting<''>>(
             setting: Setting
-        ) => `${Mode}${Setting}`;
-        save: () => Promise<void>;
-        dropdownOpened: () => void;
-        dropdownClosed: () => void;
+        ): `${Mode}${Setting}`;
+        save(): Promise<void>;
+        dropdownOpened(): void;
+        dropdownClosed(): void;
     },
     {
-        includeOptions: { value: string | number; label: string }[];
-        inputHandler: () => void | Promise<void>;
+        includeOptions: { value: number | string; label: string }[];
+        inputHandler(): Promise<void> | void;
     },
     {
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
-        getModuleSettings: () => Promise<Settings>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
+        getModuleSettings(): Promise<Settings>;
         updateSettings: UpdateSettings;
         $m: $m;
     }

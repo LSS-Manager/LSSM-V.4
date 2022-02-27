@@ -1,7 +1,7 @@
 import getCommandName from './assets/getCommandName';
 
-import { ModuleSettingFunction } from 'typings/Module';
-import {
+import type { ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     HotKey,
@@ -43,7 +43,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     );
 
     return {
-        hotkeys: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        hotkeys: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [

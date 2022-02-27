@@ -1,14 +1,14 @@
-import { Map as LMap } from 'leaflet';
+import type { Map as LMap } from 'leaflet';
 
 export default (
     placeholder: string,
     addToPanelHeading: boolean,
     mapSearchOnMap: boolean,
-    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right',
+    position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right',
     LSSM: Vue
 ): void => {
     const addToMap = (map = window.map, id = 'map') => {
-        if (!(map && document.getElementById(id))) return;
+        if (!(map && document.querySelector<HTMLDivElement>(`#${id}`))) return;
 
         let form = document.createElement('form');
         form.id = LSSM.$store.getters.nodeAttribute(
@@ -23,8 +23,8 @@ export default (
         input.classList.add('form-controls');
         input.id = LSSM.$store.getters.nodeAttribute('map_adress_search', true);
         input.placeholder = placeholder;
-        formGroup.appendChild(input);
-        form.appendChild(formGroup);
+        formGroup.append(input);
+        form.append(formGroup);
 
         const isMainWindowSearch =
             window.location.pathname.match(/^\/?$/) &&

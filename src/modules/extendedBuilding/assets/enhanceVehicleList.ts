@@ -1,5 +1,5 @@
-import { $m } from 'typings/Module';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { $m } from 'typings/Module';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
@@ -31,13 +31,12 @@ export default async (
             vehiclesPersonnelAssigned: await getSetting(
                 'vehiclesPersonnelAssigned'
             ),
-        } as {
-            [setting: string]: boolean;
-        };
+        } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$t('vehicles') as {
-            [id: number]: InternalVehicle;
-        };
+        const internalVehicleTypes = LSSM.$t('vehicles') as Record<
+            number,
+            InternalVehicle
+        >;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 
@@ -90,8 +89,12 @@ export default async (
 
             const linkWrapper = (
                 BUILDING_MODE === 'dispatch'
-                    ? document.getElementById(`vehicle_caption_${vehicleId}`)
-                    : vehicle.querySelector(`a[href="/vehicles/${vehicleId}"]`)
+                    ? document.querySelector<HTMLSpanElement>(
+                          `#vehicle_caption_${vehicleId}`
+                      )
+                    : vehicle.querySelector<HTMLAnchorElement>(
+                          `a[href="/vehicles/${vehicleId}"]`
+                      )
             )?.parentElement;
 
             if (!vehicleId || !linkWrapper) return;
@@ -127,9 +130,9 @@ export default async (
                                     `building_list_fms_${nextFms}`
                                 );
                                 fmsBtn.textContent = (
-                                    LSSM.$t('fmsReal2Show') as unknown as {
-                                        [status: number]: number;
-                                    }
+                                    LSSM.$t(
+                                        'fmsReal2Show'
+                                    ) as unknown as Record<number, number>
                                 )[nextFms].toString();
                             }
                         });
@@ -137,7 +140,7 @@ export default async (
             }
             if (vehicleTypes) {
                 const typeWrapper = document.createElement('td');
-                vehicle.insertBefore(typeWrapper, linkWrapper);
+                linkWrapper.before(typeWrapper);
                 if (storedVehicle) {
                     if (
                         !vehicleTypesOnlyOwn ||
@@ -175,8 +178,8 @@ export default async (
                     if (!editBtn?.parentElement) return;
                     const actionsWrapper = document.createElement('div');
                     actionsWrapper.classList.add('btn-group');
-                    editBtn.parentElement.appendChild(actionsWrapper);
-                    actionsWrapper.appendChild(editBtn);
+                    editBtn.parentElement.append(actionsWrapper);
+                    actionsWrapper.append(editBtn);
                     const pABtn = document.createElement('a');
                     pABtn.classList.add('btn', 'btn-default', 'btn-xs');
                     pABtn.setAttribute(
@@ -184,7 +187,7 @@ export default async (
                         `/vehicles/${vehicleId}/zuweisung`
                     );
                     pABtn.innerHTML = '<i class="fas fa-users"></i>';
-                    actionsWrapper.appendChild(pABtn);
+                    actionsWrapper.append(pABtn);
                 }
                 if (lastRowItems.length && storedVehicle) {
                     (async () => {
@@ -234,9 +237,7 @@ export default async (
                                             vehiclesPersonnelMax: maxPersonnel,
                                             vehiclesPersonnelAssigned:
                                                 assignedPersonnel,
-                                        } as {
-                                            [key: string]: number;
-                                        }
+                                        } as Record<string, number>
                                     )[item])
                             )
                             .join(' / ')})`;

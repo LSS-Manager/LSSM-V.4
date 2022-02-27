@@ -1,16 +1,10 @@
 interface Additional {
     expansion_missions_ids?: number[];
-    expansion_missions_names?: {
-        [id: number]: string;
-    };
+    expansion_missions_names?: Record<number, string>;
     followup_missions_ids?: number[];
-    followup_missions_names?: {
-        [id: number]: string;
-    };
+    followup_missions_names?: Record<number, string>;
     subsequent_missions_ids?: number[];
-    subsequent_missions_names?: {
-        [id: number]: string;
-    };
+    subsequent_missions_names?: Record<number, string>;
     allow_drone_instead_of_investigation?: boolean;
     allow_rw_instead_of_lf?: boolean;
     only_alliance_mission?: boolean;
@@ -32,10 +26,7 @@ interface Additional {
     average_min_fire_personnel?: number;
     swat_personnel?: number;
     height_rescue_personnel?: number;
-    personnel_educations?: {
-        // currently fr_FR only
-        [education: string]: number;
-    };
+    personnel_educations?: Record<string, number>;
 
     // Patients
     patient_specializations?: string;
@@ -55,17 +46,13 @@ interface Additional {
 
     // General:
     [key: string]:
-        | number
         | number[]
-        | boolean
-        | string
+        | Record<number, string>
+        | Record<string, number>
         | string[]
-        | {
-              [key: string]: number;
-          }
-        | {
-              [key: number]: string;
-          }
+        | boolean
+        | number
+        | string
         | undefined;
 }
 
@@ -141,7 +128,7 @@ interface Prerequisites {
     police_service_group_leader?: number;
 
     // General:
-    [key: string]: number | Record<string, number> | undefined;
+    [key: string]: Record<string, number> | number | undefined;
 }
 
 interface Requirements {
@@ -238,6 +225,6 @@ export interface Mission {
     chances: Chances; // What is the chance for a need at scene?
     additional: Additional; // Any further information on this mission-type
     prerequisites: Prerequisites; // What is needed for the mission to be generated?
-    overlay_index: null | number;
+    overlay_index: number | null;
     base_mission_id: number;
 }

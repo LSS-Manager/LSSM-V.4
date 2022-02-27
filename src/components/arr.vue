@@ -61,8 +61,8 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { DefaultMethods, PropType } from 'vue/types/options';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { DefaultMethods, PropType } from 'vue/types/options';
 
 export default Vue.extend<
     {

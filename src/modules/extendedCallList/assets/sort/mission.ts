@@ -1,5 +1,5 @@
-import { $m } from 'typings/Module';
-import { Sort } from './callList';
+import type { $m } from 'typings/Module';
+import type { Sort } from './callList';
 
 export enum SortedMissionsRawButtonClasses {
     alert_next = 'alert_next_sorted',

@@ -16,11 +16,11 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     ColorComputed,
     ColorProps,
 } from '../../../typings/components/setting/Color';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,
