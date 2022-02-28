@@ -175,9 +175,9 @@ Vous souhaitez écrire vos propres textes derrière ou devant les noms de missio
 
 ### Variable
 
-<code><span>{{</span>type<span>}}</span></code> - est remplacé par le MissionTypeID, c'est un numéro qui identifie chaque type de mission dans le jeu, par exemple Feu de poubelle a le 0, Feu de benne à ordures le 1, etc.
+<code v-html="'{{type}}'"></code> - est remplacé par le MissionTypeID, c'est un numéro qui identifie chaque type de mission dans le jeu, par exemple Feu de poubelle a le 0, Feu de benne à ordures le 1, etc.
 
-<code><span>{{</span>credits<span>}}</span></code> - est remplacé par la moyenne des crédits de l'intervention.
+<code v-html="'{{credits}}'"></code> - est remplacé par la moyenne des crédits de l'intervention.
 
 ## Icônes d'alarme
 

@@ -10,7 +10,7 @@ Nelle impostazioni è possibile inserire diversi template:
 
 ### Nome utente
 
-Puoi usare il segnaposto <code><span>{{</span>username<span>}}</span></code> che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
+Puoi usare il segnaposto <code v-html="'{{username}}'"></code> che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
 
 :::tip Perché succede solo ai nuovi messaggi?
 È molto semplice: al momento non abbiamo purtroppo la possibilità di individuare chiaramente il destinatario durante le conversazioni esistenti!
@@ -18,9 +18,9 @@ Puoi usare il segnaposto <code><span>{{</span>username<span>}}</span></code> che
 
 ### Data
 
-Con <code><span>{{</span>today<span>}}</span></code> puoi inserire semplicemente la data di oggi.
+Con <code v-html="'{{today}}'"></code> puoi inserire semplicemente la data di oggi.
 
-Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <code><span>{{</span>today+14<span>}}</span></code>, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. <code><span>{{</span>today-436<span>}}</span></code>, da inserire oggi 436 giorni fa.
+Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <code v-html="'{{today+14}}'"></code>, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. <code v-html="'{{today-436}}'"></code>, da inserire oggi 436 giorni fa.
 
 
 ## Esempi
