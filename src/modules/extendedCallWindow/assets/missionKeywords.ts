@@ -1,4 +1,6 @@
-export default (
+import type { Mission } from 'typings/Mission';
+
+export default async (
     LSSM: Vue,
     settings: {
         keyword: string;
@@ -6,18 +8,37 @@ export default (
         autotextcolor: boolean;
         textcolor: string;
         prefix: boolean;
-        missions: (string | number)[];
+        missions: (number | string)[];
     }[]
-): void => {
-    const missionHelpBtn = document.getElementById('mission_help');
-    const missionTitle = document.getElementById('missionH1');
+): Promise<void> => {
+    const missionHelpBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_help');
+    const missionTitle =
+        document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!missionHelpBtn || !missionTitle) return;
-    const missionType = parseInt(
+    let missionType =
         missionHelpBtn
             ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-    );
-    if (missionType < 0) return;
+            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+
+    const overlayIndex =
+        document
+            .querySelector<HTMLDivElement>('#mission_general_info')
+            ?.getAttribute('data-overlay-index') ?? 'null';
+    if (overlayIndex && overlayIndex !== 'null')
+        missionType += `-${overlayIndex}`;
+    const additionalOverlay =
+        document
+            .querySelector<HTMLDivElement>('#mission_general_info')
+            ?.getAttribute('data-additive-overlays') ?? 'null';
+    if (additionalOverlay && additionalOverlay !== 'null')
+        missionType += `/${additionalOverlay}`;
+
+    if (missionType === '-1') return;
+
+    const mission = (
+        LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
+    )[missionType];
 
     const addLabel = (
         text: string,
@@ -30,7 +51,12 @@ export default (
         label.classList.add('label');
         label.style.backgroundColor = color;
         const textNode = document.createElement('span');
-        textNode.textContent = text;
+        textNode.textContent = text
+            .replace(/{{type}}/g, missionType.toString())
+            .replace(
+                /{{credits}}/g,
+                (mission?.average_credits ?? 0).toLocaleString()
+            );
         textNode.style.background = autotextcolor ? 'inherit' : 'transparent';
         textNode.style.backgroundClip = 'text';
         textNode.style.webkitBackgroundClip = 'text';
@@ -38,13 +64,16 @@ export default (
         textNode.style.filter = autotextcolor
             ? 'invert(1) grayscale(1) contrast(9)'
             : '';
-        label.appendChild(textNode);
-        if (!prefix) missionTitle.appendChild(label);
+        label.append(textNode);
+        if (!prefix) missionTitle.append(label);
         else missionTitle.insertBefore(label, missionTitle.firstChild);
     };
 
     settings.forEach(s => {
-        if (!s.missions.map(m => m.toString()).includes(missionType.toString()))
+        if (
+            !s.missions.includes(-1) &&
+            !s.missions.map(m => m.toString()).includes(missionType.toString())
+        )
             return;
         addLabel(s.keyword, s.color, s.autotextcolor, s.textcolor, s.prefix);
     });

@@ -46,6 +46,10 @@
 			"description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
 			"title": "Voertuigtype"
 		},
+		"vehicleTypesOnlyOwn": {
+			"description": "Laat indien beschikbaar alleen het eigen voertuigtype zien, anders toont die gewoon het normale voertuigtype.",
+			"title": "Alleen eigen voertuigtype tonen"
+		},
 		"vehiclesPersonnelAssigned": {
 			"description": "Toont hoeveel personeel is toegewezen aan het voertuig.",
 			"title": "Toegewezen personeel"

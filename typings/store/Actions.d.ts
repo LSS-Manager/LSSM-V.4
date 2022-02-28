@@ -1,5 +1,5 @@
-import { RootState } from './RootState';
-import { ActionContext } from 'vuex';
+import type { ActionContext } from 'vuex';
+import type { RootState } from './RootState';
 
 export type ActionStoreParams = ActionContext<RootState, RootState>;
 
@@ -7,19 +7,19 @@ export interface Hook {
     post: boolean;
     event: string;
     abortOnFalse: boolean;
-    callback(...args: unknown[]): void | unknown;
+    callback(...args: unknown[]): unknown | void;
 }
 
-export interface HookPrototype {
+export interface ProxyParams {
     post: boolean;
-    base: string;
-    event: string;
-    callback(...args: unknown[]): void;
+    name: string;
+    trap: keyof ProxyHandler<never>;
+    callback(...args: unknown[]): unknown | void;
 }
 
 export interface addStyle {
     selectorText: string;
-    style: { [index: string]: string };
+    style: Record<string, string>;
 }
 
 export interface premodifyParams {

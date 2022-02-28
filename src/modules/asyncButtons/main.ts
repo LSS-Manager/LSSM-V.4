@@ -1,14 +1,9 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
-    const getSetting = (settingId: string): Promise<boolean> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
-    const buildings = ['buildingTax'].filter(async s => await getSetting(s));
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+    const buildings = ['buildingTax', 'switchExtensionState'].filter(
+        async s => await getSetting(s)
+    );
     const missions = ['missionPrisoners', 'missionReply'].filter(
         async s => await getSetting(s)
     );
@@ -18,22 +13,22 @@ export default (async (LSSM, MODULE_ID, $m) => {
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/asyncButtons/buildings" */ './assets/buildings'
-            )
-        ).default(LSSM, buildings, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/asyncButtons/buildings" */ './assets/buildings'
+        ).then(({ default: buildingsFn }) =>
+            buildingsFn(LSSM, buildings, $m, MODULE_ID)
+        );
     }
 
     if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/) &&
         (await getSetting('buildingPersonal'))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/asyncButtons/buildingPersonal" */ './assets/buildingPersonal'
-            )
-        ).default(LSSM, $m, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/asyncButtons/buildingPersonal" */ './assets/buildingPersonal'
+        ).then(({ default: buildingPersonal }) =>
+            buildingPersonal(LSSM, $m, MODULE_ID)
+        );
     }
 
     if (
@@ -42,18 +37,18 @@ export default (async (LSSM, MODULE_ID, $m) => {
     ) {
         import(
             /* webpackChunkName: "modules/asyncButtons/missions" */ './assets/missions'
-        ).then(a => a.default(LSSM, missions, MODULE_ID));
+        ).then(({ default: missionsFn }) =>
+            missionsFn(LSSM, missions, MODULE_ID)
+        );
     }
 
     if (
         window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
         (await getSetting('memberlistManageUser'))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/asyncButtons/memberlist" */ './assets/memberlist'
-            )
-        ).default(LSSM, $m, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/asyncButtons/memberlist" */ './assets/memberlist'
+        ).then(({ default: memberlist }) => memberlist(LSSM, $m, MODULE_ID));
     }
     if (
         window.location.pathname.match(
@@ -63,12 +58,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
     ) {
         import(
             /* webpackChunkName: "modules/asyncButtons/forumpost" */ './assets/forumpost'
-        ).then(a => a.default(LSSM, $m, MODULE_ID));
+        ).then(({ default: forumpost }) => forumpost(LSSM, $m, MODULE_ID));
     }
 
     if (window.location.pathname.match(/^\/aaos/)) {
         import(
             /* webpackChunkName: "modules/asyncButtons/arr" */ './assets/arr'
-        ).then(a => a.default(LSSM, $m, MODULE_ID));
+        ).then(({ default: arr }) => arr(LSSM, $m, MODULE_ID));
     }
 }) as ModuleMainFunction;

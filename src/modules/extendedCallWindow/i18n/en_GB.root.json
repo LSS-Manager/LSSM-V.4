@@ -2,7 +2,7 @@
 	"name": "Extended alarm window",
 	"settings": {
 		"alarmIcons": {
-			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
 			"icon": "Icon",
 			"preview": "Preview",
 			"style": "icon type",
@@ -41,6 +41,26 @@
 			"description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
 			"title": "Grey out unsuitable ARRs"
 		},
+		"arrSearch": {
+			"description": "Shows a search bar above the ARRs that makes filtering your ARRs available.",
+			"title": "ARR-Search"
+		},
+		"arrSearchAutoFocus": {
+			"description": "Automatically focuses ARR-Search so that you can start typing without clicking the search field before.",
+			"title": "ARR-Search: autofocus"
+		},
+		"arrSearchCloseDropdownOnSelect": {
+			"description": "closes dropdown after selecting an ARR.",
+			"title": "close dropdown after select"
+		},
+		"arrSearchDissolveCategories": {
+			"description": "Shows all categories at once, when searching.",
+			"title": "ARR-Search: Show all categories"
+		},
+		"arrSearchDropdown": {
+			"description": "Hides the ARR completely and shows a searchable dropdown instead. Allows a very compact ARR.",
+			"title": "ARR-Search as Dropdown"
+		},
 		"arrSpecs": {
 			"description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
 			"title": " Show ARR details"
@@ -53,9 +73,21 @@
 			"description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
 			"title": "Center Map"
 		},
+		"collapsablePatients": {
+			"description": "Minimizes patients in call window and shows a short summary instead.",
+			"title": "Minimize Patients"
+		},
+		"collapsablePatientsMinPatients": {
+			"description": "Set here, how many patients must be at scene for the minimizing to be activated.",
+			"title": "Minimize Patients: minimum amount"
+		},
+		"emvMaxStaff": {
+			"description": "'Enhanced missing vehicles' expects all vehicles to have full staff for it's calculations",
+			"title": "Maximum Staff"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Converts the display of additionally required vehicles into a clearer table.",
-			"title": "Improve needed vehicles"
+			"title": "Enhanced missing vehicles"
 		},
 		"generationDate": {
 			"description": "Shows next to the address when the mission was generated.",
@@ -66,7 +98,7 @@
 			"title": "Hides the vehicle list"
 		},
 		"hoverTip": {
-			"description": "Tooltips for as example the overlay button.",
+			"description": "Tooltips for the buttons of \"Enhanced missing vehicles\".",
 			"title": "Tooltips"
 		},
 		"loadMoreVehiclesInHeader": {
@@ -74,12 +106,13 @@
 			"title": "Reload vehicles in header"
 		},
 		"missionKeywords": {
-			"autotextcolor": "Automatical text color",
+			"allMissions": "All Missions",
+			"autotextcolor": "Automatic text color",
 			"color": "background color",
 			"description": "Get your own keyword displayed next to the mission name",
 			"keyword": "keyword",
 			"missions": "missions",
-			"prepend": "Show before the missionname",
+			"prepend": "Show before the mission name",
 			"preview": "Preview",
 			"textcolor": "Text color",
 			"title": "Mission keywords"
@@ -88,9 +121,21 @@
 			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
 			"title": "Patient Summary"
 		},
+		"playerCounter": {
+			"description": "Displays at the top of the personnel list how many players have dispatched a vehicle for this mission. Click to open a table with details.",
+			"title": "PlayerCounter"
+		},
+		"playerCounterColor": {
+			"description": "Choose what color you want the player counter label to be.",
+			"title": "PlayerCounter: Color"
+		},
 		"redBorder": {
 			"description": "Outlines the generation time in red if the bet will expire the following night.",
 			"title": "Red border"
+		},
+		"remainingPatientTime": {
+			"description": "Shows for patients how much time remains until they are fully treated",
+			"title": "Remaining time for patients"
 		},
 		"stagingAreaSelectedCounter": {
 			"description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
@@ -107,6 +152,24 @@
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
 		},
+		"vehicleCounter": {
+			"description": "Displays at the top of the personnel list how many vehicles are dispatched to this mission. Click to open a table with details.",
+			"title": "vehicleCounter"
+		},
+		"vehicleCounterColor": {
+			"danger": "red",
+			"default": "Gray",
+			"description": "Choose what color you want the vehicle counter label to be.",
+			"info": "light blue",
+			"primary": "dark blue",
+			"success": "Green",
+			"title": "Vehicle counter: color",
+			"warning": "orange"
+		},
+		"vehicleTypeInList": {
+			"description": "Displays the vehicle type in the Available Units list.",
+			"title": "Show vehicle type"
+		},
 		"yellowBorder": {
 			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
 			"title": "Yellow border"
@@ -120,7 +183,9 @@
 					0,
 					1,
 					16,
-					17
+					17,
+					37,
+					38
 				]
 			},
 			{
@@ -135,7 +200,21 @@
 					15,
 					18,
 					23,
-					26
+					26,
+					35,
+					36,
+					39,
+					40,
+					41,
+					42,
+					43,
+					44,
+					45,
+					46,
+					47,
+					48,
+					49,
+					50
 				]
 			},
 			{
@@ -147,7 +226,15 @@
 					19,
 					20,
 					21,
-					22
+					22,
+					27,
+					28,
+					29,
+					30,
+					31,
+					32,
+					33,
+					34
 				]
 			},
 			{
@@ -157,6 +244,7 @@
 					11,
 					12,
 					13,
+					19,
 					24,
 					25
 				]

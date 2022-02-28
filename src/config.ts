@@ -1,37 +1,19 @@
-import { Config } from '../typings/Config';
+import browsers from './utils/browsers.json';
+
+import type { Config } from '../typings/Config';
 
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
-    browser: {
-        chrome: {
-            latest: 87,
-            supported: 84,
-            download: 'https://chrome.com',
-        },
-        firefox: {
-            latest: 83,
-            supported: 79,
-            download: 'https://firefox.com',
-        },
-        opera: {
-            latest: 72,
-            supported: 70,
-            download: 'https://opera.com',
-        },
-        safari: {
-            latest: 14,
-            supported: 13,
-            download: 'https://apple.com/safari/',
-        },
-        edge: {
-            latest: 87,
-            supported: 86,
-            download: 'https://microsoft.com/edge',
+    browser: browsers,
+    discord: {
+        invite: 'RcTNjpB',
+        id: '254167535446917120',
+        channels: {
+            'suggestions': '607913643140579348',
+            'lssm-help': '632909910895755264',
+            'uptime': '649734648901009419',
         },
     },
-    discord: 'https://discord.gg/RcTNjpB',
-    discord_support:
-        'https://discordapp.com/channels/254167535446917120/607913643140579348',
     games: {
         cs_CZ: {
             flag: '🇨🇿',
@@ -183,4 +165,5 @@ export default {
     },
     prefix: 'lssmv4',
     server: 'https://proxy.lss-manager.de/v4/',
+    fontAwesomeIconSearch: 'https://fontawesome.com/v6.0/icons?m=free',
 } as Config;

@@ -1,4 +1,4 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface Vehicle {
     id: number;
@@ -14,32 +14,35 @@ export interface Vehicle {
     max_personnel_override: number | null;
     assigned_personnel_count: number;
     ignore_aao: boolean;
-    target_type: 'mission' | 'building' | null; // Where the vehicle is currently driving to
+    target_type: 'building' | 'mission' | null; // Where the vehicle is currently driving to
     target_id: number | null; // The ID of where the vehicle is currently driving to
+    tractive_vehicle_id: number | null;
+    queued_mission_id: number | null;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
     [key: string]:
+        | IconDefinition
+        | boolean
         | number
         | string
         | null
-        | IconDefinition
-        | boolean
         | undefined;
 }
 
 export interface VehicleCategory {
     color: string;
-    vehicles: {
-        [group: string]: number[];
-    };
+    vehicles: Record<string, number[]>;
 }
 
 export interface ResolvedVehicleCategory {
     color: string;
-    vehicles: {
-        [group: string]: InternalVehicle[];
-    };
+    vehicles: Record<string, InternalVehicle[]>;
 }
+
+export type VehicleSchooling = Partial<{
+    all: boolean;
+    min: number;
+}>;
 
 export interface InternalVehicle {
     caption: string;
@@ -49,9 +52,18 @@ export interface InternalVehicle {
     minPersonnel: number;
     maxPersonnel: number;
     wtank?: number;
-    schooling?: string;
-    shownSchooling?: string;
+    pumpcap?: number;
+    ftank?: number;
+    schooling?: Record<string, Record<string, VehicleSchooling>>;
     special?: string;
     icon: string;
-    [key: string]: string | number | undefined;
+    possibleBuildings: number[];
+
+    // general
+    [key: string]:
+        | number[]
+        | Record<string, Record<string, VehicleSchooling>>
+        | number
+        | string
+        | undefined;
 }

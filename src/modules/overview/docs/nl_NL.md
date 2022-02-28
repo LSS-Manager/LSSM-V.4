@@ -3,7 +3,7 @@ Er kan gezocht worden in de informatie en de tabellen kunnen worden gesorteerd.
 
 Het overzicht is, indien geactiveerd, bereikbaar via het LSSM-menu, onder overzicht. 
 
-![Openen via LSSM-menu](/v4/docs/assets/overview/img/Overview_Menu_nl_NL.png)
+![Openen via LSSM-menu](Overview_Menu_nl_NL.png)
 
 ## Voertuigen
 De volgende informatie is in het voertuigoverzicht beschikbaar:
@@ -14,7 +14,7 @@ De volgende informatie is in het voertuigoverzicht beschikbaar:
 * Opleiding
 * Bijzonderheden
 
-![Het voertuigoverzicht](/v4/docs/assets/overview/img/Overview_vehicles_nl_NL.png)
+![Het voertuigoverzicht](Overview_vehicles_nl_NL.png)
 
 ## Gebouwen
 Alle gebouwen zijn in een een tabel opgesomd, welke de volgende informatie bevat:
@@ -28,7 +28,7 @@ Alle gebouwen zijn in een een tabel opgesomd, welke de volgende informatie bevat
 * Uitbreidingen
 * Bijzonderheden
 
-![Het gebouwenoverzicht](/v4/docs/assets/overview/img/Overview_buildings_nl_NL.png)
+![Het gebouwenoverzicht](Overview_buildings_nl_NL.png)
 
 ## Opleidingen
 Alle opleidingen zijn in een overzicht geplaatst. De volgende informatie is beschikbaar:

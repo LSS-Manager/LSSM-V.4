@@ -1,6 +1,8 @@
 import UAParser from 'ua-parser-js';
-import { StorageSet } from '../../../typings/store/storage/Actions';
+
 import config from '../../config';
+
+import type { StorageSet } from '../../../typings/store/storage/Actions';
 
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 const HIDE_BROWSER_NOTE_KEY = 'hide_browsersupport_note';
@@ -9,7 +11,7 @@ export default (
     LSSM: Vue,
     getSetting: <t = boolean>(settingId: string) => Promise<t>
 ): void => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.telemetry.${key}`, args);
 
     const sendStats = async () => {
@@ -183,12 +185,12 @@ export default (
                                                     key: NOTE_STORAGE_KEY,
                                                     value: true,
                                                 } as StorageSet)
-                                                .then(
-                                                    () =>
-                                                        sendStats() &&
+                                                .then(() =>
+                                                    sendStats().then(() =>
                                                         LSSM.$modal.hide(
                                                             'dialog'
                                                         )
+                                                    )
                                                 );
                                             // Now we store if we allowed telemetry
                                             LSSM.$store.dispatch(

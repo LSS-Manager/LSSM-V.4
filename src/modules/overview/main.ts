@@ -1,6 +1,6 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default ((LSSM, _, $m) => {
+export default (({ LSSM, $m }) => {
     const openOverview = (): void =>
         LSSM.$modal.show(
             () =>
@@ -17,5 +17,5 @@ export default ((LSSM, _, $m) => {
 
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
-        .then(element => (element.onclick = openOverview));
+        .then(element => element.addEventListener('click', openOverview));
 }) as ModuleMainFunction;

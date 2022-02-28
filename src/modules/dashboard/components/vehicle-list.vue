@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="vehicle-list" :no-title-hide="true" :no-fullscreen="true">
+    <lightbox name="vehicle-list" no-title-hide no-fullscreen>
         <h4>{{ title }}: {{ vehicles.length }}</h4>
         <enhanced-table
             :head="{
@@ -8,6 +8,7 @@
                 actions: { title: $m('actions'), noSort: true },
                 fms_show: { title: $m('fms') },
                 building: { title: $m('building') },
+                target: { title: $m('target') },
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -70,6 +71,33 @@
                         {{ vehicle.building }}
                     </a>
                 </td>
+                <td>
+                    <a
+                        v-if="
+                            vehicle.target_type &&
+                            vehicle.target_type !== 'mission'
+                        "
+                        class="lightbox-open"
+                        :class="resolveLinkClass"
+                        :data-resolve-type="vehicle.target_type"
+                        :data-resolve-id="vehicle.target_id"
+                        :href="`/${vehicle.target_type}s/${vehicle.target_id}`"
+                        @mouseover="
+                            startResolve(vehicle.target_type, vehicle.target_id)
+                        "
+                        @mouseout="endResolve()"
+                    >
+                        {{ vehicle.target_id }}
+                        <small>{{ vehicle.target_type }}</small>
+                    </a>
+                    <a
+                        v-if="vehicle.target_type === 'mission'"
+                        class="lightbox-open"
+                        :href="`/${vehicle.target_type}s/${vehicle.target_id}`"
+                    >
+                        {{ resolveMission(vehicle.target_id) }}
+                    </a>
+                </td>
             </tr>
         </enhanced-table>
     </lightbox>
@@ -77,15 +105,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
-import {
+
+import type { InternalVehicle } from 'typings/Vehicle';
+import type {
     VehicleList,
     VehicleListComputed,
     VehicleListMethods,
     VehicleListProps,
 } from '../../../../typings/modules/Dashboard/VehicleList';
-import { InternalVehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     VehicleList,
@@ -93,7 +123,7 @@ export default Vue.extend<
     VehicleListComputed,
     VehicleListProps
 >({
-    name: 'vehicle-list',
+    name: 'lssmv4-dashboard-vehicle-list',
     components: {
         Lightbox: () =>
             import(
@@ -108,9 +138,7 @@ export default Vue.extend<
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as {
-                        [id: number]: InternalVehicle;
-                    }
+                    this.$t('vehicles') as Record<number, InternalVehicle>
                 ).map(([index, { caption }]) => [index, caption])
             ),
             vehiclesWithBuildings: [],
@@ -120,6 +148,10 @@ export default Vue.extend<
             sortDir: 'asc',
             faPencilAlt,
             faUsers,
+            resolveLinkClass: this.$store.getters.nodeAttribute(
+                'dashboard-vehiclelist-resolvable-link'
+            ),
+            resolving: null,
         } as VehicleList;
     },
     props: {
@@ -145,9 +177,9 @@ export default Vue.extend<
                 ? this.vehiclesFiltered
                 : this.vehiclesWithBuildings;
             return vehicles.sort((a, b) => {
-                let modifier = this.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.sort] || '';
-                let s = b[this.sort] || '';
+                const modifier = this.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.sort] || '';
+                const s = b[this.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -172,8 +204,79 @@ export default Vue.extend<
                 })
                 .then(() => {
                     vehicle.fms_real = target;
-                    vehicle.fms_show = target;
+                    vehicle.fms_show = (
+                        this.$t('fmsReal2Show') as unknown as Record<
+                            number,
+                            number
+                        >
+                    )[target];
                 });
+        },
+        startResolve(type, id) {
+            if (this.resolving) return;
+            this.resolving = window.setTimeout(
+                () =>
+                    this.$store
+                        .dispatch('api/request', {
+                            url: `/${type}s/${id}`,
+                            feature: 'dashboard-vehiclelist-resolve-title',
+                        })
+                        .then(res => res.text())
+                        .then(html => {
+                            const doc = new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            );
+                            let title = '';
+                            let subtitle = '';
+                            if (type === 'mission') {
+                                title =
+                                    doc.querySelector<HTMLHeadingElement>(
+                                        '#missionH1'
+                                    )?.textContent ?? '';
+                                subtitle =
+                                    doc.querySelector<HTMLElement>(
+                                        '#missionH1 + small'
+                                    )?.textContent ?? '';
+                            } else if (type === 'building') {
+                                title =
+                                    doc.querySelector<HTMLHeadingElement>('h1')
+                                        ?.textContent ?? '';
+                            }
+                            this.$el
+                                .querySelectorAll<HTMLAnchorElement>(
+                                    `a[data-resolve-type="${type}"][data-resolve-id="${id}"]`
+                                )
+                                .forEach(link => {
+                                    const small = link.querySelector('small');
+                                    if (small)
+                                        small.textContent = subtitle.trim();
+                                    link.textContent = title.trim();
+                                    link.classList.remove(
+                                        this.resolveLinkClass
+                                    );
+                                });
+                            this.resolving = null;
+                        }),
+                200
+            );
+        },
+        endResolve() {
+            if (this.resolving) window.clearTimeout(this.resolving);
+            this.resolving = null;
+        },
+        resolveMission(id) {
+            let missionName =
+                document.querySelector<HTMLAnchorElement>(
+                    `#mission_caption_${id}`
+                )?.innerText ?? '';
+            missionName = missionName.replace(
+                document.querySelector<HTMLSpanElement>(
+                    `#mission_old_caption_${id}`
+                )?.innerText ?? '',
+                ''
+            );
+            return missionName.trim();
         },
     },
     beforeMount() {

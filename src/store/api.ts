@@ -1,16 +1,18 @@
-import { ActionTree, GetterTree, Module } from 'vuex';
-import { RootState } from '../../typings/store/RootState';
-import {
+import type Vue from 'vue';
+
+import type { ActionStoreParams } from 'typings/store/Actions';
+import type { APIActionStoreParams } from 'typings/store/api/Actions';
+import type { Mission } from 'typings/Mission';
+import type { RootState } from 'typings/store/RootState';
+import type { Vehicle } from 'typings/Vehicle';
+import type { VehicleRadioMessage } from 'typings/Ingame';
+import type { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
+import type {
     APIState,
     StorageAPIKey,
     StorageGetterReturn,
-} from '../../typings/store/api/State';
-import { Vehicle } from '../../typings/Vehicle';
-import { APIActionStoreParams } from '../../typings/store/api/Actions';
-import { VehicleRadioMessage } from '../../typings/Ingame';
-import { Building, BuildingCategory } from '../../typings/Building';
-import { Mission } from 'typings/Mission';
-import { ActionStoreParams } from 'typings/store/Actions';
+} from 'typings/store/api/State';
+import type { Building, BuildingCategory } from 'typings/Building';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -121,10 +123,10 @@ const get_api_values = async <API extends StorageAPIKey>(
         stored = (await get_from_broadcast<API>(key, dispatch)) ?? stored;
     if (
         !state.currentlyUpdating.includes(key) &&
-        !preventUpdateFetch &&
         (!stored.value ||
             !Object.values(stored.value).length ||
-            stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
+            (stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE &&
+                !preventUpdateFetch))
     ) {
         commit('startedUpdating', key);
         stored = {
@@ -132,6 +134,7 @@ const get_api_values = async <API extends StorageAPIKey>(
             value: await dispatch('request', {
                 url: `/api/${key}`,
                 feature,
+                dialogOnError: key !== 'vehicles',
             }).then(res => res.json()),
             user_id: window.user_id,
         };
@@ -143,13 +146,17 @@ const get_api_values = async <API extends StorageAPIKey>(
 const set_api_storage = <API extends StorageAPIKey>(
     key: API,
     { value, lastUpdate }: StorageGetterReturn<API>,
-    { commit, dispatch }: APIActionStoreParams
+    { commit, dispatch }: Pick<APIActionStoreParams, 'commit' | 'dispatch'>,
+    commitFromRoot = false
 ) => {
     const disabled: string[] = JSON.parse(
         localStorage.getItem(STORAGE_DISABLED_KEY) || '[]'
     );
     try {
-        commit(MUTATION_SETTERS[key], { value, lastUpdate });
+        commit(`${commitFromRoot ? 'api/' : ''}${MUTATION_SETTERS[key]}`, {
+            value,
+            lastUpdate,
+        });
         if (!disabled.includes(key)) {
             sessionStorage.setItem(
                 STORAGE_KEYS[key],
@@ -167,6 +174,13 @@ const set_api_storage = <API extends StorageAPIKey>(
             },
             { root: true }
         ).then();
+        if (key === 'vehicles') {
+            updateVehicleStates(
+                value as StorageGetterReturn<'vehicles'>['value'],
+                commit,
+                commitFromRoot
+            );
+        }
     } catch {
         localStorage.setItem(
             STORAGE_DISABLED_KEY,
@@ -174,6 +188,21 @@ const set_api_storage = <API extends StorageAPIKey>(
         );
     }
 };
+
+const updateVehicleStates = (
+    vehicles: StorageGetterReturn<'vehicles'>['value'],
+    commit: APIActionStoreParams['commit'],
+    commitFromRoot = false
+) => {
+    const states: Record<number, number> = {};
+    vehicles?.forEach(({ fms_real }) => {
+        if (!states.hasOwnProperty(fms_real)) states[fms_real] = 0;
+        states[fms_real]++;
+    });
+    commit(`${commitFromRoot ? 'api/' : ''}setVehicleStates`, states);
+};
+
+const vehicleStorageUpdateTimeout = 0;
 
 export default {
     namespaced: true,
@@ -196,11 +225,9 @@ export default {
             { value: buildings, lastUpdate }: StorageGetterReturn<'buildings'>
         ) {
             if (!buildings) return;
-            const smallBuildings = ((window[PREFIX] as Vue).$t(
+            const smallBuildings = (window[PREFIX] as Vue).$t(
                 'small_buildings'
-            ) as unknown) as {
-                [type: number]: number;
-            };
+            ) as unknown as Record<number, number>;
             buildings.forEach(
                 building =>
                     building.small_building &&
@@ -230,16 +257,16 @@ export default {
             state.lastUpdates.allianceinfo = lastUpdate;
             state.allianceinfo = allianceinfo;
         },
-        setVehicleStates(state: APIState, states: { [state: number]: number }) {
+        setVehicleStates(state: APIState, states: Record<number, number>) {
             const LSSM = window[PREFIX] as Vue;
-            const fmsReal2Show = (LSSM.$t('fmsReal2Show') as unknown) as {
-                [status: number]: number;
-            };
-            const states_show = {} as { [state: number]: number };
-            Object.keys(states).forEach(
-                key =>
-                    (states_show[fmsReal2Show[parseInt(key)]] =
-                        states[parseInt(key)])
+            const fmsReal2Show = LSSM.$t('fmsReal2Show') as unknown as Record<
+                number,
+                number
+            >;
+            const states_show = {} as Record<number, number>;
+            Object.entries(fmsReal2Show).forEach(
+                ([real, show]) =>
+                    (states_show[show] = states[parseInt(real)] ?? 0)
             );
             state.vehicleStates = states_show;
         },
@@ -273,6 +300,24 @@ export default {
                 vehicle.target_type = null;
                 vehicle.target_id = null;
             }
+            if (vehicleStorageUpdateTimeout)
+                window.clearTimeout(vehicleStorageUpdateTimeout);
+            // vehicleStorageUpdateTimeout = window.setTimeout(
+            //     () =>
+            //         set_api_storage(
+            //             'vehicles',
+            //             {
+            //                 value: state.vehicles,
+            //                 lastUpdate:
+            //                     state.lastUpdates.vehicles ??
+            //                     new Date().getTime(),
+            //                 user_id: window.user_id,
+            //             },
+            //             (this as unknown) as Store<RootState>,
+            //             true
+            //         ),
+            //     1000
+            // );
         },
         enableAutoUpdate(state: APIState, api: StorageAPIKey) {
             state.autoUpdates.push(api);
@@ -316,7 +361,7 @@ export default {
             return state.vehicles.find(v => v.id === id);
         },
         vehiclesByBuilding(state) {
-            const buildings = {} as { [buildingId: number]: Vehicle[] };
+            const buildings = {} as Record<number, Vehicle[]>;
             state.vehicles.forEach(vehicle => {
                 if (!buildings.hasOwnProperty(vehicle.building_id))
                     buildings[vehicle.building_id] = [];
@@ -325,9 +370,7 @@ export default {
             return buildings;
         },
         buildingsByType(state) {
-            const types = {} as {
-                [type: number]: Building[];
-            };
+            const types = {} as Record<number, Building[]>;
             state.buildings.forEach(b => {
                 if (!types.hasOwnProperty(b.building_type))
                     types[b.building_type] = [];
@@ -337,13 +380,11 @@ export default {
         },
         buildingsByCategory(state, getters) {
             const LSSM = window[PREFIX] as Vue;
-            const categories = (LSSM.$t('buildingCategories') as unknown) as {
-                [category: string]: BuildingCategory;
-            };
-            const buildingsByCategory = {} as {
-                [category: string]: Building[];
-            };
-            const buildingsByType = getters.buildingsByType;
+            const categories = LSSM.$t(
+                'buildingCategories'
+            ) as unknown as Record<string, BuildingCategory>;
+            const buildingsByCategory = {} as Record<string, Building[]>;
+            const { buildingsByType } = getters;
             Object.entries(categories).forEach(
                 ([category, { buildings }]) =>
                     (buildingsByCategory[category] = [
@@ -355,9 +396,7 @@ export default {
             return buildingsByCategory;
         },
         vehiclesByType(state) {
-            const types = {} as {
-                [type: string]: Vehicle[];
-            };
+            const types = {} as Record<string, Vehicle[]>;
             state.vehicles.forEach(vehicle => {
                 if (!types.hasOwnProperty(vehicle.vehicle_type))
                     types[vehicle.vehicle_type] = [];
@@ -367,8 +406,8 @@ export default {
         },
         vehiclesByTarget(state) {
             const result = {} as {
-                mission: { [id: number]: Vehicle[] };
-                building: { [id: number]: Vehicle[] };
+                mission: Record<number, Vehicle[]>;
+                building: Record<number, Vehicle[]>;
             };
             state.vehicles.forEach(vehicle => {
                 if (!vehicle.target_type || !vehicle.target_id) return;
@@ -383,6 +422,25 @@ export default {
                 result[vehicle.target_type][vehicle.target_id].push(vehicle);
             });
             return result;
+        },
+        participatedMissions(state) {
+            const missions: number[] = [];
+            state.vehicles.forEach(
+                ({ target_type, target_id, queued_mission_id }) => {
+                    if (
+                        target_type === 'mission' &&
+                        target_id &&
+                        !missions.includes(target_id)
+                    )
+                        missions.push(target_id);
+                    if (
+                        queued_mission_id &&
+                        !missions.includes(queued_mission_id)
+                    )
+                        missions.push(queued_mission_id);
+                }
+            );
+            return missions;
         },
         missionsById(state) {
             return Object.fromEntries(state.missions.map(m => [m.id, m]));
@@ -459,18 +517,15 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (building: Building) => {
-                        const {
-                            value: buildings,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'buildings',
-                            store,
-                            `store/api/fetchBuilding(${feature})`
-                        );
+                        const { value: buildings, lastUpdate } =
+                            await get_api_values(
+                                'buildings',
+                                store,
+                                `store/api/fetchBuilding(${feature})`
+                            );
                         if (!buildings) return reject();
-                        buildings[
-                            buildings.findIndex(b => b.id === id)
-                        ] = building;
+                        buildings[buildings.findIndex(b => b.id === id)] =
+                            building;
                         set_api_storage(
                             'buildings',
                             {
@@ -519,17 +574,16 @@ export default {
                     .dispatch('request', {
                         url: `/api/vehicles/${id}`,
                         feature: `store/api/fetchVehicle(${feature})`,
+                        dialogOnError: false,
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
-                        const {
-                            value: vehicles,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'vehicles',
-                            store,
-                            `store/api/fetchVehicle(${feature})`
-                        );
+                        const { value: vehicles, lastUpdate } =
+                            await get_api_values(
+                                'vehicles',
+                                store,
+                                `store/api/fetchVehicle(${feature})`
+                            );
                         if (!vehicles) return reject();
                         const index = vehicles.findIndex(v => v.id === id);
                         if (index < 0) vehicles.push(vehicle);
@@ -559,14 +613,12 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {
-                        const {
-                            value: vehicles,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'vehicles',
-                            store,
-                            `store/api/fetchVehiclesAtBuilding(${feature})`
-                        );
+                        const { value: vehicles, lastUpdate } =
+                            await get_api_values(
+                                'vehicles',
+                                store,
+                                `store/api/fetchVehiclesAtBuilding(${feature})`
+                            );
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
                             const index = vehicles.findIndex(
@@ -619,6 +671,7 @@ export default {
                     API_MIN_UPDATE
                 );
             }
+            return allianceinfo;
         },
         async registerSettings(
             store: APIActionStoreParams,
@@ -672,13 +725,20 @@ export default {
             { force, feature }: { force: boolean; feature: string }
         ) {
             if (state.missions.length) return state.missions;
+            const STORAGE_KEY = `${rootState.prefix}_timed_mission_specs`;
+            const { missions, lastUpdate } = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || '{}'
+            ) as { missions?: Mission[]; lastUpdate?: string };
             if (
                 force ||
-                !sessionStorage.hasOwnProperty('mission_specs_cache')
+                !missions ||
+                // update every 12h
+                Date.now() - new Date(lastUpdate || 0).getTime() >
+                    12 * 60 * 60 * 1000 ||
+                !localStorage.hasOwnProperty(STORAGE_KEY)
             ) {
                 const missions = Object.values(
                     await dispatch('request', {
-                        // eslint-disable-next-line no-undef
                         url: `${rootState.server}missions/${rootState.lang}.json`,
                         init: {
                             method: 'GET',
@@ -686,23 +746,35 @@ export default {
                         feature: `store/api/getMissions(${feature})`,
                     }).then(res => res.json())
                 );
-                sessionStorage.setItem(
-                    'mission_specs_cache',
-                    JSON.stringify(missions)
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify({
+                        missions,
+                        lastUpdate: new Date().toISOString(),
+                    })
                 );
                 commit('setMissions', missions);
                 return missions;
             } else {
-                const missions = JSON.parse(
-                    sessionStorage.getItem('mission_specs_cache') || '{}'
-                ) as Mission[];
                 commit('setMissions', missions);
                 return missions;
             }
         },
         async request(
             { rootState, dispatch, state, commit }: APIActionStoreParams,
-            { input, url = '', init = {}, feature }
+            {
+                input,
+                url = '',
+                init = {},
+                feature,
+                dialogOnError = true,
+            }: {
+                input: Request;
+                url: string;
+                init: RequestInit;
+                feature: string;
+                dialogOnError: boolean;
+            }
         ) {
             if (input && url) {
                 await dispatch(
@@ -720,12 +792,41 @@ export default {
                 );
             }
             init.headers = init.headers || {};
+            if (Array.isArray(init.headers)) {
+                init.headers = Object.fromEntries(init.headers) as Record<
+                    string,
+                    string
+                >;
+            }
+
+            const getHeader = (
+                headers: Exclude<
+                    RequestInit['headers'],
+                    string[][] | undefined
+                >,
+                header: string
+            ) =>
+                headers instanceof Headers
+                    ? headers.get(header)
+                    : headers[header];
+            const setHeader = (
+                headers: Exclude<
+                    RequestInit['headers'],
+                    string[][] | undefined
+                >,
+                header: string,
+                value: string
+            ) =>
+                headers instanceof Headers
+                    ? headers.set(header, value)
+                    : (headers[header] = value);
+
             if (init.headers.hasOwnProperty('X-LSS-Manager')) {
                 await dispatch(
                     'console/warn',
                     [
                         `Request Header "X-LSS-Manager" with value ${JSON.stringify(
-                            init.headers['X-LSS-Manager']
+                            getHeader(init.headers, 'X-LSS-Manager')
                         )} will be overwritten by ${JSON.stringify(
                             rootState.version
                         )}!`,
@@ -735,8 +836,9 @@ export default {
                     }
                 );
             }
-            init.headers['X-LSS-Manager'] = rootState.version;
-            init.headers['X-LSS-Manager-Feature'] = feature;
+            setHeader(init.headers, 'X-LSS-Manager', rootState.version);
+            setHeader(init.headers, 'X-LSS-Manager-Feature', feature);
+
             init.cache = init.cache || 'no-cache';
             const target = input || url;
             if (target.toString().startsWith(rootState.server)) {
@@ -750,48 +852,96 @@ export default {
                             .then(({ code }) => code)
                     );
                 }
-                init.headers['X-LSSM-User'] = btoa(
-                    `${state.key}:${rootState.version}-${MODE}`
+                setHeader(
+                    init.headers,
+                    'X-LSSM-User',
+                    btoa(`${state.key}:${rootState.version}-${MODE}`)
                 );
             }
+            const startTime = Date.now();
             return fetch(target, init).then(
                 res =>
                     new Promise((resolve, reject) => {
                         if (!res.ok) {
-                            return res.json().then(data => {
-                                if (data.error === 'outdated version') {
-                                    const LSSM = window[PREFIX] as Vue;
-                                    LSSM.$modal.show('dialog', {
-                                        title: LSSM.$t(
-                                            'warnings.version.title'
-                                        ),
-                                        text: LSSM.$t('warnings.version.text', {
-                                            version: data.version,
-                                            curver: rootState.version,
-                                        }),
-                                        buttons: [
-                                            {
-                                                title: LSSM.$t(
-                                                    'warnings.version.close'
-                                                ),
-                                                default: true,
-                                                handler() {
-                                                    window.location.reload(
-                                                        true
-                                                    );
+                            if (
+                                res.url.startsWith(rootState.server) &&
+                                res.headers
+                                    .get('content-type')
+                                    ?.startsWith('application/json')
+                            ) {
+                                return res.json().then(data => {
+                                    if (data.error === 'outdated version') {
+                                        const LSSM = window[PREFIX] as Vue;
+                                        LSSM.$modal.show('dialog', {
+                                            title: LSSM.$t(
+                                                'warnings.version.title'
+                                            ),
+                                            text: LSSM.$t(
+                                                'warnings.version.text',
+                                                {
+                                                    version: data.version,
+                                                    curver: rootState.version,
+                                                }
+                                            ),
+                                            buttons: [
+                                                {
+                                                    title: LSSM.$t(
+                                                        'warnings.version.close'
+                                                    ),
+                                                    default: true,
+                                                    handler() {
+                                                        window.location.reload(
+                                                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                            // @ts-ignore
+                                                            true
+                                                        );
+                                                    },
                                                 },
+                                                {
+                                                    title: LSSM.$t(
+                                                        'warnings.version.abort'
+                                                    ),
+                                                    handler() {
+                                                        LSSM.$modal.hide(
+                                                            'dialog'
+                                                        );
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                        window.focus();
+                                    }
+                                    return reject(res);
+                                });
+                            }
+                            if (dialogOnError) {
+                                const LSSM = window[PREFIX] as Vue;
+                                LSSM.$modal.show('dialog', {
+                                    title: LSSM.$t('error.requestIssue.title', {
+                                        status: res.status,
+                                        statusText: res.statusText,
+                                    }),
+                                    text: LSSM.$t('error.requestIssue.text', {
+                                        url: res.url,
+                                        status: res.status,
+                                        statusText: res.statusText,
+                                        feature,
+                                        duration: Date.now() - startTime,
+                                    }),
+                                    buttons: [
+                                        {
+                                            title: LSSM.$t(
+                                                'error.requestIssue.close'
+                                            ),
+                                            default: true,
+                                            handler() {
+                                                LSSM.$modal.hide('dialog');
                                             },
-                                            {
-                                                title: LSSM.$t(
-                                                    'warnings.version.abort'
-                                                ),
-                                            },
-                                        ],
-                                    });
-                                    window.focus();
-                                }
-                                return reject(res);
-                            });
+                                        },
+                                    ],
+                                });
+                            }
+                            return reject(res);
                         }
                         return resolve(res);
                     })

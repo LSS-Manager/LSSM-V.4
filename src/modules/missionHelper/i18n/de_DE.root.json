@@ -12,6 +12,21 @@
 			"in": "additional",
 			"text": "Polizisten ⌀ mind. benötigt"
 		},
+		"min_pump_speed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Min.Pumpenleistung: {n}"
+		},
+		"pump_mission_mode": {
+			"badge": true,
+			"in": "additional",
+			"text": "Pumpeneinsatz: {n}"
+		},
+		"pump_water_amount": {
+			"badge": true,
+			"in": "additional",
+			"text": "Wasser abzupumpen (in Litern): {n}"
+		},
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",
@@ -65,6 +80,10 @@
 			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
 			"title": "Optionale Diensthunde"
 		},
+		"max_civil_patrol_replace_police_cars": {
+			"description": "Zeigt an, wieviele Zivilstreifenwagen, Funkstreifenwagen ersetzen können",
+			"title": "Anzeige ob FuStW ersetzt werden können"
+		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Zieht die Zahl der benötigten ELW 2 von den ELW 1 ab und blendet ELW 1 aus, falls die Anzahl unter 0 sinkt.",
@@ -77,6 +96,10 @@
 			"platform_trucks": {
 				"description": "Zieht die Zahl der benötigten TM 50 von den DLK ab und blendet DLK aus, falls die Anzahl unter 0 sinkt.",
 				"title": "DLK einfach werten"
+			},
+			"police_service_group_leader": {
+				"description": "Zieht die Zahl der benötigten FuStW von den FuStW (DGL) ab und blendet FuStW aus, falls die Anzahl unter 0 sinkt.",
+				"title": "FuStW einfach werten"
 			}
 		},
 		"noVehicleRequirements": {
@@ -140,6 +163,10 @@
 				"description": "Zeigt die Überschrift \"Gefangene\" über den Details über mögliche Gefangene an.",
 				"title": "Gefangene (Titel)"
 			}
+		},
+		"subsequent": {
+			"description": "Listet mögliche Anschlusseinsätze bei Abschluss auf.",
+			"title": "Anschlusseinsatz"
 		},
 		"title": {
 			"description": "Zeigt den Einsatznamen, z.B. \"Mülleimerbrand\" als Titel an.",

@@ -1,0 +1,11 @@
+{
+	"accept": "Aufnehmen",
+	"alert": {
+		"accepted": "{username} wude erfolgreich im Verband aufgenommen!",
+		"declined": "Die Bewerbung von **{username}** wurde abgelehnt!"
+	},
+	"decline": "Ablehnen",
+	"rules": "Bewerbungsregeln",
+	"title": "Bewerbung: {n} | Bewerbungen: {n}",
+	"user": "Bewerber"
+}

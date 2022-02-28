@@ -1,20 +1,17 @@
 <template>
     <div :id="id">
-        <modals-container />
         <v-dialog></v-dialog>
         <notifications
             v-for="group in notificationGroups"
             :key="group"
             :group="group.replace(' ', '_')"
             :position="group"
-            :class="group"
+            :class="group.replace('_', ' ')"
         >
             <template slot="body" slot-scope="props">
                 <div
                     class="lssm-notification"
-                    :class="
-                        `alert-${props.item.type} notification-${props.item.type}`
-                    "
+                    :class="`alert-${props.item.type} notification-${props.item.type}`"
                     @click.capture="getHandler(props, $event)()"
                 >
                     <img
@@ -22,6 +19,7 @@
                         :src="props.item.data.icon"
                         :alt="props.item.title"
                     />
+                    <div v-else></div>
                     <div>
                         <button
                             class="close"
@@ -48,8 +46,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { LSSMV4Data, LSSMV4Computed } from '../typings/LSSMV4';
-import { DefaultMethods, DefaultProps } from 'vue/types/options';
+
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+
+import type { DefaultMethods, DefaultProps } from 'vue/types/options';
+import type { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,
@@ -62,6 +63,7 @@ export default Vue.extend<
     data() {
         return {
             id: this.$store.getters.nodeAttribute('app', true),
+            faTimes,
         };
     },
     computed: {
@@ -87,11 +89,21 @@ export default Vue.extend<
                         selectorText:
                             '.navbar-default, .navbar-default .dropdown-menu',
                         style: {
-                            'background-color': iconBg,
+                            'background-color': `${iconBg} !important`,
                         },
                     });
                 }
             });
+
+        // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
+        const modalsContainer =
+            document.querySelector<HTMLDivElement>('#modals-container');
+        if (
+            modalsContainer &&
+            this.$el.compareDocumentPosition(modalsContainer) &
+                Node.DOCUMENT_POSITION_FOLLOWING
+        )
+            this.$el.before(modalsContainer);
     },
 });
 </script>
@@ -99,25 +111,32 @@ export default Vue.extend<
 <style lang="sass">
 @import "~vue-select/src/scss/vue-select.scss"
 
+.alert-unimportant
+    background-image: linear-gradient(to bottom, #909090 0, #505050 100%)
+    border-color: #303030
+    color: #ffffff
+
 body.dark
     .vm--modal
         background-color: #505050
         color: white
 
-    .v-select
-        .vs__dropdown-toggle
-            border-color: dimgrey
+        .vue-dialog-button:hover
+            background-color: rgba(249, 249, 249, 0.25)
 
-            .vs__selected
-                color: white
-                background-color: #505050
+    .vs__dropdown-toggle
+        border-color: dimgrey
 
-        .vs__dropdown-menu
+        .vs__selected
             color: white
             background-color: #505050
 
-            .vs__dropdown-option
-                color: white
+    .vs__dropdown-menu
+        color: white
+        background-color: #505050
+
+        .vs__dropdown-option
+            color: white
 
     .text-muted
         color: darkgray
@@ -129,23 +148,55 @@ body.dark
         color: #f5f5f5
         background: #333
 
-    &:not(.leaflet-no-dark-tooltip)
-        .leaflet-tooltip
-            background-color: #505050
-            color: #ddd
-            border: #505050
+    &:not(.leaflet-no-dark-tooltip) .leaflet-tooltip
+        background-color: #505050
+        color: #ddd
+        border: #505050
 
-            &.leaflet-tooltip-left::before
-                border-left-color: #505050
+        &.leaflet-tooltip-left::before
+            border-left-color: #505050
 
-            &.leaflet-tooltip-right::before
-                border-right-color: #505050
+        &.leaflet-tooltip-right::before
+            border-right-color: #505050
 
     &.leaflet-no-dark-tooltip .leaflet-tooltip tr
         background-color: unset
 
+    &.leaflet-dark-controls
+        .leaflet-control-layers
+            background-color: #a0a0a0
+
+        .leaflet-bar
+            a
+                background-color: #a0a0a0
+
+                &:hover
+                    background-color: #dadada
+
     .bg-danger
         background-color: #a94442
+
+    > :not(nav):not(#col_navbar_holder) .dropdown-menu
+        background-image: linear-gradient(to bottom, #505050 0, #000 100%)
+        color: #fff
+        border: #000
+
+        > li > a
+            color: #fff
+
+            &:focus, &:hover
+                background-image: linear-gradient(to bottom, #5a5a5a 0, #353535 100%)
+
+    .highcharts-axis-labels text,
+    .highcharts-legend-item text,
+    .highcharts-axis-title
+        color: white !important
+        fill: white !important
+
+    .alert-unimportant
+        background-color: #303030
+        border-color: #303030
+        background-image: none
 
 .vm--container
     z-index: 5001 !important
@@ -159,9 +210,13 @@ body.dark
         overflow: auto !important
         max-height: 100vh !important
 
+        &.vue-dialog code
+            word-break: break-word
+
 .vue-tablist
     list-style: none
     display: flex
+    flex-flow: wrap
     padding-left: 0
     border-bottom: 1px solid #e2e2e2
 
@@ -267,8 +322,14 @@ body.dark
             &.notification-success
                 border-color: #2b542c !important
 
+            &.notification-unimportant
+                border-color: #707070 !important
+
             img
                 max-width: 100px
                 padding-right: 1ch
                 align-self: center
+
+.leaflet-layer.leaflet-heatmap-layer
+    background-color: transparent !important
 </style>

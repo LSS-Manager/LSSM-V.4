@@ -5,7 +5,7 @@ BRANCH=$(git branch --show-current)
 if [ "$CHANGED_FILES" -gt 1 ] || [ "$BRANCH" = "master" ]
 then
   # Get current Build Version
-  PACKAGE_VERSION=$(cat $WORK_DIR/package.json | grep 'version' | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+  PACKAGE_VERSION=$(grep '"version":' "$WORK_DIR"/package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
   echo "Pushback Version $PACKAGE_VERSION on $BRANCH"
   # Prepare SSH-Connection to Github
   ssh -o StrictHostKeyChecking=no -T $GIT_URL

@@ -1,0 +1,8 @@
+{
+	"description": "Im Alarmfenster wird diese Farbe bei allen Fahrzeugen dieses Fahrzeugtyps als Hintergrund der Checkbox gesetzt.",
+	"noColor": "Aktuell ist keine Fahrzeugfarbe festgelegt",
+	"reset": "Farbe löschen",
+	"save": "Speichern",
+	"savedNote": "Die Fahrzeugfarbe wurde erfolgreich gespeichert!",
+	"title": "Fahrzeugfarbe bearbeiten: {type}"
+}

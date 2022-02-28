@@ -1,7 +1,17 @@
 {
 	"description": "Ermöglicht dir allgemeine Verbesserungen, wie z.B klickbare Links im gesamten Spiel zu aktivieren.",
 	"name": "Allgemeine Verbesserungen",
+	"positions": {
+		"bottom-left": "Unten Links 🡧",
+		"bottom-right": "Unten Rechts 🡦",
+		"top-left": "Oben Links 🡤",
+		"top-right": "Oben Rechts 🡥"
+	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Zeigt einen QR-Code für den Export-Link an, wenn du eine AAO exportierst.",
+			"title": "AAO-Export als QR-Code"
+		},
 		"browserTitle": {
 			"description": "Passt den Titel des Browsertabs an, so dass da steht, was im Spiel gerade offen ist.",
 			"title": "Titel des Browsertabs"
@@ -11,7 +21,7 @@
 			"title": "Links anklickbar machen"
 		},
 		"emojiPicker": {
-			"description": "Zeigt dir Emojis zur auswahl an, wenn du : gefolgt von Text eingibst.",
+			"description": "Zeigt dir Emojis zur Auswahl an, wenn du : gefolgt von Text eingibst.",
 			"title": "Emoji-Picker"
 		},
 		"extensionCloseCall": {
@@ -26,9 +36,21 @@
 			"title": "Link-Vorschau",
 			"vehicles": "Fahrzeuge"
 		},
+		"mapSearchOnMap": {
+			"description": "Verschiebt die Ortssuche im Hauptfenster auf die Karte",
+			"title": "Ortssuche in der Karte"
+		},
+		"mapSearchOnMapPosition": {
+			"description": "Wähle hier, wo auf der Karte die Kartensuche erscheinen soll",
+			"title": "Position der Kartensuche"
+		},
 		"mapUndo": {
 			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
 			"title": "Kartensprünge speichern"
+		},
+		"notePreview": {
+			"description": "Macht Links in den Notizen anklickbar, indem eine Vorschau der Notizen angezeigt wird.",
+			"title": "Notizen"
 		},
 		"ownMapMarkers": {
 			"description": "Speichere dir eigene Punkte auf der Karte ab, damit du sie schnell und mittels eines einzelnen Klicks verfügbar hast!",

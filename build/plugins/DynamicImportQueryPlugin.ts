@@ -1,13 +1,13 @@
-import { Compiler } from 'webpack';
+import type { Compiler } from 'webpack';
 
 const pluginName = 'DynamicImportQueryPlugin';
 
 export default class DynamicImportQueryPlugin {
     options = {} as { name: string; value: string; dyn: boolean }[];
 
-    constructor(options: {
-        [key: string]: { value: string; isDynamicKey?: boolean };
-    }) {
+    constructor(
+        options: Record<string, { value: string; isDynamicKey?: boolean }>
+    ) {
         this.options = Object.entries(options).map(
             ([key, { value, isDynamicKey }]) => ({
                 name: key,

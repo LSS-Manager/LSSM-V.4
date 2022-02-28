@@ -1,7 +1,17 @@
 {
 	"description": "Gör att du kan aktivera allmänna förbättringar såsom klickbara länkar i hela spelet.",
 	"name": "Allmänna förbättringar",
+	"positions": {
+		"bottom-left": "Nedre vänstra 🡧",
+		"bottom-right": "Nedre högra 🡦",
+		"top-left": "Övre vänstra 🡤",
+		"top-right": "Övre högra 🡥"
+	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Visa en QR-Kod för exportlänken när du exporterar ett ARR.",
+			"title": "ARR-Export som QR-Code"
+		},
 		"browserTitle": {
 			"description": "Justerar titeln på webbläsarfliken så att den visar vad som för närvarande är öppet i spelet.",
 			"title": "Webbläsarens flikens titel"
@@ -19,16 +29,29 @@
 			"title": "Spreading improved FMS 5"
 		},
 		"linkPreviews": {
-			"byggnader": "Byggnader",
+			"buildings": "Byggnader",
 			"description": "Visar en liten inforuta när du väntar med musen över en länk en kort stund. Här kan du ställa in för vilka länkar infoboxen ska aktiveras:",
 			"fordon": "Fordon",
-			"missions": "Missions",
-			"profile": "User",
-			"title": "Förhandsgranskning av länk"
+			"missions": "Uppdrag",
+			"profile": "Profil",
+			"title": "Förhandsgranskning av länk",
+			"vehicles": "Fordon"
+		},
+		"mapSearchOnMap": {
+			"description": "Flyttar sökfältet för platser från huvudmenyn till kartan",
+			"title": "Placera sökfält i kartan"
+		},
+		"mapSearchOnMapPosition": {
+			"description": "Välj var på kartan sökfältet ska vara",
+			"title": "Position för sökfältet"
 		},
 		"mapUndo": {
 			"description": "Centrera kartan på positioner som var centrerade tidigare. - Fungerar för närvarande bara med karttyp \"OpenStreetMap\"",
 			"title": "Spara karthopp"
+		},
+		"notePreview": {
+			"description": "Länkar i anteckning görs klickbara gemom att förhandsgranska anteckningen.",
+			"title": "Anteckningar"
 		},
 		"ownMapMarkers": {
 			"description": "Spara dina egna platser på kartan för att komma åt dem med ett enda klick!",

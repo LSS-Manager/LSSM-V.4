@@ -36,6 +36,10 @@
 		},
 		"radioMessage": {
 			"title": "{vehicle} passe en status {status}!"
+		},
+		"tasksUpdate": {
+			"body": "Vous avez terminé une tâche. Récupérez rapidement votre récompense !",
+			"title": "Finir une tâche"
 		}
 	},
 	"noPermission": {

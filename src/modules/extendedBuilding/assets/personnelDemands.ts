@@ -1,6 +1,5 @@
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (
     LSSM: Vue,
@@ -12,9 +11,7 @@ export default (
 
     if (!dataList) return;
 
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
 
     let sumMinPersonnel = 0;
     let sumMaxPersonnel = 0;

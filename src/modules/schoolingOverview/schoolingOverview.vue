@@ -71,13 +71,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
+
+import type { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type {
     SchoolingOverview,
     SchoolingOverviewComputed,
     SchoolingOverviewMethods,
     SchoolingOverviewProps,
 } from 'typings/modules/SchoolingOverview/SchoolingOverview';
-import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 
 export default Vue.extend<
     SchoolingOverview,
@@ -85,7 +86,7 @@ export default Vue.extend<
     SchoolingOverviewComputed,
     SchoolingOverviewProps
 >({
-    name: 'schoolingsOverview',
+    name: 'lssmv4-schoolingsOverview',
     components: {
         EnhancedTable: () =>
             import(
@@ -125,16 +126,17 @@ export default Vue.extend<
                 key: string;
 
                 // General
-                [key: string]: string | number;
+                [key: string]: number | string;
             }[];
 
-            return (this.ownSchoolingsSearch
-                ? schoolings.filter(schooling =>
-                      JSON.stringify(Object.values(schooling))
-                          .toLowerCase()
-                          .match(this.ownSchoolingsSearch.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.ownSchoolingsSearch
+                    ? schoolings.filter(schooling =>
+                          JSON.stringify(Object.values(schooling))
+                              .toLowerCase()
+                              .match(this.ownSchoolingsSearch.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortOwnDir === 'desc') modifier = -1;
@@ -156,16 +158,17 @@ export default Vue.extend<
                 key: string;
 
                 // General
-                [key: string]: string | number;
+                [key: string]: number | string;
             }[];
 
-            return (this.openSchoolingsSearch
-                ? schoolings.filter(schooling =>
-                      JSON.stringify(Object.values(schooling))
-                          .toLowerCase()
-                          .match(this.openSchoolingsSearch.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.openSchoolingsSearch
+                    ? schoolings.filter(schooling =>
+                          JSON.stringify(Object.values(schooling))
+                              .toLowerCase()
+                              .match(this.openSchoolingsSearch.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortOpenDir === 'desc') modifier = -1;

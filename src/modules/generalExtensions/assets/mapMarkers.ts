@@ -43,7 +43,7 @@ export default async (
             selectorText: `#${pinBtnId}`,
             style: {
                 position: 'absolute',
-                left: '-1em',
+                right: '-1em',
                 bottom: '-1em',
             },
         },
@@ -67,24 +67,33 @@ export default async (
         zoom: number;
     }[];
 
-    const historyBtn = await LSSM.$store.dispatch('addOSMControl', 'top-left');
+    const historyBtn = await LSSM.$store.dispatch('addOSMControl', {
+        position: 'top-left',
+    });
     historyBtn.id = historyBtnId;
 
     const historyIcon = document.createElement('i');
     historyIcon.classList.add('fas', 'fa-history');
-    historyBtn.appendChild(historyIcon);
+    historyBtn.append(historyIcon);
 
     const historyList = document.createElement('ul');
     historyList.id = historyListId;
 
     const pinBtn = document.createElement('button');
     pinBtn.classList.add('btn', 'btn-xs');
+    if (await getSetting<boolean>('mapMarkerPinned'))
+        historyList.classList.add('pinned');
     pinBtn.id = pinBtnId;
     const pinIcon = document.createElement('i');
     pinIcon.classList.add('fas', 'fa-thumbtack');
-    pinBtn.addEventListener('click', () =>
-        historyList.classList.toggle('pinned')
-    );
+    pinBtn.addEventListener('click', () => {
+        historyList.classList.toggle('pinned');
+        LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'mapMarkerPinned',
+            value: historyList.classList.contains('pinned'),
+        });
+    });
     pinBtn.append(pinIcon);
 
     historyList.prepend(pinBtn);
@@ -150,10 +159,10 @@ export default async (
             }
         });
 
-        historyRemoveBtn.appendChild(historyRemoveIcon);
-        historyEntry.appendChild(historyText);
-        historyEntry.appendChild(historyRemoveBtn);
-        historyList.appendChild(historyEntry);
+        historyRemoveBtn.append(historyRemoveIcon);
+        historyEntry.append(historyText);
+        historyEntry.append(historyRemoveBtn);
+        historyList.append(historyEntry);
     };
 
     const ownMarkers =
@@ -184,8 +193,8 @@ export default async (
             updateHistoryList();
         });
 
-        historyAddWrapper.appendChild(historyAddBtn);
-        historyList.appendChild(historyAddWrapper);
+        historyAddWrapper.append(historyAddBtn);
+        historyList.append(historyAddWrapper);
 
         ownMarkers.forEach(marker => {
             history.push(marker);
@@ -250,23 +259,25 @@ export default async (
     });
 
     if (mapUndo) {
-        await LSSM.$store.dispatch('hookPrototype', {
+        await LSSM.$store.dispatch('proxy', {
             post: false,
-            base: 'map',
-            event: 'setView',
+            name: 'map.setView',
+            trap: 'apply',
             callback(
-                coordinates: [number, number] | { lat: number; lng: number },
-                zoom = window.map.getZoom()
+                _: unknown,
+                __: unknown,
+                [coordinates, zoom = window.map.getZoom()]: [
+                    { lat: number; lng: number } | [number, number],
+                    number
+                ]
             ) {
                 if (previewEnabled) return;
                 let latExtract;
                 let lngExtract;
-                if (Array.isArray(coordinates)) {
-                    latExtract = coordinates[0];
-                    lngExtract = coordinates[1];
-                } else {
-                    return;
-                } // This happens at Zoom – we don't want to log zooming currently
+                if (Array.isArray(coordinates))
+                    [latExtract, lngExtract] = coordinates;
+                else return;
+                // This happens at Zoom – we don't want to log zooming currently
                 const lat = latExtract;
                 const lng = lngExtract;
                 history.push({ lat, lng, zoom });

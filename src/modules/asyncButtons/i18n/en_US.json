@@ -7,6 +7,10 @@
 			"title": "Releasing?"
 		}
 	},
+	"buildings": {
+		"active": "Ready for Action",
+		"nonactive": "Not Ready for Action"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Cancel",
@@ -40,6 +44,7 @@
 		"coadmin": "Alliance Co-Admin",
 		"finance": "Alliance Finances",
 		"schooling": "Alliance Educator",
-		"sprechwunsch_admin": "Transport Request - Admin"
+		"sprechwunsch_admin": "Transport Request - Admin",
+		"staff": "Alliance Staff"
 	}
 }

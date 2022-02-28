@@ -1,5 +1,5 @@
-import { BuildingMarkerAdd } from 'typings/Ingame';
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { BuildingMarkerAdd } from 'typings/Ingame';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 type Building = BuildingMarkerAdd;
 
@@ -30,15 +30,17 @@ export interface ProfileWindow {
     ban: number[];
     can_alliance_ignore: boolean;
     alliance_ignored: boolean;
-    authenticity_token: string;
 }
 
-export default <RedesignParser<ProfileWindow>>((source, href) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
-    const id = parseInt(href.match(/\d+(?=\/?$)/)?.[0] ?? '-1');
+export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
+    const id = parseInt(
+        new URL(href, window.location.origin).pathname.match(
+            /\d+(?=\/?$)/
+        )?.[0] ?? '-1'
+    );
     const self = id === window.user_id;
     const pageHeader = doc.querySelector<HTMLDivElement>('.page-header');
-    const headTexts: string[] = (window[PREFIX] as Vue).$utils
+    const headTexts: string[] = LSSM.$utils
         .getTextNodes(
             pageHeader ?? doc,
             (n: Node) => (n.textContent?.trim() ?? '').length > 0
@@ -47,7 +49,9 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
     const alliance = pageHeader?.querySelector<HTMLAnchorElement>(
         'a[href^="/alliances"]'
     );
-    const profileText = doc.getElementById('profile_text_photo');
+    const profileText = doc.querySelector<HTMLDivElement>(
+        '#profile_text_photo'
+    );
     const allianceIgnore = doc.querySelector<HTMLAnchorElement>(
         '.page-header a[href^="/allianceIgnore/"]'
     );
@@ -58,18 +62,20 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
             'img[src="/images/user_green.png"]'
         ),
         self,
-        credits: parseInt(
-            headTexts[self ? 2 : 1]
-                .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
-                ?.replace(/[.,]/g, '') ?? '-1'
-        ),
+        credits: LSSM.$utils.getNumberFromText(headTexts[1]),
         alliance: alliance
             ? {
                   id: parseInt(alliance.href.match(/\d+(?=\/?$)/)?.[0] ?? '-1'),
                   name: alliance.textContent?.trim() ?? '',
               }
             : undefined,
-        registration: self ? new Date(0) : undefined,
+        registration: self
+            ? new Date(
+                  doc
+                      .querySelector<HTMLSpanElement>('#signup_date')
+                      ?.getAttribute('data-signup-date') ?? 0
+              )
+            : undefined,
         text: profileText?.textContent?.trim() ?? '',
         image: profileText?.querySelector<HTMLImageElement>('img')?.src ?? '',
         awards: Array.from(
@@ -89,14 +95,16 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
                     .querySelector<HTMLDivElement>('.panel-body')
                     ?.textContent?.trim() ?? '',
         })),
-        has_map: !!doc.getElementById('profile_map'),
-        buildings: (Array.from(doc.scripts)
-            .flatMap(script =>
-                script.innerText.match(
-                    /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
+        has_map: !!doc.querySelector<HTMLDivElement>('#profile_map'),
+        buildings: (
+            Array.from(doc.scripts)
+                .flatMap(script =>
+                    script.textContent?.match(
+                        /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
+                    )
                 )
-            )
-            .filter(b => !!b) as string[]).map(b => JSON.parse(b)),
+                .filter(b => !!b) as string[]
+        ).map(b => JSON.parse(b)),
         ignored: !!doc.querySelector<HTMLAnchorElement>(
             'a[href^="/ignoriert/entfernen/"]'
         ),
@@ -112,8 +120,5 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         ),
         can_alliance_ignore: !!allianceIgnore,
         alliance_ignored: allianceIgnore?.href.endsWith('destroy'),
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

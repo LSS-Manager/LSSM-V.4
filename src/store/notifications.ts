@@ -1,11 +1,12 @@
-import { ActionTree, Module, MutationTree } from 'vuex';
-import { NotificationsState } from 'typings/store/notifications/State';
-import { RootState } from 'typings/store/RootState';
-import {
+import lssm_logo from '../img/lssm_logo';
+
+import type { NotificationsState } from 'typings/store/notifications/State';
+import type { RootState } from 'typings/store/RootState';
+import type { ActionTree, Module, MutationTree } from 'vuex';
+import type {
     NotificationsActionStoreParams,
     NotificationsSend,
 } from 'typings/store/notifications/Actions';
-import lssm_logo from '../img/lssm_logo';
 
 export default {
     namespaced: true,
@@ -108,7 +109,9 @@ export default {
                 commit('addGroup', computedGroup);
             if (
                 !computedType ||
-                !computedType.match(/^(warning|danger|success|info)$/)
+                !computedType.match(
+                    /^(warning|danger|success|info|unimportant)$/
+                )
             )
                 computedType = 'info';
             if (ingame) {
@@ -141,8 +144,9 @@ export default {
                     requireInteraction: duration <= 0,
                 });
                 if (clickHandler) {
-                    notification.onclick = e =>
-                        clickHandler(null, e as MouseEvent);
+                    notification.addEventListener('click', e =>
+                        clickHandler(null, e as MouseEvent)
+                    );
                 }
                 if (duration > 0)
                     window.setTimeout(() => notification.close(), duration);

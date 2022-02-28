@@ -39,17 +39,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import tokenizer from './assets/tokenizer';
-import parser from './assets/parser';
-import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+
 import cloneDeep from 'lodash/cloneDeep';
-import {
+import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+
+import parser from './assets/parser';
+import tokenizer from './assets/tokenizer';
+
+import type { DefaultProps } from 'vue/types/options';
+import type { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
+import type {
     LSSMAQL,
-    LSSMAQLMethods,
     LSSMAQLComputed,
+    LSSMAQLMethods,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
-import { DefaultProps } from 'vue/types/options';
-import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
 
 const comparison = (
     left: unknown,
@@ -83,7 +86,7 @@ const parse_filter = (
     tree: ObjectTree,
     vm: Vue
 ) => {
-    const side = filter[0];
+    const [side] = filter;
     const oneside =
         side.type === 'string'
             ? side.value
@@ -95,15 +98,13 @@ const parse_filter = (
                   cloneDeep(filter),
                   [tree.base, ...tree.attributes].join('.')
               ) as ObjectTree);
-    let sideObject = (typeof oneside === 'string' ||
-    typeof oneside === 'number' ||
-    typeof oneside === 'boolean'
-        ? oneside
-        : [...oneside.base.split('.'), ...oneside.attributes]) as
-        | string
-        | number
-        | Record<string, unknown>
-        | (string | number)[];
+    let sideObject = (
+        typeof oneside === 'string' ||
+        typeof oneside === 'number' ||
+        typeof oneside === 'boolean'
+            ? oneside
+            : [...oneside.base.split('.'), ...oneside.attributes]
+    ) as (number | string)[] | Record<string, unknown> | number | string;
     if (!sideObject) return;
     if (Array.isArray(sideObject)) {
         while (sideObject.includes('..')) {
@@ -120,10 +121,10 @@ const parse_filter = (
                 newObject = (newObject as never[]).map(e => e[attr]);
             } else {
                 newObject = (newObject as Record<string, unknown>)[attr] as
-                    | string
-                    | number
+                    | never[]
                     | Record<string, unknown>
-                    | never[];
+                    | number
+                    | string;
             }
         });
         sideObject = newObject;
@@ -175,14 +176,14 @@ export default Vue.extend<
     LSSMAQLComputed,
     DefaultProps
 >({
-    name: 'lssmaql',
+    name: 'lssmv4-lssmaql-console',
     components: {
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
             ),
     },
-    data: function() {
+    data() {
         return {
             faTerminal,
             query: '',

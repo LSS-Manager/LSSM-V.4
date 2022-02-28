@@ -1,11 +1,16 @@
-import { ExtendedVue } from 'vue/types/vue';
+import type { ExtendedVue } from 'vue/types/vue';
+import type {
+    DefaultComputed,
+    DefaultData,
+    DefaultMethods,
+    DefaultProps,
+} from 'vue/types/options';
 
 interface SettingTemplate {
     type: string;
     dependsOn?: string;
     noMapkit?: boolean;
-    disabled?(): boolean;
-    disabled?(settings: ModuleSettings): boolean;
+    disabled?: (() => boolean) | ((settings: ModuleSettings) => boolean);
 
     // Will be generated in Settings
     isDisabled: boolean;
@@ -23,6 +28,12 @@ interface Text extends SettingTemplate {
     value: string;
 }
 
+interface Textarea extends SettingTemplate {
+    type: 'textarea';
+    default: string;
+    value: string;
+}
+
 interface Color extends SettingTemplate {
     type: 'color';
     default: string;
@@ -36,6 +47,7 @@ interface NumberInput extends SettingTemplate {
     min?: number;
     max?: number;
     step?: number;
+    float?: boolean;
 }
 
 interface Select extends SettingTemplate {
@@ -61,25 +73,52 @@ interface HotKey extends SettingTemplate {
     value: string;
 }
 
+interface Location extends SettingTemplate {
+    type: 'location';
+    default: [number, number, number];
+    value: [number, number, number];
+    zoom?: boolean;
+}
+
+interface Custom<
+    Data = unknown,
+    Properties extends Record<string, unknown> = Record<string, never>,
+    ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
+    ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
+    ComponentComputed extends DefaultComputed = DefaultComputed,
+    ComponentProps extends DefaultProps = DefaultProps
+> extends SettingTemplate {
+    type: 'custom';
+    default: Data;
+    value: Data;
+    properties: Properties;
+    component: ExtendedVue<
+        Vue,
+        ComponentData,
+        ComponentMethods,
+        ComponentComputed,
+        ComponentProps & { value: Data }
+    >;
+}
+
 interface Hidden<Type = boolean> extends SettingTemplate {
     type: 'hidden';
     default: Type;
     value: Type;
 }
 
-interface AppendableListItem {
-    [key: string]: unknown;
-}
+type AppendableListItem = Record<string, unknown>;
 
-interface AppendableListSetting<type extends SettingType = SettingType> {
-    setting: Omit<type, 'value' | 'isDisabled'>;
+interface AppendableListSetting<Type extends SettingType = SettingType> {
+    setting: Omit<Type, 'isDisabled' | 'value'>;
     size: number;
     name: string;
     title: string;
+    unique?: boolean;
 }
 
 export interface PreviewElement
-    extends Omit<AppendableListSetting, 'setting' | 'name'> {
+    extends Omit<AppendableListSetting, 'name' | 'setting'> {
     type: 'preview';
     component: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
 }
@@ -93,31 +132,45 @@ export interface AppendableList extends SettingTemplate {
     };
     listItem: (AppendableListSetting | PreviewElement)[];
     defaultItem: AppendableListItem;
+    disableable: boolean;
     orderable?: boolean;
-    disableable?: boolean;
 }
 
-type SettingType =
-    | Toggle
-    | Text
+type SettingType<
+    CustomData = unknown,
+    CustomProperties extends Record<string, unknown> = Record<string, never>,
+    CustomComponentData extends DefaultData<Vue> = DefaultData<Vue>,
+    CustomComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
+    CustomComponentComputed extends DefaultComputed = DefaultComputed,
+    CustomComponentProps extends DefaultProps = DefaultProps
+> =
     | AppendableList
-    | Select
-    | MultiSelect
     | Color
-    | NumberInput
+    | Custom<
+          CustomData,
+          CustomProperties,
+          CustomComponentData,
+          CustomComponentMethods,
+          CustomComponentComputed,
+          CustomComponentProps
+      >
+    | Hidden
     | HotKey
-    | Hidden;
+    | Location
+    | MultiSelect
+    | NumberInput
+    | Select
+    | Text
+    | Textarea
+    | Toggle;
 
-export type Setting<type extends SettingType = SettingType> = type;
+export type Setting<Type extends SettingType = SettingType> = Type;
 
-export interface Settings {
-    [key: string]: Setting;
-}
+export type Settings = Record<string, Setting>;
 
-export interface RegisterSettings {
-    [key: string]: Omit<Setting, 'value' | 'isDisabled'>;
-}
+export type RegisterSettings = Record<
+    string,
+    Omit<Setting, 'isDisabled' | 'value'>
+>;
 
-export interface ModuleSettings {
-    [moduleId: string]: Settings;
-}
+export type ModuleSettings = Record<string, Settings>;

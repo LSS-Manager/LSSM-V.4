@@ -1,13 +1,14 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Hidden, MultiSelect, Select, Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Hidden, MultiSelect, Select, Toggle } from 'typings/Setting';
 
 export default ((MODULE_ID, LSSM, $m) => {
     const noVehicleRequirements = [] as string[];
     const noVehicleRequirementLabels = [] as string[];
     Object.entries(
-        ($m('noVehicleRequirements') as unknown) as {
-            [key: string]: { badge: boolean; text: string };
-        }
+        $m('noVehicleRequirements') as unknown as Record<
+            string,
+            { badge: boolean; text: string }
+        >
     ).forEach(([key, { text }]) => {
         noVehicleRequirements.push(key);
         noVehicleRequirementLabels.push(text);
@@ -53,9 +54,16 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO', 'en_AU', 'fr_FR'].includes(
-            locale
-        )
+        ...([
+            'de_DE',
+            'en_US',
+            'nl_NL',
+            'nb_NO',
+            'en_AU',
+            'fr_FR',
+            'es_ES',
+            'en_GB',
+        ].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{
                       type: 'toggle',
@@ -89,7 +97,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             // @ts-ignore
             disabled: (settings): boolean =>
                 !settings[MODULE_ID]['vehicles.content'].value ||
-                settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
+                !!settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
         },
         'hide_battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
@@ -98,12 +106,22 @@ export default ((MODULE_ID, LSSM, $m) => {
             // @ts-ignore
             disabled: (settings): boolean =>
                 !settings[MODULE_ID]['vehicles.content'].value ||
-                settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
-                    .value,
+                !!settings[MODULE_ID][
+                    'multifunctionals.battalion_chief_vehicles'
+                ].value,
         },
         ...(locale === 'nl_NL'
             ? {
                   'multifunctionals.police_cars': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'de_DE'
+            ? {
+                  'multifunctionals.police_service_group_leader': <Toggle>{
                       type: 'toggle',
                       default: false,
                       dependsOn: '.vehicles.content',
@@ -133,11 +151,24 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
-            type: 'toggle',
-            default: false,
-            dependsOn: '.vehicles.content',
-        },
+        ...(['de_DE', 'en_US', 'nl_NL'].includes(locale)
+            ? {
+                  'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'en_US'
+            ? {
+                  'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
         ...(locale === 'en_US'
             ? {
                   'optionalAlternatives.allow_drone_instead_of_investigation': <
@@ -149,7 +180,9 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT'].includes(locale)
+        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT', 'fr_FR', 'nb_NO'].includes(
+            locale
+        )
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
                       type: 'toggle',
@@ -183,9 +216,17 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['en_GB', 'nb_NO', 'da_DK', 'pl_PL', 'en_AU', 'fr_FR'].includes(
-            locale
-        )
+        ...([
+            'en_GB',
+            'nb_NO',
+            'da_DK',
+            'pl_PL',
+            'en_AU',
+            'fr_FR',
+            'es_ES',
+            'cs_CZ',
+            'sv_SE',
+        ].includes(locale)
             ? {
                   'patients.critical_care': <Toggle>{
                       type: 'toggle',
@@ -245,7 +286,9 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
-        ...(locale === 'en_US'
+        ...(['en_US', 'it_IT', 'en_AU', 'nb_NO', 'de_DE', 'nl_NL'].includes(
+            locale
+        )
             ? {
                   subsequent: <Toggle>{
                       type: 'toggle',
@@ -253,14 +296,10 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(locale !== 'nl_NL'
-            ? {
-                  followup: <Toggle>{
-                      type: 'toggle',
-                      default: true,
-                  },
-              }
-            : null),
+        'followup': <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         'overlay': <Hidden>{
             type: 'hidden',
             default: false,
@@ -294,6 +333,15 @@ export default ((MODULE_ID, LSSM, $m) => {
                   bucket_only_if_needed: <Toggle>{
                       type: 'toggle',
                       default: false,
+                  },
+              }
+            : null),
+        ...(locale === 'de_DE'
+            ? {
+                  max_civil_patrol_replace_police_cars: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      disabled: () => true,
                   },
               }
             : null),

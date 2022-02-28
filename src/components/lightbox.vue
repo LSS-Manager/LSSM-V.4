@@ -1,6 +1,6 @@
 <template>
     <div :class="{ titleHidden, fullHeight, ...extraClasses }">
-        <div class="controlbtn-container">
+        <div class="controlbtn-container" :class="{ vertical: verticalBtns }">
             <span
                 v-if="!noXBtn && !noModal"
                 class="lightbox-close"
@@ -33,6 +33,7 @@
             >
                 <font-awesome-icon :icon="faChevronUp"></font-awesome-icon>
             </span>
+            <slot name="control-buttons"></slot>
         </div>
         <slot></slot>
     </div>
@@ -40,16 +41,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
-import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
-import {
+import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+
+import type { DefaultComputed } from 'vue/types/options';
+import type {
     LightboxData,
     LightboxMethods,
     LightboxProps,
-} from '../../typings/components/Lightbox';
-import { DefaultComputed } from 'vue/types/options';
+} from 'typings/components/Lightbox';
 
 export default Vue.extend<
     LightboxData,
@@ -57,7 +60,7 @@ export default Vue.extend<
     DefaultComputed,
     LightboxProps
 >({
-    name: 'lightbox',
+    name: 'lssmv4-lightbox',
     data() {
         return {
             fullscreen: false,
@@ -69,6 +72,7 @@ export default Vue.extend<
             faExpand,
             faCompress,
             faChevronUp,
+            verticalBtns: false,
         };
     },
     props: {
@@ -132,11 +136,14 @@ export default Vue.extend<
 .controlbtn-container
     display: flex
     justify-content: end
-    width: calc(3 * 34px)
+    width: auto
     position: absolute
     right: 1rem
     top: 1rem
     flex-direction: row-reverse
+
+    &.vertical
+        flex-flow: column
 
     > span
         cursor: pointer

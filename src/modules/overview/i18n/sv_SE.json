@@ -1,5 +1,9 @@
 {
 	"extensionTitle": "{caption} (upp till {n} gånger)",
+	"schoolings": {
+		"all": "all",
+		"min": "min. {n}x"
+	},
 	"tabs": {
 		"buildings": "Byggnader",
 		"schoolings": "Kurser",
@@ -20,11 +24,13 @@
 		"schoolings": {
 			"caption": "Kursnamn",
 			"duration": "Träning's längd",
-			"required_for": "Krävs för"
+			"required_for": "Krävs för",
+			"staffList": "Träning"
 		},
 		"vehicles": {
 			"caption": "Fordonstyp",
 			"cost": "Kostnad",
+			"ftank": "Skumtank",
 			"maxPersonnel": "Maximal personal",
 			"minPersonnel": "Minimum personal",
 			"schooling": "Utbildning",

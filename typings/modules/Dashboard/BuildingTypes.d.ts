@@ -1,7 +1,6 @@
-import VueI18n from 'vue-i18n';
-import { InternalBuilding } from 'typings/Building';
-import { Building } from 'typings/Building';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type VueI18n from 'vue-i18n';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 interface buildingWithExtension extends Building {
     extension_available: number;
@@ -10,35 +9,32 @@ interface buildingWithExtension extends Building {
 }
 
 export interface BuildingTypes {
-    buildingTypes: { [id: number]: InternalBuilding };
-    categoryColors: {
-        [category: string]: string;
-    };
-    groups: {
-        [category: string]: Category;
-    };
+    buildingTypes: Record<number, InternalBuilding>;
+    categoryColors: Record<string, string>;
+    groups: Record<string, Category>;
     faBuilding: IconDefinition;
 }
 
 export interface Category {
     color: string;
-    rows: {
-        [caption: string]: {
+    rows: Record<
+        string,
+        {
             type: 'building' | 'extension';
             color:
-                | 'bright'
-                | 'dark'
                 | 'bright-bright'
                 | 'bright-dark'
+                | 'bright'
                 | 'dark-bright'
-                | 'dark-dark';
+                | 'dark-dark'
+                | 'dark';
             children: number;
             total: number;
             enabled: number;
             unavailable: number;
             maximum: number;
-        };
-    };
+        }
+    >;
 }
 
 export interface BuildingTypesComputed {
@@ -46,35 +42,21 @@ export interface BuildingTypesComputed {
 }
 
 export interface BuildingTypesMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
-    $sm(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
+    $sm(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     $mc(
         key: string,
         amount: number,
-        args?: {
-            [key: string]: unknown;
-        }
+        args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
     $smc(
         key: string,
         amount: number,
-        args?: {
-            [key: string]: unknown;
-        }
+        args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
     showBuildings(
         listType: string,
         type: string,
-        buildings: buildingWithExtension[] | Building[]
+        buildings: Building[] | buildingWithExtension[]
     ): void;
 }

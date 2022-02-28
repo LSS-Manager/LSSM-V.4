@@ -1,73 +1,70 @@
 <template>
     <lightbox
-        name="redesign-lightbox"
+        :name="`redesign-lightbox-${creation}`"
         :full-height="!type"
-        :no-title-hide="true"
+        no-title-hide
         :no-modal="noModal"
     >
+        <template v-slot:control-buttons v-if="!noModal">
+            <span
+                class="toggle-title"
+                @click="copyUrl()"
+                :title="$m('copy_url', { url: fullUrl })"
+            >
+                <i :id="clipboardIconId" class="fas fa-clipboard"></i>
+            </span>
+        </template>
         <div
             v-show="type && type !== 'default'"
             class="redesign-wrapper"
             :type="type"
         >
-            <Vehicle
-                v-if="type === 'vehicle'"
-                :vehicle="data"
-                :url="urlProp"
-                :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Vehicle>
             <Credits
-                v-else-if="type.startsWith('credits/') || type === 'coins/list'"
+                v-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
-            <Toplist
-                v-else-if="type === 'toplist'"
-                :toplist="data"
+            <Verband
+                v-else-if="type.startsWith('verband/') || type === 'schoolings'"
+                :data="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
-            ></Toplist>
-            <Profile
-                v-else-if="type === 'profile'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Profile>
+            ></Verband>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
             >
                 {{ $m('vehicle.nextfms.finished') }}
             </div>
+            <component
+                v-else-if="windows[type]"
+                :is="windows[type].component"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                v-bind="{ [windows[type].data]: data }"
+            ></component>
         </div>
         <iframe
             v-show="!type || type === 'default'"
             ref="iframe"
-            :src="url"
+            src="about:blank"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
-        <div id="redesign-loader" v-show="loading">
+        <div
+            id="redesign-loader"
+            v-show="loading"
+            :style="`width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`"
+        >
             <font-awesome-icon
                 :icon="faSyncAlt"
                 spin
@@ -85,8 +82,156 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { RedesignLightbox } from 'typings/modules/Redesign';
+
+import type {
+    RedesignLightbox,
+    RedesignParser,
+} from 'typings/modules/Redesign';
+
+const windows: RedesignLightbox['Data']['windows'] = {
+    'aaos': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
+            ),
+        data: 'aaos',
+    },
+    'alliance_avatar': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/allianceAvatar"*/ './alliance_avatar.vue'
+            ),
+        data: 'alliance',
+    },
+    'alliances': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
+            ),
+        data: 'alliances',
+    },
+    'avatar': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
+            ),
+        data: 'profile',
+    },
+    'awards': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
+            ),
+        data: 'awards',
+    },
+    'bewerbungen': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
+            ),
+        data: 'bewerbungen',
+    },
+    'chat': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/chat"*/ './chat.vue'
+            ),
+        data: 'chat',
+    },
+    'einsaetze': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
+            ),
+        data: 'window',
+    },
+    'einsatz': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
+            ),
+        data: 'mission',
+    },
+    'fahrzeugfarbe': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/fahrzeugfarbe"*/ './fahrzeugfarbe.vue'
+            ),
+        data: 'fahrzeugfarbe',
+    },
+    'freunde': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
+            ),
+        data: 'friends',
+    },
+    'note': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/note"*/ './note.vue'
+            ),
+        data: 'note',
+    },
+    'profile': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
+            ),
+        data: 'profile',
+    },
+    'profile/edit': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
+            ),
+        data: 'profile',
+    },
+    'schoolings': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/schoolings"*/ './schoolings.vue'
+            ),
+        data: '',
+    },
+    'tasks': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/tasks"*/ './tasks.vue'
+            ),
+        data: 'tasks',
+    },
+    'toplist': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        data: 'toplist',
+    },
+    'vehicle_group': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicleGroup"*/ './vehicle_group.vue'
+            ),
+        data: 'vehicle_group',
+    },
+    'vehicle': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+            ),
+        data: 'vehicle',
+    },
+    'vehicle/stats': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle/stats"*/ './vehicle/stats.vue'
+            ),
+        data: 'stats',
+    },
+};
 
 export default Vue.extend<
     RedesignLightbox['Data'],
@@ -94,38 +239,39 @@ export default Vue.extend<
     RedesignLightbox['Computed'],
     RedesignLightbox['Props']
 >({
-    name: 'redesign-lightbox',
+    name: 'lssmv4-redesign-lightbox',
     components: {
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
             ),
-        Vehicle: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
-            ),
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
             ),
-        Toplist: () =>
+        Verband: () =>
             import(
-                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
-            ),
-        Profile: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
+                /*webpackChunkName: "modules/redesign/windows/verband"*/ './verband.vue'
             ),
     },
     data() {
         return {
             faSyncAlt,
+            clipboardIconId: this.$store.getters.nodeAttribute(
+                'redesign-clipboard-icon',
+                true
+            ),
             type: 'default',
-            data: null,
+            data: { authenticity_token: '' },
             html: '',
             urlProp: '',
             loading: true,
             errors: [],
+            clickableLinks: {
+                enabled: false,
+                pictures: false,
+            },
+            windows,
         };
     },
     props: {
@@ -150,8 +296,23 @@ export default Vue.extend<
             required: false,
             default: () => false,
         },
+        creation: {
+            type: String,
+            required: true,
+        },
+        size: {
+            type: Number,
+            required: false,
+            default: 100,
+        },
     },
     computed: {
+        loaderOffset() {
+            return (100 - this.size) / 2;
+        },
+        fullUrl() {
+            return new URL(this.urlProp, window.location.origin).toString();
+        },
         src: {
             get() {
                 return this.src ?? this.url;
@@ -159,11 +320,12 @@ export default Vue.extend<
             set(url) {
                 this.loading = true;
                 this.errors = [];
-                const link = new URL(url, window.location.href);
+                const link = new URL(url, window.location.origin);
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
-                if (this.noModal) window.history.pushState({}, url, url);
+                if (this.noModal && !link.searchParams.has('ignore-history'))
+                    window.history.pushState({}, url, url);
                 if (!type) {
                     const iframe = this.$refs
                         .iframe as HTMLIFrameElement | null;
@@ -171,7 +333,7 @@ export default Vue.extend<
                         iframe &&
                         new URL(
                             iframe.contentWindow?.location.href ?? '',
-                            window.location.href
+                            window.location.origin
                         ).toString() !== link.toString()
                     ) {
                         iframe.src = url;
@@ -195,7 +357,7 @@ export default Vue.extend<
                         feature: `redesign-${type}`,
                     })
                     .then((res: Response) => {
-                        if (res.redirected) {
+                        if (res.redirected && type !== 'einsatz') {
                             redirected = true;
                             return (this.src = res.url);
                         }
@@ -235,32 +397,115 @@ export default Vue.extend<
                             }
                         }
                         if (type === 'coins/list') await addLocas('credits');
+                        if (type === 'credits/daily') {
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        dailyCreditsSummary: (
+                                            await import(
+                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.$store.state.lang}.ts`
+                                            )
+                                        ).default,
+                                    },
+                                }
+                            );
+                        }
+                        if (type === 'schoolings') {
+                            await addLocas('verband');
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        schoolingOverview: await import(
+                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.$store.state.lang}.json`
+                                        ),
+                                    },
+                                }
+                            );
+                        }
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
-                        ).then(parser => {
-                            try {
-                                this.data = parser.default(
-                                    html,
-                                    url,
-                                    this.getIdFromEl
-                                );
-                                if (type === 'vehicle/nextfms' && this.data)
-                                    this.src = `/vehicles/${this.data}`;
-                                this.type = type;
-                                this.urlProp = url;
-                                document.documentElement.style.removeProperty(
-                                    'height'
-                                );
-                                document.body.style.removeProperty('height');
-                            } catch (e) {
-                                this.errors.push(e);
+                        ).then(
+                            async ({
+                                default: parser,
+                            }: {
+                                default: RedesignParser;
+                            }) => {
+                                try {
+                                    const doc = new DOMParser().parseFromString(
+                                        html,
+                                        'text/html'
+                                    );
+                                    const script = Array.from(doc.scripts)
+                                        .map(
+                                            ({ textContent }) =>
+                                                textContent?.trim() ?? ''
+                                        )
+                                        .join('\n');
+                                    window.coinsUpdate(
+                                        parseInt(
+                                            script.match(
+                                                /(?<=coinsUpdate\()\d+(?=\))/
+                                            )?.[0] ?? '-1'
+                                        )
+                                    );
+                                    window.creditsUpdate(
+                                        parseInt(
+                                            script.match(
+                                                /(?<=creditsUpdate\()\d+(?=\))/
+                                            )?.[0] ?? '-1'
+                                        )
+                                    );
+                                    this.data = {
+                                        ...(await parser({
+                                            href: url,
+                                            getIdFromEl: this.getIdFromEl,
+                                            doc,
+                                            LSSM: this,
+                                            $m: this.$m,
+                                            $mc: this.$mc,
+                                            $sm: (key, args) =>
+                                                this.$m(`${type}.${key}`, args),
+                                            $smc: (key, amount, args) =>
+                                                this.$mc(
+                                                    `${type}.${key}`,
+                                                    amount,
+                                                    args
+                                                ),
+                                        })),
+                                        authenticity_token:
+                                            doc.querySelector<HTMLMetaElement>(
+                                                'meta[name="csrf-token"]'
+                                            )?.content ?? '',
+                                    };
+                                    if (type === 'vehicle/nextfms' && this.data)
+                                        this.src = `/vehicles/${this.data}`;
+                                    this.type = type;
+                                    this.urlProp = url;
+                                    document.documentElement.style.removeProperty(
+                                        'height'
+                                    );
+                                    document.body.style.removeProperty(
+                                        'height'
+                                    );
+                                } catch (e) {
+                                    if (e instanceof Error) this.errors.push(e);
+                                    this.$store.dispatch('console/error', [e]);
+                                }
                             }
-                        });
+                        );
                     });
             },
         },
     },
     methods: {
+        $sm(key: string, args?: Record<string, unknown>) {
+            return this.$m(`${this.type}.${key}`, args);
+        },
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
+            return this.$mc(`${this.type}.${key}`, amount, args);
+        },
         getSetting() {
             return <T>(setting: string, defaultValue: T): Promise<T> =>
                 new Promise(resolve =>
@@ -293,7 +538,7 @@ export default Vue.extend<
         },
         getIdFromEl(el) {
             return parseInt(
-                new URL(el?.href ?? '', window.location.href).pathname?.match(
+                new URL(el?.href ?? '', window.location.origin).pathname?.match(
                     /\d+\/?$/
                 )?.[0] ?? '-1'
             );
@@ -312,11 +557,139 @@ export default Vue.extend<
                 .then(event =>
                     this.$store.dispatch('event/dispatchEvent', event)
                 );
+            if (this.clickableLinks.enabled) {
+                import(
+                    /* webpackChunkName: "utils/clickableLinks" */ '../../generalExtensions/assets/clickableLinks/util'
+                ).then(({ default: clickableLinks }) =>
+                    clickableLinks(this, this.$el, this.clickableLinks.pictures)
+                );
+            }
+        },
+        copyUrl() {
+            navigator.clipboard.writeText(this.fullUrl).then(() => {
+                this.$el
+                    .querySelector(`#${this.clipboardIconId}`)
+                    ?.setAttribute('data-icon', 'check');
+                window.setTimeout(
+                    () =>
+                        this.$el
+                            .querySelector(`#${this.clipboardIconId}`)
+                            ?.setAttribute('data-icon', 'clipboard'),
+                    1000
+                );
+            });
         },
     },
+    beforeMount() {
+        this.$store
+            .dispatch('api/getMissions', {
+                force: false,
+                feature: 'redesign-lightbox-mount',
+            })
+            .then();
+        [
+            'vehicles',
+            'buildings',
+            'allianceinfo',
+            'settings',
+            'credits',
+        ].forEach(type =>
+            this.$store.dispatch('api/initialUpdate', {
+                type,
+                feature: 'redesign-lightbox-mount',
+            })
+        );
+    },
     mounted() {
-        this.src = this.url;
+        this.$store.commit('useFontAwesome');
+        this.$store
+            .dispatch('settings/getModule', 'generalExtensions')
+            .then(({ clickableLinks, showImg }) => {
+                this.clickableLinks.enabled = clickableLinks;
+                this.clickableLinks.pictures = showImg;
+            });
         window['lssmv4-redesign-lightbox'] = this;
+        const trySetIframe = (): number | void =>
+            this.$refs.iframe
+                ? this.$nextTick(() => {
+                      this.$set(this, 'src', this.url);
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' event results in a MouseEvent…
+                      this.$el.addEventListener('mouseup', (e: MouseEvent) => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (
+                              !target ||
+                              !href ||
+                              ![0, 1].includes(e.button) ||
+                              target.hasAttribute('download')
+                          )
+                              return;
+                          e.preventDefault();
+                          if (e.ctrlKey || e.button === 1)
+                              return window.open(href, '_blank', 'noopener');
+                          if (
+                              e.button === 0 &&
+                              target.hasAttribute('lightbox-open')
+                          )
+                              return window.lightboxOpen(href);
+                          if (target.hasAttribute('target')) {
+                              if (
+                                  new URL(href, window.location.origin)
+                                      .origin === window.location.origin
+                              )
+                                  return window.lightboxOpen(href);
+                              return window.open(
+                                  href,
+                                  target.getAttribute('target') ?? '_blank',
+                                  'noopener'
+                              );
+                          }
+
+                          this.$set(this, 'src', href);
+                      });
+                      this.$el.addEventListener('click', e => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (
+                              !target ||
+                              !href ||
+                              target.hasAttribute('download')
+                          )
+                              return;
+                          e.preventDefault();
+                      });
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore // Yes, Typescript does not understand that a 'auxclick' event results in a MouseEvent…
+                      this.$el.addEventListener('auxclick', (e: MouseEvent) => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (
+                              !target ||
+                              !href ||
+                              target.hasAttribute('download') ||
+                              e.button !== 1
+                          )
+                              return;
+                          e.preventDefault();
+                      });
+                      window.addEventListener('popstate', () => {
+                          const url = new URL(
+                              window.location.href,
+                              window.location.origin
+                          );
+                          url.searchParams.append('ignore-history', 'true');
+                          this.$set(this, 'src', url.toString());
+                      });
+                  })
+                : window.setTimeout(trySetIframe, 100);
+        trySetIframe();
     },
 });
 </script>
@@ -336,15 +709,12 @@ iframe
 
 #redesign-loader
     position: fixed
-    top: 0
-    left: 0
     background: rgba(255, 255, 255, 0.5)
-    width: 100%
-    height: 100%
     display: flex
     justify-content: center
     align-items: center
     color: black
+    cursor: wait
 
     .error-list
         position: absolute

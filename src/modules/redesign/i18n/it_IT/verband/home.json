@@ -1,0 +1,14 @@
+{
+	"applied": "Hai fatto domanda a questa Alleanza, devi solo essere accettato da un (Co-)Amministratore dell'Alleanza. Buona fortuna!",
+	"apply": "Candidati",
+	"edit_logo": "Modifica Logo",
+	"edit_name": "Rinomina Alleanza",
+	"edit_text": "Modifica testo di introduzione, regole, importanti informazioni sull'alleanza e Discord Webhooks",
+	"leave": {
+		"cancel": "Cancella",
+		"confirm": "Lascia!",
+		"text": "Vuoi davvero lasciare l'Alleanza **{caption}**? L'azione non può essere annullata!",
+		"title": "Esci dall'alleanza"
+	},
+	"unapply": "Ritira la domanda"
+}

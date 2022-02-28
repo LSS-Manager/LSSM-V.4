@@ -25,10 +25,12 @@ Indíquenos su nombre de usuario o ID de usuario. También es útil nombrar los 
 Ahora puede enviarnos su problema formulado con datos de usuario. Utilice una de las opciones que se enumeran a continuación.
 
 ## Por Discord
-En nuestro servidor de <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> puede obtener apoyo en el canal de <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+En nuestro servidor de <discord/> puede obtener apoyo en el canal de <discord-channel channel="lssm-help"/>.
 
 ## Por GitHub
 También puede abrir un problema en <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Por favor, marque aquí si ya existe un problema relacionado con este problema y luego haga un seguimiento.
 
-## Nuevo: Soporte directamente en el juego
-Para brindarle un soporte aún más rápido y sencillo, hemos integrado nuestro propio chat de soporte. Puedes acceder a él a través del menú LSSM en el juego. Haremos todo lo posible para ayudarlo de la manera más rápida y eficiente posible, pero nuevamente, cuanto más detallado describa su problema desde el principio, ¡mejor podremos ayudarlo!
+## Planned: Support directly in the game
+In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!
+
+As soon as it is so far we will of course inform you about it in the release notes :wink:

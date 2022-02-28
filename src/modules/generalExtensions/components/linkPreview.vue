@@ -21,7 +21,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            vehicleBuildings.includes(building.building_type)
+                        vehicleBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -37,7 +37,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            cellBuildings.includes(building.building_type)
+                        cellBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -57,7 +57,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            bedBuildings.includes(building.building_type)
+                        bedBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -67,7 +67,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            schoolBuildings.includes(building.building_type)
+                        schoolBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -94,7 +94,7 @@
             <table
                 v-else-if="
                     type === 'buildings' &&
-                        vehicleBuildings.includes(building.building_type)
+                    vehicleBuildings.includes(building.building_type)
                 "
             >
                 <tr v-for="vehicle in buildingVehicles" :key="vehicle.id">
@@ -128,21 +128,23 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
-import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
-import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
-import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
-import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
+
+import cloneDeep from 'lodash/cloneDeep';
 import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
-import {
+import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
+import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
+import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
+import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type {
     LinkPreview,
-    LinkPreviewMethods,
     LinkPreviewComputed,
+    LinkPreviewMethods,
     LinkPreviewProps,
 } from 'typings/modules/GeneralExtensions/LinkPreview';
-import { InternalVehicle } from 'typings/Vehicle';
-import { InternalBuilding } from 'typings/Building';
-import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     LinkPreview,
@@ -150,7 +152,7 @@ export default Vue.extend<
     LinkPreviewComputed,
     LinkPreviewProps
 >({
-    name: 'linkPreview',
+    name: 'lssmv4-linkPreview',
     data() {
         return {
             faParking,
@@ -168,9 +170,10 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: (this.$t('vehicles') as unknown) as {
-                [id: number]: InternalVehicle;
-            },
+            vehicleTypes: this.$t('vehicles') as unknown as Record<
+                number,
+                InternalVehicle
+            >,
             vehicleBuildings: Object.values(
                 this.$t('vehicleBuildings')
             ) as number[],
@@ -261,7 +264,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (this.$t('buildings') as { [id: number]: InternalBuilding })[
+                (this.$t('buildings') as Record<number, InternalBuilding>)[
                     building.building_type
                 ].caption
             );

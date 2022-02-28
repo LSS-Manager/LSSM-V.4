@@ -1,4 +1,4 @@
-import { NotificationSetting } from '.';
+import type { NotificationSetting } from '.';
 
 interface Option<values = string> {
     value: values;

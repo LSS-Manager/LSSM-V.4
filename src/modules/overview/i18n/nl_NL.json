@@ -1,5 +1,9 @@
 {
 	"extensionTitle": "{caption} (tot {n} keer)",
+	"schoolings": {
+		"all": "alle",
+		"min": "min. {n}x"
+	},
 	"tabs": {
 		"buildings": "Gebouwen",
 		"schoolings": "Opleidingen",
@@ -20,11 +24,13 @@
 		"schoolings": {
 			"caption": "Opleidingsnaam",
 			"duration": "Opleidingsduur",
-			"required_for": "Nodig voor"
+			"required_for": "Nodig voor",
+			"staffList": "Opleiding in personeelslijst"
 		},
 		"vehicles": {
 			"caption": "Voertuig type",
 			"cost": "Prijs",
+			"ftank": "Schuimtank",
 			"maxPersonnel": "Maximaal personeel",
 			"minPersonnel": "Minimaal personeel",
 			"schooling": "Opleiding",

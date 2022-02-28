@@ -23,12 +23,7 @@
                             {{ schooling.name }}
                         </a>
                     </td>
-                    <td
-                        :id="`education_schooling_${schooling.id}_1`"
-                        :onload="
-                            `educationCountdown(${schooling.end}, ${schooling.id}_1);`
-                        "
-                    >
+                    <td :id="`education_schooling_${schooling.id}_1`">
                         {{ schooling.end }}
                     </td>
                     <td v-html="schooling.owner"></td>
@@ -40,21 +35,21 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
+
+import type {
     OwnSchoolingTabs,
-    OwnSchoolingTabsMethods,
     OwnSchoolingTabsComputed,
-    OwnSchooling,
+    OwnSchoolingTabsMethods,
+    OwnSchoolingTabsProps,
 } from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     OwnSchoolingTabs,
     OwnSchoolingTabsMethods,
     OwnSchoolingTabsComputed,
-    DefaultProps
+    OwnSchoolingTabsProps
 >({
-    name: 'ownSchoolingTabs',
+    name: 'lssmv4-so-ownSchoolingTabs',
     components: {
         EnhancedTable: () =>
             import(
@@ -62,11 +57,12 @@ export default Vue.extend<
             ),
     },
     data() {
-        const heads = {} as {
-            [key: string]: {
+        const heads = {} as Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         ['name', 'end', 'owner'].forEach(
             head =>
                 (heads[head] = {
@@ -81,7 +77,6 @@ export default Vue.extend<
             heads,
             tabTitles,
             currentTab: tabTitles[0],
-            tabs: {},
             search: '',
             sort: 'name',
             sortDir: 'asc',
@@ -91,13 +86,14 @@ export default Vue.extend<
     computed: {
         schoolings() {
             const schoolings = this.tabs[this.currentTab] || [];
-            return (this.search
-                ? schoolings.filter(a =>
-                      JSON.stringify(Object.values(a))
-                          .toLowerCase()
-                          .match(this.search.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.search
+                    ? schoolings.filter(a =>
+                          JSON.stringify(Object.values(a))
+                              .toLowerCase()
+                              .match(this.search.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;
@@ -109,44 +105,17 @@ export default Vue.extend<
     },
     methods: {
         setSorting(key) {
-            let s = key;
+            const s = key;
             this.sortDir =
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
             this.sort = s;
         },
     },
-    beforeMount() {
-        let tabs = { [this.all]: [] } as {
-            [tab: string]: OwnSchooling[];
-        };
-        document
-            .querySelectorAll('#schooling_own_table tbody tr')
-            .forEach(schooling => {
-                let btn = schooling.querySelector(
-                    'a.btn-success'
-                ) as HTMLLinkElement;
-                if (!btn) return;
-                let name = btn.textContent || '';
-                let category =
-                    name
-                        ?.match(/^.*?-/)?.[0]
-                        .replace('-', '')
-                        .trim() || '';
-                const endNode = schooling.querySelector('td:nth-of-type(2)');
-                let owner = schooling.querySelector('td:nth-of-type(3)');
-                if (!endNode || !owner) return;
-                let end = parseInt(endNode.getAttribute('sortvalue') || '0');
-                if (!tabs.hasOwnProperty(category)) tabs[category] = [];
-                const element = {
-                    id: btn.href.replace(/\D+/g, ''),
-                    name,
-                    end,
-                    owner: owner.innerHTML,
-                };
-                tabs[category].push(element);
-                tabs[this.all].push(element);
-            });
-        this.tabs = tabs;
+    props: {
+        tabs: {
+            type: Object,
+            required: true,
+        },
     },
 });
 </script>

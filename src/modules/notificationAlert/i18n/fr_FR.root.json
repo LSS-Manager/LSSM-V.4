@@ -3,14 +3,15 @@
 		"danger": "Message d'erreur (rouge)",
 		"info": "Info (bleu)",
 		"success": "Confirmation (vert)",
-		"warning": "Alerte (orange)"
+		"unimportant": "Normal (gris)",
+		"warning": "Avertissement (orange)"
 	},
 	"description": "Notification de jeu et de bureau pour différents évènements. Tout est configurable",
 	"events": {
 		"allianceCandidature": "Nouvelle candidature dans l'alliance",
 		"allianceChat": "Message chat",
-		"allianceChatMention": "Message chat (seulement mentions)",
-		"allianceChatWhisper": "Message chat (seulement whispers)",
+		"allianceChatMention": "Message chat (uniquement les mentions)",
+		"allianceChatWhisper": "Message chat (uniquement les mentions privées)",
 		"allianceForum": "Nouveau message sur le forum",
 		"allianceMessage": "Nouveau message d'alliance",
 		"allianceNews": "Nouvelle actualité d'alliance",
@@ -23,7 +24,7 @@
 		"mission_share": "Une mission a été partagée",
 		"sicherheitswache_error": "Mission planifiée annulée",
 		"sicherheitswache_success": "Mission planifiée terminée",
-		"vehicle_fms": "Messages radio (général)",
+		"vehicle_fms": "Messages radio (Général)",
 		"vehicle_fms_1": "Messages radio (status 1)",
 		"vehicle_fms_2": "Messages radio (Status 2)",
 		"vehicle_fms_3": "Messages radio (Status 3)",
@@ -35,10 +36,10 @@
 	},
 	"name": "Notifications",
 	"positions": {
-		"bottom center": "En bas 🡣",
+		"bottom center": "En bas au milieu 🡣",
 		"bottom left": "En bas à gauche 🡧",
 		"bottom right": "En bas à droite 🡦",
-		"top center": "En haut 🡡",
+		"top center": "En haut au milieu 🡡",
 		"top left": "En haut à gauche 🡤",
 		"top right": "En haut à droite 🡥"
 	},
@@ -48,7 +49,7 @@
 			"title": "Définir les notifications"
 		},
 		"desktop": "Envoyer les notifications sur le bureau",
-		"duration": "Temps d'affichage",
+		"duration": "Durée d'affichage",
 		"eventTypes": "Évènements",
 		"ingame": "Envoyer les notifications en jeu",
 		"position": "Position"

@@ -2,7 +2,7 @@
 	"name": "Ventana de alarma ampliada",
 	"settings": {
 		"alarmIcons": {
-			"description": "Deja los iconos en el boton mostrar \"Alarm\" según su seleccion. Puede elegir entre <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">todos los iconos gratuitos de Font-Awesome</a>. Suficiente con especificar el nombre del icono. Una vista previa en directo le mostrará el icono",
+			"description": "Deja los iconos en el boton mostrar \"Alarm\" según su seleccion. Puede elegir entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">todos los iconos gratuitos de Font-Awesome</a>. Suficiente con especificar el nombre del icono. Una vista previa en directo le mostrará el icono",
 			"icon": "Icono",
 			"preview": "Avance",
 			"style": "tipo de icono",
@@ -107,6 +107,10 @@
 			"title": "categoría de vehículos",
 			"vehicles": "tipo de vehículos"
 		},
+		"vehicleTypeInList": {
+			"description": "Muestra el tipo de vehículo en la lista de unidades disponibles.",
+			"title": "Mostrar tipo de vehículo"
+		},
 		"yellowBorder": {
 			"description": "Limita el tiempo de generación con amarillo si el uso es anterior al número de horas ingresado. Si el número es 0, no se dibuja ningún borde.",
 			"title": "Borde amarillo"
@@ -131,14 +135,21 @@
 					6,
 					7,
 					10,
-					11
+					11,
+					23,
+					24
 				]
 			},
 			{
 				"name": "Ambulancia",
 				"vehicleTypes": [
 					5,
-					9
+					9,
+					18,
+					19,
+					20,
+					21,
+					22
 				]
 			},
 			{

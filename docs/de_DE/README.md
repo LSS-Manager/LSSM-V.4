@@ -1,19 +1,20 @@
 ---
-title: Allgemein
+title: LSS-Manager V.4
 lang: de_DE
 sidebarDepth: 2
 ---
 
-# Wiki :de: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇩🇪 <Badge :text="'v' + $themeConfig.variables.versions.short"/>
 
-*Aktuelle Versionen:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
-<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Unser Discord-Server: United Dispatch" data-prevent-zooming></a>
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
 
-[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+
+[Online-Status: Spiel](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Über den LSSM
 
@@ -30,7 +31,7 @@ Mit der Nutzung des LSSM bist du damit einverstanden, dass wir Metadaten erheben
 Eine Tabelle mit welchen Browsern der LSSM kompatibel ist, findest du in unseren [FAQ](faq.md#in-welchen-browsern-funktioniert-der-lss-manager)
 
 ::: tip Den LSSM am Handy nutzen
-Offiziell unterstützen wir keine mobile Version. Jedoch bietet der Browser Firefox auch in seiner mobilen Version die Möglichkeit, Add-Ons zu nutzen. Wir übernehmen jeddoch keine Garantie für ein ansprechendes Design, sowie die volle Funktionalität bei mobilen Browsern.
+Offiziell unterstützen wir keine mobile Version. Jedoch bietet der Browser Firefox auch in seiner mobilen Version die Möglichkeit, Add-Ons zu nutzen (siehe [FAQ](faq.md#den-lssm-am-handy-nutzen)). Wir übernehmen jedoch keine Garantie für ein ansprechendes Design, sowie die volle Funktionalität bei mobilen Browsern.
 
 Eine offizielle Unterstützung mobiler Browser ist derzeit **nicht** geplant.
 :::
@@ -38,17 +39,12 @@ Eine offizielle Unterstützung mobiler Browser ist derzeit **nicht** geplant.
 ### Schritt 1: Tampermonkey
 Sofern du Tampermonkey in deinem Browser noch nicht installiert hast, musst du dies noch tun. Hier eine Übersicht der Links für die häufigsten Browser:
 
-Browser|Link
--------|----
-Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Download](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Für sonstige Browser kann man Tampermonkey auf [tampermonkey.net](https://www.tampermonkey.net/) herunterladen.
 
-::: warning
-Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
+::: warning Hinweis
+Bitte beachte, dass wir ältere Browser, sowie mobile Browser, Safari und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
 :::
 
 ### Schritt 2: Userscript
@@ -58,6 +54,9 @@ Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du ent
 
 ### Schritt 3: Aktivieren
 Der LSSM-Indikator ist das LSSM-Logo oder (falls in den [Einstellungen](settings.md#label-statt-icon-im-menu) entsprechend eingestellt) ein grün hinterlegter Text `LSSM V.4`.
+
+Ein Klick auf den Indikator öffnet ein kleines Menü, über das du in den [Appstore](appstore.md) und in die [Einstellungen](settings.md) gelangen kannst. In den Einstellungen tauchen nur die Module auf, die du aktiviert hast, du musst also erst den AppStore besuchen!
+
 Solltest du dich im Leitstellenspiel befinden, aber diesen Indikator nicht in der oberen rechten Ecke sehen, so klicke auf das Tampermonkey-Icon in deinem Browser und überprüfe, ob der Schalter für das LSS-Manager Script auf `an` gestellt ist.
 
 Bei Problemen kannst du dich jederzeit an den [Support](support.md) wenden.

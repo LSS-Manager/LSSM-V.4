@@ -1,29 +1,69 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { routeChecks } from 'typings/modules/Redesign';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { routeChecks } from 'typings/modules/Redesign';
 
-const routeChecks: routeChecks = {
-    '^/coins/list/?$': 'coins/list',
-    '^/credits/daily/?$': 'credits/daily',
-    '^/credits/?$': 'credits/list',
-    '^/credits/overview/?$': 'credits/overview',
-    '^/profile/\\d+/?$': 'profile',
-    '^/toplist/?$': 'toplist',
-    '^/vehicles/\\d+/?$': 'vehicle',
-    // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
-};
-
-export default ((LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID, getSetting }) => {
+    const routeChecks: routeChecks = {
+        ...((await getSetting('category.alliance')) && {
+            '^/verband/avatar/?$': 'alliance_avatar',
+            '^/alliances/?$': 'alliances',
+            '^/alliance_chats/?$': 'chat',
+            '^/schoolings/?$': 'schoolings',
+            '^/verband/bewerbungen/?$': 'bewerbungen',
+            '^/verband/bereitstellungsraume/?$': 'verband/bsr',
+            '^/alliances/\\d+/edit/?$': 'verband/edit_name',
+            '^/veband/text/edit/?$': 'verband/edit_text',
+            '^/verband/gebauede/?$': 'verband/gebauede',
+            '^/(verband|alliances/\\d+)/?$': 'verband/home',
+            '^/verband/kasse/?$': 'verband/kasse',
+            '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
+            '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
+            '^/alliance_logfiles/?$': 'verband/protokoll',
+            '^/verband/regeln/\\d+/?$': 'verband/regeln',
+        }),
+        ...((await getSetting('category.credits')) && {
+            '^/coins/list/?$': 'coins/list',
+            '^/credits/daily/?$': 'credits/daily',
+            '^/credits/?$': 'credits/list',
+            '^/credits/overview/?$': 'credits/overview',
+        }),
+        ...((await getSetting('category.vehicles')) && {
+            '^/vehicles/\\d+/?$': 'vehicle',
+            '^/vehicles/\\d+/stats/?$': 'vehicle/stats',
+            '^/fahrzeugfarbe/\\d+/?$': 'fahrzeugfarbe',
+            // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
+        }),
+        ...((await getSetting('category.profile')) && {
+            '^/avatar/?$': 'avatar',
+            '^/auszeichnungen/?$': 'awards',
+            '^/profile/\\d+/?$': 'profile',
+            '^/profile/edit/?$': 'profile/edit',
+            '^/freunde/?$': 'freunde',
+            '^/note/?$': 'note',
+        }),
+        ...(MODE === 'beta' &&
+            (await getSetting('category.einsaetze')) && {
+                '^/einsaetze/?$': 'einsaetze',
+                '^/einsaetze/\\d+/?$': 'einsatz',
+            }),
+        ...((await getSetting('category.toplist')) && {
+            '^/toplist/?$': 'toplist',
+        }),
+        ...((await getSetting('category.tasks')) && {
+            '^/tasks/index/?$': 'tasks',
+        }),
+    };
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxOpen',
             abortOnFalse: true,
             callback(href: string) {
-                LSSM.$store
-                    .dispatch('api/getMissions', {
-                        force: false,
-                        feature: 'redesign-lightboxOpen',
-                    })
-                    .then();
+                const creation = new Date().toISOString();
+                const size =
+                    96 -
+                    2 *
+                        document.querySelectorAll<HTMLDivElement>(
+                            '#modals-container > .vm--container'
+                        ).length;
                 LSSM.$modal.show(
                     () =>
                         import(
@@ -31,18 +71,12 @@ export default ((LSSM, MODULE_ID) => {
                         ),
                     {
                         url: href,
-                        $m: (
-                            key: string,
-                            args?: {
-                                [key: string]: unknown;
-                            }
-                        ) => LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
+                        $m: (key: string, args?: Record<string, unknown>) =>
+                            LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
                         $mc: (
                             key: string,
                             amount: number,
-                            args?: {
-                                [key: string]: unknown;
-                            }
+                            args?: Record<string, unknown>
                         ) =>
                             LSSM.$tc(
                                 `modules.${MODULE_ID}.${key}`,
@@ -50,15 +84,17 @@ export default ((LSSM, MODULE_ID) => {
                                 args
                             ),
                         routeChecks,
+                        creation,
+                        size,
                     },
                     {
-                        name: 'redesign-lightbox',
-                        height: '96%',
-                        width: '96%',
+                        name: `redesign-lightbox-${creation}`,
+                        height: `${size}%`,
+                        width: `${size}%`,
                     },
                     {
                         closed() {
-                            window.lightboxClose();
+                            window.lightboxClose(creation);
                         },
                     }
                 );
@@ -93,7 +129,7 @@ export default ((LSSM, MODULE_ID) => {
             container.style.height = '100%';
         });
         const modal = document.querySelector<HTMLDivElement>(
-            '.vm--overlay[data-modal="redesign-lightbox"] ~ .vm--modal'
+            '.vm--overlay[data-modal^="redesign-lightbox-"] ~ .vm--modal'
         );
         if (modal) {
             modal.style.padding = '0';
@@ -116,8 +152,15 @@ export default ((LSSM, MODULE_ID) => {
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxClose',
-            callback() {
-                LSSM.$modal.hide('redesign-lightbox');
+            callback(creation?: string) {
+                if (creation) {
+                    LSSM.$modal.hide(`redesign-lightbox-${creation}`);
+                } else {
+                    // $modal.hideAll actually exists but typedefs don't know…
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    LSSM.$modal.hideAll();
+                }
             },
         })
         .then();
@@ -149,9 +192,7 @@ export default ((LSSM, MODULE_ID) => {
                                     : window.location.href,
                                 $m: (
                                     key: string,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$t(
                                         `modules.${MODULE_ID}.${key}`,
@@ -160,9 +201,7 @@ export default ((LSSM, MODULE_ID) => {
                                 $mc: (
                                     key: string,
                                     amount: number,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$tc(
                                         `modules.${MODULE_ID}.${key}`,
@@ -171,11 +210,13 @@ export default ((LSSM, MODULE_ID) => {
                                     ),
                                 routeChecks,
                                 noModal: true,
+                                creation: new Date().toISOString(),
                             },
                         }),
                 }).$mount(
-                    document.getElementById('iframe-inside-container') ??
-                        document.body
+                    document.querySelector<HTMLDivElement>(
+                        '#iframe-inside-container'
+                    ) ?? document.body
                 );
                 lightboxAdjust();
             });

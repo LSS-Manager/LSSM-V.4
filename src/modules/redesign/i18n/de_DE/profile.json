@@ -8,7 +8,8 @@
 	"awards": {
 		"bronze": "Bronze",
 		"gold": "Gold",
-		"max": "15",
+		"max": "18",
+		"own": "Eigene Auszeichnungen öffnen",
 		"silver": "Silber",
 		"title": "Auszeichnungen",
 		"title_amounts": "{sum} von {max} Auszeichnungen"

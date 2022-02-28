@@ -7,12 +7,12 @@
 			"title": "Nicht unterstützter Browser"
 		},
 		"old": {
-			"text": "Du scheinst einen veralteten Browser zu nutzen! Aktuell nutzt du <b>{name} {current}</b>, die neueste Version ist aber <b>{name} {latest}</b>! Bitte beachte, dass der LSS-Manager diesen Browser erst ab Version <b>{supported}</b> unterstützt. Dies hat Gründe der Sicherheit und Kompatibilität. Die neueste Version deines Browsers kannst du unter <a href='{download}' class='lightbox-open'>hier</a> herunterladen.<br>Eine aktuelle Liste der unterstützen Browser findest du in unseren <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "Du scheinst einen veralteten Browser zu nutzen! Aktuell nutzt du <b>{name} {current}</b>, die neueste Version ist aber <b>{name} {latest}</b>! Bitte beachte, dass der LSS-Manager diesen Browser erst ab Version <b>{supported}</b> unterstützt. Dies hat Gründe der Sicherheit und Kompatibilität. Die neueste Version deines Browsers kannst du <a href='{download}' class='lightbox-open'>hier</a> herunterladen.<br>Eine aktuelle Liste der unterstützen Browser findest du in unseren <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Veralteter Browser"
 		}
 	},
 	"info": {
-		"close": "Diesen Hinweis nichtmehr anzeigen",
+		"close": "Diesen Hinweis nicht mehr anzeigen",
 		"decline": "Erheben von Metadaten nicht erlauben",
 		"text": "Der LSS-Manager erhebt Metadaten, wie im <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> beschrieben!<br>Du kannst deine Zustimmung jederzeit wiederrufen.",
 		"title": "Information zur Erhebung von Metadaten"

@@ -10,8 +10,8 @@
                 maximum: { title: $sm('maximum'), noSort: true },
             }"
             :table-attrs="{ class: 'table' }"
-            :no-search="true"
-            :no-body="true"
+            no-search
+            no-body
         >
             <tbody v-for="(category, title) in coloredGroups" :key="title">
                 <tr
@@ -83,22 +83,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import buildingList from './building-list.vue';
-import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
-import {
-    buildingWithExtension,
-    BuildingTypes,
-    BuildingTypesMethods,
-    BuildingTypesComputed,
-} from 'typings/modules/Dashboard/BuildingTypes';
-import { DefaultProps } from 'vue/types/options';
-import {
-    InternalBuilding,
-    BuildingCategory,
-    Building,
-    Extension,
-} from 'typings/Building';
+
 import cloneDeep from 'lodash/cloneDeep';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
+
+import buildingList from './building-list.vue';
+
+import type { DefaultProps } from 'vue/types/options';
+import type {
+    Building,
+    BuildingCategory,
+    Extension,
+    InternalBuilding,
+} from 'typings/Building';
+import type {
+    BuildingTypes,
+    BuildingTypesComputed,
+    BuildingTypesMethods,
+    buildingWithExtension,
+} from 'typings/modules/Dashboard/BuildingTypes';
 
 export default Vue.extend<
     BuildingTypes,
@@ -106,7 +109,7 @@ export default Vue.extend<
     BuildingTypesComputed,
     DefaultProps
 >({
-    name: 'building-types',
+    name: 'lssmv4-dashboard-building-types',
     components: {
         EnhancedTable: () =>
             import(
@@ -114,23 +117,23 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as {
-            [id: number]: InternalBuilding;
-        };
-        const categories = (this.$t('buildingCategories') as unknown) as {
-            [category: string]: BuildingCategory;
-        };
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
+        const categories = this.$t('buildingCategories') as unknown as Record<
+            string,
+            BuildingCategory
+        >;
         const categoryColors = Object.fromEntries(
             Object.entries(categories).map(([category, { color }]) => [
                 category,
                 color,
             ])
-        ) as {
-            [category: string]: string;
-        };
-        const buildingsByType = this.$store.getters['api/buildingsByType'] as {
-            [type: number]: Building[];
-        };
+        ) as Record<string, string>;
+        const buildingsByType = this.$store.getters[
+            'api/buildingsByType'
+        ] as Record<number, Building[]>;
         const groups = {} as BuildingTypes['groups'];
         Object.entries(categories).forEach(
             ([category, { buildings, color }]) => {
@@ -140,12 +143,14 @@ export default Vue.extend<
                         Object.values(buildings).flatMap(buildingType => {
                             const buildingsOfType =
                                 buildingsByType[buildingType];
-                            const extensionsOfType = {} as {
-                                [caption: string]: Extension[];
-                            };
-                            const buildingsWithExtensionOfType = {} as {
-                                [caption: string]: buildingWithExtension[];
-                            };
+                            const extensionsOfType = {} as Record<
+                                string,
+                                Extension[]
+                            >;
+                            const buildingsWithExtensionOfType = {} as Record<
+                                string,
+                                buildingWithExtension[]
+                            >;
                             [
                                 ...new Set(
                                     Object.values(
@@ -181,31 +186,32 @@ export default Vue.extend<
                                         if (
                                             buildingsWithExtensionOfType[
                                                 caption
-                                            ].find(
-                                                b => b.id === building.id
-                                            ) !== undefined
+                                            ].some(b => b.id === building.id)
                                         )
                                             return;
                                         buildingsWithExtensionOfType[
                                             caption
                                         ].push({
                                             ...building,
-                                            extension_available: building.extensions.filter(
-                                                e =>
-                                                    e.caption === caption &&
-                                                    !!e.available
-                                            ).length,
-                                            extension_enabled: building.extensions.filter(
-                                                e =>
-                                                    e.caption === caption &&
-                                                    !!e.enabled &&
-                                                    !!e.available
-                                            ).length,
-                                            extension_unavailable: building.extensions.filter(
-                                                e =>
-                                                    e.caption === caption &&
-                                                    !e.available
-                                            ).length,
+                                            extension_available:
+                                                building.extensions.filter(
+                                                    e =>
+                                                        e.caption === caption &&
+                                                        e.available
+                                                ).length,
+                                            extension_enabled:
+                                                building.extensions.filter(
+                                                    e =>
+                                                        e.caption === caption &&
+                                                        e.enabled &&
+                                                        e.available
+                                                ).length,
+                                            extension_unavailable:
+                                                building.extensions.filter(
+                                                    e =>
+                                                        e.caption === caption &&
+                                                        !e.available
+                                                ).length,
                                         });
                                     });
                                 });
@@ -260,11 +266,12 @@ export default Vue.extend<
                                                 `${buildingType}_${caption}`,
                                                 {
                                                     type: 'extension',
-                                                    total:
-                                                        builtExtensions.length,
-                                                    enabled: builtExtensions.filter(
-                                                        ({ enabled }) => enabled
-                                                    ).length,
+                                                    total: builtExtensions.length,
+                                                    enabled:
+                                                        builtExtensions.filter(
+                                                            ({ enabled }) =>
+                                                                enabled
+                                                        ).length,
                                                     unavailable: (
                                                         extensionsOfType[
                                                             caption
@@ -326,11 +333,12 @@ export default Vue.extend<
                         if (currentExtensionColor === 'bright')
                             currentExtensionColor = 'dark';
                         else currentExtensionColor = 'bright';
-                        row.color = `${currentBuildingColor}-${currentExtensionColor}` as
-                            | 'bright-bright'
-                            | 'bright-dark'
-                            | 'dark-bright'
-                            | 'dark-dark';
+                        row.color =
+                            `${currentBuildingColor}-${currentExtensionColor}` as
+                                | 'bright-bright'
+                                | 'bright-dark'
+                                | 'dark-bright'
+                                | 'dark-dark';
                     }
                 });
             });
@@ -354,7 +362,7 @@ export default Vue.extend<
             this.$modal.show(
                 buildingList,
                 {
-                    title: this.$smc('title', 0, { type: type }),
+                    title: this.$smc('title', 0, { type }),
                     buildings,
                     listType,
                 },

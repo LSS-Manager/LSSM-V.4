@@ -6,6 +6,8 @@ docs/.vuepress/*.js
 prebuild/*.js
 scripts/**/*.js
 src/userscript.js
+src/config.js
+static/fontawesome_free_6.0.0_all.min.js
 
 src/modules/support/*
 src/modules/renameFz/*

@@ -1,5 +1,9 @@
 {
 	"extensionTitle": "{caption} (fino a {n} volte)",
+	"schoolings": {
+		"all": "all",
+		"min": "min. {n}x"
+	},
 	"tabs": {
 		"buildings": "Edifici",
 		"schoolings": "Corsi",
@@ -20,16 +24,18 @@
 		"schoolings": {
 			"caption": "Nome del corso",
 			"duration": "Periodo della formazione",
-			"required_for": "Necessario per"
+			"required_for": "Necessario per",
+			"staffList": "Formazione"
 		},
 		"vehicles": {
 			"caption": "Tipo di veicolo",
 			"cost": "Prezzo",
+			"ftank": "Quantità di schiuma",
 			"maxPersonnel": "Personale massimo",
 			"minPersonnel": "Personale minimo",
 			"schooling": "Formazione",
 			"special": "Speciale",
-			"wtank": "Water tank"
+			"wtank": "Quantità d'acqua"
 		}
 	}
 }

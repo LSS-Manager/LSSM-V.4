@@ -1,5 +1,9 @@
 {
 	"extensionTitle": "{caption} (up to {n} times)",
+	"schoolings": {
+		"all": "all",
+		"min": "min. {n}x"
+	},
 	"tabs": {
 		"buildings": "Buildings",
 		"schoolings": "Courses",
@@ -20,11 +24,13 @@
 		"schoolings": {
 			"caption": "Course name",
 			"duration": "Training period",
-			"required_for": "Required for"
+			"required_for": "Required for",
+			"staffList": "Training"
 		},
 		"vehicles": {
 			"caption": "Vehicle type",
 			"cost": "Price",
+			"ftank": "Foam Tank",
 			"maxPersonnel": "maximum personnel",
 			"minPersonnel": "minimum personnel",
 			"schooling": "Education",

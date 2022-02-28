@@ -1,0 +1,15 @@
+{
+	"alliance": "Alliance",
+	"amount": "{n} filtered player | {n} Filtered players",
+	"credits": "Total credits earned",
+	"load": {
+		"next": "Load next page",
+		"prev": "Load previous page"
+	},
+	"name": "Players",
+	"search_global": "Globale Suche",
+	"search_local": "Search in loaded players",
+	"search_subtitle": "Show {n} Players of the pages {startPage} to {endPage} of total {totalPages} Sites",
+	"subtitle": "Show {n} Players of the pages {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of total {totalPages} Sites",
+	"title": "Player list"
+}

@@ -62,7 +62,7 @@
                     <span
                         v-if="
                             modules[moduleId].description !==
-                                `modules.${moduleId}.description`
+                            `modules.${moduleId}.description`
                         "
                     >
                         {{ modules[moduleId].description }}
@@ -75,14 +75,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
+
+import isEqual from 'lodash/isEqual';
+
+import type { DefaultProps } from 'vue/types/options';
+import type { Modules } from '../../typings/Module';
+import type {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
 } from '../../typings/components/Appstore';
-import isEqual from 'lodash/isEqual';
-import { Modules } from '../../typings/Module';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     AppstoreData,
@@ -90,7 +92,7 @@ export default Vue.extend<
     AppstoreComputed,
     DefaultProps
 >({
-    name: 'appstore',
+    name: 'lssmv4-appstore',
     components: {
         Lightbox: () =>
             import(
@@ -98,7 +100,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        let modules = this.$store.getters.appModules as Modules;
+        const modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(
             moduleId =>
                 (modules[moduleId] = {
@@ -168,14 +170,19 @@ export default Vue.extend<
                     'active',
                     this.activeStart.includes(module)
                 );
-                ((this.$refs[`moduleSwitch_${module}`] as unknown) as {
-                    toggled: boolean;
-                }[])[0].toggled = this.activeStart.includes(module);
+                (
+                    this.$refs[`moduleSwitch_${module}`] as unknown as {
+                        toggled: boolean;
+                    }[]
+                )[0].toggled = this.activeStart.includes(module);
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.appstore.${key}`, args),
+    },
+    mounted() {
+        (window[PREFIX] as Vue).$appstore = this;
     },
 });
 </script>

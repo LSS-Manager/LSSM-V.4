@@ -13,6 +13,8 @@ Wir haben an verschiedenen Stellen diese Asynchronität eingebaut:
 
 ## Gebäude
 * Bei Zellen und Krankenhäusern: Kostenübernahme vom Verbandsmitglied
+* (De-)aktivieren von Erweiterungen
+* Personal kündigen
 
 ### geplant:
 * Zellen / Krankenhausbetten im Verband freigeben bzw. nicht mehr freigeben
@@ -23,7 +25,3 @@ Wir haben an verschiedenen Stellen diese Asynchronität eingebaut:
 
 ### geplant:
 * Rückmeldung schreiben
-
----
-
-[Issue auf GitHub](https://github.com/LSS-Manager/LSSM-V.4/issues/42)

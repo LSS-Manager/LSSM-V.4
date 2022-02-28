@@ -1,4 +1,4 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface LightboxData {
     fullscreen: boolean;
@@ -10,6 +10,7 @@ export interface LightboxData {
     faExpand: IconDefinition;
     faCompress: IconDefinition;
     faChevronUp: IconDefinition;
+    verticalBtns: boolean;
 }
 
 export interface LightboxProps {

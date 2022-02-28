@@ -1,7 +1,212 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Alle meldingen inklappen",
+			"expand": "Alle meldingen uitklappen"
+		},
+		"collapse": "Deze melding inklappen",
+		"expand": "Deze melding uitklappen"
+	},
 	"description": "Breidt de meldingenlijst uit met leuke functies!",
+	"eventMissions": {
+		"default": {
+			"⚽": [
+				820,
+				821,
+				822,
+				823,
+				824,
+				825,
+				826,
+				827,
+				828,
+				829
+			],
+			"🌞": [
+				617,
+				618,
+				619,
+				620,
+				621
+			],
+			"🌹": [
+				727,
+				728,
+				729,
+				730,
+				731,
+				732,
+				733,
+				734,
+				735
+			],
+			"🍂": [
+				856,
+				857,
+				858,
+				859,
+				860,
+				861,
+				862,
+				863,
+				864,
+				865
+			],
+			"🎃": [
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154
+			],
+			"🎅": [
+				160,
+				161,
+				162,
+				163,
+				164,
+				165,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				253,
+				371,
+				372,
+				373,
+				374,
+				375,
+				542,
+				543,
+				544,
+				545,
+				546,
+				547
+			],
+			"🎇": [
+				736,
+				737,
+				738,
+				739,
+				740,
+				741,
+				742,
+				743,
+				744,
+				745,
+				746,
+				747,
+				748,
+				749,
+				750,
+				751,
+				752
+			],
+			"🥚": [
+				578,
+				579,
+				580,
+				581,
+				582,
+				583,
+				584,
+				585,
+				586,
+				587,
+				588,
+				788,
+				789,
+				790,
+				791,
+				792,
+				793
+			],
+			"🥰": [
+				562,
+				563
+			],
+			"🧨": [
+				525,
+				526,
+				527,
+				528,
+				529,
+				530,
+				531,
+				532,
+				533,
+				534,
+				535,
+				536,
+				537,
+				538,
+				539,
+				540,
+				541,
+				688,
+				689,
+				690,
+				691,
+				692,
+				693,
+				694,
+				695,
+				696,
+				697,
+				698,
+				699,
+				700,
+				701,
+				702
+			]
+		}
+	},
 	"name": "Uitgebreide meldingenlijst",
 	"settings": {
+		"averageCredits": {
+			"description": "Toont de gemiddeld te verdienen credits op een compacte manier.",
+			"title": "Toon gemiddelde credits"
+		},
+		"collapsableMissions": {
+			"description": "Klap losse (of alle) meldingen in om ruimte in de meldingenlijst te besparen.",
+			"title": "Meldingen inklappen"
+		},
+		"currentPatients": {
+			"description": "Laat het huidige aantal patiënten zien bij elke melding",
+			"title": "Huidige patiënten"
+		},
+		"currentPatientsInTooltips": {
+			"description": "Toont het huidige aantal patiënten ook in de tooltips op de kaart.",
+			"title": "Huidige patiënten in tooltips"
+		},
+		"eventMissions": {
+			"description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
+			"missions": "Melding",
+			"text": "Tekst",
+			"title": "Seizoensmeldingen markeren"
+		},
+		"hide0CurrentPatients": {
+			"description": "Verbergt het aantal patiënten als er geen patiënten meer zijn",
+			"title": "Verberg 0 patiënten"
+		},
+		"remainingPatientTime": {
+			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+			"title": "Patiëntenbehandelingsduur"
+		},
 		"remainingTime": {
 			"description": "Toont bij inzetten hoe lang de melding nog duurt, voordat deze is afgerond.",
 			"title": "Resterende inzettijd"
@@ -9,6 +214,55 @@
 		"remainingTimeGreenOnly": {
 			"description": "Toont de resterende inzettijd alleen bij groene meldingen.",
 			"title": "Inzettijd alleen bij groene meldingen"
+		},
+		"shareMissions": {
+			"description": "Deel meldingen met het team direct vanuit de meldingenlijst.",
+			"title": "Deel meldingen"
+		},
+		"shareMissionsButtonColor": {
+			"danger": "Rood",
+			"default": "Zwart of wit (Afhankeling van donker of normaal design)",
+			"description": "Selecteer de achtergrondkleur van de deelknoppen",
+			"info": "Lichtblauw",
+			"primary": "Donkerblauw",
+			"success": "Groen",
+			"title": "Deel meldingen: Knop kleur",
+			"warning": "Oranje"
+		},
+		"shareMissionsMinCredits": {
+			"description": "De knop om een melding te delen vanuit de meldingenlijst wordt alleen getoond vanaf het hier ingestelde aantal credits.",
+			"title": "Deel meldingen: minimum credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Stel in voor welke type meldingen je de deelknop wilt tonen.",
+			"own": "Eigen meldingen",
+			"sicherheitswache": "Geplande meldingen",
+			"title": "Deel meldingen: Meldingstypes"
+		},
+		"sortMissions": {
+			"description": "Sorteer je meldingenlijst!",
+			"title": "Sorteer meldingen"
+		},
+		"sortMissionsButtonColor": {
+			"description": "Selecteer de achtergrond van de sorteerknop",
+			"title": "Sorteer meldingen: knop kleur"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Sorteer meldingen in het meldingsscherm. Optioneel kan je ook de sneltoetsen in de module \"Sneltoetsen\" instellen voor de aangepaste knoppen.",
+			"title": "Sorteer meldingen in meldingsscherm"
+		},
+		"starrableMissions": {
+			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
+			"title": "Markeer meldingen"
+		}
+	},
+	"sort": {
+		"types": {
+			"alphabet": "Alfabet",
+			"credits": "Credits",
+			"default": "Geen sortering",
+			"id": "Generatietijd",
+			"remaining_patients": "Huidige patiënten"
 		}
 	}
 }

@@ -1,16 +1,15 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface EnhancedTableData {
     faSort: IconDefinition;
     faSortUp: IconDefinition;
     faSortDown: IconDefinition;
+    faSlidersH: IconDefinition;
 }
 
 export interface EnhancedTableProps {
     head: {
-        attrs: {
-            [key: string]: unknown;
-        };
+        attrs: Record<string, unknown>;
         title: string;
         titleAttr?: string;
         noSort?: boolean;
@@ -20,9 +19,7 @@ export interface EnhancedTableProps {
     noSearch: boolean;
     search: string;
     searchPlaceholder: string;
-    tableAttrs: {
-        [key: string]: unknown;
-    };
+    tableAttrs: Record<string, unknown>;
     noBody: boolean;
 }
 

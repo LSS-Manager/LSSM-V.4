@@ -3,7 +3,7 @@
 	"name": "Uitgebreid meldingsvenster",
 	"settings": {
 		"alarmIcons": {
-			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
+			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
 			"icon": "Icoon",
 			"preview": "Voorvertoning",
 			"style": "Icoon-Type",
@@ -42,6 +42,26 @@
 			"description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
 			"title": "Niet passende inzetvoorstellen grijs"
 		},
+		"arrSearch": {
+			"description": "Toont een zoekbalk boven de inzetvoorstellen om deze te filteren.",
+			"title": "Inzetvoorstellen zoeken"
+		},
+		"arrSearchAutoFocus": {
+			"description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
+			"title": "Inzetvoorstellen zoeken: Focussen"
+		},
+		"arrSearchCloseDropdownOnSelect": {
+			"description": "sluit de dropdown na het selecteren van een inzetvoorstel.",
+			"title": "sluit dropdown na selectie"
+		},
+		"arrSearchDissolveCategories": {
+			"description": "Toon alle categoriën tegelijk bij het zoeken in de inzetvoorstellen.",
+			"title": "Inzetvoorstellen zoeken: Toon alle categoriën"
+		},
+		"arrSearchDropdown": {
+			"description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",
+			"title": "Inzetvoorstellen als dropdown"
+		},
 		"arrSpecs": {
 			"description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
 			"title": "Inzetvoorstel details"
@@ -53,6 +73,18 @@
 		"centerMap": {
 			"description": "Hiermee kan je de kaart op het hoofdscherm centreren op de locatie van de melding met een knop in het meldingenscherm.",
 			"title": "Kaart centreren op melding"
+		},
+		"collapsablePatients": {
+			"description": "Minimaliseer de patiënten in het meldingsvenster en toont alleen een korte samenvatting.",
+			"title": "Minimaliseer patiënten"
+		},
+		"collapsablePatientsMinPatients": {
+			"description": "Stel hier in vanaf hoeveel patiënten er in de melding moeten zijn voordat ze worden geminimaliseerd.",
+			"title": "Minimaliseer patiënten: minimum aantal"
+		},
+		"emvMaxStaff": {
+			"description": "'Benodigde voertuigen weergave' Gebruikt voor de berekeningen voor alle voertuigen de maximale capaciteit.",
+			"title": "Maximum personeel benodigde voertuigen weergave"
 		},
 		"enhancedMissingVehicles": {
 			"description": "Toont de benodigde voertuigen in een duidelijke tabel.",
@@ -75,6 +107,7 @@
 			"title": "Voertuigen laden knop in koptekst"
 		},
 		"missionKeywords": {
+			"allMissions": "Alle meldingen",
 			"autotextcolor": "Automatische tekstkleur",
 			"color": "Achtergrondkleur",
 			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
@@ -89,9 +122,21 @@
 			"description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
 			"title": "Patiëntensamenvatting"
 		},
+		"playerCounter": {
+			"description": "Toont aan de bovenkant van de personeelslijst hoeveel spelers er een voertuig naar de melding hebben gestuurd. Klik er op om een tabel met details te openen.",
+			"title": "Spelersteller"
+		},
+		"playerCounterColor": {
+			"description": "Kies welke kleur je de spelersteller wilt hebben.",
+			"title": "Spelersteller: kleur"
+		},
 		"redBorder": {
 			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
 			"title": "Rood kader"
+		},
+		"remainingPatientTime": {
+			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+			"title": "Patiëntenbehandelingsduur"
 		},
 		"stagingAreaSelectedCounter": {
 			"description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
@@ -107,6 +152,24 @@
 			"name": "Naam",
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
+		},
+		"vehicleCounter": {
+			"description": "Toont aan de bovenkant van de personeelslijst hoeveel voertuigen naar de melding zijn gestuurd. Klik er op om een tabel met details te openen.",
+			"title": "Voertuigteller"
+		},
+		"vehicleCounterColor": {
+			"danger": "Rood",
+			"default": "Grijs",
+			"description": "Kies welke kleur je de label van de voertuigteller wilt hebben.",
+			"info": "Licht blauw",
+			"primary": "Donker blauw",
+			"success": "Groen",
+			"title": "Voertuigteller: kleur",
+			"warning": "Oranje"
+		},
+		"vehicleTypeInList": {
+			"description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
+			"title": "Voertuigtype weergeven"
 		},
 		"yellowBorder": {
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
@@ -156,7 +219,12 @@
 					20,
 					21,
 					61,
-					62
+					62,
+					68,
+					69,
+					70,
+					71,
+					72
 				]
 			},
 			{
@@ -165,7 +233,10 @@
 					33,
 					49,
 					50,
-					36
+					36,
+					65,
+					66,
+					67
 				]
 			},
 			{

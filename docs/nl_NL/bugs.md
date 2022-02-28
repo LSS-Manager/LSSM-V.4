@@ -6,8 +6,8 @@ sidebarDepth: 2
 
 # Bekende bugs :bug:
 
-**Momenteel zijn er geen bekende bugs :tada:**
-
-:::warning Actualiteit
-We doen ons best om deze pagina up-to-date te houden. Helaas is dat niet altijd mogelijk. Sommige gerapporteerde bugs kunnen ook gevonden worden in de [Github Issues](https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+:::tip Actualiteit
+Dit overzicht wordt bij elke commit (update) van de Beta versie van LSSM bijgewerkt. Je kan altijd de meest recentie versie van de lijst vinden op [Github Issues](https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 :::
+
+<bugs no-bugs="Er zijn momenteel geen bekende bugs!"></bugs>

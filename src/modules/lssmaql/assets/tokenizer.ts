@@ -1,4 +1,4 @@
-import { TokenRegexes, QueryTokens, Token } from 'typings/modules/LSSMAQL';
+import type { QueryTokens, Token, TokenRegexes } from 'typings/modules/LSSMAQL';
 
 const regexes = {
     getter_dot: /\./,
@@ -19,7 +19,7 @@ const regexes = {
     string: /"[^"]*"|'[^']*'/,
     number: /\d+/,
     boolean: /true|false/,
-    identifier: /[a-z][a-z_]*/,
+    identifier: /[a-z][_a-z]*/,
 } as TokenRegexes;
 
 const consume = (query: string, token_list: Token[]): string => {

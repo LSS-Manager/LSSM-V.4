@@ -3,6 +3,7 @@
 		"danger": "Fehlermeldung (rot)",
 		"info": "Info (blau)",
 		"success": "Bestätigung (grün)",
+		"unimportant": "Schlicht (grau)",
 		"warning": "Warnung (orange)"
 	},
 	"description": "Erhalte Browser- und Ingame-Benachrichtigungen für die verschiedensten Ereignisse – natürlich komplett konfigurierbar!",
@@ -23,6 +24,7 @@
 		"mission_share": "Ein Einsatz wurde im Verband geteilt",
 		"sicherheitswache_error": "Sicherheitswache abgebrochen",
 		"sicherheitswache_success": "Sicherheitswache abgeschlossen",
+		"tasks_update": "Aufgabe fertiggestellt",
 		"vehicle_fms": "Funksprüche (allgemein)",
 		"vehicle_fms_1": "Funksprüche (Status 1)",
 		"vehicle_fms_2": "Funksprüche (Status 2)",

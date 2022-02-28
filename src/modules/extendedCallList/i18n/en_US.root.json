@@ -1,7 +1,162 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Collapse all missions",
+			"expand": "Expand all missions"
+		},
+		"collapse": "Collapse this mission",
+		"expand": "Expand this mission"
+	},
 	"description": "Extends missionlist by some cool Features!",
+	"eventMissions": {
+		"default": {
+			"☘️": [
+				540,
+				541,
+				542,
+				543,
+				544,
+				545
+			],
+			"🌞": [
+				403,
+				404,
+				405,
+				406,
+				407,
+				601,
+				602,
+				603
+			],
+			"🌹": [
+				528,
+				529,
+				530,
+				531,
+				532,
+				533,
+				534,
+				535,
+				536
+			],
+			"🎃": [
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71
+			],
+			"🎅": [
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85
+			],
+			"🎇": [
+				589,
+				590
+			],
+			"🥚": [
+				358,
+				359,
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				366,
+				367,
+				368,
+				579,
+				580,
+				581,
+				582,
+				583,
+				584
+			],
+			"🧨": [
+				327,
+				328,
+				329,
+				330,
+				331,
+				332,
+				333,
+				334,
+				335,
+				336,
+				337,
+				338,
+				339,
+				408,
+				409,
+				410,
+				411,
+				412,
+				413,
+				414,
+				415,
+				416,
+				417,
+				418,
+				419,
+				500,
+				501,
+				502,
+				503,
+				504,
+				505,
+				506,
+				507,
+				508,
+				509
+			]
+		}
+	},
 	"name": "Extended Missionlist",
 	"settings": {
+		"averageCredits": {
+			"description": "Shows the average earnable credits for each mission in a compact way.",
+			"title": "Show avg. credits"
+		},
+		"collapsableMissions": {
+			"description": "Collapse individual (or all) missions to reduce their size in mission list.",
+			"title": "Collapse missions"
+		},
+		"currentPatients": {
+			"description": "Shows current amount of patients for each mission",
+			"title": "Current Patients"
+		},
+		"currentPatientsInTooltips": {
+			"description": "Shows current amount of patients also in the tooltips on the map.",
+			"title": "Current Patients in Tooltips"
+		},
+		"eventMissions": {
+			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
+			"missions": "Missions",
+			"text": "Text",
+			"title": "Mark seasonal missions"
+		},
+		"hide0CurrentPatients": {
+			"description": "Hides amount of patients if there are no patients at scene",
+			"title": "Hide 0 Patients"
+		},
+		"remainingPatientTime": {
+			"description": "Shows for patients how much time remains until they are fully treated",
+			"title": "Remaining time for patients"
+		},
+		"remainingPumpingTime": {
+			"description": "Shows for pumping progresses how much time remains until they are finished.",
+			"title": "Remaining time for pumping progress"
+		},
 		"remainingTime": {
 			"description": "Shows at missions how long each mission still is in progress.",
 			"title": "Remaining Missiontime"
@@ -9,6 +164,55 @@
 		"remainingTimeGreenOnly": {
 			"description": "Show remaining Time on green missions only.",
 			"title": "Missiontime for green missions only"
+		},
+		"shareMissions": {
+			"description": "Share missions with the alliance directly from the mission list.",
+			"title": "Share missions"
+		},
+		"shareMissionsButtonColor": {
+			"danger": "Red",
+			"default": "Black or white (based on design)",
+			"description": "Select the background color of the share buttons",
+			"info": "Light blue",
+			"primary": "Dark blue",
+			"success": "Green",
+			"title": "Share missions: Button color",
+			"warning": "Orange"
+		},
+		"shareMissionsMinCredits": {
+			"description": "The button for sharing a mission is only shown for missions that do have an average reward of more than what you've set here.",
+			"title": "Share missions: minimum credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Set up which of the calls you want to enable the share button for.",
+			"own": "Emergency-Calls",
+			"sicherheitswache": "Planned missions",
+			"title": "Share missions: mission types"
+		},
+		"sortMissions": {
+			"description": "Sort your mission list!",
+			"title": "Sort missions"
+		},
+		"sortMissionsButtonColor": {
+			"description": "Select the background color of the sorting button",
+			"title": "Sort missions: Button color"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Implements the sorting in mission windows. Optionally, you may set custom Hotkeys in our Module \"Hotkeys\" for the modified buttons.",
+			"title": "Sorting in mission window"
+		},
+		"starrableMissions": {
+			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
+			"title": "Mark Missions"
+		}
+	},
+	"sort": {
+		"types": {
+			"alphabet": "Alphabet",
+			"credits": "Credits",
+			"default": "no sorting",
+			"id": "Age",
+			"remaining_patients": "Current patients"
 		}
 	}
 }

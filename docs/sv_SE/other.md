@@ -17,7 +17,7 @@ LSS-Manager är licensierad under [Creative Commons Attribution-NonCommercial-Sh
 Vi bestämde oss för att använda denna licens för att undvika att vår kod missbrukas för att bryta mot spelets villkor.
 
 ## LSSM-teamet
-För närvarande består LSS-Manager av 4 utvecklare och ytterligare 6 supportrar för våra <a :href="$themeConfig.variables.discord" target="_blank">Discord server</a>. Våra utvecklare är naturligtvis också administrativt aktiva på Discord!
+För närvarande består LSS-Manager av 4 utvecklare och ytterligare 6 supportrar för våra <discord/>. Våra utvecklare är naturligtvis också administrativt aktiva på Discord!
 
 ### Utvecklarna
 * Aisaka *[CEO, Serveradministrator, Senior Developer]*

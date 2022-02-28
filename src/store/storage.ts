@@ -1,8 +1,9 @@
-import { ActionTree, Module } from 'vuex';
-import { StorageState } from '../../typings/store/storage/State';
-import { RootState } from '../../typings/store/RootState';
 import localforage from 'localforage';
-import {
+
+import type { RootState } from '../../typings/store/RootState';
+import type { StorageState } from '../../typings/store/storage/State';
+import type { ActionTree, Module } from 'vuex';
+import type {
     StorageActionStoreParams,
     StorageGet,
     StorageSet,
@@ -16,7 +17,7 @@ localforage.config({
 export default {
     namespaced: true,
     state: {
-        localforage: localforage,
+        localforage,
     },
     actions: {
         get(
@@ -42,15 +43,9 @@ export default {
         },
         getAllItems({
             state,
-        }: StorageActionStoreParams): Promise<{
-            [key: string]: unknown;
-        }> {
-            return new Promise<{
-                [key: string]: unknown;
-            }>(resolve => {
-                const storage = {} as {
-                    [key: string]: unknown;
-                };
+        }: StorageActionStoreParams): Promise<Record<string, unknown>> {
+            return new Promise<Record<string, unknown>>(resolve => {
+                const storage = {} as Record<string, unknown>;
                 state.localforage
                     .iterate((value, key) => {
                         storage[key] = value;

@@ -15,6 +15,11 @@
 		],
 		"module": "CommonJS",
 		"moduleResolution": "node",
+		"paths": {
+			"typings/*": [
+				"../typings/*"
+			]
+		},
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"strict": true,

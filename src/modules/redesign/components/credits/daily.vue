@@ -2,11 +2,7 @@
     <div>
         <h1>
             {{ $sm('title') }}:
-            {{
-                moment()
-                    .add(page, 'days')
-                    .format('L')
-            }}
+            {{ moment().utc().add(page, 'days').format('L') }}
             <button
                 class="btn btn-success"
                 :href="`/credits/daily?page=${page - 1}`"
@@ -24,7 +20,7 @@
             <button
                 class="btn btn-success"
                 :href="`/credits/daily?page=${page + 1}`"
-                :disabled="page >= 0"
+                :disabled="page >= 1"
             >
                 +1
             </button>
@@ -39,24 +35,33 @@
                 </span>
                 |
                 <span
-                    :class="
-                        `text-${
-                            sum.total > 0
-                                ? 'success'
-                                : sum.total < 0
-                                ? 'danger'
-                                : ''
-                        }`
-                    "
+                    :class="`text-${
+                        sum.total > 0
+                            ? 'success'
+                            : sum.total < 0
+                            ? 'danger'
+                            : ''
+                    }`"
                     >{{
                         (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
                     }}</span
                 ></small
             >
         </h1>
+        <daily-credits-summary
+            :entries="credits.entries"
+            :creditsTypes="credits.creditsTypes"
+        ></daily-credits-summary>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{
+                class: {
+                    'table': true,
+                    'table-striped':
+                        entriesFiltered.filter(({ hidden }) => !hidden)
+                            .length === credits.entries.length,
+                },
+            }"
             :search="search"
             @search="s => (search = s)"
             :sort="sort"
@@ -87,6 +92,49 @@
                         @input="updateFilter('total.max', filter.total.max)"
                     ></settings-number>
                 </div>
+                <div class="form-group">
+                    <label>
+                        {{ lightbox.$sm('filter.type.type') }}
+                    </label>
+                    <button
+                        class="btn btn-xs btn-default"
+                        :disabled="filter.type.types.length === types.length"
+                        @click.prevent.stop="
+                            () => {
+                                $set(
+                                    filter.type,
+                                    'types',
+                                    Object.keys(credits.creditsTypes)
+                                );
+                                updateFilter('type.types', filter.type.types);
+                            }
+                        "
+                    >
+                        {{ lightbox.$sm('filter.type.all_types') }}
+                    </button>
+                    <button
+                        class="btn btn-xs btn-default"
+                        :disabled="!filter.type.types.length"
+                        @click.prevent.stop="
+                            () => {
+                                $set(filter.type, 'types', []);
+                                updateFilter('type.types', filter.type.types);
+                            }
+                        "
+                    >
+                        {{ lightbox.$sm('filter.type.no_types') }}
+                    </button>
+                    <multi-select
+                        name="types_select"
+                        :placeholder="lightbox.$sm('filter.type.type')"
+                        v-model="filter.type.types"
+                        :options="types"
+                        @input="updateFilter('type.types', filter.type.types)"
+                    ></multi-select>
+                </div>
+                <span style="align-self: center">{{
+                    lightbox.$smc('filter.type.amount', entriesSorted.length)
+                }}</span>
             </template>
             <tr
                 v-for="(entry, id) in entriesSorted"
@@ -147,10 +195,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import moment from 'moment';
-import VueI18n from 'vue-i18n';
-import { CreditsDailyWindow } from '../../parsers/credits/daily';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+
+import type { CreditsDailyWindow } from '../../parsers/credits/daily';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -158,32 +208,33 @@ export default Vue.extend<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         filter: {
             total: {
                 min: number;
                 max: number;
             };
+            type: {
+                types: string[];
+            };
         };
+        types: { value: string; label: string }[];
     },
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         setSort(type: string): void;
         updateFilter(filter: string, value: unknown): void;
@@ -197,29 +248,33 @@ export default Vue.extend<
     {
         credits: CreditsDailyWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'credits/daily', CreditsDailyWindow>;
+        lightbox: RedesignLightboxVue<'credits/daily'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
     }
 >({
-    name: 'credits-daily',
+    name: 'lssmv4-redesign-credits-daily',
     components: {
+        DailyCreditsSummary: () =>
+            import(
+                /*webpackChunkName: "modules/dailyCreditsSummary/dailyCreditsSummary"*/ '../../../dailyCreditsSummary/dailyCreditsSummary.vue'
+            ),
         EnhancedTable: () =>
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
+            ),
+        MultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/multi-select" */ '../../../../components/setting/multi-select.vue'
             ),
         SettingsNumber: () =>
             import(
@@ -229,6 +284,7 @@ export default Vue.extend<
     data() {
         moment.locale(this.$store.state.lang);
         return {
+            hidden: true,
             moment,
             search: '',
             sort: 'distance',
@@ -239,13 +295,17 @@ export default Vue.extend<
                     min: Number.MIN_SAFE_INTEGER,
                     max: Number.MAX_SAFE_INTEGER,
                 },
+                type: {
+                    types: [],
+                },
             },
+            types: [],
         };
     },
     computed: {
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '0'
             );
@@ -258,7 +318,8 @@ export default Vue.extend<
                     e.total <= this.filter.total.max &&
                     JSON.stringify(Object.values(e))
                         .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
+                        .match(this.search.trim().toLowerCase()) &&
+                    this.filter.type.types.some(a => e.types.includes(a))
                 ),
             }));
         },
@@ -271,10 +332,10 @@ export default Vue.extend<
             return [...this.entriesFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -288,21 +349,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/daily.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/daily.${key}`, amount, args);
         },
         setSort(type) {
@@ -356,6 +406,12 @@ export default Vue.extend<
         },
     },
     beforeMount() {
+        const types = this.credits.creditsTypes;
+        this.types = Object.entries(types).map(([value, { regex, title }]) => ({
+            value,
+            label: title ?? regex?.toString().replace(/^\/|\/$/g, '') ?? value,
+        }));
+        this.filter.type.types = Object.keys(types);
         Object.entries(this.filter).forEach(([filter, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
                 this.getSetting(`${filter}.${prop}`, value).then(v =>
@@ -371,21 +427,10 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
-        });
         this.getSetting('sort', this.sort).then(sort => (this.sort = sort));
         this.getSetting('sortDir', this.sortDir).then(
             dir => (this.sortDir = dir)
         );
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/daily-mounted');
     },
 });

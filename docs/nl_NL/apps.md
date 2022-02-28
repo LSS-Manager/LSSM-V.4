@@ -21,21 +21,69 @@ Zoals beschreven in de uitleg van de [Appstore](appstore.md), zijn er modules di
 </ul>
 :::
 
-:::warning modules V3 en V4
-Voor de modules die in beide versie zijn geïmplementeerd is het aan te raden om maar 1 versie te gebruiken. Hieronder welke module en instelling van versie 4 overeenkomt met een module uit versie 3. 
 
-|                  V4 module                  |       V4 instelling      |            V3 module            |
-| :-----------------------------------------: | :----------------------: | :-----------------------------: |
-|          Uitgebreid meldingsvenster         |   Inzetvoorsteltellers   |          AUR-klik-teller        |
-|          Uitgebreid meldingsvenster         |      Generatietijd       |  Begintijd meldingen weergeven  |
-|               Notificaties                  |                          |         Browsermeldingen        |
-|                Dashboard                    |                          |            Dashboard            |
-|                  Klok                       |  Toon klok als overlay   |              Klok               |
-|              Inzethelper                    |                          |          Meldinghelper          |
-|               Overzicht                     |                          |            Overzicht            |
-|               Dashboard                     | Tabblad: Statusoverzicht |          Statustellers          |
-|         Uitgebreid meldingsvenster          |     Meldingstrefwoord    |    Steekwoorden bij meldingen   |
-|         Uitgebreide gebouwweergave          |                          |     Uitgebreide Bouwweergave    |
-|                 User-ID                     |                          |             User-ID             |
-|           Korte gebouwinformatie            |                          |   Voertuigstatus bij gebouwen   |
-:::
+## LSSM V.3 vs. LSSM V.4
+
+Hieronder hebben we een lijst van de features van V.3 op een rijtje gezet en waar je ze in V.4 kunt vinden.
+In principe willen we alle functies van V.3 in de loop van de tijd in V.4 integreren!
+
+|              Functie V.3               |                   Module V.4                    |       Instelling V.4        |                                                                            Veranderingen / Tips                                                                            |
+|:--------------------------------------:|:------------------------------------------------:|:----------------------------------:|:---------------------------------------------:|
+|           AUR-klik-teller              | [Uitgebreid meldingsvenster][extendedCallWindow] |       Inzetvoorsteltellers         |                                               | 
+|        AUR-zoekfuncties                | [Uitgebreid meldingsvenster][extendedCallWindow] |     Inzetvoorstellen Zoeken        |                                               |
+|      Alarmeren, delen en posten        |           [Alarmeren, delen en posten][sap]      |                                    |                                               |
+|               Kaart Centreren          |          [Verbeterde Kaart][extendedMap]         |                                    |  Momenteel alleen de statische modus, de dynamische modus komt nog. |
+|                  Klok                  |                  [Klok][clock]                   |       Toon klok als overlay        |                                               |
+|          Credits-uitbreiding           |     [Credits uitbreiding][creditsextension]      |                                    |                                               |
+|               Dashboard                |             [Dashboard][dashboard]               |                                    |                                               |
+|     Zelfgemaakte inzetten opslaan      |                                                  |                                    |                                               |
+|             Meldinghelper              |           [Inzethelper][missionHelper]           |                                    |                                               |
+|      Steekwoorden bij meldingen        | [Uitgebreid meldingsvenster][extendedCallWindow] |          Meldingstrefwoord         |                                               |
+|           Meldingen vrijgeven          |  [Uitgebreide meldingenlijst][extendedCallList]  |           Deel meldingen           |                                               |
+|          Meldingen doorzoeken          |                                                  |                                    |                                               |
+|        Uitgebreide bouwweergave        | [Uitgebreide gebouwweergave][extendedBuilding]   |                                    |                                               |
+|         Voertuigen herbenoemen         |                                                  |                                    |                                               |
+| Spraakaanvragen op de kaart weergeven  |                                                  |                                    |                                               |
+|    Redesign Filterknoppen Gebouwen     | [Aanpasbare gebouwenlijst][buildingListFilter]   |                                    | Er worden geen standaard iconen meer ingesteld. Je kan met de module in V.4 veel meer: Je kan het filter zelfstandig instellen, zowel met tekst als iconen! |
+|       Besturing met toetsenbord        |             [Sneltoetsen][hotkeys]               |                                    | Deze module is nog lang niet klaar, maar met de tijd worden hier ook alle sneltoetsen uit V3 beschikbaar |
+|               Layout 01                |                                                  |                                    |We willen een module voor vele layouts aanbieden, die je zelf kan aanpassen |
+|               Layout 02                |                                                  |                                    |We willen een module voor vele layouts aanbieden, die je zelf kan aanpassen |
+|               Layout 03                |                                                  |                                    |We willen een module voor vele layouts aanbieden, die je zelf kan aanpassen |
+|               Layout 04                |                                                  |                                    |We willen een module voor vele layouts aanbieden, die je zelf kan aanpassen |
+|           Voertuigspreiding            |                [Heatmap][heatmap]                |                                    |                                               |
+|          Markeer Eventinzetten         |  [Uitgebreide meldingenlijst][extendedCallList]  |      Seizoensmeldingen markeren    |                                               |
+|     Begintijd meldingen weergeven      | [Uitgebreid meldingsvenster][extendedCallWindow] |            Generatietijd           |                                               |
+|         Meldingen inklappen            |  [Uitgebreide meldingenlijst][extendedCallList]  |         Meldingen inklappen        |Het tonen van het patiënten aantal, zit in dezelfde module als instelling `Huidige patiënten`|
+|        Spraakaanvraag voor MMT         |                                                  |                                    |                                               |
+|           Browsermeldingen             |         [Notificaties][notificationAlert]        |                                    |In V4 vind je diverse soorten notificaties die ook instelbaar zijn.|
+|              Redesign 01               |                                                  |                                    |We willen een module voor vele layouts aanbieden, die je zelf kan aanpassen |
+|             Release Notes              |                                                  |                                    |De releasenotes zijn geïntegreerd in V4 en kan je niet uitschakelen |
+|           Extra annuleerknop           |                                                  |                                    |                                               |
+|          Toon boven chat-knop          |                                                  |                                    |                                               |
+|             Statusteller               |           [Statusteller][statusCounter]          |                                    |                                               |
+|    Totaalweergave in dagsamenvatting   | [Totaalweergave dagsamenvatting][dailyCreditsSummary]  |                              |                                               |
+|                User-ID                 |                [User-ID][userid]                 |                                    |                                               |
+|            Team-uitbreiding            |                                                  |                                    |                                               |
+|      Verbeterde spraakaanvragen        |                                                  |                                    |Is reeds in redesign opgenomen, een zelfstandige module komt nog. | 
+|      Voertuigstatus bij gebouwen       |     [Korte gebouwinformatie][buildingHover]      |                                    |                                               |
+|           Bestemming Filter            |                                                  |                                    |Is reeds in redesign opgenomen, een zelfstandige module komt nog. | 
+|               Overzicht                |              [Overzicht][overview]               |                                    |                                               |
+
+[extendedCallWindow]: modules/extendedCallWindow.md
+[clock]: modules/clock.md
+[dashboard]: modules/dashboard.md
+[missionHelper]: modules/missionHelper.md
+[extendedBuilding]: modules/extendedBuilding.md
+[notificationAlert]: modules/notificationAlert.md
+[statusCounter]: modules/statusCounter.md
+[dailyCreditsSummary]: modules/dailyCreditsSummary.md
+[userid]: modules/userid.md
+[buildingHover]: modules/buildingHover.md
+[overview]: modules/overview.md
+[buildingListFilter]: modules/buildingListFilter.md
+[extendedCallList]: modules/extendedCallList.md
+[hotkeys]: modules/hotkeys.md
+[extendedMap]: modules/extendedMap.md
+[creditsextension]: modules/creditsextension.md
+[heatmap]: modules/heatmap.md
+[sap]: modules/shareAlliancePost.md

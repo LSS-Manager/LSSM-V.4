@@ -3,6 +3,7 @@
 		"danger": "Felmeddelande (röd)",
 		"info": "Info (blå)",
 		"success": "Bekräftelse (grön)",
+		"unimportant": "Enkel (grå)",
 		"warning": "Varning (orange)"
 	},
 	"description": "Få meddelanden om webbläsare och spel för olika evenemang - naturligtvis helt konfigurerbara!",

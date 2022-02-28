@@ -62,7 +62,7 @@ Una compatibilidad enumerada aquí no garantiza la funcionalidad. Sólo es infor
 </table>
 
 ::: danger Navegadores no compatibles
-Internet Explorer & Microsoft Edge **NO son compatibles.**
+Internet Explorer & Apple Safari **NO son compatibles.**
 :::
 
 ### Quiero compartir mi configuración con amigos o usarla en varios dispositivos. ¿Es eso posible?

@@ -1,0 +1,13 @@
+{
+	"description": "Maak je eigen templates voor privé berichten.",
+	"name": "Berichten-templates",
+	"settings": {
+		"name": "Naam",
+		"subject": "Onderwerp",
+		"template": "Template (Variabelen (Zie docs): {{username}}, {{today[+n]}})",
+		"templates": {
+			"description": "Voor de templates kan je variabelen gebruiken. Kijk hiervoor in onze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variabelen\">Wiki</a>.",
+			"title": "Templates"
+		}
+	}
+}

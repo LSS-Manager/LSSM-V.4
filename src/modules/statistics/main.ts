@@ -1,17 +1,19 @@
-import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import * as pdfMake from 'pdfmake/build/pdfmake';
 import moment from 'moment';
-import { ModuleMainFunction } from 'typings/Module';
+
 import config from '../../config';
-import { CreditsInfo } from 'typings/api/Credits';
-import { AllianceInfo } from 'typings/api/AllianceInfo';
-import { Building } from 'typings/Building';
+
+import type { AllianceInfo } from 'typings/api/AllianceInfo';
+import type { Building } from 'typings/Building';
+import type { CreditsInfo } from 'typings/api/Credits';
+import type { ModuleMainFunction } from 'typings/Module';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     if (
         !window.location.pathname.match(
             new RegExp(`/profile/${window.user_id}/?`)
@@ -26,7 +28,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     const btnIcon = document.createElement('i');
     btnIcon.classList.add('fas', 'fa-chart-line');
-    generationBtn.appendChild(btnIcon);
+    generationBtn.append(btnIcon);
 
     const header = document.querySelector<HTMLHeadingElement>('h1');
     if (!header) return;
@@ -64,7 +66,7 @@ export default (async (LSSM, MODULE_ID) => {
 
         const allianceName = alliance?.innerText;
         const allianceInfo: AllianceInfo = LSSM.$store.state.api.allianceinfo;
-        const allianceRoles = {} as { [role: string]: number };
+        const allianceRoles = {} as Record<string, number>;
         const allianceListPage = alliance
             ? Math.ceil(allianceInfo.rank / 20)
             : 0;
@@ -78,7 +80,7 @@ export default (async (LSSM, MODULE_ID) => {
             );
         }
 
-        const buildings: Building[] = LSSM.$store.state.api.buildings;
+        const { buildings }: { buildings: Building[] } = LSSM.$store.state.api;
         const extremeBuildings = {} as {
             north?: Building;
             south?: Building;

@@ -60,9 +60,11 @@
 		"building": "Building",
 		"caption": "Name",
 		"fms": "FMS",
+		"target": "Target",
 		"type": "Type"
 	},
 	"vehicle-types": {
+		"chart": "Status summary",
 		"status": "Status",
 		"statuses": [
 			1,

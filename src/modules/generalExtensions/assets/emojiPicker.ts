@@ -1,13 +1,11 @@
 export default async (LSSM: Vue): Promise<void> => {
-    const emojiByName = {} as { [unicode: string]: string };
-    const emojiyByAlias = {} as { [unicode: string]: string };
+    const emojiByName = {} as Record<string, string>;
+    const emojiyByAlias = {} as Record<string, string>;
     const emojiMap = (
         await import(
             /* webpackChunkName: "utils/emojis" */ '../../../utils/emojis.json'
         )
-    ).default as {
-        [unicode: string]: string[];
-    };
+    ).default as Record<string, string[]>;
     Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {
         namesAndAliases.forEach(name => {
             if (name.match(/^:.*:$/)) emojiByName[name] = emoji;
@@ -22,7 +20,7 @@ export default async (LSSM: Vue): Promise<void> => {
     );
     const emojiNames = Object.keys(emojiByName);
 
-    const popupMap = {} as { [name: string]: HTMLDivElement };
+    const popupMap = {} as Record<string, HTMLDivElement>;
     const optionClass = LSSM.$store.getters.nodeAttribute(
         'emoji-picker-option'
     );
@@ -104,7 +102,7 @@ export default async (LSSM: Vue): Promise<void> => {
             !end[0].length
         )
             return (popupMap[input.name].style.display = 'none');
-        const search = end[0];
+        const [search] = end;
         const matching = emojiNames.filter(name =>
             name.toLowerCase().match(search.toLowerCase())
         );
@@ -172,7 +170,8 @@ export default async (LSSM: Vue): Promise<void> => {
                     currentFocus = currentFocus.parentElement
                         ?.firstElementChild as HTMLSpanElement | null;
                 } else {
-                    currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
+                    currentFocus =
+                        currentFocus.nextElementSibling as HTMLSpanElement | null;
                 }
                 currentFocus?.classList.add('focused');
                 break;
@@ -185,7 +184,8 @@ export default async (LSSM: Vue): Promise<void> => {
                     currentFocus = currentFocus.parentElement
                         ?.lastElementChild as HTMLSpanElement | null;
                 } else {
-                    currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
+                    currentFocus =
+                        currentFocus.previousElementSibling as HTMLSpanElement | null;
                 }
                 currentFocus?.classList.add('focused');
                 break;

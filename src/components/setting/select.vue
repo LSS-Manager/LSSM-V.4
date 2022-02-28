@@ -16,8 +16,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { SelectComputed, SelectProps } from 'typings/components/setting/Select';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type {
+    SelectComputed,
+    SelectProps,
+} from 'typings/components/setting/Select';
 
 export default Vue.extend<
     DefaultData<Vue>,

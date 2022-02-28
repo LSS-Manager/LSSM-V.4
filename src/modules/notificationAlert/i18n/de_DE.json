@@ -36,6 +36,10 @@
 		},
 		"radioMessage": {
 			"title": "{vehicle} meldet Status {status}!"
+		},
+		"tasksUpdate": {
+			"body": "Du hast eine Aufgabe abgeschlossen. Hol dir schnell deine Belohnung ab!",
+			"title": "Aufgabe abgeschlossen"
 		}
 	},
 	"noPermission": {

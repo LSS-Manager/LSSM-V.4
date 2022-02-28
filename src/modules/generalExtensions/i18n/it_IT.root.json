@@ -7,7 +7,7 @@
 			"title": "Titolo della scheda del browser"
 		},
 		"clickableLinks": {
-			"description": "I link che sono visualizzati come semplice testo (es. in chat, forum, messaggi, etc.) sono resi cliccabili. Si aprono automaticamente in una nuova scheda.",
+			"description": "I link che sono visualizzati come semplice testo (es. in chat, bacheca, messaggi, etc.) sono resi cliccabili. Si aprono automaticamente in una nuova scheda.",
 			"title": "Rendi i link cliccabili"
 		},
 		"emojiPicker": {
@@ -15,8 +15,8 @@
 			"title": "Selettore di emoji"
 		},
 		"extensionCloseCall": {
-			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
-			"title": "Spreading improved FMS 5"
+			"description": "Chiude le richieste vocali di propagazione anche se viene premuto il pulsante\"alla missione\".",
+			"title": "Spargimento migliorato FMS 5"
 		},
 		"linkPreviews": {
 			"buildings": "Edifici",
@@ -25,6 +25,10 @@
 			"profile": "Utente",
 			"title": "Anteprima collegamento",
 			"vehicles": "Veicoli"
+		},
+		"mapSearchOnMap": {
+			"description": "Sposta la ricerca della posizione nella finestra principale sulla mappa",
+			"title": "Ricerca del luogo sulla mappa"
 		},
 		"mapUndo": {
 			"description": "Centra la mappa sulle posizioni centrate in precedenza. - Attualmente funiona solo con le mappe del tipo \"OpenStreetMap\"",
@@ -43,7 +47,7 @@
 			"title": "Ricordati del centro di spedizione"
 		},
 		"showImg": {
-			"description": "Prova a generare un'anteprima dell'immagine. Funziona solo in combinazione con \"Make links clickable\"!",
+			"description": "Prova a generare un'anteprima dell'immagine. Funziona solo in combinazione con \"Rendi i link cliccabili\"!",
 			"title": "Attivazione dell'anteprima dell'immagine"
 		}
 	}

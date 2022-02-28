@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import sortJSON from './utils/sortJSON';
 
 import * as tsconfig from '../tsconfig.json';
+import sortJSON from './utils/sortJSON';
 
 fs.writeFileSync(
     '../tsconfig.json',
@@ -35,6 +35,7 @@ export default (): string => {
             'typings',
         ].forEach(folder =>
             getJsons(`./${folder}`).forEach(file => {
+                if (file === './src/utils/emojis.json') return;
                 currentFile = file;
                 const sortArray = false;
                 fs.writeFileSync(

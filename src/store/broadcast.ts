@@ -1,7 +1,8 @@
-import { RootState } from '../../typings/store/RootState';
-import { ActionTree, Module } from 'vuex';
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
-import { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
+
+import type { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
+import type { RootState } from '../../typings/store/RootState';
+import type { ActionTree, Module } from 'vuex';
 
 const STORAGE_NAME_KEY = `${PREFIX}_windowname`;
 
@@ -52,7 +53,7 @@ channel.addEventListener('message', msg => {
             )?.[0];
             if (!key) return;
             value = {
-                value: value,
+                value,
                 lastUpdate: (window[PREFIX] as Vue).$store.state.api
                     .lastUpdates[key],
                 user_id: window.user_id,
@@ -117,12 +118,16 @@ if (getWindowName() !== 'leader') {
             channel.removeEventListener('message', name_receiver_handler);
             sessionStorage.setItem(
                 STORAGE_NAME_KEY,
-                `unnamed_${Math.max(
-                    0,
-                    ...collected_names
-                        .map(n => parseInt(n?.replace(/^unnamed_/, '') ?? '-1'))
-                        .filter(n => !Number.isNaN(n))
-                ) + 1}`
+                `unnamed_${
+                    Math.max(
+                        0,
+                        ...collected_names
+                            .map(n =>
+                                parseInt(n?.replace(/^unnamed_/, '') ?? '-1')
+                            )
+                            .filter(n => !Number.isNaN(n))
+                    ) + 1
+                }`
             );
         }, 1000);
     });
@@ -155,7 +160,9 @@ export default {
                 sender: getWindowName(),
                 receiver,
                 name,
-                handler: `(${handler.toString()})`,
+                handler: `(${handler
+                    .toString()
+                    .replace(/^.*?(?=\()/, 'function')})`,
                 ...data,
             } as CustomBroadcastMessage);
         },

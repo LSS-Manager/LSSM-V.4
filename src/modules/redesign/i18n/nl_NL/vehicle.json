@@ -1,6 +1,7 @@
 {
 	"approach": "Aanrijden",
 	"backalarm": "Terugroepen",
+	"backalarmNext": "Direct rijden",
 	"cells": {
 		"cell": "Gebouw",
 		"free": "Vrije cellen"
@@ -9,8 +10,8 @@
 	"current_mission": "Huidige inzet",
 	"delete": {
 		"button": "Verwijderen",
-		"cancel": "Abbrechen",
-		"confirm": "Annuleren",
+		"cancel": "Annuleren",
+		"confirm": "Verwijderen",
 		"text": "Weet u zeker dat u het voertuig **{caption}** van gebouw **{building}** wilt verwijderen?",
 		"title": "Voertuig verwijderen"
 	},
@@ -57,11 +58,16 @@
 		"is_s2": "Status 6 toewijzen",
 		"is_s6": "Status 5 toewijzen"
 	},
+	"foam_amount": "Hoeveelheid schuim",
 	"followup_missions": "Vervolginzet | Vervolginzetten",
 	"hospitals": {
 		"beds": "Vrije bedden",
 		"department": "Specialisatie: {department}",
 		"hospital": "Ziekenhuis"
+	},
+	"load_all_hospitals": {
+		"btn": "Alle ziekenhuizen laden",
+		"text": "Er worden maar 50 ziekenhuizen weergegeven. Het laden van alle ziekenhuizen kan, afhankelijk van het aantal, veel tijd in beslag nemen!"
 	},
 	"max_staff": "Max. personeel",
 	"mileage": "Totale kilometers",
@@ -80,9 +86,11 @@
 		"offline": "{user} is offline!",
 		"online": "{user} is online!"
 	},
+	"patient_doctor_transport": "Transport met Artsbegeleiding",
 	"release": {
 		"cancel": "Annuleren",
 		"confirm": "Ja",
+		"disable": "discharge and disable confirmation",
 		"patient": {
 			"text": "Wil je werkelijk de patiënt in dit voertuig ontslaan? Je krijgt hierdoor geen vergoeding voor de patiënt!",
 			"title": "Patiënt ontslaan"

@@ -1,6 +1,6 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/
@@ -12,15 +12,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
     )
         return;
 
-    const getSetting = (settingId: string): Promise<boolean> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
     if (window.location.pathname.match(/^\/buildings\/\d+\/?$/)) {
-        const BUILDING_MODE = document.getElementById('tab_protocol')
+        const BUILDING_MODE = document.querySelector<HTMLDivElement>(
+            '#tab_protocol'
+        )
             ? 'dispatch'
             : 'building';
 
@@ -32,40 +27,40 @@ export default (async (LSSM, MODULE_ID, $m) => {
         });
 
         if (await getSetting('enhanceVehicleList')) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
-                )
-            ).default(LSSM, BUILDING_MODE, getSetting, $m, MODULE_ID);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
+            ).then(({ default: evl }) =>
+                evl(LSSM, BUILDING_MODE, getSetting, $m, MODULE_ID)
+            );
         }
         if (await getSetting('fastDispatchChooser')) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
-                )
-            ).default(LSSM, BUILDING_MODE, $m, MODULE_ID);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
+            ).then(({ default: fastDispatchChooser }) =>
+                fastDispatchChooser(LSSM, BUILDING_MODE, $m, MODULE_ID)
+            );
         }
 
         if (BUILDING_MODE === 'building') {
             if (
                 (await getSetting('personnelDemands')) &&
-                document.getElementById('vehicle_table')
+                document.querySelector<HTMLTableElement>('#vehicle_table')
             ) {
-                (
-                    await import(
-                        /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
-                    )
-                ).default(LSSM, $m, buildingId, MODULE_ID);
+                import(
+                    /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
+                ).then(({ default: personnelDemands }) =>
+                    personnelDemands(LSSM, $m, buildingId, MODULE_ID)
+                );
             }
             if (
                 (await getSetting('upgradeConfirmation')) &&
                 document.querySelector('.alert a[href$="/small_expand"]')
             ) {
-                (
-                    await import(
-                        /* webpackChunkName: "modules/extendedBuilding/upgradeConfirmation" */ './assets/upgradeConfimation'
-                    )
-                ).default(LSSM, $m, MODULE_ID);
+                import(
+                    /* webpackChunkName: "modules/extendedBuilding/upgradeConfirmation" */ './assets/upgradeConfirmation'
+                ).then(({ default: upgradeConfirmation }) =>
+                    upgradeConfirmation(LSSM, $m, MODULE_ID)
+                );
             }
         }
 
@@ -73,49 +68,54 @@ export default (async (LSSM, MODULE_ID, $m) => {
             (await getSetting('expansions')) &&
             document.querySelector('#ausbauten')
         ) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
-                )
-            ).default(LSSM, MODULE_ID, $m);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
+            ).then(({ default: expansions }) =>
+                expansions(LSSM, MODULE_ID, $m)
+            );
         }
 
         if (await getSetting('buildingsLeftRight')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
-                )
-            ).default(LSSM);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
+            ).then(({ default: buildingsLeftRight }) =>
+                buildingsLeftRight(LSSM)
+            );
         }
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
         if (await getSetting('schoolingSummary')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
-                )
-            ).default(LSSM, $m, MODULE_ID);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
+            ).then(({ default: schoolingSummary }) =>
+                schoolingSummary(LSSM, $m, MODULE_ID)
+            );
         }
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/)
     ) {
         if (await getSetting('autoBuyLevels')) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/autoBuyLevels" */ './assets/autoBuyLevels'
-                )
-            ).default(LSSM, MODULE_ID);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/autoBuyLevels" */ './assets/autoBuyLevels'
+            ).then(({ default: autoBuyLevels }) =>
+                autoBuyLevels(LSSM, MODULE_ID)
+            );
         }
+        import(
+            /* webpackChunkName: "modules/extendedBuilding/personalAssignmentButton" */ './assets/personalAssignmentButton'
+        ).then(({ default: personalAssignmentButton }) =>
+            personalAssignmentButton(LSSM)
+        );
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     ) {
         if (await getSetting('enhancedPersonnelAssignment')) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
-                )
-            ).default(LSSM, MODULE_ID, getSetting, $m);
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
+            ).then(({ default: enhancedPersonnelAssignment }) =>
+                enhancedPersonnelAssignment(LSSM, MODULE_ID, getSetting, $m)
+            );
         }
     }
 }) as ModuleMainFunction;

@@ -2,9 +2,9 @@
     <span class="preview label" :style="`background-color: ${setting.color};`">
         <span
             :class="`${setting.autotextcolor ? 'autocolor' : 'textcolor'}`"
-            :style="
-                `${setting.autotextcolor ? '' : `color: ${setting.textcolor}`}`
-            "
+            :style="`${
+                setting.autotextcolor ? '' : `color: ${setting.textcolor}`
+            }`"
         >
             {{ setting.keyword }}
         </span>
@@ -15,7 +15,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'mk-preview',
+    name: 'lssmv4-mk-preview',
     props: {
         setting: {
             type: Object,

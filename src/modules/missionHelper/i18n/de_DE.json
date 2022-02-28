@@ -19,12 +19,14 @@
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
+		"criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
 		"fire_stations": "Feuerwache | Feuerwachen",
 		"guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
 		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
 		"max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
 		"mek": "MEK-Zug | MEK-Züge",
 		"police_helicopter_stations": "Polizeihubschrauber-Landeplatz | Polizeihubschrauber-Landeplätze",
+		"police_service_group_leader": "Dienstgruppenleitung-Erweiterung | Dienstgruppenleitung-Erweiterungen",
 		"police_stations": "Polizeiwache | Polizeiwachen",
 		"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 		"rescue_stations": "Rettungswache | Rettungswachen",
@@ -36,12 +38,14 @@
 		"thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
 		"title": "Vorraussetzung | Vorraussetzungen",
 		"wasserrettung": "Wasserrettung | Wasserrettungen",
+		"water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
 		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
+	"subsequent": "Anschlusseinsatz | Anschlusseinsätze",
 	"tip": {
 		"dragging": "Feld verschieben",
 		"maxState": "Maximale Anforderungen (de-)aktivieren",
@@ -56,6 +60,7 @@
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
 			"bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
+			"civil_patrolcar": "Zivilstreifenwagen",
 			"diver_units": "GW-Taucher oder Tauchkraftwagen",
 			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
 			"fukw": "FüKw",
@@ -74,12 +79,15 @@
 			"k9": "DHuFüKW",
 			"k9_only_if_needed": "DHuFüKW (nur wenn aktiver Ausbau vorhanden)",
 			"lebefkw": "leBefKw",
+			"max_civil_patrol_replace_police_cars": "Zivilstreifenwagen kann Funkstreifenwagen ersetzen",
 			"mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
 			"mobile_air_vehicles": "GW-Atemschutz",
 			"mobile_command_vehicles": "ELW 2",
 			"platform_trucks": "Drehleiter | Drehleitern",
 			"police_cars": "Funkstreifenwagen",
 			"police_helicopters": "Polizeihubschauber",
+			"police_service_group_leader": "Funkstreifenwagen (DGL)",
+			"pump": "Schmutzwasserpumpe | Schmutzwasserpumpen",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
 			"seg_elw": "ELW 1 (SEG)",
@@ -94,6 +102,7 @@
 			"turboloescher": "Turbolöscher",
 			"ulf": "ULF mit Löscharm",
 			"wasserwerfer": "WaWe 10",
+			"water_damage_pump": "Feuerlöschpumpe | Feuerlöschpumpen",
 			"water_tankers": "Schlauchwagen"
 		},
 		"multifunctionals": {
@@ -108,6 +117,10 @@
 			"platform_trucks": {
 				"additional_text": "",
 				"reduce_from": "teleskopmast"
+			},
+			"police_service_group_leader": {
+				"additional_text": "davon mind. {n} FuStW (DGL)",
+				"reduce_from": "police_cars"
 			},
 			"thw_lkw": {
 				"additional_text": "mit {n} LKW K9",

@@ -21,6 +21,7 @@
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
 		"fire_stations": "Brannstasjon | Brannstasjoner",
+		"fire_support_count": "Brann Støtte utivdelser",
 		"max_police_stations": "Maksimalt politistasjoner",
 		"max_rescue_stations": "Maxminalt ambulansestasjoner",
 		"police_helicopter_stations": "Politiheliport | Politiheliporter",
@@ -33,7 +34,8 @@
 		"title": "Fange | {n} fange | {n} fanger"
 	},
 	"requirements": {
-		"water_needed": "Water demand (gal)"
+		"foam_needed": "skum (lit)",
+		"water_needed": "vann (lit)"
 	},
 	"vehicles": {
 		"captions": {
@@ -43,10 +45,13 @@
 			"boats": "Båt | Båter",
 			"brush_truck": "Skogbrannbil | Skogbrannbil",
 			"diver_car": "Dykkerbil | Dykkerbiler",
+			"fire_aviation": "",
 			"firetrucks": "Mannskapsbil | Mannskapsbiler",
+			"foam": "Skum Tankbiler",
 			"hazmat_vehicles": "CBRNe | CBRNe",
 			"heavy_rescue_vehicles": "Tungredningsbil | Tungredningsbil",
 			"helicopter": "Luftambulanse",
+			"hose": "Slangebiler",
 			"k9": "Hundepatrulje",
 			"large_fire_boat": "Stor brannbåt | Store brannbåter",
 			"large_rescue_boat": "Stor redningsbåt | Store redningsbåter",
@@ -55,6 +60,7 @@
 			"platform_trucks": "Stigebil | Stigebiler",
 			"police_cars": "Patruljebil | Patruljebiler",
 			"police_helicopters": "Politihelikopter | Politihelikoptre",
+			"pump": "Tilhengerpumper",
 			"sheriff": "Utrykningspolitibil | Utrykningspolitibiler",
 			"swat_armored_vehicle": "Delta kjøretøy | Delta kjøretøy",
 			"swat_suv": "Panstret kjøretøy | Pansdrede kjøretøy",

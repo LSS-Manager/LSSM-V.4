@@ -6,7 +6,7 @@
             <enhanced-table
                 :head="head"
                 :table-attrs="{ class: 'table table-striped' }"
-                :no-search="true"
+                no-search
             >
                 <tr
                     v-for="(entry, id) in data.entries"
@@ -21,7 +21,7 @@
                         }`)
                     "
                 >
-                    <td>{{ dates[7 - id] }}</td>
+                    <td>{{ dates[dates.length - 1 - id] }}</td>
                     <td class="text-success">
                         {{ entry.plus.toLocaleString() }} Credits
                     </td>
@@ -39,39 +39,41 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
-import VueI18n, { TranslateResult } from 'vue-i18n';
-import Highcharts, { Options } from 'highcharts';
+
+import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
-import { CreditsOverviewWindow } from '../../parsers/credits/overview';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import moment from 'moment';
+
+import type { CreditsOverviewWindow } from '../../parsers/credits/overview';
+// to separate typings
+// eslint-disable-next-line no-duplicate-imports
+import type { Options } from 'highcharts';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 HighchartsMore(Highcharts);
 
 export default Vue.extend<
     {
         moment: typeof moment;
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort: true;
-            };
-        };
+            }
+        >;
         chartId: string;
     },
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     },
     {
@@ -79,28 +81,21 @@ export default Vue.extend<
     },
     {
         data: CreditsOverviewWindow;
-        lightbox: RedesignLightboxVue<
-            'credits/overview',
-            CreditsOverviewWindow
-        >;
+        lightbox: RedesignLightboxVue<'credits/overview'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
     }
 >({
-    name: 'credits-overview',
+    name: 'lssmv4-redesign-credits-overview',
     components: {
         EnhancedTable: () =>
             import(
@@ -120,31 +115,19 @@ export default Vue.extend<
     },
     computed: {
         dates() {
-            return Array(8)
+            return Array(this.data.entries.length)
                 .fill('')
                 .map((_, index) =>
-                    moment()
-                        .subtract(index, 'days')
-                        .format('L')
-                );
+                    moment().utc().subtract(index, 'days').format('L')
+                )
+                .reverse();
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/overview.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/overview.${key}`, amount, args);
         },
     },
@@ -188,21 +171,14 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
-        });
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<
+                    string,
+                    VueI18n.TranslateResult
+                >),
             },
         });
         Highcharts.chart(this.chartId, {
@@ -211,7 +187,7 @@ export default Vue.extend<
             },
             title: { text: '' },
             xAxis: {
-                categories: this.dates.reverse(),
+                categories: this.dates,
             },
             series: ['plus', 'minus', 'total'].map((series, index) => ({
                 name: this.$sm(series).toString(),
@@ -221,9 +197,6 @@ export default Vue.extend<
                 color: ['#28a828', '#a32323', '#74868f'][index],
             })),
         } as Options);
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/overview-mounted');
     },
 });

@@ -1,21 +1,20 @@
-import mkpreview from './components/missionKeywords/preview.vue';
 import aipreview from './components/alarmIcons/preview.vue';
+import mkpreview from './components/missionKeywords/preview.vue';
 
-import { $m, ModuleSettingFunction } from 'typings/Module';
-import {
+import type { $m, ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Color,
     Hidden,
-    NumberInput,
-    Toggle,
-    Text,
     MultiSelect,
-    Select,
+    NumberInput,
     PreviewElement,
+    Select,
+    Text,
+    Toggle,
 } from 'typings/Setting';
-import { InternalVehicle } from 'typings/Vehicle';
-import { Mission } from 'typings/Mission';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
@@ -25,10 +24,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: Object.values(vehicleTypes),
     })) as {
         name: string;
-        vehicleTypes: number[];
+        vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles = LSSM.$t('vehicles') as { [id: number]: InternalVehicle };
+    const vehicles = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {
@@ -36,16 +35,36 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    const missions = (await LSSM.$store.dispatch('api/getMissions', {
-        force: false,
-        feature: `${MODULE_ID}-settings`,
-    })) as Mission[];
-    const missionIds = [] as string[];
-    const missionNames = [] as string[];
-    missions.forEach(({ id, name }) => {
-        missionIds.push(id.toString());
-        missionNames.push(`${id}: ${name}`);
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        feature: `${MODULE_ID}_settings`,
     });
+    (LSSM.$store.state.api.vehicles as Vehicle[])
+        .filter(v => v.vehicle_type_caption)
+        .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
+            const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;
+            if (!vehicle_type_caption || vehicleCaptions.includes(caption))
+                return;
+            vehicleCaptions.push(caption);
+            vehicleIds.push(`${vehicle_type}-${vehicle_type_caption}`);
+        });
+
+    const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
+        LSSM,
+        MODULE_ID,
+        'settings'
+    );
+
+    const bootsTrapColors = [
+        'success',
+        'warning',
+        'danger',
+        'primary',
+        'info',
+        'default',
+    ];
+    const bootsTrapColorLabels = bootsTrapColors.map(color =>
+        $m(`settings.vehicleCounterColor.${color}`).toString()
+    );
 
     return {
         generationDate: <Toggle>{
@@ -68,9 +87,28 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        emvMaxStaff: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.enhancedMissingVehicles',
+        },
+        hoverTip: <Toggle>{
+            type: 'toggle',
+            default: true,
+            dependsOn: '.enhancedMissingVehicles',
+        },
         patientSummary: <Toggle>{
             type: 'toggle',
             default: true,
+        },
+        collapsablePatients: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        collapsablePatientsMinPatients: <NumberInput>{
+            type: 'number',
+            default: 7,
+            dependsOn: '.collapsablePatients',
         },
         arrCounter: <Toggle>{
             type: 'toggle',
@@ -131,15 +169,67 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
-        hoverTip: <Toggle>{
-            type: 'toggle',
-            default: true,
-        },
         stagingAreaSelectedCounter: <Toggle>{
             type: 'toggle',
             default: true,
         },
-        tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        vehicleTypeInList: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        remainingPatientTime: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
+        vehicleCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        vehicleCounterColor: <Select>{
+            type: 'select',
+            default: 'info',
+            values: bootsTrapColors,
+            labels: bootsTrapColorLabels,
+            dependsOn: '.vehicleCounter',
+        },
+        playerCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        playerCounterColor: <Select>{
+            type: 'select',
+            default: 'danger',
+            values: bootsTrapColors,
+            labels: bootsTrapColorLabels,
+            dependsOn: '.playerCounter',
+        },
+        arrSearch: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        arrSearchDissolveCategories: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
+        arrSearchAutoFocus: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearch',
+        },
+        arrSearchDropdown: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearch',
+        },
+        arrSearchCloseDropdownOnSelect: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearchDropdown',
+        },
+        tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,
             listItem: [
@@ -169,7 +259,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             orderable: true,
             disableable: true,
         },
-        missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        missionKeywords: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [
@@ -184,7 +274,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 <AppendableListSetting<Color>>{
                     name: 'color',
                     title: $m('settings.missionKeywords.color'),
-                    size: 1,
+                    size: 2,
                     setting: {
                         type: 'color',
                     },
@@ -225,8 +315,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: missionIds,
-                        labels: missionNames,
+                        values: [-1, ...missionIds],
+                        labels: [
+                            $m('settings.missionKeywords.allMissions'),
+                            ...missionNames,
+                        ],
                     },
                 },
             ],
@@ -239,8 +332,9 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 missions: [],
             },
             orderable: true,
+            disableable: false,
         },
-        alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        alarmIcons: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [
@@ -285,6 +379,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 vehicleTypes: [],
             },
             orderable: true,
+            disableable: false,
         },
         overlay: <Hidden>{
             type: 'hidden',

@@ -1,41 +1,46 @@
 import Vue from 'vue';
-import VueJSModal from 'vue-js-modal';
-import ToggleButton from 'vue-js-toggle-button';
+
 import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
+import ToggleButton from 'vue-js-toggle-button';
+import VueJSModal from 'vue-js-modal';
+
+import i18n from './i18n';
 import LSSMV4 from './LSSMV4.vue';
 import store from './store';
-import i18n from './i18n';
 import utils from './utils';
-import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
+
+import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
+
+Vue.config.productionTip = false;
+
+const appContainer = document.createElement('div') as HTMLDivElement;
+document.body.append(appContainer);
+
+window.keepAlive = true;
+
+Vue.use(VueJSModal, {
+    dynamic: true,
+    dynamicDefaults: {
+        adaptive: true,
+        scrollable: true,
+        clickToClose: true,
+    },
+    dialog: true,
+});
+Vue.use(ToggleButton);
+Vue.use(Tabs);
+Vue.use(Notifications);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+utils(Vue);
+
 (async () => {
-    if (window.location.pathname.match(/^\/users\//)) return;
-    Vue.config.productionTip = false;
-
-    const appContainer = document.createElement('div') as HTMLDivElement;
-    document.body.appendChild(appContainer);
-
-    window.keepAlive = true;
-
-    Vue.use(VueJSModal, {
-        dynamic: true,
-        dynamicDefaults: {
-            adaptive: true,
-            scrollable: true,
-            clickToClose: true,
-        },
-        dialog: true,
-    });
-    Vue.use(ToggleButton);
-    Vue.use(Tabs);
-    Vue.use(Notifications);
-
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
-    utils(Vue);
+    if (window.hasOwnProperty(PREFIX)) return;
 
     const LSSM = new Vue({
         store: store(Vue),
@@ -44,6 +49,17 @@ require('./natives/lightbox');
     }).$mount(appContainer);
 
     window[PREFIX] = LSSM;
+
+    window.addEventListener('pagehide', () => {
+        LSSM.$destroy();
+        window[PREFIX] = null;
+        const readonly = ['$attrs', '$listeners'];
+        Object.keys(LSSM).forEach(key => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            if (key in LSSM && !readonly.includes(key)) LSSM[key] = null;
+        });
+    });
 
     await LSSM.$store.dispatch(
         'api/setVehicleStates',
@@ -70,9 +86,9 @@ require('./natives/lightbox');
         }
     }
     if (window.location.pathname === '/') {
-        import(
-            /* webpackChunkName: "mainpageCore" */ './mainpageCore'
-        ).then(core => core.default(LSSM));
+        import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
+            core => core.default(LSSM)
+        );
     }
 
     LSSM.$store
@@ -91,12 +107,12 @@ require('./natives/lightbox');
             }
             filteredActiveModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
-                const $m = (key: string, args?: { [key: string]: unknown }) =>
+                const $m = (key: string, args?: Record<string, unknown>) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);
                 const $mc = (
                     key: string,
                     amount?: number,
-                    args?: { [key: string]: unknown }
+                    args?: Record<string, unknown>
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
                 if (
                     LSSM.$store.state.modules[moduleId].settings &&
@@ -107,14 +123,16 @@ require('./natives/lightbox');
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
-                        settings: await ((
-                            await import(
-                                /* webpackChunkName: "modules/settings/[request]" */
-                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                `./modules/${moduleId}/settings`
-                            )
-                        ).default as ModuleSettingFunction)(moduleId, LSSM, $m),
+                        settings: await (
+                            (
+                                await import(
+                                    /* webpackChunkName: "modules/settings/[request]" */
+                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                    `./modules/${moduleId}/settings`
+                                )
+                            ).default as ModuleSettingFunction
+                        )(moduleId, LSSM, $m),
                     });
                 }
                 if (
@@ -122,6 +140,13 @@ require('./natives/lightbox');
                         LSSM.$store.state.modules[moduleId].location
                     )
                 ) {
+                    if (moduleId === 'redesign') {
+                        document
+                            .querySelector<HTMLButtonElement>(
+                                '#lightbox_close_inside'
+                            )
+                            ?.remove();
+                    }
                     try {
                         LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                             modules: {
@@ -144,12 +169,18 @@ require('./natives/lightbox');
                         /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                         `./modules/${moduleId}/main`
                     ).then(module =>
-                        (module.default as ModuleMainFunction)(
+                        (module.default as ModuleMainFunction)({
                             LSSM,
-                            moduleId,
+                            MODULE_ID: moduleId,
                             $m,
-                            $mc
-                        )
+                            $mc,
+                            getSetting: (settingId, defaultValue) =>
+                                LSSM.$store.dispatch('settings/getSetting', {
+                                    moduleId,
+                                    settingId,
+                                    defaultValue,
+                                }),
+                        })
                     );
                 }
             });

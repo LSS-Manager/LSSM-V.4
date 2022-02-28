@@ -16,21 +16,28 @@
 		"title": "Pazienti | {n} Paziente | {n} Pazienti"
 	},
 	"prerequisites": {
+		"brush_extension": "espansione Anticendio Boschivo",
 		"commerce_police_stations": "Caserma della Finanza",
+		"fire_aviation_count": "Base Aerea Antincendio",
 		"fire_stations": "Caserma VVF | Caserme VVF",
+		"fire_support_count": "espansione Sistema schiumogeno",
 		"max_police_stations": "Massimale delle polizze",
 		"max_rescue_stations": "Massimale di soccorso",
 		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
 		"police_stations": "Stazione di Polizia | Stazioni di Polizia",
 		"rescue_stations": "Stazione ambulanza | Stazioni ambulanze",
-		"title": "Prerequisito | Prerequisitp",
+		"title": "Prerequisito | Prerequisiti",
 		"wasserrettung": "Caserma soccorso acquatico VVF"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Massimo prigioniere | Prigionieri massimali",
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
-	"requirements": {},
+	"requirements": {
+		"foam_needed": "Domanda di schiuma (l)",
+		"water_needed": "Acqua Necessaria"
+	},
+	"subsequent": "Missione successiva | Missioni successive",
 	"tip": {
 		"dragging": "trascinare la finestra",
 		"maxState": "requisiti massimi on/off",
@@ -44,9 +51,12 @@
 			"arff": "Flotta antincendio aereporti",
 			"battalion_chief_vehicles": "Funzionari",
 			"boats": "Barche",
+			"brush_truck": "Mezzi AIB",
 			"commerce_police": "Volante finanza",
 			"diver_units": "Camion tecnico NSSA",
+			"elw3": "DOS",
 			"fbi_bomb": "Furgone artificieri",
+			"fire_aviation": "Mezzi Aerei Antincendio",
 			"firetrucks": "APS/ABP",
 			"fwk": "Autogrù",
 			"hazmat_vehicles": "NBCR",
@@ -56,7 +66,7 @@
 			"mobile_air_vehicles": "Carro aria",
 			"mobile_command_vehicles": "UCL",
 			"platform_trucks": "Autoscala | Autoscale",
-			"police_cars": "Pattuglie",
+			"police_cars": "Pattuglia | Pattuglie",
 			"police_helicopters": "Elicottero della polizia",
 			"swat_armored_vehicle": "Furgone Antisommossa",
 			"swat_suv": "Suv UOPI",
@@ -80,6 +90,9 @@
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Firetruck or Heavy Rescue or Rescue Engine | Firetrucks or Heavy Rescue or Rescue Engine"
 			}
+		},
+		"patient_additionals": {
+			"14": "DTS"
 		},
 		"title": "Veicoli"
 	}

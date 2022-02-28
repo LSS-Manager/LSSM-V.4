@@ -4,6 +4,4 @@ export interface Library {
     icon?: string;
 }
 
-export interface Libraries {
-    [module: string]: Library;
-}
+export type Libraries = Record<string, Library>;

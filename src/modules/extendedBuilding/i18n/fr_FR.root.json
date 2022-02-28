@@ -38,9 +38,17 @@
 			"description": "Affiche dans l'en-tête de la vue bâtiment combien d'employés sont formés et pour quelles formations.",
 			"title": "Sommaire des employés"
 		},
+		"upgradeConfirmation": {
+			"description": "Demande si vous voulez vraiment améliorer votre bâtiment.",
+			"title": "Modernisation du bâtiment"
+		},
 		"vehicleTypes": {
 			"description": "Affiche le type de véhicule (et aussi sa classe propre) dans une colonne séparée.",
 			"title": "Type de véhicule"
+		},
+		"vehicleTypesOnlyOwn": {
+			"description": "Affiche, si elle est disponible, la classe du véhicule personnel. Si elle n'est pas disponible, la classe du véhicule par défaut sera affichée.",
+			"title": "Afficher la classe du véhicule"
 		},
 		"vehiclesPersonnelAssigned": {
 			"description": "Affiche le nombre d'employés affectés à un véhicule.",

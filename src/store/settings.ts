@@ -1,16 +1,16 @@
-import { ActionTree, Module, MutationTree } from 'vuex';
-import { SettingsState } from '../../typings/store/settings/State';
-import { RootState } from '../../typings/store/RootState';
-import {
+import type { RootState } from '../../typings/store/RootState';
+import type { SettingsState } from '../../typings/store/settings/State';
+import type { ActionTree, Module, MutationTree } from 'vuex';
+import type {
     AppendableList,
     ModuleSettings,
     Setting,
     Settings,
 } from '../../typings/Setting';
-import {
+import type {
     SettingsActionStoreParams,
-    SettingsRegister,
     SettingsGet,
+    SettingsRegister,
     SettingsSave,
     SettingsSet,
 } from '../../typings/store/settings/Actions';
@@ -52,32 +52,11 @@ export default {
     } as MutationTree<SettingsState>,
     actions: {
         saveSettings(
-            { commit, dispatch }: SettingsActionStoreParams,
+            { commit }: SettingsActionStoreParams,
             { settings }: SettingsSave
         ) {
-            return new Promise<void>(resolve => {
-                commit('save', settings);
-                Object.entries(settings).forEach(
-                    async ([module, settings]) =>
-                        await dispatch(
-                            'storage/set',
-                            {
-                                key: `settings_${module}`,
-                                value: Object.fromEntries(
-                                    Object.entries(
-                                        settings
-                                    ).map(([setting, { value }]) => [
-                                        setting,
-                                        value,
-                                    ])
-                                ),
-                            },
-                            { root: true }
-                        )
-                );
-                commit('setSettingsReload');
-                resolve();
-            });
+            commit('save', settings);
+            commit('setSettingsReload');
         },
         register(
             { commit, dispatch }: SettingsActionStoreParams,
@@ -132,35 +111,54 @@ export default {
                 })
             );
         },
-        getModule({ dispatch }: SettingsActionStoreParams, moduleId: string) {
-            return dispatch(
-                'storage/get',
-                { key: `settings_${moduleId}`, defaultValue: {} },
-                {
-                    root: true,
-                }
-            );
+        getModule(
+            { dispatch, state }: SettingsActionStoreParams,
+            moduleId: string
+        ) {
+            return new Promise(resolve => {
+                dispatch(
+                    'storage/get',
+                    { key: `settings_${moduleId}`, defaultValue: {} },
+                    {
+                        root: true,
+                    }
+                ).then(storage =>
+                    resolve({
+                        ...Object.fromEntries(
+                            Object.entries(state.settings[moduleId] ?? {}).map(
+                                ([key, { value, default: def }]) => [
+                                    key,
+                                    value ?? def,
+                                ]
+                            )
+                        ),
+                        ...storage,
+                    })
+                );
+            });
         },
         setSetting(
             { commit, dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, value }: SettingsSet
         ) {
             commit('modifyValue', { moduleId, settingId, value });
-            dispatch('getModule', moduleId).then(async module => {
-                await dispatch(
-                    'storage/set',
-                    {
-                        key: `settings_${moduleId}`,
-                        value: {
-                            ...module,
-                            [settingId]: value,
+            return new Promise(resolve =>
+                dispatch('getModule', moduleId).then(module => {
+                    dispatch(
+                        'storage/set',
+                        {
+                            key: `settings_${moduleId}`,
+                            value: {
+                                ...module,
+                                [settingId]: value,
+                            },
                         },
-                    },
-                    {
-                        root: true,
-                    }
-                );
-            });
+                        {
+                            root: true,
+                        }
+                    ).then(resolve);
+                })
+            );
         },
         async getSetting(
             { state, dispatch }: SettingsActionStoreParams,

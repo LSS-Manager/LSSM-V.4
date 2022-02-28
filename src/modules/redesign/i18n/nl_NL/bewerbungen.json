@@ -1,0 +1,11 @@
+{
+	"accept": "Aannemen",
+	"alert": {
+		"accepted": "{username} is succesvol aangenomen!",
+		"declined": "De aanmelding van **{username}** is afgewezen!"
+	},
+	"decline": "Afwijzen",
+	"rules": "Aanmeldingsregels",
+	"title": "Aanmelding: {n} | Aanmeldingen: {n}",
+	"user": "Speler"
+}

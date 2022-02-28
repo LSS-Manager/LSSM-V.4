@@ -5,6 +5,12 @@
 		"total": {
 			"max": "Max. Gesamtcredits",
 			"min": "Min. Gesamtcredits"
+		},
+		"type": {
+			"all_types": "Alle Typen anzeigen",
+			"amount": "{n} gefilterter Eintrag | {n} gefilterte Einträge",
+			"no_types": "Keine Typen anzeigen",
+			"type": "angezeigte Eintragstypen"
 		}
 	},
 	"title": "Zusammenfassung",

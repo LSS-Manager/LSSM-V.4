@@ -18,7 +18,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= credits.lastPage ||
-                    credits.lastPage === Number.MAX_SAFE_INTEGER
+                credits.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -26,8 +26,8 @@
         </button>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
-            :no-search="true"
+            :table-attrs="{ class: 'table table-striped' }"
+            no-search
         >
             <tr v-for="(entry, id) in credits.entries" :key="id">
                 <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">
@@ -43,10 +43,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import moment from 'moment';
-import VueI18n from 'vue-i18n';
-import { CreditsListWindow } from '../../parsers/credits/list';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+
+import type { CreditsListWindow } from '../../parsers/credits/list';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -54,28 +56,25 @@ export default Vue.extend<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
     },
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         setSort(type: string): void;
         loadPrev(): void;
@@ -88,25 +87,21 @@ export default Vue.extend<
     {
         credits: CreditsListWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'credits/list', CreditsListWindow>;
+        lightbox: RedesignLightboxVue<'credits/list'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
     }
 >({
-    name: 'credits-index',
+    name: 'lssmv4-redesign-credits-index',
     components: {
         EnhancedTable: () =>
             import(
@@ -126,21 +121,10 @@ export default Vue.extend<
         };
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/list.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/list.${key}`, amount, args);
         },
         setSort(type) {
@@ -165,8 +149,18 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/credits/list').then(parser => {
-                        const result = parser.default(html);
+                    import('../../parsers/credits/list').then(async parser => {
+                        const result = await parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -193,8 +187,18 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/credits/list').then(parser => {
-                        const result = parser.default(html);
+                    import('../../parsers/credits/list').then(async parser => {
+                        const result = await parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -214,7 +218,7 @@ export default Vue.extend<
     computed: {
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '1'
             );
@@ -281,19 +285,8 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
-        });
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/list-mounted');
     },
 });

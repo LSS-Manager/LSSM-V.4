@@ -1,6 +1,7 @@
 {
 	"approach": "Anfahren",
 	"backalarm": "Rückalarmieren",
+	"backalarmNext": "direkt Anfahren",
 	"cells": {
 		"cell": "Gebäude",
 		"free": "Freie Zellen"
@@ -57,11 +58,16 @@
 		"is_s2": "S6 setzen",
 		"is_s6": "S2 setzen"
 	},
+	"foam_amount": "Schaummenge",
 	"followup_missions": "Folgeeinsatz | Folgeeinsätze",
 	"hospitals": {
 		"beds": "Freie Betten",
 		"department": "Fachabteilung: {department}",
 		"hospital": "Krankenhaus"
+	},
+	"load_all_hospitals": {
+		"btn": "Alle laden",
+		"text": "Es werden nur 50 Verbands-Krankenhäuser angezeigt. Das Laden aller Krankenhäuser kann je nach Menge viel Zeit in Anspruch nehmen!"
 	},
 	"max_staff": "Max. Personal",
 	"mileage": "Laufleistung",
@@ -80,9 +86,11 @@
 		"offline": "{user} ist offline!",
 		"online": "{user} ist online!"
 	},
+	"patient_doctor_transport": "Transport mit Arztbegleitung",
 	"release": {
 		"cancel": "Abbrechen",
 		"confirm": "Ja, entlassen!",
+		"disable": "Entlassen und Bestätigung deaktivieren",
 		"patient": {
 			"text": "Möchtest du wirklich den Patienten dieses Fahrzeugs entlassen? Es wird keine Vergütung für den Patienten gutgeschrieben werden!",
 			"title": "Patienten entlassen"

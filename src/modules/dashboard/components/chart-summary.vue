@@ -52,11 +52,9 @@
                     :key="category"
                     class="sunburst-chart"
                     :id="`${vehiclesId}_${category}`"
-                    :style="
-                        `flex: 1 0 min(100%, max(250px, calc(100%/${
-                            Object.keys(vehicleCategories).length
-                        })))`
-                    "
+                    :style="`flex: 1 0 min(100%, max(250px, calc(100%/${
+                        Object.keys(vehicleCategories).length
+                    })))`"
                 >
                     <div class="alert alert-danger">
                         {{
@@ -74,31 +72,39 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Highcharts, {
-    DrilldownOptions,
-    Options,
-    SeriesSunburstOptions,
-    PointOptionsObject,
-} from 'highcharts';
-import HighchartsMore from 'highcharts/highcharts-more';
+
+import Highcharts from 'highcharts';
 import HighchartsDrilldown from 'highcharts/modules/drilldown';
-import HighchartsSunburst from 'highcharts/modules/sunburst';
-import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsExportData from 'highcharts/modules/export-data';
+import HighchartsExporting from 'highcharts/modules/exporting';
+import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
-import { TranslateResult } from 'vue-i18n';
-import { DefaultProps } from 'vue/types/options';
-import {
-    ChartSummary,
-    ChartSummaryMethods,
-    ChartSummaryComputed,
-} from '../../../../typings/modules/Dashboard/ChartSummary';
-import {
+import HighchartsSunburst from 'highcharts/modules/sunburst';
+
+import type { DefaultProps } from 'vue/types/options';
+import type { TranslateResult } from 'vue-i18n';
+import type {
     Building,
     BuildingCategory,
     InternalBuilding,
 } from '../../../../typings/Building';
-import { InternalVehicle, VehicleCategory } from '../../../../typings/Vehicle';
+import type {
+    ChartSummary,
+    ChartSummaryComputed,
+    ChartSummaryMethods,
+} from '../../../../typings/modules/Dashboard/ChartSummary';
+// to seperate types
+// eslint-disable-next-line no-duplicate-imports
+import type {
+    DrilldownOptions,
+    Options,
+    PointOptionsObject,
+    SeriesSunburstOptions,
+} from 'highcharts';
+import type {
+    InternalVehicle,
+    VehicleCategory,
+} from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);
@@ -117,7 +123,7 @@ export default Vue.extend<
     ChartSummaryComputed,
     DefaultProps
 >({
-    name: 'chart-summary',
+    name: 'lssmv4-dashboard-chart-summary',
     data() {
         return {
             buildingsId: this.$store.getters.nodeAttribute(
@@ -125,21 +131,17 @@ export default Vue.extend<
                 true
             ),
             buildings: this.$store.getters['api/buildingsByCategory'],
-            buildingCategories: (this.$t('buildingCategories') as unknown) as {
-                [category: string]: BuildingCategory;
-            },
+            buildingCategories: this.$t(
+                'buildingCategories'
+            ) as unknown as Record<string, BuildingCategory>,
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as {
-                        [id: number]: InternalBuilding;
-                    }
+                    this.$t('buildings') as Record<number, InternalBuilding>
                 ).map(([index, { caption }]) => [index, caption])
             ),
             buildingTypeColors: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as {
-                        [id: number]: InternalBuilding;
-                    }
+                    this.$t('buildings') as Record<number, InternalBuilding>
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesId: this.$store.getters.nodeAttribute(
@@ -147,21 +149,17 @@ export default Vue.extend<
                 true
             ),
             vehicles: this.$store.getters['api/vehiclesByType'],
-            vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
-                [category: string]: VehicleCategory;
-            },
+            vehicleCategories: this.$t(
+                'vehicleCategories'
+            ) as unknown as Record<string, VehicleCategory>,
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as {
-                        [id: number]: InternalVehicle;
-                    }
+                    this.$t('vehicles') as Record<number, InternalVehicle>
                 ).map(([index, { caption }]) => [index, caption])
             ),
             vehicleTypeColors: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as {
-                        [id: number]: InternalVehicle;
-                    }
+                    this.$t('vehicles') as Record<number, InternalVehicle>
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
@@ -180,9 +178,7 @@ export default Vue.extend<
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
         this.$store
@@ -232,8 +228,9 @@ export default Vue.extend<
                         id: `${category}_${group}`,
                         name: group,
                         parent: category,
-                        color: `#${'00000'.substring(0, 6 - color.length) +
-                            color}`,
+                        color: `#${
+                            '00000'.substring(0, 6 - color.length) + color
+                        }`,
                     });
                     types.forEach(type => data.push(type));
                 });
@@ -302,7 +299,7 @@ export default Vue.extend<
         },
         mountBuildingChart() {
             const buildingVehicleDrilldowns = [] as DrilldownOptions[];
-            Highcharts.chart(this.buildingsId, ({
+            Highcharts.chart(this.buildingsId, {
                 chart: {
                     type: this.buildingsAsColumn ? 'column' : 'waterfall',
                 },
@@ -380,9 +377,10 @@ export default Vue.extend<
                                                 building.building_type ===
                                                 building_type
                                         );
-                                        const vehicle_types = {} as {
-                                            [type: string]: number;
-                                        };
+                                        const vehicle_types = {} as Record<
+                                            string,
+                                            number
+                                        >;
                                         buildings.forEach(building => {
                                             if (
                                                 !this.vehiclesByBuilding.hasOwnProperty(
@@ -421,10 +419,9 @@ export default Vue.extend<
                                                     name: this.vehicleTypeNames[
                                                         parseInt(vehicle_type)
                                                     ],
-                                                    y:
-                                                        vehicle_types[
-                                                            vehicle_type
-                                                        ],
+                                                    y: vehicle_types[
+                                                        vehicle_type
+                                                    ],
                                                     color: this
                                                         .vehicleTypeColors[
                                                         parseInt(vehicle_type)
@@ -455,7 +452,7 @@ export default Vue.extend<
                         ...buildingVehicleDrilldowns,
                     ],
                 },
-            } as unknown) as Options);
+            } as unknown as Options);
         },
     },
 });

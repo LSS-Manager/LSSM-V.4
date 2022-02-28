@@ -1,3 +1,5 @@
+import type { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
+
 export interface OpenSchooling {
     end: number;
     id: string;
@@ -5,24 +7,19 @@ export interface OpenSchooling {
     owner: string;
     price: string;
     seats: number;
-
-    // General
-    [key: string]: number | string;
 }
 
 export interface OpenSchoolingTabs {
-    heads: {
-        [key: string]: {
+    heads: Record<
+        string,
+        {
             title: string;
-        };
-    };
+        }
+    >;
     tabTitles: string[];
     currentTab: string;
-    tabs: {
-        [tab: string]: OpenSchooling[];
-    };
     search: string;
-    sort: string;
+    sort: 'end' | 'name' | 'owner' | 'price' | 'seats';
     sortDir: string;
     all: string;
 }
@@ -32,5 +29,9 @@ export interface OpenSchoolingTabsComputed {
 }
 
 export interface OpenSchoolingTabsMethods {
-    setSorting(s: string): void;
+    setSorting(s: OpenSchoolingTabs['sort']): void;
+}
+
+export interface OpenSchoolingTabsProps {
+    tabs: OpenSchoolings['tabs'];
 }

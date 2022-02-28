@@ -1,49 +1,52 @@
-import { Games } from './Game';
-import VueI18n from 'vue-i18n';
-import { RegisterSettings } from './Setting';
+import type { Games } from './Game';
+import type { RegisterSettings } from './Setting';
+import type VueI18n from 'vue-i18n';
 
-export interface Module {
+export type Module = Partial<{
     active: boolean;
     alpha: boolean;
-    location: RegExp | string;
-    locales: null | (keyof Games)[];
-    collisions: null | (keyof Modules)[];
+    dev: boolean;
+    github: number;
+    locales: (keyof Games)[] | null;
+    collisions: (keyof Modules)[] | null;
     noapp: boolean;
     noMapkit: boolean;
-    description: string;
     settings: boolean;
-}
+    location: RegExp;
 
-export interface Modules {
-    [moduleId: string]: Module;
-}
+    // being generated in AppStore
+    description: string;
+}> & { location: RegExp | string };
+
+export type Modules = Record<string, Module>;
 
 export type $m = (
     key: string,
-    args?: { [key: string]: unknown }
+    args?: Record<string, unknown>
 ) => VueI18n.TranslateResult;
 
 export type $mc = (
     key: string,
-    amount?: number,
-    args?: { [key: string]: unknown }
-) => string;
+    amount: number,
+    args?: Record<string, unknown>
+) => VueI18n.TranslateResult;
 
-export type ModuleMainFunction = (
-    LSSM: Vue,
-    MODULE_ID: string,
-    $m: $m,
-    $mc: $mc
-) => void | Promise<void>;
+export type ModuleMainFunction = (parameters: {
+    LSSM: Vue;
+    MODULE_ID: string;
+    $m: $m;
+    $mc: $mc;
+    getSetting<T = boolean>(settingId: string, defaultValue?: T): Promise<T>;
+}) => Promise<void> | void;
 
 export type ModuleSettingFunction =
     | ((
           MODULE_ID: string,
-          LSSM: Vue,
-          $m: $m
-      ) => RegisterSettings | Promise<RegisterSettings>)
+          LSSM: Vue
+      ) => Promise<RegisterSettings> | RegisterSettings)
     | ((
           MODULE_ID: string,
-          LSSM: Vue
-      ) => RegisterSettings | Promise<RegisterSettings>)
-    | ((MODULE_ID: string) => RegisterSettings | Promise<RegisterSettings>);
+          LSSM: Vue,
+          $m: $m
+      ) => Promise<RegisterSettings> | RegisterSettings)
+    | ((MODULE_ID: string) => Promise<RegisterSettings> | RegisterSettings);

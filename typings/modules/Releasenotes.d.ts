@@ -3,8 +3,10 @@ export interface Releasenote {
     timestamp: string;
 }
 
-export interface Releasenotes {
-    [version: string]: Releasenote;
+export type Releasenotes = Record<string, Releasenote>;
+
+export interface ReleaseNoteComputed {
+    minors: Record<string, ReleaseNoteProps['notes']>;
 }
 
 export interface ReleaseNoteProps {

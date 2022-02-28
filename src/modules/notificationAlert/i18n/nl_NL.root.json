@@ -3,6 +3,7 @@
 		"danger": "Foutmelding (rood)",
 		"info": "Informatie (blauw)",
 		"success": "Bevestiging (groen)",
+		"unimportant": "Simpel (grijs)",
 		"warning": "Waarschuwing (geel)"
 	},
 	"description": "Krijg browser en in-game meldingen voor verschillende gebeurtenissen - uiteraard allemaal in te stellen!",
@@ -23,6 +24,7 @@
 		"mission_share": "Nieuwe gedeelde melding",
 		"sicherheitswache_error": "Geplande inzet gecanceld",
 		"sicherheitswache_success": "Geplande inzet voltooid",
+		"tasks_update": "Taak voltooid",
 		"vehicle_fms": "Status meldingen (Algemeen)",
 		"vehicle_fms_1": "Status meldingen (Status 1)",
 		"vehicle_fms_2": "Status meldingen (Status 2)",

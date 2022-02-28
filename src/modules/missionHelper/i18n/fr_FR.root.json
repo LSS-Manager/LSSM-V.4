@@ -1,6 +1,6 @@
 {
 	"description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
-	"name": "Missionhelper",
+	"name": "Aide à la mission",
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
@@ -16,6 +16,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Spécialistes IMP requis"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Eau: {n} litre | Eau: {n} litres"
 		}
 	},
 	"settings": {
@@ -49,6 +54,10 @@
 			"description": "Cache le nombre de VLCG et affiche seulement les VPC.",
 			"title": "Cacher VLCG"
 		},
+		"hoverTip": {
+			"description": "Infobulles pour le bouton de superposition, par exemple.",
+			"title": "Infobulles"
+		},
 		"id": {
 			"description": "Affiche l'ID de la mission à côté de son titre.",
 			"title": "Mission ID"
@@ -63,26 +72,22 @@
 				"title": "VLCG restants"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
-				"title": "Heavy Rescue Simple Rate"
-			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
+				"description": "Soustrait le nombre de camions de pompiers requis du VSR. Cache le nombre de camion de pompier si il est inférieur à zéro.",
+				"title": "VSR restants"
 			}
 		},
 		"noVehicleRequirements": {
-			"description": "Set here which special requirements to show, if they exist for that mission.",
-			"title": "Special requirements"
+			"description": "Définissez ici les conditions particulières à afficher, si elles existent pour cette mission.",
+			"title": "Conditions particulières"
 		},
 		"optionalAlternatives": {
-			"allow_arff_instead_of_lf": {
-				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
-				"title": "Show if arrfs are allowed as firetrucks"
+			"allow_ktw_instead_of_rtw": {
+				"description": "Indique si une ambulance de type A peut être utilisée à la place d'une ASSU..",
+				"title": "Ambulance de type A au lieu d'ASSU"
 			},
 			"allow_rw_instead_of_lf": {
-				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
-				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+				"description": "Indique si, au lieu d'un camion de pompiers, il est possible d'utiliser un véhicule de secours routier ou une échelle pivotante automatique",
+				"title": "Afficher VSR/EPA au lieu des camions de pompiers"
 			}
 		},
 		"patients": {
@@ -100,15 +105,15 @@
 			},
 			"live": {
 				"description": "Affiche le nombre de patients actuellement sur la mission en haut des infos Mission Helper.",
-				"title": "Numbre de patients actuels"
+				"title": "Nombre de patients actuels"
 			},
 			"patient_allow_first_responder_chance": {
-				"description": "Shows with how much % any vehicle is sufficient to treat.",
-				"title": "First Responder Probability"
+				"description": "Affiche le pourcentage de tout véhicule nécessaire au traitement.",
+				"title": "Probabilité de traitement"
 			},
 			"title": {
 				"description": "Affiche l'en-tête \"Patients\" au dessus des détails pour de possibles patients.",
-				"title": "Patients (Title)"
+				"title": "Patients (Titre)"
 			}
 		},
 		"place": {
@@ -130,21 +135,21 @@
 			},
 			"title": {
 				"description": "Affiche l'en-tête \"Prisonniers\" au dessus des détails pour de possibles patients.",
-				"title": "Prisonniers (Title)"
+				"title": "Prisonniers (Titre)"
 			}
 		},
 		"title": {
 			"description": "Affiche le nom de la mission en titre, par ex. \"Feu de poubelle\".",
-			"title": "mission name"
+			"title": "Nom de la missions"
 		},
 		"type": {
-			"description": "Shows the type number of the mission next to the title.",
-			"title": "Type number"
+			"description": "Affiche le numéro de type de la mission à côté du titre.",
+			"title": "Numéro de type"
 		},
 		"vehicles": {
 			"content": {
 				"description": "Affiche les véhicules requis.",
-				"title": "Vyepéhicule requis"
+				"title": "Véhicules requis"
 			},
 			"patient_additionals": {
 				"description": "S'il y a actuellement plus de 10 patients sur place, PC DSM est automatiquement inscrit au début des exigences relatives au véhicule.",
@@ -157,9 +162,17 @@
 				"percentage": "Probabilité",
 				"title": "Tri des véhicules requis"
 			},
+			"sortDesc": {
+				"description": "Trie les exigences du véhicule dans un ordre décroissant.",
+				"title": "Véhicules par ordre décroissant"
+			},
 			"title": {
 				"description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
-				"title": "Véhicules (Title)"
+				"title": "Véhicules (Titre)"
+			},
+			"xAfterNumber": {
+				"description": "Met un x derrière le nombre de véhicules",
+				"title": "X derrière le montant"
 			}
 		}
 	}

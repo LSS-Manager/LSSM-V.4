@@ -1,0 +1,33 @@
+{
+	"description": "Improve the map with some cool features.",
+	"name": "Improved Map",
+	"positions": {
+		"bottomleft": "Bottom Left 🡧",
+		"bottomright": "Bottom Right 🡦",
+		"topleft": "Top Left 🡤",
+		"topright": "Top Right 🡥"
+	},
+	"settings": {
+		"centerMap": {
+			"description": "Center the map dynamically or to a static view when opening the game",
+			"title": "Center map"
+		},
+		"centerMapStaticLocation": {
+			"title": "Center map static: Position"
+		},
+		"centerMapType": {
+			"description": "Select whether you want static or dynamic centering [dynamic is not yet available]",
+			"dynamic": "dynamic",
+			"static": "static",
+			"title": "Center map: Mode"
+		},
+		"mapScale": {
+			"description": "Shows a map-scale and current zoom level",
+			"title": "Scale"
+		},
+		"mapScalePosition": {
+			"description": "Select in which corner of the map the map-scale should appear",
+			"title": "Position of map-scale"
+		}
+	}
+}

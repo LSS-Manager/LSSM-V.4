@@ -1,10 +1,18 @@
+import type { OpenSchooling } from 'typings/modules/SchoolingOverview/OpenSchoolingTabs';
+import type { OwnSchooling } from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
+
 export interface OwnSchoolings {
-    [name: string]: number;
+    amounts: Record<string, number>;
+    tabs: Record<string, OwnSchooling[]>;
 }
 
 export interface OpenSchoolings {
-    [name: string]: {
-        amount: number;
-        seats: number;
-    };
+    amounts: Record<
+        string,
+        {
+            amount: number;
+            seats: number;
+        }
+    >;
+    tabs: Record<string, OpenSchooling[]>;
 }

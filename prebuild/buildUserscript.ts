@@ -1,11 +1,13 @@
+import { execSync } from 'child_process';
 import fs from 'fs';
 import Terser from 'terser';
-import packageJson from '../package.json';
+
 import config from '../src/config';
+import packageJson from '../package.json';
 
 const script = packageJson.userscript;
 
-const tlds = {} as { [tld: string]: string[] };
+const tlds = {} as Record<string, string[]>;
 
 Object.values(config.games).forEach(({ shortURL, police }) => {
     const tld = shortURL
@@ -26,6 +28,8 @@ const gameIncludes = Object.keys(tlds).map(tld => {
     if (tlds[tld].length > 1) include += ')';
     return `${include}\\.${tld}`;
 });
+
+execSync('tsc src/userscript.ts');
 
 export default async (): Promise<void> =>
     fs.writeFileSync(
