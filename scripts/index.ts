@@ -35,7 +35,9 @@ const scriptHandlers = {
     },
     docs() {
         console.log(
-            execSync('cd ./docs/.vuepress/ && vuepress build docs').toString()
+            execSync(
+                './docs/.vuepress/node_modules/.bin/vuepress build docs'
+            ).toString()
         );
     },
     preBuild() {

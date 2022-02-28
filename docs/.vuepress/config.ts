@@ -2,6 +2,7 @@ import axios from 'axios';
 import copydir from 'copy-dir';
 import fs from 'fs';
 import path from 'path';
+import type Vue from 'vue';
 
 import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
@@ -22,10 +23,14 @@ interface ModuleRegistration {
 
 const BASE = '/v4/docs/';
 
-const ROOT_PATH = path.join(__dirname, '../../');
+const VUEPRESS_PATH = __dirname;
+const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
 const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
-const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
+const DOCS_I18N_PATH = path.join(VUEPRESS_PATH, 'i18n');
+const OUTPUT_PATH = path.join(ROOT_PATH, 'dist/docs');
+
+console.log(ROOT_PATH, MODULES_PATH, DOCS_PATH, DOCS_I18N_PATH, OUTPUT_PATH);
 
 const LANGS = Object.keys(config.games).filter(lang =>
     fs.existsSync(path.join(DOCS_PATH, lang))
@@ -105,12 +110,12 @@ const emptyFolders = () => {
     };
 
     [
-        'dist/docs',
+        OUTPUT_PATH,
         ...fs
-            .readdirSync(path.join(ROOT_PATH, 'docs/'))
+            .readdirSync(DOCS_PATH)
             .filter((name: string) => LANGS.indexOf(name) >= 0)
-            .map(lang => `docs/${lang}/modules`),
-        'docs/.vuepress/public/assets',
+            .map(lang => path.join(DOCS_PATH, lang, 'modules')),
+        path.join(VUEPRESS_PATH, 'public/assets'),
     ].forEach(folder => {
         emptyFolder(folder);
         if (!fs.existsSync(folder)) fs.mkdirSync(folder);
@@ -517,7 +522,7 @@ module.exports = async () => {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for LSS-Manager V.4',
         base: BASE,
-        dest: './dist/docs',
+        dest: OUTPUT_PATH,
         head: [
             [
                 'link',
@@ -528,7 +533,7 @@ module.exports = async () => {
             ],
         ],
         markdown: {
-            code: { lineNumbers: true },
+            lineNumbers: true,
         },
         theme: 'yuu',
         themeConfig: {
@@ -584,28 +589,28 @@ module.exports = async () => {
             //         return moment(timestamp).format('LLL');
             //     },
             // },
-            // [
-            //     'vuepress-plugin-code-copy',
-            //     {
-            //         align: 'top',
-            //     },
-            // ],
-            // [
-            //     'vuepress-plugin-redirect',
-            //     {
-            //         locales: true,
-            //     },
-            // ],
-            // ['vuepress-plugin-smooth-scroll', {}],
-            // [
-            //     'vuepress-plugin-zooming',
-            //     {
-            //         selector: 'img:not([data-prevent-zooming]):not(.logo)',
-            //         options: {
-            //             bgColor: 'black',
-            //         },
-            //     },
-            // ],
+            [
+                'vuepress-plugin-code-copy',
+                {
+                    align: 'top',
+                },
+            ],
+            [
+                'vuepress-plugin-redirect',
+                {
+                    locales: true,
+                },
+            ],
+            ['vuepress-plugin-smooth-scroll', {}],
+            [
+                'vuepress-plugin-zooming',
+                {
+                    selector: 'img:not([data-prevent-zooming]):not(.logo)',
+                    options: {
+                        bgColor: 'black',
+                    },
+                },
+            ],
         ],
     };
     addToBuildStats({ docs_config: vuepressConfig });

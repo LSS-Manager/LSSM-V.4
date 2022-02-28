@@ -1,12 +1,13 @@
 {
-    "dependencies": {
-        "@vuepress/plugin-active-header-links": "^1.9.7",
-        "@vuepress/plugin-back-to-top": "^1.9.7",
-        "vuepress": "^1.9.7",
-        "vuepress-plugin-code-copy": "^1.0.6",
-        "vuepress-plugin-redirect": "^1.2.5",
-        "vuepress-plugin-smooth-scroll": "^0.0.10",
-        "vuepress-plugin-zooming": "^1.1.8",
-        "vuepress-theme-yuu": "^3.1.1"
-    }
+	"dependencies": {
+		"@vuepress/plugin-active-header-links": "^1.9.7",
+		"@vuepress/plugin-back-to-top": "^1.9.7",
+		"vue": "^2.6.14",
+		"vuepress": "^1.9.7",
+		"vuepress-plugin-code-copy": "^1.0.6",
+		"vuepress-plugin-redirect": "^1.2.5",
+		"vuepress-plugin-smooth-scroll": "^0.0.10",
+		"vuepress-plugin-zooming": "^1.1.8",
+		"vuepress-theme-yuu": "^3.1.1"
+	}
 }
