@@ -15,7 +15,7 @@
         "tsc:build": "ts-node scripts tscBuild",
         "tsc:docs": "ts-node scripts tscDocs",
         "api": "ts-node scripts api",
-        "force-clean": "yarn cache clean && git clean -dfX && yarn install --force"
+        "force-clean": "yarn cache clean && git clean -dfX && yarn install --force && cd ./docs/.vuepress && yarn install --force"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.3.0",

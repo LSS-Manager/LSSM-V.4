@@ -17,5 +17,8 @@ echo "node: $(node -v) – npm: $(npm -v) – yarn: $(yarn -v) – nvm: $(nvm -v
 
 npx -y browserslist@latest --update-db
 
-yarn --frozen-lockfile
+yarn install --frozen-lockfile
+cd ./docs/.vuepress/
+yarn install --frozen-lockfile
+cd ../../
 yarn run "$RUN_BRANCH"
