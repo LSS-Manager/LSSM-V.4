@@ -4,6 +4,7 @@ node_modules
 package-lock.json
 /docs/*/modules
 /docs/.vuepress/public/assets/*
+/docs/.vuepress/.temp
 /static/db_access.php
 /static/.configs.json
 /static/.check_request.php

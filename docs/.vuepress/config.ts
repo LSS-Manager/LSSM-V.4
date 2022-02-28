@@ -278,7 +278,7 @@ ${getLocale(lang, 'head.mapkit')}
                 `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
 ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
-    path.join(BASE, 'assets', module, lang, asset)
+    path.join('/assets', module, lang, asset)
 )}
 
 <edit-module module="${module}" />`
@@ -528,8 +528,7 @@ module.exports = async () => {
             ],
         ],
         markdown: {
-            sluglify: '',
-            lineNumbers: true,
+            code: { lineNumbers: true },
         },
         theme: 'yuu',
         themeConfig: {
@@ -573,9 +572,9 @@ module.exports = async () => {
             },
         },
         locales,
-        plugins: {
-            '@vuepress/active-header-links': {},
-            '@vuepress/back-to-top': {},
+        plugins: [
+            ['@vuepress/active-header-links', {}],
+            ['@vuepress/back-to-top', {}],
             // TODO: Find a way to make this work with vuepress@1.9.x
             // '@vuepress/last-updated': {
             //     transformer(timestamp: number, lang: string) {
@@ -585,21 +584,31 @@ module.exports = async () => {
             //         return moment(timestamp).format('LLL');
             //     },
             // },
-            'vuepress-plugin-code-copy': {
-                align: 'top',
-            },
-            'vuepress-plugin-redirect': {
-                locales: true,
-            },
-            'vuepress-plugin-smooth-scroll': {},
-            'vuepress-plugin-zooming': {
-                selector: 'img:not([data-prevent-zooming]):not(.logo)',
-                options: {
-                    bgColor: 'black',
-                },
-            },
-        },
+            // [
+            //     'vuepress-plugin-code-copy',
+            //     {
+            //         align: 'top',
+            //     },
+            // ],
+            // [
+            //     'vuepress-plugin-redirect',
+            //     {
+            //         locales: true,
+            //     },
+            // ],
+            // ['vuepress-plugin-smooth-scroll', {}],
+            // [
+            //     'vuepress-plugin-zooming',
+            //     {
+            //         selector: 'img:not([data-prevent-zooming]):not(.logo)',
+            //         options: {
+            //             bgColor: 'black',
+            //         },
+            //     },
+            // ],
+        ],
     };
     addToBuildStats({ docs_config: vuepressConfig });
+    throw new Error('Hello world!');
     return vuepressConfig;
 };
