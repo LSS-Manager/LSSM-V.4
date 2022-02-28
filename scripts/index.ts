@@ -35,9 +35,7 @@ const scriptHandlers = {
     },
     docs() {
         console.log(
-            execSync(
-                'vuepress build docs --clean-temp --clean-cache'
-            ).toString()
+            execSync('cd ./docs/.vuepress/ && vuepress build docs').toString()
         );
     },
     preBuild() {

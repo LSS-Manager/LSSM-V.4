@@ -609,6 +609,5 @@ module.exports = async () => {
         ],
     };
     addToBuildStats({ docs_config: vuepressConfig });
-    throw new Error('Hello world!');
     return vuepressConfig;
 };

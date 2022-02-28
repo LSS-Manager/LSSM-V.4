@@ -1,5 +1,5 @@
 {
-    "version": "4.5.4+20220228.1412",
+    "version": "4.5.4+20220228.1428",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -14,7 +14,8 @@
         "tsc:prebuild": "ts-node scripts tscPrebuild",
         "tsc:build": "ts-node scripts tscBuild",
         "tsc:docs": "ts-node scripts tscDocs",
-        "api": "ts-node scripts api"
+        "api": "ts-node scripts api",
+        "force-clean": "yarn cache clean && git clean -dfX && yarn install --force"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.3.0",
@@ -63,8 +64,6 @@
         "@types/webpack-env": "^1.16.3",
         "@typescript-eslint/eslint-plugin": "^5.12.1",
         "@typescript-eslint/parser": "^5.12.1",
-        "@vuepress/plugin-active-header-links": "^2.0.0-beta.35",
-        "@vuepress/plugin-back-to-top": "^2.0.0-beta.35",
         "all-contributors-cli": "^6.20.0",
         "cache-loader": "^4.1.0",
         "copy-dir": "^1.3.0",
@@ -88,12 +87,6 @@
         "url-loader": "^4.1.1",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.14",
-        "vuepress": "^2.0.0-beta.35",
-        "vuepress-plugin-code-copy": "^1.0.6",
-        "vuepress-plugin-redirect": "^1.2.5",
-        "vuepress-plugin-smooth-scroll": "^0.0.10",
-        "vuepress-plugin-zooming": "^1.1.8",
-        "vuepress-theme-yuu": "^3.1.1",
         "webpack": "^5.69.1",
         "webpack-loader-append-prepend": "^1.0.2"
     },
