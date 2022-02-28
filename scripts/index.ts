@@ -34,7 +34,11 @@ const scriptHandlers = {
         this.showChanges();
     },
     docs() {
-        console.log(execSync('vuepress build docs').toString());
+        console.log(
+            execSync(
+                'vuepress build docs --clean-temp --clean-cache'
+            ).toString()
+        );
     },
     preBuild() {
         this.emojis();
