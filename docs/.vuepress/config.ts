@@ -283,7 +283,7 @@ ${getLocale(lang, 'head.mapkit')}
                 `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
 ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
-    path.join('/assets', module, lang, asset)
+    path.join(BASE, '/assets', module, lang, asset)
 )}
 
 <edit-module module="${module}" />`

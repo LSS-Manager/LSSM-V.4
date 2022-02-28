@@ -39,7 +39,7 @@ Hast du das dunkle Design aktiv, sind die Tooltips (Fahrzeug-/Einsatznamen etc.)
 ### V3 Menü als Untermenü
 Hat man viele Scripts aktiv, so wird die Navigationsleiste des Spiels schnell sehr voll. Mit dieser Einstellung wird das Menü des LSSM V.3 in das Menü der V4 verschoben:
 
-![V3 Menü als Untermenü](/img/de_DE/v3submenu.png)
+![V3 Menü als Untermenü](/v4/docs/img/de_DE/v3submenu.png)
 
 ## Moment.js
 Dieser Abschnitt bietet dir eine Hilfestellung bei der Konfiguration von Daten und Uhrzeiten, die du selber einstellen kannst, z.B. im Modul [Uhr](modules/clock.md).

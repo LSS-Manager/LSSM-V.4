@@ -39,7 +39,7 @@ Si tu as activé le design sombre, les infobulles (noms de véhicules/d'interven
 ### Menu V3 comme sous-menu
 Si l'on a beaucoup de scripts actifs, la barre de navigation du jeu devient vite très chargée. Avec ce réglage, le menu du LSSM V.3 est déplacé dans le menu de la V4 :
 
-![Menu V3 comme sous-menu](/img/fr_FR/v3submenu.png)
+![Menu V3 comme sous-menu](/v4/docs/img/fr_FR/v3submenu.png)
 
 ## Moment.js
 Cette section fournit des informations sur la façon de configurer les paramètres de date et d'heure, par exemple dans le module [clock](modules/clock.md).
