@@ -81,6 +81,9 @@
 	"@types/webpack": {
 		"version": "5.28.0"
 	},
+	"@types/webpack-dev-server": {
+		"version": "4.7.2"
+	},
 	"@types/webpack-env": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
