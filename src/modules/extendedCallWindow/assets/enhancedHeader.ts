@@ -47,10 +47,11 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
         if (people_amount && people_amount.parentElement)
             btnWrapper.classList.add('col-md-5');
         const clonedBtn = loadBtn.cloneNode(true) as HTMLAnchorElement;
-        clonedBtn.addEventListener('click', e => {
+        // eslint-disable-next-line unicorn/prefer-add-event-listener
+        clonedBtn.onclick = e => {
             e.preventDefault();
             loadBtn.click();
-        });
+        };
         btnWrapper.append(clonedBtn);
         if (people_amount && people_amount.parentElement) {
             people_amount.parentElement.before(wrapper);
