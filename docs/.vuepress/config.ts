@@ -282,7 +282,7 @@ ${getLocale(lang, 'head.mapkit')}
                 targetPath,
                 `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
-${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
+${content.replace(/(?<=!\[.*?\]\().*?(?=\))/gu, asset =>
     path.join(BASE, '/assets', module, lang, asset)
 )}
 
@@ -300,14 +300,14 @@ ${getModuleHead(i18n.name, i18n.description, lang, register)}
 :::warning ${getLocale(lang, '404.title')}
 ${getLocale(lang, '404.content')
     ?.toString()
-    .replace(/{{module}}/g, `**${i18n.name}**`)
-    .replace(/{{lang}}/g, `\`${lang}\``)
+    .replace(/\{\{module\}\}/gu, `**${i18n.name}**`)
+    .replace(/\{\{lang\}\}/gu, `\`${lang}\``)
     .replace(
-        /{{github}}/g,
+        /\{\{github\}\}/gu,
         `[GitHub](https://github.com/${config.github.repo}/new/dev/src/modules/${module}/docs?filename=${lang}.md)`
     )
     .replace(
-        /{{docs_dir}}/g,
+        /\{\{docs_dir\}\}/gu,
         `[docs directory](https://github.com/${config.github.repo}/tree/dev/src/modules/${module}/docs)`
     )}
 
@@ -434,7 +434,7 @@ ${docsLangs
                                             DOCS_PATH,
                                             file.replace('.md', '')
                                         )
-                                        .replace(/\\/g, '/')}`
+                                        .replace(/\\/gu, '/')}`
                             ),
                     ],
                 },
@@ -457,7 +457,7 @@ const setReadmeHeads = () =>
         fs.writeFileSync(
             filePath,
             (fs.readFileSync(filePath).toString() ?? '').replace(
-                /(.|\n)*?(?=\n## )/,
+                /(.|\n)*?(?=\n## )/u,
                 `---
 title: LSS-Manager V.4
 lang: ${lang}
@@ -511,7 +511,7 @@ module.exports = async () => {
     emptyFolders();
     setReadmeHeads();
     const { version: stable } = await fetchStableVersion();
-    const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
+    const shortVersion = stable.match(/4(\.(x|\d+)){2}/u)?.[0] ?? '4.x.x';
     const { locales, themeLocales, noMapkitModules } = await processModules(
         shortVersion
     );

@@ -10,7 +10,7 @@ fs.writeFileSync(
 
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
-    if (/node_modules/.test(folder)) return [];
+    if (/node_modules/u.test(folder)) return [];
     fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
         if (item.isDirectory())
             jsons.push(...getJsons(`${folder}/${item.name}`));

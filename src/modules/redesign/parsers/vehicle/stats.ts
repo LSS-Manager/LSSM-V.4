@@ -10,11 +10,11 @@ export default <RedesignParser<VehicleStatsWindow>>(({ doc }) => ({
             Array.from(doc.scripts)
                 .map(script =>
                     script.textContent?.match(
-                        /(?<=data\s*?=\s*?{(.|\n)*?datasets:\s*?\[\s*?{(.|\n)*?data:\s*?)\[(.|\n)*?]/ms
+                        /(?<=data\s*=\s*\{([\s\S])*?datasets:\s*\[\s*\{([\s\S])*?data:\s*)\[([\s\S])*?\]/u
                     )
                 )
                 .find(s => !!s)?.[0]
-                ?.replace(/,(?=\W*]$)/, '') ?? '[]'
+                ?.replace(/,(?=\W*\]$)/u, '') ?? '[]'
         ) as string[]
     ).map(km => parseFloat(km)),
 }));

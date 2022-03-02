@@ -22,7 +22,7 @@ export default (async ({ LSSM, getSetting }) => {
             const content = `(${
                 redesign
                     ? h1.getAttribute('id')
-                    : window.location.pathname.replace(/\D+/g, '')
+                    : window.location.pathname.replace(/\D+/gu, '')
             })`;
             if (small) {
                 small.textContent = content;
@@ -41,5 +41,5 @@ export default (async ({ LSSM, getSetting }) => {
             },
         })
         .then();
-    if (window.location.pathname.match(/\/profile\/\d+/)) addProfileId();
+    if (window.location.pathname.match(/\/profile\/\d+/u)) addProfileId();
 }) as ModuleMainFunction;

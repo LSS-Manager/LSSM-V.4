@@ -91,10 +91,11 @@ export default async (
     const generateInfobox = (e: MouseEvent) => {
         const type = (e.target as Element)
             .getAttribute('href')
-            ?.match(/^\/([^/]+)/)?.[1];
+            ?.match(/^\/([^/]+)/u)?.[1];
         const id = parseInt(
-            (e.target as Element).getAttribute('href')?.match(/\d+\/?$/)?.[0] ||
-                '0'
+            (e.target as Element)
+                .getAttribute('href')
+                ?.match(/\d+\/?$/u)?.[0] || '0'
         );
         if (!type || !id) return;
         LinkPreviewInstance.setMousePosition(e.clientX, e.clientY);

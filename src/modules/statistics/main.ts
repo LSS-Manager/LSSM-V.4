@@ -218,8 +218,9 @@ export default (async ({ LSSM, MODULE_ID }) => {
                                           ],
                                           [
                                               'Verbands-ID',
-                                              alliance.href.match(/\d+/)?.[0] ??
-                                                  '',
+                                              alliance.href.match(
+                                                  /\d+/u
+                                              )?.[0] ?? '',
                                           ],
                                           [
                                               'Verdiente Credits',

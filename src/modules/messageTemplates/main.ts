@@ -40,7 +40,7 @@ export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
             if (bodyEl) {
                 bodyEl.value = template
                     .replace(
-                        /{{username}}/g,
+                        /\{\{username\}\}/gu,
                         document
                             .querySelector<HTMLInputElement>(
                                 '#message_recipients'
@@ -48,7 +48,7 @@ export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
                             ?.value?.trim() ?? '{{username}}'
                     )
                     .replace(
-                        /{{today(?<offset>[+-]\d+)?}}/g,
+                        /\{\{today(?<offset>[+-]\d+)?\}\}/gu,
                         (_, offsetString) =>
                             moment()
                                 .add(parseInt(offsetString ?? '0'), 'days')

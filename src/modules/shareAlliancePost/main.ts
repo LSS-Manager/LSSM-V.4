@@ -89,7 +89,7 @@ export default <ModuleMainFunction>(async ({
                 ?.dataset.rawText ??
             '–'
         )
-            .replace(/^.*?:/, '')
+            .replace(/^.*?:/u, '')
             .trim() ?? '–';
     const address = he.decode(
         document
@@ -97,7 +97,7 @@ export default <ModuleMainFunction>(async ({
             ?.dataset.address?.trim() ??
             document
                 .querySelector<HTMLElement>('#missionH1 + small')
-                ?.textContent?.replace(/\|(.|\n)*$/, '')
+                ?.textContent?.replace(/\|(.|\n)*$/u, '')
                 .trim() ??
             '–'
     );
@@ -268,7 +268,7 @@ export default <ModuleMainFunction>(async ({
         Object.entries(variables).forEach(([variable, replacer]) => {
             if (variable.startsWith('/') && variable.endsWith('/')) {
                 newMessage = newMessage.replace(
-                    new RegExp(`{{${variable.replace(/^\/|\/$/g, '')}}}`, 'g'),
+                    new RegExp(`{{${variable.replace(/^\/|\/$/gu, '')}}}`, 'g'),
                     replacer
                 );
             } else {

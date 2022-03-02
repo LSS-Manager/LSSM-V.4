@@ -3,7 +3,7 @@ import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM }) => {
     if (
-        !window.location.href.match(/\/missions\/\d+/) ||
+        !window.location.href.match(/\/missions\/\d+/u) ||
         document.querySelector('.missionNotFound')
     )
         return;

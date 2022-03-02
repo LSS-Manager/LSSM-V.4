@@ -29,7 +29,7 @@ export default Vue.extend({
             const languages = {};
             this.$themeConfig.variables.contributors.forEach(contributor => {
                 const langContributions = contributor.contributions.filter(
-                    contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/)
+                    contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/u)
                 );
                 langContributions.forEach(language => {
                     if (!languages.hasOwnProperty(language))

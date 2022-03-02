@@ -352,7 +352,7 @@ export default (
             orderFunctions.id(mission);
         mission.style.setProperty('order', orderValue);
         const list =
-            mission.parentElement?.id?.replace(/^mission_list_?/, '') ?? '';
+            mission.parentElement?.id?.replace(/^mission_list_?/u, '') ?? '';
         if (!missionOrderValuesById.hasOwnProperty(list))
             missionOrderValuesById[list] = {};
         if (mission.classList.contains('mission_deleted')) {

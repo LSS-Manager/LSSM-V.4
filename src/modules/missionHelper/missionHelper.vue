@@ -491,7 +491,7 @@ export default Vue.extend<
             overlay: undefined,
             minified: undefined,
             missionId: parseInt(
-                window.location.pathname.match(/\d+\/?/)?.[0] || '0'
+                window.location.pathname.match(/\d+\/?/u)?.[0] || '0'
             ),
             settings: {
                 title: false,
@@ -576,7 +576,7 @@ export default Vue.extend<
                 document
                     .querySelector<HTMLHeadingElement>('#h2_prisoners')
                     ?.textContent?.trim()
-                    .match(/^\d+/)?.[0] || '0'
+                    .match(/^\d+/u)?.[0] || '0'
             );
         },
         showPatients() {

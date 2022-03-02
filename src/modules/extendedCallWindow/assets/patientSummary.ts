@@ -11,7 +11,7 @@ export default (LSSM: Vue, $m: $m): void => {
     const requirements = {} as Record<string, number>;
     Array.from(document.querySelectorAll('.mission_patient .alert-danger'))
         .flatMap(alert =>
-            (alert.textContent?.replace(/^[^:]*:/, '').trim() || '')
+            (alert.textContent?.replace(/^[^:]*:/u, '').trim() || '')
                 .split(',')
                 .map(req => req.trim())
         )

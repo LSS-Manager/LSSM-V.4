@@ -212,7 +212,7 @@ export default Vue.extend<
                         const value = (this.vehicles[type] || []).length;
                         sum += value;
                         const color = this.vehicleTypeColors[type];
-                        groupColor += parseInt(color.replace(/^#/, ''), 16);
+                        groupColor += parseInt(color.replace(/^#/u, ''), 16);
                         types.push({
                             id: `${category}_${group}_${type}`,
                             name: this.vehicleTypeNames[type],

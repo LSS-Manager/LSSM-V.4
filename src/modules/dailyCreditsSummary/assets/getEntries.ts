@@ -35,7 +35,7 @@ export default async (
                                 typeof regex === 'string'
                                     ? new RegExp(
                                           regex.replace(
-                                              /%missions%/,
+                                              /%missions%/u,
                                               `(${missionsString})`
                                           ),
                                           'u'

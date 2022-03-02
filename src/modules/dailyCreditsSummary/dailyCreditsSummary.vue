@@ -241,7 +241,7 @@ export default Vue.extend<
                         {
                             desc:
                                 title ??
-                                regex?.toString().replace(/^\/|\/$/g, '') ??
+                                regex?.toString().replace(/^\/|\/$/gu, '') ??
                                 '',
                             total: 0,
                             amount: 0,

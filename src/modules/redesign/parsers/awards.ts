@@ -44,7 +44,7 @@ export default <RedesignParser<AwardsWindow>>(({ doc }) => ({
                 award
                     .querySelector<HTMLDivElement>('.progress')
                     ?.nextSibling?.textContent?.trim()
-                    .match(/\d+/g)
+                    .match(/\d+/gu)
                     ?.map(n => parseInt(n)) ?? null,
         })
     ),

@@ -35,9 +35,9 @@ export default async (
         label.style.backgroundColor = color;
         const textNode = document.createElement('span');
         textNode.textContent = text
-            .replace(/\{\{type\}\}/g, missionType.toString())
+            .replace(/\{\{type\}\}/gu, missionType.toString())
             .replace(
-                /\{\{credits\}\}/g,
+                /\{\{credits\}\}/gu,
                 (mission?.average_credits ?? 0).toLocaleString()
             );
         textNode.style.background = autotextcolor ? 'inherit' : 'transparent';

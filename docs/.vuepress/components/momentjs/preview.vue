@@ -28,7 +28,7 @@ export default Vue.extend({
         };
     },
     mounted() {
-        this.moment.locale(this.$lang.replace(/_.*?$/, '').toUpperCase());
+        this.moment.locale(this.$lang.replace(/_.*$/u, '').toUpperCase());
         this.$el
             .querySelectorAll('.momentjs-preview[data-moment]:not([data-date])')
             .forEach(preview =>

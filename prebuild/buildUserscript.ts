@@ -11,13 +11,13 @@ const tlds = {} as Record<string, string[]>;
 
 Object.values(config.games).forEach(({ shortURL, police }) => {
     const tld = shortURL
-        .replace(/^[^.]*/, '')
-        .replace(/^\./, '')
+        .replace(/^[^.]*/u, '')
+        .replace(/^\./u, '')
         .replace('.', '\\.');
     if (!tlds.hasOwnProperty(tld)) tlds[tld] = [];
     tlds[tld].push(
         (police ? `(${police}\\.)?` : '') +
-            shortURL.replace(/\..*$/, '').replace('.', '\\.')
+            shortURL.replace(/\..*$/u, '').replace('.', '\\.')
     );
 });
 
@@ -36,10 +36,10 @@ export default async (): Promise<void> =>
         './static/lssm-v4.user.js',
         `// ==UserScript==
 // @name         ${script.name}
-// @version      ${packageJson.version.replace(/\+.*$/, '')}+${Object.keys(
+// @version      ${packageJson.version.replace(/\+.*$/u, '')}+${Object.keys(
             config.games
         )
-            .map(lang => lang.replace(/^.*?_/, ''))
+            .map(lang => lang.replace(/^.*?_/u, ''))
             .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}

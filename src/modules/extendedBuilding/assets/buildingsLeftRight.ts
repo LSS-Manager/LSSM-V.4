@@ -2,7 +2,7 @@ import type { Building } from 'typings/Building';
 
 export default (LSSM: Vue): void => {
     const buildingId = parseInt(
-        window.location.pathname.match(/\d+\/?$/)?.[0] ?? '0'
+        window.location.pathname.match(/\d+\/?$/u)?.[0] ?? '0'
     );
     if (!buildingId) return;
     const building = (LSSM.$store.state.api.buildings as Building[]).find(

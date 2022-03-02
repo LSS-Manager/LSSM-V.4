@@ -45,11 +45,11 @@ channel.addEventListener('message', msg => {
         );
         if (
             msg.data.statePath.match(
-                /^api\.(buildings|vehicles|missions|allianceinfo)$/
+                /^api\.(allianceinfo|buildings|missions|vehicles)$/u
             )
         ) {
             const key = msg.data.statePath.match(
-                /(buildings|vehicles|missions|allianceinfo)$/
+                /(allianceinfo|buildings|missions|vehicles)$/u
             )?.[0];
             if (!key) return;
             value = {
@@ -123,7 +123,7 @@ if (getWindowName() !== 'leader') {
                         0,
                         ...collected_names
                             .map(n =>
-                                parseInt(n?.replace(/^unnamed_/, '') ?? '-1')
+                                parseInt(n?.replace(/^unnamed_/u, '') ?? '-1')
                             )
                             .filter(n => !Number.isNaN(n))
                     ) + 1
@@ -162,7 +162,7 @@ export default {
                 name,
                 handler: `(${handler
                     .toString()
-                    .replace(/^.*?(?=\()/, 'function')})`,
+                    .replace(/^.*?(?=\()/u, 'function')})`,
                 ...data,
             } as CustomBroadcastMessage);
         },

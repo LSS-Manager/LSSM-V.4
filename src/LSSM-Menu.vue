@@ -504,7 +504,7 @@ export default Vue.extend<
                         this.navbg.svg.append(image);
                         this.setNavbarBG(iconBg);
                     });
-                    img.src = bgImg.replace(/^url\("|"\)$/g, '');
+                    img.src = bgImg.replace(/^url\("|"\)$/gu, '');
                 }
             });
     },

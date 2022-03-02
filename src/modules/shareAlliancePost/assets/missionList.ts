@@ -74,7 +74,7 @@ export default (
             )?.childNodes ?? []
         )
             .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
-            ?.textContent?.replace(/,$/, '')
+            ?.textContent?.replace(/,$/u, '')
             .trim() ??
         '';
     const address =
@@ -88,7 +88,7 @@ export default (
         mission.element
             .querySelector<HTMLDivElement>(`#mission_missing_${mission.id}`)
             ?.textContent?.trim()
-            ?.replace(/^.*?:/, '')
+            ?.replace(/^.*?:/u, '')
             .trim() ?? '–';
 
     const replacements: Record<string, string> = {
@@ -146,7 +146,7 @@ export default (
         Object.entries(getTimeReplacers()).forEach(
             ([regex, replacer]) =>
                 (message = message.replace(
-                    new RegExp(`{{${regex.replace(/^\/|\/$/g, '')}}}`, 'g'),
+                    new RegExp(`{{${regex.replace(/^\/|\/$/gu, '')}}}`, 'g'),
                     replacer
                 ))
         );

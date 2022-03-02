@@ -19,13 +19,13 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
     }[];
 
     if (
-        !window.location.pathname.match(/^\/(missions|buildings)\/\d+$\/?/) ||
+        !window.location.pathname.match(/^\/(buildings|missions)\/\d+$\/?/u) ||
         document.querySelector<HTMLDivElement>('.missionNotFound')
     )
         return;
 
     const stagingMode = !!window.location.pathname.match(
-        /^\/buildings\/\d+\/?$/
+        /^\/buildings\/\d+\/?$/u
     );
     if (stagingMode && !document.querySelector('#education_schooling_-1'))
         return;

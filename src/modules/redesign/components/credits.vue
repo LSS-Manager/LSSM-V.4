@@ -137,9 +137,9 @@ export default Vue.extend<
                         new URL(
                             this.url,
                             window.location.origin
-                        ).pathname.replace(/\/$/g, '') !==
+                        ).pathname.replace(/\/$/gu, '') !==
                         new URL(href, window.location.origin).pathname.replace(
-                            /\/$/g,
+                            /\/$/gu,
                             ''
                         )
                 ),

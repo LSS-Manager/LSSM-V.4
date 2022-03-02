@@ -1,6 +1,6 @@
 export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
     const buildingId = parseInt(
-        window.location.pathname.match(/(?<=buildings\/)\d+/)?.[0] ?? '-1'
+        window.location.pathname.match(/(?<=buildings\/)\d+/u)?.[0] ?? '-1'
     );
     if (buildingId < 0) return;
     const building = await LSSM.$store.dispatch('api/fetchBuilding', {

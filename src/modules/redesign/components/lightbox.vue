@@ -370,7 +370,7 @@ export default Vue.extend<
                                 .querySelector<HTMLAnchorElement>(
                                     'a.btn.btn-success[href^="/vehicles/"]'
                                 )
-                                ?.href?.match(/\d+$/)?.[0];
+                                ?.href?.match(/\d+$/u)?.[0];
                             if (nextVehicle)
                                 return (this.src = `/vehicles/${nextVehicle}`);
                         }
@@ -446,14 +446,14 @@ export default Vue.extend<
                                     window.coinsUpdate(
                                         parseInt(
                                             script.match(
-                                                /(?<=coinsUpdate\()\d+(?=\))/
+                                                /(?<=coinsUpdate\()\d+(?=\))/u
                                             )?.[0] ?? '-1'
                                         )
                                     );
                                     window.creditsUpdate(
                                         parseInt(
                                             script.match(
-                                                /(?<=creditsUpdate\()\d+(?=\))/
+                                                /(?<=creditsUpdate\()\d+(?=\))/u
                                             )?.[0] ?? '-1'
                                         )
                                     );
@@ -539,7 +539,7 @@ export default Vue.extend<
         getIdFromEl(el) {
             return parseInt(
                 new URL(el?.href ?? '', window.location.origin).pathname?.match(
-                    /\d+\/?$/
+                    /\d+\/?$/u
                 )?.[0] ?? '-1'
             );
         },

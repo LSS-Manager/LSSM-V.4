@@ -423,7 +423,7 @@ export default Vue.extend<
                                     Record<'diff' | 'have' | 'need', number>
                                 ]
                             >(([req, amount]) => {
-                                const have = req.match(/\d+\.\d+/)
+                                const have = req.match(/\d+\.\d+/u)
                                     ? this.buildings[
                                           mission.prerequisites.main_building
                                       ]?.find(
@@ -452,7 +452,7 @@ export default Vue.extend<
                                         : 0
                                     : this.prerequisites[
                                           this.selectedDispatchCenter
-                                      ][req.replace(/^max_/, '')] ?? 0;
+                                      ][req.replace(/^max_/u, '')] ?? 0;
                                 return [
                                     req,
                                     {

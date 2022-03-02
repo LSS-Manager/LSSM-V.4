@@ -370,7 +370,7 @@ export default Vue.extend<
         const types = this.protokoll.protokoll_types;
         this.types = Object.entries(types).map(([value, { regex, title }]) => ({
             value,
-            label: title ?? regex.toString().replace(/^\/|\/$/g, ''),
+            label: title ?? regex.toString().replace(/^\/|\/$/gu, ''),
         }));
         this.getSetting('type', Object.keys(types)).then(v =>
             this.$set(this.filter, 'type', v.length ? v : Object.keys(types))

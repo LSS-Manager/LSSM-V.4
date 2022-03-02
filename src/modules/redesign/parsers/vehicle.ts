@@ -109,13 +109,13 @@ export default <RedesignParser<VehicleWindow>>(({
     getIdFromEl = () => -1,
 }) => {
     const id = parseInt(
-        new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
+        new URL(href, window.location.href).pathname.match(/\d+\/?$/u)?.[0] ??
             '-1'
     );
     const fms = parseInt(
         doc
             .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
-            ?.className?.match(/(?<=building_list_fms_)\d+/)?.[0] ?? '-1'
+            ?.className?.match(/(?<=building_list_fms_)\d+/u)?.[0] ?? '-1'
     );
     const buildingEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-station a[href^="/buildings/"]'
@@ -155,12 +155,12 @@ export default <RedesignParser<VehicleWindow>>(({
             if (cell.previousElementSibling?.matches('h5'))
                 list = 'alliance_cells';
             const text = cell.textContent ?? '';
-            const infos = (text.match(/(?<=\()[^(]*?(?=\)$)/)?.[0] ?? '').split(
-                ':'
-            );
+            const infos = (
+                text.match(/(?<=\()[^(]*?(?=\)$)/u)?.[0] ?? ''
+            ).split(':');
             const cellinfos: Cell = {
                 id: getIdFromEl(cell),
-                caption: text.replace(/\([^(]*?\)$/, ''),
+                caption: text.replace(/\([^(]*?\)$/u, ''),
                 list,
                 state: cell.classList.contains('btn-success')
                     ? 'success'
@@ -168,11 +168,11 @@ export default <RedesignParser<VehicleWindow>>(({
                     ? 'warning'
                     : 'danger',
                 free: parseInt(infos[1].trim()),
-                distance: infos[2].split(/,(?=\s)/)[0].trim(),
+                distance: infos[2].split(/,(?=\s)/u)[0].trim(),
                 tax:
                     list === 'own_cells'
                         ? 0
-                        : parseInt(infos[3].match(/\d+(?=%)/)?.[0] ?? '-1'),
+                        : parseInt(infos[3].match(/\d+(?=%)/u)?.[0] ?? '-1'),
             };
             if (list === 'own_cells') own_cells.push(cellinfos);
             else alliance_cells.push(cellinfos);
@@ -266,7 +266,7 @@ export default <RedesignParser<VehicleWindow>>(({
                       ? JSON.parse(
                             Array.from(doc.scripts)
                                 .find(({ textContent }) =>
-                                    textContent?.match(/vehicle_graphics/)
+                                    textContent?.match(/vehicle_graphics/u)
                                 )
                                 ?.innerText.match(
                                     new RegExp(
@@ -362,7 +362,7 @@ export default <RedesignParser<VehicleWindow>>(({
                                 total: parseInt(
                                     m.children[5]?.textContent
                                         ?.trim()
-                                        ?.match(/\d+$/)?.[0] ?? '-1'
+                                        ?.match(/\d+$/u)?.[0] ?? '-1'
                                 ),
                             },
                             status:
@@ -402,7 +402,7 @@ export default <RedesignParser<VehicleWindow>>(({
                       id: parseInt(
                           wlf.children[0]
                               .querySelector<HTMLAnchorElement>('a')
-                              ?.href?.match(/\d+$/)?.[0] ?? '-1'
+                              ?.href?.match(/\d+$/u)?.[0] ?? '-1'
                       ),
                       caption: wlf.children[1].textContent?.trim() ?? '',
                       distance: wlf.children[2].textContent?.trim() ?? '',

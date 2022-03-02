@@ -37,7 +37,7 @@ const entry = {
     output: {
         path: path.resolve(__dirname, `../dist`),
         filename: pathData =>
-            `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
+            `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/u, '')}.js`,
         publicPath: `${config.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
@@ -66,7 +66,7 @@ entry.plugins?.unshift(
         ),
     }),
     new webpack.ContextReplacementPlugin(
-        /moment\/locale$/,
+        /moment\/locale$/u,
         new RegExp(
             `(${locales
                 .map(l =>
