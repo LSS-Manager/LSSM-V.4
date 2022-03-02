@@ -5,6 +5,7 @@
 		"declined": "The application of **{username}** was rejected!"
 	},
 	"decline": "Decline",
+	"earnedCredits": "earned Credits",
 	"rules": "Application rules",
 	"title": "Application: {n} | Applications: {n}",
 	"user": "Applicants"

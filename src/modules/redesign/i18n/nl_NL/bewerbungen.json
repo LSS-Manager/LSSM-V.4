@@ -5,6 +5,7 @@
 		"declined": "De aanmelding van **{username}** is afgewezen!"
 	},
 	"decline": "Afwijzen",
+	"earnedCredits": "verdiende credits",
 	"rules": "Aanmeldingsregels",
 	"title": "Aanmelding: {n} | Aanmeldingen: {n}",
 	"user": "Speler"

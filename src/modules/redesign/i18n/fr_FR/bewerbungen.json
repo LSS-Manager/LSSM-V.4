@@ -5,6 +5,7 @@
 		"declined": "La candidature de **{username}** a été refusé !"
 	},
 	"decline": "Refuser",
+	"earnedCredits": "Crédits gagnés",
 	"rules": "Règlements de candidature",
 	"title": "Demande: {n} | Demandes: {n}",
 	"user": "Candidats"
