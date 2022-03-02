@@ -26,7 +26,7 @@ const consume = (query: string, token_list: Token[]): string => {
     let newQuery = query;
     Object.entries(regexes).some(([token, regex]) => {
         const startRegex = new RegExp(
-            `^(${regex.toString().replace(/^\/|\/$/gu, '')})`
+            `^(${regex.toString().replace(/^\/|\/[ADJUgimux]*$/gu, '')})`
         );
         const match = query.match(startRegex);
         if (match) {

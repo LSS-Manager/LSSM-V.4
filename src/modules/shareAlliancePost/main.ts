@@ -266,9 +266,15 @@ export default <ModuleMainFunction>(async ({
     const getModifiedMessage = (message: string) => {
         let newMessage = message;
         Object.entries(variables).forEach(([variable, replacer]) => {
-            if (variable.startsWith('/') && variable.endsWith('/')) {
+            if (
+                variable.startsWith('/') &&
+                variable.match(/\/[ADJUgimux]*$/u)
+            ) {
                 newMessage = newMessage.replace(
-                    new RegExp(`{{${variable.replace(/^\/|\/$/gu, '')}}}`, 'g'),
+                    new RegExp(
+                        `{{${variable.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
+                        'g'
+                    ),
                     replacer
                 );
             } else {

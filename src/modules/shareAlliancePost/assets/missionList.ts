@@ -146,7 +146,10 @@ export default (
         Object.entries(getTimeReplacers()).forEach(
             ([regex, replacer]) =>
                 (message = message.replace(
-                    new RegExp(`{{${regex.replace(/^\/|\/$/gu, '')}}}`, 'g'),
+                    new RegExp(
+                        `{{${regex.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
+                        'g'
+                    ),
                     replacer
                 ))
         );

@@ -409,7 +409,10 @@ export default Vue.extend<
         const types = this.credits.creditsTypes;
         this.types = Object.entries(types).map(([value, { regex, title }]) => ({
             value,
-            label: title ?? regex?.toString().replace(/^\/|\/$/gu, '') ?? value,
+            label:
+                title ??
+                regex?.toString().replace(/^\/|\/[ADJUgimux]*$/gu, '') ??
+                value,
         }));
         this.filter.type.types = Object.keys(types);
         Object.entries(this.filter).forEach(([filter, props]) => {

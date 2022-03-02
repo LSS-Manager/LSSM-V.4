@@ -13,7 +13,7 @@ export default (LSSM: Vue): void => {
                       ?.textContent?.trim()
                       .replace(/\n/gu, ' ')
                       .replace(/ {2,}/gu, ' ') ||
-                  window.location.pathname.replace(/^\/|\/$/gu, '');
+                  window.location.pathname.replace(/^\/|\/[ADJUgimux]*$/gu, '');
         const navbarBrand = document.querySelector('.navbar-brand');
         if (navbarBrand && navbarBrand?.textContent?.trim())
             title = `${navbarBrand?.textContent.trim()}: ${title}`;
