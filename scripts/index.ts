@@ -7,7 +7,7 @@ const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
     console.time('games');
-    console.log(execSync(`ts-node build ${mode}`).toString());
+    console.log(execSync(`ts-node build --esModuleInterop ${mode}`).toString());
     console.timeEnd('games');
 };
 
@@ -34,7 +34,11 @@ const scriptHandlers = {
         this.showChanges();
     },
     docs() {
-        console.log(execSync('vuepress build docs').toString());
+        console.log(
+            execSync(
+                './docs/.vuepress/node_modules/.bin/vuepress build docs'
+            ).toString()
+        );
     },
     preBuild() {
         this.emojis();
