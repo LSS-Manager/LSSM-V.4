@@ -72,6 +72,7 @@
         "eslint": "^8.10.0",
         "eslint-config-prettier": "^8.4.0",
         "eslint-formatter-table": "^7.32.1",
+        "eslint-plugin-compat": "^4.0.2",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-regexp": "^1.5.1",
         "eslint-plugin-unicorn": "^41.0.0",
@@ -105,6 +106,12 @@
         "tabWidth": 4,
         "trailingComma": "es5"
     },
+    "browserslist": [
+        "last 7 chrome major versions",
+        "last 7 edge major versions",
+        "last 7 firefox major versions",
+        "last 7 opera major versions"
+    ],
     "userscript": {
         "name": "LSS-Manager V.4",
         "author": "Aisaka | Sanni | Jan (jxn_30) | Ron31",
