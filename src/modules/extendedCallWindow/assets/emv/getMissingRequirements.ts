@@ -30,7 +30,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
         ...vehicleGroups,
         ...staffGroups,
     })
-        .map(r => r.replace(/^\/\^|\$\/$/gu, ''))
+        .map(r => r.replace(/^\/\^|\$\/[ADJUgimux]*$/gu, ''))
         .join('|');
     const innerRegex = `${LSSM.$utils.escapeRegex(
         water
@@ -78,7 +78,9 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
             ),
             vehicle,
             selected: Object.keys(staffGroups).some(group =>
-                vehicle.match(new RegExp(group.replace(/(^\/)|(\/$)/gu, '')))
+                vehicle.match(
+                    new RegExp(group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, ''))
+                )
             )
                 ? { min: 0, max: 0 }
                 : 0,
@@ -121,14 +123,18 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                 const vehicleGroupRequirement = Object.keys(vehicleGroups).find(
                     group =>
                         requirement.vehicle.match(
-                            new RegExp(group.replace(/(^\/)|(\/$)/gu, ''))
+                            new RegExp(
+                                group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, '')
+                            )
                         )
                 );
 
                 const staffGroupRequirement = Object.keys(staffGroups).find(
                     group =>
                         requirement.vehicle.match(
-                            new RegExp(group.replace(/(^\/)|(\/$)/gu, ''))
+                            new RegExp(
+                                group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, '')
+                            )
                         )
                 );
                 if (staffGroupRequirement) {
