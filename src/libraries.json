@@ -239,7 +239,7 @@
 	"showdown": {
 		"icon": "http://showdownjs.com/apple-touch-icon.png",
 		"url": "http://showdownjs.com/",
-		"version": "2.0.0"
+		"version": "2.0.1"
 	},
 	"string-replace-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
