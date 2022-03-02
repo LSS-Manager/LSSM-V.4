@@ -638,26 +638,10 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
-            let missionType =
-                missionHelpBtn
-                    ?.getAttribute('href')
-                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+            const missionType = this.$utils.getMissionTypeInMissionWindow();
 
-            if (!this.isDiyMission) {
-                const overlayIndex =
-                    document
-                        .querySelector<HTMLDivElement>('#mission_general_info')
-                        ?.getAttribute('data-overlay-index') ?? 'null';
-                if (overlayIndex && overlayIndex !== 'null')
-                    missionType += `-${overlayIndex}`;
-                const additionalOverlay =
-                    document
-                        .querySelector<HTMLDivElement>('#mission_general_info')
-                        ?.getAttribute('data-additive-overlays') ?? 'null';
-                if (additionalOverlay && additionalOverlay !== 'null')
-                    missionType += `/${additionalOverlay}`;
+            if (missionType !== '-1')
                 this.missionSpecs = await this.getMission(missionType);
-            }
 
             this.isReloading = false;
         },

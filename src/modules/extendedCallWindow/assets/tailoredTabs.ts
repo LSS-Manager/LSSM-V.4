@@ -13,19 +13,15 @@ export default (
     const missionHelpBtn =
         document.querySelector<HTMLAnchorElement>('#mission_help');
     const isDiyMission = !missionHelpBtn;
-    let missionTypeID = -1;
-    if (!isDiyMission) {
-        missionTypeID = parseInt(
-            missionHelpBtn
-                ?.getAttribute('href')
-                ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-        );
-    }
+    let missionTypeID = '-1';
+    if (!isDiyMission)
+        missionTypeID = LSSM.$utils.getMissionTypeInMissionWindow();
+
     if (
         !stagingMode &&
-        Object.values(
-            LSSM.$t('transfer_missions') as unknown as number[]
-        ).includes(missionTypeID)
+        Object.values(LSSM.$t('transfer_missions') as unknown as number[])
+            .map(m => m.toString())
+            .includes(missionTypeID)
     )
         return;
 

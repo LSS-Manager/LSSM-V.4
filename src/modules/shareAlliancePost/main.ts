@@ -69,26 +69,8 @@ export default <ModuleMainFunction>(async ({
         },
     });
 
-    const missionHelpBtn =
-        document.querySelector<HTMLAnchorElement>('#mission_help');
-    let missionType =
-        missionHelpBtn
-            ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
-    if (missionType !== '-1') {
-        const overlayIndex =
-            document
-                .querySelector<HTMLDivElement>('#mission_general_info')
-                ?.getAttribute('data-overlay-index') ?? 'null';
-        if (overlayIndex && overlayIndex !== 'null')
-            missionType += `-${overlayIndex}`;
-        const additionalOverlay =
-            document
-                .querySelector<HTMLDivElement>('#mission_general_info')
-                ?.getAttribute('data-additive-overlays') ?? 'null';
-        if (additionalOverlay && additionalOverlay !== 'null')
-            missionType += `/${additionalOverlay}`;
-    }
+    const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
+
     const mission = (
         LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
     )[missionType];

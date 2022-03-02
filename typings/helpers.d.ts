@@ -104,6 +104,7 @@ declare module 'vue/types/vue' {
         $utils: {
             urlRegex: RegExp;
             escapeRegex(s: string): string;
+            getMissionTypeInMissionWindow(): string;
             getMissionOptions(
                 LSSM: Vue,
                 MODULE_ID: string,
