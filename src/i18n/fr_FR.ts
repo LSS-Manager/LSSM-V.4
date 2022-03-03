@@ -618,9 +618,9 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         39: {
             caption: 'VR',
-            coins: 10,
+            coins: 5,
             credits: 10_000,
-            minPersonnel: 0,
+            minPersonnel: 1,
             maxPersonnel: 6,
             possibleBuildings: [11],
         },
@@ -628,7 +628,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             caption: 'VCT',
             coins: 10,
             credits: 25_000,
-            minPersonnel: 0,
+            minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [11],
             schooling: {
@@ -643,8 +643,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             caption: 'RAM',
             coins: 10,
             credits: 25_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
+            minPersonnel: 1,
+            maxPersonnel: 2,
             schooling: {
                 'Poste de police': {
                     ['Armurier']: {
@@ -665,7 +665,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             caption: 'ELE',
             coins: 10,
             credits: 35_000,
-            minPersonnel: 0,
+            minPersonnel: 1,
             maxPersonnel: 3,
             possibleBuildings: [11],
             schooling: {
@@ -690,7 +690,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             caption: 'VAT',
             coins: 10,
             credits: 25_000,
-            minPersonnel: 0,
+            minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [11],
 		},
