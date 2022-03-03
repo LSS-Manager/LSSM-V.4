@@ -143,7 +143,7 @@
 	},
 	"eslint-config-prettier": {
 		"icon": "https://prettier.io/icon.png",
-		"version": "8.4.0"
+		"version": "8.5.0"
 	},
 	"eslint-formatter-table": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
