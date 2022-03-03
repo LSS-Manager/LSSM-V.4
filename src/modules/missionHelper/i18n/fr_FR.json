@@ -17,6 +17,7 @@
 		"title": "Patients | {n} Patient | {n} Patients"
 	},
 	"prerequisites": {
+		"bereitschaftspolizei": "Compagnies de CRS",
 		"brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
 		"fire_stations": "Caserne de pompier | Casernes de pompier",
 		"fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
@@ -26,10 +27,9 @@
 		"police_stations": "Poste de police | Postes de police",
 		"rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
 		"rescue_stations": "Poste de secours | Postes de secours",
-		"bereitschaftspolizei": "Compagnies de CRS",
- 	    "water_cannon": "Section des Moyens Spécialisés | Sections des Moyens Spécialisés",
 		"title": "Condition | Conditions",
-		"wasserrettung": "Unité nautique"
+		"wasserrettung": "Unité nautique",
+		"water_cannon": "Section des Moyens Spécialisés | Sections des Moyens Spécialisés"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Prisonniers max.",
@@ -52,6 +52,7 @@
 			"battalion_chief_vehicles": "Chefs de groupe",
 			"boats": "Bateau | Bateaux",
 			"brush_truck": "CCF",
+			"detention_unit": "VTP",
 			"elw3": "VLHR",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
 			"foam": "FMOGP",
@@ -67,20 +68,19 @@
 			"police_cars": "Véhicule de patrouille | Véhicules de patrouille",
 			"police_helicopters": "soutien aérien FAG",
 			"pump": "Motopompe | Motopompes",
+			"riot_police": "VR",
+			"riot_police_command": "VCT",
+			"riot_police_equipment": "RAM",
+			"riot_police_maintenance": "VAT",
+			"riot_police_trailer": "Barres-ponts",
 			"rth": "Hélicoptères de secours",
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
 			"thw_gkw": "VTU",
+			"wasserwerfer": "ELE",
 			"water_rescue": "VPL",
-			"water_tankers": "Camion-citerne | Camions-citernes",
-			"riot_police": "VR",
-			"detention_unit": "VTP",
-			"riot_police_command": "VCT",
-			"riot_police_equipment": "RAM",
-			"riot_police_maintenance": "VAT",
-			"riot_police_trailer": "Barres-ponts",
-			"wasserwerfer": "ELE"
+			"water_tankers": "Camion-citerne | Camions-citernes"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

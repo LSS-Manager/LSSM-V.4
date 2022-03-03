@@ -252,7 +252,7 @@
 			},
 			{
 				"name": "Maintien de l'Ordre",
-				"vehicleTypes":[
+				"vehicleTypes": [
 					39,
 					40,
 					41,

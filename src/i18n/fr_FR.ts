@@ -652,7 +652,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                     },
                 },
             },
-		},
+        },
         42: {
             caption: 'VTP',
             coins: 10,
@@ -670,12 +670,12 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             possibleBuildings: [11],
             schooling: {
                 'Poste de police': {
-                    ['Lanceur d\'eau']: {
+                    ["Lanceur d'eau"]: {
                         all: true,
                     },
                 },
             },
-		},
+        },
         44: {
             caption: 'ReBP',
             coins: 10,
@@ -683,9 +683,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [11],
-            special:
-                'Remorqueuse nécessaire (VR)',
-		},
+            special: 'Remorqueuse nécessaire (VR)',
+        },
         45: {
             caption: 'VAT',
             coins: 10,
@@ -693,7 +692,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [11],
-		},
+        },
     },
     buildings: {
         0: {
@@ -953,13 +952,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                     duration: '5 jours',
                 },
                 {
-                    caption: 'Section d\'appui et de Manoeuvre n°1',
+                    caption: "Section d'appui et de Manoeuvre n°1",
                     credits: 30_000,
                     coins: 10,
                     duration: '5 jours',
                 },
                 {
-                    caption: 'Section d\'appui et de Manoeuvre n°2',
+                    caption: "Section d'appui et de Manoeuvre n°2",
                     credits: 30_000,
                     coins: 10,
                     duration: '5 jours',
@@ -1297,9 +1296,9 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 staffList: 'Commandement Mobile',
             },
             {
-                caption: 'Lanceur d\'eau',
+                caption: "Lanceur d'eau",
                 duration: '7 jours',
-                staffList: 'Lanceur d\'eau',
+                staffList: "Lanceur d'eau",
             },
             {
                 caption: 'Armurier',
