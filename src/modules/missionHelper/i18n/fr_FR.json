@@ -26,6 +26,8 @@
 		"police_stations": "Poste de police | Postes de police",
 		"rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
 		"rescue_stations": "Poste de secours | Postes de secours",
+		"bereitschaftspolizei": "Compagnies de CRS",
+ 	    "water_cannon": "Section des Moyens Spécialisés | Sections des Moyens Spécialisés",
 		"title": "Condition | Conditions",
 		"wasserrettung": "Unité nautique"
 	},
@@ -71,7 +73,14 @@
 			"swat_suv": "SWAT SUV | SWAT SUVs",
 			"thw_gkw": "VTU",
 			"water_rescue": "VPL",
-			"water_tankers": "Camion-citerne | Camions-citernes"
+			"water_tankers": "Camion-citerne | Camions-citernes",
+			"riot_police": "VR",
+			"detention_unit": "VTP",
+			"riot_police_command": "VCT",
+			"riot_police_equipment": "RAM",
+			"riot_police_maintenance": "VAT",
+			"riot_police_trailer": "Barres-ponts",
+			"wasserwerfer": "ELE"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
