@@ -616,6 +616,89 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             special:
                 'Remorqueuse nécessaire (FPT, FPTL, CCFS, CCFM, CCFL, CCRL, CCRM, CCGC, FMOGP, VLHR, CDHR, FDGP)',
         },
+        39: {
+            caption: 'VR',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 6,
+            possibleBuildings: [0],
+        },
+        40: {
+            caption: 'VCT',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 0,
+            maxPersonnel: 4,
+            possibleBuildings: [0],
+            schooling: {
+                'Centre de secours': {
+                    ['Commandement Mobile']: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        41: {
+            caption: 'RAM',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Centre de secours': {
+                    ['Commandement Mobile']: {
+                        all: true,
+                    },
+                },
+            },
+		},
+        42: {
+            caption: 'VTP',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+        },
+        43: {
+            caption: 'ELE',
+            coins: 10,
+            credits: 35_000,
+            minPersonnel: 0,
+            maxPersonnel: 3,
+            possibleBuildings: [0],
+            schooling: {
+                'Centre de secours': {
+                    ['Commandement Mobile']: {
+                        all: true,
+                    },
+                },
+            },
+		},
+        44: {
+            caption: 'ReBP',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            schooling: {
+                'Centre de secours': {
+                    ['Commandement Mobile']: {
+                        all: true,
+                    },
+                },
+            },
+		},
+        45: {
+            caption: 'VAT',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 0,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+		},
     },
     buildings: {
         0: {
