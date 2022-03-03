@@ -940,25 +940,25 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 500_000,
             extensions: [
                 {
-                    caption: 'Section des moyens Spécialiste n°1',
+                    caption: 'Section des Moyens Spécialisés n°1',
                     credits: 150_000,
                     coins: 15,
                     duration: '5 jours',
                 },
                 {
-                    caption: 'Section des moyens Spécialiste n°2',
+                    caption: 'Section des Moyens Spécialisés n°2',
                     credits: 150_000,
                     coins: 15,
                     duration: '5 jours',
                 },
                 {
-                    caption: "Section d'appui et de Manoeuvre n°1",
+                    caption: "Section d'Appui et de Manoeuvre n°2",
                     credits: 30_000,
                     coins: 10,
                     duration: '5 jours',
                 },
                 {
-                    caption: "Section d'appui et de Manoeuvre n°2",
+                    caption: "Section de Protection et d'Intervention n°2",
                     credits: 30_000,
                     coins: 10,
                     duration: '5 jours',
