@@ -1194,7 +1194,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 ['Unité motocycliste']: [20],
                 Choucas: [18],
                 ['Équipe cynophile']: [19],
-                ["Maintien de l'Ordre"]:[39, 40, 41, 42, 43, 44, 45],
+                ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',
         },
