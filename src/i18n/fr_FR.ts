@@ -1426,6 +1426,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         'Résidence Protégée',
         'Falaise',
         'Raffinerie de pétrole',
+        'Lieu de culte',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],
