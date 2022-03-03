@@ -1130,7 +1130,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 'Trop cher',
             extensions: [],
             levelcost: ['Trop cher'],
-            maxBuildings: 'Keine Grenze',
+            maxBuildings: 'Aucune limite',
             maxLevel: 5,
             special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
             startPersonnel: 'there is none',
@@ -1143,7 +1143,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 'Trop cher',
             extensions: [],
             levelcost: ['Trop cher'],
-            maxBuildings: 'Keine Grenze',
+            maxBuildings: 'Aucune limite',
             maxLevel: 5,
             special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
             startPersonnel: 'there is none',
@@ -1160,7 +1160,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             color: '#ffa500',
         },
         Police: {
-            buildings: [6, 8, 13, 19],
+            buildings: [6, 8, 11, 13, 19],
             color: '#00ac00',
         },
         Autre: {
@@ -1194,6 +1194,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 ['Unité motocycliste']: [20],
                 Choucas: [18],
                 ['Équipe cynophile']: [19],
+                ["Maintien de l'Ordre"]:[39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',
         },
@@ -1203,7 +1204,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
+    vehicleBuildings: [0, 2, 5, 6, 11, 13, 14, 18, 19, 20],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
