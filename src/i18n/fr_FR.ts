@@ -622,7 +622,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 6,
-            possibleBuildings: [0],
+            possibleBuildings: [11],
         },
         40: {
             caption: 'VCT',
@@ -630,7 +630,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 25_000,
             minPersonnel: 0,
             maxPersonnel: 4,
-            possibleBuildings: [0],
+            possibleBuildings: [11],
             schooling: {
                 'Poste de police': {
                     ['Commandement Mobile']: {
@@ -659,7 +659,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 15_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [11],
         },
         43: {
             caption: 'ELE',
@@ -667,7 +667,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 35_000,
             minPersonnel: 0,
             maxPersonnel: 3,
-            possibleBuildings: [0],
+            possibleBuildings: [11],
             schooling: {
                 'Poste de police': {
                     ['Lanceur d\'eau']: {
@@ -682,7 +682,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [11],
             special:
                 'Remorqueuse nécessaire (VR)',
 		},
@@ -692,7 +692,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 25_000,
             minPersonnel: 0,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [11],
 		},
     },
     buildings: {
@@ -970,6 +970,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             maxLevel: 0,
             startPersonnel: 25,
             startVehicles: [],
+            schoolingTypes: ['Poste de police'],
         },
         13: {
             caption: 'Forces aériennes de la Gendarmerie nationale',
