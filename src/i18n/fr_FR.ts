@@ -939,6 +939,43 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             startPersonnel: 0,
             startVehicles: [],
         },
+        11: {
+            caption: 'Compagnie de CRS',
+            color: '#225522',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                {
+                    caption: 'Section des moyens Spécialiste n°1',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 jours',
+                },
+                {
+                    caption: 'Section des moyens Spécialiste n°2',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 jours',
+                },
+                {
+                    caption: 'Section d\'appui et de Manoeuvre n°1',
+                    credits: 150_000,
+                    coins: 10,
+                    duration: '5 jours',
+                },
+                {
+                    caption: 'Section d\'appui et de Manoeuvre n°2',
+                    credits: 150_000,
+                    coins: 10,
+                    duration: '5 jours',
+                },
+            ],
+            levelcost: [],
+            maxBuildings: 'Aucune limite',
+            maxLevel: 0,
+            startPersonnel: 25,
+            startVehicles: [],
+        },
         13: {
             caption: 'Forces aériennes de la Gendarmerie nationale',
             color: '#148423',
