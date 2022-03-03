@@ -632,7 +632,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             maxPersonnel: 4,
             possibleBuildings: [0],
             schooling: {
-                'Centre de secours': {
+                'Poste de police': {
                     ['Commandement Mobile']: {
                         all: true,
                     },
@@ -646,8 +646,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 0,
             maxPersonnel: 0,
             schooling: {
-                'Centre de secours': {
-                    ['Commandement Mobile']: {
+                'Poste de police': {
+                    ['Armurier']: {
                         all: true,
                     },
                 },
@@ -669,8 +669,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             maxPersonnel: 3,
             possibleBuildings: [0],
             schooling: {
-                'Centre de secours': {
-                    ['Commandement Mobile']: {
+                'Poste de police': {
+                    ['Lanceur d\'eau']: {
                         all: true,
                     },
                 },
@@ -683,13 +683,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            schooling: {
-                'Centre de secours': {
-                    ['Commandement Mobile']: {
-                        all: true,
-                    },
-                },
-            },
+            special:
+                'Remorqueuse nécessaire (VR)',
 		},
         45: {
             caption: 'VAT',
@@ -959,13 +954,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 },
                 {
                     caption: 'Section d\'appui et de Manoeuvre n°1',
-                    credits: 150_000,
+                    credits: 30_000,
                     coins: 10,
                     duration: '5 jours',
                 },
                 {
                     caption: 'Section d\'appui et de Manoeuvre n°2',
-                    credits: 150_000,
+                    credits: 30_000,
                     coins: 10,
                     duration: '5 jours',
                 },
@@ -1294,6 +1289,21 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 caption: 'Formation Motocycliste',
                 duration: '3 jours',
                 staffList: 'Policier motocycliste',
+            },
+            {
+                caption: 'Commandement Mobile',
+                duration: '7 jours',
+                staffList: 'Commandement Mobile',
+            },
+            {
+                caption: 'Lanceur d\'eau',
+                duration: '7 jours',
+                staffList: 'Lanceur d\'eau',
+            },
+            {
+                caption: 'Armurier',
+                duration: '7 jours',
+                staffList: 'Armurier',
             },
         ],
     },
