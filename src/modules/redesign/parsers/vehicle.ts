@@ -4,7 +4,7 @@ interface Mission {
     image: string;
     caption: string;
     id: number;
-    type: number;
+    type: string;
     adress: string;
     distance: string;
     list: 'mission_alliance' | 'mission_own';
@@ -235,6 +235,15 @@ export default <RedesignParser<VehicleWindow>>(({
         imgVehicleGraphicId ? `_sorted\\[${imgVehicleGraphicId}]` : ''
     }\\s*=\\s*`;
 
+    const getMissionType = (el: HTMLElement) => {
+        let type = el.dataset.missionType ?? '-1';
+        const overlay = el.dataset.overlayIndex;
+        const overlays = el.dataset.additiveOverlays;
+        if (overlay) type += `-${overlay}`;
+        if (overlays) type += `/${overlays}`;
+        return type;
+    };
+
     return {
         id,
         building: {
@@ -338,9 +347,7 @@ export default <RedesignParser<VehicleWindow>>(({
                                 m.children[0]?.querySelector('img')?.src ?? '',
                             caption: linkEl?.textContent?.trim() ?? '',
                             id: getIdFromEl(linkEl),
-                            type: parseInt(
-                                m.getAttribute('data-mission-type') ?? '-1'
-                            ),
+                            type: getMissionType(m),
                             adress: Array.from(m.children[2]?.childNodes ?? [])
                                 .map(c => (c as Text).wholeText ?? '')
                                 .join('')
