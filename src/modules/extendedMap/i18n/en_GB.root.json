@@ -28,6 +28,10 @@
 		"mapScalePosition": {
 			"description": "Select in which corner of the map the map-scale should appear",
 			"title": "Position of map-scale"
+		},
+		"markerNewWindow": {
+			"description": "Allows missions and buildings to be opened in a new tab by Ctrl+clicking or clicking the middle mouse button.",
+			"title": "open markers in new tab"
 		}
 	}
 }

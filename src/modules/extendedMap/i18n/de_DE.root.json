@@ -28,6 +28,10 @@
 		"mapScalePosition": {
 			"description": "Wähle hier, wo auf der Karte der Maßstab erscheinen soll",
 			"title": "Position des Maßstabs"
+		},
+		"markerNewWindow": {
+			"description": "Ermöglicht es, Einsätze und Gebäude per Strg+Klick oder Klick der mittleren Maustaste in einem neuen Tab zu öffnen.",
+			"title": "Marker in neuem Tab öffnen"
 		}
 	}
 }
