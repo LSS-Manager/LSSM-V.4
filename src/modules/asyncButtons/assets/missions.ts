@@ -180,9 +180,10 @@ export default (
                     userLink.textContent = window.username;
                     reply.append(
                         document.createTextNode(
-                            `[${new Date()
-                                .toLocaleTimeString()
-                                .replace(/:\d{2}$/u, '')}] `
+                            `[${new Date().toLocaleTimeString(undefined, {
+                                hour12: false,
+                                timeStyle: 'short',
+                            })}] `
                         ),
                         userLink,
                         document.createTextNode(`: ${message}`)
