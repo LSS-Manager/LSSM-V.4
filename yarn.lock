@@ -204,13 +204,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@primer/octicons@^17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.0.0.tgz#9dc752aeb3d2269f7c7827f04148ef5e55555374"
-  integrity sha512-DiIjtous4XPuR2deTctD3/RVZy/vRzVYBgYYvHV313MmTfkbVP60qLH5txrT3/bYNvnb0poNDelLS6U0kqlvHA==
-  dependencies:
-    object-assign "^4.1.1"
-
 "@tsconfig/node10@^1.0.7":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.8.tgz#c1e4e80d6f964fbecb3359c43bd48b40f7cadad9"
@@ -3117,11 +3110,6 @@ npm-run-path@^4.0.1:
   integrity sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
   dependencies:
     path-key "^3.0.0"
-
-object-assign@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
 
 object-inspect@^1.6.0:
   version "1.12.0"
