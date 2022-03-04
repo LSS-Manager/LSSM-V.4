@@ -19,6 +19,7 @@ npx -y browserslist@latest --update-db
 
 yarn install --frozen-lockfile
 cd ./docs/.vuepress/
+npx -y browserslist@latest --update-db
 yarn install --frozen-lockfile
 cd ../../
 yarn run "$RUN_BRANCH"
