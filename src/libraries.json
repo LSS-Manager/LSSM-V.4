@@ -17,7 +17,7 @@
 	"@primer/octicons": {
 		"icon": "https://primer.style/octicons/icons/icon-512x512.png",
 		"url": "https://primer.style/octicons",
-		"version": "16.3.1"
+		"version": "17.0.0"
 	},
 	"@types/he": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -242,7 +242,7 @@
 	"showdown": {
 		"icon": "http://showdownjs.com/apple-touch-icon.png",
 		"url": "http://showdownjs.com/",
-		"version": "2.0.1"
+		"version": "2.0.2"
 	},
 	"string-replace-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
