@@ -14,6 +14,8 @@ export default (LSSM: Vue) => {
                 }`,
                 window.location.origin
             );
+            const tooltip = marker.getTooltip();
+            marker.unbindTooltip();
             marker.clearAllEventListeners();
             marker.addEventListener(
                 'mouseup',
@@ -23,6 +25,12 @@ export default (LSSM: Vue) => {
                     window.lightboxOpen(url.toString());
                 }
             );
+            if (tooltip) {
+                marker.bindTooltip(
+                    tooltip.getContent()?.toString() ?? '',
+                    tooltip.options
+                );
+            }
         });
 
     LSSM.$store
