@@ -46,6 +46,12 @@
 		},
 		{
 			"ids": [
+				11
+			],
+			"name": "Compagnie de CRS"
+		},
+		{
+			"ids": [
 				21,
 				22
 			],
