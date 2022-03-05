@@ -28,6 +28,10 @@
 		"mapScalePosition": {
 			"description": "Sélectionnez dans quel coin de la carte l'échelle doit apparaître.",
 			"title": "Position de l'échelle"
+		},
+		"markerNewWindow": {
+			"description": "Permet d'ouvrir les missions et les bâtiments dans un onglet en faisant Ctrl+clic ou en cliquant sur le bouton du milieu de la souris.",
+			"title": "Ouvrir les missions et bâtiments dans un onglet"
 		}
 	}
 }
