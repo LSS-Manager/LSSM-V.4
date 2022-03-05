@@ -249,6 +249,18 @@
 					34,
 					35
 				]
+			},
+			{
+				"name": "Maintien de l'Ordre",
+				"vehicleTypes": [
+					39,
+					40,
+					41,
+					42,
+					43,
+					44,
+					45
+				]
 			}
 		]
 	}

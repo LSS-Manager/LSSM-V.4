@@ -616,6 +616,83 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             special:
                 'Remorqueuse nécessaire (FPT, FPTL, CCFS, CCFM, CCFL, CCRL, CCRM, CCGC, FMOGP, VLHR, CDHR, FDGP)',
         },
+        39: {
+            caption: 'VR',
+            coins: 5,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [11],
+        },
+        40: {
+            caption: 'VCT',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [11],
+            schooling: {
+                'Poste de police': {
+                    ['Commandement Mobile']: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        41: {
+            caption: 'RAM',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: {
+                'Poste de police': {
+                    ['Armurier']: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        42: {
+            caption: 'VTP',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [11],
+        },
+        43: {
+            caption: 'ELE',
+            coins: 10,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            possibleBuildings: [11],
+            schooling: {
+                'Poste de police': {
+                    ["Lanceur d'eau"]: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        44: {
+            caption: 'ReBP',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [11],
+            special: 'Remorqueuse nécessaire (VR)',
+        },
+        45: {
+            caption: 'VAT',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [11],
+        },
     },
     buildings: {
         0: {
@@ -856,6 +933,44 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             startPersonnel: 0,
             startVehicles: [],
         },
+        11: {
+            caption: 'Compagnie de CRS',
+            color: '#225522',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                {
+                    caption: 'Section des Moyens Spécialisés n°1',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 jours',
+                },
+                {
+                    caption: 'Section des Moyens Spécialisés n°2',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 jours',
+                },
+                {
+                    caption: "Section d'Appui et de Manoeuvre n°2",
+                    credits: 30_000,
+                    coins: 10,
+                    duration: '5 jours',
+                },
+                {
+                    caption: "Section de Protection et d'Intervention n°2",
+                    credits: 30_000,
+                    coins: 10,
+                    duration: '5 jours',
+                },
+            ],
+            levelcost: [],
+            maxBuildings: 'Aucune limite',
+            maxLevel: 0,
+            startPersonnel: 25,
+            startVehicles: [],
+            schoolingTypes: ['Poste de police'],
+        },
         13: {
             caption: 'Forces aériennes de la Gendarmerie nationale',
             color: '#148423',
@@ -1015,7 +1130,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 'Trop cher',
             extensions: [],
             levelcost: ['Trop cher'],
-            maxBuildings: 'Keine Grenze',
+            maxBuildings: 'Aucune limite',
             maxLevel: 5,
             special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
             startPersonnel: 'there is none',
@@ -1028,7 +1143,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 'Trop cher',
             extensions: [],
             levelcost: ['Trop cher'],
-            maxBuildings: 'Keine Grenze',
+            maxBuildings: 'Aucune limite',
             maxLevel: 5,
             special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
             startPersonnel: 'there is none',
@@ -1045,7 +1160,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             color: '#ffa500',
         },
         Police: {
-            buildings: [6, 8, 13, 19],
+            buildings: [6, 8, 11, 13, 19],
             color: '#00ac00',
         },
         Autre: {
@@ -1079,6 +1194,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 ['Unité motocycliste']: [20],
                 Choucas: [18],
                 ['Équipe cynophile']: [19],
+                ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',
         },
@@ -1088,7 +1204,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
+    vehicleBuildings: [0, 2, 5, 6, 11, 13, 14, 18, 19, 20],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
@@ -1174,6 +1290,21 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 caption: 'Formation Motocycliste',
                 duration: '3 jours',
                 staffList: 'Policier motocycliste',
+            },
+            {
+                caption: 'Commandement Mobile',
+                duration: '7 jours',
+                staffList: 'Commandement Mobile',
+            },
+            {
+                caption: "Lanceur d'eau",
+                duration: '7 jours',
+                staffList: "Lanceur d'eau",
+            },
+            {
+                caption: 'Armurier',
+                duration: '7 jours',
+                staffList: 'Armurier',
             },
         ],
     },
@@ -1295,6 +1426,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         'Résidence Protégée',
         'Falaise',
         'Raffinerie de pétrole',
+        'Lieu de culte',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],
