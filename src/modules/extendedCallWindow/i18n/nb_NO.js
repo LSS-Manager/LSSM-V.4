@@ -105,26 +105,23 @@ module.exports = {
         defaultTabs: [
             {
                 name: 'Brannbil',
-                vehicleTypes: [0, 1, 13, 18, 33],
+                vehicleTypes: [0, 1, 7, 18, 21],
             },
             {
                 name: 'Andre brannbiler',
-                vehicleTypes: [
-                    2, 3, 4, 6, 7, 8, 9, 12, 17, 21, 22, 24, 30, 31, 32, 34, 35,
-                    36, 37, 38, 39, 40, 41,
-                ],
+                vehicleTypes: [2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39],
             },
             {
                 name: 'Ambulanse',
-                vehicleTypes: [5, 11, 15, 20, 25, 27, 28, 29],
+                vehicleTypes: [5, 9, 24, 25, 26, 27, 28, 30, 31, 32],
             },
             {
                 name: 'Politi',
-                vehicleTypes: [10, 14, 16, 19, 23, 26, 47],
+                vehicleTypes: [8, 11, 12, 13, 14, 15, 22, 23],
             },
             {
                 name: 'Vann',
-                vehicleTypes: [21, 22, 24, 25],
+                vehicleTypes: [19, 20],
             },
         ],
         allTab: 'Alle',
