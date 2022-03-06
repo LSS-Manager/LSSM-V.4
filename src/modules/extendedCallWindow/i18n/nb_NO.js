@@ -109,7 +109,9 @@ module.exports = {
             },
             {
                 name: 'Andre brannbiler',
-                vehicleTypes: [2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39],
+                vehicleTypes: [
+                    2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39,
+                ],
             },
             {
                 name: 'Ambulanse',
