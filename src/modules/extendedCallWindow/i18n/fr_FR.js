@@ -88,7 +88,7 @@ module.exports = {
         water: 'l d’eau',
         staffPrefix: ['Nous avons( encore)? besoin de'],
         staff: {
-            [/^agent(s)? de police$/u]: [8, 19, 20],
+            [/^agent(s)? de police$/u]: [8, 19, 20, 39, 40, 41, 42, 43, 45],
             [/^pompier(s)? en plus$/u]: [0, 1, 12, 13, 15, 32, 33, 34],
         },
         vehiclesByRequirement: {
