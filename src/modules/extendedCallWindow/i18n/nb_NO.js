@@ -93,41 +93,18 @@ module.exports = {
             [/^Large Rescue boat(s)$/u]: [25],
             [/^Wildland fire engine(s)$/u]: [30, 31, 32, 38, 39, 40],
             [/^Fire Aviation(s)$/u]: [35, 36, 37],
-            [/^FBI Unit(s)$/u]: [42],
-            [/^FBI Investigation Wagon(s)$/u]: [43],
-            [/^FBI Mobile Command Center(s)$/u]: [44],
-            [/^FBI Bomb Technician Vehicle(s)$/u]: [45],
-            [/^FBI Surveillance Drone(s)$/u]: [46],
             [/^Sheriff Unit(s)$/u]: [47],
         },
     },
     tailoredTabs: {
-        defaultTabs: [
-            {
-                name: 'Brannbil',
-                vehicleTypes: [0, 1, 7, 18, 21],
-            },
-            {
-                name: 'Andre brannbiler',
-                vehicleTypes: [
-                    2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39,
-                ],
-            },
-            {
-                name: 'Ambulanse',
-                vehicleTypes: [5, 9, 24, 25, 26, 27, 28, 30, 31, 32],
-            },
-            {
-                name: 'Politi',
-                vehicleTypes: [8, 11, 12, 13, 14, 15, 22, 23],
-            },
-            {
-                name: 'Vann',
-                vehicleTypes: [19, 20],
-            },
-        ],
         allTab: 'Alle',
         occupiedTab: 'Oppfølging',
+        vehicleMissing: {
+            title: 'One vehicle is not present in any tab | Several vehicles are not present in any tab',
+            text: 'The following vehicle types are only present in the "All" tab:',
+            hide: 'Hide Note',
+            close: 'Close Note till change',
+        },
     },
     hideVehicleList: {
         show: 'Vis kjøretøyliste',
