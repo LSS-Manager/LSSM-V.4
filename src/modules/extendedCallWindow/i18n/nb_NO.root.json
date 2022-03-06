@@ -98,27 +98,71 @@
 		}
 	},
 	"tailoredTabs": {
-        "defaultTabs": [
-            {
-                "name": "Brannbil",
-                "vehicleTypes": [0, 1, 7, 18, 21]
-            },
-            {
-                "name": "Andre brannbiler",
-                "vehicleTypes": [
-                    2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39]
-            },
-            {
-                "name": "Ambulanse",
-                "vehicleTypes": [5, 9, 24, 25, 26, 27, 28, 30, 31, 32]
-            },
-            {
-                "name": "Politi",
-                "vehicleTypes": [8, 11, 12, 13, 14, 15, 22, 23]
-            },
-            {
-                "name": "Vann",
-                "vehicleTypes": [19, 20]
+		"defaultTabs": [
+			{
+				"name": "Brannbil",
+				"vehicleTypes": [
+					0,
+					1,
+					7,
+					18,
+					21
+				]
+			},
+			{
+				"name": "Andre brannbiler",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					16,
+					17,
+					29,
+					33,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39
+				]
+			},
+			{
+				"name": "Ambulanse",
+				"vehicleTypes": [
+					5,
+					9,
+					24,
+					25,
+					26,
+					27,
+					28,
+					30,
+					31,
+					32
+				]
+			},
+			{
+				"name": "Politi",
+				"vehicleTypes": [
+					8,
+					11,
+					12,
+					13,
+					14,
+					15,
+					22,
+					23
+				]
+			},
+			{
+				"name": "Vann",
+				"vehicleTypes": [
+					19,
+					20
+				]
 			}
 		]
 	}
