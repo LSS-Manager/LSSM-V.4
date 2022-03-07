@@ -264,7 +264,7 @@
 	"ts-node": {
 		"icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
 		"url": "https://typestrong.org/ts-node",
-		"version": "10.6.0"
+		"version": "10.7.0"
 	},
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
