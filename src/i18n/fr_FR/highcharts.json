@@ -7,7 +7,7 @@
 	"downloadPNG": "Télécharger comme image (PNG)",
 	"downloadSVG": "Télécharger comme vector graphic (SVG)",
 	"downloadXLS": "Télécharger comme document (XLS)",
-	"drillUpText": "← Retour",
+	"drillUpText": "Retour",
 	"exitFullscreen": "Quitter le mode plein écran",
 	"exportData": {
 		"categoryHeader": "Categorie"
