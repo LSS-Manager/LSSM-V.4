@@ -632,17 +632,6 @@ export default Vue.extend<
                           const targetUrl = new URL(href, window.location.href);
                           const here = new URL(window.location.toString());
 
-                          if (
-                              targetUrl.origin === here.origin &&
-                              targetUrl.pathname === here.pathname
-                          ) {
-                              if (targetUrl.hash !== here.hash) {
-                                  return (window.location.hash =
-                                      targetUrl.hash);
-                              }
-                              return;
-                          }
-
                           if (e.ctrlKey || e.button === 1)
                               return window.open(href, '_blank', 'noopener');
                           if (
@@ -658,6 +647,18 @@ export default Vue.extend<
                                   target.getAttribute('target') ?? '_blank',
                                   'noopener'
                               );
+                          }
+
+                          if (
+                              targetUrl.origin === here.origin &&
+                              targetUrl.pathname === here.pathname &&
+                              targetUrl.search === here.search
+                          ) {
+                              if (targetUrl.hash !== here.hash) {
+                                  return (window.location.hash =
+                                      targetUrl.hash);
+                              }
+                              if (targetUrl.href === here.href) return;
                           }
 
                           this.$set(this, 'src', href);
