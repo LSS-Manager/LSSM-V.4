@@ -131,7 +131,7 @@
 	"css-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/css-loader",
-		"version": "6.7.0"
+		"version": "6.7.1"
 	},
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
