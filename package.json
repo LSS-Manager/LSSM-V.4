@@ -1,5 +1,5 @@
 {
-    "version": "4.5.4+20220308.0957",
+    "version": "4.5.4+20220309.1019",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -34,7 +34,7 @@
         "pdfmake": "^0.2.4",
         "qrcode": "^1.5.0",
         "semver": "^7.3.5",
-        "showdown": "^2.0.2",
+        "showdown": "^2.0.3",
         "ua-parser-js": "^1.0.2",
         "vue": "^2.6.14",
         "vue-i18n": "^8.27.0",
