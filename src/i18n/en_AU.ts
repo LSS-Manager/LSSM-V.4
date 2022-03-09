@@ -71,7 +71,7 @@ export default {
             text: `Ouch, unfortunately an error occurred with this server request:<br>
 <b>Statuscode</b>: <code>{status}</code><br>
 <b>Statustext</b>: <code>{statusText}</code><br>
-<b>URL</b>: <code>{url}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Duration</b>: <code>{duration}ms</code><br>
 <br>

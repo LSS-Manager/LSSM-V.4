@@ -71,7 +71,7 @@ export default {
             text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
 <b>Statuscode</b>: <code>{status}</code><br>
 <b>Statustekst</b>: <code>{statusText}</code><br>
-<b>URL</b>: <code>{url}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Functie</b>: <code>{feature}</code><br>
 <b>Duur</b>: <code>{duration}ms</code><br>
 <br>
