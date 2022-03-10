@@ -383,7 +383,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 5000,
             coins: 25,
             icon: 'car-side',
-            possibleBuildings: [5],
+            possibleBuildings: [5, 18],
         },
         23: {
             caption: 'Lifeliner',
@@ -430,7 +430,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 6000,
             coins: 25,
             icon: 'shuttle-van',
-            possibleBuildings: [5],
+            possibleBuildings: [5, 18],
         },
         26: {
             caption: 'Haakarmvoertuig',
@@ -751,7 +751,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 2500,
             coins: 18,
             icon: 'motorcycle',
-            possibleBuildings: [5],
+            possibleBuildings: [5, 18],
         },
         47: {
             caption: 'DA Hondengeleider',
@@ -951,7 +951,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 6000,
             coins: 25,
             icon: 'car-side',
-            possibleBuildings: [5],
+            possibleBuildings: [5, 18],
         },
         60: {
             caption: 'DB Biketeam',
@@ -968,7 +968,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 },
             },
             icon: 'shuttle-van',
-            possibleBuildings: [5],
+            possibleBuildings: [5, 18],
         },
         61: {
             caption: 'Slangenhaakarmbak',
@@ -1691,7 +1691,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             color: '#ffa500',
         },
         Politie: {
-            buildings: [5, 8, 9, 11],
+            buildings: [5, 8, 9, 11, 18],
             color: '#00ac00',
         },
         Waterredding: {
@@ -1741,9 +1741,10 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
     small_buildings: {
         3: 13,
         0: 17,
+        5: 18,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17],
-    cellBuildings: [5],
+    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17, 18],
+    cellBuildings: [5, 18],
     cellExtensions: [
         '5_0',
         '5_1',
@@ -1755,6 +1756,8 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         '5_7',
         '5_8',
         '5_9',
+        '18_0',
+        '18_1'
     ],
     bedBuildings: [2],
     schoolBuildings: [4, 7, 8],
