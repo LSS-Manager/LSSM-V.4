@@ -1646,6 +1646,40 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             schoolingTypes: ['Brandweer'],
             maxBuildingsFunction: (): number => 6000,
         },
+        18: {
+            caption: 'Politie opkomstbureau (klein)',
+            color: '#007700',
+            coins: 25,
+            credits: 50_000,
+            extensions: [
+                {
+                    caption: 'Gevangeniscel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Extra cel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                },
+            ],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-4. 100.000',
+                'Upgraden naar normale post : Verschil prijs naar normale post',
+            ],
+            maxBuildings: '1.700',
+            maxLevel: 4,
+            special:
+                'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
+            startPersonnel: 2,
+            startVehicles: ['DA Noodhulp'],
+            schoolingTypes: ['Politie'],
+            maxBuildingsFunction: (): number => 1700,
+        },
     },
     buildingCategories: {
         Brandweer: {
