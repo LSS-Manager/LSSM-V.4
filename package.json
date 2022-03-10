@@ -1,5 +1,5 @@
 {
-    "version": "4.5.4+20220310.0941",
+    "version": "4.5.4+20220310.1001",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -29,7 +29,7 @@
         "leaflet.heat": "^0.2.0",
         "localforage": "^1.10.0",
         "lodash": ">=4.17.21",
-        "mini-svg-data-uri": "^1.4.3",
+        "mini-svg-data-uri": "^1.4.4",
         "moment": "^2.29.1",
         "pdfmake": "^0.2.4",
         "qrcode": "^1.5.0",
