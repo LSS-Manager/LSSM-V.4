@@ -1757,7 +1757,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         '5_8',
         '5_9',
         '18_0',
-        '18_1'
+        '18_1',
     ],
     bedBuildings: [2],
     schoolBuildings: [4, 7, 8],
