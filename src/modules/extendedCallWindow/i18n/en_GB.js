@@ -84,7 +84,7 @@ module.exports = {
             [/^Fire engine(s)?$/u]: [0, 1, 16, 17, 26, 37, 38, 47],
             [/^Aerial Appliance Trucks?$/u]: [2, 17],
             [/^Fire Officer(s)?$/u]: [3, 15, 44],
-            [/^Rescue Support Unit(s)? or Rescue Pump(s)?$/u]: [4, 16, 43, 38],
+            [/^Rescue Support Unit(s)? or Rescue Pump(s)?$/u]: [4, 16, 38, 43],
             [/^BASU(s)?$/u]: [14, 39, 46, 49],
             [/^Water Carrier(s)?$/u]: [6, 26, 36, 41, 50],
             [/^ICCU or Ambulance Control Unit(s)?$/u]: [15, 31, 44],
