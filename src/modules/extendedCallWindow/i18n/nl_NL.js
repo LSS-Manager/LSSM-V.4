@@ -115,7 +115,9 @@ module.exports = {
             [/^Officier(en)? van Dienst - Brandweer$/u]: [3, 19],
             [/^Hulpverleningsvoertuig(en)?$/u]: [4, 51, 62],
             [/^AB$/u]: [5, 27],
-            [/^Slangenwagen, watertankwagen of gelijkwaardige haakarmbak$/u]: [10, 29, 34, 45, 61],
+            [/^Slangenwagen, watertankwagen of gelijkwaardige haakarmbak$/u]: [
+                10, 29, 34, 45, 61,
+            ],
             [/^Hoofd Officier(en)? van Dienst$/u]: [19],
             [/^Commandowagen(s)?$/u]: [31, 32],
             [/^Verkenningseenh(eden|eid)$/u]: [11],
