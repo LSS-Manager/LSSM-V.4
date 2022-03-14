@@ -1,7 +1,7 @@
 {
-	"distance": {
-		"axis": "distance (km)",
-		"series": "distance driven"
-	},
-	"title": "Vehicle statistics for the last {n} days"
+    "distance": {
+        "axis": "distance (km)",
+        "series": "distance driven"
+    },
+    "title": "Vehicle statistics for the last {n} days"
 }

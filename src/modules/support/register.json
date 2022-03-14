@@ -1,6 +1,6 @@
 {
-	"active": true,
-	"github": 32,
-	"location": "^/?$",
-	"noapp": true
+    "active": true,
+    "github": 32,
+    "location": "^/?$",
+    "noapp": true
 }

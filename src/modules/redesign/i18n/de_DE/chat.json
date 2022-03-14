@@ -1,8 +1,8 @@
 {
-	"load": {
-		"next": "20 ältere Nachrichten laden",
-		"prev": "20 jüngere Nachrichten laden"
-	},
-	"subtitle": "Zeige {n} Nachrichten von Seite {startPage} ({firstDate}) bis Seite {endPage} ({lastDate}) von insgesamt {totalPages} Seiten.",
-	"title": "Verbandschat"
+    "load": {
+        "next": "20 ältere Nachrichten laden",
+        "prev": "20 jüngere Nachrichten laden"
+    },
+    "subtitle": "Zeige {n} Nachrichten von Seite {startPage} ({firstDate}) bis Seite {endPage} ({lastDate}) von insgesamt {totalPages} Seiten.",
+    "title": "Verbandschat"
 }

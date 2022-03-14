@@ -1,233 +1,233 @@
 {
-	"collapsableMissions": {
-		"all": {
-			"collapse": "Réduire toutes les missions",
-			"expand": "Développer toutes les missions"
-		},
-		"collapse": "Réduire cette mission",
-		"expand": "Développer cette mission"
-	},
-	"description": "Étend la liste des missions avec quelques fonctionnalités intéressantes!",
-	"eventMissions": {
-		"default": {
-			"🌞": [
-				169,
-				170,
-				171,
-				172,
-				173,
-				349,
-				350,
-				351
-			],
-			"🌠": [
-				181,
-				182,
-				183,
-				184,
-				185,
-				186,
-				187,
-				188,
-				189,
-				190,
-				191,
-				192,
-				193,
-				194,
-				243,
-				244,
-				245,
-				246,
-				247,
-				248,
-				249,
-				250,
-				251,
-				252,
-				253,
-				254,
-				255,
-				256,
-				257,
-				258,
-				259
-			],
-			"🌹": [
-				298,
-				299,
-				300,
-				301,
-				302,
-				303,
-				304,
-				305,
-				306
-			],
-			"🎃": [
-				229,
-				230,
-				231,
-				232,
-				233,
-				234,
-				235,
-				236,
-				237
-			],
-			"🎅": [
-				75,
-				76,
-				77,
-				78,
-				79,
-				80,
-				81
-			],
-			"🥅": [
-				335,
-				336,
-				337,
-				338,
-				339,
-				340,
-				341,
-				342,
-				343,
-				344
-			],
-			"🥚": [
-				121,
-				122,
-				123,
-				124,
-				125,
-				126,
-				127,
-				128,
-				129,
-				130,
-				131
-			],
-			"🧨": [
-				85,
-				86,
-				87,
-				88,
-				89,
-				90,
-				91,
-				92,
-				93,
-				94,
-				95,
-				96,
-				97,
-				278,
-				279,
-				280,
-				281,
-				282,
-				283,
-				284,
-				285,
-				286,
-				287
-			]
-		}
-	},
-	"name": "Liste de mission étendue",
-	"settings": {
-		"averageCredits": {
-			"description": "Affiche la moyenne des crédits gagnés pour chaque mission de manière compacte.",
-			"title": "Afficher les gains"
-		},
-		"collapsableMissions": {
-			"description": "Réduisez la taille des missions individuelles (ou toutes) dans la liste des missions.",
-			"title": "Réduire les missions"
-		},
-		"currentPatients": {
-			"description": "Indique le nombre actuel de patients pour chaque mission",
-			"title": "Patients actuels"
-		},
-		"currentPatientsInTooltips": {
-			"description": "Affiche le nombre actuel de patients également dans les infobulles de la carte.",
-			"title": "Patients actuels dans les infobulles"
-		},
-		"eventMissions": {
-			"description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
-			"missions": "Missions",
-			"text": "Texte",
-			"title": "Marquer les missions saisonnières"
-		},
-		"hide0CurrentPatients": {
-			"description": "Masque le nombre de patients s'il n'y en a pas sur place",
-			"title": "Masquer 0 patient"
-		},
-		"remainingPatientTime": {
-			"description": "Indique pour le patient le temps qu'il lui reste avant d'être entièrement traité.",
-			"title": "Durée du traitement du patient"
-		},
-		"remainingPumpingTime": {
-			"description": "Indique, pour la progression du pompage, le temps restant jusqu'à ce qu'il soit terminé.",
-			"title": "Temps restant pour la progression de pompage"
-		},
-		"remainingTime": {
-			"description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
-			"title": "Durée des missions restantes"
-		},
-		"remainingTimeGreenOnly": {
-			"description": "Afficher le temps restant sur les missions vertes uniquement.",
-			"title": "Durée des missions uniquement pour les missions vertes"
-		},
-		"shareMissions": {
-			"description": "Partagez les missions avec l'alliance directement à partir de la liste des missions.",
-			"title": "Partager les missions"
-		},
-		"shareMissionsButtonColor": {
-			"danger": "Rouge",
-			"default": "Noir ou Blanc (sur la base du design)",
-			"description": "Sélectionnez la couleur de fond des boutons de partage",
-			"info": "Bleu claire",
-			"primary": "Bleu foncé",
-			"success": "Vert",
-			"title": "Missions partagées : Couleur du bouton",
-			"warning": "Orange"
-		},
-		"shareMissionsMinCredits": {
-			"description": "Le bouton permettant de partager une mission n'est affiché que pour les missions dont la récompense moyenne est supérieure à ce que vous avez défini ici.",
-			"title": "Partager les missions : Crédits minimum"
-		},
-		"shareMissionsTypes": {
-			"description": "Définissez les appels pour lesquels vous souhaitez activer le bouton de partage.",
-			"own": "Appels d'urgence",
-			"sicherheitswache": "Missions planifiées",
-			"title": "Partager les missions : Types de missions"
-		},
-		"sortMissions": {
-			"description": "Triez votre liste de missions !",
-			"title": "Trier les missions"
-		},
-		"sortMissionsButtonColor": {
-			"description": "Sélectionnez la couleur d'arrière-plan du bouton de tri",
-			"title": "Trier les missions: Couleur du bouton"
-		},
-		"sortMissionsInMissionwindow": {
-			"description": "Implémente le tri dans les fenêtres de mission. En option, vous pouvez définir des touches de raccourci personnalisées dans notre module \"Hotkeys\" pour les boutons modifiés.",
-			"title": "Tri dans la fenêtre de déploiement"
-		},
-		"starrableMissions": {
-			"description": "Marquez les missions pour qu'elles soient affichées dans la liste des missions en haut de la page. Vous pouvez les marquer dans la fenêtre de mission et dans la liste des missions.",
-			"title": "Marquer les missions"
-		}
-	},
-	"sort": {
-		"types": {
-			"alphabet": "Alphabet",
-			"credits": "Crédits",
-			"default": "aucun tri",
-			"id": "Age",
-			"remaining_patients": "Patients actuels"
-		}
-	}
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Réduire toutes les missions",
+            "expand": "Développer toutes les missions"
+        },
+        "collapse": "Réduire cette mission",
+        "expand": "Développer cette mission"
+    },
+    "description": "Étend la liste des missions avec quelques fonctionnalités intéressantes!",
+    "eventMissions": {
+        "default": {
+            "🌞": [
+                169,
+                170,
+                171,
+                172,
+                173,
+                349,
+                350,
+                351
+            ],
+            "🌠": [
+                181,
+                182,
+                183,
+                184,
+                185,
+                186,
+                187,
+                188,
+                189,
+                190,
+                191,
+                192,
+                193,
+                194,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254,
+                255,
+                256,
+                257,
+                258,
+                259
+            ],
+            "🌹": [
+                298,
+                299,
+                300,
+                301,
+                302,
+                303,
+                304,
+                305,
+                306
+            ],
+            "🎃": [
+                229,
+                230,
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237
+            ],
+            "🎅": [
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81
+            ],
+            "🥅": [
+                335,
+                336,
+                337,
+                338,
+                339,
+                340,
+                341,
+                342,
+                343,
+                344
+            ],
+            "🥚": [
+                121,
+                122,
+                123,
+                124,
+                125,
+                126,
+                127,
+                128,
+                129,
+                130,
+                131
+            ],
+            "🧨": [
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                278,
+                279,
+                280,
+                281,
+                282,
+                283,
+                284,
+                285,
+                286,
+                287
+            ]
+        }
+    },
+    "name": "Liste de mission étendue",
+    "settings": {
+        "averageCredits": {
+            "description": "Affiche la moyenne des crédits gagnés pour chaque mission de manière compacte.",
+            "title": "Afficher les gains"
+        },
+        "collapsableMissions": {
+            "description": "Réduisez la taille des missions individuelles (ou toutes) dans la liste des missions.",
+            "title": "Réduire les missions"
+        },
+        "currentPatients": {
+            "description": "Indique le nombre actuel de patients pour chaque mission",
+            "title": "Patients actuels"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Affiche le nombre actuel de patients également dans les infobulles de la carte.",
+            "title": "Patients actuels dans les infobulles"
+        },
+        "eventMissions": {
+            "description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
+            "missions": "Missions",
+            "text": "Texte",
+            "title": "Marquer les missions saisonnières"
+        },
+        "hide0CurrentPatients": {
+            "description": "Masque le nombre de patients s'il n'y en a pas sur place",
+            "title": "Masquer 0 patient"
+        },
+        "remainingPatientTime": {
+            "description": "Indique pour le patient le temps qu'il lui reste avant d'être entièrement traité.",
+            "title": "Durée du traitement du patient"
+        },
+        "remainingPumpingTime": {
+            "description": "Indique, pour la progression du pompage, le temps restant jusqu'à ce qu'il soit terminé.",
+            "title": "Temps restant pour la progression de pompage"
+        },
+        "remainingTime": {
+            "description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
+            "title": "Durée des missions restantes"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Afficher le temps restant sur les missions vertes uniquement.",
+            "title": "Durée des missions uniquement pour les missions vertes"
+        },
+        "shareMissions": {
+            "description": "Partagez les missions avec l'alliance directement à partir de la liste des missions.",
+            "title": "Partager les missions"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Rouge",
+            "default": "Noir ou Blanc (sur la base du design)",
+            "description": "Sélectionnez la couleur de fond des boutons de partage",
+            "info": "Bleu claire",
+            "primary": "Bleu foncé",
+            "success": "Vert",
+            "title": "Missions partagées : Couleur du bouton",
+            "warning": "Orange"
+        },
+        "shareMissionsMinCredits": {
+            "description": "Le bouton permettant de partager une mission n'est affiché que pour les missions dont la récompense moyenne est supérieure à ce que vous avez défini ici.",
+            "title": "Partager les missions : Crédits minimum"
+        },
+        "shareMissionsTypes": {
+            "description": "Définissez les appels pour lesquels vous souhaitez activer le bouton de partage.",
+            "own": "Appels d'urgence",
+            "sicherheitswache": "Missions planifiées",
+            "title": "Partager les missions : Types de missions"
+        },
+        "sortMissions": {
+            "description": "Triez votre liste de missions !",
+            "title": "Trier les missions"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Sélectionnez la couleur d'arrière-plan du bouton de tri",
+            "title": "Trier les missions: Couleur du bouton"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implémente le tri dans les fenêtres de mission. En option, vous pouvez définir des touches de raccourci personnalisées dans notre module \"Hotkeys\" pour les boutons modifiés.",
+            "title": "Tri dans la fenêtre de déploiement"
+        },
+        "starrableMissions": {
+            "description": "Marquez les missions pour qu'elles soient affichées dans la liste des missions en haut de la page. Vous pouvez les marquer dans la fenêtre de mission et dans la liste des missions.",
+            "title": "Marquer les missions"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alphabet",
+            "credits": "Crédits",
+            "default": "aucun tri",
+            "id": "Age",
+            "remaining_patients": "Patients actuels"
+        }
+    }
 }

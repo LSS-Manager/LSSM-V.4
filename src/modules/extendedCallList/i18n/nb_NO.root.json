@@ -1,140 +1,140 @@
 {
-	"collapsableMissions": {
-		"all": {
-			"collapse": "Skjul alle oppdrag",
-			"expand": "Utvid alle oppdrag"
-		},
-		"collapse": "Skjul dette oppdraget",
-		"expand": "Utvid dette oppdraget"
-	},
-	"description": "Utvider oppdragslisten med noen kule funksjoner!",
-	"eventMissions": {
-		"default": {
-			"🌞": [
-				141,
-				142,
-				143,
-				144,
-				145
-			],
-			"🎃": [
-				190,
-				191,
-				192,
-				193,
-				194,
-				195,
-				196,
-				197,
-				198
-			],
-			"🥚": [
-				100,
-				101,
-				102,
-				103,
-				104,
-				105,
-				106,
-				107,
-				108,
-				109,
-				110
-			]
-		}
-	},
-	"name": "Utvidet oppdragsliste",
-	"settings": {
-		"averageCredits": {
-			"description": "Viser gjennomsnittlig inntjenbare kreditter for hvert oppdrag på en kompakt måte.",
-			"title": "Vis gj.sn. kreditter for hvert oppdrag på en kompakt måte."
-		},
-		"collapsableMissions": {
-			"description": "Skjul individuelle (eller alle) oppdrag for å redusere størrelsen på oppdragslisten.",
-			"title": "Kollaps oppdrag"
-		},
-		"currentPatients": {
-			"description": "Viser gjeldende antall pasienter for hvert oppdrag",
-			"title": "Nåværende pasienter"
-		},
-		"currentPatientsInTooltips": {
-			"description": "Viser gjeldende mengde pasienter også i verktøytipsene på kartet.",
-			"title": "Aktuelle pasienter i Tooltips"
-		},
-		"eventMissions": {
-			"description": "Markerer sesongmessige oppdrag. Eventuelt kan du tilpasse hele greia og også markere ikke-sesongbaserte oppdrag.",
-			"missions": "Oppdrag",
-			"text": "Tekst",
-			"title": "Merk sesongoppdrag"
-		},
-		"hide0CurrentPatients": {
-			"description": "Skjuler antall pasienter hvis det ikke er noen pasienter på stedet",
-			"title": "Skjul 0 pasienter"
-		},
-		"remainingPatientTime": {
-			"description": "Viser for pasienter hvor lang tid som gjenstår før de er ferdigbehandlet",
-			"title": "Gjenstående tid for pasientene"
-		},
-		"remainingPumpingTime": {
-			"description": "Shows for pumping progresses how much time remains until they are finished.",
-			"title": "Gjenstående tid for pumping"
-		},
-		"remainingTime": {
-			"description": "Viser ved oppdrag hvor lenge hvert oppdrag fortsatt pågår.",
-			"title": "Gjenstående oppdragstid"
-		},
-		"remainingTimeGreenOnly": {
-			"description": "Vis kun gjenværende tid på grønne oppdrag.",
-			"title": "Oppdragstid kun for grønne oppdrag"
-		},
-		"shareMissions": {
-			"description": "Del oppdrag med alliansen direkte fra oppdragslisten.",
-			"title": "Del oppdrag"
-		},
-		"shareMissionsButtonColor": {
-			"danger": "Rød",
-			"default": "Svart eller hvit (basert på design)",
-			"description": "Velg bakgrunnsfargen til deleknappene",
-			"info": "Lyse blå",
-			"primary": "Mørke blå",
-			"success": "Grønn",
-			"title": "Del oppdrag: Knappefarge",
-			"warning": "Oransje"
-		},
-		"shareMissionsMinCredits": {
-			"description": "Knappen for å dele et oppdrag vises kun for oppdrag som har en gjennomsnittlig belønning på mer enn det du har angitt her.",
-			"title": "Del oppdrag: minimum kreditter"
-		},
-		"shareMissionsTypes": {
-			"description": "Sett opp hvilke av oppdragene du vil aktivere deleknappen for.",
-			"own": "Nødanrop",
-			"sicherheitswache": "Planlagte oppdrag",
-			"title": "Del oppdrag: oppdragstyper"
-		},
-		"sortMissions": {
-			"description": "Sorter oppdragslisten din!",
-			"title": "Sorter oppdrag"
-		},
-		"sortMissionsButtonColor": {
-			"description": "Velg bakgrunnsfargen til sorteringsknappen",
-			"title": "Sorter oppdrag: Knappefarge"
-		},
-		"sortMissionsInMissionwindow": {
-			"description": "Implementerer sorteringen i oppdragsvinduer. Eventuelt kan du angi egendefinerte hurtigtaster i vår modul \"Hurtigtaster\" for de modifiserte knappene.",
-			"title": "Sorting in mission window"
-		},
-		"starrableMissions": {
-			"description": "Merk oppdrag slik at de vises i oppdragslisten øverst. Du kan merke dem i oppdragsvinduet og i oppdragslisten.",
-			"title": "Marker Oppdrag"
-		}
-	},
-	"sort": {
-		"types": {
-			"alphabet": "Alfabet",
-			"credits": "Kreditter",
-			"default": "ingen sortering",
-			"id": "Alder",
-			"remaining_patients": "Nåværende pasienter"
-		}
-	}
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Skjul alle oppdrag",
+            "expand": "Utvid alle oppdrag"
+        },
+        "collapse": "Skjul dette oppdraget",
+        "expand": "Utvid dette oppdraget"
+    },
+    "description": "Utvider oppdragslisten med noen kule funksjoner!",
+    "eventMissions": {
+        "default": {
+            "🌞": [
+                141,
+                142,
+                143,
+                144,
+                145
+            ],
+            "🎃": [
+                190,
+                191,
+                192,
+                193,
+                194,
+                195,
+                196,
+                197,
+                198
+            ],
+            "🥚": [
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110
+            ]
+        }
+    },
+    "name": "Utvidet oppdragsliste",
+    "settings": {
+        "averageCredits": {
+            "description": "Viser gjennomsnittlig inntjenbare kreditter for hvert oppdrag på en kompakt måte.",
+            "title": "Vis gj.sn. kreditter for hvert oppdrag på en kompakt måte."
+        },
+        "collapsableMissions": {
+            "description": "Skjul individuelle (eller alle) oppdrag for å redusere størrelsen på oppdragslisten.",
+            "title": "Kollaps oppdrag"
+        },
+        "currentPatients": {
+            "description": "Viser gjeldende antall pasienter for hvert oppdrag",
+            "title": "Nåværende pasienter"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Viser gjeldende mengde pasienter også i verktøytipsene på kartet.",
+            "title": "Aktuelle pasienter i Tooltips"
+        },
+        "eventMissions": {
+            "description": "Markerer sesongmessige oppdrag. Eventuelt kan du tilpasse hele greia og også markere ikke-sesongbaserte oppdrag.",
+            "missions": "Oppdrag",
+            "text": "Tekst",
+            "title": "Merk sesongoppdrag"
+        },
+        "hide0CurrentPatients": {
+            "description": "Skjuler antall pasienter hvis det ikke er noen pasienter på stedet",
+            "title": "Skjul 0 pasienter"
+        },
+        "remainingPatientTime": {
+            "description": "Viser for pasienter hvor lang tid som gjenstår før de er ferdigbehandlet",
+            "title": "Gjenstående tid for pasientene"
+        },
+        "remainingPumpingTime": {
+            "description": "Shows for pumping progresses how much time remains until they are finished.",
+            "title": "Gjenstående tid for pumping"
+        },
+        "remainingTime": {
+            "description": "Viser ved oppdrag hvor lenge hvert oppdrag fortsatt pågår.",
+            "title": "Gjenstående oppdragstid"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Vis kun gjenværende tid på grønne oppdrag.",
+            "title": "Oppdragstid kun for grønne oppdrag"
+        },
+        "shareMissions": {
+            "description": "Del oppdrag med alliansen direkte fra oppdragslisten.",
+            "title": "Del oppdrag"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Rød",
+            "default": "Svart eller hvit (basert på design)",
+            "description": "Velg bakgrunnsfargen til deleknappene",
+            "info": "Lyse blå",
+            "primary": "Mørke blå",
+            "success": "Grønn",
+            "title": "Del oppdrag: Knappefarge",
+            "warning": "Oransje"
+        },
+        "shareMissionsMinCredits": {
+            "description": "Knappen for å dele et oppdrag vises kun for oppdrag som har en gjennomsnittlig belønning på mer enn det du har angitt her.",
+            "title": "Del oppdrag: minimum kreditter"
+        },
+        "shareMissionsTypes": {
+            "description": "Sett opp hvilke av oppdragene du vil aktivere deleknappen for.",
+            "own": "Nødanrop",
+            "sicherheitswache": "Planlagte oppdrag",
+            "title": "Del oppdrag: oppdragstyper"
+        },
+        "sortMissions": {
+            "description": "Sorter oppdragslisten din!",
+            "title": "Sorter oppdrag"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Velg bakgrunnsfargen til sorteringsknappen",
+            "title": "Sorter oppdrag: Knappefarge"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementerer sorteringen i oppdragsvinduer. Eventuelt kan du angi egendefinerte hurtigtaster i vår modul \"Hurtigtaster\" for de modifiserte knappene.",
+            "title": "Sorting in mission window"
+        },
+        "starrableMissions": {
+            "description": "Merk oppdrag slik at de vises i oppdragslisten øverst. Du kan merke dem i oppdragsvinduet og i oppdragslisten.",
+            "title": "Marker Oppdrag"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alfabet",
+            "credits": "Kreditter",
+            "default": "ingen sortering",
+            "id": "Alder",
+            "remaining_patients": "Nåværende pasienter"
+        }
+    }
 }

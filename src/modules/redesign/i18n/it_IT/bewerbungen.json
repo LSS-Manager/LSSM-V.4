@@ -1,12 +1,12 @@
 {
-	"accept": "Accetta",
-	"alert": {
-		"accepted": "{username} è stato accettato con successo nell'alleanza!",
-		"declined": "L'applicazione di **{username}** è stata rigettata!"
-	},
-	"decline": "Declina",
-	"earnedCredits": "Crediti guadagnati",
-	"rules": "Regole d'applicazione",
-	"title": "Applicazione: {n} | Applicazioni: {n}",
-	"user": "Candidati"
+    "accept": "Accetta",
+    "alert": {
+        "accepted": "{username} è stato accettato con successo nell'alleanza!",
+        "declined": "L'applicazione di **{username}** è stata rigettata!"
+    },
+    "decline": "Declina",
+    "earnedCredits": "Crediti guadagnati",
+    "rules": "Regole d'applicazione",
+    "title": "Applicazione: {n} | Applicazioni: {n}",
+    "user": "Candidati"
 }

@@ -1,7 +1,7 @@
 {
-	"adress": "Adresse",
-	"countdown": "Temps restant",
-	"map": "",
-	"name": "Nom",
-	"owner": "Propriétaire"
+    "adress": "Adresse",
+    "countdown": "Temps restant",
+    "map": "",
+    "name": "Nom",
+    "owner": "Propriétaire"
 }

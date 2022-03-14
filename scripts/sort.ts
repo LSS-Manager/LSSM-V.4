@@ -51,7 +51,7 @@ export default (): string => {
                             sortArray
                         ),
                         null,
-                        '\t'
+                        4
                     )
                 );
                 output.push(file);

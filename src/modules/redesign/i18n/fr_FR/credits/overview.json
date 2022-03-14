@@ -1,7 +1,7 @@
 {
-	"date": "Date",
-	"minus": "Dépense",
-	"plus": "Recette",
-	"title": "Aperçu général",
-	"total": "Total"
+    "date": "Date",
+    "minus": "Dépense",
+    "plus": "Recette",
+    "title": "Aperçu général",
+    "total": "Total"
 }

@@ -1,5 +1,5 @@
 {
-	"github": 25,
-	"location": "^/missions/\\d+/?$",
-	"settings": true
+    "github": 25,
+    "location": "^/missions/\\d+/?$",
+    "settings": true
 }

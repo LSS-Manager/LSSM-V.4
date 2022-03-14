@@ -1,267 +1,267 @@
 {
-	"name": "Fenêtre de déploiement étendue",
-	"settings": {
-		"alarmIcons": {
-			"description": "Affiche des pictogrammes devant le bouton \"Déployer\" selon les véhicules sélectionnés. Le choix se fait parmi les pictos gratuits de <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">Font-Awesome</a>. Il suffit d'indiquer le nom de l'icône. La prévisualisation se fait directement.",
-			"icon": "Nom",
-			"preview": "Prévisualiser",
-			"style": "Type de pictogramme",
-			"title": "Pictos de déploiement",
-			"vehicles": "Types de véhicules"
-		},
-		"alarmTime": {
-			"description": "Affiche à côté du bouton \"Déployer\" le temps de trajet le plus long des véhicules sélectionnés.",
-			"title": "Temps de trajet le plus long"
-		},
-		"arrClickHighlight": {
-			"description": "Encadre les régulations déjà séléctionnées.",
-			"title": "Bordure de régulations"
-		},
-		"arrClickHighlightColor": {
-			"description": "Choisir la couleur de la bordure des régulations.",
-			"title": "Couleur des bordures"
-		},
-		"arrClickHighlightWidth": {
-			"description": "Donner la taille en pixels de la bordure des régulations séléctionnées.",
-			"title": "Taille de bordure"
-		},
-		"arrCounter": {
-			"description": "Compte le nombre de fois où une régulation a été séléctionnée. Un bouton dans le coin en bas à droite permet de remettre à zéro les régulations sélectionnées.",
-			"title": "Compteur de régulations"
-		},
-		"arrCounterAsBadge": {
-			"description": "Affiche le compteur de régulations sous la forme d'un cercle rouge sur chaque bouton",
-			"title": "Compteur de régulations comme badge"
-		},
-		"arrCounterResetSelection": {
-			"description": "Ajoute un bouton pour remettre à zéro la séléction de véhicules. Attention : Cela remet aussi à zéro le compteur de régulations et la coloration des bordures si ces options ont été activées.",
-			"title": "Remise à zéro de la séléction de véhicules"
-		},
-		"arrMatchHighlight": {
-			"description": "Grise les régulations qui ne contiennent pas un des mots du nom de la mission.",
-			"title": "Griser régulations non adaptées"
-		},
-		"arrSearch": {
-			"description": "Affiche une barre de recherche au-dessus des RAIs qui permet de filtrer vos Rais.",
-			"title": "RAI-Recherche"
-		},
-		"arrSearchAutoFocus": {
-			"description": "Met automatiquement le focus sur Rai-Recherche pour que vous puissiez commencer à taper sans cliquer sur le champ de recherche.",
-			"title": "RAI-Recherche: autofocus"
-		},
-		"arrSearchCloseDropdownOnSelect": {
-			"description": "ferme la liste déroulante après avoir sélectionné une RAI.",
-			"title": "Fermer la liste déroulante après la sélection"
-		},
-		"arrSearchDissolveCategories": {
-			"description": "Affiche toutes les catégories à la fois, lors de la recherche.",
-			"title": "RAI-Recherche: Afficher toutes les catégories"
-		},
-		"arrSearchDropdown": {
-			"description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",
-			"title": "RAI-Recherche en liste déroulante"
-		},
-		"arrSpecs": {
-			"description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",
-			"title": "Détail de la régulation"
-		},
-		"arrTime": {
-			"description": "Affiche le temps de trajet le plus long de la régulation lors du survol.",
-			"title": "Temps de trajet de la régulation"
-		},
-		"centerMap": {
-			"description": "Ajoute un bouton qui permet de centrer la carte sur la mission actuelle.",
-			"title": "Centrer la carte"
-		},
-		"collapsablePatients": {
-			"description": "Réduit les patients dans la fenêtre d'intervention et affiche à la place un bref résumé.",
-			"title": "Réduire les patients"
-		},
-		"collapsablePatientsMinPatients": {
-			"description": "Définis ici à partir de combien de patients le regroupement doit être activé",
-			"title": "Réduire le nombre de patients : Nombre de patients minimal"
-		},
-		"emvMaxStaff": {
-			"description": "La fonction 'véhicules manquants améliorés' s'attend à ce que tous les véhicules aient un personnel complet pour ses calculs.",
-			"title": "Personnel maximum"
-		},
-		"enhancedMissingVehicles": {
-			"description": "Change l'affichage des véhicules requis additionnels vers un tableau plus clair.",
-			"title": "Vue améliorée des véhicules requis"
-		},
-		"generationDate": {
-			"description": "Affiche la date et heure de génération de mission à côté de son titre.",
-			"title": "Heure de génération de mission"
-		},
-		"hideVehicleList": {
-			"description": "Cache la liste des véhicules disponibles. Ajoute un bouton permettant d'afficher ou de cacher la liste.",
-			"title": "Cacher la liste des véhicules"
-		},
-		"hoverTip": {
-			"description": "Affiche des infobulles supplémentaires sur certains boutons.",
-			"title": "Infobulles"
-		},
-		"loadMoreVehiclesInHeader": {
-			"description": "Affiche le bouton \"Véhicules limités ! Chargement insuffisant !\" dans l'en-tête.",
-			"title": "Bouton \"Véhicules limités\" dans l'en-tête"
-		},
-		"missionKeywords": {
-			"allMissions": "Toutes les missions",
-			"autotextcolor": "Couleur automatique du texte",
-			"color": "Couleur de fond",
-			"description": "Affiche votre mot-clef à côté du nom de la mission.",
-			"keyword": "Mot-clef",
-			"missions": "Missions",
-			"prepend": "Afficher avant le nom de la mission",
-			"preview": "Prévisualiser",
-			"textcolor": "Couleur du texte",
-			"title": "Mots-clefs de mission"
-		},
-		"patientSummary": {
-			"description": "Affiche à côté du nombre de victimes les besoins en véhicules d'assistance.",
-			"title": "Aperçu des victimes"
-		},
-		"playerCounter": {
-			"description": "Affiche en haut de la liste du personnel le nombre de joueurs qui ont envoyé un véhicule pour cette mission. Cliquez pour ouvrir un tableau avec les détails.",
-			"title": "Compteur des joueurs"
-		},
-		"playerCounterColor": {
-			"description": "Choisissez la couleur que vous voulez donner à l'étiquette du compteur des joueurs",
-			"title": "Compteur des joueurs: Couleur"
-		},
-		"redBorder": {
-			"description": "Encadre en rouge l'heure de génération si la mission expire au cours de la nuit prochaine.",
-			"title": "Bordure rouge"
-		},
-		"remainingPatientTime": {
-			"description": "Indique pour chaque patient le temps qu'il reste jusqu'à ce qu'il soit entièrement traité.",
-			"title": "Temps restant pour les patients"
-		},
-		"stagingAreaSelectedCounter": {
-			"description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
-			"title": "Compteur de véhicules dans les CRM"
-		},
-		"stickyHeader": {
-			"description": "Toujours montrer l'en-tête, même quand vous défilez vers le bas de page.",
-			"title": "Toujours montrer l'en-tête"
-		},
-		"tailoredTabs": {
-			"color": "Couleur",
-			"description": "Définir les onglets de la liste de véhicules. \"Tout\" et \"Poursuivre\" seront toujours visibles.",
-			"name": "Nom de l'onglet",
-			"title": "Onglets personnalisés",
-			"vehicles": "types de véhicules"
-		},
-		"vehicleCounter": {
-			"description": "Affiche en haut de la liste du personnel combien de véhicules sont affectés à cette mission. Cliquez pour ouvrir un tableau avec les détails.",
-			"title": "Compteur de véhicules"
-		},
-		"vehicleCounterColor": {
-			"danger": "Rouge",
-			"default": "Gris",
-			"description": "Choisissez la couleur de l'étiquette du compteur de véhicules.",
-			"info": "Bleu clair",
-			"primary": "Bleu foncé",
-			"success": "Vert",
-			"title": "Compteur de véhicules : couleur",
-			"warning": "Orange"
-		},
-		"vehicleTypeInList": {
-			"description": "Affiche le type de véhicule dans la liste des unités disponibles.",
-			"title": "Afficher le type de véhicule"
-		},
-		"yellowBorder": {
-			"description": "Encadre en jaune l'heure de génération si elle est antérieure au nombre d'heures spécifié. La bordure n'est pas affichée si 0.",
-			"title": "Bordure jaune"
-		}
-	},
-	"tailoredTabs": {
-		"defaultTabs": [
-			{
-				"name": "Fourgon d'incendie",
-				"vehicleTypes": [
-					0,
-					1,
-					12,
-					13,
-					15,
-					32,
-					33,
-					34
-				]
-			},
-			{
-				"name": "Autres appareils incendie",
-				"vehicleTypes": [
-					2,
-					3,
-					4,
-					6,
-					7,
-					10,
-					11,
-					14,
-					15,
-					31,
-					36,
-					37,
-					38
-				]
-			},
-			{
-				"name": "Ambulance",
-				"vehicleTypes": [
-					5,
-					9,
-					25,
-					26,
-					27,
-					28,
-					29,
-					30
-				]
-			},
-			{
-				"name": "Police",
-				"vehicleTypes": [
-					8,
-					18,
-					19,
-					20
-				]
-			},
-			{
-				"name": "Nautique",
-				"vehicleTypes": [
-					16,
-					17
-				]
-			},
-			{
-				"name": "Feux de Forêt",
-				"vehicleTypes": [
-					21,
-					22,
-					23,
-					24,
-					32,
-					33,
-					34,
-					35
-				]
-			},
-			{
-				"name": "Maintien de l'Ordre",
-				"vehicleTypes": [
-					39,
-					40,
-					41,
-					42,
-					43,
-					44,
-					45
-				]
-			}
-		]
-	}
+    "name": "Fenêtre de déploiement étendue",
+    "settings": {
+        "alarmIcons": {
+            "description": "Affiche des pictogrammes devant le bouton \"Déployer\" selon les véhicules sélectionnés. Le choix se fait parmi les pictos gratuits de <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">Font-Awesome</a>. Il suffit d'indiquer le nom de l'icône. La prévisualisation se fait directement.",
+            "icon": "Nom",
+            "preview": "Prévisualiser",
+            "style": "Type de pictogramme",
+            "title": "Pictos de déploiement",
+            "vehicles": "Types de véhicules"
+        },
+        "alarmTime": {
+            "description": "Affiche à côté du bouton \"Déployer\" le temps de trajet le plus long des véhicules sélectionnés.",
+            "title": "Temps de trajet le plus long"
+        },
+        "arrClickHighlight": {
+            "description": "Encadre les régulations déjà séléctionnées.",
+            "title": "Bordure de régulations"
+        },
+        "arrClickHighlightColor": {
+            "description": "Choisir la couleur de la bordure des régulations.",
+            "title": "Couleur des bordures"
+        },
+        "arrClickHighlightWidth": {
+            "description": "Donner la taille en pixels de la bordure des régulations séléctionnées.",
+            "title": "Taille de bordure"
+        },
+        "arrCounter": {
+            "description": "Compte le nombre de fois où une régulation a été séléctionnée. Un bouton dans le coin en bas à droite permet de remettre à zéro les régulations sélectionnées.",
+            "title": "Compteur de régulations"
+        },
+        "arrCounterAsBadge": {
+            "description": "Affiche le compteur de régulations sous la forme d'un cercle rouge sur chaque bouton",
+            "title": "Compteur de régulations comme badge"
+        },
+        "arrCounterResetSelection": {
+            "description": "Ajoute un bouton pour remettre à zéro la séléction de véhicules. Attention : Cela remet aussi à zéro le compteur de régulations et la coloration des bordures si ces options ont été activées.",
+            "title": "Remise à zéro de la séléction de véhicules"
+        },
+        "arrMatchHighlight": {
+            "description": "Grise les régulations qui ne contiennent pas un des mots du nom de la mission.",
+            "title": "Griser régulations non adaptées"
+        },
+        "arrSearch": {
+            "description": "Affiche une barre de recherche au-dessus des RAIs qui permet de filtrer vos Rais.",
+            "title": "RAI-Recherche"
+        },
+        "arrSearchAutoFocus": {
+            "description": "Met automatiquement le focus sur Rai-Recherche pour que vous puissiez commencer à taper sans cliquer sur le champ de recherche.",
+            "title": "RAI-Recherche: autofocus"
+        },
+        "arrSearchCloseDropdownOnSelect": {
+            "description": "ferme la liste déroulante après avoir sélectionné une RAI.",
+            "title": "Fermer la liste déroulante après la sélection"
+        },
+        "arrSearchDissolveCategories": {
+            "description": "Affiche toutes les catégories à la fois, lors de la recherche.",
+            "title": "RAI-Recherche: Afficher toutes les catégories"
+        },
+        "arrSearchDropdown": {
+            "description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",
+            "title": "RAI-Recherche en liste déroulante"
+        },
+        "arrSpecs": {
+            "description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",
+            "title": "Détail de la régulation"
+        },
+        "arrTime": {
+            "description": "Affiche le temps de trajet le plus long de la régulation lors du survol.",
+            "title": "Temps de trajet de la régulation"
+        },
+        "centerMap": {
+            "description": "Ajoute un bouton qui permet de centrer la carte sur la mission actuelle.",
+            "title": "Centrer la carte"
+        },
+        "collapsablePatients": {
+            "description": "Réduit les patients dans la fenêtre d'intervention et affiche à la place un bref résumé.",
+            "title": "Réduire les patients"
+        },
+        "collapsablePatientsMinPatients": {
+            "description": "Définis ici à partir de combien de patients le regroupement doit être activé",
+            "title": "Réduire le nombre de patients : Nombre de patients minimal"
+        },
+        "emvMaxStaff": {
+            "description": "La fonction 'véhicules manquants améliorés' s'attend à ce que tous les véhicules aient un personnel complet pour ses calculs.",
+            "title": "Personnel maximum"
+        },
+        "enhancedMissingVehicles": {
+            "description": "Change l'affichage des véhicules requis additionnels vers un tableau plus clair.",
+            "title": "Vue améliorée des véhicules requis"
+        },
+        "generationDate": {
+            "description": "Affiche la date et heure de génération de mission à côté de son titre.",
+            "title": "Heure de génération de mission"
+        },
+        "hideVehicleList": {
+            "description": "Cache la liste des véhicules disponibles. Ajoute un bouton permettant d'afficher ou de cacher la liste.",
+            "title": "Cacher la liste des véhicules"
+        },
+        "hoverTip": {
+            "description": "Affiche des infobulles supplémentaires sur certains boutons.",
+            "title": "Infobulles"
+        },
+        "loadMoreVehiclesInHeader": {
+            "description": "Affiche le bouton \"Véhicules limités ! Chargement insuffisant !\" dans l'en-tête.",
+            "title": "Bouton \"Véhicules limités\" dans l'en-tête"
+        },
+        "missionKeywords": {
+            "allMissions": "Toutes les missions",
+            "autotextcolor": "Couleur automatique du texte",
+            "color": "Couleur de fond",
+            "description": "Affiche votre mot-clef à côté du nom de la mission.",
+            "keyword": "Mot-clef",
+            "missions": "Missions",
+            "prepend": "Afficher avant le nom de la mission",
+            "preview": "Prévisualiser",
+            "textcolor": "Couleur du texte",
+            "title": "Mots-clefs de mission"
+        },
+        "patientSummary": {
+            "description": "Affiche à côté du nombre de victimes les besoins en véhicules d'assistance.",
+            "title": "Aperçu des victimes"
+        },
+        "playerCounter": {
+            "description": "Affiche en haut de la liste du personnel le nombre de joueurs qui ont envoyé un véhicule pour cette mission. Cliquez pour ouvrir un tableau avec les détails.",
+            "title": "Compteur des joueurs"
+        },
+        "playerCounterColor": {
+            "description": "Choisissez la couleur que vous voulez donner à l'étiquette du compteur des joueurs",
+            "title": "Compteur des joueurs: Couleur"
+        },
+        "redBorder": {
+            "description": "Encadre en rouge l'heure de génération si la mission expire au cours de la nuit prochaine.",
+            "title": "Bordure rouge"
+        },
+        "remainingPatientTime": {
+            "description": "Indique pour chaque patient le temps qu'il reste jusqu'à ce qu'il soit entièrement traité.",
+            "title": "Temps restant pour les patients"
+        },
+        "stagingAreaSelectedCounter": {
+            "description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
+            "title": "Compteur de véhicules dans les CRM"
+        },
+        "stickyHeader": {
+            "description": "Toujours montrer l'en-tête, même quand vous défilez vers le bas de page.",
+            "title": "Toujours montrer l'en-tête"
+        },
+        "tailoredTabs": {
+            "color": "Couleur",
+            "description": "Définir les onglets de la liste de véhicules. \"Tout\" et \"Poursuivre\" seront toujours visibles.",
+            "name": "Nom de l'onglet",
+            "title": "Onglets personnalisés",
+            "vehicles": "types de véhicules"
+        },
+        "vehicleCounter": {
+            "description": "Affiche en haut de la liste du personnel combien de véhicules sont affectés à cette mission. Cliquez pour ouvrir un tableau avec les détails.",
+            "title": "Compteur de véhicules"
+        },
+        "vehicleCounterColor": {
+            "danger": "Rouge",
+            "default": "Gris",
+            "description": "Choisissez la couleur de l'étiquette du compteur de véhicules.",
+            "info": "Bleu clair",
+            "primary": "Bleu foncé",
+            "success": "Vert",
+            "title": "Compteur de véhicules : couleur",
+            "warning": "Orange"
+        },
+        "vehicleTypeInList": {
+            "description": "Affiche le type de véhicule dans la liste des unités disponibles.",
+            "title": "Afficher le type de véhicule"
+        },
+        "yellowBorder": {
+            "description": "Encadre en jaune l'heure de génération si elle est antérieure au nombre d'heures spécifié. La bordure n'est pas affichée si 0.",
+            "title": "Bordure jaune"
+        }
+    },
+    "tailoredTabs": {
+        "defaultTabs": [
+            {
+                "name": "Fourgon d'incendie",
+                "vehicleTypes": [
+                    0,
+                    1,
+                    12,
+                    13,
+                    15,
+                    32,
+                    33,
+                    34
+                ]
+            },
+            {
+                "name": "Autres appareils incendie",
+                "vehicleTypes": [
+                    2,
+                    3,
+                    4,
+                    6,
+                    7,
+                    10,
+                    11,
+                    14,
+                    15,
+                    31,
+                    36,
+                    37,
+                    38
+                ]
+            },
+            {
+                "name": "Ambulance",
+                "vehicleTypes": [
+                    5,
+                    9,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30
+                ]
+            },
+            {
+                "name": "Police",
+                "vehicleTypes": [
+                    8,
+                    18,
+                    19,
+                    20
+                ]
+            },
+            {
+                "name": "Nautique",
+                "vehicleTypes": [
+                    16,
+                    17
+                ]
+            },
+            {
+                "name": "Feux de Forêt",
+                "vehicleTypes": [
+                    21,
+                    22,
+                    23,
+                    24,
+                    32,
+                    33,
+                    34,
+                    35
+                ]
+            },
+            {
+                "name": "Maintien de l'Ordre",
+                "vehicleTypes": [
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                ]
+            }
+        ]
+    }
 }
