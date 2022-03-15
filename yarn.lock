@@ -335,10 +335,10 @@
   dependencies:
     "@types/geojson" "*"
 
-"@types/lodash@^4.14.179":
-  version "4.14.179"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.179.tgz#490ec3288088c91295780237d2497a3aa9dfb5c5"
-  integrity sha512-uwc1x90yCKqGcIOAT6DwOSuxnrAbpkdPsUOZtwrXb4D/6wZs+6qG7QnIawDuZWg0sWpxl+ltIKCaLoMlna678w==
+"@types/lodash@^4.14.180":
+  version "4.14.180"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.180.tgz#4ab7c9ddfc92ec4a887886483bc14c79fb380670"
+  integrity sha512-XOKXa1KIxtNXgASAnwj7cnttJxS4fksBRywK/9LzRV5YxrF80BXZIGeQSuoESQ/VkUj30Ae0+YcuHc15wJCB2g==
 
 "@types/mime@^1":
   version "1.3.2"
@@ -367,10 +367,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/pdfmake@^0.1.20":
-  version "0.1.20"
-  resolved "https://registry.yarnpkg.com/@types/pdfmake/-/pdfmake-0.1.20.tgz#daf746dff3e9dda939c2a90029472bcc46ff14d3"
-  integrity sha512-ojIxeOHHy0T3j/RTpv6mscM7heKxJb+f7kP7dMPkRPbWXEEunhBHw74Y6A2gbG3zFpmVIE1eYPiqeMlUC4L+tg==
+"@types/pdfmake@^0.1.21":
+  version "0.1.21"
+  resolved "https://registry.yarnpkg.com/@types/pdfmake/-/pdfmake-0.1.21.tgz#0bbcc05d47b3768c1c86b8a6a49dcdbc41a4b506"
+  integrity sha512-rDmJr/jzUZSg/AzWYAMVBS4z4weZKTOtrD6Jlt+hzZu87bkIe7WVA02+m+uGGopyTUazFoWYT6HXxwT68Nqfeg==
   dependencies:
     "@types/node" "*"
     "@types/pdfkit" "*"
@@ -1172,9 +1172,9 @@ camelcase@^5.0.0:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001304, caniuse-lite@^1.0.30001313:
-  version "1.0.30001316"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001316.tgz"
-  integrity sha512-JgUdNoZKxPZFzbzJwy4hDSyGuH/gXz2rN51QmoR8cBQsVo58llD3A0vlRKKRt8FGf5u69P9eQyIH8/z9vN/S0Q==
+  version "1.0.30001317"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001317.tgz"
+  integrity sha512-xIZLh8gBm4dqNX0gkzrBeyI86J2eCjWzYAs40q88smG844YIrN4tVQl/RhquHvKEKImWWFIVh1Lxe5n1G/N+GQ==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -4251,10 +4251,10 @@ terser-webpack-plugin@^5.1.3:
     source-map "^0.6.1"
     terser "^5.7.2"
 
-terser@^5.10.0, terser@^5.12.0, terser@^5.7.2:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.12.0.tgz#728c6bff05f7d1dcb687d8eace0644802a9dae8a"
-  integrity sha512-R3AUhNBGWiFc77HXag+1fXpAxTAFRQTJemlJKjAgD9r8xXTpjNKqIXwHM/o7Rh+O0kUJtS3WQVdBeMKFk5sw9A==
+terser@^5.10.0, terser@^5.12.1, terser@^5.7.2:
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.12.1.tgz#4cf2ebed1f5bceef5c83b9f60104ac4a78b49e9c"
+  integrity sha512-NXbs+7nisos5E+yXwAD+y7zrcTkMqb0dEJxIGtSKPdCBzopf7ni4odPul2aechpV7EXNvOudYOX2bb5tln1jbQ==
   dependencies:
     acorn "^8.5.0"
     commander "^2.20.0"
