@@ -13,6 +13,7 @@ export type Sort =
     | 'credits'
     | 'default'
     | 'distance_dispatch'
+    | 'distance_station'
     | 'id'
     | 'remaining_patients';
 
@@ -35,6 +36,7 @@ export default (
         'remaining_patients',
         'alphabet',
         'distance_dispatch',
+        'distance_station',
     ];
     let sortingType = sort;
     const sortingDirection = direction;
@@ -57,6 +59,8 @@ export default (
 
     const dispatchCenters: Building[] = [];
     const dispatchCenterLatLngs: LatLng[] = [];
+    const vehicleBuildings: Building[] = [];
+    const vehicleBuildingLatLngs: LatLng[] = [];
 
     LSSM.$store
         .dispatch('api/registerBuildingsUsage', {
@@ -90,7 +94,36 @@ export default (
                         new window.L.LatLng(latitude, longitude)
                 )
             );
-            if (sort === 'distance_dispatch') resetOrder();
+
+            vehicleBuildings.splice(
+                0,
+                vehicleBuildings.length,
+                ...Object.values(
+                    LSSM.$t('vehicleBuildings') as unknown as Record<
+                        number,
+                        number
+                    >
+                )
+                    .flatMap(
+                        type =>
+                            (
+                                LSSM.$store.getters[
+                                    'api/buildingsByType'
+                                ] as Record<number, Building[]>
+                            )[type]
+                    )
+                    .filter(b => !!b)
+            );
+            vehicleBuildingLatLngs.splice(
+                0,
+                vehicleBuildingLatLngs.length,
+                ...vehicleBuildings.map(
+                    ({ latitude, longitude }) =>
+                        new window.L.LatLng(latitude, longitude)
+                )
+            );
+            if (sort === 'distance_dispatch' || sort === 'remaining_patients')
+                resetOrder();
         });
 
     const reverseClass = LSSM.$store.getters.nodeAttribute(
@@ -132,6 +165,7 @@ export default (
         credits = 'dollar-sign',
         default = 'face-rolling-eyes',
         distance_dispatch = 'tower-broadcast',
+        distance_station = 'building',
         id = 'clock-rotate-left',
         remaining_patients = 'user-injured',
     }
@@ -194,7 +228,7 @@ export default (
         aDesc.setAttribute('href', '#');
         liDesc.append(aDesc);
         const icon = document.createElement('i');
-        icon.classList.add('fas', `fa-${faSortIcon[sort]}`);
+        icon.classList.add('fas', `fa-${faSortIcon[sort]}`, 'fa-fw');
         icon.style.setProperty('margin-right', '0.2em');
         directionIcon.style.setProperty('margin-left', '0.2em');
         aAsc.append(icon, title, directionIcon.cloneNode(true));
@@ -358,6 +392,14 @@ export default (
             return distanceToCSSRange(
                 Math.min(
                     ...dispatchCenterLatLngs.map(dc => latLng.distanceTo(dc))
+                )
+            ).toString();
+        },
+        distance_station: mission => {
+            const latLng = getLatLngFromMission(mission);
+            return distanceToCSSRange(
+                Math.min(
+                    ...vehicleBuildingLatLngs.map(dc => latLng.distanceTo(dc))
                 )
             ).toString();
         },

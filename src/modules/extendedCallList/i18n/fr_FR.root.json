@@ -227,6 +227,7 @@
             "credits": "Crédits",
             "default": "aucun tri",
             "distance_dispatch": "Distance jusqu'au prochain centre de traitement des appels",
+            "distance_station": "Distance jusqu'au prochain station",
             "id": "Age",
             "remaining_patients": "Patients actuels"
         }

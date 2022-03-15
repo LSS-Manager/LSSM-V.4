@@ -134,6 +134,7 @@
             "credits": "Kreditter",
             "default": "ingen sortering",
             "distance_dispatch": "Distance to next dispatch center",
+            "distance_station": "Distance to next station",
             "id": "Alder",
             "remaining_patients": "Nåværende pasienter"
         }

@@ -262,6 +262,7 @@
             "credits": "Credits",
             "default": "Geen sortering",
             "distance_dispatch": "Distance to next dispatch center",
+            "distance_station": "Distance to next station",
             "id": "Generatietijd",
             "remaining_patients": "Huidige patiënten"
         }

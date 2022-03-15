@@ -234,6 +234,7 @@
             "credits": "Verdienst",
             "default": "keine Sortierung",
             "distance_dispatch": "Entfernung zur nächsten Leitstelle",
+            "distance_station": "Entfernung zur nächsten Wache",
             "id": "Alter",
             "remaining_patients": "aktuelle Patienten"
         }
