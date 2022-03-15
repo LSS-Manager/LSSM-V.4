@@ -211,6 +211,7 @@
             "alphabet": "Alphabet",
             "credits": "Credits",
             "default": "no sorting",
+            "distance_dispatch": "Distance to next dispatch center",
             "id": "Age",
             "remaining_patients": "Current patients"
         }

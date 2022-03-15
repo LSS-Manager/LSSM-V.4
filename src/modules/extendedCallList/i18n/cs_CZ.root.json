@@ -92,6 +92,7 @@
         "types": {
             "alphabet": "Dle abecedy",
             "credits": "Dle kreditů",
+            "distance_dispatch": "Distance to next dispatch center",
             "id": "Dle stáří",
             "remaining_patients": "Dle pacientů"
         }

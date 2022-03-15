@@ -226,6 +226,7 @@
             "alphabet": "Alphabet",
             "credits": "Crédits",
             "default": "aucun tri",
+            "distance_dispatch": "Distance to next dispatch center",
             "id": "Age",
             "remaining_patients": "Patients actuels"
         }

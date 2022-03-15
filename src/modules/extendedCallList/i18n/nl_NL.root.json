@@ -261,6 +261,7 @@
             "alphabet": "Alfabet",
             "credits": "Credits",
             "default": "Geen sortering",
+            "distance_dispatch": "Distance to next dispatch center",
             "id": "Generatietijd",
             "remaining_patients": "Huidige patiënten"
         }

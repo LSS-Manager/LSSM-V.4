@@ -233,6 +233,7 @@
             "alphabet": "Alphabet",
             "credits": "Verdienst",
             "default": "keine Sortierung",
+            "distance_dispatch": "Entfernung zur nächsten Leitstelle",
             "id": "Alter",
             "remaining_patients": "aktuelle Patienten"
         }

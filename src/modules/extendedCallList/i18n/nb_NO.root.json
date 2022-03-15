@@ -133,6 +133,7 @@
             "alphabet": "Alfabet",
             "credits": "Kreditter",
             "default": "ingen sortering",
+            "distance_dispatch": "Distance to next dispatch center",
             "id": "Alder",
             "remaining_patients": "Nåværende pasienter"
         }
