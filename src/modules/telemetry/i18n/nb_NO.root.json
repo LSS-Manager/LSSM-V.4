@@ -7,8 +7,14 @@
             "title": "Ikke støttet nettleser"
         },
         "old": {
-            "text": "Du ser ut til å bruke en utdatert nettleser! For øyeblikket bruker du <b>{name} {current}</b>, men den nyeste versjonen er <b>{name} {latest}</b>! Vær oppmerksom på at LSS-Manageren kun kan bruke denne nettleseren fra versjon <b>{supported}</b> støtter. Dette har grunner til sikkerhet og kompatibilitet. Du kan laste ned den nyeste versjonen av nettleseren din på <a href='{download}' class='lightbox-open'>her</a> nedlasting.<br>En gjeldende liste over støttede nettlesere finner du i vår <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>vanlige spørsmål</a>.",
+            "text": "Du ser ut til å bruke en utdatert nettleser! For øyeblikket bruker du <b>{name} {current}</b>, men den nyeste versjonen er <b>{name} {latest}</b>! Vær oppmerksom på at LSS-Manageren kun kan bruke denne nettleseren fra versjon <b>{supported}</b> støtter. Dette har grunner til sikkerhet og kompatibilitet. Du kan laste ned den nyeste versjonen av nettleseren din på <a href='{download}' target='_blank'>her</a> nedlasting.<br>En gjeldende liste over støttede nettlesere finner du i vår <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>vanlige spørsmål</a>.",
             "title": "Utdatert nettleser"
+        },
+        "table": {
+            "browser": "Browser",
+            "download": "Download",
+            "latest": "latest Version",
+            "min": "min. Version"
         }
     },
     "info": {

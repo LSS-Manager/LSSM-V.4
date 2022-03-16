@@ -7,8 +7,14 @@
             "title": "Navegador no compatible"
         },
         "old": {
-            "text": "¡Parece que usa un navegador desactualizado! Actualmente estás usando <b> {name} {current} </b>, ¡pero la última versión es <b> {name} {latest} </b>! Tenga en cuenta que LSS-Manager solo puede utilizar este navegador a partir de la versión <b> {compatible} </b> compatible. Esto tiene razones de seguridad y compatibilidad. Puede descargar la última versión de su navegador <a href='{download}' class='lightbox-open'>aquí</a>.<br> Puede encontrar una lista actualizada de navegadores compatibles en nuestro <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+            "text": "¡Parece que usa un navegador desactualizado! Actualmente estás usando <b> {name} {current} </b>, ¡pero la última versión es <b> {name} {latest} </b>! Tenga en cuenta que LSS-Manager solo puede utilizar este navegador a partir de la versión <b> {compatible} </b> compatible. Esto tiene razones de seguridad y compatibilidad. Puede descargar la última versión de su navegador <a href='{download}' target='_blank'>aquí</a>.<br> Puede encontrar una lista actualizada de navegadores compatibles en nuestro <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
             "title": "Navegador desactualizado"
+        },
+        "table": {
+            "browser": "Browser",
+            "download": "Download",
+            "latest": "latest Version",
+            "min": "min. Version"
         }
     },
     "info": {

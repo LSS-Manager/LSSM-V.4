@@ -7,8 +7,14 @@
             "title": "Webbläsaren stöds inte"
         },
         "old": {
-            "text": "Du verkar använda en föråldrad webbläsare! För närvarande använder du <b>{name} {current}</b>, men den senaste versionen är <b>{name} {latest}</b>! Observera att LSS-Manager endast kan använda den här webbläsaren från version <b>{stöds}</b> stöd. Detta har skäl till säkerhet och kompatibilitet. Du kan ladda ner den senaste versionen av din webbläsare på <a href = '{ ladda ner} 'class =' ​​lightbox-open '> här </a> ladda ner. <br> En aktuell lista över webbläsare som stöds finns i vår <a href =' {wiki} faq.html # {wikiAnchor} 'class = 'lightbox-open'> FAQ </a>. ",
+            "text": "Du verkar använda en föråldrad webbläsare! För närvarande använder du <b>{name} {current}</b>, men den senaste versionen är <b>{name} {latest}</b>! Observera att LSS-Manager endast kan använda den här webbläsaren från version <b>{supported}</b> stöd. Detta har skäl till säkerhet och kompatibilitet. Du kan ladda ner den senaste versionen av din webbläsare på <a href='{download}' target='_blank'>här</a> ladda ner. <br> En aktuell lista över webbläsare som stöds finns i vår <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
             "title": "Föråldrad webbläsare"
+        },
+        "table": {
+            "browser": "Browser",
+            "download": "Download",
+            "latest": "latest Version",
+            "min": "min. Version"
         }
     },
     "info": {

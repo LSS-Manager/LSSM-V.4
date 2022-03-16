@@ -7,8 +7,14 @@
             "title": "Browser non supportato"
         },
         "old": {
-            "text": "Sembra che tu stia utilizzando un browser obsoleto! Attualmente stai usando <b>{name} {current}</b>, ma l'ultima versione è <b>{name} {latest}</b>! Perfavore nota che LSS-Manager supporta questo browser solo dalla versione <b>{supported}</b>. Questo è per di sicurezza e compatibilità. Puoi scaricare l'ultima version del tuo browser <a href='{download}' class='lightbox-open'>qui</a>. <br>Un elenco attuale dei browser supportato può essere trovato nelle nostre <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+            "text": "Sembra che tu stia utilizzando un browser obsoleto! Attualmente stai usando <b>{name} {current}</b>, ma l'ultima versione è <b>{name} {latest}</b>! Perfavore nota che LSS-Manager supporta questo browser solo dalla versione <b>{supported}</b>. Questo è per di sicurezza e compatibilità. Puoi scaricare l'ultima version del tuo browser <a href='{download}' target='_blank'>qui</a>. <br>Un elenco attuale dei browser supportato può essere trovato nelle nostre <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
             "title": "Browser obsoleto"
+        },
+        "table": {
+            "browser": "Browser",
+            "download": "Download",
+            "latest": "latest Version",
+            "min": "min. Version"
         }
     },
     "info": {

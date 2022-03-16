@@ -2,10 +2,10 @@ import UAParser from 'ua-parser-js';
 
 import config from '../../config';
 
-import type { StorageSet } from '../../../typings/store/storage/Actions';
+import type { StorageSet } from 'typings/store/storage/Actions';
 
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
-const HIDE_BROWSER_NOTE_KEY = 'hide_browsersupport_note';
+const HIDE_BROWSER_NOTE_KEY = 'last_browsersupport_note';
 
 export default (
     LSSM: Vue,
@@ -38,20 +38,54 @@ export default (
                 key: HIDE_BROWSER_NOTE_KEY,
                 defaultValue: false,
             })
-            .then(browserNoteShown => {
-                if (browserNoteShown) return;
+            .then(storageValue => {
+                const browserName = browser.name?.toLowerCase() ?? '';
 
-                const browserSupport =
-                    config.browser[browser.name?.toLowerCase() || ''];
+                const browserSupport = config.browser[browserName];
+
+                if (
+                    new RegExp(
+                        `^${browserName}${
+                            browserSupport ? ` ${browserMajor}` : ''
+                        }$`,
+                        'iu'
+                    ).test(storageValue)
+                )
+                    return;
+
+                const downloadText = $m('browsersupport.table.download');
+                const table = `<table class="table table-striped table-condensed table-hover">
+<thead>
+  <tr>
+    <th>${$m('browsersupport.table.browser')}</th>
+    <th>${$m('browsersupport.table.min')}</th>
+    <th>${$m('browsersupport.table.latest')}</th>
+    <th>${downloadText}</th>
+  </tr>
+</thead>
+<tbody>
+  ${Object.entries(config.browser)
+      .map(
+          ([browser, { latest, supported, download }]) => `<tr>
+  <th>${browser.replace(/^./u, $1 => $1.toUpperCase())}</th>
+  <td>${supported}</td>
+  <td>${latest}</td>
+  <td><a href="${download}" target="_blank" style="color: #6dd5f4;">${downloadText}</a></td>
+</tr>`
+      )
+      .join('')}
+</tbody>
+</table>`;
 
                 if (!browserSupport) {
                     LSSM.$modal.show('dialog', {
                         title: $m('browsersupport.not.title'),
-                        text: $m('browsersupport.not.text', {
-                            name: browser.name,
-                            wiki: LSSM.$store.getters.wiki,
-                            wikiAnchor: $m('browsersupport.faqAnchor'),
-                        }),
+                        text:
+                            $m('browsersupport.not.text', {
+                                name: browser.name,
+                                wiki: LSSM.$store.getters.wiki,
+                                wikiAnchor: $m('browsersupport.faqAnchor'),
+                            }) + table,
                         options: {},
                         buttons: [
                             {
@@ -60,7 +94,7 @@ export default (
                                     LSSM.$store
                                         .dispatch('storage/set', {
                                             key: HIDE_BROWSER_NOTE_KEY,
-                                            value: true,
+                                            value: browserName,
                                         } as StorageSet)
                                         .then(() => LSSM.$modal.hide('dialog'));
                                 },
@@ -70,15 +104,16 @@ export default (
                 } else if (browserMajor < browserSupport.supported) {
                     LSSM.$modal.show('dialog', {
                         title: $m('browsersupport.old.title'),
-                        text: $m('browsersupport.old.text', {
-                            name: browser.name,
-                            latest: browserSupport.latest,
-                            supported: browserSupport.supported,
-                            current: browserMajor,
-                            download: browserSupport.download,
-                            wiki: LSSM.$store.getters.wiki,
-                            wikiAnchor: $m('browsersupport.faqAnchor'),
-                        }),
+                        text:
+                            $m('browsersupport.old.text', {
+                                name: browser.name,
+                                latest: browserSupport.latest,
+                                supported: browserSupport.supported,
+                                current: browserMajor,
+                                download: browserSupport.download,
+                                wiki: LSSM.$store.getters.wiki,
+                                wikiAnchor: $m('browsersupport.faqAnchor'),
+                            }) + table,
                         options: {},
                         buttons: [
                             {
@@ -87,7 +122,7 @@ export default (
                                     LSSM.$store
                                         .dispatch('storage/set', {
                                             key: HIDE_BROWSER_NOTE_KEY,
-                                            value: true,
+                                            value: `${browserName} ${browserMajor}`,
                                         } as StorageSet)
                                         .then(() => LSSM.$modal.hide('dialog'));
                                 },
