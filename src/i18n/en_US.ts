@@ -1942,6 +1942,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Valley',
         'Coast Line',
         'Construction site',
+        'Ranch',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],
