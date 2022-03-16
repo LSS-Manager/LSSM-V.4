@@ -1156,6 +1156,9 @@ export default Vue.extend<
     h3
         margin-top: 0 !important
 
+        small
+            color: #424242
+
     .svg-inline--fa
         cursor: pointer
         position: relative
