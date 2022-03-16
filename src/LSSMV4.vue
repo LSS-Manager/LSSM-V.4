@@ -121,11 +121,12 @@ body.dark
         background-color: #505050
         color: white
 
-        a
-            color: #6dd5f4
+        &.vue-dialog
+            a
+                color: #6dd5f4
 
-        .vue-dialog-button:hover
-            background-color: rgba(249, 249, 249, 0.25)
+            .vue-dialog-button:hover
+                background-color: rgba(249, 249, 249, 0.25)
 
     .vs__dropdown-toggle
         border-color: dimgrey

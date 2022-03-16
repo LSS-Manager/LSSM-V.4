@@ -127,4 +127,10 @@ h2
 
     ::v-deep ul li
         list-style: disc !important
+
+    ::v-deep a
+        color: #6dd5f4
+
+a
+    color: #6dd5f4
 </style>
