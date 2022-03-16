@@ -89,7 +89,7 @@
     "release": {
         "cancel": "Annuler",
         "confirm": "Oui, décharger!",
-        "disable": "discharge and disable confirmation",
+        "disable": "Décharger et supprimer la confirmation",
         "patient": {
             "text": "Voulez-vous vraiment décharger le patient de ce véhicule ? Aucun paiement ne sera crédité pour le patient !",
             "title": "Décharger le patient"
