@@ -117,12 +117,12 @@ export default Vue.extend<
     color: #ffffff
 
 body.dark
-    a
-        color: #6dd5f4
-
     .vm--modal
         background-color: #505050
         color: white
+
+        a
+            color: #6dd5f4
 
         .vue-dialog-button:hover
             background-color: rgba(249, 249, 249, 0.25)
