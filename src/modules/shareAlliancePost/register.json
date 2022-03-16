@@ -1,4 +1,4 @@
 {
-	"location": "^/missions/\\d+/?$",
-	"settings": true
+    "location": "^/missions/\\d+/?$",
+    "settings": true
 }

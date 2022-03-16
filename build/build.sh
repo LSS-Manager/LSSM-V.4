@@ -15,10 +15,20 @@ npm install -g yarn
 # version output helps when there are debugging needs
 echo "node: $(node -v) – npm: $(npm -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
 
+echo "=== main: update browserslist ==="
 npx -y browserslist@latest --update-db
+echo "=/= END: main: update browserslist =/="
+echo "=== main: yarn install ==="
+yarn install --frozen-lockfile
+echo "=/= END: main: yarn install =/="
 
-yarn install --frozen-lockfile
 cd ./docs/.vuepress/
+echo "=== docs: update browserslist ==="
+npx -y browserslist@latest --update-db
+echo "=/= END: docs: update browserslist =/="
+echo "=== docs: yarn install ==="
 yarn install --frozen-lockfile
+echo "=/= END: docs: yarn install =/="
 cd ../../
+
 yarn run "$RUN_BRANCH"

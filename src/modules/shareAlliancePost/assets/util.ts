@@ -25,12 +25,12 @@ export function dateToTime(date: Date): string {
 }
 
 export function getDateFromToday(addDays = 0): string {
-    return (
-        new Date(Date.now() + addDays * 1000 * 60 * 60 * 24)
-            .toLocaleDateString()
-            .match(/\d{1,2}\D\d{1,2}/u)?.[0]
-            .replace(/(?<=^|\D)\d(?=\D|$)/gu, $0 => `0${$0}`) ?? ''
-    );
+    return new Date(
+        Date.now() + addDays * 1000 * 60 * 60 * 24
+    ).toLocaleDateString(undefined, {
+        month: '2-digit',
+        day: '2-digit',
+    });
 }
 
 export function getTimeReplacers(): Record<

@@ -97,7 +97,6 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
-import LibraryOverview from './components/libraryOverview.vue';
 import lssmLogo from './img/lssm_logo';
 
 import type { DefaultProps } from 'vue/types/options';
@@ -105,7 +104,7 @@ import type {
     lssmMenuComputed,
     lssmMenuData,
     lssmMenuMethods,
-} from '../typings/LSSM-Menu';
+} from 'typings/LSSM-Menu';
 
 const draw = (img: HTMLImageElement) => {
     const canvas = document.createElement('canvas');
@@ -398,7 +397,10 @@ export default Vue.extend<
         },
         showLibraries() {
             this.$modal.show(
-                LibraryOverview,
+                () =>
+                    import(
+                        /* webpackChunkName: "components/libraryOverview" */ './components/libraryOverview.vue'
+                    ),
                 {},
                 {
                     name: 'libraryOverview',

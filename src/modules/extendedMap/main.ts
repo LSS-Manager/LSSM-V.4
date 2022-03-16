@@ -18,4 +18,10 @@ export default <ModuleMainFunction>(async ({ LSSM, getSetting }) => {
             /* webpackChunkName: "modules/extendedMap/centerMap" */ './assets/centerMap'
         ).then(({ default: centerMap }) => centerMap(LSSM, getSetting));
     }
+
+    if (await getSetting('markerNewWindow')) {
+        import(
+            /* webpackChunkName: "modules/extendedMap/markerNewWindow" */ './assets/markerNewWindow'
+        ).then(({ default: markerNewWindow }) => markerNewWindow(LSSM));
+    }
 });

@@ -206,6 +206,7 @@ export default Vue.extend({
 .bug-field {
     flex: none;
     padding: 0.7em;
+    width: 100%;
 }
 @media print, screen and (min-width: 769px) {
     .bug-field {

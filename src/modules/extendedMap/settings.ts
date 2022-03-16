@@ -24,6 +24,10 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
             default: 'bottomright',
             dependsOn: '.mapScale',
         },
+        markerNewWindow: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         centerMap: <Toggle>{
             type: 'toggle',
             default: true,

@@ -118,7 +118,7 @@ export default Vue.extend<
         flex-flow: row wrap
 
         img
-            width: 60px
+            width: 100%
             height: 60px
 
         .linebreak

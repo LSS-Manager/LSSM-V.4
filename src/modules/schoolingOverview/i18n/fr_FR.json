@@ -1,15 +1,15 @@
 {
-	"all": "Toutes",
-	"amount": "Nombre de formations",
-	"open": "Formation ouverte",
-	"own": "Formation en cours",
-	"schooling": "Formation",
-	"seats": "Places disponibles",
-	"titles": {
-		"end": "Temps restant",
-		"name": "Formation",
-		"owner": "Organisateur de la formation",
-		"price": "Coût",
-		"seats": "Places disponibles"
-	}
+    "all": "Toutes",
+    "amount": "Nombre de formations",
+    "open": "Formation ouverte",
+    "own": "Formation en cours",
+    "schooling": "Formation",
+    "seats": "Places disponibles",
+    "titles": {
+        "end": "Temps restant",
+        "name": "Formation",
+        "owner": "Organisateur de la formation",
+        "price": "Coût",
+        "seats": "Places disponibles"
+    }
 }

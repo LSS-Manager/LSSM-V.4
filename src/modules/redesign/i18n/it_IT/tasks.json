@@ -1,7 +1,7 @@
 {
-	"collectionTasks": {
-		"taskName": "Porta a termine \\d+ attività dell'evento \"(.*?)\"",
-		"title": "Collective Tasks"
-	},
-	"title": "Attività ed eventi"
+    "collectionTasks": {
+        "taskName": "Porta a termine \\d+ attività dell'evento \"(.*?)\"",
+        "title": "Collective Tasks"
+    },
+    "title": "Attività ed eventi"
 }

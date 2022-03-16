@@ -628,6 +628,10 @@ export default Vue.extend<
                           )
                               return;
                           e.preventDefault();
+
+                          const targetUrl = new URL(href, window.location.href);
+                          const here = new URL(window.location.toString());
+
                           if (e.ctrlKey || e.button === 1)
                               return window.open(href, '_blank', 'noopener');
                           if (
@@ -636,16 +640,25 @@ export default Vue.extend<
                           )
                               return window.lightboxOpen(href);
                           if (target.hasAttribute('target')) {
-                              if (
-                                  new URL(href, window.location.origin)
-                                      .origin === window.location.origin
-                              )
+                              if (targetUrl.origin === window.location.origin)
                                   return window.lightboxOpen(href);
                               return window.open(
                                   href,
                                   target.getAttribute('target') ?? '_blank',
                                   'noopener'
                               );
+                          }
+
+                          if (
+                              targetUrl.origin === here.origin &&
+                              targetUrl.pathname === here.pathname &&
+                              targetUrl.search === here.search
+                          ) {
+                              if (targetUrl.hash !== here.hash) {
+                                  return (window.location.hash =
+                                      targetUrl.hash);
+                              }
+                              if (targetUrl.href === here.href) return;
                           }
 
                           this.$set(this, 'src', href);

@@ -1,21 +1,21 @@
 {
-	"description": "Forenkler innstillingen av interessepunkter gjennom små, nyttige funksjoner",
-	"name": "Forbedret POI",
-	"settings": {
-		"custom_style": {
-			"title": "Egendefinert stil for fremheving"
-		},
-		"predefined_style": {
-			"brown": "Brun",
-			"custom": "Manuell",
-			"green": "Grønn",
-			"red": "Rød",
-			"title": "Marker Highlighting",
-			"white": "Hvit"
-		},
-		"shown_types": {
-			"description": "Spesifiser her hvilke POI-typer som skal vises. Du kan også endre denne innstillingen direkte i \"Set POI\"-menyen.",
-			"title": "Viste POI-typer"
-		}
-	}
+    "description": "Forenkler innstillingen av interessepunkter gjennom små, nyttige funksjoner",
+    "name": "Forbedret POI",
+    "settings": {
+        "custom_style": {
+            "title": "Egendefinert stil for fremheving"
+        },
+        "predefined_style": {
+            "brown": "Brun",
+            "custom": "Manuell",
+            "green": "Grønn",
+            "red": "Rød",
+            "title": "Marker Highlighting",
+            "white": "Hvit"
+        },
+        "shown_types": {
+            "description": "Spesifiser her hvilke POI-typer som skal vises. Du kan også endre denne innstillingen direkte i \"Set POI\"-menyen.",
+            "title": "Viste POI-typer"
+        }
+    }
 }

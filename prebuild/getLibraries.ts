@@ -57,5 +57,5 @@ Object.keys(libraries)
 export default (): void =>
     fs.writeFileSync(
         './src/libraries.json',
-        JSON.stringify(librariesSorted, null, '\t')
+        JSON.stringify(librariesSorted, null, 4)
     );

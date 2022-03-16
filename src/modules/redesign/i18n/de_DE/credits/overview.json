@@ -1,7 +1,7 @@
 {
-	"date": "Datum",
-	"minus": "Ausgaben",
-	"plus": "Einnahmen",
-	"title": "Übersicht",
-	"total": "Summe"
+    "date": "Datum",
+    "minus": "Ausgaben",
+    "plus": "Einnahmen",
+    "title": "Übersicht",
+    "total": "Summe"
 }

@@ -71,7 +71,7 @@ export default {
             text: `Huch, bei dieser Serveranfrage ist leider ein Fehler aufgetreten:<br>
 <b>Statuscode</b>: <code>{status}</code><br>
 <b>Statustext</b>: <code>{statusText}</code><br>
-<b>URL</b>: <code>{url}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Dauer</b>: <code>{duration}ms</code><br>
 <br>
@@ -2952,7 +2952,7 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
         'Campingplatz',
         'Kompostieranlage',
         'Textilverarbeitung',
-        'Moorland',
+        'Moor',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

@@ -1,81 +1,81 @@
 {
-	"building-list": {
-		"actions": "",
-		"caption": "Navn",
-		"current": "Number (aktive)",
-		"fastDispatchChooser": {
-			"noDispatch": "Ingen kontrollsenter"
-		},
-		"type": "Type",
-		"unavailable": "Under konstruksjon"
-	},
-	"building-types": {
-		"building": "Bygninger",
-		"current": "Number (aktive)",
-		"extension": "Utvidelse",
-		"maximum": "Maksimum",
-		"title": "All {type}",
-		"unavailable": "Under konstruksjon"
-	},
-	"chart-summaries": {
-		"buildings": {
-			"personal_count": "Personell",
-			"tip": "Klikk på en av kategoriene (f.eks. brannvesen eller politi) for å forstørre bygningstypene som er tilordnet denne kategorien. Hvis du så klikker på en bygningstype, kan du se hvor mange kjøretøy av hver kjøretøytype som er plassert ved bygningene av den typen. På denne måten kan du raskt finne ut hvor mange kjøretøy av hver kjøretøytype som er parkert på politistasjoner og hvor mange på små politistasjoner.",
-			"title": "Bygninger"
-		},
-		"vehicles": {
-			"empty": "Du har ingen kjøretøy i kategorien {category} ennå!",
-			"tip": "Klikk på en gruppe kjøretøytyper for å vise kun denne gruppen.",
-			"title": "Kjøretøy"
-		}
-	},
-	"dispatchcenter-view": {
-		"building-selection": "Legg til bygninger:",
-		"manage": {
-			"newBoard": "New Board",
-			"title": "Manage boards",
-			"titles": {
-				"buildings": {
-					"bold": "Building type selection",
-					"small": "show only buildings of these building types for selection"
-				},
-				"dispatch": {
-					"bold": "Control center selection",
-					"small": "show only buildings of these control centers for selection"
-				},
-				"name": "Board name"
-			}
-		},
-		"no-buildings": "Ingen bygninger funnet. Om nødvendig, juster filtrene for denne tavlen i \"Manage Boards\"-fanen."
-	},
-	"tabs": {
-		"building-types": "Bygningsoversikt",
-		"chart-summary": "Sammendrag",
-		"dispatchcenter-view": "Nødsentralvisning",
-		"vehicle-types": "Status oversikt"
-	},
-	"vehicle-list": {
-		"actions": "",
-		"building": "Bygning",
-		"caption": "Navn",
-		"fms": "Status",
-		"type": "Type"
-	},
-	"vehicle-types": {
-		"status": "Status",
-		"statuses": [
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			9
-		],
-		"sum": "Totalt",
-		"title": "Alle {type} | All {type} med status {n} | All {type} med status {n}",
-		"type": "Enhetstype",
-		"vehicles": "Kjøretøy"
-	}
+    "building-list": {
+        "actions": "",
+        "caption": "Navn",
+        "current": "Number (aktive)",
+        "fastDispatchChooser": {
+            "noDispatch": "Ingen kontrollsenter"
+        },
+        "type": "Type",
+        "unavailable": "Under konstruksjon"
+    },
+    "building-types": {
+        "building": "Bygninger",
+        "current": "Number (aktive)",
+        "extension": "Utvidelse",
+        "maximum": "Maksimum",
+        "title": "All {type}",
+        "unavailable": "Under konstruksjon"
+    },
+    "chart-summaries": {
+        "buildings": {
+            "personal_count": "Personell",
+            "tip": "Klikk på en av kategoriene (f.eks. brannvesen eller politi) for å forstørre bygningstypene som er tilordnet denne kategorien. Hvis du så klikker på en bygningstype, kan du se hvor mange kjøretøy av hver kjøretøytype som er plassert ved bygningene av den typen. På denne måten kan du raskt finne ut hvor mange kjøretøy av hver kjøretøytype som er parkert på politistasjoner og hvor mange på små politistasjoner.",
+            "title": "Bygninger"
+        },
+        "vehicles": {
+            "empty": "Du har ingen kjøretøy i kategorien {category} ennå!",
+            "tip": "Klikk på en gruppe kjøretøytyper for å vise kun denne gruppen.",
+            "title": "Kjøretøy"
+        }
+    },
+    "dispatchcenter-view": {
+        "building-selection": "Legg til bygninger:",
+        "manage": {
+            "newBoard": "New Board",
+            "title": "Manage boards",
+            "titles": {
+                "buildings": {
+                    "bold": "Building type selection",
+                    "small": "show only buildings of these building types for selection"
+                },
+                "dispatch": {
+                    "bold": "Control center selection",
+                    "small": "show only buildings of these control centers for selection"
+                },
+                "name": "Board name"
+            }
+        },
+        "no-buildings": "Ingen bygninger funnet. Om nødvendig, juster filtrene for denne tavlen i \"Manage Boards\"-fanen."
+    },
+    "tabs": {
+        "building-types": "Bygningsoversikt",
+        "chart-summary": "Sammendrag",
+        "dispatchcenter-view": "Nødsentralvisning",
+        "vehicle-types": "Status oversikt"
+    },
+    "vehicle-list": {
+        "actions": "",
+        "building": "Bygning",
+        "caption": "Navn",
+        "fms": "Status",
+        "type": "Type"
+    },
+    "vehicle-types": {
+        "status": "Status",
+        "statuses": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9
+        ],
+        "sum": "Totalt",
+        "title": "Alle {type} | All {type} med status {n} | All {type} med status {n}",
+        "type": "Enhetstype",
+        "vehicles": "Kjøretøy"
+    }
 }
