@@ -210,6 +210,11 @@ export default async (LSSM: Vue): Promise<void> => {
         feature: 'mainpageCore-initial_update',
     });
 
+    await LSSM.$store.dispatch('api/getMissions', {
+        force: true,
+        feature: 'mainpageCore-initial_update',
+    });
+
     await LSSM.$store.dispatch('hook', {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
