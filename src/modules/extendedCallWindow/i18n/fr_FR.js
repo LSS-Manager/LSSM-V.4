@@ -77,7 +77,7 @@ module.exports = {
         tip: {
             dragging: 'glisser la fenêtre',
             textMode: 'mode texte on/off',
-            minified: 'replier',
+            minified: 'effondrement',
             overlay: 'superposition',
             reload: 'recharger',
             pushRight:
