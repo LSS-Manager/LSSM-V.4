@@ -16,6 +16,10 @@
                 "description": "Ein Redesign der Liste der möglichen Einsätze und der \"Hilfe zu diesem Einsatz\"-Seiten",
                 "title": "Mögliche Einsätze"
             },
+            "messages": {
+                "description": "Ein Redesign der privaten Nachrichten und der Systemnachrichten",
+                "title": "Nachrichten"
+            },
             "profile": {
                 "description": "Ein Redesign der Profile.",
                 "title": "Profile"
