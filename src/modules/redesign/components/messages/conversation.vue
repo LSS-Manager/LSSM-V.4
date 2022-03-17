@@ -5,7 +5,14 @@
                 <a href="/messages">← {{ lightbox.$sm('back') }}</a>
             </small>
             <h1>{{ conversation.subject }}</h1>
-            <p>Eine Konversation mit <a href="" lightbox-open>XYZ</a>.</p>
+            <p v-if="other">
+                {{ lightbox.$sm('subtitle') }}
+                <b>
+                    <a :href="`/profile/${other.id}`" lightbox-open>
+                        {{ other.name }}
+                    </a>
+                </b>
+            </p>
         </div>
         <div class="panel-body">
             <div class="message message-self">
@@ -13,6 +20,7 @@
                     <button
                         class="btn btn-success response-send"
                         :disabled="!response.length"
+                        @click="sendMessage"
                     >
                         <font-awesome-icon
                             :icon="faPaperPlane"
@@ -37,7 +45,7 @@
             <template v-for="(message, index) in conversation.messages">
                 <div
                     class="message"
-                    :class="{ 'message-self': message.sender.id === self }"
+                    :class="{ 'message-self': message.sender.id === userid }"
                     :key="index"
                 >
                     <div class="message-meta well">
@@ -94,7 +102,7 @@ type Component = RedesignComponent<
     'messages/conversation',
     {
         faPaperPlane: IconDefinition;
-        self: number;
+        userid: number;
         response: string;
         loadedPages: {
             first: number;
@@ -103,9 +111,23 @@ type Component = RedesignComponent<
     },
     {
         loadPage(mode: 'next' | 'prev'): void;
+        sendMessage(): void;
     },
     {
         page: number;
+        other:
+            | {
+                  id: number;
+                  name: string;
+              }
+            | undefined;
+        self:
+            | {
+                  avatar: string;
+                  id: number;
+                  name: string;
+              }
+            | undefined;
     }
 >;
 
@@ -119,7 +141,7 @@ export default Vue.extend<
     data() {
         return {
             faPaperPlane,
-            self: window.user_id,
+            userid: window.user_id,
             response: '',
             loadedPages: {
                 first: 0,
@@ -190,6 +212,56 @@ export default Vue.extend<
                     );
                 });
         },
+        sendMessage() {
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL(`/messages`, window.location.origin);
+            url.searchParams.append('utf8', '✓');
+            url.searchParams.append(
+                'authenticity_token',
+                this.conversation.authenticity_token
+            );
+            url.searchParams.append(
+                'message[conversation_id]',
+                this.conversation.id.toString()
+            );
+            url.searchParams.append('message[body]', this.response);
+            this.$store
+                .dispatch('api/request', {
+                    url: `/messages`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Upgrade-Insecure-Requests': '1',
+                        },
+                        referrer: new URL(
+                            `/messages/${this.conversation.id}`,
+                            window.location.origin
+                        ),
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                    feature: 'redesign-messages-conversation-respond',
+                })
+                .then(() => {
+                    this.$set(this.lightbox.data, 'messages', [
+                        {
+                            sender: {
+                                avatar: this.self?.avatar,
+                                online: true,
+                                id: this.userid,
+                                name: window.username,
+                            },
+                            timestamp: 'now',
+                            content: this.response.replace(/\n/gu, '<br>'),
+                        },
+                        ...this.lightbox.data.messages,
+                    ]);
+                    this.response = '';
+                    this.lightbox.finishLoading(`conversation-send_message`);
+                });
+        },
     },
     computed: {
         page() {
@@ -198,6 +270,16 @@ export default Vue.extend<
                     'page'
                 ) ?? '1'
             );
+        },
+        other() {
+            return this.conversation.messages.find(
+                ({ sender }) => sender.id !== this.userid
+            )?.sender;
+        },
+        self() {
+            return this.conversation.messages.find(
+                ({ sender }) => sender.id === this.userid
+            )?.sender;
         },
     },
     props: {
