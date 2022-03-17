@@ -14,11 +14,13 @@ interface Message {
 export interface ConversationWindow {
     subject: string;
     lastPage: number;
+    id: number;
     messages: Message[];
 }
 
 export default <RedesignParser<ConversationWindow>>(({
     doc,
+    href,
     getIdFromEl = () => -1,
 }) => ({
     subject:
@@ -29,6 +31,9 @@ export default <RedesignParser<ConversationWindow>>(({
                 '.pagination.pagination li:nth-last-of-type(2)'
             )
             ?.textContent?.trim() ?? '1'
+    ),
+    id: parseInt(
+        new URL(href ?? '/', window.location.origin).pathname.split('/')[2]
     ),
     messages: Array.from(doc.querySelectorAll<HTMLDivElement>('.well')).map(
         message => {

@@ -27,6 +27,13 @@
                     ></textarea>
                 </div>
             </div>
+
+            <div class="load-btn top" v-if="loadedPages.first !== 1">
+                <button class="btn btn-success" @click="loadPage('prev')">
+                    {{ lightbox.$sm('load.prev') }}
+                </button>
+            </div>
+
             <template v-for="(message, index) in conversation.messages">
                 <div
                     class="message"
@@ -61,6 +68,15 @@
                     </div>
                 </div>
             </template>
+
+            <div
+                class="load-btn"
+                v-if="loadedPages.last !== conversation.lastPage"
+            >
+                <button class="btn btn-success" @click="loadPage('next')">
+                    {{ lightbox.$sm('load.next') }}
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -76,7 +92,21 @@ import type { RedesignComponent } from 'typings/modules/Redesign';
 type Component = RedesignComponent<
     'conversation',
     'messages/conversation',
-    { faPaperPlane: IconDefinition; self: number; response: string }
+    {
+        faPaperPlane: IconDefinition;
+        self: number;
+        response: string;
+        loadedPages: {
+            first: number;
+            last: number;
+        };
+    },
+    {
+        loadPage(mode: 'next' | 'prev'): void;
+    },
+    {
+        page: number;
+    }
 >;
 
 export default Vue.extend<
@@ -91,10 +121,85 @@ export default Vue.extend<
             faPaperPlane,
             self: window.user_id,
             response: '',
+            loadedPages: {
+                first: 0,
+                last: 0,
+            },
         };
     },
-    methods: {},
-    computed: {},
+    methods: {
+        loadPage(mode) {
+            this.$set(this.lightbox, 'loading', true);
+            let newPage = this.page;
+            if (mode === 'next') {
+                this.loadedPages.last++;
+                newPage = this.loadedPages.last;
+            } else {
+                this.loadedPages.first--;
+                newPage = this.loadedPages.first;
+            }
+            const url = new URL(
+                `/messages/${this.conversation.id}`,
+                window.location.origin
+            );
+            url.searchParams.set('page', newPage.toString());
+            this.$store
+                .dispatch('api/request', {
+                    url,
+                    feature: `redesign-conversation-load-${mode}-${newPage}`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../../parsers/messages/conversation').then(
+                        async parser => {
+                            const result = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url.toString(),
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
+                            });
+                            this.$set(
+                                this.lightbox.data,
+                                'lastPage',
+                                result.lastPage
+                            );
+                            this.$set(
+                                this.lightbox.data,
+                                'messages',
+                                mode === 'next'
+                                    ? [
+                                          ...this.lightbox.data.messages,
+                                          ...result.messages,
+                                      ]
+                                    : [
+                                          ...result.messages,
+                                          ...this.lightbox.data.messages,
+                                      ]
+                            );
+                            this.lightbox.finishLoading(
+                                `conversation-load${mode}`
+                            );
+                        }
+                    );
+                });
+        },
+    },
+    computed: {
+        page() {
+            return parseInt(
+                new URL(this.url, window.location.origin).searchParams.get(
+                    'page'
+                ) ?? '1'
+            );
+        },
+    },
     props: {
         conversation: {
             type: Object,
@@ -123,6 +228,8 @@ export default Vue.extend<
         },
     },
     mounted() {
+        this.loadedPages.first = this.page;
+        this.loadedPages.last = this.page;
         this.lightbox.finishLoading('conversation-mounted');
     },
 });
@@ -131,6 +238,12 @@ export default Vue.extend<
 <style scoped lang="sass">
 h1
     margin-top: 10px
+
+.load-btn
+    text-align: center
+
+    &.top
+        margin-bottom: 15px
 
 .message
     display: flex
