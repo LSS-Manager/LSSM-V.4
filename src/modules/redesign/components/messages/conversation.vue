@@ -55,7 +55,6 @@
                             :src="message.sender.avatar"
                             alt=""
                         />
-                        <small>{{ message.timestamp }}</small>
                     </div>
                     <div class="message-content well">
                         <strong>
@@ -73,6 +72,29 @@
                             </a>
                         </strong>
                         <div v-html="message.content"></div>
+                        <small>{{ message.timestamp }}</small>
+                    </div>
+                    <div class="message-meta well other-side">
+                        <img
+                            v-if="
+                                other &&
+                                other.avatar &&
+                                message.sender.id === userid
+                            "
+                            class="profile-avatar"
+                            :src="other.avatar"
+                            alt=""
+                        />
+                        <img
+                            v-else-if="
+                                self &&
+                                self.avatar &&
+                                message.sender.id !== userid
+                            "
+                            class="profile-avatar"
+                            :src="self.avatar"
+                            alt=""
+                        />
                     </div>
                 </div>
             </template>
@@ -117,6 +139,7 @@ type Component = RedesignComponent<
         page: number;
         other:
             | {
+                  avatar: string;
                   id: number;
                   name: string;
               }
@@ -318,6 +341,8 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+@use "sass:math"
+
 h1
     margin-top: 10px
 
@@ -330,6 +355,7 @@ h1
 .message
     display: flex
     text-align: left
+    $border-radius: 2em
 
     .message-meta
         display: flex
@@ -342,8 +368,11 @@ h1
         .response-send
             height: 100%
 
+        &.other-side
+            visibility: hidden
+
     .message-content
-        width: 80%
+        width: 100%
 
         .response-input
             width: 100%
@@ -351,18 +380,27 @@ h1
 
     &.message-self
         flex-direction: row-reverse
-        text-align: right
 
         .message-meta
             border-left: 0
+            border-top-right-radius: math.div($border-radius, 2)
+            border-bottom-right-radius: math.div($border-radius, 2)
 
         .message-content
             border-right: 0
+            margin-right: 5px
+            border-top-left-radius: $border-radius
+            border-bottom-left-radius: $border-radius
 
     &:not(.message-self)
         .message-meta
             border-right: 0
+            border-top-left-radius: math.div($border-radius, 2)
+            border-bottom-left-radius: math.div($border-radius, 2)
 
         .message-content
             border-left: 0
+            margin-left: 5px
+            border-top-right-radius: $border-radius
+            border-bottom-right-radius: $border-radius
 </style>
