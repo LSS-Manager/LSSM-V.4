@@ -261,8 +261,8 @@
             "alphabet": "Alfabet",
             "credits": "Credits",
             "default": "Geen sortering",
-            "distance_dispatch": "Distance to next dispatch center",
-            "distance_station": "Distance to next station",
+            "distance_dispatch": "Afstand tot dichtstbijzijnde meldkamer",
+            "distance_station": "Afstand tot dichtstbijzijnde post",
             "id": "Generatietijd",
             "remaining_patients": "Huidige patiënten"
         }
