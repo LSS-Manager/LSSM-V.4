@@ -28,6 +28,10 @@
         "mapScalePosition": {
             "description": "Selecteer in welke hoek van de kaart de schaal moet worden weergegeven",
             "title": "Positie van de schaal"
-        }
+        },
+		"markerNewWindow": {
+			"description": "Staat meldingen en gebouwen toe om in een nieuwe tab te openen door Ctrl+klikken of klikken met de middelste muisknop.",
+			"title": "open markers in nieuwe tab"
+		}
     }
 }

@@ -7,14 +7,14 @@
             "title": "Browser wordt niet ondersteund"
         },
         "old": {
-            "text": "U lijkt een verouderde browser te gebruiken! Momenteel gebruik je <b>{name} {current}</b>, maar de laatste versie is <b>{name} {latest}</b>! Houd er rekening mee dat de LSS-Manager deze browser alleen vanaf versie  <b>{supported}</b> kan gebruiken. Dit heeft redenen van veiligheid en compatibiliteit. U kunt de nieuwste versie van uw browser <a href='{download}' target='_blank'>hier</a> downloaden.<br>Een actuele lijst met ondersteunde browsers is te vinden in onze <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+            "text": "U lijkt een verouderde browser te gebruiken! Momenteel gebruik je <b>{name} {current}</b>, maar de laatste versie is <b>{name} {latest}</b>! Houd er rekening mee dat de LSS-Manager deze browser alleen vanaf versie  <b>{supported}</b> kan gebruiken. Dit heeft redenen van veiligheid en compatibiliteit. U kunt de nieuwste versie van uw browser <a href='{download}' target='_blank'>hier</a> downloaden.<br>Een actuele lijst met ondersteunde browsers is te vinden in onze <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> en in de volgende tabel:",
             "title": "Verouderde browser"
         },
         "table": {
             "browser": "Browser",
             "download": "Download",
-            "latest": "latest Version",
-            "min": "min. Version"
+            "latest": "Laatste versie",
+            "min": "min. versie"
         }
     },
     "info": {
