@@ -28,6 +28,19 @@
                     </button>
                 </div>
                 <div class="message-content well">
+                    <div class="template-btn-holder">
+                        <button
+                            class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                        >
+                            templäit
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a title="">Test 1</a></li>
+                            <li><a title="">Test 2</a></li>
+                        </ul>
+                    </div>
                     <textarea
                         class="form-control response-input"
                         :rows="Math.min(response.split(/\n/).length + 1, 20)"
@@ -351,6 +364,18 @@ h1
 
     &.top
         margin-bottom: 15px
+
+.template-btn-holder
+    display: flex
+    flex-flow: row-reverse
+    width: 100%
+    position: absolute
+
+    .btn
+        transform: translate(-200%, -50%)
+
+    .dropdown-menu
+        transform: translate(-100%, -25%)
 
 .message
     display: flex
