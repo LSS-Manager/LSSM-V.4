@@ -5,9 +5,28 @@
                 <a href="/messages">← {{ lightbox.$sm('back') }}</a>
             </small>
             <h1>{{ conversation.subject }}</h1>
-            <p>Eine Konversation mit <a href="">XYZ</a>.</p>
+            <p>Eine Konversation mit <a href="" lightbox-open>XYZ</a>.</p>
         </div>
-        <div class="">
+        <div class="panel-body">
+            <div class="message message-self">
+                <div class="message-meta well">
+                    <button
+                        class="btn btn-success response-send"
+                        :disabled="!response.length"
+                    >
+                        <font-awesome-icon
+                            :icon="faPaperPlane"
+                        ></font-awesome-icon>
+                    </button>
+                </div>
+                <div class="message-content well">
+                    <textarea
+                        class="form-control response-input"
+                        :rows="Math.min(response.split(/\n/).length + 1, 20)"
+                        v-model="response"
+                    ></textarea>
+                </div>
+            </div>
             <template v-for="(message, index) in conversation.messages">
                 <div
                     class="message"
@@ -33,7 +52,7 @@
                             />
                             <a
                                 :href="`/profile/${message.sender.id}`"
-                                class="lightbox-open"
+                                lightbox-open
                             >
                                 {{ message.sender.name }}
                             </a>
@@ -49,12 +68,15 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
+
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'conversation',
     'messages/conversation',
-    { self: number }
+    { faPaperPlane: IconDefinition; self: number; response: string }
 >;
 
 export default Vue.extend<
@@ -66,7 +88,9 @@ export default Vue.extend<
     name: 'lssmv4-redesign-messages-conversation',
     data() {
         return {
+            faPaperPlane,
             self: window.user_id,
+            response: '',
         };
     },
     methods: {},
@@ -120,8 +144,15 @@ h1
             min-width: 90%
             max-width: 10vw
 
+        .response-send
+            height: 100%
+
     .message-content
         width: 80%
+
+        .response-input
+            width: 100%
+            resize: vertical
 
     &.message-self
         flex-direction: row-reverse
