@@ -51,6 +51,9 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         ...((await getSetting('category.tasks')) && {
             '^/tasks/index/?$': 'tasks',
         }),
+        ...((await getSetting('category.messages')) && {
+            '^/messages/\\d+/?$': 'messages/conversation',
+        }),
     };
     LSSM.$store
         .dispatch('hook', {

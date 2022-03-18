@@ -168,6 +168,13 @@ const windows: RedesignLightbox['Data']['windows'] = {
             ),
         data: 'friends',
     },
+    'messages/conversation': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/messages/conversation"*/ './messages/conversation.vue'
+            ),
+        data: 'conversation',
+    },
     'note': {
         component: () =>
             import(
