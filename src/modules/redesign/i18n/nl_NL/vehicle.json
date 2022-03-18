@@ -90,7 +90,7 @@
     "release": {
         "cancel": "Annuleren",
         "confirm": "Ja",
-        "disable": "discharge and disable confirmation",
+        "disable": "Ja en bevestiging niet meer tonen",
         "patient": {
             "text": "Wil je werkelijk de patiënt in dit voertuig ontslaan? Je krijgt hierdoor geen vergoeding voor de patiënt!",
             "title": "Patiënt ontslaan"

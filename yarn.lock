@@ -1781,10 +1781,10 @@ eslint-plugin-prettier@^4.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-regexp@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-regexp/-/eslint-plugin-regexp-1.5.1.tgz#982ea8936283035897d6bb1ba32c0ea5d9a4dee0"
-  integrity sha512-5v0rQIi54m2KycQHqmOAHrZhvI56GHmI2acr6zEffAqfeifTtobAEapv9Uf4o8//lGvwVkHKyjLoSbBNEFcfOA==
+eslint-plugin-regexp@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-regexp/-/eslint-plugin-regexp-1.6.0.tgz#d757e40e53b51b67b84194387495e346774eca86"
+  integrity sha512-xkaQOzyY4PUukRd8b6zTq+QTtg0dePlCP2dZiM+XGSmvlpDeYiPJHfRDpAfS/sP9YtK6q7DGes1smCyPTD3Lkg==
   dependencies:
     comment-parser "^1.1.2"
     eslint-utils "^3.0.0"
@@ -1795,10 +1795,10 @@ eslint-plugin-regexp@^1.5.1:
     regexpp "^3.2.0"
     scslre "^0.1.6"
 
-eslint-plugin-unicorn@^41.0.0:
-  version "41.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-41.0.0.tgz#bf0974f8551ab4dd4aaae7d9cf53894040defbbd"
-  integrity sha512-xoJCaRc1uy5REg9DkVga1BkZV57jJxoqOcrU28QHZB89Lk5LdSqdVyTIt9JQVfHNKaiyJ7X+3iLlIn+VEHWEzA==
+eslint-plugin-unicorn@^41.0.1:
+  version "41.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-41.0.1.tgz#b49205b38e71e227d21fb5776f8d078a1dc637ca"
+  integrity sha512-gF5vo2dIj0YdNMQ/IMegiBkQdQ22GBFFVpdkJP+0og3w7XD4ypea0xQVRv6iofkLVR2w0phAdikcnU01ybd4Ow==
   dependencies:
     "@babel/helper-validator-identifier" "^7.15.7"
     ci-info "^3.3.0"
