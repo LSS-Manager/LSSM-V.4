@@ -33,7 +33,7 @@ export default <RedesignParser<VerbandNewsEditWindow>>(({
                 'input[type="checkbox"][name="alliance_newse[public]"]'
             )?.checked ?? false,
         id: parseInt(
-            new URL(href, window.location.origin).pathname.match(/\d+/)?.[0] ??
+            new URL(href, window.location.origin).pathname.match(/\d+/u)?.[0] ??
                 '-1'
         ),
     };

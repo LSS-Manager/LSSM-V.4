@@ -1,11 +1,11 @@
 {
-	"amount": "Quantità",
-	"date": "Data",
-	"description": "Descrizione",
-	"load": {
-		"next": "Carica 20 voci vecchie",
-		"prev": "Carica 20 voci nuove"
-	},
-	"subtitle": "Mostra {n} voci dalla pagina {startPage} ({firstDate}) alla {endPage} ({lastDate}) per un totale di {totalPages} pagine",
-	"title": "Transazioni"
+    "amount": "Quantità",
+    "date": "Data",
+    "description": "Descrizione",
+    "load": {
+        "next": "Carica 20 voci vecchie",
+        "prev": "Carica 20 voci nuove"
+    },
+    "subtitle": "Mostra {n} voci dalla pagina {startPage} ({firstDate}) alla {endPage} ({lastDate}) per un totale di {totalPages} pagine",
+    "title": "Transazioni"
 }

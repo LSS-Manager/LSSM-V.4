@@ -11,7 +11,7 @@ export default (
         const prisonersLabel =
             document.querySelector<HTMLHeadingElement>('#h2_prisoners');
         let currentPrisoners = parseInt(
-            prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
+            prisonersLabel?.textContent?.trim().match(/^\d+/u)?.[0] || '0'
         );
         if (prisonersLabel && currentPrisoners) {
             document
@@ -40,7 +40,7 @@ export default (
                             let remainingCells = -1;
                             const newTextContent =
                                 target.textContent?.trim()?.replace(
-                                    /(\(.*?: )(\d+)(, .*\)$)/,
+                                    /(\(.*?: )(\d+)(, .*\)$)/u,
                                     (_, before, cells, after) =>
                                         `${before}${(() => {
                                             remainingCells =
@@ -53,7 +53,7 @@ export default (
                                     `.vehicle_prisoner_select a.btn[href$="/gefangener/${
                                         target
                                             .getAttribute('href')
-                                            ?.match(/\d+$/)?.[0] || '-1'
+                                            ?.match(/\d+$/u)?.[0] || '-1'
                                     }"]`
                                 )
                             ).forEach(cell => {
@@ -81,7 +81,7 @@ export default (
                                 prisonersLabel.textContent
                                     ?.trim()
                                     .replace(
-                                        /^\d+/,
+                                        /^\d+/u,
                                         currentPrisoners.toString()
                                     ) || '';
                             if (!currentPrisoners) {
@@ -180,9 +180,10 @@ export default (
                     userLink.textContent = window.username;
                     reply.append(
                         document.createTextNode(
-                            `[${new Date()
-                                .toLocaleTimeString()
-                                .replace(/:\d{2}$/, '')}] `
+                            `[${new Date().toLocaleTimeString(undefined, {
+                                hour12: false,
+                                timeStyle: 'short',
+                            })}] `
                         ),
                         userLink,
                         document.createTextNode(`: ${message}`)

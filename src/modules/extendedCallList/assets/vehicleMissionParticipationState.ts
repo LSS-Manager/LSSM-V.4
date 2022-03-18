@@ -27,7 +27,7 @@ export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
                                 'a[href^="/missions/"]'
                             )
                             ?.getAttribute('href')
-                            ?.replace(/.*?(?=\d+$)/, '') ?? '-1'
+                            ?.match(/\d+$/u)?.[0] ?? '-1'
                     )
                 )
                     ? 'glyphicon-user'

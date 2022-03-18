@@ -9,7 +9,7 @@ const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
 export default (async ({ LSSM, $m, getSetting }) => {
     const isMainWindow = window.location.pathname.length <= 1;
     const isMissionWindow =
-        !!window.location.pathname.match(/^\/missions\/\d+\/?/);
+        !!window.location.pathname.match(/^\/missions\/\d+\/?/u);
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (

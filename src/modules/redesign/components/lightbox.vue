@@ -370,7 +370,7 @@ export default Vue.extend<
                                 .querySelector<HTMLAnchorElement>(
                                     'a.btn.btn-success[href^="/vehicles/"]'
                                 )
-                                ?.href?.match(/\d+$/)?.[0];
+                                ?.href?.match(/\d+$/u)?.[0];
                             if (nextVehicle)
                                 return (this.src = `/vehicles/${nextVehicle}`);
                         }
@@ -446,14 +446,14 @@ export default Vue.extend<
                                     window.coinsUpdate(
                                         parseInt(
                                             script.match(
-                                                /(?<=coinsUpdate\()\d+(?=\))/
+                                                /(?<=coinsUpdate\()\d+(?=\))/u
                                             )?.[0] ?? '-1'
                                         )
                                     );
                                     window.creditsUpdate(
                                         parseInt(
                                             script.match(
-                                                /(?<=creditsUpdate\()\d+(?=\))/
+                                                /(?<=creditsUpdate\()\d+(?=\))/u
                                             )?.[0] ?? '-1'
                                         )
                                     );
@@ -539,7 +539,7 @@ export default Vue.extend<
         getIdFromEl(el) {
             return parseInt(
                 new URL(el?.href ?? '', window.location.origin).pathname?.match(
-                    /\d+\/?$/
+                    /\d+\/?$/u
                 )?.[0] ?? '-1'
             );
         },
@@ -628,6 +628,10 @@ export default Vue.extend<
                           )
                               return;
                           e.preventDefault();
+
+                          const targetUrl = new URL(href, window.location.href);
+                          const here = new URL(window.location.toString());
+
                           if (e.ctrlKey || e.button === 1)
                               return window.open(href, '_blank', 'noopener');
                           if (
@@ -636,16 +640,25 @@ export default Vue.extend<
                           )
                               return window.lightboxOpen(href);
                           if (target.hasAttribute('target')) {
-                              if (
-                                  new URL(href, window.location.origin)
-                                      .origin === window.location.origin
-                              )
+                              if (targetUrl.origin === window.location.origin)
                                   return window.lightboxOpen(href);
                               return window.open(
                                   href,
                                   target.getAttribute('target') ?? '_blank',
                                   'noopener'
                               );
+                          }
+
+                          if (
+                              targetUrl.origin === here.origin &&
+                              targetUrl.pathname === here.pathname &&
+                              targetUrl.search === here.search
+                          ) {
+                              if (targetUrl.hash !== here.hash) {
+                                  return (window.location.hash =
+                                      targetUrl.hash);
+                              }
+                              if (targetUrl.href === here.href) return;
                           }
 
                           this.$set(this, 'src', href);

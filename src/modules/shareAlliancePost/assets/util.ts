@@ -7,7 +7,7 @@ export function removeZipFromCity(city: string) {
     return city
         .replace(
             // matches all Zip-styles of the countries supported by LSSM
-            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/,
+            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([\dA-Z]{2,4} [\dA-Z]{3}))/u,
             ''
         )
         .trim();
@@ -25,12 +25,12 @@ export function dateToTime(date: Date): string {
 }
 
 export function getDateFromToday(addDays = 0): string {
-    return (
-        new Date(Date.now() + addDays * 1000 * 60 * 60 * 24)
-            .toLocaleDateString()
-            .match(/\d{1,2}\D\d{1,2}/)?.[0]
-            .replace(/(?<=^|\D)\d(?=\D|$)/g, $0 => `0${$0}`) ?? ''
-    );
+    return new Date(
+        Date.now() + addDays * 1000 * 60 * 60 * 24
+    ).toLocaleDateString(undefined, {
+        month: '2-digit',
+        day: '2-digit',
+    });
 }
 
 export function getTimeReplacers(): Record<
@@ -38,9 +38,9 @@ export function getTimeReplacers(): Record<
     (match: string, ...groups: string[]) => string
 > {
     return {
-        [/now\+(\d+(?:[,.]\d+)?)/.toString()]: (match, additive) =>
+        [/now\+(\d+(?:[,.]\d+)?)/u.toString()]: (match, additive) =>
             dateToTime(addHoursToNow(parseFloat(additive))),
-        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)/.toString()]: (
+        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)/u.toString()]: (
             match,
             additive,
             round

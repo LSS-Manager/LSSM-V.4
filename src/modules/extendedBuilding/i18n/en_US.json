@@ -1,39 +1,39 @@
 {
-	"enhancedPersonnelAssignment": {
-		"toggleFittingPersonnel": "Hide personnel without suitable training"
-	},
-	"expansions": {
-		"notBuild": "Not built yet"
-	},
-	"fastDispatchChooser": {
-		"noDispatch": "No control center"
-	},
-	"personnelDemands": {
-		"additional": "Values in brackets exclude vehicles in Status 6.",
-		"demand": "Required personnel"
-	},
-	"schoolingSummary": {
-		"all": "All combinations",
-		"amount": "Amount",
-		"bound": "Bound",
-		"each": "Each Courses",
-		"max": "currently maximum required",
-		"min": "currently minimum required",
-		"noSchooling": "No schooling",
-		"schooling": "Schooling",
-		"title": "Personnel overview"
-	},
-	"upgradeConfirmation": {
-		"modal": {
-			"btnCancel": "Cancel",
-			"btnConfirm": "Confirm",
-			"text": "Do you really want to upgrade this building??",
-			"title": "Upgrade Building?"
-		}
-	},
-	"vehiclePersonnel": {
-		"vehiclesPersonnelAssigned": "assigned",
-		"vehiclesPersonnelCurrent": "current",
-		"vehiclesPersonnelMax": "max"
-	}
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Hide personnel without suitable training"
+    },
+    "expansions": {
+        "notBuild": "Not built yet"
+    },
+    "fastDispatchChooser": {
+        "noDispatch": "No control center"
+    },
+    "personnelDemands": {
+        "additional": "Values in brackets exclude vehicles in Status 6.",
+        "demand": "Required personnel"
+    },
+    "schoolingSummary": {
+        "all": "All combinations",
+        "amount": "Amount",
+        "bound": "Bound",
+        "each": "Each Courses",
+        "max": "currently maximum required",
+        "min": "currently minimum required",
+        "noSchooling": "No schooling",
+        "schooling": "Schooling",
+        "title": "Personnel overview"
+    },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Cancel",
+            "btnConfirm": "Confirm",
+            "text": "Do you really want to upgrade this building??",
+            "title": "Upgrade Building?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "assigned",
+        "vehiclesPersonnelCurrent": "current",
+        "vehiclesPersonnelMax": "max"
+    }
 }

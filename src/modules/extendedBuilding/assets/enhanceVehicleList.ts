@@ -81,7 +81,7 @@ export default async (
                 vehicle
                     .querySelector('a[href^="/vehicles/"]')
                     ?.getAttribute('href')
-                    ?.match(/\d+$/)?.[0] || '0'
+                    ?.match(/\d+$/u)?.[0] || '0'
             );
             const editBtn = vehicle.querySelector(
                 'a[href^="/vehicles/"][href$="/edit"]'

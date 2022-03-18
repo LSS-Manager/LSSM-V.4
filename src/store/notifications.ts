@@ -102,7 +102,7 @@ export default {
             let computedType = type;
             if (
                 !computedGroup ||
-                !computedGroup.match(/^(top|bottom)[ _](left|center|right)$/)
+                !computedGroup.match(/^(bottom|top)[ _](center|left|right)$/u)
             )
                 computedGroup = 'bottom right';
             if (!state.groups.includes(computedGroup))
@@ -110,14 +110,14 @@ export default {
             if (
                 !computedType ||
                 !computedType.match(
-                    /^(warning|danger|success|info|unimportant)$/
+                    /^(danger|info|success|unimportant|warning)$/u
                 )
             )
                 computedType = 'info';
             if (ingame) {
                 (window[PREFIX] as Vue).$nextTick().then(() => {
                     (window[PREFIX] as Vue).$notify({
-                        group: computedGroup.replace(/ /g, '_'),
+                        group: computedGroup.replace(/ /gu, '_'),
                         type: computedType,
                         title,
                         text,

@@ -6,7 +6,7 @@ export default (
     starredMissions: string[],
     starredMissionBtnClass: string
 ): void => {
-    const missionId = window.location.pathname.match(/\d+\/?$/)?.[0];
+    const missionId = window.location.pathname.match(/\d+\/?$/u)?.[0];
     if (!missionId) return;
     const btn = createBtn(
         LSSM,

@@ -3,16 +3,16 @@ import type { ModuleMainFunction } from 'typings/Module';
 export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     if (
         (!window.location.pathname.match(
-            /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/
+            /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/u
         ) &&
             !window.location.pathname.match(
-                /^\/vehicles\/\d+\/zuweisung\/?$/
+                /^\/vehicles\/\d+\/zuweisung\/?$/u
             )) ||
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
 
-    if (window.location.pathname.match(/^\/buildings\/\d+\/?$/)) {
+    if (window.location.pathname.match(/^\/buildings\/\d+\/?$/u)) {
         const BUILDING_MODE = document.querySelector<HTMLDivElement>(
             '#tab_protocol'
         )
@@ -83,7 +83,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             );
         }
     } else if (
-        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
+        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u)
     ) {
         if (await getSetting('schoolingSummary')) {
             import(
@@ -93,7 +93,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             );
         }
     } else if (
-        window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/)
+        window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/u)
     ) {
         if (await getSetting('autoBuyLevels')) {
             import(
@@ -108,7 +108,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             personalAssignmentButton(LSSM)
         );
     } else if (
-        window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
+        window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/u)
     ) {
         if (await getSetting('enhancedPersonnelAssignment')) {
             import(

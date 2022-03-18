@@ -36,7 +36,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                         rights.push(
                             roles[
                                 t.pathname.match(
-                                    /(?<=\/verband\/)[^/]*/
+                                    /(?<=\/verband\/)[^/]*/u
                                 )?.[0] || ''
                             ]
                         );
@@ -51,7 +51,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                     r ===
                                     roles[
                                         t.pathname.match(
-                                            /(?<=\/verband\/)[^/]*/
+                                            /(?<=\/verband\/)[^/]*/u
                                         )?.[0] || ''
                                     ]
                             ),
@@ -96,7 +96,8 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
             const rights = Array.from(
                 holder.querySelectorAll<HTMLAnchorElement>('a[href$="/0"]')
             ).map(
-                a => roles[a.pathname.match(/(?<=\/verband\/)[^/]*/)?.[0] || '']
+                a =>
+                    roles[a.pathname.match(/(?<=\/verband\/)[^/]*/u)?.[0] || '']
             );
             holder.addEventListener('click', async e => {
                 e.preventDefault();

@@ -15,3 +15,18 @@ updates:
       - "Suchty112"
       - "kdev"
     target-branch: "dev"
+  - package-ecosystem: "npm"
+    directory: "/docs/.vuepress" # Location of package manifests
+    schedule:
+      interval: "daily"
+      time: "03:00"
+      timezone: "Europe/Berlin"
+    assignees:
+      - "Suchty112"
+    commit-message:
+        prefix: "⬆️"
+        include: "scope"
+    reviewers:
+      - "Suchty112"
+      - "kdev"
+    target-branch: "dev"

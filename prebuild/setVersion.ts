@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 import packageJson from '../package.json';
 
 packageJson.version = packageJson.version.replace(
-    /\+.*$/,
+    /\+.*$/u,
     `+${moment().tz('Europe/Berlin').format('YYYYMMDD.HHmm')}`
 );
 

@@ -1,15 +1,15 @@
 {
-	"all": "Alle",
-	"amount": "Antall kurs",
-	"open": "Åpne kurs",
-	"own": "Kurs med deltakere",
-	"schooling": "Kurs",
-	"seats": "Antall plasser",
-	"titles": {
-		"end": "Tid igjen",
-		"name": "Kurs",
-		"owner": "Kursholder",
-		"price": "Pris",
-		"seats": "Ledige plasser"
-	}
+    "all": "Alle",
+    "amount": "Antall kurs",
+    "open": "Åpne kurs",
+    "own": "Kurs med deltakere",
+    "schooling": "Kurs",
+    "seats": "Antall plasser",
+    "titles": {
+        "end": "Tid igjen",
+        "name": "Kurs",
+        "owner": "Kursholder",
+        "price": "Pris",
+        "seats": "Ledige plasser"
+    }
 }

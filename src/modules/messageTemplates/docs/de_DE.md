@@ -10,7 +10,7 @@ In den Einstellungen lassen sich verschiedene Templates anlegen:
 
 ### Nutzername
 
-Dabei kannst du den Platzhalter <code><span>{{</span>username<span>}}</span></code> verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
+Dabei kannst du den Platzhalter <code v-html="'{{username}}'"></code> verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
 
 :::tip Warum geht das nur bei neuen Nachrichten?
 Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konversationen den Empfänger eindeutig zu bestimmen!
@@ -18,9 +18,9 @@ Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konv
 
 ### Datum
 
-Mittels <code><span>{{</span>today<span>}}</span></code> kannst du ganz einfach das heutige Datum einfügen.
+Mittels <code v-html="'{{today}}'"></code> kannst du ganz einfach das heutige Datum einfügen.
 
-Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür <code><span>{{</span>today+14<span>}}</span></code>, um heute in  14 Tagen einzufügen. Genauso geht z.B. <code><span>{{</span>today-436<span>}}</span></code>, um heute vor 436 Tagen einzufügen.
+Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür <code v-html="'{{today+14}}'"></code>, um heute in  14 Tagen einzufügen. Genauso geht z.B. <code v-html="'{{today-436}}'"></code>, um heute vor 436 Tagen einzufügen.
 
 
 ## Beispiele

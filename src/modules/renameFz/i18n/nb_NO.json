@@ -1,10 +1,10 @@
 {
-	"templates": {
-		"selection": "Velg mal...",
-		"selectionHint": "Opprette en ny mal? Bare skriv inn navnet og velg!",
-		"status": {
-			"template": "Vent på malvalg...",
-			"waiting": "Vent på innspill..."
-		}
-	}
+    "templates": {
+        "selection": "Velg mal...",
+        "selectionHint": "Opprette en ny mal? Bare skriv inn navnet og velg!",
+        "status": {
+            "template": "Vent på malvalg...",
+            "waiting": "Vent på innspill..."
+        }
+    }
 }

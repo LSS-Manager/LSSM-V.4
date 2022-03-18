@@ -925,6 +925,8 @@ export default {
                                         url: res.url,
                                         status: res.status,
                                         statusText: res.statusText,
+                                        method:
+                                            init.method?.toUpperCase() ?? 'GET',
                                         feature,
                                         duration: Date.now() - startTime,
                                     }),

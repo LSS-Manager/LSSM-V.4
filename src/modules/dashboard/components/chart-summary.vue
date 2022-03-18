@@ -212,7 +212,7 @@ export default Vue.extend<
                         const value = (this.vehicles[type] || []).length;
                         sum += value;
                         const color = this.vehicleTypeColors[type];
-                        groupColor += parseInt(color.replace(/^#/, ''), 16);
+                        groupColor += parseInt(color.replace(/^#/u, ''), 16);
                         types.push({
                             id: `${category}_${group}_${type}`,
                             name: this.vehicleTypeNames[type],
@@ -275,7 +275,20 @@ export default Vue.extend<
                         traverseUpButton: {
                             text:
                                 Highcharts.getOptions().lang?.drillUpText ??
-                                '← Back',
+                                'Back',
+                        },
+                        breadcrumbs: {
+                            buttonTheme: {
+                                'fill': '#f7f7f7',
+                                'padding': 8,
+                                'stroke': '#cccccc',
+                                'stroke-width': 1,
+                            },
+                            floating: true,
+                            position: {
+                                align: 'right',
+                            },
+                            showFullPath: false,
                         },
                     },
                 ] as SeriesSunburstOptions[],
@@ -359,6 +372,19 @@ export default Vue.extend<
                     };
                 }),
                 drilldown: {
+                    breadcrumbs: {
+                        buttonTheme: {
+                            'fill': '#f7f7f7',
+                            'padding': 8,
+                            'stroke': '#cccccc',
+                            'stroke-width': 1,
+                        },
+                        floating: true,
+                        position: {
+                            align: 'right',
+                        },
+                        showFullPath: false,
+                    },
                     series: [
                         ...Object.keys(this.buildingCategories).map(
                             category => {

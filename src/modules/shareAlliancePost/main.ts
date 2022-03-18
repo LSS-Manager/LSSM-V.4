@@ -69,26 +69,8 @@ export default <ModuleMainFunction>(async ({
         },
     });
 
-    const missionHelpBtn =
-        document.querySelector<HTMLAnchorElement>('#mission_help');
-    let missionType =
-        missionHelpBtn
-            ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
-    if (missionType !== '-1') {
-        const overlayIndex =
-            document
-                .querySelector<HTMLDivElement>('#mission_general_info')
-                ?.getAttribute('data-overlay-index') ?? 'null';
-        if (overlayIndex && overlayIndex !== 'null')
-            missionType += `-${overlayIndex}`;
-        const additionalOverlay =
-            document
-                .querySelector<HTMLDivElement>('#mission_general_info')
-                ?.getAttribute('data-additive-overlays') ?? 'null';
-        if (additionalOverlay && additionalOverlay !== 'null')
-            missionType += `/${additionalOverlay}`;
-    }
+    const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
+
     const mission = (
         LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
     )[missionType];
@@ -107,7 +89,7 @@ export default <ModuleMainFunction>(async ({
                 ?.dataset.rawText ??
             '–'
         )
-            .replace(/^.*?:/, '')
+            .replace(/^.*?:/u, '')
             .trim() ?? '–';
     const address = he.decode(
         document
@@ -115,7 +97,7 @@ export default <ModuleMainFunction>(async ({
             ?.dataset.address?.trim() ??
             document
                 .querySelector<HTMLElement>('#missionH1 + small')
-                ?.textContent?.replace(/\|(.|\n)*$/, '')
+                ?.textContent?.replace(/\|(.|\n)*$/u, '')
                 .trim() ??
             '–'
     );
@@ -284,9 +266,15 @@ export default <ModuleMainFunction>(async ({
     const getModifiedMessage = (message: string) => {
         let newMessage = message;
         Object.entries(variables).forEach(([variable, replacer]) => {
-            if (variable.startsWith('/') && variable.endsWith('/')) {
+            if (
+                variable.startsWith('/') &&
+                variable.match(/\/[ADJUgimux]*$/u)
+            ) {
                 newMessage = newMessage.replace(
-                    new RegExp(`{{${variable.replace(/^\/|\/$/g, '')}}}`, 'g'),
+                    new RegExp(
+                        `{{${variable.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
+                        'g'
+                    ),
                     replacer
                 );
             } else {

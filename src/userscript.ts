@@ -17,7 +17,7 @@ if (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         window.frameElement?.src.startsWith('https')) &&
-    !window.location.pathname.match(/^\/users\//) &&
+    !window.location.pathname.match(/^\/users\//u) &&
     typeof user_id !== 'undefined' &&
     typeof I18n !== 'undefined'
 ) {

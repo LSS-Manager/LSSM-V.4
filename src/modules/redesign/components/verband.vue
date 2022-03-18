@@ -253,19 +253,25 @@ export default Vue.extend<
                         return false;
                     return (
                         new URL(
-                            this.url.match(/\/verband\/?$/)
+                            this.url.match(/\/verband\/?$/u)
                                 ? `/alliances/${this.data.meta.id}`
                                 : this.url,
                             window.location.origin
-                        ).pathname.replace(/\/$/g, '') !==
+                        ).pathname.replace(/\/$/gu, '') !==
                         new URL(
-                            link.replace(/{id}/g, this.data.meta.id.toString()),
+                            link.replace(
+                                /\{id\}/gu,
+                                this.data.meta.id.toString()
+                            ),
                             window.location.origin
-                        ).pathname.replace(/\/$/g, '')
+                        ).pathname.replace(/\/$/gu, '')
                     );
                 })
                 .map(link => ({
-                    href: link.replace(/{id}/g, this.data.meta.id.toString()),
+                    href: link.replace(
+                        /\{id\}/gu,
+                        this.data.meta.id.toString()
+                    ),
                     text: links[link],
                 }));
         },

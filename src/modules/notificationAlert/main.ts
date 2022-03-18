@@ -64,7 +64,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                             `@(${LSSM.$utils.escapeRegex(ucun)}|all[ :])`
                         )
                     ) ||
-                        (ucmsg.match(/@admin/) &&
+                        (ucmsg.match(/@admin/u) &&
                             (window.alliance_admin ||
                                 window.alliance_coadmin ||
                                 window.alliance_owner)))
@@ -231,7 +231,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
                 const fmsAll = fmsEvents.includes('vehicle_fms');
                 const fmsStatuses = fmsEvents.filter(e =>
-                    e.match(/vehicle_fms_\d+/)
+                    e.match(/vehicle_fms_\d+/u)
                 );
                 if (
                     (fmsAll || fmsStatuses.length) &&
@@ -388,7 +388,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                             '#alliance_candidature_count'
                         )
                         ?.textContent?.trim()
-                        ?.replace(/(^\()|\)$/g, '') || '-1'
+                        ?.replace(/(^\()|\)$/gu, '') || '-1'
                 );
                 if (newAmount <= prevAmount) return;
                 events['allianceCandidature'].forEach(async alert =>

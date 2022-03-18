@@ -491,7 +491,7 @@ export default Vue.extend<
             overlay: undefined,
             minified: undefined,
             missionId: parseInt(
-                window.location.pathname.match(/\d+\/?/)?.[0] || '0'
+                window.location.pathname.match(/\d+\/?/u)?.[0] || '0'
             ),
             settings: {
                 title: false,
@@ -576,7 +576,7 @@ export default Vue.extend<
                 document
                     .querySelector<HTMLHeadingElement>('#h2_prisoners')
                     ?.textContent?.trim()
-                    .match(/^\d+/)?.[0] || '0'
+                    .match(/^\d+/u)?.[0] || '0'
             );
         },
         showPatients() {
@@ -638,26 +638,10 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
-            let missionType =
-                missionHelpBtn
-                    ?.getAttribute('href')
-                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+            const missionType = this.$utils.getMissionTypeInMissionWindow();
 
-            if (!this.isDiyMission) {
-                const overlayIndex =
-                    document
-                        .querySelector<HTMLDivElement>('#mission_general_info')
-                        ?.getAttribute('data-overlay-index') ?? 'null';
-                if (overlayIndex && overlayIndex !== 'null')
-                    missionType += `-${overlayIndex}`;
-                const additionalOverlay =
-                    document
-                        .querySelector<HTMLDivElement>('#mission_general_info')
-                        ?.getAttribute('data-additive-overlays') ?? 'null';
-                if (additionalOverlay && additionalOverlay !== 'null')
-                    missionType += `/${additionalOverlay}`;
+            if (missionType !== '-1')
                 this.missionSpecs = await this.getMission(missionType);
-            }
 
             this.isReloading = false;
         },
@@ -1171,6 +1155,9 @@ export default Vue.extend<
 
     h3
         margin-top: 0 !important
+
+        small
+            color: #424242
 
     .svg-inline--fa
         cursor: pointer

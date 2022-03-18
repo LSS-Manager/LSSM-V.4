@@ -61,11 +61,11 @@
             <li role="presentation">
                 <a class="lightbox-open" :href="wiki">Wiki</a>
             </li>
-            <li role="presentation">
+            <!-- <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
                     LSSM-Server Status
                 </a>
-            </li>
+            </li> -->
             <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
@@ -97,7 +97,6 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
-import LibraryOverview from './components/libraryOverview.vue';
 import lssmLogo from './img/lssm_logo';
 
 import type { DefaultProps } from 'vue/types/options';
@@ -105,7 +104,7 @@ import type {
     lssmMenuComputed,
     lssmMenuData,
     lssmMenuMethods,
-} from '../typings/LSSM-Menu';
+} from 'typings/LSSM-Menu';
 
 const draw = (img: HTMLImageElement) => {
     const canvas = document.createElement('canvas');
@@ -398,7 +397,10 @@ export default Vue.extend<
         },
         showLibraries() {
             this.$modal.show(
-                LibraryOverview,
+                () =>
+                    import(
+                        /* webpackChunkName: "components/libraryOverview" */ './components/libraryOverview.vue'
+                    ),
                 {},
                 {
                     name: 'libraryOverview',
@@ -504,7 +506,7 @@ export default Vue.extend<
                         this.navbg.svg.append(image);
                         this.setNavbarBG(iconBg);
                     });
-                    img.src = bgImg.replace(/^url\("|"\)$/g, '');
+                    img.src = bgImg.replace(/^url\("|"\)$/gu, '');
                 }
             });
     },

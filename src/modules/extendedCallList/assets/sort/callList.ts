@@ -1,4 +1,6 @@
 import type { $m } from 'typings/Module';
+import type { Building } from 'typings/Building';
+import type { LatLng } from 'leaflet';
 import type { Mission } from 'typings/Mission';
 import type {
     MissionMarkerAdd,
@@ -10,6 +12,8 @@ export type Sort =
     | 'alphabet'
     | 'credits'
     | 'default'
+    | 'distance_dispatch'
+    | 'distance_station'
     | 'id'
     | 'remaining_patients';
 
@@ -31,6 +35,8 @@ export default (
         'credits',
         'remaining_patients',
         'alphabet',
+        'distance_dispatch',
+        'distance_station',
     ];
     let sortingType = sort;
     const sortingDirection = direction;
@@ -50,6 +56,75 @@ export default (
             )
             .map(({ id }, index) => [id, index])
     );
+
+    const dispatchCenters: Building[] = [];
+    const dispatchCenterLatLngs: LatLng[] = [];
+    const vehicleBuildings: Building[] = [];
+    const vehicleBuildingLatLngs: LatLng[] = [];
+
+    LSSM.$store
+        .dispatch('api/registerBuildingsUsage', {
+            feature: 'ecl-sort-missions',
+        })
+        .then(() => {
+            dispatchCenters.splice(
+                0,
+                dispatchCenters.length,
+                ...Object.values(
+                    LSSM.$t('dispatchCenterBuildings') as unknown as Record<
+                        number,
+                        number
+                    >
+                )
+                    .flatMap(
+                        type =>
+                            (
+                                LSSM.$store.getters[
+                                    'api/buildingsByType'
+                                ] as Record<number, Building[]>
+                            )[type]
+                    )
+                    .filter(b => !!b)
+            );
+            dispatchCenterLatLngs.splice(
+                0,
+                dispatchCenterLatLngs.length,
+                ...dispatchCenters.map(
+                    ({ latitude, longitude }) =>
+                        new window.L.LatLng(latitude, longitude)
+                )
+            );
+
+            vehicleBuildings.splice(
+                0,
+                vehicleBuildings.length,
+                ...Object.values(
+                    LSSM.$t('vehicleBuildings') as unknown as Record<
+                        number,
+                        number
+                    >
+                )
+                    .flatMap(
+                        type =>
+                            (
+                                LSSM.$store.getters[
+                                    'api/buildingsByType'
+                                ] as Record<number, Building[]>
+                            )[type]
+                    )
+                    .filter(b => !!b)
+            );
+            vehicleBuildingLatLngs.splice(
+                0,
+                vehicleBuildingLatLngs.length,
+                ...vehicleBuildings.map(
+                    ({ latitude, longitude }) =>
+                        new window.L.LatLng(latitude, longitude)
+                )
+            );
+            if (sort === 'distance_dispatch' || sort === 'remaining_patients')
+                resetOrder();
+        });
 
     const reverseClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}-missionlist-order-desc`
@@ -78,12 +153,21 @@ export default (
         return rangedNum;
     };
 
+    const maxWorldDistance = new window.L.LatLng(-85, -180).distanceTo(
+        new window.L.LatLng(85, 180)
+    );
+
+    const distanceToCSSRange = (distance: number) =>
+        Math.floor((maxWorldDistance / maxCSSInteger) * distance);
+
     enum faSortIcon {
-        id = 'clock-rotate-left',
-        credits = 'dollar-sign',
-        remaining_patients = 'user-injured',
         alphabet = 'font',
+        credits = 'dollar-sign',
         default = 'face-rolling-eyes',
+        distance_dispatch = 'tower-broadcast',
+        distance_station = 'building',
+        id = 'clock-rotate-left',
+        remaining_patients = 'user-injured',
     }
 
     enum faDirectionIcon {
@@ -144,7 +228,7 @@ export default (
         aDesc.setAttribute('href', '#');
         liDesc.append(aDesc);
         const icon = document.createElement('i');
-        icon.classList.add('fas', `fa-${faSortIcon[sort]}`);
+        icon.classList.add('fas', `fa-${faSortIcon[sort]}`, 'fa-fw');
         icon.style.setProperty('margin-right', '0.2em');
         directionIcon.style.setProperty('margin-left', '0.2em');
         aAsc.append(icon, title, directionIcon.cloneNode(true));
@@ -234,6 +318,12 @@ export default (
         ])
         .then();
 
+    const getLatLngFromMission = (mission: HTMLDivElement) =>
+        new window.L.LatLng(
+            parseFloat(mission.getAttribute('latitude') ?? '0'),
+            parseFloat(mission.getAttribute('longitude') ?? '0')
+        );
+
     const orderFunctions: Record<Sort, (mission: HTMLDivElement) => string> = {
         default: () => '0',
         id: mission =>
@@ -297,6 +387,22 @@ export default (
                 missionIdsByAlphabet[missionType] ?? 0
             ).toString();
         },
+        distance_dispatch: mission => {
+            const latLng = getLatLngFromMission(mission);
+            return distanceToCSSRange(
+                Math.min(
+                    ...dispatchCenterLatLngs.map(dc => latLng.distanceTo(dc))
+                )
+            ).toString();
+        },
+        distance_station: mission => {
+            const latLng = getLatLngFromMission(mission);
+            return distanceToCSSRange(
+                Math.min(
+                    ...vehicleBuildingLatLngs.map(dc => latLng.distanceTo(dc))
+                )
+            ).toString();
+        },
     };
 
     const updateOrderList = () =>
@@ -352,7 +458,7 @@ export default (
             orderFunctions.id(mission);
         mission.style.setProperty('order', orderValue);
         const list =
-            mission.parentElement?.id?.replace(/^mission_list_?/, '') ?? '';
+            mission.parentElement?.id?.replace(/^mission_list_?/u, '') ?? '';
         if (!missionOrderValuesById.hasOwnProperty(list))
             missionOrderValuesById[list] = {};
         if (mission.classList.contains('mission_deleted')) {

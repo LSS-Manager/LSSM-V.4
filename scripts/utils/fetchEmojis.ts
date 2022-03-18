@@ -69,8 +69,8 @@ export default () =>
                                 [
                                     ...new Set([
                                         `:${name
-                                            .replace(/[ ,:-]/g, '_')
-                                            .replace(/_+/g, '_')}:`,
+                                            .replace(/[ ,\-:]/gu, '_')
+                                            .replace(/_+/gu, '_')}:`,
                                         shortname,
                                         ...shortname_alternates,
                                         ...ascii,

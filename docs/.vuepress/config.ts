@@ -2,6 +2,7 @@ import axios from 'axios';
 import copydir from 'copy-dir';
 import fs from 'fs';
 import path from 'path';
+import type Vue from 'vue';
 
 import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
@@ -22,10 +23,14 @@ interface ModuleRegistration {
 
 const BASE = '/v4/docs/';
 
-const ROOT_PATH = path.join(__dirname, '../../');
+const VUEPRESS_PATH = __dirname;
+const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
 const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
-const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
+const DOCS_I18N_PATH = path.join(VUEPRESS_PATH, 'i18n');
+const OUTPUT_PATH = path.join(ROOT_PATH, 'dist/docs');
+
+console.log(ROOT_PATH, MODULES_PATH, DOCS_PATH, DOCS_I18N_PATH, OUTPUT_PATH);
 
 const LANGS = Object.keys(config.games).filter(lang =>
     fs.existsSync(path.join(DOCS_PATH, lang))
@@ -105,12 +110,12 @@ const emptyFolders = () => {
     };
 
     [
-        'dist/docs',
+        OUTPUT_PATH,
         ...fs
-            .readdirSync(path.join(ROOT_PATH, 'docs/'))
+            .readdirSync(DOCS_PATH)
             .filter((name: string) => LANGS.indexOf(name) >= 0)
-            .map(lang => `docs/${lang}/modules`),
-        'docs/.vuepress/public/assets',
+            .map(lang => path.join(DOCS_PATH, lang, 'modules')),
+        path.join(VUEPRESS_PATH, 'public/assets'),
     ].forEach(folder => {
         emptyFolder(folder);
         if (!fs.existsSync(folder)) fs.mkdirSync(folder);
@@ -277,8 +282,8 @@ ${getLocale(lang, 'head.mapkit')}
                 targetPath,
                 `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
-${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
-    path.join(BASE, 'assets', module, lang, asset)
+${content.replace(/(?<=!\[.*?\]\().*?(?=\))/gu, asset =>
+    path.join(BASE, '/assets', module, lang, asset)
 )}
 
 <edit-module module="${module}" />`
@@ -295,14 +300,14 @@ ${getModuleHead(i18n.name, i18n.description, lang, register)}
 :::warning ${getLocale(lang, '404.title')}
 ${getLocale(lang, '404.content')
     ?.toString()
-    .replace(/{{module}}/g, `**${i18n.name}**`)
-    .replace(/{{lang}}/g, `\`${lang}\``)
+    .replace(/\{\{module\}\}/gu, `**${i18n.name}**`)
+    .replace(/\{\{lang\}\}/gu, `\`${lang}\``)
     .replace(
-        /{{github}}/g,
+        /\{\{github\}\}/gu,
         `[GitHub](https://github.com/${config.github.repo}/new/dev/src/modules/${module}/docs?filename=${lang}.md)`
     )
     .replace(
-        /{{docs_dir}}/g,
+        /\{\{docs_dir\}\}/gu,
         `[docs directory](https://github.com/${config.github.repo}/tree/dev/src/modules/${module}/docs)`
     )}
 
@@ -429,7 +434,7 @@ ${docsLangs
                                             DOCS_PATH,
                                             file.replace('.md', '')
                                         )
-                                        .replace(/\\/g, '/')}`
+                                        .replace(/\\/gu, '/')}`
                             ),
                     ],
                 },
@@ -452,7 +457,7 @@ const setReadmeHeads = () =>
         fs.writeFileSync(
             filePath,
             (fs.readFileSync(filePath).toString() ?? '').replace(
-                /(.|\n)*?(?=\n## )/,
+                /(.|\n)*?(?=\n## )/u,
                 `---
 title: LSS-Manager V.4
 lang: ${lang}
@@ -506,7 +511,7 @@ module.exports = async () => {
     emptyFolders();
     setReadmeHeads();
     const { version: stable } = await fetchStableVersion();
-    const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
+    const shortVersion = stable.match(/4(\.(x|\d+)){2}/u)?.[0] ?? '4.x.x';
     const { locales, themeLocales, noMapkitModules } = await processModules(
         shortVersion
     );
@@ -517,7 +522,7 @@ module.exports = async () => {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for LSS-Manager V.4',
         base: BASE,
-        dest: './dist/docs',
+        dest: OUTPUT_PATH,
         head: [
             [
                 'link',
@@ -528,7 +533,6 @@ module.exports = async () => {
             ],
         ],
         markdown: {
-            sluglify: '',
             lineNumbers: true,
         },
         theme: 'yuu',
@@ -573,9 +577,9 @@ module.exports = async () => {
             },
         },
         locales,
-        plugins: {
-            '@vuepress/active-header-links': {},
-            '@vuepress/back-to-top': {},
+        plugins: [
+            ['@vuepress/active-header-links', {}],
+            ['@vuepress/back-to-top', {}],
             // TODO: Find a way to make this work with vuepress@1.9.x
             // '@vuepress/last-updated': {
             //     transformer(timestamp: number, lang: string) {
@@ -585,20 +589,29 @@ module.exports = async () => {
             //         return moment(timestamp).format('LLL');
             //     },
             // },
-            'vuepress-plugin-code-copy': {
-                align: 'top',
-            },
-            'vuepress-plugin-redirect': {
-                locales: true,
-            },
-            'vuepress-plugin-smooth-scroll': {},
-            'vuepress-plugin-zooming': {
-                selector: 'img:not([data-prevent-zooming]):not(.logo)',
-                options: {
-                    bgColor: 'black',
+            [
+                'vuepress-plugin-code-copy',
+                {
+                    align: 'top',
                 },
-            },
-        },
+            ],
+            [
+                'vuepress-plugin-redirect',
+                {
+                    locales: true,
+                },
+            ],
+            ['vuepress-plugin-smooth-scroll', {}],
+            [
+                'vuepress-plugin-zooming',
+                {
+                    selector: 'img:not([data-prevent-zooming]):not(.logo)',
+                    options: {
+                        bgColor: 'black',
+                    },
+                },
+            ],
+        ],
     };
     addToBuildStats({ docs_config: vuepressConfig });
     return vuepressConfig;

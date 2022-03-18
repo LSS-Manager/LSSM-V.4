@@ -128,7 +128,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     window.map.addEventListener(
         'overlayadd',
         ({ name }: LayersControlEvent) =>
-            !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
+            !modifiedMarkers &&
+            name.match(/app-pois-filter/u) &&
+            modifyMarkers()
     );
 
     let shown_types = await getSetting<string[]>('shown_types', poi_types);

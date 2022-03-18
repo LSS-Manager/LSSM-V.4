@@ -67,6 +67,10 @@
                             </ul>
                         </template>
                     </span>
+                    <span>
+                        ({{ lightbox.$sm('earnedCredits') }}:
+                        {{ user.credits.toLocaleString() }})
+                    </span>
                 </td>
                 <td style="text-align: right">
                     <template v-if="bewerbungen.editSettings">
@@ -108,6 +112,7 @@ type Component = RedesignComponent<
     {
         accept(id: number, username: string): void;
         decline(id: number, username: string): void;
+        updateCredits(): Promise<void[]>;
     }
 >;
 
@@ -194,6 +199,54 @@ export default Vue.extend<
                     );
                 });
         },
+        async updateCredits() {
+            return Promise.all(
+                this.bewerbungen.applications
+                    .filter(({ user: { credits } }) => !credits)
+                    .map(({ user }) => {
+                        const url = new URL(
+                            `/profile/${user.id}`,
+                            window.location.origin
+                        ).toString();
+                        return new Promise<void>(resolve =>
+                            this.$store
+                                .dispatch('api/request', {
+                                    url,
+                                    feature: `redesign-bewerbungen-load-credits`,
+                                })
+                                .then((res: Response) => res.text())
+                                .then(html =>
+                                    import(
+                                        /*webpackChunkName: "modules/redesign/parsers/profile"*/ `../parsers/profile`
+                                    ).then(async parser => {
+                                        this.$set(
+                                            user,
+                                            'credits',
+                                            (
+                                                await parser.default({
+                                                    doc: new DOMParser().parseFromString(
+                                                        html,
+                                                        'text/html'
+                                                    ),
+                                                    href: url,
+                                                    getIdFromEl:
+                                                        this.lightbox
+                                                            .getIdFromEl,
+                                                    LSSM: this,
+                                                    $m: this.lightbox.$m,
+                                                    $sm: this.lightbox.$sm,
+                                                    $mc: this.lightbox.$mc,
+                                                    $smc: this.lightbox.$smc,
+                                                })
+                                            ).credits
+                                        );
+                                        resolve();
+                                    })
+                                )
+                        );
+                    })
+            );
+        },
     },
     props: {
         bewerbungen: {
@@ -219,7 +272,9 @@ export default Vue.extend<
     },
     watch: {
         bewerbungen() {
-            this.lightbox.finishLoading('bewerbungen-updated-data');
+            this.updateCredits().then(() =>
+                this.lightbox.finishLoading('bewerbungen-updated-data')
+            );
         },
     },
     mounted() {
@@ -231,7 +286,9 @@ export default Vue.extend<
                 })
                 .then(({ value }) => (this.messageTemplates = value));
         }
-        this.lightbox.finishLoading('bewerbungen-mounted');
+        this.updateCredits().then(() =>
+            this.lightbox.finishLoading('bewerbungen-mounted')
+        );
     },
 });
 </script>

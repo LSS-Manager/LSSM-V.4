@@ -1,320 +1,320 @@
 {
-	"name": "Erweitertes Alarmfenster",
-	"settings": {
-		"alarmIcons": {
-			"description": "Lasse dir Icons im \"Alarmieren\" Knopf anzeigen, basierend auf deiner Auswahl. Zur Auswahl stehen dir <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
-			"icon": "Icon",
-			"preview": "Vorschau",
-			"style": "Icon-Typ",
-			"title": "Alarm-Icons",
-			"vehicles": "Fahrzeugtypen"
-		},
-		"alarmTime": {
-			"description": "Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.",
-			"title": "Längste Anfahrtszeit"
-		},
-		"arrClickHighlight": {
-			"description": "Zeichnet einen Rahmen um bereits angeklickte AAOs.",
-			"title": "Angeklickte AAOs hervorheben"
-		},
-		"arrClickHighlightColor": {
-			"description": "Lege hier die Rahmenfarbe für AAO-Umrandungen fest.",
-			"title": "Farbe der Hervorhebung"
-		},
-		"arrClickHighlightWidth": {
-			"description": "Lege hier die fest (in Pixeln), wie breit die AAO-Umrandung sein soll.",
-			"title": "Breite der Hervorhebung"
-		},
-		"arrCounter": {
-			"description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.",
-			"title": "AAO-Zähler"
-		},
-		"arrCounterAsBadge": {
-			"description": "Zeigt den AAO-Zähler als kleinen roten Kreis neben der AAO an.",
-			"title": "AAO-Zähler als Badge"
-		},
-		"arrCounterResetSelection": {
-			"description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!",
-			"title": "Fahrzeugauswahl zurücksetzen"
-		},
-		"arrMatchHighlight": {
-			"description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.",
-			"title": "Unpassende AAOs ausgrauen"
-		},
-		"arrSearch": {
-			"description": "Zeigt ein Suchfeld über den AAOs an, mit dem sich die AAO durchsuchen lässt.",
-			"title": "AAO-Suche"
-		},
-		"arrSearchAutoFocus": {
-			"description": "Fokussiert das AAO-Suchfeld beim Laden automatisch.",
-			"title": "AAO-Suche: Automatisch fokussieren"
-		},
-		"arrSearchCloseDropdownOnSelect": {
-			"description": "Schließt die Dropdown der AAO-Suche nach dem Auswählen einer AAO.",
-			"title": "Dropdown nach Auswahl schließen"
-		},
-		"arrSearchDissolveCategories": {
-			"description": "Zeigt alle Kategorien untereinander an, wenn nach einem Begriff gesucht wird",
-			"title": "AAO-Suche: Alle Kategorien anzeigen"
-		},
-		"arrSearchDropdown": {
-			"description": "Blendet die komplette AAO aus und zeigt stattdessen ein durchsuchbares Dropdown an. Ermöglicht eine sehr kompakte AAO-Darstellung.",
-			"title": "AAO-Suche als Dropdown"
-		},
-		"arrSpecs": {
-			"description": "Zeigt die gespeicherten Anforderungen in der AAO an, wenn man mit der Maus kurz über einer AAO bleibt",
-			"title": "AAO Details anzeigen"
-		},
-		"arrTime": {
-			"description": "Zeigt an, was die längste Anfahrtszeit nach wählen dieser AAO wäre, wenn man mit der Maus kurz über einer AAO bleibt.",
-			"title": "AAO-Anfahrtszeit anzeigen"
-		},
-		"centerMap": {
-			"description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
-			"title": "Karte zentrieren"
-		},
-		"collapsablePatients": {
-			"description": "Klappt Patienten im Einsatzfenster zusammen und zeigt stattdessen eine kurze Zusammenfassung an.",
-			"title": "Patienten einklappen"
-		},
-		"collapsablePatientsMinPatients": {
-			"description": "Lege hier fest, ab wie vielen Patienten das Zusammenfassen aktiviert werden soll.",
-			"title": "Patienten einklappen: Minimale Patientenzahl"
-		},
-		"emvMaxStaff": {
-			"description": "Berechnet für 'Benötigte Fahrzeuge verschönern', dass alle Fahrzeuge mit maximalem Personal ausrücken.",
-			"title": "Maximalbesetzung"
-		},
-		"enhancedMissingVehicles": {
-			"description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.",
-			"title": "Benötigte Fahrzeuge verschönern"
-		},
-		"generationDate": {
-			"description": "Zeigt neben der Adresse an, wann der Einsatz generiert wurde.",
-			"title": "Generierungszeitpunkt"
-		},
-		"hideVehicleList": {
-			"description": "Versteckt die Fahrzeugliste, öffnet diese dann per Knopfdruck.",
-			"title": "Fahrzeugliste Verstecken"
-		},
-		"hoverTip": {
-			"description": "Tooltips für die Knöpfe von \"Benötigte Fahrzeuge verschönern\".",
-			"title": "Tooltips"
-		},
-		"loadMoreVehiclesInHeader": {
-			"description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an.",
-			"title": "Fahrzeuge nachladen in Kopfleiste"
-		},
-		"missionKeywords": {
-			"allMissions": "---: Alle Einsätze",
-			"autotextcolor": "automatische Schriftfarbe",
-			"color": "Hintergrundfarbe",
-			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen. Du kannst Variablen verwenden, werf hierzu ein Blick ins <a class=\"lightbox-open\" href=\"{wiki}modules/extendedCallWindow.html#variablen\">Wiki</a>.",
-			"keyword": "Stichwort (Variablen: {{credits}}, {{type}})",
-			"missions": "Einsätze",
-			"prepend": "Vor dem Einsatznamen anzeigen",
-			"preview": "Vorschau",
-			"textcolor": "Schriftfarbe",
-			"title": "Einsatzstichworte"
-		},
-		"patientSummary": {
-			"description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
-			"title": "Patientenzusammenfassung"
-		},
-		"playerCounter": {
-			"description": "Zeigt oben bei der Personalliste an, wie viele Spieler ein Fahrzeug zum Einsatz alarmiert haben. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
-			"title": "Spielerzähler"
-		},
-		"playerCounterColor": {
-			"description": "Wähle, welche Farbe das Label des Spielerzähler haben soll.",
-			"title": "Spielerzähler: Farbe"
-		},
-		"redBorder": {
-			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
-			"title": "Rote Umrandung"
-		},
-		"remainingPatientTime": {
-			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
-			"title": "Patientenbehandlungsdauer"
-		},
-		"stagingAreaSelectedCounter": {
-			"description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",
-			"title": "Zähler im Bereitstellungsraum"
-		},
-		"stickyHeader": {
-			"description": "Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.",
-			"title": "Kopfleiste immer anzeigen"
-		},
-		"tailoredTabs": {
-			"color": "Farbe",
-			"description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
-			"name": "Name",
-			"title": "Eigene Fahrzeugkategorien",
-			"vehicles": "Fahrzeugtypen"
-		},
-		"vehicleCounter": {
-			"description": "Zeigt oben bei der Personalliste an, wie viele Fahrzeuge zum Einsatz alarmiert sind. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
-			"title": "Fahrzeugzähler"
-		},
-		"vehicleCounterColor": {
-			"danger": "Rot",
-			"default": "Grau",
-			"description": "Wähle, welche Farbe das Label des Fahrzeugzählers haben soll.",
-			"info": "Hellblau",
-			"primary": "Dunkelblau",
-			"success": "Grün",
-			"title": "Fahrzeugzähler: Farbe",
-			"warning": "Orange"
-		},
-		"vehicleTypeInList": {
-			"description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
-			"title": "Fahrzeugtyp anzeigen"
-		},
-		"yellowBorder": {
-			"description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
-			"title": "Gelbe Umrandung"
-		}
-	},
-	"tailoredTabs": {
-		"defaultTabs": [
-			{
-				"name": "LF",
-				"vehicleTypes": [
-					0,
-					1,
-					6,
-					7,
-					8,
-					9,
-					17,
-					18,
-					19,
-					20,
-					21,
-					22,
-					23,
-					24,
-					25,
-					26,
-					30,
-					37,
-					87,
-					88,
-					89,
-					90
-				]
-			},
-			{
-				"name": "FW Andere",
-				"vehicleTypes": [
-					2,
-					3,
-					4,
-					5,
-					10,
-					11,
-					12,
-					13,
-					14,
-					15,
-					16,
-					27,
-					33,
-					34,
-					36,
-					46,
-					47,
-					48,
-					49,
-					53,
-					54,
-					57,
-					62,
-					71,
-					75,
-					76,
-					77,
-					78,
-					83,
-					84,
-					85,
-					86
-				]
-			},
-			{
-				"name": "Rettung",
-				"vehicleTypes": [
-					28,
-					29,
-					31,
-					38,
-					55,
-					56,
-					58,
-					59,
-					60,
-					73,
-					74,
-					91,
-					97
-				]
-			},
-			{
-				"name": "Polizei",
-				"vehicleTypes": [
-					32,
-					61,
-					95,
-					96,
-					98,
-					103
-				]
-			},
-			{
-				"name": "Bereitschaftspolizei",
-				"vehicleTypes": [
-					35,
-					50,
-					51,
-					52,
-					72,
-					79,
-					80,
-					81,
-					82
-				]
-			},
-			{
-				"name": "THW",
-				"vehicleTypes": [
-					39,
-					40,
-					41,
-					42,
-					43,
-					44,
-					45,
-					65,
-					66,
-					67,
-					68,
-					69,
-					92,
-					93,
-					99,
-					100,
-					101,
-					102
-				]
-			},
-			{
-				"name": "Wasser",
-				"vehicleTypes": [
-					63,
-					64,
-					70
-				]
-			}
-		]
-	}
+    "name": "Erweitertes Alarmfenster",
+    "settings": {
+        "alarmIcons": {
+            "description": "Lasse dir Icons im \"Alarmieren\" Knopf anzeigen, basierend auf deiner Auswahl. Zur Auswahl stehen dir <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
+            "icon": "Icon",
+            "preview": "Vorschau",
+            "style": "Icon-Typ",
+            "title": "Alarm-Icons",
+            "vehicles": "Fahrzeugtypen"
+        },
+        "alarmTime": {
+            "description": "Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.",
+            "title": "Längste Anfahrtszeit"
+        },
+        "arrClickHighlight": {
+            "description": "Zeichnet einen Rahmen um bereits angeklickte AAOs.",
+            "title": "Angeklickte AAOs hervorheben"
+        },
+        "arrClickHighlightColor": {
+            "description": "Lege hier die Rahmenfarbe für AAO-Umrandungen fest.",
+            "title": "Farbe der Hervorhebung"
+        },
+        "arrClickHighlightWidth": {
+            "description": "Lege hier die fest (in Pixeln), wie breit die AAO-Umrandung sein soll.",
+            "title": "Breite der Hervorhebung"
+        },
+        "arrCounter": {
+            "description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.",
+            "title": "AAO-Zähler"
+        },
+        "arrCounterAsBadge": {
+            "description": "Zeigt den AAO-Zähler als kleinen roten Kreis neben der AAO an.",
+            "title": "AAO-Zähler als Badge"
+        },
+        "arrCounterResetSelection": {
+            "description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!",
+            "title": "Fahrzeugauswahl zurücksetzen"
+        },
+        "arrMatchHighlight": {
+            "description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.",
+            "title": "Unpassende AAOs ausgrauen"
+        },
+        "arrSearch": {
+            "description": "Zeigt ein Suchfeld über den AAOs an, mit dem sich die AAO durchsuchen lässt.",
+            "title": "AAO-Suche"
+        },
+        "arrSearchAutoFocus": {
+            "description": "Fokussiert das AAO-Suchfeld beim Laden automatisch.",
+            "title": "AAO-Suche: Automatisch fokussieren"
+        },
+        "arrSearchCloseDropdownOnSelect": {
+            "description": "Schließt die Dropdown der AAO-Suche nach dem Auswählen einer AAO.",
+            "title": "Dropdown nach Auswahl schließen"
+        },
+        "arrSearchDissolveCategories": {
+            "description": "Zeigt alle Kategorien untereinander an, wenn nach einem Begriff gesucht wird",
+            "title": "AAO-Suche: Alle Kategorien anzeigen"
+        },
+        "arrSearchDropdown": {
+            "description": "Blendet die komplette AAO aus und zeigt stattdessen ein durchsuchbares Dropdown an. Ermöglicht eine sehr kompakte AAO-Darstellung.",
+            "title": "AAO-Suche als Dropdown"
+        },
+        "arrSpecs": {
+            "description": "Zeigt die gespeicherten Anforderungen in der AAO an, wenn man mit der Maus kurz über einer AAO bleibt",
+            "title": "AAO Details anzeigen"
+        },
+        "arrTime": {
+            "description": "Zeigt an, was die längste Anfahrtszeit nach wählen dieser AAO wäre, wenn man mit der Maus kurz über einer AAO bleibt.",
+            "title": "AAO-Anfahrtszeit anzeigen"
+        },
+        "centerMap": {
+            "description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
+            "title": "Karte zentrieren"
+        },
+        "collapsablePatients": {
+            "description": "Klappt Patienten im Einsatzfenster zusammen und zeigt stattdessen eine kurze Zusammenfassung an.",
+            "title": "Patienten einklappen"
+        },
+        "collapsablePatientsMinPatients": {
+            "description": "Lege hier fest, ab wie vielen Patienten das Zusammenfassen aktiviert werden soll.",
+            "title": "Patienten einklappen: Minimale Patientenzahl"
+        },
+        "emvMaxStaff": {
+            "description": "Berechnet für 'Benötigte Fahrzeuge verschönern', dass alle Fahrzeuge mit maximalem Personal ausrücken.",
+            "title": "Maximalbesetzung"
+        },
+        "enhancedMissingVehicles": {
+            "description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.",
+            "title": "Benötigte Fahrzeuge verschönern"
+        },
+        "generationDate": {
+            "description": "Zeigt neben der Adresse an, wann der Einsatz generiert wurde.",
+            "title": "Generierungszeitpunkt"
+        },
+        "hideVehicleList": {
+            "description": "Versteckt die Fahrzeugliste, öffnet diese dann per Knopfdruck.",
+            "title": "Fahrzeugliste Verstecken"
+        },
+        "hoverTip": {
+            "description": "Tooltips für die Knöpfe von \"Benötigte Fahrzeuge verschönern\".",
+            "title": "Tooltips"
+        },
+        "loadMoreVehiclesInHeader": {
+            "description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an.",
+            "title": "Fahrzeuge nachladen in Kopfleiste"
+        },
+        "missionKeywords": {
+            "allMissions": "---: Alle Einsätze",
+            "autotextcolor": "automatische Schriftfarbe",
+            "color": "Hintergrundfarbe",
+            "description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen. Du kannst Variablen verwenden, werf hierzu ein Blick ins <a class=\"lightbox-open\" href=\"{wiki}modules/extendedCallWindow.html#variablen\">Wiki</a>.",
+            "keyword": "Stichwort (Variablen: {{credits}}, {{type}})",
+            "missions": "Einsätze",
+            "prepend": "Vor dem Einsatznamen anzeigen",
+            "preview": "Vorschau",
+            "textcolor": "Schriftfarbe",
+            "title": "Einsatzstichworte"
+        },
+        "patientSummary": {
+            "description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
+            "title": "Patientenzusammenfassung"
+        },
+        "playerCounter": {
+            "description": "Zeigt oben bei der Personalliste an, wie viele Spieler ein Fahrzeug zum Einsatz alarmiert haben. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
+            "title": "Spielerzähler"
+        },
+        "playerCounterColor": {
+            "description": "Wähle, welche Farbe das Label des Spielerzähler haben soll.",
+            "title": "Spielerzähler: Farbe"
+        },
+        "redBorder": {
+            "description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
+            "title": "Rote Umrandung"
+        },
+        "remainingPatientTime": {
+            "description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
+            "title": "Patientenbehandlungsdauer"
+        },
+        "stagingAreaSelectedCounter": {
+            "description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",
+            "title": "Zähler im Bereitstellungsraum"
+        },
+        "stickyHeader": {
+            "description": "Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.",
+            "title": "Kopfleiste immer anzeigen"
+        },
+        "tailoredTabs": {
+            "color": "Farbe",
+            "description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
+            "name": "Name",
+            "title": "Eigene Fahrzeugkategorien",
+            "vehicles": "Fahrzeugtypen"
+        },
+        "vehicleCounter": {
+            "description": "Zeigt oben bei der Personalliste an, wie viele Fahrzeuge zum Einsatz alarmiert sind. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
+            "title": "Fahrzeugzähler"
+        },
+        "vehicleCounterColor": {
+            "danger": "Rot",
+            "default": "Grau",
+            "description": "Wähle, welche Farbe das Label des Fahrzeugzählers haben soll.",
+            "info": "Hellblau",
+            "primary": "Dunkelblau",
+            "success": "Grün",
+            "title": "Fahrzeugzähler: Farbe",
+            "warning": "Orange"
+        },
+        "vehicleTypeInList": {
+            "description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
+            "title": "Fahrzeugtyp anzeigen"
+        },
+        "yellowBorder": {
+            "description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
+            "title": "Gelbe Umrandung"
+        }
+    },
+    "tailoredTabs": {
+        "defaultTabs": [
+            {
+                "name": "LF",
+                "vehicleTypes": [
+                    0,
+                    1,
+                    6,
+                    7,
+                    8,
+                    9,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    30,
+                    37,
+                    87,
+                    88,
+                    89,
+                    90
+                ]
+            },
+            {
+                "name": "FW Andere",
+                "vehicleTypes": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    27,
+                    33,
+                    34,
+                    36,
+                    46,
+                    47,
+                    48,
+                    49,
+                    53,
+                    54,
+                    57,
+                    62,
+                    71,
+                    75,
+                    76,
+                    77,
+                    78,
+                    83,
+                    84,
+                    85,
+                    86
+                ]
+            },
+            {
+                "name": "Rettung",
+                "vehicleTypes": [
+                    28,
+                    29,
+                    31,
+                    38,
+                    55,
+                    56,
+                    58,
+                    59,
+                    60,
+                    73,
+                    74,
+                    91,
+                    97
+                ]
+            },
+            {
+                "name": "Polizei",
+                "vehicleTypes": [
+                    32,
+                    61,
+                    95,
+                    96,
+                    98,
+                    103
+                ]
+            },
+            {
+                "name": "Bereitschaftspolizei",
+                "vehicleTypes": [
+                    35,
+                    50,
+                    51,
+                    52,
+                    72,
+                    79,
+                    80,
+                    81,
+                    82
+                ]
+            },
+            {
+                "name": "THW",
+                "vehicleTypes": [
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    65,
+                    66,
+                    67,
+                    68,
+                    69,
+                    92,
+                    93,
+                    99,
+                    100,
+                    101,
+                    102
+                ]
+            },
+            {
+                "name": "Wasser",
+                "vehicleTypes": [
+                    63,
+                    64,
+                    70
+                ]
+            }
+        ]
+    }
 }

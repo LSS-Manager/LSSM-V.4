@@ -138,7 +138,7 @@ export default Vue.extend<
                                         .split('\n')
                                         .map(l =>
                                             l.replace(
-                                                /^<div>|(<br>)?<\/div>$/g,
+                                                /^<div>|(<br>)?<\/div>$/gu,
                                                 ''
                                             )
                                         ),

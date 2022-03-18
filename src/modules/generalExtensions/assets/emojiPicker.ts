@@ -8,7 +8,7 @@ export default async (LSSM: Vue): Promise<void> => {
     ).default as Record<string, string[]>;
     Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {
         namesAndAliases.forEach(name => {
-            if (name.match(/^:.*:$/)) emojiByName[name] = emoji;
+            if (name.match(/^:.*:$/u)) emojiByName[name] = emoji;
             else emojiyByAlias[name] = emoji;
         });
     });
@@ -60,7 +60,7 @@ export default async (LSSM: Vue): Promise<void> => {
         emoji: string,
         e: KeyboardEvent
     ) => {
-        input.value = input.value.replace(/:[^:]*?$/, emojiByName[emoji]);
+        input.value = input.value.replace(/:[^:]*$/u, emojiByName[emoji]);
         input.focus();
         popupMap[input.name].innerHTML = '';
         popupMap[input.name].style.display = 'none';
@@ -88,14 +88,14 @@ export default async (LSSM: Vue): Promise<void> => {
             input.parentElement?.prepend(popup);
         }
         input.value = input.value.replace(
-            /:.*?:/g,
+            /:.*?:/gu,
             name => emojiByName[name.toLowerCase()] ?? name
         );
         input.value = input.value.replace(emojiAliasRegex, name => {
-            const trimmedName = name.replace(/ $/, '');
+            const trimmedName = name.replace(/ $/u, '');
             return `${emojiyByAlias[trimmedName] ?? trimmedName} `;
         });
-        const end = input.value.match(/(?<=:)[^:]*?$/);
+        const end = input.value.match(/(?<=:)[^:]*$/u);
         if (
             !end?.length ||
             (input.selectionStart ?? 0) < input.value.length - end[0].length ||

@@ -3,11 +3,12 @@ node_modules/*
 *.user.js
 build/*.js
 docs/.vuepress/*.js
+docs/.vuepress/node_modules
 prebuild/*.js
 scripts/**/*.js
 src/userscript.js
 src/config.js
-static/fontawesome_free_6.0.0_all.min.js
+static/fontawesome_*.min.js
 
 src/modules/support/*
 src/modules/renameFz/*

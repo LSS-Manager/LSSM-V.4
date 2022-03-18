@@ -22,7 +22,7 @@ export default <RedesignParser<AAOsWindow>>(({ doc }) => {
                       '.aao_btn_group > a, .aao_searchable'
                   )
               ).map(arr => ({
-                  id: parseInt(arr.href.match(/\d+/)?.[0] ?? '-1'),
+                  id: parseInt(arr.href.match(/\d+/u)?.[0] ?? '-1'),
                   bg_color: arr.style.backgroundColor,
                   color: arr.style.color,
                   title: arr.textContent?.trim() ?? '',
@@ -55,7 +55,7 @@ export default <RedesignParser<AAOsWindow>>(({ doc }) => {
                     doc.querySelectorAll<HTMLAnchorElement>('#aao-tabs li a')
                 ).map(tab => [
                     tab.textContent?.trim() ?? '',
-                    getAAOCategory(new URL(tab.href).hash.replace(/^#/, '')),
+                    getAAOCategory(new URL(tab.href).hash.replace(/^#/u, '')),
                 ])
             ),
         },

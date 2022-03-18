@@ -29,7 +29,7 @@ export default (
         const requirements: Record<number, Requirements> = {};
 
         Object.entries(translations).forEach(([reg, vehicles]) => {
-            const regex = new RegExp(reg.replace(/^\/|\/$/g, ''));
+            const regex = new RegExp(reg.replace(/^\/|\/[ADJUgimux]*$/gu, ''));
             const requirement = missingRequirements.find(({ vehicle }) =>
                 vehicle.match(regex)
             );
@@ -50,7 +50,7 @@ export default (
                 new RegExp(
                     $m(requirement)
                         .toString()
-                        .replace(/^\/|\/$/g, '')
+                        .replace(/^\/|\/[ADJUgimux]*$/gu, '')
                 )
             )
         );
