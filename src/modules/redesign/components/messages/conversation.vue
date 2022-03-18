@@ -28,18 +28,21 @@
                     </button>
                 </div>
                 <div class="message-content well">
-                    <div class="template-btn-holder">
-                        <button
-                            class="btn btn-default dropdown-toggle"
-                            data-toggle="dropdown"
-                        >
-                            templäit
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a title="">Test 1</a></li>
-                            <li><a title="">Test 2</a></li>
-                        </ul>
+                    <div
+                        class="template-btn-holder"
+                        v-if="messageTemplates.enabled"
+                    >
+                        <div class="btn-group">
+                            <button
+                                class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown"
+                                @click.once="fillTemplates"
+                            >
+                                {{ $t('modules.messageTemplates.name') }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu"></ul>
+                        </div>
                     </div>
                     <textarea
                         class="form-control response-input"
@@ -130,6 +133,7 @@ import Vue from 'vue';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { MessageTemplate } from '../../../messageTemplates/main';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
@@ -143,10 +147,15 @@ type Component = RedesignComponent<
             first: number;
             last: number;
         };
+        messageTemplates: {
+            enabled: boolean;
+            templates: MessageTemplate[];
+        };
     },
     {
         loadPage(mode: 'next' | 'prev'): void;
         sendMessage(): void;
+        fillTemplates(event: MouseEvent): void;
     },
     {
         page: number;
@@ -182,6 +191,10 @@ export default Vue.extend<
             loadedPages: {
                 first: 0,
                 last: 0,
+            },
+            messageTemplates: {
+                enabled: false,
+                templates: [],
             },
         };
     },
@@ -298,6 +311,32 @@ export default Vue.extend<
                     this.lightbox.finishLoading(`conversation-send_message`);
                 });
         },
+        fillTemplates(e) {
+            if (!(e.target instanceof HTMLElement)) return;
+            const dropdown = e.target
+                .closest('.btn-group')
+                ?.querySelector<HTMLUListElement>('.dropdown-menu');
+            if (dropdown) {
+                import(
+                    /*webpackChunkName: "modules/messageTemplates/fillDropdown"*/ '../../../messageTemplates/assets/fillDropdown'
+                ).then(async ({ default: fillDropdown }) =>
+                    fillDropdown(
+                        (
+                            await this.$store.dispatch('settings/getSetting', {
+                                moduleId: 'messageTemplates',
+                                settingId: 'templates',
+                                defaultValue: [],
+                            })
+                        ).value,
+                        dropdown,
+                        { username: this.other?.name },
+                        (subject, content) => {
+                            this.response = content;
+                        }
+                    )
+                );
+            }
+        },
     },
     computed: {
         page() {
@@ -349,6 +388,16 @@ export default Vue.extend<
         this.loadedPages.first = this.page;
         this.loadedPages.last = this.page;
         this.lightbox.finishLoading('conversation-mounted');
+
+        this.$store
+            .dispatch('storage/get', {
+                key: 'activeModules',
+                defaultValue: [],
+            })
+            .then((activeModules: string[]) => {
+                this.messageTemplates.enabled =
+                    activeModules.includes('messageTemplates');
+            });
     },
 });
 </script>
@@ -367,15 +416,14 @@ h1
 
 .template-btn-holder
     display: flex
-    flex-flow: row-reverse
-    width: 100%
-    position: absolute
+    height: 0
+    justify-content: flex-end
 
-    .btn
-        transform: translate(-200%, -50%)
+    .dropdown-toggle
+        transform: translate(-10px, -50%)
 
     .dropdown-menu
-        transform: translate(-100%, -25%)
+        transform: translate(-10px, 17px)
 
 .message
     display: flex
