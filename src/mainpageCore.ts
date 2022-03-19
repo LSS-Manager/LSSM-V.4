@@ -171,7 +171,7 @@ export default async (LSSM: Vue): Promise<void> => {
                     .then(() =>
                         control.addEventListener('click', () => {
                             window.mapExpand(
-                                LSSM.$store.state.settings.design_mode >= 3
+                                LSSM.$store.state.api.settings.design_mode >= 3
                             );
                         })
                     );
