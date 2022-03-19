@@ -461,10 +461,15 @@ export default <ModuleMainFunction>(async ({
 
         btnGroup.append(alarmSharePostGroup, alarmSharePostNextGroup);
 
-        let sortedMissionClass = '';
+        let sortedMissionClass = LSSM.$store.getters.nodeAttribute(
+            'extendedCallList_sort-missions_next_sorted'
+        );
         let missionsSorted =
             document.querySelector<HTMLInputElement>(
-                '#lssmv4-extendedCallList_sort_toggle-mission-buttons-mode'
+                `#${LSSM.$store.getters.nodeAttribute(
+                    'extendedCallList_sort_toggle-mission-buttons-mode',
+                    true
+                )}`
             )?.checked ?? false;
         if (missionsSorted) {
             alarmSharePostNextBtn.classList.replace(
