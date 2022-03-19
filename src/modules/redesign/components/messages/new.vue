@@ -43,9 +43,23 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label :for="content.id" class="col-sm-2 control-label">
-                        {{ lightbox.$sm('content') }}
-                    </label>
+                    <div class="col-sm-2 control-label">
+                        <label :for="content.id">
+                            {{ lightbox.$sm('content') }}
+                        </label>
+                        <br />
+                        <div class="btn-group" v-if="messageTemplates.enabled">
+                            <button
+                                class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown"
+                                @click.once="fillTemplates"
+                            >
+                                {{ $t('modules.messageTemplates.name') }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu"></ul>
+                        </div>
+                    </div>
                     <div class="col-sm-10">
                         <textarea
                             class="form-control"
@@ -67,6 +81,7 @@ import Vue from 'vue';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { MessageTemplate } from '../../../messageTemplates/main';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
@@ -80,8 +95,12 @@ type Component = RedesignComponent<
         }
     > & {
         faPaperPlane: IconDefinition;
+        messageTemplates: {
+            enabled: boolean;
+            templates: MessageTemplate[];
+        };
     },
-    { sendMessage(): void }
+    { sendMessage(): void; fillTemplates(event: MouseEvent): void }
 >;
 
 export default Vue.extend<
@@ -97,6 +116,7 @@ export default Vue.extend<
                 `redesign-messages-new_${id}`,
                 true
             );
+        const url = new URL(this.url);
         return {
             faPaperPlane,
             content: {
@@ -105,11 +125,15 @@ export default Vue.extend<
             },
             receiver: {
                 id: id('receiver'),
-                value: '',
+                value: url.searchParams.get('target') ?? '',
             },
             subject: {
                 id: id('subject'),
-                value: '',
+                value: url.searchParams.get('subject') ?? '',
+            },
+            messageTemplates: {
+                enabled: false,
+                templates: [],
             },
         };
     },
@@ -148,6 +172,33 @@ export default Vue.extend<
                     this.$set(this.lightbox, 'src', url)
                 );
         },
+        fillTemplates(e) {
+            if (!(e.target instanceof HTMLElement)) return;
+            const dropdown = e.target
+                .closest('.btn-group')
+                ?.querySelector<HTMLUListElement>('.dropdown-menu');
+            if (dropdown) {
+                import(
+                    /*webpackChunkName: "modules/messageTemplates/fillDropdown"*/ '../../../messageTemplates/assets/fillDropdown'
+                ).then(async ({ default: fillDropdown }) =>
+                    fillDropdown(
+                        (
+                            await this.$store.dispatch('settings/getSetting', {
+                                moduleId: 'messageTemplates',
+                                settingId: 'templates',
+                                defaultValue: [],
+                            })
+                        ).value,
+                        dropdown,
+                        { username: this.receiver.value },
+                        (subject, content) => {
+                            this.subject.value = subject;
+                            this.content.value = content;
+                        }
+                    )
+                );
+            }
+        },
     },
     computed: {},
     props: {
@@ -179,6 +230,47 @@ export default Vue.extend<
     },
     mounted() {
         this.lightbox.finishLoading('message-new-mounted');
+
+        this.$store
+            .dispatch('storage/get', {
+                key: 'activeModules',
+                defaultValue: [],
+            })
+            .then((activeModules: string[]) => {
+                this.messageTemplates.enabled =
+                    activeModules.includes('messageTemplates');
+                if (!this.messageTemplates.enabled) return;
+                const preselected = parseInt(
+                    new URL(this.url).searchParams.get('template') ?? '-1'
+                );
+                if (preselected < 0) return;
+                this.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'messageTemplates',
+                        settingId: 'templates',
+                        defaultValue: [],
+                    })
+                    .then(
+                        ({
+                            value: templates,
+                        }: {
+                            value: MessageTemplate[];
+                        }) => {
+                            this.subject.value = templates[preselected].subject;
+                            import(
+                                /*webpackChunkName: "modules/messageTemplates/modifyMessage"*/ '../../../messageTemplates/assets/modifyMessage'
+                            ).then(
+                                async ({ default: modifyMessage }) =>
+                                    (this.content.value = modifyMessage(
+                                        templates[preselected].template,
+                                        {
+                                            username: this.receiver.value,
+                                        }
+                                    ))
+                            );
+                        }
+                    );
+            });
     },
 });
 </script>

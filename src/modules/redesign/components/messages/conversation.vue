@@ -405,6 +405,31 @@ export default Vue.extend<
             .then((activeModules: string[]) => {
                 this.messageTemplates.enabled =
                     activeModules.includes('messageTemplates');
+                if (!this.messageTemplates.enabled) return;
+                const preselected = parseInt(
+                    new URL(this.url).searchParams.get('template') ?? '-1'
+                );
+                if (preselected < 0) return;
+                this.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'messageTemplates',
+                        settingId: 'templates',
+                        defaultValue: [],
+                    })
+                    .then(
+                        ({ value: templates }: { value: MessageTemplate[] }) =>
+                            import(
+                                /*webpackChunkName: "modules/messageTemplates/modifyMessage"*/ '../../../messageTemplates/assets/modifyMessage'
+                            ).then(
+                                async ({ default: modifyMessage }) =>
+                                    (this.response = modifyMessage(
+                                        templates[preselected].template,
+                                        {
+                                            username: this.other?.name,
+                                        }
+                                    ))
+                            )
+                    );
             });
     },
 });
