@@ -53,6 +53,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         }),
         ...((await getSetting('category.messages')) && {
             '^/messages/\\d+/?$': 'messages/conversation',
+            '^/messages/new/?$': 'messages/new',
         }),
     };
     LSSM.$store

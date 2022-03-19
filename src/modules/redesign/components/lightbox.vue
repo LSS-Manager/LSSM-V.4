@@ -175,6 +175,13 @@ const windows: RedesignLightbox['Data']['windows'] = {
             ),
         data: 'conversation',
     },
+    'messages/new': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/messages/new"*/ './messages/new.vue'
+            ),
+        data: 'message',
+    },
     'note': {
         component: () =>
             import(

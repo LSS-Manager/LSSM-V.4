@@ -15,6 +15,7 @@ import type { EinsaetzeWindow } from '../../src/modules/redesign/parsers/einsaet
 import type { EinsatzWindow } from '../../src/modules/redesign/parsers/einsatz';
 import type { FahrzeugfarbeWindow } from '../../src/modules/redesign/parsers/fahrzeugfarbe';
 import type { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
+import type { NewMessageWindow } from '../../src/modules/redesign/parsers/messages/new';
 import type { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
 import type { NoteWindow } from '../../src/modules/redesign/parsers/note';
 import type { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
@@ -65,6 +66,7 @@ interface Redesigns {
     'fahrzeugfarbe': FahrzeugfarbeWindow;
     'freunde': FreundeWindow;
     'messages/conversation': ConversationWindow;
+    'messages/new': NewMessageWindow;
     'note': NoteWindow;
     'profile': ProfileWindow;
     'profile/edit': ProfileEditWindow;
