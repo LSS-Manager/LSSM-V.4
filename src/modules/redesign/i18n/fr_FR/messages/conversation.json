@@ -1,0 +1,8 @@
+{
+    "back": "Retour à la boîte de réception",
+    "load": {
+        "next": "charger les anciens messages",
+        "prev": "charger les nouveaux messages"
+    },
+    "subtitle": "Une conversation avec"
+}
