@@ -116,7 +116,7 @@ export default Vue.extend<
                 `redesign-messages-new_${id}`,
                 true
             );
-        const url = new URL(this.url);
+        const url = new URL(this.url, window.location.origin);
         return {
             faPaperPlane,
             content: {
@@ -241,7 +241,9 @@ export default Vue.extend<
                     activeModules.includes('messageTemplates');
                 if (!this.messageTemplates.enabled) return;
                 const preselected = parseInt(
-                    new URL(this.url).searchParams.get('template') ?? '-1'
+                    new URL(this.url, window.location.origin).searchParams.get(
+                        'template'
+                    ) ?? '-1'
                 );
                 if (preselected < 0) return;
                 this.$store
