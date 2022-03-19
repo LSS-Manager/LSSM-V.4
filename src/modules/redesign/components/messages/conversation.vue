@@ -15,7 +15,7 @@
             </p>
         </div>
         <div class="panel-body">
-            <div class="message message-self">
+            <div class="message message-self response-message">
                 <div class="message-meta well">
                     <button
                         class="btn btn-success response-send"
@@ -49,6 +49,14 @@
                         :rows="Math.min(response.split(/\n/).length + 1, 20)"
                         v-model="response"
                     ></textarea>
+                </div>
+                <div class="message-meta well other-side">
+                    <img
+                        v-if="other && other.avatar"
+                        class="profile-avatar"
+                        :src="other.avatar"
+                        alt=""
+                    />
                 </div>
             </div>
 
@@ -405,6 +413,8 @@ export default Vue.extend<
 <style scoped lang="sass">
 @use "sass:math"
 
+$border-radius: 2em
+
 h1
     margin-top: 10px
 
@@ -421,14 +431,26 @@ h1
 
     .dropdown-toggle
         transform: translate(-10px, -50%)
+        border-radius: math.div($border-radius, 2)
 
     .dropdown-menu
         transform: translate(-10px, 17px)
+        border-bottom-left-radius: math.div($border-radius, 2)
+        border-bottom-right-radius: math.div($border-radius, 2)
+
+    .open
+        .dropdown-toggle
+            border-bottom-left-radius: 4px
+            border-bottom-right-radius: 4px
+
+body.dark
+    .message
+        .well
+            background-image: linear-gradient(to bottom, #171717 0, #555 100%)
 
 .message
     display: flex
     text-align: left
-    $border-radius: 2em
 
     .message-meta
         display: flex
@@ -450,6 +472,10 @@ h1
         .response-input
             width: 100%
             resize: vertical
+
+    &.response-message
+        .message-meta.other-side
+            height: 0
 
     &.message-self
         flex-direction: row-reverse
