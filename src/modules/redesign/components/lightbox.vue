@@ -668,6 +668,7 @@ export default Vue.extend<
                               targetUrl.pathname === here.pathname &&
                               targetUrl.search === here.search
                           ) {
+                              if (!here.hash) here.hash = '#';
                               if (targetUrl.hash !== here.hash) {
                                   return (window.location.hash =
                                       targetUrl.hash);
