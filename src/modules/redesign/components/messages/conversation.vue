@@ -4,7 +4,16 @@
             <small>
                 <a href="/messages">← {{ lightbox.$sm('back') }}</a>
             </small>
-            <h1>{{ conversation.subject }}</h1>
+            <h1>
+                {{ conversation.subject }}
+                <button
+                    class="btn btn-danger btn-xs pull-right"
+                    @click="deleteMessage"
+                >
+                    {{ lightbox.$sm('delete') }}
+                    <font-awesome-icon :icon="faTrashCan"></font-awesome-icon>
+                </button>
+            </h1>
             <p v-if="other">
                 {{ lightbox.$sm('subtitle') }}
                 <b>
@@ -139,6 +148,7 @@
 import Vue from 'vue';
 
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { MessageTemplate } from '../../../messageTemplates/main';
@@ -149,6 +159,7 @@ type Component = RedesignComponent<
     'messages/conversation',
     {
         faPaperPlane: IconDefinition;
+        faTrashCan: IconDefinition;
         userid: number;
         response: string;
         loadedPages: {
@@ -163,6 +174,7 @@ type Component = RedesignComponent<
     {
         loadPage(mode: 'next' | 'prev'): void;
         sendMessage(): void;
+        deleteMessage(): void;
         fillTemplates(event: MouseEvent): void;
     },
     {
@@ -194,6 +206,7 @@ export default Vue.extend<
     data() {
         return {
             faPaperPlane,
+            faTrashCan,
             userid: window.user_id,
             response: '',
             loadedPages: {
@@ -317,6 +330,40 @@ export default Vue.extend<
                     ]);
                     this.response = '';
                     this.lightbox.finishLoading(`conversation-send_message`);
+                });
+        },
+        deleteMessage() {
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL(`/messages/trash`, window.location.origin);
+            url.searchParams.append('utf8', '✓');
+            url.searchParams.append(
+                'authenticity_token',
+                this.conversation.authenticity_token
+            );
+            url.searchParams.append('_method', 'delete');
+            url.searchParams.append('current_box', 'inbox');
+            url.searchParams.append(
+                'conversations[]',
+                this.conversation.id.toString()
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url: `/messages/trash`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Upgrade-Insecure-Requests': '1',
+                        },
+                        referrer: new URL(`/messages`, window.location.origin),
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                    feature: 'redesign-messages-conversation-delete',
+                })
+                .then(({ url }: Response) => {
+                    this.$set(this.lightbox, 'src', url);
                 });
         },
         fillTemplates(e) {

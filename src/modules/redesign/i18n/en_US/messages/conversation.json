@@ -1,5 +1,6 @@
 {
     "back": "Back to inbox",
+    "delete": "Delete conversation",
     "load": {
         "next": "load older messages",
         "prev": "load newer messages"

@@ -8,9 +8,9 @@
                 {{ message.title }}
                 <button
                     class="btn btn-danger pull-right"
-                    @click="removeMessage"
+                    @click="deleteMessage"
                 >
-                    {{ lightbox.$sm('remove') }}
+                    {{ lightbox.$sm('delete') }}
                     <font-awesome-icon :icon="faTrashCan"></font-awesome-icon>
                 </button>
             </h1>
@@ -33,7 +33,7 @@ type Component = RedesignComponent<
     {
         faTrashCan: IconDefinition;
     },
-    { removeMessage(): void },
+    { deleteMessage(): void },
     { id: string }
 >;
 
@@ -50,7 +50,7 @@ export default Vue.extend<
         };
     },
     methods: {
-        removeMessage() {
+        deleteMessage() {
             this.$set(this.lightbox, 'loading', true);
             const url = new URL(
                 `/messages/system_message/${this.id}`,
@@ -78,7 +78,7 @@ export default Vue.extend<
                         method: 'POST',
                         mode: 'cors',
                     },
-                    feature: 'redesign-messages-system_messages-remove',
+                    feature: 'redesign-messages-system_messages-delete',
                 })
                 .then(({ url }: Response) => {
                     if (
@@ -92,7 +92,7 @@ export default Vue.extend<
 
                     this.$store
                         .dispatch('event/createEvent', {
-                            name: 'redesign-messages-system_message-remove',
+                            name: 'redesign-messages-system_message-delete',
                             detail: {
                                 id: this.id,
                             },

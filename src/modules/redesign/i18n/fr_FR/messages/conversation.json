@@ -1,5 +1,6 @@
 {
     "back": "Retour à la boîte de réception",
+    "delete": "Supprimer conversation",
     "load": {
         "next": "charger les anciens messages",
         "prev": "charger les nouveaux messages"
