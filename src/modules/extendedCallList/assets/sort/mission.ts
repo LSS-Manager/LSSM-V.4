@@ -36,6 +36,18 @@ export default async (
     );
     if (!navHeader) return;
 
+    const flashStorageKey = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}_sort_mission-flash-msg`
+    );
+
+    const flashStorage = sessionStorage.getItem(flashStorageKey);
+    if (flashStorage) {
+        document
+            .querySelector<HTMLSpanElement>('#flash_insert_point')
+            ?.insertAdjacentHTML('afterend', flashStorage);
+        sessionStorage.removeItem(flashStorageKey);
+    }
+
     const toggleWrapper = document.createElement('div');
     toggleWrapper.classList.add('checkbox');
     toggleWrapper.style.setProperty('margin', '0');
@@ -70,22 +82,62 @@ export default async (
                 ?.forEach(vehicle =>
                     url.searchParams.append('vehicle_ids[]', vehicle.value)
                 );
-            return LSSM.$store.dispatch('api/request', {
-                url: url.pathname,
-                feature: `${MODULE_ID}_sort-missions_alarm`,
-                init: {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
+            return LSSM.$store
+                .dispatch('api/request', {
+                    url: url.pathname,
+                    feature: `${MODULE_ID}_sort-missions_alarm`,
+                    init: {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: new URL(
+                            `/missions/${missionId}`,
+                            window.location.origin
+                        ),
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
                     },
-                    referrer: new URL(
-                        `/missions/${missionId}`,
-                        window.location.origin
-                    ),
-                    body: url.searchParams.toString(),
-                    method: 'POST',
-                    mode: 'cors',
-                },
-            });
+                })
+                .then((res: Response) => res.text())
+                .then(html => {
+                    const flashs = Array.from(
+                        new DOMParser()
+                            .parseFromString(html, 'text/html')
+                            .querySelectorAll<HTMLDivElement>(
+                                // possible flashs: red, green, red+green
+                                '#flash_insert_point + .alert.alert-danger:not(.alert-missing-vehicles), #flash_insert_point + .alert.alert-success, #flash_insert_point + .alert.alert-danger:not(.alert-missing-vehicles) + .alert.alert-success'
+                            )
+                    );
+
+                    if (flashs.length) {
+                        sessionStorage.setItem(
+                            flashStorageKey,
+                            flashs.map(flash => flash.outerHTML).join('\n')
+                        );
+                        if (
+                            flashs.some(flash =>
+                                flash.classList.contains('alert-danger')
+                            )
+                        )
+                            return window.location.reload();
+                    }
+
+                    if (!isLastMission) {
+                        window.location.replace(
+                            `/missions/${
+                                order[missionList][missionListPosition + 1]
+                            }`
+                        );
+                    } else if (
+                        LSSM.$store.state.api.settings
+                            .mission_alarmed_successfull_close_window
+                    ) {
+                        window.location.replace('/missions/close');
+                    } else {
+                        window.location.reload();
+                    }
+                });
         };
 
         const toggleInput = document.createElement('input');
@@ -128,24 +180,7 @@ export default async (
                     'btn-success',
                     isLastMission ? 'btn-default' : 'btn-primary'
                 );
-                newBtn.addEventListener('click', () => {
-                    alarm().then(() => {
-                        if (!isLastMission) {
-                            window.location.replace(
-                                `/missions/${
-                                    order[missionList][missionListPosition + 1]
-                                }`
-                            );
-                        } else if (
-                            LSSM.$store.state.api.settings
-                                .mission_alarmed_successfull_close_window
-                        ) {
-                            window.location.replace('/missions/close');
-                        } else {
-                            window.location.reload();
-                        }
-                    });
-                });
+                newBtn.addEventListener('click', () => alarm());
                 btn.after(newBtn);
                 return [btn, newBtn];
             });
@@ -242,24 +277,7 @@ export default async (
                     )
                 );
                 newBtn.classList.remove('btn-success');
-                newBtn.addEventListener('click', () => {
-                    alarm(true).then(() => {
-                        if (!isLastMission) {
-                            window.location.replace(
-                                `/missions/${
-                                    order[missionList][missionListPosition + 1]
-                                }`
-                            );
-                        } else if (
-                            LSSM.$store.state.api.settings
-                                .mission_alarmed_successfull_close_window
-                        ) {
-                            window.location.replace('/missions/close');
-                        } else {
-                            window.location.reload();
-                        }
-                    });
-                });
+                newBtn.addEventListener('click', () => alarm(true));
                 btn.after(newBtn);
                 return [btn, newBtn];
             });
