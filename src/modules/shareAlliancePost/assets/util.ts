@@ -221,14 +221,14 @@ export function createEditField(
 export function getDropdownClickHandler(
     inputGroupClass: string,
     editBtnClass: string,
-    additionalFn: (liElement: HTMLLIElement) => void,
+    additionalFn: (liElement: HTMLLIElement, sendMessage: boolean) => void,
     isMissionList = false
 ) {
     return (event: MouseEvent) => {
         const target = event.target;
         if (!target || !(target instanceof HTMLElement)) return;
         const liElement = target.closest<HTMLLIElement>(
-            'li[data-message][data-post]'
+            'li[data-message][data-post], li[data-no-message="1"]'
         );
         if (target.closest(`.${inputGroupClass}`)) {
             event.stopPropagation();
@@ -257,7 +257,7 @@ export function getDropdownClickHandler(
                 )
             );
         } else {
-            additionalFn(liElement);
+            additionalFn(liElement, liElement.dataset.noMessage !== '1');
         }
     };
 }

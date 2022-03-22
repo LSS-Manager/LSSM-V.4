@@ -56,11 +56,12 @@ export default (
     dropdown.classList.add('dropdown-menu', dropdownClass);
 
     const noMessageLi = createLi(noMessage);
+    noMessageLi.dataset.noMessage = '1';
     dropdown.append(noMessageLi);
-    noMessageLi.addEventListener('click', () => {
-        btn.disabled = true;
-        shareMission(LSSM, mission.id, true).then(() => btn.remove());
-    });
+    // noMessageLi.addEventListener('click', () => {
+    //     btn.disabled = true;
+    //     shareMission(LSSM, mission.id, true).then(() => btn.remove());
+    // });
 
     const separatorLi = document.createElement('li');
     separatorLi.classList.add('divider');
@@ -182,17 +183,24 @@ export default (
         getDropdownClickHandler(
             inputGroupClass,
             editBtnClass,
-            liElement => {
+            (liElement, sendMessage) => {
                 btn.disabled = true;
                 shareMission(LSSM, mission.id, true)
-                    .then(() =>
-                        sendReply(
-                            LSSM,
-                            mission.id,
-                            liElement.dataset.message ?? '',
-                            liElement.dataset.post === 'true',
-                            authToken
-                        )
+                    .then(
+                        () =>
+                            new Promise<void>(resolve => {
+                                if (sendMessage) {
+                                    sendReply(
+                                        LSSM,
+                                        mission.id,
+                                        liElement.dataset.message ?? '',
+                                        liElement.dataset.post === 'true',
+                                        authToken
+                                    ).then(resolve);
+                                } else {
+                                    resolve();
+                                }
+                            })
                     )
                     .then(() => btn.remove());
             },

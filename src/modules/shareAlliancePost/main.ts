@@ -505,21 +505,26 @@ export default <ModuleMainFunction>(async ({
             getDropdownClickHandler(
                 inputGroupClass,
                 editBtnClass,
-                liElement => {
+                (liElement, sendMessage) => {
                     alarmSharePostBtn.disabled = true;
                     alarmSharePostNextBtn.disabled = true;
 
                     shareMission(LSSM, missionId)
-                        .then(() =>
-                            liElement.dataset.noMessage
-                                ? new Promise<void>(resolve => resolve())
-                                : sendReply(
-                                      LSSM,
-                                      missionId,
-                                      liElement.dataset.message ?? '',
-                                      liElement.dataset.post === 'true',
-                                      authToken
-                                  )
+                        .then(
+                            () =>
+                                new Promise<void>(resolve => {
+                                    if (sendMessage) {
+                                        sendReply(
+                                            LSSM,
+                                            missionId,
+                                            liElement.dataset.message ?? '',
+                                            liElement.dataset.post === 'true',
+                                            authToken
+                                        ).then(resolve);
+                                    } else {
+                                        resolve();
+                                    }
+                                })
                         )
                         .then(() =>
                             document
