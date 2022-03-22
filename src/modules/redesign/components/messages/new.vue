@@ -6,7 +6,13 @@
             </small>
             <h1>
                 {{ lightbox.$sm('title') }}
-                <button class="btn btn-success pull-right" @click="sendMessage">
+                <button
+                    class="btn btn-success pull-right"
+                    @click="sendMessage"
+                    :disabled="
+                        !receiver.value || !subject.value || !content.value
+                    "
+                >
                     {{ lightbox.$sm('send') }}
                     <font-awesome-icon :icon="faPaperPlane"></font-awesome-icon>
                 </button>
