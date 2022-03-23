@@ -1,13 +1,16 @@
 <template>
-    <a :href="$themeConfig.variables.discord.channels[channel]" target="_blank">
+    <a
+        :href="`https://discordapp.com/channels/${$theme.variables.discord.id}/${$theme.variables.discord.channels[channel]}`"
+        target="_blank"
+    >
         <code>#{{ channel }}</code>
     </a>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
     name: 'discord-channel',
     props: {
         channel: {

@@ -14,7 +14,7 @@ Om du har förbättringsförslag kan du skicka dem till oss som alltid - eller t
 :::danger Moduler som inte fungerar i Mapkit
 Som beskrivs i förklaringen till [Appstore](appstore.md), det finns moduler som tyvärr inte är kompatibla med karttypen `Mapkit`. Det är dessa moduler:
 <ul>
-    <li v-for="module in $themeConfig.variables.noMapkitModules.sv_SE" :key="module.title">
+    <li v-for="module in $theme.variables.noMapkitModules.sv_SE" :key="module.title">
         <router-link :to="module.f">
             {{ module.title }}
         </router-link>

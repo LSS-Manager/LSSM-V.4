@@ -10,7 +10,7 @@ sidebarDepth: 3
 LSS-Manager est une offre gratuite - nous n'avons pas l'intention de changer cela.
 Même s'il apporte certainement une valeur ajoutée, il n'y a pas de TVA sur ce produit :wink:
 
-::: warning Dons
+:::warning Dons
 Il y a quelques utilisateurs sympathiques qui aimeraient nous donner de l'argent. Mais : LSS-Manager est et restera gratuit. Aussi, nous n'accepterons aucun don pour ce projet.
 
 Ceci pour plusieurs raisons :
@@ -47,7 +47,7 @@ Ce tableau n'est pas nécessairement correct pour le moment et sera mis à jour 
 
 Comme nous voulons conserver les dernières normes de codage, un navigateur moderne et à jour est nécessaire et recommandé - ne serait-ce que pour des raisons de sécurité, même en dehors du jeu.
 
-::: warning Compatibilité
+:::warning Compatibilité
 Une compatibilité répertoriée ici ne garantit pas la bonne fonctionnalité. Il s'agit uniquement d'informations recueillies et évaluées par des tiers.
 :::
 
@@ -60,7 +60,7 @@ Une compatibilité répertoriée ici ne garantit pas la bonne fonctionnalité. I
 		</tr>
 	</thead>
 	<tbody>
-		<tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
+		<tr v-for="({supported, download}, browser) in $theme.variables.browsers">
 			<td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
 			<td>{{ supported }}</td>
 			<td><a :href="download" target="_blank">Téléchargé</a></td>

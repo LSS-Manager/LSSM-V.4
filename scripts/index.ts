@@ -36,7 +36,7 @@ const scriptHandlers = {
     docs() {
         console.log(
             execSync(
-                './docs/.vuepress/node_modules/.bin/vuepress build docs'
+                './docs/.vuepress/node_modules/.bin/vuepress build docs --clean-temp --clean-cache'
             ).toString()
         );
     },

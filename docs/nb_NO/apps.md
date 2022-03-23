@@ -14,7 +14,7 @@ Dersom du har forslag til endringer, kan du sende dem til oss - eller til og med
 :::danger modules that do not work in Mapkit
 Som beskrevet i [Appstore](appstore.md) er det moduler som dessverre ikke er kompitabel med kartet `Mapkit`. Det gjelder disse utvidelsene:
 <ul>
-    <li v-for="module in $themeConfig.variables.noMapkitModules.en_GB" :key="module.title">
+    <li v-for="module in $theme.variables.noMapkitModules.en_GB" :key="module.title">
         <router-link :to="module.f">
             {{ module.title }}
         </router-link>

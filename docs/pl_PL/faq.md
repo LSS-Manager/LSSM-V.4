@@ -9,7 +9,7 @@ sidebarDepth: 3
 ### How much does LSS Manager cost?
 LSS-Manager is a free extension. - we do not intend to change this.
 
-::: warning Donations
+:::warning Donations
 There are a few kind users who would like to donate money to us. Howevever, LSS-Manager is and will remain free of charge. We will not accept any donations for this project.
 
 There are several reasons:
@@ -40,7 +40,7 @@ This table is not necessarily up to date and will be updated when new informatio
 
 Since we want to keep the latest coding standards throughout, a modern and up-to-date browser is necessary and recommended - if only for security reasons, even outside the game.
 
-::: warning Compatibility
+:::warning Compatibility
 A compatibility listed here does not guarantee functionality. This is only information collected and evaluated by third parties.
 :::
 
@@ -53,7 +53,7 @@ A compatibility listed here does not guarantee functionality. This is only infor
     </tr>
 </thead>
 <tbody>
-    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
+    <tr v-for="({supported, download}, browser) in $theme.variables.browsers">
         <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
         <td>{{ supported }}</td>
         <td><a :href="download" target="_blank">Download</a></td>

@@ -9,7 +9,7 @@ sidebarDepth: 3
 ### Vad kostar LSS-Manager?
 LSS-Manager är ett gratis tillägg. - vi har inte för avsikt att ändra detta.
 
-::: warning Donationer
+:::warning Donationer
 Det finns några trevliga användare som vill donera pengar till oss. Men: LSS-Manager är och förblir gratis. Vi accepterar inte heller några donationer för detta projekt.
 
 Detta har flera anledningar:
@@ -56,7 +56,7 @@ En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endas
     </tr>
 </thead>
 <tbody>
-    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
+    <tr v-for="({supported, download}, browser) in $theme.variables.browsers">
         <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
         <td>{{ supported }}</td>
         <td><a :href="download" target="_blank">Download</a></td>

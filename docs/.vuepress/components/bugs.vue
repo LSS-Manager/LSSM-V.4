@@ -53,7 +53,7 @@
                     <span class="bug-labels">
                         <a
                             class="bug-label"
-                            :href="`${$themeConfig.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`"
+                            :href="`${$theme.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`"
                             target="_blank"
                             :title="label.description"
                             :style="labelStyle(label.color)"
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const octicons = require('@primer/octicons');
@@ -118,7 +118,7 @@ const getRelativeTime = (d1, d2 = new Date()) => {
     return elapsed.toLocaleString();
 };
 
-export default Vue.extend({
+export default defineComponent({
     name: 'bug-list',
     data() {
         return {
@@ -130,9 +130,9 @@ export default Vue.extend({
     },
     computed: {
         bugs() {
-            return this.$themeConfig
-                ? this.$themeConfig.variables
-                    ? this.$themeConfig.variables.bugIssues || []
+            return this.$theme
+                ? this.$theme.variables
+                    ? this.$theme.variables.bugIssues || []
                     : []
                 : [];
         },

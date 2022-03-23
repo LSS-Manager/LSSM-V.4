@@ -10,10 +10,10 @@ Na následujících stránkách naleznete popis všech našich modulů. Snažili
 
 Pokud máte návrhy na zlepšení, můžete nám je poslat nebo dokonce samostatně vytvořit. 
 
-::: danger moduly, které v Mapktitu nefungují
+:::danger moduly, které v Mapktitu nefungují
 Jak je popsáno ve vysvětlení [Sbírky aplikací](appstore.md), existují moduly, které bohužel nejsou kompatibilní s Mapkitem. Jedná se o tyto moduly:
 <ul>
-    <li v-for="module in $themeConfig.variables.noMapkitModules.en_US" :key="module.title">
+    <li v-for="module in $theme.variables.noMapkitModules.en_US" :key="module.title">
         <router-link :to="module.f">
             {{ module.title }}
         </router-link>

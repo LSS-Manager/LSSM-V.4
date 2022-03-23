@@ -1,0 +1,9 @@
+:root {
+    --content-width: 790px;
+
+    --search-input-width: 15rem !important;
+}
+
+tr:nth-child(2n) code {
+    background-color: var(--c-bg);
+}

@@ -13,7 +13,7 @@ Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen la
 :::danger Module und Einstellungen, die in Mapkit nicht funktionieren
 Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module und Einstellungen, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
 <ul>
-    <li v-for="module in $themeConfig.variables.noMapkitModules.de_DE" :key="module.title">
+    <li v-for="module in $theme.variables.noMapkitModules.de_DE" :key="module.title">
         <router-link :to="module.f">
             {{ module.title }}
         </router-link>

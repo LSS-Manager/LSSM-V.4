@@ -4,11 +4,11 @@ lang: de_DE
 sidebarDepth: 2
 ---
 
-# Wiki 🇩🇪 <Badge :text="'v' + $themeConfig.variables.versions.short"/>
+# Wiki 🇩🇪 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $theme.variables.versions.stable }}</i>
 > 
-> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+> beta: <i>{{ $theme.variables.versions.beta }}</i>
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
@@ -30,7 +30,7 @@ Mit der Nutzung des LSSM bist du damit einverstanden, dass wir Metadaten erheben
 
 Eine Tabelle mit welchen Browsern der LSSM kompatibel ist, findest du in unseren [FAQ](faq.md#in-welchen-browsern-funktioniert-der-lss-manager)
 
-::: tip Den LSSM am Handy nutzen
+:::tip Den LSSM am Handy nutzen
 Offiziell unterstützen wir keine mobile Version. Jedoch bietet der Browser Firefox auch in seiner mobilen Version die Möglichkeit, Add-Ons zu nutzen (siehe [FAQ](faq.md#den-lssm-am-handy-nutzen)). Wir übernehmen jedoch keine Garantie für ein ansprechendes Design, sowie die volle Funktionalität bei mobilen Browsern.
 
 Eine offizielle Unterstützung mobiler Browser ist derzeit **nicht** geplant.
@@ -43,14 +43,14 @@ Sofern du Tampermonkey in deinem Browser noch nicht installiert hast, musst du d
 
 Für sonstige Browser kann man Tampermonkey auf [tampermonkey.net](https://www.tampermonkey.net/) herunterladen.
 
-::: warning Hinweis
+:::warning
 Bitte beachte, dass wir ältere Browser, sowie mobile Browser, Safari und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
 :::
 
 ### Schritt 2: Userscript
-Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du entweder <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">hier</a> klicken oder ein neues Userscript mit folgendem Inhalt anlegen:
+Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du entweder <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">hier</a> klicken oder ein neues Userscript mit folgendem Inhalt anlegen:
 
-<<< ./dist/static/lssm-v4.user.js
+@[code js](@userscript)
 
 ### Schritt 3: Aktivieren
 Der LSSM-Indikator ist das LSSM-Logo oder (falls in den [Einstellungen](settings.md#label-statt-icon-im-menu) entsprechend eingestellt) ein grün hinterlegter Text `LSSM V.4`.

@@ -10,12 +10,12 @@ Les paramètres de tous les modules sont gérés de manière centralisée dans l
 Grâce aux boutons `Export` et `Import`, tu peux sauvegarder tes réglages dans un fichier et / ou les transmettre à tes amis.
 Dans un avenir proche, nous souhaitons offrir la possibilité de sauvegarder des paramètres liés à un profil. Ainsi, les paramètres ne seront plus liés à un appareil.
 
-::: tip Modifications
+:::tip Modifications
 Dès que vous quittez les paramètres et que vous avez sauvegardé les changements, le jeu se recharge pour appliquer facilement tous les paramètres.
 Si vous avez des modifications non sauvegardées, vous ne pouvez pas fermer les paramètres, vous obtiendrez un petit message d'aide.
 :::
 
-::: danger Réinitialiser les paramètres
+:::danger Réinitialiser les paramètres
 Attention : Si vous réinitialisez les paramètres, ils ne peuvent être restaurés sans exportation préalable !
 :::
 
@@ -39,7 +39,7 @@ Si tu as activé le design sombre, les infobulles (noms de véhicules/d'interven
 ### Menu V3 comme sous-menu
 Si l'on a beaucoup de scripts actifs, la barre de navigation du jeu devient vite très chargée. Avec ce réglage, le menu du LSSM V.3 est déplacé dans le menu de la V4 :
 
-![Menu V3 comme sous-menu](/v4/docs/img/fr_FR/v3submenu.png)
+![Menu V3 comme sous-menu](/img/fr_FR/v3submenu.png)
 
 ## Moment.js
 Cette section fournit des informations sur la façon de configurer les paramètres de date et d'heure, par exemple dans le module [clock](modules/clock.md).

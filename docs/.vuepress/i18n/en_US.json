@@ -1,13 +1,25 @@
 {
     "404": {
-        "content": "Dear User,\n\nthanks for your interest in the Wiki page of {{module}}! Unfortunately, we weren't able to create the content for your language {{lang}} yet. If you want to contribute to our wiki, feel free to create this page on {{github}}! We suggest to have a look at the files of the other languages for examples in the {{docs_dir}}.",
-        "languages": "This module already has a Wiki page in the following languages:",
-        "title": "No module page existing yet"
+        "general": {
+            "home": "Back to home"
+        },
+        "modules": {
+            "content": "Dear User,\n\nthanks for your interest in the Wiki page of {{module}}! Unfortunately, we weren't able to create the content for your language {{lang}} yet. If you want to contribute to our wiki, feel free to create this page on {{github}}! We suggest to have a look at the files of the other languages for examples in the {{docs_dir}}.",
+            "languages": "This module already has a Wiki page in the following languages:",
+            "title": "No module page existing yet"
+        }
     },
     "apps": "Apps",
+    "containers": {
+        "danger": "Danger",
+        "tip": "Tip",
+        "warning": "Warning"
+    },
     "description": "The Wiki for LSS-Manager V.4",
-    "edit": {
-        "module": "Edit Page"
+    "footer": {
+        "contributors": "Contributors",
+        "edit": "Edit Page",
+        "lastUpdated": "Last Updated"
     },
     "head": {
         "alpha": "This module is still in its absolute beginnings and is currently only available for beta testers!",
@@ -128,5 +140,6 @@
             "game": "Game-Online-Status",
             "lssm": "LSSM-Server-Status"
         }
-    }
+    },
+    "search": "search Wiki"
 }

@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
     name: 'translators-list',
     data() {
         return {};
@@ -27,7 +27,7 @@ export default Vue.extend({
     computed: {
         translators() {
             const languages = {};
-            this.$themeConfig.variables.contributors.forEach(contributor => {
+            this.$theme.variables.contributors.forEach(contributor => {
                 const langContributions = contributor.contributions.filter(
                     contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/u)
                 );
@@ -44,9 +44,9 @@ export default Vue.extend({
         },
         flags() {
             return Object.fromEntries(
-                Object.entries(
-                    this.$themeConfig.variables.contributionTypes
-                ).map(([language, { symbol }]) => [language, symbol])
+                Object.entries(this.$theme.variables.contributionTypes).map(
+                    ([language, { symbol }]) => [language, symbol]
+                )
             );
         },
     },
@@ -58,5 +58,6 @@ export default Vue.extend({
 <style scoped>
 img {
     width: 1em;
+    margin-right: 5px;
 }
 </style>

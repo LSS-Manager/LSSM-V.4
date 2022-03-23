@@ -3,7 +3,10 @@ node_modules
 /dist
 package-lock.json
 /docs/*/modules
+/docs/.vuepress/.cache
 /docs/.vuepress/.temp
+/docs/.vuepress/dist
+/docs/.vuepress/.versions.json
 /docs/.vuepress/node_modules
 /docs/.vuepress/public/assets/*
 /static/db_access.php

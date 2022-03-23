@@ -30,7 +30,7 @@ declare module 'vue/types/vue' {
 
     interface Vue {
         $lang: string;
-        $themeConfig: {
+        $theme: {
             variables: {
                 discord: {
                     invite: string;

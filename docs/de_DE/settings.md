@@ -10,12 +10,12 @@ In den Einstellungen werden die Einstellungen aller Module zentral verwaltet. Es
 Mittels der Knöpfe `Export` und `Import` kannst du deine Einstellungen in einer Datei sichern und / oder an deine Freunde weitergeben.
 Wir möchten in naher Zukunft die Möglichkeit bieten, Einstellungen profilgebunden zu speichern. Damit sind Einstellungen nicht mehr an ein Gerät gebunden.
 
-::: tip Änderungen
+:::tip Änderungen
 Sobald du die Einstellungen verlässt und gespeicherte Änderungen hast, wird das Spiel neu geladen, um alle Einstellungen problemlos zu übernehmen.
 Hast du ungespeicherte Änderungen, kannst du die Einstellungen nicht schließen, es kommt eine kleine Hinweis-Meldung.
 :::
 
-::: danger Zurücksetzen der Einstellungen
+:::danger Zurücksetzen der Einstellungen
 Vorsicht: Setzt du Einstellungen zurück, können sie ohne den vorherigen Export nicht wieder hergestellt werden!
 :::
 
@@ -39,7 +39,7 @@ Hast du das dunkle Design aktiv, sind die Tooltips (Fahrzeug-/Einsatznamen etc.)
 ### V3 Menü als Untermenü
 Hat man viele Scripts aktiv, so wird die Navigationsleiste des Spiels schnell sehr voll. Mit dieser Einstellung wird das Menü des LSSM V.3 in das Menü der V4 verschoben:
 
-![V3 Menü als Untermenü](/v4/docs/img/de_DE/v3submenu.png)
+![V3 Menü als Untermenü](/img/de_DE/v3submenu.png)
 
 ## Moment.js
 Dieser Abschnitt bietet dir eine Hilfestellung bei der Konfiguration von Daten und Uhrzeiten, die du selber einstellen kannst, z.B. im Modul [Uhr](modules/clock.md).
