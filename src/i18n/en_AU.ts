@@ -591,7 +591,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [6, 19],
-            special: ' May be replaced by TOG units.',
+            special: 'May be replaced by TOG units.',
         },
         35: {
             caption: 'Riot Police Group Vehicle',
@@ -601,7 +601,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 8,
             possibleBuildings: [6, 19],
-            special: ' May be replaced by TOG units.',
+            special: 'May be replaced by TOG units.',
         },
         36: {
             caption: 'Riot Police Equipment Vehicles',
