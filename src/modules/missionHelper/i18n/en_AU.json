@@ -23,6 +23,8 @@
         "max_rescue_stations": "Maximum Rescue Stations",
         "police_helicopter_stations": "Police Air Wing Station | Police Air Wing Stations",
         "police_stations": "Police Station | Police Stations",
+        "police_service_group_leader": "Senior Sergeant's Office | Senior Sergeant's Offices",
+        "riot_police": "Riot Police Extension | Riot Police Extensions",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
         "title": "Prerequisite | Prerequisites",
         "wasserrettung": "SES Unit | SES Units"
@@ -65,7 +67,11 @@
             "swat_armored_vehicle": "TOG Armoured Vehicle | TOG Armoured Vehicles",
             "swat_suv": "TOG SUV | TOG SUVs",
             "water_rescue": "SES Vehicle | SES Vehicles",
-            "water_tankers": "Bulk Water Tanker | Bulk Water Tankers"
+            "water_tankers": "Bulk Water Tanker | Bulk Water Tankers",
+            "police_service_group_leader": "Senior Sergeant | Senior Sergeants",
+            "riot_police": "Riot Police Group Vehicle | Riot Police Group Vehicles",
+            "riot_police_equipment": "Riot Police Equipment Vehicle | Riot Police Equipment Vehicles",
+            "riot_police_suv": "Riot Police SUV | Riot Police SUVs"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
