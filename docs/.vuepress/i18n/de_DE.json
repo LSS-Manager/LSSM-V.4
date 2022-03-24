@@ -147,5 +147,76 @@
         "download": "Download",
         "link": "Link",
         "minVersion": "mind. Version"
+    },
+    "v3": {
+        "modules": {
+            "DestinationFilter": {
+                "annotation": "Dieser ist im Redesign für Fahrzeuge bereits integriert, soll aber auch noch als eigenes Modul in die V4 integriert werden.",
+                "v3Name": "Zielort Filter"
+            },
+            "DoctorRadioCall": {
+                "v3Name": "Nachforderungen per FMS"
+            },
+            "FMS5InMap": {
+                "v3Name": "FMS 5 in der Karte"
+            },
+            "Layout01": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 04"
+            },
+            "RenameFZ": {
+                "v3Name": "Fahrzeuge umbenennen"
+            },
+            "centermap": {
+                "annotation": "Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt noch.",
+                "v3Name": "Center-Map"
+            },
+            "saveVGE": {
+                "v3Name": "Eigene VGE speichern"
+            },
+            "searchMissions": {
+                "v3Name": "Einsätze suchen"
+            },
+            "showChatButtonAbove": {
+                "v3Name": "show Chatbutton Above"
+            },
+            "showNotTransportButtonAbove": {
+                "v3Name": "show Patient entlassen Above"
+            },
+            "statusDispatching": {
+                "v3Name": "Verbesserte Status 5"
+            },
+            "verbandsverwaltung": {
+                "v3Name": "Verbandsverwaltung"
+            }
+        },
+        "settings": {
+            "extendedCallWindow": {
+                "arrCounter": "AAO-Klickzähler"
+            }
+        },
+        "tables": {
+            "annotations": "Hinweise",
+            "changes": "Änderungen",
+            "feature": "Feature",
+            "module": "Modul",
+            "setting": "Einstellung"
+        },
+        "v4annotations": {
+            "asyncButtons": "Noch in Entwicklung: Hier kommen in Zukunft noch mehr Features",
+            "lssmaql": "Ein Experiment, welches mal dazu dienen soll schnell Daten aus der API auszulesen."
+        }
     }
 }

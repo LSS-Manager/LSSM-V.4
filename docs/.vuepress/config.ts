@@ -142,6 +142,12 @@ export default defineUserConfig<DefaultThemeOptions>({
             tables: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'tables')])
             ),
+            v3Comparison: {
+                translations: Object.fromEntries(
+                    LANGS.map(lang => [lang, $t(lang, 'v3')])
+                ),
+                ...JSON.parse(fs.readFileSync(path.join(DOCS_UTILS_PATH, 'v3Comparison.json')).toString())
+            },
             contributors: contributorsFile.contributors,
             contributionTypes: contributorsFile.types,
         },
@@ -174,6 +180,18 @@ export default defineUserConfig<DefaultThemeOptions>({
                     'tampermonkey-download-table': path.join(
                         DOCS_COMPONENTS_PATH,
                         'tampermonkey/download-table.vue'
+                    ),
+                    'v3-v4-comparison-new': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'v3-v4-comparison/new.vue'
+                    ),
+                    'v3-v4-comparison-integrated': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'v3-v4-comparison/integrated.vue'
+                    ),
+                    'v3-v4-comparison-v3only': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'v3-v4-comparison/v3only.vue'
                     ),
                     'browser-support-table': path.join(
                         DOCS_COMPONENTS_PATH,

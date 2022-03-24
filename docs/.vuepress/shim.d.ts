@@ -1,4 +1,5 @@
 import type config from '../../src/config';
+import type v3Comparison from './utils/v3Comparison.json'
 
 import type { Issue } from './types/issues';
 
@@ -71,6 +72,15 @@ declare module 'vue/types/vue' {
                         > & { order: MomentVariableCategories[] };
                     }
                 >;
+                tables: Record<string, Record<'browser' | 'download' | 'link' | 'minVersion', string>>;
+                v3Comparison: {
+                    translations: Record<string, {
+                        modules: Record<string, {v3Name: string, annotation?: string}>;
+                        settings: Record<string, Record<string, string>>;
+                        tables: Record<'annotations'|'changes'|'feature'|'module'|'setting', string>;
+                        v4annotations: Record<string, string>
+                    }>;
+                } & typeof v3Comparison;
                 editModuleLinkText: Record<string, string>;
                 contributors: {
                     avatar_url: string;

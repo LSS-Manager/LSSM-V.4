@@ -4,6 +4,10 @@
     --search-input-width: 15rem !important;
 }
 
+.theme-default-content:not(.custom) {
+    max-width: 920px
+}
+
 tr:nth-child(2n) code {
     background-color: var(--c-bg);
 }
