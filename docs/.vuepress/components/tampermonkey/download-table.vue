@@ -2,14 +2,18 @@
     <table>
         <thead>
             <tr>
-                <th>Browser</th>
-                <th>Link</th>
+                <th>{{ $theme.variables.tables[$lang].browser }}</th>
+                <th>{{ $theme.variables.tables[$lang].link }}</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(url, browser) in browsers" :key="browser">
                 <td>{{ browser }}</td>
-                <td><a :href="url" target="_blank">download</a></td>
+                <td>
+                    <a :href="url" target="_blank">
+                        {{ $theme.variables.tables[$lang].download }}
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

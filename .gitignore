@@ -6,7 +6,6 @@ package-lock.json
 /docs/.vuepress/.cache
 /docs/.vuepress/.temp
 /docs/.vuepress/dist
-/docs/.vuepress/.versions.json
 /docs/.vuepress/node_modules
 /docs/.vuepress/public/assets/*
 /static/db_access.php

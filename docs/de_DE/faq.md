@@ -43,28 +43,12 @@ Das passiert nur, wenn in deinem Browser die `Indexed DB` geleert wird. Man kann
 
 ## In welchen Browsern funktioniert der LSS-Manager?
 Hier werden nur Desktop Browser aufgelistet, da mobile Browser nicht offiziell unterstützt werden.
-Diese Tabelle ist noch nicht unbedingt korrekt und wird bei neuen Informationen aktualisiert!
 
 Da wir durchgängig neueste Coding-Standards einhalten möchten, ist ein moderner und aktueller Browser notwendig und empfehlenswert - schon allein aus Sicherheitsgründen, auch außerhalb des Spiels.
 
-<table>
-    <thead>
-        <tr>
-            <th>Browser</th>
-            <th>mind. version</th>
-            <th>Download</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr v-for="({supported, download}, browser) in $theme.variables.browsers">
-            <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
-            <td>{{ supported }}</td>
-            <td><a :href="download" target="_blank">Download</a></td>
-        </tr>
-    </tbody>
-</table>
+<browser-support-table/>
 
-::: danger Internet Explorer und Safari
+:::danger Internet Explorer und Safari
 Diese beiden Browser kann man als "Problemkinder" eines modernen Web-Entwicklers beschreiben. Es gibt einige Funktionen, die in ihnen nicht funktionieren, oder zusätzlichen Code benötigen.
 
 Wir sehen es nicht ein, dies überall zu machen und unterstützen diese beiden Browser offiziell **nicht**.

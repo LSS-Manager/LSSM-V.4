@@ -62,8 +62,6 @@ const localeConfigs: {
     searchConfigs: {},
 };
 
-// const shortVersion = stable.match(/4(\.(x|\d+)){2}/u)?.[0] ?? '4.x.x';
-
 LANGS.forEach(lang => {
     const { siteConfig, themeConfig, searchPlaceholder } =
         getLocaleConfig(lang);
@@ -80,9 +78,13 @@ run(
     path.join(DOCS_PATH, 'README.md'),
     JSON.stringify(LANGS.map(lang => [lang, config.games[lang].flag]))
 );
-const versionsFile = path.join(VUEPRESS_PATH, '.versions.json');
+
+const versionsFile = path.join(VUEPRESS_PATH, '.temp/.versions.json');
 run('generate/versions', versionsFile);
 const versions: Versions = JSON.parse(fs.readFileSync(versionsFile).toString());
+
+const bugsFile = path.join(VUEPRESS_PATH, '.temp/.bugs.json');
+run('generate/bugs', bugsFile);
 
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
@@ -133,13 +135,12 @@ export default defineUserConfig<DefaultThemeOptions>({
             versions,
             browsers: config.browser,
             // noMapkitModules,
-            // bugIssues: (
-            //     await axios(
-            //         `https://api.github.com/repos/${config.github.repo}/issues?labels=bug&per_page=100&sort=created`
-            //     )
-            // ).data,
+            bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
             moment: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'moment')])
+            ),
+            tables: Object.fromEntries(
+                LANGS.map(lang => [lang, $t(lang, 'tables')])
             ),
             contributors: contributorsFile.contributors,
             contributionTypes: contributorsFile.types,
@@ -173,6 +174,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                     'tampermonkey-download-table': path.join(
                         DOCS_COMPONENTS_PATH,
                         'tampermonkey/download-table.vue'
+                    ),
+                    'browser-support-table': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'browser-support-table.vue'
                     ),
                     'bugs': path.join(DOCS_COMPONENTS_PATH, 'bugs.vue'),
                     'discord': path.join(DOCS_COMPONENTS_PATH, 'discord.vue'),

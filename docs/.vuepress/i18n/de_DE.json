@@ -141,5 +141,11 @@
             "lssm": "Online-Status: LSSM"
         }
     },
-    "search": "Wiki durchsuchen"
+    "search": "Wiki durchsuchen",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "mind. Version"
+    }
 }

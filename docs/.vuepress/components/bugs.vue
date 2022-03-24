@@ -76,10 +76,8 @@
 <script>
 import { defineComponent } from 'vue';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const octicons = require('@primer/octicons');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const showdown = require('showdown');
+import octicons from '@primer/octicons';
+import showdown from 'showdown';
 
 const sdConverter = new showdown.Converter({
     headerLevelStart: 5,
@@ -226,7 +224,7 @@ export default defineComponent({
     border-radius: 0.4em;
     box-shadow: none;
 }
-body.yuu-theme-dark .bug >>> {
+html.dark .bug {
     background-color: #282f2f;
 }
 
@@ -342,7 +340,7 @@ body.yuu-theme-dark .bug >>> {
     margin-right: 0.25em;
 }
 
-body.yuu-theme-dark .bug .bug-labels .bug-label >>> {
+html.dark .bug .bug-labels .bug-label {
     --lightness-threshold: 0.6;
     --background-alpha: 0.18;
     --border-alpha: 0.3;
