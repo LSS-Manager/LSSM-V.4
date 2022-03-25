@@ -53,4 +53,6 @@ Om het naar beneden af te ronden gebruik je `r-15`, dus de extra `-` achter de `
 
 Bijvoorbeeld als je 7 uur en 22,5 minuten na de actuele tijd wilt invoegen, maar dan afgerond naar beneden op een getal deelbaar door 3, dan gebruik je <code v-html="'{{now+7.266r-3}}'"></code>. 
 
+Wil je de bijbehorende datum weergeven, dan voeg je eenvoudig een `d` toe aan de variabele: <code v-html="'{{now+5r0d}}'"></code> wordt bijvoorbeeld op 24.03.2020 om 10:32 de volgende uitkomst: `16:00 (24.03.)`, dezelfde dag om 21:43 wordt dat `03:00 (25.03.)`. 
+
 Wanneer je het nog niet begrijpt, dan kan je onze van onze [Support](/support.md) gebruik maken.
