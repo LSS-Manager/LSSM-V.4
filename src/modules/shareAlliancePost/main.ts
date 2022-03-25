@@ -461,10 +461,15 @@ export default <ModuleMainFunction>(async ({
 
         btnGroup.append(alarmSharePostGroup, alarmSharePostNextGroup);
 
-        let sortedMissionClass = '';
+        let sortedMissionClass = LSSM.$store.getters.nodeAttribute(
+            'extendedCallList_sort-missions_next_sorted'
+        );
         let missionsSorted =
             document.querySelector<HTMLInputElement>(
-                '#lssmv4-extendedCallList_sort_toggle-mission-buttons-mode'
+                `#${LSSM.$store.getters.nodeAttribute(
+                    'extendedCallList_sort_toggle-mission-buttons-mode',
+                    true
+                )}`
             )?.checked ?? false;
         if (missionsSorted) {
             alarmSharePostNextBtn.classList.replace(
@@ -500,21 +505,26 @@ export default <ModuleMainFunction>(async ({
             getDropdownClickHandler(
                 inputGroupClass,
                 editBtnClass,
-                liElement => {
+                (liElement, sendMessage) => {
                     alarmSharePostBtn.disabled = true;
                     alarmSharePostNextBtn.disabled = true;
 
                     shareMission(LSSM, missionId)
-                        .then(() =>
-                            liElement.dataset.noMessage
-                                ? new Promise<void>(resolve => resolve())
-                                : sendReply(
-                                      LSSM,
-                                      missionId,
-                                      liElement.dataset.message ?? '',
-                                      liElement.dataset.post === 'true',
-                                      authToken
-                                  )
+                        .then(
+                            () =>
+                                new Promise<void>(resolve => {
+                                    if (sendMessage) {
+                                        sendReply(
+                                            LSSM,
+                                            missionId,
+                                            liElement.dataset.message ?? '',
+                                            liElement.dataset.post === 'true',
+                                            authToken
+                                        ).then(resolve);
+                                    } else {
+                                        resolve();
+                                    }
+                                })
                         )
                         .then(() =>
                             document

@@ -16,6 +16,10 @@
                 "description": "Een redesign van de mogelijke incidentenlijst en de \"Hulp bij deze inzet\"-pagina.",
                 "title": "Mogelijke incidenten"
             },
+            "messages": {
+                "description": "Een redesign voor de privé berichten en systeemberichten",
+                "title": "Berichten"
+            },
             "profile": {
                 "description": "Een redesign voor diverse pagina's van je profiel.",
                 "title": "Profiel"

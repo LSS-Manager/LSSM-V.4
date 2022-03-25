@@ -4,7 +4,10 @@
         <form>
             <details>
                 <summary>{{ lightbox.$sm('text') }}</summary>
-                <div class="form-group">
+                <div
+                    class="form-group"
+                    :class="{ 'has-error': alliance.errors.text }"
+                >
                     <textarea
                         class="form-control"
                         :id="textId"
@@ -14,11 +17,17 @@
                         "
                         name="alliance_text[content]"
                     ></textarea>
+                    <span class="help-block" v-if="alliance.errors.text">
+                        {{ alliance.errors.text }}
+                    </span>
                 </div>
             </details>
             <details>
                 <summary>{{ lightbox.$sm('rules') }}</summary>
-                <div class="form-group">
+                <div
+                    class="form-group"
+                    :class="{ 'has-error': alliance.errors.rules }"
+                >
                     <textarea
                         class="form-control"
                         :id="rulesId"
@@ -28,11 +37,17 @@
                         "
                         name="alliance_text[rules]"
                     ></textarea>
+                    <span class="help-block" v-if="alliance.errors.rules">
+                        {{ alliance.errors.rules }}
+                    </span>
                 </div>
             </details>
             <details>
                 <summary>{{ lightbox.$sm('automaticMessage.title') }}</summary>
-                <div class="form-group">
+                <div
+                    class="form-group"
+                    :class="{ 'has-error': alliance.errors.amSubject }"
+                >
                     <label :for="automaticMessage.subjectId">
                         {{ lightbox.$sm('automaticMessage.subject') }}
                     </label>
@@ -44,8 +59,14 @@
                         name="alliance_text[welcome_subject]"
                         type="text"
                     />
+                    <span class="help-block" v-if="alliance.errors.amSubject">
+                        {{ alliance.errors.amSubject }}
+                    </span>
                 </div>
-                <div class="form-group">
+                <div
+                    class="form-group"
+                    :class="{ 'has-error': alliance.errors.amContent }"
+                >
                     <label :for="automaticMessage.contentId">
                         {{ lightbox.$sm('automaticMessage.content') }}
                     </label>
@@ -63,24 +84,37 @@
                         "
                         name="alliance_text[welcome_text]"
                     ></textarea>
+                    <span class="help-block" v-if="alliance.errors.amContent">
+                        {{ alliance.errors.amContent }}
+                    </span>
                 </div>
             </details>
             <details>
                 <summary>{{ lightbox.$sm('header') }}</summary>
-                <div class="form-group">
+                <div
+                    class="form-group"
+                    :class="{ 'has-error': alliance.errors.header }"
+                >
                     <input
                         class="form-control"
                         ref="header"
                         :id="headerId"
                         :value="alliance.header"
                         type="text"
+                        maxlength="230"
                     />
+                    <span class="help-block" v-if="alliance.errors.header">
+                        {{ alliance.errors.header }}
+                    </span>
                     <p class="help-block">{{ lightbox.$sm('header_help') }}</p>
                 </div>
             </details>
             <details>
                 <summary>{{ lightbox.$sm('webhook') }}</summary>
-                <div class="form-group">
+                <div
+                    class="form-group"
+                    :class="{ 'has-error': alliance.errors.webhook }"
+                >
                     <input
                         class="form-control"
                         ref="webhook"
@@ -88,6 +122,9 @@
                         :value="alliance.webhook"
                         type="text"
                     />
+                    <span class="help-block" v-if="alliance.errors.webhook">
+                        {{ alliance.errors.webhook }}
+                    </span>
                     <p class="help-block">
                         {{ lightbox.$sm('webhook_help') }}
                         <a :href="alliance.faq" target="_blank">{{
@@ -169,6 +206,7 @@ export default Vue.extend<
     methods: {
         submit() {
             if (!this.textEditor || !this.rulesEditor) return;
+            this.$set(this.lightbox, 'loading', true);
             const url = new URL(
                 '/veband/text/speichern',
                 window.location.origin
@@ -222,7 +260,41 @@ export default Vue.extend<
                     },
                     feature: `redesign-edit-alliance-name`,
                 })
-                .then(({ url }) => {
+                .then((res: Response) => {
+                    const { redirected, url } = res;
+                    if (!redirected) {
+                        res.text().then(html =>
+                            import('../../parsers/verband/edit_text').then(
+                                async parser => {
+                                    const result = await parser.default({
+                                        doc: new DOMParser().parseFromString(
+                                            html,
+                                            'text/html'
+                                        ),
+                                        href: url.toString(),
+                                        getIdFromEl: this.lightbox.getIdFromEl,
+                                        LSSM: this,
+                                        $m: this.lightbox.$m,
+                                        $sm: this.lightbox.$sm,
+                                        $mc: this.lightbox.$mc,
+                                        $smc: this.lightbox.$smc,
+                                    });
+                                    Object.entries(result).forEach(
+                                        ([key, value]) =>
+                                            this.$set(
+                                                this.lightbox.data,
+                                                key,
+                                                value
+                                            )
+                                    );
+                                }
+                            )
+                        );
+                        return this.lightbox.finishLoading(
+                            'verband/edit_text-reload-with-errors'
+                        );
+                    }
+
                     if (
                         !new URL(
                             this.url,
@@ -288,7 +360,7 @@ export default Vue.extend<
     },
     watch: {
         alliance() {
-            this.lightbox.finishLoading('verband/edit_name-updated-data');
+            this.lightbox.finishLoading('verband/edit_text-updated-data');
         },
     },
     mounted() {
@@ -319,7 +391,7 @@ export default Vue.extend<
             this.rulesEditor = window.sceditor.instance(rulesArea);
         }
 
-        this.lightbox.finishLoading('verband/edit_name-mounted');
+        this.lightbox.finishLoading('verband/edit_text-mounted');
     },
 });
 </script>

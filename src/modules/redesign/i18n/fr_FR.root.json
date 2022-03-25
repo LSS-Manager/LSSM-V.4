@@ -16,6 +16,10 @@
                 "description": "Une refonte de la liste des missions possibles et de la page \"Exigences pour cette mission\".",
                 "title": "Missions possibles"
             },
+            "messages": {
+                "description": "Une refonte des messages privé et des messages systèmes.",
+                "title": "Messages"
+            },
             "profile": {
                 "description": "Une refonte des pages de profil.",
                 "title": "Profil"

@@ -16,6 +16,10 @@
                 "description": "A redesign of the possible missions list and the \"Requirements for this Mission\"-page.",
                 "title": "Possible missions"
             },
+            "messages": {
+                "description": "A Redesign of private Messages and System messages.",
+                "title": "Messages"
+            },
             "profile": {
                 "description": "A redesign of the profile pages.",
                 "title": "Profile"

@@ -168,6 +168,27 @@ const windows: RedesignLightbox['Data']['windows'] = {
             ),
         data: 'friends',
     },
+    'messages/conversation': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/messages/conversation"*/ './messages/conversation.vue'
+            ),
+        data: 'conversation',
+    },
+    'messages/new': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/messages/new"*/ './messages/new.vue'
+            ),
+        data: 'message',
+    },
+    'messages/system_message': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/messages/system_message"*/ './messages/system_message.vue'
+            ),
+        data: 'message',
+    },
     'note': {
         component: () =>
             import(
@@ -654,6 +675,7 @@ export default Vue.extend<
                               targetUrl.pathname === here.pathname &&
                               targetUrl.search === here.search
                           ) {
+                              if (!here.hash) here.hash = '#';
                               if (targetUrl.hash !== here.hash) {
                                   return (window.location.hash =
                                       targetUrl.hash);
