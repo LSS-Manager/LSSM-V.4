@@ -8,6 +8,7 @@
 		"@vuepress/plugin-register-components": "^2.0.0-beta.36",
 		"@vuepress/plugin-search": "^2.0.0-beta.36",
 		"@vuepress/theme-default": "^2.0.0-beta.36",
+		"moment": "^2.29.1",
 		"vue": "^3.2.31",
 		"vuepress": "^2.0.0-beta.36",
 		"vuepress-plugin-code-copy": "^1.0.6",

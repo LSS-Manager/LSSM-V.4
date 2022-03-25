@@ -2,9 +2,9 @@
     <table>
         <thead>
             <tr>
-                <th>{{ $theme.variables.tables[$lang].browser }}</th>
-                <th>{{ $theme.variables.tables[$lang].minVersion }}</th>
-                <th>{{ $theme.variables.tables[$lang].download }}</th>
+                <th>{{ $theme.variables.tables[lang].browser }}</th>
+                <th>{{ $theme.variables.tables[lang].minVersion }}</th>
+                <th>{{ $theme.variables.tables[lang].download }}</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
                 <td>{{ supported }}</td>
                 <td>
                     <a :href="download" target="_blank">
-                        {{ $theme.variables.tables[$lang].download }}
+                        {{ $theme.variables.tables[lang].download }}
                     </a>
                 </td>
             </tr>
@@ -30,5 +30,10 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'browser-support-table',
+    computed: {
+        lang() {
+            return this.$lang.replace(/-/, '_');
+        },
+    }
 });
 </script>

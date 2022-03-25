@@ -32,7 +32,7 @@ export default defineComponent({
     },
     computed: {
         $t() {
-            return this.comparison.translations[this.$lang];
+            return this.comparison.translations[this.$lang.replace(/-/, '_')];
         },
     },
 });

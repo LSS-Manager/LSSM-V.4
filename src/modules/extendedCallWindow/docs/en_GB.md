@@ -75,6 +75,6 @@ This allows you to place a keyword before or after the name of the mission in th
 ![Mission Keywords](./keyword.png)
 
 ## Dispatch Icons
-This will add an icon before the dispatch button if you have that type of vehicle selected. You can customise which vehicles give which icon, you're able to choose a range of (free) icons from <a :href="$themeConfig.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a>.
+This will add an icon before the dispatch button if you have that type of vehicle selected. You can customise which vehicles give which icon, you're able to choose a range of (free) icons from <a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a>.
 
 ![Dispatch Icons](./dispatchIcon.png)

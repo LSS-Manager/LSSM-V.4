@@ -57,33 +57,6 @@ const MODULES = fs
 
 const $t = i18n(DOCS_I18N_PATH);
 
-const getLocaleConfig = localeConfig(
-    $t,
-    sidebar_lssm,
-    sidebar_others,
-    DOCS_PATH
-);
-
-const localeConfigs: {
-    siteConfigs: Record<`/${string}/`, LocaleSiteConfig>;
-    themeConfigs: Record<`/${string}/`, LocaleThemeConfig>;
-    searchConfigs: Record<`/${string}/`, { placeholder: string }>;
-} = {
-    siteConfigs: {},
-    themeConfigs: {},
-    searchConfigs: {},
-};
-
-LANGS.forEach(lang => {
-    const { siteConfig, themeConfig, searchPlaceholder } =
-        getLocaleConfig(lang);
-    localeConfigs.siteConfigs[`/${lang}/`] = siteConfig;
-    localeConfigs.themeConfigs[`/${lang}/`] = themeConfig;
-    localeConfigs.searchConfigs[`/${lang}/`] = {
-        placeholder: searchPlaceholder,
-    };
-});
-
 const { run } = childProcess(DOCS_UTILS_PATH);
 run(
     'generate/home',
@@ -117,6 +90,34 @@ run(
     JSON.stringify(LANGS),
     JSON.stringify(MODULES)
 );
+
+const getLocaleConfig = localeConfig(
+    $t,
+    sidebar_lssm,
+    sidebar_others,
+    JSON.parse(fs.readFileSync(modulesFile).toString()),
+    DOCS_PATH
+);
+
+const localeConfigs: {
+    siteConfigs: Record<`/${string}/`, LocaleSiteConfig>;
+    themeConfigs: Record<`/${string}/`, LocaleThemeConfig>;
+    searchConfigs: Record<`/${string}/`, { placeholder: string }>;
+} = {
+    siteConfigs: {},
+    themeConfigs: {},
+    searchConfigs: {},
+};
+
+LANGS.forEach(lang => {
+    const { siteConfig, themeConfig, searchPlaceholder } =
+        getLocaleConfig(lang);
+    localeConfigs.siteConfigs[`/${lang}/`] = siteConfig;
+    localeConfigs.themeConfigs[`/${lang}/`] = themeConfig;
+    localeConfigs.searchConfigs[`/${lang}/`] = {
+        placeholder: searchPlaceholder,
+    };
+});
 
 if (fs.existsSync(DIST_DOCS_PATH)) fs.unlinkSync(DIST_DOCS_PATH);
 fs.symlinkSync(DOCS_DIST_PATH, DIST_DOCS_PATH);
@@ -152,7 +153,6 @@ export default defineUserConfig<ThemeData>({
     locales: localeConfigs.siteConfigs,
 
     // theme and its config
-    // theme: path.resolve(VUEPRESS_PATH, 'theme'),
     theme: '@vuepress/theme-default',
     themeConfig: {
         navbar: [
@@ -186,6 +186,7 @@ export default defineUserConfig<ThemeData>({
                     $t(lang, '') as unknown as typeof TranslationType,
                 ])
             ),
+            modules: JSON.parse(fs.readFileSync(modulesFile).toString()),
             moment: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'moment')])
             ) as unknown as ThemeData['variables']['moment'],

@@ -2,8 +2,8 @@
     <table>
         <thead>
             <tr>
-                <th>{{ $theme.variables.tables[$lang].browser }}</th>
-                <th>{{ $theme.variables.tables[$lang].link }}</th>
+                <th>{{ $theme.variables.tables[lang].browser }}</th>
+                <th>{{ $theme.variables.tables[lang].link }}</th>
             </tr>
         </thead>
         <tbody>
@@ -11,7 +11,7 @@
                 <td>{{ browser }}</td>
                 <td>
                     <a :href="url" target="_blank">
-                        {{ $theme.variables.tables[$lang].download }}
+                        {{ $theme.variables.tables[lang].download }}
                     </a>
                 </td>
             </tr>
@@ -34,5 +34,10 @@ export default defineComponent({
             },
         };
     },
+    computed: {
+        lang() {
+            return this.$lang.replace(/-/, '_');
+        },
+    }
 });
 </script>

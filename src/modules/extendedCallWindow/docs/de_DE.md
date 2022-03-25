@@ -183,6 +183,6 @@ Du würdest dir gerne eigene Texte hinter oder vor den Einsatznamen schreiben? K
 
 ## Alarm-Icons
 
-Als Letztes kommen noch die Alarm-Icons, mit welchem auf dem Alarmieren-Button extra Symbole erscheinen, in Abhängigkeit davon, welche Moule aktiviert sind. Es stehen alle kostenlosen Icons von <a :href="$themeConfig.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a> zur Verfügung.
+Als Letztes kommen noch die Alarm-Icons, mit welchem auf dem Alarmieren-Button extra Symbole erscheinen, in Abhängigkeit davon, welche Moule aktiviert sind. Es stehen alle kostenlosen Icons von <a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a> zur Verfügung.
 
 ![Alarm-Icon](./alarmbutton.png)

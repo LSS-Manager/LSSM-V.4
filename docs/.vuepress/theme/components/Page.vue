@@ -3,13 +3,13 @@
         <slot name="top" />
 
         <div class="theme-default-content">
-            <template v-if="frontmatter.module">
+            <template v-if="isModule">
                 <h1>
-                    {{ frontmatter.title }}
+                    {{ moduleI18n.name }}
                     <a
-                        v-if="frontmatter.github"
-                        :href="githubLink"
-                        :title="`Issue #${frontmatter.github} on GitHub`"
+                        v-if="moduleRegistration.github"
+                        :href="githubIssueLink"
+                        :title="`Issue #${moduleRegistration.github} on GitHub`"
                         target="_blank"
                     >
                         <span
@@ -32,12 +32,12 @@
                                 })
                             "
                         ></span>
-                        <b>{{ frontmatter.description }}</b>
+                        <b>{{ moduleI18n.description }}</b>
                     </p>
                 </blockquote>
 
                 <blockquote v-if="additionalBlockquote">
-                    <p v-if="frontmatter.settings">
+                    <p v-if="moduleRegistration.settings">
                         <span
                             class="icon"
                             v-html="
@@ -48,7 +48,7 @@
                         ></span>
                         {{ i18n.head.settings }}
                     </p>
-                    <p v-if="frontmatter.alpha">
+                    <p v-if="moduleRegistration.alpha">
                         <span
                             class="icon"
                             v-html="
@@ -59,7 +59,7 @@
                         ></span>
                         {{ i18n.head.alpha }}
                     </p>
-                    <p v-if="frontmatter.dev">
+                    <p v-if="moduleRegistration.dev">
                         <span
                             class="icon"
                             v-html="
@@ -73,14 +73,23 @@
                 </blockquote>
 
                 <div
-                    v-if="frontmatter.mapkitNote"
+                    v-if="moduleRegistration.mapkitNote"
                     class="custom-container danger"
                 >
                     <p class="custom-container-title">Mapkit</p>
                     <p>{{ i18n.head.mapkit }}</p>
                 </div>
             </template>
-            <Content />
+            <div
+                v-if="frontmatter.empty"
+                class="custom-container warning"
+            >
+                <p class="custom-container-title">
+                    {{i18n['404'].modules.title}}
+                </p>
+                <p v-html="emptyMessageContent"></p>
+            </div>
+            <Content v-else/>
         </div>
 
         <PageMeta />
@@ -101,39 +110,59 @@ import PageNav from '@theme/PageNav.vue';
 
 import octicons from '@primer/octicons';
 
+import type {Frontmatter} from '../../utils/generate/modules';
 import type { ThemeData } from '../../types/ThemeData';
 import type {
-    DefaultThemeNormalPageFrontmatter,
-    DefaultThemePageData,
+    DefaultThemeNormalPageFrontmatter,DefaultThemePageData
 } from '@vuepress/theme-default/lib/shared';
 
-interface ModuleFrontmatter extends DefaultThemeNormalPageFrontmatter {
-    module: boolean;
-    description: string;
-    github?: number;
-    settings?: boolean;
-    alpha?: boolean;
-    dev?: boolean;
-    mapkitNote?: boolean;
-}
+type ModuleFrontmatter = DefaultThemeNormalPageFrontmatter & Frontmatter
 
 const frontmatter = usePageFrontmatter<ModuleFrontmatter>();
 const pageData = usePageData<DefaultThemePageData>();
 const themeData = useThemeData<ThemeData>();
 
-const githubLink = computed(
-    () =>
-        `${themeData.value.variables.github}/issues/${frontmatter.value.github}`
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
+const i18n = computed(() => themeData.value.variables.i18n[lang.value]);
+
+const isModule = computed(
+    () => pageData.value.path.split('/')[2] === 'modules'
 );
+const moduleId = computed(() =>
+    isModule ? pageData.value.path.split('/')[3] : ''
+);
+const moduleRegistration = computed(() =>
+    isModule
+        ? themeData.value.variables.modules[moduleId.value].registration
+        : null
+);
+const githubIssueLink = computed(() => {
+    if (!isModule.value || !moduleRegistration.value.github) return '';
+    return `${themeData.value.variables.github}/issues/${moduleRegistration.value.github}`;
+});
 const additionalBlockquote = computed(
     () =>
-        frontmatter.value.settings ||
-        frontmatter.value.alpha ||
-        frontmatter.value.dev
+        isModule.value &&
+        (moduleRegistration.value.settings ||
+            moduleRegistration.value.alpha ||
+            moduleRegistration.value.dev)
 );
-const i18n = computed(
-    () => themeData.value.variables.i18n[pageData.value.lang]
+const moduleI18n = computed(() =>
+    isModule
+        ? themeData.value.variables.modules[moduleId.value].translations[lang.value]
+        : null
 );
+
+const emptyMessageContent = computed(() => i18n.value['404'].modules.content.replace(/\n/gu, '<br>').replace(/\{\{module\}\}/gu, `<b>${moduleI18n.value.name}</b>`)
+    .replace(/\{\{lang\}\}/gu, `<code>${lang.value}</code>`)
+    .replace(
+        /\{\{github\}\}/gu,
+        `<a href="${themeData.value.variables.github}/new/dev/src/modules/${moduleId.value}/docs?filename=${lang.value}.md" target="_blank">GitHub</a>`
+    )
+    .replace(
+        /\{\{docs_dir\}\}/gu,
+        `<a href="${themeData.value.variables.github}/tree/dev/src/modules/${moduleId.value}/docs" target="_blank">docs directory</a>`
+    ));
 </script>
 
 <style lang="sass" scoped>

@@ -4,22 +4,44 @@ import path from 'path';
 import type { Module } from '../../../../typings/Module';
 
 type LangCode = `${string}_${string}`;
+interface ModuleTranslation {
+    name: string;
+    description: string;
+}
+interface ResolvedModuleTranslation {
+    name: string;
+    description?: string;
+}
+export type ModulesFile = Record<
+    string,
+    {
+        registration: Module;
+        translations: Record<string, ModuleTranslation>;
+    }
+>;
+export interface Frontmatter {
+    lang: string;
+    title: string;
+    editLinkPattern: string;
+    empty?: boolean
+}
 
 const [, , file, MODULES_FOLDER, DOCS_FOLDER, langs, modules] = process.argv;
 
 const LANGS: LangCode[] = JSON.parse(langs);
-const LOCALES = LANGS.map(([lang]) => lang);
 const MODULES: string[] = JSON.parse(modules);
 
-const loadRegisterFile = (registerFile: string): Promise<Module> => {
-    const jsonPath = `${registerFile}.json`;
+const loadJsonOrTSFile = <T>(file: string): Promise<T> => {
+    const jsonPath = `${file}.json`;
     if (fs.existsSync(jsonPath)) {
         return new Promise(resolve =>
             resolve(JSON.parse(fs.readFileSync(jsonPath).toString()))
         );
     }
-    return import(registerFile);
+    return import(file);
 };
+
+const modulesFile: ModulesFile = {};
 
 (async () => {
     for (const module of MODULES) {
@@ -27,12 +49,53 @@ const loadRegisterFile = (registerFile: string): Promise<Module> => {
         const MODULE_DOCS_FOLDER = path.join(MODULE_FOLDER, 'docs');
         const MODULE_REGISTER_FILE = path.join(MODULE_FOLDER, 'register');
 
-        const registerFile = await loadRegisterFile(MODULE_REGISTER_FILE);
+        const registerFile = await loadJsonOrTSFile<Module>(
+            MODULE_REGISTER_FILE
+        );
         if (registerFile.noapp) continue;
 
-        for (const lang of LOCALES) {
+        const getRootI18n = (lang: string): Promise<void|ModuleTranslation> => {
+            const i18nFolder = path.join(MODULE_FOLDER, 'i18n');
+            return loadJsonOrTSFile<ResolvedModuleTranslation>(
+                path.join(i18nFolder, `${lang}.root`)
+            )
+                .then(
+                    ({ name, description }) =>
+                        (modulesFile[module].translations[lang] = {
+                            name,
+                            description: description || '',
+                        })
+                )
+                .catch(() =>
+                    loadJsonOrTSFile<ResolvedModuleTranslation>(
+                        path.join(i18nFolder, `en_US.root`)
+                    )
+                        .then(
+                            ({ name, description }) =>
+                                (modulesFile[module].translations[lang] = {
+                                    name,
+                                    description: description || '',
+                                })
+                        )
+                        .catch(() =>
+                            (modulesFile[module].translations[lang] = {
+                                name: module,
+                                description: '',
+                            })
+                        )
+                );
+        };
+
+        modulesFile[module] = {
+            registration: registerFile,
+            translations: {},
+        };
+
+        for (const lang of LANGS) {
             if (registerFile.locales && !registerFile.locales.includes(lang))
                 continue;
+
+            await getRootI18n(lang);
 
             const DOCS_MODULE_FOLDER = path.join(
                 DOCS_FOLDER,
@@ -42,7 +105,13 @@ const loadRegisterFile = (registerFile: string): Promise<Module> => {
             );
             const DOCS_MODULE_FILE = path.join(DOCS_MODULE_FOLDER, 'README.md');
 
-            const MODULE_DOCS_FILE = path.join(
+            const MODULE_DOCS_FILE = lang.startsWith('en_') ? [lang, 'en_US', 'en_GB', 'en_AU'].map(l => path.join(
+                MODULE_DOCS_FOLDER,
+                `${l}.md`
+            )).find(file => fs.existsSync(file)) || path.join(
+                MODULE_DOCS_FOLDER,
+                `${lang}.md`
+            ) : path.join(
                 MODULE_DOCS_FOLDER,
                 `${lang}.md`
             );
@@ -50,10 +119,20 @@ const loadRegisterFile = (registerFile: string): Promise<Module> => {
             if (!fs.existsSync(DOCS_MODULE_FOLDER))
                 fs.mkdirSync(DOCS_MODULE_FOLDER, { recursive: true });
 
+            const frontMatterVars: Frontmatter = {lang: lang.replace('_', '-'), title: modulesFile[module].translations[lang].name, editLinkPattern: `:repo/edit/:branch/src/modules/${module}/docs/${lang}.md`};
+
+            const getHead = (vars: Frontmatter) => `---
+${Object.entries(vars).map(([key, value]) => `${key}: ${value}`).join('\n')}
+---
+`
+
             if (fs.existsSync(MODULE_DOCS_FILE)) {
-                const symlinkPath = DOCS_MODULE_FILE;
-                if (!fs.existsSync(symlinkPath))
-                    fs.symlinkSync(MODULE_DOCS_FILE, symlinkPath);
+                const docsContent = fs.readFileSync(MODULE_DOCS_FILE).toString();
+                frontMatterVars.empty = docsContent.trim() === '';
+                fs.writeFileSync(
+                    DOCS_MODULE_FILE,
+                    getHead(frontMatterVars) + docsContent
+                );
                 const MODULE_DOCS_ASSETS = path.join(
                     MODULE_DOCS_FOLDER,
                     'assets'
@@ -97,8 +176,10 @@ const loadRegisterFile = (registerFile: string): Promise<Module> => {
                     }
                 }
             } else {
-                fs.writeFileSync(DOCS_MODULE_FILE, '');
+                frontMatterVars.empty = true;
+                fs.writeFileSync(DOCS_MODULE_FILE, getHead(frontMatterVars));
             }
         }
     }
+    fs.writeFileSync(file, JSON.stringify(modulesFile));
 })();

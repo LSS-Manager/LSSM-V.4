@@ -181,6 +181,6 @@ Vous souhaitez écrire vos propres textes derrière ou devant les noms de missio
 
 ## Icônes d'alarme
 
-Enfin, il y a les icônes d'alarme, avec lesquelles des symboles supplémentaires apparaissent sur le bouton d'alarme, en fonction des moules activés. Toutes les icônes de <a :href="$themeConfig.variables.fontAwesomeIconSearchLink" target="_blank">fontAwesome</a> sont disponibles gratuitement.
+Enfin, il y a les icônes d'alarme, avec lesquelles des symboles supplémentaires apparaissent sur le bouton d'alarme, en fonction des moules activés. Toutes les icônes de <a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">fontAwesome</a> sont disponibles gratuitement.
 
 ![Icônes d'alarme](./alarmbutton.png)

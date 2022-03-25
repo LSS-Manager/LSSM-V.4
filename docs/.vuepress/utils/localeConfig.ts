@@ -4,6 +4,7 @@ import path from 'path';
 
 import type { $t } from './i18n';
 import type { DefaultThemeLocaleData } from '@vuepress/theme-default/lib/shared/options';
+import type {ModulesFile} from "./generate/modules";
 import type { SiteLocaleData } from '@vuepress/shared/lib/types/site';
 
 export type LocaleSiteConfig = Partial<SiteLocaleData>;
@@ -13,8 +14,11 @@ export default (
     $t: $t,
     sidebar_lssm: string[],
     sidebar_others: string[],
+    moduleFile: ModulesFile,
     DOCS_PATH: string
 ) => {
+    const modules = Object.keys(moduleFile);
+
     return (
         lang: string
     ): {
@@ -72,6 +76,7 @@ export default (
                             )
                                 ? [`/${lang}/apps`]
                                 : []),
+                            ...modules.filter(module => !moduleFile[module].registration.locales || moduleFile[module].registration.locales?.includes(lang)).map(module => `/${lang}/modules/${module}/`),
                         ],
                     },
                 ],

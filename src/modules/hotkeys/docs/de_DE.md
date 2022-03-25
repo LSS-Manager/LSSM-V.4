@@ -30,7 +30,7 @@ Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht ü
 
 
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.
-Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$themeConfig.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
+Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
 Schau vorher bitte im GitHub Issue nach, ob dein Wunsch bereits notiert wurde, um Dopplungen zu vermeiden.
 
 ## Allgemein
