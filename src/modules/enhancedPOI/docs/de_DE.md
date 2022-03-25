@@ -6,4 +6,4 @@ Um das Setzen ein wenig zu erleichtern, bietet dieses Modul daher folgende Verei
   * Die Farbe lässt sich in den Einstellungen auswählen.
 * Verlässt der Marker zur Platzierung neuer POI den sichtbaren Bereich der Karte, wird er automatisch auf der Karte zentriert.
 
-![Beispiel: Stadion](poi.png)
+![Beispiel: Stadion](./poi.png)

@@ -9,8 +9,8 @@ Ce module vous offre la possibilité d'adapter vous-même **complètement** les 
 
 Exemple :
 
-![Exemple de disposition des filtres](example.png)
+![Exemple de disposition des filtres](./example.png)
 
 L'écran des paramètres :
 
-![Paramètres](settings.png)
+![Paramètres](./settings.png)

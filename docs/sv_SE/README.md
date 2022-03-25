@@ -1,6 +1,6 @@
 ---
 title: LSS-Manager V.4
-lang: sv_SE
+lang: sv-SE
 sidebarDepth: 2
 ---
 

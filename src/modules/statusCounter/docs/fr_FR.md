@@ -2,11 +2,11 @@ Si vous voulez avoir un aperçu rapide du nombre de véhicules qui se trouvent a
 
 Le compteur de statut, déjà connu dans la V3, vous indique par radio le nombre de véhicules qui se trouvent actuellement dans chaque statut. Le tout ressemble à ceci :
 
-![compteur d'état](statuscounter.png)
+![compteur d'état](./statuscounter.png)
 
 L'ensemble du module est doté de nombreux paramètres afin que vous puissez adapter le compteur d'état à tes besoins :
 
-![compteur d'état](settings.png)
+![compteur d'état](./settings.png)
 
 ## Pourcentages arrondis 
 

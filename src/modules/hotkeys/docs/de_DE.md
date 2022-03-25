@@ -22,11 +22,11 @@ Um einen Hotkey zu setzen, klickst du einfach auf das Eingabefeld im rechten Ber
 Drücke die von dir gewünschte Tastenkombination oder Tastenfolge.
 0,5 Sekunden nach dem du die letzte Taste losgelassen hast, erscheint die Tastenkombination im Eingabefeld.
 
-![Hotkey-Einstellungen](settings.png)
+![Hotkey-Einstellungen](./settings.png)
 
 Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht über die von dir gesetzten Hotkeys anzeigen lassen:
 
-![Hotkey-Übersicht](overview.png)
+![Hotkey-Übersicht](./overview.png)
 
 
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.

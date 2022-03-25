@@ -1,6 +1,6 @@
 ---
 title: LSS-Manager V.4
-lang: pl_PL
+lang: pl-PL
 sidebarDepth: 2
 ---
 

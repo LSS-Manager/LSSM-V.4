@@ -19,7 +19,7 @@ LANGS.forEach(([lang, serverStatus]) => {
             /(.|\n)*?(?=\n## )/u,
             `---
 title: LSS-Manager V.4
-lang: ${lang}
+lang: ${lang.replace(/_/u, '-')}
 sidebarDepth: 2
 ---
 

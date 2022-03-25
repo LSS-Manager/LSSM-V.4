@@ -18,6 +18,8 @@ export default (DOCS_I18N_PATH: string) => {
     }
 
     return (lang: string, key: string): Translation | string => {
+        if (!key) return I18N[lang] ?? I18N.en_US ?? I18N.de_DE ?? '';
+
         const walk = (
             base: Translation | string,
             path: string[]

@@ -250,7 +250,7 @@
     envinfo "^7.8.1"
     esbuild "^0.13.12"
 
-"@vuepress/client@2.0.0-beta.35":
+"@vuepress/client@2.0.0-beta.35", "@vuepress/client@^2.0.0-beta.35":
   version "2.0.0-beta.35"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.35.tgz#943b3b84e882a1b0c5e50b46dc1f12df557e71a2"
   integrity sha512-oQj+fDvfDDJ+fPpcVVRJLeVX1QmnLCcpLBxPBVhqMD0WAFkj+sCBaeq0sQc5CwDaNysDcN71ACeuEpLDOEtCgQ==
@@ -435,7 +435,7 @@
   dependencies:
     "@vue/shared" "^3.2.28"
 
-"@vuepress/theme-default@2.0.0-beta.36":
+"@vuepress/theme-default@2.0.0-beta.36", "@vuepress/theme-default@^2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/theme-default/-/theme-default-2.0.0-beta.36.tgz#4b792f10c784526747c447e30e0d71cf77b4a083"
   integrity sha512-3QqRL96MzKDamHo5bw9ldO2DHTxE+nwEHv1u2PsZusyMRoxyP1h2wPFHPhGaR+fhxFC9Ou9dOq4Ay2xiIU1piA==
@@ -2492,11 +2492,6 @@ vite@^2.7.13:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-click-outside@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.1.0.tgz#48b7680b518923e701643cccb3e165854aad99eb"
-  integrity sha512-pNyvAA9mRXJwPHlHJyjMb4IONSc7khS5lxGcMyE2EIKgNMAO279PWM9Hyq0d5J4FkiSRdmFLwnbjDd5UtPizHQ==
-
 vue-demi@*:
   version "0.12.4"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.4.tgz#420dd17628f95f1bbce1102ad3c51074713a8049"
@@ -2553,13 +2548,6 @@ vuepress-plugin-zooming@^1.1.8:
   integrity sha512-QAspMEqzerd0n8z/oOL5a67V/QaFZyjSwfo86y6PWhDdVAeOLR7umJ7syQqJpMdN9EVxmAstuzbKHkRxWzL0NQ==
   dependencies:
     zooming "^2.1.1"
-
-vuepress-theme-yuu@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-yuu/-/vuepress-theme-yuu-3.1.1.tgz#3beecfe51dbd91bd6c45fa3f865b091610e77931"
-  integrity sha512-eUb0jhyqoeaLS7edATgoNoBFWxO7YTzJ5eRt1swdMyF+qps3fm8bbDX3TkN8O5/zb4QcRktzPKWR5Doi6Wedaw==
-  dependencies:
-    vue-click-outside "^1.1.0"
 
 vuepress-vite@2.0.0-beta.36:
   version "2.0.0-beta.36"

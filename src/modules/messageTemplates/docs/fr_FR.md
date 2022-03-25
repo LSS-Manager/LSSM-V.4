@@ -4,7 +4,7 @@ Cette tâche étant pénible, le module **messages prédéfinis** simplifie l'en
 
 Dans les paramètres, il est possible de créer différents modèles :
 
-![Paramètres](settings.png)
+![Paramètres](./settings.png)
 
 ## Variables
 
@@ -27,12 +27,12 @@ On peut également calculer des dates dans le passé ou le futur en indiquant le
 
 Pour les nouveaux messages, cela ressemble par exemple à ceci :
 
-![Démarrer la conversation](new_message.png)
+![Démarrer la conversation](./new_message.png)
 
 ou après l'insertion du premier modèle :
 
-![Modèle inséré](entered.png)
+![Modèle inséré](./entered.png)
 
 Et ainsi pour les conversations existantes :
 
-![Conversation existante](existing_messages.png)
+![Conversation existante](./existing_messages.png)

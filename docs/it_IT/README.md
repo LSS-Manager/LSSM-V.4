@@ -1,6 +1,6 @@
 ---
 title: LSS-Manager V.4
-lang: it_IT
+lang: it-IT
 sidebarDepth: 2
 ---
 

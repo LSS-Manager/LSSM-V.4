@@ -1,6 +1,6 @@
 ---
 title: LSS-Manager V.4
-lang: nl_NL
+lang: nl-NL
 sidebarDepth: 2
 ---
 

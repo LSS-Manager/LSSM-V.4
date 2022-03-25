@@ -4,7 +4,7 @@ Da dies oft lästig ist, gibt es mit diesem Modul **Nachrichten Templates**, die
 
 In den Einstellungen lassen sich verschiedene Templates anlegen:
 
-![Einstellungen](settings.png)
+![Einstellungen](./settings.png)
 
 ## Variablen
 
@@ -27,12 +27,12 @@ Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 
 
 Bei neuen Nachrichten sieht das dann beispielsweise so aus:
 
-![Konversation starten](new_message.png)
+![Konversation starten](./new_message.png)
 
 bzw. nach dem Einfügen des ersten Templates:
 
-![Template eingefügt](entered.png)
+![Template eingefügt](./entered.png)
 
 Und so bei bestehenden Konversationen:
 
-![bestehende Konversation](existing_messages.png)
+![bestehende Konversation](./existing_messages.png)

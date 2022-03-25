@@ -2,9 +2,9 @@ This module allows you to see a customisable clock within the game. There are a 
 
 The clock can be placed in two locations:
 * On the left of the navigation bar
-  ![Clock in the Navigation Bar](navbar.png)
+  ![Clock in the Navigation Bar](./navbar.png)
 * As an overlay
-  ![Clock as an Overlay Over Chat](chatOverlay.png)
+  ![Clock as an Overlay Over Chat](./chatOverlay.png)
 
 The format in the above images is `DD[th] MMM YYYY LTS`.
 

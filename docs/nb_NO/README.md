@@ -1,6 +1,6 @@
 ---
 title: LSS-Manager V.4
-lang: nb_NO
+lang: nb-NO
 sidebarDepth: 2
 ---
 

@@ -4,7 +4,7 @@ Poiché ciò è spesso fastidioso, con questo modulo **Modello News**, che prima
 
 Nelle impostazioni è possibile inserire diversi template:
 
-![Impostazioni](settings.png)
+![Impostazioni](./settings.png)
 
 ## Variabili
 
@@ -27,12 +27,12 @@ Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due 
 
 Per esempio, in caso di nuove notizie le cose stanno così:
 
-![Avvia conversazione](new_message.png)
+![Avvia conversazione](./new_message.png)
 
 dopo l'inserimento del primo template:
 
-![Aggiunta del template](entered.png)
+![Aggiunta del template](./entered.png)
 
 E quindi, nelle conversazioni esistenti:
 
-![Conversazione esistente](existing_messages.png)
+![Conversazione esistente](./existing_messages.png)

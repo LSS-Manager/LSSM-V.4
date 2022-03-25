@@ -1,16 +1,19 @@
+import { defineUserConfig } from 'vuepress';
 import fs from 'fs';
 import path from 'path';
-import { type DefaultThemeOptions, defineUserConfig } from 'vuepress';
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
 import i18n from './utils/i18n';
-import type { Versions } from './utils/generate/versions';
 
 import localeConfig, {
     type LocaleSiteConfig,
     type LocaleThemeConfig,
 } from './utils/localeConfig';
+
+import type { ThemeData } from './types/ThemeData';
+import type TranslationType from './i18n/de_DE.json';
+import type { Versions } from './utils/generate/versions';
 
 const BASE = '/v4/docs/';
 
@@ -110,16 +113,15 @@ run(
     'generate/modules',
     modulesFile,
     MODULES_PATH,
-    JSON.stringify(
-        LANGS.map(lang => [lang, $t(lang, '404.modules'), $t(lang, 'head')])
-    ),
+    DOCS_PATH,
+    JSON.stringify(LANGS),
     JSON.stringify(MODULES)
 );
 
 if (fs.existsSync(DIST_DOCS_PATH)) fs.unlinkSync(DIST_DOCS_PATH);
 fs.symlinkSync(DOCS_DIST_PATH, DIST_DOCS_PATH);
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig<ThemeData>({
     // site config
     base: BASE,
     lang: 'en-US',
@@ -139,11 +141,18 @@ export default defineUserConfig<DefaultThemeOptions>({
                 ),
         },
     },
+    alias: {
+        '@theme/Page.vue': path.join(
+            VUEPRESS_PATH,
+            'theme/components/Page.vue'
+        ),
+    },
 
     // i18n config
     locales: localeConfigs.siteConfigs,
 
     // theme and its config
+    // theme: path.resolve(VUEPRESS_PATH, 'theme'),
     theme: '@vuepress/theme-default',
     themeConfig: {
         navbar: [
@@ -171,12 +180,18 @@ export default defineUserConfig<DefaultThemeOptions>({
             browsers: config.browser,
             noMapkitModules: Object.fromEntries(LANGS.map(lang => [lang, []])),
             bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
+            i18n: Object.fromEntries(
+                LANGS.map(lang => [
+                    lang,
+                    $t(lang, '') as unknown as typeof TranslationType,
+                ])
+            ),
             moment: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'moment')])
-            ),
+            ) as unknown as ThemeData['variables']['moment'],
             tables: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'tables')])
-            ),
+            ) as unknown as ThemeData['variables']['tables'],
             v3Comparison: {
                 translations: Object.fromEntries(
                     LANGS.map(lang => [lang, $t(lang, 'v3')])

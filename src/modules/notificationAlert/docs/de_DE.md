@@ -11,7 +11,7 @@ Wir bieten vier verschiedene Farben an:
 * Warnung (orange)
 
 So sieht das Ganze beispielsweise am linken Bildschirmrand aus:
-![Typen im hellen Design](types_light.png) ![Typen im dunklen Design](types_dark.png)
+![Typen im hellen Design](./types_light.png) ![Typen im dunklen Design](./types_dark.png)
 
 ## Anzeigedauer
 Hier kannst du festlegen, wie lang eine Benachrichtigung angezeigt werden soll. Mit `-1` kannst du sie dauerhaft anzeigen, bis du sie wegklickst. Beachte jedoch, dass viele Betriebssysteme diese Dauer ignorieren und somit das Verhalten bei Desktop-Benachrichtigungen unerwartet sein kann.
@@ -28,7 +28,7 @@ Hier legst du die Position für Ingame-Benachrichtigungen fest. Du kannst aus 6 
 # Beispiel
 So kann eine Konfiguration zum Beispiel aussehen:
 
-![Beispielhafte Konfiguration](example.png)
+![Beispielhafte Konfiguration](./example.png)
 
 # Ereignisse
 Hier findest du eine vollständige Liste der Ereignisse, für die du Benachrichtigungen einstellen kannst:

@@ -4,7 +4,7 @@ Dit probleem proberen we op te lossen met de module `Opleiding overzicht`.
 
 Bovenaan vind je een kleine `i`, waarmee je het overzicht kan openen. Uiteraard hebben een zoekfunctie geïntegreerd en kunnen de tabbelen worden gesorteerd. Dat ziet er bijvoorbeeld zo uit:
 
-![Opleiding overzicht](/overview.png)
+![Opleiding overzicht](.//overview.png)
 
 Daarnaast zijn de opleidingen met eigen deelnemers en met open plekken onderverdeeld in categorieën. Dat is heel eenvoudig volgens de respectievelijke scholen:
 * Alle (Staat niet op de afbeeldingen)
@@ -16,8 +16,8 @@ Ook hier hebben we sorteermogelijkheden en zoekfuncties ingebouwd, zodat je snel
 
 Zo ziet het er bijvoorbeeld bij opleidingen met eigen deelnemers uit:
 
-![Opleidingen met eigen deelnemers](own.png)
+![Opleidingen met eigen deelnemers](./own.png)
 
 En zo bij open opleidingen:
 
-![Open opleidingen](alliance.png)
+![Open opleidingen](./alliance.png)
