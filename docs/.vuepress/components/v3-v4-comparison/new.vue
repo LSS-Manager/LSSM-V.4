@@ -2,8 +2,8 @@
     <table>
         <thead>
             <tr>
-                <th>{{$t.tables.module}}</th>
-                <th>{{$t.tables.annotations}}</th>
+                <th>{{ $t.tables.module }}</th>
+                <th>{{ $t.tables.annotations }}</th>
             </tr>
         </thead>
         <tbody>
@@ -13,7 +13,7 @@
                         {{ module }}
                     </router-link>
                 </td>
-                <td>{{$t.v4annotations[module]}}</td>
+                <td>{{ $t.v4annotations[module] }}</td>
             </tr>
         </tbody>
     </table>
@@ -28,13 +28,13 @@ export default defineComponent({
         return {
             comparison: this.$theme.variables.v3Comparison,
             newModules: this.$theme.variables.v3Comparison.v4only,
-        }
+        };
     },
     computed: {
         $t() {
             return this.comparison.translations[this.$lang];
-        }
-    }
+        },
+    },
 });
 </script>
 

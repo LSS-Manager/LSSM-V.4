@@ -4,15 +4,13 @@ lang: cs_CZ
 sidebarDepth: 2
 ---
 
-# Wiki 🇨🇿 <Badge :text="'v' + theme.variables.versions.short"/>
+# Wiki 🇨🇿 <Badge :text="'v' + $theme.variables.versions.short"/>
 
 > stable: <i>{{ $theme.variables.versions.stable }}</i>
 > 
 > beta: <i>{{ $theme.variables.versions.beta }}</i>
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
-
-
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 

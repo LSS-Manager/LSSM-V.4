@@ -63,9 +63,21 @@ export default (
                             )
                         )
                         .map(file => `${langPath}${file}`),
+                    {
+                        text: `${$t(lang, 'apps')} 📦`,
+                        collapsible: true,
+                        children: [
+                            ...(fs.existsSync(
+                                path.join(DOCS_PATH, lang, 'apps.md')
+                            )
+                                ? [`/${lang}/apps`]
+                                : []),
+                        ],
+                    },
                 ],
                 editLinkText: $t(lang, 'footer.edit').toString(),
                 lastUpdatedText: $t(lang, 'footer.lastUpdated').toString(),
+                contributors: false,
                 contributorsText: $t(lang, 'footer.contributors').toString(),
                 tip: $t(lang, 'containers.tip').toString(),
                 warning: $t(lang, 'containers.warning').toString(),

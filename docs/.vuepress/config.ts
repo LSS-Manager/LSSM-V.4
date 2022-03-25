@@ -18,7 +18,10 @@ const VUEPRESS_PATH = __dirname;
 const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
 const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DIST_PATH = path.join(ROOT_PATH, 'dist');
+const DIST_DOCS_PATH = path.join(DIST_PATH, 'docs');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
+const DOCS_DIST_PATH = path.join(VUEPRESS_PATH, 'dist');
+const DOCS_TEMP_PATH = path.join(VUEPRESS_PATH, '.temp');
 const DOCS_I18N_PATH = path.join(VUEPRESS_PATH, 'i18n');
 const DOCS_UTILS_PATH = path.join(VUEPRESS_PATH, 'utils');
 const DOCS_COMPONENTS_PATH = path.join(VUEPRESS_PATH, 'components');
@@ -42,6 +45,12 @@ const sidebar_others = [
 const LANGS = Object.keys(config.games)
     .filter(lang => fs.existsSync(path.join(DOCS_PATH, lang)))
     .sort();
+const MODULES = fs
+    .readdirSync(MODULES_PATH)
+    .filter(
+        module =>
+            !['template', ...config.modules['core-modules']].includes(module)
+    );
 
 const $t = i18n(DOCS_I18N_PATH);
 
@@ -79,12 +88,36 @@ run(
     JSON.stringify(LANGS.map(lang => [lang, config.games[lang].flag]))
 );
 
-const versionsFile = path.join(VUEPRESS_PATH, '.temp/.versions.json');
+if (!fs.existsSync(DOCS_TEMP_PATH)) fs.mkdirSync(DOCS_TEMP_PATH);
+
+const versionsFile = path.join(DOCS_TEMP_PATH, '.versions.json');
 run('generate/versions', versionsFile);
 const versions: Versions = JSON.parse(fs.readFileSync(versionsFile).toString());
 
-const bugsFile = path.join(VUEPRESS_PATH, '.temp/.bugs.json');
+const bugsFile = path.join(DOCS_TEMP_PATH, '.bugs.json');
 run('generate/bugs', bugsFile);
+
+run(
+    'generate/readmes',
+    DOCS_PATH,
+    JSON.stringify(
+        LANGS.map(lang => [lang, $t(lang, 'readme.serverStatus.game')])
+    )
+);
+
+const modulesFile = path.join(DOCS_TEMP_PATH, '.modules.json');
+run(
+    'generate/modules',
+    modulesFile,
+    MODULES_PATH,
+    JSON.stringify(
+        LANGS.map(lang => [lang, $t(lang, '404.modules'), $t(lang, 'head')])
+    ),
+    JSON.stringify(MODULES)
+);
+
+if (fs.existsSync(DIST_DOCS_PATH)) fs.unlinkSync(DIST_DOCS_PATH);
+fs.symlinkSync(DOCS_DIST_PATH, DIST_DOCS_PATH);
 
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
@@ -95,6 +128,8 @@ export default defineUserConfig<DefaultThemeOptions>({
     head: [['link', { rel: 'icon', href: '/img/lssm.png' }]],
 
     // common config
+    dest: DOCS_DIST_PATH,
+    temp: DOCS_TEMP_PATH,
     markdown: {
         importCode: {
             handleImportPath: str =>
@@ -134,7 +169,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
             versions,
             browsers: config.browser,
-            // noMapkitModules,
+            noMapkitModules: Object.fromEntries(LANGS.map(lang => [lang, []])),
             bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
             moment: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'moment')])
@@ -146,7 +181,13 @@ export default defineUserConfig<DefaultThemeOptions>({
                 translations: Object.fromEntries(
                     LANGS.map(lang => [lang, $t(lang, 'v3')])
                 ),
-                ...JSON.parse(fs.readFileSync(path.join(DOCS_UTILS_PATH, 'v3Comparison.json')).toString())
+                ...JSON.parse(
+                    fs
+                        .readFileSync(
+                            path.join(DOCS_UTILS_PATH, 'v3Comparison.json')
+                        )
+                        .toString()
+                ),
             },
             contributors: contributorsFile.contributors,
             contributionTypes: contributorsFile.types,

@@ -12,8 +12,6 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-
-
 [Statut du jeu en ligne](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## A propos de LSSM
