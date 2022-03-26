@@ -56,4 +56,6 @@ Ebenso kannst Du Uhrzeiten auf- und abrunden. Um z.B. auf die nächste viertelst
 
 Beispiel: Wenn du "In 7 Stunden und 22,5 Minuten, aber auf eine Minutenzahl, die durch drei teilbar ist, abrunden", verwende einfach <variable variable="now+7.266r-3"/>. Tut uns leid, Verwirrtheitszertifikate stellen wir derzeit leider nicht aus ;)
 
+Möchtest du das jeweils zugehörige Datum mit ausgeben, dann füge einfach ein `d` hinten an die Variable an: <code v-html="'{{now+5r0d}}'"></code> Würde z.B. am 24.03.2020 um 10:32 folgenden Output generieren: `16:00 (24.03.)`, am selben Tag um 21:43 würde das Ergebnis `03:00 (25.03.)` sein.
+
 Wenn du das ganze nicht verstehst (was wir als überaus verständlich werten), kannst du dir über den [Support](/support.md) Hilfe holen und uns fragen.

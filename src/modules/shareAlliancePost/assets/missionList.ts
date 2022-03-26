@@ -58,10 +58,6 @@ export default (
     const noMessageLi = createLi(noMessage);
     noMessageLi.dataset.noMessage = '1';
     dropdown.append(noMessageLi);
-    // noMessageLi.addEventListener('click', () => {
-    //     btn.disabled = true;
-    //     shareMission(LSSM, mission.id, true).then(() => btn.remove());
-    // });
 
     const separatorLi = document.createElement('li');
     separatorLi.classList.add('divider');

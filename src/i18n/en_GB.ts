@@ -445,8 +445,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 12,
             possibleBuildings: [0, 2, 18, 20, 25],
-            special:
-                'Can be placed at HART bases and Fire Stations. Transporting many staff to a scene.',
+            special: 'Transporting many staff to a scene.',
         },
         24: {
             caption: 'Traffic Car',
@@ -677,7 +676,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used on hazardous fires and electrical fires.',
+                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used On any fire but also has the capability to use foam to extinguish a fire.',
         },
         38: {
             caption: 'RP CAFS',
@@ -688,7 +687,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on hazardous fires and electrical fires.',
+                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire, foam capabilty as well as being useful at RTCs.',
         },
         39: {
             caption: 'OSU',
@@ -706,7 +705,7 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             possibleBuildings: [0, 18],
             special:
-                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit.',
+                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit. This unit will supply HazMat Resources, additional air tanks and a welfare location. ',
         },
         40: {
             caption: 'PM',
@@ -796,7 +795,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Light 4x4 Pump Unit. ',
+            special: 'Acts as a Light 4x4 Pump Unit.',
         },
         48: {
             caption: 'Hazardous Materials Pod',

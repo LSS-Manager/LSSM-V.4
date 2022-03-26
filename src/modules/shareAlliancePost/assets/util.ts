@@ -13,8 +13,21 @@ export function removeZipFromCity(city: string) {
         .trim();
 }
 
+export function addMinutesToDate(minutes: number, date: Date) {
+    date.setTime(date.getTime() + minutes * 60 * 1000);
+    return date;
+}
+
+export function addMinutesToNow(minutes: number): Date {
+    return new Date(Date.now() + minutes * 60 * 1000);
+}
+
 export function addHoursToNow(hours: number): Date {
-    return new Date(Date.now() + hours * 60 * 60 * 1000);
+    return addMinutesToNow(60 * hours);
+}
+
+export function addDaysToToday(addDays = 0): Date {
+    return addHoursToNow(24 * addDays);
 }
 
 export function dateToTime(date: Date): string {
@@ -24,13 +37,15 @@ export function dateToTime(date: Date): string {
         .padStart(2, '0')}`;
 }
 
-export function getDateFromToday(addDays = 0): string {
-    return new Date(
-        Date.now() + addDays * 1000 * 60 * 60 * 24
-    ).toLocaleDateString(undefined, {
+export function dateToDayString(date: Date): string {
+    return date.toLocaleDateString(undefined, {
         month: '2-digit',
         day: '2-digit',
     });
+}
+
+export function getDateFromToday(addDays = 0): string {
+    return dateToDayString(addDaysToToday(addDays));
 }
 
 export function getTimeReplacers(): Record<
@@ -38,34 +53,51 @@ export function getTimeReplacers(): Record<
     (match: string, ...groups: string[]) => string
 > {
     return {
-        [/now\+(\d+(?:[,.]\d+)?)/u.toString()]: (match, additive) =>
-            dateToTime(addHoursToNow(parseFloat(additive))),
-        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)/u.toString()]: (
+        [/now\+(\d+(?:[,.]\d+)?)(d?)/u.toString()]: (
             match,
             additive,
-            round
+            printDate
+        ) => {
+            const resultDate = addHoursToNow(parseFloat(additive));
+            if (printDate) {
+                return `${dateToTime(resultDate)} (${dateToDayString(
+                    resultDate
+                )})`;
+            } else {
+                return dateToTime(resultDate);
+            }
+        },
+        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)(d?)/u.toString()]: (
+            match,
+            additive,
+            round,
+            printDate
         ) => {
             const resultDate = addHoursToNow(parseFloat(additive));
             const roundTo = Math.abs(parseInt(round)) % 60;
             const roundUp = !round.startsWith('-');
-            let resultHours = resultDate.getHours();
-            let resultMinutes = resultDate.getMinutes();
+            const resultHours = resultDate.getHours();
+            const resultMinutes = resultDate.getMinutes();
             if (!roundTo) {
-                resultMinutes = 0;
-                if (roundUp) resultHours++;
+                resultDate.setMinutes(0);
+                if (roundUp) resultDate.setHours(resultHours + 1);
             } else {
-                if (roundUp)
-                    resultMinutes += roundTo - (resultMinutes % roundTo);
-                else resultMinutes -= resultMinutes % roundTo;
+                if (roundUp) {
+                    addMinutesToDate(
+                        roundTo - (resultMinutes % roundTo),
+                        resultDate
+                    );
+                } else {
+                    addMinutesToDate(-(resultMinutes % roundTo), resultDate);
+                }
             }
-            resultHours += Math.floor(resultMinutes / 60);
-            resultMinutes %= 60;
-            resultHours %= 24;
-            if (resultHours < 0) resultHours = 24 + resultHours;
-            if (resultMinutes < 0) resultMinutes = 60 + resultMinutes;
-            return `${resultHours.toString().padStart(2, '0')}:${resultMinutes
-                .toString()
-                .padStart(2, '0')}`;
+            if (printDate) {
+                return `${dateToTime(resultDate)} (${dateToDayString(
+                    resultDate
+                )})`;
+            } else {
+                return dateToTime(resultDate);
+            }
         },
     };
 }
