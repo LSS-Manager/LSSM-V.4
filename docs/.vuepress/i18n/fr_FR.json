@@ -161,7 +161,8 @@
                 "v3Name": "Demande de transport sur la carte"
             },
             "DoctorRadioCall": {
-                "v3Name": "Demande HEMS à la radio"
+                "annotation": "Pas disponible sur la version FR.",
+                "v3Name": "Demandes supplémentaires par FMS"
             },
             "Eventsmission": {
                 "v3Name": "Événements marqués"
