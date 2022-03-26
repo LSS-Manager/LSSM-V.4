@@ -129,7 +129,7 @@ export default defineUserConfig<ThemeData>({
     lang: 'en-US',
     title: 'LSS-Manager V.4 Wiki',
     description: $t('en_US', 'description').toString(),
-    head: [['link', { rel: 'icon', href: '/img/lssm.png' }]],
+    head: [['link', { rel: 'icon', href: BASE + 'img/lssm.png' }]],
 
     // common config
     dest: DOCS_DIST_PATH,
