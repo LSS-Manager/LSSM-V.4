@@ -706,7 +706,7 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             possibleBuildings: [0, 18],
             special:
-                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit. This unit will supply HazMat Recourses, additional air tanks and a welfare location. ',
+                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit. This unit will supply HazMat Resources, additional air tanks and a welfare location. ',
         },
         40: {
             caption: 'PM',
