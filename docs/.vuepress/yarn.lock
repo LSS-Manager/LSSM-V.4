@@ -250,7 +250,7 @@
     markdown-it-emoji "^2.0.0"
     mdurl "^1.0.1"
 
-"@vuepress/plugin-active-header-links@2.0.0-beta.36", "@vuepress/plugin-active-header-links@^2.0.0-beta.36":
+"@vuepress/plugin-active-header-links@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-2.0.0-beta.36.tgz#6ec2953c27f6ce9dbbfdcdcef3f847f8b5ac927d"
   integrity sha512-jeH1sieF1M/2M33JoUXe5RuRcdlGvUqMIq2wGdnwfXZn7YzcZtM8bmmhgpZw5yTuW6mT59b5SwEINptkZDKtUw==
@@ -262,7 +262,7 @@
     vue "^3.2.28"
     vue-router "^4.0.12"
 
-"@vuepress/plugin-back-to-top@2.0.0-beta.36", "@vuepress/plugin-back-to-top@^2.0.0-beta.36":
+"@vuepress/plugin-back-to-top@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-2.0.0-beta.36.tgz#33b310e0b73e281aa0afcb16e261c180f2761f0a"
   integrity sha512-BwWa/EeKvboG22m4HmnCEfs/RcPtQ5pL5uVss8+POLgDSICKDGhuHrQiH/DtgqbceXZCryNlJhLkNXQ6TxcR+A==
@@ -272,7 +272,7 @@
     ts-debounce "^4.0.0"
     vue "^3.2.28"
 
-"@vuepress/plugin-container@2.0.0-beta.36", "@vuepress/plugin-container@^2.0.0-beta.36":
+"@vuepress/plugin-container@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-container/-/plugin-container-2.0.0-beta.36.tgz#b5a553a8999500eb92f628329a69e5777ea90f53"
   integrity sha512-65DjPd2RHnbk8wvyPimalC7K+dHbb41fWH8bPdJL6EhFPBCdplXmDHjR8sLU/15HGrF8ms8PRJ0nKRv5WUEsrw==
@@ -285,7 +285,7 @@
     markdown-it "^12.3.2"
     markdown-it-container "^3.0.0"
 
-"@vuepress/plugin-external-link-icon@2.0.0-beta.36", "@vuepress/plugin-external-link-icon@^2.0.0-beta.36":
+"@vuepress/plugin-external-link-icon@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-external-link-icon/-/plugin-external-link-icon-2.0.0-beta.36.tgz#5d37b58fdba3268ac56bb5848aef98ee48f2501e"
   integrity sha512-t8UHhvxT7Zwwv+bV+jKZ1fnTKxk6FHOQ9ydGnGWje7YTL097FppSrWFdMRFVTWBfqRKkrSOx5gB2LIz2pELWvA==
@@ -296,7 +296,7 @@
     "@vuepress/utils" "2.0.0-beta.35"
     vue "^3.2.28"
 
-"@vuepress/plugin-git@2.0.0-beta.36", "@vuepress/plugin-git@^2.0.0-beta.36":
+"@vuepress/plugin-git@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-git/-/plugin-git-2.0.0-beta.36.tgz#ac0d8e00916ed7049ffc47490d3a64213d84a519"
   integrity sha512-Q2fIaExIZTZHWcJzelRMSf41yvfLUto2vFB9sMmpgRZ+vqFpPwruyR7XGmBxHMiSIjBFPbjAPadgB3hpoDKyiQ==
@@ -304,7 +304,7 @@
     "@vuepress/core" "2.0.0-beta.36"
     execa "^5.1.1"
 
-"@vuepress/plugin-medium-zoom@2.0.0-beta.36", "@vuepress/plugin-medium-zoom@^2.0.0-beta.36":
+"@vuepress/plugin-medium-zoom@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-2.0.0-beta.36.tgz#534760a5c794d9b60768b6d5ae5bcf190aad8889"
   integrity sha512-5qarMKNvypwYgo/ojOGSAKqug9mlmkzzaHGqX9w2rObYB0kCyV1CuqFOqd0Eg/3vif3B0fDOVgEIomjvgc8rQw==
@@ -385,7 +385,7 @@
   dependencies:
     "@vue/shared" "^3.2.28"
 
-"@vuepress/theme-default@2.0.0-beta.36", "@vuepress/theme-default@^2.0.0-beta.36":
+"@vuepress/theme-default@2.0.0-beta.36":
   version "2.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@vuepress/theme-default/-/theme-default-2.0.0-beta.36.tgz#4b792f10c784526747c447e30e0d71cf77b4a083"
   integrity sha512-3QqRL96MzKDamHo5bw9ldO2DHTxE+nwEHv1u2PsZusyMRoxyP1h2wPFHPhGaR+fhxFC9Ou9dOq4Ay2xiIU1piA==
