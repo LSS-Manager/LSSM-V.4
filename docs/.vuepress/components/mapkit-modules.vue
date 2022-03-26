@@ -9,7 +9,7 @@
             {{settingsText}}:
             <ul>
                 <li v-for="(settings, module) in themeData.variables.noMapkitSettings" :key="module">
-                    <AutoLink :item="{link: `/${lang}/modules/${module}/`, text: themeData.variables.modules[module].translations[lang].name}"/>:
+                    <AutoLink :item="{link: `/${lang}/modules/${module}/`, text: themeData.variables.modules[module].translations[lang]?.name ?? ''}"/>:
                     <ul>
                         <li v-for="setting in settings" :key="`${module}_${setting}`">
                             {{themeData.variables.modules[module].translations[lang].settings[setting]?.title ?? setting}}

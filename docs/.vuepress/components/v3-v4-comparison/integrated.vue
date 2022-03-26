@@ -18,7 +18,7 @@
                 </td>
                 <td>
                     <router-link
-                        :to="`modules/${module.id}/`"
+                        :to="`modules/${module.v4Id}/`"
                         v-if="module.id !== 'releaseNotes'"
                     >
                         {{ module.v4Name }}
@@ -60,13 +60,14 @@ export default defineComponent({
                 .map(([module, details]) => {
                     return {
                         id: module,
+                        v4Id: details.module,
                         v3Name: this.$t.modules[module]?.v3Name ?? module,
                         annotation: this.$t.modules[module]?.annotation ?? '',
                         v4Name:
                             this.$theme.variables.modules[details.module]
-                                ?.translations?.[this.lang].name ?? module,
+                                ?.translations?.[this.lang]?.name ?? module,
                         setting:
-                            this.$theme.variables.modules[details.module]?.translations?.[this.lang].settings?.[
+                            this.$theme.variables.modules[details.module]?.translations?.[this.lang]?.settings?.[
                                 details.setting
                             ]?.title ?? details.setting,
                     };

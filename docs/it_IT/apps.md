@@ -12,11 +12,25 @@ Se hai delle idee o suggerimenti per migliorare, puoi mandarceli come sempre, op
 
 :::danger Moduli che non funzionano con Mapkit
 Come descritto nelle spiegazioni del [Negozio](appstore.md), ci sono moduli che sfortunatamente non sono compatibili con la mappa `Mapkit`. Questi sono i moduli in questione:
-<ul>
-    <li v-for="module in $theme.variables.noMapkitModules.en_GB" :key="module.title">
-        <router-link :to="module.f">
-            {{ module.title }}
-        </router-link>
-    </li>
-</ul>
+
+<mapkit-modules settings-text="And these settings"/>
 :::
+
+## LSSM V.3 vs. LSSM V.4
+
+Below we have listed the features of V.3 and where you can find them in V.4.
+We want to integrate all the features of V.3 into V.4 in time!
+
+<v3-v4-comparison-integrated/>
+
+### Modules only in V3
+
+These Modules will be integrated into V4, but it will still take some time to integrate them.
+
+<v3-v4-comparison-v3only/>
+
+### New Modules in V4
+
+These Modules are new in V4.
+
+<v3-v4-comparison-new/>

@@ -153,9 +153,9 @@
         "tables": {
             "annotations": "Remarques",
             "changes": "Modifications",
+            "description": "Description",
             "feature": "Fonctionnalité",
             "module": "Module",
-            "description": "Description",
             "setting": "Paramètre"
         },
         "v4annotations": {

@@ -280,9 +280,9 @@
         "tables": {
             "annotations": "Hinweise",
             "changes": "Änderungen",
+            "description": "Beschreibung",
             "feature": "Feature",
             "module": "Modul",
-            "description": "Beschreibung",
             "setting": "Einstellung"
         },
         "v4annotations": {
