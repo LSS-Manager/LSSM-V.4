@@ -13,17 +13,7 @@ Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen la
 :::danger Module und Einstellungen, die in Mapkit nicht funktionieren
 Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module und Einstellungen, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
 
-Und diese Einstellungen:
-<ul>
-    <li><router-link to="modules/generalExtensions">
-        Allgemeine Verbesserungen:
-        <ul>
-            <li><router-link to="modules/generalExtensions#kartensprunge-speichern">
-                Kartensprünge speichern
-            </router-link></li>
-        </ul>
-    </router-link></li>
-</ul>
+<mapkit-modules settings-text="Und diese Einstellungen"/>
 :::
 
 ## LSSM V.3 vs. LSSM V.4

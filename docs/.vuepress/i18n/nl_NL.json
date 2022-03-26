@@ -151,12 +151,12 @@
     },
     "v3": {
         "modules": {},
-        "settings": {},
         "tables": {
             "annotations": "Notes",
             "changes": "Changes",
             "feature": "Feature",
             "module": "Module",
+            "description": "Beschrijving",
             "setting": "Setting"
         },
         "v4annotations": {

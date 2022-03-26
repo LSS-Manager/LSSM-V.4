@@ -46,10 +46,10 @@ export interface ThemeData extends DefaultThemeData {
             short: string;
         };
         browsers: typeof config.browser;
-        noMapkitModules: Record<string, { title: string; f: string }[]>;
         bugIssues: Issue[];
         i18n: Record<string, typeof de_DE>;
         modules: ModulesFile;
+        noMapkitSettings: Record<string, string[]>
         moment: Record<
             string,
             {

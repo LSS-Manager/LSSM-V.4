@@ -5,6 +5,7 @@ import path from 'path';
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
 import i18n from './utils/i18n';
+import noMapkitSettings from './utils/noMapkitSettings.json';
 
 import localeConfig, {
     type LocaleSiteConfig,
@@ -179,7 +180,6 @@ export default defineUserConfig<ThemeData>({
             fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
             versions,
             browsers: config.browser,
-            noMapkitModules: Object.fromEntries(LANGS.map(lang => [lang, []])),
             bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
             i18n: Object.fromEntries(
                 LANGS.map(lang => [
@@ -188,6 +188,7 @@ export default defineUserConfig<ThemeData>({
                 ])
             ),
             modules: JSON.parse(fs.readFileSync(modulesFile).toString()),
+            noMapkitSettings,
             moment: Object.fromEntries(
                 LANGS.map(lang => [lang, $t(lang, 'moment')])
             ) as unknown as ThemeData['variables']['moment'],
@@ -261,6 +262,10 @@ export default defineUserConfig<ThemeData>({
                     'discord-channel': path.join(
                         DOCS_COMPONENTS_PATH,
                         'discord-channel.vue'
+                    ),
+                    'mapkit-modules': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'mapkit-modules.vue'
                     ),
                     'translators': path.join(
                         DOCS_COMPONENTS_PATH,

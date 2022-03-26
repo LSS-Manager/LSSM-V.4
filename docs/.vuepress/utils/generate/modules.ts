@@ -7,10 +7,12 @@ import type { Module } from '../../../../typings/Module';
 interface ModuleTranslation {
     name: string;
     description: string;
+    settings: Record<string, {title: string; description?: string} & Record<string, string>>
 }
 interface ResolvedModuleTranslation {
     name: string;
     description?: string;
+    settings?: Record<string, {title: string; description?: string} & Record<string, string>>
 }
 export type ModulesFile = Record<
     string,
@@ -63,10 +65,11 @@ const modulesFile: ModulesFile = {};
                 path.join(i18nFolder, `${lang}.root`)
             )
                 .then(
-                    ({ name, description }) =>
+                    ({ name, description, settings }) =>
                         (modulesFile[module].translations[lang] = {
                             name,
                             description: description || '',
+                            settings: settings || {},
                         })
                 )
                 .catch(() =>
@@ -74,10 +77,11 @@ const modulesFile: ModulesFile = {};
                         path.join(i18nFolder, `en_US.root`)
                     )
                         .then(
-                            ({ name, description }) =>
+                            ({ name, description, settings }) =>
                                 (modulesFile[module].translations[lang] = {
                                     name,
                                     description: description || '',
+                                    settings: settings || {},
                                 })
                         )
                         .catch(
@@ -85,6 +89,7 @@ const modulesFile: ModulesFile = {};
                                 (modulesFile[module].translations[lang] = {
                                     name: module,
                                     description: '',
+                                    settings: {},
                                 })
                         )
                 );

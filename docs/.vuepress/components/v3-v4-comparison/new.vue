@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>{{ $t.tables.module }}</th>
+                <th>{{ $t.tables.description }}</th>
                 <th>{{ $t.tables.annotations }}</th>
             </tr>
         </thead>
@@ -13,6 +14,7 @@
                         {{ module.name }}
                     </router-link>
                 </td>
+                <td>{{module.description}}</td>
                 <td>{{ module.annotation }}</td>
             </tr>
         </tbody>
@@ -44,6 +46,8 @@ export default defineComponent({
                         id: module,
                         name: this.$theme.variables.modules[module]
                             .translations[this.lang].name,
+                        description: this.$theme.variables.modules[module]
+                            .translations[this.lang].description,
                         annotation: this.$t.v4annotations[module],
                     };
                 })

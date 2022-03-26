@@ -150,12 +150,12 @@
     },
     "v3": {
         "modules": {},
-        "settings": {},
         "tables": {
             "annotations": "Remarques",
             "changes": "Modifications",
             "feature": "Fonctionnalité",
             "module": "Module",
+            "description": "Description",
             "setting": "Paramètre"
         },
         "v4annotations": {

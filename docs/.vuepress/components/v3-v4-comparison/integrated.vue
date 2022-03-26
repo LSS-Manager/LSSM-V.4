@@ -66,9 +66,9 @@ export default defineComponent({
                             this.$theme.variables.modules[details.module]
                                 ?.translations?.[this.lang].name ?? module,
                         setting:
-                            this.$t.settings[details.module]?.[
+                            this.$theme.variables.modules[details.module]?.translations?.[this.lang].settings?.[
                                 details.setting
-                            ] ?? details.setting,
+                            ]?.title ?? details.setting,
                     };
                 })
                 .sort((a, b) => a.v3Name.localeCompare(b.v3Name));

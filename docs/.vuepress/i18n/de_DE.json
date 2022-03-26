@@ -277,27 +277,12 @@
                 "v3Name": "Verbandsverwaltung"
             }
         },
-        "settings": {
-            "extendedCallList": {
-                "collapsableMissions": "Einsätze einklappen",
-                "eventMissions": "Saisonale Einsätze markieren",
-                "shareMissions": "Einsätze teilen"
-            },
-            "extendedCallWindow": {
-                "arrCounter": "AAO-Klickzähler",
-                "arrSearch": "AAO-Suche",
-                "generationDate": "Generierungszeitpunkt",
-                "missionKeywords": "Einsatzstichworte"
-            },
-            "extendedMap": {
-                "centerMap": "Karte zentrieren"
-            }
-        },
         "tables": {
             "annotations": "Hinweise",
             "changes": "Änderungen",
             "feature": "Feature",
             "module": "Modul",
+            "description": "Beschreibung",
             "setting": "Einstellung"
         },
         "v4annotations": {
