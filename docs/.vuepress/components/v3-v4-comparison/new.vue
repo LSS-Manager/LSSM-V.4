@@ -9,8 +9,8 @@
         <tbody>
             <tr v-for="module in newModules" :key="module">
                 <td>
-                    <router-link :to="`modules/${module}`">
-                        {{ module }}
+                    <router-link :to="`modules/${module}/`">
+                        {{ $modules[module].translations[lang].name }}
                     </router-link>
                 </td>
                 <td>{{ $t.v4annotations[module] }}</td>
@@ -31,9 +31,15 @@ export default defineComponent({
         };
     },
     computed: {
-        $t() {
-            return this.comparison.translations[this.$lang.replace(/-/u, '_')];
+        lang() {
+            return this.$lang.replace(/-/u, '_')
         },
+        $t() {
+            return this.comparison.translations[this.lang];
+        },
+        $modules() {
+            return this.$theme.variables.modules
+        }
     },
 });
 </script>

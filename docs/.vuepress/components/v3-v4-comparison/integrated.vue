@@ -17,8 +17,8 @@
                     {{ $t.modules[module]?.v3Name ?? module }}
                 </td>
                 <td>
-                    <router-link :to="`modules/${details.module}`">
-                        {{ details.module }}
+                    <router-link :to="`modules/${details.module}/`" v-if="module !== 'releaseNotes'">
+                         {{ $modules[details.module].translations[lang].name }}
                     </router-link>
                 </td>
                 <td>
@@ -49,9 +49,15 @@ export default defineComponent({
         };
     },
     computed: {
-        $t() {
-            return this.comparison.translations[this.$lang.replace(/-/u, '_')];
+        lang() {
+            return this.$lang.replace(/-/u, '_')
         },
+        $t() {
+            return this.comparison.translations[this.lang];
+        },
+        $modules() {
+            return this.$theme.variables.modules
+        }
     },
 });
 </script>
