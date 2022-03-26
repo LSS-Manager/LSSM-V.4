@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { type ChildProcess, execSync } from 'child_process';
 
 import fetchEmojis from './utils/fetchEmojis';
@@ -39,6 +40,7 @@ const scriptHandlers = {
                 './docs/.vuepress/node_modules/.bin/vuepress build docs'
             ).toString()
         );
+        fs.cpSync('./docs/.vuepress/dist/', './dist/docs', { recursive: true });
     },
     preBuild() {
         this.emojis();

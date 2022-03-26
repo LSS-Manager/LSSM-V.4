@@ -121,9 +121,6 @@ LANGS.forEach(lang => {
     };
 });
 
-if (fs.existsSync(DIST_DOCS_PATH)) fs.unlinkSync(DIST_DOCS_PATH);
-fs.symlinkSync(DOCS_DIST_PATH, DIST_DOCS_PATH);
-
 export default defineUserConfig<ThemeData>({
     // site config
     base: BASE,
