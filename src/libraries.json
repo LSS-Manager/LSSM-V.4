@@ -99,15 +99,17 @@
         "icon": "https://avatars.githubusercontent.com/u/46634674",
         "version": "5.16.0"
     },
-    "@vuepress/plugin-active-header-links": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-        "version": "1.9.7"
+    "@vuepress/client": {
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-beta.35"
     },
-    "@vuepress/plugin-back-to-top": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-back-to-top#readme",
-        "version": "1.9.7"
+    "@vuepress/plugin-register-components": {
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-beta.36"
+    },
+    "@vuepress/plugin-search": {
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-beta.36"
     },
     "all-contributors-cli": {
         "icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -283,8 +285,8 @@
     },
     "vue": {
         "icon": "https://vuejs.org/images/logo.png",
-        "url": "https://github.com/vuejs/vue#readme",
-        "version": "2.6.14"
+        "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
+        "version": "3.2.31"
     },
     "vue-i18n": {
         "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -326,32 +328,12 @@
     },
     "vuepress": {
         "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuejs/vuepress#readme",
-        "version": "1.9.7"
-    },
-    "vuepress-plugin-code-copy": {
-        "url": "https://github.com/znicholasbrown/vuepress-plugin-code-copy#readme",
-        "version": "1.0.6"
-    },
-    "vuepress-plugin-redirect": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "1.2.5"
+        "version": "2.0.0-beta.36"
     },
-    "vuepress-plugin-smooth-scroll": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuepress",
-        "version": "0.0.10"
-    },
-    "vuepress-plugin-zooming": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuepress",
-        "version": "1.1.8"
-    },
-    "vuepress-theme-yuu": {
-        "icon": "https://camo.githubusercontent.com/d056a8ecc69b192f8e5fd6f8fe198c5701d3ac611d6e1c5bcdbc96a90edafd26/68747470733a2f2f692e696d6775722e636f6d2f6a3962665942792e706e67",
-        "url": "https://vuepress-theme-yuu.netlify.app/",
-        "version": "3.1.1"
+    "vuepress-plugin-clipboard": {
+        "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
+        "version": "1.0.7"
     },
     "vuex": {
         "icon": "https://vuejs.org/images/logo.png",

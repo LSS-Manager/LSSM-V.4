@@ -20,22 +20,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { usePageData } from "@vuepress/client";
-import { useThemeData } from "@vuepress/theme-default/lib/client";
+import { computed } from 'vue';
+import { usePageData } from '@vuepress/client';
+import { useThemeData } from '@vuepress/theme-default/lib/client';
 
-import { DefaultThemePageData } from "@vuepress/theme-default/lib/shared";
-import { ThemeData } from "../../types/ThemeData";
+import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
+import type { ThemeData } from '../../types/ThemeData';
 
 const pageData = usePageData<DefaultThemePageData>();
 const themeData = useThemeData<ThemeData>();
 
 const browsers = {
     Chrome: 'https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo',
-    Firefox:
-        'https://addons.mozilla.org/firefox/addon/tampermonkey/',
+    Firefox: 'https://addons.mozilla.org/firefox/addon/tampermonkey/',
     Opera: 'https://addons.opera.com/extensions/details/tampermonkey-beta/',
-}
+};
 
 const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
 </script>

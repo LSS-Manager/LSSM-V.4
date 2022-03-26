@@ -20,19 +20,18 @@
 import { useThemeData } from '@vuepress/theme-default/lib/client';
 import { computed } from 'vue';
 
-import { ThemeData } from "../types/ThemeData";
+import type { ThemeData } from '../types/ThemeData';
 
 const themeData = useThemeData<ThemeData>();
 
-const translators = computed(() =>  {
+const translators = computed(() => {
     const languages = {};
     themeData.value.variables.contributors.forEach(contributor => {
         const langContributions = contributor.contributions.filter(
             contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/u)
         );
         langContributions.forEach(language => {
-            if (!languages.hasOwnProperty(language))
-                languages[language] = [];
+            if (!languages.hasOwnProperty(language)) languages[language] = [];
             languages[language].push({
                 ...contributor,
                 contributions: langContributions,
@@ -41,11 +40,14 @@ const translators = computed(() =>  {
     });
     return languages;
 });
-const flags = computed(() => Object.fromEntries(
-    Object.entries(themeData.value.variables.contributionTypes as ThemeData["variables"]["contributionTypes"]).map(
-        ([language, { symbol }]) => [language, symbol]
+const flags = computed(() =>
+    Object.fromEntries(
+        Object.entries(
+            themeData.value.variables
+                .contributionTypes as ThemeData['variables']['contributionTypes']
+        ).map(([language, { symbol }]) => [language, symbol])
     )
-))
+);
 </script>
 
 <style scoped lang="sass">

@@ -9,9 +9,9 @@
 
 <script setup lang="ts">
 import { useThemeData } from '@vuepress/theme-default/lib/client';
-import { defineProps, toRefs } from "vue";
+import { defineProps, toRefs } from 'vue';
 
-import { ThemeData } from "../types/ThemeData";
+import type { ThemeData } from '../types/ThemeData';
 
 const themeData = useThemeData<ThemeData>();
 
@@ -22,5 +22,5 @@ const props = defineProps({
     },
 });
 
-const {channel} = toRefs(props);
+const { channel } = toRefs(props);
 </script>

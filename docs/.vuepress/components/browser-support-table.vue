@@ -26,12 +26,12 @@
 </template>
 
 <script setup lang="ts">
-import { usePageData } from "@vuepress/client";
-import { useThemeData } from "@vuepress/theme-default/lib/client";
-import { computed } from "vue";
+import { usePageData } from '@vuepress/client';
+import { useThemeData } from '@vuepress/theme-default/lib/client';
+import { computed } from 'vue';
 
-import { DefaultThemePageData } from "@vuepress/theme-default/lib/shared";
-import { ThemeData } from "../types/ThemeData";
+import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
+import type { ThemeData } from '../types/ThemeData';
 
 const pageData = usePageData<DefaultThemePageData>();
 const themeData = useThemeData<ThemeData>();
