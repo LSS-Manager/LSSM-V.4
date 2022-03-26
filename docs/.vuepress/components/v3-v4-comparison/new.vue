@@ -21,42 +21,36 @@
     </table>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from "vue";
+import { usePageData } from "@vuepress/client";
+import { useThemeData } from "@vuepress/theme-default/lib/client";
 
-export default defineComponent({
-    name: 'v3-v4-comparison-new',
-    data() {
+import { DefaultThemePageData } from "@vuepress/theme-default/lib/shared";
+import { ThemeData } from "../../types/ThemeData";
+
+const pageData = usePageData<DefaultThemePageData>();
+const themeData = useThemeData<ThemeData>();
+
+const comparison = themeData.value.variables.v3Comparison;
+const newModules = comparison.v4only;
+
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
+const $t = computed(() => comparison.translations[lang.value]);
+const $modules = computed(() => newModules
+    .map(module => {
         return {
-            comparison: this.$theme.variables.v3Comparison,
-            newModules: this.$theme.variables.v3Comparison.v4only,
+            id: module,
+            name: themeData.value.variables.modules[module]
+                .translations[lang.value].name,
+            description:
+            themeData.value.variables.modules[module].translations[
+                lang.value
+                ].description,
+            annotation: $t.value.v4annotations[module],
         };
-    },
-    computed: {
-        lang() {
-            return this.$lang.replace(/-/u, '_');
-        },
-        $t() {
-            return this.comparison.translations[this.lang];
-        },
-        $modules() {
-            return this.newModules
-                .map(module => {
-                    return {
-                        id: module,
-                        name: this.$theme.variables.modules[module]
-                            .translations[this.lang].name,
-                        description:
-                            this.$theme.variables.modules[module].translations[
-                                this.lang
-                            ].description,
-                        annotation: this.$t.v4annotations[module],
-                    };
-                })
-                .sort((a, b) => a.name.localeCompare(b.name));
-        },
-    },
-});
+    })
+    .sort((a, b) => a.name.localeCompare(b.name)))
 </script>
 
 <style scoped>

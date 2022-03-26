@@ -2,14 +2,14 @@
     <table>
         <thead>
             <tr>
-                <th>{{ $theme.variables.tables[lang].browser }}</th>
-                <th>{{ $theme.variables.tables[lang].minVersion }}</th>
-                <th>{{ $theme.variables.tables[lang].download }}</th>
+                <th>{{ themeData.variables.tables[lang].browser }}</th>
+                <th>{{ themeData.variables.tables[lang].minVersion }}</th>
+                <th>{{ themeData.variables.tables[lang].download }}</th>
             </tr>
         </thead>
         <tbody>
             <tr
-                v-for="({ supported, download }, browser) in $theme.variables
+                v-for="({ supported, download }, browser) in themeData.variables
                     .browsers"
                 :key="browser"
             >
@@ -17,7 +17,7 @@
                 <td>{{ supported }}</td>
                 <td>
                     <a :href="download" target="_blank">
-                        {{ $theme.variables.tables[lang].download }}
+                        {{ themeData.variables.tables[lang].download }}
                     </a>
                 </td>
             </tr>
@@ -25,15 +25,16 @@
     </table>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { usePageData } from "@vuepress/client";
+import { useThemeData } from "@vuepress/theme-default/lib/client";
+import { computed } from "vue";
 
-export default defineComponent({
-    name: 'browser-support-table',
-    computed: {
-        lang() {
-            return this.$lang.replace(/-/u, '_');
-        },
-    },
-});
+import { DefaultThemePageData } from "@vuepress/theme-default/lib/shared";
+import { ThemeData } from "../types/ThemeData";
+
+const pageData = usePageData<DefaultThemePageData>();
+const themeData = useThemeData<ThemeData>();
+
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
 </script>

@@ -17,30 +17,27 @@
     </table>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from "vue";
+import { usePageData } from "@vuepress/client";
+import { useThemeData } from "@vuepress/theme-default/lib/client";
 
-export default defineComponent({
-    name: 'v3-v4-comparison-v3only',
-    data() {
-        return {
-            comparison: this.$theme.variables.v3Comparison,
-        };
-    },
-    computed: {
-        $t() {
-            return this.comparison.translations[this.$lang.replace(/-/u, '_')];
-        },
-        modules() {
-            return this.comparison.v3only
-                .map(module => ({
-                    name: this.$t.modules[module]?.v3Name ?? module,
-                    annotation: this.$t.modules[module]?.annotation ?? '',
-                }))
-                .sort((a, b) => a.name.localeCompare(b.name));
-        },
-    },
-});
+import { DefaultThemePageData } from "@vuepress/theme-default/lib/shared";
+import { ThemeData } from "../../types/ThemeData";
+
+const pageData = usePageData<DefaultThemePageData>();
+const themeData = useThemeData<ThemeData>();
+
+const comparison = themeData.value.variables.v3Comparison;
+
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
+const $t = computed(() => comparison.translations[lang.value]);
+const modules = computed(() => comparison.v3only
+    .map(module => ({
+        name: $t.value.modules[module]?.v3Name ?? module,
+        annotation: $t.value.modules[module]?.annotation ?? '',
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name)));
 </script>
 
 <style scoped>

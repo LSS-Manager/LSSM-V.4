@@ -2,8 +2,8 @@
     <table>
         <thead>
             <tr>
-                <th>{{ $theme.variables.tables[lang].browser }}</th>
-                <th>{{ $theme.variables.tables[lang].link }}</th>
+                <th>{{ themeData.variables.tables[lang].browser }}</th>
+                <th>{{ themeData.variables.tables[lang].link }}</th>
             </tr>
         </thead>
         <tbody>
@@ -11,7 +11,7 @@
                 <td>{{ browser }}</td>
                 <td>
                     <a :href="url" target="_blank">
-                        {{ $theme.variables.tables[lang].download }}
+                        {{ themeData.variables.tables[lang].download }}
                     </a>
                 </td>
             </tr>
@@ -19,25 +19,23 @@
     </table>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from "vue";
+import { usePageData } from "@vuepress/client";
+import { useThemeData } from "@vuepress/theme-default/lib/client";
 
-export default defineComponent({
-    name: 'tampermonkey-download-table',
-    data() {
-        return {
-            browsers: {
-                Chrome: 'https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo',
-                Firefox:
-                    'https://addons.mozilla.org/firefox/addon/tampermonkey/',
-                Opera: 'https://addons.opera.com/extensions/details/tampermonkey-beta/',
-            },
-        };
-    },
-    computed: {
-        lang() {
-            return this.$lang.replace(/-/u, '_');
-        },
-    },
-});
+import { DefaultThemePageData } from "@vuepress/theme-default/lib/shared";
+import { ThemeData } from "../../types/ThemeData";
+
+const pageData = usePageData<DefaultThemePageData>();
+const themeData = useThemeData<ThemeData>();
+
+const browsers = {
+    Chrome: 'https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo',
+    Firefox:
+        'https://addons.mozilla.org/firefox/addon/tampermonkey/',
+    Opera: 'https://addons.opera.com/extensions/details/tampermonkey-beta/',
+}
+
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
 </script>
