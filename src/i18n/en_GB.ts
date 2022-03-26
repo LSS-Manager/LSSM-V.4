@@ -445,8 +445,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 12,
             possibleBuildings: [0, 2, 18, 20, 25],
-            special:
-                'Transporting many staff to a scene.',
+            special: 'Transporting many staff to a scene.',
         },
         24: {
             caption: 'Traffic Car',
