@@ -7,12 +7,18 @@ import type { Module } from '../../../../typings/Module';
 interface ModuleTranslation {
     name: string;
     description: string;
-    settings: Record<string, {title: string; description?: string} & Record<string, string>>
+    settings: Record<
+        string,
+        Record<string, string> & { title: string; description?: string }
+    >;
 }
 interface ResolvedModuleTranslation {
     name: string;
     description?: string;
-    settings?: Record<string, {title: string; description?: string} & Record<string, string>>
+    settings?: Record<
+        string,
+        Record<string, string> & { title: string; description?: string }
+    >;
 }
 export type ModulesFile = Record<
     string,

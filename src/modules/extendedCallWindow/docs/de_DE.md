@@ -177,9 +177,9 @@ Du würdest dir gerne eigene Texte hinter oder vor den Einsatznamen schreiben? K
 
 ### Variablen
 
-<code v-html="'{{type}}'"></code> - wird durch die MissionTypeID ersetzt, dies ist eine Nummer, die jeden Einsatztyp im Spiel kennzeichnet, der Mülleimerbrand als beispiel hat die 0, der Containerbrand die 1, und so weiter
+<variable variable="type"/> - wird durch die MissionTypeID ersetzt, dies ist eine Nummer, die jeden Einsatztyp im Spiel kennzeichnet, der Mülleimerbrand als beispiel hat die 0, der Containerbrand die 1, und so weiter
 
-<code v-html="'{{credits}}'"></code> - wird durch die durchschnittlichen Credits des Einsatzes ersetzt.
+<variable variable="credits"/> - wird durch die durchschnittlichen Credits des Einsatzes ersetzt.
 
 ## Alarm-Icons
 

@@ -67,7 +67,8 @@ export default defineComponent({
                             this.$theme.variables.modules[details.module]
                                 ?.translations?.[this.lang]?.name ?? module,
                         setting:
-                            this.$theme.variables.modules[details.module]?.translations?.[this.lang]?.settings?.[
+                            this.$theme.variables.modules[details.module]
+                                ?.translations?.[this.lang]?.settings?.[
                                 details.setting
                             ]?.title ?? details.setting,
                     };
