@@ -7,13 +7,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="module in newModules" :key="module">
+            <tr v-for="module in $modules" :key="module.id">
                 <td>
-                    <router-link :to="`modules/${module}/`">
-                        {{ $modules[module].translations[lang].name }}
+                    <router-link :to="`modules/${module.id}/`">
+                        {{ module.name }}
                     </router-link>
                 </td>
-                <td>{{ $t.v4annotations[module] }}</td>
+                <td>{{ module.annotation }}</td>
             </tr>
         </tbody>
     </table>
@@ -32,14 +32,23 @@ export default defineComponent({
     },
     computed: {
         lang() {
-            return this.$lang.replace(/-/u, '_')
+            return this.$lang.replace(/-/u, '_');
         },
         $t() {
             return this.comparison.translations[this.lang];
         },
         $modules() {
-            return this.$theme.variables.modules
-        }
+            return this.newModules
+                .map(module => {
+                    return {
+                        id: module,
+                        name: this.$theme.variables.modules[module]
+                            .translations[this.lang].name,
+                        annotation: this.$t.v4annotations[module],
+                    };
+                })
+                .sort((a, b) => a.name.localeCompare(b.name));
+        },
     },
 });
 </script>

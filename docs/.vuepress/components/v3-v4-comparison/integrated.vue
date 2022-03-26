@@ -12,25 +12,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(details, module) in updated" :key="module">
+            <tr v-for="module in $modules" :key="module.id">
                 <td>
-                    {{ $t.modules[module]?.v3Name ?? module }}
+                    {{ module.v3Name }}
                 </td>
                 <td>
-                    <router-link :to="`modules/${details.module}/`" v-if="module !== 'releaseNotes'">
-                         {{ $modules[details.module].translations[lang].name }}
+                    <router-link
+                        :to="`modules/${module.id}/`"
+                        v-if="module.id !== 'releaseNotes'"
+                    >
+                        {{ module.v4Name }}
                     </router-link>
                 </td>
                 <td>
-                    <template v-if="details.setting">
-                        {{
-                            $t.settings[details.module]?.[details.setting] ??
-                            details.setting
-                        }}
+                    <template v-if="module.setting">
+                        {{ module.setting }}
                     </template>
                 </td>
                 <td>
-                    {{ $t.modules[module]?.annotation }}
+                    {{ module.annotation }}
                 </td>
             </tr>
         </tbody>
@@ -50,14 +50,29 @@ export default defineComponent({
     },
     computed: {
         lang() {
-            return this.$lang.replace(/-/u, '_')
+            return this.$lang.replace(/-/u, '_');
         },
         $t() {
             return this.comparison.translations[this.lang];
         },
         $modules() {
-            return this.$theme.variables.modules
-        }
+            return Object.entries(this.updated)
+                .map(([module, details]) => {
+                    return {
+                        id: module,
+                        v3Name: this.$t.modules[module]?.v3Name ?? module,
+                        annotation: this.$t.modules[module]?.annotation ?? '',
+                        v4Name:
+                            this.$theme.variables.modules[details.module]
+                                ?.translations?.[this.lang].name ?? module,
+                        setting:
+                            this.$t.settings[details.module]?.[
+                                details.setting
+                            ] ?? details.setting,
+                    };
+                })
+                .sort((a, b) => a.v3Name.localeCompare(b.v3Name));
+        },
     },
 });
 </script>

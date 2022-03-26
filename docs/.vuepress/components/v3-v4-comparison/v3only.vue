@@ -7,11 +7,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="module in modules" :key="module">
+            <tr v-for="module in modules" :key="module.name">
                 <td>
-                    {{ $t.modules[module]?.v3Name ?? module }}
+                    {{ module.name }}
                 </td>
-                <td>{{ $t.modules[module]?.annotation ?? '' }}</td>
+                <td>{{ module.annotation }}</td>
             </tr>
         </tbody>
     </table>
@@ -25,12 +25,19 @@ export default defineComponent({
     data() {
         return {
             comparison: this.$theme.variables.v3Comparison,
-            modules: this.$theme.variables.v3Comparison.v3only,
         };
     },
     computed: {
         $t() {
             return this.comparison.translations[this.$lang.replace(/-/u, '_')];
+        },
+        modules() {
+            return this.comparison.v3only
+                .map(module => ({
+                    name: this.$t.modules[module]?.v3Name ?? module,
+                    annotation: this.$t.modules[module]?.annotation ?? '',
+                }))
+                .sort((a, b) => a.name.localeCompare(b.name));
         },
     },
 });

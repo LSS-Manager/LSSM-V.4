@@ -81,19 +81,14 @@ export default (
                                 .filter(module =>
                                     moduleFile[module].docs.includes(lang)
                                 )
-                                .sort((moduleA, moduleB) => {
-                                    const nameA =
-                                        moduleFile[moduleA].translations[lang]
-                                            .name;
-                                    const nameB =
+                                .sort((moduleA, moduleB) =>
+                                    moduleFile[moduleA].translations[
+                                        lang
+                                    ].name.localeCompare(
                                         moduleFile[moduleB].translations[lang]
-                                            .name;
-                                    return nameA > nameB
-                                        ? 1
-                                        : nameA < nameB
-                                        ? -1
-                                        : 0;
-                                })
+                                            .name
+                                    )
+                                )
                                 .map(module => `/${lang}/modules/${module}/`),
                         ],
                     },

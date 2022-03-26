@@ -41,6 +41,6 @@ Diese Module werden mit der Zeit übernommen, allerdings benötigen wir dafür n
 
 ### Neue Module im LSSM V.4
 
-Diese Module sind 
+Diese Module sind neu in der V4.
 
 <v3-v4-comparison-new/>

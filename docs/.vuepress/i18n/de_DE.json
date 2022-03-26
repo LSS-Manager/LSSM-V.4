@@ -150,12 +150,24 @@
     },
     "v3": {
         "modules": {
+            "AaoSearch": {
+                "v3Name": "AAO-Suche"
+            },
+            "Center-Map": {
+                "v3Name": "Center-Map"
+            },
+            "Clock": {
+                "v3Name": "Clock"
+            },
             "DestinationFilter": {
                 "annotation": "Dieser ist im Redesign für Fahrzeuge bereits integriert, soll aber auch noch als eigenes Modul in die V4 integriert werden.",
                 "v3Name": "Zielort Filter"
             },
             "DoctorRadioCall": {
                 "v3Name": "Nachforderungen per FMS"
+            },
+            "Eventsmission": {
+                "v3Name": "Markiert Eventeinsätze"
             },
             "FMS5InMap": {
                 "v3Name": "FMS 5 in der Karte"
@@ -176,12 +188,69 @@
                 "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
                 "v3Name": "Layout 04"
             },
+            "MissionOut": {
+                "v3Name": "MissionOut"
+            },
+            "Notification_Alert": {
+                "v3Name": "Notification Alert"
+            },
+            "Redesign01": {
+                "v3Name": "Redesign 01"
+            },
             "RenameFZ": {
                 "v3Name": "Fahrzeuge umbenennen"
+            },
+            "ShareAlliancePost": {
+                "v3Name": "Alarmieren, Teilen & Posten"
+            },
+            "WachenHoverStati": {
+                "v3Name": "Wachen Status"
+            },
+            "aaoZaehler": {
+                "v3Name": "AAO-Klick-Zähler"
+            },
+            "allianceMissionlistShare": {
+                "v3Name": "Einsätze freigeben"
             },
             "centermap": {
                 "annotation": "Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt noch.",
                 "v3Name": "Center-Map"
+            },
+            "creditserweiterung": {
+                "v3Name": "Creditserweiterung"
+            },
+            "dashboard": {
+                "v3Name": "Dashboard"
+            },
+            "displayUserId": {
+                "v3Name": "User-ID"
+            },
+            "extendedBuilding": {
+                "v3Name": "Erweiterte Gebäudeansicht"
+            },
+            "heatmap": {
+                "v3Name": "LS-Heatmap"
+            },
+            "iconFilter": {
+                "v3Name": "Icon Gebäude Filter"
+            },
+            "keyboardAlert": {
+                "v3Name": "Keyboard Alarmierung"
+            },
+            "missionDate": {
+                "v3Name": "Meldedatum für Einsätze"
+            },
+            "missionHelper": {
+                "v3Name": "Einsatzhelfer"
+            },
+            "missionKeyword": {
+                "v3Name": "Einsatzstichworte"
+            },
+            "overview": {
+                "v3Name": "Übersicht"
+            },
+            "releaseNotes": {
+                "v3Name": "Release Notes"
             },
             "saveVGE": {
                 "v3Name": "Eigene VGE speichern"
@@ -195,16 +264,33 @@
             "showNotTransportButtonAbove": {
                 "v3Name": "show Patient entlassen Above"
             },
+            "statusCount": {
+                "v3Name": "Status-Zähler"
+            },
             "statusDispatching": {
                 "v3Name": "Verbesserte Status 5"
+            },
+            "sumDailyMissions": {
+                "v3Name": "Summe für die tägliche Zusammenfassung"
             },
             "verbandsverwaltung": {
                 "v3Name": "Verbandsverwaltung"
             }
         },
         "settings": {
+            "extendedCallList": {
+                "collapsableMissions": "Einsätze einklappen",
+                "eventMissions": "Saisonale Einsätze markieren",
+                "shareMissions": "Einsätze teilen"
+            },
             "extendedCallWindow": {
-                "arrCounter": "AAO-Klickzähler"
+                "arrCounter": "AAO-Klickzähler",
+                "arrSearch": "AAO-Suche",
+                "generationDate": "Generierungszeitpunkt",
+                "missionKeywords": "Einsatzstichworte"
+            },
+            "extendedMap": {
+                "centerMap": "Karte zentrieren"
             }
         },
         "tables": {
