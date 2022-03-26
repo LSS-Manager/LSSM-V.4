@@ -273,7 +273,7 @@
             "verbandsverwaltung": {
                 "v3Name": "Administration"
             }
-		},
+        },
         "tables": {
             "annotations": "Remarques",
             "changes": "Modifications",
