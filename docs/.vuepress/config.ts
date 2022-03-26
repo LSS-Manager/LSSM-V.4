@@ -23,7 +23,6 @@ const VUEPRESS_PATH = __dirname;
 const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
 const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DIST_PATH = path.join(ROOT_PATH, 'dist');
-const DIST_DOCS_PATH = path.join(DIST_PATH, 'docs');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
 const DOCS_DIST_PATH = path.join(VUEPRESS_PATH, 'dist');
 const DOCS_TEMP_PATH = path.join(VUEPRESS_PATH, '.temp');
