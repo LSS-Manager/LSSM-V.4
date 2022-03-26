@@ -12,4 +12,4 @@ Puoi premere l'icona della stella accanto al nome di una missione per farla appa
 ## Mostra i guadagni
 Questo mostrerà i guadagni medi di quel tipo di missione.
 
-![Elenco esteso delle chiamate](missionList.png)
+![Elenco esteso delle chiamate](./missionList.png)

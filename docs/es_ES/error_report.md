@@ -30,4 +30,4 @@ Por favor proporcione su;
 * La versión de LSSM: Se encuentra haciendo clic en "LSSM V.4" en la esquina superior derecha de la página principal del juego, en la primera línea.
 
 ### Paso Nº 3. Reporta el problema
-Ahora puede enviarnos su informe de errores. Para hacer esto abra un problema en <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Verifique si ya existe un problema para este error y luego haga un seguimiento.
+Ahora puede enviarnos su informe de errores. Para hacer esto abra un problema en <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Verifique si ya existe un problema para este error y luego haga un seguimiento.

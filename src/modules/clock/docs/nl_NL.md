@@ -4,7 +4,7 @@ Dit betekent dat we je de mogelijkheid geven om een ​​groot aantal variabele
 Hulp bij de configuratie vindt u onder [Instellingen: Moment.js](/settings.md#moment-js).
 
 Momenteel bieden wij u de mogelijkheden aan voor klokken op de volgende locaties:
-* Navigatiebalk *Formaat hier: `LLLL: ss`*  ![Klok in de navigatiebalk](navbar.png)
+* Navigatiebalk *Formaat hier: `LLLL: ss`*  ![Klok in de navigatiebalk](./navbar.png)
 * Als overlay boven alle elementen
 
 ## Configuratie

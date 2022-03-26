@@ -2,9 +2,9 @@ Questo modulo permette di vedere un orologio personalizzabile all'interno del gi
 
 L'orologio può essere posizionato in due posizioni:
 * Sulla sinistra della barra di navigazione
-![Orologio nella barra di navigazione](navbar.png)
+![Orologio nella barra di navigazione](./navbar.png)
 * Come una sovrapposizione
-![Orologio come una sovrapposizione sulla chat](chatOverlay.png)
+![Orologio come una sovrapposizione sulla chat](./chatOverlay.png)
 
 Il formato nelle immagini di cui sopra è `DD[th] MMM YYYY LTS`.
 

@@ -1,13 +1,25 @@
 {
     "404": {
-        "content": "Cher utilisateur,\n\nmerci de l'intérêt que vous portez à la page Wiki du module {{module}} ! Malheureusement, nous n'avons pas créer le contenu pour votre langue {{lang}}. Si vous souhaitez contribuer à notre wiki, n'hésitez pas à créer cette page sur {{github}} ! Nous vous suggérons de consulter les fichiers des autres langues pour des exemples dans le {{docs_dir}}.",
-        "languages": "Ce module a déjà une page Wiki dans les langues suivantes :",
-        "title": "Aucune page de module n'existe encore"
+        "general": {
+            "home": "Retour à la page d'accueil"
+        },
+        "modules": {
+            "content": "Cher utilisateur,\n\nmerci de l'intérêt que vous portez à la page Wiki du module {{module}} ! Malheureusement, nous n'avons pas créer le contenu pour votre langue {{lang}}. Si vous souhaitez contribuer à notre wiki, n'hésitez pas à créer cette page sur {{github}} ! Nous vous suggérons de consulter les fichiers des autres langues pour des exemples dans le {{docs_dir}}.",
+            "languages": "Ce module a déjà une page Wiki dans les langues suivantes :",
+            "title": "Aucune page de module n'existe encore"
+        }
     },
     "apps": "Apps",
+    "containers": {
+        "danger": "Danger",
+        "tip": "Tip",
+        "warning": "Warning"
+    },
     "description": "Le Wiki pour LSS-Manager V.4",
-    "edit": {
-        "module": "Modifier la page"
+    "footer": {
+        "contributors": "Contributeurs",
+        "edit": "Modifier la page",
+        "lastUpdated": "Dernière mise à jour"
     },
     "head": {
         "alpha": "Ce module n'en est qu'à ses débuts et n'est actuellement disponible que pour les bêta-testeurs !",
@@ -127,6 +139,28 @@
         "serverStatus": {
             "game": "Statut du jeu en ligne",
             "lssm": "Statut du serveur LSSM"
+        }
+    },
+    "search": "Recherche sur le wiki",
+    "tables": {
+        "browser": "Navigateur",
+        "download": "Télécharger",
+        "link": "Lien",
+        "minVersion": "Version min."
+    },
+    "v3": {
+        "modules": {},
+        "tables": {
+            "annotations": "Remarques",
+            "changes": "Modifications",
+            "description": "Description",
+            "feature": "Fonctionnalité",
+            "module": "Module",
+            "setting": "Paramètre"
+        },
+        "v4annotations": {
+            "asyncButtons": "Encore en cours de développement : d'autres fonctionnalités sont à venir.",
+            "lssmaql": "Une expérimentation qui doit servir à extraire rapidement des données de l'API."
         }
     }
 }

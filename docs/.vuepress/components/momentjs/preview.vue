@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
 import moment from 'moment';
 
-export default Vue.extend({
+export default defineComponent({
     name: 'momentjs-preview',
     data() {
         return {

@@ -1,13 +1,16 @@
 <template>
-    <a :href="$themeConfig.variables.discord.invite" target="_blank">
+    <a
+        :href="`https://discord.gg/${themeData.variables.discord.invite}`"
+        target="_blank"
+    >
         <slot>Discord Server</slot>
     </a>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+import { useThemeData } from "@vuepress/theme-default/lib/client";
 
-export default Vue.extend({
-    name: 'discord-link',
-});
+import { ThemeData } from "../types/ThemeData";
+
+const themeData = useThemeData<ThemeData>();
 </script>

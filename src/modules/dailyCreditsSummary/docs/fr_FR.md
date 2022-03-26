@@ -4,13 +4,13 @@ Ce module a été un peu pimenté pour la V4.
 
 Il y a les "badges" affichés par défaut (ils peuvent être désactivés dans les paramètres) :
 
-![Badges](badges.png)
+![Badges](./badges.png)
 
 Vous pouvez désactiver l'affichage des moyennes dans les paramètres.
 
 Si vous cliquez sur le petit `i`, alors vous verrez un tableau triable :
 
-![Table](table.png)
+![Table](./table.png)
 
 De plus, un diagramme circulaire est affiché pour les recettes et les dépenses.
 

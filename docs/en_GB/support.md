@@ -9,10 +9,10 @@ sidebarDepth: 2
 ## Guideline
 A little aid, which should help you to create a support request.
 
-::: tip
+:::tip
 If you need assistance, describe your problem as precisely as possible. The better and more detailed you describe your problem, the faster and better we can help you.
 :::
-::: warning
+:::warning
 Please note that we do not officially support older browsers, mobile browsers and Microsoft Edge or Internet Explorer. Support for these browsers is therefore neither guaranteed nor likely.
 :::
 
@@ -29,7 +29,7 @@ Now you can send us your formulated problem with user data. Use one of the optio
 On our <discord/> you can get support in the channel <discord-channel channel="lssm-help"/>.
 
 ## on GitHub
-You may also open an issue on <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Please check here if an issue for this problem already exists and then follow it up.
+You may also open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check here if an issue for this problem already exists and then follow it up.
 
 ## Planned: Support directly in the game
 In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!

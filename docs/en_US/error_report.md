@@ -11,10 +11,10 @@ Here is a small tutorial about how to optimally report a bug.
 
 Before reporting a bug, check the wiki to see if it is an intended feature, or an already reported bug.
 
-::: tip
+:::tip
 When reporting a bug, describe it in as much detail as possible. The more detailed the report, the faster we can help you.
 :::
-::: warning
+:::warning
 Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
 :::
 
@@ -30,4 +30,4 @@ Please provide your;
 * LSSM Version: Found via clicking on `LSSM V.4` in the top right corner of the game main page, in the first line.
 
 ### 3. Report problem
-Now you can send us your bug report. To do this, open an issue on <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if an issue for this bug already exists and then follow it up.
+Now you can send us your bug report. To do this, open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if an issue for this bug already exists and then follow it up.

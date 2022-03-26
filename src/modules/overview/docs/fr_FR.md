@@ -3,7 +3,7 @@ Il y a également une fonction de recherche et les tableaux peuvent être triés
 
 L'aperçu, s'il est activé, est accessible via le menu LSSM sous le point "Aperçu" :
 
-![Ouverture via le menu LSSM](menu.png)
+![Ouverture via le menu LSSM](./menu.png)
 
 ## Véhicules
 Les informations suivantes sont disponibles dans l'aperçu des véhicules :
@@ -15,7 +15,7 @@ Les informations suivantes sont disponibles dans l'aperçu des véhicules :
 * Réservoir d'eau
 * Particularités
 
-![L'aperçu des véhicules](fahrzeuge.png)
+![L'aperçu des véhicules](./fahrzeuge.png)
 
 ## Bâtiment
 Tous les bâtiments sont listés dans un tableau commun qui contient les informations suivantes :
@@ -29,7 +29,7 @@ Tous les bâtiments sont listés dans un tableau commun qui contient les informa
 * Extensions
 * Particularités
 
-![L'aperçu des bâtiments](gebaeude.png)
+![L'aperçu des bâtiments](./gebaeude.png)
 
 ## Formation
 Les listes des formations possibles contiennent les informations suivantes :
@@ -37,4 +37,4 @@ Les listes des formations possibles contiennent les informations suivantes :
 * Véhicules nécessaire
 * Temps de formation
 
-![L'aperçu des formations](lehrgaenge.png)
+![L'aperçu des formations](./lehrgaenge.png)

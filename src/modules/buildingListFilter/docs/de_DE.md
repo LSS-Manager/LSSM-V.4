@@ -9,8 +9,8 @@ Dieses Modul bietet dir die Möglichkeit, die Filter über der Gebäudeliste **k
 
 Beispiel:
 
-![Eine Beispielhafte Filter-Konfiguration](btns.png)
+![Eine Beispielhafte Filter-Konfiguration](./btns.png)
 
 Die Konfiguration dafür sieht so aus:
 
-![Konfiguration](settings.png)
+![Konfiguration](./settings.png)
