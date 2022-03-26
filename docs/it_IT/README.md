@@ -14,6 +14,8 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+
 ## Circa LSSM
 
 LSS-MANAGER V.4 è un estensione per [Operatore112.it](https://www.operatore112.it/) e le sue altre versioni linguistiche.

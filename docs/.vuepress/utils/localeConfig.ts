@@ -4,7 +4,8 @@ import path from 'path';
 
 import type { $t } from './i18n';
 import type { DefaultThemeLocaleData } from '@vuepress/theme-default/lib/shared/options';
-import type {ModulesFile} from "./generate/modules";
+import type { Locale } from '../types/Locale';
+import type { ModulesFile } from './generate/modules';
 import type { SiteLocaleData } from '@vuepress/shared/lib/types/site';
 
 export type LocaleSiteConfig = Partial<SiteLocaleData>;
@@ -20,7 +21,7 @@ export default (
     const modules = Object.keys(moduleFile);
 
     return (
-        lang: string
+        lang: Locale
     ): {
         siteConfig: LocaleSiteConfig;
         themeConfig: LocaleThemeConfig;
@@ -76,7 +77,24 @@ export default (
                             )
                                 ? [`/${lang}/apps`]
                                 : []),
-                            ...modules.filter(module => !moduleFile[module].registration.locales || moduleFile[module].registration.locales?.includes(lang)).map(module => `/${lang}/modules/${module}/`),
+                            ...modules
+                                .filter(module =>
+                                    moduleFile[module].docs.includes(lang)
+                                )
+                                .sort((moduleA, moduleB) => {
+                                    const nameA =
+                                        moduleFile[moduleA].translations[lang]
+                                            .name;
+                                    const nameB =
+                                        moduleFile[moduleB].translations[lang]
+                                            .name;
+                                    return nameA > nameB
+                                        ? 1
+                                        : nameA < nameB
+                                        ? -1
+                                        : 0;
+                                })
+                                .map(module => `/${lang}/modules/${module}/`),
                         ],
                     },
                 ],

@@ -14,6 +14,8 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+
 ## Om LSSM
 
 LSS-MANAGER V.4 är ett tillägg för [larmcentralen-spelet.se](https://www.larmcentralen-spelet.se) och dess andra språkversioner.

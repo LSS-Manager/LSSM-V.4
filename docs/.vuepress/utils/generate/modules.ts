@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+import type { Locale } from '../../types/Locale';
 import type { Module } from '../../../../typings/Module';
 
-type LangCode = `${string}_${string}`;
 interface ModuleTranslation {
     name: string;
     description: string;
@@ -16,6 +16,7 @@ export type ModulesFile = Record<
     string,
     {
         registration: Module;
+        docs: Locale[];
         translations: Record<string, ModuleTranslation>;
     }
 >;
@@ -23,12 +24,12 @@ export interface Frontmatter {
     lang: string;
     title: string;
     editLinkPattern: string;
-    empty?: boolean
+    empty?: boolean;
 }
 
 const [, , file, MODULES_FOLDER, DOCS_FOLDER, langs, modules] = process.argv;
 
-const LANGS: LangCode[] = JSON.parse(langs);
+const LANGS: Locale[] = JSON.parse(langs);
 const MODULES: string[] = JSON.parse(modules);
 
 const loadJsonOrTSFile = <T>(file: string): Promise<T> => {
@@ -54,7 +55,9 @@ const modulesFile: ModulesFile = {};
         );
         if (registerFile.noapp) continue;
 
-        const getRootI18n = (lang: string): Promise<void|ModuleTranslation> => {
+        const getRootI18n = (
+            lang: string
+        ): Promise<ModuleTranslation | void> => {
             const i18nFolder = path.join(MODULE_FOLDER, 'i18n');
             return loadJsonOrTSFile<ResolvedModuleTranslation>(
                 path.join(i18nFolder, `${lang}.root`)
@@ -77,17 +80,19 @@ const modulesFile: ModulesFile = {};
                                     description: description || '',
                                 })
                         )
-                        .catch(() =>
-                            (modulesFile[module].translations[lang] = {
-                                name: module,
-                                description: '',
-                            })
+                        .catch(
+                            () =>
+                                (modulesFile[module].translations[lang] = {
+                                    name: module,
+                                    description: '',
+                                })
                         )
                 );
         };
 
         modulesFile[module] = {
             registration: registerFile,
+            docs: [],
             translations: {},
         };
 
@@ -105,34 +110,39 @@ const modulesFile: ModulesFile = {};
             );
             const DOCS_MODULE_FILE = path.join(DOCS_MODULE_FOLDER, 'README.md');
 
-            const MODULE_DOCS_FILE = lang.startsWith('en_') ? [lang, 'en_US', 'en_GB', 'en_AU'].map(l => path.join(
-                MODULE_DOCS_FOLDER,
-                `${l}.md`
-            )).find(file => fs.existsSync(file)) || path.join(
-                MODULE_DOCS_FOLDER,
-                `${lang}.md`
-            ) : path.join(
-                MODULE_DOCS_FOLDER,
-                `${lang}.md`
-            );
+            const MODULE_DOCS_FILE = lang.startsWith('en_')
+                ? [lang, 'en_US', 'en_GB', 'en_AU']
+                      .map(l => path.join(MODULE_DOCS_FOLDER, `${l}.md`))
+                      .find(file => fs.existsSync(file)) ||
+                  path.join(MODULE_DOCS_FOLDER, `${lang}.md`)
+                : path.join(MODULE_DOCS_FOLDER, `${lang}.md`);
 
             if (!fs.existsSync(DOCS_MODULE_FOLDER))
                 fs.mkdirSync(DOCS_MODULE_FOLDER, { recursive: true });
 
-            const frontMatterVars: Frontmatter = {lang: lang.replace('_', '-'), title: modulesFile[module].translations[lang].name, editLinkPattern: `:repo/edit/:branch/src/modules/${module}/docs/${lang}.md`};
+            const frontMatterVars: Frontmatter = {
+                lang: lang.replace('_', '-'),
+                title: modulesFile[module].translations[lang].name,
+                editLinkPattern: `:repo/edit/:branch/src/modules/${module}/docs/${lang}.md`,
+            };
 
             const getHead = (vars: Frontmatter) => `---
-${Object.entries(vars).map(([key, value]) => `${key}: ${value}`).join('\n')}
+${Object.entries(vars)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join('\n')}
 ---
-`
+`;
 
             if (fs.existsSync(MODULE_DOCS_FILE)) {
-                const docsContent = fs.readFileSync(MODULE_DOCS_FILE).toString();
+                const docsContent = fs
+                    .readFileSync(MODULE_DOCS_FILE)
+                    .toString();
                 frontMatterVars.empty = docsContent.trim() === '';
                 fs.writeFileSync(
                     DOCS_MODULE_FILE,
                     getHead(frontMatterVars) + docsContent
                 );
+                if (!frontMatterVars.empty) modulesFile[module].docs.push(lang);
                 const MODULE_DOCS_ASSETS = path.join(
                     MODULE_DOCS_FOLDER,
                     'assets'

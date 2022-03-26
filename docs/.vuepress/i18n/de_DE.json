@@ -215,7 +215,7 @@
             "setting": "Einstellung"
         },
         "v4annotations": {
-            "asyncButtons": "Noch in Entwicklung: Hier kommen in Zukunft noch mehr Features",
+            "asyncButtons": "Noch in Entwicklung: Hier kommen in Zukunft noch mehr Features.",
             "lssmaql": "Ein Experiment, welches mal dazu dienen soll schnell Daten aus der API auszulesen."
         }
     }

@@ -14,6 +14,8 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+
 ## About LSSM
 
 LSS-MANAGER V.4 is an extension for [Missionchief.co.uk](https://www.missionchief.co.uk) and its other language versions.

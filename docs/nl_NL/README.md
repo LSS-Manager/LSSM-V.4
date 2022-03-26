@@ -14,6 +14,8 @@ sidebarDepth: 2
 
 [Spel status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+
 ## Over LSSM
 
 LSS-MANAGER V.4 is een extensie voor [Meldkamerspel.com](https://www.meldkamerspel.com) en zijn andere taalversies.

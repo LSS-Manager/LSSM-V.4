@@ -14,6 +14,8 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+
 ## Sobre LSSM
 
 LSS MANAGER V.4 es una extensión de [Centro-de-mando.es](https://www.centro-de-mando.es/) y de otras versiones lingüísticas.

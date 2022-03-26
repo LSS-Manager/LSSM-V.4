@@ -14,6 +14,8 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+
 ## O LSSM
 
 LSS MANAGER V.4 je rozšíření pro hru [Operacni-stredisko.cz](https://www.operacni-stredisko.cz/) a její další jazykové verze.

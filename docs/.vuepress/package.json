@@ -5,15 +5,16 @@
 		"@vuepress/client": "^2.0.0-beta.35",
 		"@vuepress/plugin-active-header-links": "^2.0.0-beta.36",
 		"@vuepress/plugin-back-to-top": "^2.0.0-beta.36",
+		"@vuepress/plugin-container": "a^2.0.0-beta.36",
+		"@vuepress/plugin-external-link-icon": "^2.0.0-beta.36",
+		"@vuepress/plugin-git": "^2.0.0-beta.36",
+		"@vuepress/plugin-medium-zoom": "^2.0.0-beta.36",
 		"@vuepress/plugin-register-components": "^2.0.0-beta.36",
 		"@vuepress/plugin-search": "^2.0.0-beta.36",
 		"@vuepress/theme-default": "^2.0.0-beta.36",
 		"moment": "^2.29.1",
 		"vue": "^3.2.31",
 		"vuepress": "^2.0.0-beta.36",
-		"vuepress-plugin-code-copy": "^1.0.6",
-		"vuepress-plugin-redirect": "^1.2.5",
-		"vuepress-plugin-smooth-scroll": "^0.0.10",
-		"vuepress-plugin-zooming": "^1.1.8"
+		"vuepress-plugin-clipboard": "^1.0.7"
 	}
 }

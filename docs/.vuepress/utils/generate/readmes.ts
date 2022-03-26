@@ -32,6 +32,8 @@ sidebarDepth: 2
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
 [${serverStatus}](https://stats.uptimerobot.com/OEKDJSpmvK)
+
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 `
         )
     );

@@ -141,5 +141,26 @@
             "lssm": "LSSM-Server-Status"
         }
     },
-    "search": "search Wiki"
+    "search": "search Wiki",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "minimum Version"
+    },
+    "v3": {
+        "modules": {},
+        "settings": {},
+        "tables": {
+            "annotations": "Notes",
+            "changes": "Changes",
+            "feature": "Feature",
+            "module": "Module",
+            "setting": "Setting"
+        },
+        "v4annotations": {
+            "asyncButtons": "This is still in development, more features are being integrated with the time.",
+            "lssmaql": "An experiment, still in a very unstable alpha phase."
+        }
+    }
 }

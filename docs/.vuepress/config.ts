@@ -11,6 +11,7 @@ import localeConfig, {
     type LocaleThemeConfig,
 } from './utils/localeConfig';
 
+import type { Locale } from './types/Locale';
 import type { ThemeData } from './types/ThemeData';
 import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
@@ -47,7 +48,7 @@ const sidebar_others = [
 
 const LANGS = Object.keys(config.games)
     .filter(lang => fs.existsSync(path.join(DOCS_PATH, lang)))
-    .sort();
+    .sort() as Locale[];
 const MODULES = fs
     .readdirSync(MODULES_PATH)
     .filter(
@@ -212,6 +213,7 @@ export default defineUserConfig<ThemeData>({
 
     // plugins
     plugins: [
+        ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
         [
             '@vuepress/plugin-search',
             {

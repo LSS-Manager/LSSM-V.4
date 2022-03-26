@@ -36,8 +36,8 @@ export default defineComponent({
     },
     computed: {
         lang() {
-            return this.$lang.replace(/-/, '_');
+            return this.$lang.replace(/-/u, '_');
         },
-    }
+    },
 });
 </script>

@@ -1,8 +1,8 @@
 import type config from '../../../src/config';
 import type de_DE from '../i18n/de_DE.json';
 import type { DefaultThemeData } from '@vuepress/theme-default';
-import type { ModulesFile } from '../utils/generate/modules';
 import type { Issue } from './issues';
+import type { ModulesFile } from '../utils/generate/modules';
 import type v3Comparison from '../utils/v3Comparison.json';
 
 type MomentShort =

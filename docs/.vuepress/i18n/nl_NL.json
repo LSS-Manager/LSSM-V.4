@@ -1,12 +1,27 @@
 {
     "404": {
-        "content": "Beste gebruiker,\n\nBedankt voor je intresse in de wiki pagina van {{module}}! Helaas bestaat er nog geen pagina voor deze pagina voor jouw taal {{lang}}. Indien je wilt helpen door deze pagina toe te voegen, voel je vrij om deze pagina toe te voegen op {{github}}! We adviseren om een kijkje te nemen bij de andere talen voor voorbeelden {{docs_dir}}.",
-        "languages": "Deze module heeft al een Wiki pagina in de volgende talen:",
-        "title": "Er bestaat nog geen pagina voor deze module"
+        "general": {
+            "home": "Naar de startpagina"
+        },
+        "modules": {
+            "content": "Beste gebruiker,\n\nBedankt voor je intresse in de wiki pagina van {{module}}! Helaas bestaat er nog geen pagina voor deze pagina voor jouw taal {{lang}}. Indien je wilt helpen door deze pagina toe te voegen, voel je vrij om deze pagina toe te voegen op {{github}}! We adviseren om een kijkje te nemen bij de andere talen voor voorbeelden {{docs_dir}}.",
+            "languages": "Deze module heeft al een Wiki pagina in de volgende talen:",
+            "title": "Er bestaat nog geen pagina voor deze module"
+        }
     },
     "apps": "Apps",
+    "containers": {
+        "danger": "Danger",
+        "tip": "Tip",
+        "warning": "Warning"
+    },
     "description": "De Wiki voor LSS-Manager V.4",
     "edit": "Bewerk pagina",
+    "footer": {
+        "contributors": "Contributors",
+        "edit": "Bewerk pagina",
+        "lastUpdated": "Last Updated"
+    },
     "head": {
         "alpha": "Deze module is nog in zijn absolute begin en is momenteel alleen beschikbaar voor Beta testers!",
         "dev": "Deze module is nog in ontwikkeling. Daarom is het mogelijk dat er nog fouten in zitten!",
@@ -125,6 +140,28 @@
         "serverStatus": {
             "game": "Spel status",
             "lssm": "LSSM server status"
+        }
+    },
+    "search": "search Wiki",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "minimum Version"
+    },
+    "v3": {
+        "modules": {},
+        "settings": {},
+        "tables": {
+            "annotations": "Notes",
+            "changes": "Changes",
+            "feature": "Feature",
+            "module": "Module",
+            "setting": "Setting"
+        },
+        "v4annotations": {
+            "asyncButtons": "This is still in development, more features are being integrated with the time.",
+            "lssmaql": "An experiment, still in a very unstable alpha phase."
         }
     }
 }

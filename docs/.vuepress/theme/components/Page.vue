@@ -80,16 +80,27 @@
                     <p>{{ i18n.head.mapkit }}</p>
                 </div>
             </template>
-            <div
-                v-if="frontmatter.empty"
-                class="custom-container warning"
-            >
+            <div v-if="frontmatter.empty" class="custom-container warning">
                 <p class="custom-container-title">
-                    {{i18n['404'].modules.title}}
+                    {{ i18n['404'].modules.title }}
                 </p>
                 <p v-html="emptyMessageContent"></p>
+                <div v-if="docsAvailable.length">
+                    {{ i18n['404'].modules.languages }}
+                    <ul>
+                        <li v-for="lang in docsAvailable" :key="lang">
+                            <AutoLink
+                                :item="{
+                                    link: `/${lang}/modules/${moduleId}/`,
+                                    text: themeData.locales['/' + lang + '/']
+                                        .selectLanguageText,
+                                }"
+                            />
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <Content v-else/>
+            <Content v-else />
         </div>
 
         <PageMeta />
@@ -105,18 +116,20 @@ import { computed } from 'vue';
 import { useThemeData } from '@vuepress/theme-default/lib/client';
 import { usePageData, usePageFrontmatter } from '@vuepress/client';
 
+import AutoLink from '@theme/AutoLink.vue';
 import PageMeta from '@theme/PageMeta.vue';
 import PageNav from '@theme/PageNav.vue';
 
 import octicons from '@primer/octicons';
 
-import type {Frontmatter} from '../../utils/generate/modules';
+import type { Frontmatter } from '../../utils/generate/modules';
 import type { ThemeData } from '../../types/ThemeData';
 import type {
-    DefaultThemeNormalPageFrontmatter,DefaultThemePageData
+    DefaultThemeNormalPageFrontmatter,
+    DefaultThemePageData,
 } from '@vuepress/theme-default/lib/shared';
 
-type ModuleFrontmatter = DefaultThemeNormalPageFrontmatter & Frontmatter
+type ModuleFrontmatter = DefaultThemeNormalPageFrontmatter & Frontmatter;
 
 const frontmatter = usePageFrontmatter<ModuleFrontmatter>();
 const pageData = usePageData<DefaultThemePageData>();
@@ -149,20 +162,30 @@ const additionalBlockquote = computed(
 );
 const moduleI18n = computed(() =>
     isModule
-        ? themeData.value.variables.modules[moduleId.value].translations[lang.value]
+        ? themeData.value.variables.modules[moduleId.value].translations[
+              lang.value
+          ]
         : null
 );
 
-const emptyMessageContent = computed(() => i18n.value['404'].modules.content.replace(/\n/gu, '<br>').replace(/\{\{module\}\}/gu, `<b>${moduleI18n.value.name}</b>`)
-    .replace(/\{\{lang\}\}/gu, `<code>${lang.value}</code>`)
-    .replace(
-        /\{\{github\}\}/gu,
-        `<a href="${themeData.value.variables.github}/new/dev/src/modules/${moduleId.value}/docs?filename=${lang.value}.md" target="_blank">GitHub</a>`
-    )
-    .replace(
-        /\{\{docs_dir\}\}/gu,
-        `<a href="${themeData.value.variables.github}/tree/dev/src/modules/${moduleId.value}/docs" target="_blank">docs directory</a>`
-    ));
+const emptyMessageContent = computed(() =>
+    i18n.value['404'].modules.content
+        .replace(/\n/gu, '<br>')
+        .replace(/\{\{module\}\}/gu, `<b>${moduleI18n.value.name}</b>`)
+        .replace(/\{\{lang\}\}/gu, `<code>${lang.value}</code>`)
+        .replace(
+            /\{\{github\}\}/gu,
+            `<a href="${themeData.value.variables.github}/new/dev/src/modules/${moduleId.value}/docs?filename=${lang.value}.md" target="_blank">GitHub</a>`
+        )
+        .replace(
+            /\{\{docs_dir\}\}/gu,
+            `<a href="${themeData.value.variables.github}/tree/dev/src/modules/${moduleId.value}/docs" target="_blank">docs directory</a>`
+        )
+);
+
+const docsAvailable = computed(() =>
+    isModule ? themeData.value.variables.modules[moduleId.value].docs : null
+);
 </script>
 
 <style lang="sass" scoped>
@@ -173,7 +196,7 @@ const emptyMessageContent = computed(() => i18n.value['404'].modules.content.rep
     vertical-align: text-top
 
 .icon ::v-deep(.github-icon)
-    width: 1.5ex
+    width: calc(1.5ex + 1px) // to avoid icon being cut off at right border
     height: 1.5ex
 
 html.dark .icon ::v-deep(.invertible-icon)
