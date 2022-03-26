@@ -688,7 +688,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire,foam capabilty as well as being useful at RTCs.',
+                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire, foam capabilty as well as being useful at RTCs.',
         },
         39: {
             caption: 'OSU',
