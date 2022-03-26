@@ -6,6 +6,20 @@ sidebarDepth: 3
 
 # FAQ ❓
 
+### LSS-Manager does not load in my game. What should I do?
+
+There are two possibilities:
+
+#### 1. LSS-Manager does not support your game yet.
+
+LSS-Manager only works in games that it has translations for. We (the LSSM-Team) decided not to add translations for all games, because it would take too much time, and we don't speak most of the languages ourselves.
+
+If you want LSSM to work in your game, you can help us by adding the translations. Help with that can be found on our <discord/>.
+
+#### 2. There's a bug in LSS-Manager.
+
+In that case, please refer to [report bugs][error] or [support][support].
+
 ### How much does LSS Manager cost?
 LSS-Manager is a free extension. - we do not intend to change this.
 

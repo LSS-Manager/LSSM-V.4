@@ -33,7 +33,7 @@ actions:
     link: /sv_SE/
     type: secondary
   - text: Language not listed?
-    link: /en_US/faq#language-not-available
+    link: /en_US/faq#_1-lss-manager-does-not-support-your-game-yet
     type: secondary
 ---
 
