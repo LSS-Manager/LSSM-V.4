@@ -37,6 +37,9 @@ ${PRIMARIES.map(lang =>
             : langArray.find(([locale]) => locale === lang)?.[1] ?? ''
     )
 ).join('\n')}
+  - text: " "
+    link: " "
+    type: secondary
 ${langArray
     .filter(([lang]) => !PRIMARIES.includes(lang) && !lang.startsWith('en_'))
     .map(([lang, flag]) => generateAction(lang, flag))
