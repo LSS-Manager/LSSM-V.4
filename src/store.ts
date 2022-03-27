@@ -175,7 +175,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             moduleWiki:
                 (_, getters: GetterTree<RootState, RootState>) =>
                 (moduleId: keyof Modules): string =>
-                    `${getters.wiki}modules/${moduleId}.html`,
+                    `${getters.wiki}modules/${moduleId}/`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
