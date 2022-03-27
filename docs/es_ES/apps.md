@@ -1,5 +1,5 @@
 ---
-title: ℹ️ General
+title: ℹ️ Información general sobre módulos
 lang: es_ES
 sidebarDepth: 2
 ---

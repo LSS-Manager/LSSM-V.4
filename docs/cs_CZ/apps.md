@@ -1,5 +1,5 @@
 ---
-title: ℹ️ General
+title: ℹ️ Základní informace o modulech
 lang: cs_CZ
 sidebarDepth: 2
 ---

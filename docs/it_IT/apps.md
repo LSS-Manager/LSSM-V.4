@@ -1,5 +1,5 @@
 ---
-titolo: ℹ️ Generale
+titolo: ℹ️ Informazioni generali sui moduli
 lang: it_IT
 sidebarDepth: 2
 ---

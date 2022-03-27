@@ -1,5 +1,5 @@
 ---
-title: ℹ️ Algemeen
+title: ℹ️ Algemene infomatie over modules
 lang: nl_NL
 sidebarDepth: 2
 ---

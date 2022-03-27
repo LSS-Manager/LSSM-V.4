@@ -1,5 +1,5 @@
 ---
-title: ℹ️ Generelt
+title: ℹ️ Generell informasjon om utvidelser
 lang: nb_NO
 sidebarDepth: 2
 ---

@@ -1,5 +1,5 @@
 ---
-titel: ℹ️ Allmänt
+titel: ℹ️ Allmän information om moduler
 lang: sv_SE
 sidebarDepth: 2
 ---
