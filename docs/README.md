@@ -32,6 +32,9 @@ actions:
   - text: 🇸🇪
     link: /sv_SE/
     type: secondary
+  - text: " "
+    link: " "
+    type: secondary
   - text: Language not listed?
     link: /en_US/faq#_1-lss-manager-does-not-support-your-game-yet
     type: secondary
