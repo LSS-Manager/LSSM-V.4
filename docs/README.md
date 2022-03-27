@@ -43,7 +43,7 @@ actions:
     type: secondary
 ---
 
-<!-- Do NOT edit anything above this line! Any edits will be removed by CI as content is auto generated! -->
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
 ### Easy installation:
 1. [Tampermonkey](https://tampermonkey.net)
