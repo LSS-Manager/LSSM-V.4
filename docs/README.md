@@ -43,6 +43,8 @@ actions:
     type: secondary
 ---
 
+<!-- Do NOT edit anything above this line! Any edits will be removed by CI as content is auto generated! -->
+
 ### Easy installation:
 1. [Tampermonkey](https://tampermonkey.net)
 2. <a :href="`${$theme.variables.server}lssm-v4.user.js`" target="_blank">Userscript</a>
