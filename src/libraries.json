@@ -141,7 +141,7 @@
     "eslint": {
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "url": "https://eslint.org",
-        "version": "8.11.0"
+        "version": "8.12.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -227,7 +227,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "2.6.0"
+        "version": "2.6.1"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",

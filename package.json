@@ -1,5 +1,5 @@
 {
-    "version": "4.5.6+20220327.1404",
+    "version": "4.5.6+20220328.1108",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -67,7 +67,7 @@
         "all-contributors-cli": "^6.20.0",
         "copy-dir": "^1.3.0",
         "css-loader": "^6.7.1",
-        "eslint": "^8.11.0",
+        "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-formatter-table": "^7.32.1",
         "eslint-plugin-compat": "^4.0.2",
@@ -77,7 +77,7 @@
         "eslint-plugin-vue": "^8.5.0",
         "html-loader": "^3.1.0",
         "moment-timezone": "^0.5.34",
-        "prettier": "^2.6.0",
+        "prettier": "^2.6.1",
         "sass": "^1.49.9",
         "sass-loader": "^12.6.0",
         "string-replace-loader": "^3.1.0",
