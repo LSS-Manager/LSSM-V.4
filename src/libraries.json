@@ -341,7 +341,7 @@
     },
     "vuepress-plugin-clipboard": {
         "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
-        "version": "1.0.7"
+        "version": "1.0.8"
     },
     "vuex": {
         "icon": "https://vuejs.org/images/logo.png",
