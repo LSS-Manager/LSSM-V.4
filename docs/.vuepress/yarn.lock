@@ -1600,10 +1600,10 @@ vue@^3.2.28, vue@^3.2.31:
     "@vue/server-renderer" "3.2.31"
     "@vue/shared" "3.2.31"
 
-vuepress-plugin-clipboard@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-clipboard/-/vuepress-plugin-clipboard-1.0.7.tgz#5750bdb74a4dacc8469360bd49cbec090b209004"
-  integrity sha512-HZJP3PhkPIhiLCg3TozV5xNl55B5CaUlK9SljdUy/4bjEoD32Q1PyFi87MdsAAjWjAaaN0sAFcPSps69sORg9w==
+vuepress-plugin-clipboard@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-clipboard/-/vuepress-plugin-clipboard-1.0.8.tgz#725c30208c52f097a309b386d96e7c0a141460ad"
+  integrity sha512-npzJpmIoU73iwuihVCYq82my9opkphp4MQR30lEDQ9upBVjbkFLetMYx/DApTX+y7SKVV+jufS33shzoGBn7Xw==
 
 vuepress-vite@2.0.0-beta.36:
   version "2.0.0-beta.36"
