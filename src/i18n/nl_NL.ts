@@ -69,11 +69,12 @@ export default {
         requestIssue: {
             title: 'Foutief serververzoek: Status {status}',
             text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
-<b>Statuscode</b>: <code>{status}</code><br>
-<b>Statustekst</b>: <code>{statusText}</code><br>
+<b>Statuscode</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Functie</b>: <code>{feature}</code><br>
 <b>Duur</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
 Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,

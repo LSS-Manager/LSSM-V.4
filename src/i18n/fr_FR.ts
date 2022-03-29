@@ -69,11 +69,12 @@ export default {
         requestIssue: {
             title: 'requête erronée: Status {status}',
             text: `Aïe, malheureusement une erreur s'est produite avec cette requête du serveur :<br>
-<b>Statuscode</b>: <code>{status}</code><br>
-<b>Statustext</b>: <code>{statusText}</code><br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Durée</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Veuillez réessayer d'effectuer l'action souhaitée.<br>
 Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû à des problèmes de serveur. Veuillez réessayer ultérieurement.`,

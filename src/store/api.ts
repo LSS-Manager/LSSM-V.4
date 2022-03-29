@@ -929,6 +929,8 @@ export default {
                                             init.method?.toUpperCase() ?? 'GET',
                                         feature,
                                         duration: Date.now() - startTime,
+                                        timestamp: new Date().toISOString(),
+                                        uid: `${rootState.lang}-${window.user_id}`,
                                     }),
                                     buttons: [
                                         {
