@@ -2,7 +2,7 @@ Velen spelers delen regelmatig inzetten met het team en schrijven er een kort ch
 
 Deze module maakt het mogelijk dat je met 1 klik kan alarmeren, delen en het chatbericht sturen. 
 In de instellingen kan je eigen chatbericht klaarzetten die als template worden gebruikt. Daarin kan je de onderstaande variabelen gebruiken. 
-Daarnaast heeft deze module een integratie met de [Deel meldingen](extendedCallList.md#deel-meldingen) van de module `Uitgebreide meldingenlijst`. Dat betekent dat wanneer je die optie aanzet, er in de meldingenlijst een optie komt om bij het delen ook een chatbericht te versturen.
+Daarnaast heeft deze module een integratie met de [Deel meldingen](../extendedCallList#deel-meldingen) van de module `Uitgebreide meldingenlijst`. Dat betekent dat wanneer je die optie aanzet, er in de meldingenlijst een optie komt om bij het delen ook een chatbericht te versturen.
 
 ## Variabelen
 
@@ -55,4 +55,4 @@ Bijvoorbeeld als je 7 uur en 22,5 minuten na de actuele tijd wilt invoegen, maar
 
 Wil je de bijbehorende datum weergeven, dan voeg je eenvoudig een `d` toe aan de variabele: <code v-html="'{{now+5r0d}}'"></code> wordt bijvoorbeeld op 24.03.2020 om 10:32 de volgende uitkomst: `16:00 (24.03.)`, dezelfde dag om 21:43 wordt dat `03:00 (25.03.)`. 
 
-Wanneer je het nog niet begrijpt, dan kan je onze van onze [Support](/support.md) gebruik maken.
+Wanneer je het nog niet begrijpt, dan kan je onze van onze [Support](../../support.md) gebruik maken.

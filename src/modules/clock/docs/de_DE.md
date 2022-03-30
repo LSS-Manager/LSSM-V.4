@@ -10,4 +10,4 @@ Aktuell bieten wir dir die Möglichkeit von Uhren an folgenden Stellen:
 
 ## Konfiguration
 
-Für Informationen zur Konfiguration schau dir bitte den Abschnitt [Moment.js](/settings.md#moment-js) auf der Infoseite der Einstellungen an.
+Für Informationen zur Konfiguration schau dir bitte den Abschnitt [Moment.js](../../settings.md#moment-js) auf der Infoseite der Einstellungen an.

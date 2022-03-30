@@ -10,4 +10,4 @@ Actuellement, nous t'offrons la possibilité de mettre l'horloge aux endroits su
 
 ## Configuration
 
-Pour de plus amples informations sur la configuration, veuillez consulter [Paramètres : Moment.js](settings.md#moment-js).
+Pour de plus amples informations sur la configuration, veuillez consulter [Paramètres : Moment.js](../../settings.md#moment-js).

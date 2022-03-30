@@ -54,4 +54,4 @@ Also, you can choose to round up or down. To round up to each quarter-hour, just
 
 Example: If you want to do "in 7 hours and 22.5 minutes, but round down to a minute divisible by 3", just use <variable variable="now+7.266r-3"/>.
 
-If you don't understand the system or need help, you may always reach out our [Support](/support.md).
+If you don't understand the system or need help, you may always reach out our [Support](../../support.md).

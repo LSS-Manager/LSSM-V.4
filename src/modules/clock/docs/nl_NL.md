@@ -9,5 +9,5 @@ Momenteel bieden wij u de mogelijkheden aan voor klokken op de volgende locaties
 
 ## Configuratie
 
-=> [Instellingen: Moment.js](/settings.md#moment-js)
+=> [Instellingen: Moment.js](../../settings.md#moment-js)
 

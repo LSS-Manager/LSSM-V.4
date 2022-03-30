@@ -54,4 +54,4 @@ Vous pouvez également choisir d'arrondir à l'unité supérieure ou inférieure
 
 Exemple : Si vous voulez faire "en 7 heures et 22,5 minutes, mais arrondir à une minute divisible par 3", il suffit d'utiliser <variable variable="now+7.266r-3"/>.
 
-Si vous ne comprenez pas le système ou si vous avez besoin d'aide, vous pouvez toujours joindre notre [Support](/support.md).
+Si vous ne comprenez pas le système ou si vous avez besoin d'aide, vous pouvez toujours joindre notre [Support](../../support.md).

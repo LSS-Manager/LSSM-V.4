@@ -96,7 +96,7 @@ Diese Hotkeys sind nur im Hauptfenster (dort wo Karte, Einsatzliste, Verbandscha
 ## Einsatzfenster
 
 ### Einsatzsortierung
-Diese Hotkeys sind für die modifizierten Knöpfe der Einsatzsortierung im Modul [Erweiterte Einsatzliste](extendedCallList.md) da:
+Diese Hotkeys sind für die modifizierten Knöpfe der Einsatzsortierung im Modul [Erweiterte Einsatzliste](../extendedCallList) da:
 
 * Alarmieren und weiter
 * Alarmieren, Teilen und weiter

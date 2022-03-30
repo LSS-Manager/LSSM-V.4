@@ -2,7 +2,7 @@ Viele SpielerInnen teilen regelmäßig Einsätze mit ihrem Verband und schreiben
 
 Dieses Modul ermöglicht es, mit einem einzigen Klick zu alarmieren, zu teilen und zu posten!
 In den Einstellungen kannst du dir eigene Templates anlegen und dabei sogar die untenstehenden Variablen nutzen.
-Zudem besitzt dieses Modul eine Integration in das Feature [Einsätze teilen](extendedCallList.md#einsatze-teilen) des Moduls `Erweiterte Einsatzliste`. Das heißt, wenn du hier die Einstellung `Integration in die Einsatzliste` aktiviert hast, wird der Teilen-Knopf in der Einsatzliste ebenfalls die von dir eingestellten Rückmeldungen als Auswahl-Optionen beinhalten.
+Zudem besitzt dieses Modul eine Integration in das Feature [Einsätze teilen](../extendedCallList#einsatze-teilen) des Moduls `Erweiterte Einsatzliste`. Das heißt, wenn du hier die Einstellung `Integration in die Einsatzliste` aktiviert hast, wird der Teilen-Knopf in der Einsatzliste ebenfalls die von dir eingestellten Rückmeldungen als Auswahl-Optionen beinhalten.
 
 ## Variablen
 
@@ -58,4 +58,4 @@ Beispiel: Wenn du "In 7 Stunden und 22,5 Minuten, aber auf eine Minutenzahl, die
 
 Möchtest du das jeweils zugehörige Datum mit ausgeben, dann füge einfach ein `d` hinten an die Variable an: <code v-html="'{{now+5r0d}}'"></code> Würde z.B. am 24.03.2020 um 10:32 folgenden Output generieren: `16:00 (24.03.)`, am selben Tag um 21:43 würde das Ergebnis `03:00 (25.03.)` sein.
 
-Wenn du das ganze nicht verstehst (was wir als überaus verständlich werten), kannst du dir über den [Support](/support.md) Hilfe holen und uns fragen.
+Wenn du das ganze nicht verstehst (was wir als überaus verständlich werten), kannst du dir über den [Support](../../support.md) Hilfe holen und uns fragen.

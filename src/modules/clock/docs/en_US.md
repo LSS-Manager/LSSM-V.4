@@ -10,4 +10,4 @@ The format in the above images is `DD[th] MMM YYYY LTS`.
 
 ## Configuration
 
-For configuration information, please see [Settings: Moment.js](/settings.md#moment-js).
+For configuration information, please see [Settings: Moment.js](../../settings.md#moment-js).

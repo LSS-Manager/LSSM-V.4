@@ -54,7 +54,7 @@ Trie ta liste de missions selon certains critères ! Ici aussi, la couleur du bo
 ![Trier les missions](./missionsort/missionSort.png)
 
 ### Tri dans la fenêtre de déploiement
-Avec ce paramètre, vous pouvez reprendre le tri dans la fenêtre de déploiement. Bien entendu, vous pouvez aussi définir [Raccourcis](hotkeys.md) pour les boutons modifiés. Une petite case à cocher te permet de changer à tout moment le mode des boutons entre "trier" et "standard" dans la fenêtre de déploiement.
+Avec ce paramètre, vous pouvez reprendre le tri dans la fenêtre de déploiement. Bien entendu, vous pouvez aussi définir [Raccourcis](../hotkeys) pour les boutons modifiés. Une petite case à cocher te permet de changer à tout moment le mode des boutons entre "trier" et "standard" dans la fenêtre de déploiement.
 
 Si vous n'avez pas choisi de tri, les boutons ne seront pas modifiés et aucune coche n'apparaîtra.
 
