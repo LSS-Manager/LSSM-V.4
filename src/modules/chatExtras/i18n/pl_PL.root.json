@@ -7,7 +7,7 @@
             "title": "Własny format sygnatury czasowej"
         },
         "chatTimeFormat": {
-            "description": "Tutaj możesz wybrać żądany format. Możesz znaleźć pomoc <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">here</a>.",
+            "description": "Tutaj możesz wybrać żądany format. Możesz znaleźć pomoc <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">here</a>.",
             "title": "Format daty i godziny"
         }
     }

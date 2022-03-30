@@ -11,11 +11,11 @@
             "title": "Afficher l'horloge en overlay"
         },
         "navFormat": {
-            "description": "Ici, vous pouvez définir le format de l'horloge. Vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#Configuration\">ici</a>.",
+            "description": "Ici, vous pouvez définir le format de l'horloge. Vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#Configuration\">ici</a>.",
             "title": "Format de l'horloge dans la barre de navigation."
         },
         "overlayFormat": {
-            "description": "Ici, vous pouvez définir le format de l'horloge. Vous trouverez une aide à ce sujet : <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#Configuration\">ici</a>.",
+            "description": "Ici, vous pouvez définir le format de l'horloge. Vous trouverez une aide à ce sujet : <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#Configuration\">ici</a>.",
             "title": "Format de l'horloge en overlay"
         }
     }
