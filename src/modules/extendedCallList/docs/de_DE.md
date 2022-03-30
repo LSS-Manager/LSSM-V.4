@@ -57,7 +57,7 @@ Sortiere deine Einsatzliste nach bestimmten Kriterien! Auch hier lässt sich die
 ![Einsätze sortieren](./missionsort/missionSort.png)
 
 ### Sortierung im Einsatzfenster
-Mit dieser Einstellung kannst du die Sortierung ins Einsatzfenster übernehmen. Selbstverständlich kannst du auch [Hotkeys](../hotkeys) für die modifizierten Knöpfe festlegen. Mit einer kleinen Checkbox kannst du im Einsatzfenster jederzeit zwischen den Modus der Knöpfe zwischen "sortiert" und "Standard" umschalten.
+Mit dieser Einstellung kannst du die Sortierung ins Einsatzfenster übernehmen. Selbstverständlich kannst du auch [Hotkeys](../hotkeys/) für die modifizierten Knöpfe festlegen. Mit einer kleinen Checkbox kannst du im Einsatzfenster jederzeit zwischen den Modus der Knöpfe zwischen "sortiert" und "Standard" umschalten.
 
 Hast du keine Sortierung ausgewählt, werden die Knöpfe nicht modifiziert und es erscheint kein Haken.
 

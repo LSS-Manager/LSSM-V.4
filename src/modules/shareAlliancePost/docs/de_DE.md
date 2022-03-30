@@ -2,7 +2,7 @@ Viele SpielerInnen teilen regelmäßig Einsätze mit ihrem Verband und schreiben
 
 Dieses Modul ermöglicht es, mit einem einzigen Klick zu alarmieren, zu teilen und zu posten!
 In den Einstellungen kannst du dir eigene Templates anlegen und dabei sogar die untenstehenden Variablen nutzen.
-Zudem besitzt dieses Modul eine Integration in das Feature [Einsätze teilen](../extendedCallList#einsatze-teilen) des Moduls `Erweiterte Einsatzliste`. Das heißt, wenn du hier die Einstellung `Integration in die Einsatzliste` aktiviert hast, wird der Teilen-Knopf in der Einsatzliste ebenfalls die von dir eingestellten Rückmeldungen als Auswahl-Optionen beinhalten.
+Zudem besitzt dieses Modul eine Integration in das Feature [Einsätze teilen](../extendedCallList/#einsatze-teilen) des Moduls `Erweiterte Einsatzliste`. Das heißt, wenn du hier die Einstellung `Integration in die Einsatzliste` aktiviert hast, wird der Teilen-Knopf in der Einsatzliste ebenfalls die von dir eingestellten Rückmeldungen als Auswahl-Optionen beinhalten.
 
 ## Variablen
 

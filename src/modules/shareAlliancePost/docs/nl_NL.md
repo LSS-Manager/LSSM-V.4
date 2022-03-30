@@ -2,7 +2,7 @@ Velen spelers delen regelmatig inzetten met het team en schrijven er een kort ch
 
 Deze module maakt het mogelijk dat je met 1 klik kan alarmeren, delen en het chatbericht sturen. 
 In de instellingen kan je eigen chatbericht klaarzetten die als template worden gebruikt. Daarin kan je de onderstaande variabelen gebruiken. 
-Daarnaast heeft deze module een integratie met de [Deel meldingen](../extendedCallList#deel-meldingen) van de module `Uitgebreide meldingenlijst`. Dat betekent dat wanneer je die optie aanzet, er in de meldingenlijst een optie komt om bij het delen ook een chatbericht te versturen.
+Daarnaast heeft deze module een integratie met de [Deel meldingen](../extendedCallList/#deel-meldingen) van de module `Uitgebreide meldingenlijst`. Dat betekent dat wanneer je die optie aanzet, er in de meldingenlijst een optie komt om bij het delen ook een chatbericht te versturen.
 
 ## Variabelen
 
