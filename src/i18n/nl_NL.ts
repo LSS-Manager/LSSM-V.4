@@ -73,8 +73,8 @@ export default {
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Functie</b>: <code>{feature}</code><br>
 <b>Duur</b>: <code>{duration}ms</code><br>
-<b>User</b>: <code>{uid}</code><br>
-<b>Timestamp</b>: <code>{timestamp}</code>
+<b>Gebruiker</b>: <code>{uid}</code><br>
+<b>Tijdstip</b>: <code>{timestamp}</code>
 <br>
 Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
 Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
