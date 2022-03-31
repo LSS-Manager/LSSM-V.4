@@ -9,6 +9,10 @@
         "chatTimeFormat": {
             "description": "Ici, vous pouvez définir le format de ton choix. vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">ici</a>.",
             "title": "Format de la date et de l'heure du chat"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
+            "title": "Show Chat-History in Header"
         }
     }
 }

@@ -9,6 +9,10 @@
         "chatTimeFormat": {
             "description": "Zde můžete zvolit formát datumu. Nápovědu naleznete <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">zde</a>.",
             "title": "Formát datumu a času"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
+            "title": "Show Chat-History in Header"
         }
     }
 }
