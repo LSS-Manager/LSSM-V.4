@@ -379,13 +379,13 @@
     "@vuepress/core" "2.0.0-beta.37"
     prismjs "^1.27.0"
 
-"@vuepress/plugin-register-components@^2.0.0-beta.36":
-  version "2.0.0-beta.36"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-beta.36.tgz#b6b5bb5134e6d571d2384ae9af69b4285f99ff21"
-  integrity sha512-ciIDC8t4r9n1wbVVwvfcOY/iZ2s8tka3XThs1zrfja2l7TI9BX6+wCT9N/TO+1pOjYhn6938FmTrv4kK69eRFA==
+"@vuepress/plugin-register-components@^2.0.0-beta.37":
+  version "2.0.0-beta.37"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-beta.37.tgz#378be2744b8ba904308c870515a23acc01d03bb3"
+  integrity sha512-uyMpLkeFqoMUoyALtORtW8TfoNpPyUO3uSEyC5ztVvgH0UA8lk8WFhcYJwjhx+PEUFFWYUdL0atBYAaqFDSzFQ==
   dependencies:
-    "@vuepress/core" "2.0.0-beta.36"
-    "@vuepress/utils" "2.0.0-beta.35"
+    "@vuepress/core" "2.0.0-beta.37"
+    "@vuepress/utils" "2.0.0-beta.37"
     chokidar "^3.5.3"
 
 "@vuepress/plugin-search@^2.0.0-beta.36":
