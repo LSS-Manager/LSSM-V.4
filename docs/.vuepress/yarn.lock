@@ -129,12 +129,7 @@
     "@vue/compiler-dom" "3.2.31"
     "@vue/shared" "3.2.31"
 
-"@vue/devtools-api@^6.0.0", "@vue/devtools-api@^6.0.0-beta.21.1":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.1.3.tgz#a44c52e8fa6d22f84db3abdcdd0be5135b7dd7cf"
-  integrity sha512-79InfO2xHv+WHIrH1bHXQUiQD/wMls9qBk6WVwGCbdwP7/3zINtvqPNMtmSHXsIKjvUAHc8L0ouOj6ZQQRmcXg==
-
-"@vue/devtools-api@^6.1.4":
+"@vue/devtools-api@^6.0.0", "@vue/devtools-api@^6.0.0-beta.21.1", "@vue/devtools-api@^6.1.4":
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.1.4.tgz#b4aec2f4b4599e11ba774a50c67fa378c9824e53"
   integrity sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==
@@ -220,7 +215,7 @@
     envinfo "^7.8.1"
     esbuild "^0.14.29"
 
-"@vuepress/client@2.0.0-beta.35", "@vuepress/client@^2.0.0-beta.35":
+"@vuepress/client@2.0.0-beta.35":
   version "2.0.0-beta.35"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.35.tgz#943b3b84e882a1b0c5e50b46dc1f12df557e71a2"
   integrity sha512-oQj+fDvfDDJ+fPpcVVRJLeVX1QmnLCcpLBxPBVhqMD0WAFkj+sCBaeq0sQc5CwDaNysDcN71ACeuEpLDOEtCgQ==
@@ -230,7 +225,7 @@
     vue "^3.2.28"
     vue-router "^4.0.12"
 
-"@vuepress/client@2.0.0-beta.37":
+"@vuepress/client@2.0.0-beta.37", "@vuepress/client@^2.0.0-beta.37":
   version "2.0.0-beta.37"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.37.tgz#668bb7fdf5e691cd9fa72fc1bd543370948ba632"
   integrity sha512-Sn94s/Knp76YPO67QSEl/iVHA1gz+HPJdKIUj971UOMAM1DWE3PoRKLx3CKNJd5gqlyJV9mIxJzl6yfoZ54KaQ==
