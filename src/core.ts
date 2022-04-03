@@ -11,7 +11,11 @@ import LSSMV4 from './LSSMV4.vue';
 import store from './store';
 import utils from './utils';
 
-import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
+import type {
+    ModuleMainFunction,
+    Modules,
+    ModuleSettingFunction,
+} from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
@@ -82,6 +86,27 @@ utils(Vue);
             // if no i18n exists, do nothing
         }
     }
+
+    Object.entries(LSSM.$store.state.modules as Modules)
+        .filter(
+            ([, { location }]) =>
+                window.location.pathname === '/' ||
+                window.location.pathname.match(location)
+        )
+        .forEach(([moduleId]) =>
+            import(
+                /* webpackChunkName: "modules/i18n/[request]" */
+                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
+                `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+            ).then(({ default: i18n }) =>
+                LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+                    modules: {
+                        [moduleId]: i18n,
+                    },
+                })
+            )
+        );
+
     if (window.location.pathname === '/') {
         import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
             core => core.default(LSSM)
@@ -115,24 +140,6 @@ utils(Vue);
                 const locationMatches = window.location.pathname.match(
                     LSSM.$store.state.modules[moduleId].location
                 );
-
-                if (locationMatches || window.location.pathname === '/') {
-                    try {
-                        LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
-                            modules: {
-                                [moduleId]: (
-                                    await import(
-                                        /* webpackChunkName: "modules/i18n/[request]" */
-                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
-                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
-                                    )
-                                ).default,
-                            },
-                        });
-                    } catch {
-                        // if no i18n exists, do nothing
-                    }
-                }
 
                 if (
                     LSSM.$store.state.modules[moduleId].settings &&
