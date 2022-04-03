@@ -101,7 +101,7 @@ module.exports = {
             [/^K-9 Unit(s)?$/u]: [16],
             [/^Mounted Police?$/u]: [22],
             [/^SES?$/u]: [20],
-            [/^Brush Truck(s)?$/u]: [28, 29],
+            [/^Brush Truck(s)?$/u]: [1, 18, 28, 29],
             [/^Airborne firefighting vehicle(s)?$/u]: [31, 32, 33],
             [/^Boat(s)?$/u]: [21],
             [/^Paramedic Supervisor(s)?$/u]: [23],
