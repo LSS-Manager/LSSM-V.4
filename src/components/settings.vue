@@ -584,11 +584,11 @@ export default Vue.extend<
             const disabledFun = this.settings[moduleId][settingId].disabled;
             if (dependence) {
                 const invert = dependence.startsWith('!');
-                dependence = dependence.replace(/^!/, '');
+                dependence = dependence.replace(/^!/u, '');
                 const base = dependence.startsWith('.')
                     ? this.settings[moduleId]
                     : this.settings;
-                dependence = dependence.replace(/^\./, '');
+                dependence = dependence.replace(/^\./u, '');
                 const setting = dependence.split('/').reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

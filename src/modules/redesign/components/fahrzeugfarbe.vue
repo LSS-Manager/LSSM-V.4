@@ -98,7 +98,7 @@ export default Vue.extend<
             url.searchParams.append('_method', 'put');
             url.searchParams.append(
                 'vehicle_color[color]',
-                (this.$refs.color as HTMLInputElement).value.replace(/^#/, '')
+                (this.$refs.color as HTMLInputElement).value.replace(/^#/u, '')
             );
             url.searchParams.append(
                 'authenticity_token',

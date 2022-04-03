@@ -30,14 +30,14 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
 }) => {
     const markerScript = Array.from(doc.scripts)
         .map(({ textContent }) => textContent?.trim() ?? '')
-        .find(t => t.match(/L\.map/));
+        .find(t => t.match(/L\.map/u));
     if (!markerScript)
         throw new Error('Could not find a script that sets the map!');
     return {
         ...verbandParser({ doc, getIdFromEl }),
         buildings: Array.from(
             markerScript.matchAll(
-                /(?<=L\.marker\(\[)(?<lat>-?\d+(?:\.\d+)?)\W*,\W*?(?<long>-?\d+(?:\.\d+)?)(?=])(?=].*?\))(?:.|\n)*?(?<=\/buildings\/)(?<id>\d+)/g
+                /(?<=L\.marker\(\[)(?<lat>-?\d+(?:\.\d+)?)\s*,\s*(?<long>-?\d+(?:\.\d+)?)\](?:.|\n)*?(?<=\/buildings\/)(?<id>\d+)/gu
             )
         ).map(
             ({
@@ -84,7 +84,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
                                 .querySelector<HTMLSpanElement>(
                                     `#${extension.id} + br + i > span[id^="extension_countdown_"]`
                                 )
-                                ?.id?.replace(/^extension_countdown_/, '') ??
+                                ?.id?.replace(/^extension_countdown_/u, '') ??
                                 '-1'
                         );
                         if (extensionID < 0) return null;

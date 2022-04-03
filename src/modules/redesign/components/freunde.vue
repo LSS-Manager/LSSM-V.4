@@ -191,7 +191,7 @@ export default Vue.extend<
                             )
                         ],
                         'note',
-                        note.replace(/\n/g, '\n<br>')
+                        note.replace(/\n/gu, '\n<br>')
                     );
                 });
         },

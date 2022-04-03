@@ -1,20 +1,21 @@
 import browserslist from 'browserslist';
 import fs from 'fs';
+import path from 'path';
 
-import browsers from '../src/utils/browsers.json';
+const filePath = path.join(__dirname, '../src/utils/browsers.json');
 
 export default (): void => {
-    const browserVersions = browserslist('last 1 version');
+    const browsers: Record<
+        string,
+        { download: string; latest: number; supported: number }
+    > = JSON.parse(fs.readFileSync(filePath).toString());
     Object.keys(browsers).forEach(browser => {
-        const regex = new RegExp(`(?<=^${browser} )\\d+`);
-        const latest = browserVersions
-            .find(b => b.match(regex))
-            ?.match(regex)?.[0];
-        if (latest)
-            browsers[<keyof typeof browsers>browser].latest = parseInt(latest);
+        const versions = browserslist(`last 7 ${browser} major versions`).map(
+            version =>
+                parseInt(version.replace(new RegExp(`^${browser}`), '').trim())
+        );
+        browsers[browser].latest = Math.max(...versions);
+        browsers[browser].supported = Math.min(...versions);
     });
-    fs.writeFileSync(
-        './src/utils/browsers.json',
-        JSON.stringify(browsers, null, 4)
-    );
+    fs.writeFileSync(filePath, JSON.stringify(browsers, null, 4));
 };

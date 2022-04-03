@@ -74,6 +74,20 @@ export default async (
             const group = document.createElement('span');
             group.classList.add('btn-group');
             group.append(btn);
+            const panel = mission.element.querySelector<HTMLDivElement>(
+                `#mission_panel_${mission.id}`
+            );
+            if (panel && panel?.style.animation) {
+                const panelAnimation = getComputedStyle(panel).animation;
+                const observer = new MutationObserver(() => {
+                    if (group.classList.contains('open'))
+                        panel.style.removeProperty('animation');
+                    else panel.style.setProperty('animation', panelAnimation);
+                });
+                observer.observe(group, {
+                    attributeFilter: ['class'],
+                });
+            }
             btn.addEventListener('click', () =>
                 sapMissionList?.(
                     LSSM,

@@ -65,7 +65,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     });
 
     const buildingId = parseInt(
-        window.location.pathname.match(/\d+(?=\/personals)/)?.[0] || '-1'
+        window.location.pathname.match(/\d+(?=\/personals)/u)?.[0] || '-1'
     );
     if (buildingId < 0) return;
 

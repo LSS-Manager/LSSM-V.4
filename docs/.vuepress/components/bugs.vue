@@ -53,7 +53,7 @@
                     <span class="bug-labels">
                         <a
                             class="bug-label"
-                            :href="`${$themeConfig.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`"
+                            :href="`${$theme.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`"
                             target="_blank"
                             :title="label.description"
                             :style="labelStyle(label.color)"
@@ -74,12 +74,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const octicons = require('@primer/octicons');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const showdown = require('showdown');
+import octicons from '@primer/octicons';
+import showdown from 'showdown';
 
 const sdConverter = new showdown.Converter({
     headerLevelStart: 5,
@@ -118,7 +116,7 @@ const getRelativeTime = (d1, d2 = new Date()) => {
     return elapsed.toLocaleString();
 };
 
-export default Vue.extend({
+export default defineComponent({
     name: 'bug-list',
     data() {
         return {
@@ -130,9 +128,9 @@ export default Vue.extend({
     },
     computed: {
         bugs() {
-            return this.$themeConfig
-                ? this.$themeConfig.variables
-                    ? this.$themeConfig.variables.bugIssues || []
+            return this.$theme
+                ? this.$theme.variables
+                    ? this.$theme.variables.bugIssues || []
                     : []
                 : [];
         },
@@ -206,6 +204,7 @@ export default Vue.extend({
 .bug-field {
     flex: none;
     padding: 0.7em;
+    width: 100%;
 }
 @media print, screen and (min-width: 769px) {
     .bug-field {
@@ -225,7 +224,7 @@ export default Vue.extend({
     border-radius: 0.4em;
     box-shadow: none;
 }
-body.yuu-theme-dark .bug >>> {
+html.dark .bug {
     background-color: #282f2f;
 }
 
@@ -341,7 +340,7 @@ body.yuu-theme-dark .bug >>> {
     margin-right: 0.25em;
 }
 
-body.yuu-theme-dark .bug .bug-labels .bug-label >>> {
+html.dark .bug .bug-labels .bug-label {
     --lightness-threshold: 0.6;
     --background-alpha: 0.18;
     --border-alpha: 0.3;

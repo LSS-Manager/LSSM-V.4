@@ -1,9 +1,11 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
-import fs from 'fs';
 import lodash from 'lodash';
 import moment from 'moment';
-import path from 'path';
-import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+
+// TODO: Find a way to use SpeedMeasurePlugin with webpack@5 and vue-loader
+// import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
 import addToBuildStats from './addToBuildStats';
 import config from '../src/config';
@@ -22,15 +24,20 @@ const locales = Object.keys(config.games).filter(game =>
     fs.existsSync(`./src/i18n/${game}.ts`)
 );
 
+const mode = process.argv[3] || 'development';
+
 const entry = {
-    mode: process.argv[2] || 'development',
+    mode,
+    stats: {
+        errorDetails: true,
+    },
     entry: {
         core: path.resolve(__dirname, '../src/core.ts'),
     },
     output: {
         path: path.resolve(__dirname, `../dist`),
         filename: pathData =>
-            `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
+            `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/u, '')}.js`,
         publicPath: `${config.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
@@ -48,7 +55,7 @@ entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
-        MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
+        MODE: mode === 'production' ? '"stable"' : '"beta"',
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(
                 modules.map(module => [
@@ -59,7 +66,7 @@ entry.plugins?.unshift(
         ),
     }),
     new webpack.ContextReplacementPlugin(
-        /moment\/locale$/,
+        /moment\/locale$/u,
         new RegExp(
             `(${locales
                 .map(l =>
@@ -86,39 +93,33 @@ entry.plugins?.push(
 );
 
 console.log('Generated configurations. Building…');
-webpack(
-    new SpeedMeasurePlugin({
-        disable: process.argv[2] !== 'development',
-        outputFormat: 'humanVerbose',
-    }).wrap(entry),
-    (err, stats) => {
-        if (err) {
-            console.error(err.stack || err);
+webpack(entry, (err, stats) => {
+    if (err) {
+        console.error(err.stack || err);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (err.details) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            if (err.details) {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                console.error(err.details);
-            }
+            console.error(err.details);
         }
-
-        if (!stats) {
-            console.error('Build Error: stats is a falsy value!');
-            return process.exit(-1);
-        } else {
-            fs.writeFileSync(
-                `./dist/webpack.out.${
-                    process.argv[2] === 'production' ? 'public' : 'beta'
-                }.json`,
-                JSON.stringify(stats.toJson(), null, '\t')
-            );
-            addToBuildStats({ version });
-        }
-        console.log('Stats:');
-        console.log(stats?.toString({ colors: true }));
-        console.timeEnd(`build`);
-        console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
-        if (stats?.hasErrors()) process.exit(-1);
     }
-);
+
+    if (!stats) {
+        console.error('Build Error: stats is a falsy value!');
+        return process.exit(-1);
+    } else {
+        fs.writeFileSync(
+            `./dist/webpack.out.${
+                mode === 'production' ? 'public' : 'beta'
+            }.json`,
+            JSON.stringify(stats.toJson(), null, '\t')
+        );
+        addToBuildStats({ version });
+    }
+    console.log('Stats:');
+    console.log(stats?.toString({ colors: true }));
+    console.timeEnd(`build`);
+    console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
+    if (stats?.hasErrors()) process.exit(-1);
+});

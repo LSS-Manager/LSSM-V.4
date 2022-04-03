@@ -9,7 +9,7 @@ sidebarDepth: 3
 ### What does LSS Manager cost?
 LSS-Manager is a free offer - we do not intend to change this.
 
-::: warning donations
+:::warning donations
 There are a few nice users who would like to donate money to us. But: The LSS-Manager is and remains free of charge. Also we will not accept any donations for this project.
 
 This has several reasons:
@@ -39,32 +39,12 @@ On the [suggestions][suggestions] page we have put together some information abo
 
 ### In which browsers does LSS Manager work?
 Only desktop browsers are listed here, as mobile browsers are not officially supported.
-This table is not necessarily correct yet and will be updated when new information is available!
 
 Since we want to keep the latest coding standards throughout, a modern and up-to-date browser is necessary and recommended - if only for security reasons, even outside the game.
 
-::: warning compatibility
-A compatibility listed here does not guarantee functionality. This is only information collected and evaluated by third parties.
-:::
+<browser-support-table/>
 
-<table>
-<thead>
-    <tr>
-        <th>Browser</th>
-        <th>min. version</th>
-        <th>Download</th>
-    </tr>
-</thead>
-<tbody>
-    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
-        <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
-        <td>{{ supported }}</td>
-        <td><a :href="download" target="_blank">Download</a></td>
-    </tr>
-</tbody>
-</table>
-
-::: danger Internet Explorer and Safari
+:::danger Internet Explorer and Safari
 These two browsers can be described as the "problem children" of a modern web developer. There are some functions that do not work in them, or require additional code.
 
 We don't see the point of doing this everywhere and officially **do not** support these two browsers.

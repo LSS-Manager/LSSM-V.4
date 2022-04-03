@@ -18,7 +18,7 @@ export default <RedesignParser<VehicleGroupWindow>>(({ doc, href = '' }) => {
     );
     return {
         id: parseInt(
-            new URL(href, window.location.origin).pathname.match(/\d+/)?.[0] ??
+            new URL(href, window.location.origin).pathname.match(/\d+/u)?.[0] ??
                 '-1'
         ),
         caption:

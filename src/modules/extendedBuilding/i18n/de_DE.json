@@ -1,39 +1,39 @@
 {
-	"enhancedPersonnelAssignment": {
-		"toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
-	},
-	"expansions": {
-		"notBuild": "Noch nicht gebaut"
-	},
-	"fastDispatchChooser": {
-		"noDispatch": "Keine Leitstelle"
-	},
-	"personnelDemands": {
-		"additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
-		"demand": "Benötigtes Personal"
-	},
-	"schoolingSummary": {
-		"all": "Alle Kombinationen",
-		"amount": "Anzahl",
-		"bound": "Zugewiesen",
-		"each": "Lehrgänge einzeln",
-		"max": "aktuell maximal benötigt",
-		"min": "aktuell minimal benötigt",
-		"noSchooling": "Keinen Lehrgang",
-		"schooling": "Ausbildung",
-		"title": "Personalübersicht"
-	},
-	"upgradeConfirmation": {
-		"modal": {
-			"btnCancel": "Abbrechen",
-			"btnConfirm": "Bestätigen",
-			"text": "Möchtest du das Gebäude wirklich ausbauen?",
-			"title": "Gebäude ausbauen?"
-		}
-	},
-	"vehiclePersonnel": {
-		"vehiclesPersonnelAssigned": "zugewiesen",
-		"vehiclesPersonnelCurrent": "aktuell",
-		"vehiclesPersonnelMax": "max"
-	}
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
+    },
+    "expansions": {
+        "notBuild": "Noch nicht gebaut"
+    },
+    "fastDispatchChooser": {
+        "noDispatch": "Keine Leitstelle"
+    },
+    "personnelDemands": {
+        "additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
+        "demand": "Benötigtes Personal"
+    },
+    "schoolingSummary": {
+        "all": "Alle Kombinationen",
+        "amount": "Anzahl",
+        "bound": "Zugewiesen",
+        "each": "Lehrgänge einzeln",
+        "max": "aktuell maximal benötigt",
+        "min": "aktuell minimal benötigt",
+        "noSchooling": "Keinen Lehrgang",
+        "schooling": "Ausbildung",
+        "title": "Personalübersicht"
+    },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Abbrechen",
+            "btnConfirm": "Bestätigen",
+            "text": "Möchtest du das Gebäude wirklich ausbauen?",
+            "title": "Gebäude ausbauen?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "zugewiesen",
+        "vehiclesPersonnelCurrent": "aktuell",
+        "vehiclesPersonnelMax": "max"
+    }
 }

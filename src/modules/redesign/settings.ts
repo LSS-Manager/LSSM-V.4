@@ -62,4 +62,8 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    'category.messages': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
 })) as ModuleSettingFunction;

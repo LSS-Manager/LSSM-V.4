@@ -56,11 +56,8 @@ export default (
     dropdown.classList.add('dropdown-menu', dropdownClass);
 
     const noMessageLi = createLi(noMessage);
+    noMessageLi.dataset.noMessage = '1';
     dropdown.append(noMessageLi);
-    noMessageLi.addEventListener('click', () => {
-        btn.disabled = true;
-        shareMission(LSSM, mission.id, true).then(() => btn.remove());
-    });
 
     const separatorLi = document.createElement('li');
     separatorLi.classList.add('divider');
@@ -74,7 +71,7 @@ export default (
             )?.childNodes ?? []
         )
             .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
-            ?.textContent?.replace(/,$/, '')
+            ?.textContent?.replace(/,$/u, '')
             .trim() ??
         '';
     const address =
@@ -88,7 +85,7 @@ export default (
         mission.element
             .querySelector<HTMLDivElement>(`#mission_missing_${mission.id}`)
             ?.textContent?.trim()
-            ?.replace(/^.*?:/, '')
+            ?.replace(/^.*?:/u, '')
             .trim() ?? '–';
 
     const replacements: Record<string, string> = {
@@ -146,7 +143,10 @@ export default (
         Object.entries(getTimeReplacers()).forEach(
             ([regex, replacer]) =>
                 (message = message.replace(
-                    new RegExp(`{{${regex.replace(/^\/|\/$/g, '')}}}`, 'g'),
+                    new RegExp(
+                        `{{${regex.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
+                        'g'
+                    ),
                     replacer
                 ))
         );
@@ -179,17 +179,24 @@ export default (
         getDropdownClickHandler(
             inputGroupClass,
             editBtnClass,
-            liElement => {
+            (liElement, sendMessage) => {
                 btn.disabled = true;
                 shareMission(LSSM, mission.id, true)
-                    .then(() =>
-                        sendReply(
-                            LSSM,
-                            mission.id,
-                            liElement.dataset.message ?? '',
-                            liElement.dataset.post === 'true',
-                            authToken
-                        )
+                    .then(
+                        () =>
+                            new Promise<void>(resolve => {
+                                if (sendMessage) {
+                                    sendReply(
+                                        LSSM,
+                                        mission.id,
+                                        liElement.dataset.message ?? '',
+                                        liElement.dataset.post === 'true',
+                                        authToken
+                                    ).then(resolve);
+                                } else {
+                                    resolve();
+                                }
+                            })
                     )
                     .then(() => btn.remove());
             },

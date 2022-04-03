@@ -9,9 +9,9 @@ import notifications from './store/notifications';
 import settings from './store/settings';
 import storage from './store/storage';
 
-import type { LSSMEvent } from '../typings/helpers';
-import type { Modules } from '../typings/Module';
-import type { RootState } from '../typings/store/RootState';
+import type { LSSMEvent } from 'typings/helpers';
+import type { Modules } from 'typings/Module';
+import type { RootState } from 'typings/store/RootState';
 import type { VueConstructor } from 'vue/types/vue';
 import type {
     ActionStoreParams,
@@ -20,7 +20,7 @@ import type {
     ObserveAsyncTab,
     premodifyParams,
     ProxyParams,
-} from '../typings/store/Actions';
+} from 'typings/store/Actions';
 // to seperate typings
 // eslint-disable-next-line no-duplicate-imports
 import type {
@@ -107,7 +107,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             useFontAwesome(state: RootState) {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
-                fa.src = `${state.server}static/fontawesome_free_6.0.0_all.min.js?uid=${state.lang}-${window.user_id}`;
+                fa.src = `${state.server}static/fontawesome_free_6.1.0_all.min.js?uid=${state.lang}-${window.user_id}`;
                 fa.crossOrigin = 'anonymous';
                 document.head.append(fa);
                 state.fontAwesome.inserted = true;
@@ -164,9 +164,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     const res = `${state.prefix}-${attr}`;
                     if (id) {
                         return res
-                            .replace(/ /g, '_')
-                            .replace(/["']/g, '')
-                            .replace(/[^a-zA-Z0-9_-]/g, '-');
+                            .replace(/ /gu, '_')
+                            .replace(/["']/gu, '')
+                            .replace(/[^\w-]/gu, '-');
                     }
                     return res;
                 },
@@ -175,7 +175,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             moduleWiki:
                 (_, getters: GetterTree<RootState, RootState>) =>
                 (moduleId: keyof Modules): string =>
-                    `${getters.wiki}modules/${moduleId}.html`,
+                    `${getters.wiki}modules/${moduleId}/`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
@@ -362,14 +362,14 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         bar.classList.add('leaflet-bar', 'leaflet-control');
                         document
                             .querySelector(positionSelector)
-                            ?.[position.match(/bottom/) ? 'prepend' : 'append'](
-                                bar
-                            );
+                            ?.[
+                                position.match(/bottom/u) ? 'prepend' : 'append'
+                            ](bar);
                         commit('addOSMBar', { position, bar, mapId });
                     }
                     const control = document.createElement('a');
                     state.osmBars[mapId][position][
-                        position.match(/bottom/) ? 'prepend' : 'append'
+                        position.match(/bottom/u) ? 'prepend' : 'append'
                     ](control);
                     resolve(control);
                 });

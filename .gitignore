@@ -3,6 +3,10 @@ node_modules
 /dist
 package-lock.json
 /docs/*/modules
+/docs/.vuepress/.cache
+/docs/.vuepress/.temp
+/docs/.vuepress/dist
+/docs/.vuepress/node_modules
 /docs/.vuepress/public/assets/*
 /static/db_access.php
 /static/.configs.json
@@ -19,7 +23,8 @@ typings/**/*.js*
 prebuild/**/*.js*
 src/config.js*
 src/i18n/*.js
-docs/.vuepress/*.js*
+docs/.vuepress/*.js
+docs/.vuepress/*.js.map
 scripts/**/*.js*
 
 # local env files

@@ -28,7 +28,7 @@ export default (
         (
             patient
                 .querySelector<HTMLDivElement>('.alert.alert-danger')
-                ?.textContent?.replace(/^[^:]*:/, '')
+                ?.textContent?.replace(/^[^:]*:/u, '')
                 .trim() || ''
         )
             .split(',')
@@ -56,7 +56,7 @@ export default (
                         infoLabel.classList
                             .toString()
                             .match(
-                                /label-(default|success|warning|danger|info|primary)/
+                                /label-(danger|default|info|primary|success|warning)/u
                             )?.[0] ?? 'label-default';
                 }
                 if (!requirements.detailed.hasOwnProperty(req))

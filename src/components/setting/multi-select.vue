@@ -99,10 +99,16 @@ export default Vue.extend<
             const filtered = this.options.filter(
                 o => !this.updateValue.some(v => v.value === o.value)
             );
-            return filtered.every(({ label }) => label.match(/^\d+/))
+            return filtered.every(({ label }) => label.match(/^\d+/u))
                 ? filtered.sort((a, b) => {
-                      const aLabel = a.label.replace(/(?<=^\d+)-(?=\d+:)/, ':');
-                      const bLabel = b.label.replace(/(?<=^\d+)-(?=\d+:)/, ':');
+                      const aLabel = a.label.replace(
+                          /(?<=^\d+)-(?=\d+:)/u,
+                          ':'
+                      );
+                      const bLabel = b.label.replace(
+                          /(?<=^\d+)-(?=\d+:)/u,
+                          ':'
+                      );
                       return aLabel > bLabel ? 1 : aLabel < bLabel ? -1 : 0;
                   })
                 : filtered;

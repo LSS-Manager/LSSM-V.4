@@ -35,7 +35,7 @@ export interface ProfileWindow {
 export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
     const id = parseInt(
         new URL(href, window.location.origin).pathname.match(
-            /\d+(?=\/?$)/
+            /\d+(?=\/?$)/u
         )?.[0] ?? '-1'
     );
     const self = id === window.user_id;
@@ -65,7 +65,9 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
         credits: LSSM.$utils.getNumberFromText(headTexts[1]),
         alliance: alliance
             ? {
-                  id: parseInt(alliance.href.match(/\d+(?=\/?$)/)?.[0] ?? '-1'),
+                  id: parseInt(
+                      alliance.href.match(/\d+(?=\/?$)/u)?.[0] ?? '-1'
+                  ),
                   name: alliance.textContent?.trim() ?? '',
               }
             : undefined,
@@ -100,7 +102,7 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
             Array.from(doc.scripts)
                 .flatMap(script =>
                     script.textContent?.match(
-                        /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
+                        /(?<=buildingMarkerAdd\()\{(?:"[^"]*":(?:\d+(?:\.\d+)?|".*?"),?)+\}(?=\);)/gu
                     )
                 )
                 .filter(b => !!b) as string[]
@@ -116,7 +118,7 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                 `a[href^="/profile/${id}/chatban/"]`
             )
         ).map(option =>
-            parseInt(option.href.match(/\d+(?=\/?$)/)?.[0] ?? '-1')
+            parseInt(option.href.match(/\d+(?=\/?$)/u)?.[0] ?? '-1')
         ),
         can_alliance_ignore: !!allianceIgnore,
         alliance_ignored: allianceIgnore?.href.endsWith('destroy'),

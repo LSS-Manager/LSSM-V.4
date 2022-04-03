@@ -69,11 +69,12 @@ export default {
         requestIssue: {
             title: 'Erroneous request: Status {status}',
             text: `Ouch, unfortunately an error occurred with this server request:<br>
-<b>Statuscode</b>: <code>{status}</code><br>
-<b>Statustext</b>: <code>{statusText}</code><br>
-<b>URL</b>: <code>{url}</code><br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Please try to perform the desired action again.<br>
 If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
@@ -1942,6 +1943,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Valley',
         'Coast Line',
         'Construction site',
+        'Ranch',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

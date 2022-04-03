@@ -1,14 +1,18 @@
 {
-	"description": "Fügt ein paar nützliche Verbesserungen am Chat durch",
-	"name": "Chat-Erweiterungen",
-	"settings": {
-		"chatTime": {
-			"description": "Verändert den Zeitstempel. Das Format kannst du selbstständig anpassen.",
-			"title": "Zeitstempel im Chat anpassen"
-		},
-		"chatTimeFormat": {
-			"description": "Hier kannst du das Format deiner Wahl festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">hier</a>.",
-			"title": "Format des Zeitstempel des Chats"
-		}
-	}
+    "description": "Fügt ein paar nützliche Verbesserungen am Chat durch",
+    "name": "Chat-Erweiterungen",
+    "settings": {
+        "chatTime": {
+            "description": "Verändert den Zeitstempel. Das Format kannst du selbstständig anpassen.",
+            "title": "Zeitstempel im Chat anpassen"
+        },
+        "chatTimeFormat": {
+            "description": "Hier kannst du das Format deiner Wahl festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#konfiguration\">hier</a>.",
+            "title": "Format des Zeitstempel des Chats"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Zeigt den Knopf für den Chatverlauf in der Kopfzeile an, so dass du nicht immer den Chat nach unten scrollen musst, um ihn zu drücken.",
+            "title": "Chatverlauf-Knopf im Header anzeigen"
+        }
+    }
 }

@@ -1,14 +1,18 @@
 {
-	"description": "Ajoute quelques améliorations utiles au tchat",
-	"name": "Améliorations du tchat",
-	"settings": {
-		"chatTime": {
-			"description": "Modifie l'horodatage. Vous pouvez adapter le format toi-même.",
-			"title": "Adapter l'horodatage dans le chat"
-		},
-		"chatTimeFormat": {
-			"description": "Ici, vous pouvez définir le format de ton choix. vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">ici</a>.",
-			"title": "Format de la date et de l'heure du chat"
-		}
-	}
+    "description": "Ajoute quelques améliorations utiles au tchat",
+    "name": "Améliorations du tchat",
+    "settings": {
+        "chatTime": {
+            "description": "Modifie l'horodatage. Vous pouvez adapter le format toi-même.",
+            "title": "Adapter l'horodatage dans le chat"
+        },
+        "chatTimeFormat": {
+            "description": "Ici, vous pouvez définir le format de ton choix. vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">ici</a>.",
+            "title": "Format de la date et de l'heure du chat"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
+            "title": "Show Chat-History in Header"
+        }
+    }
 }

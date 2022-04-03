@@ -4,7 +4,7 @@ Avec le module "Aperçu des formations", nous essayons de remédier à ce probl�
 
 Tout en haut se trouve un petit `i` qui permet d'ouvrir un résumé. Nous avons bien sûr intégré une recherche et les tableaux peuvent être triés. Le tout ressemble par exemple à ceci :
 
-![Aperçu des formations](overview.png)
+![Aperçu des formations](./overview.png)
 
 En outre, les formations avec vos propres participants et les formations ouvertes sont réparties en catégories. C'est-à-dire tout simplement selon les écoles respectives, donc
 * Centre de secours
@@ -15,7 +15,7 @@ Et toujours dans cet ordre. Ici aussi, nous avons intégré des possibilités de
 
 Voici par exemple ce qui se passe pour les formations avec vos propres participants :
 
-![Formations avec vos propres participants](own.png)
+![Formations avec vos propres participants](./own.png)
 
 Et pour les formations ouvertes :
 

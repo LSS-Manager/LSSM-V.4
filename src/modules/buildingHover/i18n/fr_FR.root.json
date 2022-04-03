@@ -1,4 +1,4 @@
 {
-	"description": "Affiche une info-bulle pour chaque bâtiment lorsqu'on le survole avec la souris sur la carte.",
-	"name": "Infobulle sur les bâtiments"
+    "description": "Affiche une info-bulle pour chaque bâtiment lorsqu'on le survole avec la souris sur la carte.",
+    "name": "Infobulle sur les bâtiments"
 }

@@ -1,18 +1,18 @@
 {
-	"description": "Alarm, Share the mission and post an incident note with a single click.",
-	"name": "Share-Alliance-Post",
-	"noMessage": "Without incident note",
-	"settings": {
-		"enableCallList": {
-			"description": "Integrates this module into \"Share missions\" of extended call-list.",
-			"title": "Integration to Call-list"
-		},
-		"message": "Incident Note",
-		"messages": {
-			"description": "Set your incident notes here. You can use variables, please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> therefore! Please assign a unique name to each response, to identify them quickly in alarm window.",
-			"title": "Responses"
-		},
-		"name": "Name",
-		"postInChat": "Post note in chat?"
-	}
+    "description": "Alarm, Share the mission and post an incident note with a single click.",
+    "name": "Share-Alliance-Post",
+    "noMessage": "Without incident note",
+    "settings": {
+        "enableCallList": {
+            "description": "Integrates this module into \"Share missions\" of extended call-list.",
+            "title": "Integration to Call-list"
+        },
+        "message": "Incident Note",
+        "messages": {
+            "description": "Set your incident notes here. You can use variables, please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> therefore! Please assign a unique name to each response, to identify them quickly in alarm window.",
+            "title": "Responses"
+        },
+        "name": "Name",
+        "postInChat": "Post note in chat?"
+    }
 }

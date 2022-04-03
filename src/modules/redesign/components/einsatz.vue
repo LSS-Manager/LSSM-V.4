@@ -33,7 +33,7 @@ export default Vue.extend<
         type() {
             return parseInt(
                 new URL(this.url, window.location.origin).pathname.match(
-                    /\d+\/?$/
+                    /\d+\/?$/u
                 )?.[0] ?? '-1'
             );
         },

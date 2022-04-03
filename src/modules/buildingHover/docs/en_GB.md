@@ -19,4 +19,4 @@ The following information is included:
 
 This is how it looks for example at an ambulance station:
 
-![An example ambulance station](exampleen_GB.png)
+![An example ambulance station](./exampleen_GB.png)

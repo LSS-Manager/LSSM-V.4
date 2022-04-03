@@ -19,7 +19,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         ).then(({ default: emojiPicker }) => emojiPicker(LSSM));
     }
 
-    const isNotePage = window.location.pathname.match(/^\/note\/?/);
+    const isNotePage = window.location.pathname.match(/^\/note\/?/u);
     if (
         (await getSetting<boolean>('clickableLinks')) &&
         (!isNotePage || (await getSetting('notePreview')))
@@ -80,10 +80,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     const addToPanelHeading = !!window.location.pathname.match(
-        /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/
+        /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/u
     );
     const isDispatchCenter =
-        !!window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
+        !!window.location.pathname.match(/^\/buildings\/\d+\/?$/u) &&
         !!document.querySelector<HTMLDivElement>('#tab_projected_missions');
 
     const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
@@ -115,7 +115,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         );
     }
 
-    if (window.location.pathname.match(/\/aao_exports\/?$/)) {
+    if (window.location.pathname.match(/\/aao_exports\/?$/u)) {
         import(
             /* webpackChunkName: "modules/generalExtensions/aaoExportQr" */ './assets/aaoExportQr'
         ).then(({ default: aaoExportQr }) => aaoExportQr());

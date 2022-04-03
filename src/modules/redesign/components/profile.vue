@@ -782,9 +782,9 @@ export default Vue.extend<
                 gold: 0,
             };
             this.profile.awards.forEach(({ image }) => {
-                if (image.match(/award_bronze/)) colors.bronze++;
-                else if (image.match(/award_silver/)) colors.silver++;
-                else if (image.match(/award_gold/)) colors.gold++;
+                if (image.match(/award_bronze/u)) colors.bronze++;
+                else if (image.match(/award_silver/u)) colors.silver++;
+                else if (image.match(/award_gold/u)) colors.gold++;
             });
             return colors;
         },

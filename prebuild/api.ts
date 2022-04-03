@@ -42,7 +42,7 @@ export default async (): Promise<void> => {
             fs
                 .readFileSync(jsPath)
                 .toString()
-                .replace(/export default/, 'module.exports = ')
+                .replace(/export default/u, 'module.exports = ')
         );
         const t = (await import(jsPath)).default;
         types.forEach(type => {

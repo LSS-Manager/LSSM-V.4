@@ -1,5 +1,5 @@
 {
-	"github": 11,
-	"location": "^(/(vehicles|missions)/\\d+)?/?$",
-	"settings": true
+    "github": 11,
+    "location": "^(/(vehicles|missions)/\\d+)?/?$",
+    "settings": true
 }

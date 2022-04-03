@@ -1,4 +1,4 @@
 {
-	"github": 14,
-	"location": "^/schoolings/?$"
+    "github": 14,
+    "location": "^/schoolings/?$"
 }

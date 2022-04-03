@@ -1331,10 +1331,10 @@ export default Vue.extend<
                 ...this.vehicle.mission_alliance,
             ].sort((a, b) => {
                 const l = parseInt(
-                    a.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                    a.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
                 );
                 const r = parseInt(
-                    b.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                    b.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
                 );
                 return l < r ? -1 : l > r ? 1 : 0;
             });
@@ -1437,10 +1437,10 @@ export default Vue.extend<
                 ...this.vehicle.alliance_hospitals,
             ].sort((a, b) => {
                 const l = parseInt(
-                    a.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                    a.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
                 );
                 const r = parseInt(
-                    b.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                    b.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
                 );
                 return l < r ? -1 : l > r ? 1 : 0;
             });
@@ -1518,10 +1518,10 @@ export default Vue.extend<
                 ...this.vehicle.alliance_cells,
             ].sort((a, b) => {
                 const l = parseInt(
-                    a.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                    a.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
                 );
                 const r = parseInt(
-                    b.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                    b.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
                 );
                 return l < r ? -1 : l > r ? 1 : 0;
             });

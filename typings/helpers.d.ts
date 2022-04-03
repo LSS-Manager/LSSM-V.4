@@ -65,6 +65,7 @@ declare global {
         mission_graphics: [string, string, string][];
         patient_timers: PatientTimer[];
         sale_count_down: number;
+        mission_label: boolean;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -104,6 +105,7 @@ declare module 'vue/types/vue' {
         $utils: {
             urlRegex: RegExp;
             escapeRegex(s: string): string;
+            getMissionTypeInMissionWindow(): string;
             getMissionOptions(
                 LSSM: Vue,
                 MODULE_ID: string,

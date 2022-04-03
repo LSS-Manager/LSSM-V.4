@@ -1,70 +1,70 @@
 {
-	"description": "Legger til noen nyttige funksjoner til bygningene dine.",
-	"name": "Utvidet bygningsvisning",
-	"settings": {
-		"buildingsLeftRight": {
-			"description": "Viser i bygningene hvor mange av samme type.",
-			"title": "Antall bygninger av samme type"
-		},
-		"enhanceVehicleList": {
-			"description": "Utvider kjøretøylisten med nyttige funksjoner - noen av dem er justerbare.",
-			"title": "Utvid kjøretøylisten"
-		},
-		"enhancedPersonnelAssignment": {
-			"description": "Gir deg muligheten til å skjule personell uten riktig opplæring.",
-			"title": "Forbedret personalfordeling"
-		},
-		"expansions": {
-			"description": "Viser utvidelsene til en bygning uten å måtte trykke på utvidelsesfanen først.",
-			"title": "Vis utvidelser i menyen"
-		},
-		"fastDispatchChooser": {
-			"description": "Lar deg velge direkte i en bygning hvilken kontrollsentral den er tilordnet uten å måtte gå inn på innstillingene først.",
-			"title": "Raskt valg av kontrollsenter"
-		},
-		"fmsSwitch": {
-			"description": "Lar deg bytte mellom status 2 og 6 ved å klikke på statusen.",
-			"title": "Rask status 2 <=> 6 knapp"
-		},
-		"personnelAssignmentBtn": {
-			"description": "Setter inn ved siden av \"Rediger\"-knappen for å legge til en knapp i personaloppdraget. – Fungerer ennå ikke i nødsentraler!",
-			"title": "Knapp for personaloppdrag"
-		},
-		"personnelDemands": {
-			"description": "Viser hvor mye personell som kreves med minimum og maksimum kjøretøy.",
-			"title": "Krav til personell"
-		},
-		"schoolingSummary": {
-			"description": "Viser i personaloversikten til et bygg hvor mange personer som har hvilken(e) opplæring(er).",
-			"title": "Personaloppsummering"
-		},
-		"upgradeConfirmation": {
-			"description": "Spør om du virkelig ønsker å oppgradere bygget ditt.",
-			"title": "Oppgrader bygningsadvarsel"
-		},
-		"vehicleTypes": {
-			"description": "Viser kjøretøytypen (og hvis tilgjengelig egen kjøretøyklasse) i en egen kolonne",
-			"title": "Enhetstype"
-		},
-		"vehicleTypesOnlyOwn": {
-			"description": "Viser hvis tilgjengelig kun egen kjøretøyklasse. Hvis den ikke er tilgjengelig, vil den vise standard kjøretøyklasse.",
-			"title": "Vis kun egen kjøretøyklasse"
-		},
-		"vehiclesPersonnelAssigned": {
-			"description": "Viser hvor mange personer som er tildelt kjøretøyet.",
-			"title": "Tildelt mannskap"
-		},
-		"vehiclesPersonnelColorized": {
-			"description": "Fremhever antallet tildelte mannskaper i rødt hvis det er mindre enn maksimalt mulig, grønt når maksimalt antall er nådd.",
-			"title": "Fargekode for tildelt mannskap"
-		},
-		"vehiclesPersonnelCurrent": {
-			"description": "Viser hvor mange personer som for øyeblikket sitter i kjøretøyet.",
-			"title": "Nåværende mannskap"
-		},
-		"vehiclesPersonnelMax": {
-			"description": "Viser maksimalt antall personer som får plass på kjøretøyet.",
-			"title": "Maksimalt mannskap"
-		}
-	}
+    "description": "Legger til noen nyttige funksjoner til bygningene dine.",
+    "name": "Utvidet bygningsvisning",
+    "settings": {
+        "buildingsLeftRight": {
+            "description": "Viser i bygningene hvor mange av samme type.",
+            "title": "Antall bygninger av samme type"
+        },
+        "enhanceVehicleList": {
+            "description": "Utvider kjøretøylisten med nyttige funksjoner - noen av dem er justerbare.",
+            "title": "Utvid kjøretøylisten"
+        },
+        "enhancedPersonnelAssignment": {
+            "description": "Gir deg muligheten til å skjule personell uten riktig opplæring.",
+            "title": "Forbedret personalfordeling"
+        },
+        "expansions": {
+            "description": "Viser utvidelsene til en bygning uten å måtte trykke på utvidelsesfanen først.",
+            "title": "Vis utvidelser i menyen"
+        },
+        "fastDispatchChooser": {
+            "description": "Lar deg velge direkte i en bygning hvilken kontrollsentral den er tilordnet uten å måtte gå inn på innstillingene først.",
+            "title": "Raskt valg av kontrollsenter"
+        },
+        "fmsSwitch": {
+            "description": "Lar deg bytte mellom status 2 og 6 ved å klikke på statusen.",
+            "title": "Rask status 2 <=> 6 knapp"
+        },
+        "personnelAssignmentBtn": {
+            "description": "Setter inn ved siden av \"Rediger\"-knappen for å legge til en knapp i personaloppdraget. – Fungerer ennå ikke i nødsentraler!",
+            "title": "Knapp for personaloppdrag"
+        },
+        "personnelDemands": {
+            "description": "Viser hvor mye personell som kreves med minimum og maksimum kjøretøy.",
+            "title": "Krav til personell"
+        },
+        "schoolingSummary": {
+            "description": "Viser i personaloversikten til et bygg hvor mange personer som har hvilken(e) opplæring(er).",
+            "title": "Personaloppsummering"
+        },
+        "upgradeConfirmation": {
+            "description": "Spør om du virkelig ønsker å oppgradere bygget ditt.",
+            "title": "Oppgrader bygningsadvarsel"
+        },
+        "vehicleTypes": {
+            "description": "Viser kjøretøytypen (og hvis tilgjengelig egen kjøretøyklasse) i en egen kolonne",
+            "title": "Enhetstype"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Viser hvis tilgjengelig kun egen kjøretøyklasse. Hvis den ikke er tilgjengelig, vil den vise standard kjøretøyklasse.",
+            "title": "Vis kun egen kjøretøyklasse"
+        },
+        "vehiclesPersonnelAssigned": {
+            "description": "Viser hvor mange personer som er tildelt kjøretøyet.",
+            "title": "Tildelt mannskap"
+        },
+        "vehiclesPersonnelColorized": {
+            "description": "Fremhever antallet tildelte mannskaper i rødt hvis det er mindre enn maksimalt mulig, grønt når maksimalt antall er nådd.",
+            "title": "Fargekode for tildelt mannskap"
+        },
+        "vehiclesPersonnelCurrent": {
+            "description": "Viser hvor mange personer som for øyeblikket sitter i kjøretøyet.",
+            "title": "Nåværende mannskap"
+        },
+        "vehiclesPersonnelMax": {
+            "description": "Viser maksimalt antall personer som får plass på kjøretøyet.",
+            "title": "Maksimalt mannskap"
+        }
+    }
 }

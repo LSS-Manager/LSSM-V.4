@@ -23,7 +23,7 @@ export default async (
     );
 
     const vehicleId = parseInt(
-        window.location.pathname.match(/\d+(?=\/zuweisung)/)?.[0] || '-1'
+        window.location.pathname.match(/\d+(?=\/zuweisung)/u)?.[0] || '-1'
     );
 
     const vehicle =

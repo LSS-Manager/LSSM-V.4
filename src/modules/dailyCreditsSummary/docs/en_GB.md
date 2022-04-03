@@ -3,10 +3,10 @@ This module replaces the `Total for the daily summary` in V3, which showed in yo
 This module has been spiced up a bit for V4.
 
 There are the "badges" displayed by default (these can be turned off in settings):
-![badges](badges.png)
+![badges](./badges.png)
 
 If you click on the little `i`, then you will be shown a sortable table:
-![table](table.png)
+![table](./table.png)
 
 This module uses the following categories:
 

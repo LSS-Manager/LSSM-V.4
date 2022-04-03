@@ -9,7 +9,7 @@ sidebarDepth: 3
 ### Wat kost LSS Manager?
 LSS-Manager is een gratis aanbieding - we zijn niet van plan dit te veranderen.
 
-::: warning donaties
+:::warning donaties
 Er zijn een paar aardige gebruikers die graag geld aan ons willen doneren. Maar: de LSS-Manager is en blijft gratis. Ook accepteren we geen donaties voor dit project.
 
 Dit heeft verschillende redenen:
@@ -39,32 +39,12 @@ Op de [suggestions][suggestions] pagina hebben we wat informatie hierover bij el
 
 ### In welke browsers werkt LSS Manager?
 Alleen desktopbrowsers worden hier vermeld, aangezien mobiele browsers niet officieel worden ondersteund.
-Deze tabel is nog niet per se correct en zal worden bijgewerkt als er nieuwe informatie beschikbaar is!
 
 Omdat we overal de nieuwste coderingsstandaarden willen behouden, is een moderne en up-to-date browser noodzakelijk en aanbevolen - al was het maar om veiligheidsredenen, zelfs buiten het spel.
 
-::: warning compatibiliteit
-Een hier vermelde compatibiliteit garandeert geen functionaliteit. Dit is alleen informatie die is verzameld en geëvalueerd door derden.
-:::
+<browser-support-table/>
 
-<table>
-<thead>
-    <tr>
-        <th>Browser</th>
-        <th>min. versie</th>
-        <th>Download</th>
-    </tr>
-</thead>
-<tbody>
-    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
-        <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
-        <td>{{ supported }}</td>
-        <td><a :href="download" target="_blank">Download</a></td>
-    </tr>
-</tbody>
-</table>
-
-::: danger Internet Explorer en Safari
+:::danger Internet Explorer en Safari
 Deze twee browsers kunnen worden omschreven als de "probleemkinderen" van een moderne webontwikkelaar. Er zijn enkele functies die er niet in werken, of waarvoor extra code vereist is.
 
 We zien het nut niet in om dit overal te doen en ondersteunen deze twee browsers daarom **niet** officieel.

@@ -49,7 +49,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 ...note,
                 content: sdConverter.makeHtml(
                     note.content.replace(
-                        /#(\d+)/g,
+                        /#(\d+)/gu,
                         ($0, $1) =>
                             `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
                     )

@@ -14,7 +14,7 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         await scopedClickableLinks(
             document.querySelector('#chat_panel_body') ?? document
         );
-    } else if (window.location.pathname.match(/^\/note\/?/)) {
+    } else if (window.location.pathname.match(/^\/note\/?/u)) {
         const input =
             document.querySelector<HTMLTextAreaElement>('#note_message');
         if (input) {

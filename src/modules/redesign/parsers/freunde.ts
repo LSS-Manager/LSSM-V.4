@@ -33,7 +33,7 @@ export default <RedesignParser<FreundeWindow>>(({
             friend_id: parseInt(
                 row.children[3]
                     .querySelector<HTMLAnchorElement>('a')
-                    ?.href.match(/\d+/)?.[0] ?? '-1'
+                    ?.href.match(/\d+/u)?.[0] ?? '-1'
             ),
         })),
     };

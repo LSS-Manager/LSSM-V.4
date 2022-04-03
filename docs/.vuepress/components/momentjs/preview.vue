@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
 import moment from 'moment';
 
-export default Vue.extend({
+export default defineComponent({
     name: 'momentjs-preview',
     data() {
         return {
@@ -28,7 +28,7 @@ export default Vue.extend({
         };
     },
     mounted() {
-        this.moment.locale(this.$lang.replace(/_.*?$/, '').toUpperCase());
+        this.moment.locale(this.$lang.replace(/_.*$/u, '').toUpperCase());
         this.$el
             .querySelectorAll('.momentjs-preview[data-moment]:not([data-date])')
             .forEach(preview =>

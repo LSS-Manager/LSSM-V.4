@@ -16,47 +16,42 @@
     </div>
 </template>
 
-<script>
-import Vue from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useThemeData } from '@vuepress/theme-default/lib/client';
 
-export default Vue.extend({
-    name: 'translators-list',
-    data() {
-        return {};
-    },
-    computed: {
-        translators() {
-            const languages = {};
-            this.$themeConfig.variables.contributors.forEach(contributor => {
-                const langContributions = contributor.contributions.filter(
-                    contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/)
-                );
-                langContributions.forEach(language => {
-                    if (!languages.hasOwnProperty(language))
-                        languages[language] = [];
-                    languages[language].push({
-                        ...contributor,
-                        contributions: langContributions,
-                    });
-                });
+import type { ThemeData } from '../types/ThemeData';
+
+const themeData = useThemeData<ThemeData>();
+
+const translators = computed(() => {
+    const languages = {};
+    themeData.value.variables.contributors.forEach(contributor => {
+        const langContributions = contributor.contributions.filter(
+            contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/u)
+        );
+        langContributions.forEach(language => {
+            if (!languages.hasOwnProperty(language)) languages[language] = [];
+            languages[language].push({
+                ...contributor,
+                contributions: langContributions,
             });
-            return languages;
-        },
-        flags() {
-            return Object.fromEntries(
-                Object.entries(
-                    this.$themeConfig.variables.contributionTypes
-                ).map(([language, { symbol }]) => [language, symbol])
-            );
-        },
-    },
-    methods: {},
-    props: {},
+        });
+    });
+    return languages;
 });
+const flags = computed(() =>
+    Object.fromEntries(
+        Object.entries(
+            themeData.value.variables
+                .contributionTypes as ThemeData['variables']['contributionTypes']
+        ).map(([language, { symbol }]) => [language, symbol])
+    )
+);
 </script>
 
-<style scoped>
-img {
-    width: 1em;
-}
+<style scoped lang="sass">
+img
+    width: 1em
+    margin-right: 5px
 </style>

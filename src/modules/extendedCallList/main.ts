@@ -13,7 +13,7 @@ interface AppendableListSetting<valueType> {
 export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const sortMissions = await getSetting('sortMissions');
 
-    if (window.location.pathname.match(/^\/vehicles\/\d+\/?/)) {
+    if (window.location.pathname.match(/^\/vehicles\/\d+\/?/u)) {
         return await (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipationState" */ './assets/vehicleMissionParticipationState'
@@ -34,7 +34,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         `${MODULE_ID}_missionlist-sorting_selection-list-btn`
     );
 
-    if (window.location.pathname.match(/^\/missions\/\d+\/?/)) {
+    if (window.location.pathname.match(/^\/missions\/\d+\/?/u)) {
         if (starrableMissions) {
             import(
                 /* webpackChunkName: "modules/extendedCallList/starrableMissions/mission" */ './assets/starrableMissions/mission'

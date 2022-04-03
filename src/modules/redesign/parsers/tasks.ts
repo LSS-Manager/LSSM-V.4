@@ -25,13 +25,13 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                 task
                     .querySelector<HTMLSpanElement>('.task_name')
                     ?.textContent?.trim() ?? '';
-            const isCollectionTask = !/^\[.*?]/.test(name);
+            const isCollectionTask = !/^\[.*?\]/u.test(name);
             const category =
-                name.match(/(?<=^\[).*?(?=])/)?.[0] ??
+                name.match(/(?<=^\[).*?(?=\])/u)?.[0] ??
                 name.match(
                     new RegExp($sm('collectionTasks.taskName').toString(), 'u')
                 )?.[1] ??
-                name.match(/(?<=").*?(?=")/)?.[0] ??
+                name.match(/(?<=").*?(?=")/u)?.[0] ??
                 '🥴';
             const progressId = parseInt(
                 new URL(

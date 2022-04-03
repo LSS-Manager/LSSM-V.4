@@ -7,7 +7,7 @@ Hai la possibilità di aggiungere filtri extra sopra la lista degli edifici. Sar
 * Scegliere quali edifici mostrare per ogni filtro
 
 Esempio:
-![Esempi di layout dei filtri](example.png)
+![Esempi di layout dei filtri](./example.png)
 
 La schermata delle impostazioni:
-![Impostazioni](settings.png)
+![Impostazioni](./settings.png)

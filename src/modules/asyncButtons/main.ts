@@ -9,7 +9,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     );
 
     if (
-        window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
+        window.location.pathname.match(/^\/buildings\/\d+\/?$/u) &&
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
     ) {
@@ -21,7 +21,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     if (
-        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/) &&
+        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u) &&
         (await getSetting('buildingPersonal'))
     ) {
         import(
@@ -32,7 +32,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     if (
-        window.location.pathname.match(/^\/missions\/\d+\/?$/) &&
+        window.location.pathname.match(/^\/missions\/\d+\/?$/u) &&
         missions.length
     ) {
         import(
@@ -43,7 +43,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     if (
-        window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
+        window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/u) &&
         (await getSetting('memberlistManageUser'))
     ) {
         import(
@@ -52,7 +52,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
     if (
         window.location.pathname.match(
-            /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/
+            /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/u
         ) &&
         (await getSetting('deleteForumPost'))
     ) {
@@ -61,7 +61,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         ).then(({ default: forumpost }) => forumpost(LSSM, $m, MODULE_ID));
     }
 
-    if (window.location.pathname.match(/^\/aaos/)) {
+    if (window.location.pathname.match(/^\/aaos/u)) {
         import(
             /* webpackChunkName: "modules/asyncButtons/arr" */ './assets/arr'
         ).then(({ default: arr }) => arr(LSSM, $m, MODULE_ID));

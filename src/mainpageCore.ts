@@ -171,7 +171,7 @@ export default async (LSSM: Vue): Promise<void> => {
                     .then(() =>
                         control.addEventListener('click', () => {
                             window.mapExpand(
-                                LSSM.$store.state.settings.design_mode >= 3
+                                LSSM.$store.state.api.settings.design_mode >= 3
                             );
                         })
                     );
@@ -207,6 +207,11 @@ export default async (LSSM: Vue): Promise<void> => {
 
     await LSSM.$store.dispatch('api/initialUpdate', {
         type: 'buildings',
+        feature: 'mainpageCore-initial_update',
+    });
+
+    await LSSM.$store.dispatch('api/getMissions', {
+        force: true,
         feature: 'mainpageCore-initial_update',
     });
 

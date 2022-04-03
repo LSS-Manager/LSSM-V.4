@@ -78,8 +78,8 @@ export default Vue.extend<
             balloon.style.setProperty(
                 'box-shadow',
                 `inset -7px -3px 10px ${color
-                    .replace(/rgb/, 'rgba')
-                    .replace(/\)$/, ', 0.9)')}`
+                    .replace(/rgb/u, 'rgba')
+                    .replace(/\)$/u, ', 0.9)')}`
             );
             if (!carrier) {
                 balloon.style.setProperty(

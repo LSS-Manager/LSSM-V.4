@@ -51,6 +51,11 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         ...((await getSetting('category.tasks')) && {
             '^/tasks/index/?$': 'tasks',
         }),
+        ...((await getSetting('category.messages')) && {
+            '^/messages/\\d+/?$': 'messages/conversation',
+            '^/messages/new/?$': 'messages/new',
+            '^/messages/system_message/\\d+/?$': 'messages/system_message',
+        }),
     };
     LSSM.$store
         .dispatch('hook', {
@@ -175,7 +180,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                       .querySelector<HTMLAnchorElement>(
                           'a.btn.btn-success[href^="/vehicles/"]'
                       )
-                      ?.href?.match(/\d+$/)?.[0]
+                      ?.href?.match(/\d+$/u)?.[0]
                 : null;
         if (type && (nextVehicle || type !== 'vehicle/nextfms')) {
             import(

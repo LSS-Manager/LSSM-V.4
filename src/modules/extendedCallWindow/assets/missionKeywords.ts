@@ -11,28 +11,11 @@ export default async (
         missions: (number | string)[];
     }[]
 ): Promise<void> => {
-    const missionHelpBtn =
-        document.querySelector<HTMLAnchorElement>('#mission_help');
     const missionTitle =
         document.querySelector<HTMLHeadingElement>('#missionH1');
-    if (!missionHelpBtn || !missionTitle) return;
-    let missionType =
-        missionHelpBtn
-            ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+    if (!missionTitle) return;
 
-    const overlayIndex =
-        document
-            .querySelector<HTMLDivElement>('#mission_general_info')
-            ?.getAttribute('data-overlay-index') ?? 'null';
-    if (overlayIndex && overlayIndex !== 'null')
-        missionType += `-${overlayIndex}`;
-    const additionalOverlay =
-        document
-            .querySelector<HTMLDivElement>('#mission_general_info')
-            ?.getAttribute('data-additive-overlays') ?? 'null';
-    if (additionalOverlay && additionalOverlay !== 'null')
-        missionType += `/${additionalOverlay}`;
+    const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
 
     if (missionType === '-1') return;
 
@@ -52,9 +35,9 @@ export default async (
         label.style.backgroundColor = color;
         const textNode = document.createElement('span');
         textNode.textContent = text
-            .replace(/{{type}}/g, missionType.toString())
+            .replace(/\{\{type\}\}/gu, missionType.toString())
             .replace(
-                /{{credits}}/g,
+                /\{\{credits\}\}/gu,
                 (mission?.average_credits ?? 0).toLocaleString()
             );
         textNode.style.background = autotextcolor ? 'inherit' : 'transparent';

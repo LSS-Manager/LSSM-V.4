@@ -152,7 +152,7 @@ export default async (
                                 .querySelector<HTMLAnchorElement>(
                                     'a.lightbox-open.btn[href^="/buildings/"]'
                                 )
-                                ?.href.match(/\d+\/?$/)?.[0] ?? '-1'
+                                ?.href.match(/\d+\/?$/u)?.[0] ?? '-1'
                         );
                         const script = response.querySelector('script');
                         if (!script) return;
@@ -170,13 +170,13 @@ export default async (
                         window.building_maps_redraw();
                         const currentCredits = parseInt(
                             script.innerHTML.match(
-                                /(?<=creditsUpdate\()\d+(?=\);$)/m
+                                /(?<=creditsUpdate\()\d+(?=\);$)/mu
                             )?.[0] ?? '-1'
                         );
                         window.creditsUpdate(currentCredits);
                         const currentCoins = parseInt(
                             script.innerHTML.match(
-                                /(?<=coinsUpdate\()\d+(?=\);$)/m
+                                /(?<=coinsUpdate\()\d+(?=\);$)/mu
                             )?.[0] ?? '-1'
                         );
                         window.coinsUpdate(currentCoins);
@@ -185,8 +185,8 @@ export default async (
                         ).forEach(creditsBtn => {
                             const credits = parseInt(
                                 creditsBtn.value
-                                    .match(/\d{1,3}(\.\d{3})*/)?.[0]
-                                    .replace(/\./, '') ?? '-1'
+                                    .match(/\d{1,3}(\.\d{3})*/u)?.[0]
+                                    .replace(/\./u, '') ?? '-1'
                             );
                             if (credits <= currentCredits) return;
                             creditsBtn.classList.replace(
@@ -200,8 +200,8 @@ export default async (
                         ).forEach(coinsBtn => {
                             const coins = parseInt(
                                 coinsBtn.value
-                                    .match(/\d{1,3}(\.\d{3})*/)?.[0]
-                                    .replace(/\./, '') ?? '-1'
+                                    .match(/\d{1,3}(\.\d{3})*/u)?.[0]
+                                    .replace(/\./u, '') ?? '-1'
                             );
                             if (coins <= currentCoins) return;
                             coinsBtn.classList.replace(

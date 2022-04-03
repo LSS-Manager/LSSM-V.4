@@ -54,6 +54,20 @@ export default {
     error: {
         title: 'LSS Manager: Error',
         msg: 'Se questo errore avviene frequentamente, per cortesia contatta il Team di LSSM!',
+        requestIssue: {
+            title: 'Erroneous request: Status {status}',
+            text: `Ouch, unfortunately an error occurred with this server request:<br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
+<br>
+Please try to perform the desired action again.<br>
+If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
+            close: 'Dismiss',
+        },
     },
     warnings: {
         version: {

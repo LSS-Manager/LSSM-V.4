@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { type ChildProcess, execSync } from 'child_process';
 
 import fetchEmojis from './utils/fetchEmojis';
@@ -7,7 +8,7 @@ const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
     console.time('games');
-    console.log(execSync(`ts-node build ${mode}`).toString());
+    console.log(execSync(`ts-node build --esModuleInterop ${mode}`).toString());
     console.timeEnd('games');
 };
 
@@ -34,7 +35,12 @@ const scriptHandlers = {
         this.showChanges();
     },
     docs() {
-        console.log(execSync('vuepress build docs').toString());
+        console.log(
+            execSync(
+                './docs/.vuepress/node_modules/.bin/vuepress build docs'
+            ).toString()
+        );
+        fs.cpSync('./docs/.vuepress/dist/', './dist/docs', { recursive: true });
     },
     preBuild() {
         this.emojis();

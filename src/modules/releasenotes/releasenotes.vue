@@ -79,7 +79,7 @@ export default Vue.extend<
         minors() {
             const minors: Record<string, ReleaseNoteProps['notes']> = {};
             this.notes.forEach(([version, note]) => {
-                const minor = version.match(/^\d+\.\d+/)?.[0] ?? '0';
+                const minor = version.match(/^\d+\.\d+/u)?.[0] ?? '0';
                 if (!minors.hasOwnProperty(minor)) minors[minor] = [];
                 minors[minor].push([version, note]);
             });
@@ -127,4 +127,10 @@ h2
 
     ::v-deep ul li
         list-style: disc !important
+
+    ::v-deep a
+        color: #6dd5f4
+
+a
+    color: #6dd5f4
 </style>

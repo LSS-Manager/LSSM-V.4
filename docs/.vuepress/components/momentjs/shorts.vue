@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
 import moment from 'moment';
 
-export default Vue.extend({
+export default defineComponent({
     name: 'momentjs-short-forms',
     computed: {
         moment_texts() {
-            return this.$themeConfig.variables.moment[this.$lang];
+            return this.$theme.variables.moment[this.$lang];
         },
         shorts() {
             return Object.entries(this.moment_texts.shorts).sort(
@@ -42,7 +42,7 @@ export default Vue.extend({
         },
     },
     mounted() {
-        moment.locale(this.$lang.replace(/_.*?$/, '').toUpperCase());
+        moment.locale(this.$lang.replace(/_.*$/u, '').toUpperCase());
         this.$el
             .querySelectorAll('.momentjs-preview[data-moment]')
             .forEach(preview =>
