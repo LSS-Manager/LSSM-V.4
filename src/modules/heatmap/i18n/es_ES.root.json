@@ -1,0 +1,16 @@
+{
+	"description": "Genera un mapa de calor en el mapa que le muestra la densidad de edificios o vehículos, totalmente personalizable.",
+	"name": "Mapa de calor",
+	"positions": {
+		"bottom-left": "Abajo a la izquierda 🡧",
+		"bottom-right": "Abajo a la derecha 🡦",
+		"top-left": "Arriba a la izquierda 🡤",
+		"top-right": "Arriba a la derecha 🡥"
+	},
+	"settings": {
+		"position": {
+			"description": "Selecciona en qué esquina del mapa debe aparecer el botón de configuración.",
+			"title": "Posición de los ajustes"
+		}
+	}
+}
