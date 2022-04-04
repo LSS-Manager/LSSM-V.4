@@ -314,7 +314,7 @@ export default Vue.extend<
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },
                         ...extensions
-                            .filter(e => e)
+                            .filter(Boolean)
                             .flatMap(({ caption: extensionCaption }) => [
                                 {
                                     value: `${id}-${extensionCaption}`,

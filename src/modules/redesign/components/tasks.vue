@@ -256,7 +256,7 @@ export default Vue.extend<
                 ...new Set(
                     this.claimableTasks
                         .map(({ claimConfirmation }) => claimConfirmation)
-                        .filter(c => c)
+                        .filter(Boolean)
                 ),
             ].join('<br>');
 

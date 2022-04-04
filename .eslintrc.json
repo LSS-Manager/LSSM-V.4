@@ -47,6 +47,9 @@
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
         "no-floating-decimal": "warn",
+        "no-implicit-coercion": ["error", {
+            "allow": ["!!"]
+        }],
         "no-loop-func": "error",
         "no-loss-of-precision": "error",
 //        "no-magic-numbers": ["warn", {
@@ -107,6 +110,8 @@
         "unicorn/consistent-destructuring": ["error"],
         "unicorn/no-array-push-push": ["error"],
         "unicorn/no-for-loop": ["error"],
+        "unicorn/no-unreadable-iife": ["error"],
+        "unicorn/no-useless-switch-case": ["error"],
         "unicorn/no-zero-fractions": ["error"],
         "unicorn/numeric-separators-style": ["error"],
         "unicorn/prefer-add-event-listener": ["error"],
@@ -119,6 +124,8 @@
         "unicorn/prefer-dom-node-text-content": ["error"],
         "unicorn/prefer-keyboard-event-key": ["error"],
         "unicorn/prefer-modern-dom-apis": ["error"],
+        "unicorn/prefer-modern-math-apis": ["error"],
+        "unicorn/prefer-native-coercion-functions": ["error"],
         "unicorn/prefer-negative-index": ["error"],
         "unicorn/prefer-object-from-entries": ["error"],
         "unicorn/prefer-query-selector": ["error"],

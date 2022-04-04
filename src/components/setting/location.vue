@@ -86,7 +86,7 @@ export default Vue.extend<
                     name: this.name,
                     title: this.placeholder,
                     zoom: this.zoom,
-                    location: this.updateValue.filter(n => n).length
+                    location: this.updateValue.filter(Boolean).length
                         ? this.updateValue
                         : [
                               window.map.getCenter().lat,
