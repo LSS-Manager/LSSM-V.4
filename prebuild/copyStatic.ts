@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
 import copydir from 'copy-dir';
 
 import config from '../src/config';
