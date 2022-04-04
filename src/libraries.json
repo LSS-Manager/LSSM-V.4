@@ -151,9 +151,16 @@
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "version": "7.32.1"
     },
+    "eslint-import-resolver-typescript": {
+        "version": "2.7.1"
+    },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
         "version": "4.0.2"
+    },
+    "eslint-plugin-import": {
+        "url": "https://github.com/import-js/eslint-plugin-import",
+        "version": "2.25.4"
     },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
