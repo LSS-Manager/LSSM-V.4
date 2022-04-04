@@ -213,7 +213,7 @@
     "moment": {
         "icon": "https://momentjs.com/static/img/moment-favicon.png",
         "url": "https://momentjs.com",
-        "version": "2.29.1"
+        "version": "2.29.2"
     },
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
@@ -222,12 +222,12 @@
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
-        "version": "0.2.4"
+        "version": "0.2.5"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "2.6.1"
+        "version": "2.6.2"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -236,7 +236,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.49.10"
+        "version": "1.49.11"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
