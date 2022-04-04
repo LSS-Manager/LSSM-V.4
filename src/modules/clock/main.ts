@@ -1,5 +1,6 @@
-import type { ModuleMainFunction } from 'typings/Module';
 import moment from 'moment';
+
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, MODULE_ID, getSetting }) => {
     const className = LSSM.$store.getters.nodeAttribute('clock');

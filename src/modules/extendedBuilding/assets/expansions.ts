@@ -1,5 +1,6 @@
-import type { $m } from 'typings/Module';
 import moment from 'moment';
+
+import type { $m } from 'typings/Module';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const expansionRows = document.querySelectorAll<HTMLTableRowElement>(

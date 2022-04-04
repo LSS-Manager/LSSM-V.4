@@ -1,18 +1,18 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
+
 import lodash from 'lodash';
 import moment from 'moment';
-
-// TODO: Find a way to use SpeedMeasurePlugin with webpack@5 and vue-loader
-// import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+import webpack from 'webpack';
 
 import addToBuildStats from './addToBuildStats';
 import config from '../src/config';
+import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 import { version } from '../package.json';
 import webpackConfig from '../webpack.config';
 
-import webpack from 'webpack';
+// TODO: Find a way to use SpeedMeasurePlugin with webpack@5 and vue-loader
+// import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
 console.time(`build`);
 

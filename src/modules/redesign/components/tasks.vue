@@ -93,10 +93,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import moment from 'moment';
-
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import moment from 'moment';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';

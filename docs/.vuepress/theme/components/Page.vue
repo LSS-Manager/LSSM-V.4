@@ -113,14 +113,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useThemeData } from '@vuepress/theme-default/lib/client';
-import { usePageData, usePageFrontmatter } from '@vuepress/client';
 
 import AutoLink from '@theme/AutoLink.vue';
+import octicons from '@primer/octicons';
 import PageMeta from '@theme/PageMeta.vue';
 import PageNav from '@theme/PageNav.vue';
-
-import octicons from '@primer/octicons';
+import { useThemeData } from '@vuepress/theme-default/lib/client';
+import { usePageData, usePageFrontmatter } from '@vuepress/client';
 
 import type { Frontmatter } from '../../utils/generate/modules';
 import type { ThemeData } from '../../types/ThemeData';

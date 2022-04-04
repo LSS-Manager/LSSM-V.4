@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
+
 import Terser from 'terser';
 
 import config from '../src/config';

@@ -1,4 +1,5 @@
 import he from 'he';
+
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 

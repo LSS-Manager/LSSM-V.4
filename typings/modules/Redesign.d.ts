@@ -38,7 +38,7 @@ import type { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/v
 import type { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verband/protokoll';
 import type { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
-
+// workaround comment to allow custom group for parser imports
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';

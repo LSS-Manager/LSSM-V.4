@@ -1,5 +1,6 @@
-import axios from 'axios';
 import fs from 'fs';
+
+import axios from 'axios';
 
 import config from '../../../../src/config';
 

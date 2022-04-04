@@ -7,6 +7,7 @@
     "plugins": [
         "@typescript-eslint",
         "compat",
+        "import",
         "prettier",
         "unicorn",
         "regexp",
@@ -16,6 +17,7 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:compat/recommended",
+        "plugin:import/typescript",
         "plugin:regexp/recommended",
         "plugin:vue/essential",
         "prettier"
@@ -44,6 +46,26 @@
         "curly": ["error", "multi-or-nest", "consistent"],
         "default-case-last": "error",
         "guard-for-in": "error",
+        "import/order": ["error", {
+            "groups": [
+                ["builtin"],
+                ["external"],
+                ["internal"],
+                ["parent", "sibling"],
+                ["index"],
+                ["object"],
+                ["type"]
+            ],
+            "pathGroups": [
+                {
+                    "pattern": "vue",
+                    "group": "builtin",
+                    "position": "before"
+                }
+            ],
+            "pathGroupsExcludedImportTypes": ["vue"],
+            "newlines-between": "always"
+        }],
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
         "no-floating-decimal": "warn",
