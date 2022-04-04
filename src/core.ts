@@ -113,6 +113,18 @@ utils(Vue);
         );
     }
 
+    import(
+        /* webpackChunkName: "components/loadingIndicator" */ './components/LoadingIndicator.vue'
+    ).then(({ default: LoadingIndicator }) => {
+        const wrapper = document.createElement('div');
+        document.body.append(wrapper);
+        new LSSM.$vue({
+            store: LSSM.$store,
+            i18n: LSSM.$i18n,
+            render: h => h(LoadingIndicator),
+        }).$mount(wrapper);
+    });
+
     LSSM.$store
         .dispatch('storage/get', {
             key: 'activeModules',

@@ -8,6 +8,7 @@ import webpack from 'webpack';
 import addToBuildStats from './addToBuildStats';
 import config from '../src/config';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
+import LoadingProgressPlugin from './plugins/LoadingProgressPlugin';
 import { version } from '../package.json';
 import webpackConfig from '../webpack.config';
 
@@ -64,6 +65,8 @@ entry.plugins?.unshift(
                 ])
             )
         ),
+        LOADSCRIPT_EVENT_START: JSON.stringify(config.loadScript.start),
+        LOADSCRIPT_EVENT_END: JSON.stringify(config.loadScript.end),
     }),
     new webpack.ContextReplacementPlugin(
         /moment\/locale$/u,
@@ -89,7 +92,8 @@ entry.plugins?.push(
             value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
             isDynamicKey: true, // false by default
         },
-    })
+    }),
+    new LoadingProgressPlugin()
 );
 
 console.log('Generated configurations. Building…');

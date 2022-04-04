@@ -97,7 +97,7 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
-import lssmLogo from './img/lssm_logo';
+import lssmLogo from './img/lssm.png';
 
 import type { DefaultProps } from 'vue/types/options';
 import type {
