@@ -213,7 +213,7 @@
     "moment": {
         "icon": "https://momentjs.com/static/img/moment-favicon.png",
         "url": "https://momentjs.com",
-        "version": "2.29.1"
+        "version": "2.29.2"
     },
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
