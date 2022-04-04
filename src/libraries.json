@@ -222,7 +222,7 @@
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
-        "version": "0.2.4"
+        "version": "0.2.5"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
