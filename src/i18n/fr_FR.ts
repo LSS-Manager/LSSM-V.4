@@ -116,6 +116,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 "Colorez toute la barre de navigation avec la couleur de fond de l'icône du LSSM!",
             title: 'Colorier la barre de navigation',
         },
+        loadingIndicator: {
+            description:
+                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
+            title: 'show loading progress',
+        },
         osmDarkTooltip: {
             description:
                 'Ce paramètre assombrit les infobulles sur la carte si vous avez activé le mode sombre.',

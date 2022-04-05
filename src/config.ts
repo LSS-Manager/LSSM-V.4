@@ -2,6 +2,8 @@ import browsers from './utils/browsers.json';
 
 import type { Config } from '../typings/Config';
 
+const PREFIX = 'lssmv4';
+
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
     browser: browsers,
@@ -163,7 +165,11 @@ export default {
     modules: {
         'core-modules': ['telemetry', 'releasenotes', 'support'],
     },
-    prefix: 'lssmv4',
+    loadScript: {
+        start: `${PREFIX}-load-script-start`,
+        end: `${PREFIX}-load-script-end`,
+    },
+    prefix: PREFIX,
     server: 'https://proxy.lss-manager.de/v4/',
     fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
 } as Config;

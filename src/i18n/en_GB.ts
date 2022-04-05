@@ -116,6 +116,11 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Color the whole navbar in the color of LSSM-Icon Background!',
             title: 'colorize navbar',
         },
+        loadingIndicator: {
+            description:
+                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
+            title: 'show loading progress',
+        },
         osmDarkTooltip: {
             description:
                 'This setting darkens tooltips on map if you have enabled dark mode.',

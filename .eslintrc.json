@@ -27,7 +27,11 @@
         "SharedArrayBuffer": "readonly",
         "process": "readonly",
         "__dirname": "readonly",
-        "PREFIX": "readonly"
+        "PREFIX": "readonly",
+        "MODE": "readonly",
+        "VERSION": "readonly",
+        "LOADSCRIPT_EVENT_START": "readonly",
+        "LOADSCRIPT_EVENT_END": "readonly"
     },
     "parserOptions": {
         "parser": "@typescript-eslint/parser",
