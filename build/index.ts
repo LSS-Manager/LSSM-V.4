@@ -119,6 +119,19 @@ webpack(entry, (err, stats) => {
             }.json`,
             JSON.stringify(stats.toJson(), null, '\t')
         );
+        fs.writeFileSync(
+            './dist/static/fileSizes.json',
+            JSON.stringify(
+                Object.fromEntries(
+                    stats
+                        .toJson()
+                        .assets?.map(({ name, size }) => [
+                            name.replace(/\.js$/u, ''),
+                            size,
+                        ]) ?? []
+                )
+            )
+        );
         addToBuildStats({ version });
     }
     console.log('Stats:');

@@ -18,7 +18,7 @@
         <image
             :x="size / 2 - imageWidth / 2"
             :y="size / 2 - imageHeight / 2"
-            height="auto"
+            :height="imageHeight"
             :width="imageWidth"
             :href="lssmLogo"
         ></image>
@@ -115,33 +115,17 @@ export default Vue.extend<
         } else {
             this.$store
                 .dispatch('api/request', {
-                    url: `${this.$store.state.server}webpack.out.${
-                        MODE === 'beta' ? 'beta' : 'public'
-                    }.json`,
+                    url: `${this.$store.state.server}static/fileSizes.json`,
                     feature: 'loading-indicator',
                 })
                 .then(res => res.json())
-                .then(
-                    ({
-                        assets,
-                    }: {
-                        assets: { name: string; size: number }[];
-                    }) => {
-                        assets.forEach(asset => {
-                            const name = asset.name.replace(/\.js$/u, '');
-                            fileSizes[name] = asset.size;
-                            if (this.total[name])
-                                this.$set(this.total, name, asset.size);
-
-                            if (this.finished[name])
-                                this.$set(this.finished, name, asset.size);
-                        });
-                        localStorage.setItem(
-                            fileSizeStorageKey,
-                            JSON.stringify(fileSizes)
-                        );
-                    }
-                );
+                .then(sizes => {
+                    fileSizes = sizes;
+                    localStorage.setItem(
+                        fileSizeStorageKey,
+                        JSON.stringify(fileSizes)
+                    );
+                });
         }
 
         const img = new Image();

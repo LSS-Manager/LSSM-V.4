@@ -1,6 +1,7 @@
 import { type Compiler, Template } from 'webpack';
 
 import config from '../../src/config';
+import loadingIndicatorStorageKey from './LoadingProgressPluginStorageKey';
 
 const pluginName = 'LoadingProgressPlugin';
 
@@ -47,9 +48,17 @@ export default class LoadingProgressPlugin {
                         body.splice(
                             -1,
                             0,
-                            ...this.createEvent('start'),
                             ...this.createEvent('end'),
-                            `window.dispatchEvent(${this.startEvent});\n`
+                            `if (!localStorage.hasOwnProperty(${JSON.stringify(
+                                loadingIndicatorStorageKey
+                            )}) || localStorage.getItem(${JSON.stringify(
+                                loadingIndicatorStorageKey
+                            )}) === "true") {\n`,
+                            Template.indent([
+                                ...this.createEvent('start'),
+                                `window.dispatchEvent(${this.startEvent});\n`,
+                            ]),
+                            '}\n'
                         );
                     }
                 }
