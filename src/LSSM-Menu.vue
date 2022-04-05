@@ -191,7 +191,7 @@ export default Vue.extend<
             iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
             iconBgAsNavBg: false,
             labelInMenu: false,
-            lssmLogo,
+            lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
             discord: this.$store.state.discord,
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,
