@@ -62,7 +62,7 @@ export default Vue.extend<
             strokeWidth: 3,
             padding: 15,
             imageHeight: 22,
-            lssmLogo,
+            lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
         };
     },
     computed: {
@@ -115,7 +115,7 @@ export default Vue.extend<
         } else {
             this.$store
                 .dispatch('api/request', {
-                    url: `${this.$store.state.server}static/fileSizes.json`,
+                    url: `${this.$store.state.server}static/fileSizes.json?uid=${this.$store.state.lang}-${window.user_id}`,
                     feature: 'loading-indicator',
                 })
                 .then(res => res.json())
@@ -133,7 +133,7 @@ export default Vue.extend<
             const scale = img.width / this.imageWidth;
             this.imageHeight = img.height / scale;
         });
-        img.src = lssmLogo;
+        img.src = this.lssmLogo;
 
         let clearTimeout: number | null = null;
 
