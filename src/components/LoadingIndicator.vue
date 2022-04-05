@@ -34,8 +34,9 @@ import type { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     {
-        total: Record<string, number>;
-        finished: Record<string, number>;
+        total: string[];
+        finished: string[];
+        fileSizes: Record<string, number>;
         radius: number;
         strokeWidth: number;
         padding: number;
@@ -56,8 +57,9 @@ export default Vue.extend<
     name: 'lssmv4-loading-indicator',
     data() {
         return {
-            total: {},
-            finished: {},
+            total: [],
+            finished: [],
+            fileSizes: {},
             radius: 20,
             strokeWidth: 3,
             padding: 15,
@@ -67,10 +69,14 @@ export default Vue.extend<
     },
     computed: {
         totalSize() {
-            return Object.values(this.total).reduce((a, b) => a + b, 0);
+            return this.total
+                .map(chunk => this.fileSizes[chunk])
+                .reduce((a, b) => a + b, 0);
         },
         finishedSize() {
-            return Object.values(this.finished).reduce((a, b) => a + b, 0);
+            return this.finished
+                .map(chunk => this.fileSizes[chunk])
+                .reduce((a, b) => a + b, 0);
         },
         size() {
             return (this.radius + this.padding + this.strokeWidth) * 2;
@@ -93,8 +99,6 @@ export default Vue.extend<
     mounted() {
         const fileSizeStorageKey = `${PREFIX}-file-sizes-${VERSION}`;
 
-        let fileSizes: Record<string, number> = {};
-
         Object.keys(localStorage)
             .filter(
                 key =>
@@ -105,13 +109,7 @@ export default Vue.extend<
 
         const storageFileSizes = localStorage.getItem(fileSizeStorageKey);
         if (storageFileSizes) {
-            fileSizes = JSON.parse(storageFileSizes);
-            Object.keys(this.total).forEach(([asset]) =>
-                this.$set(this.total, asset, fileSizes[asset] || 1)
-            );
-            Object.keys(this.finished).forEach(([asset]) =>
-                this.$set(this.finished, asset, fileSizes[asset] || 1)
-            );
+            this.fileSizes = JSON.parse(storageFileSizes);
         } else {
             this.$store
                 .dispatch('api/request', {
@@ -120,10 +118,10 @@ export default Vue.extend<
                 })
                 .then(res => res.json())
                 .then(sizes => {
-                    fileSizes = sizes;
+                    this.fileSizes = sizes;
                     localStorage.setItem(
                         fileSizeStorageKey,
-                        JSON.stringify(fileSizes)
+                        JSON.stringify(this.fileSizes)
                     );
                 });
         }
@@ -139,26 +137,18 @@ export default Vue.extend<
 
         window.addEventListener(LOADSCRIPT_EVENT_START, e => {
             if (!(e instanceof CustomEvent)) return;
-            this.$set(
-                this.total,
-                e.detail.chunkId,
-                fileSizes[e.detail.chunkId] || 1
-            );
+            this.total.push(e.detail.chunkId);
         });
         window.addEventListener(LOADSCRIPT_EVENT_END, e => {
             if (!(e instanceof CustomEvent)) return;
-            if (this.total[e.detail.chunkId]) {
-                this.$set(
-                    this.finished,
-                    e.detail.chunkId,
-                    fileSizes[e.detail.chunkId] || 1
-                );
-            }
+            if (this.total.includes(e.detail.chunkId))
+                this.finished.push(e.detail.chunkId);
+
             if (clearTimeout) window.clearTimeout(clearTimeout);
             if (this.totalSize === this.finishedSize) {
                 clearTimeout = window.setTimeout(() => {
-                    this.total = {};
-                    this.finished = {};
+                    this.total = [];
+                    this.finished = [];
                 }, 1000);
             }
         });
