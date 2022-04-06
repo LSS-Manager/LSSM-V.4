@@ -160,7 +160,7 @@
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
-        "version": "2.25.4"
+        "version": "2.26.0"
     },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
