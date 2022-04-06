@@ -6,6 +6,7 @@
         :style="`stroke-dasharray: ${strokeDashArray}; stroke-dashoffset: ${strokeDashOffset}`"
         :data-total-size="totalSize"
         :data-finished-size="finishedSize"
+        :data-pull-up="pageHasBottomNavbar"
     >
         <circle
             :cx="size / 2"
@@ -42,6 +43,7 @@ export default Vue.extend<
         padding: number;
         imageHeight: number;
         lssmLogo: string;
+        pageHasBottomNavbar: boolean;
     },
     DefaultMethods<Vue>,
     {
@@ -65,6 +67,9 @@ export default Vue.extend<
             padding: 15,
             imageHeight: 22,
             lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
+            pageHasBottomNavbar: !!document.querySelector(
+                '.navbar.navbar-fixed-bottom'
+            ),
         };
     },
     computed: {
@@ -162,6 +167,9 @@ svg
     bottom: 0
     right: 0
     z-index: 10000
+
+    &[data-pull-up]
+        bottom: 50px
 
     circle
         transform: rotate(-90deg)
