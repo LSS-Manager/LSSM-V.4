@@ -215,7 +215,7 @@
     envinfo "^7.8.1"
     esbuild "^0.14.29"
 
-"@vuepress/client@2.0.0-beta.37", "@vuepress/client@^2.0.0-beta.37":
+"@vuepress/client@2.0.0-beta.37":
   version "2.0.0-beta.37"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.37.tgz#668bb7fdf5e691cd9fa72fc1bd543370948ba632"
   integrity sha512-Sn94s/Knp76YPO67QSEl/iVHA1gz+HPJdKIUj971UOMAM1DWE3PoRKLx3CKNJd5gqlyJV9mIxJzl6yfoZ54KaQ==
@@ -225,7 +225,7 @@
     vue "^3.2.31"
     vue-router "^4.0.14"
 
-"@vuepress/client@2.0.0-beta.38":
+"@vuepress/client@2.0.0-beta.38", "@vuepress/client@^2.0.0-beta.38":
   version "2.0.0-beta.38"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.38.tgz#ffd57932465d2fd68c5be2defd387537893ec293"
   integrity sha512-siwZECsly5Rzn8yTo7u3R/vZWyPoh1yR8VESPflwfi3dIRhQLVfUsnyCC0OBz5INqB+etUiQtuY4WpNPYJcNuA==
