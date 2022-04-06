@@ -105,7 +105,12 @@
                             </a>
                         </strong>
                         <div v-html="message.content"></div>
-                        <small>{{ message.timestamp }}</small>
+                        <small v-if="message.timestamp">
+                            {{ moment(message.timestamp).format('LLL') }}
+                        </small>
+                        <small v-else>
+                            {{ moment().format('LLL') }}
+                        </small>
                     </div>
                     <div class="message-meta well other-side">
                         <img
@@ -149,6 +154,7 @@ import Vue from 'vue';
 
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
+import moment from 'moment';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { MessageTemplate } from '../../../messageTemplates/main';
@@ -160,6 +166,7 @@ type Component = RedesignComponent<
     {
         faPaperPlane: IconDefinition;
         faTrashCan: IconDefinition;
+        moment: typeof moment;
         userid: number;
         response: string;
         loadedPages: {
@@ -204,9 +211,11 @@ export default Vue.extend<
 >({
     name: 'lssmv4-redesign-messages-conversation',
     data() {
+        moment.locale(this.$store.state.lang);
         return {
             faPaperPlane,
             faTrashCan,
+            moment,
             userid: window.user_id,
             response: '',
             loadedPages: {
@@ -323,7 +332,7 @@ export default Vue.extend<
                                 id: this.userid,
                                 name: window.username,
                             },
-                            timestamp: 'now',
+                            timestamp: '',
                             content: this.response.replace(/\n/gu, '<br>'),
                         },
                         ...this.lightbox.data.messages,
