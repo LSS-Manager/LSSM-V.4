@@ -4,7 +4,7 @@
 		"@primer/octicons": "^17.0.0",
 		"@vuepress/client": "^2.0.0-beta.38",
 		"@vuepress/plugin-register-components": "^2.0.0-beta.37",
-		"@vuepress/plugin-search": "^2.0.0-beta.37",
+		"@vuepress/plugin-search": "^2.0.0-beta.38",
 		"moment": "^2.29.2",
 		"vue": "^3.2.31",
 		"vuepress": "^2.0.0-beta.38",

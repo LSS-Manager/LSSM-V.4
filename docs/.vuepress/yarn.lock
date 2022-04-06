@@ -388,15 +388,15 @@
     "@vuepress/utils" "2.0.0-beta.37"
     chokidar "^3.5.3"
 
-"@vuepress/plugin-search@^2.0.0-beta.37":
-  version "2.0.0-beta.37"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-2.0.0-beta.37.tgz#425be591ac1217afbd67da1885cbe2cbc6ece300"
-  integrity sha512-HUs5OQ3tRAeEwMU4nMZeWjU4nK87E/PiSKtU8CtdjWhFLtP2jPXn0S65ecxMxvwwHdMPZKUEQguCx2vV1/Kw8A==
+"@vuepress/plugin-search@^2.0.0-beta.38":
+  version "2.0.0-beta.38"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-2.0.0-beta.38.tgz#aecbd09cf228f6f0552c1ee94d9abebb238dd6a8"
+  integrity sha512-bv5rDpXFjssYiP6wDdskObcKm9cEevKXVThx/F+0rwN0mVACqbEET0RvLeoU3uE5PYWJYB6lmh7xdn/74fPkWg==
   dependencies:
-    "@vuepress/client" "2.0.0-beta.37"
-    "@vuepress/core" "2.0.0-beta.37"
-    "@vuepress/shared" "2.0.0-beta.37"
-    "@vuepress/utils" "2.0.0-beta.37"
+    "@vuepress/client" "2.0.0-beta.38"
+    "@vuepress/core" "2.0.0-beta.38"
+    "@vuepress/shared" "2.0.0-beta.38"
+    "@vuepress/utils" "2.0.0-beta.38"
     chokidar "^3.5.3"
     vue "^3.2.31"
     vue-router "^4.0.14"
