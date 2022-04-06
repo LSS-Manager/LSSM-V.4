@@ -28,7 +28,7 @@ export default defineComponent({
         };
     },
     mounted() {
-        this.moment.locale(this.$lang.replace(/_.*$/u, '').toUpperCase());
+        this.moment.locale(this.$lang.replace(/-.*$/u, '').toUpperCase());
         this.$el
             .querySelectorAll('.momentjs-preview[data-moment]:not([data-date])')
             .forEach(preview =>

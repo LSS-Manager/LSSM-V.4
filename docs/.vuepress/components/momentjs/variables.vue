@@ -133,7 +133,7 @@ export default defineComponent({
         },
     },
     mounted() {
-        moment.locale(this.$lang.replace(/_.*$/u, '').toUpperCase());
+        moment.locale(this.$lang.replace(/-.*$/u, '').toUpperCase());
         this.$el
             .querySelectorAll('.momentjs-preview[data-moment][data-date]')
             .forEach(
