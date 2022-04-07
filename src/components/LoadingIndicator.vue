@@ -68,7 +68,7 @@ export default Vue.extend<
             imageHeight: 22,
             lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
             pageHasBottomNavbar: !!document.querySelector(
-                '.navbar.navbar-fixed-bottom'
+                '.navbar.navbar-fixed-bottom:not(#navbar-mobile-footer)'
             ),
         };
     },
