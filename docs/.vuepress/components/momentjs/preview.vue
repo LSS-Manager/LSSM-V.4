@@ -16,7 +16,7 @@
 <script>
 import { defineComponent } from 'vue';
 
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales.min';
 
 export default defineComponent({
     name: 'momentjs-preview',
@@ -28,7 +28,7 @@ export default defineComponent({
         };
     },
     mounted() {
-        this.moment.locale(this.$lang.replace(/-.*$/u, '').toUpperCase());
+        this.moment.locale(this.$lang.replace(/_.*$/u, '').toUpperCase());
         this.$el
             .querySelectorAll('.momentjs-preview[data-moment]:not([data-date])')
             .forEach(preview =>
