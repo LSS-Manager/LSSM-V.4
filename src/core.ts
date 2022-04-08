@@ -21,6 +21,14 @@ import type {
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
 
+// a 20% chance for april fool
+if (
+    new Date().getMonth() === 3 &&
+    new Date().getDate() === 1 &&
+    Math.random() < 0.2
+)
+    require('./natives/cursors');
+
 Vue.config.productionTip = false;
 
 const appContainer = document.createElement('div') as HTMLDivElement;
