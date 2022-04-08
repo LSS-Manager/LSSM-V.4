@@ -14,30 +14,37 @@ const docsDependencies = Object.keys(docsPackageJson.dependencies);
 
 const addDependencies = (dependencies: string[], node_modules: string) =>
     dependencies.forEach(module => {
+        let moduleId = module;
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         if (!libraries.hasOwnProperty(module)) libraries[module] = {};
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const mod = require(`${node_modules}/${module}/package.json`);
+        if (module === 'vue' && mod.version.startsWith('3.')) {
+            moduleId = 'vue3';
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            if (!libraries.hasOwnProperty(moduleId)) libraries[moduleId] = {};
+        }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        libraries[module].version = mod.version;
+        libraries[moduleId].version = mod.version;
         if (mod.hasOwnProperty('homepage'))
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            libraries[module].url = mod.homepage;
+            libraries[moduleId].url = mod.homepage;
 
         const entry = {};
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        Object.keys(libraries[module])
+        Object.keys(libraries[moduleId])
             .sort()
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            .forEach(attr => (entry[attr] = libraries[module][attr]));
+            .forEach(attr => (entry[attr] = libraries[moduleId][attr]));
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        libraries[module] = entry;
+        libraries[moduleId] = entry;
     });
 
 addDependencies(dependencies, path.join(__dirname, '../node_modules'));
@@ -48,7 +55,7 @@ addDependencies(
 
 const librariesSorted = {};
 Object.keys(libraries)
-    .filter(lib => [...dependencies, ...docsDependencies].includes(lib))
+    .filter(lib => [...dependencies, ...docsDependencies, 'vue3'].includes(lib))
     .sort()
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

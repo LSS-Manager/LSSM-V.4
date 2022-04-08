@@ -12,4 +12,4 @@ You can press the star icon next to a mission name to make it appear at the top 
 ## Show Earnings
 This will show the average earnings of that type of mission.
 
-![Extended Call List](missionList.png)
+![Extended Call List](./missionList.png)

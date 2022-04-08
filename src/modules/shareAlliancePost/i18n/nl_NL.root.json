@@ -9,7 +9,7 @@
         },
         "message": "Chatbericht",
         "messages": {
-            "description": "Leg hier de chatberichten vast, die je in het meldingsvenster kan kiezen. Variabelen worden ondersteund, zie hiervoor onze <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variablen\">Wiki</a>! Je kan ieder chatbericht een korte naam geven, zodat je hem sneller kan vinden in het meldingsvenster.",
+            "description": "Leg hier de chatberichten vast, die je in het meldingsvenster kan kiezen. Variabelen worden ondersteund, zie hiervoor onze <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variablen\">Wiki</a>! Je kan ieder chatbericht een korte naam geven, zodat je hem sneller kan vinden in het meldingsvenster.",
             "title": "Chatberichten"
         },
         "name": "Naam",

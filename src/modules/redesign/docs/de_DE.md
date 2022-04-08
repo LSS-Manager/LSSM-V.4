@@ -12,13 +12,13 @@ unbrauchbar macht.
 
 ## Profil
 
-|                       Eigenes Profil                        |                      Profil eines Verbandsmitglieds                       |                      Profil anderer Nutzer                       |
-|:-----------------------------------------------------------:|:-------------------------------------------------------------------------:|:----------------------------------------------------------------:|
-|       ![eigenes Profil: Text](profiles/self/text.png)       |       ![Verbandsmitglied: Text](profiles/alliance_members/text.png)       |       ![sonstiger Spieler: Text](profiles/others/text.png)       |
-|       ![eigenes Profil: Karte](profiles/self/map.png)       |       ![Verbandsmitglied: Karte](profiles/alliance_members/map.png)       |                                                                  |
-|   ![eigenes Profil: Gebäude](profiles/self/buildings.png)   |   ![Verbandsmitglied: Gebäude](profiles/alliance_members/buildings.png)   |                                                                  |
-| ![eigenes Profil: Auszeichnungen](profiles/self/awards.png) | ![Verbandsmitglied: Auszeichnungen](profiles/alliance_members/awards.png) | ![sonstiger Spieler: Auszeichnungen](profiles/others/awards.png) |
-|                                                             |                                                                           |   ![sonstiger Spieler: ignoriert](profiles/others/ignore.png)    |
+|                        Eigenes Profil                         |                       Profil eines Verbandsmitglieds                        |                       Profil anderer Nutzer                        |
+|:-------------------------------------------------------------:|:---------------------------------------------------------------------------:|:------------------------------------------------------------------:|
+|       ![eigenes Profil: Text](./profiles/self/text.png)       |       ![Verbandsmitglied: Text](./profiles/alliance_members/text.png)       |       ![sonstiger Spieler: Text](./profiles/others/text.png)       |
+|       ![eigenes Profil: Karte](./profiles/self/map.png)       |       ![Verbandsmitglied: Karte](./profiles/alliance_members/map.png)       |                                                                    |
+|   ![eigenes Profil: Gebäude](./profiles/self/buildings.png)   |   ![Verbandsmitglied: Gebäude](./profiles/alliance_members/buildings.png)   |                                                                    |
+| ![eigenes Profil: Auszeichnungen](./profiles/self/awards.png) | ![Verbandsmitglied: Auszeichnungen](./profiles/alliance_members/awards.png) | ![sonstiger Spieler: Auszeichnungen](./profiles/others/awards.png) |
+|                                                               |                                                                             |   ![sonstiger Spieler: ignoriert](./profiles/others/ignore.png)    |
 
 ### Features:
 
@@ -49,51 +49,51 @@ Die AAOs sind aktuell noch in Arbeit, deshalb gibt es hier leider nur eine Vorsc
 ganze schlussendlich vorstellen.
 :::
 
-![AAO Übersicht](aao/overview.png)
+![AAO Übersicht](./aao/overview.png)
 
 ## Verbandsliste & Spielerliste
 
-|                    Verbandsliste                     |                 Spielerliste                  |
-|:----------------------------------------------------:|:---------------------------------------------:|
-|       ![Verbandsliste](alliance_list/list.png)       |       ![Spielerliste](toplist/list.png)       | 
-| ![Verbandsliste mit Suche](alliance_list/search.png) | ![Spielerliste mit Suche](toplist/search.png) | 
+|                     Verbandsliste                      |                  Spielerliste                   |
+|:------------------------------------------------------:|:-----------------------------------------------:|
+|       ![Verbandsliste](./alliance_list/list.png)       |       ![Spielerliste](./toplist/list.png)       | 
+| ![Verbandsliste mit Suche](./alliance_list/search.png) | ![Spielerliste mit Suche](./toplist/search.png) | 
 
 ## Verbandsseiten
 
-|                           Beispielbilder                           |                          Beispielbilder                          |
-|:------------------------------------------------------------------:|:----------------------------------------------------------------:|
-|          ![Vorstellung des Verbands](alliances/intro.png)          |                  ![Regeln](alliances/rules.png)                  | 
-|             ![Bewerbungen](alliances/applications.png)             |            ![Mitgliederliste](alliances/members.png)             | 
-|    ![Verbandskasse (deaktiviert)](alliances/funds_disabled.png)    |    ![Verbandskasse (aktiviert)](alliances/funds_enabled.png)     | 
-|        ![Bereitstellungsräume](alliances/staging_areas.png)        |           ![Verbandsgebäude](alliances/buildings.png)            |
-|                ![Protokoll](alliances/protocol.png)                | ![Lehrgänge: Zusammenfassung](alliances/schoolings/overview.png) | 
-| ![Lehrgänge mit eigenen Teilnehmern](alliances/schoolings/own.png) |      ![Offene Lehrgänge](alliances/schoolings/alliance.png)      | 
+|                            Beispielbilder                            |                           Beispielbilder                           |
+|:--------------------------------------------------------------------:|:------------------------------------------------------------------:|
+|          ![Vorstellung des Verbands](./alliances/intro.png)          |                  ![Regeln](./alliances/rules.png)                  | 
+|             ![Bewerbungen](./alliances/applications.png)             |            ![Mitgliederliste](./alliances/members.png)             | 
+|    ![Verbandskasse (deaktiviert)](./alliances/funds_disabled.png)    |    ![Verbandskasse (aktiviert)](./alliances/funds_enabled.png)     | 
+|        ![Bereitstellungsräume](./alliances/staging_areas.png)        |           ![Verbandsgebäude](./alliances/buildings.png)            |
+|                ![Protokoll](./alliances/protocol.png)                | ![Lehrgänge: Zusammenfassung](./alliances/schoolings/overview.png) | 
+| ![Lehrgänge mit eigenen Teilnehmern](./alliances/schoolings/own.png) |      ![Offene Lehrgänge](./alliances/schoolings/alliance.png)      | 
 
 ## Credits & Coins
 
-|                           Beispielbilder                            |                              Beispielbilder                               |
-|:-------------------------------------------------------------------:|:-------------------------------------------------------------------------:|
-|          ![Einzeltransaktionen](credits/credits_list.png)           |      ![Einzeltransaktionen](credits/credits_list_multiple_pages.png)      | 
-|              ![Übersicht](credits/credits_summary.png)              |                                                                           | 
-|         ![Tageszusammenfassung](credits/credits_daily.png)          |         ![Tageszusammenfassung](credits/credits_daily_filter.png)         | 
-| ![Tageszusammenfassung](credits/credits_daily_filter_yesterday.png) |                                                                           | 
-|           Mittlerweile gibt es sogar einen neuen Filter:            | ![Der neue Filter der Tageszusammenfassung](credits/daily_new_filter.png) |
-|                     ![Coins](credits/coins.png)                     |                ![Coins](credits/coins_multiple_pages.png)                 |
+|                            Beispielbilder                             |                               Beispielbilder                                |
+|:---------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+|          ![Einzeltransaktionen](./credits/credits_list.png)           |      ![Einzeltransaktionen](./credits/credits_list_multiple_pages.png)      | 
+|              ![Übersicht](./credits/credits_summary.png)              |                                                                             | 
+|         ![Tageszusammenfassung](./credits/credits_daily.png)          |         ![Tageszusammenfassung](./credits/credits_daily_filter.png)         | 
+| ![Tageszusammenfassung](./credits/credits_daily_filter_yesterday.png) |                                                                             | 
+|            Mittlerweile gibt es sogar einen neuen Filter:             | ![Der neue Filter der Tageszusammenfassung](./credits/daily_new_filter.png) |
+|                     ![Coins](./credits/coins.png)                     |                ![Coins](./credits/coins_multiple_pages.png)                 |
 
 ## Fahrzeuge
 
-|                        Beispielbilder                         |                     Bemerkungen                     |
-|:-------------------------------------------------------------:|:---------------------------------------------------:|
-|              ![Einsätze](vehicles/missions.png)               |                                                     |
-|     ![Einsätze (sortiert)](vehicles/missions_sorted.png)      |     sortiert nach durchschnittlichem Verdienst      |
-|    ![Krankenhaus auswählen](vehicles/choose_hospital.png)     | Sprechwunsch (Patienten) inklusive Filterfunktionen |
-|        ![Zellen auswählen](vehicles/choose_prison.png)        |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
-| ![Fahrzeug eines anderen Spielers](vehicles/other_player.png) |           Fahrzeug eines anderen Spielers           |
+|                         Beispielbilder                          |                     Bemerkungen                     |
+|:---------------------------------------------------------------:|:---------------------------------------------------:|
+|              ![Einsätze](./vehicles/missions.png)               |                                                     |
+|     ![Einsätze (sortiert)](./vehicles/missions_sorted.png)      |     sortiert nach durchschnittlichem Verdienst      |
+|    ![Krankenhaus auswählen](./vehicles/choose_hospital.png)     | Sprechwunsch (Patienten) inklusive Filterfunktionen |
+|        ![Zellen auswählen](./vehicles/choose_prison.png)        |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
+| ![Fahrzeug eines anderen Spielers](./vehicles/other_player.png) |           Fahrzeug eines anderen Spielers           |
 
 ## Aufgaben
 
 Wir haben auch die Seite [Aufgaben und Events](https://leitstellenspiel.de/tasks/index) redesigned:
 
-![Aufgaben](tasks/full_size.png)
+![Aufgaben](./tasks/full_size.png)
 
-![Aufgaben im eingeklappten Status](tasks/collapsed.png)
+![Aufgaben im eingeklappten Status](./tasks/collapsed.png)

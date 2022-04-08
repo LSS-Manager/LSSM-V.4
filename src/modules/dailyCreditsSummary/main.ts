@@ -1,5 +1,6 @@
 import dailyCreditssummary from './dailyCreditsSummary.vue';
 import getEntries from './assets/getEntries';
+
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM }) => {

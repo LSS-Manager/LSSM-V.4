@@ -1,0 +1,115 @@
+{
+    "updated": {
+        "AaoSearch": {
+            "module": "extendedCallWindow",
+            "setting": "arrSearch"
+        },
+        "Clock": {
+            "module": "clock"
+        },
+        "Eventsmission": {
+            "module": "extendedCallList",
+            "setting": "eventMissions"
+        },
+        "MissionOut": {
+            "module": "extendedCallList",
+            "setting": "collapsableMissions"
+        },
+        "Notification_Alert": {
+            "module": "notificationAlert"
+        },
+        "Redesign01": {
+            "module": "redesign"
+        },
+        "ShareAlliancePost": {
+            "module": "shareAlliancePost"
+        },
+        "WachenHoverStati": {
+            "module": "buildingHover"
+        },
+        "aaoZaehler": {
+            "module": "extendedCallWindow",
+            "setting": "arrCounter"
+        },
+        "allianceMissionlistShare": {
+            "module": "extendedCallList",
+            "setting": "shareMissions"
+        },
+        "centermap": {
+            "module": "extendedMap",
+            "setting": "centerMap"
+        },
+        "creditserweiterung": {
+            "module": "creditsextension"
+        },
+        "dashboard": {
+            "module": "dashboard"
+        },
+        "displayUserId": {
+            "module": "userid"
+        },
+        "extendedBuilding": {
+            "module": "extendedBuilding"
+        },
+        "heatmap": {
+            "module": "heatmap"
+        },
+        "iconFilter": {
+            "module": "buildingListFilter"
+        },
+        "keyboardAlert": {
+            "module": "hotkeys"
+        },
+        "missionDate": {
+            "module": "extendedCallWindow",
+            "setting": "generationDate"
+        },
+        "missionHelper": {
+            "module": "missionHelper"
+        },
+        "missionKeyword": {
+            "module": "extendedCallWindow",
+            "setting": "missionKeywords"
+        },
+        "overview": {
+            "module": "overview"
+        },
+        "releaseNotes": {
+            "module": ""
+        },
+        "showChatButtonAbove": {
+            "module": "chatExtras",
+            "setting": "cloneHistoryBtnToHeader"
+        },
+        "statusCount": {
+            "module": "statusCounter"
+        },
+        "sumDailyMissions": {
+            "module": "dailyCreditsSummary"
+        }
+    },
+    "v3only": [
+        "DestinationFilter",
+        "DoctorRadioCall",
+        "FMS5InMap",
+        "Layout01",
+        "Layout02",
+        "Layout03",
+        "Layout04",
+        "RenameFZ",
+        "saveVGE",
+        "searchMissions",
+        "showNotTransportButtonAbove",
+        "statusDispatching",
+        "verbandsverwaltung"
+    ],
+    "v4only": [
+        "asyncButtons",
+        "chatExtras",
+        "enhancedPOI",
+        "generalExtensions",
+        "lssmaql",
+        "messageTemplates",
+        "schoolingOverview"
+    ]
+}

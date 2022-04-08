@@ -444,6 +444,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import cloneDeep from 'lodash/cloneDeep';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
@@ -453,7 +454,7 @@ import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
-import cloneDeep from 'lodash/cloneDeep';
+import type { DefaultProps } from 'vue/types/options';
 import type { Mission } from 'typings/Mission';
 import type {
     MissionHelper,
@@ -461,8 +462,6 @@ import type {
     MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
-
-import type { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     MissionHelper,

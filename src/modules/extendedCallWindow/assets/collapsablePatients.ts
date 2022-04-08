@@ -33,7 +33,7 @@ export default (
         )
             .split(',')
             .map(req => req.trim())
-            .filter(req => req)
+            .filter(Boolean)
             .forEach(req => {
                 if (!requirements.red.hasOwnProperty(req))
                     requirements.red[req] = 0;

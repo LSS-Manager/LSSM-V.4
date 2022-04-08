@@ -858,6 +858,9 @@ export default {
                     btoa(`${state.key}:${rootState.version}-${MODE}`)
                 );
             }
+
+            init.mode = 'cors' || init.mode;
+
             const startTime = Date.now();
             return fetch(target, init).then(
                 res =>
@@ -929,6 +932,8 @@ export default {
                                             init.method?.toUpperCase() ?? 'GET',
                                         feature,
                                         duration: Date.now() - startTime,
+                                        timestamp: new Date().toISOString(),
+                                        uid: `${rootState.lang}-${window.user_id}`,
                                     }),
                                     buttons: [
                                         {

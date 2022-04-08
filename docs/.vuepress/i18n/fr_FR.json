@@ -1,13 +1,25 @@
 {
     "404": {
-        "content": "Cher utilisateur,\n\nmerci de l'intérêt que vous portez à la page Wiki du module {{module}} ! Malheureusement, nous n'avons pas créer le contenu pour votre langue {{lang}}. Si vous souhaitez contribuer à notre wiki, n'hésitez pas à créer cette page sur {{github}} ! Nous vous suggérons de consulter les fichiers des autres langues pour des exemples dans le {{docs_dir}}.",
-        "languages": "Ce module a déjà une page Wiki dans les langues suivantes :",
-        "title": "Aucune page de module n'existe encore"
+        "general": {
+            "home": "Retour à la page d'accueil"
+        },
+        "modules": {
+            "content": "Cher utilisateur,\n\nmerci de l'intérêt que vous portez à la page Wiki du module {{module}} ! Malheureusement, nous n'avons pas créer le contenu pour votre langue {{lang}}. Si vous souhaitez contribuer à notre wiki, n'hésitez pas à créer cette page sur {{github}} ! Nous vous suggérons de consulter les fichiers des autres langues pour des exemples dans le {{docs_dir}}.",
+            "languages": "Ce module a déjà une page Wiki dans les langues suivantes :",
+            "title": "Aucune page de module n'existe encore"
+        }
     },
     "apps": "Apps",
+    "containers": {
+        "danger": "Danger",
+        "tip": "Tip",
+        "warning": "Attention"
+    },
     "description": "Le Wiki pour LSS-Manager V.4",
-    "edit": {
-        "module": "Modifier la page"
+    "footer": {
+        "contributors": "Contributeurs",
+        "edit": "Modifier la page",
+        "lastUpdated": "Dernière mise à jour"
     },
     "head": {
         "alpha": "Ce module n'en est qu'à ses débuts et n'est actuellement disponible que pour les bêta-testeurs !",
@@ -127,6 +139,153 @@
         "serverStatus": {
             "game": "Statut du jeu en ligne",
             "lssm": "Statut du serveur LSSM"
+        }
+    },
+    "search": "Recherche sur le wiki",
+    "tables": {
+        "browser": "Navigateur",
+        "download": "Télécharger",
+        "link": "Lien",
+        "minVersion": "Version min."
+    },
+    "v3": {
+        "modules": {
+            "AaoSearch": {
+                "v3Name": "Recherche AAO"
+            },
+            "Clock": {
+                "v3Name": "Horloge"
+            },
+            "DestinationFilter": {
+                "annotation": "Celui-ci est déjà intégré dans la Refonte pour les véhicules, mais il est également prévu de l'intégrer dans la V4 en tant que module.",
+                "v3Name": "Demande de transport sur la carte"
+            },
+            "DoctorRadioCall": {
+                "annotation": "Pas disponible sur la version FR.",
+                "v3Name": "Demandes supplémentaires par FMS"
+            },
+            "Eventsmission": {
+                "v3Name": "Événements marqués"
+            },
+            "FMS5InMap": {
+                "v3Name": "Demande HEMS à la radio"
+            },
+            "Layout01": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 04"
+            },
+            "MissionOut": {
+                "v3Name": "MissionOut"
+            },
+            "Notification_Alert": {
+                "v3Name": "Alerte de notification"
+            },
+            "Redesign01": {
+                "v3Name": "Redesign 01"
+            },
+            "RenameFZ": {
+                "v3Name": "Renommer le véhicule"
+            },
+            "ShareAlliancePost": {
+                "v3Name": "Alerter, Partager & Poster"
+            },
+            "WachenHoverStati": {
+                "v3Name": "État de la station"
+            },
+            "aaoZaehler": {
+                "v3Name": "Alarme-Régulation-Compteur d'alarmes"
+            },
+            "allianceMissionlistShare": {
+                "v3Name": "Part de la mission"
+            },
+            "centermap": {
+                "annotation": "Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra.",
+                "v3Name": "Plan du centre"
+            },
+            "creditserweiterung": {
+                "v3Name": "L'expansion du crédit"
+            },
+            "dashboard": {
+                "v3Name": "Dashboard"
+            },
+            "displayUserId": {
+                "v3Name": "User-ID"
+            },
+            "extendedBuilding": {
+                "v3Name": "Vue agrandie du bâtiment"
+            },
+            "heatmap": {
+                "v3Name": "LS-Heatmap"
+            },
+            "iconFilter": {
+                "v3Name": "Filtre de construction d'icônes"
+            },
+            "keyboardAlert": {
+                "v3Name": "Contrôle de l'affichage des appels"
+            },
+            "missionDate": {
+                "v3Name": "Date de la mission"
+            },
+            "missionHelper": {
+                "v3Name": "Aide à la mission"
+            },
+            "missionKeyword": {
+                "v3Name": "Mots-clés de la mission"
+            },
+            "overview": {
+                "v3Name": "Survol"
+            },
+            "releaseNotes": {
+                "v3Name": "Release Notes"
+            },
+            "saveVGE": {
+                "v3Name": "Enregistrer les appels d'alliance créés"
+            },
+            "searchMissions": {
+                "v3Name": "Recherche par mission"
+            },
+            "showChatButtonAbove": {
+                "v3Name": "Afficher le bouton chat ci-dessus"
+            },
+            "showNotTransportButtonAbove": {
+                "v3Name": "Afficher l'alarme de retour ci-dessus"
+            },
+            "statusCount": {
+                "v3Name": "Compteur de statuts"
+            },
+            "statusDispatching": {
+                "v3Name": "Demandes de transport améliorée"
+            },
+            "sumDailyMissions": {
+                "v3Name": "Somme des statistiques quotidiennes"
+            },
+            "verbandsverwaltung": {
+                "v3Name": "Administration"
+            }
+        },
+        "tables": {
+            "annotations": "Remarques",
+            "changes": "Modifications",
+            "description": "Description",
+            "feature": "Fonctionnalité",
+            "module": "Module",
+            "setting": "Paramètre"
+        },
+        "v4annotations": {
+            "asyncButtons": "Encore en cours de développement : d'autres fonctionnalités sont à venir.",
+            "lssmaql": "Une expérimentation qui doit servir à extraire rapidement des données de l'API."
         }
     }
 }

@@ -9,7 +9,7 @@
         },
         "message": "Note d'incident",
         "messages": {
-            "description": "Définissez vos notes d'incident ici. Vous pouvez utiliser des variables, jetez donc un coup d'oeil à notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> ! Veuillez attribuer un nom unique à chaque réponse, afin de les identifier rapidement dans la fenêtre d'alarme. ",
+            "description": "Définissez vos notes d'incident ici. Vous pouvez utiliser des variables, jetez donc un coup d'oeil à notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> ! Veuillez attribuer un nom unique à chaque réponse, afin de les identifier rapidement dans la fenêtre d'alarme. ",
             "title": "Réponses"
         },
         "name": "Nom",

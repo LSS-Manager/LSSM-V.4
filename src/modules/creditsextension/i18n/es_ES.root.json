@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "Actualmente",
+        "title": "Fondos de Alianza",
+        "total": "Total",
+        "updateNote": "Se actualiza cada 5 minutos."
+    },
+    "coins": {
+        "list": "Protocolo"
+    },
+    "credits": {
+        "daily": "Resumen diario",
+        "overview": "Resumen"
+    },
+    "description": "Muestra información útil sobre los créditos en un menú desplegable en la barra de navegación principal.",
+    "name": "Expansión de créditos",
+    "nextRank": "Siguiente rango",
+    "nextRankMissing": "Restante",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Cuando alcances la cantidad de créditos establecido, la expansión de créditos se resaltará en verde hasta que haga clic en ella.",
+            "title": "Objetivos"
+        },
+        "coinsInNavbar": {
+            "description": "Muestra las monedas actuales en la barra de navegación principal en vez de en una hucha.",
+            "title": "Monedas en lugar de hucha"
+        },
+        "creditsInNavbar": {
+            "description": "Muestra los créditos actuales en la barra de navegación principal en vez de en una hucha.",
+            "title": "Créditos en lugar de hucha"
+        },
+        "highlightSales": {
+            "description": "Destacar monedas verdes si hay una venta disponible",
+            "title": "Destacar las ventas de monedas"
+        },
+        "showSales": {
+            "description": "Muestra las ventas de monedas cuando están disponibles.",
+            "title": "Mostrar las ventas de monedas"
+        },
+        "showToplistPosition": {
+            "description": "Muestra el rango actual de la lista en la extensión de créditos.",
+            "title": "Lista de rangos en la extensión de créditos"
+        }
+    },
+    "toplistPositionName": "Lista de rangos",
+    "totalEarnedCredits": "Total créditos ganados"
+}

@@ -9,7 +9,7 @@
         },
         "message": "Incidentrapport",
         "messages": {
-            "description": "Ange din insidentrapport här. Du kan använda variabler enligt listan från våran <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> ! Ge dom ett unikt ID så att dom är enkla att hitta.",
+            "description": "Ange din insidentrapport här. Du kan använda variabler enligt listan från våran <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> ! Ge dom ett unikt ID så att dom är enkla att hitta.",
             "title": "Insats"
         },
         "name": "Name",

@@ -69,11 +69,12 @@ export default {
         requestIssue: {
             title: 'Fehlerhafte Anfrage: Status {status}',
             text: `Huch, bei dieser Serveranfrage ist leider ein Fehler aufgetreten:<br>
-<b>Statuscode</b>: <code>{status}</code><br>
-<b>Statustext</b>: <code>{statusText}</code><br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Dauer</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Bitte versuche, die gewünschte Aktion nochmals auszuführen.<br>
 Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverproblemen liegen. Bitte versuche es dann zu einem späteren Zeitpunkt erneut.`,
@@ -116,6 +117,11 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
             description:
                 'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an.',
             title: 'Navigationsleiste einfärben',
+        },
+        loadingIndicator: {
+            description:
+                'Ist diese Einstellung aktiv, zeigt der LSSM einen kleinen Ladekreisel in der unteren rechten Ecke an, wenn er eigene Dateien lädt.',
+            title: 'Ladekreisel anzeigen',
         },
         osmDarkTooltip: {
             description:

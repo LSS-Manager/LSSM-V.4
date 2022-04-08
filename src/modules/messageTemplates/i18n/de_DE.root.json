@@ -6,7 +6,7 @@
         "subject": "Betreff",
         "template": "Template (Variablen (siehe Wiki): {{username}}, {{today[+n]}})",
         "templates": {
-            "description": "Für die Templates stehen Variablen zur Verfügung. Schau hierfür gerne in unser <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variablen\">Wiki</a>.",
+            "description": "Für die Templates stehen Variablen zur Verfügung. Schau hierfür gerne in unser <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variablen\">Wiki</a>.",
             "title": "Templates"
         }
     }

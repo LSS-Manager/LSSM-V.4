@@ -42,8 +42,6 @@ export default <RedesignParser<ConversationWindow>>(({
                 senderInfos?.querySelector<HTMLAnchorElement>(
                     'a[href^="/profile/"]'
                 ) ?? null;
-            const timestampEl =
-                message.querySelector<HTMLSpanElement>('strong + span');
             return {
                 sender: {
                     avatar:
@@ -58,7 +56,7 @@ export default <RedesignParser<ConversationWindow>>(({
                     id: getIdFromEl(senderLink),
                     name: senderLink?.textContent?.trim() ?? '',
                 },
-                timestamp: timestampEl?.textContent?.trim() ?? '',
+                timestamp: message.dataset.messageTime ?? '',
                 content: Array.from(
                     message.querySelectorAll<HTMLParagraphElement>(
                         'strong + span ~ p'

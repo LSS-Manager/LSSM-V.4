@@ -105,10 +105,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { Chart } from 'highcharts-vue';
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
 
-import { Chart } from 'highcharts-vue';
 import vehicleList from './vehicle-list.vue';
 
 import type { DefaultProps } from 'vue/types/options';

@@ -1,0 +1,15 @@
+{
+    "buildings": "Edificions",
+    "enable": "Habilitar",
+    "includes": {
+        "buildings": "Tipos de edificios",
+        "vehicles": "Tipos de vehículos"
+    },
+    "intensity": "Aumento de intensidad",
+    "livePreview": "Vista previa en directo (guardado automático)",
+    "radius": "Radio",
+    "save": "Guardar",
+    "static": "Radio en pixeles?",
+    "title": "Configuración del mapa de calor",
+    "vehicles": "Vehículos"
+}

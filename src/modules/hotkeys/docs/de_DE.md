@@ -22,15 +22,15 @@ Um einen Hotkey zu setzen, klickst du einfach auf das Eingabefeld im rechten Ber
 Drücke die von dir gewünschte Tastenkombination oder Tastenfolge.
 0,5 Sekunden nach dem du die letzte Taste losgelassen hast, erscheint die Tastenkombination im Eingabefeld.
 
-![Hotkey-Einstellungen](settings.png)
+![Hotkey-Einstellungen](./settings.png)
 
 Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht über die von dir gesetzten Hotkeys anzeigen lassen:
 
-![Hotkey-Übersicht](overview.png)
+![Hotkey-Übersicht](./overview.png)
 
 
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.
-Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$themeConfig.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
+Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
 Schau vorher bitte im GitHub Issue nach, ob dein Wunsch bereits notiert wurde, um Dopplungen zu vermeiden.
 
 ## Allgemein
@@ -96,7 +96,7 @@ Diese Hotkeys sind nur im Hauptfenster (dort wo Karte, Einsatzliste, Verbandscha
 ## Einsatzfenster
 
 ### Einsatzsortierung
-Diese Hotkeys sind für die modifizierten Knöpfe der Einsatzsortierung im Modul [Erweiterte Einsatzliste](extendedCallList.md) da:
+Diese Hotkeys sind für die modifizierten Knöpfe der Einsatzsortierung im Modul [Erweiterte Einsatzliste](../extendedCallList/) da:
 
 * Alarmieren und weiter
 * Alarmieren, Teilen und weiter

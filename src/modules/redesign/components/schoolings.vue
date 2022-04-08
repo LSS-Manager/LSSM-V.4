@@ -18,9 +18,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import type { SchoolingsWindow } from '../parsers/schoolings';
-
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { SchoolingsWindow } from '../parsers/schoolings';
 
 type Component = RedesignSubComponent<'schoolings', 'schoolings'>;
 

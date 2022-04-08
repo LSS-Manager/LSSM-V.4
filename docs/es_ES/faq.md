@@ -9,7 +9,7 @@ sidebarDepth: 3
 ### ¿Cuánto cuesta LSS Manager ?
 LSS-Manager es una extensión gratuita, no tenemos la intención de cambiar esto.
 
-::: warning Donaciones
+:::warning Donaciones
 Hay algunos usuarios amables a los que les gustaría donarnos dinero. Sin embargo, LSS Manager es y seguirá siendo gratuito. No aceptaremos donaciones para este proyecto.
 
 Hay varias razones:
@@ -36,32 +36,12 @@ En nuestra página de [sugerencias][suggestions].
 
 ### ¿En qué navegadores funciona LSS Manager?
 Aquí solo se enumeran los navegadores de escritorio, ya que los navegadores móviles no son compatibles oficialmente.
-¡Esta tabla no está necesariamente actualizada y se actualizará cuando haya nueva información disponible!
 
 Dado que queremos mantener los últimos estándares de codificación en todo momento, es necesario y recomendable un navegador moderno y actualizado, aunque solo sea por razones de seguridad, incluso fuera del juego.
 
-::: warning Compatibilidad
-Una compatibilidad enumerada aquí no garantiza la funcionalidad. Sólo es información recopilada y evaluada por terceros.
-:::
+<browser-support-table/>
 
-<table>
-<thead>
-    <tr>
-        <th>Navegador</th>
-        <th>Versión mínima</th>
-        <th>Descargar</th>
-    </tr>
-</thead>
-<tbody>
-    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
-        <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
-        <td>{{ supported }}</td>
-        <td><a :href="download" target="_blank">Descargar</a></td>
-    </tr>
-</tbody>
-</table>
-
-::: danger Navegadores no compatibles
+:::danger Navegadores no compatibles
 Internet Explorer & Apple Safari **NO son compatibles.**
 :::
 

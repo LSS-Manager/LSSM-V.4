@@ -1,4 +1,6 @@
 import he from 'he';
+
+import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
@@ -93,6 +95,10 @@ export default async (LSSM: Vue): Promise<void> => {
                 anniversary1Clicked: <Hidden>{
                     type: 'hidden',
                 },
+                loadingIndicator: <Toggle>{
+                    type: 'toggle',
+                    default: true,
+                },
             },
         })
         .then(() => {
@@ -152,6 +158,19 @@ export default async (LSSM: Vue): Promise<void> => {
                     allowDark =>
                         allowDark &&
                         document.body.classList.add('leaflet-dark-controls')
+                );
+
+            LSSM.$store
+                .dispatch('settings/getSetting', {
+                    moduleId: 'global',
+                    settingId: 'loadingIndicator',
+                    default: true,
+                })
+                .then(loadingIndicator =>
+                    localStorage.setItem(
+                        loadingIndicatorStorageKey,
+                        loadingIndicator
+                    )
                 );
         });
 

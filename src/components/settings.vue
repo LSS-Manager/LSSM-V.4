@@ -297,6 +297,8 @@ import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
 
+import loadingIndicatorStorageKey from '../../build/plugins/LoadingProgressPluginStorageKey';
+
 import type { DefaultProps } from 'vue/types/options';
 import type {
     AppendableList,
@@ -307,7 +309,7 @@ import type {
     SettingsComputed,
     SettingsData,
     SettingsMethods,
-} from '../../typings/components/Settings';
+} from 'typings/components/Settings';
 
 export default Vue.extend<
     SettingsData,
@@ -497,6 +499,13 @@ export default Vue.extend<
             this.startSettings = cloneDeep(this.settings);
             this.update();
             this.getExportData();
+
+            localStorage.setItem(
+                loadingIndicatorStorageKey,
+                (
+                    this.settings.global.loadingIndicator.value as boolean
+                ).toString()
+            );
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);

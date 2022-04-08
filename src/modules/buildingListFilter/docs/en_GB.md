@@ -7,7 +7,7 @@ You have the ability to add extra filters above the building list. You'll be abl
 * Choose which buildings are to show for each filter
 
 Example:
-![Example Filter Layouts](example.png)
+![Example Filter Layouts](./example.png)
 
 The settings screen:
-![Settings](settings.png)
+![Settings](./settings.png)

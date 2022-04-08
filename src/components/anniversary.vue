@@ -16,6 +16,7 @@
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+
 import lssmLogo from '../img/lssm_logo';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';

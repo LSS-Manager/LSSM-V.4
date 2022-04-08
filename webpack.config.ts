@@ -17,7 +17,11 @@ export default {
     module: {
         rules: [
             {
-                test: /\.svg$/i,
+                test: /\.(gif|jpg|png)$/iu,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.svg$/iu,
                 use: [
                     {
                         loader: 'url-loader',
@@ -29,24 +33,24 @@ export default {
                 ],
             },
             {
-                test: /\.tsx?$/,
+                test: /\.tsx?$/u,
                 use: [
                     {
                         loader: 'ts-loader',
                         options: {
-                            appendTsSuffixTo: [/\.vue$/],
+                            appendTsSuffixTo: [/\.vue$/u],
                             transpileOnly: true,
                         },
                     },
                 ],
-                exclude: /node_modules/,
+                exclude: /node_modules/u,
             },
             {
-                test: /\.vue$/,
+                test: /\.vue$/u,
                 loader: 'vue-loader',
             },
             {
-                test: /\.sass$/,
+                test: /\.sass$/u,
                 use: [
                     'vue-style-loader',
                     {
@@ -67,7 +71,7 @@ export default {
                 ],
             },
             {
-                test: /\.html?$/,
+                test: /\.html?$/u,
                 use: {
                     loader: 'html-loader',
                     options: {

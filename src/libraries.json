@@ -42,7 +42,7 @@
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.14.180"
+        "version": "4.14.181"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -93,21 +93,26 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.16.0"
+        "version": "5.18.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.16.0"
+        "version": "5.18.0"
     },
-    "@vuepress/plugin-active-header-links": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-        "version": "1.9.7"
+    "@vuepress/client": {
+        "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-beta.38"
     },
-    "@vuepress/plugin-back-to-top": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-back-to-top#readme",
-        "version": "1.9.7"
+    "@vuepress/plugin-register-components": {
+        "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-beta.38"
+    },
+    "@vuepress/plugin-search": {
+        "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-beta.38"
     },
     "all-contributors-cli": {
         "icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -136,7 +141,7 @@
     "eslint": {
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "url": "https://eslint.org",
-        "version": "8.11.0"
+        "version": "8.12.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -146,9 +151,16 @@
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "version": "7.32.1"
     },
+    "eslint-import-resolver-typescript": {
+        "version": "2.7.1"
+    },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
         "version": "4.0.2"
+    },
+    "eslint-plugin-import": {
+        "url": "https://github.com/import-js/eslint-plugin-import",
+        "version": "2.26.0"
     },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -162,12 +174,12 @@
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",
         "url": "https://github.com/sindresorhus/eslint-plugin-unicorn",
-        "version": "41.0.1"
+        "version": "42.0.0"
     },
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://eslint.vuejs.org",
-        "version": "8.5.0"
+        "version": "8.6.0"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -208,7 +220,7 @@
     "moment": {
         "icon": "https://momentjs.com/static/img/moment-favicon.png",
         "url": "https://momentjs.com",
-        "version": "2.29.1"
+        "version": "2.29.2"
     },
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
@@ -217,12 +229,12 @@
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
-        "version": "0.2.4"
+        "version": "0.2.5"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "2.6.0"
+        "version": "2.6.2"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -231,7 +243,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.49.9"
+        "version": "1.50.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -239,7 +251,7 @@
         "version": "12.6.0"
     },
     "semver": {
-        "version": "7.3.5"
+        "version": "7.3.6"
     },
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
@@ -259,7 +271,7 @@
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/TypeStrong/ts-loader",
-        "version": "9.2.7"
+        "version": "9.2.8"
     },
     "ts-node": {
         "icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
@@ -289,7 +301,7 @@
     "vue-i18n": {
         "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
         "url": "https://github.com/kazupon/vue-i18n#readme",
-        "version": "8.27.0"
+        "version": "8.27.1"
     },
     "vue-js-modal": {
         "url": "https://vue-js-modal.yev.io/",
@@ -324,34 +336,19 @@
         "url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
         "version": "2.6.14"
     },
+    "vue3": {
+        "icon": "https://vuejs.org/images/logo.png",
+        "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
+        "version": "3.2.31"
+    },
     "vuepress": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuejs/vuepress#readme",
-        "version": "1.9.7"
-    },
-    "vuepress-plugin-code-copy": {
-        "url": "https://github.com/znicholasbrown/vuepress-plugin-code-copy#readme",
-        "version": "1.0.6"
-    },
-    "vuepress-plugin-redirect": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
+        "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "1.2.5"
+        "version": "2.0.0-beta.38"
     },
-    "vuepress-plugin-smooth-scroll": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuepress",
-        "version": "0.0.10"
-    },
-    "vuepress-plugin-zooming": {
-        "icon": "https://vuepress.vuejs.org/hero.png",
-        "url": "https://github.com/vuepress",
-        "version": "1.1.8"
-    },
-    "vuepress-theme-yuu": {
-        "icon": "https://camo.githubusercontent.com/d056a8ecc69b192f8e5fd6f8fe198c5701d3ac611d6e1c5bcdbc96a90edafd26/68747470733a2f2f692e696d6775722e636f6d2f6a3962665942792e706e67",
-        "url": "https://vuepress-theme-yuu.netlify.app/",
-        "version": "3.1.1"
+    "vuepress-plugin-clipboard": {
+        "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
+        "version": "1.0.8"
     },
     "vuex": {
         "icon": "https://vuejs.org/images/logo.png",
@@ -361,6 +358,6 @@
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
-        "version": "5.70.0"
+        "version": "5.72.0"
     }
 }
