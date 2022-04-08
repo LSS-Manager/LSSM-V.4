@@ -1,7 +1,111 @@
-import { createIcon, sendReply } from './util';
+import {
+    addHoursToNow,
+    createIcon,
+    dateToTime,
+    getCityFromAddress,
+    getDateFromToday,
+    getTimeReplacers,
+    removeZipFromCity,
+    sendReply,
+} from './util';
 
 import type { Message } from './missionWindow';
+import type { Mission } from 'typings/Mission';
 import type { ModuleMainFunction } from 'typings/Module';
+
+const getModifiedMessage = (
+    raw: string,
+    LSSM: Vue,
+    mission: HTMLDivElement,
+    missionId: number | string,
+    missionSpecs: Mission
+) => {
+    const address =
+        mission
+            .querySelector<HTMLSpanElement>(`#mission_address_${missionId}`)
+            ?.textContent?.trim() ?? '–';
+    const city = getCityFromAddress(address);
+    const cityWithoutZip = removeZipFromCity(city);
+    const remaining =
+        mission
+            .querySelector<HTMLDivElement>(`#mission_missing_${missionId}`)
+            ?.textContent?.trim()
+            ?.replace(/^.*?:/u, '')
+            .trim() ?? '–';
+
+    const replacements: Record<string, string> = {
+        credits: missionSpecs.average_credits?.toLocaleString() ?? '–',
+        patients: (
+            (mission.querySelector('[id^="mission_patients_"] [id^="patient_"]')
+                ? mission.querySelectorAll('.patient_progress').length
+                : mission
+                      .querySelector<HTMLDivElement>(
+                          '[id^="mission_patient_summary_"]'
+                      )
+                      ?.style.getPropertyValue('display') !== 'none'
+                ? LSSM.$utils.getNumberFromText(
+                      mission.querySelector(
+                          '.mission_list_patient_icon + strong'
+                      )?.textContent ?? '0'
+                  )
+                : 0) || '–'
+        ).toLocaleString(),
+        remaining,
+        remainingSpecial: remaining,
+        address,
+        city,
+        cityWithoutZip,
+        beginAt: dateToTime(
+            addHoursToNow(
+                parseInt(
+                    mission
+                        .querySelector<HTMLDivElement>(
+                            `#mission_overview_countdown_${missionId}`
+                        )
+                        ?.getAttribute('timeleft') ?? '0'
+                ) /
+                    1000 /
+                    60 /
+                    60
+            )
+        ),
+        name:
+            missionSpecs?.name ??
+            Array.from(
+                mission.querySelector<HTMLAnchorElement>(
+                    `#mission_caption_${missionId}`
+                )?.childNodes ?? []
+            )
+                .find(
+                    n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim()
+                )
+                ?.textContent?.replace(/,$/u, '')
+                .trim() ??
+            '',
+        today: getDateFromToday(),
+        tomorrow: getDateFromToday(1),
+    };
+
+    let modifiedMessage = raw;
+    Object.entries(replacements).forEach(
+        ([variable, value]) =>
+            (modifiedMessage = modifiedMessage.replace(
+                new RegExp(`{{${variable}}}`, 'g'),
+                value
+            ))
+    );
+    Object.entries(getTimeReplacers()).forEach(
+        ([regex, replacer]) =>
+            (modifiedMessage = modifiedMessage.replace(
+                new RegExp(
+                    `{{${regex.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
+                    'g'
+                ),
+                replacer
+            ))
+    );
+    return modifiedMessage;
+};
 
 const createDropdownElement = <I extends 'comment-slash' | 'comment'>(
     content: string,
@@ -33,9 +137,11 @@ export default async ({
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
 
-    let selectedMessage = -1;
+    let replyMessage = '';
+    let postInChat = false;
 
     let isLSAMenu = false;
+    let replyInProgress = false;
 
     const observer = new MutationObserver(mutations =>
         mutations.forEach(mutation => {
@@ -51,19 +157,39 @@ export default async ({
                 ).querySelector<HTMLAnchorElement>(
                     '.alert.alert-success a[href^="/missions/"]'
                 );
-                if (successBtn && selectedMessage > 0) {
+                if (successBtn && replyMessage && !replyInProgress) {
                     const missionId =
                         successBtn
                             .getAttribute('href')
                             ?.match(/(?<=\/missions\/)\d+(?=\/?$)/u)?.[0] ?? -1;
-                    const message = messages[selectedMessage];
+                    const missionElement =
+                        document.querySelector<HTMLDivElement>(
+                            `#mission_${missionId}`
+                        );
+                    if (!missionElement) return;
+                    const missionsById: Record<string, Mission> =
+                        LSSM.$store.getters['api/missionsById'];
+                    replyInProgress = true;
                     sendReply(
                         LSSM,
                         missionId,
-                        message.message,
-                        message.postInChat,
+                        getModifiedMessage(
+                            replyMessage,
+                            LSSM,
+                            missionElement,
+                            missionId,
+                            missionsById[
+                                missionElement.getAttribute(
+                                    'mission_type_id'
+                                ) ?? '-1'
+                            ]
+                        ),
+                        postInChat,
                         authToken
-                    ).then(() => (selectedMessage = -1));
+                    ).then(() => {
+                        replyMessage = '';
+                        replyInProgress = false;
+                    });
                 }
 
                 return;
@@ -105,12 +231,14 @@ export default async ({
 
             dropdownMenu.append(noMessageLi, separatorLi);
 
-            messages.forEach((message, index) => {
+            messages.forEach(message => {
                 const li = createDropdownElement(
                     message.name,
                     message.postInChat ? 'comment' : 'comment-slash'
                 );
-                li.dataset.message = index.toString();
+                li.dataset.message = message.message;
+                li.dataset.post = message.postInChat.toString();
+                li.setAttribute('title', message.message);
                 dropdownMenu.append(li);
             });
 
@@ -122,7 +250,8 @@ export default async ({
                 const li = target.closest('li');
                 if (li) {
                     selectSpan.textContent = li.textContent ?? '';
-                    selectedMessage = parseInt(li.dataset.message ?? '-1');
+                    replyMessage = li.dataset.message ?? '';
+                    postInChat = li.dataset.post === 'true';
                 }
             });
 
