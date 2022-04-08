@@ -11,8 +11,8 @@
             "title": "Formaat van de datum en tijd"
         },
         "cloneHistoryBtnToHeader": {
-            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
-            "title": "Show Chat-History in Header"
+            "description": "Toont de knop voor de chatgeschiedenis boven de chat, zodat je niet naar beneden hoeft te scrollen.",
+            "title": "Toont the chatgeschiedenis knop boven de chat"
         }
     }
 }
