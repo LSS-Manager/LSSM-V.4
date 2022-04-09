@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         LSS-Manager V.4
-// @version      4.5.7+CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
+// @version      4.5.7-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
 // @author       Aisaka | Sanni | Jan (jxn_30) | Ron31
 // @description  A Script-Collection for Leitstellenspiel, Missionchief and its other language versions.
 // @match        https://www.operacni-stredisko.cz/*
@@ -41,11 +41,12 @@
 // @match        https://polis.larmcentralen-spelet.se/*
 // @match        https://www.112-merkez.com/*
 // @match        https://www.dyspetcher101-game.com/*
-// @homepage     https://proxy.lss-manager.de/v4/
+// @homepage     https://proxy.lss-manager.de/v4//docs/
 // @updateURL    https://proxy.lss-manager.de/v4/lssm-v4.user.js
 // @downloadURL  https://proxy.lss-manager.de/v4/lssm-v4.user.js
-// @run-at       document-idle
 // @icon         https://proxy.lss-manager.de/v4/docs/img/lssm.png
-// @supportURL   https://proxy.lss-manager.de/v4/docs/de_DE/error_report
+// @supportURL   https://proxy.lss-manager.de/v4/docs/en_US/error_report
+// @run-at       document-idle
 // ==/UserScript==
+/* global I18n, user_id */
 var _a,loadLSSM=function(){var e=document.createElement("script");e.src="".concat("https://proxy.lss-manager.de/v4/","core.js?_=").concat((new Date).getTime(),"&uid=").concat(I18n.locale,"-").concat(user_id),e.setAttribute("type","module"),e.setAttribute("async",""),document.body.append(e)};if((!window.frameElement||(null===(_a=window.frameElement)||void 0===_a?void 0:_a.src.startsWith("https")))&&!window.location.pathname.match(/^\/users\//u)&&"undefined"!=typeof user_id&&"undefined"!=typeof I18n)if(window!==window.parent&&window.parent.hasOwnProperty("lssmv4-redesign-lightbox")){var redesignTriggerEvent_1="lssmv4-redesign-iframe-trigger-lssm-load";window.parent.addEventListener(redesignTriggerEvent_1,loadLSSM),window.addEventListener("pagehide",(function(){return window.parent.removeEventListener(redesignTriggerEvent_1,loadLSSM)})),window.parent["lssmv4-redesign-lightbox"].src=new URL(window.location.href).toString()}else loadLSSM();
