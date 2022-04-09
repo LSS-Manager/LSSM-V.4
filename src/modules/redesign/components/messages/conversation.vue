@@ -15,16 +15,28 @@
                 </button>
             </h1>
             <p v-if="other">
-                {{ lightbox.$sm('subtitle') }}
+                {{
+                    lightbox.$sm(
+                        other.isAlliance ? 'subtitleAlliance' : 'subtitle'
+                    )
+                }}
                 <b>
-                    <a :href="`/profile/${other.id}`" lightbox-open>
+                    <a
+                        :href="`/${
+                            other.isAlliance ? 'alliances' : 'profile'
+                        }/${other.id}`"
+                        lightbox-open
+                    >
                         {{ other.name }}
                     </a>
                 </b>
             </p>
         </div>
         <div class="panel-body">
-            <div class="message message-self response-message">
+            <div
+                class="message message-self response-message"
+                v-if="other && !other.isAlliance"
+            >
                 <div class="message-meta well">
                     <button
                         class="btn btn-success response-send"
@@ -61,7 +73,7 @@
                 </div>
                 <div class="message-meta well other-side">
                     <img
-                        v-if="other && other.avatar"
+                        v-if="other && other.avatar && !other.isAlliance"
                         class="profile-avatar"
                         :src="other.avatar"
                         alt=""
@@ -83,7 +95,10 @@
                 >
                     <div class="message-meta well">
                         <img
-                            v-if="message.sender.avatar"
+                            v-if="
+                                message.sender.avatar &&
+                                !message.sender.isAlliance
+                            "
                             class="profile-avatar"
                             :src="message.sender.avatar"
                             alt=""
@@ -92,13 +107,18 @@
                     <div class="message-content well">
                         <strong>
                             <img
+                                v-if="!message.sender.isAlliance"
                                 :src="`/images/user_${
                                     message.sender.online ? 'green' : 'gray'
                                 }.png`"
                                 alt=""
                             />
                             <a
-                                :href="`/profile/${message.sender.id}`"
+                                :href="`/${
+                                    message.sender.isAlliance
+                                        ? 'alliances'
+                                        : 'profile'
+                                }/${message.sender.id}`"
                                 lightbox-open
                             >
                                 {{ message.sender.name }}
@@ -117,7 +137,8 @@
                             v-if="
                                 other &&
                                 other.avatar &&
-                                message.sender.id === userid
+                                message.sender.id === userid &&
+                                !message.sender.isAlliance
                             "
                             class="profile-avatar"
                             :src="other.avatar"
@@ -127,7 +148,8 @@
                             v-else-if="
                                 self &&
                                 self.avatar &&
-                                message.sender.id !== userid
+                                message.sender.id !== userid &&
+                                !message.sender.isAlliance
                             "
                             class="profile-avatar"
                             :src="self.avatar"
@@ -191,6 +213,7 @@ type Component = RedesignComponent<
                   avatar: string;
                   id: number;
                   name: string;
+                  isAlliance: boolean;
               }
             | undefined;
         self:
@@ -198,6 +221,7 @@ type Component = RedesignComponent<
                   avatar: string;
                   id: number;
                   name: string;
+                  isAlliance: boolean;
               }
             | undefined;
     }
