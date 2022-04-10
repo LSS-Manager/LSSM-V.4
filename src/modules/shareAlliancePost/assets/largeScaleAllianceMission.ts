@@ -204,25 +204,65 @@ export default async ({
             if (isLSAMenu) return;
             isLSAMenu = true;
 
-            const btnGroup = document.createElement('div');
-            btnGroup.classList.add('btn-group', 'pull-right');
+            const previewField = document.createElement('div');
+            previewField.classList.add('form-group');
+            previewField.style.setProperty('padding-left', '1em');
+            previewField.style.setProperty('padding-right', '1em');
 
-            const selectorBtn = document.createElement('button');
-            selectorBtn.classList.add(
-                'btn',
-                'btn-xs',
-                'btn-default',
-                'dropdown-toggle'
-            );
-            selectorBtn.dataset.toggle = 'dropdown';
-            const selectSpan = document.createElement('span');
-            const msgIcon = document.createElement('i');
-            msgIcon.classList.add('fas', 'fa-comment-dots');
-            msgIcon.style.setProperty('margin-left', '5px');
-            msgIcon.style.setProperty('margin-right', '5px');
+            const previewGroup = document.createElement('div');
+            previewGroup.classList.add('input-group');
+
+            const btnSpan = document.createElement('div');
+            btnSpan.classList.add('input-group-btn');
+
+            const dropdownBtn = document.createElement('button');
+            dropdownBtn.classList.add('btn', 'dropdown-toggle', 'btn-default');
+            dropdownBtn.dataset.toggle = 'dropdown';
+            const icon = createIcon('comment-dots', 'fas');
+            icon.style.setProperty('margin-right', '4px');
             const caret = document.createElement('span');
             caret.classList.add('caret');
-            selectorBtn.append(selectSpan, msgIcon, caret);
+            dropdownBtn.append(icon, caret);
+
+            btnSpan.append(dropdownBtn);
+
+            const previewInput = document.createElement('input');
+            previewInput.classList.add('form-control');
+            previewInput.addEventListener(
+                'input',
+                () => (replyMessage = previewInput.value)
+            );
+
+            const chatWrapper = document.createElement('label');
+            chatWrapper.classList.add('input-group-addon');
+            const chatSpan = document.createElement('span');
+            chatSpan.style.setProperty('display', 'flex');
+            const chatInput = document.createElement('input');
+            chatInput.type = 'checkbox';
+            const postIcon = createIcon(
+                'comment',
+                'fas',
+                'fa-fw',
+                'pull-right'
+            );
+            chatSpan.append(chatInput, postIcon);
+            chatWrapper.append(chatSpan);
+            chatWrapper.addEventListener('click', e => {
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            });
+            chatInput.addEventListener(
+                'change',
+                () => (postInChat = chatInput.checked)
+            );
+
+            previewGroup.append(btnSpan, previewInput, chatWrapper);
+
+            const helpBlock = document.createElement('p');
+            helpBlock.classList.add('help-block');
+            helpBlock.textContent = $m('lsam.help').toString();
+
+            previewField.append(previewGroup, helpBlock);
 
             const dropdownMenu = document.createElement('ul');
             dropdownMenu.classList.add('dropdown-menu');
@@ -249,62 +289,20 @@ export default async ({
                 dropdownMenu.append(li);
             });
 
-            btnGroup.append(selectorBtn, dropdownMenu);
-
             dropdownMenu.addEventListener('click', e => {
                 const target = e.target;
                 if (!(target instanceof HTMLElement)) return;
                 const li = target.closest('li');
                 if (li) {
-                    selectSpan.textContent = li.textContent ?? '';
                     replyMessage = li.dataset.message ?? '';
+                    previewInput.value = replyMessage;
                     postInChat = li.dataset.post === 'true';
-                    editBtn.classList[replyMessage ? 'remove' : 'add'](
-                        'hidden'
-                    );
+                    chatInput.checked = postInChat;
                 }
             });
+            dropdownBtn.after(dropdownMenu);
 
-            const editBtn = createEditBtn([], false);
-            editBtn.classList.add('pull-right');
-            editBtn.addEventListener('click', () => {
-                editBtn.disabled = true;
-                selectorBtn.disabled = true;
-                form.style.setProperty('pointer-events', 'none');
-                form.style.setProperty('opacity', '0.5');
-                const editField = createEditField(
-                    replyMessage,
-                    postInChat,
-                    editBtn,
-                    () => (selectorBtn.disabled = false),
-                    (inputField, postInput) => {
-                        replyMessage = inputField.value.trim();
-                        postInChat = postInput.checked;
-                        editField.remove();
-                        selectorBtn.disabled = false;
-                        editBtn.disabled = false;
-                        form.style.removeProperty('pointer-events');
-                        form.style.removeProperty('opacity');
-                    },
-                    [],
-                    false,
-                    false,
-                    true
-                );
-                const helpBlock = document.createElement('p');
-                helpBlock.classList.add('help-block');
-                helpBlock.style.setProperty('position', 'absolute');
-                helpBlock.style.setProperty('left', '0');
-                helpBlock.style.setProperty('top', '100%');
-                helpBlock.textContent = $m('lsam.help').toString();
-                editField.append(helpBlock);
-                editBtn.before(editField);
-            });
-
-            const clearfix = document.createElement('div');
-            clearfix.classList.add('clearfix');
-
-            form.before(editBtn, btnGroup, clearfix);
+            form.querySelector('.form-actions')?.before(previewField);
         })
     );
 
@@ -312,13 +310,4 @@ export default async ({
         document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
-
-    /* before .form-actions
-    <div class="form-group" style="padding-left: 1em;padding-right: 1em;opacity: 0.7;">
-  <div class="input-group">
-    <span class="input-group-addon">i18n msg.</span>
-    <input type="text" class="form-control" disabled>
-  <span class="input-group-addon">Chat input & icoon</span></div>
-</div>
-     */
 };

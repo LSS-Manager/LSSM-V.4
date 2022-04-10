@@ -10,6 +10,10 @@
             "description": "Integriert dieses Modul in die Funktion \"Einsätze teilen\" der erweiterten Einsatzliste.",
             "title": "Integration in die Einsatzliste"
         },
+        "enableLSAM": {
+            "description": "Aktiviere diese Option, um direkt beim Erstellen eines Verbandsgroßeinsatzes eine Rückmeldung festzulegen.",
+            "title": "VGE erstellen"
+        },
         "message": "Rückmeldungstext",
         "messages": {
             "description": "Lege hier Rückmeldungen fest, die du im Einsatzfenster auswählen kannst. Variablen werden unterstützt, schau hierzu in unser <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variablen\">Wiki</a>! Du kannst jeder Rückmeldung einen kurzen Namen geben, damit du sie im Einsatzfenster schneller findest.",

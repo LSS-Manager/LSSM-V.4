@@ -180,8 +180,8 @@ export function createEditField(
     defaultMessage: string,
     postInChat: boolean,
     editBtn: HTMLButtonElement,
-    editCallback: () => void,
-    sendCallBack: (
+    abortCallback: () => void,
+    sendCallback: (
         inputField: HTMLInputElement,
         postInput: HTMLInputElement
     ) => void,
@@ -216,7 +216,7 @@ export function createEditField(
         e.stopImmediatePropagation();
         wrapper.remove();
         editBtn.disabled = false;
-        editCallback();
+        abortCallback();
     });
 
     const inputField = document.createElement('input');
@@ -260,7 +260,7 @@ export function createEditField(
         inputField.disabled = true;
         postInput.disabled = true;
         sendBtn.disabled = true;
-        sendCallBack(inputField, postInput);
+        sendCallback(inputField, postInput);
     });
 
     wrapper.addEventListener('keydown', e => {

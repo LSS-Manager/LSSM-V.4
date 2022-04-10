@@ -6,10 +6,14 @@ export default <ModuleMainFunction>(async moduleParams => {
             /* webpackChunkName: "modules/shareAlliancePost/mission" */ './assets/missionWindow'
         ).then(({ default: mission }) => mission(moduleParams));
     } else if (window.location.pathname === '/') {
-        import(
-            /* webpackChunkName: "modules/shareAlliancePost/largeScaleAllianceMission" */ './assets/largeScaleAllianceMission'
-        ).then(({ default: largeScaleAllianceMission }) =>
-            largeScaleAllianceMission(moduleParams)
-        );
+        moduleParams.getSetting('enableLSAM').then(setting => {
+            if (setting) {
+                import(
+                    /* webpackChunkName: "modules/shareAlliancePost/largeScaleAllianceMission" */ './assets/largeScaleAllianceMission'
+                ).then(({ default: largeScaleAllianceMission }) =>
+                    largeScaleAllianceMission(moduleParams)
+                );
+            }
+        });
     }
 });
