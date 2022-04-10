@@ -1,5 +1,7 @@
 import {
     addHoursToNow,
+    createEditBtn,
+    createEditField,
     createIcon,
     dateToTime,
     getCityFromAddress,
@@ -12,6 +14,21 @@ import {
 import type { Message } from './missionWindow';
 import type { Mission } from 'typings/Mission';
 import type { ModuleMainFunction } from 'typings/Module';
+
+const getTimeModifiedMessage = (raw: string) => {
+    let modified = raw;
+    Object.entries(getTimeReplacers()).forEach(
+        ([regex, replacer]) =>
+            (modified = modified.replace(
+                new RegExp(
+                    `{{${regex.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
+                    'g'
+                ),
+                replacer
+            ))
+    );
+    return modified;
+};
 
 const getModifiedMessage = (
     raw: string,
@@ -94,17 +111,7 @@ const getModifiedMessage = (
                 value
             ))
     );
-    Object.entries(getTimeReplacers()).forEach(
-        ([regex, replacer]) =>
-            (modifiedMessage = modifiedMessage.replace(
-                new RegExp(
-                    `{{${regex.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,
-                    'g'
-                ),
-                replacer
-            ))
-    );
-    return modifiedMessage;
+    return getTimeModifiedMessage(modifiedMessage);
 };
 
 const createDropdownElement = <I extends 'comment-slash' | 'comment'>(
@@ -223,11 +230,11 @@ export default async ({
             const noMessageLi = createDropdownElement(
                 $m('noMessage').toString()
             );
-            noMessageLi.dataset.message = '-1';
+            noMessageLi.dataset.message = '';
 
             const separatorLi = document.createElement('li');
             separatorLi.classList.add('divider');
-            separatorLi.dataset.message = '-1';
+            separatorLi.dataset.message = '';
 
             dropdownMenu.append(noMessageLi, separatorLi);
 
@@ -236,7 +243,7 @@ export default async ({
                     message.name,
                     message.postInChat ? 'comment' : 'comment-slash'
                 );
-                li.dataset.message = message.message;
+                li.dataset.message = getTimeModifiedMessage(message.message);
                 li.dataset.post = message.postInChat.toString();
                 li.setAttribute('title', message.message);
                 dropdownMenu.append(li);
@@ -252,13 +259,52 @@ export default async ({
                     selectSpan.textContent = li.textContent ?? '';
                     replyMessage = li.dataset.message ?? '';
                     postInChat = li.dataset.post === 'true';
+                    editBtn.classList[replyMessage ? 'remove' : 'add'](
+                        'hidden'
+                    );
                 }
+            });
+
+            const editBtn = createEditBtn([], false);
+            editBtn.classList.add('pull-right');
+            editBtn.addEventListener('click', () => {
+                editBtn.disabled = true;
+                selectorBtn.disabled = true;
+                form.style.setProperty('pointer-events', 'none');
+                form.style.setProperty('opacity', '0.5');
+                const editField = createEditField(
+                    replyMessage,
+                    postInChat,
+                    editBtn,
+                    () => (selectorBtn.disabled = false),
+                    (inputField, postInput) => {
+                        replyMessage = inputField.value.trim();
+                        postInChat = postInput.checked;
+                        editField.remove();
+                        selectorBtn.disabled = false;
+                        editBtn.disabled = false;
+                        form.style.removeProperty('pointer-events');
+                        form.style.removeProperty('opacity');
+                    },
+                    [],
+                    false,
+                    false,
+                    true
+                );
+                const helpBlock = document.createElement('p');
+                helpBlock.classList.add('help-block');
+                helpBlock.style.setProperty('position', 'absolute');
+                helpBlock.style.setProperty('left', '0');
+                helpBlock.style.setProperty('top', '100%');
+                helpBlock.textContent = $m('lsam.help').toString();
+                editField.append(helpBlock);
+                editBtn.before(editField);
             });
 
             const clearfix = document.createElement('div');
             clearfix.classList.add('clearfix');
 
-            form.before(btnGroup, clearfix);
+            form.before(editBtn, btnGroup, clearfix);
         })
     );
 
@@ -266,4 +312,13 @@ export default async ({
         document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
+
+    /* before .form-actions
+    <div class="form-group" style="padding-left: 1em;padding-right: 1em;opacity: 0.7;">
+  <div class="input-group">
+    <span class="input-group-addon">i18n msg.</span>
+    <input type="text" class="form-control" disabled>
+  <span class="input-group-addon">Chat input & icoon</span></div>
+</div>
+     */
 };

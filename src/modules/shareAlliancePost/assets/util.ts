@@ -154,14 +154,21 @@ export function createIcon(
     return iconElement;
 }
 
-export function createEditBtn(editBtnClass: string) {
+export function createEditBtn(
+    editBtnClass: string[] | string = [],
+    transform = true
+) {
     const editBtn = document.createElement('button');
-    editBtn.classList.add('btn', 'btn-xs', 'btn-default', editBtnClass);
-    editBtn.style.setProperty('position', 'absolute');
-    editBtn.style.setProperty('right', '0');
-    editBtn.style.setProperty('transform', 'translateY(-3px)');
+    editBtn.classList.add('btn', 'btn-xs', 'btn-default');
+    if (Array.isArray(editBtnClass)) editBtn.classList.add(...editBtnClass);
+    else editBtn.classList.add(editBtnClass);
+    if (transform) {
+        editBtn.style.setProperty('position', 'absolute');
+        editBtn.style.setProperty('right', '0');
+        editBtn.style.setProperty('transform', 'translateY(-3px)');
+    }
 
-    const btnIcon = createIcon('edit', 'fas', 'fa-fw');
+    const btnIcon = createIcon('pen-to-square', 'fas', 'fa-fw');
     btnIcon.style.setProperty('pointer-events', 'none');
 
     editBtn.append(btnIcon);
@@ -170,16 +177,29 @@ export function createEditBtn(editBtnClass: string) {
 }
 
 export function createEditField(
-    liElement: HTMLLIElement,
+    defaultMessage: string,
+    postInChat: boolean,
     editBtn: HTMLButtonElement,
-    inputGroupClass: string,
-    isMissionList = false
+    editCallback: () => void,
+    sendCallBack: (
+        inputField: HTMLInputElement,
+        postInput: HTMLInputElement
+    ) => void,
+    inputGroupClass: string[] | string = [],
+    isMissionList = false,
+    transform = true,
+    checkIcon = false
 ) {
     const wrapper = document.createElement('div');
-    wrapper.classList.add('input-group', inputGroupClass);
-    wrapper.style.setProperty('position', 'absolute');
-    wrapper.style.setProperty('left', isMissionList ? '0' : '100%');
-    wrapper.style.setProperty('transform', 'translateY(-26px)');
+    wrapper.classList.add('input-group');
+    if (Array.isArray(inputGroupClass))
+        wrapper.classList.add(...inputGroupClass);
+    else wrapper.classList.add(inputGroupClass);
+    if (transform) {
+        wrapper.style.setProperty('position', 'absolute');
+        wrapper.style.setProperty('left', isMissionList ? '0' : '100%');
+        wrapper.style.setProperty('transform', 'translateY(-26px)');
+    }
     if (isMissionList) wrapper.style.setProperty('width', '300%');
 
     const abortBtnWrapper = document.createElement('div');
@@ -196,14 +216,15 @@ export function createEditField(
         e.stopImmediatePropagation();
         wrapper.remove();
         editBtn.disabled = false;
+        editCallback();
     });
 
     const inputField = document.createElement('input');
     inputField.classList.add('form-control');
-    if (!isMissionList)
+    if (!isMissionList && transform)
         inputField.style.setProperty('width', 'max(20em, calc(100vw / 3))');
     inputField.type = 'text';
-    inputField.value = liElement.dataset.message ?? '';
+    inputField.value = defaultMessage;
 
     const postWrapper = document.createElement('label');
     postWrapper.classList.add('input-group-addon');
@@ -211,7 +232,7 @@ export function createEditField(
     postSpan.style.setProperty('display', 'flex');
     const postInput = document.createElement('input');
     postInput.type = 'checkbox';
-    postInput.checked = liElement.dataset.post === 'true';
+    postInput.checked = postInChat;
     const postIcon = createIcon('comment', 'fas', 'fa-fw', 'pull-right');
     postSpan.append(postInput, postIcon);
     postWrapper.append(postSpan);
@@ -225,7 +246,11 @@ export function createEditField(
     sendBtnWrapper.style.setProperty('padding', '0');
     const sendBtn = document.createElement('button');
     sendBtn.classList.add('btn', 'btn-success');
-    const sendIcon = createIcon('paper-plane', 'fas', 'fa-fw');
+    const sendIcon = createIcon(
+        checkIcon ? 'check' : 'paper-plane',
+        'fas',
+        'fa-fw'
+    );
     sendBtn.append(sendIcon);
     sendBtnWrapper.append(sendBtn);
     sendBtn.addEventListener('click', e => {
@@ -235,10 +260,7 @@ export function createEditField(
         inputField.disabled = true;
         postInput.disabled = true;
         sendBtn.disabled = true;
-        liElement.dataset.message = liElement.dataset.raw =
-            inputField.value.trim();
-        liElement.dataset.post = postInput.checked.toString();
-        liElement.click();
+        sendCallBack(inputField, postInput);
     });
 
     wrapper.addEventListener('keydown', e => {
@@ -248,6 +270,28 @@ export function createEditField(
     wrapper.append(abortBtnWrapper, inputField, postWrapper, sendBtnWrapper);
 
     return wrapper;
+}
+
+export function createEditFieldForDropdown(
+    liElement: HTMLLIElement,
+    editBtn: HTMLButtonElement,
+    inputGroupClass: string[] | string = [],
+    isMissionList = false
+) {
+    return createEditField(
+        liElement.dataset.message ?? '',
+        liElement.dataset.post === 'true',
+        editBtn,
+        () => void 0,
+        (inputField, postInput) => {
+            liElement.dataset.message = liElement.dataset.raw =
+                inputField.value.trim();
+            liElement.dataset.post = postInput.checked.toString();
+            liElement.click();
+        },
+        inputGroupClass,
+        isMissionList
+    );
 }
 
 export function getDropdownClickHandler(
@@ -281,7 +325,7 @@ export function getDropdownClickHandler(
             editBtn.disabled = true;
 
             editBtn.after(
-                createEditField(
+                createEditFieldForDropdown(
                     liElement,
                     editBtn,
                     inputGroupClass,
