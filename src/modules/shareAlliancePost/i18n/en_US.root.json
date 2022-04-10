@@ -1,11 +1,18 @@
 {
     "description": "Alarm, Share the mission and post an incident note with a single click.",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
     "name": "Share-Alliance-Post",
     "noMessage": "Without incident note",
     "settings": {
         "enableCallList": {
             "description": "Integrates this module into \"Share missions\" of extended call-list.",
             "title": "Integration to Call-list"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
         },
         "message": "Incident Note",
         "messages": {

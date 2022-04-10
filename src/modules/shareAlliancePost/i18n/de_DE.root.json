@@ -1,11 +1,18 @@
 {
     "description": "Alarmiere, Teile den Einsatz und Poste eine Rückmeldung mit nur einem Klick.",
+    "lsam": {
+        "help": "Die Variablen werden beim Posten wie in der Einsatzliste ersetzt."
+    },
     "name": "Share-Alliance-Post",
     "noMessage": "Ohne Rückmeldung",
     "settings": {
         "enableCallList": {
             "description": "Integriert dieses Modul in die Funktion \"Einsätze teilen\" der erweiterten Einsatzliste.",
             "title": "Integration in die Einsatzliste"
+        },
+        "enableLSAM": {
+            "description": "Aktiviere diese Option, um direkt beim Erstellen eines Verbandsgroßeinsatzes eine Rückmeldung festzulegen.",
+            "title": "VGE erstellen"
         },
         "message": "Rückmeldungstext",
         "messages": {
