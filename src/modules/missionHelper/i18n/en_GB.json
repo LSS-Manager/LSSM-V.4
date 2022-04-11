@@ -30,6 +30,10 @@
         "rescue_helicopter_stations": "Rescue Helicopter Count",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
         "riot_police": "Police & Public Safety Extension | Police & Public Safety Extensions",
+        "level_2_public_order": "Level 2 Public Order Officer",
+        "police_medic": "Police Medic",
+        "police_sergeant": "Police Sergeant",
+        "police_inspector": "Police Inspector",
         "title": "Prerequisite | Prerequisites"
     },
     "prisoners": {
