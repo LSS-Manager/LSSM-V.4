@@ -238,7 +238,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             special: 'A standard patrol car for tackling your police calls.',
         },
         9: {
@@ -294,7 +294,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19, 22],
+            possibleBuildings: [6, 19, 22, 26],
             schooling: {
                 Police: {
                     'Dog handling': {
@@ -312,7 +312,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -399,7 +399,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 6000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            possibleBuildings: [2, 6, 19, 20, 25],
+            possibleBuildings: [2, 6, 19, 20, 25, 26],
             special:
                 'Acts as a Rapid Response Vehicle and Incident Response Vehicle. Perfect for calls that need police and alot of ambulances.',
         },
@@ -460,7 +460,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Roads Policing Officer Training': {
@@ -478,7 +478,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -857,6 +857,100 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier.',
             possibleBuildings: [0, 18],
         },
+        51: {
+            caption: 'PSU Carrier',
+            color: '#3a5522',
+            coins: 8,
+            credits: 8_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            possibleBuildings: [6, 26],
+            special:
+                '',
+        },
+        52: {
+            caption: 'Firearms Personnel Carrier',
+            color: '#3a5522',
+            coins: 15,
+            credits: 8_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            possibleBuildings: [6, 26],
+            schooling: {
+                Police: {
+                    'Firearms training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                '',
+        },
+        53: {
+            caption: 'Multiple Dog Carrier',
+            color: '#3a5522',
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [6, 26],
+            schooling: {
+                Police: {
+                    'Dog handling': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                '',
+        },
+        54: {
+            caption: 'Detention Van',
+            color: '#3a5522',
+            coins: 15,
+            credits: 26_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6],
+            special:
+                '',
+        },
+        55: {
+            caption: 'Mounted Unit',
+            color: '#3a5522',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 8,
+            possibleBuildings: [6, 26],
+            schooling: {
+                Police: {
+                    'Mounted Training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                '',
+        },
+        56: {
+            caption: 'M-RAV',
+            color: '#3a5522',
+            coins: 23,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [6, 19, 26],
+            schooling: {
+                Police: {
+                    'Firearms training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                '',
+        },
     },
     buildings: {
         0: {
@@ -1079,8 +1173,14 @@ If several requests fail in a short time, this could be due to server problems. 
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Police & Public Safety Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: '1.700 together with small police stations',
             maxLevel: 19,
             special:
@@ -1256,12 +1356,6 @@ If several requests fail in a short time, this could be due to server problems. 
                     coins: 5,
                     duration: '7 Days',
                 },
-                ...new Array(1).fill({
-                    caption: 'Additional cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                }),
             ],
             levelcost: [
                 '1. 10.000',
@@ -1394,6 +1488,44 @@ If several requests fail in a short time, this could be due to server problems. 
             startVehicles: [],
             schoolingTypes: ['Rescue'],
         },
+        26: {
+            caption: 'Police Depot',
+            color: '#116611',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(39).fill({
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+                {
+                    caption: 'Police & Public Safety Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
+            ],
+            levelcost: [
+                '1. 20.000',
+                '2. 50.000',
+                '3.-20. 100.000',
+            ],
+            maxBuildings: 'no limit',
+            maxLevel: 20,
+            special:
+                'You Can build every 50 Police Stations',
+            startPersonnel: 20,
+            startVehicles: [],
+            schoolingTypes: ['Police'],
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -1405,7 +1537,7 @@ If several requests fail in a short time, this could be due to server problems. 
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [6, 8, 13, 19],
+            buildings: [6, 8, 13, 19, 26],
             color: '#00ac00',
         },
         'Other': {
@@ -1442,6 +1574,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
+                'PSU': [51, 52, 53, 54, 55, 56]
             },
             color: '#00ac00',
         },
@@ -1451,8 +1584,8 @@ If several requests fail in a short time, this could be due to server problems. 
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 22, 25],
-    cellBuildings: [6, 19],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 22, 25, 26],
+    cellBuildings: [6, 19, 26],
     cellExtensions: [
         '6_0',
         '6_1',
@@ -1530,6 +1663,36 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'Roads Policing Officer Training',
                 duration: '3 Days',
                 staffList: 'Roads Policing Officer',
+            },
+            {
+                caption: 'Level 1 Public Order Training',
+                duration: '5 Days',
+                staffList: 'Level 1 Public Order Officer',
+            },
+            {
+                caption: 'Level 2 Public Order Training',
+                duration: '5 Days',
+                staffList: 'Level 2 Public Order Officer',
+            },
+            {
+                caption: 'Police Medic Training',
+                duration: '4 Days',
+                staffList: 'Police Medic',
+            },
+            {
+                caption: 'Police Sergeant Training',
+                duration: '4 Days',
+                staffList: 'Police Sergeant',
+            },
+            {
+                caption: 'Police Inspector Training',
+                duration: '4 Days',
+                staffList: 'Police Inspector',
+            },
+            {
+                caption: 'Mounted Training',
+                duration: '4 Days',
+                staffList: 'Mounted Officers',
             },
         ],
         'Rescue': [

@@ -74,7 +74,7 @@ module.exports = {
         selected: 'Selected',
         staffPrefix: ['We need'],
         staff: {
-            [/^Armed Response Personnel$/u]: [13, 25],
+            [/^Armed Response Personnel$/u]: [13, 25, 52, 56],
             [/^more firefighters$/u]: [
                 0, 1, 2, 3, 4, 6, 7, 14, 15, 16, 17, 18, 23, 26, 35, 36, 37, 38,
                 39, 40,
@@ -93,8 +93,8 @@ module.exports = {
             [/^Police car(s)?$/u]: [8, 12, 13, 19, 24, 25],
             [/^HEMS$/u]: [9],
             [/^Policehelicopter(s)?$/u]: [11],
-            [/^Armed Response$/u]: [13, 25],
-            [/^Dog Support Units? \(DSUs?\)$/u]: [12],
+            [/^Armed Response$/u]: [13, 25, 52, 56],
+            [/^Dog Support Units? \(DSUs?\)$/u]: [12, 53],
             [/^Operational Team Leader(s)?$/u]: [20, 31],
             [/^Traffic Car(s)?$/u]: [24, 25],
             [/^ATV Carrier(s)?$/u]: [30],
@@ -104,6 +104,7 @@ module.exports = {
             [/^Ambulance Officer(s)?$/u]: [34],
             [/^Foam Unit(s)?$/u]: [35, 36, 37, 38, 42],
             [/^Mass Casualty Equipment?$/u]: [33],
+            [/^Mounted Unit(s)?$/u]: [55],
         },
     },
     tailoredTabs: {
