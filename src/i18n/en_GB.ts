@@ -865,8 +865,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 9,
             possibleBuildings: [6, 26],
-            special:
-                '',
+            special: 'This Police Support Unit, carrys a large amount of officers (usally riot trained) to scenes.',
         },
         52: {
             caption: 'Firearms Personnel Carrier',
@@ -883,8 +882,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: 'A Large Van carrying Firearms Officers to scenes and reducing the amount of armed vehicles needed.',
         },
         53: {
             caption: 'Multiple Dog Carrier',
@@ -901,8 +899,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: 'A dog carrier which transports mutiple dogs to a scene.',
         },
         54: {
             caption: 'Detention Van',
@@ -912,8 +909,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6],
-            special:
-                '',
+            special: 'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported.',
         },
         55: {
             caption: 'Mounted Unit',
@@ -930,8 +926,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: 'This unit will transport horses form stables to riots in order to get a higher view of what is happening in the crowd.',
         },
         56: {
             caption: 'M-RAV',
@@ -948,8 +943,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: 'This is a armoured vehicle transporting 6 firearms officers.',
         },
     },
     buildings: {
@@ -1570,11 +1564,11 @@ If several requests fail in a short time, this could be due to server problems. 
         'Police Vehicles': {
             vehicles: {
                 'Police Car': [8],
-                'ARV': [13],
+                'ARV': [13, 56],
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
-                'PSU': [51, 52, 53, 54, 55, 56]
+                'PSU': [51, 52, 53, 54, 55],
             },
             color: '#00ac00',
         },
