@@ -865,7 +865,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 9,
             possibleBuildings: [6, 26],
-            special: 'This Police Support Unit, carrys a large amount of officers (usally riot trained) to scenes.',
+            special:
+                'This Police Support Unit, carrys a large amount of officers (usally riot trained) to scenes.',
         },
         52: {
             caption: 'Firearms Personnel Carrier',
@@ -882,7 +883,8 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special: 'A Large Van carrying Firearms Officers to scenes and reducing the amount of armed vehicles needed.',
+            special:
+                'A Large Van carrying Firearms Officers to scenes and reducing the amount of armed vehicles needed.',
         },
         53: {
             caption: 'Multiple Dog Carrier',
@@ -909,7 +911,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6],
-            special: 'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported.',
+            special:
+                'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported.',
         },
         55: {
             caption: 'Mounted Unit',
@@ -926,7 +929,8 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special: 'This unit will transport horses form stables to riots in order to get a higher view of what is happening in the crowd.',
+            special:
+                'This unit will transport horses form stables to riots in order to get a higher view of what is happening in the crowd.',
         },
         56: {
             caption: 'M-RAV',
@@ -943,7 +947,8 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special: 'This is a armoured vehicle transporting 6 firearms officers.',
+            special:
+                'This is a armoured vehicle transporting 6 firearms officers.',
         },
     },
     buildings: {
