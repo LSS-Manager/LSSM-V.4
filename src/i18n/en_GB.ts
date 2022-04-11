@@ -1489,7 +1489,7 @@ If several requests fail in a short time, this could be due to server problems. 
             schoolingTypes: ['Rescue'],
         },
         26: {
-            caption: 'Police Depot',
+            caption: 'Large Police Depot',
             color: '#116611',
             coins: 50,
             credits: 1_000_000,
