@@ -20,6 +20,7 @@
         "fire_stations": "Fire Station | Fire Stations",
         "fire_support_count": "Foam Extension | Foam Extensions",
         "hazard_response_ems": "HART Base | HART Bases",
+        "level_1_public_order": "Level 1 Public Order Officer",
         "mass_casualty_count": "Mass Casualty Extension | Mass Casualty Extensions",
         "max_police_stations": "Maximum Police Stations",
         "max_rescue_stations": "Maximum Rescue Stations",
@@ -29,8 +30,6 @@
         "rescue_helicopter_stations": "Rescue Helicopter Count",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
         "riot_police": "Police & Public Safety Extension | Police & Public Safety Extensions",
-        "level_1_public_order": "Level 1 Public Order Officer",
-        "personnel_educations": "Required Personnel Available",
         "title": "Prerequisite | Prerequisites"
     },
     "prisoners": {
