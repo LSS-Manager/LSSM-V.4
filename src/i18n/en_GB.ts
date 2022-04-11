@@ -861,18 +861,17 @@ If several requests fail in a short time, this could be due to server problems. 
             caption: 'PSU Carrier',
             color: '#3a5522',
             coins: 8,
-            credits: 8_000,
+            credits: 8000,
             minPersonnel: 1,
             maxPersonnel: 9,
             possibleBuildings: [6, 26],
-            special:
-                '',
+            special: '',
         },
         52: {
             caption: 'Firearms Personnel Carrier',
             color: '#3a5522',
             coins: 15,
-            credits: 8_000,
+            credits: 8000,
             minPersonnel: 1,
             maxPersonnel: 9,
             possibleBuildings: [6, 26],
@@ -883,8 +882,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         53: {
             caption: 'Multiple Dog Carrier',
@@ -901,8 +899,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         54: {
             caption: 'Detention Van',
@@ -912,8 +909,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [6],
-            special:
-                '',
+            special: '',
         },
         55: {
             caption: 'Mounted Unit',
@@ -930,8 +926,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         56: {
             caption: 'M-RAV',
@@ -948,8 +943,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
     },
     buildings: {
@@ -1513,15 +1507,10 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 },
             ],
-            levelcost: [
-                '1. 20.000',
-                '2. 50.000',
-                '3.-20. 100.000',
-            ],
+            levelcost: ['1. 20.000', '2. 50.000', '3.-20. 100.000'],
             maxBuildings: 'no limit',
             maxLevel: 20,
-            special:
-                'You Can build every 50 Police Stations',
+            special: 'You Can build every 50 Police Stations',
             startPersonnel: 20,
             startVehicles: [],
             schoolingTypes: ['Police'],
@@ -1574,7 +1563,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
-                'PSU': [51, 52, 53, 54, 55, 56]
+                'PSU': [51, 52, 53, 54, 55, 56],
             },
             color: '#00ac00',
         },
