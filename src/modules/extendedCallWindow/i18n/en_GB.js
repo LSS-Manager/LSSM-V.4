@@ -52,9 +52,9 @@ module.exports = {
             fustw: 'Police car',
             polizeihubschrauber: 'Police helicopter',
             swat_suv: 'Armed Response Vehicle (ARV)',
-            k9: 'Dog Support Unit (DSU)',
+            k9: 'Any Dog Carrier',
             crew_carrier: 'Crew Carrier',
-            any_traffic_car: 'Traffic Car',
+            any_traffic_car: 'Any Traffic Car',
         },
     },
     enhancedMissingVehicles: {
