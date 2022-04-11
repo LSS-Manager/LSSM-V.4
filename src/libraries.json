@@ -141,7 +141,7 @@
     "eslint": {
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "url": "https://eslint.org",
-        "version": "8.12.0"
+        "version": "8.13.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -344,7 +344,7 @@
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.38"
+        "version": "2.0.0-beta.39"
     },
     "vuepress-plugin-clipboard": {
         "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",

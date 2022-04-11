@@ -5,5 +5,6 @@
         "next": "charger les anciens messages",
         "prev": "charger les nouveaux messages"
     },
-    "subtitle": "Une conversation avec"
+    "subtitle": "Une conversation avec",
+    "subtitleAlliance": "un message de l'alliance"
 }

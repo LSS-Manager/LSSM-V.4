@@ -118,8 +118,8 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         loadingIndicator: {
             description:
-                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
-            title: 'show loading progress',
+                'Als deze instelling actief is, dan toont LSSM een kleine laadcirkel in de rechterbeneden hoek als LSSM nog aan het laden is.',
+            title: 'Toon laad voortgang',
         },
         osmDarkTooltip: {
             description:

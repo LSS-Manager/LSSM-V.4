@@ -13,7 +13,7 @@ import {
 } from './util';
 
 import type { ButtonGroupCallback } from '../../extendedCallList/assets/utils/buttonGroup';
-import type { Message } from '../main';
+import type { Message } from './missionWindow';
 import type { Mission } from 'typings/Mission';
 
 const createLi = <I extends 'comment-slash' | 'comment'>(

@@ -1,11 +1,18 @@
 {
     "description": "Alarma, comparte misión y publica una nota de incidente con un solo clic .",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
     "name": "Alarma-Compartir-Publicar",
     "noMessage": "Sin nota de incidencia",
     "settings": {
         "enableCallList": {
             "description": "Integra este módulo en \"Share missions\" de lista de llamadas extendidas.",
             "title": "Integración a la lista de llamadas"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
         },
         "message": "Nota de incidente",
         "messages": {
