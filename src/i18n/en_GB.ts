@@ -910,7 +910,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 26_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6],
+            possibleBuildings: [6, 26],
             special:
                 'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported.',
         },
