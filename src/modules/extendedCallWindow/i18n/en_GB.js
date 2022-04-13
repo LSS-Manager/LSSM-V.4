@@ -90,7 +90,7 @@ module.exports = {
             [/^ICCU or Ambulance Control Unit(s)?$/u]: [15, 31, 44],
             [/^HazMat Unit(s)? or CBRN Vehicle(s)?$/u]: [7, 32, 39, 48, 49],
             [/^Ambulance(s)?$/u]: [5],
-            [/^Police car(s)?$/u]: [8, 12, 13, 19, 24, 25],
+            [/^Police car(s)?$/u]: [8, 12, 13, 19, 24, 25, 51, 52, 56],
             [/^HEMS$/u]: [9],
             [/^Policehelicopter(s)?$/u]: [11],
             [/^Armed Response$/u]: [13, 25, 52, 56],
