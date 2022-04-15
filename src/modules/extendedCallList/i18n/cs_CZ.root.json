@@ -26,7 +26,7 @@
             "title": "Aktuálně pacientů"
         },
         "eventMissions": {
-            "description": "Označí sezónní mise. VoMarks seasonal missions. Můžete si také přizpůsobit a označit i nesezonní mise",
+            "description": "Označí sezónní mise. Můžete si seznamy také přizpůsobit a označit i nesezonní mise",
             "missions": "Mise",
             "text": "Text",
             "title": "Označit sezónní mise"
