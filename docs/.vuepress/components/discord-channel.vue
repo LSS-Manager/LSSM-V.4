@@ -8,8 +8,9 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeData } from '@vuepress/theme-default/lib/client';
 import { defineProps, toRefs } from 'vue';
+
+import { useThemeData } from '@vuepress/theme-default/lib/client';
 
 import type { ThemeData } from '../types/ThemeData';
 

@@ -126,12 +126,30 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         const iframes = findIframes(document);
         if (!iframes || !iframes.length) return true;
         iframes.forEach(iframe => {
-            const container = iframe.contentDocument?.getElementById(
-                'iframe-inside-container'
-            );
+            const contentDocument = iframe.contentDocument;
+            if (!contentDocument) return;
+            const container =
+                iframe.contentDocument.querySelector<HTMLDivElement>(
+                    '#iframe-inside-container'
+                );
             if (!container) return true;
             container.style.width = '100%';
             container.style.height = '100%';
+            if (
+                !/^\/missions\/\d+\/?$/u.test(contentDocument.location.pathname)
+            ) {
+                const containerClass = LSSM.$store.getters.nodeAttribute(
+                    `${MODULE_ID}-lightbox-iframe-container-full-height`
+                );
+                container.classList.add(containerClass);
+                const style = document.createElement('style');
+                style.textContent = `
+                    .${containerClass} {
+                        height: 100% !important;
+                    }
+                `;
+                container.after(style);
+            }
         });
         const modal = document.querySelector<HTMLDivElement>(
             '.vm--overlay[data-modal^="redesign-lightbox-"] ~ .vm--modal'

@@ -97,7 +97,7 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
-import lssmLogo from './img/lssm_logo';
+import lssmLogo from './img/lssm.png';
 
 import type { DefaultProps } from 'vue/types/options';
 import type {
@@ -191,7 +191,7 @@ export default Vue.extend<
             iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
             iconBgAsNavBg: false,
             labelInMenu: false,
-            lssmLogo,
+            lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
             discord: this.$store.state.discord,
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,

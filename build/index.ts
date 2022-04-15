@@ -1,18 +1,19 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
+
 import lodash from 'lodash';
 import moment from 'moment';
-
-// TODO: Find a way to use SpeedMeasurePlugin with webpack@5 and vue-loader
-// import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+import webpack from 'webpack';
 
 import addToBuildStats from './addToBuildStats';
 import config from '../src/config';
+import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
+import LoadingProgressPlugin from './plugins/LoadingProgressPlugin';
 import { version } from '../package.json';
 import webpackConfig from '../webpack.config';
 
-import webpack from 'webpack';
+// TODO: Find a way to use SpeedMeasurePlugin with webpack@5 and vue-loader
+// import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
 console.time(`build`);
 
@@ -64,6 +65,8 @@ entry.plugins?.unshift(
                 ])
             )
         ),
+        LOADSCRIPT_EVENT_START: JSON.stringify(config.loadScript.start),
+        LOADSCRIPT_EVENT_END: JSON.stringify(config.loadScript.end),
     }),
     new webpack.ContextReplacementPlugin(
         /moment\/locale$/u,
@@ -89,7 +92,8 @@ entry.plugins?.push(
             value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
             isDynamicKey: true, // false by default
         },
-    })
+    }),
+    new LoadingProgressPlugin()
 );
 
 console.log('Generated configurations. Building…');
@@ -114,6 +118,19 @@ webpack(entry, (err, stats) => {
                 mode === 'production' ? 'public' : 'beta'
             }.json`,
             JSON.stringify(stats.toJson(), null, '\t')
+        );
+        fs.writeFileSync(
+            './dist/static/fileSizes.json',
+            JSON.stringify(
+                Object.fromEntries(
+                    stats
+                        .toJson()
+                        .assets?.map(({ name, size }) => [
+                            name.replace(/\.js$/u, ''),
+                            size,
+                        ]) ?? []
+                )
+            )
         );
         addToBuildStats({ version });
     }

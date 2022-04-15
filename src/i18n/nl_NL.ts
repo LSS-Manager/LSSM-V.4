@@ -116,6 +116,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
             title: 'Kleur menubalk',
         },
+        loadingIndicator: {
+            description:
+                'Als deze instelling actief is, dan toont LSSM een kleine laadcirkel in de rechterbeneden hoek als LSSM nog aan het laden is.',
+            title: 'Toon laad voortgang',
+        },
         osmDarkTooltip: {
             description:
                 'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt.',

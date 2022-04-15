@@ -285,12 +285,27 @@
                     :key="req"
                     :data-amount="amount"
                     v-show="
-                        !['main_building', 'main_building_extensions'].includes(
-                            req
-                        )
+                        ![
+                            'main_building',
+                            'main_building_extensions',
+                            'personnel_educations',
+                        ].includes(req)
                     "
                 >
                     {{ $mc(`prerequisites.${req}`, amount) }}
+                </li>
+                <li v-if="missionSpecs.prerequisites.personnel_educations">
+                    <b>{{ $m('prerequisites.personnel_educations') }}</b>
+                    <ul>
+                        <li
+                            v-for="(amount, req) in missionSpecs.prerequisites
+                                .personnel_educations"
+                            :key="`personnel_educations_${req}`"
+                            :data-amount="amount"
+                        >
+                            {{ $mc(`prerequisites.${req}`, amount) }}
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <span v-if="!maxState && settings.generatedBy">
@@ -444,6 +459,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import cloneDeep from 'lodash/cloneDeep';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
@@ -453,7 +469,7 @@ import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
-import cloneDeep from 'lodash/cloneDeep';
+import type { DefaultProps } from 'vue/types/options';
 import type { Mission } from 'typings/Mission';
 import type {
     MissionHelper,
@@ -461,8 +477,6 @@ import type {
     MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
-
-import type { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     MissionHelper,

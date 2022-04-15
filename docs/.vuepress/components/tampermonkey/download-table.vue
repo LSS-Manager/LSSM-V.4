@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+
 import { usePageData } from '@vuepress/client';
 import { useThemeData } from '@vuepress/theme-default/lib/client';
 

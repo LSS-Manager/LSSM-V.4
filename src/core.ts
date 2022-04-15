@@ -7,6 +7,7 @@ import ToggleButton from 'vue-js-toggle-button';
 import VueJSModal from 'vue-js-modal';
 
 import i18n from './i18n';
+import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMV4 from './LSSMV4.vue';
 import store from './store';
 import utils from './utils';
@@ -19,6 +20,14 @@ import type {
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
+
+// a 20% chance for april fool
+if (
+    new Date().getMonth() === 3 &&
+    new Date().getDate() === 1 &&
+    Math.random() < 0.2
+)
+    require('./natives/cursors');
 
 Vue.config.productionTip = false;
 
@@ -53,6 +62,23 @@ utils(Vue);
     }).$mount(appContainer);
 
     window[PREFIX] = LSSM;
+
+    if (
+        !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
+        localStorage.getItem(loadingIndicatorStorageKey) === 'true'
+    ) {
+        import(
+            /* webpackChunkName: "components/loadingIndicator" */ './components/LoadingIndicator.vue'
+        ).then(({ default: LoadingIndicator }) => {
+            const wrapper = document.createElement('div');
+            document.body.append(wrapper);
+            new LSSM.$vue({
+                store: LSSM.$store,
+                i18n: LSSM.$i18n,
+                render: h => h(LoadingIndicator),
+            }).$mount(wrapper);
+        });
+    }
 
     window.addEventListener('pagehide', () => {
         LSSM.$destroy();

@@ -77,6 +77,10 @@
         "releaseNotes": {
             "module": ""
         },
+        "showChatButtonAbove": {
+            "module": "chatExtras",
+            "setting": "cloneHistoryBtnToHeader"
+        },
         "statusCount": {
             "module": "statusCounter"
         },
@@ -95,7 +99,6 @@
         "RenameFZ",
         "saveVGE",
         "searchMissions",
-        "showChatButtonAbove",
         "showNotTransportButtonAbove",
         "statusDispatching",
         "verbandsverwaltung"

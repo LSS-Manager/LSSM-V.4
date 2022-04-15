@@ -16,7 +16,7 @@
 <script>
 import { defineComponent } from 'vue';
 
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales.min';
 
 export default defineComponent({
     name: 'momentjs-preview',

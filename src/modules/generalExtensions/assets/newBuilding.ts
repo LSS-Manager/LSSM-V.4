@@ -38,7 +38,7 @@ export default async (
         });
     };
 
-    const observer = new MutationObserver(mutations => {
+    const observer = new MutationObserver(mutations =>
         mutations.forEach(mutation => {
             const form = (
                 mutation.target as HTMLElement
@@ -213,8 +213,8 @@ export default async (
                         checkFormValidity(form);
                     });
             });
-        });
-    });
+        })
+    );
 
     const buildingsElement =
         document.querySelector<HTMLDivElement>('#buildings');

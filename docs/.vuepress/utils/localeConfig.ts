@@ -1,6 +1,7 @@
-import config from '../../../src/config';
 import fs from 'fs';
 import path from 'path';
+
+import config from '../../../src/config';
 
 import type { $t } from './i18n';
 import type { DefaultThemeLocaleData } from '@vuepress/theme-default/lib/shared/options';

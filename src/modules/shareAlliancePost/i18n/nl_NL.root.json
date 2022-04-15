@@ -1,11 +1,18 @@
 {
     "description": "Alarmeren, delen en post een chatbericht met 1 klik.",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
     "name": "Alarmeren, delen en posten",
     "noMessage": "Zonder chatbericht",
     "settings": {
         "enableCallList": {
             "description": "Integreert deze module in de functie \"Deel meldingen\" van de \"Uitgebreide meldingenlijst\".",
             "title": "Integreert in de meldingenlijst"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
         },
         "message": "Chatbericht",
         "messages": {

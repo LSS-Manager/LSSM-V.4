@@ -19,6 +19,10 @@ export default (async (MODULE_ID, LSSM, $m) => {
                 !activeModules.includes('extendedCallList') ||
                 !settings.extendedCallList.shareMissions.value,
         },
+        enableLSAM: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         messages: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],

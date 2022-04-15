@@ -118,6 +118,11 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
                 'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an.',
             title: 'Navigationsleiste einfärben',
         },
+        loadingIndicator: {
+            description:
+                'Ist diese Einstellung aktiv, zeigt der LSSM einen kleinen Ladekreisel in der unteren rechten Ecke an, wenn er eigene Dateien lädt.',
+            title: 'Ladekreisel anzeigen',
+        },
         osmDarkTooltip: {
             description:
                 'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast.',

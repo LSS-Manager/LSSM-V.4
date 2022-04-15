@@ -48,11 +48,11 @@
 </template>
 
 <script setup lang="ts">
-import { usePageData } from '@vuepress/client';
-import { useThemeData } from '@vuepress/theme-default/lib/client';
 import { computed, defineProps, toRefs } from 'vue';
 
 import AutoLink from '@theme/AutoLink.vue';
+import { usePageData } from '@vuepress/client';
+import { useThemeData } from '@vuepress/theme-default/lib/client';
 
 import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
 import type { ThemeData } from '../types/ThemeData';

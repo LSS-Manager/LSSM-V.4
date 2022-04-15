@@ -1,7 +1,7 @@
 node_modules/*
 */dist/*
 *.user.js
-build/*.js
+build/**/*.js
 docs/.vuepress/*.js
 docs/.vuepress/.cache
 docs/.vuepress/.temp

@@ -1,12 +1,12 @@
-import { defineUserConfig } from 'vuepress';
 import fs from 'fs';
 import path from 'path';
+
+import { defineUserConfig } from 'vuepress';
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
 import i18n from './utils/i18n';
 import noMapkitSettings from './utils/noMapkitSettings.json';
-
 import localeConfig, {
     type LocaleSiteConfig,
     type LocaleThemeConfig,

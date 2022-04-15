@@ -858,6 +858,9 @@ export default {
                     btoa(`${state.key}:${rootState.version}-${MODE}`)
                 );
             }
+
+            init.mode = 'cors' || init.mode;
+
             const startTime = Date.now();
             return fetch(target, init).then(
                 res =>

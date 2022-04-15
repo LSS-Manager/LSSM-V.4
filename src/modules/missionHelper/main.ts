@@ -1,4 +1,5 @@
 import missionHelper from './missionHelper.vue';
+
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM }) => {

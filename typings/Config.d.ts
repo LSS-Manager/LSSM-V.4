@@ -21,6 +21,10 @@ export interface Config {
     modules: {
         'core-modules': string[];
     };
+    loadScript: {
+        start: string;
+        end: string;
+    };
     prefix: string;
     server: string;
     fontAwesomeIconSearch: string;
