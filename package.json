@@ -52,7 +52,7 @@
         "@types/jquery": "^3.5.14",
         "@types/leaflet": "^1.7.9",
         "@types/lodash": "^4.14.181",
-        "@types/node": "^16.11.26",
+        "@types/node": "^16.11.27",
         "@types/pdfmake": "^0.1.21",
         "@types/qrcode": "^1.4.2",
         "@types/semver": "^7.3.9",
