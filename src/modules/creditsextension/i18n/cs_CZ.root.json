@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "aktuálně",
+        "title": "Alianční fond",
+        "total": "celkem",
+        "updateNote": "Aktualizace každých 5 minut."
+    },
+    "coins": {
+        "list": "Přehled"
+    },
+    "credits": {
+        "daily": "Shrnutí dne",
+        "overview": "Přehled"
+    },
+    "description": "Zobrazí užitečné informace o kreditech v rozbalovacím menu v navigační liště.",
+    "name": "Rozšířený přehled kreditů",
+    "nextRank": "Další hodnost",
+    "nextRankMissing": "zbývá",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Jakmile dosáhnete Vámi nastavený cíl kreditů, rozšířený přehled kreditů bude zvýrazněn zeleně, dokud na něj nekliknete.",
+            "title": "Cíle"
+        },
+        "coinsInNavbar": {
+            "description": "Zobrazí aktuální stav mincí v navigačním menu místo prasátka.",
+            "title": "Aktuální mince místo prasátka"
+        },
+        "creditsInNavbar": {
+            "description": "Zobrazí aktuální stav kreditů v navigačním menu místo prasátka.",
+            "title": "Aktuální kredity místo prasátka"
+        },
+        "highlightSales": {
+            "description": "Zvýrazní mince zeleně, pokud je dostupná sleva.",
+            "title": "Zvýraznění slev"
+        },
+        "showSales": {
+            "description": "Zobrazí slevy na mince, pokud jsou dostupné.",
+            "title": "Zobrazit slevy"
+        },
+        "showToplistPosition": {
+            "description": "Zobrazí aktuální příčku v žebříčku v rozšířeném přehledu kreditů.",
+            "title": "Příčka v žebříčku v přehledu"
+        }
+    },
+    "toplistPositionName": "Příčka v žebříčku",
+    "totalEarnedCredits": "Celkem získaných kreditů"
+}
