@@ -26,10 +26,10 @@
             "title": "Aktuálně pacientů"
         },
         "eventMissions": {
-            "description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
-            "missions": "Missions",
+            "description": "Označí sezónní mise. Můžete si seznamy také přizpůsobit a označit i nesezonní mise",
+            "missions": "Mise",
             "text": "Text",
-            "title": "Mark seasonal missions"
+            "title": "Označit sezónní mise"
         },
         "hide0CurrentPatients": {
             "description": "Skryje počet pacientů, pokud se na misi žádný nenachází.",
@@ -40,8 +40,8 @@
             "title": "Zbývající čas pro pacienty"
         },
         "remainingPumpingTime": {
-            "description": "Shows for pumping progresses how much time remains until they are finished.",
-            "title": "Remaining time for pumping progress"
+            "description": "Zobrazuje kolik času zbývá k dokončení mise.",
+            "title": "Zbývající čas do ukončení"
         },
         "remainingTime": {
             "description": "Zobrazí zbývající čas do dokončení mise.",
@@ -92,7 +92,9 @@
         "types": {
             "alphabet": "Dle abecedy",
             "credits": "Dle kreditů",
-            "distance_dispatch": "Distance to next dispatch center",
+            "default": "Bez seřazení",
+            "distance_dispatch": "Dle vzdálenosti k operačnímu středisku",
+            "distance_station": "Dle vzdálenosti ke stanici",
             "id": "Dle stáří",
             "remaining_patients": "Dle pacientů"
         }
