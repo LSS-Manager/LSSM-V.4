@@ -202,6 +202,9 @@ body.dark
         border-color: #303030
         background-image: none
 
+    .help-block
+        color: #c2c2c2
+
 .vm--container
     z-index: 5001 !important
 

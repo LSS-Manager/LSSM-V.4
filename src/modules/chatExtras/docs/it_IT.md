@@ -2,4 +2,4 @@ Nel corso del tempo questo modulo fornirà alcune funzionalità utili per la cha
 
 ## Regola Timestamp In chat
 
-Questa funzione consente di regolare il timestamp nella chat a qualsiasi cosa si desidera che sia invece del formato standard `[ora:minuto]`. Potreste cambiarli a `[ora di giorno:minuto:secondo]`. È possibile trovare informazioni su come personalizzare l'ora nella pagina [modulo orologio](clock.md#Configuration).
+Questa funzione consente di regolare il timestamp nella chat a qualsiasi cosa si desidera che sia invece del formato standard `[ora:minuto]`. Potreste cambiarli a `[ora di giorno:minuto:secondo]`. È possibile trovare informazioni su come personalizzare l'ora nella pagina [Settings](../../settings.md#moment-js).

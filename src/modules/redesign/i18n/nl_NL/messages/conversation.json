@@ -1,0 +1,10 @@
+{
+    "back": "Terug naar inbox",
+    "delete": "Verwijder gesprek",
+    "load": {
+        "next": "Laad oudere berichten",
+        "prev": "Laad nieuwere berichten"
+    },
+    "subtitle": "Een gesprek met",
+    "subtitleAlliance": "A message from alliance"
+}

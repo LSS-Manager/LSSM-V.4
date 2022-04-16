@@ -1,6 +1,7 @@
-import browserslist from 'browserslist';
 import fs from 'fs';
 import path from 'path';
+
+import browserslist from 'browserslist';
 
 const filePath = path.join(__dirname, '../src/utils/browsers.json');
 

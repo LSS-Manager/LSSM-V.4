@@ -69,11 +69,12 @@ export default {
         requestIssue: {
             title: 'Erroneous request: Status {status}',
             text: `Ouch, unfortunately an error occurred with this server request:<br>
-<b>Statuscode</b>: <code>{status}</code><br>
-<b>Statustext</b>: <code>{statusText}</code><br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Please try to perform the desired action again.<br>
 If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
@@ -114,6 +115,11 @@ If several requests fail in a short time, this could be due to server problems. 
             description:
                 'Color the whole navbar in the color of LSSM-Icon Background!',
             title: 'colorize navbar',
+        },
+        loadingIndicator: {
+            description:
+                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
+            title: 'show loading progress',
         },
         osmDarkTooltip: {
             description:
@@ -232,7 +238,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             special: 'A standard patrol car for tackling your police calls.',
         },
         9: {
@@ -288,7 +294,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19, 22],
+            possibleBuildings: [6, 19, 22, 26],
             schooling: {
                 Police: {
                     'Dog handling': {
@@ -306,7 +312,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -393,7 +399,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 6000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            possibleBuildings: [2, 6, 19, 20, 25],
+            possibleBuildings: [2, 6, 19, 20, 25, 26],
             special:
                 'Acts as a Rapid Response Vehicle and Incident Response Vehicle. Perfect for calls that need police and alot of ambulances.',
         },
@@ -445,8 +451,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 12,
             possibleBuildings: [0, 2, 18, 20, 25],
-            special:
-                'Can be placed at HART bases and Fire Stations. Transporting many staff to a scene.',
+            special: 'Transporting many staff to a scene.',
         },
         24: {
             caption: 'Traffic Car',
@@ -455,7 +460,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Roads Policing Officer Training': {
@@ -473,7 +478,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 19],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -677,7 +682,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used on hazardous fires and electrical fires.',
+                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used On any fire but also has the capability to use foam to extinguish a fire.',
         },
         38: {
             caption: 'RP CAFS',
@@ -688,7 +693,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on hazardous fires and electrical fires.',
+                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire, foam capabilty as well as being useful at RTCs.',
         },
         39: {
             caption: 'OSU',
@@ -706,7 +711,7 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             possibleBuildings: [0, 18],
             special:
-                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit.',
+                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit. This unit will supply HazMat Resources, additional air tanks and a welfare location. ',
         },
         40: {
             caption: 'PM',
@@ -796,7 +801,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Light 4x4 Pump Unit. ',
+            special: 'Acts as a Light 4x4 Pump Unit.',
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -851,6 +856,99 @@ If several requests fail in a short time, this could be due to server problems. 
             special:
                 'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier.',
             possibleBuildings: [0, 18],
+        },
+        51: {
+            caption: 'PSU Carrier',
+            color: '#3a5522',
+            coins: 8,
+            credits: 8000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            possibleBuildings: [6, 26],
+            special:
+                'This Police Support Unit, carrys a large amount of officers (usally riot trained) to scenes.',
+        },
+        52: {
+            caption: 'Firearms Personnel Carrier',
+            color: '#3a5522',
+            coins: 15,
+            credits: 8000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            possibleBuildings: [6, 26],
+            schooling: {
+                Police: {
+                    'Firearms training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'A Large Van carrying Firearms Officers to scenes and reducing the amount of armed vehicles needed.',
+        },
+        53: {
+            caption: 'Multiple Dog Carrier',
+            color: '#3a5522',
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [6, 26],
+            schooling: {
+                Police: {
+                    'Dog handling': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'A dog carrier which transports mutiple dogs to a scene.',
+        },
+        54: {
+            caption: 'Detention Van',
+            color: '#3a5522',
+            coins: 15,
+            credits: 26_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 26],
+            special:
+                'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported.',
+        },
+        55: {
+            caption: 'Mounted Unit',
+            color: '#3a5522',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 8,
+            possibleBuildings: [6, 26],
+            schooling: {
+                Police: {
+                    'Mounted Training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'This unit will transport horses form stables to riots in order to get a higher view of what is happening in the crowd.',
+        },
+        56: {
+            caption: 'M-RAV',
+            color: '#3a5522',
+            coins: 23,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [6, 19, 26],
+            schooling: {
+                Police: {
+                    'Firearms training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'This is a armoured vehicle transporting 6 firearms officers.',
         },
     },
     buildings: {
@@ -1074,8 +1172,20 @@ If several requests fail in a short time, this could be due to server problems. 
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Police & Public Safety Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Additional Detention Van Parking Spaces',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: '1.700 together with small police stations',
             maxLevel: 19,
             special:
@@ -1257,6 +1367,12 @@ If several requests fail in a short time, this could be due to server problems. 
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Police & Public Safety Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
             ],
             levelcost: [
                 '1. 10.000',
@@ -1389,6 +1505,53 @@ If several requests fail in a short time, this could be due to server problems. 
             startVehicles: [],
             schoolingTypes: ['Rescue'],
         },
+        26: {
+            caption: 'Large Police Depot',
+            color: '#116611',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(39).fill({
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+                {
+                    caption: 'Police & Public Safety Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Additional Detention Van Parking Spaces',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+            ],
+            levelcost: [
+                '1. 20.000',
+                '2. 50.000',
+                '3. 100.000',
+                '4. 150.000',
+                '5.-9. 200.000',
+                '10.-14. 300.000',
+                '15.-20. 400.000',
+            ],
+            maxBuildings: 'no limit',
+            maxLevel: 20,
+            special: 'You Can build every 50 Police Stations',
+            startPersonnel: 20,
+            startVehicles: [],
+            schoolingTypes: ['Police'],
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -1400,7 +1563,7 @@ If several requests fail in a short time, this could be due to server problems. 
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [6, 8, 13, 19],
+            buildings: [6, 8, 13, 19, 26],
             color: '#00ac00',
         },
         'Other': {
@@ -1433,10 +1596,11 @@ If several requests fail in a short time, this could be due to server problems. 
         'Police Vehicles': {
             vehicles: {
                 'Police Car': [8],
-                'ARV': [13],
+                'ARV': [13, 56],
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
+                'PSU': [51, 52, 53, 54, 55],
             },
             color: '#00ac00',
         },
@@ -1446,8 +1610,8 @@ If several requests fail in a short time, this could be due to server problems. 
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 22, 25],
-    cellBuildings: [6, 19],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 22, 25, 26],
+    cellBuildings: [6, 19, 26],
     cellExtensions: [
         '6_0',
         '6_1',
@@ -1525,6 +1689,36 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'Roads Policing Officer Training',
                 duration: '3 Days',
                 staffList: 'Roads Policing Officer',
+            },
+            {
+                caption: 'Level 1 Public Order Training',
+                duration: '5 Days',
+                staffList: 'Level 1 Public Order Officer',
+            },
+            {
+                caption: 'Level 2 Public Order Training',
+                duration: '5 Days',
+                staffList: 'Level 2 Public Order Officer',
+            },
+            {
+                caption: 'Police Medic Training',
+                duration: '4 Days',
+                staffList: 'Police Medic',
+            },
+            {
+                caption: 'Police Sergeant Training',
+                duration: '4 Days',
+                staffList: 'Police Sergeant',
+            },
+            {
+                caption: 'Police Inspector Training',
+                duration: '4 Days',
+                staffList: 'Police Inspector',
+            },
+            {
+                caption: 'Mounted Training',
+                duration: '4 Days',
+                staffList: 'Mounted Officers',
             },
         ],
         'Rescue': [

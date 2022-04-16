@@ -6,7 +6,7 @@
         "subject": "Emne",
         "template": "Mal (variabler (se wiki): {{username}}, {{today[+n]}})",
         "templates": {
-            "description": "Variabler er tilgjengelige for malene. Vennligst ta en titt på vår <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
+            "description": "Variabler er tilgjengelige for malene. Vennligst ta en titt på vår <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
             "title": "Maler"
         }
     }

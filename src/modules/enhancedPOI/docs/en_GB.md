@@ -7,4 +7,4 @@ Setting POIs is critical for some missions such as `Large Aircraft Crash Off Air
   * This can be controlled when you open the `Set a new POI` menu
  
  
- ![Example of bar](POI.png)
+ ![Example of bar](./poi.png)

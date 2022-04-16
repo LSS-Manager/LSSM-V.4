@@ -4,7 +4,7 @@ export interface lssmMenuData {
     iconBg: string | null;
     iconBgAsNavBg: boolean;
     labelInMenu: boolean;
-    lssmLogo: URL;
+    lssmLogo: string;
     discord: string;
     wiki: string;
     version: string;

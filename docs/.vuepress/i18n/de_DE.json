@@ -1,13 +1,25 @@
 {
     "404": {
-        "content": "Hey,\n\nvielen Dank für dein Interesse in die Wikiseite des Moduls {{module}}! Leider existiert diese bislang nicht für die Sprache {{lang}}. Wenn du am Wiki mitwirken möchtest, darfst du gerne diese Seite auf {{github}} erstellen. Wir empfehlen hierzu, einen Blick auf anderssprachige Wikiseiten dieses Moduls im {{docs_dir}} zu werfen.",
-        "languages": "Dieses Modul hat bereits eine Wikiseite für die folgenden Spielversionen:",
-        "title": "Keine Wiki-Seite"
+        "general": {
+            "home": "Zur Startseite"
+        },
+        "modules": {
+            "content": "Hey,\n\nvielen Dank für dein Interesse in die Wikiseite des Moduls {{module}}! Leider existiert diese bislang nicht für die Sprache {{lang}}. Wenn du am Wiki mitwirken möchtest, darfst du gerne diese Seite auf {{github}} erstellen. Wir empfehlen hierzu, einen Blick auf anderssprachige Wikiseiten dieses Moduls im {{docs_dir}} zu werfen.",
+            "languages": "Dieses Modul hat bereits eine Wikiseite für die folgenden Spielversionen:",
+            "title": "Keine Wiki-Seite"
+        }
     },
     "apps": "Apps",
+    "containers": {
+        "danger": "Achtung",
+        "tip": "Tipp",
+        "warning": "Hinweis"
+    },
     "description": "Das Wiki für den LSS-Manager V.4",
-    "edit": {
-        "module": "Seite bearbeiten"
+    "footer": {
+        "contributors": "Contributors",
+        "edit": "Seite bearbeiten",
+        "lastUpdated": "Zuletzt aktualisiert"
     },
     "head": {
         "alpha": "Dieses Modul steht noch in seinen absoluten Anfängen und ist aktuell nur für Beta-Tester verfügbar!",
@@ -127,6 +139,155 @@
         "serverStatus": {
             "game": "Online-Status: Spiel",
             "lssm": "Online-Status: LSSM"
+        }
+    },
+    "search": "Wiki durchsuchen",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "mind. Version"
+    },
+    "v3": {
+        "modules": {
+            "AaoSearch": {
+                "v3Name": "AAO-Suche"
+            },
+            "Center-Map": {
+                "v3Name": "Center-Map"
+            },
+            "Clock": {
+                "v3Name": "Clock"
+            },
+            "DestinationFilter": {
+                "annotation": "Dieser ist im Redesign für Fahrzeuge bereits integriert, soll aber auch noch als eigenes Modul in die V4 integriert werden.",
+                "v3Name": "Zielort Filter"
+            },
+            "DoctorRadioCall": {
+                "v3Name": "Nachforderungen per FMS"
+            },
+            "Eventsmission": {
+                "v3Name": "Markiert Eventeinsätze"
+            },
+            "FMS5InMap": {
+                "v3Name": "FMS 5 in der Karte"
+            },
+            "Layout01": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 04"
+            },
+            "MissionOut": {
+                "v3Name": "MissionOut"
+            },
+            "Notification_Alert": {
+                "v3Name": "Notification Alert"
+            },
+            "Redesign01": {
+                "v3Name": "Redesign 01"
+            },
+            "RenameFZ": {
+                "v3Name": "Fahrzeuge umbenennen"
+            },
+            "ShareAlliancePost": {
+                "v3Name": "Alarmieren, Teilen & Posten"
+            },
+            "WachenHoverStati": {
+                "v3Name": "Wachen Status"
+            },
+            "aaoZaehler": {
+                "v3Name": "AAO-Klick-Zähler"
+            },
+            "allianceMissionlistShare": {
+                "v3Name": "Einsätze freigeben"
+            },
+            "centermap": {
+                "annotation": "Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt noch.",
+                "v3Name": "Center-Map"
+            },
+            "creditserweiterung": {
+                "v3Name": "Creditserweiterung"
+            },
+            "dashboard": {
+                "v3Name": "Dashboard"
+            },
+            "displayUserId": {
+                "v3Name": "User-ID"
+            },
+            "extendedBuilding": {
+                "v3Name": "Erweiterte Gebäudeansicht"
+            },
+            "heatmap": {
+                "v3Name": "LS-Heatmap"
+            },
+            "iconFilter": {
+                "v3Name": "Icon Gebäude Filter"
+            },
+            "keyboardAlert": {
+                "v3Name": "Keyboard Alarmierung"
+            },
+            "missionDate": {
+                "v3Name": "Meldedatum für Einsätze"
+            },
+            "missionHelper": {
+                "v3Name": "Einsatzhelfer"
+            },
+            "missionKeyword": {
+                "v3Name": "Einsatzstichworte"
+            },
+            "overview": {
+                "v3Name": "Übersicht"
+            },
+            "releaseNotes": {
+                "v3Name": "Release Notes"
+            },
+            "saveVGE": {
+                "v3Name": "Eigene VGE speichern"
+            },
+            "searchMissions": {
+                "v3Name": "Einsätze suchen"
+            },
+            "showChatButtonAbove": {
+                "v3Name": "show Chatbutton Above"
+            },
+            "showNotTransportButtonAbove": {
+                "v3Name": "show Patient entlassen Above"
+            },
+            "statusCount": {
+                "v3Name": "Status-Zähler"
+            },
+            "statusDispatching": {
+                "v3Name": "Verbesserte Status 5"
+            },
+            "sumDailyMissions": {
+                "v3Name": "Summe für die tägliche Zusammenfassung"
+            },
+            "verbandsverwaltung": {
+                "v3Name": "Verbandsverwaltung"
+            }
+        },
+        "tables": {
+            "annotations": "Hinweise",
+            "changes": "Änderungen",
+            "description": "Beschreibung",
+            "feature": "Feature",
+            "module": "Modul",
+            "setting": "Einstellung"
+        },
+        "v4annotations": {
+            "asyncButtons": "Noch in Entwicklung: Hier kommen in Zukunft noch mehr Features.",
+            "lssmaql": "Ein Experiment, welches mal dazu dienen soll schnell Daten aus der API auszulesen."
         }
     }
 }

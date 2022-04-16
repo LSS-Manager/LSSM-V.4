@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales.min';
 
-export default Vue.extend({
+export default defineComponent({
     name: 'momentjs-short-forms',
     computed: {
         moment_texts() {
-            return this.$themeConfig.variables.moment[this.$lang];
+            return this.$theme.variables.moment[this.$lang];
         },
         shorts() {
             return Object.entries(this.moment_texts.shorts).sort(

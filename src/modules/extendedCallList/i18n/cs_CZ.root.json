@@ -25,11 +25,15 @@
             "description": "Zobrazí aktuální počet pacientů u každé mise.",
             "title": "Aktuálně pacientů"
         },
+        "currentPatientsInTooltips": {
+            "description": "Zobrazí aktuální počet pacientů také v popisku mise na mapě.",
+            "title": "Pacienti v popisku mise na mapě"
+        },
         "eventMissions": {
-            "description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
-            "missions": "Missions",
+            "description": "Označí sezónní mise. Můžete si seznamy také přizpůsobit a označit i nesezonní mise",
+            "missions": "Mise",
             "text": "Text",
-            "title": "Mark seasonal missions"
+            "title": "Označit sezónní mise"
         },
         "hide0CurrentPatients": {
             "description": "Skryje počet pacientů, pokud se na misi žádný nenachází.",
@@ -40,8 +44,8 @@
             "title": "Zbývající čas pro pacienty"
         },
         "remainingPumpingTime": {
-            "description": "Shows for pumping progresses how much time remains until they are finished.",
-            "title": "Remaining time for pumping progress"
+            "description": "Zobrazuje kolik času zbývá k dokončení mise.",
+            "title": "Zbývající čas do ukončení"
         },
         "remainingTime": {
             "description": "Zobrazí zbývající čas do dokončení mise.",
@@ -83,6 +87,10 @@
             "description": "Zvolit barvu pozadí tlačítka k řazení",
             "title": "Řazení misí: Barva tlačítka"
         },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementuje řazení do okna mise, přidá tlačítka pro posun v rámci nastaveného řazení. Volitelně si můžete nastavit klávesové zkratky pro ovládání tlačítek v modulu \"Klávesové zkratky\" .",
+            "title": "Řazení v okně mise"
+        },
         "starrableMissions": {
             "description": "Označené mise jsou zobrazené nahoře nad všemi ostatními misemi. Misi můžete označit v seznamu misí či v detailu mise.",
             "title": "Označit misi"
@@ -92,7 +100,9 @@
         "types": {
             "alphabet": "Dle abecedy",
             "credits": "Dle kreditů",
-            "distance_dispatch": "Distance to next dispatch center",
+            "default": "Bez seřazení",
+            "distance_dispatch": "Dle vzdálenosti k operačnímu středisku",
+            "distance_station": "Dle vzdálenosti ke stanici",
             "id": "Dle stáří",
             "remaining_patients": "Dle pacientů"
         }

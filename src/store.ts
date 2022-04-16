@@ -107,7 +107,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             useFontAwesome(state: RootState) {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
-                fa.src = `${state.server}static/fontawesome_free_6.1.0_all.min.js?uid=${state.lang}-${window.user_id}`;
+                fa.src = `${state.server}static/fontawesome_free_6.1.1_all.min.js?uid=${state.lang}-${window.user_id}`;
                 fa.crossOrigin = 'anonymous';
                 document.head.append(fa);
                 state.fontAwesome.inserted = true;
@@ -175,7 +175,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             moduleWiki:
                 (_, getters: GetterTree<RootState, RootState>) =>
                 (moduleId: keyof Modules): string =>
-                    `${getters.wiki}modules/${moduleId}.html`,
+                    `${getters.wiki}modules/${moduleId}/`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(

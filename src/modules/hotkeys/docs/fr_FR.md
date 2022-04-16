@@ -21,15 +21,15 @@ Pour définir une touche de raccourci, il te suffit de cliquer sur le champ de s
 Appuie sur la combinaison de touches ou la séquence de touches que vous souhaitez.
 La combinaison de touches apparaît dans le champ de saisie 0,5 seconde après que vous ayez relâché la dernière touche.
 
-![paramètres des touches de raccourci](settings.png)
+![paramètres des touches de raccourci](./settings.png)
 
 Avec la touche `F1`, vous pouvez à tout moment afficher un aperçu rapide des touches de raccourci que vous avez définies :
 
-![Aperçu des touches de raccourci](overview.png)
+![Aperçu des touches de raccourci](./overview.png)
 
 
 Les actions disponibles jusqu'à présent sont listées ci-dessous.
-N'hésite pas à nous faire part d'autres propositions sur le [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), sur notre <discord/> ou dans le <a :href="$themeConfig.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a>.
+N'hésite pas à nous faire part d'autres propositions sur le [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), sur notre <discord/> ou dans le <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a>.
 Vérifie d'abord dans le GitHub Issue si ta demande a déjà été notée, afin d'éviter les doublons.
 
 ## Généralités
@@ -95,7 +95,7 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale (l�
 ## Fenêtre de déploiement
 
 ### Tri des interventions
-Ces touches de raccourci sont là pour les boutons modifiés du tri des interventions dans le module [Liste de mission étendue](extendedCallList.md#trier-les-missions) :
+Ces touches de raccourci sont là pour les boutons modifiés du tri des interventions dans le module [Liste de mission étendue](../extendedCallList/#trier-les-missions) :
 
 * Alerter et continuer
 * Alerter, partager et continuer

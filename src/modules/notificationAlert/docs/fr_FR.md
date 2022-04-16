@@ -11,7 +11,7 @@ Nous proposons quatre couleurs différentes :
 * Avertissement (orange)
 
 Voici par exemple ce que cela donne sur le bord gauche de l'écran :
-![types en design clair](types_light.png) ![types en design foncé](types_dark.png)
+![types en design clair](./types_light.png) ![types en design foncé](./types_dark.png)
 
 ## Durée d'affichage
 Ici, vous pouvez définir la durée d'affichage d'une notification. Avec `-1`, vous pouvez l'afficher en permanence jusqu'à ce que vozs cliquez dessus pour la supprimer. Note cependant que de nombreux systèmes d'exploitation ignorent cette durée et que le comportement des notifications de bureau peut donc être inattendu.
@@ -28,7 +28,7 @@ Définis ici la position des notifications ingame. Vous pouvez choisir parmi 6 p
 # Exemple
 Voici à quoi peut ressembler une configuration :
 
-![exemple de configuration](example.png)
+![exemple de configuration](./example.png)
 
 # Événements
 Vous trouverez ici une liste complète des événements pour lesquels vous pouvez configurer des notifications :

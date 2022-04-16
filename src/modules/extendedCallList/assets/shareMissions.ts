@@ -1,4 +1,4 @@
-import type { Message } from '../../shareAlliancePost/main';
+import type { Message } from '../../shareAlliancePost/assets/missionWindow';
 import type { Mission } from 'typings/Mission';
 import type {
     ButtonGroupCallback,

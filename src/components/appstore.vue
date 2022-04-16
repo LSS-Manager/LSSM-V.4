@@ -79,12 +79,12 @@ import Vue from 'vue';
 import isEqual from 'lodash/isEqual';
 
 import type { DefaultProps } from 'vue/types/options';
-import type { Modules } from '../../typings/Module';
+import type { Modules } from 'typings/Module';
 import type {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
-} from '../../typings/components/Appstore';
+} from 'typings/components/Appstore';
 
 export default Vue.extend<
     AppstoreData,

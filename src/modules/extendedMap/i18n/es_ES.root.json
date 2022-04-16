@@ -1,0 +1,33 @@
+{
+    "description": "Mejora el mapa con algunas características especiales.",
+    "name": "Mejorar mapa",
+    "positions": {
+        "bottomleft": "Abajo a la izquierda 🡧",
+        "bottomright": "Abajo a la derecha 🡦",
+        "topleft": "Arriba a la izquierda 🡤",
+        "topright": "Arriba a la derecha 🡥"
+    },
+    "settings": {
+        "centerMap": {
+            "description": "Centra el mapa dinámicamente o en una vista estática al abrir el juego",
+            "title": "Mapa central"
+        },
+        "centerMapStaticLocation": {
+            "title": "Centro de mapa estático: Posición"
+        },
+        "centerMapType": {
+            "description": "Seleccione si desea un centrado estático o dinámico [centrado dinámico aún no está disponible]",
+            "dynamic": "Dinámico",
+            "static": "Estático",
+            "title": "Mapa central: Modo"
+        },
+        "mapScale": {
+            "description": "Muestra una escala de mapa y el nivel de zoom actual",
+            "title": "Escala"
+        },
+        "mapScalePosition": {
+            "description": "Seleccione en qué esquina del mapa debe aparecer la escala del mapa",
+            "title": "Posición de la escala del mapa"
+        }
+    }
+}

@@ -18,4 +18,4 @@ Les informations suivantes sont incluses :
 
 Voici à quoi cela ressemble par exemple dans une station d'ambulance :
 
-![Un exemple de station d'ambulance](example_fr_FR.png)
+![Un exemple de station d'ambulance](./example_fr_FR.png)

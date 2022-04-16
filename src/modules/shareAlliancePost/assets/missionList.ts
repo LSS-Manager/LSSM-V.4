@@ -13,7 +13,7 @@ import {
 } from './util';
 
 import type { ButtonGroupCallback } from '../../extendedCallList/assets/utils/buttonGroup';
-import type { Message } from '../main';
+import type { Message } from './missionWindow';
 import type { Mission } from 'typings/Mission';
 
 const createLi = <I extends 'comment-slash' | 'comment'>(
@@ -58,10 +58,6 @@ export default (
     const noMessageLi = createLi(noMessage);
     noMessageLi.dataset.noMessage = '1';
     dropdown.append(noMessageLi);
-    // noMessageLi.addEventListener('click', () => {
-    //     btn.disabled = true;
-    //     shareMission(LSSM, mission.id, true).then(() => btn.remove());
-    // });
 
     const separatorLi = document.createElement('li');
     separatorLi.classList.add('divider');

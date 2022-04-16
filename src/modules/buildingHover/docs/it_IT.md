@@ -19,4 +19,4 @@ Sono contenute le seguenti informazioni:
 
 Questo è come appare ad esempio in una stazione di polizia, che ha 1 cella finita e una cella in costruzione:
 
-![Una stazione di polizia di esempio](polizei.png)
+![Una stazione di polizia di esempio](./polizei.png)

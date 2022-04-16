@@ -1,4 +1,5 @@
 import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets/sort/mission';
+
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 export default <Scope<Empty, ['sorted'], [], true>>{

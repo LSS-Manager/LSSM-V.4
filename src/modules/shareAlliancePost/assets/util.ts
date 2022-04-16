@@ -13,8 +13,21 @@ export function removeZipFromCity(city: string) {
         .trim();
 }
 
+export function addMinutesToDate(minutes: number, date: Date) {
+    date.setTime(date.getTime() + minutes * 60 * 1000);
+    return date;
+}
+
+export function addMinutesToNow(minutes: number): Date {
+    return new Date(Date.now() + minutes * 60 * 1000);
+}
+
 export function addHoursToNow(hours: number): Date {
-    return new Date(Date.now() + hours * 60 * 60 * 1000);
+    return addMinutesToNow(60 * hours);
+}
+
+export function addDaysToToday(addDays = 0): Date {
+    return addHoursToNow(24 * addDays);
 }
 
 export function dateToTime(date: Date): string {
@@ -24,13 +37,15 @@ export function dateToTime(date: Date): string {
         .padStart(2, '0')}`;
 }
 
-export function getDateFromToday(addDays = 0): string {
-    return new Date(
-        Date.now() + addDays * 1000 * 60 * 60 * 24
-    ).toLocaleDateString(undefined, {
+export function dateToDayString(date: Date): string {
+    return date.toLocaleDateString(undefined, {
         month: '2-digit',
         day: '2-digit',
     });
+}
+
+export function getDateFromToday(addDays = 0): string {
+    return dateToDayString(addDaysToToday(addDays));
 }
 
 export function getTimeReplacers(): Record<
@@ -38,34 +53,51 @@ export function getTimeReplacers(): Record<
     (match: string, ...groups: string[]) => string
 > {
     return {
-        [/now\+(\d+(?:[,.]\d+)?)/u.toString()]: (match, additive) =>
-            dateToTime(addHoursToNow(parseFloat(additive))),
-        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)/u.toString()]: (
+        [/now\+(\d+(?:[,.]\d+)?)(d?)/u.toString()]: (
             match,
             additive,
-            round
+            printDate
+        ) => {
+            const resultDate = addHoursToNow(parseFloat(additive));
+            if (printDate) {
+                return `${dateToTime(resultDate)} (${dateToDayString(
+                    resultDate
+                )})`;
+            } else {
+                return dateToTime(resultDate);
+            }
+        },
+        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)(d?)/u.toString()]: (
+            match,
+            additive,
+            round,
+            printDate
         ) => {
             const resultDate = addHoursToNow(parseFloat(additive));
             const roundTo = Math.abs(parseInt(round)) % 60;
             const roundUp = !round.startsWith('-');
-            let resultHours = resultDate.getHours();
-            let resultMinutes = resultDate.getMinutes();
+            const resultHours = resultDate.getHours();
+            const resultMinutes = resultDate.getMinutes();
             if (!roundTo) {
-                resultMinutes = 0;
-                if (roundUp) resultHours++;
+                resultDate.setMinutes(0);
+                if (roundUp) resultDate.setHours(resultHours + 1);
             } else {
-                if (roundUp)
-                    resultMinutes += roundTo - (resultMinutes % roundTo);
-                else resultMinutes -= resultMinutes % roundTo;
+                if (roundUp) {
+                    addMinutesToDate(
+                        roundTo - (resultMinutes % roundTo),
+                        resultDate
+                    );
+                } else {
+                    addMinutesToDate(-(resultMinutes % roundTo), resultDate);
+                }
             }
-            resultHours += Math.floor(resultMinutes / 60);
-            resultMinutes %= 60;
-            resultHours %= 24;
-            if (resultHours < 0) resultHours = 24 + resultHours;
-            if (resultMinutes < 0) resultMinutes = 60 + resultMinutes;
-            return `${resultHours.toString().padStart(2, '0')}:${resultMinutes
-                .toString()
-                .padStart(2, '0')}`;
+            if (printDate) {
+                return `${dateToTime(resultDate)} (${dateToDayString(
+                    resultDate
+                )})`;
+            } else {
+                return dateToTime(resultDate);
+            }
         },
     };
 }
@@ -122,14 +154,21 @@ export function createIcon(
     return iconElement;
 }
 
-export function createEditBtn(editBtnClass: string) {
+export function createEditBtn(
+    editBtnClass: string[] | string = [],
+    transform = true
+) {
     const editBtn = document.createElement('button');
-    editBtn.classList.add('btn', 'btn-xs', 'btn-default', editBtnClass);
-    editBtn.style.setProperty('position', 'absolute');
-    editBtn.style.setProperty('right', '0');
-    editBtn.style.setProperty('transform', 'translateY(-3px)');
+    editBtn.classList.add('btn', 'btn-xs', 'btn-default');
+    if (Array.isArray(editBtnClass)) editBtn.classList.add(...editBtnClass);
+    else editBtn.classList.add(editBtnClass);
+    if (transform) {
+        editBtn.style.setProperty('position', 'absolute');
+        editBtn.style.setProperty('right', '0');
+        editBtn.style.setProperty('transform', 'translateY(-3px)');
+    }
 
-    const btnIcon = createIcon('edit', 'fas', 'fa-fw');
+    const btnIcon = createIcon('pen-to-square', 'fas', 'fa-fw');
     btnIcon.style.setProperty('pointer-events', 'none');
 
     editBtn.append(btnIcon);
@@ -138,16 +177,29 @@ export function createEditBtn(editBtnClass: string) {
 }
 
 export function createEditField(
-    liElement: HTMLLIElement,
+    defaultMessage: string,
+    postInChat: boolean,
     editBtn: HTMLButtonElement,
-    inputGroupClass: string,
-    isMissionList = false
+    abortCallback: () => void,
+    sendCallback: (
+        inputField: HTMLInputElement,
+        postInput: HTMLInputElement
+    ) => void,
+    inputGroupClass: string[] | string = [],
+    isMissionList = false,
+    transform = true,
+    checkIcon = false
 ) {
     const wrapper = document.createElement('div');
-    wrapper.classList.add('input-group', inputGroupClass);
-    wrapper.style.setProperty('position', 'absolute');
-    wrapper.style.setProperty('left', isMissionList ? '0' : '100%');
-    wrapper.style.setProperty('transform', 'translateY(-26px)');
+    wrapper.classList.add('input-group');
+    if (Array.isArray(inputGroupClass))
+        wrapper.classList.add(...inputGroupClass);
+    else wrapper.classList.add(inputGroupClass);
+    if (transform) {
+        wrapper.style.setProperty('position', 'absolute');
+        wrapper.style.setProperty('left', isMissionList ? '0' : '100%');
+        wrapper.style.setProperty('transform', 'translateY(-26px)');
+    }
     if (isMissionList) wrapper.style.setProperty('width', '300%');
 
     const abortBtnWrapper = document.createElement('div');
@@ -164,14 +216,15 @@ export function createEditField(
         e.stopImmediatePropagation();
         wrapper.remove();
         editBtn.disabled = false;
+        abortCallback();
     });
 
     const inputField = document.createElement('input');
     inputField.classList.add('form-control');
-    if (!isMissionList)
+    if (!isMissionList && transform)
         inputField.style.setProperty('width', 'max(20em, calc(100vw / 3))');
     inputField.type = 'text';
-    inputField.value = liElement.dataset.message ?? '';
+    inputField.value = defaultMessage;
 
     const postWrapper = document.createElement('label');
     postWrapper.classList.add('input-group-addon');
@@ -179,7 +232,7 @@ export function createEditField(
     postSpan.style.setProperty('display', 'flex');
     const postInput = document.createElement('input');
     postInput.type = 'checkbox';
-    postInput.checked = liElement.dataset.post === 'true';
+    postInput.checked = postInChat;
     const postIcon = createIcon('comment', 'fas', 'fa-fw', 'pull-right');
     postSpan.append(postInput, postIcon);
     postWrapper.append(postSpan);
@@ -193,7 +246,11 @@ export function createEditField(
     sendBtnWrapper.style.setProperty('padding', '0');
     const sendBtn = document.createElement('button');
     sendBtn.classList.add('btn', 'btn-success');
-    const sendIcon = createIcon('paper-plane', 'fas', 'fa-fw');
+    const sendIcon = createIcon(
+        checkIcon ? 'check' : 'paper-plane',
+        'fas',
+        'fa-fw'
+    );
     sendBtn.append(sendIcon);
     sendBtnWrapper.append(sendBtn);
     sendBtn.addEventListener('click', e => {
@@ -203,10 +260,7 @@ export function createEditField(
         inputField.disabled = true;
         postInput.disabled = true;
         sendBtn.disabled = true;
-        liElement.dataset.message = liElement.dataset.raw =
-            inputField.value.trim();
-        liElement.dataset.post = postInput.checked.toString();
-        liElement.click();
+        sendCallback(inputField, postInput);
     });
 
     wrapper.addEventListener('keydown', e => {
@@ -216,6 +270,28 @@ export function createEditField(
     wrapper.append(abortBtnWrapper, inputField, postWrapper, sendBtnWrapper);
 
     return wrapper;
+}
+
+export function createEditFieldForDropdown(
+    liElement: HTMLLIElement,
+    editBtn: HTMLButtonElement,
+    inputGroupClass: string[] | string = [],
+    isMissionList = false
+) {
+    return createEditField(
+        liElement.dataset.message ?? '',
+        liElement.dataset.post === 'true',
+        editBtn,
+        () => void 0,
+        (inputField, postInput) => {
+            liElement.dataset.message = liElement.dataset.raw =
+                inputField.value.trim();
+            liElement.dataset.post = postInput.checked.toString();
+            liElement.click();
+        },
+        inputGroupClass,
+        isMissionList
+    );
 }
 
 export function getDropdownClickHandler(
@@ -249,7 +325,7 @@ export function getDropdownClickHandler(
             editBtn.disabled = true;
 
             editBtn.after(
-                createEditField(
+                createEditFieldForDropdown(
                     liElement,
                     editBtn,
                     inputGroupClass,

@@ -1,6 +1,7 @@
+import SchoolingSummary from '../components/schoolingSummary.vue';
+
 import type { $m } from 'typings/Module';
 import type { Schooling } from 'typings/Schooling';
-import SchoolingSummary from '../components/schoolingSummary.vue';
 import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     EachSchooling,

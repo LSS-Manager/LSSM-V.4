@@ -7,14 +7,27 @@ import ToggleButton from 'vue-js-toggle-button';
 import VueJSModal from 'vue-js-modal';
 
 import i18n from './i18n';
+import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMV4 from './LSSMV4.vue';
 import store from './store';
 import utils from './utils';
 
-import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
+import type {
+    ModuleMainFunction,
+    Modules,
+    ModuleSettingFunction,
+} from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
+
+// a 20% chance for april fool
+if (
+    new Date().getMonth() === 3 &&
+    new Date().getDate() === 1 &&
+    Math.random() < 0.2
+)
+    require('./natives/cursors');
 
 Vue.config.productionTip = false;
 
@@ -50,6 +63,23 @@ utils(Vue);
 
     window[PREFIX] = LSSM;
 
+    if (
+        !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
+        localStorage.getItem(loadingIndicatorStorageKey) === 'true'
+    ) {
+        import(
+            /* webpackChunkName: "components/loadingIndicator" */ './components/LoadingIndicator.vue'
+        ).then(({ default: LoadingIndicator }) => {
+            const wrapper = document.createElement('div');
+            document.body.append(wrapper);
+            new LSSM.$vue({
+                store: LSSM.$store,
+                i18n: LSSM.$i18n,
+                render: h => h(LoadingIndicator),
+            }).$mount(wrapper);
+        });
+    }
+
     window.addEventListener('pagehide', () => {
         LSSM.$destroy();
         window[PREFIX] = null;
@@ -65,10 +95,7 @@ utils(Vue);
         'api/setVehicleStates',
         'core-initialVehicleStates'
     );
-    for (const moduleId of [
-        ...Object.keys(LSSM.$store.state.modules),
-        ...LSSM.$store.state.coreModules,
-    ]) {
+    for (const moduleId of LSSM.$store.state.coreModules) {
         try {
             LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                 modules: {
@@ -85,6 +112,27 @@ utils(Vue);
             // if no i18n exists, do nothing
         }
     }
+
+    Object.entries(LSSM.$store.state.modules as Modules)
+        .filter(
+            ([, { location }]) =>
+                window.location.pathname === '/' ||
+                window.location.pathname.match(location)
+        )
+        .forEach(([moduleId]) =>
+            import(
+                /* webpackChunkName: "modules/i18n/[request]" */
+                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
+                `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+            ).then(({ default: i18n }) =>
+                LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+                    modules: {
+                        [moduleId]: i18n,
+                    },
+                })
+            )
+        );
+
     if (window.location.pathname === '/') {
         import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
             core => core.default(LSSM)
@@ -114,12 +162,14 @@ utils(Vue);
                     amount?: number,
                     args?: Record<string, unknown>
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
+
+                const locationMatches = window.location.pathname.match(
+                    LSSM.$store.state.modules[moduleId].location
+                );
+
                 if (
                     LSSM.$store.state.modules[moduleId].settings &&
-                    (window.location.pathname.match(
-                        LSSM.$store.state.modules[moduleId].location
-                    ) ||
-                        window.location.pathname === '/')
+                    (locationMatches || window.location.pathname === '/')
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
@@ -135,11 +185,8 @@ utils(Vue);
                         )(moduleId, LSSM, $m),
                     });
                 }
-                if (
-                    window.location.pathname.match(
-                        LSSM.$store.state.modules[moduleId].location
-                    )
-                ) {
+
+                if (locationMatches) {
                     if (moduleId === 'redesign') {
                         document
                             .querySelector<HTMLButtonElement>(
@@ -147,41 +194,49 @@ utils(Vue);
                             )
                             ?.remove();
                     }
-                    try {
-                        LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
-                            modules: {
-                                [moduleId]: (
-                                    await import(
-                                        /* webpackChunkName: "modules/i18n/[request]" */
-                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
-                                        /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
-                                    )
-                                ).default,
-                            },
-                        });
-                    } catch {
-                        // if no i18n exists, do nothing
-                    }
                     import(
-                        /* webpackChunkName: "modules/mains/[request]" */
-                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
-                        /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                        `./modules/${moduleId}/main`
-                    ).then(module =>
-                        (module.default as ModuleMainFunction)({
-                            LSSM,
-                            MODULE_ID: moduleId,
-                            $m,
-                            $mc,
-                            getSetting: (settingId, defaultValue) =>
-                                LSSM.$store.dispatch('settings/getSetting', {
-                                    moduleId,
-                                    settingId,
-                                    defaultValue,
-                                }),
+                        /* webpackChunkName: "modules/i18n/[request]" */
+                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
+                        /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
+                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
+                    )
+                        .then(({ default: i18n }) =>
+                            LSSM.$i18n.mergeLocaleMessage(
+                                LSSM.$store.state.lang,
+                                {
+                                    modules: {
+                                        [moduleId]: i18n,
+                                    },
+                                }
+                            )
+                        )
+                        .catch(() => {
+                            // if no i18n exists, do nothing
                         })
-                    );
+                        .finally(() =>
+                            import(
+                                /* webpackChunkName: "modules/mains/[request]" */
+                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
+                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                `./modules/${moduleId}/main`
+                            ).then(module =>
+                                (module.default as ModuleMainFunction)({
+                                    LSSM,
+                                    MODULE_ID: moduleId,
+                                    $m,
+                                    $mc,
+                                    getSetting: (settingId, defaultValue) =>
+                                        LSSM.$store.dispatch(
+                                            'settings/getSetting',
+                                            {
+                                                moduleId,
+                                                settingId,
+                                                defaultValue,
+                                            }
+                                        ),
+                                })
+                            )
+                        );
                 }
             });
         });

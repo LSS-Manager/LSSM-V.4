@@ -4,13 +4,13 @@ Da dies oft lästig ist, gibt es mit diesem Modul **Nachrichten Templates**, die
 
 In den Einstellungen lassen sich verschiedene Templates anlegen:
 
-![Einstellungen](settings.png)
+![Einstellungen](./settings.png)
 
 ## Variablen
 
 ### Nutzername
 
-Dabei kannst du den Platzhalter <code v-html="'{{username}}'"></code> verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
+Dabei kannst du den Platzhalter <variable variable="username"/> verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
 
 :::tip Warum geht das nur bei neuen Nachrichten?
 Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konversationen den Empfänger eindeutig zu bestimmen!
@@ -18,21 +18,21 @@ Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konv
 
 ### Datum
 
-Mittels <code v-html="'{{today}}'"></code> kannst du ganz einfach das heutige Datum einfügen.
+Mittels <variable variable="today"/> kannst du ganz einfach das heutige Datum einfügen.
 
-Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür <code v-html="'{{today+14}}'"></code>, um heute in  14 Tagen einzufügen. Genauso geht z.B. <code v-html="'{{today-436}}'"></code>, um heute vor 436 Tagen einzufügen.
+Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür <variable variable="today+14"/>, um heute in  14 Tagen einzufügen. Genauso geht z.B. <variable variable="today-436"/>, um heute vor 436 Tagen einzufügen.
 
 
 ## Beispiele
 
 Bei neuen Nachrichten sieht das dann beispielsweise so aus:
 
-![Konversation starten](new_message.png)
+![Konversation starten](./new_message.png)
 
 bzw. nach dem Einfügen des ersten Templates:
 
-![Template eingefügt](entered.png)
+![Template eingefügt](./entered.png)
 
 Und so bei bestehenden Konversationen:
 
-![bestehende Konversation](existing_messages.png)
+![bestehende Konversation](./existing_messages.png)

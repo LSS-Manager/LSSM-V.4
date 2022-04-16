@@ -9,7 +9,7 @@ export default async (
             const [lat, lng, zoom] = await getSetting<number[]>(
                 'centerMapStaticLocation'
             );
-            if ([lat, lng, zoom].filter(n => n).length)
+            if ([lat, lng, zoom].filter(Boolean).length)
                 window.map.setView([lat, lng], zoom);
         }
     };

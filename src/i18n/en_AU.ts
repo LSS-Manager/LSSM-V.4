@@ -69,11 +69,12 @@ export default {
         requestIssue: {
             title: 'Erroneous request: Status {status}',
             text: `Ouch, unfortunately an error occurred with this server request:<br>
-<b>Statuscode</b>: <code>{status}</code><br>
-<b>Statustext</b>: <code>{statusText}</code><br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
 <b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Please try to perform the desired action again.<br>
 If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
@@ -114,6 +115,11 @@ If several requests fail in a short time, this could be due to server problems. 
             description:
                 'Color the whole navbar in the color of LSSM-Icon Background!',
             title: 'colorize navbar',
+        },
+        loadingIndicator: {
+            description:
+                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
+            title: 'show loading progress',
         },
         osmDarkTooltip: {
             description:
@@ -583,6 +589,58 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
         },
+        34: {
+            caption: 'Riot Police SUV',
+            color: '#105d36',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [6, 19],
+            special: 'May be replaced by TOG units.',
+        },
+        35: {
+            caption: 'Riot Police Group Vehicle',
+            color: '#105d36',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 8,
+            possibleBuildings: [6, 19],
+            special: 'May be replaced by TOG units.',
+        },
+        36: {
+            caption: 'Riot Police Equipment Vehicles',
+            color: '#105d36',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    'Riot Police Equipment Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        37: {
+            caption: 'Senior Sergeant',
+            color: '#105d36',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    'Senior Sergeant': {
+                        min: 1,
+                    },
+                },
+            },
+        },
     },
     buildings: {
         0: {
@@ -776,6 +834,24 @@ If several requests fail in a short time, this could be due to server problems. 
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Riot Police Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
+                    caption: "Senior Sergeant's Office",
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Days',
+                },
+                {
+                    caption: "Additional Senior Sergeant's Offices",
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '1.700 together with small police stations',
@@ -942,6 +1018,18 @@ If several requests fail in a short time, this could be due to server problems. 
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Riot Police Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
+                    caption: "Senior Sergeant's Office",
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Days',
+                },
             ],
             levelcost: [
                 '1. 10.000',
@@ -1071,6 +1159,8 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Police helicopter': [14],
                 'K-9 Unit': [16],
                 'Mounted': [22],
+                'RIOT': [34, 35, 36],
+                'Senior Sergeant': [37],
             },
             color: '#00ac00',
         },
@@ -1166,6 +1256,16 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'Mounted Police Training',
                 duration: '3 Days',
                 staffList: 'Mounted Police Training',
+            },
+            {
+                caption: 'Riot Police Equipment Training',
+                duration: '5 Days',
+                staffList: 'Riot Police Equipment Training',
+            },
+            {
+                caption: 'Senior Sergeant',
+                duration: '5 Days',
+                staffList: 'Senior Sergeant',
             },
         ],
         'Rescue': [

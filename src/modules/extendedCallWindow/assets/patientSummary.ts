@@ -15,7 +15,7 @@ export default (LSSM: Vue, $m: $m): void => {
                 .split(',')
                 .map(req => req.trim())
         )
-        .filter(pat => pat)
+        .filter(Boolean)
         .forEach(req => {
             if (!requirements.hasOwnProperty(req)) requirements[req] = 0;
             requirements[req]++;

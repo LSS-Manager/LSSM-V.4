@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 import moment from 'moment-timezone';
 
 import packageJson from '../package.json';

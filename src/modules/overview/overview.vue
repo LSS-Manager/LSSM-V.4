@@ -6,6 +6,7 @@
                 <tabs
                     :on-select="setVehicleCategory"
                     :default-index="vehiclesTab.current.category"
+                    ref="vehicleTabs"
                 >
                     <tab
                         v-for="(
@@ -148,6 +149,7 @@
                 <tabs
                     :on-select="setBuildingCategory"
                     :default-index="buildingsTab.current.category"
+                    ref="buildingTabs"
                 >
                     <tab
                         v-for="(_, title) in buildingCategories"
@@ -236,6 +238,7 @@
                 <tabs
                     :on-select="setSchoolingCategory"
                     :default-index="schoolingsTab.current.category"
+                    ref="schoolingTabs"
                 >
                     <tab
                         v-for="(schoolings, title) in schoolingCategories"
@@ -677,6 +680,46 @@ export default Vue.extend<
         },
         setType(_, type) {
             this.currentType = type;
+            this.$nextTick(() => {
+                switch (type) {
+                    case 0:
+                        if (
+                            this.$refs.vehicleTabs &&
+                            this.$refs.vehicleTabs instanceof Vue
+                        ) {
+                            this.$set(
+                                this.$refs.vehicleTabs,
+                                'selectedIndex',
+                                this.vehiclesTab.current.category
+                            );
+                        }
+                        break;
+                    case 1:
+                        if (
+                            this.$refs.buildingTabs &&
+                            this.$refs.buildingTabs instanceof Vue
+                        ) {
+                            this.$set(
+                                this.$refs.buildingTabs,
+                                'selectedIndex',
+                                this.buildingsTab.current.category
+                            );
+                        }
+                        break;
+                    case 2:
+                        if (
+                            this.$refs.schoolingTabs &&
+                            this.$refs.schoolingTabs instanceof Vue
+                        ) {
+                            this.$set(
+                                this.$refs.schoolingTabs,
+                                'selectedIndex',
+                                this.schoolingsTab.current.category
+                            );
+                        }
+                        break;
+                }
+            });
         },
     },
 });
