@@ -25,6 +25,10 @@
             "description": "Zobrazí aktuální počet pacientů u každé mise.",
             "title": "Aktuálně pacientů"
         },
+        "currentPatientsInTooltips": {
+            "description": "Zobrazí aktuální počet pacientů také v popisku mise na mapě.",
+            "title": "Pacienti v popisku mise na mapě"
+        },
         "eventMissions": {
             "description": "Označí sezónní mise. Můžete si seznamy také přizpůsobit a označit i nesezonní mise",
             "missions": "Mise",
@@ -83,6 +87,10 @@
             "description": "Zvolit barvu pozadí tlačítka k řazení",
             "title": "Řazení misí: Barva tlačítka"
         },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementuje řazení do okna mise, přidá tlačítka pro posun v rámci nastaveného řazení. Volitelně si můžete nastavit klávesové zkratky pro ovládání tlačítek v modulu \"Klávesové zkratky\" .",
+            "title": "Řazení v okně mise"
+        },        
         "starrableMissions": {
             "description": "Označené mise jsou zobrazené nahoře nad všemi ostatními misemi. Misi můžete označit v seznamu misí či v detailu mise.",
             "title": "Označit misi"
