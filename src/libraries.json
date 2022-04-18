@@ -89,7 +89,7 @@
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.16.3"
+        "version": "1.16.4"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
@@ -220,7 +220,7 @@
     "moment": {
         "icon": "https://momentjs.com/static/img/moment-favicon.png",
         "url": "https://momentjs.com",
-        "version": "2.29.2"
+        "version": "2.29.3"
     },
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
