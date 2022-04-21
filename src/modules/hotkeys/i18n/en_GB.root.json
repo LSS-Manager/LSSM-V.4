@@ -59,6 +59,7 @@
                     "focus": "focus input field",
                     "title": "Search"
                 },
+                "eclSort": "Open sort missions",
                 "title": "Mission list"
             },
             "title": "Main window"
