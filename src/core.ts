@@ -139,7 +139,7 @@ utils(Vue);
                         window.location.pathname === '/' ||
                         window.location.pathname.match(location)
                 )
-                .forEach(([moduleId, { location }]) =>
+                .forEach(([moduleId, { location, settings }]) =>
                     import(
                         /* webpackChunkName: "modules/i18n/[request]" */
                         /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
@@ -167,19 +167,24 @@ utils(Vue);
                                     args
                                 );
 
-                            await LSSM.$store.dispatch('settings/register', {
-                                moduleId,
-                                settings: await (
-                                    (
-                                        await import(
-                                            /* webpackChunkName: "modules/settings/[request]" */
-                                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                            /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                            `./modules/${moduleId}/settings`
-                                        )
-                                    ).default as ModuleSettingFunction
-                                )(moduleId, LSSM, $m),
-                            });
+                            if (settings) {
+                                await LSSM.$store.dispatch(
+                                    'settings/register',
+                                    {
+                                        moduleId,
+                                        settings: await (
+                                            (
+                                                await import(
+                                                    /* webpackChunkName: "modules/settings/[request]" */
+                                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                                    `./modules/${moduleId}/settings`
+                                                )
+                                            ).default as ModuleSettingFunction
+                                        )(moduleId, LSSM, $m),
+                                    }
+                                );
+                            }
 
                             if (window.location.pathname.match(location)) {
                                 if (moduleId === 'redesign') {
