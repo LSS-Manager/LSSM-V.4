@@ -55,6 +55,7 @@
                 "title": "Map"
             },
             "missionlist": {
+                "eclSort": "Ouvrir le tri des missions",
                 "search": {
                     "focus": "focus sur le champ de saisie",
                     "title": "Recherche"
