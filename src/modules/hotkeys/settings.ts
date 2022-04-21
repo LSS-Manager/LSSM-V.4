@@ -13,6 +13,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'main.chat.focus',
         'main.map.search.focus',
         'main.missionlist.search.focus',
+        'main.missionlist.ecl',
         'main.lssm.menu.toggle',
         '*.credits.open',
         '*.credits.daily',
