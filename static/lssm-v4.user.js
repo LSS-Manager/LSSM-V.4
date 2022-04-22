@@ -41,7 +41,7 @@
 // @match        https://polis.larmcentralen-spelet.se/*
 // @match        https://www.112-merkez.com/*
 // @match        https://www.dyspetcher101-game.com/*
-// @homepage     https://proxy.lss-manager.de/v4//docs/
+// @homepage     https://proxy.lss-manager.de/v4/docs/
 // @updateURL    https://proxy.lss-manager.de/v4/lssm-v4.user.js
 // @downloadURL  https://proxy.lss-manager.de/v4/lssm-v4.user.js
 // @icon         https://proxy.lss-manager.de/v4/docs/img/lssm.png

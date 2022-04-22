@@ -32,7 +32,7 @@ ${Object.values(config.games)
             }`
     )
     .join('\n')}
-// @homepage     ${config.server}/docs/
+// @homepage     ${config.server}docs/
 // @updateURL    ${config.server}lssm-v4.user.js
 // @downloadURL  ${config.server}lssm-v4.user.js
 // @icon         ${config.server}docs/img/lssm.png
