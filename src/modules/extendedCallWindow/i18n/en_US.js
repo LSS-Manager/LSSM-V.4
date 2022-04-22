@@ -129,7 +129,7 @@ module.exports = {
                 30, 31, 32, 35, 36, 37, 38, 39, 40,
             ],
             [/^Airborne firefighting vehicle(s)?$/u]: [35, 36, 37],
-            [/^FBI Unit(s)?$/u]: [42],
+            [/^FBI Unit(s)?$/u]: [42, 43],
             [/^FBI Investigation wagon(s)?$/u]: [43],
             [/^FBI Investigation wagons? or Surveillance Drones?$/u]: [43, 46],
             [/^FBI Mobile Command Center(s)?$/u]: [44],

@@ -6,6 +6,7 @@ interface Message {
         online: boolean;
         id: number;
         name: string;
+        isAlliance: boolean;
     };
     timestamp: string;
     content: string;
@@ -39,8 +40,8 @@ export default <RedesignParser<ConversationWindow>>(({
         message => {
             const senderInfos = message.querySelector<HTMLElement>('strong');
             const senderLink =
-                senderInfos?.querySelector<HTMLAnchorElement>(
-                    'a[href^="/profile/"]'
+                (senderInfos ?? message).querySelector<HTMLAnchorElement>(
+                    'a[href^="/profile/"], a[href^="/alliances/"]'
                 ) ?? null;
             return {
                 sender: {
@@ -55,11 +56,16 @@ export default <RedesignParser<ConversationWindow>>(({
                             ?.getAttribute('src') === '/images/user_green.png',
                     id: getIdFromEl(senderLink),
                     name: senderLink?.textContent?.trim() ?? '',
+                    isAlliance: /^\/alliances\//u.test(
+                        senderLink?.getAttribute('href') ?? ''
+                    ),
                 },
                 timestamp: message.dataset.messageTime ?? '',
                 content: Array.from(
                     message.querySelectorAll<HTMLParagraphElement>(
-                        'strong + span ~ p'
+                        `${
+                            senderInfos ? 'strong' : 'a[href^="/alliances/"]'
+                        } + span ~ p`
                     )
                 )
                     .map(p => p.outerHTML)

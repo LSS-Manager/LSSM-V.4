@@ -90,6 +90,19 @@ declare global {
         buildingsVehicleLoadVisible(): void;
         missionScrollUpdate(): void;
         mapExpand(design_big_map: boolean): void;
+        setupTimer(timer: {
+            $timer: JQuery<HTMLElement>;
+            format: string | 'long';
+            onTimerEnd(): void;
+        }): void;
+        updateTimer(
+            timer: Pick<
+                Parameters<this['setupTimer']>[0],
+                '$timer' | 'format'
+            > & {
+                endTime: Date;
+            }
+        ): void;
     }
 }
 

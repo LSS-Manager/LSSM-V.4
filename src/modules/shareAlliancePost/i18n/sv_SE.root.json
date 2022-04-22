@@ -1,11 +1,18 @@
 {
     "description": "Utlarming, Dela ett uppdrag med en insidentrapport till alliansen.",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
     "name": "Dela-Alliansen-Utlarmning",
     "noMessage": "Utan insidentrapport",
     "settings": {
         "enableCallList": {
             "description": "Integrerar denna modul med  \"Dela uppdrag\" från modulen Utökad uppdragslista.",
             "title": "Integration i utlarmingslistan"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
         },
         "message": "Incidentrapport",
         "messages": {

@@ -11,8 +11,8 @@
             "title": "Format de la date et de l'heure du chat"
         },
         "cloneHistoryBtnToHeader": {
-            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
-            "title": "Show Chat-History in Header"
+            "description": "Afficher le bouton pour l'historique du salon dans l'en-tête afin que vous n'ayez pas à faire défiler le chat pour y accéder.",
+            "title": "Afficher le bouton l'historique du salon dans l'en-tête."
         }
     }
 }
