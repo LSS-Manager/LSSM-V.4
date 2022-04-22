@@ -1,7 +1,5 @@
 import {
     addHoursToNow,
-    createEditBtn,
-    createEditField,
     createIcon,
     dateToTime,
     getCityFromAddress,
