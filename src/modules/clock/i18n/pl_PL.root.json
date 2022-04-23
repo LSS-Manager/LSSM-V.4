@@ -1,0 +1,22 @@
+{
+    "description": "Wyświetla zegar w grze.",
+    "name": "Zegar",
+    "settings": {
+        "displayNav": {
+            "description": "Jako pozycję wybierany jest lewy margines obok logo.",
+            "title": "Pokaż zegar na pasku nawigacyjnym"
+        },
+        "displayOverlay": {
+            "description": "Zegar można przesuwać i powinien znajdować się przed wszystkimi innymi elementami",
+            "title": "Pokaż zegar jako nakładkę"
+        },
+        "navFormat": {
+            "description": "Tutaj możesz ustawić format zegara.",
+            "title": "Format zegara na pasku nawigacyjnym"
+        },
+        "overlayFormat": {
+            "description": "Tutaj możesz ustawić format zegara.",
+            "title": "Format zegara jako nakładki"
+        }
+    }
+}
