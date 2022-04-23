@@ -1,0 +1,10 @@
+{
+    "description": "Podsumowuje dzienny przegląd w kategoriach, dzięki czemu możesz uzyskać szybki przegląd tego, na co masz pieniądze.",
+    "name": "Podsumowanie kredytów",
+    "settings": {
+        "showAverage": {
+            "description": "Pokazuje średnie kredyty dla każdej kategorii.",
+            "title": "pokaż średnią"
+        }
+    }
+}
