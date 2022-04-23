@@ -42,7 +42,7 @@
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.14.181"
+        "version": "4.14.182"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -93,11 +93,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.19.0"
+        "version": "5.20.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.19.0"
+        "version": "5.20.0"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -243,7 +243,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.50.0"
+        "version": "1.50.1"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -256,7 +256,7 @@
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
         "url": "http://showdownjs.com/",
-        "version": "2.0.3"
+        "version": "2.1.0"
     },
     "string-replace-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -339,7 +339,7 @@
     "vue3": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.2.31"
+        "version": "3.2.33"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",

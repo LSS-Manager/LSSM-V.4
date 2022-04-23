@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         LSS-Manager V.4
-// @version      4.5.7-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
+// @version      4.5.8-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
 // @author       Aisaka | Sanni | Jan (jxn_30) | Ron31
 // @description  A Script-Collection for Leitstellenspiel, Missionchief and its other language versions.
 // @match        https://www.operacni-stredisko.cz/*
@@ -41,7 +41,7 @@
 // @match        https://polis.larmcentralen-spelet.se/*
 // @match        https://www.112-merkez.com/*
 // @match        https://www.dyspetcher101-game.com/*
-// @homepage     https://proxy.lss-manager.de/v4//docs/
+// @homepage     https://proxy.lss-manager.de/v4/docs/
 // @updateURL    https://proxy.lss-manager.de/v4/lssm-v4.user.js
 // @downloadURL  https://proxy.lss-manager.de/v4/lssm-v4.user.js
 // @icon         https://proxy.lss-manager.de/v4/docs/img/lssm.png
