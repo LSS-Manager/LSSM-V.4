@@ -1305,7 +1305,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: "Lanceur d'eau",
                 duration: '7 jours',
-                staffList: "Lanceur d'eau",
+                staffList: "Opérateur ELE",
             },
             {
                 caption: 'Armurier',
