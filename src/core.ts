@@ -144,107 +144,120 @@ utils(Vue);
                         /* webpackChunkName: "modules/i18n/[request]" */
                         /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
                         `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
-                    ).then(async ({ default: i18n }) => {
-                        LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
-                            modules: {
-                                [moduleId]: i18n,
-                            },
-                        });
-                        if (filteredActiveModules.includes(moduleId)) {
-                            LSSM.$store.commit('setModuleActive', moduleId);
-                            const $m = (
-                                key: string,
-                                args?: Record<string, unknown>
-                            ) => LSSM.$t(`modules.${moduleId}.${key}`, args);
-                            const $mc = (
-                                key: string,
-                                amount?: number,
-                                args?: Record<string, unknown>
-                            ) =>
-                                LSSM.$tc(
-                                    `modules.${moduleId}.${key}`,
-                                    amount,
-                                    args
-                                );
-
-                            if (settings) {
-                                await LSSM.$store.dispatch(
-                                    'settings/register',
-                                    {
-                                        moduleId,
-                                        settings: await (
-                                            (
-                                                await import(
-                                                    /* webpackChunkName: "modules/settings/[request]" */
-                                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                                    `./modules/${moduleId}/settings`
-                                                )
-                                            ).default as ModuleSettingFunction
-                                        )(moduleId, LSSM, $m),
-                                    }
-                                );
-                            }
-
-                            if (window.location.pathname.match(location)) {
-                                if (moduleId === 'redesign') {
-                                    document
-                                        .querySelector<HTMLButtonElement>(
-                                            '#lightbox_close_inside'
-                                        )
-                                        ?.remove();
+                    )
+                        .then(({ default: i18n }) =>
+                            LSSM.$i18n.mergeLocaleMessage(
+                                LSSM.$store.state.lang,
+                                {
+                                    modules: {
+                                        [moduleId]: i18n,
+                                    },
                                 }
-                                import(
-                                    /* webpackChunkName: "modules/i18n/[request]" */
-                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
-                                    /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                    `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
-                                )
-                                    .then(({ default: i18n }) =>
-                                        LSSM.$i18n.mergeLocaleMessage(
-                                            LSSM.$store.state.lang,
-                                            {
-                                                modules: {
-                                                    [moduleId]: i18n,
-                                                },
-                                            }
-                                        )
-                                    )
-                                    .catch(() => {
-                                        // if no i18n exists, do nothing
-                                    })
-                                    .finally(() =>
-                                        import(
-                                            /* webpackChunkName: "modules/mains/[request]" */
-                                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
-                                            /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                            `./modules/${moduleId}/main`
-                                        ).then(module =>
-                                            (
-                                                module.default as ModuleMainFunction
-                                            )({
-                                                LSSM,
-                                                MODULE_ID: moduleId,
-                                                $m,
-                                                $mc,
-                                                getSetting: (
-                                                    settingId,
-                                                    defaultValue
-                                                ) =>
-                                                    LSSM.$store.dispatch(
-                                                        'settings/getSetting',
-                                                        {
-                                                            moduleId,
-                                                            settingId,
-                                                            defaultValue,
-                                                        }
-                                                    ),
-                                            })
-                                        )
+                            )
+                        )
+                        .catch(() =>
+                            LSSM.$store?.dispatch('console/warn', [
+                                `[core] root translation ${moduleId}/${LSSM.$store.state.lang}.root could not be imported. The file is probably nonexistent`,
+                            ])
+                        )
+                        .finally(async () => {
+                            if (filteredActiveModules.includes(moduleId)) {
+                                LSSM.$store.commit('setModuleActive', moduleId);
+                                const $m = (
+                                    key: string,
+                                    args?: Record<string, unknown>
+                                ) =>
+                                    LSSM.$t(`modules.${moduleId}.${key}`, args);
+                                const $mc = (
+                                    key: string,
+                                    amount?: number,
+                                    args?: Record<string, unknown>
+                                ) =>
+                                    LSSM.$tc(
+                                        `modules.${moduleId}.${key}`,
+                                        amount,
+                                        args
                                     );
+
+                                if (settings) {
+                                    await LSSM.$store.dispatch(
+                                        'settings/register',
+                                        {
+                                            moduleId,
+                                            settings: await (
+                                                (
+                                                    await import(
+                                                        /* webpackChunkName: "modules/settings/[request]" */
+                                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                                        /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                                        `./modules/${moduleId}/settings`
+                                                    )
+                                                )
+                                                    .default as ModuleSettingFunction
+                                            )(moduleId, LSSM, $m),
+                                        }
+                                    );
+                                }
+
+                                if (window.location.pathname.match(location)) {
+                                    if (moduleId === 'redesign') {
+                                        document
+                                            .querySelector<HTMLButtonElement>(
+                                                '#lightbox_close_inside'
+                                            )
+                                            ?.remove();
+                                    }
+                                    import(
+                                        /* webpackChunkName: "modules/i18n/[request]" */
+                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
+                                        /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
+                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
+                                    )
+                                        .then(({ default: i18n }) =>
+                                            LSSM.$i18n.mergeLocaleMessage(
+                                                LSSM.$store.state.lang,
+                                                {
+                                                    modules: {
+                                                        [moduleId]: i18n,
+                                                    },
+                                                }
+                                            )
+                                        )
+                                        .catch(() => {
+                                            // if no i18n exists, do nothing
+                                        })
+                                        .finally(() =>
+                                            import(
+                                                /* webpackChunkName: "modules/mains/[request]" */
+                                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
+                                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                                `./modules/${moduleId}/main`
+                                            ).then(module =>
+                                                (
+                                                    module.default as ModuleMainFunction
+                                                )({
+                                                    LSSM,
+                                                    MODULE_ID: moduleId,
+                                                    $m,
+                                                    $mc,
+                                                    getSetting: (
+                                                        settingId,
+                                                        defaultValue
+                                                    ) =>
+                                                        LSSM.$store.dispatch(
+                                                            'settings/getSetting',
+                                                            {
+                                                                moduleId,
+                                                                settingId,
+                                                                defaultValue,
+                                                            }
+                                                        ),
+                                                })
+                                            )
+                                        );
+                                }
                             }
-                        }
-                    })
+                        })
                 );
         });
 })();
