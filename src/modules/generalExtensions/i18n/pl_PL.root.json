@@ -21,7 +21,7 @@
             "title": "Spraw, aby linki były klikalne"
         },
         "emojiPicker": {
-            "description": "Pokazuje emotikony do wyboru, gdy wpiszesz ":", a następnie tekst.",
+            "description": "Pokazuje emotikony do wyboru, gdy wpiszesz \":\", a następnie tekst.",
             "title": "Selektor emotikonów"
         },
         "extensionCloseCall": {
