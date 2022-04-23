@@ -76,7 +76,7 @@
             7,
             9
         ],
-        "sum": "Suma"
+        "sum": "Suma",
         "title": "Wszystkie {type} | Wszystkie {type} w statusie {n} | Wszystkie {type} w statusie {n}",
         "type": "Typ pojazdu",
         "vehicles": "Pojazdy"
