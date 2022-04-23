@@ -1,0 +1,21 @@
+{
+    "description": "Ułatwia ustawianie miejsc UM dzięki małym, przydatnym funkcjom",
+    "name": "Ulepszone UM",
+    "settings": {
+        "custom_style": {
+            "title": "Niestandardowy styl do podkreślania"
+        },
+        "predefined_style": {
+            "brown": "Brązowy",
+            "custom": "Ręcznie",
+            "green": "Zielony",
+            "red": "Czerwony",
+            "title": "Podświetlanie znacznika",
+            "white": "Biały"
+        },
+        "shown_types": {
+            "description": "Określ tutaj, które typy punktów POI mają być wyświetlane. Możesz również zmienić to ustawienie bezpośrednio w menu \"Ustaw UM\"-Zmień menu.",
+            "title": "Wyświetlane typy UM"
+        }
+    }
+}
