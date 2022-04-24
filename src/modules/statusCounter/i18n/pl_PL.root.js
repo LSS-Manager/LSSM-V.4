@@ -1,7 +1,6 @@
 module.exports = {
     name: 'Licznik stanu',
-    description:
-        'Pokazuje szybki przegląd liczby pojazdów i ich stanów.',
+    description: 'Pokazuje szybki przegląd liczby pojazdów i ich stanów.',
     settings: {
         percentRounding: {
             title: 'Procenty zaokrąglone',

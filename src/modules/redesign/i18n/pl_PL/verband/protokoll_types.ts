@@ -10,7 +10,10 @@ export default {
     set_chatban: { regex: /Ustawiono blokadę czatu/u },
     remove_chatban: { regex: /Usunięto blokadę czatu/u },
     added_role: { regex: /Ustaw jako .*?/u, title: 'Role added' },
-    removed_role: { regex: /Usunięto ze stanowiska .*?/u, title: 'Role removed' },
+    removed_role: {
+        regex: /Usunięto ze stanowiska .*?/u,
+        title: 'Role removed',
+    },
     start_schooling: { regex: /Utworzono kurs/u },
     complete_schooling: { regex: /Ukończono kurs/u },
     start_extension: { regex: /Rozpoczęto rozbudowę/u },

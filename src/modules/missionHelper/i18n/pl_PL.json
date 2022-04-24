@@ -32,8 +32,8 @@
         "title": "Więzień | {n} Więzień | {n} Więzień"
     },
     "requirements": {
-        "water_needed": "Potrzebna woda (L)",
-        "foam_needed": "piana gaśnicza"
+        "foam_needed": "piana gaśnicza",
+        "water_needed": "Potrzebna woda (L)"
     },
     "tip": {
         "dragging": "Przeciągnij okno",
@@ -49,12 +49,12 @@
             "firetrucks": "Wóz strażacki | Wozy strażackie",
             "flood_equipment": "sprzęt przeciwpowodziowy",
             "foam": "samochody ze zbiornikiem na piane",
-            "hose": "samochody wężowe",
-            "height_rescue_units": "Ratownictwo Wyskościowe",
             "fwk": "Dźwig SP",
             "hazmat_vehicles": "Rchem | Rchem",
             "heavy_rescue_vehicles": "Rescue Support Unit or Rescue Pump | Rescue Support Unit or Rescue Pump",
+            "height_rescue_units": "Ratownictwo Wyskościowe",
             "helicopter": "HEMS",
+            "hose": "samochody wężowe",
             "k9": "K-9 | K-9",
             "kdow_orgl": "SLOP/SLRr | SLOP/SLRr",
             "mobile_air_vehicles": "Jednostka AODO | Jednostki AODO",
