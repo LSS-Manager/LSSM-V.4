@@ -1,9 +1,9 @@
 {
     "allianceFunds": {
-        "currently": "Obecne fundusze sojuszu",
+        "currently": "-obecne fundusze",
         "title": "Fundusze sojuszu",
-        "total": "Suma zdobytych kredytów sojuszu",
-        "updateNote": "Aktualizowany co 5 minut."
+        "total": "-zdobyte kredyty",
+        "updateNote": "Aktualizacja co 5 minut."
     },
     "coins": {
         "list": "Protokół"
