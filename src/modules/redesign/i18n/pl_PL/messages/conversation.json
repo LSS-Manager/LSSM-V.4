@@ -1,5 +1,5 @@
 {
-    "back": "Wróć do skrzynki odbiorczej",
+    "back": "<h1>Wróć do skrzynki odbiorczej</h1>",
     "delete": "Usuń konwersację",
     "load": {
         "next": "wczytaj starsze wiadomości",
