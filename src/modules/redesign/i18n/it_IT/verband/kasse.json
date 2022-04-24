@@ -1,0 +1,27 @@
+{
+    "disabled": "I fondi dell'alleanza non sono stati abilitati per questa alleanza.",
+    "earnings": {
+        "credits": "Crediti",
+        "daily": "Giornalieri",
+        "monthly": "Mensili",
+        "sum": "Somma",
+        "title": "Profitti",
+        "user": "Giocatore"
+    },
+    "spendings": {
+        "credits": "Crediti",
+        "date": "Data",
+        "desc": "Descrizione",
+        "loadMore": "Carica altre 10",
+        "title": "Spese",
+        "user": "Giocatore"
+    },
+    "summary": {
+        "rate": "Tassa dell'alleanza",
+        "title": "Fondi dell'alleanza"
+    },
+    "toggle": {
+        "disable": "Disabilita fondi dell'alleanza",
+        "enable": "Abilita fondi dell'alleanza"
+    }
+}
