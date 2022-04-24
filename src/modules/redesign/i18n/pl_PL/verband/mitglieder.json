@@ -6,10 +6,10 @@
         "save": "zapisz"
     },
     "load": {
-        "next": "załaduj następną stronę",
-        "prev": "załaduj poprzednią stronę"
+        "next": "Wczytaj następną stronę (20 graczy)",
+        "prev": "Wczytaj poprzednią stronę (20 graczy)"
     },
-    "name": "gracz",
+    "name": "Gracz",
     "online": {
         "subtitle": "Wyświetlani są tylko członkowie online!",
         "titles": {
