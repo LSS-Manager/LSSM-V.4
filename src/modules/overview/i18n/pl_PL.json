@@ -1,5 +1,5 @@
 {
-    "extensionTitle": "{podpis} (aż do {n} tej pory)",
+    "extensionTitle": "{caption} (aż do {n} tej pory)",
     "schoolings": {
         "all": "Wszystko",
         "min": "min. {n}x"

@@ -3,7 +3,7 @@
     "claim": "Odbierz",
     "claimAll": "Odbierz wszystkie ({amount})",
     "collectionTasks": {
-        "taskName": "Ukończ zadania \\d+ \"(.*?)\" wydarzenia \"Weekend\"",
+        "taskName": "Ukończ zadania (\\d+) wydarzenia \"(.*?)\"",
         "title": "Zadania zbiorowe"
     },
     "confirmation": {
