@@ -1,0 +1,37 @@
+{
+    "description": "Dzięki temu modułowi unikaj ponownego ładowania gry po naciśnięciu określonych przycisków.",
+    "name": "Przyciski asynchroniczne",
+    "settings": {
+        "buildingPersonal": {
+            "description": "Zapobiega ponownemu ładowaniu strony.",
+            "title": "Wydanie osobiste"
+        },
+        "buildingTax": {
+            "description": "Uniemożliwia przeładowanie, gdy ustalasz koszt własnych cel lub łóżek szpitalnych.",
+            "title": "Absorpcja kosztów celi i łóżek"
+        },
+        "deleteARR": {
+            "description": "Zapobiega ponownemu załadowaniu po usunięciu ZR",
+            "title": "Usuń wpisy ZR"
+        },
+        "deleteForumPost": {
+            "description": "Zapobiega ponownemu ładowaniu po usunięciu posta na forum.",
+            "title": "Usuń posty na forum"
+        },
+        "memberlistManageUser": {
+            "description": "Zapobiega przeładowaniu, gdy wyrzucisz członka sojuszu lub edytujesz jego prawa",
+            "title": "Prawa członków Sojuszu"
+        },
+        "missionPrisoners": {
+            "title": "Więźniowie w oknie misji"
+        },
+        "missionReply": {
+            "description": "Zapobiega przeładowaniu, misji",
+            "title": "Powtórki misji w misji"
+        },
+        "switchExtensionState": {
+            "description": "Zapobiega przeładowaniu po ustawieniu stanu rozszerzenia",
+            "title": "(Dez)aktywuj rozszerzenie"
+        }
+    }
+}
