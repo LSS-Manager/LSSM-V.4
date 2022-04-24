@@ -9,7 +9,8 @@
     },
     "settings": {
         "locationSelect": {
-            "zoom": "Ustawienia mapy"
+            "zoom": "Ustawienia mapy",
+            "sync": "Centruj"
         },
         "centerMap": {
             "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
