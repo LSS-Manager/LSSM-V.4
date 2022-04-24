@@ -20,7 +20,7 @@ module.exports = {
                 [
                     `hide_${status}`,
                     {
-                        title: `Status ${status} tylko jeśli jest to wymagane`,
+                        title: `Status ${status} tylko jeśli jest to wymagany`,
                         description: `Pokaż liczbę pojazdów w statusie ${status} tylko wtedy, gdy pojazdy mają ten status.`,
                     },
                 ],
