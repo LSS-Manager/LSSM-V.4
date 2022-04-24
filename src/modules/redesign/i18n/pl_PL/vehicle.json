@@ -31,7 +31,7 @@
                 "title": "Department: {department}"
             },
             "distance": "Maksymalna odległość",
-            "each": "Pokaż x budynków każdego",
+            "each": "Pokaż x budynków",
             "tax": "Maksymalny podatek"
         },
         "missions": {
