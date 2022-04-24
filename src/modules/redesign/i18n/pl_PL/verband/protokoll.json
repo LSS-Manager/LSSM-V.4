@@ -1,6 +1,6 @@
 {
     "affected": "Dotyczy",
-    "amount": "{n} filtrowany wpis | {n} filtrowane wpisy",
+    "amount": "{n} wyświetlony wpis | {n} wyświetlone wpisy",
     "description": "Opis",
     "executor": "Wyszukaj",
     "filter": {
