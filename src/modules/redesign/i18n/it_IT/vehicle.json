@@ -1,6 +1,6 @@
 {
-    "approach": "Approccio",
-    "backalarm": "Allarme posteriore",
+    "approach": "Seleziona",
+    "backalarm": "Torna alla base",
     "cells": {
         "cell": "Edificio",
         "free": "Celle libere"
@@ -60,8 +60,8 @@
     "foam_amount": "Q.tà schiuma",
     "followup_missions": "Segui missione | Segui missioni",
     "hospitals": {
-        "beds": "letti liberi",
-        "department": "Dipartimento: {department}",
+        "beds": "Letti liberi",
+        "department": "Reparto: {department}",
         "hospital": "Ospedale"
     },
     "load_all_hospitals": {
@@ -69,9 +69,9 @@
         "text": "Solo 50 ospedali alleanza sono visualizzati. Caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
     },
     "max_staff": "Staff max.",
-    "mileage": "Chilometraggio",
+    "mileage": "Chilometri percorsi",
     "missions": {
-        "alarm": "Allarme",
+        "alarm": "Invia",
         "alarmed": "Missione attuale",
         "credits": "Ricompensa",
         "mission": "Missione",
@@ -87,8 +87,8 @@
     },
     "release": {
         "cancel": "Annulla",
-        "confirm": "Si, dimetti!",
-        "disable": "discharge and disable confirmation",
+        "confirm": "Dimetti",
+        "disable": "Dimetti e non chiedermelo più",
         "patient": {
             "text": "Vuoi veramente congedare il paziente di questo veicolo? Nessun pagamento sarà accreditato per il paziente!",
             "title": "Congeda paziente"
@@ -108,15 +108,15 @@
     "station": "Edificio",
     "stats": "Statistiche",
     "tabs": {
-        "all": "tutto {type}: {amount}",
-        "alliance": "alleanza {type}: {amount}",
+        "all": "{type}: {amount}",
+        "alliance": "{type} dell'alleanza: {amount}",
         "cells": "Celle",
         "hospitals": "Ospedali",
         "missions": "Missioni",
-        "own": "proprietario {type}: {amount}"
+        "own": "{type} propri: {amount}"
     },
     "tax": "tasse",
-    "true": "si",
+    "true": "Sì",
     "vehicletype": "Tipo veicolo",
     "water_amount": "Q.tà acqua",
     "zuweisung": "Assegnamento staff"
