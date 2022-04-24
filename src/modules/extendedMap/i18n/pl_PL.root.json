@@ -17,8 +17,8 @@
         },
         "centerMapType": {
             "description": "Wybierz, czy chcesz centrować statycznie, czy dynamicznie [dynamiczny nie jest jeszcze dostępny]",
-            "dynamic": "dynamiczny",
-            "static": "statyczny",
+            "dynamic": "Dynamiczny",
+            "static": "Statyczny",
             "title": "Centrowanie mapy: Tryb"
         },
         "mapScale": {
@@ -31,7 +31,7 @@
         },
         "markerNewWindow": {
             "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
-            "title": "otwórz znaczniki w nowej karcie"
+            "title": "Otwórz znaczniki w nowej karcie"
         }
     }
 }
