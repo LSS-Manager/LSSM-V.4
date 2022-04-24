@@ -1,0 +1,40 @@
+{
+    "nav": {
+        "links": {
+            "/alliance_logfiles": "Protokół",
+            "/alliance_messages": "Wiadomości",
+            "/alliance_threads": "Forum",
+            "/alliances/{id}": "Wstęp",
+            "/schoolings": "Kursy",
+            "/verband/bereitstellungsraume": "Obszary tymczasowe",
+            "/verband/bewerbungen": "Nowi kandydaci",
+            "/verband/gebauede": "Buildings",
+            "/verband/kasse": "Fundusze Sojuszu",
+            "/verband/mitglieder/{id}": "Członkowie",
+            "/verband/news/{id}": "Wiadomości",
+            "/verband/regeln/{id}": "Zasady",
+            "/verband/werbung": "Promuj"
+        },
+        "other": [
+            "/Sojusze/{id}",
+            "/Sojusz/wiadomości/{id}",
+            "/Sojusz/członkowie/{id}",
+            "/Sojusz/zasady/{id}"
+        ],
+        "self": [
+            "/Sojusze/{id}",
+            "/Sojusz/news/{id}",
+            "/Sojusz/mitglieder/{id}",
+            "/Sojusz/regeln/{id}",
+            "/dziennik",
+            "/forum",
+            "/wiadomości",
+            "/Sojusz/promuj",
+            "/kursy",
+            "/Sojusz/obszary_tymczasowe",
+            "/Sojusz/fundusze",
+            "/Sojusz/budynki",
+            "/Sojusz/wnioski"
+        ]
+    }
+}

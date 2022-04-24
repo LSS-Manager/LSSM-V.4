@@ -1,0 +1,47 @@
+{
+    "alerts": {
+        "alliance_ignored": "{name} zabrania się aplikowania do twojego sojuszu!",
+        "friend": "{name} jest na twojej liście znajomych! 🥳",
+        "ignored": "Ignorujesz tego gracza. {name} nie może już wysyłać Ci wiadomości!"
+    },
+    "alliance": "Sojusz",
+    "awards": {
+        "bronze": "Brązowy",
+        "gold": "Złoty",
+        "max": "15",
+        "own": "Otwórz swoje nagrody",
+        "silver": "Srebrny",
+        "title": "Awards",
+        "title_amounts": "{sum} z {max} nagród"
+    },
+    "buildings": {
+        "amount": "{n} Budynków"
+    },
+    "buttons": {
+        "alliance_ignore": {
+            "add": "Zakaz składania wniosku o sojusz",
+            "destroy": "Zezwól na zgłoszenie sojuszu"
+        },
+        "avatar": "Edytuj grafikę profilową",
+        "chat": {
+            "ban": "Zablokuj na czacie sojuszu",
+            "unban": "Odblokuj na czacie sojuszu"
+        },
+        "edit": "Edytuj profil",
+        "friend": {
+            "do": "Dodaj znajomego",
+            "undo": "Usuń ze znajomych"
+        },
+        "gift": "Wyślij prezent",
+        "ignore": {
+            "do": "Ignoruj tego gracza",
+            "undo": "Przestań ignorować tego gracza"
+        },
+        "message": "Wyślij wiadomość"
+    },
+    "credits": "{credits} zarobione kredyty",
+    "map": "Mapa",
+    "rank": "Aktualny stopień",
+    "registration": "Data zapisania się",
+    "text": "Tekst i grafika"
+}

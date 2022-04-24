@@ -1,0 +1,11 @@
+{
+    "amount": "Ilość",
+    "date": "Data",
+    "description": "Opis",
+    "load": {
+        "next": "20 Załaduj starsze wpisy",
+        "prev": "20 Załaduj nowsze wpisy"
+    },
+    "subtitle": "Pokaż {n} wpisy stron od {startPage} ({firstDate}) do {endPage} ({lastDate}) wszystkich {totalPages} stron",
+    "title": "Lista monet"
+}

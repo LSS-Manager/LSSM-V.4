@@ -1,0 +1,26 @@
+{
+    "add": {
+        "arr": "Utwórz nową zasadę reagowania",
+        "group": "Utwórz nową grupę"
+    },
+    "categories": "Własne kategorie ZR",
+    "delete": {
+        "all": {
+            "text": "Czy na pewno chcesz usunąć całą zasadę reagowania? Istniejące wyeksportowane wersje przestały być dostępne!",
+            "title": "Usuń wszystkie zasady reagowania"
+        },
+        "arr": {
+            "text": "Do you really want to delete this one ARR entry? This cannot be undone! The entry will no longer appear in any existing exports!",
+            "title": "Usuń ZR"
+        },
+        "cancel": "Anuluj",
+        "confirm": "Usuń!",
+        "vehicle_group": {
+            "text": "Czy na pewno chcesz usunąć tę jedną grupę? Tego nie można cofnąć!",
+            "title": "Usuń grupę"
+        }
+    },
+    "delete_all": "Usuń wszystkie zasady reagowania!",
+    "export": "Eksportuj",
+    "title": "Zasady reagowania"
+}

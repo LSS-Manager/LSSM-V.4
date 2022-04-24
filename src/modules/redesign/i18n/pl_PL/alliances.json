@@ -1,0 +1,16 @@
+{
+    "alliance": "Sojusz",
+    "amount": "{n} filtrowany sojusz | {n} filtrowane sojusze",
+    "credits": "Otrzymane kredyty",
+    "load": {
+        "next": "Dalej →",
+        "prev": "← Wstecz"
+    },
+    "members": "Liczba członków",
+    "name": "Nazwa",
+    "search_global": "Wyszukiwanie globalne",
+    "search_local": "Szukaj w załadowanych sojuszach",
+    "search_subtitle": "Pokaż {n} sojusze stron od {startPage} do {endPage} z wszystkich {totalPages} stron",
+    "subtitle": "Pokaż {n} sojusze stron {startPage} ({firstCredits}) z {endPage} ({lastCredits}) z wszystkich {totalPages} stron",
+    "title": "Członkowie"
+}

@@ -1,0 +1,11 @@
+{
+    "amount": "Ilość",
+    "date": "Data",
+    "description": "Opis",
+    "load": {
+        "next": "20 Załaduj starsze wpisy",
+        "prev": "20 Załaduj nowsze wpisy"
+    },
+    "subtitle": "Pokaż {n} Wpisy stron {startPage} ({firstDate}) do {endPage} ({lastDate}) wszystkich {totalPages} Stron",
+    "tytuł": "Transakcje"
+}
