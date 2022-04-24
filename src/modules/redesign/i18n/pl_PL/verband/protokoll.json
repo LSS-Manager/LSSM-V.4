@@ -5,7 +5,7 @@
     "executor": "Wyszukaj",
     "filter": {
         "all_types": "Pokaż wszystkie typy",
-        "no_types": "Nie wyświetlaj typów",
+        "no_types": "Wyczyść typy",
         "type": "Wyświetlane typy wpisów:"
     },
     "load": {
