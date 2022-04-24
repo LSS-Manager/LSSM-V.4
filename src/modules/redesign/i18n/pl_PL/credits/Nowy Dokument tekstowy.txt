@@ -1,7 +1,0 @@
-{
-    "date": "Data",
-    "minus": "Wydatki",
-    "plus": "Przychód",
-    "title": "Przegląd",
-    "total": "Suma"
-}
