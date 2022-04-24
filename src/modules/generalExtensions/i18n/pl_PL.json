@@ -1,0 +1,16 @@
+{
+    "inputMaxLen": "To pole wejściowe musi mieć od {min} do {max} znaków!",
+    "protocolDeletionConfirmation": {
+        "all": {
+            "text": "Czy na pewno chcesz usunąć protokół? Tego nie można cofnąć!",
+            "title": "Usuń protokół"
+        },
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "single": {
+            "text": "Czy na pewno chcesz usunąć ten pojedynczy wpis protokołu? Tego nie można cofnąć!",
+            "title": "Usuń wpis"
+        },
+        "toggleSingle": "Pokaż potwierdzenie przy usuwaniu pojedynczych wpisów"
+    }
+}

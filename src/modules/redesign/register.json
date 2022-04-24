@@ -4,10 +4,11 @@
         "en_AU",
         "en_GB",
         "en_US",
-        "it_IT",
         "fr_FR",
+        "it_IT",
         "nb_NO",
-        "nl_NL"
+        "nl_NL",
+        "pl_PL"
     ],
     "location": ".*",
     "settings": true

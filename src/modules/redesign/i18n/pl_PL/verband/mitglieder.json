@@ -1,0 +1,56 @@
+{
+    "amount": "{n} filtrowany gracz | {n} filtrowani gracze",
+    "credits": "łączna liczba zdobytych kredytów",
+    "discount": "przecena",
+    "edit_caption": {
+        "save": "zapisz"
+    },
+    "load": {
+        "next": "załaduj następną stronę",
+        "prev": "załaduj poprzednią stronę"
+    },
+    "name": "gracz",
+    "online": {
+        "subtitle": "Wyświetlani są tylko członkowie online!",
+        "titles": {
+            "blue": "{user} jest offline i był online w ciągu ostatnich 30 dni!",
+            "gray": "{user} jest offline i był online w ciągu ostatnich 7 dni!",
+            "green": "{user} jest online!",
+            "red": "{user} jest offline przez ponad 60 dni!",
+            "yellow": "{user} jest offline i był online przez ostatnie 60 dni!"
+        },
+        "toggle": {
+            "false": "Pokaż tylko graczy online",
+            "true": "Pokaż wszystkich członków (także offline)"
+        }
+    },
+    "rights": {
+        "admin": "Administrator Sojuszu",
+        "aufsichtsrat": "Dziennik działań moderatora",
+        "coadmin": "Współadministrator Sojuszu",
+        "edit": "Edytuj prawa",
+        "finance": "Finanse sojuszu",
+        "hide": "Zamknij",
+        "kick": {
+            "btn": "Wyrzuć"
+        },
+        "kickModal": {
+            "btnCancel": "Anuluj",
+            "btnConfirm": "Wyrzuć",
+            "text": "Czy naprawdę chcesz wyrzucić gracza **{user}** z Sojuszu??",
+            "title": "Wyrzucić?"
+        },
+        "schooling": "Szkoleniowiec sojuszu",
+        "set": "Ustaw jako {role}",
+        "sprechwunsch_admin": "Administrator żądań transportu",
+        "staff": "Sztab Sojuszu",
+        "unset": "Usuń jako {role}"
+    },
+    "roles": "Rola(e)",
+    "search_global": "Wyszukiwanie globalne",
+    "search_local": "Szukaj w załadowanych graczach",
+    "search_subtitle": "Pokaż {n} graczy od {startPage} do {endPage} z {totalPages} stron",
+    "subtitle": "Pokaż {n} graczy z {startPage} ({firstCredits}) do {endPage} ({lastCredits}) z {totalPages} stron",
+    "tax": "wysokość podatku",
+    "title": "Członkowie"
+}

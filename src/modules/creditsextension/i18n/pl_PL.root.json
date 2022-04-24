@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "-obecne fundusze",
+        "title": "Fundusze sojuszu",
+        "total": "-zdobyte kredyty",
+        "updateNote": "Aktualizacja co 5 minut."
+    },
+    "coins": {
+        "list": "Protokół"
+    },
+    "credits": {
+        "daily": "Podsumowanie dnia",
+        "overview": "Przegląd"
+    },
+    "description": "Wyświetla przydatne informacje o kredytach w menu rozwijanym w głównym pasku nawigacyjnym.",
+    "name": "Rozszerzenie kredytów",
+    "nextRank": "Następna stopień",
+    "nextRankMissing": "pozostałe",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Jak tylko osiągniesz jedną z ustalonych ilości kredytów, rozszerzenie kredytów będzie podświetlone na zielono, dopóki go nie klikniesz.",
+            "title": "Cele"
+        },
+        "coinsInNavbar": {
+            "description": "Pokazuje aktualne monety na pasku nawigacyjnym zamiast uroczej skarbonki.",
+            "title": "Monety zamiast skarbonki"
+        },
+        "creditsInNavbar": {
+            "description": "Pokazuje aktualne kredyty w pasku nawigacyjnym zamiast uroczej skarbonki.",
+            "title": "Kredyty zamiast skarbonki"
+        },
+        "highlightSales": {
+            "description": "Monety będą zielone, jeśli dostępna jest wyprzedaż",
+            "title": "Wyróżnij wyprzedaż"
+        },
+        "showSales": {
+            "description": "Pokazuje wyprzedaż na monety, jeśli jest dostępna.",
+            "title": "Pokaż wyprzedaż"
+        },
+        "showToplistPosition": {
+            "description": "Pokazuje aktualną pozycję na topie w rozszerzeniu kredytów.",
+            "title": "Toplista w rozszerzeniu kredytów"
+        }
+    },
+    "toplistPositionName": "Pozycja w Topliście",
+    "totalEarnedCredits": "Suma zdobytych kredytów"
+}

@@ -1,0 +1,15 @@
+{
+    "alliance": "Sojusz",
+    "amount": "{n} filtrowany gracz | {n} filtrowani gracze",
+    "credits": "Całkowite zdobyte kredyty",
+    "load": {
+        "next": "Załaduj następną stronę",
+        "prev": "Załaduj poprzednią stronę"
+    },
+    "name": "Gracze",
+    "search_global": "Wyszukiwanie globalne",
+    "search_local": "Szukaj w załadowanych odtwarzaczach",
+    "search_subtitle": "Pokaż {n} graczy ze stron od {startPage} do {endPage} wszystkich {totalPages} stron",
+    "subtitle": "Pokaż {n} graczy ze stron {startPage} ({firstCredits}) do {endPage} ({lastCredits}) wszystkich {totalPages} stron",
+    "title": "Lista graczy"
+}
