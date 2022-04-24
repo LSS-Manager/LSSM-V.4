@@ -36,11 +36,11 @@
         "foam_needed": "piana gaśnicza"
     },
     "tip": {
-        "dragging": "przeciągnij okno",
-        "maxState": "maksymalne wymagania wł./wył.",
-        "minified": "załamanie",
-        "overlay": "nakładka",
-        "reload": "przeładowanie"
+        "dragging": "Przeciągnij okno",
+        "maxState": "Maksymalne wymagania wł./wył.",
+        "minified": "Powiększenie",
+        "overlay": "Nakładka",
+        "reload": "Odśwież"
     },
     "vehicles": {
         "captions": {
