@@ -6,7 +6,7 @@
     "filter": {
         "all_types": "Pokaż wszystkie typy",
         "no_types": "Nie wyświetlaj typów",
-        "type": "wyświetlane typy wpisów"
+        "type": "Wyświetlane typy wpisów:"
     },
     "load": {
         "next": "załaduj następną stronę",
