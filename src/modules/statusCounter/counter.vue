@@ -21,10 +21,13 @@
             {{ amount.toLocaleString() }}
             <template v-if="settings[`percent_${show}`]">
                 {{
+                    (settings.percentageInBrackets ? '(' : '') +
                     (amount / (vehicles / 100)).toFixed(
                         settings.percentRounding
-                    )
-                }}%
+                    ) +
+                    '%' +
+                    (settings.percentageInBrackets ? ')' : '')
+                }}
             </template>
         </span>
     </div>
