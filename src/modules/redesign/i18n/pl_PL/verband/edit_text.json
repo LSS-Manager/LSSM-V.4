@@ -2,8 +2,7 @@
     "automaticMessage": {
         "content": "Automatyczna wiadomość powitalna: Wiadomość",
         "subject": "Automatyczna wiadomość powitalna: Temat",
-        "title": "
-Automatyczna wiadomość powitalna"
+        "title": "Automatyczna wiadomość powitalna"
     },
     "faq": "FAQ",
     "header": "Ważne powiadomienia sojuszu",
