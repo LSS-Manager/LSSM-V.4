@@ -11,6 +11,8 @@ const modules = {
             title: 'Niezapisane zmiany',
             text: 'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
             close: 'Zamknij',
+            saveAndExit: 'Zapisz i wyjdź',
+            exit: 'Wyjdź bez zapisywania',
         },
     },
     settings: {
@@ -37,6 +39,8 @@ const modules = {
             title: 'Niezapisane zmiany',
             text: 'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
             close: 'Zamknij',
+            saveAndExit: 'Zapisz i wyjdź',
+            exit: 'Wyjdź bez zapisywania',
         },
         changeList: {
             true: 'On',
