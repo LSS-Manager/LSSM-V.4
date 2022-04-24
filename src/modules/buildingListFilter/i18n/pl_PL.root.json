@@ -5,7 +5,7 @@
                 0,
                 18
             ],
-            "name": "Remiza"
+            "name": "Straż Pożarna"
         },
         {
             "ids": [
@@ -32,6 +32,12 @@
                 8
             ],
             "name": "Szkoła"
+        },
+         {
+            "ids": [
+                15
+            ],
+            "name": "WOPR"
         },
         {
             "ids": [
