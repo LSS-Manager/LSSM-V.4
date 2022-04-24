@@ -9,8 +9,8 @@
         "type": "Wyświetlane typy wpisów:"
     },
     "load": {
-        "next": "załaduj następną stronę",
-        "prev": "załaduj poprzednią stronę"
+        "next": "Załaduj następną stronę (20 wpisów)",
+        "prev": "Załaduj poprzednią stronę"
     },
     "search_local": "Szukaj w załadowanych wpisach",
     "subtitle": "Pokaż {n} wpisy stron {startPage} ({firstDate}) do {endPage} ({lastDate}) z {totalPages} stron",
