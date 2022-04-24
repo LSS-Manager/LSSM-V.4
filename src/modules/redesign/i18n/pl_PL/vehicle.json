@@ -30,8 +30,7 @@
             "department": {
                 "title": "Department: {department}"
             },
-            "distance": "Maksymalna odległość
-",
+            "distance": "Maksymalna odległość",
             "each": "Pokaż x budynków każdego",
             "tax": "Maksymalny podatek"
         },
