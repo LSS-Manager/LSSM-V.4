@@ -1,11 +1,11 @@
 {
     "collapsableMissions": {
         "all": {
-            "collapse": "Zwiń wszystkie misje",
-            "expand": "ERozwiń wszystkie misje"
+            "collapse": "Rozwiń wszystkie misje",
+            "expand": "Zwiń wszystkie misje"
         },
-        "collapse": "Zwiń tę misję",
-        "expand": "Rozwiń tę misję"
+        "collapse": "Rozwiń tę misję",
+        "expand": "Zwiń tę misję"
     },
     "description": "Rozszerza listę misji o kilka fajnych funkcji!",
     "eventMissions": {
@@ -259,12 +259,12 @@
     },
     "sort": {
         "types": {
-            "alphabet": "Alfabet",
-            "credits": "Kredyty",
+            "alphabet": "Alfabetycznie",
+            "credits": "Średnie Kredyty",
             "default": "Kolejność zgłoszenia",
             "distance_dispatch": "Odległość do najbliższego CPR",
             "distance_station": "Odległość do najbliższej jednostki",
-            "id": "Id",
+            "id": "Id zgłoszenia",
             "remaining_patients": "Obecni pacjenci"
         }
     }
