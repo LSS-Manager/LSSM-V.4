@@ -23,27 +23,27 @@
     },
     "no_dispatchcenter": "Bez centrum kontroli",
     "prerequisite_calculations": {
-        "posterunek straży pożarnej": [
-            0,
-            18
-        ],
-        "hazard_response_ems_count": [
-            25
+        "Stacja helikopterów": [
+            "5.level"
         ],
         "Stację Helikopterów Policji": [
             "13.level"
         ],
-        "posterunki(-ów) policji": [
-            6,
-            19
+        "hazard_response_ems_count": [
+            25
         ],
-        "Stacja helikopterów": [
-            "5.level"
+        "posterunek straży pożarnej": [
+            0,
+            18
         ],
         "posterunki(-ów) pogotowia ratunkowego": [
             2,
             20,
             "0.0"
+        ],
+        "posterunki(-ów) policji": [
+            6,
+            19
         ]
     },
     "prerequisites_long": {
