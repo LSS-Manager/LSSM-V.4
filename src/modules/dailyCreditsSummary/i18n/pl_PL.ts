@@ -1,5 +1,5 @@
 export default {
-    amount: 'Amount',
+    amount: 'Ilość',
     charts: {
         income: 'Dochód',
         expenses: 'Wydatki',
@@ -52,7 +52,7 @@ export default {
             textColor: 'Biały',
         },
         patients: {
-            regex: /Pacjent (Transport|Opieka)/u,
+            regex: /Pacjent (Opieka|Transport)/u,
             title: 'Pacjenci',
             backgroundColor: '#fff600',
             textColor: 'Czarny',
@@ -74,7 +74,7 @@ export default {
             textColor: 'Czarny',
         },
         schoolings: {
-            regex: /(Kandydat na szkolenie Sojuszu|Edukacja)/u,
+            regex: /(Edukacja|Kandydat na szkolenie Sojuszu)/u,
             title: 'Edukacja',
             backgroundColor: '#ff00ff',
             textColor: 'Biały',
