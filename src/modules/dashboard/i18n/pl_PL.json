@@ -14,7 +14,7 @@
         "current": "Numer (aktywny)",
         "extension": "Rozbudowa",
         "maximum": "Maksymalna możliwa",
-        "title": "Wszystkie {typy}",
+        "title": "Wszystkie {type}",
         "unavailable": "W budowie"
     },
     "chart-summaries": {
