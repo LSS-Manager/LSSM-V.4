@@ -67,7 +67,7 @@
         "hospital": "Szpital"
     },
     "load_all_hospitals": {
-        "btn": "Załaduj wszystko",
+        "btn": "Załaduj wszystkie!",
         "text": "Wyświetlanych jest tylko 50 szpitali sojuszu. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
     },
     "max_staff": "Maks. Personel",
