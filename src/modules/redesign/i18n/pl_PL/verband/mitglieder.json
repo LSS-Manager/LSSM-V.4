@@ -1,7 +1,7 @@
 {
-    "amount": "{n} filtrowany gracz | {n} filtrowani gracze",
-    "credits": "łączna liczba zdobytych kredytów",
-    "discount": "przecena",
+    "amount": "{n} wyświetlony gracz | {n} wyświetleni gracze",
+    "credits": "Zdobyte kredyty",
+    "discount": "Przecena",
     "edit_caption": {
         "save": "zapisz"
     },
