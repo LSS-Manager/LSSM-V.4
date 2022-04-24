@@ -134,7 +134,7 @@
         },
         "title": {
             "description": "Pokazuje nazwę misji, np. \"Pożar kosza\" jako tytuł.",
-            "title": "nazwa misji"
+            "title": "Nazwa misji"
         },
         "type": {
             "description": "Pokazuje numer typu misji obok tytułu.",
