@@ -17,6 +17,7 @@
     },
     "prerequisites": {
         "fire_stations": "Remiza | Remizy",
+        "fire_support_count": "Rozbudowa dla pojazdów proszkowych",
         "max_police_stations": "Maksymalne komisariaty policji",
         "max_rescue_stations": "Maksymalne stacje ratunkowe",
         "police_helicopter_stations": "Policyjny posterunek śmigłowców | Stacje śmigłowców policyjnych",
@@ -31,7 +32,8 @@
         "title": "Więzień | {n} Więzień | {n} Więzień"
     },
     "requirements": {
-        "water_needed": "Potrzebna woda (L)"
+        "water_needed": "Potrzebna woda (L)",
+        "foam_needed": "piana gaśnicza"
     },
     "tip": {
         "dragging": "przeciągnij okno",
@@ -46,6 +48,10 @@
             "battalion_chief_vehicles": "SLOP/SLRr | SLOP/SLRr",
             "firetrucks": "Wóz strażacki | Wozy strażackie",
             "flood_equipment": "sprzęt przeciwpowodziowy",
+            "foam": "samochody ze zbiornikiem na piane",
+            "hose": "samochody wężowe",
+            "height_rescue_units": "Ratownictwo Wyskościowe",
+            "fwk": "Dźwig SP",
             "hazmat_vehicles": "Rchem | Rchem",
             "heavy_rescue_vehicles": "Rescue Support Unit or Rescue Pump | Rescue Support Unit or Rescue Pump",
             "helicopter": "HEMS",

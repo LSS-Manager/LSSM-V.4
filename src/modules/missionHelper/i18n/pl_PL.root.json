@@ -4,12 +4,17 @@
     "noVehicleRequirements": {
         "average_min_fire_personnel": {
             "badge": false,
-            "in": "dodatkowe",
+            "in": "additional",
             "text": "Średnia minimalna ilość Strażaków"
+        },
+        "average_min_police_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Min. średnio Personel policji"
         },
         "swat_personnel": {
             "badge": false,
-            "in": "dodatkowe",
+            "in": "additional",
             "text": "Wymagany personel SPKP"
         }
     },

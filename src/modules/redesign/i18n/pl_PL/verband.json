@@ -16,25 +16,25 @@
             "/verband/werbung": "Promuj"
         },
         "other": [
-            "/Sojusze/{id}",
-            "/Sojusz/wiadomości/{id}",
-            "/Sojusz/członkowie/{id}",
-            "/Sojusz/zasady/{id}"
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}"
         ],
         "self": [
-            "/Sojusze/{id}",
-            "/Sojusz/news/{id}",
-            "/Sojusz/mitglieder/{id}",
-            "/Sojusz/regeln/{id}",
-            "/dziennik",
-            "/forum",
-            "/wiadomości",
-            "/Sojusz/promuj",
-            "/kursy",
-            "/Sojusz/obszary_tymczasowe",
-            "/Sojusz/fundusze",
-            "/Sojusz/budynki",
-            "/Sojusz/wnioski"
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}",
+            "/alliance_logfiles",
+            "/alliance_threads",
+            "/alliance_messages",
+            "/verband/werbung",
+            "/schoolings",
+            "/verband/bereitstellungsraume",
+            "/verband/kasse",
+            "/verband/gebauede",
+            "/verband/bewerbungen"
         ]
     }
 }
