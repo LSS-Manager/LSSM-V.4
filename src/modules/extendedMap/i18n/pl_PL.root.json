@@ -8,6 +8,9 @@
         "topright": "Na górze po prawej 🡥"
     },
     "settings": {
+        "locationSelect": {
+            "zoom": "Ustawienia mapy"
+        },
         "centerMap": {
             "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
             "title": "Centrowanie mapy"
