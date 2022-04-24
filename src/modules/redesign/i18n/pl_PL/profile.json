@@ -1,16 +1,16 @@
 {
     "alerts": {
-        "alliance_ignored": "{name} zabrania się aplikowania do twojego sojuszu!",
+        "alliance_ignored": "{name} zabrania się aplikowania do tego sojuszu!",
         "friend": "{name} jest na twojej liście znajomych! 🥳",
         "ignored": "Ignorujesz tego gracza. {name} nie może już wysyłać Ci wiadomości!"
     },
     "alliance": "Sojusz",
     "awards": {
-        "bronze": "Brązowy",
-        "gold": "Złoty",
+        "bronze": "Brąz",
+        "gold": "Złoto",
         "max": "15",
-        "own": "Otwórz swoje nagrody",
-        "silver": "Srebrny",
+        "own": "Zobacz nagrody",
+        "silver": "Srebro",
         "title": "Nagrody",
         "title_amounts": "{sum} z {max} nagród"
     },
