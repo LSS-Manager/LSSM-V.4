@@ -10,7 +10,7 @@
             "vehicles": "typ pojazdu"
         },
         "alarmTime": {
-            "description": "Pokazuje obok przycisku Wezwania, ile czasu zajmuje pojazd o najdłuższym czasie podróży.",
+            "description": "Pokazuje obok przycisku Wezwania, ile czasu zajmuje dojazd.",
             "title": "Najdłuższy czas dojazdu"
         },
         "arrClickHighlight": {
