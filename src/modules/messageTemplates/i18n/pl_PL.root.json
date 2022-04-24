@@ -1,0 +1,13 @@
+{
+    "description": "Napisz własne szablony wiadomości w prywatnych rozmowach.",
+    "name": "Szablony wiadomości",
+    "settings": {
+        "name": "Nazwa",
+        "subject": "Podmiot",
+        "template": "Szablon (zmienne (zobacz wiki): {{Nazwa Użytkownika}}, {{dzisiaj[+n]}})",
+        "templates": {
+            "description": "Dla szablonów dostępne są zmienne. Proszę spojrzeć na nasze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "title": "Szablony"
+        }
+    }
+}
