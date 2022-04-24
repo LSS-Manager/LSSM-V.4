@@ -1,8 +1,8 @@
 {
     "allianceFunds": {
-        "currently": "Obecnie",
+        "currently": "Obecne fundusze sojuszu",
         "title": "Fundusze sojuszu",
-        "total": "Łącznie",
+        "total": "Suma zdobytych kredytów sojuszu",
         "updateNote": "Aktualizowany co 5 minut."
     },
     "coins": {
@@ -31,12 +31,12 @@
             "title": "Kredyty zamiast skarbonki"
         },
         "highlightSales": {
-            "description": "Monety zielone, jeśli dostępna jest wyprzedaż",
+            "description": "Monety będą zielone, jeśli dostępna jest wyprzedaż",
             "title": "Wyróżnij wyprzedaż"
         },
         "showSales": {
-            "description": "Pokazuje sprzedaż za monety, jeśli są dostępne.",
-            "title": "pokaż wyprzedaż"
+            "description": "Pokazuje wyprzedaż na monety, jeśli jest dostępna.",
+            "title": "Pokaż wyprzedaż"
         },
         "showToplistPosition": {
             "description": "Pokazuje aktualną pozycję na topie w rozszerzeniu kredytów.",
