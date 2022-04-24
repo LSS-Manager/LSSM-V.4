@@ -1,20 +1,20 @@
 {
     "alertStyles": {
         "danger": "Komunikat o błędzie (czerwony)",
-        "info": "Informacje (niebieskie)",
+        "info": "Informacje (niebieski)",
         "success": "Potwierdzenie (zielony)",
         "unimportant": "Prosty (szary)",
         "warning": "Ostrzeżenie (pomarańczowy)"
     },
     "description": "Otrzymuj powiadomienia przeglądarki i w grze o różnych wydarzeniach - oczywiście w pełni konfigurowalne!",
     "events": {
-        "allianceCandidature": "Nowa aplikacja do sojuszu",
+        "allianceCandidature": "Nowe zgłoszenie do sojuszu",
         "allianceChat": "Wiadomość na czacie",
         "allianceChatMention": "Wiadomość na czacie (tylko wspomina)",
         "allianceChatWhisper": "Wiadomość na czacie (tylko prywatne wiadomości)",
         "allianceForum": "Nowy artykuł na forum sojuszu",
         "allianceMessage": "Nowa wiadomość sojuszu",
-        "allianceNews": "Nowe wiadomości o sojuszu",
+        "allianceNews": "Nowe ogłoszenie sojuszu",
         "dm": "Nowa wiadomość w skrzynce odbiorczej",
         "ingame_news": "Nowości w grze",
         "mission_getred": "Misja wymaga uwagi",
@@ -23,7 +23,7 @@
         "mission_new_largescale": "Utworzono nową dużą misję sojuszu",
         "mission_share": "Jedna misja została udostępniona w sojuszu",
         "sicherheitswache_error": "Ochroniarz anulowany",
-        "sicherheitswache_success": "Ochroniarz ukończony",
+        "sicherheitswache_success": "Ochrona ukończona",
         "tasks_update": "Ukończono zadanie",
         "vehicle_fms": "Wiadomości radiowe (ogólne)",
         "vehicle_fms_1": "Wiadomości radiowe (stan 1)",
@@ -45,12 +45,12 @@
         "top right": "Na górze po prawej 🡥"
     },
     "settings": {
-        "alertStyle": "Typ powiadomienia w grze",
+        "alertStyle": "Styl powiadomienia w grze",
         "alerts": {
-            "title": "Ustaw powiadomienia"
+            "title": "Ustawienia powiadomień"
         },
         "desktop": "Wyślij powiadomienie na pulpicie",
-        "duration": "Wyświetl czas trwania",
+        "duration": "Czas wyświatlania powiadomienia(s)",
         "eventTypes": "Wydarzenia",
         "ingame": "Wyślij powiadomienie w grze",
         "position": "Pozycja"
