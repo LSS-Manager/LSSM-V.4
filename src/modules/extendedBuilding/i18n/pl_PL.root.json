@@ -2,6 +2,16 @@
     "description": "Dodaje przydatne funkcje do budynków.",
     "name": "Rozszerzony widok budynku",
     "settings": {
+        {
+        "vehicleTypesOnlyOwn": {
+            "description": "Pokazuje, jeśli jest dostępna, tylko własną klasę pojazdu. Jeśli nie jest dostępna, wyświetli domyślną klasę pojazdu.",
+            "title": "Pokaż tylko klasę własną pojazdu"
+        },
+        "upgradeConfirmation": {
+            "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
+            "title": "Ulepsz budynek"
+        },
+}
         "buildingsLeftRight": {
             "description": "Pokazuje w budynkach, ile innych budynków tego samego typu w danym kierunku.",
             "title": "Liczba budynków tego samego typu"
