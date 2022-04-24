@@ -142,8 +142,8 @@
         },
         "vehicles": {
             "content": {
-                "description": "Pokazuje wymagania dotyczące pojazdu.",
-                "title": "Wymagania dotyczące pojazdu"
+                "description": "Pokazuje wymagania dotyczące pojazdów.",
+                "title": "Wymagania dotyczące pojazdów"
             },
             "patient_additionals": {
                 "description": "Jeśli obecnie na miejscu jest więcej niż 20 pacjentów, pogotowie ratunkowe jest automatycznie wyświetlane na początku wymagań dotyczących pojazdów. Jeśli obecnie na miejscu jest więcej niż 30 pacjentów, SDł jest również automatycznie umieszczany na liście.",
@@ -152,7 +152,7 @@
             "sort": {
                 "amount": "Liczba wymaganych pojazdów",
                 "caption": "Nazwa wymagania",
-                "description": "Określ, według jakich wymagań pojazdu powinny być sortowane.",
+                "description": "Określ, według jakich wymagań powinny być sortowane pojazdy.",
                 "percentage": "Prawdopodobieństwo",
                 "title": "Sortowanie wymagań pojazdu"
             },
