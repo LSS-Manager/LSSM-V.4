@@ -7,5 +7,5 @@
         "prev": "20 Załaduj nowsze wpisy"
     },
     "subtitle": "Pokaż {n} Wpisy stron {startPage} ({firstDate}) do {endPage} ({lastDate}) wszystkich {totalPages} Stron",
-    "tytuł": "Transakcje"
+    "title": "Transakcje"
 }
