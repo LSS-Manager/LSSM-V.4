@@ -1,10 +1,10 @@
 {
-    "back": "<h1>Wróć do skrzynki odbiorczej</h1>",
+    "back": "Wróć do skrzynki odbiorczej",
     "delete": "Usuń konwersację",
     "load": {
         "next": "wczytaj starsze wiadomości",
         "prev": "załaduj nowsze wiadomości"
     },
-    "subtitle": "<b>Rozmowa z</b>",
+    "subtitle": "Rozmowa z",
     "subtitleAlliance": "Wiadomość od sojuszu"
 }
