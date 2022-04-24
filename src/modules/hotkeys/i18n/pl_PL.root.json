@@ -1,0 +1,87 @@
+{
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "Otwórz aplikacje",
+                "buildings": "Otwórz przegląd budynków sojuszu",
+                "forum": "Otwórz tablice",
+                "funds": "Otwórz okno funduszy sojuszniczych",
+                "logfiles": "otwórz logi",
+                "members": "otwórz listę członków",
+                "messages": "otwarte wiadomości",
+                "onlineMembers": "otwórz listę członków (pokaż tylko graczy online)",
+                "open": "otwórz okno sojuszu",
+                "schoolings": "otwórz okno szkoleń",
+                "title": "Sojusz"
+            },
+            "credits": {
+                "daily": "otwórz podsumowanie dnia",
+                "open": "otwórz dziennik",
+                "overview": "otwórz przegląd ostatnich 7 dni",
+                "title": "Kredyty"
+            },
+            "help": "Otwórz tę pomoc",
+            "profile": {
+                "awards": "otwórz lista nagród",
+                "level": "otwórz listę poziomów",
+                "notes": "otwórz notatki",
+                "open": "otwórz własny profil",
+                "title": "Profil"
+            },
+            "protocol": "otwórz dziennik CPR",
+            "tasks": {
+                "open": "otwórz listę aktualnych zadań",
+                "title": "Zadania i wydarzenia"
+            },
+            "title": "Ogólne"
+        },
+        "main": {
+            "chat": {
+                "focus": "skup się na polu wiadomości",
+                "title": "Czat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Menu",
+                    "toggle": "Otwórz / Zamknij"
+                },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "skup się na polu tekstowym",
+                    "title": "Wyszukiwanie lokalizacji"
+                },
+                "title": "Mapa"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "skup się na polu tekstowym",
+                    "title": "Wyszukiwanie"
+                },
+                "title": "Lista misji"
+            },
+            "title": "Główne okno"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Wyślij i przejdź do następnej misji",
+                "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
+                "next": "Następna misja",
+                "prev": "Poprzednia misja",
+                "title": "Posortowane misje"
+            },
+            "title": "Okno misji"
+        }
+    },
+    "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",
+    "name": "Skróty klawiszowe",
+    "settings": {
+        "command": "Akcja",
+        "hotkey": "Klawisz skrótu",
+        "hotkeys": {
+            "description": "Ustaw tutaj własne skróty klawiszowe dla określonych działań. Akcje kategorii \"Ogólne\" są dostępne wszędzie w grze. Naciskając F1, możesz w dowolnym momencie wyświetlić przegląd skrótów klawiszowych, które otworzyłeś.",
+            "title": "Skróty klawiszowe"
+        }
+    }
+}
