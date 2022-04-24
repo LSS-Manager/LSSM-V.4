@@ -9,7 +9,7 @@
         "type": "Wyświetlane typy wpisów:"
     },
     "load": {
-        "next": "Załaduj następną stronę (20 wpisów)",
+        "next": "Załaduj następną stronę",
         "prev": "Załaduj poprzednią stronę"
     },
     "search_local": "Szukaj w załadowanych wpisach",
