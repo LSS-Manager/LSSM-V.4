@@ -1,40 +1,36 @@
 {
-    "nav": {
-        "links": {
-            "/alliance_logfiles": "Protocollo",
-            "/alliance_messages": "Messaggi",
-            "/alliance_threads": "Board",
-            "/alliances/{id}": "Intro",
-            "/schoolings": "Corsi",
-            "/verband/bereitstellungsraume": "Punti di raccolta",
-            "/verband/bewerbungen": "Nuovi candidati",
-            "/verband/gebauede": "Edifici",
-            "/verband/kasse": "Fondi Alleanza",
-            "/verband/mitglieder/{id}": "Membri",
-            "/verband/news/{id}": "News",
-            "/verband/regeln/{id}": "Regole",
-            "/verband/werbung": "Pubblicizza"
-        },
-        "other": [
-            "/alliances/{id}",
-            "/verband/news/{id}",
-            "/verband/mitglieder/{id}",
-            "/verband/regeln/{id}"
-        ],
-        "self": [
-            "/alliances/{id}",
-            "/verband/news/{id}",
-            "/verband/mitglieder/{id}",
-            "/verband/regeln/{id}",
-            "/alliance_logfiles",
-            "/alliance_threads",
-            "/alliance_messages",
-            "/verband/werbung",
-            "/schoolings",
-            "/verband/bereitstellungsraume",
-            "/verband/kasse",
-            "/verband/gebauede",
-            "/verband/bewerbungen"
-        ]
-    }
+	"nav": {
+		"links": {
+			"/alliance_logfiles": "Protocollo",
+			"/alliance_threads": "Bacheca",
+			"/alliances/{id}": "Intro",
+			"/schoolings": "Corsi",
+			"/verband/bereitstellungsraume": "Basi temporanee",
+			"/verband/gebauede": "Edifici",
+			"/verband/kasse": "Fondi dell'alleanza",
+			"/verband/mitglieder/{id}": "Membri",
+			"/verband/news/{id}": "News",
+			"/verband/regeln/{id}": "Regole",
+			"/verband/werbung": "Pubblicizza"
+		},
+		"other": [
+			"/alliances/{id}",
+			"/verband/news/{id}",
+			"/verband/mitglieder/{id}",
+			"/verband/regeln/{id}"
+		],
+		"self": [
+			"/alliances/{id}",
+			"/verband/news/{id}",
+			"/verband/mitglieder/{id}",
+			"/verband/regeln/{id}",
+			"/alliance_logfiles",
+			"/alliance_threads",
+			"/verband/werbung",
+			"/schoolings",
+			"/verband/bereitstellungsraume",
+			"/verband/kasse",
+			"/verband/gebauede"
+		]
+	}
 }
