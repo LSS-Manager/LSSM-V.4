@@ -7,9 +7,9 @@
         "title": "Zadania zbiorowe"
     },
     "confirmation": {
-        "cancel": "Przerwij",
-        "confirm": "Kontynuuj",
-        "title": "Uwaga:"
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "title": "Uwaga!"
     },
     "end": "Koniec",
     "nextTask": "Po odebraniu pojawi się nowe zadanie!",
