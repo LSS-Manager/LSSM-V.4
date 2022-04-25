@@ -8,10 +8,6 @@
         "topright": "Na górze po prawej 🡥"
     },
     "settings": {
-        "locationSelect": {
-            "zoom": "Ustawienia mapy",
-            "sync": "Centruj"
-        },
         "centerMap": {
             "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
             "title": "Centrowanie mapy"
@@ -24,6 +20,10 @@
             "dynamic": "Dynamiczny",
             "static": "Statyczny",
             "title": "Centrowanie mapy: Tryb"
+        },
+        "locationSelect": {
+            "sync": "Centruj",
+            "zoom": "Ustawienia mapy"
         },
         "mapScale": {
             "description": "Pokazuje skalę mapy i aktualny poziom powiększenia",

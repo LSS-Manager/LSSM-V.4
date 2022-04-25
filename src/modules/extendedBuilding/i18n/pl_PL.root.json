@@ -2,16 +2,6 @@
     "description": "Dodaje przydatne funkcje do budynków.",
     "name": "Rozszerzony widok budynku",
     "settings": {
-        {
-        "vehicleTypesOnlyOwn": {
-            "description": "Pokazuje, jeśli jest dostępna, tylko własną klasę pojazdu. Jeśli nie jest dostępna, wyświetli domyślną klasę pojazdu.",
-            "title": "Pokaż tylko klasę własną pojazdu"
-        },
-        "upgradeConfirmation": {
-            "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
-            "title": "Ulepsz budynek"
-        },
-}
         "buildingsLeftRight": {
             "description": "Pokazuje w budynkach, ile innych budynków tego samego typu w danym kierunku.",
             "title": "Liczba budynków tego samego typu"
@@ -48,9 +38,17 @@
             "description": "Pokazuje w przeglądzie personelu budynku, ile osób przeszło które szkolenie (a).",
             "title": "Podsumowanie personelu"
         },
+        "upgradeConfirmation": {
+            "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
+            "title": "Ulepsz budynek"
+        },
         "vehicleTypes": {
             "description": "Pokazuje typ pojazdu (i jeśli jest dostępna, własną klasę pojazdu) w oddzielnej kolumnie",
             "title": "Typ pojazdu"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Pokazuje, jeśli jest dostępna, tylko własną klasę pojazdu. Jeśli nie jest dostępna, wyświetli domyślną klasę pojazdu.",
+            "title": "Pokaż tylko klasę własną pojazdu"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Pokazuje, ile osób jest przypisanych do pojazdu.",

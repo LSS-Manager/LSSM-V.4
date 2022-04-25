@@ -42,10 +42,10 @@
             },
             "progress": "Maks. postęp %",
             "status": {
+                "blue": "[1]Dostępne",
                 "green": "[2]Dostępne na posterunku",
                 "red": "[4]Na miejscu",
                 "title": "Status",
-                "blue": "[1]Dostępne",
                 "yellow": "[3]Reagowanie"
             }
         },
