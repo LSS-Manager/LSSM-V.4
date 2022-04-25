@@ -12,7 +12,7 @@
         "button": "Usuń",
         "cancel": "Anuluj",
         "confirm": "Usuń",
-        "text": "Czy na pewno chcesz usunąć **{caption}** w budynku **{building}** na stałe?",
+        "text": "Czy na pewno chcesz usunąć **{caption}** z budynku **{building}**?",
         "title": "Usuń pojazd"
     },
     "distance": "Dystans",
@@ -88,9 +88,9 @@
         "online": "{user} jest online!"
     },
     "release": {
-        "cancel": "Przerwij",
-        "confirm": "Tak!",
-        "disable": "Anuluj transport",
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "disable": "Potwierdź i przejdz do kolejnego",
         "patient": {
             "text": "Czy na pewno chcesz anulować transport pacjenta?",
             "title": "Anuluj transport"
