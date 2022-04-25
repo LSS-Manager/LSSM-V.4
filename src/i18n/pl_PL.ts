@@ -1481,4 +1481,19 @@ export default {
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],
+    ranks: {
+        missionchief: {
+            0: 'Nowy',
+            200: 'Strażak',
+            10_000: 'Starszy strażak',
+            100_000: 'Ogniomistrz',
+            1_000_000: 'Aspirant',
+            5_000_000: 'Kapitan',
+            20_000_000: 'Starszy kapitan',
+            50_000_000: 'Szef brygady',
+            1_000_000_000: 'Nadbrygadier',
+            2_000_000_000: 'Zastępca komendanta głównego',
+            5_000_000_000: 'Komendant główny',
+        },
+    },
 };
