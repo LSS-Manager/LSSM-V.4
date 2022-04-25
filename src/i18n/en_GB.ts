@@ -547,18 +547,6 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0, 18, 25],
-            schooling: {
-                'Rescue': {
-                    'HART Training': {
-                        all: true,
-                    },
-                },
-                'Fire Station': {
-                    'HART Training': {
-                        all: true,
-                    },
-                },
-            },
             special:
                 'Responds to the most serious of calls, Used for Major Fires.',
         },
@@ -1662,11 +1650,6 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'High Volume Pump Training',
                 duration: '3 Days',
                 staffList: 'High Volume Pump Training',
-            },
-            {
-                caption: 'HART Training',
-                duration: '5 Days',
-                staffList: 'HART Training',
             },
         ],
         'Police': [
