@@ -2,9 +2,9 @@
     "accept": "Przyjmij",
     "alert": {
         "accepted": "{username} został pomyślnie przyjęty do sojuszu!",
-        "declined": "Aplikacja **{username}** została odrzucona!"
+        "declined": "Aplikacja {username} została odrzucona!"
     },
-    "decline": "Wniosek",
+    "decline": "Odrzuć",
     "earnedCredits": "Otrzymane kredyty",
     "rules": "Regulamin zgłoszeń",
     "title": "Wniosek: {n} | Wnioski: {n}",
