@@ -7,7 +7,7 @@
         "free": "Wolne jednostki"
     },
     "color": "Dostosuj kolor",
-    "current_mission": "Aktualna misja",
+    "current_mission": "Aktualna misja:",
     "delete": {
         "button": "Usuń",
         "cancel": "Anuluj",
@@ -54,7 +54,7 @@
             "same": "Te same budynki"
         }
     },
-    "fms": "Stan",
+    "fms": "Stan:",
     "fms_switch": {
         "is_s2": "Niedostępny",
         "is_s6": "Dostępny"
@@ -70,8 +70,8 @@
         "btn": "Załaduj wszystkie!",
         "text": "Wyświetlanych jest tylko 50 szpitali sojuszu. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
     },
-    "max_staff": "Maks. Personel",
-    "mileage": "Przebieg",
+    "max_staff": "Personel:",
+    "mileage": "Przebieg:",
     "missions": {
         "alarm": "Alarm",
         "alarmed": "Obecna misja",
@@ -82,7 +82,7 @@
         "progress": "Postęp"
     },
     "move": "Przenieś",
-    "owner": "Właściciel",
+    "owner": "Właściciel:",
     "owner_pic_state": {
         "offline": "{user} jest offline!",
         "online": "{user} jest online!"
@@ -107,7 +107,7 @@
         "schooling": "Szkolenie",
         "title": "Załoga"
     },
-    "station": "Budynek",
+    "station": "Budynek:",
     "stats": "Statystyki",
     "tabs": {
         "all": "Wszystkie {type}: {amount}",
@@ -119,7 +119,7 @@
     },
     "tax": "Podatek",
     "true": "Tak",
-    "vehicletype": "Typ pojazdu",
+    "vehicletype": "Typ pojazdu:",
     "water_amount": "Ilość wody",
     "zuweisung": "Przydział personelu"
 }
