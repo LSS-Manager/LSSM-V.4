@@ -1,7 +1,7 @@
 {
     "alerts": {
         "alliance_ignored": "{name} zabrania się aplikowania do tego sojuszu!",
-        "friend": "{name} jest na twojej liście znajomych! 🥳",
+        "friend": "{name} jest na twojej liście znajomych!",
         "ignored": "Ignorujesz tego gracza. {name} nie może już wysyłać Ci wiadomości!"
     },
     "alliance": "Sojusz",
@@ -41,7 +41,7 @@
     },
     "credits": "{credits} zarobione kredyty",
     "map": "Mapa",
-    "rank": "Aktualny stopień",
+    "rank": "Klasa",
     "registration": "Data zapisania się",
     "text": "Tekst i grafika"
 }
