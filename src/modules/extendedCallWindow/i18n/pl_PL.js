@@ -1,17 +1,17 @@
 module.exports = {
     arrCounter: {
         resetTexts: {
-            counter: 'Licznik ZR',
-            highlight: 'Granica ZR',
-            selection: 'Wybór pojazdów',
-            counter_highlight: 'Licznik ZR / granica',
-            counter_selection: 'Licznik ZR i wybór pojazdów',
-            highlight_selection: 'Granica ZR i wybór pojazdów',
+            counter: 'liczniki',
+            highlight: 'granice',
+            selection: 'wybór pojazdów',
+            counter_highlight: 'liczniki i granice',
+            counter_selection: 'liczniki i wybór pojazdów',
+            highlight_selection: 'granice i wybór pojazdów',
             counter_highlight_selection:
-                'Licznik ZR / granica i wybór pojazdów',
-            reset: '{text}',
+                'liczniki, granice i wybór pojazdów',
+            reset: 'Resetuj {text}',
         },
-        reset: '{text}',
+        reset: 'Resetuj {text}',
     },
     arrHover: {
         reset: 'Wybór pojazdu jest resetowany przed!',
