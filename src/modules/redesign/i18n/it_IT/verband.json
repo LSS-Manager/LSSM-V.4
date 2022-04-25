@@ -9,7 +9,7 @@
 			"/verband/gebauede": "Edifici",
 			"/verband/kasse": "Fondi dell'alleanza",
 			"/verband/mitglieder/{id}": "Membri",
-			"/verband/news/{id}": "News",
+			"/verband/news/{id}": "Notizie",
 			"/verband/regeln/{id}": "Regole",
 			"/verband/werbung": "Pubblicizza"
 		},
