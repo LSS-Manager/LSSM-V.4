@@ -8,9 +8,9 @@
     "color": "Modifica colore",
     "current_mission": "Missione attuale",
     "delete": {
-        "button": "elimina",
-        "cancel": "cancella",
-        "confirm": "Elimina",
+        "button": "Elimina",
+        "cancel": "Annulla",
+        "confirm": "Conferma",
         "text": "Vuoi davvero distruggere **{caption}** all'edificio **{building}** permanentemente?",
         "title": "Distruggi veicolo"
     },
@@ -41,10 +41,10 @@
             },
             "progress": "Progresso max. %",
             "status": {
-                "green": "verde",
-                "red": "rosso",
+                "green": "Verde",
+                "red": "Rosso",
                 "title": "Stato",
-                "yellow": "giallo"
+                "yellow": "Giallo"
             }
         },
         "wlf": {
@@ -54,8 +54,8 @@
     },
     "fms": "FMS",
     "fms_switch": {
-        "is_s2": "imposta S6",
-        "is_s6": "imposta S2"
+        "is_s2": "Imposta S6 (non disponibile)",
+        "is_s6": "Imposta S2 (disponibile)"
     },
     "foam_amount": "Q.tà schiuma",
     "followup_missions": "Segui missione | Segui missioni",
@@ -66,7 +66,7 @@
     },
     "load_all_hospitals": {
         "btn": "Carica tutto ",
-        "text": "Solo 50 ospedali alleanza sono visualizzati. Caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
+        "text": "Solo 50 ospedali alleanza sono visualizzati. Il caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
     },
     "max_staff": "Staff max.",
     "mileage": "Chilometri percorsi",
