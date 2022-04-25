@@ -41,7 +41,7 @@
     },
     "credits": "Zarobione kredyty: {credits}",
     "map": "Mapa",
-    "rank": "Klasa",
+    "rank": "Aktualny stopień",
     "registration": "Data zapisania się",
     "text": "Tekst i grafika"
 }
