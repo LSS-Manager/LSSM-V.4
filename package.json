@@ -1,5 +1,5 @@
 {
-    "version": "4.5.8+20220424.1759",
+    "version": "4.5.8+20220425.0427",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -52,7 +52,7 @@
         "@types/jquery": "^3.5.14",
         "@types/leaflet": "^1.7.9",
         "@types/lodash": "^4.14.182",
-        "@types/node": "^16.11.27",
+        "@types/node": "^16.11.28",
         "@types/pdfmake": "^0.1.21",
         "@types/qrcode": "^1.4.2",
         "@types/semver": "^7.3.9",
