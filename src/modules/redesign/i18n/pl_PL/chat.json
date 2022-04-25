@@ -1,8 +1,8 @@
 {
     "load": {
-        "next": "załaduj 20 starszych wiadomości",
-        "prev": "załaduj 20 nowszych wiadomości"
+        "next": "Załaduj starsze wiadomości",
+        "prev": "Załaduj nowsze wiadomości"
     },
-    "subtitle": "Wyświetlanie {n} wiadomości ze strony {startPage} ({firstDate}) do strony {endPage} ({lastDate}) z łącznie {totalPages} stron.",
+    "subtitle": "Wyświetlanie {n} wiadomości od strony {startPage} ({firstDate}) do strony {endPage} ({lastDate}) z łącznie {totalPages} stron.",
     "title": "Czat Sojuszu"
 }

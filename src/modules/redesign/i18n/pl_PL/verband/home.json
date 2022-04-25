@@ -6,9 +6,9 @@
     "edit_text": "Edytuj tekst wprowadzenia, zasady, ważne informacje o sojuszu i webhooki Discorda",
     "leave": {
         "cancel": "Anuluj",
-        "confirm": "Opuść!",
-        "text": "Czy na pewno chcesz opuścić Sojusz **{caption}**? Czynności nie można cofnąć!",
-        "title": "Wyjdź z Sojuszu"
+        "confirm": "Potwierdź",
+        "text": "Czy na pewno chcesz opuścić Sojusz {caption}? Tej czynności nie można cofnąć!",
+        "title": "Opuść z Sojuszu"
     },
-    "unapply": "wycofaj wniosek"
+    "unapply": "Wycofaj wniosek"
 }

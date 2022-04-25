@@ -1,7 +1,7 @@
 {
     "distance": {
-        "axis": "dystans (km)",
-        "series": "przejechany dystans"
+        "axis": "Dystans (km)",
+        "series": "Przejechany dystans"
     },
     "title": "Statystyki pojazdu z ostatnich {n} dni"
 }

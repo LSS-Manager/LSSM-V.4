@@ -7,8 +7,8 @@
     "noMessage": "Bez notatki o zdarzeniu",
     "settings": {
         "enableCallList": {
-            "description": "Integruje ten moduł z \"Udostępnianie misji\" rozszerzonej listy wezwań.",
-            "title": "Integracja z listą wezwań"
+            "description": "Integruje ten moduł z \"Udostępnij misje\" rozszerzonej listy misji.",
+            "title": "Integracja z listą misji"
         },
         "enableLSAM": {
             "description": "Włącz tę opcję, aby wybrać notatkę o incydencie podczas tworzenia misji sojuszu na dużą skalę.",

@@ -12,7 +12,7 @@
         "button": "Usuń",
         "cancel": "Anuluj",
         "confirm": "Usuń",
-        "text": "Czy na pewno chcesz usunąć **{caption}** w budynku **{building}** na stałe?",
+        "text": "Czy na pewno chcesz usunąć **{caption}** z budynku **{building}**?",
         "title": "Usuń pojazd"
     },
     "distance": "Dystans",
@@ -31,7 +31,7 @@
                 "title": "Department: {department}"
             },
             "distance": "Maksymalna odległość",
-            "each": "Pokaż x budynków każdego",
+            "each": "Pokaż x budynków",
             "tax": "Maksymalny podatek"
         },
         "missions": {
@@ -42,10 +42,11 @@
             },
             "progress": "Maks. postęp %",
             "status": {
-                "green": "zielony",
-                "red": "czerwony",
+                "blue": "[1]Dostępne",
+                "green": "[2]Dostępne na posterunku",
+                "red": "[4]Na miejscu",
                 "title": "Status",
-                "yellow": "zółty"
+                "yellow": "[3]Reagowanie"
             }
         },
         "wlf": {
@@ -53,43 +54,43 @@
             "same": "Te same budynki"
         }
     },
-    "fms": "FMS",
+    "fms": "Stan",
     "fms_switch": {
-        "is_s2": "ustaw S6",
-        "is_s6": "ustaw S2"
+        "is_s2": "Niedostępny",
+        "is_s6": "Dostępny"
     },
     "foam_amount": "Ilość piany",
     "followup_missions": "Misja następująca | Misje uzupełniające",
     "hospitals": {
-        "beds": "wolne łóżka",
+        "beds": "Wolne łóżka",
         "department": "Department: {department}",
         "hospital": "Szpital"
     },
     "load_all_hospitals": {
-        "btn": "Załaduj wszystko",
-        "text": "Wyświetlanych jest tylko 50 szpitali sojuszu. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
+        "btn": "Załaduj wszystkie!",
+        "text": "Liczba wyświetlonych szpitali jest ograniczona. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
     },
-    "max_staff": "Maks. Personel",
+    "max_staff": "Personel",
     "mileage": "Przebieg",
     "missions": {
         "alarm": "Alarm",
         "alarmed": "Obecna misja",
-        "credits": "Reward",
-        "mission": "Mission",
+        "credits": "Kredyty",
+        "mission": "Misja",
         "participation": "Udział",
         "patients": "Pacjenci",
         "progress": "Postęp"
     },
-    "move": "Czas przybycia",
+    "move": "Przenieś",
     "owner": "Właściciel",
     "owner_pic_state": {
         "offline": "{user} jest offline!",
         "online": "{user} jest online!"
     },
     "release": {
-        "cancel": "Przerwij",
-        "confirm": "Tak!",
-        "disable": "Anuluj transport",
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "disable": "Potwierdź i przejdź do kolejnego",
         "patient": {
             "text": "Czy na pewno chcesz anulować transport pacjenta?",
             "title": "Anuluj transport"
@@ -109,15 +110,15 @@
     "station": "Budynek",
     "stats": "Statystyki",
     "tabs": {
-        "all": "wszystkie {type}: {amount}",
-        "alliance": "Sojusz {type}: {amount}",
+        "all": "Wszystkie {type}: {amount}",
+        "alliance": "Sojusznicze {type}: {amount}",
         "cells": "cele",
-        "hospitals": "Szpitale",
-        "missions": "Misje",
-        "own": "własne  {type}: {amount}"
+        "hospitals": "szpitale",
+        "missions": "misje",
+        "own": "Twoje {type}: {amount}"
     },
-    "tax": "podatek",
-    "true": "tak",
+    "tax": "Podatek",
+    "true": "Tak",
     "vehicletype": "Typ pojazdu",
     "water_amount": "Ilość wody",
     "zuweisung": "Przydział personelu"

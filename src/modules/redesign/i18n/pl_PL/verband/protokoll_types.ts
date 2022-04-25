@@ -9,10 +9,10 @@ export default {
     kicked: { regex: /Wyrzucono z sojuszu/u },
     set_chatban: { regex: /Ustawiono blokadę czatu/u },
     remove_chatban: { regex: /Usunięto blokadę czatu/u },
-    added_role: { regex: /Ustaw jako .*?/u, title: 'Role added' },
+    added_role: { regex: /Ustaw jako .*?/u, title: 'Dodano role' },
     removed_role: {
         regex: /Usunięto ze stanowiska .*?/u,
-        title: 'Role removed',
+        title: 'Usunięto role',
     },
     start_schooling: { regex: /Utworzono kurs/u },
     complete_schooling: { regex: /Ukończono kurs/u },

@@ -6,25 +6,25 @@ export default {
     },
     categories: {
         allianceMission: {
-            regex: /^\[Alliance\]/u,
+            regex: /^\[Sojusz\]/u,
             title: 'Misje Sojuszu',
             backgroundColor: '#ff2800',
             textColor: 'white',
         },
         mission: {
-            regex: '^%misje%( \\(System alarmu przeciwpożarowego\\))?( - Fałszywy alarm)?$',
+            regex: '^%missions%( \\(System alarmu przeciwpożarowego\\))?( - Fałszywy alarm)?$',
             title: 'Własne misje',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%misje%( \\(System alarmu przeciwpożarowego\\))? - [aA]nulowane$',
+            regex: '^%missions%( \\(System alarmu przeciwpożarowego\\))? – Anulowano$',
             title: 'Anulowane misje',
             backgroundColor: '#7C7978',
             textColor: 'white',
         },
         buyVehicle: {
-            regex: /Kupiony pojazd/u,
+            regex: /Pojazd kupiony/u,
             backgroundColor: '#007fff',
             textColor: 'white',
         },
@@ -34,13 +34,13 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /( Zbudowane budynki|Budynki usunięte bez zwrotu|Zwrot kosztów budynku$)/u,
+            regex: /(Postawiono budynek|Budynek usunięty bez zwrotu|Zwrot budynku$)/u,
             title: 'Zbudowano budynek/usunięte',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Stacja (ulepszona( \(z małej .*? stacji\))??|zbudowana)|Rozszerzona ochrona|Anuluj:|Zwrot kosztów aktualizacji budynku)/u,
+            regex: /(Postawiono posterunek|Zwrot ulepszenia budynku| – Ulepszono budynek (.*?)|– rozszerzona ochrona|Anuluj:)/u,
             title: 'Zbudowana stacja',
             backgroundColor: '#000080',
             textColor: 'white',
@@ -86,7 +86,7 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /Fałszywy alarm/u,
+            regex: /bezzasadne wezwanie/u,
             titel: 'Fałszywy alarm',
             backgroundColor: '#c80815',
             textColor: 'white',

@@ -7,6 +7,10 @@ module.exports = {
             description:
                 'Procenty zaokrąglone - jeśli są wyświetlane - do tylu miejsc po przecinku, ile potrzeba.',
         },
+        percentageInBrackets: {
+            title: 'Procenty w nawiasach',
+            description: 'Umieszcza wartości procentowe w nawiasach, np. (10%)',
+        },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
                 [
