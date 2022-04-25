@@ -62,7 +62,7 @@
     "foam_amount": "Ilość piany",
     "followup_missions": "Misja następująca | Misje uzupełniające",
     "hospitals": {
-        "beds": "wolne łóżka",
+        "beds": "Wolne łóżka",
         "department": "Department: {department}",
         "hospital": "Szpital"
     },
@@ -75,8 +75,8 @@
     "missions": {
         "alarm": "Alarm",
         "alarmed": "Obecna misja",
-        "credits": "Reward",
-        "mission": "Mission",
+        "credits": "Kredyty",
+        "mission": "Misja",
         "participation": "Udział",
         "patients": "Pacjenci",
         "progress": "Postęp"
