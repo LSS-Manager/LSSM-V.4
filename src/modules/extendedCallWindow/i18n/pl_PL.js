@@ -89,6 +89,8 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+        water: 'litrów wody',
+        foam: 'litrów piany gaśniczej',
         staffPrefix: ['We need'],
         staff: {
             [/^Armed Response Personnel$/u]: [13, 25, 52, 56],
@@ -98,7 +100,7 @@ module.exports = {
             ],
         },
         vehiclesByRequirement: {
-            [/^Fire engine(s)?$/u]: [0, 1, 16, 17, 26, 37, 38, 47],
+            [/^samochód pożarniczy$/u]: [0, 1, 16, 17, 26, 37, 38, 47],
             [/^Aerial Appliance Trucks?$/u]: [2, 17],
             [/^Fire Officer(s)?$/u]: [3, 15, 44],
             [/^Rescue Support Unit(s)? or Rescue Pump(s)?$/u]: [4, 16, 38, 43],

@@ -12,13 +12,13 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%misje%( \\(System alarmu przeciwpożarowego\\))?( - Fałszywy alarm)?$',
+            regex: '^%missions%( \\(System alarmu przeciwpożarowego\\))?( - Fałszywy alarm)?$',
             title: 'Własne misje',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%misje%( \\(System alarmu przeciwpożarowego\\))? - [aA]nulowane$',
+            regex: '^%missions%( \\(System alarmu przeciwpożarowego\\))? - [aA]nulowane$',
             title: 'Anulowane misje',
             backgroundColor: '#7C7978',
             textColor: 'white',
@@ -34,7 +34,7 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /( Zbudowane budynki|Budynki usunięte bez zwrotu|Zwrot kosztów budynku$)/u,
+            regex: /(Zbudowane budynki|Budynki usunięte bez zwrotu|Zwrot kosztów budynku$)/u,
             title: 'Zbudowano budynek/usunięte',
             backgroundColor: '#ed872d',
             textColor: 'black',
