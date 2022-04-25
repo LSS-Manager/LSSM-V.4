@@ -7,8 +7,7 @@ module.exports = {
             counter_highlight: 'liczniki i granice',
             counter_selection: 'liczniki i wybór pojazdów',
             highlight_selection: 'granice i wybór pojazdów',
-            counter_highlight_selection:
-                'liczniki, granice i wybór pojazdów',
+            counter_highlight_selection: 'liczniki, granice i wybór pojazdów',
             reset: 'Resetuj {text}',
         },
         reset: 'Resetuj {text}',
