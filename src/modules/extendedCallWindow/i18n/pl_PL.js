@@ -102,7 +102,7 @@ module.exports = {
         vehiclesByRequirement: {
             [/^radiowóz OPI$/u]: [8],
             [/^Helikopter(ów)? Policyjny(ch)?$/u]: [14],
-            [/^SH lub SD$/u]: [2, 13],
+            [/^– SH lub SD$/u]: [2, 13],
             [/^samoch(ód|ody\(-ów\)) pożarnicz(y|e\(-ych\))?$/u]: [0, 1, 29, 55, 56, 38, 12, 39, 44],
             [/^Samochód Ratownictwa Technicznego$/u]: [4, 38, 12, 39, 37, 40],
             [/^SPGaz$/u]: [10, 42],
