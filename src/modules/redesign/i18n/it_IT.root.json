@@ -16,9 +16,17 @@
                 "description": "Una riprogettazione della lista delle possibili missioni e \"Requisiti per questa missione\".",
                 "title": "Missioni possibili"
             },
+            "messages": {
+                "description": "Una riprogettazione dei messaggi privati e dei messaggi di sistema.",
+                "title": "Messaggi"
+            },
             "profile": {
                 "description": "Una riprogettazione delle pagine del profilo.",
                 "title": "Profilo"
+            },
+            "tasks": {
+                "description": "Una riprogettazione delle attività e degli eventi.",
+                "title": "Incarichi ed eventi"
             },
             "toplist": {
                 "description": "Una riprogettazione della top list.",
