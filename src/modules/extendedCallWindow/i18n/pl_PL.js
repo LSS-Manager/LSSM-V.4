@@ -7,8 +7,8 @@ module.exports = {
             counter_highlight: 'Licznik ZR / granica',
             counter_selection: 'Licznik ZR i wybór pojazdów',
             highlight_selection: 'Granica ZR i wybór pojazdów',
-            counter_highlight_selection:
-                'Licznik ZR / granica i wybór pojazdów',
+            counter_highlight_selection: 'Licznik ZR / granica i wybór pojazdów',
+            reset: '{text} reset',
         },
         reset: '{text} reset',
     },
