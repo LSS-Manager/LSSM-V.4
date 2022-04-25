@@ -1,5 +1,5 @@
 {
-    "amount": "{n} wyświetlony gracz | {n} wyświetleni gracze",
+    "amount": "Wyświetlony wpis: {n} | Wyświetlone wpisy: {n}",
     "credits": "Zdobyte kredyty",
     "discount": "Przecena",
     "edit_caption": {
@@ -9,19 +9,19 @@
         "next": "Wczytaj następną stronę (20 graczy)",
         "prev": "Wczytaj poprzednią stronę (20 graczy)"
     },
-    "name": "Gracz",
+    "name": "Nazwa gracza",
     "online": {
         "subtitle": "Wyświetlani są tylko członkowie online!",
         "titles": {
             "blue": "{user} jest offline i był online w ciągu ostatnich 30 dni!",
-            "gray": "{user} jest offline i był online w ciągu ostatnich 7 dni!",
+            "gray": "{user} jest offline, ale był online w ciągu ostatnich 7 dni!",
             "green": "{user} jest online!",
-            "red": "{user} jest offline przez ponad 60 dni!",
-            "yellow": "{user} jest offline i był online przez ostatnie 60 dni!"
+            "red": "{user} jest offline od ponad 60 dni!",
+            "yellow": "{user} jest offline i był online w ciągu ostatnie 60 dni!"
         },
         "toggle": {
             "false": "Pokaż tylko graczy online",
-            "true": "Pokaż wszystkich członków (także offline)"
+            "true": "Pokaż wszystkich graczy (także offline)"
         }
     },
     "rights": {
@@ -48,9 +48,9 @@
     },
     "roles": "Rola(e)",
     "search_global": "Wyszukiwanie globalne",
-    "search_local": "Szukaj w załadowanych graczach",
-    "search_subtitle": "Pokaż {n} graczy od {startPage} do {endPage} z {totalPages} stron",
-    "subtitle": "Pokaż {n} graczy z {startPage} ({firstCredits}) do {endPage} ({lastCredits}) z {totalPages} stron",
-    "tax": "wysokość podatku",
+    "search_local": "Szukaj",
+    "search_subtitle": "Pokaż {n} graczy od strony {startPage} do {endPage} z {totalPages} stron",
+    "subtitle": "Pokaż {n} graczy od strony {startPage} ({firstCredits}) do {endPage} ({lastCredits}) z {totalPages} stron",
+    "tax": "Wysokość podatku",
     "title": "Członkowie"
 }
