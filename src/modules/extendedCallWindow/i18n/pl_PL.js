@@ -75,10 +75,10 @@ module.exports = {
         },
     },
     enhancedMissingVehicles: {
-        vehicle: 'Vehicle type',
-        missing: 'Missing on mission',
-        driving: 'En-route',
-        total: 'Still needed',
+        vehicle: 'Typ pojazdu',
+        missing: 'Brakujący na misji',
+        driving: 'W drodze',
+        total: 'Wciąż potrzebne',
         tip: {
             dragging: 'drag window',
             textMode: 'textmode on/off',
@@ -88,9 +88,9 @@ module.exports = {
             pushRight: 'show this box above vehicle list',
             pushLeft: 'show this box at original position',
         },
-        selected: 'Selected',
-        water: 'litrów wody',
-        foam: 'litrów piany gaśniczej',
+        selected: 'Wybrane',
+        water: 'Woda',
+        foam: 'Piana gaśnicza',
         staffPrefix: [],
         staff: {
             [/^policjanci SPKP$/u]: [15, 18],
@@ -135,7 +135,7 @@ module.exports = {
         },
     },
     patientCollapse: {
-        combis: 'Combinations',
+        combis: 'Kombinacje',
         amount: 'Ilość',
         summary: {
             total: 'Pacjęci',
