@@ -3,7 +3,7 @@
 		"links": {
 			"/alliance_logfiles": "Protocollo",
 			"/alliance_threads": "Bacheca",
-			"/alliances/{id}": "Intro",
+			"/alliances/{id}": "Introduzione",
 			"/schoolings": "Corsi",
 			"/verband/bereitstellungsraume": "Basi temporanee",
 			"/verband/gebauede": "Edifici",
