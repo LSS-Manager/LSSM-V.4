@@ -42,7 +42,7 @@ Zainstaluj rozszerzenie Tampermonkey w swojej przeglądarce.
 
 W przypadku innych przeglądarek możesz pobrać Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 
-::: Uwaga!
+::: warning Uwaga!
 Należy pamiętać, że oficjalnie nie wspieramy: 
 -starszych przeglądarkek;
 -przeglądarkek mobilnych;
