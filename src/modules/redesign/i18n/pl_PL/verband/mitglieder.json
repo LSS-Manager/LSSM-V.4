@@ -50,7 +50,7 @@
     "search_global": "Wyszukiwanie globalne",
     "search_local": "Szukaj",
     "search_subtitle": "Pokaż {n} graczy od strony {startPage} do {endPage} z {totalPages} stron",
-    "subtitle": "Pokaż {n} graczy od strony {startPage} ({firstCredits}) do {endPage} ({lastCredits}) z {totalPages} stron",
+    "subtitle": "Pokaż {n} graczy od strony {startPage} do {endPage} z {totalPages} stron",
     "tax": "Wysokość podatku",
     "title": "Członkowie"
 }
