@@ -239,22 +239,25 @@ export default defineUserConfig<ThemeData>({
                     ),
                     'v3-v4-comparison-new': path.join(
                         DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/new.vue'
+                        'v3-v4-comparison/new-table.vue'
                     ),
                     'v3-v4-comparison-integrated': path.join(
                         DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/integrated.vue'
+                        'v3-v4-comparison/integrated-table.vue'
                     ),
                     'v3-v4-comparison-v3only': path.join(
                         DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/v3only.vue'
+                        'v3-v4-comparison/v3only-table.vue'
                     ),
                     'browser-support-table': path.join(
                         DOCS_COMPONENTS_PATH,
                         'browser-support-table.vue'
                     ),
-                    'bugs': path.join(DOCS_COMPONENTS_PATH, 'bugs.vue'),
-                    'discord': path.join(DOCS_COMPONENTS_PATH, 'discord.vue'),
+                    'bugs': path.join(DOCS_COMPONENTS_PATH, 'bug-list.vue'),
+                    'discord': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'discord-link.vue'
+                    ),
                     'discord-channel': path.join(
                         DOCS_COMPONENTS_PATH,
                         'discord-channel.vue'
@@ -265,9 +268,12 @@ export default defineUserConfig<ThemeData>({
                     ),
                     'translators': path.join(
                         DOCS_COMPONENTS_PATH,
-                        'translators.vue'
+                        'translator-list.vue'
                     ),
-                    'variable': path.join(DOCS_COMPONENTS_PATH, 'variable.vue'),
+                    'variable': path.join(
+                        DOCS_COMPONENTS_PATH,
+                        'variable-code.vue'
+                    ),
                 },
             },
         ],
