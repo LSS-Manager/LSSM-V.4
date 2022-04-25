@@ -15,7 +15,7 @@
         "title_amounts": "{sum} z {max} nagród"
     },
     "buildings": {
-        "amount": "{n} Budynków"
+        "amount": "Budynki {n}"
     },
     "buttons": {
         "alliance_ignore": {
@@ -39,7 +39,7 @@
         },
         "message": "Wyślij wiadomość"
     },
-    "credits": "{credits} zarobione kredyty",
+    "credits": "Zarobione kredyty: {credits}",
     "map": "Mapa",
     "rank": "Klasa",
     "registration": "Data zapisania się",
