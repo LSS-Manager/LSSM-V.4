@@ -111,11 +111,11 @@
     "stats": "Statystyki",
     "tabs": {
         "all": "Wszystkie {type}: {amount}",
-        "alliance": "Sojusz {type}: {amount}",
-        "cells": "Cele",
-        "hospitals": "Szpitale",
-        "missions": "Misje",
-        "own": "Własne  {type}: {amount}"
+        "alliance": "Sojusznicze {type}: {amount}",
+        "cells": "cele",
+        "hospitals": "szpitale",
+        "missions": "misje",
+        "own": "Twoje {type}: {amount}"
     },
     "tax": "Podatek",
     "true": "Tak",
