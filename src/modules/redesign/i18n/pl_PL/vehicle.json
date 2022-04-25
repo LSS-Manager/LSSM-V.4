@@ -81,7 +81,7 @@
         "patients": "Pacjenci",
         "progress": "Postęp"
     },
-    "move": "Czas przybycia",
+    "move": "Przenieś",
     "owner": "Właściciel",
     "owner_pic_state": {
         "offline": "{user} jest offline!",
