@@ -90,9 +90,15 @@ module.exports = {
         selected: 'Selected',
         water: 'litrów wody',
         foam: 'litrów piany gaśniczej',
-        staffPrefix: [],
+        staffPrefix: ['Potrzeba jeszcze'],
         staff: {
             [/^policjanci SPKP$/u]: [15, 18],
+            [/^strażaków$/u]: [
+                0, 1, 2, 3, 4, 6, 7, 10, 11, 12, 13, 25, 27, 28, 29, 35, 36, 37,
+                38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
+                54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64,
+            ],
+            [/^policjantów$/u]: [8, 14, 15, 16, 17, 18, 30],
         },
         vehiclePreprocessor: {
             [/Brakuje (\d+ Radiowozów WRD)/u]: '$1',
@@ -104,6 +110,7 @@ module.exports = {
             [/^Dźwig SP$/u]: [25],
             [/^Helikopter(ów)? Policyjny(ch)?$/u]: [14],
             [/^Jednost(ek|ka) K-9?$/u]: [16],
+            [/^łod(ź|zi\(-e\))$/u]: [26],
             [/^pojazdów SPKP$/u]: [15, 18],
             [/^radiowóz OPI$/u]: [8],
             [/^Radiowoz(u|ów) WRD?$/u]: [30],
@@ -119,6 +126,8 @@ module.exports = {
             [/^Samoch(ód|odów) ze zbiornikiem na pianę?$/u]: [
                 55, 56, 57, 58, 59, 44,
             ],
+            [/^Samoch(ód|odów) WOPR$/u]: [19],
+            [/^Samoch(ód|odów) SLRw$/u]: [24],
             [/^SLOp lub SLRr$/u]: [3, 28],
             [/^SPGaz$/u]: [10, 42],
         },
