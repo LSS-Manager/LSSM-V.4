@@ -95,6 +95,9 @@ module.exports = {
         staff: {
             [/^policjanci SPKP$/u]: [15, 18],
         },
+        vehiclePreprocessor: {
+            [/Brakuje (\d+ Radiowozów WRD)/u]: '$1',
+        },
         vehiclesByRequirement: {
             [/^– SH lub SD$/u]: [2, 13],
             [/^– Rchem$/u]: [41, 7],
