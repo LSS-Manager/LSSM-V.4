@@ -9,9 +9,9 @@ module.exports = {
             highlight_selection: 'Granica ZR i wybór pojazdów',
             counter_highlight_selection:
                 'Licznik ZR / granica i wybór pojazdów',
-            reset: '{text} reset',
+            reset: 'Resetuj licznik ZR',
         },
-        reset: '{text} reset',
+        reset: 'Resetuj licznik ZR',
     },
     arrHover: {
         reset: 'Wybór pojazdu jest resetowany przed!',
