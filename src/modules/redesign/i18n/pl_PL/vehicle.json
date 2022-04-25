@@ -90,7 +90,7 @@
     "release": {
         "cancel": "Anuluj",
         "confirm": "Potwierdź",
-        "disable": "Potwierdź i przejdz do kolejnego",
+        "disable": "Potwierdź i przejdź do kolejnego",
         "patient": {
             "text": "Czy na pewno chcesz anulować transport pacjenta?",
             "title": "Anuluj transport"
