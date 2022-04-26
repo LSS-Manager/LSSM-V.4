@@ -51,7 +51,7 @@ Noi non vediamo il punto di fare ciò ovunque e ufficialmente **non** supportiam
 :::
 
 ### Voglio condividere il mio setup con dei amici o usarlo su dispositivi multipli. E' possibile?
-Sì, è possibile. Vai in [impostazioni] e premi `Esporta`, per scaricare il file della configurazione. `Importa` ti permetterà di scegliere il file della configurazione da importare nelle impostazioni.
+Sì, è possibile. Vai in [impostazioni] e premi `Esporta`, per scaricare il file della configurazione. `Importa` ti permetterà di scegliere il file della configurazione da importare.
 
 ### C'è un modo per salvare le impostazioni legate all'account così da non doverle importare su un'altro dispositivo?
 Attualmente non è possibile, ma un implementazione di questa possibilità è programmata.
