@@ -3,18 +3,17 @@ title: Settings ⚙️
 lang: pl_PL
 ---
 
-# Settings ⚙️
+# Ustawienia ⚙️
 
-The settings of all modules are managed centrally in the settings. Only the settings of active modules can be changed.
+Ustawienia wszystkich modułów są zarządzane centralnie w ustawieniach. Można zmienić tylko ustawienia aktywnych modułów.
 
-It is planned to add a possibility to export and import the settings as in `LSSM V.3`.
-In addition, we would like to offer the possibility to save settings profile-bound in the near future. This means that settings are no longer device-bound.
+W niedalekiej przyszłości chcielibyśmy zaoferować możliwość zapisywania ustawień związanych z profilem. Oznacza to, że ustawienia nie są już powiązane z urządzeniem.
 
-:::tip Changes
-As soon as you exit the settings and have saved changes, the game will reload to easily apply all settings.
-If you have unsaved changes, you can't close the settings, you will get a small hint message.
+:::tip Zmiany
+Jak tylko wyjdziesz z ustawień i zapiszesz zmiany, gra załaduje się ponownie, aby z łatwością zastosować wszystkie ustawienia.
+Jeśli masz niezapisane zmiany, nie możesz zamknąć ustawień - otrzymasz małą podpowiedź.
 :::
 
-:::danger Reset the settings
-Caution: If you reset settings, they cannot be restored without previous export!
+:::danger Zresetuj ustawienia
+Uwaga: jeśli zresetujesz ustawienia, nie można ich przywrócić bez wcześniejszego eksportu!
 :::
