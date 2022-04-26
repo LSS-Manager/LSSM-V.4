@@ -4,11 +4,11 @@ lang: pl_PL
 sidebarDepth: 2
 ---
 
-# Collection of user metadata
+# Zbieranie metadanych użytkownika
 
-By using `LSSM` (Leitstellenspiel Manager, browser extension) the user accepts that metadata is collected. The following data is stored: 
-`User ID`, `User Name`, `Amount of buildings`, `Currently used Browser`, `Last Call of Script`, `Activated Modules`, `Which local version of the game`, `Which map type is used` & `LSSM Version`.
+Używając `LSSM` (Leitstellenspiel Manager, rozszerzenie przeglądarki) użytkownik akceptuje gromadzenie metadanych. Przechowywane są następujące dane: 
+`Identyfikator użytkownika`, `Nazwa użytkownika`, `Ilość budynków`, `Obecnie używana przeglądarka`, `Ostatnie wywołanie skryptu`, `Aktywowane moduły`, `Która lokalna wersja gry`, `Który typ mapy jest używany` & `Wersja LSSM`.
 
-This data is used to improve the extension as well as a clue for the development of existing or future modules.
+Dane te służą do ulepszania rozszerzenia, a także stanowią wskazówkę dotyczącą rozwoju już istniejących lub przyszłych modułów.
 
-**The user can revoke collection of this data at any time by sending a message to one of the developers**, All data already collected from the user will be deleted & will not be transferred in the future.
+**Użytkownik może w każdej chwili odwołać zgodę na zbieranie tych danych, wysyłając wiadomość do jednego z programistów**, Wszystkie dane już zebrane od użytkownika zostaną usunięte i nie będą używane w przyszłości.
