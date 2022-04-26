@@ -26,7 +26,7 @@ I plugin che non sono attivi, non vengono neanche caricati - questo ci permette 
 
 
 ## Installazione 📥
-Usando LSSM sei consapevole del fatto che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [metadata](metadata.md)
+Usando LSSM, sei consapevole del fatto che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [metadata](metadata.md)
 
 Una tabella con i browser compatibili con LSSM la puoi trovare nelle nostre [FAQ](faq.md#su-quale-browser-lss-manager-funziona)
 
