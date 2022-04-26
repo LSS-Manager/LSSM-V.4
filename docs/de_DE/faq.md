@@ -79,9 +79,9 @@ Ja, das geht. Klicke dazu einfach in den [Einstellungen][settings] auf `Export`,
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
 ## Wo seh ich, ob die LSSM-Server grad online sind? 
-Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+<!-- Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/) -->
 
-Oder im <discord-channel channel="uptime"/> auf unserem <discord/> 
+Aktuell nur im <discord-channel channel="uptime"/> auf unserem <discord/> 
 
 [support]: support.md
 [error]: error_report.md
