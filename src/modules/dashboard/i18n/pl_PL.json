@@ -1,0 +1,84 @@
+{
+    "building-list": {
+        "actions": "",
+        "caption": "Nazwa",
+        "current": "Numer (aktywny)",
+        "fastDispatchChooser": {
+            "noDispatch": "Brak centrum kontroli"
+        },
+        "type": "Typ",
+        "unavailable": "W budowie"
+    },
+    "building-types": {
+        "building": "Budynki",
+        "current": "Numer (aktywny)",
+        "extension": "Rozbudowa",
+        "maximum": "Maksymalna możliwa",
+        "title": "Wszystkie {type}",
+        "unavailable": "W budowie"
+    },
+    "chart-summaries": {
+        "buildings": {
+            "columnchart": "użyj wykresu słupkowego",
+            "personal_count": "Personel",
+            "tip": "Kliknij jedną z kategorii (np. straż pożarna lub policja), aby powiększyć typy budynków przypisane do tej kategorii. Jeśli następnie klikniesz na typ budynku, zobaczysz, ile pojazdów każdego typu znajduje się w budynkach tego typu. W ten sposób możesz szybko dowiedzieć się, ile pojazdów każdego typu jest zaparkowanych na posterunkach policji, a ile na komisariatach.",
+            "title": "Budynki"
+        },
+        "vehicles": {
+            "empty": "Nie masz jeszcze pojazdów w kategorii {category}!",
+            "tip": "Kliknij grupę typów pojazdów, aby wyświetlić tylko tę grupę.",
+            "title": "Pojazdy"
+        }
+    },
+    "dispatchcenter-view": {
+        "building-selection": "Dodaj budynki:",
+        "manage": {
+            "newBoard": "Nowa tablica",
+            "title": "Zarządzaj tablicami",
+            "titles": {
+                "buildings": {
+                    "bold": "Wybór typu budynku",
+                    "small": "pokaż tylko budynki danych typów"
+                },
+                "dispatch": {
+                    "bold": "Wybór centrum kontroli",
+                    "small": "pokaż tylko centra kontroli danych typów"
+                },
+                "name": "Nazwa tablicy"
+            }
+        },
+        "no-buildings": "Nie znaleziono budynków. W razie potrzeby dostosuj filtry dla tej tablicy w zakładce \"Zarządzaj tablicami\"-tab."
+    },
+    "tabs": {
+        "building-types": "Przegląd budynków",
+        "chart-summary": "Streszczenie",
+        "dispatchcenter-view": "Widok centrum sterowania",
+        "vehicle-types": "Przegląd statusu"
+    },
+    "vehicle-list": {
+        "actions": "",
+        "building": "Budynki",
+        "caption": "Nazwa",
+        "fms": "FMS",
+        "target": "Cel",
+        "type": "Typ"
+    },
+    "vehicle-types": {
+        "chart": "Podsumowanie statusu",
+        "status": "Status",
+        "statuses": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9
+        ],
+        "sum": "Suma",
+        "title": "Wszystkie {type} | Wszystkie {type} w statusie {n} | Wszystkie {type} w statusie {n}",
+        "type": "Typ pojazdu",
+        "vehicles": "Pojazdy"
+    }
+}

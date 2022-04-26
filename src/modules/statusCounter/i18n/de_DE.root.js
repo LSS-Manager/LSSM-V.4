@@ -8,6 +8,11 @@ module.exports = {
             description:
                 'Rundet Prozente – falls angezeigt – auf so viele Nachkommastellen',
         },
+        percentageInBrackets: {
+            title: 'Prozente in Klammern',
+            description:
+                'Klammert die Prozente in schöne, runde, geschmeidige Klammern ein, damit sie sich wohl und umarmt fühlen',
+        },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
                 [

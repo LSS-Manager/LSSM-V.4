@@ -1,0 +1,260 @@
+{
+    "name": "Rozszerzone okno wezwań",
+    "settings": {
+        "alarmIcons": {
+            "description": "Pozostaw ikony w przycisku „Alarm” Pokaż, w zależności od dokonanego wyboru. Możesz wybierać spośród <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkich darmowych ikon z Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ikonę.",
+            "icon": "Ikona",
+            "preview": "Podgląd",
+            "style": "typ ikony",
+            "title": "ikony wezwań",
+            "vehicles": "typ pojazdu"
+        },
+        "alarmTime": {
+            "description": "Pokazuje obok przycisku Wezwania, ile czasu zajmuje dojazd.",
+            "title": "Najdłuższy czas dojazdu"
+        },
+        "arrClickHighlight": {
+            "description": "Rysuje ramkę wokół już klikniętych ZR.",
+            "title": "Podświetl kliknięte ZR"
+        },
+        "arrClickHighlightColor": {
+            "description": "Ustaw kolor obramowania dla ZR.",
+            "title": "Kolor podświetlenia"
+        },
+        "arrClickHighlightWidth": {
+            "description": "Określ tutaj (w pikselach), jak szeroka powinna być granica ZR.",
+            "title": "Szerokość podświetlenia"
+        },
+        "arrCounter": {
+            "description": "Zlica ile razy kliknęto daną ZR.",
+            "title": "Licznik ZR"
+        },
+        "arrCounterAsBadge": {
+            "description": "Pokazuje licznik ZR jako małą plakietkę na każdym ZR",
+            "title": "Licznik ZR jako odznaka"
+        },
+        "arrCounterResetSelection": {
+            "description": "Dodaje przycisk w prawym dolnym rogu, aby zresetować poprzedni wybór pojazdu. Uwaga: resetuje również licznik ZR i granice, jeśli są aktywne!",
+            "title": "Zresetuj wybór pojazdu"
+        },
+        "arrMatchHighlight": {
+            "description": "Ustawia szary filtr na wszystkie ZR, które nie zawierają słowa nazwy misji.",
+            "title": "Wyszarzenie nieodpowiednich ZR"
+        },
+        "arrSearch": {
+            "description": "Pokazuje pasek wyszukiwania nad ZR, który umożliwia filtrowanie Twoich ZR.",
+            "title": "Wyszukiwanie ZR"
+        },
+        "arrSearchAutoFocus": {
+            "description": "Automatycznieaktywuje wyszukiwanie ZR, dzięki czemu możesz zacząć pisać bez wcześniejszego klikania pola wyszukiwania.",
+            "title": "Wyszukiwanie ZR: autofocus"
+        },
+        "arrSearchCloseDropdownOnSelect": {
+            "description": "zamyka menu po wybraniu ZR.",
+            "title": "zamknij menu po wybraniu"
+        },
+        "arrSearchDissolveCategories": {
+            "description": "Pokazuje wszystkie kategorie jednocześnie podczas wyszukiwania.",
+            "title": "Wyszukiwanie ZR: Pokaż wszystkie kategorie"
+        },
+        "arrSearchDropdown": {
+            "description": "Całkowicie ukrywa ZR i zamiast tego wyświetla listę rozwijaną z możliwością wyszukiwania.",
+            "title": "Wyszukiwanie ZR jako menu rozwijane"
+        },
+        "arrSpecs": {
+            "description": "Pokazuje przechowywane żądania w ZR, jeśli na chwilę zatrzymasz mysz nad ZR",
+            "title": "Pokaż szczegóły ZR"
+        },
+        "arrTime": {
+            "description": "Pokazuje, jaki byłby najdłuższy czas dojazdu po wybraniu danego ZR, jeśli zatrzymasz się na krótko myszką nad ZR.",
+            "title": "Najdłuższy czas dojazdu"
+        },
+        "centerMap": {
+            "description": "Umożliwia wyśrodkowanie mapy w głównym oknie na miejscu użytkowania za naciśnięciem jednego przycisku.",
+            "title": "Centrowanie mapy"
+        },
+        "collapsablePatients": {
+            "description": "Minimalizuje pacjentów w oknie wezwania i zamiast tego pokazuje krótkie podsumowanie.",
+            "title": "Minimalizuj pacjentów"
+        },
+        "collapsablePatientsMinPatients": {
+            "description": "Ustaw tutaj, ilu pacjentów musi być na miejscu, aby aktywować minimalizację.",
+            "title": "Minimalizuj pacjentów: minimalna ilość"
+        },
+        "emvMaxStaff": {
+            "description": "'Ulepszone brakujące pojazdy' oblicza z maksymalną liczbą presonelu w samochodzie, kiedy trzeba obliczyć, ilu pracowników jest wybranych, gdy x liczba pracowników jest potrzebna na miejscu",
+            "title": "Maksymalna liczba personelu"
+        },
+        "enhancedMissingVehicles": {
+            "description": "Przekształca wyświetlanie dodatkowo wymaganych pojazdów w wyraźniejszą tabelę.",
+            "title": "Ulepszone brakujące pojazdy"
+        },
+        "generationDate": {
+            "description": "Pokazuje obok adresu, kiedy misja została wygenerowana.",
+            "title": "Czas utworzenia"
+        },
+        "hideVehicleList": {
+            "description": "Zwykle ukrywa listę, a następnie otwiera ją, po naciśnięciu przycisku.",
+            "title": "Ukrywanie listy pojazdów"
+        },
+        "hoverTip": {
+            "description": "Podpowiedzi dla przycisków \"Ulepszone brakujące pojazdy\".",
+            "title": "Podpowiedzi"
+        },
+        "loadMoreVehiclesInHeader": {
+            "description": "Wyświetla przycisk \"Przeładuj pojazdy\", jeśli jest dostępny, w pasku nagłówka.",
+            "title": "Przeładuj pojazdy w nagłówku"
+        },
+        "missionKeywords": {
+            "allMissions": "Wszystkie misje",
+            "autotextcolor": "Automatyczny kolor tekstu",
+            "color": "kolor tła",
+            "description": "Uzyskaj własne słowo kluczowe wyświetlane obok nazwy misji",
+            "keyword": "słowo kluczowe",
+            "missions": "misje",
+            "prepend": "Pokaż przed nazwą misji",
+            "preview": "Podgląd",
+            "textcolor": "Kolor tekstu",
+            "title": "Słowa kluczowe misji"
+        },
+        "patientSummary": {
+            "description": "Pokazuje obok liczby pacjentów, jakiego sprzętu ratunkowego potrzebują.",
+            "title": "Podsumowanie pacjenta"
+        },
+        "playerCounter": {
+            "description": "Wyświetla na górze listy personelu, ilu graczy wysłało pojazd na tę misję. Kliknij, aby otworzyć tabelę ze szczegółami.",
+            "title": "Licznik Graczy"
+        },
+        "playerCounterColor": {
+            "description": "Wybierz kolor etykiety licznika graczy.",
+            "title": "Licznik Graczy: Kolor"
+        },
+        "redBorder": {
+            "description": "Przedstawia czas generowania na czerwono, jeśli zakład wygaśnie następnej nocy.",
+            "title": "Czerwona ramka"
+        },
+        "remainingPatientTime": {
+            "description": "Pokazuje ile czasu pozostało do pełnego leczenia pacjentów",
+            "title": "Pozostały czas dla pacjentów"
+        },
+        "stagingAreaSelectedCounter": {
+            "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków wezwania",
+            "title": "Licznik pojazdów w MKSiś"
+        },
+        "stickyHeader": {
+            "description": "Zawsze pokazuje górny pasek w oknie wstawiania, nawet gdy przewijasz w dół.",
+            "title": "Zawsze pokazuj pasek nagłówka"
+        },
+        "tailoredTabs": {
+            "color": "Kolor",
+            "description": "Dostosuj zakładki w oknie wstawiania tutaj. \"Wszystkie\" i \"Kontynuacja\" będą zawsze widoczne",
+            "name": "nazwa",
+            "title": "kategorie pojazdów",
+            "vehicles": "typy pojazdów"
+        },
+        "vehicleCounter": {
+            "description": "Wyświetla na górze listy personelu, ile pojazdów zostało wysłanych do tej misji. Kliknij, aby otworzyć tabelę ze szczegółami.",
+            "title": "licznik pojazdów"
+        },
+        "vehicleCounterColor": {
+            "danger": "Czerwony",
+            "default": "Szary",
+            "description": "Wybierz kolor etykiety licznika pojazdu.",
+            "info": "Jasny niebieski",
+            "primary": "Ciemny niebieski",
+            "success": "Zielony",
+            "title": "Licznik pojazdów: kolor",
+            "warning": "Pomarańczowy"
+        },
+        "vehicleTypeInList": {
+            "description": "Wyświetla typ pojazdu na liście dostępnych jednostek.",
+            "title": "Pokaż typ pojazdu"
+        },
+        "yellowBorder": {
+            "description": "Obramowuje czas generowania na żółto, jeśli użycie jest starsze niż podana liczba godzin. Jeśli liczba wynosi 0, nie jest rysowana żadna granica.",
+            "title": "Żółta ramka"
+        }
+    },
+    "tailoredTabs": {
+        "defaultTabs": [
+            {
+                "name": "Samochód Pożarniczy ",
+                "vehicleTypes": [
+                    0,
+                    1,
+                    16,
+                    17,
+                    37,
+                    38
+                ]
+            },
+            {
+                "name": "Inny sprzęt pożarniczy",
+                "vehicleTypes": [
+                    2,
+                    3,
+                    4,
+                    6,
+                    7,
+                    14,
+                    15,
+                    18,
+                    23,
+                    26,
+                    35,
+                    36,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50
+                ]
+            },
+            {
+                "name": "Ambulans",
+                "vehicleTypes": [
+                    5,
+                    9,
+                    10,
+                    19,
+                    20,
+                    21,
+                    22,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34
+                ]
+            },
+            {
+                "name": "Policja",
+                "vehicleTypes": [
+                    8,
+                    11,
+                    12,
+                    13,
+                    19,
+                    24,
+                    25,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56
+                ]
+            }
+        ]
+    }
+}

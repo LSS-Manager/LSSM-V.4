@@ -1,0 +1,68 @@
+{
+    "default": [
+        {
+            "ids": [
+                0,
+                18
+            ],
+            "name": "Straż Pożarna"
+        },
+        {
+            "ids": [
+                2,
+                4,
+                5,
+                20,
+                21
+            ],
+            "name": "Ratownictwo"
+        },
+        {
+            "ids": [
+                6,
+                13,
+                19
+            ],
+            "name": "Policja"
+        },
+        {
+            "ids": [
+                1,
+                3,
+                8
+            ],
+            "name": "Szkoła"
+        },
+        {
+            "ids": [
+                15
+            ],
+            "name": "WOPR"
+        },
+        {
+            "ids": [
+                7
+            ],
+            "name": "CPR"
+        }
+    ],
+    "description": "Dostosuj filtry listy budynków!",
+    "name": "Konfigurowalna lista budynków",
+    "settings": {
+        "buildings": "Rodzaje budynków",
+        "contentType": {
+            "labels": [
+                "Text",
+                "Icon"
+            ],
+            "title": "Tekst czy ikona?"
+        },
+        "filters": {
+            "description": "Pozostaw ikony w przycisku „Alarm” Pokaż, w zależności od dokonanego wyboru. Możesz wybrać między <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkie darmowe ikony od Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ikonę.",
+            "title": "Filtr listy budynków"
+        },
+        "icon_style": "Icon-Type",
+        "preview": "Preview",
+        "title": "Tytuł (lub ikona)"
+    }
+}

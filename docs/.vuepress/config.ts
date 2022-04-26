@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import { defineUserConfig } from 'vuepress';
+import pluginRegisterComponents from '@vuepress/plugin-register-components';
+import pluginSearch from '@vuepress/plugin-search';
+import { defaultTheme, defineUserConfig } from 'vuepress';
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
@@ -120,7 +122,7 @@ LANGS.forEach(lang => {
     };
 });
 
-export default defineUserConfig<ThemeData>({
+export default defineUserConfig({
     // site config
     base: BASE,
     lang: 'en-US',
@@ -151,8 +153,7 @@ export default defineUserConfig<ThemeData>({
     locales: localeConfigs.siteConfigs,
 
     // theme and its config
-    theme: '@vuepress/theme-default',
-    themeConfig: {
+    theme: defaultTheme({
         navbar: [
             {
                 text: `v${versions.short}`,
@@ -206,70 +207,66 @@ export default defineUserConfig<ThemeData>({
             contributors: contributorsFile.contributors,
             contributionTypes: contributorsFile.types,
         },
-    },
+    }),
 
     // plugins
     plugins: [
-        ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
-        [
-            '@vuepress/plugin-search',
-            {
-                locales: localeConfigs.searchConfigs,
+        // disabled as not working with current vuepress version
+        // ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
+        pluginSearch({ locales: localeConfigs.searchConfigs }),
+        pluginRegisterComponents({
+            components: {
+                'momentjs-preview': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'momentjs/preview.vue'
+                ),
+                'momentjs-shorts': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'momentjs/shorts.vue'
+                ),
+                'momentjs-variables': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'momentjs/variables.vue'
+                ),
+                'tampermonkey-download-table': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'tampermonkey/download-table.vue'
+                ),
+                'v3-v4-comparison-new': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'v3-v4-comparison/new-table.vue'
+                ),
+                'v3-v4-comparison-integrated': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'v3-v4-comparison/integrated-table.vue'
+                ),
+                'v3-v4-comparison-v3only': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'v3-v4-comparison/v3only-table.vue'
+                ),
+                'browser-support-table': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'browser-support-table.vue'
+                ),
+                'bugs': path.join(DOCS_COMPONENTS_PATH, 'bug-list.vue'),
+                'discord': path.join(DOCS_COMPONENTS_PATH, 'discord-link.vue'),
+                'discord-channel': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'discord-channel.vue'
+                ),
+                'mapkit-modules': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'mapkit-modules.vue'
+                ),
+                'translators': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'translator-list.vue'
+                ),
+                'variable': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'variable-code.vue'
+                ),
             },
-        ],
-        [
-            '@vuepress/register-components',
-            {
-                components: {
-                    'momentjs-preview': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'momentjs/preview.vue'
-                    ),
-                    'momentjs-shorts': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'momentjs/shorts.vue'
-                    ),
-                    'momentjs-variables': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'momentjs/variables.vue'
-                    ),
-                    'tampermonkey-download-table': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'tampermonkey/download-table.vue'
-                    ),
-                    'v3-v4-comparison-new': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/new.vue'
-                    ),
-                    'v3-v4-comparison-integrated': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/integrated.vue'
-                    ),
-                    'v3-v4-comparison-v3only': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/v3only.vue'
-                    ),
-                    'browser-support-table': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'browser-support-table.vue'
-                    ),
-                    'bugs': path.join(DOCS_COMPONENTS_PATH, 'bugs.vue'),
-                    'discord': path.join(DOCS_COMPONENTS_PATH, 'discord.vue'),
-                    'discord-channel': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'discord-channel.vue'
-                    ),
-                    'mapkit-modules': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'mapkit-modules.vue'
-                    ),
-                    'translators': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'translators.vue'
-                    ),
-                    'variable': path.join(DOCS_COMPONENTS_PATH, 'variable.vue'),
-                },
-            },
-        ],
+        }),
     ],
 });

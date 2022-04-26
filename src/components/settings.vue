@@ -608,12 +608,11 @@ export default Vue.extend<
                 if (invert) {
                     return (
                         setting?.isDisabled ||
-                        (!!setting?.value ?? !!setting?.default)
+                        !!(setting?.value ?? setting?.default)
                     );
                 }
                 return (
-                    setting?.isDisabled ||
-                    (!setting?.value ?? !setting?.default)
+                    setting?.isDisabled || !(setting?.value ?? setting?.default)
                 );
             } else if (disabledFun && typeof disabledFun === 'function') {
                 return disabledFun(this.settings);

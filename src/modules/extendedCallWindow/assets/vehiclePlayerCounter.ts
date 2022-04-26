@@ -118,6 +118,9 @@ export default (
         table.style.setProperty('box-shadow', '0 1px 2px rgba(0,0,0,.05)');
         table.style.setProperty('z-index', '3');
         table.style.setProperty('right', '0');
+        table.style.setProperty('display', 'block');
+        table.style.setProperty('max-height', 'calc(100vh - 100px)');
+        table.style.setProperty('overflow', 'auto');
         const thead = document.createElement('thead');
         const theadRow = document.createElement('tr');
         [' ', 'driving', 'atScene', 'total'].forEach(title => {

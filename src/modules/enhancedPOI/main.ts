@@ -222,7 +222,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                         poi === 'all'
                             ? shown_types === poi_types
                             : poi === 'none'
-                            ? shown_types === []
+                            ? !shown_types.length
                             : shown_types.includes(poi);
                     if (poi === 'all') {
                         input.addEventListener('change', () => {

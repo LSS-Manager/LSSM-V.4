@@ -118,8 +118,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         loadingIndicator: {
             description:
-                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
-            title: 'show loading progress',
+                'Si ce paramètre est actif, LSSM affiche un petit cercle de chargement dans le coin inférieur droit.',
+            title: 'afficher la progression du chargement',
         },
         osmDarkTooltip: {
             description:
@@ -1305,7 +1305,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: "Lanceur d'eau",
                 duration: '7 jours',
-                staffList: "Lanceur d'eau",
+                staffList: 'Opérateur ELE',
             },
             {
                 caption: 'Armurier',
@@ -1403,10 +1403,10 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         'Restauration rapide',
         'Port de fret',
         'Centre de recyclage',
-        'Tour',
+        'Gratte-ciel',
         'Quai de navire de croisière',
         'Marina',
-        'Passage à niveau',
+        'Passage à niveau piéton',
         'Tunnel',
         'Entrepôt frigorifique',
         'Centrale électrique',
