@@ -8,6 +8,10 @@ module.exports = {
             description:
                 'Round percentages - if displayed - to as many decimal places as necessary.',
         },
+        percentageInBrackets: {
+            title: 'Percentages in parentheses',
+            description: 'Puts percentages in parentheses, e.g. (10%)',
+        },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
                 [

@@ -1,0 +1,72 @@
+{
+    "description": "Umożliwia aktywację ogólnych ulepszeń, takich jak klikalne linki w grze.",
+    "name": "Ogólne ulepszenia",
+    "positions": {
+        "bottomleft": "Na dole po lewej 🡧",
+        "bottomright": "Na dole po prawej 🡦",
+        "topleft": "Na górze po po lewej 🡤",
+        "topright": "Na górze po prawej 🡥"
+    },
+    "settings": {
+        "aaoExportQr": {
+            "description": "Pokazuje kod QR z linkiem do eksportowania ZR.",
+            "title": "ZR-Eksportuj jako QR-Code"
+        },
+        "browserTitle": {
+            "description": "Dostosowuje tytuł karty przeglądarki tak, aby wyświetlał, co jest aktualnie otwarte w grze.",
+            "title": "Tytuł karty przeglądarki"
+        },
+        "clickableLinks": {
+            "description": "Linki, które są wyświetlane jako zwykły tekst (np. na czacie, forum, wiadomościach itp.), są klikalne. Otwierają się automatycznie w nowej karcie.",
+            "title": "Spraw, aby linki były klikalne"
+        },
+        "emojiPicker": {
+            "description": "Pokazuje emotikony do wyboru, gdy wpiszesz \":\", a następnie tekst.",
+            "title": "Selektor emotikonów"
+        },
+        "extensionCloseCall": {
+            "description": "Zamyka żądania propagacji mowy nawet po naciśnięciu przycisku \"do misji\".",
+            "title": "Rozprzestrzenianie ulepszonego FMS 5"
+        },
+        "linkPreviews": {
+            "buildings": "Budynki",
+            "description": "Pokazuje małe pole informacyjne, gdy przez krótki czas czekasz z kursorem myszy nad łączem. Tutaj możesz ustawić, dla których linków infoboks ma być aktywowany:",
+            "missions": "Misje",
+            "profile": "Użytkownik",
+            "title": "Podgląd linków",
+            "vehicles": "Pojazdy"
+        },
+        "mapSearchOnMap": {
+            "description": "Przenosi wyszukiwanie lokalizacji w oknie głównym na mapę",
+            "title": "Umieść wyszukiwanie na mapie"
+        },
+        "mapSearchOnMapPosition": {
+            "description": "Wybierz, gdzie na mapie ma się pojawić wyszukiwanie",
+            "title": "Pozycja wyszukiwania na mapie"
+        },
+        "mapUndo": {
+            "description": "Wyśrodkuj mapę na pozycjach, które były wcześniej wyśrodkowane. - Obecnie działa tylko z mapą typu \"OpenStreetMap\"",
+            "title": "Zapisz skoki mapy"
+        },
+        "notePreview": {
+            "description": "Linki w notatkach można kliknąć, wyświetlając podgląd notatek.",
+            "title": "Notatki"
+        },
+        "ownMapMarkers": {
+            "description": "Zapisz własne lokalizacje na mapie, aby uzyskać do nich dostęp jednym kliknięciem!",
+            "title": "Zakładki do mapy"
+        },
+        "saveLastBuildingType": {
+            "description": "Zapamiętuje wybrany typ budynku podczas budowania nowego budynku i automatycznie wybiera go dla nowych budynków.",
+            "title": "Zapamiętaj typ budynku"
+        },
+        "saveLastDispatchCenter": {
+            "description": "Zapamiętuje wybrane CPR podczas budowy nowego budynku i automatycznie wybiera je dla nowych budynków.",
+            "title": "Pamiętaj CPR"
+        },
+        "showImg": {
+            "description": "Spróbuj wygenerować podgląd obrazu. Działa tylko w połączeniu z opcją \"Spraw, aby linki były klikalne\"!",
+            "title": "Aktywacja podglądu obrazu"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "nav": {
+        "links": [
+            {
+                "href": "/credits",
+                "text": "Transakcje"
+            },
+            {
+                "href": "/credits/overview",
+                "text": "Przegląd"
+            },
+            {
+                "href": "/credits/daily",
+                "text": "Podsumowanie dnia"
+            },
+            {
+                "href": "/coins/list",
+                "text": "Protokół monet"
+            }
+        ],
+        "title": "Kredyty"
+    }
+}

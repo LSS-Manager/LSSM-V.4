@@ -1,0 +1,41 @@
+{
+    "copy_url": "Skopiuj link do schowka: {url}",
+    "description": "Redesign – obecnie w fazie alfa i w fazie rozwoju.",
+    "name": "Przeprojektowanie",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "Przeprojektowanie stron sojuszu.",
+                "title": "Sojusz"
+            },
+            "credits": {
+                "description": "Przeprojektowanie przeglądów kredytów i monet. Uwaga! Raporty z poprzednich dni będą puste, jeżeli nie posiadasz konta premium.",
+                "title": "Kredyty i monety"
+            },
+            "einsaetze": {
+                "description": "Przeprojektowanie listy możliwych misji i strony \"Wymagania dla tej misji\".",
+                "title": "Possible missions"
+            },
+            "messages": {
+                "description": "Przeprojektowanie prywatnych wiadomości i wiadomości systemowych.",
+                "title": "Wiadomości"
+            },
+            "profile": {
+                "description": "Przeprojektowanie stron profilu.",
+                "title": "Profil"
+            },
+            "tasks": {
+                "description": "Przeprojektowanie listy zadań",
+                "title": "Zadania"
+            },
+            "toplist": {
+                "description": "Przeprojektowanie toplisty.",
+                "title": "Toplista"
+            },
+            "vehicles": {
+                "description": "Przeprojektowanie stron pojazdu i wszystkich powiązanych stron.",
+                "title": "Pojazdy"
+            }
+        }
+    }
+}

@@ -120,5 +120,11 @@
     "true": "yes",
     "vehicletype": "Vehicle type",
     "water_amount": "Water amount",
+    "wlf": {
+        "alarm": "Dispatch",
+        "building": "Building",
+        "caption": "Prime mover",
+        "same": "same building: {building}"
+    },
     "zuweisung": "Staff assignment"
 }

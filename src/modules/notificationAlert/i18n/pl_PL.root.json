@@ -1,0 +1,58 @@
+{
+    "alertStyles": {
+        "danger": "Komunikat o błędzie (czerwony)",
+        "info": "Informacje (niebieski)",
+        "success": "Potwierdzenie (zielony)",
+        "unimportant": "Prosty (szary)",
+        "warning": "Ostrzeżenie (pomarańczowy)"
+    },
+    "description": "Otrzymuj powiadomienia przeglądarki i w grze o różnych wydarzeniach - oczywiście w pełni konfigurowalne!",
+    "events": {
+        "allianceCandidature": "Nowe zgłoszenie do sojuszu",
+        "allianceChat": "Wiadomość na czacie",
+        "allianceChatMention": "Wiadomość na czacie (tylko wspomina)",
+        "allianceChatWhisper": "Wiadomość na czacie (tylko prywatne wiadomości)",
+        "allianceForum": "Nowy artykuł na forum sojuszu",
+        "allianceMessage": "Nowa wiadomość sojuszu",
+        "allianceNews": "Nowe ogłoszenie sojuszu",
+        "dm": "Nowa wiadomość w skrzynce odbiorczej",
+        "ingame_news": "Nowości w grze",
+        "mission_getred": "Misja wymaga uwagi",
+        "mission_getred_alliance": "Misja sojuszu wymaga uwagi",
+        "mission_new": "Wygenerowano nową misję",
+        "mission_new_largescale": "Utworzono nową dużą misję sojuszu",
+        "mission_share": "Jedna misja została udostępniona w sojuszu",
+        "sicherheitswache_error": "Ochroniarz anulowany",
+        "sicherheitswache_success": "Ochrona ukończona",
+        "tasks_update": "Ukończono zadanie",
+        "vehicle_fms": "Wiadomości radiowe (ogólne)",
+        "vehicle_fms_1": "Wiadomości radiowe (stan 1)",
+        "vehicle_fms_2": "Wiadomości radiowe (stan 2)",
+        "vehicle_fms_3": "Wiadomości radiowe (stan 3)",
+        "vehicle_fms_4": "Wiadomości radiowe (stan 4)",
+        "vehicle_fms_5": "Wiadomości radiowe (Prośba o transport)",
+        "vehicle_fms_6": "Wiadomości radiowe (stan 6)",
+        "vehicle_fms_7": "Wiadomości radiowe (stan 7)",
+        "vehicle_fms_9": "Wiadomości radiowe (stan 9)"
+    },
+    "name": "Powiadomienia",
+    "positions": {
+        "bottom center": "Dolny środek 🡣",
+        "bottom left": "Na dole po lewej 🡧",
+        "bottom right": "Na dole po prawej 🡦",
+        "top center": "Górny środek 🡡",
+        "top left": "Na górze po lewej 🡤",
+        "top right": "Na górze po prawej 🡥"
+    },
+    "settings": {
+        "alertStyle": "Styl powiadomienia w grze",
+        "alerts": {
+            "title": "Ustawienia powiadomień"
+        },
+        "desktop": "Wyślij powiadomienie na pulpicie",
+        "duration": "Czas wyświatlania powiadomienia(s)",
+        "eventTypes": "Wydarzenia",
+        "ingame": "Wyślij powiadomienie w grze",
+        "position": "Pozycja"
+    }
+}

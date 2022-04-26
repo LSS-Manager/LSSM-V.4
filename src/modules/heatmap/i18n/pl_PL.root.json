@@ -1,0 +1,16 @@
+{
+    "description": "Generuj mapę termiczną na mapie, która pokazuje gęstość budynków lub pojazdów - w pełni konfigurowalną.",
+    "name": "Mapa termiczna",
+    "positions": {
+        "bottom-left": "Na dole po lewej 🡧",
+        "bottom-right": "Na dole po prawej 🡦",
+        "top-left": "Na górze po lewej 🡤",
+        "top-right": "Na górze po prawej 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Wybierz, w którym rogu mapy powinien pojawić się przycisk ustawień",
+            "title": "Pozycja ustawień"
+        }
+    }
+}

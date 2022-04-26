@@ -11,6 +11,14 @@ export default <ModuleSettingFunction>((MODULE_ID: string, LSSM: Vue) => ({
                 ([key, { value }]) => key.startsWith('percent_') && value
             ),
     },
+    percentageInBrackets: <Toggle>{
+        type: 'toggle',
+        default: false,
+        disabled: settings =>
+            !Object.entries(settings[MODULE_ID]).some(
+                ([key, { value }]) => key.startsWith('percent_') && value
+            ),
+    },
     ...Object.fromEntries(
         Object.entries(
             LSSM.$t('fmsReal2Show') as unknown as Record<string, number>

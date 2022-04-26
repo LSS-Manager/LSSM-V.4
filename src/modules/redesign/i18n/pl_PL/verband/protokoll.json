@@ -1,0 +1,19 @@
+{
+    "affected": "Dotyczy",
+    "amount": "Wyświetlony wpis: {n} | Wyświetlone wpisy: {n}",
+    "description": "Opis",
+    "executor": "Wyszukaj",
+    "filter": {
+        "all_types": "Pokaż wszystkie typy",
+        "no_types": "Wyczyść typy",
+        "type": "Wyświetlane typy wpisów:"
+    },
+    "load": {
+        "next": "Załaduj następną stronę",
+        "prev": "Załaduj poprzednią stronę"
+    },
+    "search_local": "Szukaj",
+    "subtitle": "Pokaż {n} wpisy stron {startPage} ({firstDate}) do {endPage} ({lastDate}) z {totalPages} stron",
+    "time": "czas",
+    "title": "Protokół Sojuszu"
+}

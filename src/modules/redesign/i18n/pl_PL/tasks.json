@@ -1,0 +1,17 @@
+{
+    "all": "Wszystko",
+    "claim": "Odbierz",
+    "claimAll": "Odbierz wszystkie ({amount})",
+    "collectionTasks": {
+        "taskName": "Ukończ zadania (\\d+) wydarzenia \"(.*?)\"",
+        "title": "Zadania zbiorowe"
+    },
+    "confirmation": {
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "title": "Uwaga!"
+    },
+    "end": "Koniec",
+    "nextTask": "Po odebraniu pojawi się nowe zadanie!",
+    "title": "Zadania i wydarzenia"
+}
