@@ -1,0 +1,10 @@
+{
+    "description": "Sumář denního přehledu vydělaných kreditů po kategoriích, který Vám poskytne lepší přehled odkud byly získány.",
+    "name": "Přehled získaných kreditů",
+    "settings": {
+        "showAverage": {
+            "description": "Zobrazí průměrný zisk kreditů pro každou kategorii.",
+            "title": "Zobrazit průměry"
+        }
+    }
+}
