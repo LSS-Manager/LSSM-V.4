@@ -102,17 +102,17 @@
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.38"
+        "version": "2.0.0-beta.41"
     },
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.38"
+        "version": "2.0.0-beta.41"
     },
     "@vuepress/plugin-search": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.38"
+        "version": "2.0.0-beta.41"
     },
     "all-contributors-cli": {
         "icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -344,7 +344,7 @@
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.39"
+        "version": "2.0.0-beta.41"
     },
     "vuepress-plugin-clipboard": {
         "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
