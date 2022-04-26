@@ -52,7 +52,7 @@ z kimś moją konfiguracją?
 Tak, w tym celu musimy przejść do zakładki "ustawienia", gdzie u góry zobaczymy dwa przyciski "export" oraz "import".
 Po kliknięciu w ten pierwszy pobierze się wam plik z konfiguracją. Możecie go trzymać u siebie na dysku jako "backup" lub udostępnić znajomym. Ten drugi przycisk służy natomiast to importowania, czy też inaczej wgrywania, już wcześniej stworzonej konfiguracji. W tym celu należy w niego kliknąć, a następnie wybrać z dysku plik konfiguracji.
 
-### Czy istnieje sposób na zapisanie ustawień związanych z kontem, aby nie trzeba było ich importować na innym urządzeniu??
+### Czy istnieje sposób na zapisanie ustawień związanych z kontem, aby nie trzeba było ich importować na innym urządzeniu?
 Obecnie nie jest to obsługiwane, ale planujemy wdrożyć to w przyszłości.
 
 [Pomoc]: support.md
