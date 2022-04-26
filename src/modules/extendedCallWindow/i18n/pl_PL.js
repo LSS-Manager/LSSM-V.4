@@ -89,8 +89,8 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Wybrane',
-        water: 'Woda',
-        foam: 'Piana gaśnicza',
+        water: 'litrów wody',
+        foam: 'litrów piany gaśniczej',
         staffPrefix: [],
         staff: {
             [/^policjanci SPKP$/u]: [15, 18],
