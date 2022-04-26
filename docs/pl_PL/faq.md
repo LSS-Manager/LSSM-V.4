@@ -56,5 +56,5 @@ Po kliknięciu w ten pierwszy pobierze się wam plik z konfiguracją. Możecie g
 Obecnie nie jest to obsługiwane, ale planujemy wdrożyć to w przyszłości.
 
 [support]: support.md
-[errors]: error_report.md
+[error]: error_report.md
 [suggestions]: suggestions.md
