@@ -1,0 +1,38 @@
+{
+    "description": "Dzięki temu modułowi unikaj ponownego ładowania gry po naciśnięciu określonych przycisków.",
+    "name": "Przyciski asynchroniczne",
+    "settings": {
+        "buildingPersonal": {
+            "description": "Zapobiega odświażaniu strony przy zwalnianiu personelu.",
+            "title": "Zwalnianie personelu"
+        },
+        "buildingTax": {
+            "description": "Zapobiega odświażaniu strony przy ustalaniu nowego podatku dla budynku.",
+            "title": "Cena za cele lub łóżka"
+        },
+        "deleteARR": {
+            "description": "Zapobiega odświażaniu strony przy usuwaniu ZR",
+            "title": "Usuwanie ZR"
+        },
+        "deleteForumPost": {
+            "description": "Zapobiega odświażaniu strony przy usuwaniu wątku na forum.",
+            "title": "Usuwanie wątku na Forum"
+        },
+        "memberlistManageUser": {
+            "description": "Zapobiega odświażaniu strony przy usuwaniu członków i edycji ich uprawnień",
+            "title": "Edycja członków sojuszu"
+        },
+        "missionPrisoners": {
+            "description": "Zapobiega odświażaniu strony przy realizowaniu żądań transportu więżniów",
+            "title": "Więźniowie w oknie wezwania"
+        },
+        "missionReply": {
+            "description": "Zapobiega odświażaniu strony przy wysyłaniu uwag dotyczących misji",
+            "title": "Wiadomości misji"
+        },
+        "switchExtensionState": {
+            "description": "Zapobiega odświażaniu strony przy zmianie stanu rozbudowy",
+            "title": "(Dez-)aktywuj rozszerzenie"
+        }
+    }
+}
