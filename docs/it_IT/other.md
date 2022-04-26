@@ -38,7 +38,13 @@ Attualmente, LSS Manager è composto da 4 sviluppatori e 6 supporter addizionali
     * Buggs
 * 🇳🇱
     * MPR
- 
+
+### volunteer translators <3
+A lot of thanks go to our volunteer translators who help us with the porting into other language versions. Of course, as a small development team, we don't speak all languages, so we only provide the German and English texts.
+
+To give some credit to the translators we have created a list here:
+<translators/>
+
 ## Librerie Open Source
 LSSM ovviamente usa anche librerie pubbliche di terze parti - altrimenti molte funzioni sarebbero semplicemente troppo lunghe da programmare.
 
