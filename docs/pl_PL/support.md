@@ -4,34 +4,34 @@ lang: pl_PL
 sidebarDepth: 2
 ---
 
-# Support 👨‍💻
+# Wsparcie 👨‍💻
 
-## Guideline
-A little aid, which should help you to create a support request.
+## Wytyczne
+Mała pomoc, która powinna pomóc w stworzeniu wniosku o wsparcie.
 
 :::tip
-If you need assistance, describe your problem as precisely as possible. The better and more detailed you describe your problem, the faster and better we can help you.
+Jeśli potrzebujesz pomocy, jak najdokładniej opisz swój problem. Im lepiej i bardziej szczegółowo opiszesz swój problem, tym szybciej i lepiej możemy Ci pomóc.
 :::
 :::warning
-Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
+Należy pamiętać, że oficjalnie nie wspieramy; starszych przeglądarkek; przeglądarkek mobilnych; Microsoft Edge; Internet Explorer.
 :::
 
-### 1. Formulate problem
-First describe your problem. Include any information that could be important. Also explain what you have already tried.
+### 1. Określ problem
+Najpierw opisz swój problem. Dołącz wszelkie informacje, które mogą być ważne. Wyjaśnij również, czego już próbowałeś.
 
-### 2. Specify user data
-Please provide us your username or userId. It is also useful to name the activated modules.
+### 2. Określ dane użytkownika
+Podaj nam swoją nazwę użytkownika lub identyfikator użytkownika. Przydatne jest również wskazanie aktywowanych modułów.
 
-### 3. Report problem
-Now you can send us your formulated problem with user data. Use one of the options listed below.
+### 3. Zgłoś problem
+Teraz możesz przesłać nam swój sformułowany problem z danymi użytkownika. Użyj jednej z poniższych opcji.
 
-## via Discord
-On our <discord/> you can get support in the channel <discord-channel channel="lssm-help"/>.
+## przez Discord
+Na naszym <discord/> możesz uzyskać wsparcie w kanale <discord-channel channel="lssm-help"/>.
 
-## on GitHub
-You may also open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check here if an issue for this problem already exists and then follow it up.
+## na GitHubie
+Możesz również otworzyć problem na <a :href="$theme.variables.github + '/issues'" target="_blank">GitHubie</a>. Sprawdź tutaj, czy rozwiązanie dotyczące tego problemu już istnieje, a następnie postępuj zgodnie z nim.
 
-## Planned: Support directly in the game
-In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!
+## Planowane: wsparcie bezpośrednio w grze
+Aby móc udzielać Ci wsparcia jeszcze szybciej i łatwiej, chcielibyśmy zintegrować nasz własny czat wsparcia. Gdy będzie dostępny, bedziesz mógł do niego dotrzeć za pośrednictwem menu LSSM w grze. Dołożymy wszelkich starań, aby pomóc Ci jak najlepiej i szybko, ale znowu: Im dokładniej opiszesz swój problem od początku, tym lepiej możemy Ci pomóc!
 
-As soon as it is so far we will of course inform you about it in the release notes :wink:
+Jak tylko będzie to możliwe, oczywiście poinformujemy o tym w informacjach o wydaniu :wink:
