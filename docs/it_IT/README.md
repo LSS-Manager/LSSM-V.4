@@ -26,14 +26,14 @@ I plugin che non sono attivi, non vengono neanche caricati - questo ci permette 
 
 
 ## Installazione 📥
-Usando LSSM accetti che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [Metadata](metadata.md)
+Usando LSSM sei consapevole del fatto che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [metadata](metadata.md)
 
 Una tabella con i browser compatibili con LSSM la puoi trovare nelle nostre [FAQ](faq.md#su-quale-browser-lss-manager-funziona)
 
 ::: tip sull'uso di LSSM su dispositivi mobili
-Ufficialmente non supportiamo una versione mobile. Tuttavia, il browser Firefox offre la possibilità di usare add-on nella sua versione mobile. Tuttavia, noi non garantiamo un design attraente o la piena funzionalità per i browser mobili.
+Ufficialmente non supportiamo una versione mobile. Tuttavia, il browser Firefox offre la possibilità di usare add-on nella sua versione mobile, ma, noi non garantiamo un design attraente o la piena funzionalità.
 
-Supporto ufficiale per le versioni mobili attualmente **non è** programmato.
+Il supporto ufficiale per le versioni mobili attualmente **non è** in programma.
 :::
 
 ### Passo 1: Tampermonkey
@@ -44,7 +44,7 @@ Se ancora non hai installato Tampermonkey nel tuo browser, devi farlo. Qui puoi 
 Per altri browser puoi scaricare Tampermonkey su [tampermonkey.net](https://www.tampermonkey.net/).
 
 ::: warning
-Si prega di notare che ufficialmente noi non forniamo supporto per browser più vecchi, Browser mobili e Microsoft Edge o Internet Explorer. Il supporto per questi browser non è garantito.
+Si prega di notare che ufficialmente noi non forniamo supporto per browser più vecchi, Browser mobili e Microsoft Edge o Internet Explorer. Il supporto per questi, non è garantito.
 :::
 
 ### Passo 2: Userscript
@@ -56,4 +56,4 @@ Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cl
 L'indicatore di LSSM è un testo verde evidenziato `LSSM V.4`.
 Se sei su Operatore112 ma non vedi questo indicatore nell'angolo in alto a destra, clicca sull'icona di tampermonkey nel browser e controlla se l'interruttore per LSS-Manager script è impostato su `on`.
 
-Se hai qualsiasi problema puoi sempre contattarci [Supporto](support.md).
+Se hai qualsiasi problema puoi sempre contattarci tramite il [supporto](support.md).
