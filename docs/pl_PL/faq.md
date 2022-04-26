@@ -55,6 +55,6 @@ Po kliknięciu w ten pierwszy pobierze się wam plik z konfiguracją. Możecie g
 ### Czy istnieje sposób na zapisanie ustawień związanych z kontem, aby nie trzeba było ich importować na innym urządzeniu?
 Obecnie nie jest to obsługiwane, ale planujemy wdrożyć to w przyszłości.
 
-[Pomoc]: support.md
-[Błąd]: error_report.md
-[Sugestie]: suggestions.md
+[support]: support.md
+[errors]: error_report.md
+[suggestions]: suggestions.md
