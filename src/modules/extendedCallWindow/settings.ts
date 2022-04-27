@@ -241,6 +241,14 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                         type: 'text',
                     },
                 },
+                <AppendableListSetting<Color>>{
+                    name: 'color',
+                    title: $m('settings.tailoredTabs.color'),
+                    size: 1,
+                    setting: {
+                        type: 'color',
+                    },
+                },
                 <AppendableListSetting<MultiSelect>>{
                     name: 'vehicleTypes',
                     title: $m('settings.tailoredTabs.vehicles'),
@@ -254,6 +262,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             ],
             defaultItem: {
                 name: '',
+                color: LSSM.$store.state.darkmode ? '#505050' : '#fff',
                 vehicleTypes: [],
             },
             orderable: true,
