@@ -1,12 +1,18 @@
 {
-    "description": "Napisz własne szablony wiadomości w prywatnych rozmowach.",
+    "description": "Stwórz własne szablony wiadomości w prywatnych rozmowach i wiadomościach na czacie.",
     "name": "Szablony wiadomości",
     "settings": {
-        "name": "Nazwa",
-        "subject": "Podmiot",
-        "template": "Szablon (zmienne (zobacz wiki): {{username}}, {{today[+n]}})",
+        "chatTemplates": {
+            "description": "Wiadomości na czacie sojuszu",
+            "name": "Nazwa",
+            "text": "Wiadomość",
+            "title": "Wiadomości czatu"
+        },
         "templates": {
             "description": "Dla szablonów dostępne są zmienne. Proszę spojrzeć na nasze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "name": "Nazwa",
+            "subject": "Podmiot",
+            "template": "Szablon (zmienne (zobacz wiki): {{username}}, {{today[+n]}})",
             "title": "Szablony"
         }
     }
