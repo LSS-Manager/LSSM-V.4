@@ -178,8 +178,8 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import moment from 'moment';
 
+import type { ConversationMessageTemplate } from '../../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { MessageTemplate } from '../../../messageTemplates/main';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
@@ -197,7 +197,7 @@ type Component = RedesignComponent<
         };
         messageTemplates: {
             enabled: boolean;
-            templates: MessageTemplate[];
+            templates: ConversationMessageTemplate[];
         };
     },
     {
@@ -406,7 +406,7 @@ export default Vue.extend<
                 ?.querySelector<HTMLUListElement>('.dropdown-menu');
             if (dropdown) {
                 import(
-                    /*webpackChunkName: "modules/messageTemplates/fillDropdown"*/ '../../../messageTemplates/assets/fillDropdown'
+                    /*webpackChunkName: "modules/messageTemplates/conversations/fillDropdown"*/ '../../../messageTemplates/assets/conversations/fillDropdown'
                 ).then(async ({ default: fillDropdown }) =>
                     fillDropdown(
                         (
@@ -499,9 +499,13 @@ export default Vue.extend<
                         defaultValue: [],
                     })
                     .then(
-                        ({ value: templates }: { value: MessageTemplate[] }) =>
+                        ({
+                            value: templates,
+                        }: {
+                            value: ConversationMessageTemplate[];
+                        }) =>
                             import(
-                                /*webpackChunkName: "modules/messageTemplates/modifyMessage"*/ '../../../messageTemplates/assets/modifyMessage'
+                                /*webpackChunkName: "modules/messageTemplates/conversations/modifyMessage"*/ '../../../messageTemplates/assets/conversations/modifyMessage'
                             ).then(
                                 async ({ default: modifyMessage }) =>
                                     (this.response = modifyMessage(
