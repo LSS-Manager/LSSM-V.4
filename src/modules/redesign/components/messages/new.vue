@@ -86,8 +86,8 @@ import Vue from 'vue';
 
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 
+import type { ConversationMessageTemplate } from '../../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { MessageTemplate } from '../../../messageTemplates/main';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
@@ -103,7 +103,7 @@ type Component = RedesignComponent<
         faPaperPlane: IconDefinition;
         messageTemplates: {
             enabled: boolean;
-            templates: MessageTemplate[];
+            templates: ConversationMessageTemplate[];
         };
     },
     { sendMessage(): void; fillTemplates(event: MouseEvent): void }
@@ -185,7 +185,7 @@ export default Vue.extend<
                 ?.querySelector<HTMLUListElement>('.dropdown-menu');
             if (dropdown) {
                 import(
-                    /*webpackChunkName: "modules/messageTemplates/fillDropdown"*/ '../../../messageTemplates/assets/fillDropdown'
+                    /*webpackChunkName: "modules/messageTemplates/conversations/fillDropdown"*/ '../../../messageTemplates/assets/conversations/fillDropdown'
                 ).then(async ({ default: fillDropdown }) =>
                     fillDropdown(
                         (
@@ -262,11 +262,11 @@ export default Vue.extend<
                         ({
                             value: templates,
                         }: {
-                            value: MessageTemplate[];
+                            value: ConversationMessageTemplate[];
                         }) => {
                             this.subject.value = templates[preselected].subject;
                             import(
-                                /*webpackChunkName: "modules/messageTemplates/modifyMessage"*/ '../../../messageTemplates/assets/modifyMessage'
+                                /*webpackChunkName: "modules/messageTemplates/conversations/modifyMessage"*/ '../../../messageTemplates/assets/conversations/modifyMessage'
                             ).then(
                                 async ({ default: modifyMessage }) =>
                                     (this.content.value = modifyMessage(

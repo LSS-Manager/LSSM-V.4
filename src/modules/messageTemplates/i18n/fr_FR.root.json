@@ -1,12 +1,18 @@
 {
-    "description": "Créez des messages prédéfinis pour la messagerie privée.",
+    "description": "Créez des messages prédéfinis pour la messagerie privée et dans le chat.",
     "name": "Messages Prédéfinis",
     "settings": {
-        "name": "Nom",
-        "subject": "Subjet",
-        "template": "Modèle (variables (voir le wiki): {{username}}, {{today[+n]}})",
+        "chatTemplates": {
+            "description": "Messages for alliance-chat",
+            "name": "Name",
+            "text": "Message",
+            "title": "Chat-Messages"
+        },
         "templates": {
             "description": "Des variables peuvent être utilisées dans les modèles de messages. Voir le <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a> pour leur description.",
+            "name": "Nom",
+            "subject": "Subjet",
+            "template": "Modèle (variables (voir le wiki): {{username}}, {{today[+n]}})",
             "title": "Modèles"
         }
     }
