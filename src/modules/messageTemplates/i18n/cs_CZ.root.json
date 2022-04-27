@@ -1,0 +1,19 @@
+{
+    "description": "Připravte si vlastní šablony textů pro použití v soukromé poště či v aliančním chatu.",
+    "name": "Šablony textů",
+    "settings": {
+        "chatTemplates": {
+            "description": "Šablony textů do aliančního chatu",
+            "name": "Název",
+            "text": "Text",
+            "title": "Texty do chatu"
+        },
+        "templates": {
+            "description": "Je možné použít předdefinované hodnoty. Podívejte se na naší <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "name": "Název",
+            "subject": "Předmět",
+            "template": "Šablony (předdefinované hodnoty (prozkoumej wiki): {{username}}, {{today[+n]}})",
+            "title": "Šablony pro soukromou poštu"
+        }
+    }
+}
