@@ -52,6 +52,6 @@ Durch diese Statistiken ist das Rückschließen auf einzelne Datensätze **nicht
 ## Erhebung von Metadaten durch Drittanbieter
 
 Der LSSM selber nutzt keine Tools, Libraries, Hilfsmittel o.ä., welche Metadaten der Nutzer erheben könnten.
-Mit der Nutzung eines Browsers und einem userscript-Manager, wie z.B. [Tampermonkey](https://tampermonkey.net) ist eine Erhebung von Metadaten durch diese nicht ausgeschlossen.
+Mit der Nutzung eines Browsers und eines Userscript-Managers, wie z.B. [Tampermonkey](https://tampermonkey.net) ist eine Erhebung von Metadaten durch diese nicht ausgeschlossen.
 Sämtliche dieser erhobenen Daten sind für das LSSM-Team nicht zugänglich oder einsehbar und können durch den LSSM auch nicht unterbunden, begünstigt oder manipuliert werden.
 Informationen über die Datenerhebung der jeweils genutzten Software ist den Informationsquellen der jeweiligen Software zu entnehmen.
