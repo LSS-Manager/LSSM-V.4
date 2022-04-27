@@ -21,7 +21,7 @@
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
         "@fortawesome/free-solid-svg-icons": "^6.1.1",
         "@fortawesome/vue-fontawesome": "^2.0.6",
-        "axios": "^0.27.0",
+        "axios": "^0.27.1",
         "broadcast-channel": "^4.11.0",
         "he": "^1.2.0",
         "highcharts": "^10.0.0",
