@@ -11,16 +11,16 @@
     },
     "apps": "Apps",
     "containers": {
-        "danger": "Danger",
+        "danger": "Gevaarlijk",
         "tip": "Tip",
-        "warning": "Warning"
+        "warning": "Waarschuwing"
     },
     "description": "De Wiki voor LSS-Manager V.4",
     "edit": "Bewerk pagina",
     "footer": {
         "contributors": "Contributors",
         "edit": "Bewerk pagina",
-        "lastUpdated": "Last Updated"
+        "lastUpdated": "Laatst geüpdated"
     },
     "head": {
         "alpha": "Deze module is nog in zijn absolute begin en is momenteel alleen beschikbaar voor Beta testers!",
@@ -137,8 +137,8 @@
         }
     },
     "pwa": {
-        "button": "Refresh",
-        "message": "New content is available."
+        "button": "Ververs",
+        "message": "Nieuwe content is beschikbaar."
     },
     "readme": {
         "serverStatus": {
@@ -146,26 +146,26 @@
             "lssm": "LSSM server status"
         }
     },
-    "search": "search Wiki",
+    "search": "Zoek in Wiki",
     "tables": {
         "browser": "Browser",
         "download": "Download",
         "link": "Link",
-        "minVersion": "minimum Version"
+        "minVersion": "minimum versie"
     },
     "v3": {
         "modules": {},
         "tables": {
-            "annotations": "Notes",
-            "changes": "Changes",
+            "annotations": "Notities",
+            "changes": "Wijzigingen",
             "description": "Beschrijving",
-            "feature": "Feature",
+            "feature": "Functie",
             "module": "Module",
-            "setting": "Setting"
+            "setting": "Instelling"
         },
         "v4annotations": {
-            "asyncButtons": "This is still in development, more features are being integrated with the time.",
-            "lssmaql": "An experiment, still in a very unstable alpha phase."
+            "asyncButtons": "Deze module is nog in ontwikkeling, meer functies worden toegevoegd.",
+            "lssmaql": "Een experiment, nog steeds in een erg onstabiele alpha fase."
         }
     }
 }

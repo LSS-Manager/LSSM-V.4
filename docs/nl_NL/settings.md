@@ -34,7 +34,7 @@ Probeer je eigen formaat hier en zie een live voorbeeld! Zie informatie voor de 
 ### Variables
 <momentjs-variables/>
 
-### Locale short forms
+### Lokale korte varianten
 <momentjs-shorts/>
 
 ### Normale Tekst
