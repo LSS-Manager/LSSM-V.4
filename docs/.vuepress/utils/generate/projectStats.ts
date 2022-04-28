@@ -83,8 +83,8 @@ const fullClocResult = `
         relativeClocStats.header.elapsed_seconds
     ).toFixed(2)}s*
 
-|Language|files|blank (%)|comment (%)|code (%)|total|
-|:-------|----:|--------:|----------:|-------:|----:|
+|Language|files|blank (%)|comment (%)|code (%)|total|% of lines|
+|:-------|----:|--------:|----------:|-------:|----:|---------:|
 ${Object.entries(absoluteClocStats)
     .filter(([key]) => !['header', 'SUM'].includes(key))
     .sort(([, { code: codeA }], [, { code: codeB }]) => codeB - codeA)
@@ -105,6 +105,9 @@ ${Object.entries(absoluteClocStats)
                             relativeClocStats[lang].comment_pct)
                 )}%)`,
                 intToLocaleNum(blank + comment + code),
+                `${floatToLocaleNum(
+                    ((blank + comment + code) / clocHeaderStats.n_lines) * 100
+                )}%`,
             ].join('|')}|`
     )
     .join('\n')}
@@ -122,6 +125,7 @@ ${Object.entries(absoluteClocStats)
             100 - (relativeClocStats.SUM.blank + relativeClocStats.SUM.comment)
         )}%)`,
         intToLocaleNum(clocHeaderStats.n_lines),
+        '100%',
     ]
         .map(c => `**${c}**`)
         .join('|')}|
