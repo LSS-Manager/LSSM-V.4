@@ -89,27 +89,41 @@ ${Object.entries(absoluteClocStats)
     .sort(([, { code: codeA }], [, { code: codeB }]) => codeB - codeA)
     .map(
         ([lang, { nFiles, blank, comment, code }]) =>
-            `|${lang}|${nFiles}|${intToLocaleNum(blank)} (${floatToLocaleNum(
-                relativeClocStats[lang].blank_pct
-            )}%)|${intToLocaleNum(comment)} (${floatToLocaleNum(
-                relativeClocStats[lang].comment_pct
-            )}%)|${intToLocaleNum(code)} (${floatToLocaleNum(
-                100 -
-                    (relativeClocStats[lang].blank_pct +
-                        relativeClocStats[lang].comment_pct)
-            )}%)|${intToLocaleNum(blank + comment + code)}|`
+            `|${[
+                lang,
+                intToLocaleNum(nFiles),
+                `${intToLocaleNum(blank)} (${floatToLocaleNum(
+                    relativeClocStats[lang].blank_pct
+                )}%`,
+                `${intToLocaleNum(comment)} (${floatToLocaleNum(
+                    relativeClocStats[lang].comment_pct
+                )}%)`,
+                `${intToLocaleNum(code)} (${floatToLocaleNum(
+                    100 -
+                        (relativeClocStats[lang].blank_pct +
+                            relativeClocStats[lang].comment_pct)
+                )}%)`,
+                intToLocaleNum(blank + comment + code),
+            ].join('|')}|`
     )
     .join('\n')}
 |||||||
-|**SUM**|**${absoluteClocStats.SUM.nFiles}**|**${intToLocaleNum(
-        absoluteClocStats.SUM.blank
-    )} (${floatToLocaleNum(relativeClocStats.SUM.blank)}%)**|**${intToLocaleNum(
-        absoluteClocStats.SUM.comment
-    )} (${floatToLocaleNum(
-        relativeClocStats.SUM.comment
-    )}%)**|**${intToLocaleNum(absoluteClocStats.SUM.code)} (${floatToLocaleNum(
-        100 - (relativeClocStats.SUM.blank + relativeClocStats.SUM.comment)
-    )}%)**|**${intToLocaleNum(clocHeaderStats.n_lines)}**|
+|${[
+        'SUM',
+        intToLocaleNum(absoluteClocStats.SUM.nFiles),
+        `${intToLocaleNum(absoluteClocStats.SUM.blank)} (${floatToLocaleNum(
+            relativeClocStats.SUM.blank
+        )}%)`,
+        `${intToLocaleNum(absoluteClocStats.SUM.comment)} (${floatToLocaleNum(
+            relativeClocStats.SUM.comment
+        )}%)`,
+        `${intToLocaleNum(absoluteClocStats.SUM.code)} (${floatToLocaleNum(
+            100 - (relativeClocStats.SUM.blank + relativeClocStats.SUM.comment)
+        )}%)`,
+        intToLocaleNum(clocHeaderStats.n_lines),
+    ]
+        .map(c => `**${c}**`)
+        .join('|')}|
 `.trim()
 )}</div></template>
 
