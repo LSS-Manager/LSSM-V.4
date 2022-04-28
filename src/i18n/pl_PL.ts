@@ -22,6 +22,13 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        appendableList: {
+            unique: {
+                title: 'podwójna wartość',
+                text: 'W kolumnie {title} nie może być zduplikowanych wartości. Wartość {value} już istnieje!',
+                confirm: 'Potwierdź',
+            },
+        },
         resetWarning: {
             title: 'Resetuj ustawienia',
             text: 'Czy na pewno chcesz zresetować ustawienia do wartości domyślnych? Tego nie można cofnąć!',
@@ -46,14 +53,33 @@ const modules = {
             true: 'On',
             false: 'Off',
         },
+        locationSelect: {
+            location: 'Wybierz pozycję',
+            zoom: 'Wybierz pozycję i zoom',
+            sync: 'użyj aktualnej pozycji',
+        },
     },
 } as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
     error: {
-        title: 'LSS Manager: Błąd',
+        title: 'Menedżer LSS: błąd',
         msg: 'Jeśli ten błąd występuje często, zgłoś go zespołowi LSSM!',
+        requestIssue: {
+            title: 'Błędne żądanie: Status {status}',
+            text: `Ouch, unfortunately an error occurred with this server request:<br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
+<br>
+Please try to perform the desired action again.<br>
+If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
+            close: 'Odrzuć',
+        },
     },
     warnings: {
         version: {
@@ -82,13 +108,33 @@ export default {
             title: 'Allow Telemetry',
         },
         iconBg: {
-            description: 'Change the background of LSSM-Icon!',
-            title: 'LSSM-Icon Background',
+            description: 'Zmień tło likony LSSM!',
+            title: 'Tło likony LSSM',
         },
         iconBgAsNavBg: {
             description:
-                'Color the whole navbar in the color of LSSM-Icon Background!',
-            title: 'colorize navbar',
+                'Pokoloruj cały pasek nawigacyjny w kolorze tła ikony LSSM!',
+            title: 'Pokoloruj pasek nawigacyjny',
+        },
+        loadingIndicator: {
+            description:
+                'Jeśli to ustawienie jest aktywne, LSSM wyświetla małe kółko ładowania w prawym dolnym rogu, gdy ładuje własne pliki.',
+            title: 'Pokaż postęp ładowania',
+        },
+        osmDarkTooltip: {
+            description:
+                'To ustawienie przyciemnia podpowiedzi na mapie, jeśli włączyłeś tryb ciemny.',
+            title: 'Ciemne podpowiedzi na mapie',
+        },
+        osmDarkControls: {
+            description:
+                'To ustawienie przyciemnia przyciski na mapie, jeśli włączyłeś tryb ciemny.',
+            title: 'Ciemne przyciski na mapie',
+        },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menu jako podmenu',
+            description:
+                'Przenosi menu LSSM V3 do menu V4, aby zaoszczędzić trochę miejsca na pasku nawigacyjnym.',
         },
     },
     vehicles: {
