@@ -22,6 +22,8 @@ import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
 
 const BASE = '/v4/docs/';
+const DOCS_URL = new URL(config.server);
+DOCS_URL.pathname = BASE;
 
 const VUEPRESS_PATH = __dirname;
 const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
@@ -140,7 +142,7 @@ run(
     path.join(VUEPRESS_PATH, 'public', 'manifest.webmanifest'),
     $t('en_US', 'description').toString(),
     'LSS-Manager V.4 Wiki',
-    `${config.server}${BASE.replace(/^\//u, '')}`
+    DOCS_URL.toString()
 );
 
 export default defineUserConfig({
