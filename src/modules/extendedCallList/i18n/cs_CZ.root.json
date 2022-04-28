@@ -74,6 +74,7 @@
             "title": "Sdílet misi: Minimum kreditů"
         },
         "shareMissionsTypes": {
+            "alliance": "Alliance missions (only for Share-Alliance-Post)",
             "description": "Nastavte, u kterých misí chcete tlačítko pro sdílení.",
             "own": "Akutní výjezdy",
             "sicherheitswache": "Plánované mise",

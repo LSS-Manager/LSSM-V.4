@@ -215,6 +215,7 @@
             "title": "Einsätze teilen: Minimale Credits"
         },
         "shareMissionsTypes": {
+            "alliance": "Verbandseinsätze (nur für Share-Alliance-Post)",
             "description": "Hiermit kannst du festlegen, dass der Knopf zum Teilen von Einsätzen nur bei bestimmten Einsätzen angezeigt werden soll.",
             "own": "Notfall-Einsätze",
             "sicherheitswache": "Geplante Einsätze",

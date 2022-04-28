@@ -184,6 +184,7 @@
             "title": "Share missions: minimum credits"
         },
         "shareMissionsTypes": {
+            "alliance": "Alliance missions (only for Share-Alliance-Post)",
             "description": "Set up which of the calls you want to enable the share button for.",
             "own": "Emergency-Calls",
             "sicherheitswache": "Planned missions",
