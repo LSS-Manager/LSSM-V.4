@@ -48,7 +48,7 @@ sidebarDepth: 2
                 .readFileSync(filePath)
                 .toString()
                 .replace(
-                    /(?<=^-+\n(?:.*\n)*?)lang:(?:.*)?(?=\n(?:.*\n)*?-+\n)/u,
+                    /(?<=^-+\n(?:.*\n)*?)lang:.*(?=\n(?:.*\n)*?-+\n)/u,
                     `lang: ${lang}`
                 )
         );
