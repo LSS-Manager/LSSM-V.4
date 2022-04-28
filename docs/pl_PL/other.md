@@ -44,8 +44,9 @@ Ogromne podziękowania kierujemy do naszych tłumaczy-wolontariuszy, którzy pom
 
 Aby oddać trochę uznania tłumaczom, stworzyliśmy listę tutaj:
 <translators/>
-:::tip ❤️
-Thank you too for LSSM. 
+
+:::tip ♥️️
+Thank you too for LSSM.
 :::
 
 # Podziękowania!
