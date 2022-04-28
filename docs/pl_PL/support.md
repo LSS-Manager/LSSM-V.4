@@ -1,5 +1,5 @@
 ---
-title: Support 👨‍💻
+title: Wsparcie 👨‍💻
 lang: pl_PL
 sidebarDepth: 2
 ---

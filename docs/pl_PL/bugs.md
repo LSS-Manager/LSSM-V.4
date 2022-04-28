@@ -1,5 +1,5 @@
 ---
-title: Known Bugs 🐛
+title: Znane błędy 🐛
 lang: pl_PL
 sidebarDepth: 2
 ---

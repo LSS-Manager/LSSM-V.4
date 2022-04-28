@@ -1,5 +1,5 @@
 ---
-title: Metadata
+title: Metadane
 lang: pl_PL
 sidebarDepth: 0
 ---
@@ -21,7 +21,7 @@ Używając `LSSM` (Leitstellenspiel Manager, userscript for the browser) użytko
 * Wersja LSSM
 
 Dane te są wykorzystywane do ulepszania rozszerzenia, a także do kierowania rozwojem istniejących lub przyszłych modułów.
- Stanowią też podstawę do tworzenia ciekawych statystyk, które mogą być publikowane np. jako newsy (więcej informacji patrz [poniżej](#collection-of-metadata-by-third-party-providers)).
+ Stanowią też podstawę do tworzenia ciekawych statystyk, które mogą być publikowane np. jako newsy (więcej informacji patrz [poniżej](#zbieranie-metadanych-przez-zewntrznych-dostawcw)).
 
 **Użytkownik może (dez)aktywować gromadzenie tych danych w dowolnym momencie w [ustawieniach](settings.md).**
 

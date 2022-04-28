@@ -1,5 +1,5 @@
 ---
-title: Other
+title: Inne
 lang: pl_PL
 sidebarDepth: 2
 ---
