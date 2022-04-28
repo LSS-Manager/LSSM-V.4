@@ -68,7 +68,8 @@ const relativeClocStats: RelativeClocResult = JSON.parse(
 
 const clocHeaderStats = absoluteClocStats.header;
 
-const intToLocaleNum = (num: number) => `{{parseInt("${num}").toLocaleString()}}`;
+const intToLocaleNum = (num: number) =>
+    `{{parseInt("${num}").toLocaleString()}}`;
 const floatToLocaleNum = (num: number, fixed = 2) =>
     `{{parseFloat("${num.toFixed(fixed)}").toLocaleString()}}`;
 
