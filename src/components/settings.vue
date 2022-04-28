@@ -725,4 +725,7 @@ button:not([disabled]):hover > #settings-changelist
 
 body.dark #settings-changelist
     background-color: #505050
+
+body:not(.dark) #settings-changelist
+    color: black
 </style>
