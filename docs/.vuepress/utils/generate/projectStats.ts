@@ -68,9 +68,9 @@ const relativeClocStats: RelativeClocResult = JSON.parse(
 
 const clocHeaderStats = absoluteClocStats.header;
 
-const intToLocaleNum = (num: number) => `{{(${num}).toLocaleString()}}`;
+const intToLocaleNum = (num: number) => `{{parseInt("${num}").toLocaleString()}}`;
 const floatToLocaleNum = (num: number, fixed = 2) =>
-    `{{(${parseFloat(num.toFixed(fixed))}).toLocaleString()}}`;
+    `{{parseFloat("${num.toFixed(fixed)}").toLocaleString()}}`;
 
 const fullClocResult = `
 <template><div>${sdConverter.makeHtml(
@@ -94,7 +94,7 @@ ${Object.entries(absoluteClocStats)
                 intToLocaleNum(nFiles),
                 `${intToLocaleNum(blank)} (${floatToLocaleNum(
                     relativeClocStats[lang].blank_pct
-                )}%`,
+                )}%)`,
                 `${intToLocaleNum(comment)} (${floatToLocaleNum(
                     relativeClocStats[lang].comment_pct
                 )}%)`,
