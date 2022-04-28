@@ -13,6 +13,7 @@ const modules = {
             close: 'Zamknij',
             saveAndExit: 'Zapisz i wyjdź',
             exit: 'Wyjdź bez zapisywania',
+            abort: 'Anuluj',
         },
     },
     settings: {
