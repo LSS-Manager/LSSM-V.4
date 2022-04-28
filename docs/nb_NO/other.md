@@ -71,4 +71,12 @@ Tenk deg hvor lenge en feil i LSSM ville vare hvis ingen rapporterte det - vi vi
 ### Hver enkelt bruker
 Hver bruker gir oss alltid motivasjonen til å fortsette og utvide og forbedre LSSM mer og mer.
 
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.no

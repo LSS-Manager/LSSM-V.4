@@ -122,6 +122,11 @@ LANGS.forEach(lang => {
     };
 });
 
+const statsComponentsPath = path.join(DOCS_COMPONENTS_PATH, '.temp', 'stats');
+fs.mkdirSync(statsComponentsPath, { recursive: true });
+const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
+run('generate/projectStats', ROOT_PATH, VUEPRESS_PATH, clocStatsPath);
+
 export default defineUserConfig({
     // site config
     base: BASE,
@@ -266,6 +271,7 @@ export default defineUserConfig({
                     DOCS_COMPONENTS_PATH,
                     'variable-code.vue'
                 ),
+                'stats-cloc': clocStatsPath,
             },
         }),
     ],

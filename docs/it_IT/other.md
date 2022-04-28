@@ -71,4 +71,12 @@ Immaginate per quanto tempo un problema in LSSM potrebbe durare se nessuno lo se
 ### Ogni singolo utente
 Ogni utente ci dà sempre la motivazione per andare avanti, espandere e migliorare LSSM sempre di più.
 
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it

@@ -71,4 +71,12 @@ Stel je voor hoe lang een storing in LSSM zou duren als niemand het zou melden -
 ### Elke gebruiker
 Elke gebruiker geeft ons altijd de motivatie om door te gaan en LSSM steeds meer uit te breiden en te verbeteren.
 
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
+
 [Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl

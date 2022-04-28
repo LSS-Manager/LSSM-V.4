@@ -5,6 +5,7 @@ type Util =
     | 'generate/bugs'
     | 'generate/home'
     | 'generate/modules'
+    | 'generate/projectStats'
     | 'generate/readmes'
     | 'generate/versions';
 
