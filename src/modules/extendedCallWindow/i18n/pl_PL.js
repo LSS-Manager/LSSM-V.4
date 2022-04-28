@@ -91,6 +91,19 @@ module.exports = {
         water: 'litrów wody',
         foam: 'litrów piany gaśniczej',
         staffPrefix: ['Potrzeba jeszcze'],
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            48: [0, 1, 3, 4, 10, 28, 29],
+            49: [0, 1, 3, 4, 7, 28, 29],
+            50: [0, 1, 3, 4, 7, 28, 29],
+            51: [0, 1, 3, 4, 28, 29],
+            52: [0, 1, 3, 4, 10, 28, 29],
+            53: [0, 1, 3, 4, 28, 29, 35],
+            54: [0, 1, 3, 4, 19, 20, 24, 28, 29],
+            60: [0, 1, 3, 4, 28, 29, 58, 59],
+            62: [0, 1, 3, 4, 29, 28, 58, 59],
+            63: [0, 1, 3, 4, 29, 28, 58, 59],
+        },
         staff: {
             [/^policjanci SPKP$/u]: [15, 18],
             [/^strażaków$/u]: [
@@ -105,32 +118,33 @@ module.exports = {
         },
         vehiclesByRequirement: {
             [/^– SH lub SD$/u]: [2, 13],
-            [/^– Rchem$/u]: [41, 7],
+            [/^– Rchem$/u]: [41, 7, 49, 50],
             [/^Ambulanse? P$/u]: [5, 31],
             [/^cystern(a|\(-y\)) z wodą?$/u]: [47, 6, 61, 64],
             [/^Dźwig SP$/u]: [25],
             [/^Helikopter(ów)? Policyjny(ch)?$/u]: [14],
             [/^Jednost(ek|ka) K-9?$/u]: [16],
-            [/^łod(ź|zi\(-e\))$/u]: [26],
+            [/^łod(ź|zi\(-e\))$/u]: [26, 54],
             [/^pojazdów SPKP$/u]: [15, 18],
             [/^radiowóz OPI$/u]: [8],
             [/^Radiowoz(u|ów) WRD?$/u]: [30],
             [/^samoch(ód|ody\(-ów\)) pożarnicz(y|e\(-ych\))?$/u]: [
-                0, 1, 29, 55, 56, 38, 12, 39, 44,
+                0, 1, 29, 55, 56, 38, 12, 39, 44, 48, 63,
             ],
             [/^Samoch(ód|odów) Ratownictwa Technicznego$/u]: [
                 4, 38, 12, 39, 37, 40,
             ],
             [/^samoch(ód|ody\(-ów\)) dowodzenia i łączności?$/u]: [43, 11],
             [/^Samoch(ód|odów) Ratownictwa wysokościowego$/u]: [27],
-            [/^Samoch(ód|odów) wężowy(ch)?$/u]: [61, 64],
-            [/^Samoch(ód|odów) ze zbiornikiem na pianę?$/u]: [
-                55, 56, 57, 58, 59, 44,
+            [/^Samoch(ód|odów) wężowy(ch)?$/u]: [61, 62, 64],
+            [/^Samoch(ód|y) ze zbiornikiem na pianę?$/u]: [
+                55, 56, 57, 58, 59, 44, 60,
             ],
             [/^Samoch(ód|odów) WOPR$/u]: [19],
             [/^Samoch(ód|odów) SLRw$/u]: [24],
             [/^SLOp lub SLRr$/u]: [3, 28],
-            [/^SPGaz$/u]: [10, 42],
+            [/^SPGaz$/u]: [10, 42, 52],
+            [/^Sprzęt przeciwpowodziowy$/u]: [51],
         },
     },
     tailoredTabs: {

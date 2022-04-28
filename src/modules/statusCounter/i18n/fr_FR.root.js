@@ -8,6 +8,11 @@ module.exports = {
             description:
                 'Pourcentages arrondis - si elle est affichée - avec autant de décimales que nécessaire.',
         },
+        percentageInBrackets: {
+            title: 'Pourcentages entre parenthèses ',
+            description:
+                'Met les pourcentages entre parenthèses, par exemple (10%)',
+        },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
                 [
