@@ -21,7 +21,7 @@ En utilisant le `LSSM` (Leitstellenspiel Manager, extension pour le navigateur),
 * LSSM version
 
 Ces données sont utilisées pour améliorer l'extension ainsi que pour guider le développement de modules existants ou futurs.
-Elles constituent également la base de statistiques passionnantes, qui peuvent être publiées, par exemple sous forme de news (pour plus d'informations, voir [ci-dessous](#collection-of-metadata-by-third-party-providers)).
+Elles constituent également la base de statistiques passionnantes, qui peuvent être publiées, par exemple sous forme de news (pour plus d'informations, voir [ci-dessous](#collecte-de-métadonnées-par-des-fournisseurs-tiers)).
 
 **L'utilisateur peut (dé)activer la collecte de ces données à tout moment dans les [paramètres] (settings.md).**
 
