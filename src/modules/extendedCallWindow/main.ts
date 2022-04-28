@@ -213,13 +213,15 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
             {
                 name: string;
                 vehicleTypes: (number | string)[];
+                color: `#${string}`;
             }[]
         >
     >('tailoredTabs');
     tailoredTabSettings.value = tailoredTabSettings.value.map(
-        ({ name, vehicleTypes }) => ({
+        ({ name, vehicleTypes, color }) => ({
             name,
             vehicleTypes: vehicleTypes.map(t => t.toString()),
+            color,
         })
     );
     if (

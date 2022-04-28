@@ -1,12 +1,12 @@
 ---
 title: Metadata
 lang: pl_PL
-sidebarDepth: 2
+sidebarDepth: 0
 ---
 
 # Zbieranie metadanych użytkownika
 
-Używając `LSSM` (Leitstellenspiel Manager, userscript the browser) użytkownik wyraża zgodę na zbieranie metadanych. Przechowywanie będą następujące informacje:
+Używając `LSSM` (Leitstellenspiel Manager, userscript for the browser) użytkownik wyraża zgodę na zbieranie metadanych. Przechowywanie będą następujące informacje:
 * Unikalny identyfikator użytkownika (ID)
   * w tym unikalny "Sekret" (unikalny, niepubliczny ciąg znaków do identyfikacji)
 * Nazwa użytkownika
@@ -49,15 +49,9 @@ Zespół LSSM może publikować następujące statystyki telemetryczne:
 
 Wnioskowanie do poszczególnych rekordów jest **nie** możliwe dzięki tym statystykom.
 
-## Collection of metadata by third-party providers
+## Zbieranie metadanych przez zewnętrznych dostawców
 
-LSSM itself does not use any tools, libraries, utilities or similar, which could collect metadata of the users.
-With the use of a browser and an userscript manager, such as [Tampermonkey](https://tampermonkey.net), a collection of metadata of these may not be avoided.
-All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
-Information about the data collection of the respective software used can be found in the information sources of the respective software.
-Zbieranie metadanych przez zewnętrznych dostawców
-
- Sam LSSM nie używa żadnych narzędzi, bibliotek, narzędzi itp., które mogłyby zbierać metadane od użytkowników.
- W przypadku korzystania z przeglądarki i menedżera skryptów użytkownika, takiego jak [Tampermonkey](https://tampermonkey.net), nie można uniknąć gromadzenia ich metadanych.
- Wszystkie te zebrane dane nie są dostępne ani widoczne dla zespołu LSSM i nie można im zapobiegać, faworyzować ani manipulować przez LSSM.
- Informacje o gromadzeniu danych przez odpowiednie oprogramowanie można znaleźć w źródłach informacji odpowiedniego oprogramowania.
+Sam LSSM nie używa żadnych narzędzi, bibliotek, narzędzi itp., które mogłyby zbierać metadane od użytkowników.
+W przypadku korzystania z przeglądarki i menedżera skryptów użytkownika, takiego jak [Tampermonkey](https://tampermonkey.net), nie można uniknąć gromadzenia ich metadanych.
+Wszystkie te zebrane dane nie są dostępne ani widoczne dla zespołu LSSM i nie można im zapobiegać, faworyzować ani manipulować przez LSSM.
+Informacje o gromadzeniu danych przez odpowiednie oprogramowanie można znaleźć w źródłach informacji odpowiedniego oprogramowania.

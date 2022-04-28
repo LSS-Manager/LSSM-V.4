@@ -118,7 +118,7 @@ module.exports = {
             [/^Barc(a|he)$/u]: [25],
             [/^Mezz[io] AIB?$/u]: [0, 9, 28, 29, 30, 31, 32, 33],
             [/^Velivol[io] Antincendio?$/u]: [34, 35],
-            [/^DOS$/u]: [11, 31],
+            [/^DOS$/u]: [31],
             [/^DTS$/u]: [27],
         },
     },

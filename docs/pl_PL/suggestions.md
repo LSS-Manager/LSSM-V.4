@@ -4,13 +4,13 @@ lang: pl_PL
 sidebarDepth: 2
 ---
 
-# Suggestions :bulb:
+# Sugestie :bulb:
 :::tip
-Please think out suggestions as thoroughly as possible before suggesting. This helps us to understand it more efficiently.
+Prosimy o jak najdokładniejsze przemyślenie sugestii przed zasugerowaniem. To pomaga nam lepiej ją zrozumieć.
 :::
 
-## via Discord
-On our <discord/> you can make suggestions in the <discord-channel channel="suggestions"/> channel.
+## przez Discorda
+Na naszym <discord/> możesz zgłaszać sugestie na kanale <discord-channel channel="suggestions"/>.
 
-## on GitHub
-You may also open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if this suggestion already exists and if so, add to it rather than creating a new one.
+## na GitHubie
+Możesz również otworzyć problem na <a :href="$theme.variables.github + '/issues'" target="_blank">GitHubie</a>. Sprawdź, czy ta sugestia już istnieje, a jeśli tak, dodaj swoją do niej, zamiast tworzyć nową.
