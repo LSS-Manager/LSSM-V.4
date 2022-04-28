@@ -129,7 +129,7 @@ module.exports = {
             [/^radiowóz OPI$/u]: [8],
             [/^Radiowoz(u|ów) WRD?$/u]: [30],
             [/^samoch(ód|ody\(-ów\)) pożarnicz(y|e\(-ych\))?$/u]: [
-                0, 1, 29, 55, 56, 38, 12, 39, 44, 48,
+                0, 1, 29, 55, 56, 38, 12, 39, 44, 48, 63,
             ],
             [/^Samoch(ód|odów) Ratownictwa Technicznego$/u]: [
                 4, 38, 12, 39, 37, 40,
@@ -137,7 +137,7 @@ module.exports = {
             [/^samoch(ód|ody\(-ów\)) dowodzenia i łączności?$/u]: [43, 11],
             [/^Samoch(ód|odów) Ratownictwa wysokościowego$/u]: [27],
             [/^Samoch(ód|odów) wężowy(ch)?$/u]: [61, 62, 64],
-            [/^Samoch(ód|odów) ze zbiornikiem na pianę?$/u]: [
+            [/^Samoch(ód|y) ze zbiornikiem na pianę?$/u]: [
                 55, 56, 57, 58, 59, 44, 60,
             ],
             [/^Samoch(ód|odów) WOPR$/u]: [19],
