@@ -18,14 +18,14 @@ En utilisant le `LSSM` (Leitstellenspiel Manager, extension pour le navigateur),
 * La langue du jeux 
   *  Y compris si vous utilisez la version police ou pas
 * Le type de carte actif (OSM ou Mapkit)
-* LSSM version
+* la version LSSM
 
 Ces données sont utilisées pour améliorer l'extension ainsi que pour guider le développement de modules existants ou futurs.
 Elles constituent également la base de statistiques passionnantes, qui peuvent être publiées, par exemple sous forme de news (pour plus d'informations, voir [ci-dessous](#collecte-de-métadonnées-par-des-fournisseurs-tiers)).
 
-**L'utilisateur peut (dé)activer la collecte de ces données à tout moment dans les [paramètres] (settings.md).**
+**L'utilisateur peut (dés)activer la collecte de ces données à tout moment dans les [paramètres] (settings.md).**
 
-**La suppression des données déjà collectées peut être demandée à tout moment en envoyant un message aux développeurs par l'un des moyens énumérés dans [support](support.md) ou en envoyant un e-mail à `developer[at]lss-manager.de`.**
+**La suppression des données déjà collectées peut être demandée à tout moment en envoyant un message aux développeurs par l'un des moyens énumérés sur [support](support.md) ou en envoyant un e-mail à `developer[at]lss-manager.de`.**
 
 Chaque fois que la page principale du jeu est ouverte, les données télémétriques (si elles sont activées) sont envoyées au serveur LSSM.
 Si un enregistrement de données existe déjà pour l'utilisateur, il sera écrasé, l'historique des données individuelles ne sera pas sauvegardé.
