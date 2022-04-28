@@ -1,6 +1,6 @@
 ---
 titolo: Segnalazione Bug
-lang: it-IT
+lang: it_IT
 sidebarDepth: 2
 ---
 

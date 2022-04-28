@@ -1,6 +1,6 @@
 ---
 title: Metadata
-lang: es-ES
+lang: es_ES
 sidebarDepth: 0
 ---
 

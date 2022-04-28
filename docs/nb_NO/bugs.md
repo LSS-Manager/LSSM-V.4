@@ -1,6 +1,6 @@
 ---
 title: Known Bugs 🐛
-lang: nb-NO
+lang: nb_NO
 sidebarDepth: 2
 ---
 

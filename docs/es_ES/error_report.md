@@ -1,6 +1,6 @@
 ---
 title: Reportar errores
-lang: es-ES
+lang: es_ES
 sidebarDepth: 2
 ---
 

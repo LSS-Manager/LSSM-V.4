@@ -1,6 +1,6 @@
 ---
 titel: Rapportera fel
-lang: sv-SE
+lang: sv_SE
 sidebarDepth: 2
 ---
 

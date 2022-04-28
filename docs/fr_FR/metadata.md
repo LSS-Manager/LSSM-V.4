@@ -1,6 +1,6 @@
 ---
 title: Métadonnées
-lang: fr-FR
+lang: fr_FR
 sidebarDepth: 0
 ---
 

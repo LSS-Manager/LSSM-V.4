@@ -1,6 +1,6 @@
 ---
 title: Metadata
-lang: nl-NL
+lang: nl_NL
 sidebarDepth: 0
 ---
 

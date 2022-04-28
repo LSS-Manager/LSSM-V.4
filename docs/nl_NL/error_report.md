@@ -1,6 +1,6 @@
 ---
 title: Meld bugs
-lang: nl-NL
+lang: nl_NL
 sidebarDepth: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Metadane
-lang: pl-PL
+lang: pl_PL
 sidebarDepth: 0
 ---
 

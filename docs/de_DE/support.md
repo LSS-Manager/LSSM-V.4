@@ -1,6 +1,6 @@
 ---
 title: Support 👨‍💻
-lang: de-DE
+lang: de_DE
 sidebarDepth: 2
 ---
 

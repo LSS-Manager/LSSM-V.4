@@ -1,6 +1,6 @@
 ---
 title: Bug Conosciuti 🐛
-lang: it-IT
+lang: it_IT
 sidebarDepth: 2
 ---
 

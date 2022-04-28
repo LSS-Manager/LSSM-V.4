@@ -1,6 +1,6 @@
 ---
 title: Annet
-lang: nb-NO
+lang: nb_NO
 sidebarDepth: 2
 ---
 

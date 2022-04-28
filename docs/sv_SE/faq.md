@@ -1,6 +1,6 @@
 ---
 titel: FAQ ❓
-lang: sv-SE
+lang: sv_SE
 sidebarDepth: 3
 ---
 

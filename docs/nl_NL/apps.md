@@ -1,6 +1,6 @@
 ---
 title: ℹ️ Algemene infomatie over modules
-lang: nl-NL
+lang: nl_NL
 sidebarDepth: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: FAQ ❓
-lang: de-DE
+lang: de_DE
 sidebarDepth: 3
 ---
 

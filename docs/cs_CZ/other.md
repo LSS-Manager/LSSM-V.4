@@ -1,6 +1,6 @@
 ---
 title: Other
-lang: cs-CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 

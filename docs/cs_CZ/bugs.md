@@ -1,6 +1,6 @@
 ---
 title: Known Bugs 🐛
-lang: cs-CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 

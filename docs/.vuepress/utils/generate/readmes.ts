@@ -49,7 +49,7 @@ sidebarDepth: 2
                 .toString()
                 .replace(
                     /(?<=^-+\n(?:.*\n)*?)lang:(?:.*)?(?=\n(?:.*\n)*?-+\n)/u,
-                    `lang: ${lang.replace(/_/u, '-')}`
+                    `lang: ${lang}`
                 )
         );
     });

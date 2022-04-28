@@ -1,6 +1,6 @@
 ---
 title: Návrhy na zlepšení 💡
-lang: cs-CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 

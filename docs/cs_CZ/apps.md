@@ -1,6 +1,6 @@
 ---
 title: ℹ️ Základní informace o modulech
-lang: cs-CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 

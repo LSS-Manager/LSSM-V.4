@@ -1,6 +1,6 @@
 ---
 titolo: ℹ️ Informazioni generali sui moduli
-lang: it-IT
+lang: it_IT
 sidebarDepth: 2
 ---
 

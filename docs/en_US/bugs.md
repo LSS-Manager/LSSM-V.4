@@ -1,6 +1,6 @@
 ---
 title: Known Bugs 🐛
-lang: en-US
+lang: en_US
 sidebarDepth: 2
 ---
 

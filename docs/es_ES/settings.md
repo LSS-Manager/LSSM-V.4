@@ -1,6 +1,6 @@
 ---
 title: Ajustes ⚙️
-lang: es-ES
+lang: es_ES
 ---
 
 # Ajustes ⚙️

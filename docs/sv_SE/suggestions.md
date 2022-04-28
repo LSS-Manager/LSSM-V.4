@@ -1,6 +1,6 @@
 ---
 titel: Förslag 💡
-lang: sv-SE
+lang: sv_SE
 sidebarDepth: 2
 ---
 

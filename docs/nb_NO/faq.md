@@ -1,6 +1,6 @@
 ---
 title: FAQ ❓
-lang: nb-NO
+lang: nb_NO
 sidebarDepth: 3
 ---
 

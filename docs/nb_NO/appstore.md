@@ -1,6 +1,6 @@
 ---
 title: Appstore 🛒
-lang: nb-NO
+lang: nb_NO
 ---
 
 # Appstore :shopping_cart:

@@ -1,6 +1,6 @@
 ---
 title: Wsparcie 👨‍💻
-lang: pl-PL
+lang: pl_PL
 sidebarDepth: 2
 ---
 

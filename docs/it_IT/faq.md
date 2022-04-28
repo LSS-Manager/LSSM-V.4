@@ -1,6 +1,6 @@
 ---
 titolo: FAQ ❓
-lang: it-IT
+lang: it_IT
 sidebarDepth: 3
 ---
 

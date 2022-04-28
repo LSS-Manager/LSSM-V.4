@@ -1,6 +1,6 @@
 ---
 titel: Inställningar ⚙️
-lang: sv-SE
+lang: sv_SE
 ---
 
 # Inställningar ⚙️

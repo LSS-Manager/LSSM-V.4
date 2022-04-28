@@ -1,6 +1,6 @@
 ---
 title: Overig
-lang: nl-NL
+lang: nl_NL
 sidebarDepth: 2
 ---
 

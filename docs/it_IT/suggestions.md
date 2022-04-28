@@ -1,6 +1,6 @@
 ---
 titolo: Suggerimenti 💡
-lang: it-IT
+lang: it_IT
 sidebarDepth: 2
 ---
 

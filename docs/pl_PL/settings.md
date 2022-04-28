@@ -1,6 +1,6 @@
 ---
 title: Ustawienia ⚙️
-lang: pl-PL
+lang: pl_PL
 ---
 
 # Ustawienia ⚙️

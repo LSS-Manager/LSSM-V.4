@@ -1,6 +1,6 @@
 ---
 title: ℹ️ Allgemeines zu Modulen
-lang: de-DE
+lang: de_DE
 sidebarDepth: 2
 ---
 

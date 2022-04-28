@@ -1,6 +1,6 @@
 ---
 titre: FAQ ❓
-lang: fr-FR
+lang: fr_FR
 sidebarDepth: 3
 ---
 

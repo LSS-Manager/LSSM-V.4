@@ -1,6 +1,6 @@
 ---
 title: Vorschläge 💡
-lang: de-DE
+lang: de_DE
 sidebarDepth: 2
 ---
 
