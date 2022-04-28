@@ -10,7 +10,8 @@ module.exports = {
         },
         percentageInBrackets: {
             title: 'Percentages tussen haakjes',
-            description: 'Plaatst percentages tussen haakjes, bijvoorbeeld (10%)',
+            description:
+                'Plaatst percentages tussen haakjes, bijvoorbeeld (10%)',
         },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
