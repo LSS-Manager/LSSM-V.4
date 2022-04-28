@@ -48,6 +48,8 @@ Zudem kannst du dir die Farbe der Knöpfe anpassen:
 ### Einsätze teilen: Einsatztypen
 Wähle, ob die Knöpfe bei Notfalleinsätzen, bei Sicherheitswachen oder bei beiden erscheinen soll.
 
+Die Option `Verbandseinsätze` ist dafür gedacht, wenn man im Modul [Share-Alliance-Post](../shareAlliancePost/) die Einstellung `In Einsatzliste bleiben` aktiv hat.
+
 ### Einsätze teilen: Minimale Credits
 Nicht alle Einsätze möchte man freigeben, z.B. nur Einsätze, die im Schnitt mehr als 7.0000 Credits geben. Das kannst du über diese Einstellung regeln.
 

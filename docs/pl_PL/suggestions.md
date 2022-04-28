@@ -1,5 +1,5 @@
 ---
-title: Suggestions 💡
+title: Sugestie 💡
 lang: pl_PL
 sidebarDepth: 2
 ---

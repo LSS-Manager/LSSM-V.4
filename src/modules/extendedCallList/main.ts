@@ -1,6 +1,6 @@
 import type { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
 import type { AddStarrableButton } from './assets/starrableMissions/missionlist';
-import type { Message } from '../shareAlliancePost/main';
+import type { Message } from '../shareAlliancePost/assets/missionWindow';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Sort } from './assets/sort/callList';
 import type { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
@@ -151,6 +151,12 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                       })
                   ).value
                 : [];
+            const SAPStay: boolean =
+                activeModules.includes('shareAlliancePost') &&
+                (await LSSM.$store.dispatch('settings/getSetting', {
+                    moduleId: 'shareAlliancePost',
+                    settingId: 'stayInCallList',
+                }));
             const {
                 addShareBtn,
                 updateShareBtn,
@@ -165,13 +171,14 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                   ).default(
                       LSSM,
                       MODULE_ID,
-                      await getSetting<('' | 'sicherheitswache')[]>(
-                          'shareMissionsTypes'
-                      ),
+                      await getSetting<
+                          ('' | 'alliance' | 'sicherheitswache')[]
+                      >('shareMissionsTypes'),
                       await getSetting<number>('shareMissionsMinCredits'),
                       await getSetting<string>('shareMissionsButtonColor'),
                       enableSAP,
-                      sapMessages
+                      sapMessages,
+                      SAPStay
                   )
                 : { addShareBtn: null, updateShareBtn: null };
 

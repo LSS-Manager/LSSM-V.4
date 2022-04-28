@@ -106,6 +106,7 @@
             "title": "Del oppdrag: minimum kreditter"
         },
         "shareMissionsTypes": {
+            "alliance": "Alliance missions (only for Share-Alliance-Post)",
             "description": "Sett opp hvilke av oppdragene du vil aktivere deleknappen for.",
             "own": "Nødanrop",
             "sicherheitswache": "Planlagte oppdrag",

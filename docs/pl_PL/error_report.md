@@ -1,5 +1,5 @@
 ---
-title: Report Bugs
+title: Zgłaszanie błędów
 lang: pl_PL
 sidebarDepth: 2
 ---
