@@ -22,7 +22,7 @@ Door `LSSM` (Leitstellenspiel Manager, userscript voor de browser) te gebruiken,
 * LSSM versie
 
 Deze data wordt gebruikt om de extensie te verbeteren, maar ook als gids voor de ontwikkeling van bestaande of toekomstige modules.
-Ze zijn ook de basis voor spannende statistieken, welke gepubliceerd kunnen worden, bijvoorbeeld als nieuws (voor meer informatie, zie [onder](#Publiceren-van-statistieken)).
+Ze zijn ook de basis voor spannende statistieken, welke gepubliceerd kunnen worden, bijvoorbeeld als nieuws (voor meer informatie, zie [onder](#publiceren-van-statistieken)).
 
 **De gebruiker kan het verzamelen van deze data op elk moment (de)activeren in de [instellingen](settings.md).**
 
@@ -50,7 +50,7 @@ De volgende statistieken mogen door het LSSM team worden gepubliceerd:
 * Aantal huidige gebruiker per LSSM versie
 * Aantal huidige gebruikers voor elke beschikbare module
 
- Referen naar individuele gebruikers is **not** mogelijk door deze statistieken.
+ Referen naar individuele gebruikers is **niet** mogelijk door deze statistieken.
 
 ## Collectie van metadata door derden
 
