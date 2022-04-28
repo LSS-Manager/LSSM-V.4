@@ -10,7 +10,8 @@ module.exports = {
         },
         percentageInBrackets: {
             title: 'Pourcentages entre parenthèses ',
-            description: 'Met les pourcentages entre parenthèses, par exemple (10%)',
+            description:
+                'Met les pourcentages entre parenthèses, par exemple (10%)',
         },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
