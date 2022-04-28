@@ -32,10 +32,10 @@ export default async (): Promise<void> => {
         const jsPath = path.join(i18nPath, `${locale}.js`);
         if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
         execSync(
-            `tsc ${path.join(
+            `tsc "${path.join(
                 i18nPath,
                 `${locale}.ts`
-            )} --target esnext --moduleResolution node`
+            )}" --target esnext --moduleResolution node`
         );
         fs.writeFileSync(
             jsPath,
