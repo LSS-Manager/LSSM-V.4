@@ -4,6 +4,7 @@ import path from 'path';
 type Util =
     | 'generate/bugs'
     | 'generate/home'
+    | 'generate/manifest'
     | 'generate/modules'
     | 'generate/projectStats'
     | 'generate/readmes'

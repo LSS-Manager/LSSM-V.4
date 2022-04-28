@@ -136,6 +136,10 @@
             }
         }
     },
+    "pwa": {
+        "button": "Refresh",
+        "message": "New content is available."
+    },
     "readme": {
         "serverStatus": {
             "game": "Spel status",
