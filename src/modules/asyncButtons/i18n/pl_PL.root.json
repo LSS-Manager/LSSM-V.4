@@ -3,35 +3,36 @@
     "name": "Przyciski asynchroniczne",
     "settings": {
         "buildingPersonal": {
-            "description": "Zapobiega ponownemu ładowaniu strony.",
-            "title": "Wydanie osobiste"
+            "description": "Zapobiega odświażaniu strony przy zwalnianiu personelu.",
+            "title": "Zwalnianie personelu"
         },
         "buildingTax": {
-            "description": "Uniemożliwia przeładowanie, gdy ustalasz koszt własnych cel lub łóżek szpitalnych.",
-            "title": "Absorpcja kosztów celi i łóżek"
+            "description": "Zapobiega odświażaniu strony przy ustalaniu nowego podatku dla budynku.",
+            "title": "Cena za cele lub łóżka"
         },
         "deleteARR": {
-            "description": "Zapobiega ponownemu załadowaniu po usunięciu ZR",
-            "title": "Usuń wpisy ZR"
+            "description": "Zapobiega odświażaniu strony przy usuwaniu ZR",
+            "title": "Usuwanie ZR"
         },
         "deleteForumPost": {
-            "description": "Zapobiega ponownemu ładowaniu po usunięciu posta na forum.",
-            "title": "Usuń posty na forum"
+            "description": "Zapobiega odświażaniu strony przy usuwaniu wątku na forum.",
+            "title": "Usuwanie wątku na Forum"
         },
         "memberlistManageUser": {
-            "description": "Zapobiega przeładowaniu, gdy wyrzucisz członka sojuszu lub edytujesz jego prawa",
-            "title": "Prawa członków Sojuszu"
+            "description": "Zapobiega odświażaniu strony przy usuwaniu członków i edycji ich uprawnień",
+            "title": "Edycja członków sojuszu"
         },
         "missionPrisoners": {
-            "title": "Więźniowie w oknie misji"
+            "description": "Zapobiega odświażaniu strony przy realizowaniu żądań transportu więżniów",
+            "title": "Więźniowie w oknie wezwania"
         },
         "missionReply": {
-            "description": "Zapobiega przeładowaniu, misji",
-            "title": "Powtórki misji w misji"
+            "description": "Zapobiega odświażaniu strony przy wysyłaniu uwag dotyczących misji",
+            "title": "Wiadomości misji"
         },
         "switchExtensionState": {
-            "description": "Zapobiega przeładowaniu po ustawieniu stanu rozszerzenia",
-            "title": "(Dez)aktywuj rozszerzenie"
+            "description": "Zapobiega odświażaniu strony przy zmianie stanu rozbudowy",
+            "title": "(Dez-)aktywuj rozszerzenie"
         }
     }
 }

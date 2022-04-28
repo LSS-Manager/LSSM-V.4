@@ -38,7 +38,13 @@ Momenteel bestaat LSS Manager uit 4 ontwikkelaars en 6 extra supporters voor onz
     * Buggs
 * 🇳🇱
     * MPR
- 
+
+### volunteer translators <3
+A lot of thanks go to our volunteer translators who help us with the porting into other language versions. Of course, as a small development team, we don't speak all languages, so we only provide the German and English texts.
+
+To give some credit to the translators we have created a list here:
+<translators/>
+
 ## Open Source Libraries
 LSSM maakt natuurlijk ook gebruik van openbare Libraries van derden - anders zijn sommige functies gewoon veel te veel om te programmeren.
 

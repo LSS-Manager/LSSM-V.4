@@ -4,10 +4,10 @@ lang: pl_PL
 sidebarDepth: 2
 ---
 
-# Known Bugs :bug:
+# Znane błędy :bug:
 
-:::tip actuality
-This overview is updated with every commit (update) of the beta version of the LSSM. You can always find the most recent version in our <a :href="$theme.variables.github + '/issues?q=is%3Aissue+is%3Aopen+label%3Abug'" target="_blank">GitHub Issues</a>
+:::tip Aktualności
+Ten przegląd jest aktualizowany przy każdym zatwierdzeniu (aktualizacji) wersji beta LSSM. Zawsze możesz znaleźć najnowszą wersję w naszym <a :href="$theme.variables.github + '/issues?q=is%3Aissue+is%3Aopen+label%3Abug'" target="_blank">Problemy GitHub</a>
 :::
 
-<bugs no-bugs="There are no known Bugs currently!"></bugs>
+<bugs no-bugs="Obecnie nie ma znanych błędów!"></bugs>

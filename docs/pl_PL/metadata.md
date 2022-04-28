@@ -4,7 +4,7 @@ lang: pl_PL
 sidebarDepth: 0
 ---
 
-# Collection of user metadata
+# Zbieranie metadanych użytkownika
 
 By using `LSSM` (Leitstellenspiel Manager, userscript the browser) the user accepts that metadata will be collected. The following data will be stored:
 * Unique user ID
