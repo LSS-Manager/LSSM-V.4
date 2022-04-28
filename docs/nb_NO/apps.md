@@ -1,6 +1,6 @@
 ---
 title: ℹ️ Generell informasjon om utvidelser
-lang: nb_NO
+lang: nb-NO
 sidebarDepth: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Sbírka aplikací 🛒
-lang: cs_CZ
+lang: cs-CZ
 ---
 
 # Sbírka aplikací :shopping_cart:

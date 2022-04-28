@@ -10,8 +10,9 @@ const [, , DOCS_PATH, langs] = process.argv;
 const LANGS: [LangCode, string][] = JSON.parse(langs);
 
 LANGS.forEach(([lang, serverStatus]) => {
-    if (!fs.existsSync(path.join(DOCS_PATH, lang))) return;
-    const filePath = path.join(DOCS_PATH, lang, 'README.md');
+    const localePath = path.join(DOCS_PATH, lang);
+    if (!fs.existsSync(localePath)) return;
+    const filePath = path.join(localePath, 'README.md');
     const flag = config.games[lang].flag;
     fs.writeFileSync(
         filePath,
@@ -37,4 +38,19 @@ sidebarDepth: 2
 `
         )
     );
+
+    fs.readdirSync(localePath).forEach(fileName => {
+        if (fileName === 'README.md' || !fileName.endsWith('.md')) return;
+        const filePath = path.join(localePath, fileName);
+        fs.writeFileSync(
+            filePath,
+            fs
+                .readFileSync(filePath)
+                .toString()
+                .replace(
+                    /(?<=^-+\n(?:.*\n)*?)lang:(?:.*)?(?=\n(?:.*\n)*?-+\n)/u,
+                    `lang: ${lang.replace(/_/u, '-')}`
+                )
+        );
+    });
 });

@@ -1,6 +1,6 @@
 ---
 title: ℹ️ Informations générales sur les modules
-lang: fr_FR
+lang: fr-FR
 sidebarDepth: 2
 ---
 

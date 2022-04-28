@@ -1,6 +1,6 @@
 ---
 title: Metadata
-lang: nb_NO
+lang: nb-NO
 sidebarDepth: 0
 ---
 

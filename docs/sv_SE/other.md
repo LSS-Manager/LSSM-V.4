@@ -1,6 +1,6 @@
 ---
 title: Övrigt
-lang: sv_SE
+lang: sv-SE
 sidebarDepth: 2
 ---
 

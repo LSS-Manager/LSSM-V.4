@@ -1,6 +1,6 @@
 ---
 title: Settings ⚙️
-lang: en_GB
+lang: en-GB
 ---
 
 # Settings ⚙️

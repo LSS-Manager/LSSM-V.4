@@ -1,6 +1,6 @@
 ---
 title: Other
-lang: en_GB
+lang: en-GB
 sidebarDepth: 2
 ---
 

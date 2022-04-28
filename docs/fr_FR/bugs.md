@@ -1,6 +1,6 @@
 ---
 title: Bugs connus 🐛
-lang: fr_FR
+lang: fr-FR
 sidebarDepth: 2
 ---
 

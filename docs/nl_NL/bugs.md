@@ -1,6 +1,6 @@
 ---
 title: Bekende Bugs 🐛
-lang: nl_NL
+lang: nl-NL
 sidebarDepth: 2
 ---
 

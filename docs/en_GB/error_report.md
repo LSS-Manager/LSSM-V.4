@@ -1,6 +1,6 @@
 ---
 title: Report bugs
-lang: en_GB
+lang: en-GB
 sidebarDepth: 2
 ---
 

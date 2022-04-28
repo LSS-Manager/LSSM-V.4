@@ -1,6 +1,6 @@
 ---
 title: Sonstiges
-lang: de_DE
+lang: de-DE
 sidebarDepth: 2
 ---
 

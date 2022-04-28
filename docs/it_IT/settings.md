@@ -1,6 +1,6 @@
 ---
 titolo: Impostazioni ⚙️
-lang: it_IT
+lang: it-IT
 ---
 
 # Impostazioni ⚙️

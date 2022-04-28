@@ -1,6 +1,6 @@
 ---
 titolo: Altro
-lang: it_IT
+lang: it-IT
 sidebarDepth: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Metadata
-lang: it_IT
+lang: it-IT
 sidebarDepth: 0
 ---
 

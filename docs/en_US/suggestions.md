@@ -1,6 +1,6 @@
 ---
 title: Suggestions 💡
-lang: en_US
+lang: en-US
 sidebarDepth: 2
 ---
 

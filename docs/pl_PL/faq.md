@@ -1,6 +1,6 @@
 ---
 title: FAQ ❓
-lang: pl_PL
+lang: pl-PL
 sidebarDepth: 3
 ---
 

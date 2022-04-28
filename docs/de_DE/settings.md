@@ -1,6 +1,6 @@
 ---
 title: Einstellungen ⚙️
-lang: de_DE
+lang: de-DE
 ---
 
 # Einstellungen :gear:

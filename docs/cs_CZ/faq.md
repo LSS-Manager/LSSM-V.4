@@ -1,6 +1,6 @@
 ---
 title: FAQ ❓
-lang: cs_CZ
+lang: cs-CZ
 sidebarDepth: 3
 ---
 

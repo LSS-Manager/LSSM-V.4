@@ -1,6 +1,6 @@
 ---
 title: Metadaten
-lang: de_DE
+lang: de-DE
 sidebarDepth: 0
 ---
 

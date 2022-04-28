@@ -1,6 +1,6 @@
 ---
 title: ℹ️ Información general sobre módulos
-lang: es_ES
+lang: es-ES
 sidebarDepth: 2
 ---
 

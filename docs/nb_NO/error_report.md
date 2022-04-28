@@ -1,6 +1,6 @@
 ---
 title: Report bugs
-lang: nb_NO
+lang: nb-NO
 sidebarDepth: 2
 ---
 

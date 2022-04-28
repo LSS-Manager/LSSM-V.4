@@ -1,6 +1,6 @@
 ---
 title: Suggesties 💡
-lang: nl_NL
+lang: nl-NL
 sidebarDepth: 2
 ---
 

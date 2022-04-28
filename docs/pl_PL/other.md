@@ -1,6 +1,6 @@
 ---
 title: Inne
-lang: pl_PL
+lang: pl-PL
 sidebarDepth: 2
 ---
 

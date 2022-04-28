@@ -1,6 +1,6 @@
 ---
 title: Paramètres ⚙️
-lang: fr_FR
+lang: fr-FR
 ---
 
 # Paramètres ⚙️

@@ -1,6 +1,6 @@
 ---
 title: Forslag 💡
-lang: nb_NO
+lang: nb-NO
 sidebarDepth: 2
 ---
 

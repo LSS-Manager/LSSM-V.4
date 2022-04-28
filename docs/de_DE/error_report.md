@@ -1,6 +1,6 @@
 ---
 title: Fehler melden
-lang: de_DE
+lang: de-DE
 sidebarDepth: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Innstillinger ⚙️
-lang: nb_NO
+lang: nb-NO
 ---
 
 # Innstillinger ⚙️:gear:

@@ -1,6 +1,6 @@
 ---
 titel: ℹ️ Allmän information om moduler
-lang: sv_SE
+lang: sv-SE
 sidebarDepth: 2
 ---
 

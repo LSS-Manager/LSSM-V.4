@@ -1,6 +1,6 @@
 ---
 title: Metadata
-lang: cs_CZ
+lang: cs-CZ
 sidebarDepth: 0
 ---
 

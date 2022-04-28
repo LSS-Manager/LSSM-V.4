@@ -1,6 +1,6 @@
 ---
 title: FAQ ❓
-lang: nl_NL
+lang: nl-NL
 sidebarDepth: 3
 ---
 

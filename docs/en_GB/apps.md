@@ -1,6 +1,6 @@
 ---
 title: ℹ️ General information on modules
-lang: en_GB
+lang: en-GB
 sidebarDepth: 2
 ---
 

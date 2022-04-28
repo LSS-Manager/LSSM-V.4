@@ -1,6 +1,6 @@
 ---
 titel: Appstore 🛒
-lang: sv_SE
+lang: sv-SE
 ---
 
 # Appstore :shopping_cart:

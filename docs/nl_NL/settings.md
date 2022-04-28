@@ -1,6 +1,6 @@
 ---
 title: Instellingen ⚙️
-lang: nl_NL
+lang: nl-NL
 ---
 
 # Instellingen ⚙️

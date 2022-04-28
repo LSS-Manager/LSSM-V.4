@@ -1,6 +1,6 @@
 ---
 title: Metadata
-lang: sv_SE
+lang: sv-SE
 sidebarDepth: 0
 ---
 

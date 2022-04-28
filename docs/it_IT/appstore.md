@@ -1,6 +1,6 @@
 ---
 titolo: Negozio 🛒
-lang: it_IT
+lang: it-IT
 ---
 
 # Negozio :shopping_cart:

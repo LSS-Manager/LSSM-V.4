@@ -1,6 +1,6 @@
 ---
 title: Bekannte Bugs 🐛
-lang: de_DE
+lang: de-DE
 sidebarDepth: 2
 ---
 

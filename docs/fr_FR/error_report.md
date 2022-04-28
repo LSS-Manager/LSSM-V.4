@@ -1,6 +1,6 @@
 ---
 title: Signaler les bugs
-lang: fr_FR
+lang: fr-FR
 sidebarDepth: 2
 ---
 

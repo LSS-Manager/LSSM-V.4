@@ -1,6 +1,6 @@
 ---
 title: Sklep z aplikacjami 🛒
-lang: pl_PL
+lang: pl-PL
 ---
 
 # Sklep z aplikacjami :shopping_cart:

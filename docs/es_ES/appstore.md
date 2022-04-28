@@ -1,6 +1,6 @@
 ---
 title: Appstore 🛒
-lang: es_ES
+lang: es-ES
 ---
 
 # Appstore :shopping_cart:
