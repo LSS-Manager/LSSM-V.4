@@ -1,7 +1,7 @@
 {
     "description": "Alarmeren, delen en post een chatbericht met 1 klik.",
     "lsam": {
-        "help": "Variables are replaced same way as in missions list."
+        "help": "Variabelen worden op dezelfde manier vervangen als in de meldingenlijst."
     },
     "name": "Alarmeren, delen en posten",
     "noMessage": "Zonder chatbericht",
@@ -11,8 +11,8 @@
             "title": "Integreert in de meldingenlijst"
         },
         "enableLSAM": {
-            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
-            "title": "Large scale alliance missions"
+            "description": "Zet deze instelling aan om een bericht te selecteren bij het aanmaken van een grote inzet.",
+            "title": "Grote inzetten"
         },
         "message": "Chatbericht",
         "messages": {
@@ -22,8 +22,8 @@
         "name": "Naam",
         "postInChat": "Chatbericht ook in de chat posten?",
         "stayInCallList": {
-            "description": "With this option enabled, you can send incident notes even on shared missions.",
-            "title": "Stay in Call-list"
+            "description": "Met deze instelling aan, kan je een bericht sturen naar een al gedeelde melding.",
+            "title": "Blijf in meldinglijst"
         }
     }
 }

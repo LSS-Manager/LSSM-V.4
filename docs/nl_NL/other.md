@@ -39,10 +39,10 @@ Momenteel bestaat LSS Manager uit 4 ontwikkelaars en 6 extra supporters voor onz
 * 🇳🇱
     * MPR
 
-### volunteer translators <3
-A lot of thanks go to our volunteer translators who help us with the porting into other language versions. Of course, as a small development team, we don't speak all languages, so we only provide the German and English texts.
+### vrijwillige vertalers <3
+Heel veel dank gaat naar onze vrijwillige vertalers welke ons helpen met het vertalen van LSSM naar de andere taalversies. Uiteraard, als een klein ontwikkel team, spreken we niet alle talen. Daarom kunnen we alleen de Engelse en Duitse tekst geven.
 
-To give some credit to the translators we have created a list here:
+Om de vertalers wat credit te geven hebben we hieronder een lijst gemaakt:
 <translators/>
 
 ## Open Source Libraries
@@ -70,5 +70,13 @@ Stel je voor hoe lang een storing in LSSM zou duren als niemand het zou melden -
 
 ### Elke gebruiker
 Elke gebruiker geeft ons altijd de motivatie om door te gaan en LSSM steeds meer uit te breiden en te verbeteren.
+
+## Statistieken
+
+Hier vind je een aantal min of meer intressante feitens en statistieken over LSSM en de code.
+
+### Bestanden & regels van de code
+
+<stats-cloc/>
 
 [Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl

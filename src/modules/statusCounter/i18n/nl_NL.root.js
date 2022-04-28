@@ -8,6 +8,11 @@ module.exports = {
             description:
                 'Rond procenten, indien weergegeven, af op zoveel decimalen',
         },
+        percentageInBrackets: {
+            title: 'Percentages tussen haakjes',
+            description:
+                'Plaatst percentages tussen haakjes, bijvoorbeeld (10%)',
+        },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
                 [

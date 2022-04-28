@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "background_color": "#22272e",
+    "description": "The Wiki for LSS-Manager V.4",
+    "dir": "auto",
+    "display": "fullscreen",
+    "icons": [
+        {
+            "src": "https://proxy.lss-manager.de/v4/docs/img/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://proxy.lss-manager.de/v4/docs/img/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "lang": "en-US",
+    "name": "LSS-Manager V.4 Wiki",
+    "orientation": "portrait",
+    "scope": "https://proxy.lss-manager.de/v4/docs/",
+    "short_name": "LSS-Manager V.4 Wiki",
+    "shortcuts": [
+        {
+            "name": "Home",
+            "url": "https://proxy.lss-manager.de/v4/docs/"
+        }
+    ],
+    "start_url": "https://proxy.lss-manager.de/v4/docs/",
+    "theme_color": "#22272e"
+}

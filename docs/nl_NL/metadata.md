@@ -4,54 +4,57 @@ lang: nl_NL
 sidebarDepth: 0
 ---
 
-# Collection of user metadata
+# Verzamelen van gebruikers metadata
 
-By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user accepts that metadata will be collected. The following data will be stored:
-* Unique user ID
-  * Including unique Secret (unique, non-public character string for identification)
-* User name
-* Amount of buildings
-* used browser
-  * including version
-* time of metadata collection
-* enabled modules
-* language version of the game
-  * including information whether police version (if available) or not
-* which map type is activated (OSM or Mapkit)
-* LSSM version
+Door `LSSM` (Leitstellenspiel Manager, userscript voor de browser) te gebruiken, accepteert de gebruiker dat metadata zal worden verzameld. De volgende data zal worden opgeslagen:
+* Unieke gebruikers ID
+  * inclusief uniek geheim (uniek, niet-publiek tekst for identificatie)
+* Gebruikersnaam
+* Aantal gebouwen
+* Gebruikte browser
+  * inclusief versie
+* tijd van het verzamelen van de metadata
+* Premiumgebruiker of niet
+* Modules die aan staan
+* Taalversie van het spel
+  * inclusief informatie of het de politieversie is of niet
+* welke kaart type wordt gebruikt (OSM of Mapkit)
+* LSSM versie
 
-This data is used to improve the extension as well as to guide the development of existing or future modules.
-They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#collection-of-metadata-by-third-party-providers)).
+Deze data wordt gebruikt om de extensie te verbeteren, maar ook als gids voor de ontwikkeling van bestaande of toekomstige modules.
+Ze zijn ook de basis voor spannende statistieken, welke gepubliceerd kunnen worden, bijvoorbeeld als nieuws (voor meer informatie, zie [onder](#Publiceren-van-statistieken)).
 
-**The user can (de-)activate the collection of this data at any time in the [settings](settings.md).**
+**De gebruiker kan het verzamelen van deze data op elk moment (de)activeren in de [instellingen](settings.md).**
 
-**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support](support.md) or by sending an informal e-mail to `developer[at]lss-manager.de`.**
+**Verwijderd van reeds verzamelde data kan verzocht worden op elk moment door een bericht (indien mogelijk in het Engels) naar de ontwikkelaars te sturen via een weg genoemd in [support](support.md) of door een informele e-mail te sturen naar `developer[at]lss-manager.de`.**
 
-Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
-If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
-If a data record has not received an update for more than 6 months, it will be deleted automatically.
+Elke keer als de home-pagina is geopend, wordt de data verstuurd naar de LSSM server.
+Als er al reeds data bestaat voor de gebruiker, zal deze worden overschreven. Een historie van individuele data wordt niet opgeslagen.
+Als de data niet wordt geüpdate in 6 maanden, dan wordt deze automatisch verwijderd.
 
-The following telemetry statistics may be published by the LSSM team:
-* total number of current telemetry records for the following time periods:
-  * past 6 months
-  * past 30 days
-  * past 7 days
-  * past 24 hours
-  * today's calendar date according to German time
-* number of telemetry entries of users with or without premium account
-* number of telemetry entries per language version
-  * including split into police version and "normal" version, if available
-* number of telemetry entries per browser
-  * including split into major version of browser. I.e. "Firefox 100.3" and "Firefox 100.4" are combined as "Firefox 100".
-* number of telemetry entries per map type
-* number of telemetry entries per LSSM version
-* number of telemetry entries for each of the available modules.
+## Publiceren van statistieken
 
-Inference to individual records is **not** possible through these statistics.
+De volgende statistieken mogen door het LSSM team worden gepubliceerd:
+* Totaal aantal huidige gebruikers waarvan de data is opgeslagen voor de volgende tijdsperiodes:
+  * afgelopen 6 maanden
+  * agelopen 30 dagen
+  * afgelopen 7 dagen
+  * afgelopen 24 uur
+  * kalenderdag volgens de Duitse tijdszone.
+* Aantal huidige gebruikers met of zonder premium account
+* Aantal huidige gebruiker per taalversie
+  * inclusief splitsing in the politie versie en normale versie indien van toepassing
+* Aantal huidige gebruikers per browser
+  * Inclusief splitsing in the hoofdversies van de browser. Bijvoorbeeld "Firefox 100.3" en "Firefox 100.4" zijn gecombineerd als "Firefox 100".
+* Aantal huidige gebruikers per kaarttype
+* Aantal huidige gebruiker per LSSM versie
+* Aantal huidige gebruikers voor elke beschikbare module
 
-## Collection of metadata by third-party providers
+ Referen naar individuele gebruikers is **not** mogelijk door deze statistieken.
 
-LSSM itself does not use any tools, libraries, utilities or similar, which could collect metadata of the users.
-With the use of a browser and an userscript manager, such as [Tampermonkey](https://tampermonkey.net), a collection of metadata of these may not be avoided.
-All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
-Information about the data collection of the respective software used can be found in the information sources of the respective software.
+## Collectie van metadata door derden
+
+LSSM zelf gebruikt geen derde partijen die metadata kunnen verzamelen van de gebruikers.
+Door het gebruiken van een browser en de userscript manager, zoals [Tampermonkey](https://tampermonkey.net), kunnen zij metadata verzamelen.
+Al deze verzamelde metadata is niet beschikbaar of leesbaar voor het LSSM team en kan niet worden voorkomen, begunstigd of gewijzigd door LSSM.
+Informatie over deze dataverzameling van de respectievelijke software die gebruikt wordt, kan worden gevonden in de informatie van deze software.

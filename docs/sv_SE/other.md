@@ -71,4 +71,12 @@ Tänk dig hur länge ett fel skulle vara i LSSM om ingen rapporterade det - vi s
 ### Varje enskild användare
 Varje användare ger oss alltid motivation att fortsätta och att utöka och förbättra LSSM mer och mer. Vi själva har mycket roligt att programmera LSSM, men det skulle verkligen inte vara fallet om vårt samhälle inte stod bakom oss.
 
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en

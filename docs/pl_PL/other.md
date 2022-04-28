@@ -75,4 +75,12 @@ Dziękuję również za sugestie, które wciąż napływają. Na rozwój LSSM du
 ### Do każdego pojedynczego użytkownika
 Każdy użytkownik zawsze daje nam motywację, aby iść dalej i coraz bardziej rozwijać oraz udoskonalać LSSM.
 
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
+
 [Licencja]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pl
