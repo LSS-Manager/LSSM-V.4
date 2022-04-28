@@ -98,9 +98,9 @@ Chaque utilisateur nous donne toujours la motivation de continuer et de dévelop
 
 ## Stats
 
-Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+Voici quelques informations et statistiques plus ou moins intéressantes sur LSSM et son code source.
 
-### Files & Lines of code
+### Fichiers et lignes de code
 
 <stats-cloc/>
 

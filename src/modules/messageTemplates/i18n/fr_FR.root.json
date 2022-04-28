@@ -3,15 +3,15 @@
     "name": "Messages Prédéfinis",
     "settings": {
         "chatTemplates": {
-            "description": "Messages for alliance-chat",
-            "name": "Name",
+            "description": "Messages du chat de l'alliance",
+            "name": "Nom",
             "text": "Message",
-            "title": "Chat-Messages"
+            "title": "Messages du chat"
         },
         "templates": {
             "description": "Des variables peuvent être utilisées dans les modèles de messages. Voir le <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a> pour leur description.",
             "name": "Nom",
-            "subject": "Subjet",
+            "subject": "Sujet",
             "template": "Modèle (variables (voir le wiki): {{username}}, {{today[+n]}})",
             "title": "Modèles"
         }
