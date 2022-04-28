@@ -6,52 +6,52 @@ sidebarDepth: 0
 
 # Collecte des métadonnées des utilisateurs
 
-By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user accepts that metadata will be collected. The following data will be stored:
-* Unique user ID
-  * Including unique Secret (unique, non-public character string for identification)
-* User name
-* Amount of buildings
-* used browser
-  * including version
-* time of metadata collection
-* enabled modules
-* language version of the game
-  * including information whether police version (if available) or not
-* which map type is activated (OSM or Mapkit)
+En utilisant le `LSSM` (Leitstellenspiel Manager, extension pour le navigateur), l'utilisateur accepte que des métadonnées soient collectées. Les données suivantes sont stockées :
+* Identifiant de l'utilisateur
+  * Y compris l' id Secret unique (chaîne de caractères unique et non publique pour l'identification)
+* Nom d'utilisateur
+* Nombre de bâtiments`
+* Le navigateur web utilisé
+  * Avec sa version
+* La date de la collecte des métadonnées
+* Les modules activés
+* La langue du jeux 
+  *  Y compris si vous utilisez la version police ou pas
+* Le type de carte actif (OSM ou Mapkit)
 * LSSM version
 
-This data is used to improve the extension as well as to guide the development of existing or future modules.
-They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#collection-of-metadata-by-third-party-providers)).
+Ces données sont utilisées pour améliorer l'extension ainsi que pour guider le développement de modules existants ou futurs.
+Elles constituent également la base de statistiques passionnantes, qui peuvent être publiées, par exemple sous forme de news (pour plus d'informations, voir [ci-dessous](#collection-of-metadata-by-third-party-providers)).
 
-**The user can (de-)activate the collection of this data at any time in the [settings](settings.md).**
+**L'utilisateur peut (dé)activer la collecte de ces données à tout moment dans les [paramètres] (settings.md).**
 
-**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support](support.md) or by sending an informal e-mail to `developer[at]lss-manager.de`.**
+**La suppression des données déjà collectées peut être demandée à tout moment en envoyant un message aux développeurs par l'un des moyens énumérés dans [support](support.md) ou en envoyant un e-mail à `developer[at]lss-manager.de`.**
 
-Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
-If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
-If a data record has not received an update for more than 6 months, it will be deleted automatically.
+Chaque fois que la page principale du jeu est ouverte, les données télémétriques (si elles sont activées) sont envoyées au serveur LSSM.
+Si un enregistrement de données existe déjà pour l'utilisateur, il sera écrasé, l'historique des données individuelles ne sera pas sauvegardé.
+Si un enregistrement de données n'a pas été mis à jour depuis plus de 6 mois, il sera automatiquement supprimé.
 
-The following telemetry statistics may be published by the LSSM team:
-* total number of current telemetry records for the following time periods:
-  * past 6 months
-  * past 30 days
-  * past 7 days
-  * past 24 hours
-  * today's calendar date according to German time
-* number of telemetry entries of users with or without premium account
-* number of telemetry entries per language version
-  * including split into police version and "normal" version, if available
-* number of telemetry entries per browser
-  * including split into major version of browser. I.e. "Firefox 100.3" and "Firefox 100.4" are combined as "Firefox 100".
-* number of telemetry entries per map type
-* number of telemetry entries per LSSM version
-* number of telemetry entries for each of the available modules.
+Les statistiques télémétriques suivantes peuvent être publiées par l'équipe LSSM:
+* le nombre total d'enregistrements télémétriques actuels pour les périodes suivantes:
+  * 6 derniers mois
+  * 30 derniers jours
+  * 7 derniers jours
+  * 24 derniers heures
+  * la date du calendrier d'aujourd'hui selon l'heure allemande
+* nombre d'entrées télémétriques des utilisateurs avec ou sans compte premium
+* nombre d'entrées télémétriques par version linguistique
+  * y compris la répartition entre la version police et la version "normale", si disponible
+* nombre d'entrées télémétriques par navigateur
+  * y compris la répartition en fonction de la version majeure du navigateur. Par exemple, "Firefox 100.3" et "Firefox 100.4" sont regroupés sous "Firefox 100".
+* nombre d'entrées télémétriques par type de carte
+* nombre d'entrées télémétriques par version de LSSM
+* nombre d'entrées télémétriques pour chacun des modules disponibles.
 
-Inference to individual records is **not** possible through these statistics.
+Il n'est **pas** possible de faire des déductions sur des enregistrements individuels à partir de ces statistiques.
 
-## Collection of metadata by third-party providers
+## Collecte de métadonnées par des fournisseurs tiers
 
-LSSM itself does not use any tools, libraries, utilities or similar, which could collect metadata of the users.
-With the use of a browser and an userscript manager, such as [Tampermonkey](https://tampermonkey.net), a collection of metadata of these may not be avoided.
-All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
-Information about the data collection of the respective software used can be found in the information sources of the respective software.
+LSSM lui-même n'utilise pas d'outils, de bibliothèques, d'utilitaires ou autres qui pourraient collecter les métadonnées des utilisateurs.
+Avec l'utilisation d'un navigateur et d'un gestionnaire de scripts utilisateur, tel que [Tampermonkey](https://tampermonkey.net), la collecte des métadonnées de ces derniers ne peut être évitée.
+Toutes ces données collectées ne sont pas accessibles ou consultables par l'équipe de LSSM et ne peuvent être empêchées, favorisées ou manipulées par LSSM.
+Les informations sur la collecte de données des logiciels utilisés se trouvent dans les sources d'information de ces logiciels.
