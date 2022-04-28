@@ -91,6 +91,11 @@ module.exports = {
         water: 'litrów wody',
         foam: 'litrów piany gaśniczej',
         staffPrefix: ['Potrzeba jeszcze'],
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            53: [35],
+            54: [19, 20, 24],
+        },
         staff: {
             [/^policjanci SPKP$/u]: [15, 18],
             [/^strażaków$/u]: [
