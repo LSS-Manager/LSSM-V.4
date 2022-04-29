@@ -1,5 +1,5 @@
 {
-    "version": "4.5.8+20220429.0022",
+    "version": "4.5.8+20220429.0800",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -52,7 +52,7 @@
         "@types/jquery": "^3.5.14",
         "@types/leaflet": "^1.7.9",
         "@types/lodash": "^4.14.182",
-        "@types/node": "^16.11.31",
+        "@types/node": "^16.11.32",
         "@types/pdfmake": "^0.1.21",
         "@types/qrcode": "^1.4.2",
         "@types/semver": "^7.3.9",
@@ -86,7 +86,7 @@
         "terser": "^5.13.0",
         "ts-loader": "^9.2.9",
         "ts-node": "^10.7.0",
-        "typescript": "^4.6.3",
+        "typescript": "^4.6.4",
         "url-loader": "^4.1.1",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.14",
