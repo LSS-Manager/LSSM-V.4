@@ -40,8 +40,20 @@ export default (messages: ChatMessageTemplate[]) => {
         if (!(target instanceof HTMLElement)) return;
         inputElement.value =
             target.closest<HTMLLIElement>('li')?.dataset.message ?? '';
+        inputElement.focus();
     });
 
     btnSpan.append(dropdownBtn, dropdown);
-    inputElement.after(btnSpan);
+
+    const submit = document.createElement('input');
+    submit.type = 'submit';
+    submit.style.setProperty('display', 'none');
+
+    inputElement.after(btnSpan, submit);
+
+    inputElement.addEventListener('keydown', e => {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        submit.click();
+    });
 };
