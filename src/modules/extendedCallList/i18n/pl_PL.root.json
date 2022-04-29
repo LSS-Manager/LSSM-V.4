@@ -235,7 +235,7 @@
             "title": "Udostępnij misje: minimalne kredyty"
         },
         "shareMissionsTypes": {
-            "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "alliance": "Misje sojuszu (tylko dla Udostępnij post sojuszu)",
             "description": "Ustaw, dla których misji chcesz włączyć przycisk udostępniania.",
             "own": "Połączenia alarmowe",
             "sicherheitswache": "Planowane misje",
