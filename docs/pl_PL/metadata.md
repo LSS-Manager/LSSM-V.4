@@ -21,7 +21,7 @@ Używając `LSSM` (Leitstellenspiel Manager, userscript for the browser) użytko
 * Wersja LSSM
 
 Dane te są wykorzystywane do ulepszania rozszerzenia, a także do kierowania rozwojem istniejących lub przyszłych modułów.
- Stanowią też podstawę do tworzenia ciekawych statystyk, które mogą być publikowane np. jako newsy (więcej informacji patrz [poniżej](#zbieranie-metadanych-przez-zewntrznych-dostawcw)).
+ Stanowią też podstawę do tworzenia ciekawych statystyk, które mogą być publikowane np. jako newsy (więcej informacji patrz [poniżej](#publikowanie-statystyk)).
 
 **Użytkownik może (dez)aktywować gromadzenie tych danych w dowolnym momencie w [ustawieniach](settings.md).**
 
@@ -30,6 +30,8 @@ Dane te są wykorzystywane do ulepszania rozszerzenia, a także do kierowania ro
 Za każdym razem, gdy otwierana jest strona główna gry, dane telemetryczne (jeśli są włączone) są wysyłane na serwer LSSM.
  Jeżeli dla użytkownika istnieje już rekord danych, zostanie on nadpisany, historia poszczególnych danych nie zostanie zapisana.
  Jeśli rekord danych nie otrzymał aktualizacji przez ponad 6 miesięcy, zostanie automatycznie usunięty.
+
+# Publikowanie statystyk
 
 Zespół LSSM może publikować następujące statystyki telemetryczne:
 * łączna liczba aktualnych rekordów telemetrii dla kolejnych okresów czasu:
