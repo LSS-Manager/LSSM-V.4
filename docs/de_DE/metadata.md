@@ -21,7 +21,7 @@ Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Userscript für den Browse
 * LSSM Version
 
 Diese Daten dienen zur Verbesserung der Erweiterung sowie als Anhaltspunkt für die Entwicklung bestehender bzw. zukünftiger Module.
-Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#verffentlichung-von-statistiken)).
+Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#veroffentlichung-von-statistiken)).
 
 **Der Nutzer kann die Erhebung dieser Daten jederzeit in den [Einstellungen](settings.md) (de-)aktivieren.**
 
