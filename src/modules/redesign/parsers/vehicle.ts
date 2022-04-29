@@ -155,9 +155,11 @@ export default <RedesignParser<VehicleWindow>>(({
             if (cell.previousElementSibling?.matches('h5'))
                 list = 'alliance_cells';
             const text = cell.textContent ?? '';
-            const infos = text.match(
-                /(?<=\()[^(]*? (?<free>\d+), .*? (?<distance>\d+([,.]\d+)? km)(, .*? (?<tax>\d+)%)?(?=\)$)/u
-            );
+            const infos = text
+                .trim()
+                .match(
+                    /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
+                );
             const cellinfos: Cell = {
                 id: getIdFromEl(cell),
                 caption: text.replace(/\([^(]*?\)$/u, ''),
