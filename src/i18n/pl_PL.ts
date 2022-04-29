@@ -105,8 +105,8 @@ If several requests fail in a short time, this could be due to server problems. 
         },
         allowTelemetry: {
             description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
+                'Kontroluje, czy LSS-Manager może wysyłać dane, które pomagają nam w rozwijaniu tego rozszerzenia.',
+            title: 'Zezwól na telemetrię',
         },
         iconBg: {
             description: 'Zmień tło likony LSSM!',
