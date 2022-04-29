@@ -35,7 +35,7 @@
         <div class="panel-body">
             <div
                 class="message message-self response-message"
-                v-if="other && !other.isAlliance"
+                v-if="!other || (other && !other.isAlliance)"
             >
                 <div class="message-meta well">
                     <button
