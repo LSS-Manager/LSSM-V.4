@@ -1,0 +1,40 @@
+{
+    "extensionTitle": "{caption} (aż do {n} tej pory)",
+    "schoolings": {
+        "all": "Wszystko",
+        "min": "min. {n}x"
+    },
+    "tabs": {
+        "buildings": "Budynki",
+        "schoolings": "Kursy",
+        "vehicles": "Pojazdy"
+    },
+    "titles": {
+        "buildings": {
+            "caption": "Rodzaj budynku",
+            "cost": "Cena",
+            "extensions": "Rozszerzenia",
+            "levelcost": "Koszty etapów rozbudowy",
+            "maxBuildings": "Granica",
+            "maxLevel": "maksymalny poziom rozbudowy",
+            "special": "Promocje",
+            "startPersonnel": "Początkowy Personnel",
+            "startVehicles": "Możliwe pojazdy startowe"
+        },
+        "schoolings": {
+            "caption": "Nazwa kursu",
+            "duration": "Czas trwania kursu",
+            "required_for": "Wymagane do",
+            "staffList": "Szkolenie"
+        },
+        "vehicles": {
+            "caption": "Typ pojazdu",
+            "cost": "Cena",
+            "maxPersonnel": "maksymalny personel",
+            "minPersonnel": "minimalny personel",
+            "schooling": "Edukacja",
+            "special": "Promocje",
+            "wtank": "Zbiornik wodny"
+        }
+    }
+}

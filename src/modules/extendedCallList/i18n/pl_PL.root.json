@@ -1,0 +1,272 @@
+{
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Rozwiń wszystkie misje",
+            "expand": "Zwiń wszystkie misje"
+        },
+        "collapse": "Rozwiń tę misję",
+        "expand": "Zwiń tę misję"
+    },
+    "description": "Rozszerza listę misji o kilka fajnych funkcji!",
+    "eventMissions": {
+        "default": {
+            "1 kwietnia": [
+                530,
+                531
+            ],
+            "Boże Narodzenie": [
+                76,
+                77,
+                78,
+                "78-1",
+                79,
+                80,
+                81,
+                82
+            ],
+            "Europejskie obchody Dnia Numeru Alarmowego 112": [
+                493,
+                494,
+                495,
+                496,
+                497
+            ],
+            "Halloween": [
+                251,
+                252,
+                253,
+                254,
+                255,
+                256,
+                257,
+                258,
+                259
+            ],
+            "Impreza rocznicowa": [
+                280,
+                281,
+                282,
+                283,
+                284,
+                285,
+                286,
+                287,
+                288,
+                289,
+                290,
+                291,
+                292,
+                293,
+                294,
+                295,
+                296
+            ],
+            "Jesień": [
+                450,
+                451,
+                452,
+                453,
+                454,
+                455,
+                456,
+                457,
+                458
+            ],
+            "Karnawał": [
+                501,
+                502,
+                503,
+                504,
+                505,
+                506,
+                507,
+                508,
+                509,
+                510
+            ],
+            "Mistrzostwa piłki nożnej": [
+                397,
+                398,
+                399,
+                400,
+                401,
+                402,
+                403,
+                404,
+                405,
+                406
+            ],
+            "Sylwester": [
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                302,
+                303,
+                304,
+                305,
+                306,
+                307,
+                308,
+                309,
+                310,
+                311
+            ],
+            "Wakacje": [
+                205,
+                206,
+                207,
+                208,
+                209,
+                407,
+                408,
+                409
+            ],
+            "Walentynki": [
+                326,
+                327,
+                328,
+                329,
+                330,
+                331,
+                332,
+                333,
+                334
+            ],
+            "Wielkanoc": [
+                157,
+                158,
+                159,
+                160,
+                161,
+                162,
+                163,
+                164,
+                165,
+                166,
+                167,
+                540,
+                541,
+                542,
+                543
+            ],
+            "Wiosna": [
+                521,
+                522,
+                523,
+                524,
+                525,
+                526,
+                527,
+                528,
+                529
+            ]
+        }
+    },
+    "name": "Rozszerzona lista misji",
+    "settings": {
+        "averageCredits": {
+            "description": "W zwięzły sposób pokazuje średnią liczbę możliwych do zdobycia kredytów za każdą misję.",
+            "title": "Pokaż średnie kredyty"
+        },
+        "collapsableMissions": {
+            "description": "Zwiń poszczególne (lub wszystkie) misje, aby zmniejszyć ich rozmiar na liście misji.",
+            "title": "Zwiń misje"
+        },
+        "currentPatients": {
+            "description": "Pokazuje aktualną liczbę pacjentów dla każdej misji",
+            "title": "Obecni pacjenci"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Pokazuje aktualną liczbę pacjentów również w podpowiedziach na mapie.",
+            "title": "Obecni pacjenci w podpowiedziach"
+        },
+        "eventMissions": {
+            "description": "Oznacza misje sezonowe. Opcjonalnie możesz dostosować całość, a także oznaczać misje niesezonowe.",
+            "missions": "Misje",
+            "text": "Tekst",
+            "title": "Oznacz misje sezonowe"
+        },
+        "hide0CurrentPatients": {
+            "description": "Ukrywa liczbę pacjentów, jeśli na miejscu nie ma pacjentów",
+            "title": "Ukryj bez pacjentów"
+        },
+        "remainingPatientTime": {
+            "description": "Pokazuje ile czasu pozostało do pełnego leczenia pacjentów",
+            "title": "Pozostały czas dla pacjentów"
+        },
+        "remainingPumpingTime": {
+            "description": "Pokazuje postęp pompowania, ile czasu pozostało do ich zakończenia.",
+            "title": "Pozostały czas do końca misji"
+        },
+        "remainingTime": {
+            "description": "Pokazuje w misjach, jak długo każda misja będzie jeszcze w toku.",
+            "title": "Pozostały czas misji"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Pokaż pozostały czas tylko w zielonych misjach.",
+            "title": "Czas misji tylko dla zielonych misji"
+        },
+        "shareMissions": {
+            "description": "Udostępniaj misje sojuszowi bezpośrednio z listy misji.",
+            "title": "Udostępnij misje"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Czerwony",
+            "default": "Czarny lub biały (zależny od stylu gry)",
+            "description": "Wybierz kolor tła przycisków udostępniania",
+            "info": "Jasny niebieski",
+            "primary": "Ciemny niebieski",
+            "success": "Zielony",
+            "title": "Udostępnij misje: Kolor przycisku",
+            "warning": "Pomarańczowy"
+        },
+        "shareMissionsMinCredits": {
+            "description": "Przycisk udostępniania misji jest wyświetlany tylko w przypadku misji, które mają średnią nagrodę wyższą niż ta, którą tutaj ustawiłeś.",
+            "title": "Udostępnij misje: minimalne kredyty"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Misje sojuszu (tylko dla Udostępnij post sojuszu)",
+            "description": "Ustaw, dla których misji chcesz włączyć przycisk udostępniania.",
+            "own": "Połączenia alarmowe",
+            "sicherheitswache": "Planowane misje",
+            "title": "Udostępnij misje: rodzaje misji"
+        },
+        "sortMissions": {
+            "description": "Posortuj swoją listę misji!",
+            "title": "Sortuj misje"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Wybierz kolor tła przycisku sortowania",
+            "title": "Sortuj misje: Kolor przycisku"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Wdraża sortowanie w oknach misji.",
+            "title": "Sortowanie w oknie misji"
+        },
+        "starrableMissions": {
+            "description": "Oznacz misje tak, aby wyświetlały się na liście misji u góry. Możesz je zaznaczyć w oknie misji oraz na liście misji.",
+            "title": "Oznacz misje"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alfabetycznie",
+            "credits": "Średnie Kredyty",
+            "default": "Kolejność zgłoszenia",
+            "distance_dispatch": "Odległość do najbliższego CPR",
+            "distance_station": "Odległość do najbliższej jednostki",
+            "id": "Id zgłoszenia",
+            "remaining_patients": "Obecni pacjenci"
+        }
+    }
+}

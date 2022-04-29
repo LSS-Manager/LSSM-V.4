@@ -1,9 +1,9 @@
 import modifyMessage from './modifyMessage';
 
-import type { MessageTemplate } from '../main';
+import type { ConversationMessageTemplate } from '../../main';
 
 export default (
-    templates: MessageTemplate[],
+    templates: ConversationMessageTemplate[],
     dropdown: HTMLUListElement,
     replacements: {
         username?: string;

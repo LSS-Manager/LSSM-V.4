@@ -1,0 +1,41 @@
+{
+    "description": "Ulepsz mapę dzięki kilku fajnym funkcjom.",
+    "name": "Ulepszona mapa",
+    "positions": {
+        "bottomleft": "Na dole po lewej 🡧",
+        "bottomright": "Na dole po prawej 🡦",
+        "topleft": "Na górze po po lewej 🡤",
+        "topright": "Na górze po prawej 🡥"
+    },
+    "settings": {
+        "centerMap": {
+            "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
+            "title": "Centrowanie mapy"
+        },
+        "centerMapStaticLocation": {
+            "title": "Statyczny środek mapy: Pozycja"
+        },
+        "centerMapType": {
+            "description": "Wybierz, czy chcesz centrować statycznie, czy dynamicznie [dynamiczny nie jest jeszcze dostępny]",
+            "dynamic": "Dynamiczny",
+            "static": "Statyczny",
+            "title": "Centrowanie mapy: Tryb"
+        },
+        "locationSelect": {
+            "sync": "Centruj",
+            "zoom": "Ustawienia mapy"
+        },
+        "mapScale": {
+            "description": "Pokazuje skalę mapy i aktualny poziom powiększenia",
+            "title": "Skala"
+        },
+        "mapScalePosition": {
+            "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy",
+            "title": "Pozycja skali mapy"
+        },
+        "markerNewWindow": {
+            "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
+            "title": "Otwórz znaczniki w nowej karcie"
+        }
+    }
+}

@@ -20,6 +20,10 @@
             "title": "Réponses"
         },
         "name": "Nom",
-        "postInChat": "Afficher une note dans le chat ?"
+        "postInChat": "Afficher une note dans le chat ?",
+        "stayInCallList": {
+            "description": "Avec cette option activée, vous pouvez envoyer des notes d'incident même sur des missions partagées.",
+            "title": "Rester sur la liste des missions"
+        }
     }
 }

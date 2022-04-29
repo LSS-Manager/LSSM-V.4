@@ -1,0 +1,9 @@
+{
+    "description": "Pokazuje odpowiedni identyfikator użytkownika w profilu i w razie potrzeby również twój własny na pasku nawigacyjnym",
+    "name": "Identyfikator użytkownika",
+    "settings": {
+        "navbar": {
+            "title": "Pokaż swój identyfikator w pasku nawigacyjnym"
+        }
+    }
+}

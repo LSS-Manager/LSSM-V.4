@@ -1,48 +1,40 @@
-import fillDropdown from './assets/fillDropdown';
-
 import type { ModuleMainFunction } from 'typings/Module';
 
-export interface MessageTemplate {
+export interface ConversationMessageTemplate {
     name: string;
     subject: string;
     template: string;
 }
 
+export interface ChatMessageTemplate {
+    name: string;
+    text: string;
+}
+
 export default <ModuleMainFunction>(async ({ $m, getSetting }) => {
-    const messages = (
-        await getSetting<{
-            value: MessageTemplate[];
-            enabled: boolean;
-        }>('templates')
-    ).value;
-
-    const preselected = parseInt(
-        new URL(window.location.toString()).searchParams.get('template') ?? '-1'
-    );
-
-    const group = document.createElement('div');
-    group.classList.add('btn-group', 'pull-right');
-    const insert = document.createElement('button');
-    insert.classList.add('btn', 'btn-default', 'dropdown-toggle');
-    insert.setAttribute('data-toggle', 'dropdown');
-    insert.innerHTML = `${$m('name')}&nbsp;<span class="caret"></span>`;
-    const optionList = document.createElement('ul');
-    optionList.classList.add('dropdown-menu');
-    fillDropdown(
-        messages,
-        optionList,
-        {},
-        (subject, body) => {
-            const titleEl =
-                document.querySelector<HTMLInputElement>('#message_subject');
-            if (titleEl) titleEl.value = subject;
-            const bodyEl =
-                document.querySelector<HTMLTextAreaElement>('#message_body');
-            if (bodyEl) bodyEl.value = body;
-        },
-        preselected
-    );
-
-    group.append(insert, optionList);
-    document.querySelector('.page-header')?.append(group);
+    if (/^\/?$/u.test(window.location.pathname)) {
+        const messages = (
+            await getSetting<{
+                value: ChatMessageTemplate[];
+                enabled: boolean;
+            }>('chatTemplates')
+        ).value;
+        if (messages.length) {
+            import(
+                /* webpackChunkName: "modules/messageTemplates/chat" */ './assets/chat/main'
+            ).then(({ default: conversations }) => conversations(messages));
+        }
+    } else if (/^\/messages\/(?:new|\d+)\/?$/u.test(window.location.pathname)) {
+        const messages = (
+            await getSetting<{
+                value: ConversationMessageTemplate[];
+                enabled: boolean;
+            }>('templates')
+        ).value;
+        if (messages.length) {
+            import(
+                /* webpackChunkName: "modules/messageTemplates/conversations" */ './assets/conversations/main'
+            ).then(({ default: conversations }) => conversations(messages, $m));
+        }
+    }
 });

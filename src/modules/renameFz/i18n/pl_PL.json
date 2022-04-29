@@ -1,0 +1,10 @@
+{
+    "templates": {
+        "selection": "Wybierz szablon...",
+        "selectionHint": "Utworzyć nowy szablon? Wystarczy wpisać nazwę i wybrać!",
+        "status": {
+            "template": "Poczekaj na wybór szablonu...",
+            "waiting": "Czekam na dane wejściowe..."
+        }
+    }
+}

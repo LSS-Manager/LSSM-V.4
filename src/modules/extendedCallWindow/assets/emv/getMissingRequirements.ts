@@ -2,11 +2,28 @@ import type { $m } from 'typings/Module';
 import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
-    const missingRequirementsText = missingDialogContent
+    let missingRequirementsText = missingDialogContent
         ?.trim()
         .replace(/(^[^:]*:)|(\.$)/gu, '')
         .trim();
     if (!missingRequirementsText) return;
+
+    const vehiclePreprocessor = $m(
+        'enhancedMissingVehicles.vehiclePreprocessor'
+    ) as Record<string, string> | string;
+
+    if (typeof vehiclePreprocessor !== 'string') {
+        Object.entries(vehiclePreprocessor).forEach(
+            ([reg, replace]) =>
+                (missingRequirementsText = missingRequirementsText.replace(
+                    new RegExp(
+                        reg.replace(/^\/(\^)?|(\$)?\/[ADJUgimux]*$/gu, ''),
+                        'gu'
+                    ),
+                    replace
+                ))
+        );
+    }
 
     const water = $m('enhancedMissingVehicles.water').toString();
     const foam = $m('enhancedMissingVehicles.foam').toString();

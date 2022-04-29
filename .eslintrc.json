@@ -70,6 +70,7 @@
             "pathGroupsExcludedImportTypes": ["vue"],
             "newlines-between": "always"
         }],
+        "no-constant-binary-expression": "error",
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
         "no-floating-decimal": "warn",

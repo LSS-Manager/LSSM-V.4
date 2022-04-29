@@ -11,6 +11,9 @@ const modules = {
             title: 'Niezapisane zmiany',
             text: 'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
             close: 'Zamknij',
+            saveAndExit: 'Zapisz i wyjdź',
+            exit: 'Wyjdź bez zapisywania',
+            abort: 'Anuluj',
         },
     },
     settings: {
@@ -20,6 +23,13 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        appendableList: {
+            unique: {
+                title: 'podwójna wartość',
+                text: 'W kolumnie {title} nie może być zduplikowanych wartości. Wartość {value} już istnieje!',
+                confirm: 'Potwierdź',
+            },
+        },
         resetWarning: {
             title: 'Resetuj ustawienia',
             text: 'Czy na pewno chcesz zresetować ustawienia do wartości domyślnych? Tego nie można cofnąć!',
@@ -37,10 +47,17 @@ const modules = {
             title: 'Niezapisane zmiany',
             text: 'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
             close: 'Zamknij',
+            saveAndExit: 'Zapisz i wyjdź',
+            exit: 'Wyjdź bez zapisywania',
         },
         changeList: {
             true: 'On',
             false: 'Off',
+        },
+        locationSelect: {
+            location: 'Wybierz pozycję',
+            zoom: 'Wybierz pozycję i zoom',
+            sync: 'użyj aktualnej pozycji',
         },
     },
 } as Record<string, Record<string, unknown>>;
@@ -48,8 +65,22 @@ const modules = {
 export default {
     modules,
     error: {
-        title: 'LSS Manager: Błąd',
+        title: 'Menedżer LSS: błąd',
         msg: 'Jeśli ten błąd występuje często, zgłoś go zespołowi LSSM!',
+        requestIssue: {
+            title: 'Błędne żądanie: Status {status}',
+            text: `Ouch, unfortunately an error occurred with this server request:<br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
+<br>
+Please try to perform the desired action again.<br>
+If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
+            close: 'Odrzuć',
+        },
     },
     warnings: {
         version: {
@@ -74,17 +105,37 @@ export default {
         },
         allowTelemetry: {
             description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
+                'Kontroluje, czy LSS-Manager może wysyłać dane, które pomagają nam w rozwijaniu tego rozszerzenia.',
+            title: 'Zezwól na telemetrię',
         },
         iconBg: {
-            description: 'Change the background of LSSM-Icon!',
-            title: 'LSSM-Icon Background',
+            description: 'Zmień tło likony LSSM!',
+            title: 'Tło likony LSSM',
         },
         iconBgAsNavBg: {
             description:
-                'Color the whole navbar in the color of LSSM-Icon Background!',
-            title: 'colorize navbar',
+                'Pokoloruj cały pasek nawigacyjny w kolorze tła ikony LSSM!',
+            title: 'Pokoloruj pasek nawigacyjny',
+        },
+        loadingIndicator: {
+            description:
+                'Jeśli to ustawienie jest aktywne, LSSM wyświetla małe kółko ładowania w prawym dolnym rogu, gdy ładuje własne pliki.',
+            title: 'Pokaż postęp ładowania',
+        },
+        osmDarkTooltip: {
+            description:
+                'To ustawienie przyciemnia podpowiedzi na mapie, jeśli włączyłeś tryb ciemny.',
+            title: 'Ciemne podpowiedzi na mapie',
+        },
+        osmDarkControls: {
+            description:
+                'To ustawienie przyciemnia przyciski na mapie, jeśli włączyłeś tryb ciemny.',
+            title: 'Ciemne przyciski na mapie',
+        },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menu jako podmenu',
+            description:
+                'Przenosi menu LSSM V3 do menu V4, aby zaoszczędzić trochę miejsca na pasku nawigacyjnym.',
         },
     },
     vehicles: {
@@ -1477,4 +1528,19 @@ export default {
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],
+    ranks: {
+        missionchief: {
+            0: 'Nowy',
+            200: 'Strażak',
+            10_000: 'Starszy strażak',
+            100_000: 'Ogniomistrz',
+            1_000_000: 'Aspirant',
+            5_000_000: 'Kapitan',
+            20_000_000: 'Starszy kapitan',
+            50_000_000: 'Szef brygady',
+            1_000_000_000: 'Nadbrygadier',
+            2_000_000_000: 'Zastępca komendanta głównego',
+            5_000_000_000: 'Komendant główny',
+        },
+    },
 };

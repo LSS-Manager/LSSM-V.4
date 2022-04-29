@@ -1,7 +1,12 @@
 {
+    "all": "Tutte",
+    "claim": "Riscuoti",
+    "claimAll": "Riscuoti tutte ({amount})",
     "collectionTasks": {
         "taskName": "Porta a termine \\d+ attività dell'evento \"(.*?)\"",
-        "title": "Collective Tasks"
+        "title": "Attività cumulative"
     },
+    "end": "Finisce in",
+    "nextTask": "Una volta riscossa, comparirà un'altra attività",
     "title": "Attività ed eventi"
 }

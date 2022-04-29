@@ -1,0 +1,27 @@
+{
+    "disabled": "Fundusze sojuszu są wyłączone w tym sojuszu.",
+    "earnings": {
+        "credits": "Kredyty",
+        "daily": "Dzienne",
+        "monthly": "Miesięczne",
+        "sum": "Suma",
+        "title": "Zyski",
+        "user": "Gracz"
+    },
+    "spendings": {
+        "credits": "Kredyty",
+        "date": "Data",
+        "desc": "Opis",
+        "loadMore": "Załaduj kolejne 10 wpisów",
+        "title": "Wydatki",
+        "user": "Gracz"
+    },
+    "summary": {
+        "rate": "Twój wkład w sojusz",
+        "title": "Fundusze sojuszu"
+    },
+    "toggle": {
+        "disable": "Wyłącz fundusze sojuszu",
+        "enable": "Włącz fundusze sojuszu"
+    }
+}

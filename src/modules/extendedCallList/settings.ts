@@ -93,10 +93,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         },
         shareMissionsTypes: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
-            values: ['', 'sicherheitswache'],
+            values: ['', 'sicherheitswache', 'alliance'],
             labels: [
                 $m('settings.shareMissionsTypes.own'),
                 $m('settings.shareMissionsTypes.sicherheitswache'),
+                $m('settings.shareMissionsTypes.alliance'),
             ],
             default: ['', 'sicherheitswache'],
             dependsOn: '.shareMissions',

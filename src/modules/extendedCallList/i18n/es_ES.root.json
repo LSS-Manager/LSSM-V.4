@@ -135,6 +135,7 @@
             "title": "Comparte misiones: Créditos minimos"
         },
         "shareMissionsTypes": {
+            "alliance": "Alliance missions (only for Share-Alliance-Post)",
             "description": "Configure para cuál de las llamadas desea habilitar el botón de compartir.",
             "own": "Llamadas de emergencia",
             "sicherheitswache": "Misiones planeadas",

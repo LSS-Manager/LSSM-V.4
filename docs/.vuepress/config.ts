@@ -1,7 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-import { defineUserConfig } from 'vuepress';
+import pluginRegisterComponents from '@vuepress/plugin-register-components';
+import pluginSearch from '@vuepress/plugin-search';
+import { pwaPlugin } from '@vuepress/plugin-pwa';
+import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup';
+import { defaultTheme, defineUserConfig } from 'vuepress';
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
@@ -18,6 +22,8 @@ import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
 
 const BASE = '/v4/docs/';
+const DOCS_URL = new URL(config.server);
+DOCS_URL.pathname = BASE;
 
 const VUEPRESS_PATH = __dirname;
 const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
@@ -104,29 +110,104 @@ const localeConfigs: {
     siteConfigs: Record<`/${string}/`, LocaleSiteConfig>;
     themeConfigs: Record<`/${string}/`, LocaleThemeConfig>;
     searchConfigs: Record<`/${string}/`, { placeholder: string }>;
+    pwaPopupConfigs: Record<
+        `/${string}/`,
+        { message: string; buttonText: string }
+    >;
 } = {
     siteConfigs: {},
     themeConfigs: {},
     searchConfigs: {},
+    pwaPopupConfigs: {},
 };
 
 LANGS.forEach(lang => {
-    const { siteConfig, themeConfig, searchPlaceholder } =
+    const { siteConfig, themeConfig, searchPlaceholder, pwaPopupConfig } =
         getLocaleConfig(lang);
     localeConfigs.siteConfigs[`/${lang}/`] = siteConfig;
     localeConfigs.themeConfigs[`/${lang}/`] = themeConfig;
     localeConfigs.searchConfigs[`/${lang}/`] = {
         placeholder: searchPlaceholder,
     };
+    localeConfigs.pwaPopupConfigs[`/${lang}/`] = pwaPopupConfig;
 });
 
-export default defineUserConfig<ThemeData>({
+const statsComponentsPath = path.join(DOCS_COMPONENTS_PATH, '.temp', 'stats');
+fs.mkdirSync(statsComponentsPath, { recursive: true });
+const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
+run('generate/projectStats', ROOT_PATH, VUEPRESS_PATH, clocStatsPath);
+
+run(
+    'generate/manifest',
+    path.join(VUEPRESS_PATH, 'public', 'manifest.webmanifest'),
+    $t('en_US', 'description').toString(),
+    'LSS-Manager V.4 Wiki',
+    DOCS_URL.toString()
+);
+
+export default defineUserConfig({
     // site config
     base: BASE,
     lang: 'en-US',
     title: 'LSS-Manager V.4 Wiki',
     description: $t('en_US', 'description').toString(),
-    head: [['link', { rel: 'icon', href: `${BASE}img/lssm.png` }]],
+    head: [
+        [
+            'link',
+            {
+                rel: 'apple-touch-icon',
+                sizes: '180x180',
+                href: `${BASE}img/icons/apple-touch-icon.png`,
+            },
+        ],
+        [
+            'link',
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: `${BASE}img/icons/favicon-32x32.png`,
+            },
+        ],
+        [
+            'link',
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: `${BASE}img/icons/favicon-16x16.png`,
+            },
+        ],
+        ['link', { rel: 'manifest', href: `${BASE}manifest.webmanifest` }],
+        [
+            'link',
+            {
+                rel: 'mask-icon',
+                href: `${BASE}img/icons/safari-pinned-tab.svg`,
+                color: '#22272e',
+            },
+        ],
+        [
+            'link',
+            { rel: 'shortcut icon', href: `${BASE}img/icons/favicon.ico` },
+        ],
+        ['meta', { name: 'msapplication-TileColor', content: '#22272e' }],
+        [
+            'meta',
+            {
+                name: 'msapplication-TileImage',
+                content: `${BASE}img/icons/mstile-144x144.png`,
+            },
+        ],
+        [
+            'meta',
+            {
+                name: 'msapplication-config',
+                content: `${BASE}img/icons/browserconfig.xml`,
+            },
+        ],
+        ['meta', { name: 'theme-color', content: '#22272e' }],
+    ],
 
     // common config
     dest: DOCS_DIST_PATH,
@@ -151,8 +232,7 @@ export default defineUserConfig<ThemeData>({
     locales: localeConfigs.siteConfigs,
 
     // theme and its config
-    theme: '@vuepress/theme-default',
-    themeConfig: {
+    theme: defaultTheme({
         navbar: [
             {
                 text: `v${versions.short}`,
@@ -206,70 +286,69 @@ export default defineUserConfig<ThemeData>({
             contributors: contributorsFile.contributors,
             contributionTypes: contributorsFile.types,
         },
-    },
+    }),
 
     // plugins
     plugins: [
-        ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
-        [
-            '@vuepress/plugin-search',
-            {
-                locales: localeConfigs.searchConfigs,
+        // disabled as not working with current vuepress version
+        // ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
+        pluginSearch({ locales: localeConfigs.searchConfigs }),
+        pluginRegisterComponents({
+            components: {
+                'momentjs-preview': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'momentjs/preview.vue'
+                ),
+                'momentjs-shorts': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'momentjs/shorts.vue'
+                ),
+                'momentjs-variables': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'momentjs/variables.vue'
+                ),
+                'tampermonkey-download-table': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'tampermonkey/download-table.vue'
+                ),
+                'v3-v4-comparison-new': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'v3-v4-comparison/new-table.vue'
+                ),
+                'v3-v4-comparison-integrated': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'v3-v4-comparison/integrated-table.vue'
+                ),
+                'v3-v4-comparison-v3only': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'v3-v4-comparison/v3only-table.vue'
+                ),
+                'browser-support-table': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'browser-support-table.vue'
+                ),
+                'bugs': path.join(DOCS_COMPONENTS_PATH, 'bug-list.vue'),
+                'discord': path.join(DOCS_COMPONENTS_PATH, 'discord-link.vue'),
+                'discord-channel': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'discord-channel.vue'
+                ),
+                'mapkit-modules': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'mapkit-modules.vue'
+                ),
+                'translators': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'translator-list.vue'
+                ),
+                'variable': path.join(
+                    DOCS_COMPONENTS_PATH,
+                    'variable-code.vue'
+                ),
+                'stats-cloc': clocStatsPath,
             },
-        ],
-        [
-            '@vuepress/register-components',
-            {
-                components: {
-                    'momentjs-preview': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'momentjs/preview.vue'
-                    ),
-                    'momentjs-shorts': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'momentjs/shorts.vue'
-                    ),
-                    'momentjs-variables': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'momentjs/variables.vue'
-                    ),
-                    'tampermonkey-download-table': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'tampermonkey/download-table.vue'
-                    ),
-                    'v3-v4-comparison-new': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/new.vue'
-                    ),
-                    'v3-v4-comparison-integrated': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/integrated.vue'
-                    ),
-                    'v3-v4-comparison-v3only': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'v3-v4-comparison/v3only.vue'
-                    ),
-                    'browser-support-table': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'browser-support-table.vue'
-                    ),
-                    'bugs': path.join(DOCS_COMPONENTS_PATH, 'bugs.vue'),
-                    'discord': path.join(DOCS_COMPONENTS_PATH, 'discord.vue'),
-                    'discord-channel': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'discord-channel.vue'
-                    ),
-                    'mapkit-modules': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'mapkit-modules.vue'
-                    ),
-                    'translators': path.join(
-                        DOCS_COMPONENTS_PATH,
-                        'translators.vue'
-                    ),
-                    'variable': path.join(DOCS_COMPONENTS_PATH, 'variable.vue'),
-                },
-            },
-        ],
+        }),
+        pwaPlugin({}),
+        pwaPopupPlugin(localeConfigs.pwaPopupConfigs),
     ],
 });

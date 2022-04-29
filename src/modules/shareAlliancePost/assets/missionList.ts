@@ -15,6 +15,7 @@ import {
 import type { ButtonGroupCallback } from '../../extendedCallList/assets/utils/buttonGroup';
 import type { Message } from './missionWindow';
 import type { Mission } from 'typings/Mission';
+import type { UpdateShareBtn } from '../../extendedCallList/assets/shareMissions';
 
 const createLi = <I extends 'comment-slash' | 'comment'>(
     content: string,
@@ -43,7 +44,9 @@ export default (
     missionType: string,
     missionSpecs: Mission,
     noMessage: string,
-    authToken: string
+    authToken: string,
+    updateShareBtn: UpdateShareBtn,
+    isStayMode: boolean
 ) => {
     btn.classList.add('dropdown-toggle');
     btn.dataset.toggle = 'dropdown';
@@ -55,13 +58,15 @@ export default (
     const dropdown = document.createElement('ul');
     dropdown.classList.add('dropdown-menu', dropdownClass);
 
-    const noMessageLi = createLi(noMessage);
-    noMessageLi.dataset.noMessage = '1';
-    dropdown.append(noMessageLi);
+    if (!isStayMode) {
+        const noMessageLi = createLi(noMessage);
+        noMessageLi.dataset.noMessage = '1';
 
-    const separatorLi = document.createElement('li');
-    separatorLi.classList.add('divider');
-    dropdown.append(separatorLi);
+        const separatorLi = document.createElement('li');
+        separatorLi.classList.add('divider');
+
+        dropdown.append(noMessageLi, separatorLi);
+    }
 
     const missionName =
         missionSpecs?.name ??
@@ -181,7 +186,10 @@ export default (
             editBtnClass,
             (liElement, sendMessage) => {
                 btn.disabled = true;
-                shareMission(LSSM, mission.id, true)
+                (isStayMode
+                    ? new Promise<void>(resolve => resolve())
+                    : shareMission(LSSM, mission.id, true)
+                )
                     .then(
                         () =>
                             new Promise<void>(resolve => {
@@ -198,7 +206,14 @@ export default (
                                 }
                             })
                     )
-                    .then(() => btn.remove());
+                    .then(() => {
+                        if (isStayMode) {
+                            btn.disabled = false;
+                        } else {
+                            btn.remove();
+                            updateShareBtn(mission);
+                        }
+                    });
             },
             true
         )

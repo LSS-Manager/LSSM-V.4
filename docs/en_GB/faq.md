@@ -51,7 +51,7 @@ We don't see the point of doing this everywhere and officially **do not** suppor
 :::
 
 ### I want to share my setup with friends or use it on multiple devices. Is that possible?
-Currently it is not possible, but we are working on it.
+Yes, it is. Just open the [settings][settings] and click `Export`, to download a config-file. `Import` lets you choose a config-file to import the settings.
 
 ### Is there a way to save settings account bound so that you don't have to import them on another device?
 Currently we do not offer this, but an implementation of this feature is planned.

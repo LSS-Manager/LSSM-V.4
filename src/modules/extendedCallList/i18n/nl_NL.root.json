@@ -234,6 +234,7 @@
             "title": "Deel meldingen: minimum credits"
         },
         "shareMissionsTypes": {
+            "alliance": "Teammeldingen (alleen voor alarmeer, delen en posten)",
             "description": "Stel in voor welke type meldingen je de deelknop wilt tonen.",
             "own": "Eigen meldingen",
             "sicherheitswache": "Geplande meldingen",

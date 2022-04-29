@@ -1,0 +1,71 @@
+{
+    "amount": "{n} wyświetlana misja | {n} wyświetlane misje",
+    "columns": {
+        "average_credits": "Średnie kredyty",
+        "details": "",
+        "duration": "Trwanie",
+        "generated_by": "Budynek generujący",
+        "id": "",
+        "missing": "Potrzebne pojazdy:",
+        "name": "insert",
+        "place": "Miejsce",
+        "prerequisites": "Wymagania pojazdów i personelu"
+    },
+    "main_building_extensions": {
+        "text": "z następującymi aktywnymi rozszerzeniami"
+    },
+    "missing": {
+        "date": "W tej chwili nie można wygenerować tej misji, ponieważ jest ona obecnie włączona tylko w okresie od **{date_start}** do **{date_end}**.",
+        "diff": "Nadal potrzebne",
+        "have": "Masz",
+        "need": "Potrzebne",
+        "req": "Wymagania"
+    },
+    "no_dispatchcenter": "Bez centrum kontroli",
+    "prerequisite_calculations": {
+        "Stacja helikopterów": [
+            "5.level"
+        ],
+        "Stację Helikopterów Policji": [
+            "13.level"
+        ],
+        "hazard_response_ems_count": [
+            25
+        ],
+        "posterunek straży pożarnej": [
+            0,
+            18
+        ],
+        "posterunki(-ów) pogotowia ratunkowego": [
+            2,
+            20,
+            "0.0"
+        ],
+        "posterunki(-ów) policji": [
+            6,
+            19
+        ]
+    },
+    "prerequisites_long": {
+        "fire_stations": "Fire Station | Fire Stations",
+        "hazard_response_ems_count": "HART Base | HART Bases",
+        "max_police_stations": "Maximum Police Stations",
+        "max_rescue_stations": "Maximum Rescue Stations",
+        "police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
+        "police_stations": "Police Station | Police Stations",
+        "rescue_helicopter_stations": "Rescue Helicopter Count",
+        "rescue_stations": "Ambulance Station | Ambulance Stations"
+    },
+    "prerequisites_short": {
+        "fire_stations": "Straż pożarna | Remizy strażackie",
+        "hazard_response_ems_count": "HART Base | HART Bases",
+        "max_police_stations": "Maximum Police Stations",
+        "max_rescue_stations": "Maximum Rescue Stations",
+        "police_helicopter_stations": "Policyjna Stacja Helikopterów | Stacje śmigłowców policyjnych",
+        "police_stations": "Posterunek policji | Komisariaty",
+        "rescue_helicopter_stations": "Rescue Helicopter Count",
+        "rescue_stations": "Pogotowie | Stacje pogotowia"
+    },
+    "select_dispatchcenter": "Wybierz centrum sterowania",
+    "title": "Potencjalne misje"
+}
