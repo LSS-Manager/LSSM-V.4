@@ -246,7 +246,7 @@
             "distance_station": "Distance jusqu'à la prochaine station",
             "id": "Age",
             "remaining_patients": "Patients actuels",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Prisonniers actuels"
         }
     }
 }
