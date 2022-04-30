@@ -132,8 +132,24 @@ module.exports = {
             close: 'Chiudere Nota fino al cambiamento',
         },
     },
+    patientCollapse: {
+        combis: 'Combinazioni', 
+        amount: 'Quantità',
+        summary: {
+            total: 'Pazienti',
+            treated: 'In cura',
+        },
+    },
     hideVehicleList: {
         show: 'Mostra lista veicoli',
         hide: 'Nascondi lista veicoli',
+    },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'in arrivo',
+        'atScene': 'sulla scena',
+        'total': 'Totale',
+        'vehicles': 'Veicoli',
+        'players': 'Giocatori',
     },
 };
