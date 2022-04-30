@@ -59,6 +59,7 @@ declare global {
         [PREFIX: string]: Vue | unknown;
         map: L.Map;
         L: typeof L;
+        icon_empty: L.Icon;
         mission_position_new_marker?: L.Marker;
         building_new_marker?: L.Marker;
         building_move_marker?: L.Marker;
@@ -81,6 +82,7 @@ declare global {
         formatTime(remaining: number, t?: boolean): string;
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
         buildingMarkerBulkContentCacheDraw(): void;
+        iconAnchorCalculate(size: [number, number]): [number, number];
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;

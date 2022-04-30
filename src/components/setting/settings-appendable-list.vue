@@ -98,6 +98,14 @@
                         v-model="value[item.name]"
                         @input="changeValue(index, value, item)"
                     ></settings-hotkey>
+                    <settings-location
+                        v-else-if="item.setting.type === 'location'"
+                        :name="item.name"
+                        :placeholder="item.title"
+                        :zoom="item.setting.zoom"
+                        v-model="value[item.name]"
+                        @input="changeValue(index, value, item)"
+                    ></settings-location>
                     <div
                         v-else-if="item.setting.type === 'hidden'"
                         class="hidden"
@@ -203,6 +211,10 @@ export default Vue.extend<
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './hotkey.vue'
+            ),
+        SettingsLocation: () =>
+            import(
+                /* webpackChunkName: "components/setting/location" */ './location.vue'
             ),
     },
     data() {
