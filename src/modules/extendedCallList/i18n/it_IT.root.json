@@ -1,4 +1,12 @@
 {
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Minimizza tutte le missioni",
+            "expand": "Espandi tutte le missioni"
+        },
+        "collapse": "Minimizza questa missione",
+        "expand": "Espandi questa missione"
+    },
     "description": "Estende l'elenco delle missioni con alcune fantastiche funzionalità!",
     "eventMissions": {
         "default": {
@@ -69,35 +77,103 @@
             "description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
             "title": "Crollo delle missioni"
         },
+        "currentPatients": {
+            "description": "Mostra quanti pazienti ci sono in ogni missione.",
+            "title": "Quantità Pazienti"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Mostra quanti pazienti ci sono in ogni missione anche nel tooltip nella mappa.",
+            "title": "Quantità Pazienti nei Tooltips"
+        },
         "currentPrisoners": {
-            "description": "Shows current amount of prisoners for each mission",
-            "title": "Current Prisoners"
+            "description": "Mostra quanti prigionieri ci sono in ogni missione.",
+            "title": "Quantità Prigionieri"
         },
         "currentPrisonersInTooltips": {
-            "description": "Shows current amount of prisoners also in the tooltips on the map.",
-            "title": "Current Prisoners in Tooltips"
+            "description": "Mostra quanti prigionieri ci sono in ogni missione anche nel tooltip nella mappa.",
+            "title": "Quantità Prigionieri nei Tooltips"
         },
         "eventMissions": {
             "description": "Contrassegna le missioni stagionali. Opzionalmente, si può personalizzare il tutto e segnare anche le missioni non stagionali.",
             "missions": "Missioni",
             "text": "Testo",
-            "title": "Segna le missioni stagionali"
+            "title": "Contrassegna le missioni stagionali"
+        },
+        "hide0CurrentPatients": {
+            "description": "Nascondi l'indicatore dei pazienti, se non ce n'è nessuno.",
+            "title": "Nascondi 0 Pazienti"
         },
         "hide0CurrentPrisoners": {
-            "description": "Hides amount of prisoners if there are no prisoners at scene",
-            "title": "Hide 0 Prisoners"
+            "description": "Nascondi l'indicatore dei prigionieri, se non ce n'è nessuno.",
+            "title": "Nascondi 0 Prigionieri"
+        },
+        "remainingPatientTime": {
+            "description": "Mostra quanto tempo manca affinché i vari pazienti siano completamente curati.",
+            "title": "Tempo rimanente per i pazienti"
+        },
+        "remainingPumpingTime": {
+            "description": "Shows for pumping progresses how much time remains until they are finished.",
+            "title": "Remaining time for pumping progress"
         },
         "remainingTime": {
-            "description": "Mostra alle missioni per quanto tempo ogni missione è ancora in corso.",
+            "description": "Mostra per ogni missione quanto tempo manca.",
             "title": "Tempo missione rimanente"
         },
         "remainingTimeGreenOnly": {
-            "description": "Mostra il tempo rimanente solo sulle missioni verdi.",
+            "description": "Mostra il tempo rimanente solo per le missioni verdi.",
             "title": "Tempo di missione solo per le missioni verdi"
         },
+        "shareMissions": {
+            "description": "Condividi le missioni con l'allenza direttamente dalla lista delle missioni.",
+            "title": "Condividi missioni"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Rosso",
+            "default": "Nero o bianco (dipende dal design in uso)",
+            "description": "Seleziona lo sfondo del pulsante per la condivisione delle missioni",
+            "info": "Azzurro",
+            "primary": "Blu",
+            "success": "Verde",
+            "title": "Condividi Missioni: colore pulsante",
+            "warning": "Arancione"
+        },
+        "shareMissionsMinCredits": {
+            "description": "Il pulsante per condividere le missioni comparira solo se la missione ha un guadagno medio di crediti superiore a quello impostato qui.",
+            "title": "Condividi Missioni: crediti minimi"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Missioni dell'alleanza (solo per i messaggi dell'alleanza)",
+            "description": "Imposta per quali chiamate comparirà il pulsante per la condivisione.",
+            "own": "Chiamate di emergenza (in poche parole, quelle generiche)",
+            "sicherheitswache": "Eventi Pianificati",
+            "title": "Condividi missioni: tipologia delle missioni"
+        },
+        "sortMissions": {
+            "description": "Ordina la lista delle missioni!",
+            "title": "Ordina le missioni"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Seleziona lo sfondo del pulsante per impostare l'ordine delle missioni",
+            "title": "Ordina le missioni: colore pulsante"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementa la possibilità di ordinare le missioni dentro le specifica finestra. Opzionalmente, puoi impostare delle Hotkeys nel modulo \"Hotkeys\".",
+            "title": "Sorting in mission window"
+        },
         "starrableMissions": {
-            "description": "Segna le missioni in modo che vengano visualizzate nella lista delle missioni in alto. Puoi contrassegnarle nella finestra delle missioni e nell'elenco delle missioni.",
-            "title": "Segna le missioni"
+            "description": "Contrassegna le missioni in modo che vengano visualizzate nella lista delle missioni in alto. Puoi contrassegnarle nella finestra delle missioni e nell'elenco delle missioni.",
+            "title": "Contrassegna le missioni"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alfabeto",
+            "credits": "Crediti",
+            "default": "Nessun ordinamento",
+            "distance_dispatch": "Distanza dalla prossima centrale",
+            "distance_station": "Distanza dalla prossima stazione",
+            "id": "Cronologico",
+            "remaining_patients": "Pazienti"
         }
     }
 }
