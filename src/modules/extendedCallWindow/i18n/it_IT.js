@@ -133,7 +133,7 @@ module.exports = {
         },
     },
     patientCollapse: {
-        combis: 'Combinazioni', 
+        combis: 'Combinazioni',
         amount: 'Quantità',
         summary: {
             total: 'Pazienti',
