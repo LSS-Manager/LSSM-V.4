@@ -83,6 +83,7 @@ declare global {
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
         buildingMarkerBulkContentCacheDraw(): void;
         iconAnchorCalculate(size: [number, number]): [number, number];
+        iconMapGenerate(url: string, marker: L.Marker): void;
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;

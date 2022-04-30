@@ -1,10 +1,37 @@
-// import { InternalBuilding } from 'typings/Building';
 import type { ModuleSettingFunction } from 'typings/Module';
-import type { Location, Select, Toggle } from 'typings/Setting';
+import type {
+    AppendableList,
+    AppendableListSetting,
+    Location,
+    MultiSelect,
+    Select,
+    Text,
+    Toggle,
+} from 'typings/Setting';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
-    // const buildings = LSSM.$t('buildings') as Record<number, InternalBuilding>;
+
+    const buildingTypes = LSSM.$t('buildings') as Record<
+        number,
+        InternalBuilding
+    >;
+
+    const userBuildings = LSSM.$store.state.api.buildings as Building[];
+    const userBuildingIds: string[] = [];
+    const userBuildingLabels: string[] = [];
+
+    userBuildings
+        .map(({ id, caption, building_type }) => [
+            id.toString(),
+            `[${buildingTypes[building_type].caption}] ${caption}`,
+        ])
+        .sort(([, labelA], [, labelB]) => labelA.localeCompare(labelB))
+        .forEach(([id, label]) => {
+            userBuildingIds.push(id);
+            userBuildingLabels.push(label);
+        });
 
     // const dynamics = [
     //     ...Object.entries(buildings).map(([type, { caption }]) => [
@@ -63,5 +90,46 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         //     ],
         //     default: [],
         // },
+        buildingComplexes: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+            type: 'appendable-list',
+            default: [],
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'name',
+                    title: $m('settings.buildingComplexes.name'),
+                    size: 2,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<MultiSelect>>{
+                    name: 'buildings',
+                    title: $m('settings.buildingComplexes.buildings'),
+                    size: 0,
+                    setting: {
+                        type: 'multiSelect',
+                        values: userBuildingIds,
+                        labels: userBuildingLabels,
+                    },
+                },
+                <AppendableListSetting<Location>>{
+                    name: 'position',
+                    title: $m('settings.buildingComplexes.position'),
+                    size: 2,
+                    setting: {
+                        type: 'location',
+                        default: [0, 0],
+                        zoom: false,
+                    },
+                },
+            ],
+            defaultItem: {
+                name: '',
+                buildings: [],
+                position: [0, 0],
+            },
+            orderable: false,
+            disableable: false,
+        },
     };
 });

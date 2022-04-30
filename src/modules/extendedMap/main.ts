@@ -1,3 +1,4 @@
+import type { Complex } from './assets/buildingComplexes';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, getSetting }) => {
@@ -23,5 +24,20 @@ export default <ModuleMainFunction>(async ({ LSSM, getSetting }) => {
         import(
             /* webpackChunkName: "modules/extendedMap/markerNewWindow" */ './assets/markerNewWindow'
         ).then(({ default: markerNewWindow }) => markerNewWindow(LSSM));
+    }
+
+    const buildingComplexesSettings = (
+        await getSetting<{
+            value: Complex[];
+            enabled: boolean;
+        }>('buildingComplexes')
+    ).value;
+
+    if (buildingComplexesSettings.length) {
+        import(
+            /* webpackChunkName: "modules/extendedMap/buildingComplexes" */ './assets/buildingComplexes'
+        ).then(({ default: buildingComplexes }) =>
+            buildingComplexes(LSSM, buildingComplexesSettings)
+        );
     }
 });
