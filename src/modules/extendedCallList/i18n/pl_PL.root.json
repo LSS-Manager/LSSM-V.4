@@ -278,7 +278,8 @@
             "distance_dispatch": "Odległość do najbliższego CPR",
             "distance_station": "Odległość do najbliższej jednostki",
             "id": "Id zgłoszenia",
-            "remaining_patients": "Obecni pacjenci"
+            "remaining_patients": "Obecni pacjenci",
+            "remaining_prisoners": "Obecni więźniowie"
         }
     }
 }
