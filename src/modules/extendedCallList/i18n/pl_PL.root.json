@@ -190,6 +190,14 @@
             "description": "Pokazuje aktualną liczbę pacjentów również w podpowiedziach na mapie.",
             "title": "Obecni pacjenci w podpowiedziach"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of patients for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Oznacza misje sezonowe. Opcjonalnie możesz dostosować całość, a także oznaczać misje niesezonowe.",
             "missions": "Misje",
@@ -199,6 +207,10 @@
         "hide0CurrentPatients": {
             "description": "Ukrywa liczbę pacjentów, jeśli na miejscu nie ma pacjentów",
             "title": "Ukryj bez pacjentów"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of patients if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Pokazuje ile czasu pozostało do pełnego leczenia pacjentów",

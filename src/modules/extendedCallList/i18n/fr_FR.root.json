@@ -157,6 +157,14 @@
             "description": "Affiche le nombre actuel de patients également dans les infobulles de la carte.",
             "title": "Patients actuels dans les infobulles"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of patients for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
             "missions": "Missions",
@@ -166,6 +174,10 @@
         "hide0CurrentPatients": {
             "description": "Masque le nombre de patients s'il n'y en a pas sur place",
             "title": "Masquer 0 patient"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of patients if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Indique pour le patient le temps qu'il lui reste avant d'être entièrement traité.",

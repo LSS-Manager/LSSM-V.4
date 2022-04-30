@@ -193,6 +193,14 @@
             "description": "Toont het huidige aantal patiënten ook in de tooltips op de kaart.",
             "title": "Huidige patiënten in tooltips"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of patients for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
             "missions": "Melding",
@@ -202,6 +210,10 @@
         "hide0CurrentPatients": {
             "description": "Verbergt het aantal patiënten als er geen patiënten meer zijn",
             "title": "Verberg 0 patiënten"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of patients if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",

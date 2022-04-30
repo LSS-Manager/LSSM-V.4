@@ -69,11 +69,23 @@
             "description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
             "title": "Crollo delle missioni"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of patients for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Contrassegna le missioni stagionali. Opzionalmente, si può personalizzare il tutto e segnare anche le missioni non stagionali.",
             "missions": "Missioni",
             "text": "Testo",
             "title": "Segna le missioni stagionali"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of patients if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingTime": {
             "description": "Mostra alle missioni per quanto tempo ogni missione è ancora in corso.",

@@ -232,6 +232,19 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         );
     }
 
+    if (await getSetting('currentPrisoners')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallList/currentPrisoners" */ './assets/currentPrisoners'
+        ).then(async ({ default: currentPatients }) =>
+            currentPatients(
+                LSSM,
+                MODULE_ID,
+                await getSetting('hide0CurrentPrisoners'),
+                await getSetting('currentPrisonersInTooltips')
+            )
+        );
+    }
+
     if (await getSetting('remainingTime')) {
         import(
             /* webpackChunkName: "modules/extendedCallList/remainingTime" */ './assets/remainingTime'
