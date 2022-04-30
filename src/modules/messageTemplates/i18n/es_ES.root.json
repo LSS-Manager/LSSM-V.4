@@ -3,10 +3,10 @@
     "name": "Plantillas de mensajes",
     "settings": {
         "chatTemplates": {
-            "description": "Messages for alliance-chat",
-            "name": "Name",
-            "text": "Message",
-            "title": "Chat-Messages"
+            "description": "Mensaje para el chat de la alianza",
+            "name": "Nombre",
+            "text": "Mensaje",
+            "title": "Chat de mensajes"
         },
         "templates": {
             "description": "Las variables están disponibles para las plantillas. Por favor, eche un vistazo a nuestro <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",

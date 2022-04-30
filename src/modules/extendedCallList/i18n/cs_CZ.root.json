@@ -29,6 +29,14 @@
             "description": "Zobrazí aktuální počet pacientů také v popisku mise na mapě.",
             "title": "Pacienti v popisku mise na mapě"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of prisoners for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Označí sezónní mise. Můžete si seznamy také přizpůsobit a označit i nesezonní mise",
             "missions": "Mise",
@@ -38,6 +46,10 @@
         "hide0CurrentPatients": {
             "description": "Skryje počet pacientů, pokud se na misi žádný nenachází.",
             "title": "Skrýt 0 pacientů"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Zobrazí u pacientů kolik času zbývá do kompletního ošetření.",

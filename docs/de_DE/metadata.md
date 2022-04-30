@@ -21,7 +21,7 @@ Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Userscript für den Browse
 * LSSM Version
 
 Diese Daten dienen zur Verbesserung der Erweiterung sowie als Anhaltspunkt für die Entwicklung bestehender bzw. zukünftiger Module.
-Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#erhebung-von-metadaten-durch-drittanbieter)).
+Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#veroffentlichung-von-statistiken)).
 
 **Der Nutzer kann die Erhebung dieser Daten jederzeit in den [Einstellungen](settings.md) (de-)aktivieren.**
 
@@ -30,6 +30,8 @@ Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentli
 Bei jedem Aufruf der Hauptseite des Spiels werden die Telemetrie-Daten (falls aktiviert) an den LSSM-Server gesendet.
 Ist bereits ein Datensatz für den Nutzer vorhanden, so wird dieser überschrieben, ein Verlauf der Einzeldaten wird nicht gespeichert.
 Hat ein Datensatz für mehr als 6 Monate keine Aktualisierung erhalten, so wird dieser automatisch gelöscht.
+
+# Veröffentlichung von Statistiken
 
 Folgende Statistiken der Telemetrie können durch das LSSM-Team veröffentlicht werden:
 * Gesamtzahl der aktuellen Telemetrie-Einträge für folgende Zeiträume:

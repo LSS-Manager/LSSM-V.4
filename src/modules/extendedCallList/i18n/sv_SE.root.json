@@ -2,6 +2,18 @@
     "description": "Utökar missionlistan med några häftiga funktioner!",
     "name": "Utökad uppdragslista",
     "settings": {
+        "currentPrisoners": {
+            "description": "Shows current amount of prisoners for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
+        },
         "remainingTime": {
             "description": "Visar vid uppdrag hur länge varje uppdrag fortfarande pågår.",
             "title": "uppdragstid endast för gröna uppdrag"

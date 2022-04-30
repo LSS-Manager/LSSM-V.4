@@ -21,7 +21,7 @@ By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user 
 * LSSM version
 
 This data is used to improve the extension as well as to guide the development of existing or future modules.
-They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#collection-of-metadata-by-third-party-providers)).
+They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#publishing-statistics)).
 
 **The user can (de-)activate the collection of this data at any time in the [settings](settings.md).**
 
@@ -30,6 +30,8 @@ They are also the basis for exciting statistics, which can be published, for exa
 Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
 If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
 If a data record has not received an update for more than 6 months, it will be deleted automatically.
+
+## Publishing statistics
 
 The following telemetry statistics may be published by the LSSM team:
 * total number of current telemetry records for the following time periods:

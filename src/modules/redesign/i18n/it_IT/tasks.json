@@ -6,6 +6,11 @@
         "taskName": "Porta a termine \\d+ attività dell'evento \"(.*?)\"",
         "title": "Attività cumulative"
     },
+    "confirmation": {
+        "cancel": "Annulla",
+        "confirm": "Continua",
+        "title": "Attenzione:"
+    },
     "end": "Finisce in",
     "nextTask": "Una volta riscossa, comparirà un'altra attività",
     "title": "Attività ed eventi"

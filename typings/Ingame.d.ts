@@ -112,6 +112,12 @@ export interface PatientMarkerAddCombined {
     errors: Record<string, number>;
 }
 
+export interface PrisonerMarkerAdd {
+    id: number;
+    mission_id: number;
+    name: string;
+}
+
 export interface PatientTimer {
     miliseconds_by_percent: number;
     patient_id: number;
