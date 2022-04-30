@@ -245,7 +245,8 @@
             "distance_dispatch": "Distance jusqu'au prochain centre de traitement des appels",
             "distance_station": "Distance jusqu'à la prochaine station",
             "id": "Age",
-            "remaining_patients": "Patients actuels"
+            "remaining_patients": "Patients actuels",
+            "remaining_prisoners": "Prisonniers actuels"
         }
     }
 }

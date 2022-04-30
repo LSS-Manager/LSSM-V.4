@@ -173,7 +173,8 @@
             "distance_dispatch": "Distanza dalla prossima centrale",
             "distance_station": "Distanza dalla prossima stazione",
             "id": "Cronologico",
-            "remaining_patients": "Pazienti"
+            "remaining_patients": "Pazienti",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }

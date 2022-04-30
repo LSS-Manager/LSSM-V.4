@@ -228,7 +228,8 @@
             "distance_dispatch": "Distance to next dispatch center",
             "distance_station": "Distance to next station",
             "id": "Age",
-            "remaining_patients": "Current patients"
+            "remaining_patients": "Current patients",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }
