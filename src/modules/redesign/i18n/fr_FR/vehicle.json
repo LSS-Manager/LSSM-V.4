@@ -1,12 +1,12 @@
 {
-    "approach": "Approche",
-    "backalarm": "Alarme de fond",
-    "backalarmNext": "approche directe",
+    "approach": "Transférer",
+    "backalarm": "Rappeler",
+    "backalarmNext": "Envoyer directement",
     "cells": {
         "cell": "Poste",
         "free": "Cellules libres"
     },
-    "color": "Ajuster la couleur",
+    "color": "Changer la couleur",
     "current_mission": "Mission actuelle",
     "delete": {
         "button": "Supprimer",
@@ -28,7 +28,7 @@
         "hospitals": {
             "beds": "Minimum de lits libres",
             "department": {
-                "title": "Service: {department}"
+                "title": "Service : {department}"
             },
             "distance": "Distance maximum",
             "each": "Montrer x bâtiments de chaque",
@@ -38,14 +38,14 @@
             "credits": "Crédits minimums",
             "distance": "Distance maximum",
             "participation": {
-                "title": "Participant"
+                "title": "Déjà présent"
             },
-            "progress": "Progression max %",
+            "progress": "Avancement max",
             "status": {
-                "green": "vert",
-                "red": "rouge",
-                "title": "Status",
-                "yellow": "jaune"
+                "green": "Vert",
+                "red": "Rouge",
+                "title": "Statut",
+                "yellow": "Jaune"
             }
         },
         "wlf": {
@@ -55,32 +55,32 @@
     },
     "fms": "Radio",
     "fms_switch": {
-        "is_s2": "définir S6",
-        "is_s6": "définir S2"
+        "is_s2": "Rendre non disponible (statut 6)",
+        "is_s6": "Rendre disponible (statut 2)"
     },
-    "foam_amount": "Quantité de FMOGP",
-    "followup_missions": "Mission de suivi | Missions de suivi",
+    "foam_amount": "Quantité de mousse",
+    "followup_missions": "Mission suivante | Missions suivantes",
     "hospitals": {
-        "beds": "lits libres",
-        "department": "Service: {department}",
-        "hospital": "Hôpitals"
+        "beds": "Lits libres",
+        "department": "Service : {department}",
+        "hospital": "Hôpitaux"
     },
     "load_all_hospitals": {
         "btn": "Chargez tout ",
         "text": "Seuls 50 hôpitaux de l'alliance sont affichés. Le chargement de tous les hôpitaux peut prendre beaucoup de temps en fonction de la quantité !"
     },
-    "max_staff": "Max. Personnel",
+    "max_staff": "Max. de personnes",
     "mileage": "Kilométrage",
     "missions": {
-        "alarm": "Alarmes",
+        "alarm": "Déployer",
         "alarmed": "Mission actuelle",
         "credits": "Récompense",
         "mission": "Mission",
         "participation": "Participation",
         "patients": "Patients",
-        "progress": "progression"
+        "progress": "Avancement"
     },
-    "move": "Déplacements",
+    "move": "Déplacer",
     "owner": "Propriétaire",
     "owner_pic_state": {
         "offline": "{user} est hors ligne!",
@@ -104,21 +104,21 @@
     "staff": {
         "name": "Nom",
         "schooling": "Formation",
-        "title": "Personnel"
+        "title": "Personnel "
     },
-    "station": "bâtiment",
+    "station": "Poste",
     "stats": "Statistiques",
     "tabs": {
-        "all": "Tout {type}: {amount}",
-        "alliance": "alliance {type}: {amount}",
-        "cells": "Cellule",
-        "hospitals": "Hôpitals",
+        "all": "{type} (ensemble) : {amount}",
+        "alliance": "{type} d'alliance : {amount}",
+        "cells": "Cellules",
+        "hospitals": "Hôpitaux",
         "missions": "Missions",
-        "own": "personnel {type} : {amount}"
+        "own": "{type} perso : {amount}"
     },
-    "tax": "taxe",
-    "true": "oui",
+    "tax": "Taxe",
+    "true": "Oui",
     "vehicletype": "Type de véhicule",
     "water_amount": "Quantité d'eau",
-    "zuweisung": "Affectation du personnel"
+    "zuweisung": "Affecter du personnel"
 }
