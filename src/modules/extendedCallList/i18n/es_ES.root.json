@@ -178,7 +178,8 @@
             "distance_dispatch": "Distancia a la próxima centralita",
             "distance_station": "Distancia a la siguiente estación",
             "id": "Edad",
-            "remaining_patients": "Pacientes actuales"
+            "remaining_patients": "Pacientes actuales",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }

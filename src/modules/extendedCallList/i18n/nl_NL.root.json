@@ -277,7 +277,8 @@
             "distance_dispatch": "Afstand tot dichtstbijzijnde meldkamer",
             "distance_station": "Afstand tot dichtstbijzijnde post",
             "id": "Generatietijd",
-            "remaining_patients": "Huidige patiënten"
+            "remaining_patients": "Huidige patiënten",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }

@@ -18,5 +18,17 @@
             "description": "Visar vid uppdrag hur länge varje uppdrag fortfarande pågår.",
             "title": "uppdragstid endast för gröna uppdrag"
         }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alphabet",
+            "credits": "Credits",
+            "default": "no sorting",
+            "distance_dispatch": "Distance to next dispatch center",
+            "distance_station": "Distance to next station",
+            "id": "Age",
+            "remaining_patients": "Current patients",
+            "remaining_prisoners": "Current prisoners"
+        }
     }
 }

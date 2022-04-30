@@ -117,7 +117,8 @@
             "distance_dispatch": "Dle vzdálenosti k operačnímu středisku",
             "distance_station": "Dle vzdálenosti ke stanici",
             "id": "Dle stáří",
-            "remaining_patients": "Dle pacientů"
+            "remaining_patients": "Dle pacientů",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }
