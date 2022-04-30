@@ -190,6 +190,14 @@
             "description": "Pokazuje aktualną liczbę pacjentów również w podpowiedziach na mapie.",
             "title": "Obecni pacjenci w podpowiedziach"
         },
+        "currentPrisoners": {
+            "description": "Pokazuje obecną ilość więżniów dla każdej misji",
+            "title": "Obecni więźniowie"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Pokazuje aktualną liczbę więźniów również w podpowiedziach na mapie.",
+            "title": "Aktualni więźniowie w podpowiedziach"
+        },
         "eventMissions": {
             "description": "Oznacza misje sezonowe. Opcjonalnie możesz dostosować całość, a także oznaczać misje niesezonowe.",
             "missions": "Misje",
@@ -199,6 +207,10 @@
         "hide0CurrentPatients": {
             "description": "Ukrywa liczbę pacjentów, jeśli na miejscu nie ma pacjentów",
             "title": "Ukryj bez pacjentów"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Ukrywa liczbę więźniów, jeśli na miejscu nie ma więźniów",
+            "title": "Ukryj gdy brak więźniów"
         },
         "remainingPatientTime": {
             "description": "Pokazuje ile czasu pozostało do pełnego leczenia pacjentów",
