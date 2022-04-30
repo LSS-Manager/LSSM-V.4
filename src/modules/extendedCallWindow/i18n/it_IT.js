@@ -109,7 +109,7 @@ module.exports = {
             [/^Volanti?$/u]: [7, 16, 15, 21],
             [/^Furgon[ei] artificieri$/u]: [22],
             [/^Elicotter[io] della polizia?$/u]: [13],
-            [/^Unità antisommossa$/u]: [14],
+            [/^(Unità|furgona) antisommossa$/u]: [14],
             [/^Unità cinofila antidroga$/u]: [15],
             [/^UOPI SUV$/u]: [17],
             [/^Volante [Ff]inanza?$/u]: [21],
