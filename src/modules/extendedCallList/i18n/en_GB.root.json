@@ -126,7 +126,7 @@
             "title": "Current Patients in Tooltips"
         },
         "currentPrisoners": {
-            "description": "Shows current amount of patients for each mission",
+            "description": "Shows current amount of prisoners for each mission",
             "title": "Current Prisoners"
         },
         "currentPrisonersInTooltips": {
@@ -144,7 +144,7 @@
             "title": "Hide 0 Patients"
         },
         "hide0CurrentPrisoners": {
-            "description": "Hides amount of patients if there are no prisoners at scene",
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
             "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
