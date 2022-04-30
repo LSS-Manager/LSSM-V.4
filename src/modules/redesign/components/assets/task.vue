@@ -151,6 +151,8 @@ export default Vue.extend<
     margin-right: 1rem
 
 .task_panel
+    width: 100%
+
     &.claimable
         order: -1
 
