@@ -1,7 +1,7 @@
 <template>
     <div
         class="panel panel-default mission_panel_green task_panel"
-        :class="{ collapsed }"
+        :class="{ collapsed, claimable: task.progress === task.total }"
     >
         <div class="panel-heading">
             <div>
@@ -150,14 +150,18 @@ export default Vue.extend<
 .collapse-button
     margin-right: 1rem
 
-.task_panel.collapsed
-    width: max-content
-    display: inline-block
-    margin-right: 2rem
+.task_panel
+    &.claimable
+        order: -1
 
-    .panel-heading
-        min-height: unset
+    &.collapsed
+        width: max-content
+        display: inline-block
+        margin-right: 2rem
 
-        > *:not(:last-child)
-            margin-right: 1rem
+        .panel-heading
+            min-height: unset
+
+            > *:not(:last-child)
+                margin-right: 1rem
 </style>
