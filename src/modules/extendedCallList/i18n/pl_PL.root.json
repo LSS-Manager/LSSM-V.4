@@ -279,7 +279,7 @@
             "distance_station": "Odległość do najbliższej jednostki",
             "id": "Id zgłoszenia",
             "remaining_patients": "Obecni pacjenci",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Obecni więźniowie"
         }
     }
 }
