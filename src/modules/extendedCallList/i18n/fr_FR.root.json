@@ -177,7 +177,7 @@
         },
         "hide0CurrentPrisoners": {
             "description": "Masquer le nombre de prisonniers s'il n'y en a pas sur place",
-            "title": "HMasquer 0 Prisonniers"
+            "title": "Masquer 0 Prisonniers"
         },
         "remainingPatientTime": {
             "description": "Indique pour le patient le temps qu'il lui reste avant d'être entièrement traité.",
