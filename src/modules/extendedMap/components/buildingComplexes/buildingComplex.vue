@@ -1,16 +1,21 @@
 <template>
     <lightbox :name="modalName" no-title-hide id="complex-overview">
         <h1>
-            {{ name }}
+            <img :src="complex.icon" alt="complex image" />
+            {{ complex.name }}
+            <button class="btn btn-sm btn-default" @click="openSettings">
+                <font-awesome-icon :icon="faPencilAlt" />
+            </button>
             <a
                 v-if="currentBuildingId"
                 class="btn btn-sm btn-success lightbox-open"
                 :href="`/buildings/${currentBuildingId}`"
             >
-                open in lightbox
+                {{ $m('openInLightbox') }}
             </a>
         </h1>
         <tabs :onSelect="selectTab">
+            <tab :title="$m('overview.title')"> Hi, this is an overview </tab>
             <tab
                 v-for="building in sortedBuildings"
                 :key="building.id"
@@ -28,38 +33,50 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+
+import type { $m } from 'typings/Module';
 import type { Building } from 'typings/Building';
+import type { Complex } from '../../assets/buildingComplexes';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
-    { buildings: Record<number, Building>; currentBuildingId: number },
+    {
+        faPencilAlt: IconDefinition;
+        buildings: Record<number, Building>;
+        currentBuildingId: number;
+    },
     {
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
+        openSettings(): void;
     },
     { sortedBuildings: Building[]; sortedBuildingIds: number[] },
     {
         complexIndex: number;
         modalName: string;
-        name: string;
-        buildingIds: string[];
+        complex: Complex;
+        $m: $m;
+        updateComplex(complex: Complex): void;
     }
 >({
     name: 'lssm-building-complex',
     components: {
         Lightbox: () =>
             import(
-                /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
+                /* webpackChunkName: "components/lightbox" */ '../../../../components/lightbox.vue'
             ),
     },
     data() {
         return {
+            faPencilAlt,
             buildings: this.$store.getters['api/buildingsById'],
             currentBuildingId: 0,
         };
     },
     computed: {
         sortedBuildings() {
-            const buildings: Building[] = this.buildingIds
+            const buildings: Building[] = this.complex.buildings
                 .map(id => this.buildings[parseInt(id)])
                 .filter(Boolean);
             return buildings.sort(
@@ -73,7 +90,11 @@ export default Vue.extend<
     },
     methods: {
         selectTab(event, index) {
-            this.$set(this, 'currentBuildingId', this.sortedBuildingIds[index]);
+            this.$set(
+                this,
+                'currentBuildingId',
+                this.sortedBuildingIds[index - 1]
+            );
         },
         updateIframe(event) {
             const iframe = event.target;
@@ -86,6 +107,25 @@ export default Vue.extend<
             container.style.width = '100%';
             container.style.height = '100%';
         },
+        openSettings() {
+            const settingsModalName = `${this.modalName}-settings`;
+            this.$modal.show(
+                () =>
+                    import(
+                        /* webpackChunkName: "modules/extendedMap/components/buildingComplexes/settings" */ './settings.vue'
+                    ),
+                {
+                    modalName: settingsModalName,
+                    complex: this.complex,
+                    $m: <$m>((key, args) => this.$m(`settings.${key}`, args)),
+                    close: () => this.$modal.hide(settingsModalName),
+                    updateValues: (complex: Complex) => {
+                        this.updateComplex(complex);
+                    },
+                },
+                { name: settingsModalName, height: 'auto', clickToClose: false }
+            );
+        },
     },
     props: {
         complexIndex: {
@@ -96,17 +136,21 @@ export default Vue.extend<
             type: String,
             required: true,
         },
-        name: {
-            type: String,
+        complex: {
+            type: Object,
             required: true,
         },
-        buildingIds: {
-            type: Array,
+        $m: {
+            type: Function,
+            required: true,
+        },
+        updateComplex: {
+            type: Function,
             required: true,
         },
     },
     mounted() {
-        this.$set(this, 'currentBuildingId', this.sortedBuildingIds[0]);
+        this.$set(this, 'currentBuildingId', this.sortedBuildingIds[-1]);
     },
 });
 </script>
