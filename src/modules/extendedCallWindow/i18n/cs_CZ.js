@@ -102,7 +102,7 @@ module.exports = {
             [/^Vozid(el|lo) pyrotechik[aů] PČR$/u]: [19],
             [/^Přívěsy? se člunem$/u]: [20, 21],
             [/^Potápěčsk(ý(ch)?|é) automobil[yů]?$/u]: [22],
-            [/^SUV VZS ČČK nebo Dodávka VZS ČČK$/u]: [23, 24],
+            [/^SUV VZS ČČK nebo Dodávk[ay] VZS ČČK$/u]: [23, 24],
             [/^Inspekto(r|ři|rů) provozu$/u]: [26],
             [/^VYA nebo AJ$/u]: [28, 29],
             [/^Dopravní(ch)? automobil[yů]?$/u]: [30],
