@@ -1191,13 +1191,23 @@
     envinfo "^7.8.1"
     esbuild "^0.14.36"
 
-"@vuepress/client@2.0.0-beta.41", "@vuepress/client@^2.0.0-beta.41":
+"@vuepress/client@2.0.0-beta.41":
   version "2.0.0-beta.41"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.41.tgz#ba066be11b1c6823e271b9e8444bdf3e3d2004f3"
   integrity sha512-K9EBrOm7Wgy+7C7fo3vBP8nLIG1zt+5+JXsl1DHuj7h3ZFh8MJrhx22lkI5rVgbSJjz2AmQzz15JQ+W8j5Lqhg==
   dependencies:
     "@vue/devtools-api" "^6.1.4"
     "@vuepress/shared" "2.0.0-beta.41"
+    vue "^3.2.33"
+    vue-router "^4.0.14"
+
+"@vuepress/client@^2.0.0-beta.42":
+  version "2.0.0-beta.42"
+  resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-beta.42.tgz#424fc63f6035e0379312db71022122acf809beb5"
+  integrity sha512-MIIuSppflcNzfVvwNTgxwgugrTHmXYmGbfGHtDwBRnMej6VHJ2shPGcwlUmj059FhGj3056zSIoF0kmo/PE5uQ==
+  dependencies:
+    "@vue/devtools-api" "^6.1.4"
+    "@vuepress/shared" "2.0.0-beta.42"
     vue "^3.2.33"
     vue-router "^4.0.14"
 
@@ -1384,6 +1394,13 @@
   version "2.0.0-beta.41"
   resolved "https://registry.yarnpkg.com/@vuepress/shared/-/shared-2.0.0-beta.41.tgz#da284d5f19fd89491ecfc2c2803cec3e1ac6d091"
   integrity sha512-8EezR5iiuEt4BL9mftjgxqSCAASuPjyvA30Ftpf79C1d3C7GC/H/3bEymfh6jCUbKEOxVc+9DX4/znVRfvEkRw==
+  dependencies:
+    "@vue/shared" "^3.2.33"
+
+"@vuepress/shared@2.0.0-beta.42":
+  version "2.0.0-beta.42"
+  resolved "https://registry.yarnpkg.com/@vuepress/shared/-/shared-2.0.0-beta.42.tgz#d2b25b0d147cef1e4ad9002426edb4338b0a9f0b"
+  integrity sha512-TBZ1LUdrlqP1b2WBJodZ5NsGSqzvXBzO0yEWosdiL4lqilZPJ4gJYYYLk2YyKFAvMU8v3SxnvN1fzCEM05VSYg==
   dependencies:
     "@vue/shared" "^3.2.33"
 
@@ -3318,7 +3335,7 @@ vue-router@^4.0.14:
   dependencies:
     "@vue/devtools-api" "^6.0.0"
 
-vue@^3.2.31, vue@^3.2.33:
+vue@^3.2.33:
   version "3.2.33"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.33.tgz#7867eb16a3293a28c4d190a837bc447878bd64c2"
   integrity sha512-si1ExAlDUrLSIg/V7D/GgA4twJwfsfgG+t9w10z38HhL/HA07132pUQ2KuwAo8qbCyMJ9e6OqrmWrOCr+jW7ZQ==
