@@ -91,12 +91,12 @@
             "title": "Pacientes actuales en la información sobre herramientas"
         },
         "currentPrisoners": {
-            "description": "Shows current amount of prisoners for each mission",
-            "title": "Current Prisoners"
+            "description": "Muestra la cantidad de presos de cada misión",
+            "title": "Presos actuales"
         },
         "currentPrisonersInTooltips": {
-            "description": "Shows current amount of prisoners also in the tooltips on the map.",
-            "title": "Current Prisoners in Tooltips"
+            "description": "Muestra la cantidad actual de presos en la información sobre herramientas en el mapa.",
+            "title": "Presos actuales en la información sobre herramientas"
         },
         "eventMissions": {
             "description": "Marca las misiones de temporada. Opcionalmente, puedes personalizarlo todo y marcar también las misiones no estacionales.",
@@ -109,8 +109,8 @@
             "title": "Ocultar 0 pacientes"
         },
         "hide0CurrentPrisoners": {
-            "description": "Hides amount of prisoners if there are no prisoners at scene",
-            "title": "Hide 0 Prisoners"
+            "description": "Olculta la cantidad de presos si no hay presos en la misión",
+            "title": "Ocultar 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Muestra a los pacientes cuánto tiempo queda para que estén completamente tratados",
@@ -147,7 +147,7 @@
             "title": "Comparte misiones: Créditos minimos"
         },
         "shareMissionsTypes": {
-            "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "alliance": "Misiones de Alianza (only for Share-Alliance-Post)",
             "description": "Configure para cuál de las llamadas desea habilitar el botón de compartir.",
             "own": "Llamadas de emergencia",
             "sicherheitswache": "Misiones planeadas",
@@ -177,9 +177,9 @@
             "default": "Sin clasificar",
             "distance_dispatch": "Distancia a la próxima centralita",
             "distance_station": "Distancia a la siguiente estación",
-            "id": "Edad",
+            "id": "Tiempo de la misión",
             "remaining_patients": "Pacientes actuales",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Presos actuales"
         }
     }
 }
