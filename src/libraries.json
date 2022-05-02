@@ -102,7 +102,7 @@
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.41"
+        "version": "2.0.0-beta.42"
     },
     "@vuepress/plugin-pwa": {
         "url": "https://github.com/vuepress",
