@@ -33,7 +33,7 @@
         "police_stations": "Police Station | Police Stations",
         "rescue_helicopter_stations": "Rescue Helicopter Count",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
-        "riot_police": "Police & Public Safety Extension | Police & Public Safety Extensions",
+        "riot_police": "Police & Public Order Extension | Police & Public Order Extensions",
         "title": "Prerequisite | Prerequisites"
     },
     "prisoners": {
