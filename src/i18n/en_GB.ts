@@ -1859,6 +1859,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Small Fuel Storage Tank',
         'Large Fuel Storage Tank',
         'Fuel Storage Depot',
+        'Multi-Storey Car Park',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],
