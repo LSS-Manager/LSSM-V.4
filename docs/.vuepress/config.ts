@@ -50,7 +50,7 @@ const sidebar_others = [
     'appstore',
     'settings',
     'other',
-    'contributing'
+    'contributing',
 ];
 
 const LANGS = Object.keys(config.games)
