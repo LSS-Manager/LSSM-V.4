@@ -895,7 +895,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'A dog carrier which transports mutiple dogs to a scene. Needs Police and Public Safety Extension.',
+                'A dog carrier which transports mutiple dogs to a scene. Needs Police and Public Order Extension.',
         },
         54: {
             caption: 'Detention Van',
@@ -906,7 +906,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 2,
             possibleBuildings: [6, 19, 26],
             special:
-                'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported. Needs Police and Public Safety Extension.',
+                'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported. Needs Police and Public Order Extension.',
         },
         55: {
             caption: 'Mounted Unit',
@@ -924,7 +924,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'This unit will transport horses from stables to riots in order to get a higher view of what is happening in the crowd. Needs Police and Public Safety Extension.',
+                'This unit will transport horses from stables to riots in order to get a higher view of what is happening in the crowd. Needs Police and Public Order Extension.',
         },
         56: {
             caption: 'M-RAV',
@@ -1167,7 +1167,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 }),
                 {
-                    caption: 'Police & Public Safety Extension',
+                    caption: 'Police & Public Order Extension',
                     credits: 100_000,
                     coins: 15,
                     duration: '7 Days',
@@ -1362,7 +1362,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 }),
                 {
-                    caption: 'Police & Public Safety Extension',
+                    caption: 'Police & Public Order Extension',
                     credits: 100_000,
                     coins: 15,
                     duration: '7 Days',
@@ -1518,7 +1518,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 }),
                 {
-                    caption: 'Police & Public Safety Extension',
+                    caption: 'Police & Public Order Extension',
                     credits: 100_000,
                     coins: 15,
                     duration: '7 Days',
