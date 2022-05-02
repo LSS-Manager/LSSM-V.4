@@ -75,7 +75,7 @@ module.exports = {
         staffPrefix: ['We need'],
         staff: {
             [/^Armed Response Personnel$/u]: [13, 25, 52, 56],
-            [/^more firefighters$/u]: [
+            [/^more firefighter(s?)$/u]: [
                 0, 1, 2, 3, 4, 6, 7, 14, 15, 16, 17, 18, 23, 26, 35, 36, 37, 38,
                 39, 40,
             ],
