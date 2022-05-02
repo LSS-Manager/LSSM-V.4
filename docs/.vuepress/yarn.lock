@@ -1369,7 +1369,7 @@
     "@vuepress/utils" "2.0.0-beta.41"
     vue "^3.2.33"
 
-"@vuepress/plugin-pwa@2.0.0-beta.41", "@vuepress/plugin-pwa@^2.0.0-beta.41":
+"@vuepress/plugin-pwa@2.0.0-beta.41":
   version "2.0.0-beta.41"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-2.0.0-beta.41.tgz#786dd2f7c31d22d92e5d805678e1dd7cf2d8cf47"
   integrity sha512-mBJVMbAl8B9LKiHX0WHuVgZEuILwjIc1a/nt0aD+/MF5rYD2rfyb4emrfCxxDIUQHMPDUt7+AAoNW3oYFStoKg==
@@ -1377,6 +1377,19 @@
     "@vuepress/client" "2.0.0-beta.41"
     "@vuepress/core" "2.0.0-beta.41"
     "@vuepress/utils" "2.0.0-beta.41"
+    mitt "^3.0.0"
+    register-service-worker "^1.7.2"
+    vue "^3.2.33"
+    workbox-build "^6.5.2"
+
+"@vuepress/plugin-pwa@^2.0.0-beta.42":
+  version "2.0.0-beta.42"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-2.0.0-beta.42.tgz#4dbc5cb0b585f7127f2443d89b38940e5bfe41c4"
+  integrity sha512-YcoviSGG34TbQDrVfA2jjFq0FUl5fusBdS1GHfMkuTOQLnTpwJnNeVotqocFU9bBKGMd867THfxeOJU/b7lpmg==
+  dependencies:
+    "@vuepress/client" "2.0.0-beta.42"
+    "@vuepress/core" "2.0.0-beta.42"
+    "@vuepress/utils" "2.0.0-beta.42"
     mitt "^3.0.0"
     register-service-worker "^1.7.2"
     vue "^3.2.33"
