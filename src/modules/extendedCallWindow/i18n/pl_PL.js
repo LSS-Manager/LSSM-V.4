@@ -138,7 +138,7 @@ module.exports = {
             [/^samoch(ód|ody\(-ów\)) dowodzenia i łączności?$/u]: [43, 11],
             [/^Samoch(ód|odów) Ratownictwa wysokościowego$/u]: [27],
             [/^Samoch(ód|odów) wężowy(ch)?$/u]: [61, 62, 64],
-            [/^Samoch(ód|ody) ze zbiornikiem na pianę?$/u]: [
+            [/^Samoch(ód|od(y|ów)) ze zbiornikiem na pianę?$/u]: [
                 55, 56, 57, 58, 59, 44, 60,
             ],
             [/^Samoch(ód|odów) WOPR$/u]: [19],
