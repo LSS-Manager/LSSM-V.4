@@ -4,7 +4,7 @@
 		"@primer/octicons": "^17.0.0",
 		"@vuepress/client": "^2.0.0-beta.42",
 		"@vuepress/plugin-pwa": "^2.0.0-beta.42",
-		"@vuepress/plugin-pwa-popup": "^2.0.0-beta.41",
+		"@vuepress/plugin-pwa-popup": "^2.0.0-beta.42",
 		"@vuepress/plugin-register-components": "^2.0.0-beta.41",
 		"@vuepress/plugin-search": "^2.0.0-beta.42",
 		"cloc": "^2.9.0",

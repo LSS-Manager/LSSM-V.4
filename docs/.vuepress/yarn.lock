@@ -1357,32 +1357,19 @@
     "@vuepress/core" "2.0.0-beta.41"
     prismjs "^1.27.0"
 
-"@vuepress/plugin-pwa-popup@^2.0.0-beta.41":
-  version "2.0.0-beta.41"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa-popup/-/plugin-pwa-popup-2.0.0-beta.41.tgz#d5fa83ca316c142a2dbbf975f55973c7d28abcbd"
-  integrity sha512-eZrWJK6/ishhYplKuSS66YiCHucb59EB1wwZSdeBcTR/yizMVc4PIAMtsiQYwmNIQ0C6qJnjzDQLmlF5uL+/dg==
+"@vuepress/plugin-pwa-popup@^2.0.0-beta.42":
+  version "2.0.0-beta.42"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa-popup/-/plugin-pwa-popup-2.0.0-beta.42.tgz#d8e92166aad8b249c820c7f3906071dcdd76318d"
+  integrity sha512-EKSGJvUSEXxtoMf4207YONvTsHWqzEd55MVPlxm8mJ8GJajmsgvhea1aN1qsNUNyvEOvKWqDgSEbSBXWd3Q0fQ==
   dependencies:
-    "@vuepress/client" "2.0.0-beta.41"
-    "@vuepress/core" "2.0.0-beta.41"
-    "@vuepress/plugin-pwa" "2.0.0-beta.41"
-    "@vuepress/shared" "2.0.0-beta.41"
-    "@vuepress/utils" "2.0.0-beta.41"
+    "@vuepress/client" "2.0.0-beta.42"
+    "@vuepress/core" "2.0.0-beta.42"
+    "@vuepress/plugin-pwa" "2.0.0-beta.42"
+    "@vuepress/shared" "2.0.0-beta.42"
+    "@vuepress/utils" "2.0.0-beta.42"
     vue "^3.2.33"
 
-"@vuepress/plugin-pwa@2.0.0-beta.41":
-  version "2.0.0-beta.41"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-2.0.0-beta.41.tgz#786dd2f7c31d22d92e5d805678e1dd7cf2d8cf47"
-  integrity sha512-mBJVMbAl8B9LKiHX0WHuVgZEuILwjIc1a/nt0aD+/MF5rYD2rfyb4emrfCxxDIUQHMPDUt7+AAoNW3oYFStoKg==
-  dependencies:
-    "@vuepress/client" "2.0.0-beta.41"
-    "@vuepress/core" "2.0.0-beta.41"
-    "@vuepress/utils" "2.0.0-beta.41"
-    mitt "^3.0.0"
-    register-service-worker "^1.7.2"
-    vue "^3.2.33"
-    workbox-build "^6.5.2"
-
-"@vuepress/plugin-pwa@^2.0.0-beta.42":
+"@vuepress/plugin-pwa@2.0.0-beta.42", "@vuepress/plugin-pwa@^2.0.0-beta.42":
   version "2.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-2.0.0-beta.42.tgz#4dbc5cb0b585f7127f2443d89b38940e5bfe41c4"
   integrity sha512-YcoviSGG34TbQDrVfA2jjFq0FUl5fusBdS1GHfMkuTOQLnTpwJnNeVotqocFU9bBKGMd867THfxeOJU/b7lpmg==
