@@ -1,5 +1,5 @@
 {
-    "version": "4.5.9+20220501.2045",
+    "version": "4.5.9+20220502.0941",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -24,7 +24,7 @@
         "axios": "^0.27.2",
         "broadcast-channel": "^4.11.0",
         "he": "^1.2.0",
-        "highcharts": "^10.0.0",
+        "highcharts": "^10.1.0",
         "highcharts-vue": "^1.4.0",
         "leaflet.heat": "^0.2.0",
         "localforage": "^1.10.0",

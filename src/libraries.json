@@ -200,7 +200,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2021/05/19085042/favicon-1.ico",
         "url": "http://www.highcharts.com",
-        "version": "10.0.0"
+        "version": "10.1.0"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2021/05/19085042/favicon-1.ico",
