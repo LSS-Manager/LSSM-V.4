@@ -1382,13 +1382,13 @@
     vue "^3.2.33"
     workbox-build "^6.5.2"
 
-"@vuepress/plugin-register-components@^2.0.0-beta.41":
-  version "2.0.0-beta.41"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-beta.41.tgz#0f1b1bdd2e0b9beb5737c6ba633ee41cb2813d05"
-  integrity sha512-22UUAhypQbJPXXJCL6DEs3DhyeMcKju/x57FNk40WpyatfLmqt4pMTD+DPcJ5swIP/dbWKkqwiBXkTZ/hjmRrw==
+"@vuepress/plugin-register-components@^2.0.0-beta.42":
+  version "2.0.0-beta.42"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-beta.42.tgz#2117851c3a6fc6eade770cb396cb77046657433b"
+  integrity sha512-/9nnnP5XI6AFYwMUj51MYg+OwZnTRgGWzDmkSMEPuCtQ5Z4yNLVk9Vch/0gfbfzuO1WeCHk42cGPmm+87YCmQA==
   dependencies:
-    "@vuepress/core" "2.0.0-beta.41"
-    "@vuepress/utils" "2.0.0-beta.41"
+    "@vuepress/core" "2.0.0-beta.42"
+    "@vuepress/utils" "2.0.0-beta.42"
     chokidar "^3.5.3"
 
 "@vuepress/plugin-search@^2.0.0-beta.42":
