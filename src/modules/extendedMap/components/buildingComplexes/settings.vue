@@ -30,7 +30,23 @@
                     @keyup.enter="save"
                 />
             </div>
+
             <!-- edit buildings -->
+            <div class="form-group">
+                <label for="buildings">{{ $m('buildings') }}</label>
+                <v-select
+                    name="buildings"
+                    uid="lssmv4-complex-settings-buildings"
+                    :placeholder="$m('buildings')"
+                    v-model="buildingIds"
+                    :options="buildingOptions"
+                    :close-on-select="false"
+                    multiple
+                    clearable
+                    append-to-body
+                ></v-select>
+            </div>
+
             <!-- edit icon -->
             <div class="form-group">
                 <label for="icon">{{ $m('icon') }}</label>
@@ -47,12 +63,21 @@
                         <img :src="option.label" alt="icon" />
                     </template>
                     <template v-slot:option="option">
-                        <img :src="option.label" alt="icon" />
+                        <img :src="option.label" alt="icon" loading="lazy" />
                     </template>
                 </v-select>
                 <p class="help-block">{{ $m('iconHelp') }}</p>
             </div>
+
             <!-- edit location -->
+            <div class="form-group">
+                <label for="location">{{ $m('location') }}</label>
+                <settings-location
+                    name="location"
+                    :placeholder="$m('location')"
+                    v-model="location"
+                />
+            </div>
         </form>
     </lightbox>
 </template>
@@ -61,11 +86,12 @@
 import Vue from 'vue';
 
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import isEqual from 'lodash/isEqual';
 
 import type { $m } from 'typings/Module';
-import type { Building } from 'typings/Building';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 export default Vue.extend<
     {
@@ -73,10 +99,17 @@ export default Vue.extend<
         buildings: Record<number, Building>;
         name: string;
         icon: string;
-        buildingIds: string[];
+        buildingIds: { value: string; label: string }[];
+        buildingTypes: Record<number, InternalBuilding>;
+        location: [number, number];
     },
     { save(): void },
-    { canSave: boolean; assignedBuildings: Building[]; icons: string[] },
+    {
+        canSave: boolean;
+        assignedBuildings: Building[];
+        buildingOptions: { value: string; label: string }[];
+        icons: string[];
+    },
     {
         modalName: string;
         complex: Complex;
@@ -95,14 +128,28 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/vue-select" */ 'vue-select'
             ),
+        SettingsLocation: () =>
+            import(
+                /* webpackChunkName: "components/setting/location" */ '../../../../components/setting/location.vue'
+            ),
     },
     data() {
+        const userBuildings = this.$store.getters[
+            'api/buildingsById'
+        ] as Record<number, Building>;
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
+
         return {
             faSave,
-            buildings: this.$store.getters['api/buildingsById'],
+            buildings: userBuildings,
             name: '',
             icon: '',
             buildingIds: [],
+            buildingTypes,
+            location: [0, 0],
         };
     },
     computed: {
@@ -110,13 +157,33 @@ export default Vue.extend<
             return (
                 (this.name.trim() !== this.complex.name &&
                     this.name.trim().length > 0) ||
-                this.icon !== this.complex.icon
+                !isEqual(
+                    this.buildingIds.map(({ value }) => value),
+                    this.complex.buildings
+                ) ||
+                this.icon !== this.complex.icon ||
+                this.location[0] !== this.complex.position[0] ||
+                this.location[1] !== this.complex.position[1]
             );
         },
         assignedBuildings() {
             return this.buildingIds
-                .map(id => this.buildings[parseInt(id)])
+                .map(({ value }) => this.buildings[parseInt(value)])
                 .filter(Boolean);
+        },
+        buildingOptions() {
+            return Object.entries(this.buildings)
+                .filter(
+                    ([id]) =>
+                        !this.buildingIds.some(({ value }) => value === id)
+                )
+                .map(([id, { caption, building_type }]) => ({
+                    value: id.toString(),
+                    label: `[${this.buildingTypes[building_type].caption}] ${caption}`,
+                }))
+                .sort(({ value: valueA }, { value: valueB }) =>
+                    valueA.localeCompare(valueB)
+                );
         },
         icons() {
             return [
@@ -166,6 +233,8 @@ export default Vue.extend<
                 ...this.complex,
                 name: this.name.trim(),
                 icon: this.icon,
+                buildings: this.buildingIds.map(({ value }) => value),
+                position: this.location,
             });
             this.close();
         },
@@ -192,10 +261,20 @@ export default Vue.extend<
             required: true,
         },
     },
+    async beforeMount() {
+        await this.$store.dispatch('api/registerBuildingsUsage', {
+            feature: `buildingComplexes`,
+        });
+    },
     mounted() {
         this.name = this.complex.name;
         this.icon = this.complex.icon;
-        this.buildingIds = this.complex.buildings;
+        const removeUndefined = <S>(value: S | undefined): value is S =>
+            !!value;
+        this.buildingIds = this.complex.buildings
+            .map(id => this.buildingOptions.find(({ value }) => id === value))
+            .filter(removeUndefined);
+        this.location = this.complex.position;
     },
 });
 </script>
@@ -209,6 +288,8 @@ form
 </style>
 
 <style lang="sass">
-#vslssmv4-complex-settings-icon__listbox.vs__dropdown-menu
-    z-index: 6000
+#vslssmv4-complex-settings-icon__listbox,
+#vslssmv4-complex-settings-buildings__listbox
+    &.vs__dropdown-menu
+        z-index: 6000
 </style>

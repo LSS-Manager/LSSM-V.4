@@ -36,9 +36,9 @@ import Vue from 'vue';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 import type { $m } from 'typings/Module';
-import type { Building } from 'typings/Building';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Building } from 'typings/Building';
 
 export default Vue.extend<
     {
@@ -123,7 +123,12 @@ export default Vue.extend<
                         this.updateComplex(complex);
                     },
                 },
-                { name: settingsModalName, height: 'auto', clickToClose: false }
+                {
+                    name: settingsModalName,
+                    height: 'auto',
+                    clickToClose: false,
+                    shiftY: 0.1,
+                }
             );
         },
     },

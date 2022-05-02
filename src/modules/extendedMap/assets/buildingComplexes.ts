@@ -47,6 +47,7 @@ export default (MODULE_ID: string, LSSM: Vue, complexes: Complex[], $m: $m) => {
 
                         marker.unbindTooltip();
                         marker.bindTooltip(updatedComplex.name);
+                        marker.setLatLng(updatedComplex.position);
 
                         LSSM.$store
                             .dispatch('settings/setSetting', {
