@@ -671,7 +671,7 @@ If several requests fail in a short time, this could be due to server problems. 
             possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used On any fire but also has the capability to use foam to extinguish a fire. Requires Foam Extension.',
-             },
+        },
         38: {
             caption: 'RP CAFS',
             color: '#aa0000',
@@ -720,7 +720,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Water Carrier. Requires Swap Body Parking Space.',
+            special:
+                'Acts as a Water Carrier. Requires Swap Body Parking Space.',
         },
         42: {
             caption: 'Bulk Foam Pod',
@@ -741,7 +742,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Rescue Support Unit. Requires Swap Body Parking Space.',
+            special:
+                'Acts as a Rescue Support Unit. Requires Swap Body Parking Space.',
         },
         44: {
             caption: 'Command Pod',
@@ -769,7 +771,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Welfare Unit. Requires Swap Body Parking Space.',
+            special:
+                'Acts as a Welfare Unit. Requires Swap Body Parking Space.',
         },
         46: {
             caption: 'BASU Pod',
@@ -779,7 +782,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Breathing Appartus Support Unit. Requires Swap Body Parking Space.',
+            special:
+                'Acts as a Breathing Appartus Support Unit. Requires Swap Body Parking Space.',
         },
         47: {
             caption: 'Misting Pod',
@@ -789,7 +793,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Light 4x4 Pump Unit. Requires Swap Body Parking Space.',
+            special:
+                'Acts as a Light 4x4 Pump Unit. Requires Swap Body Parking Space.',
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -889,7 +894,8 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special: 'A dog carrier which transports mutiple dogs to a scene. Needs Police and Public Safety Extension.',
+            special:
+                'A dog carrier which transports mutiple dogs to a scene. Needs Police and Public Safety Extension.',
         },
         54: {
             caption: 'Detention Van',
