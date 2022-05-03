@@ -624,6 +624,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         39: {
             caption: 'VR',
+            color: '#225CB5',
             coins: 5,
             credits: 10_000,
             minPersonnel: 1,
@@ -632,6 +633,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         40: {
             caption: 'VCT',
+            color: '#225CB5',
             coins: 10,
             credits: 25_000,
             minPersonnel: 1,
@@ -647,6 +649,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         41: {
             caption: 'RAM',
+            color: '#225CB5',
             coins: 10,
             credits: 25_000,
             minPersonnel: 1,
@@ -661,6 +664,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         42: {
             caption: 'VTP',
+            color: '#225CB5',
             coins: 10,
             credits: 15_000,
             minPersonnel: 2,
@@ -669,6 +673,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         43: {
             caption: 'ELE',
+            color: '#225CB5',
             coins: 10,
             credits: 35_000,
             minPersonnel: 1,
@@ -684,6 +689,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         44: {
             caption: 'ReBP',
+            color: '#225CB5',
             coins: 10,
             credits: 10_000,
             minPersonnel: 0,
@@ -693,6 +699,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         45: {
             caption: 'VAT',
+            color: '#225CB5',
             coins: 10,
             credits: 25_000,
             minPersonnel: 1,
@@ -1177,11 +1184,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
     vehicleCategories: {
         Incendie: {
             vehicles: {
-                ['Fourgon dìncendie']: [0, 1, 12, 13],
+                ["Fourgons d'incendie"]: [0, 1, 12, 13],
                 ['Échelles']: [2, 15],
                 ['Véhicules spéciaux']: [4, 6, 7, 10, 14, 31, 36, 37, 38],
                 'Chefs de groupe': [3, 11],
-                'Ambulance': [25, 26],
+                'Ambulances': [25, 26],
                 'Nautique': [16, 17],
                 ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
             },
@@ -1196,10 +1203,10 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         Police: {
             vehicles: {
-                ['Véhicule de patrouille']: [8],
-                ['Unité motocycliste']: [20],
+                ['Véhicules de patrouille']: [8],
+                ['Unités motocyclistes']: [20],
                 Choucas: [18],
-                ['Équipe cynophile']: [19],
+                ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',
