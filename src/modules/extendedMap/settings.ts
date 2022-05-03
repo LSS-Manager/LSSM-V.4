@@ -132,12 +132,19 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                         type: 'hidden',
                     },
                 },
+                <AppendableListSetting<Hidden>>{
+                    name: 'showMarkers',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
             ],
             defaultItem: {
                 name: '',
                 buildings: [],
                 position: [0, 0],
                 icon: '/images/building_complex.png',
+                showMarkers: false,
             },
             orderable: false,
             disableable: false,

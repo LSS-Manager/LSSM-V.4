@@ -50,7 +50,7 @@ declare global {
             getMapFiltersLayersForMap(): Record<string, L.LayerGroup>;
             getMapFiltersLayers(): Record<string, L.LayerGroup>;
             getFilterLayerByBuildingParams(
-                building: BuildingMarkerAdd
+                building: Pick<BuildingMarkerAdd, 'user_id'|'building_type'>
             ): L.LayerGroup | L.Map;
             onOverlayChanged: L.LayersControlEventHandlerFn;
             massFiltersChange(filter_id: string, add: boolean): void;

@@ -26,7 +26,7 @@
                     class="form-control"
                     id="name"
                     :placeholder="$m('name')"
-                    v-model="name"
+                    v-model.trim="name"
                     @keyup.enter="save"
                 />
             </div>
@@ -45,6 +45,14 @@
                     clearable
                     append-to-body
                 ></v-select>
+            </div>
+
+            <!-- show markers on map -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" v-model="showMarkers" />
+                    {{ $m('showMarkers') }}
+                </label>
             </div>
 
             <!-- edit icon -->
@@ -102,6 +110,7 @@ export default Vue.extend<
         buildingIds: { value: string; label: string }[];
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
+        showMarkers: boolean;
     },
     { save(): void },
     {
@@ -150,6 +159,7 @@ export default Vue.extend<
             buildingIds: [],
             buildingTypes,
             location: [0, 0],
+            showMarkers: false,
         };
     },
     computed: {
@@ -163,7 +173,8 @@ export default Vue.extend<
                 ) ||
                 this.icon !== this.complex.icon ||
                 this.location[0] !== this.complex.position[0] ||
-                this.location[1] !== this.complex.position[1]
+                this.location[1] !== this.complex.position[1] ||
+                this.showMarkers !== this.complex.showMarkers
             );
         },
         assignedBuildings() {
@@ -235,6 +246,7 @@ export default Vue.extend<
                 icon: this.icon,
                 buildings: this.buildingIds.map(({ value }) => value),
                 position: this.location,
+                showMarkers: this.showMarkers,
             });
             this.close();
         },
@@ -275,6 +287,7 @@ export default Vue.extend<
             .map(id => this.buildingOptions.find(({ value }) => id === value))
             .filter(removeUndefined);
         this.location = this.complex.position;
+        this.showMarkers = this.complex.showMarkers;
     },
 });
 </script>

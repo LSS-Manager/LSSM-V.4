@@ -1,0 +1,19 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Open building in Lightbox",
+        "overview": {
+            "title": "Overview"
+        },
+        "settings": {
+            "abort": "Abort",
+            "buildings": "attached buildings",
+            "icon": "Icon",
+            "iconHelp": "Select between standard icons and icons of attached buildings",
+            "location": "Location",
+            "name": "Name",
+            "save": "Save",
+            "showMarkers": "Show attached buildings on map?",
+            "title": "Edit complex"
+        }
+    }
+}

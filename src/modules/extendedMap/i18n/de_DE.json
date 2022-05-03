@@ -1,0 +1,19 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Gebäude in Lightbox öffnen",
+        "overview": {
+            "title": "Übersicht"
+        },
+        "settings": {
+            "abort": "Abbrechen",
+            "buildings": "angehängte Gebäude",
+            "icon": "Gebäude-Bild",
+            "iconHelp": "Wähle zwischen den Standard-Bildern und den Bildern der angehängten Gebäude",
+            "location": "Standort",
+            "name": "Name",
+            "save": "Speichern",
+            "showMarkers": "Angehängte Gebäude auf der Karte anzeigen?",
+            "title": "Gebäudekomplex bearbeiten"
+        }
+    }
+}

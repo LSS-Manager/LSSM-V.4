@@ -119,9 +119,7 @@ export default Vue.extend<
                     complex: this.complex,
                     $m: <$m>((key, args) => this.$m(`settings.${key}`, args)),
                     close: () => this.$modal.hide(settingsModalName),
-                    updateValues: (complex: Complex) => {
-                        this.updateComplex(complex);
-                    },
+                    updateValues: this.updateComplex,
                 },
                 {
                     name: settingsModalName,
