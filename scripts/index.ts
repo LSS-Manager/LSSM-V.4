@@ -40,6 +40,8 @@ const scriptHandlers = {
                 './docs/.vuepress/node_modules/.bin/vuepress build docs'
             ).toString()
         );
+        fs.rmSync('./dist/docs', { recursive: true });
+        fs.mkdirSync('./dist/docs', { recursive: true });
         fs.cpSync('./docs/.vuepress/dist/', './dist/docs', { recursive: true });
     },
     preBuild() {

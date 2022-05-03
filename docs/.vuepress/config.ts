@@ -49,8 +49,7 @@ const sidebar_others = [
     'bugs',
     'appstore',
     'settings',
-    'other',
-    'contributing',
+    'other'
 ];
 
 const LANGS = Object.keys(config.games)
