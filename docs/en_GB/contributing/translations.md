@@ -89,8 +89,94 @@ Also, sometimes variables will occur in translation files (see Line 9). They are
 :::warning Numbers in translation files
 Sometimes, weird looking numbers may appear within translations. These typically indicate the usage of IDs, which are game-specific.
 If you're unsure about the correct IDs, please contact the LSSM-Team and ask for help.
+
+Example for **buildings**:
+
+[`/src/modules/buildingListFilter/i18n/en_GB.root.json`, lines 2-44](https://github.com/LSS-Manager/LSSM-V.4/blob/0a3ba77eb595056f5049afab361eef20e418dd5b/src/modules/buildingListFilter/i18n/en_GB.root.json#L2-L44).
+Here, the numbers represent Building-Types and may need to be adjusted, as the UK-Version has different buildings than e.g. the US-Version, as you can see in [`/src/modules/buildingListFilter/i18n/en_US.root.json`, lines 2-58](https://github.com/LSS-Manager/LSSM-V.4/blob/0a3ba77eb595056f5049afab361eef20e418dd5b/src/modules/buildingListFilter/i18n/en_US.root.json#L2-L58)
 :::
 
 ## Committing & creating a PR
 
 Please refer to the main [contribution guide](../contributing.md#general-workflow) on how to do this.
+
+## Guides
+
+### Implementing a Content-Pack
+
+In general, these updates are necessary:
+* `/src/i18n/{lang}.ts`
+	* Update vehicles
+	* Update vehicle categories
+	* Update buildings/extensions
+	* Update building categories
+	* Update schoolings
+	* Update buildings-lists
+		* `vehicleBuildings`, `cellBuildings`, `cellExtensions`, `bedBuildings`, `schoolBuildings`, `dispatchCenterBuildings`
+* `/src/modules/buildingListFilter/i18n/{lang}.root.json`
+	* update default
+* `/src/modules/extendedCallWindow/i18n/{lang}.js`
+	* update vehicleGroups & staffGroups
+* `/src/modules/extendedCallWindow/i18n/{lang}.root.json`
+	* update tailoredTabs default
+* `/src/modules/missionHelper/i18n/{lang}.json`
+	* update translations
+		* `prerequisites`
+		* `requirements`
+		* `vehicles`
+
+### Finding IDs
+
+If you don't know an ID or the required ID is not (yet) available in our [API](https://api.lss-manager.de), please use these guides to find them out.
+
+The URLs in here will use `missionchief.com` for demonstration. Please replace it with the URL of your game.
+
+:::tip Executing code in the browser console
+Doing so is simple but can be dangerous. If you don't trust us and the code we want you to execute, this **is fine**! Just contact the LSSM-Team, and we will provide the IDs for you.
+
+To open the console, press `F12`, `Ctrl+Shift+K` or `Ctrl+Shift+I` (some browsers allow all these keys, some only one of them). If the console is not yet visible, please click on the `Console` tab in the popup.
+
+You can now copy the code from our code snippets provided below and paste it in the console. Some Browsers (such as Firefox) require you to type a short sentence. Just type it, Firefox will replace it with the code, once you finished the sentence.
+
+When the code is pasted into console, just press the `Enter` Key on your keyboard to execute the snippet. The result will automatically appear in the console but some of them may take few seconds.
+:::
+
+#### Vehicles
+
+API: `https://api.lss-manager.de/{lang}/vehicles`
+
+Go to `https://missionchief.com/vehicle_graphics/new` and create a new graphic set. If you already own one, you can also go to its edit page.
+
+Execute the following code in your browser console. It will return a list of vehicles and their ID:
+```js
+Object.fromEntries(Array.from(document.querySelectorAll('table tbody tr')).map(row => [new URL(row.querySelector('a[href^="/vehicle_graphics/"][href*="/vehicle_graphic_images/"][href$="/edit"]')?.href ?? '/', window.location.origin).pathname.split('/')[4], row.querySelector('td:first-child')?.textContent.trim()]).filter(([id, name]) => id && name)) 
+```
+
+#### Buildings
+
+API: `https://api.lss-manager.de/{lang}/buildings`
+
+Go to `https://missionchief.com/buildings/new`, the form for creating a new building should be shown.
+
+Execute the following code in your browser console. It will return a list of buildings and their ID:
+```js
+Object.fromEntries(Array.from(document.querySelectorAll('#building_building_type option')).map(option => [option.value, option.textContent.trim()]).filter(([id, name]) => id && name))
+```
+
+#### Missions
+
+There's an official List of missions: `https://missionchief.com/einsaetze.json`.
+
+For getting all missions, grouped by their start and end date, execute the following code in game: *(replace `missionchief.com` with your game of course)*
+```js
+fetch('https://www.missionchief.com/einsaetze.json').then(res => res.json()).then(m => console.log(m.groupBy(m => `${m.additional.date_start} - ${m.additional.date_end}`)))
+```
+
+Each group is an Object of IDs with the corresponding mission name.
+
+#### POIs
+
+To get an up-to-date list of POIs for `/src/i18n/{lang}.ts`, go to `https://www.missionchief.com/mission_positions/new` and execute the following code in your browser console:
+```js
+Array.from(document.querySelectorAll('#mission_position_poi_type option')).map(option => [option.value, option.textContent.trim()]).sort(([idA], [idB]) => idA - idB).map(([, caption]) => caption)
+```
