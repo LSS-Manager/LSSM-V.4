@@ -97,7 +97,7 @@ module.exports = {
         foam: 'l. schiuma',
         staffPrefix: ['Servono altri'],
         staff: {
-            [/^vigili del fuoco$/u]: [],
+            [/^vigili del fuoco$/u]: [0, 9, 3, 1, 37, 11, 2, 6, 5, 12, 10],
         },
         vehiclesByRequirement: {
             [/^APS\/ABP$/u]: [0, 9],
