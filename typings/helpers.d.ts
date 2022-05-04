@@ -85,7 +85,7 @@ declare global {
         iconAnchorCalculate(size: [number, number]): [number, number];
         iconMapGenerate(url: string, marker: L.Marker): void;
         getBuildingMarkerIcon(
-            building: Pick<BuildingMarkerAdd, 'building_type' | 'user_id'>
+            building: Pick<BuildingMarkerAdd, 'building_type'>
         ): string;
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;

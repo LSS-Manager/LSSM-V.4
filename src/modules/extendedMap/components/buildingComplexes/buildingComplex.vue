@@ -21,7 +21,16 @@
                 <enhanced-table
                     :table-attrs="{ class: 'table table-striped' }"
                     :head="{
-                        icon: { title: '', noSort: true },
+                        icon: {
+                            title: '',
+                            noSort: true,
+                            attrs: { style: 'width: 0' },
+                        },
+                        type: {
+                            title: '',
+                            noSort: true,
+                            attrs: { style: 'width: 0' },
+                        },
                         name: {
                             title: $m('overview.buildings.table.head.name'),
                             noSort: true,
@@ -30,28 +39,39 @@
                             title: $m('overview.buildings.table.head.level'),
                             noSort: true,
                         },
-                        staff: {
-                            title: $m('overview.buildings.table.head.staff'),
-                            noSort: true,
-                        },
-                        hiring: {
-                            title: $m('overview.buildings.table.head.hiring'),
-                            noSort: true,
-                        },
+                        ...(hasStaffBuildings
+                            ? {
+                                  staff: {
+                                      title: $m(
+                                          'overview.buildings.table.head.staff'
+                                      ),
+                                      noSort: true,
+                                  },
+                                  hiring: {
+                                      title: $m(
+                                          'overview.buildings.table.head.hiring'
+                                      ),
+                                      noSort: true,
+                                  },
+                              }
+                            : {}),
                     }"
                     no-search
                 >
                     <tr v-for="building in sortedBuildings" :key="building.id">
                         <td>
                             <img
-                                :src="
-                                    building.custom_icon_url ||
-                                    getBuildingMarkerIcon(
-                                        building.building_type
-                                    )
-                                "
+                                :src="getBuildingIcon(building)"
                                 alt="building icon"
                             />
+                        </td>
+                        <td class="table-cell-right">
+                            <a class="btn btn-default btn-xs disabled">
+                                {{
+                                    buildingTypes[building.building_type]
+                                        .caption
+                                }}
+                            </a>
                         </td>
                         <td>
                             <a
@@ -64,28 +84,34 @@
                         <td>
                             {{ building.level }}
                         </td>
-                        <td>
-                            {{ building.personal_count }}
-                            <template v-if="building.personal_count_target">
-                                ({{ building.personal_count_target }})
-                            </template>
-                        </td>
-                        <td>
-                            <template v-if="building.hiring_automatic">
-                                {{ $m('overview.buildings.hiring.automatic') }}
-                            </template>
-                            <template v-else-if="building.hiring_phase">
-                                {{
-                                    $mc(
-                                        'overview.buildings.hiring.phase',
-                                        building.hiring_phase
-                                    )
-                                }}
-                            </template>
-                            <template v-else>
-                                {{ $m('overview.buildings.hiring.no') }}
-                            </template>
-                        </td>
+                        <template v-if="hasStaffBuildings">
+                            <td>
+                                {{ building.personal_count }}
+                                <template v-if="building.personal_count_target">
+                                    ({{ building.personal_count_target }})
+                                </template>
+                            </td>
+                            <td>
+                                <template v-if="building.hiring_automatic">
+                                    {{
+                                        $m(
+                                            'overview.buildings.hiring.automatic'
+                                        )
+                                    }}
+                                </template>
+                                <template v-else-if="building.hiring_phase">
+                                    {{
+                                        $mc(
+                                            'overview.buildings.hiring.phase',
+                                            building.hiring_phase
+                                        )
+                                    }}
+                                </template>
+                                <template v-else>
+                                    {{ $m('overview.buildings.hiring.no') }}
+                                </template>
+                            </td>
+                        </template>
                     </tr>
                 </enhanced-table>
             </tab>
@@ -108,26 +134,29 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
-import type { Building } from 'typings/Building';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { $m, $mc } from 'typings/Module';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
         buildings: Record<number, Building>;
+        buildingTypes: Record<number, InternalBuilding>;
         currentBuildingId: number;
-        getBuildingMarkerIcon(
-            building_type: number
-        ): ReturnType<typeof window['getBuildingMarkerIcon']>;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
+        getBuildingIcon(building: Building): string;
     },
-    { sortedBuildings: Building[]; sortedBuildingIds: number[] },
+    {
+        sortedBuildings: Building[];
+        sortedBuildingIds: number[];
+        hasStaffBuildings: boolean;
+    },
     {
         complexIndex: number;
         modalName: string;
@@ -149,15 +178,15 @@ export default Vue.extend<
             ),
     },
     data() {
+        const buildingTypes = this.$t('buildings') as Record<
+            number,
+            InternalBuilding
+        >;
         return {
             faPencilAlt,
             buildings: this.$store.getters['api/buildingsById'],
+            buildingTypes,
             currentBuildingId: 0,
-            getBuildingMarkerIcon: (building_type: number) =>
-                window.getBuildingMarkerIcon({
-                    user_id: window.user_id,
-                    building_type,
-                }),
         };
     },
     computed: {
@@ -172,6 +201,12 @@ export default Vue.extend<
         },
         sortedBuildingIds() {
             return this.sortedBuildings.map(({ id }) => id);
+        },
+        hasStaffBuildings() {
+            return this.sortedBuildings.some(
+                ({ personal_count, personal_count_target }) =>
+                    personal_count || personal_count_target
+            );
         },
     },
     methods: {
@@ -213,6 +248,16 @@ export default Vue.extend<
                     clickToClose: false,
                     shiftY: 0.1,
                 }
+            );
+        },
+        getBuildingIcon(building) {
+            return (
+                building.custom_icon_url ??
+                window
+                    .getBuildingMarkerIcon({
+                        building_type: building.building_type,
+                    })
+                    ?.replace(/_other(?=\.png$)/u, '')
             );
         },
     },
@@ -267,4 +312,7 @@ export default Vue.extend<
             iframe
                 width: 100%
                 height: 100%
+
+    .table-cell-right
+        text-align: right
 </style>
