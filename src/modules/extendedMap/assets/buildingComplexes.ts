@@ -1,7 +1,7 @@
 import type { Building } from 'typings/Building';
 import type { LayerGroup } from 'leaflet';
-import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 import type { $m, $mc } from 'typings/Module';
+import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 
 export interface Complex {
     name: string;
@@ -74,7 +74,7 @@ export default async (
                     complexIndex: index,
                     modalName,
                     complex: complexes[index],
-                    // allAttachedBuildings,
+                    allAttachedBuildings,
                     $m: <$m>(
                         ((key, args) => $m(`buildingComplexes.${key}`, args))
                     ),

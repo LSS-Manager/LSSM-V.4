@@ -122,6 +122,7 @@ export default Vue.extend<
     {
         modalName: string;
         complex: Complex;
+        allOtherAttachedBuildings: string[];
         $m: $m;
         close(): void;
         updateValues(complex: Complex): Promise<void>;
@@ -186,7 +187,8 @@ export default Vue.extend<
             return Object.entries(this.buildings)
                 .filter(
                     ([id]) =>
-                        !this.buildingIds.some(({ value }) => value === id)
+                        !this.buildingIds.some(({ value }) => value === id) &&
+                        !this.allOtherAttachedBuildings.includes(id)
                 )
                 .map(([id, { caption, building_type }]) => ({
                     value: id.toString(),
@@ -258,6 +260,10 @@ export default Vue.extend<
         },
         complex: {
             type: Object,
+            required: true,
+        },
+        allOtherAttachedBuildings: {
+            type: Array,
             required: true,
         },
         $m: {

@@ -87,7 +87,9 @@
                         v-else-if="item.setting.type === 'multiSelect'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        :options="getOptions(item, value[item.name])"
+                        :options="
+                            getMultiselectOptions(item, value[item.name], index)
+                        "
                         :placeholder="item.title"
                         @input="changeValue(index, value, item)"
                     ></settings-multi-select>
@@ -341,6 +343,23 @@ export default Vue.extend<
                 return options.filter(
                     ({ value }) =>
                         !usedValues.includes(value) || value === currentValue
+                );
+            }
+            return options;
+        },
+        getMultiselectOptions({ setting, unique, name }, currentValue, index) {
+            const options = setting.values.map((v, vi) => ({
+                label: setting.labels?.[vi] ?? v,
+                value: v,
+            }));
+            if (unique) {
+                const usedValues = this.updateValues.flatMap((item, rowIndex) =>
+                    index === rowIndex ? [] : item[name]
+                );
+                return options.filter(
+                    ({ value }) =>
+                        !usedValues.includes(value) ||
+                        currentValue.includes(value)
                 );
             }
             return options;

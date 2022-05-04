@@ -110,6 +110,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                     name: 'buildings',
                     title: $m('settings.buildingComplexes.buildings'),
                     size: 0,
+                    unique: true,
                     setting: {
                         type: 'multiSelect',
                         values: userBuildingIds,

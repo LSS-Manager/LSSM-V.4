@@ -161,6 +161,7 @@ export default Vue.extend<
         complexIndex: number;
         modalName: string;
         complex: Complex;
+        allAttachedBuildings: string[];
         $m: $m;
         $mc: $mc;
         updateComplex(complex: Complex): void;
@@ -238,6 +239,9 @@ export default Vue.extend<
                 {
                     modalName: settingsModalName,
                     complex: this.complex,
+                    allOtherAttachedBuildings: this.allAttachedBuildings.filter(
+                        building => !this.complex.buildings.includes(building)
+                    ),
                     $m: <$m>((key, args) => this.$m(`settings.${key}`, args)),
                     close: () => this.$modal.hide(settingsModalName),
                     updateValues: this.updateComplex,
@@ -272,6 +276,10 @@ export default Vue.extend<
         },
         complex: {
             type: Object,
+            required: true,
+        },
+        allAttachedBuildings: {
+            type: Array,
             required: true,
         },
         $m: {
