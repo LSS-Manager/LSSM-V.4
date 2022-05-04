@@ -15,7 +15,80 @@
             </a>
         </h1>
         <tabs :onSelect="selectTab">
-            <tab :title="$m('overview.title')"> Hi, this is an overview </tab>
+            <tab :title="$m('overview.title')">
+                <!-- List of attached buildings -->
+                <h2>{{ $m('overview.buildings.title') }}</h2>
+                <enhanced-table
+                    :table-attrs="{ class: 'table table-striped' }"
+                    :head="{
+                        icon: { title: '', noSort: true },
+                        name: {
+                            title: $m('overview.buildings.table.head.name'),
+                            noSort: true,
+                        },
+                        level: {
+                            title: $m('overview.buildings.table.head.level'),
+                            noSort: true,
+                        },
+                        staff: {
+                            title: $m('overview.buildings.table.head.staff'),
+                            noSort: true,
+                        },
+                        hiring: {
+                            title: $m('overview.buildings.table.head.hiring'),
+                            noSort: true,
+                        },
+                    }"
+                    no-search
+                >
+                    <tr v-for="building in sortedBuildings" :key="building.id">
+                        <td>
+                            <img
+                                :src="
+                                    building.custom_icon_url ||
+                                    getBuildingMarkerIcon(
+                                        building.building_type
+                                    )
+                                "
+                                alt="building icon"
+                            />
+                        </td>
+                        <td>
+                            <a
+                                :href="`/buildings/${building.id}`"
+                                class="lightbox-open"
+                            >
+                                {{ building.caption }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ building.level }}
+                        </td>
+                        <td>
+                            {{ building.personal_count }}
+                            <template v-if="building.personal_count_target">
+                                ({{ building.personal_count_target }})
+                            </template>
+                        </td>
+                        <td>
+                            <template v-if="building.hiring_automatic">
+                                {{ $m('overview.buildings.hiring.automatic') }}
+                            </template>
+                            <template v-else-if="building.hiring_phase">
+                                {{
+                                    $mc(
+                                        'overview.buildings.hiring.phase',
+                                        building.hiring_phase
+                                    )
+                                }}
+                            </template>
+                            <template v-else>
+                                {{ $m('overview.buildings.hiring.no') }}
+                            </template>
+                        </td>
+                    </tr>
+                </enhanced-table>
+            </tab>
             <tab
                 v-for="building in sortedBuildings"
                 :key="building.id"
@@ -35,16 +108,19 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
-import type { $m } from 'typings/Module';
+import type { Building } from 'typings/Building';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { Building } from 'typings/Building';
+import type { $m, $mc } from 'typings/Module';
 
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
         buildings: Record<number, Building>;
         currentBuildingId: number;
+        getBuildingMarkerIcon(
+            building_type: number
+        ): ReturnType<typeof window['getBuildingMarkerIcon']>;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
@@ -57,6 +133,7 @@ export default Vue.extend<
         modalName: string;
         complex: Complex;
         $m: $m;
+        $mc: $mc;
         updateComplex(complex: Complex): void;
     }
 >({
@@ -66,12 +143,21 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../../components/lightbox.vue'
             ),
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
+            ),
     },
     data() {
         return {
             faPencilAlt,
             buildings: this.$store.getters['api/buildingsById'],
             currentBuildingId: 0,
+            getBuildingMarkerIcon: (building_type: number) =>
+                window.getBuildingMarkerIcon({
+                    user_id: window.user_id,
+                    building_type,
+                }),
         };
     },
     computed: {
@@ -144,6 +230,10 @@ export default Vue.extend<
             required: true,
         },
         $m: {
+            type: Function,
+            required: true,
+        },
+        $mc: {
             type: Function,
             required: true,
         },

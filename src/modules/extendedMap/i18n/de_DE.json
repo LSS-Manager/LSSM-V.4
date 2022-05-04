@@ -2,6 +2,22 @@
     "buildingComplexes": {
         "openInLightbox": "Gebäude in Lightbox öffnen",
         "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "Automatisch",
+                    "no": "Keine",
+                    "phase": "1 Tag | {n} Tage"
+                },
+                "table": {
+                    "head": {
+                        "hiring": "Bewerbungsphase",
+                        "level": "Ausbaustufe",
+                        "name": "Name",
+                        "staff": "Personal (Personal-Ziel)"
+                    }
+                },
+                "title": "angehängte Gebäude"
+            },
             "title": "Übersicht"
         },
         "settings": {

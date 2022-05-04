@@ -75,7 +75,7 @@ import type {
     EnhancedTableData,
     EnhancedTableMethods,
     EnhancedTableProps,
-} from '../../typings/components/Enhanced-Table';
+} from 'typings/components/Enhanced-Table';
 
 export default Vue.extend<
     EnhancedTableData,

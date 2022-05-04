@@ -6,6 +6,7 @@ export default <ModuleMainFunction>(async ({
     LSSM,
     getSetting,
     $m,
+    $mc,
 }) => {
     if (await getSetting('mapScale')) {
         import(
@@ -42,7 +43,13 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedMap/buildingComplexes" */ './assets/buildingComplexes'
         ).then(({ default: buildingComplexes }) =>
-            buildingComplexes(MODULE_ID, LSSM, buildingComplexesSettings, $m)
+            buildingComplexes(
+                MODULE_ID,
+                LSSM,
+                buildingComplexesSettings,
+                $m,
+                $mc
+            )
         );
     }
 });

@@ -84,7 +84,9 @@ declare global {
         buildingMarkerBulkContentCacheDraw(): void;
         iconAnchorCalculate(size: [number, number]): [number, number];
         iconMapGenerate(url: string, marker: L.Marker): void;
-        getBuildingMarkerIcon(building: BuildingMarkerAdd): string;
+        getBuildingMarkerIcon(
+            building: Pick<BuildingMarkerAdd, 'building_type' | 'user_id'>
+        ): string;
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;

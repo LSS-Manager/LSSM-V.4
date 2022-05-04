@@ -1,7 +1,7 @@
-import type { $m } from 'typings/Module';
 import type { Building } from 'typings/Building';
 import type { LayerGroup } from 'leaflet';
 import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
+import type { $m, $mc } from 'typings/Module';
 
 export interface Complex {
     name: string;
@@ -15,7 +15,8 @@ export default async (
     MODULE_ID: string,
     LSSM: Vue,
     complexes: Complex[],
-    $m: $m
+    $m: $m,
+    $mc: $mc
 ) => {
     if (!window.map) return;
 
@@ -76,6 +77,10 @@ export default async (
                     // allAttachedBuildings,
                     $m: <$m>(
                         ((key, args) => $m(`buildingComplexes.${key}`, args))
+                    ),
+                    $mc: <$mc>(
+                        ((key, amount, args) =>
+                            $mc(`buildingComplexes.${key}`, amount, args))
                     ),
                     updateComplex(updatedComplex: Complex) {
                         const removedBuildings = complexes[
