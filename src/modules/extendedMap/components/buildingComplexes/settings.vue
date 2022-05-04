@@ -231,9 +231,9 @@ export default Vue.extend<
                         '/images/building_wasserwacht_other.png',
                         '/images/building_water_rescue_school_other.png',
                     ].flatMap(icon => [icon, icon.replace(/_other/u, '')]),
-                    ...this.assignedBuildings.map(
-                        () => '/images/building_fire.png' // will change once image is available in API
-                    ),
+                    ...this.assignedBuildings
+                        .map(b => b.custom_icon_url ?? '')
+                        .filter(Boolean),
                 ]),
             ].sort();
         },
