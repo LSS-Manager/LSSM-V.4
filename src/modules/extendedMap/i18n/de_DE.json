@@ -8,8 +8,12 @@
                     "no": "Keine",
                     "phase": "1 Tag | {n} Tage"
                 },
+                "inConstruction": "davon {n} im Bau",
                 "table": {
                     "head": {
+                        "beds": "Betten",
+                        "cells": "Zellen",
+                        "classrooms": "Klassenzimmer",
                         "hiring": "Bewerbungsphase",
                         "level": "Ausbaustufe",
                         "name": "Name",

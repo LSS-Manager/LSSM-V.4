@@ -17,7 +17,10 @@
         <tabs :onSelect="selectTab">
             <tab :title="$m('overview.title')">
                 <!-- List of attached buildings -->
-                <h2>{{ $m('overview.buildings.title') }}</h2>
+                <h2>
+                    {{ $m('overview.buildings.title') }}:
+                    {{ complex.buildings.length.toLocaleString() }}
+                </h2>
                 <enhanced-table
                     :table-attrs="{ class: 'table table-striped' }"
                     :head="{
@@ -39,6 +42,36 @@
                             title: $m('overview.buildings.table.head.level'),
                             noSort: true,
                         },
+                        ...(hasBedBuildings
+                            ? {
+                                  beds: {
+                                      title: $m(
+                                          'overview.buildings.table.head.beds'
+                                      ),
+                                      noSort: true,
+                                  },
+                              }
+                            : {}),
+                        ...(hasClassroomBuildings
+                            ? {
+                                  classrooms: {
+                                      title: $m(
+                                          'overview.buildings.table.head.classrooms'
+                                      ),
+                                      noSort: true,
+                                  },
+                              }
+                            : {}),
+                        ...(hasCellBuildings
+                            ? {
+                                  cells: {
+                                      title: $m(
+                                          'overview.buildings.table.head.cells'
+                                      ),
+                                      noSort: true,
+                                  },
+                              }
+                            : {}),
                         ...(hasStaffBuildings
                             ? {
                                   staff: {
@@ -84,6 +117,67 @@
                         <td>
                             {{ building.level }}
                         </td>
+                        <td v-if="hasBedBuildings">
+                            <template
+                                v-if="
+                                    bedBuildingTypes.includes(
+                                        building.building_type
+                                    )
+                                "
+                            >
+                                {{ building.level + 10 }}
+                            </template>
+                        </td>
+                        <td v-if="hasClassroomBuildings">
+                            <template
+                                v-if="
+                                    classroomBuildingTypes.includes(
+                                        building.building_type
+                                    )
+                                "
+                            >
+                                {{ building.extensions.length + 1 }}
+                                <template
+                                    v-if="
+                                        building.extensions.some(
+                                            ({ available }) => !available
+                                        )
+                                    "
+                                >
+                                    ({{
+                                        $mc(
+                                            'overview.buildings.inConstruction',
+                                            building.extensions.filter(
+                                                ({ available }) => !available
+                                            ).length
+                                        )
+                                    }})
+                                </template>
+                            </template>
+                        </td>
+                        <td v-if="hasCellBuildings">
+                            <template>
+                                {{ getCellsForBuilding(building).length || '' }}
+                                <template
+                                    v-if="
+                                        getCellsForBuilding(building).some(
+                                            ({ available }) => !available
+                                        )
+                                    "
+                                >
+                                    ({{
+                                        $mc(
+                                            'overview.buildings.inConstruction',
+                                            getCellsForBuilding(
+                                                building
+                                            ).filter(
+                                                ({ available }) => !available
+                                            ).length
+                                        )
+                                    }})
+                                </template>
+                            </template>
+                        </td>
                         <template v-if="hasStaffBuildings">
                             <td>
                                 {{ building.personal_count }}
@@ -114,6 +208,10 @@
                         </template>
                     </tr>
                 </enhanced-table>
+
+                <!-- Extensions -->
+
+                <!-- Classrooms / start schoolings -->
             </tab>
             <tab
                 v-for="building in sortedBuildings"
@@ -137,13 +235,17 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { $m, $mc } from 'typings/Module';
-import type { Building, InternalBuilding } from 'typings/Building';
+import type { Building, Extension, InternalBuilding } from 'typings/Building';
 
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
         buildings: Record<number, Building>;
         buildingTypes: Record<number, InternalBuilding>;
+        bedBuildingTypes: number[];
+        classroomBuildingTypes: number[];
+        cellBuildingTypes: number[];
+        cellExtensionIDs: string[];
         currentBuildingId: number;
     },
     {
@@ -151,11 +253,15 @@ export default Vue.extend<
         updateIframe(event: Event): void;
         openSettings(): void;
         getBuildingIcon(building: Building): string;
+        getCellsForBuilding(building: Building): Extension[];
     },
     {
         sortedBuildings: Building[];
         sortedBuildingIds: number[];
         hasStaffBuildings: boolean;
+        hasBedBuildings: boolean;
+        hasClassroomBuildings: boolean;
+        hasCellBuildings: boolean;
     },
     {
         complexIndex: number;
@@ -187,6 +293,10 @@ export default Vue.extend<
             faPencilAlt,
             buildings: this.$store.getters['api/buildingsById'],
             buildingTypes,
+            bedBuildingTypes: Object.values(this.$t('bedBuildings')),
+            classroomBuildingTypes: Object.values(this.$t('schoolBuildings')),
+            cellBuildingTypes: Object.values(this.$t('cellBuildings')),
+            cellExtensionIDs: Object.values(this.$t('cellExtensions')),
             currentBuildingId: 0,
         };
     },
@@ -207,6 +317,21 @@ export default Vue.extend<
             return this.sortedBuildings.some(
                 ({ personal_count, personal_count_target }) =>
                     personal_count || personal_count_target
+            );
+        },
+        hasBedBuildings() {
+            return this.sortedBuildings.some(({ building_type }) =>
+                this.bedBuildingTypes.includes(building_type)
+            );
+        },
+        hasClassroomBuildings() {
+            return this.sortedBuildings.some(({ building_type }) =>
+                this.classroomBuildingTypes.includes(building_type)
+            );
+        },
+        hasCellBuildings() {
+            return this.sortedBuildings.some(({ building_type }) =>
+                this.cellBuildingTypes.includes(building_type)
             );
         },
     },
@@ -262,6 +387,14 @@ export default Vue.extend<
                         building_type: building.building_type,
                     })
                     ?.replace(/_other(?=\.png$)/u, '')
+            );
+        },
+        getCellsForBuilding(building) {
+            const extensionIds = this.cellExtensionIDs.filter(id =>
+                id.startsWith(building.building_type.toString())
+            );
+            return building.extensions.filter(({ type_id }) =>
+                extensionIds.includes(`${building.building_type}_${type_id}`)
             );
         },
     },
