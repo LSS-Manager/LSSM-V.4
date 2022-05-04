@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="statuscounter-wrapper">
         <span
             v-for="({ real, amount }, show) in vehicle_states"
             :key="show"
@@ -82,6 +82,12 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-.noblink
-    background-image: none
+.statuscounter-wrapper
+    display: flex
+    flex-flow: wrap
+    width: 100%
+    margin-top: 0.4em
+
+    .noblink
+        background-image: none
 </style>
