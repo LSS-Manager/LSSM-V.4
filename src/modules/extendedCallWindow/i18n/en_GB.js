@@ -80,6 +80,19 @@ module.exports = {
                 39, 40,
             ],
         },
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            41: [40],
+            42: [40],
+            43: [40],
+            44: [40],
+            45: [40],
+            46: [40],
+            47: [40],
+            48: [40],
+            49: [40],
+            50: [40],
+        },
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/u]: [0, 1, 16, 17, 26, 37, 38, 47],
             [/^Aerial Appliance Trucks?$/u]: [2, 17],
