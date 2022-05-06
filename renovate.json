@@ -18,17 +18,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["@types/node"],
-      "matchCurrentVersion": "/^1[68]\\./",
-      "groupName": "node-types",
-      "separateMajorMinor": false,
-      "lockFileMaintenance": { "enabled": true },
-      "rangeStrategy": "bump"
-    },
-    {
-      "matchManagers": ["npm"],
       "matchPackagePrefixes": ["@types/"],
-      "excludePackageNames": ["@types/node"],
       "groupName": "types",
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
@@ -70,7 +60,6 @@
     },
     {
       "matchManagers": ["npm"],
-      "excludePackageNames": ["@types/node"],
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
       "rangeStrategy": "bump"
