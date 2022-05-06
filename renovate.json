@@ -34,11 +34,19 @@
     },
     {
       "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^@?vuepress($|/)"],
+      "groupName": "vuepress",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
       "rangeStrategy": "bump"
     }
   ],
   "rangeStrategy": "bump",
-  "schedule": ["before 3 am every weekday"]
+  "schedule": ["before 3am every weekday"]
 }
