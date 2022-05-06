@@ -136,12 +136,18 @@ export default Vue.extend<
             ) as unknown as Record<string, BuildingCategory>,
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
                 ).map(([index, { caption }]) => [index, caption])
             ),
             buildingTypeColors: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesId: this.$store.getters.nodeAttribute(
@@ -154,12 +160,18 @@ export default Vue.extend<
             ) as unknown as Record<string, VehicleCategory>,
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
+                    this.$t('vehicles') as unknown as Record<
+                        number,
+                        InternalVehicle
+                    >
                 ).map(([index, { caption }]) => [index, caption])
             ),
             vehicleTypeColors: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
+                    this.$t('vehicles') as unknown as Record<
+                        number,
+                        InternalVehicle
+                    >
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],

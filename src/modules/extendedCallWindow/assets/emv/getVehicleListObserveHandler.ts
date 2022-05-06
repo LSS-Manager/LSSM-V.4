@@ -19,7 +19,10 @@ export default (
     );
     const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
 
-    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
+    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
+        number,
+        InternalVehicle
+    >;
 
     if (!vehicleList || !occupiedList) return;
 

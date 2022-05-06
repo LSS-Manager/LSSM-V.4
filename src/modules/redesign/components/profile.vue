@@ -648,7 +648,7 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
-        const buildingTypes = this.$t('buildings') as Record<
+        const buildingTypes = this.$t('buildings') as unknown as Record<
             number,
             InternalBuilding
         >;

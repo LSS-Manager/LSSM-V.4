@@ -293,12 +293,12 @@ import type {
     InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
-} from '../../../typings/Vehicle';
+} from 'typings/Vehicle';
 import type {
     Overview,
     OverviewComputed,
     OverviewMethods,
-} from '../../../typings/modules/Overview';
+} from 'typings/modules/Overview';
 
 export default Vue.extend<
     Overview,
@@ -321,7 +321,7 @@ export default Vue.extend<
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = this.$t('vehicles') as Record<
+        const vehicleTypes = this.$t('vehicles') as unknown as Record<
             number,
             InternalVehicle
         >;
@@ -376,7 +376,10 @@ export default Vue.extend<
         const buildingTypes = Object.fromEntries(
             Object.entries(
                 cloneDeep(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
                 )
             ).map(([index, building]) => {
                 const extensions = Object.values(building.extensions);

@@ -76,7 +76,9 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         InternalVehicle
     >;
 
-    const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[
+    const schools = (
+        LSSM.$t('buildings') as unknown as Record<number, InternalBuilding>
+    )[
         (LSSM.$store.state.api.buildings as Building[]).find(
             ({ id }) => id === buildingId
         )?.building_type ?? -1

@@ -311,7 +311,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as Record<
+        const buildingTypes = this.$t('buildings') as unknown as Record<
             number,
             InternalBuilding
         >;

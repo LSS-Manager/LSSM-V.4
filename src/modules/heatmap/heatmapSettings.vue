@@ -241,7 +241,7 @@ export default Vue.extend<
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
-            vehicleTypes: this.$t('vehicles') as Record<
+            vehicleTypes: this.$t('vehicles') as unknown as Record<
                 number,
                 InternalVehicle
             >,
@@ -296,7 +296,10 @@ export default Vue.extend<
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
                 return Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
                 )
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },

@@ -69,9 +69,12 @@ export default Vue.extend<
         vehicleTypeCaption() {
             return (
                 this.fahrzeugfarbe.customVehicleType ??
-                (this.$t('vehicles') as Record<number, InternalVehicle>)[
-                    this.fahrzeugfarbe.vehicleType
-                ].caption
+                (
+                    this.$t('vehicles') as unknown as Record<
+                        number,
+                        InternalVehicle
+                    >
+                )[this.fahrzeugfarbe.vehicleType].caption
             );
         },
         hasColor() {

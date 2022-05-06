@@ -58,11 +58,4 @@ export interface InternalBuilding {
     startVehicles: string[];
     schoolingTypes: string[];
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
-    [key: string]:
-        | InternalExtension[]
-        | string[]
-        | number
-        | string
-        | (() => number)
-        | undefined;
 }
