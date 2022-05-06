@@ -39,7 +39,7 @@ Obecnie LSS Manager składa się z 4 programistów i 6 dodatkowych osób wspiera
 * 🇳🇱
     * MPR
 
-### tłumacze-wolontariusze <3
+### Tłumacze-wolontariusze <3
 Ogromne podziękowania kierujemy do naszych tłumaczy-wolontariuszy, którzy pomagają nam w przenoszeniu na inne wersje językowe. Oczywiście, jako mały zespół programistów, nie mówimy we wszystkich językach, dlatego udostępniamy tylko teksty w języku niemieckim i angielskim.
 
 Aby oddać trochę uznania tłumaczom, stworzyliśmy listę tutaj:
