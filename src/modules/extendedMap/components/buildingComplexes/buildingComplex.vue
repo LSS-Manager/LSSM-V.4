@@ -42,6 +42,16 @@
                             title: $m('overview.buildings.table.head.level'),
                             noSort: true,
                         },
+                        ...(hasVehicleBuildings
+                            ? {
+                                  vehicles: {
+                                      title: $m(
+                                          'overview.buildings.table.head.vehicles'
+                                      ),
+                                      noSort: true,
+                                  },
+                              }
+                            : {}),
                         ...(hasBedBuildings
                             ? {
                                   beds: {
@@ -89,9 +99,13 @@
                               }
                             : {}),
                     }"
-                    no-search
+                    :search="search"
+                    @search="s => (search = s)"
                 >
-                    <tr v-for="building in sortedBuildings" :key="building.id">
+                    <tr
+                        v-for="building in filteredBuildings"
+                        :key="building.id"
+                    >
                         <td>
                             <img
                                 :src="getBuildingIcon(building)"
@@ -116,6 +130,10 @@
                         </td>
                         <td>
                             {{ building.level }}
+                        </td>
+                        <td v-if="hasVehicleBuildings">
+                            {{ vehiclesByBuilding[building.id].length }} /
+                            {{ building.level + 1 }}
                         </td>
                         <td v-if="hasBedBuildings">
                             <template
@@ -214,7 +232,7 @@
                 <!-- Classrooms / start schoolings -->
             </tab>
             <tab
-                v-for="building in sortedBuildings"
+                v-for="building in sortedBuildingsByName"
                 :key="building.id"
                 :title="building.caption"
             >
@@ -234,6 +252,7 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Vehicle } from 'typings/Vehicle';
 import type { $m, $mc } from 'typings/Module';
 import type { Building, Extension, InternalBuilding } from 'typings/Building';
 
@@ -246,7 +265,10 @@ export default Vue.extend<
         classroomBuildingTypes: number[];
         cellBuildingTypes: number[];
         cellExtensionIDs: string[];
+        vehicleBuildingTypes: number[];
         currentBuildingId: number;
+        vehiclesByBuilding: Record<number, Vehicle[]>;
+        search: string;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
@@ -256,12 +278,14 @@ export default Vue.extend<
         getCellsForBuilding(building: Building): Extension[];
     },
     {
-        sortedBuildings: Building[];
-        sortedBuildingIds: number[];
+        sortedBuildingsByName: Building[];
+        sortedBuildingIdsByName: number[];
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
+        hasVehicleBuildings: boolean;
+        filteredBuildings: Building[];
     },
     {
         complexIndex: number;
@@ -297,11 +321,14 @@ export default Vue.extend<
             classroomBuildingTypes: Object.values(this.$t('schoolBuildings')),
             cellBuildingTypes: Object.values(this.$t('cellBuildings')),
             cellExtensionIDs: Object.values(this.$t('cellExtensions')),
+            vehicleBuildingTypes: Object.values(this.$t('vehicleBuildings')),
             currentBuildingId: 0,
+            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            search: '',
         };
     },
     computed: {
-        sortedBuildings() {
+        sortedBuildingsByName() {
             const buildings: Building[] = this.complex.buildings
                 .map(id => this.buildings[parseInt(id)])
                 .filter(Boolean);
@@ -310,28 +337,40 @@ export default Vue.extend<
                     captionA.localeCompare(captionB)
             );
         },
-        sortedBuildingIds() {
-            return this.sortedBuildings.map(({ id }) => id);
+        sortedBuildingIdsByName() {
+            return this.sortedBuildingsByName.map(({ id }) => id);
         },
         hasStaffBuildings() {
-            return this.sortedBuildings.some(
+            return this.sortedBuildingsByName.some(
                 ({ personal_count, personal_count_target }) =>
                     personal_count || personal_count_target
             );
         },
         hasBedBuildings() {
-            return this.sortedBuildings.some(({ building_type }) =>
+            return this.sortedBuildingsByName.some(({ building_type }) =>
                 this.bedBuildingTypes.includes(building_type)
             );
         },
         hasClassroomBuildings() {
-            return this.sortedBuildings.some(({ building_type }) =>
+            return this.sortedBuildingsByName.some(({ building_type }) =>
                 this.classroomBuildingTypes.includes(building_type)
             );
         },
         hasCellBuildings() {
-            return this.sortedBuildings.some(({ building_type }) =>
+            return this.sortedBuildingsByName.some(({ building_type }) =>
                 this.cellBuildingTypes.includes(building_type)
+            );
+        },
+        hasVehicleBuildings() {
+            return this.sortedBuildingsByName.some(({ building_type }) =>
+                this.vehicleBuildingTypes.includes(building_type)
+            );
+        },
+        filteredBuildings() {
+            return this.sortedBuildingsByName.filter(building =>
+                JSON.stringify(Object.values(building))
+                    .toLowerCase()
+                    .includes(this.search.toLowerCase())
             );
         },
     },
@@ -340,7 +379,7 @@ export default Vue.extend<
             this.$set(
                 this,
                 'currentBuildingId',
-                this.sortedBuildingIds[index - 1]
+                this.sortedBuildingIdsByName[index - 1]
             );
         },
         updateIframe(event) {
@@ -429,7 +468,7 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$set(this, 'currentBuildingId', this.sortedBuildingIds[-1]);
+        this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
     },
 });
 </script>
