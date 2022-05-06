@@ -34,17 +34,39 @@ export interface ResolvedBuildingCategory {
     buildings: InternalBuilding[];
 }
 
-interface InternalExtension {
+interface BaseExtension {
     caption: string;
     credits: number;
     coins: number;
-    duration: number;
+    duration: string;
     maxExtensionsFunction?(
         buildingsByType?: Record<number, Building[]>
     ): number;
 }
 
-export interface InternalBuilding {
+interface VehicleExtension extends BaseExtension {
+    isVehicleExtension: true;
+    givesParkingLots: number;
+    unlocksVehicleTypes: number[];
+    parkingLotReservations: number[][];
+    giftsVehicles: number[];
+}
+
+interface ClassroomExtension extends BaseExtension {
+    newClassrooms: number;
+}
+
+interface CellExtension extends BaseExtension {
+    newCells: number;
+}
+
+type InternalExtension =
+    | BaseExtension
+    | CellExtension
+    | ClassroomExtension
+    | VehicleExtension;
+
+interface BaseBuilding {
     caption: string;
     color: string;
     coins: number;
@@ -54,8 +76,39 @@ export interface InternalBuilding {
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
-    startPersonnel: number;
-    startVehicles: string[];
-    schoolingTypes: string[];
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
 }
+
+interface CellBuilding extends BaseBuilding {
+    startCells: number;
+}
+
+interface HospitalBuilding extends BaseBuilding {
+    startBeds: number;
+}
+
+interface SchoolBuilding extends BaseBuilding {
+    startClassrooms: number;
+}
+
+interface DispatchCenterBuilding extends BaseBuilding {
+    isDispatchCenter: true;
+}
+
+type CanHaveVehiclesBuilding<
+    BaseBuildingType extends BaseBuilding | InternalBuilding
+> = BaseBuildingType & {
+    schoolingTypes: string[];
+    startPersonnel: number;
+    startVehicles: string[];
+};
+
+type BuildingTypes =
+    | CellBuilding
+    | DispatchCenterBuilding
+    | HospitalBuilding
+    | SchoolBuilding;
+
+export type InternalBuilding =
+    | BuildingTypes
+    | CanHaveVehiclesBuilding<BaseBuilding | BuildingTypes>;
