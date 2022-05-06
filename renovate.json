@@ -51,6 +51,15 @@
     },
     {
       "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^npm$", "^yarn$", "^node$"],
+      "groupName": "engines",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump",
+      "extends": ["schedule:monthly"]
+    },
+    {
+      "matchManagers": ["npm"],
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
       "rangeStrategy": "bump"
