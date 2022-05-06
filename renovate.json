@@ -18,7 +18,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["^@types/node$"],
+      "matchPackageNames": ["@types/node"],
       "matchCurrentVersion": "/^1[68]\\./",
       "groupName": "node-types",
       "separateMajorMinor": false,
@@ -36,7 +36,15 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePrefixes": ["@typescript-eslint/"],
+      "matchPackagePrefixes": ["@fortawesome/"],
+      "groupName": "fontawesome",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@typescript-eslint"],
       "groupName": "typescript-eslint",
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
@@ -44,7 +52,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePrefixes": ["@vuepress/"],
+      "matchPackagePrefixes": ["@vuepress"],
       "matchPackageNames": ["vuepress"],
       "groupName": "vuepress",
       "separateMajorMinor": false,
