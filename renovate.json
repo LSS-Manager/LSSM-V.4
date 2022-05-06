@@ -10,6 +10,13 @@
   "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
   "packageRules": [
     {
+      "description": "Disable updating vue on main repo",
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^vue(-i18n|-loader|x)?$"],
+      "matchPaths": ["+(package.json)"],
+      "enabled": false
+    },
+    {
       "matchManagers": ["npm"],
       "matchPackagePatterns": ["^@types/"],
       "groupName": "types",
@@ -31,5 +38,7 @@
       "lockFileMaintenance": { "enabled": true },
       "rangeStrategy": "bump"
     }
-  ]
+  ],
+  "rangeStrategy": "bump",
+  "schedule": ["before 3 am every weekday"]
 }
