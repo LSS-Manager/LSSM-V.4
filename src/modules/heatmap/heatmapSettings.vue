@@ -157,25 +157,12 @@ import type { $m } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import type { InternalBuilding } from 'typings/Building';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
-
-type Mode = 'buildings' | 'vehicles';
-
-type Subsetting<Scope extends Mode | ''> = Record<
-    `${Scope}IntensityMaxZoom` | `${Scope}RadiusM` | `${Scope}RadiusPx`,
-    number
-> &
-    Record<`${Scope}Includes`, { value: number | string; label: string }[]> &
-    Record<`${Scope}StaticRadius`, boolean>;
-
-export type Settings = Subsetting<'buildings'> &
-    Subsetting<'vehicles'> & {
-        position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-        active: boolean;
-        livePreview: boolean;
-        heatmapMode: Mode;
-    };
-
-export type UpdateSettings = (updated: Omit<Settings, 'active'>) => void;
+import type {
+    Mode,
+    Settings,
+    Subsetting,
+    UpdateSettings,
+} from 'typings/modules/heatmap/Settings';
 
 export default Vue.extend<
     {

@@ -230,6 +230,8 @@
                 <!-- Extensions -->
 
                 <!-- Classrooms / start schoolings -->
+
+                <!-- All vehicles -->
             </tab>
             <tab
                 v-for="building in sortedBuildingsByName"

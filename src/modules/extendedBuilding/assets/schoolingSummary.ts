@@ -6,6 +6,7 @@ import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     EachSchooling,
     SchoolingSummaryObject,
+    Schooling as SchoolingSummarySchooling,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
@@ -33,7 +34,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     dataData.append(overviewWrapper);
     dataList.append(dataTitle, dataData);
 
-    const summaryAll = {} as SchoolingSummaryObject;
+    const summaryAll = {} as SchoolingSummaryObject<SchoolingSummarySchooling>;
     const summaryEach = {} as SchoolingSummaryObject<EachSchooling>;
 
     personnel.forEach(p => {

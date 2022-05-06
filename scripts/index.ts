@@ -14,6 +14,11 @@ const build = (mode: string) => {
 
 const scriptHandlers = {
     sort,
+    tsc() {
+        console.time('tsc');
+        console.log(execSync('tsc -b').toString());
+        console.timeEnd('tsc');
+    },
     emojis() {
         fetchEmojis();
     },
@@ -28,6 +33,7 @@ const scriptHandlers = {
     predev() {
         this.emojis();
         this.lint();
+        this.tsc();
         console.log(execSync('ts-node prebuild').toString());
     },
     dev() {
@@ -48,6 +54,7 @@ const scriptHandlers = {
     preBuild() {
         this.emojis();
         this.lint();
+        this.tsc();
         console.log(execSync('ts-node prebuild production').toString());
     },
     build() {
