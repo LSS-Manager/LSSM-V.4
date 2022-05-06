@@ -66,5 +66,6 @@
     }
   ],
   "rangeStrategy": "bump",
+  "reviewers": ["Suchty112"],
   "schedule": ["before 3am every weekday"]
 }
