@@ -18,6 +18,15 @@
     },
     {
       "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^@types/node"],
+      "matchCurrentVersion": "/^1[68]\\./",
+      "groupName": "node-types",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
       "matchPackagePatterns": ["^@types/"],
       "groupName": "types",
       "separateMajorMinor": false,
