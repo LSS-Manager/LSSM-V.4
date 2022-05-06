@@ -17,7 +17,8 @@
                         "hiring": "Bewerbungsphase",
                         "level": "Ausbaustufe",
                         "name": "Name",
-                        "staff": "Personal (Personal-Ziel)"
+                        "staff": "Personal (Personal-Ziel)",
+                        "vehicles": "Fahrzeuge"
                     }
                 },
                 "title": "angehängte Gebäude"
