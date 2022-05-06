@@ -27,7 +27,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["^@types/"],
+      "matchPackagePrefixes": ["@types/"],
       "excludePackageNames": ["@types/node"],
       "groupName": "types",
       "separateMajorMinor": false,
@@ -36,7 +36,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["typescript-eslint"],
+      "matchPackagePrefixes": ["@typescript-eslint/"],
       "groupName": "typescript-eslint",
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
@@ -44,7 +44,8 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["^@?vuepress($|/)"],
+      "matchPackagePrefixes": ["@vuepress/"],
+      "matchPackageNames": ["vuepress"],
       "groupName": "vuepress",
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
@@ -52,7 +53,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["^npm$", "^yarn$", "^node$"],
+      "matchPackageNames": ["npm", "yarn", "node"],
       "groupName": "engines",
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
@@ -61,6 +62,7 @@
     },
     {
       "matchManagers": ["npm"],
+      "excludePackageNames": ["@types/node"],
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },
       "rangeStrategy": "bump"
