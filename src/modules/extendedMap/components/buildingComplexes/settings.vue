@@ -147,7 +147,7 @@ export default Vue.extend<
         const userBuildings = this.$store.getters[
             'api/buildingsById'
         ] as Record<number, Building>;
-        const buildingTypes = this.$t('buildings') as unknown as Record<
+        const buildingTypes = this.$store.getters.$tBuildings as Record<
             number,
             InternalBuilding
         >;

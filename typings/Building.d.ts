@@ -47,6 +47,7 @@ interface BaseExtension {
 interface VehicleExtension extends BaseExtension {
     isVehicleExtension: true;
     givesParkingLots: number;
+    givesParkingLotsPerLevel?: boolean;
     unlocksVehicleTypes: number[];
     parkingLotReservations: number[][];
     giftsVehicles: number[];
@@ -95,19 +96,26 @@ interface DispatchCenterBuilding extends BaseBuilding {
     isDispatchCenter: true;
 }
 
+interface StagingAreaBuilding extends BaseBuilding {
+    isStagingArea: true;
+}
+
 type CanHaveVehiclesBuilding<
     BaseBuildingType extends BaseBuilding | InternalBuilding
 > = BaseBuildingType & {
     schoolingTypes: string[];
     startPersonnel: number;
     startVehicles: string[];
+    startParkingLots: number;
+    startParkingLotReservations?: number[][];
 };
 
 type BuildingTypes =
     | CellBuilding
     | DispatchCenterBuilding
     | HospitalBuilding
-    | SchoolBuilding;
+    | SchoolBuilding
+    | StagingAreaBuilding;
 
 export type InternalBuilding =
     | BuildingTypes

@@ -38,13 +38,16 @@ export default async (
     >;
     if (vehicleId < 0 || !vehicle) return;
 
-    const schools = (
-        LSSM.$t('buildings') as unknown as Record<number, InternalBuilding>
+    const buildingType = (
+        LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
     )[
         (LSSM.$store.state.api.buildings as Building[]).find(
             ({ id }) => id === vehicle.building_id
         )?.building_type ?? -1
-    ]?.schoolingTypes;
+    ];
+
+    const schools =
+        'schoolingTypes' in buildingType ? buildingType.schoolingTypes : null;
 
     if (!schools) return;
 
