@@ -111,12 +111,15 @@ export default Vue.extend<
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
         showMarkers: boolean;
+        iconBase64s: string[];
+        excludedCustomIcons: string[];
     },
     { save(): void },
     {
         canSave: boolean;
         assignedBuildings: Building[];
         buildingOptions: { value: string; label: string }[];
+        customIcons: string[];
         icons: string[];
     },
     {
@@ -161,6 +164,8 @@ export default Vue.extend<
             buildingTypes,
             location: [0, 0],
             showMarkers: false,
+            iconBase64s: [],
+            excludedCustomIcons: [],
         };
     },
     computed: {
@@ -198,6 +203,11 @@ export default Vue.extend<
                     labelA.localeCompare(labelB)
                 );
         },
+        customIcons() {
+            return this.assignedBuildings
+                .map(b => b.custom_icon_url ?? '')
+                .filter(Boolean);
+        },
         icons() {
             return [
                 ...new Set([
@@ -233,9 +243,9 @@ export default Vue.extend<
                         '/images/building_wasserwacht_other.png',
                         '/images/building_water_rescue_school_other.png',
                     ].flatMap(icon => [icon, icon.replace(/_other/u, '')]),
-                    ...this.assignedBuildings
-                        .map(b => b.custom_icon_url ?? '')
-                        .filter(Boolean),
+                    ...this.customIcons.filter(
+                        icon => !this.excludedCustomIcons.includes(icon)
+                    ),
                 ]),
             ].sort();
         },
@@ -294,6 +304,19 @@ export default Vue.extend<
             .filter(removeUndefined);
         this.location = this.complex.position;
         this.showMarkers = this.complex.showMarkers;
+
+        this.customIcons.forEach(icon => {
+            fetch(icon)
+                .then(res => res.arrayBuffer())
+                .then(buffer => {
+                    const base64 = btoa(
+                        String.fromCharCode(...new Uint8Array(buffer))
+                    );
+                    if (this.iconBase64s.includes(base64))
+                        this.excludedCustomIcons.push(icon);
+                    else this.iconBase64s.push(base64);
+                });
+        });
     },
 });
 </script>
