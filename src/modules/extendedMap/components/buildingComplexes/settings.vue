@@ -194,8 +194,8 @@ export default Vue.extend<
                     value: id.toString(),
                     label: `[${this.buildingTypes[building_type].caption}] ${caption}`,
                 }))
-                .sort(({ value: valueA }, { value: valueB }) =>
-                    valueA.localeCompare(valueB)
+                .sort(({ label: labelA }, { label: labelB }) =>
+                    labelA.localeCompare(labelB)
                 );
         },
         icons() {
