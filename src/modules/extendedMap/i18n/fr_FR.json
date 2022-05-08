@@ -1,40 +1,40 @@
 {
     "buildingComplexes": {
-        "openInLightbox": "Open building in Lightbox",
+        "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
             "buildings": {
                 "hiring": {
-                    "automatic": "automatically",
-                    "no": "None",
-                    "phase": "1 Day | {n} Days"
+                    "automatic": "Automatique",
+                    "no": "Non",
+                    "phase": "1 Jour | {n} Jours"
                 },
-                "inConstruction": "thereof {n} under construction",
+                "inConstruction": "{n} en construction",
                 "table": {
                     "head": {
-                        "beds": "Beds",
-                        "cells": "Cells",
-                        "classrooms": "Classrooms",
-                        "hiring": "Hiring Phase",
-                        "level": "Level",
-                        "name": "Name",
-                        "staff": "Staff (Staff target)",
-                        "vehicles": "Vehicles"
+                        "beds": "Lits",
+                        "cells": "Cellules",
+                        "classrooms": "Salles de formation",
+                        "hiring": "Phase de recrutement",
+                        "level": "Niveau",
+                        "name": "Nom",
+                        "staff": "Personnel (cible du personnel)",
+                        "vehicles": "Véhicules"
                     }
                 },
-                "title": "attached buildings"
+                "title": "bâtiments rattachés"
             },
-            "title": "Overview"
+            "title": "Aperçu"
         },
         "settings": {
-            "abort": "Abort",
-            "buildings": "attached buildings",
+            "abort": "Annuler",
+            "buildings": "bâtiments rattachés",
             "icon": "Icon",
-            "iconHelp": "Select between standard icons and icons of attached buildings",
-            "location": "Location",
-            "name": "Name",
-            "save": "Save",
-            "showMarkers": "Show attached buildings on map?",
-            "title": "Edit complex"
+            "iconHelp": "choisir entre les icônes standard et les icônes des bâtiments rattachés",
+            "location": "Emplacement",
+            "name": "Nom",
+            "save": "Sauvegader",
+            "showMarkers": "Afficher les bâtiments rattachés sur la carte ?",
+            "title": "Modifier le complexe"
         }
     }
 }
