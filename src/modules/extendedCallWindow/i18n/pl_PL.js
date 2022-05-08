@@ -122,7 +122,7 @@ module.exports = {
             [/^Ambulanse$/u]: [5, 31],
             [/^Ambulanse? P$/u]: [5, 31],
             [/^cystern(a|\(-y\)) z wodą?$/u]: [47, 6, 61, 64],
-            [/^Dźwig SP$/u]: [25],
+            [/^Dźwigi? SP$/u]: [25, 37],
             [/^Helikopter(ów)? Policyjny(ch)?$/u]: [14],
             [/^Jednost(ek|ka) K-9?$/u]: [16],
             [/^łod(ź|zi\(-e\))$/u]: [26, 54],
@@ -138,7 +138,7 @@ module.exports = {
             [/^samoch(ód|ody\(-ów\)) dowodzenia i łączności?$/u]: [43, 11],
             [/^Samoch(ód|odów) Ratownictwa wysokościowego$/u]: [27],
             [/^Samoch(ód|odów) wężowy(ch)?$/u]: [61, 62, 64],
-            [/^Samoch(ód|ody) ze zbiornikiem na pianę?$/u]: [
+            [/^Samoch(ód|od(y|ów)) ze zbiornikiem na pianę?$/u]: [
                 55, 56, 57, 58, 59, 44, 60,
             ],
             [/^Samoch(ód|odów) WOPR$/u]: [19],

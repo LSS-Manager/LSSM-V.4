@@ -106,6 +106,7 @@ module.exports = {
             29: [26],
             51: [26],
             61: [26],
+            69: [26],
         },
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/u]: [

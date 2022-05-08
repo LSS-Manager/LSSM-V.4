@@ -1,0 +1,40 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Open building in Lightbox",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "automatically",
+                    "no": "None",
+                    "phase": "1 Day | {n} Days"
+                },
+                "inConstruction": "thereof {n} under construction",
+                "table": {
+                    "head": {
+                        "beds": "Beds",
+                        "cells": "Cells",
+                        "classrooms": "Classrooms",
+                        "hiring": "Hiring Phase",
+                        "level": "Level",
+                        "name": "Name",
+                        "staff": "Staff (Staff target)",
+                        "vehicles": "Vehicles"
+                    }
+                },
+                "title": "attached buildings"
+            },
+            "title": "Overview"
+        },
+        "settings": {
+            "abort": "Abort",
+            "buildings": "attached buildings",
+            "icon": "Icon",
+            "iconHelp": "Select between standard icons and icons of attached buildings",
+            "location": "Location",
+            "name": "Name",
+            "save": "Save",
+            "showMarkers": "Show attached buildings on map?",
+            "title": "Edit complex"
+        }
+    }
+}

@@ -619,7 +619,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients',
+                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients. Requires Mass Casualty Extension.',
         },
         34: {
             caption: 'Ambulance Officer',
@@ -637,7 +637,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene.',
+                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. Requires Mass Casualty Extension.',
         },
         35: {
             caption: 'BFU',
@@ -648,7 +648,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special:
-                'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires.',
+                'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires. Requires Foam Extension.',
         },
         36: {
             caption: 'F/WrC',
@@ -659,7 +659,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit and a Water Carrier. Used on hazardous fires and electrical fires.',
+                'Acts as a Bulk Foam Unit and a Water Carrier. Used on hazardous fires and electrical fires. Requires Foam Extension.',
         },
         37: {
             caption: 'WrL CAFS',
@@ -670,7 +670,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used On any fire but also has the capability to use foam to extinguish a fire.',
+                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used On any fire but also has the capability to use foam to extinguish a fire. Requires Foam Extension.',
         },
         38: {
             caption: 'RP CAFS',
@@ -681,7 +681,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire, foam capabilty as well as being useful at RTCs.',
+                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire, foam capabilty as well as being useful at RTCs. Requires Foam Extension.',
         },
         39: {
             caption: 'OSU',
@@ -699,7 +699,7 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             possibleBuildings: [0, 18],
             special:
-                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit. This unit will supply HazMat Resources, additional air tanks and a welfare location. ',
+                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit. This unit will supply HazMat Resources, additional air tanks and a welfare location.',
         },
         40: {
             caption: 'PM',
@@ -710,7 +710,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special:
-                'Carries Every Pod, which are different types of vehicles on the back of a lorry.',
+                'Carries Every Pod, which are different types of vehicles on the back of a lorry. Requires Swap Body Parking Space.',
         },
         41: {
             caption: 'Water Pod',
@@ -720,7 +720,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Water Carrier.',
+            special:
+                'Acts as a Water Carrier. Requires Swap Body Parking Space.',
         },
         42: {
             caption: 'Bulk Foam Pod',
@@ -731,7 +732,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Bulk Foam Unit. Used on hazardous fires and electrical fires.',
+                'Acts as a Bulk Foam Unit. Used on hazardous fires and electrical fires. Requires Swap Body Parking Space.',
         },
         43: {
             caption: 'Rescue Pod',
@@ -741,7 +742,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Rescue Support Unit.',
+            special:
+                'Acts as a Rescue Support Unit. Requires Swap Body Parking Space.',
         },
         44: {
             caption: 'Command Pod',
@@ -758,7 +760,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer.',
+                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer. Requires Swap Body Parking Space.',
             possibleBuildings: [0, 18],
         },
         45: {
@@ -769,7 +771,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Welfare Unit.',
+            special:
+                'Acts as a Welfare Unit. Requires Swap Body Parking Space.',
         },
         46: {
             caption: 'BASU Pod',
@@ -779,7 +782,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Breathing Appartus Support Unit.',
+            special:
+                'Acts as a Breathing Appartus Support Unit. Requires Swap Body Parking Space.',
         },
         47: {
             caption: 'Misting Pod',
@@ -789,7 +793,8 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Acts as a Light 4x4 Pump Unit.',
+            special:
+                'Acts as a Light 4x4 Pump Unit. Requires Swap Body Parking Space.',
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -806,7 +811,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (HazMat). Acts as a HazMat Unit.',
+                'Requires special education for personnel on Prime Mover (HazMat). Acts as a HazMat Unit. Requires Swap Body Parking Space.',
             possibleBuildings: [0, 18],
         },
         49: {
@@ -824,7 +829,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Requires special education for personnel in Prime Mover (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit.',
+                'Requires special education for personnel in Prime Mover (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit. Requires Swap Body Parking Space.',
             possibleBuildings: [0, 18],
         },
         50: {
@@ -842,17 +847,17 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier.',
+                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier. Requires Swap Body Parking Space.',
             possibleBuildings: [0, 18],
         },
         51: {
             caption: 'PSU Carrier',
             color: '#3a5522',
-            coins: 8,
+            coins: 10,
             credits: 8000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            possibleBuildings: [6, 26],
+            possibleBuildings: [6, 19, 26],
             special:
                 'This Police Support Unit, carrys a large amount of officers (usally riot trained) to scenes.',
         },
@@ -863,7 +868,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 8000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            possibleBuildings: [6, 26],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -881,7 +886,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 50_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            possibleBuildings: [6, 26],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Dog handling': {
@@ -889,7 +894,8 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special: 'A dog carrier which transports mutiple dogs to a scene.',
+            special:
+                'A dog carrier which transports mutiple dogs to a scene. Needs Police and Public Order Extension.',
         },
         54: {
             caption: 'Detention Van',
@@ -898,9 +904,9 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 26_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [6, 26],
+            possibleBuildings: [6, 19, 26],
             special:
-                'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported.',
+                'This is a Large Cell Van used in order to transport multiple suspects to custody at once, 4 prisoners will be transported. Needs Police and Public Order Extension.',
         },
         55: {
             caption: 'Mounted Unit',
@@ -909,7 +915,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 8,
-            possibleBuildings: [6, 26],
+            possibleBuildings: [6, 19, 26],
             schooling: {
                 Police: {
                     'Mounted Training': {
@@ -918,7 +924,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'This unit will transport horses form stables to riots in order to get a higher view of what is happening in the crowd.',
+                'This unit will transport horses from stables to riots in order to get a higher view of what is happening in the crowd. Needs Police and Public Order Extension.',
         },
         56: {
             caption: 'M-RAV',
@@ -1161,7 +1167,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 }),
                 {
-                    caption: 'Police & Public Safety Extension',
+                    caption: 'Police & Public Order Extension',
                     credits: 100_000,
                     coins: 15,
                     duration: '7 Days',
@@ -1356,7 +1362,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 }),
                 {
-                    caption: 'Police & Public Safety Extension',
+                    caption: 'Police & Public Order Extension',
                     credits: 100_000,
                     coins: 15,
                     duration: '7 Days',
@@ -1512,7 +1518,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     duration: '7 Days',
                 }),
                 {
-                    caption: 'Police & Public Safety Extension',
+                    caption: 'Police & Public Order Extension',
                     credits: 100_000,
                     coins: 15,
                     duration: '7 Days',
@@ -1601,18 +1607,10 @@ If several requests fail in a short time, this could be due to server problems. 
     vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 22, 25, 26],
     cellBuildings: [6, 19, 26],
     cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
+        ...new Array(10).fill('0').map((_, index) => `6_${index}`),
         '19_1',
         '19_2',
+        ...new Array(40).fill('0').map((_, index) => `26_${index}`),
     ],
     bedBuildings: [4, 21],
     schoolBuildings: [1, 3, 8],
@@ -1859,6 +1857,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Small Fuel Storage Tank',
         'Large Fuel Storage Tank',
         'Fuel Storage Depot',
+        'Multi-Storey Car Park',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

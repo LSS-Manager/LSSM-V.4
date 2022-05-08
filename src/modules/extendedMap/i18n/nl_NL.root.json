@@ -8,6 +8,13 @@
         "topright": "Rechtsboven 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Attached buildings",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "name": "Name",
+            "position": "Location",
+            "title": "Building complexes"
+        },
         "centerMap": {
             "description": "Centreert de kaart dynamisch of statisch als het spel opstart",
             "title": "Centreer kaart"

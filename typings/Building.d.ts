@@ -21,6 +21,7 @@ export interface Building {
     personal_count_target: number;
     hiring_phase: 0 | 1 | 2 | 3;
     hiring_automatic: boolean;
+    custom_icon_url?: string;
 }
 
 export interface BuildingCategory {
@@ -57,11 +58,4 @@ export interface InternalBuilding {
     startVehicles: string[];
     schoolingTypes: string[];
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
-    [key: string]:
-        | InternalExtension[]
-        | string[]
-        | number
-        | string
-        | (() => number)
-        | undefined;
 }

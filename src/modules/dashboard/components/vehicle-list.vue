@@ -138,7 +138,10 @@ export default Vue.extend<
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
+                    this.$t('vehicles') as unknown as Record<
+                        number,
+                        InternalVehicle
+                    >
                 ).map(([index, { caption }]) => [index, caption])
             ),
             vehiclesWithBuildings: [],

@@ -75,7 +75,7 @@ export default (
 
     if (vehiclesNotInTabs.length) {
         const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
-        const vehicleTypes = LSSM.$t('vehicles') as Record<
+        const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
             number,
             InternalVehicle
         >;

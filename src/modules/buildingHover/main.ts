@@ -14,7 +14,10 @@ export default (async ({ LSSM, MODULE_ID }) => {
         feature: MODULE_ID,
     });
 
-    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
+    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
+        number,
+        InternalVehicle
+    >;
 
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.${LSSM.$store.getters.nodeAttribute(

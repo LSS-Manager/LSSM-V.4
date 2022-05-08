@@ -202,7 +202,10 @@ export default Vue.extend<
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
                 ).map(([index, { caption }]) => [index, caption])
             ),
             search: '',

@@ -8,6 +8,13 @@
         "topright": "Oben Rechts 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Angehängte Gebäude",
+            "description": "Eine Design-Änderung, die es ermöglicht mehrere Gebäude auf der Karte zu einem zusammenzufassen.",
+            "name": "Name",
+            "position": "Standort",
+            "title": "Gebäudekomplexe"
+        },
         "centerMap": {
             "description": "Zentriere die Karte beim Öffnen des Spiels dynamisch oder auf einen statischen Punkt.",
             "title": "Karte zentrieren"

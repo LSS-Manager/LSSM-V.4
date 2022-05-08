@@ -75,10 +75,23 @@ module.exports = {
         staffPrefix: ['We need'],
         staff: {
             [/^Armed Response Personnel$/u]: [13, 25, 52, 56],
-            [/^more firefighters$/u]: [
+            [/^more firefighter(s?)$/u]: [
                 0, 1, 2, 3, 4, 6, 7, 14, 15, 16, 17, 18, 23, 26, 35, 36, 37, 38,
                 39, 40,
             ],
+        },
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            41: [40],
+            42: [40],
+            43: [40],
+            44: [40],
+            45: [40],
+            46: [40],
+            47: [40],
+            48: [40],
+            49: [40],
+            50: [40],
         },
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/u]: [0, 1, 16, 17, 26, 37, 38, 47],

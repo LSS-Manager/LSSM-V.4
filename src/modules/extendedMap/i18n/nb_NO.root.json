@@ -8,6 +8,13 @@
         "topright": "Øverst til høyre 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Attached buildings",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "name": "Name",
+            "position": "Location",
+            "title": "Building complexes"
+        },
         "centerMap": {
             "description": "Sentrer kartet dynamisk eller til en statisk visning når du åpner spillet",
             "title": "Sentrer kart"

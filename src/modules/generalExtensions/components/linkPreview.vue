@@ -264,9 +264,12 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (this.$t('buildings') as Record<number, InternalBuilding>)[
-                    building.building_type
-                ].caption
+                (
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
+                )[building.building_type].caption
             );
         },
         setVehicle(vehicle) {

@@ -33,7 +33,7 @@ export default async (
             ),
         } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$t('vehicles') as Record<
+        const internalVehicleTypes = LSSM.$t('vehicles') as unknown as Record<
             number,
             InternalVehicle
         >;
