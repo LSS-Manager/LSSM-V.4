@@ -37,13 +37,3 @@ Pokazuje na przyciskach nawigacyjnych, ile budynków tego samego typu znajduje s
 Wyraźnie pokazuje stan wszystkich rozszerzeń.
 
 ![Rozszerzenia](./expansions.png)
-
-## Personel
-
-### Przegląd personelu
-Zawiera podsumowanie wszystkich szkoleń. Lewa tabela pokazuje każdą kombinację szkoleń, prawa tabela pokazuje każde indywidualne szkolenie.
-
-![Przegląd personelu](./personnelOverview.png)
-
-### Filtruj nieprzeszkolony personel
-Pozwala ukryć personel bez odpowiedniego przeszkolenia dla tego pojazdu na ekranie przypisania personelu.
