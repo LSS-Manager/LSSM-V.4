@@ -140,7 +140,7 @@ Pour ouvrir la console, appuyez sur `F12`, `Ctrl+Shift+K` ou `Ctrl+Shift+I` (cer
 Vous pouvez maintenant copier le code de nos extraits de code fournis ci-dessous et le coller dans la console. Certains navigateurs (comme Firefox) vous demandent de taper une courte phrase. Tapez-la simplement, Firefox la remplacera par le code, une fois que vous aurez terminé la phrase.
 
 Lorsque le code est collé dans la console, il suffit d'appuyer sur la touche `Enter` de votre clavier pour exécuter l'extrait. Le résultat apparaîtra automatiquement dans la console, mais certains d'entre eux peuvent prendre quelques secondes.
-:: :
+:::
 
 #### Véhicules
 
