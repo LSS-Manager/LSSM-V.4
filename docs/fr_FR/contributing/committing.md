@@ -1,5 +1,5 @@
 ---
-title: "Commit" d'un fichier
+title: \"Commit\" d'un fichier
 lang: fr_FR
 sidebarDepth: 2
 ---
