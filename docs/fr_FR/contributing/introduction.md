@@ -1,5 +1,5 @@
 ---
-title: L'introduction
+title: Introduction
 lang: fr_FR
 sidebarDepth: 2
 ---
