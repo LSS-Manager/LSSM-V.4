@@ -6,4 +6,4 @@ Deze module is nog ontwikkeling, deze beschrijving zal nog bijgewerkt worden als
 
 ### Tijdnotatie in de chat aanpassen
 Deze functie verandert de tijdsnotatie in de chat. Het formaat van de tijd kan je zelf instellen. 
-Meer informatie over het instellen van de tijdsnotatie vind je [hier](clock.md#configuratie). 
+Meer informatie over het instellen van de tijdsnotatie vind je [hier](../../settings.md#moment-js). 

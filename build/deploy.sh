@@ -1,4 +1,7 @@
 # Deploy data using rsync
-rsync -e "ssh -o LogLevel=error -o StrictHostKeyChecking=no -p $SERVER_PORT" -r --delete-after $WORK_DIR/dist/ $SERVER_USER@$SERVER:$DEPLOY_DIR
+rsync -r --delete-after --exclude "$WORK_DIR"/dist/static/* "$WORK_DIR"/dist/ "$DEPLOY_DIR"
 # Copy static configuration
-ssh -o LogLevel=error -o StrictHostKeyChecking=no -p $SERVER_PORT $SERVER_USER@$SERVER "cp -r $DIR_STATIC $DEPLOY_DIR"
+cp -rf "$DIR_STATIC"/* "$DEPLOY_DIR"
+rsync -r "$WORK_DIR"/dist/static/ "$DEPLOY_DIR"/static
+
+exit 0

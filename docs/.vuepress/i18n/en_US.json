@@ -1,10 +1,170 @@
 {
-	"apps": "Apps",
-	"description": "The Wiki for LSS-Manager V.4",
-	"head": {
-		"alpha": "This module is still in its absolute beginnings and is currently only available for beta testers!",
-		"dev": "This module is still under development. It is possible that there are still some bugs!",
-		"mapkit": "Due to restrictions on the part of Mapkit, it is unfortunately not possible for us to offer this module with the map type `mapkit` at the moment.",
-		"settings": "This module has settings! Feel free to customize it to your liking."
-	}
+    "404": {
+        "general": {
+            "home": "Back to home"
+        },
+        "modules": {
+            "content": "Dear User,\n\nthanks for your interest in the Wiki page of {{module}}! Unfortunately, we weren't able to create the content for your language {{lang}} yet. If you want to contribute to our wiki, feel free to create this page on {{github}}! We suggest to have a look at the files of the other languages for examples in the {{docs_dir}}.",
+            "languages": "This module already has a Wiki page in the following languages:",
+            "title": "No module page existing yet"
+        }
+    },
+    "apps": "Apps",
+    "containers": {
+        "danger": "Danger",
+        "tip": "Tip",
+        "warning": "Warning"
+    },
+    "description": "The Wiki for LSS-Manager V.4",
+    "footer": {
+        "contributors": "Contributors",
+        "edit": "Edit Page",
+        "lastUpdated": "Last Updated"
+    },
+    "head": {
+        "alpha": "This module is still in its absolute beginnings and is currently only available for beta testers!",
+        "dev": "This module is still under development. It is possible that there are still some bugs!",
+        "mapkit": "Due to restrictions on the part of Mapkit, it is unfortunately not possible for us to offer this module with the map type `mapkit` at the moment.",
+        "settings": "This module has settings! Feel free to customize it to your liking."
+    },
+    "moment": {
+        "shorts": {
+            "L": "Date with leading zeros",
+            "LL": "Date with month as a word",
+            "LLL": "Date with month as a word and time",
+            "LLLL": "Full date with time",
+            "LT": "Time",
+            "LTS": "Time with seconds",
+            "l": "Date without leading zeros",
+            "ll": "Date with month as a word (short form)",
+            "lll": "Date with month as a word (short form) and time",
+            "llll": "Full date (short form) with time"
+        },
+        "titles": {
+            "shorts": {
+                "description": "Description",
+                "example": "Example",
+                "variable": "Variable"
+            },
+            "variables": {
+                "Variable": "Variable",
+                "ampm": "AM / PM",
+                "category": "Category",
+                "description": "Description",
+                "dom": "Day of Month",
+                "dow": "Day of Week",
+                "doy": "Day of Year",
+                "hour": "Hour",
+                "minute": "Minute",
+                "month": "Month",
+                "output": "Output",
+                "quarter": "Quarter",
+                "second": "Second",
+                "week": "Week of Year",
+                "year": "Year"
+            }
+        },
+        "variables": {
+            "ampm": {
+                "A": "AM / PM",
+                "a": "am / pm"
+            },
+            "dom": {
+                "D": "Day of Month",
+                "DD": "Day of Month (with leading zeros)",
+                "Do": "Day of Month (enumerated)"
+            },
+            "dow": {
+                "d": "Day of Week (Number [Sunday is 0])",
+                "dd": "Day of Week (Name, Short form)",
+                "ddd": "Day of Week (Name, Short form enumerated)",
+                "dddd": "Day of Week (Name)",
+                "do": "Day of Week (Number, enumerated [Sunday is 0])"
+            },
+            "doy": {
+                "DDD": "Day of Year",
+                "DDDD": "Day of Year (with leading zeros)",
+                "DDDo": "Day of Year (enumerated)"
+            },
+            "hour": {
+                "H": "Hour (24h)",
+                "HH": "Hour (24h, with leading zeros)",
+                "h": "Hour (12h)",
+                "hh": "Hour (12h, with leading zeros)"
+            },
+            "minute": {
+                "m": "Minute",
+                "mm": "Minute (with leading zeros)"
+            },
+            "month": {
+                "M": "current month (Number)",
+                "MM": "current month (Number with leading zeros)",
+                "MMM": "current month (Name, short form)",
+                "MMMM": "current month (Name)",
+                "Mo": "current month (enumerated)"
+            },
+            "order": [
+                "month",
+                "quarter",
+                "dom",
+                "doy",
+                "dow",
+                "week",
+                "year",
+                "ampm",
+                "hour",
+                "minute",
+                "second"
+            ],
+            "quarter": {
+                "Q": "current quarter",
+                "Qo": "current quarter (enumerated)"
+            },
+            "second": {
+                "s": "second",
+                "ss": "second (with leading zeros)"
+            },
+            "week": {
+                "w": "Week of Year",
+                "wo": "Week of Year (enumerated)",
+                "ww": "Week of Year (with leading zeros)"
+            },
+            "year": {
+                "YY": "Year (2 numbers)",
+                "YYYY": "Year (4 numbers)"
+            }
+        }
+    },
+    "pwa": {
+        "button": "Refresh",
+        "message": "New content is available."
+    },
+    "readme": {
+        "serverStatus": {
+            "game": "Game-Online-Status",
+            "lssm": "LSSM-Server-Status"
+        }
+    },
+    "search": "search Wiki",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "minimum Version"
+    },
+    "v3": {
+        "modules": {},
+        "tables": {
+            "annotations": "Notes",
+            "changes": "Changes",
+            "description": "Description",
+            "feature": "Feature",
+            "module": "Module",
+            "setting": "Setting"
+        },
+        "v4annotations": {
+            "asyncButtons": "This is still in development, more features are being integrated with the time.",
+            "lssmaql": "An experiment, still in a very unstable alpha phase."
+        }
+    }
 }

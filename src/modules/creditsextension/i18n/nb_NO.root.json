@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "For tiden",
+        "title": "Alliansekapital",
+        "total": "total",
+        "updateNote": "Opptateres hvert 5 minutt."
+    },
+    "coins": {
+        "list": "Protokoll"
+    },
+    "credits": {
+        "daily": "Daglig tjening",
+        "overview": "Oversikt"
+    },
+    "description": "Viser nyttig informasjon om studiepoeng i en rullegardinmeny i hovednavigasjonslinjen.",
+    "name": "Utvidelse av studiepoeng",
+    "nextRank": "Nester Rang",
+    "nextRankMissing": "Igjen",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Så snart du har nådd en av det angitte kredittbeløpet, vil utvidelse av kreditt være uthevet grønt til du klikker på den.",
+            "title": "Mål"
+        },
+        "coinsInNavbar": {
+            "description": "Viser gjeldende mynter i navbar i stedet for den søte sparegrisen.",
+            "title": "Penger i grise banken"
+        },
+        "creditsInNavbar": {
+            "description": "Viser gjeldende kreditter i navbar i stedet for den søte sparegrisen.",
+            "title": "Penger i stedet for grise banken"
+        },
+        "highlightSales": {
+            "description": "Uthever Mynter grønne hvis et salg er tilgjengelig",
+            "title": "Høydepunkter salg"
+        },
+        "showSales": {
+            "description": "Viser salg for mynter når det er tilgjengelig.",
+            "title": "Vis salg"
+        },
+        "showToplistPosition": {
+            "description": "Viser gjeldende topplisterangering i kredittutvidelsen.",
+            "title": "Toppliste-rangering i kredittforlengelse"
+        }
+    },
+    "toplistPositionName": "Toppliste rank",
+    "totalEarnedCredits": "Totalt inntjente kreditter"
+}

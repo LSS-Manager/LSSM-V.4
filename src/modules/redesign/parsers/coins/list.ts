@@ -1,6 +1,6 @@
 import CreditsListParser from '../credits/list';
 
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface Entry {
     amount: number;

@@ -1,13 +1,13 @@
-import { RootState } from '../../typings/store/RootState';
-import { SettingsState } from '../../typings/store/settings/State';
-import { ActionTree, Module, MutationTree } from 'vuex';
-import {
+import type { RootState } from '../../typings/store/RootState';
+import type { SettingsState } from '../../typings/store/settings/State';
+import type { ActionTree, Module, MutationTree } from 'vuex';
+import type {
     AppendableList,
     ModuleSettings,
     Setting,
     Settings,
 } from '../../typings/Setting';
-import {
+import type {
     SettingsActionStoreParams,
     SettingsGet,
     SettingsRegister,
@@ -52,7 +52,7 @@ export default {
     } as MutationTree<SettingsState>,
     actions: {
         saveSettings(
-            { commit, dispatch }: SettingsActionStoreParams,
+            { commit }: SettingsActionStoreParams,
             { settings }: SettingsSave
         ) {
             commit('save', settings);
@@ -125,12 +125,12 @@ export default {
                 ).then(storage =>
                     resolve({
                         ...Object.fromEntries(
-                            Object.entries(
-                                state.settings[moduleId] ?? {}
-                            ).map(([key, { value, default: def }]) => [
-                                key,
-                                value ?? def,
-                            ])
+                            Object.entries(state.settings[moduleId] ?? {}).map(
+                                ([key, { value, default: def }]) => [
+                                    key,
+                                    value ?? def,
+                                ]
+                            )
                         ),
                         ...storage,
                     })

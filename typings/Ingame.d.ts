@@ -1,7 +1,16 @@
-import { Marker } from 'leaflet';
+import type { Marker } from 'leaflet';
 
 export interface BuildingMarker extends Marker {
     building_id: number;
+}
+
+export interface MissionMarker extends Marker {
+    mission_id: number;
+    user_id: number;
+    vehicle_state: 0 | 1 | 2; // red | yellow | green
+    krankentransport: boolean;
+    sicherheitswache: boolean;
+    involved: true; // why static? idk!
 }
 
 export interface POIMarker extends Marker {
@@ -11,8 +20,9 @@ export interface POIMarker extends Marker {
 export interface AllianceChatMessage {
     alliance_admin: string; // Yes, a stringified boolean
     alliance_coadmin: string; // Also a stringified boolean…
+    alliance_owner: string; // Also a stringified boolean…
     date: string; // Actually the time (for example: 17:23)
-    date_hidden: string; // Datetime in a readble format
+    date_hidden: string; // Datetime in a readable format
     iso_timestamp: string; //Time in ISO-Format
     message: string; // Which is raw HTML
     mission_caption: string;
@@ -45,11 +55,11 @@ interface SicherheitswacheRadioMessage extends BasicRadioMessage {
     credits: number;
 }
 
-export type RadioMessage = VehicleRadioMessage | SicherheitswacheRadioMessage;
+export type RadioMessage = SicherheitswacheRadioMessage | VehicleRadioMessage;
 
 export interface MissionMarkerAdd {
     address: string;
-    alliance_id: null | number;
+    alliance_id: number | null;
     caption: string;
     captionOld: string;
     date_end: number;
@@ -64,21 +74,61 @@ export interface MissionMarkerAdd {
     live_current_value: number;
     missing_text: string;
     missing_text_short: string;
-    mtid: null | number; // mission type id (null => diy mission)
+    mtid: number | null; // mission type id (null => diy mission)
     patients_count: number;
     prisoners_count: number;
     sw: boolean;
     sw_start_in: number;
-    tlat: null | number;
-    tlng: null | number;
+    tlat: number | null;
+    tlng: number | null;
     tv: number; // target progress
     user_id: number;
     vehicle_state: 0 | 1 | 2; // red | yellow | green
-    overlay_index: null | number;
+    overlay_index: number | null;
+    additive_overlays: string | null;
+    pumping_mission_value: number;
+    pumping_date_start: number;
+    pumping_date_end: number;
 }
 
 export interface MissionTimer extends MissionMarkerAdd {
     date_end_calc: number;
+}
+
+export interface PatientMarkerAdd {
+    id: number;
+    live_current_value: number;
+    miliseconds_by_percent: number;
+    missing_text: string | null;
+    mission_id: number;
+    name: string;
+    target_percent: number;
+}
+
+export interface PatientMarkerAddCombined {
+    mission_id: number;
+    count: number;
+    untouched: number;
+    errors: Record<string, number>;
+}
+
+export interface PrisonerMarkerAdd {
+    id: number;
+    mission_id: number;
+    name: string;
+}
+
+export interface PatientTimer {
+    miliseconds_by_percent: number;
+    patient_id: number;
+    params: PatientMarkerAdd;
+}
+
+export interface ProgressbarTimer {
+    $element: JQuery<HTMLDivElement>;
+    missionValue: MissionMarkerAdd['pumping_mission_value'];
+    startTime: MissionMarkerAdd['pumping_date_start'];
+    endTime: MissionMarkerAdd['pumping_date_end'];
 }
 
 export interface BuildingMarkerAdd {

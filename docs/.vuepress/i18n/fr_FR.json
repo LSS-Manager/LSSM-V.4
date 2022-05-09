@@ -1,0 +1,295 @@
+{
+    "404": {
+        "general": {
+            "home": "Retour à la page d'accueil"
+        },
+        "modules": {
+            "content": "Cher utilisateur,\n\nmerci de l'intérêt que vous portez à la page Wiki du module {{module}} ! Malheureusement, nous n'avons pas créer le contenu pour votre langue {{lang}}. Si vous souhaitez contribuer à notre wiki, n'hésitez pas à créer cette page sur {{github}} ! Nous vous suggérons de consulter les fichiers des autres langues pour des exemples dans le {{docs_dir}}.",
+            "languages": "Ce module a déjà une page Wiki dans les langues suivantes :",
+            "title": "Aucune page de module n'existe encore"
+        }
+    },
+    "apps": "Apps",
+    "containers": {
+        "danger": "Danger",
+        "tip": "Tip",
+        "warning": "Attention"
+    },
+    "description": "Le Wiki pour LSS-Manager V.4",
+    "footer": {
+        "contributors": "Contributeurs",
+        "edit": "Modifier la page",
+        "lastUpdated": "Dernière mise à jour"
+    },
+    "head": {
+        "alpha": "Ce module n'en est qu'à ses débuts et n'est actuellement disponible que pour les bêta-testeurs !",
+        "dev": "Ce module est encore en cours de développement. Il est possible qu'il y ait encore quelques bugs !",
+        "mapkit": "En raison de restrictions de la part de Mapkit, il ne nous est malheureusement pas possible de proposer ce module avec le type de carte `mapkit` pour le moment.",
+        "settings": "Ce module est paramétrable ! N'hésitez pas à le personnaliser à votre guise."
+    },
+    "moment": {
+        "shorts": {
+            "L": "Date avec des zéros initiaux",
+            "LL": "Date avec le mois sous forme de mot",
+            "LLL": "Date avec le mois sous forme de mot et heure",
+            "LLLL": "Date complète avec heure",
+            "LT": "Heure",
+            "LTS": "Heure avec secondes",
+            "l": "Date sans zéros initiaux",
+            "ll": "Date avec le mois comme mot (forme courte)",
+            "lll": "Date avec le mois sous forme de mot (forme courte) et heure",
+            "llll": "Date complète (forme courte) avec heure"
+        },
+        "titles": {
+            "shorts": {
+                "description": "Description",
+                "example": "Exemple",
+                "variable": "Variable"
+            },
+            "variables": {
+                "Variable": "Variable",
+                "ampm": "AM / PM",
+                "category": "Categorie",
+                "description": "Description",
+                "dom": "Jour du mois",
+                "dow": "Jour de la semaine",
+                "doy": "Jour de l'année",
+                "hour": "Heure",
+                "minute": "Minute",
+                "month": "Mois",
+                "output": "Sortie",
+                "quarter": "Trimestre",
+                "second": "Seconde",
+                "week": "Semaine de l'année",
+                "year": "Année"
+            }
+        },
+        "variables": {
+            "ampm": {
+                "A": "AM / PM",
+                "a": "am / pm"
+            },
+            "dom": {
+                "D": "Jour du mois",
+                "DD": "Jour du mois (avec des zéros initiaux)",
+                "Do": "Jour du mois (ordinal)"
+            },
+            "dow": {
+                "d": "Jour de la semaine (Nombre [Dimanche est 0])",
+                "dd": "Jour de la semaine (Nom, Formes courtes)",
+                "ddd": "Jour de la semaine (Nom,avec des zéros initiaux)",
+                "dddd": "Jour de la semaine (Nom)",
+                "do": "Jour de la semaine (Nombre, ordinal [Dimanche est 0])"
+            },
+            "doy": {
+                "DDD": "Jour de l'année",
+                "DDDD": "Jour de l'année (avec des 0)",
+                "DDDo": "Jour de l'année (ordinal)"
+            },
+            "hour": {
+                "H": "Heure (24h)",
+                "HH": "Heure (24h, avec des zéros initiaux)",
+                "h": "Heure (12h)",
+                "hh": "Heure (12h, avec des zéros initiaux)"
+            },
+            "minute": {
+                "m": "Minute",
+                "mm": "Minute (avec des zéros initiaux)"
+            },
+            "month": {
+                "M": "Mois actuel (Nombre)",
+                "MM": "Mois actuel (avec des zéros initiaux)",
+                "MMM": "Mois actuel (Nom, Formes courtes)",
+                "MMMM": "Mois actuel (Nom)",
+                "Mo": "Mois actuel (ordinal)"
+            },
+            "order": [
+                "month",
+                "quarter",
+                "dom",
+                "doy",
+                "dow",
+                "week",
+                "year",
+                "ampm",
+                "hour",
+                "minute",
+                "second"
+            ],
+            "quarter": {
+                "Q": "Trimestre actuel",
+                "Qo": "Trimestre actuel (ordinal)"
+            },
+            "second": {
+                "s": "Seconde",
+                "ss": "Seconde (avec des zéros initiaux)"
+            },
+            "week": {
+                "w": "Semaine de l'année",
+                "wo": "Semaine de l'année (ordinal)",
+                "ww": "Semaine de l'année (avec des zéros initiaux)"
+            },
+            "year": {
+                "YY": "Année (2 chiffre)",
+                "YYYY": "Année (4 chiffre)"
+            }
+        }
+    },
+    "pwa": {
+        "button": "Actualisé",
+        "message": "Un nouveau contenu est disponible."
+    },
+    "readme": {
+        "serverStatus": {
+            "game": "Statut du jeu en ligne",
+            "lssm": "Statut du serveur LSSM"
+        }
+    },
+    "search": "Recherche sur le wiki",
+    "tables": {
+        "browser": "Navigateur",
+        "download": "Télécharger",
+        "link": "Lien",
+        "minVersion": "Version min."
+    },
+    "v3": {
+        "modules": {
+            "AaoSearch": {
+                "v3Name": "Recherche AAO"
+            },
+            "Clock": {
+                "v3Name": "Horloge"
+            },
+            "DestinationFilter": {
+                "annotation": "Celui-ci est déjà intégré dans la Refonte pour les véhicules, mais il est également prévu de l'intégrer dans la V4 en tant que module.",
+                "v3Name": "Demande de transport sur la carte"
+            },
+            "DoctorRadioCall": {
+                "annotation": "Pas disponible sur la version FR.",
+                "v3Name": "Demandes supplémentaires par FMS"
+            },
+            "Eventsmission": {
+                "v3Name": "Événements marqués"
+            },
+            "FMS5InMap": {
+                "v3Name": "Demande HEMS à la radio"
+            },
+            "Layout01": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
+                "v3Name": "Layout 04"
+            },
+            "MissionOut": {
+                "v3Name": "MissionOut"
+            },
+            "Notification_Alert": {
+                "v3Name": "Alerte de notification"
+            },
+            "Redesign01": {
+                "v3Name": "Redesign 01"
+            },
+            "RenameFZ": {
+                "v3Name": "Renommer le véhicule"
+            },
+            "ShareAlliancePost": {
+                "v3Name": "Alerter, Partager & Poster"
+            },
+            "WachenHoverStati": {
+                "v3Name": "État de la station"
+            },
+            "aaoZaehler": {
+                "v3Name": "Alarme-Régulation-Compteur d'alarmes"
+            },
+            "allianceMissionlistShare": {
+                "v3Name": "Part de la mission"
+            },
+            "centermap": {
+                "annotation": "Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra.",
+                "v3Name": "Plan du centre"
+            },
+            "creditserweiterung": {
+                "v3Name": "L'expansion du crédit"
+            },
+            "dashboard": {
+                "v3Name": "Dashboard"
+            },
+            "displayUserId": {
+                "v3Name": "User-ID"
+            },
+            "extendedBuilding": {
+                "v3Name": "Vue agrandie du bâtiment"
+            },
+            "heatmap": {
+                "v3Name": "LS-Heatmap"
+            },
+            "iconFilter": {
+                "v3Name": "Filtre de construction d'icônes"
+            },
+            "keyboardAlert": {
+                "v3Name": "Contrôle de l'affichage des appels"
+            },
+            "missionDate": {
+                "v3Name": "Date de la mission"
+            },
+            "missionHelper": {
+                "v3Name": "Aide à la mission"
+            },
+            "missionKeyword": {
+                "v3Name": "Mots-clés de la mission"
+            },
+            "overview": {
+                "v3Name": "Survol"
+            },
+            "releaseNotes": {
+                "v3Name": "Release Notes"
+            },
+            "saveVGE": {
+                "v3Name": "Enregistrer les appels d'alliance créés"
+            },
+            "searchMissions": {
+                "v3Name": "Recherche par mission"
+            },
+            "showChatButtonAbove": {
+                "v3Name": "Afficher le bouton chat ci-dessus"
+            },
+            "showNotTransportButtonAbove": {
+                "v3Name": "Afficher l'alarme de retour ci-dessus"
+            },
+            "statusCount": {
+                "v3Name": "Compteur de statuts"
+            },
+            "statusDispatching": {
+                "v3Name": "Demandes de transport améliorée"
+            },
+            "sumDailyMissions": {
+                "v3Name": "Somme des statistiques quotidiennes"
+            },
+            "verbandsverwaltung": {
+                "v3Name": "Administration"
+            }
+        },
+        "tables": {
+            "annotations": "Remarques",
+            "changes": "Modifications",
+            "description": "Description",
+            "feature": "Fonctionnalité",
+            "module": "Module",
+            "setting": "Paramètre"
+        },
+        "v4annotations": {
+            "asyncButtons": "Encore en cours de développement : d'autres fonctionnalités sont à venir.",
+            "lssmaql": "Une expérimentation qui doit servir à extraire rapidement des données de l'API."
+        }
+    }
+}

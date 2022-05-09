@@ -76,7 +76,7 @@
       ],
       "login": "kdev",
       "name": "kdev",
-      "profile": "https://github.com/KokosnussDEV"
+      "profile": "https://github.com/kdev"
     },
     {
       "avatar_url": "https://avatars.githubusercontent.com/u/69073372?v=4",
@@ -84,7 +84,7 @@
         "code"
       ],
       "login": "Cr4zyc4k3",
-      "name": "Arne",
+      "name": "Cr4zyc4k3",
       "profile": "https://github.com/Cr4zyc4k3"
     },
     {
@@ -250,6 +250,28 @@
       "contributions": [
         "translation",
         "it_IT"
+      ]
+    },
+    {
+      "login": "deoxis9001",
+      "name": "deoxis9001",
+      "avatar_url": "https://avatars.githubusercontent.com/u/638243?v=4",
+      "profile": "https://github.com/deoxis9001",
+      "contributions": [
+        "doc",
+        "translation",
+        "fr_FR"
+      ]
+    },
+    {
+      "login": "Kemon22",
+      "name": "Kemon58",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31404125?v=4",
+      "profile": "https://www.operatorratunkowy.pl/profile/304057",
+      "contributions": [
+        "doc",
+        "translation",
+        "pl_PL"
       ]
     }
   ],

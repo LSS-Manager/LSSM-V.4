@@ -1,13 +1,13 @@
-import { $m } from 'typings/Module';
-import { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
-import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
-import { Mission } from 'typings/Mission';
+import type { $m } from 'typings/Module';
+import type { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
+import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
+import type { Mission } from 'typings/Mission';
 
 export default async (
     LSSM: Vue,
     doc = document
 ): Promise<CreditsDailyWindow> => {
-    const $m: $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m: $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.dailyCreditsSummary.${key}`, args);
 
     const missions = (await LSSM.$store.dispatch('api/getMissions', {
@@ -35,9 +35,10 @@ export default async (
                                 typeof regex === 'string'
                                     ? new RegExp(
                                           regex.replace(
-                                              /%missions%/,
+                                              /%missions%/u,
                                               `(${missionsString})`
-                                          )
+                                          ),
+                                          'u'
                                       )
                                     : regex,
                         }),
@@ -59,12 +60,7 @@ export default async (
     ]);
 
     const getNum = (el: Element | null) =>
-        parseInt(
-            el?.textContent
-                ?.trim()
-                .match(/-?\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
-                ?.replace(/[,.]|\s/g, '') ?? '0'
-        );
+        LSSM.$utils.getNumberFromText(el?.textContent?.trim() ?? '', false, 0);
 
     return {
         entries: Array.from(

@@ -1,0 +1,29 @@
+{
+    "description": "Utlarming, Dela ett uppdrag med en insidentrapport till alliansen.",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
+    "name": "Dela-Alliansen-Utlarmning",
+    "noMessage": "Utan insidentrapport",
+    "settings": {
+        "enableCallList": {
+            "description": "Integrerar denna modul med  \"Dela uppdrag\" från modulen Utökad uppdragslista.",
+            "title": "Integration i utlarmingslistan"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
+        },
+        "message": "Incidentrapport",
+        "messages": {
+            "description": "Ange din insidentrapport här. Du kan använda variabler enligt listan från våran <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> ! Ge dom ett unikt ID så att dom är enkla att hitta.",
+            "title": "Insats"
+        },
+        "name": "Name",
+        "postInChat": "Posta insidentrapprot i chatten?",
+        "stayInCallList": {
+            "description": "With this option enabled, you can send incident notes even on shared missions.",
+            "title": "Stay in Call-list"
+        }
+    }
+}

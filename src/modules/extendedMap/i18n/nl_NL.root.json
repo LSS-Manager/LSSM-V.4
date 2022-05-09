@@ -1,0 +1,44 @@
+{
+    "description": "Verbeter de kaart met een aantal coole functies.",
+    "name": "Verbeterde Kaart",
+    "positions": {
+        "bottomleft": "Linksonder 🡧",
+        "bottomright": "Rechtsonder 🡦",
+        "topleft": "Linksboven 🡤",
+        "topright": "Rechtsboven 🡥"
+    },
+    "settings": {
+        "buildingComplexes": {
+            "buildings": "Attached buildings",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "name": "Name",
+            "position": "Location",
+            "title": "Building complexes"
+        },
+        "centerMap": {
+            "description": "Centreert de kaart dynamisch of statisch als het spel opstart",
+            "title": "Centreer kaart"
+        },
+        "centerMapStaticLocation": {
+            "title": "Centreer kaart statisch: Positie"
+        },
+        "centerMapType": {
+            "description": "Selecteer of je de kaart statisch of dynamisch wilt centreren [dynamisch is nog niet beschikbaar]",
+            "dynamic": "dynamisch",
+            "static": "statisch",
+            "title": "Centreer kaart: Modus"
+        },
+        "mapScale": {
+            "description": "Toont de schaal en het huidige zoomniveau",
+            "title": "Schaal"
+        },
+        "mapScalePosition": {
+            "description": "Selecteer in welke hoek van de kaart de schaal moet worden weergegeven",
+            "title": "Positie van de schaal"
+        },
+        "markerNewWindow": {
+            "description": "Staat meldingen en gebouwen toe om in een nieuwe tab te openen door Ctrl+klikken of klikken met de middelste muisknop.",
+            "title": "open markers in nieuwe tab"
+        }
+    }
+}

@@ -1,35 +1,41 @@
 {
-	"extensionTitle": "{caption} (upp till {n} gånger)",
-	"tabs": {
-		"buildings": "Byggnader",
-		"schoolings": "Kurser",
-		"vehicles": "Fordon"
-	},
-	"titles": {
-		"buildings": {
-			"caption": "Byggnadstyp",
-			"cost": "Kostnad",
-			"extensions": "Tillägg",
-			"levelcost": "Kostnader för expansionsstegen",
-			"maxBuildings": "Gräns",
-			"maxLevel": "Maximal expansionsnivå",
-			"special": "Special",
-			"startPersonnel": "Start personal",
-			"startVehicles": "Möjliga startfordon"
-		},
-		"schoolings": {
-			"caption": "Kursnamn",
-			"duration": "Träning's längd",
-			"required_for": "Krävs för"
-		},
-		"vehicles": {
-			"caption": "Fordonstyp",
-			"cost": "Kostnad",
-			"maxPersonnel": "Maximal personal",
-			"minPersonnel": "Minimum personal",
-			"schooling": "Utbildning",
-			"special": "Special",
-			"wtank": "Vattentank"
-		}
-	}
+    "extensionTitle": "{caption} (upp till {n} gånger)",
+    "schoolings": {
+        "all": "all",
+        "min": "min. {n}x"
+    },
+    "tabs": {
+        "buildings": "Byggnader",
+        "schoolings": "Kurser",
+        "vehicles": "Fordon"
+    },
+    "titles": {
+        "buildings": {
+            "caption": "Byggnadstyp",
+            "cost": "Kostnad",
+            "extensions": "Tillägg",
+            "levelcost": "Kostnader för expansionsstegen",
+            "maxBuildings": "Gräns",
+            "maxLevel": "Maximal expansionsnivå",
+            "special": "Special",
+            "startPersonnel": "Start personal",
+            "startVehicles": "Möjliga startfordon"
+        },
+        "schoolings": {
+            "caption": "Kursnamn",
+            "duration": "Träning's längd",
+            "required_for": "Krävs för",
+            "staffList": "Träning"
+        },
+        "vehicles": {
+            "caption": "Fordonstyp",
+            "cost": "Kostnad",
+            "ftank": "Skumtank",
+            "maxPersonnel": "Maximal personal",
+            "minPersonnel": "Minimum personal",
+            "schooling": "Utbildning",
+            "special": "Special",
+            "wtank": "Vattentank"
+        }
+    }
 }

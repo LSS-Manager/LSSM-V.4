@@ -1,0 +1,11 @@
+{
+    "amount": "Quantité",
+    "date": "Date",
+    "description": "Description",
+    "load": {
+        "next": "Afficher les 20 entrées précédente",
+        "prev": "Afficher les 20 entrées suivante"
+    },
+    "subtitle": "Afficher {n} Entrées de la pages {startPage} ({firstDate}) à {endPage} ({lastDate}) au total {totalPages} pages",
+    "title": "Journal des pièces"
+}

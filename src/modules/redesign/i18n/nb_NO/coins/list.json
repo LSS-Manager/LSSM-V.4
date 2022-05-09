@@ -1,0 +1,11 @@
+{
+    "amount": "Mengde",
+    "date": "Dato",
+    "description": "Beskrivelse",
+    "load": {
+        "next": "20 Last eldre oppføringer",
+        "prev": "20 Last nyere oppføringer"
+    },
+    "subtitle": "Vis {n} oppføringer av sidene {startPage} ({firstDate}) til {endPage} ({lastDate}) av totalt {totalPages} sider",
+    "title": "Mynter"
+}

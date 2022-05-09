@@ -1,0 +1,8 @@
+{
+    "description": "Dans la fenêtre d'alarme, cette couleur est définie comme l'arrière-plan de la case à cocher pour tous les véhicules de ce type.",
+    "noColor": "Aucune couleur de véhicule n'est actuellement définie",
+    "reset": "Supprimer la couleur",
+    "save": "Enregistrer",
+    "savedNote": "La couleur du véhicule a été enregistrée avec succès !",
+    "title": "Modifier la couleur du véhicule: {type}"
+}

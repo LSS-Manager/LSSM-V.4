@@ -32,10 +32,10 @@ module.exports = {
 
     /***
      * type:    RexExp or String
-     * default: RegExp('.*')
+     * default: RegExp('.*', 'u')
      * The module will only be executed on pages matching this parameter. It must match window.location.pathname
      */
-    location: /.*/,
+    location: /.*/u,
 
     /***
      * type:    null or Array of Strings

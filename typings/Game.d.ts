@@ -6,6 +6,4 @@ export interface Game {
     police?: string;
 }
 
-export interface Games {
-    [locale: string]: Game;
-}
+export type Games = Record<string, Game>;

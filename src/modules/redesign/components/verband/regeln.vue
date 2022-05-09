@@ -18,14 +18,12 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandRegelnWindow } from '../../parsers/verband/regeln';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignSubComponent<
     'rules',
     'verband/regeln',
-    VerbandRegelnWindow,
     {
         faEdit: IconDefinition;
     }
@@ -37,7 +35,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-regeln',
+    name: 'lssmv4-redesign-verband-regeln',
     data() {
         return {
             faEdit,

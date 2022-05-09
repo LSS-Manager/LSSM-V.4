@@ -1,5 +1,5 @@
 {
-	"active": true,
-	"location": "^/?$",
-	"noapp": true
+    "active": true,
+    "location": "^/?$",
+    "noapp": true
 }

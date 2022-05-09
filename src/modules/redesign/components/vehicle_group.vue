@@ -46,8 +46,9 @@
                         :key="n"
                         :value="n"
                         :selected="vehicle_group.column === n.toString()"
-                        >{{ n }}</option
                     >
+                        {{ n }}
+                    </option>
                 </select>
             </div>
         </form>
@@ -64,14 +65,12 @@ import Vue from 'vue';
 
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { VehicleGroupWindow } from '../parsers/vehicle_group';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'vehicle_group',
     'vehicle_group',
-    VehicleGroupWindow,
     {
         faTrash: IconDefinition;
         captionId: string;
@@ -90,7 +89,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'vehicle_group-edit',
+    name: 'lssmv4-redesign-vehicle_group-edit',
     data() {
         return {
             faTrash,

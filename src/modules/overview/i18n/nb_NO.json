@@ -1,34 +1,41 @@
 {
-	"extensionTitle": "{caption} (up to {n} times)",
-	"tabs": {
-		"buildings": "Buildings",
-		"schoolings": "Courses",
-		"vehicles": "Vehicles"
-	},
-	"titles": {
-		"buildings": {
-			"caption": "Building type",
-			"cost": "Price",
-			"extensions": "Extensions",
-			"levelcost": "Costs of the expansion stages",
-			"maxBuildings": "Boundary",
-			"maxLevel": "maximum expansion level",
-			"special": "Specials",
-			"startPersonnel": "Start Personnel",
-			"startVehicles": "Possible starting vehicles"
-		},
-		"schoolings": {
-			"caption": "Course name",
-			"duration": "Training period"
-		},
-		"vehicles": {
-			"caption": "Vehicle type",
-			"cost": "Price",
-			"maxPersonnel": "maximum personnel",
-			"minPersonnel": "minimum personnel",
-			"schooling": "Education",
-			"special": "Specials",
-			"wtank": "Water tank"
-		}
-	}
+    "extensionTitle": "{caption} (opptil {n} ganger)",
+    "schoolings": {
+        "all": "alle",
+        "min": "min. {n}x"
+    },
+    "tabs": {
+        "buildings": "Bygninger",
+        "schoolings": "Utdanninger",
+        "vehicles": "Kjøretøy"
+    },
+    "titles": {
+        "buildings": {
+            "caption": "Bygningstype",
+            "cost": "Pris",
+            "extensions": "Utvidelser",
+            "levelcost": "Kostnader ved utvidelsestrinn",
+            "maxBuildings": "Grense",
+            "maxLevel": "maksimalt utvidelsesnivå",
+            "special": "Spesiell",
+            "startPersonnel": "Start personell",
+            "startVehicles": "Mulige startbiler"
+        },
+        "schoolings": {
+            "caption": "Kursnavn",
+            "duration": "Treningsperiode",
+            "required_for": "Påkrevd for",
+            "staffList": "Trening"
+        },
+        "vehicles": {
+            "caption": "Enhets type",
+            "cost": "Pris",
+            "ftank": "Skumtank",
+            "maxPersonnel": "personlig maksimum",
+            "minPersonnel": "minimumspersonell",
+            "schooling": "Utdanning",
+            "special": "Specials",
+            "wtank": "Vanntank"
+        }
+    }
 }

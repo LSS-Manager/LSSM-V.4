@@ -4,7 +4,7 @@ export interface lssmMenuData {
     iconBg: string | null;
     iconBgAsNavBg: boolean;
     labelInMenu: boolean;
-    lssmLogo: URL;
+    lssmLogo: string;
     discord: string;
     wiki: string;
     version: string;
@@ -15,6 +15,7 @@ export interface lssmMenuData {
         navbar: HTMLElement | null;
         aborted: boolean;
     };
+    versionWrapperId: string;
 }
 
 export interface lssmMenuComputed {
@@ -27,4 +28,5 @@ export interface lssmMenuMethods {
     showLibraries(): void;
     storeIconBg(): void;
     setNavbarBG(color: string): void;
+    resetIconBg(): void;
 }

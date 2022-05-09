@@ -1,0 +1,40 @@
+{
+    "description": "Forbedre kartet med noen kule funksjoner.",
+    "name": "Forbedret kart",
+    "positions": {
+        "bottomleft": "Nederst til venstre 🡧",
+        "bottomright": "Nede til høyre 🡦",
+        "topleft": "Øverst til venstre 🡤",
+        "topright": "Øverst til høyre 🡥"
+    },
+    "settings": {
+        "buildingComplexes": {
+            "buildings": "Attached buildings",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "name": "Name",
+            "position": "Location",
+            "title": "Building complexes"
+        },
+        "centerMap": {
+            "description": "Sentrer kartet dynamisk eller til en statisk visning når du åpner spillet",
+            "title": "Sentrer kart"
+        },
+        "centerMapStaticLocation": {
+            "title": "Senter kart statisk: Posisjon"
+        },
+        "centerMapType": {
+            "description": "Velg om du vil ha statisk eller dynamisk sentrering [dynamisk er ennå ikke tilgjengelig]",
+            "dynamic": "dynamisk",
+            "static": "statisk",
+            "title": "Sentrer kart: Modus"
+        },
+        "mapScale": {
+            "description": "Viser en kartskala og gjeldende zoomnivå",
+            "title": "Skala"
+        },
+        "mapScalePosition": {
+            "description": "Velg i hvilket hjørne av kartet kartskalaen skal vises",
+            "title": "Plassering av kartskala"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "description": "Alarm, Share the mission and post an incident note with a single click.",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
+    "name": "Share-Alliance-Post",
+    "noMessage": "Without incident note",
+    "settings": {
+        "enableCallList": {
+            "description": "Integrates this module into \"Share missions\" of extended call-list.",
+            "title": "Integration to Call-list"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
+        },
+        "message": "Incident Note",
+        "messages": {
+            "description": "Set your incident notes here. You can use variables, please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> therefore! Please assign a unique name to each response, to identify them quickly in alarm window.",
+            "title": "Responses"
+        },
+        "name": "Name",
+        "postInChat": "Post note in chat?",
+        "stayInCallList": {
+            "description": "With this option enabled, you can send incident notes even on shared missions.",
+            "title": "Stay in Call-list"
+        }
+    }
+}

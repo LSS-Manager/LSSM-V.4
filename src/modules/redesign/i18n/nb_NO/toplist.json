@@ -1,0 +1,15 @@
+{
+    "alliance": "Alliance",
+    "amount": "{n} filtrert spiller | {n} Filtrerte spillere",
+    "credits": "Totale opptjente kreditter",
+    "load": {
+        "next": "Last inn neste side",
+        "prev": "Last inn forrige side"
+    },
+    "name": "Spillere",
+    "search_global": "Globalt søk",
+    "search_local": "Søk i lastede spillere",
+    "search_subtitle": "Vis {n} spillere på sidene {startPage} til {endPage} av totalt {totalPages} nettsteder",
+    "subtitle": "Vis {n} spillere av sidene {startPage} ({firstCredits}) til {endPage} ({lastCredits}) av totalt {totalPages} nettsteder",
+    "title": "{n} filtrert spiller | {n} Filtrerte spillere"
+}

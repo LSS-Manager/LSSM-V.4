@@ -33,7 +33,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= alliances.lastPage ||
-                    alliances.lastPage === Number.MAX_SAFE_INTEGER
+                alliances.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -80,23 +80,23 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { AllianceListWindow } from '../parsers/alliances';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { AllianceListWindow } from '../parsers/alliances';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'alliances',
     'alliances',
-    AllianceListWindow,
     {
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
     },
@@ -121,7 +121,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'alliances',
+    name: 'lssmv4-redesign-alliances',
     components: {
         EnhancedTable: () =>
             import(
@@ -174,6 +174,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -212,6 +216,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,

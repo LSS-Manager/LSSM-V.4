@@ -1,76 +1,185 @@
 {
-	"description": "¡Extiende la lista de misiones con algunas características interesantes!",
-	"eventMissions": {
-		"default": {
-			"🌞": [
-				161,
-				162,
-				163,
-				164,
-				165
-			],
-			"🎅": [
-				86,
-				87,
-				88,
-				89,
-				90,
-				91,
-				92
-			],
-			"🥚": [
-				127,
-				128,
-				129,
-				130,
-				131,
-				132,
-				133,
-				134,
-				135,
-				136,
-				137
-			],
-			"🧨": [
-				99,
-				100,
-				101,
-				102,
-				103,
-				104,
-				105,
-				106,
-				107,
-				108,
-				109,
-				110,
-				111
-			]
-		}
-	},
-	"name": "Lista de misiones extendida",
-	"settings": {
-		"averageCredits": {
-			"description": "Muestra el promedio de créditos ganables para cada misión de forma compacta.",
-			"title": "Mostrar créditos medios"
-		},
-		"eventMissions": {
-			"description": "Marca las misiones de temporada. Opcionalmente, puedes personalizarlo todo y marcar también las misiones no estacionales.",
-			"missions": "Misiones",
-			"text": "Texto",
-			"title": "Marcar las misiones estacionales"
-		},
-		"remainingTime": {
-			"description": "Muestra en las misiones cuánto tiempo está una misión en progreso.",
-			"title": "Tiempo restante de la misión"
-		},
-		"remainingTimeGreenOnly": {
-			"description": "Muestra el tiempo restante solo en misiones verdes.",
-			"title": "Tiempo de misión solo para misiones verdes"
-		},
-		"starrableMissions": {
-			"description": "Marque las misiones para que se muestren en la lista de misiones en la parte superior. Puede marcarlas en la ventana de misiones y en la lista de misiones.",
-			"title": "Misiones de la marca"
-		}
-	}
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Contraer todas las misiones",
+            "expand": "Expandir todas las misiones"
+        },
+        "collapse": "Contraer esta misión",
+        "expand": "Expandir esta misión"
+    },
+    "description": "!Amplía la lista de misiones con algunas características!",
+    "eventMissions": {
+        "default": {
+            "🌞": [
+                161,
+                162,
+                163,
+                164,
+                165,
+                301,
+                302
+            ],
+            "🎅": [
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92
+            ],
+            "🥚": [
+                127,
+                128,
+                129,
+                130,
+                131,
+                132,
+                133,
+                134,
+                135,
+                136,
+                137,
+                379,
+                380,
+                381,
+                382
+            ],
+            "🧨": [
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241,
+                242
+            ]
+        }
+    },
+    "name": "Lista de extensiones de misiones",
+    "settings": {
+        "averageCredits": {
+            "description": "Muestra el promedio de créditos ganables para cada misión de forma compacta.",
+            "title": "Mostrar media de créditos"
+        },
+        "collapsableMissions": {
+            "description": "Contraiga misiones individuales (o todas) para reducir su tamaño en la lista de misiones.",
+            "title": "Contraer misiones"
+        },
+        "currentPatients": {
+            "description": "Muestra la cantidad actual de pacientes de cada misión",
+            "title": "Pacientes actuales"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Muestra la cantidad actual de pacientes en la información sobre herramientas en el mapa.",
+            "title": "Pacientes actuales en la información sobre herramientas"
+        },
+        "currentPrisoners": {
+            "description": "Muestra la cantidad de presos de cada misión",
+            "title": "Presos actuales"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Muestra la cantidad actual de presos en la información sobre herramientas en el mapa.",
+            "title": "Presos actuales en la información sobre herramientas"
+        },
+        "eventMissions": {
+            "description": "Marca las misiones de temporada. Opcionalmente, puedes personalizarlo todo y marcar también las misiones no estacionales.",
+            "missions": "Misiones",
+            "text": "Texto",
+            "title": "Marcar las misiones estacionales"
+        },
+        "hide0CurrentPatients": {
+            "description": "Oculta la cantidad de pacientes si no hay pacientes en la misión",
+            "title": "Ocultar 0 pacientes"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Olculta la cantidad de presos si no hay presos en la misión",
+            "title": "Ocultar 0 Prisoners"
+        },
+        "remainingPatientTime": {
+            "description": "Muestra a los pacientes cuánto tiempo queda para que estén completamente tratados",
+            "title": "Tiempo restante para los pacientes"
+        },
+        "remainingPumpingTime": {
+            "description": "Muestra para los progresos de bombeo cuánto tiempo queda hasta que se terminen.",
+            "title": "Tiempo restante para el progreso de bombeo"
+        },
+        "remainingTime": {
+            "description": "Muestra en las misiones cuánto tiempo está una misión en progreso.",
+            "title": "Tiempo restante de la misión"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Muestra el tiempo restante solo en misiones verdes.",
+            "title": "Tiempo de misión solo para misiones verdes"
+        },
+        "shareMissions": {
+            "description": "Comparte misiones con la alianza directamente desde la lista de misiones.",
+            "title": "Misiones compartidas"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Rojo",
+            "default": "Negro o Blanco (basado en el diseño)",
+            "description": "Seleccione el color de fondo de los botones de compartir",
+            "info": "Azul claro",
+            "primary": "Azul oscuro",
+            "success": "Verde",
+            "title": "Comparte misiones: Color del botón",
+            "warning": "Naranja"
+        },
+        "shareMissionsMinCredits": {
+            "description": "El botón para compartir una misión solo se muestra para las misiones que tienen una recompensa promedio superior a la que has establecido aquí.",
+            "title": "Comparte misiones: Créditos minimos"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Misiones de Alianza (only for Share-Alliance-Post)",
+            "description": "Configure para cuál de las llamadas desea habilitar el botón de compartir.",
+            "own": "Llamadas de emergencia",
+            "sicherheitswache": "Misiones planeadas",
+            "title": "Comparte misiones: Tipos de misiones"
+        },
+        "sortMissions": {
+            "description": "¡Ordena tu lista de misiones!",
+            "title": "Ordenar misiones"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Seleccione el color de fondo del botón de clasificación",
+            "title": "Ordenar misiones: Color del botón"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementa la clasificación en las ventanas de misión. Opcionalmente, puede configurar teclas de acceso rápido personalizadas en nuestro módulo \"Hotkeys\" para los botones modificados.",
+            "title": "Clasificación en la ventana de la misión"
+        },
+        "starrableMissions": {
+            "description": "Marque las misiones para que se muestren en la lista de misiones en la parte superior. Puedes marcarlos en la ventana de misiones y en la lista de misiones.",
+            "title": "Marcar misiones"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alfabeto",
+            "credits": "Créditos",
+            "default": "Sin clasificar",
+            "distance_dispatch": "Distancia a la próxima centralita",
+            "distance_station": "Distancia a la siguiente estación",
+            "id": "Tiempo de la misión",
+            "remaining_patients": "Pacientes actuales",
+            "remaining_prisoners": "Presos actuales"
+        }
+    }
 }

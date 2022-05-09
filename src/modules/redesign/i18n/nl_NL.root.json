@@ -1,33 +1,41 @@
 {
-	"copy_url": "Link kopiëren: {url}",
-	"description": "Een algemene redesign. - Momenteel nog in de Alpha fase van de ontwikkeling",
-	"name": "Redesign",
-	"settings": {
-		"category": {
-			"alliance": {
-				"description": "Een redesign voor diverse teampagina's.",
-				"title": "Team"
-			},
-			"credits": {
-				"description": "Een redesign voor de credits en coins overzichten.",
-				"title": "Credits en coins"
-			},
-			"einsaetze": {
-				"description": "Een redesign van de mogelijke incidentenlijst en de \"Hulp bij deze inzet\"-pagina.",
-				"title": "Mogelijke incidenten"
-			},
-			"profile": {
-				"description": "Een redesign voor diverse pagina's van je profiel.",
-				"title": "Profiel"
-			},
-			"toplist": {
-				"description": "Een redesign van de lijst van beste spelers.",
-				"title": "Beste spelers"
-			},
-			"vehicles": {
-				"description": "Een redesign voor de diverse pagina's van voertuigen inclusief de spraakaanvragen.",
-				"title": "Voertuigen"
-			}
-		}
-	}
+    "copy_url": "Link kopiëren: {url}",
+    "description": "Een algemene redesign. - Momenteel nog in de Alpha fase van de ontwikkeling",
+    "name": "Redesign",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "Een redesign voor diverse teampagina's.",
+                "title": "Team"
+            },
+            "credits": {
+                "description": "Een redesign voor de credits en coins overzichten.",
+                "title": "Credits en coins"
+            },
+            "einsaetze": {
+                "description": "Een redesign van de mogelijke incidentenlijst en de \"Hulp bij deze inzet\"-pagina.",
+                "title": "Mogelijke incidenten"
+            },
+            "messages": {
+                "description": "Een redesign voor de privé berichten en systeemberichten",
+                "title": "Berichten"
+            },
+            "profile": {
+                "description": "Een redesign voor diverse pagina's van je profiel.",
+                "title": "Profiel"
+            },
+            "tasks": {
+                "description": "Een redesign van de taken en evenementen",
+                "title": "Taken en evenementen"
+            },
+            "toplist": {
+                "description": "Een redesign van de lijst van beste spelers.",
+                "title": "Beste spelers"
+            },
+            "vehicles": {
+                "description": "Een redesign voor de diverse pagina's van voertuigen inclusief de spraakaanvragen.",
+                "title": "Voertuigen"
+            }
+        }
+    }
 }

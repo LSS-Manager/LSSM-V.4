@@ -46,15 +46,15 @@
                         <grid-item
                             :height="
                                 column.height ||
-                                    Math.ceil(
-                                        14 +
-                                            (
-                                                vehiclesByBuilding[
-                                                    column.building
-                                                ] || []
-                                            ).length *
-                                                1.5
-                                    )
+                                Math.ceil(
+                                    14 +
+                                        (
+                                            vehiclesByBuilding[
+                                                column.building
+                                            ] || []
+                                        ).length *
+                                            1.5
+                                )
                             "
                             :id="column.building"
                             :key="column.building"
@@ -99,12 +99,8 @@
                                     >
                                         <grid-item
                                             :height="1"
-                                            :id="
-                                                `${column.building}_${vehicle.id}`
-                                            "
-                                            :key="
-                                                `${column.building}_${vehicle.id}`
-                                            "
+                                            :id="`${column.building}_${vehicle.id}`"
+                                            :key="`${column.building}_${vehicle.id}`"
                                             :width="10"
                                             class="building-vehicle"
                                             v-for="vehicle in vehiclesByBuildingSorted[
@@ -113,17 +109,13 @@
                                             :maxHeight="1"
                                         >
                                             <span
-                                                :class="
-                                                    `building_list_fms_${vehicle.fms_real}`
-                                                "
+                                                :class="`building_list_fms_${vehicle.fms_real}`"
                                                 class="building_list_fms"
                                             >
                                                 {{ vehicle.fms_show }}
                                             </span>
                                             <a
-                                                :href="
-                                                    `/vehicles/${vehicle.id}`
-                                                "
+                                                :href="`/vehicles/${vehicle.id}`"
                                                 class="building_list_fms lightbox-open"
                                             >
                                                 {{ vehicle.caption }}
@@ -171,7 +163,8 @@
                                         <button
                                             :disabled="!buildingListHasPrevPage"
                                             @click="
-                                                buildingListOffset -= buildingLimit
+                                                buildingListOffset -=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -180,7 +173,8 @@
                                         <button
                                             :disabled="!buildingListHasNextPage"
                                             @click="
-                                                buildingListOffset += buildingLimit
+                                                buildingListOffset +=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -193,7 +187,8 @@
                                         <button
                                             :disabled="!buildingListHasPrevPage"
                                             @click="
-                                                buildingListOffset -= buildingLimit
+                                                buildingListOffset -=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -202,7 +197,8 @@
                                         <button
                                             :disabled="!buildingListHasNextPage"
                                             @click="
-                                                buildingListOffset += buildingLimit
+                                                buildingListOffset +=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -259,7 +255,7 @@
                             true
                         ),
                     }"
-                    :noSearch="true"
+                    no-search
                 >
                     <tr
                         :id="board.id"
@@ -314,7 +310,7 @@
                                 <button
                                     v-if="
                                         boardId < boards.length - 1 &&
-                                            boards.length > 1
+                                        boards.length > 1
                                     "
                                     class="btn btn-xs btn-success"
                                     @click="boardDown(boardId)"
@@ -345,10 +341,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultProps } from 'vue/types/options';
-import { Vehicle } from 'typings/Vehicle';
-import { Building, InternalBuilding } from 'typings/Building';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Vehicle } from 'typings/Vehicle';
+import type { Building, InternalBuilding } from 'typings/Building';
+import type {
     DispatchcenterView,
     DispatchcenterViewComputed,
     DispatchcenterViewMethods,
@@ -360,7 +356,7 @@ export default Vue.extend<
     DispatchcenterViewComputed,
     DefaultProps
 >({
-    name: 'dispatchcenter-view',
+    name: 'lssmv4-dashboard-dispatchcenter-view',
     components: {
         VSelect: () =>
             import(
@@ -390,9 +386,10 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as {
-            [id: number]: InternalBuilding;
-        };
+        const buildingTypes = this.$t('buildings') as unknown as Record<
+            number,
+            InternalBuilding
+        >;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );
@@ -435,9 +432,7 @@ export default Vue.extend<
             return this.board ? this.board.buildingSelection : {};
         },
         buildingsById() {
-            const buildings = {} as {
-                [id: number]: Building;
-            };
+            const buildings = {} as Record<number, Building>;
             Object.values(this.buildings).forEach(
                 building => (buildings[building.id] = building)
             );
@@ -476,7 +471,7 @@ export default Vue.extend<
                                 )
                             ) &&
                         vehicleBuildingTypes.includes(building.building_type) &&
-                        !Object.values(this.columns).find(
+                        !Object.values(this.columns).some(
                             column => column.building === building.id
                         )
                     );
@@ -500,7 +495,7 @@ export default Vue.extend<
             ).length;
         },
         vehiclesByBuildingSorted() {
-            const vehiclesSorted = {} as { [building: number]: Vehicle[] };
+            const vehiclesSorted = {} as Record<number, Vehicle[]>;
             Object.keys(this.vehiclesByBuilding).forEach(building => {
                 vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
                     parseInt(building)
@@ -578,11 +573,10 @@ export default Vue.extend<
             if (this.selectedBuilding) {
                 this.columns.push({ building: this.selectedBuilding });
                 await this.$nextTick();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                const column = this.$refs[
-                    `building-${this.selectedBuilding}`
-                ][0].item;
+                const column =
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    this.$refs[`building-${this.selectedBuilding}`][0].item;
                 this.selectedBuilding = null;
                 this.modifyBuilding({
                     id: column._id,
@@ -601,12 +595,14 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 this.$refs.buildingListSelection[0].search = '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                const title_field = this.$refs[
-                    `${this.currentBoard}_${title}_${this.board.titles.length -
-                        1}`
-                ][0].item;
+                const title_field =
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    this.$refs[
+                        `${this.currentBoard}_${title}_${
+                            this.board.titles.length - 1
+                        }`
+                    ][0].item;
                 this.modifyTitle({
                     id: title_field._id,
                     width: title_field._width,
@@ -644,10 +640,10 @@ export default Vue.extend<
                         currentRow = 0;
                     }
                     await this.$nextTick();
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    const column = this.$refs[`building-${building.id}`][0]
-                        .item;
+                    const column =
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        this.$refs[`building-${building.id}`][0].item;
                     this.selectedBuilding = null;
                     this.modifyBuilding({
                         id: column._id,
@@ -670,7 +666,7 @@ export default Vue.extend<
         removeTitle(id) {
             this.board.titles.splice(
                 this.board.titles.findIndex(
-                    title => title.title === id.replace(/(^\d+_)|(_\d+$)/g, '')
+                    title => title.title === id.replace(/(^\d+_)|(_\d+$)/gu, '')
                 ),
                 1
             );
@@ -694,7 +690,7 @@ export default Vue.extend<
             this.saveBoards();
         },
         modifyTitle({ id, width, height, x, y }) {
-            const checked_id = id?.replace(/(^\d+_)|(_\d+$)/g, '');
+            const checked_id = id?.replace(/(^\d+_)|(_\d+$)/gu, '');
             this.$set(
                 this.board.titles,
                 this.board.titles.findIndex(

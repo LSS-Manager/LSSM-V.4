@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "aktuell",
+        "title": "Verbandskasse",
+        "total": "insgesamt",
+        "updateNote": "Wird alle 5 Minuten aktualisiert."
+    },
+    "coins": {
+        "list": "Protokoll"
+    },
+    "credits": {
+        "daily": "Tageszusammenfassung",
+        "overview": "Übersicht"
+    },
+    "description": "Zeigt dir nützliche Infos zu Coins und Credits in der Navigationsleiste als Dropdown-Menü an.",
+    "name": "Creditserweiterung",
+    "nextRank": "Nächster Dienstgrad",
+    "nextRankMissing": "verbleibend",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Sobald du einen der hier festgelegten Werte an Credits erreicht hast, wird die Schaltfläche dauerhaft grün hinterlegt – bis du das Menü der Creditserweiterung einmal öffnest.",
+            "title": "Ziele"
+        },
+        "coinsInNavbar": {
+            "description": "Zeigt den aktuellen Coinswert statt des Sparschweins in der Navigationsleiste.",
+            "title": "Coins statt Sparschwein"
+        },
+        "creditsInNavbar": {
+            "description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
+            "title": "Credits statt Sparschwein"
+        },
+        "highlightSales": {
+            "description": "Hebt Coins grün hervor, wenn es gerade einen Sale gibt.",
+            "title": "Sales hervorheben"
+        },
+        "showSales": {
+            "description": "Zeigt an, wenn es gerade ein Sale für Coins gibt.",
+            "title": "Sales anzeigen"
+        },
+        "showToplistPosition": {
+            "description": "Zeigt den aktuellen Toplisten-Platz in der Creditserweiterung.",
+            "title": "Toplisten-Position in Creditserweiterung"
+        }
+    },
+    "toplistPositionName": "Toplisten-Position",
+    "totalEarnedCredits": "Gesamt verdiente Credits"
+}

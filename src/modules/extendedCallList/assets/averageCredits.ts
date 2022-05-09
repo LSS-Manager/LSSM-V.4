@@ -1,51 +1,70 @@
-import { Mission } from 'typings/Mission';
-import { MissionMarkerAdd } from 'typings/Ingame';
+import type { Mission } from 'typings/Mission';
+import type {
+    MissionUpdateCallback,
+    ProgressPrependCallback,
+} from './utils/progressPrepend';
 
-export default (LSSM: Vue): void => {
-    const addCredits = (panel: HTMLDivElement): void => {
-        const mission = parseInt(panel.getAttribute('mission_type_id') ?? '-1');
-        const bar = panel.querySelector<HTMLDivElement>(
-            '.panel-body > .row > .col-xs-11'
-        );
-        if (!bar) return;
-        bar.classList.replace('col-xs-11', 'col-xs-10');
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('col-xs-1');
-        wrapper.style.setProperty('display', 'flex');
-        wrapper.style.setProperty('justify-content', 'center');
-        wrapper.style.setProperty('align-items', 'center');
-        wrapper.style.setProperty('height', '20px');
+export default (
+    LSSM: Vue,
+    MODULE_ID: string
+): {
+    addAverageCredits(mission: ProgressPrependCallback): number;
+    updateAverageCredits(mission: MissionUpdateCallback): void;
+} => {
+    const missionsById: Record<string, Mission> =
+        LSSM.$store.getters['api/missionsById'];
 
-        const span = document.createElement('span');
-        span.classList.add('label');
-        if (!LSSM.$store.state.darkmode)
-            span.style.setProperty('color', 'black');
-        let missionSpecs = (LSSM.$store.state.api.missions as Mission[]).find(
-            ({ id }) => id === mission
-        );
-        if ((panel.getAttribute('data-overlay-index') ?? 'null') !== 'null')
-            missionSpecs = missionSpecs?.alternate_version.mission_type;
-        span.textContent = `~ ${missionSpecs?.average_credits?.toLocaleString() ??
-            '–'}`;
-        wrapper.append(span);
-        bar.before(wrapper);
+    const wrapperClass = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}_average-credits_wrapper`
+    );
+
+    const getMissionTypeFromPanel = (panel: HTMLDivElement): string => {
+        let missionType = panel.getAttribute('mission_type_id') ?? '-1';
+        const overlayIndex = panel.getAttribute('data-overlay-index') ?? 'null';
+        if (overlayIndex && overlayIndex !== 'null')
+            missionType += `-${overlayIndex}`;
+        const additionalOverlay =
+            panel.getAttribute('data-additive-overlays') ?? 'null';
+        if (additionalOverlay && additionalOverlay !== 'null')
+            missionType += `/${additionalOverlay}`;
+        return missionType;
     };
 
-    document
-        .querySelectorAll<HTMLDivElement>(
-            '#missions-panel-body .missionSideBarEntry'
-        )
-        .forEach(panel => addCredits(panel));
+    return {
+        addAverageCredits({ missionPanel, progressbarWrapper }) {
+            const colWidth = 1;
+            const missionType = getMissionTypeFromPanel(missionPanel);
+            const wrapper = document.createElement('div');
+            wrapper.classList.add(`col-xs-${colWidth}`, wrapperClass);
+            wrapper.style.setProperty('display', 'flex');
+            wrapper.style.setProperty('justify-content', 'center');
+            wrapper.style.setProperty('align-items', 'center');
+            wrapper.style.setProperty('height', '20px');
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
-                );
-                if (panel) addCredits(panel);
-            },
-        })
-        .then();
+            const span = document.createElement('span');
+            span.classList.add('label');
+            if (!LSSM.$store.state.darkmode)
+                span.style.setProperty('color', 'black');
+
+            const missionSpecs: Mission | undefined = missionsById[missionType];
+            span.textContent = `~ ${
+                missionSpecs?.average_credits?.toLocaleString() ?? '–'
+            }`;
+            wrapper.append(span);
+            progressbarWrapper.before(wrapper);
+            return colWidth;
+        },
+        updateAverageCredits({ missionPanel }) {
+            const span = missionPanel.querySelector<HTMLSpanElement>(
+                `.${wrapperClass} span`
+            );
+            if (span) {
+                span.textContent = `~ ${
+                    missionsById[
+                        getMissionTypeFromPanel(missionPanel)
+                    ]?.average_credits?.toLocaleString() ?? '–'
+                }`;
+            }
+        },
+    };
 };

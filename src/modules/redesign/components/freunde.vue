@@ -72,24 +72,24 @@ import Vue from 'vue';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faUserSlash } from '@fortawesome/free-solid-svg-icons/faUserSlash';
 
-import { FreundeWindow } from '../parsers/freunde';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { FreundeWindow } from '../parsers/freunde';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'friends',
     'freunde',
-    FreundeWindow,
     {
         faEdit: IconDefinition;
         faUserSlash: IconDefinition;
         notes_editing: number[];
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
@@ -112,7 +112,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'freunde',
+    name: 'lssmv4-redesign-freunde',
     components: {
         EnhancedTable: () =>
             import(
@@ -156,9 +156,9 @@ export default Vue.extend<
                 'authenticity_token',
                 this.friends.authenticity_token
             );
-            const note = (this.$refs[
-                `notes_${friend_id}`
-            ] as HTMLTextAreaElement[])[0].value;
+            const note = (
+                this.$refs[`notes_${friend_id}`] as HTMLTextAreaElement[]
+            )[0].value;
             url.searchParams.append('friend[comment]', note);
             this.$store
                 .dispatch('api/request', {
@@ -191,7 +191,7 @@ export default Vue.extend<
                             )
                         ],
                         'note',
-                        note.replace(/\n/g, '\n<br>')
+                        note.replace(/\n/gu, '\n<br>')
                     );
                 });
         },

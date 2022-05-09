@@ -1,13 +1,14 @@
-import { Compiler } from 'webpack';
+import type { Compiler } from 'webpack';
 
 const pluginName = 'DynamicImportQueryPlugin';
 
 export default class DynamicImportQueryPlugin {
     options = {} as { name: string; value: string; dyn: boolean }[];
+    query = '';
 
-    constructor(options: {
-        [key: string]: { value: string; isDynamicKey?: boolean };
-    }) {
+    constructor(
+        options: Record<string, { value: string; isDynamicKey?: boolean }>
+    ) {
         this.options = Object.entries(options).map(
             ([key, { value, isDynamicKey }]) => ({
                 name: key,
@@ -15,36 +16,23 @@ export default class DynamicImportQueryPlugin {
                 dyn: !!isDynamicKey,
             })
         );
+        this.query = this.options
+            .map(({ name, value, dyn }) => {
+                if (!dyn) return `${name}=${encodeURIComponent(value)}`;
+                return `${name}=" + encodeURIComponent(${value}) + "`;
+            })
+            .join('&');
     }
 
     apply(compiler: Compiler): void {
-        compiler.hooks.thisCompilation.tap(pluginName, ({ mainTemplate }) => {
-            mainTemplate.hooks.localVars.tap(
-                { name: pluginName, stage: 1 },
-                source => {
-                    if (
-                        source.includes('function jsonpScriptSrc') &&
-                        !source.includes('webpackJsonpScriptSrc')
-                    ) {
-                        return `${source.replace(
-                            'function jsonpScriptSrc',
-                            'function webpackJsonpScriptSrc'
-                        )}
-function jsonpScriptSrc(chunkId) {
-    var url = new URL(webpackJsonpScriptSrc(chunkId));
-    ${JSON.stringify(this.options)}.forEach(function (_a) {
-        var name = _a.name, value = _a.value, dynamic = _a.dyn;
-        if (!dynamic) return url.searchParams.append(name, value);
-        return url.searchParams.append(name, eval(value));
-    });
-    return url.toString();
-}
-`;
-                    } else {
-                        return source;
-                    }
-                }
-            );
+        compiler.hooks.compilation.tap(pluginName, compilation => {
+            const getPathOrig = compilation.getPath;
+            compilation.getPath = (...args) => {
+                const path = getPathOrig.apply(compilation, args);
+                return args[0] === '"[id].js"'
+                    ? `${path} + "?${this.query}"`
+                    : path;
+            };
         });
     }
 }

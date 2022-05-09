@@ -13,6 +13,7 @@ Wir haben an verschiedenen Stellen diese Asynchronität eingebaut:
 
 ## Gebäude
 * Bei Zellen und Krankenhäusern: Kostenübernahme vom Verbandsmitglied
+* (De-)aktivieren von Erweiterungen
 * Personal kündigen
 
 ### geplant:

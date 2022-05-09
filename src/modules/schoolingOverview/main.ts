@@ -3,9 +3,9 @@ import openSchoolingTabs from './components/openSchoolingTabs.vue';
 import ownSchoolingTabs from './components/ownSchoolingTabs.vue';
 import schoolingOverview from './schoolingOverview.vue';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default (LSSM => {
+export default <ModuleMainFunction>(({ LSSM }) => {
     const { ownSchoolings, openSchoolings } = getSchoolings(LSSM);
 
     const clear = document.querySelector('.clear');
@@ -23,7 +23,9 @@ export default (LSSM => {
         }).$mount(clear);
     }
 
-    const ownTable = document.getElementById('schooling_own_table');
+    const ownTable = document.querySelector<HTMLTableElement>(
+        '#schooling_own_table'
+    );
     if (ownTable) {
         new LSSM.$vue({
             store: LSSM.$store,
@@ -33,7 +35,9 @@ export default (LSSM => {
         }).$mount(ownTable);
     }
 
-    const openTable = document.getElementById('schooling_opened_table');
+    const openTable = document.querySelector<HTMLTableElement>(
+        '#schooling_opened_table'
+    );
     if (openTable) {
         document
             .querySelector(
@@ -47,4 +51,4 @@ export default (LSSM => {
                 h(openSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),
         }).$mount(openTable);
     }
-}) as ModuleMainFunction;
+});

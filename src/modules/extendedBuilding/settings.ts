@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Hidden, ModuleSettings, Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Hidden, ModuleSettings, Toggle } from 'typings/Setting';
 
 export default ((MODULE_ID: string) => ({
     enhanceVehicleList: <Toggle>{
@@ -10,6 +10,15 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: true,
         dependsOn: '.enhanceVehicleList',
+    },
+    vehicleTypesOnlyOwn: <Toggle>{
+        type: 'toggle',
+        default: false,
+        disabled: (settings: ModuleSettings) =>
+            !(
+                (settings[MODULE_ID].vehicleTypes as Toggle).value &&
+                (settings[MODULE_ID].enhanceVehicleList as Toggle).value
+            ),
     },
     fmsSwitch: <Toggle>{
         type: 'toggle',

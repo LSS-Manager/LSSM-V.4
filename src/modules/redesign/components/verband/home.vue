@@ -4,11 +4,11 @@
             class="pull-left alliance-home-sidebar"
             v-if="
                 home.image ||
-                    home.meta.self ||
-                    home.edit_text ||
-                    home.edit_name ||
-                    home.edit_logo ||
-                    home.apply
+                home.meta.self ||
+                home.edit_text ||
+                home.edit_name ||
+                home.edit_logo ||
+                home.apply
             "
         >
             <div
@@ -91,14 +91,12 @@ import Vue from 'vue';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandHomeWindow } from '../../parsers/verband/home';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignSubComponent<
     'home',
     'verband/home',
-    VerbandHomeWindow,
     {
         faEdit: IconDefinition;
         faImage: IconDefinition;
@@ -116,7 +114,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-home',
+    name: 'lssmv4-redesign-verband-home',
     data() {
         return {
             faEdit,

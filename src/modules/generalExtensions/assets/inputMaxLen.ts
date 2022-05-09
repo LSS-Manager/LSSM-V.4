@@ -80,27 +80,33 @@ export default (LSSM: Vue): void => {
         },
         'note[message]': {
             min: 0,
-            max: 1048576,
+            max: 1_048_576,
         },
         'friend[comment]': {
             min: 0,
-            max: 65535,
+            max: 65_535,
         },
-    } as {
-        [name: string]: {
+    } as Record<
+        string,
+        {
             min: number;
             max: number;
-        };
-    };
+        }
+    >;
 
-    LSSM.$store.dispatch('addStyle', {
-        selectorText: Object.keys(lengthMap)
-            .map(selector => `input[name=${JSON.stringify(selector)}]:invalid`)
-            .join(','),
-        style: {
-            'border-color': '#a94442',
-        },
-    });
+    LSSM.$store
+        .dispatch('addStyle', {
+            selectorText: Object.keys(lengthMap)
+                .map(
+                    selector =>
+                        `input[name=${JSON.stringify(selector)}]:invalid`
+                )
+                .join(','),
+            style: {
+                'border-color': '#a94442',
+            },
+        })
+        .then();
 
     document.addEventListener('input', e => {
         const target = e.target as HTMLInputElement;
@@ -139,13 +145,15 @@ export default (LSSM: Vue): void => {
             `${target.id}_${entry[0]}`,
             true
         );
-        let counter = document.getElementById(counterId);
+        let counter = document.querySelector<HTMLElement>(`#${counterId}`);
         if (!counter) {
             counter = document.createElement('small');
             counter.id = counterId;
             counter.style.marginLeft = '1ch';
-            const label = document.querySelector(`label[for="${target.id}"]`);
-            label?.appendChild(counter);
+            const label = document.querySelector<HTMLLabelElement>(
+                `label[for="${target.id}"]`
+            );
+            label?.append(counter);
         }
         counter.classList.remove('text-success', 'text-danger');
         counter.classList.add(

@@ -1,4 +1,4 @@
-import { Games } from './Game';
+import type { Games } from './Game';
 
 interface Browser {
     latest: number;
@@ -8,13 +8,11 @@ interface Browser {
 
 export interface Config {
     admins: string[];
-    browser: {
-        [browser: string]: Browser;
-    };
+    browser: Record<string, Browser>;
     discord: {
         invite: string;
         id: string;
-        channels: Record<string, string>; // string because are to big for numbers
+        channels: Record<string, string>; // string because are too big for numbers
     };
     games: Games;
     github: {
@@ -23,6 +21,11 @@ export interface Config {
     modules: {
         'core-modules': string[];
     };
+    loadScript: {
+        start: string;
+        end: string;
+    };
     prefix: string;
     server: string;
+    fontAwesomeIconSearch: string;
 }

@@ -1,16 +1,87 @@
 {
-	"description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
-	"name": "Hotkeys",
-	"settings": {
-		"nextElementKey": {
-			"title": "Next \"Element\""
-		},
-		"prevElementKey": {
-			"title": "Previous \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Think of a cool description here",
-			"title": "prevNextElement"
-		}
-	}
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "open applications",
+                "buildings": "open alliance building overview",
+                "forum": "open board",
+                "funds": "open alliance funds window",
+                "logfiles": "open logfiles",
+                "members": "open memberlist",
+                "messages": "open messages",
+                "onlineMembers": "open memberlist (show online players only)",
+                "open": "open alliance window",
+                "schoolings": "open schoolings window",
+                "title": "Alliance"
+            },
+            "credits": {
+                "daily": "open daily summary",
+                "open": "open log",
+                "overview": "open overview of last 7 days",
+                "title": "Credits"
+            },
+            "help": "Open this help",
+            "profile": {
+                "awards": "open list of awards",
+                "level": "open list of levels",
+                "notes": "open notes",
+                "open": "open own profile",
+                "title": "Profile"
+            },
+            "protocol": "Open Log in Dispatch Center",
+            "tasks": {
+                "open": "open list of current tasks",
+                "title": "Tasks and Events"
+            },
+            "title": "General"
+        },
+        "main": {
+            "chat": {
+                "focus": "focus input field",
+                "title": "Chat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Menu",
+                    "toggle": "Open / Close"
+                },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "focus input field",
+                    "title": "Location search"
+                },
+                "title": "Map"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "focus input field",
+                    "title": "Search"
+                },
+                "title": "Mission list"
+            },
+            "title": "Main window"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Alarm and go to next mission",
+                "alert_share_next": "Alarm, Share and go to next mission",
+                "next": "next mission",
+                "prev": "previous mission",
+                "title": "Sorted missions"
+            },
+            "title": "Mission window"
+        }
+    },
+    "description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
+    "name": "Hotkeys",
+    "settings": {
+        "command": "Action",
+        "hotkey": "Hotkey",
+        "hotkeys": {
+            "description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
+            "title": "Hotkeys"
+        }
+    }
 }

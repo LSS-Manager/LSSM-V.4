@@ -1,39 +1,39 @@
-import { QueryTokens, Token, TokenRegexes } from 'typings/modules/LSSMAQL';
+import type { QueryTokens, Token, TokenRegexes } from 'typings/modules/LSSMAQL';
 
 const regexes = {
-    getter_dot: /\./,
-    getter_num: /\[\d+]/,
-    where: /WHERE/,
-    not_in: /NOT IN/,
-    in: /IN/,
-    and: /AND/,
-    or: /OR/,
-    greater_equal: />=/,
-    smaller_equal: /<=/,
-    equals: /=/,
-    unequal: /!=/,
-    greater: />/,
-    smaller: /</,
-    paran_open: /\(/,
-    paran_close: /\)/,
-    string: /"[^"]*"|'[^']*'/,
-    number: /\d+/,
-    boolean: /true|false/,
-    identifier: /[a-z][a-z_]*/,
+    getter_dot: /\./u,
+    getter_num: /\[\d+\]/u,
+    where: /WHERE/u,
+    not_in: /NOT IN/u,
+    in: /IN/u,
+    and: /AND/u,
+    or: /OR/u,
+    greater_equal: />=/u,
+    smaller_equal: /<=/u,
+    equals: /=/u,
+    unequal: /!=/u,
+    greater: />/u,
+    smaller: /</u,
+    paran_open: /\(/u,
+    paran_close: /\)/u,
+    string: /"[^"]*"|'[^']*'/u,
+    number: /\d+/u,
+    boolean: /false|true/u,
+    identifier: /[a-z][_a-z]*/u,
 } as TokenRegexes;
 
 const consume = (query: string, token_list: Token[]): string => {
     let newQuery = query;
     Object.entries(regexes).some(([token, regex]) => {
         const startRegex = new RegExp(
-            `^(${regex.toString().replace(/^\/|\/$/g, '')})`
+            `^(${regex.toString().replace(/^\/|\/[ADJUgimux]*$/gu, '')})`
         );
         const match = query.match(startRegex);
         if (match) {
             newQuery = query.replace(startRegex, '');
             token_list.push({
                 type: token as QueryTokens,
-                value: match[0].replace(/^["']|["']$/g, ''),
+                value: match[0].replace(/^["']|["']$/gu, ''),
             });
             return true;
         }

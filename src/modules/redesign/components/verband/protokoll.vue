@@ -16,7 +16,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= protokoll.lastPage ||
-                    protokoll.lastPage === Number.MAX_SAFE_INTEGER
+                protokoll.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -90,13 +90,11 @@
                         />
                         <a
                             lightbox-open
-                            :href="
-                                `/${
-                                    entry.affected.type === 'user'
-                                        ? 'profile'
-                                        : 'buildings'
-                                }/${entry.affected.id}`
-                            "
+                            :href="`/${
+                                entry.affected.type === 'user'
+                                    ? 'profile'
+                                    : 'buildings'
+                            }/${entry.affected.id}`"
                         >
                             {{ entry.affected.name }}
                         </a>
@@ -110,16 +108,15 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandProtokollWindow } from '../../parsers/verband/protokoll';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { VerbandProtokollWindow } from '../../parsers/verband/protokoll';
 
-type sort = 'time' | 'executor' | 'description' | 'affected';
+type sort = 'affected' | 'description' | 'executor' | 'time';
 type types = Exclude<VerbandProtokollWindow['entries'][0]['type'], ''>;
 
 type Component = RedesignSubComponent<
     'protokoll',
     'verband/protokoll',
-    VerbandProtokollWindow,
     {
         startPage: number;
         endPage: number;
@@ -152,7 +149,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-protokoll',
+    name: 'lssmv4-redesign-verband-protokoll',
     components: {
         EnhancedTable: () =>
             import(
@@ -220,11 +217,13 @@ export default Vue.extend<
                 let s = b[this.sort] ?? '';
                 if (['executor', 'affected'].includes(this.sort)) {
                     f =
-                        (f as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
-                        '';
+                        (
+                            f as VerbandProtokollWindow['entries'][0]['executor']
+                        )?.name?.toLowerCase() ?? '';
                     s =
-                        (s as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
-                        '';
+                        (
+                            s as VerbandProtokollWindow['entries'][0]['executor']
+                        )?.name?.toLowerCase() ?? '';
                 }
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
@@ -267,6 +266,10 @@ export default Vue.extend<
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
                                 LSSM: this,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
                             });
                             this.$set(
                                 this.lightbox.data,
@@ -306,6 +309,10 @@ export default Vue.extend<
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
                                 LSSM: this,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
                             });
                             this.$set(
                                 this.lightbox.data,
@@ -363,7 +370,7 @@ export default Vue.extend<
         const types = this.protokoll.protokoll_types;
         this.types = Object.entries(types).map(([value, { regex, title }]) => ({
             value,
-            label: title ?? regex.toString().replace(/^\/|\/$/g, ''),
+            label: title ?? regex.source,
         }));
         this.getSetting('type', Object.keys(types)).then(v =>
             this.$set(this.filter, 'type', v.length ? v : Object.keys(types))

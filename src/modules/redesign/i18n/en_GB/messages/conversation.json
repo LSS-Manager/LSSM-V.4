@@ -1,0 +1,10 @@
+{
+    "back": "Back to inbox",
+    "delete": "Delete conversation",
+    "load": {
+        "next": "load older messages",
+        "prev": "load newer messages"
+    },
+    "subtitle": "A conversation with",
+    "subtitleAlliance": "A message from alliance"
+}

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="statuscounter-wrapper">
         <span
             v-for="({ real, amount }, show) in vehicle_states"
             :key="show"
@@ -14,17 +14,20 @@
             :title="`Status ${show}: ${amount.toLocaleString()}`"
             v-show="
                 settings[`show_${show}`] &&
-                    (!settings[`hide_${show}`] ||
-                        (settings[`hide_${show}`] && amount))
+                (!settings[`hide_${show}`] ||
+                    (settings[`hide_${show}`] && amount))
             "
         >
             {{ amount.toLocaleString() }}
             <template v-if="settings[`percent_${show}`]">
                 {{
+                    (settings.percentageInBrackets ? '(' : '') +
                     (amount / (vehicles / 100)).toFixed(
                         settings.percentRounding
-                    )
-                }}%
+                    ) +
+                    '%' +
+                    (settings.percentageInBrackets ? ')' : '')
+                }}
             </template>
         </span>
     </div>
@@ -33,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultMethods } from 'vue/types/options';
+import type { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     { fmsReal2Show: Record<string, number> },
@@ -42,12 +45,12 @@ export default Vue.extend<
         vehicles: number;
         vehicle_states: Record<string, { real: string; amount: number }>;
     },
-    { settings: { percentRounding: number } & Record<string, boolean> }
+    { settings: Record<string, boolean> & { percentRounding: number } }
 >({
-    name: 'status-counter',
+    name: 'lssmv4-status-counter',
     data() {
         return {
-            fmsReal2Show: (this.$t('fmsReal2Show') as unknown) as Record<
+            fmsReal2Show: this.$t('fmsReal2Show') as unknown as Record<
                 string,
                 number
             >,
@@ -79,6 +82,12 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-.noblink
-    background-image: none
+.statuscounter-wrapper
+    display: flex
+    flex-flow: wrap
+    width: 100%
+    margin-top: 0.4em
+
+    .noblink
+        background-image: none
 </style>

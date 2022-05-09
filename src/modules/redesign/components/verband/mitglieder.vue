@@ -36,7 +36,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= mitglieder.lastPage ||
-                    mitglieder.lastPage === Number.MAX_SAFE_INTEGER
+                mitglieder.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -45,11 +45,9 @@
         <br />
         <a
             class="btn btn-xs btn-default"
-            :href="
-                `/verband/mitglieder/${mitglieder.meta.id}${
-                    mitglieder.online ? '' : '?online=true'
-                }`
-            "
+            :href="`/verband/mitglieder/${mitglieder.meta.id}${
+                mitglieder.online ? '' : '?online=true'
+            }`"
         >
             {{ lightbox.$sm(`online.toggle.${mitglieder.online}`) }}
         </a>
@@ -74,9 +72,11 @@
                         loading="lazy"
                         :title="
                             lightbox.$sm(
-                                `online.titles.${user.icon_src.match(
-                                    /(?<=user_)gray|green|blue|yellow|red(?=\.png)/
-                                )[0] || 'gray'}`,
+                                `online.titles.${
+                                    user.icon_src.match(
+                                        /(?<=user_)gray|green|blue|yellow|red(?=\.png)/
+                                    )[0] || 'gray'
+                                }`,
                                 { user: user.name }
                             )
                         "
@@ -129,13 +129,9 @@
                             :key="n"
                             @click="applyDiscount(user.id, n - 1)"
                             class="btn btn-xs"
-                            :class="
-                                `btn-${
-                                    n - 1 === user.discount
-                                        ? 'success'
-                                        : 'default'
-                                }`
-                            "
+                            :class="`btn-${
+                                n - 1 === user.discount ? 'success' : 'default'
+                            }`"
                         >
                             {{ (n - 1) * 10 }}%
                         </a>
@@ -147,10 +143,7 @@
                 >
                     {{ user.tax }}%
                 </td>
-                <td
-                    v-if="mitglieder.edit_discount && user.edit"
-                    style="text-align: right"
-                >
+                <td v-if="user.edit" style="text-align: right">
                     <a
                         class="btn btn-default btn_edit_rights btn-xs"
                         :user_id="user.id"
@@ -182,6 +175,7 @@
                                 'aufsichtsrat',
                                 'finance',
                                 'schooling',
+                                'staff',
                             ]"
                         >
                             <br :key="`${user.id}_${right}_br`" />
@@ -194,11 +188,9 @@
                                     )
                                 "
                                 class="btn btn-xs"
-                                :class="
-                                    `btn-${
-                                        user.edit[right] ? 'danger' : 'success'
-                                    }`
-                                "
+                                :class="`btn-${
+                                    user.edit[right] ? 'danger' : 'success'
+                                }`"
                                 :key="`${user.id}_${right}_btn`"
                             >
                                 {{
@@ -227,25 +219,25 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandMitgliederWindow } from '../../parsers/verband/mitglieder';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { VerbandMitgliederWindow } from '../../parsers/verband/mitglieder';
 
 type Component = RedesignSubComponent<
     'mitglieder',
     'verband/mitglieder',
-    VerbandMitgliederWindow,
     {
         faEdit: IconDefinition;
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
         caption_editing: number[];
@@ -263,11 +255,12 @@ type Component = RedesignSubComponent<
             user_id: number,
             right:
                 | 'admin'
-                | 'coadmin'
-                | 'sprechwunsch_admin'
                 | 'aufsichtsrat'
+                | 'coadmin'
                 | 'finance'
-                | 'schooling',
+                | 'schooling'
+                | 'sprechwunsch_admin'
+                | 'staff',
             new_state: 0 | 1
         ): void;
         kick(user_id: number, username: string): void;
@@ -288,7 +281,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-mitglieder',
+    name: 'lssmv4-redesign-verband-mitglieder',
     components: {
         EnhancedTable: () =>
             import(
@@ -349,6 +342,10 @@ export default Vue.extend<
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
                                 LSSM: this,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
                             });
                             this.$set(
                                 this.lightbox.data,
@@ -395,6 +392,10 @@ export default Vue.extend<
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
                                 LSSM: this,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
                             });
                             this.$set(
                                 this.lightbox.data,
@@ -437,9 +438,11 @@ export default Vue.extend<
                     this.mitglieder.authenticity_token
                 );
                 const caption =
-                    (this.$refs[
-                        `caption_form_${user_id}`
-                    ] as (HTMLInputElement | null)[])[0]?.value ?? '';
+                    (
+                        this.$refs[
+                            `caption_form_${user_id}`
+                        ] as (HTMLInputElement | null)[]
+                    )[0]?.value ?? '';
                 url.searchParams.append('user[caption]', caption);
                 this.$store.dispatch('api/request', {
                     url: `/verband/rolecaptionForm/${user_id}`,
@@ -721,6 +724,10 @@ export default Vue.extend<
                           title: this.lightbox.$sm('discount').toString(),
                       },
                       tax: { title: this.lightbox.$sm('tax').toString() },
+                  }
+                : {}),
+            ...(this.mitglieder.edit_rights
+                ? {
                       edit: { title: '', noSort: true },
                   }
                 : {}),

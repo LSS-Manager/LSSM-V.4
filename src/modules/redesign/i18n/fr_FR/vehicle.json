@@ -1,0 +1,124 @@
+{
+    "approach": "Transférer",
+    "backalarm": "Rappeler",
+    "backalarmNext": "Envoyer directement",
+    "cells": {
+        "cell": "Poste",
+        "free": "Cellules libres"
+    },
+    "color": "Changer la couleur",
+    "current_mission": "Mission actuelle",
+    "delete": {
+        "button": "Supprimer",
+        "cancel": "Annuler",
+        "confirm": "Supprimer",
+        "text": "Voulez-vous vraiment détruire **{caption}** du bâtiment **{building}** de façon permanente ?",
+        "title": "Détruire le véhicule"
+    },
+    "distance": "Distance",
+    "edit": "Modifier",
+    "false": "Non",
+    "filter": {
+        "cells": {
+            "distance": "Distance maximum",
+            "each": "Montrer x bâtiments de chaque",
+            "free": "Nombre minimum de cellules libres",
+            "tax": "Taxe maximum"
+        },
+        "hospitals": {
+            "beds": "Minimum de lits libres",
+            "department": {
+                "title": "Service : {department}"
+            },
+            "distance": "Distance maximum",
+            "each": "Montrer x bâtiments de chaque",
+            "tax": "Taxe maximum"
+        },
+        "missions": {
+            "credits": "Crédits minimums",
+            "distance": "Distance maximum",
+            "participation": {
+                "title": "Déjà présent"
+            },
+            "progress": "Avancement max",
+            "status": {
+                "green": "Vert",
+                "red": "Rouge",
+                "title": "Statut",
+                "yellow": "Jaune"
+            }
+        },
+        "wlf": {
+            "distance": "Distance maximum",
+            "same": "Même bâtiment"
+        }
+    },
+    "fms": "Radio",
+    "fms_switch": {
+        "is_s2": "Rendre non disponible (statut 6)",
+        "is_s6": "Rendre disponible (statut 2)"
+    },
+    "foam_amount": "Quantité de mousse",
+    "followup_missions": "Mission suivante | Missions suivantes",
+    "hospitals": {
+        "beds": "Lits libres",
+        "department": "Service : {department}",
+        "hospital": "Hôpitaux"
+    },
+    "load_all_hospitals": {
+        "btn": "Chargez tout ",
+        "text": "Seuls 50 hôpitaux de l'alliance sont affichés. Le chargement de tous les hôpitaux peut prendre beaucoup de temps en fonction de la quantité !"
+    },
+    "max_staff": "Max. de personnes",
+    "mileage": "Kilométrage",
+    "missions": {
+        "alarm": "Déployer",
+        "alarmed": "Mission actuelle",
+        "credits": "Récompense",
+        "mission": "Mission",
+        "participation": "Participation",
+        "patients": "Patients",
+        "progress": "Avancement"
+    },
+    "move": "Déplacer",
+    "owner": "Propriétaire",
+    "owner_pic_state": {
+        "offline": "{user} est hors ligne!",
+        "online": "{user} est en ligne!"
+    },
+    "release": {
+        "cancel": "Annuler",
+        "confirm": "Oui, décharger!",
+        "disable": "Décharger et supprimer la confirmation",
+        "patient": {
+            "text": "Voulez-vous vraiment décharger le patient de ce véhicule ? Aucun paiement ne sera crédité pour le patient !",
+            "title": "Décharger le patient"
+        },
+        "prisoner": {
+            "text": "Voulez-vous vraiment libérer **tous** les prisonniers de cette opération ? Il n'y aura aucune compensation créditée pour ces prisonniers !",
+            "title": "Libérer les prisonniers"
+        }
+    },
+    "release_patient": "Décharger le patient",
+    "release_prisoner": "Libérer les prisonniers",
+    "staff": {
+        "name": "Nom",
+        "schooling": "Formation",
+        "title": "Personnel "
+    },
+    "station": "Poste",
+    "stats": "Statistiques",
+    "tabs": {
+        "all": "{type} (ensemble) : {amount}",
+        "alliance": "{type} d'alliance : {amount}",
+        "cells": "Cellules",
+        "hospitals": "Hôpitaux",
+        "missions": "Missions",
+        "own": "{type} perso : {amount}"
+    },
+    "tax": "Taxe",
+    "true": "Oui",
+    "vehicletype": "Type de véhicule",
+    "water_amount": "Quantité d'eau",
+    "zuweisung": "Affecter du personnel"
+}

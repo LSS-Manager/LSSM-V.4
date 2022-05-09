@@ -1,4 +1,4 @@
-import { Mission } from 'typings/Mission';
+import type { Mission } from 'typings/Mission';
 
 export default async (
     LSSM: Vue,
@@ -8,23 +8,20 @@ export default async (
         autotextcolor: boolean;
         textcolor: string;
         prefix: boolean;
-        missions: (string | number)[];
+        missions: (number | string)[];
     }[]
 ): Promise<void> => {
-    const missionHelpBtn = document.getElementById('mission_help');
-    const missionTitle = document.getElementById('missionH1');
-    if (!missionHelpBtn || !missionTitle) return;
-    const missionType = parseInt(
-        missionHelpBtn
-            ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-    );
-    if (missionType < 0) return;
+    const missionTitle =
+        document.querySelector<HTMLHeadingElement>('#missionH1');
+    if (!missionTitle) return;
 
-    const mission = ((await LSSM.$store.dispatch('api/getMissions', {
-        force: false,
-        feature: `ecw-missionKeywords-settings`,
-    })) as Mission[]).find(({ id }) => id === missionType);
+    const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
+
+    if (missionType === '-1') return;
+
+    const mission = (
+        LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
+    )[missionType];
 
     const addLabel = (
         text: string,
@@ -38,9 +35,9 @@ export default async (
         label.style.backgroundColor = color;
         const textNode = document.createElement('span');
         textNode.textContent = text
-            .replace(/{{type}}/g, missionType.toString())
+            .replace(/\{\{type\}\}/gu, missionType.toString())
             .replace(
-                /{{credits}}/g,
+                /\{\{credits\}\}/gu,
                 (mission?.average_credits ?? 0).toLocaleString()
             );
         textNode.style.background = autotextcolor ? 'inherit' : 'transparent';
@@ -50,8 +47,8 @@ export default async (
         textNode.style.filter = autotextcolor
             ? 'invert(1) grayscale(1) contrast(9)'
             : '';
-        label.appendChild(textNode);
-        if (!prefix) missionTitle.appendChild(label);
+        label.append(textNode);
+        if (!prefix) missionTitle.append(label);
         else missionTitle.insertBefore(label, missionTitle.firstChild);
     };
 

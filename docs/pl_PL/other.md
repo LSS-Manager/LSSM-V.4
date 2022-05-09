@@ -1,35 +1,35 @@
 ---
-title: Other
+title: Inne
 lang: pl_PL
 sidebarDepth: 2
 ---
 
-# Other
+# Inne
 
-Miscellaneous information about LSS Manager.
+Różne informacje o Menedżerze LSS.
 
-## License
+## Licencja
 [![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 
-LSS Manager is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
+LSS Manager jest objęty licencją [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
-We have decided to use this license to prevent misuse of our code to violate the Terms and Conditions of the game.
+Zdecydowaliśmy się wykorzystać tę licencję, aby zapobiec niewłaściwemu użyciu naszego kodu w celu naruszenia warunków gry.
 
-## The LSSM Team
-Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are also administratively active!
+## Zespół LSSM
+Obecnie LSS Manager składa się z 4 programistów i 6 dodatkowych osób wspierających nasz <discord/>. Na Discordzie nasi programiści są również aktywną administracją!
 
-### The developers
-* Aisaka *[CEO, Server Administrator & Senior Developer]*
-* Jan *[Senior Architect & Developer]*
-* Sanni *[Quality Checker, Bugfixer & Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+### Deweloperzy
+* Aisaka *[Dyrektor generalny, administrator serwerów i starszy programista]*
+* Jan *[Starszy architekt i programista]*
+* Sanni *[Kontroler jakości, naprawianie błędów i młodszy programista]*
+* Ron31 *[Bugfixer, młodszy programista]*
 
-### The Discord-Team
-**Administration**:
+### Zespół Discord
+**Administracja**:
 * lost
 
-**Moderation**:
+**Moderatorzy**:
 * 🇩🇪
     * Konstantin
     * Saïx
@@ -39,30 +39,48 @@ Currently, LSS Manager consists of 4 developers and 6 additional supporters for 
 * 🇳🇱
     * MPR
 
-# Acknowledgements
+### tłumacze-wolontariusze <3
+Ogromne podziękowania kierujemy do naszych tłumaczy-wolontariuszy, którzy pomagają nam w przenoszeniu na inne wersje językowe. Oczywiście, jako mały zespół programistów, nie mówimy we wszystkich językach, dlatego udostępniamy tylko teksty w języku niemieckim i angielskim.
 
-## Open Source Libraries
-LSSM uses public libraries from third parties 
+Aby oddać trochę uznania tłumaczom, stworzyliśmy listę tutaj:
+<translators/>
 
-A list of which libraries we use can be found directly in the game in the LSSM menu and is kept up to date.
-
-### The XYRALITY Team
-First of all a big thank you goes to the development team of the game. Not only for the game itself, but also for the great help when we have questions.
-
-But also for the numerous aids that make the development of the LSSM easier for us!
-
-### Our Beta Testers
-A small group of users are our Beta Testers, getting LSSM features earlier than the general user to test. We do this so we can identify and rectify problems to make LSSM stable for everyone on release.
-
-:::tip
-Our Beta Testers program is limited, and we will not add users between application phases. When application phases are open, we will announce this, so everyone has a chance, as long as you meet certain conditions.
+:::tip ♥️️
+Thank you too for LSSM.
 :::
 
-### To all who report bugs & make suggestions
-Imagine how long a fault in LSSM would exist for if no one reported it - we would certainly not find it so quickly. 
-Thank you also for suggestions that keep coming in. The development of LSSM is strongly influenced by the participation and wishes of its users.
+# Podziękowania!
 
-### To every single user
-Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
+## Biblioteki Open Source
+LSSM korzysta z bibliotek publicznych podmiotów trzecich 
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pl
+Lista używanych przez nas bibliotek znajduje się bezpośrednio w grze w menu LSSM i jest na bieżąco aktualizowana.
+
+### Zespół XYRALITY
+Przede wszystkim wielkie podziękowania dla zespołu programistów gry. Nie tylko za samą grę, ale także za świetną pomoc, gdy mamy pytania.
+
+Ale także za liczne pomoce, które ułatwiają nam rozwój LSSM!
+
+### Nasi beta testerzy
+Niewielka grupa użytkowników to nasi beta testerzy, którzy otrzymują funkcje LSSM wcześniej niż zwykły użytkownik do przetestowania. Robimy to, abyśmy mogli zidentyfikować i naprawić problemy, aby LSSM był stabilny dla wszystkich po wydaniu.
+
+:::tip
+Nasz program beta testerów jest ograniczony i nie będziemy dodawać użytkowników między fazami aplikacji. Gdy fazy składania wniosków będą otwarte, ogłosimy to, aby każdy miał szansę, o ile spełnisz określone warunki.
+:::
+
+### Do wszystkich, którzy zgłaszają błędy i zgłaszają sugestie
+Wyobraź sobie, jak długo istniałaby usterka w LSSM, gdyby nikt jej nie zgłosił - na pewno nie znaleźlibyśmy jej tak szybko.
+Dziękuję również za sugestie, które wciąż napływają. Na rozwój LSSM duży wpływ ma udział i prośby jego użytkowników.
+
+### Do każdego pojedynczego użytkownika
+Każdy użytkownik zawsze daje nam motywację, aby iść dalej i coraz bardziej rozwijać oraz udoskonalać LSSM.
+
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
+
+[Licencja]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pl

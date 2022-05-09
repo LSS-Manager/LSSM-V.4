@@ -1,142 +1,148 @@
 {
-	"diyMission": "Dieser Einsatz scheint ein selbst erstellter Verbandsgroßeinsatz zu sein!",
-	"expansions": "Ausbreitung | Ausbreitungen",
-	"followups": "Folgeeinsatz | Folgeeinsätze",
-	"generated_by": "Generiert von",
-	"patients": {
-		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
-		"helicopter": "Wahrscheinlichkeit für einen RTH",
-		"nef": "Wahrscheinlichkeit für einen Notarzt",
-		"patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
-		"patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
-		"patient_other_treatment": "Wahrscheinlichkeit für Tragehilfe",
-		"patient_transport": "Transportwahrscheinlichkeit",
-		"possible_patient": "Patient maximal | Patienten maximal",
-		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten",
-		"possible_patient_min": "Patient mindestens | Patienten mindestens",
-		"specializations": "Fachrichtung",
-		"title": "Patienten | {n} Patient | {n} Patienten"
-	},
-	"prerequisites": {
-		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
-		"criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
-		"fire_stations": "Feuerwache | Feuerwachen",
-		"guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
-		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
-		"max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
-		"mek": "MEK-Zug | MEK-Züge",
-		"police_helicopter_stations": "Polizeihubschrauber-Landeplatz | Polizeihubschrauber-Landeplätze",
-		"police_stations": "Polizeiwache | Polizeiwachen",
-		"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
-		"rescue_stations": "Rettungswache | Rettungswachen",
-		"sek": "SEK-Zug | SEK-Züge",
-		"thw": "THW-Ortsverband | THW-Ortsverbände",
-		"thw_bergung_count": "THW-Ausbau: Bergungsgruppe 2 | THW-Ausbauten: Bergungsgruppe 2",
-		"thw_fg_raeumen_count": "THW-Ausbau: Fachgruppe Räumen | THW-Ausbauten: Fachgruppe Räumen",
-		"thw_gkw_count": "THW-Ausbau: Technischer Zug | THW-Ausbauten: Technische Züge",
-		"thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
-		"title": "Vorraussetzung | Vorraussetzungen",
-		"wasserrettung": "Wasserrettung | Wasserrettungen",
-		"water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
-		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
-	},
-	"prisoners": {
-		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
-		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
-	},
-	"subsequent": "Anschlusseinsatz | Anschlusseinsätze",
-	"tip": {
-		"dragging": "Feld verschieben",
-		"maxState": "Maximale Anforderungen (de-)aktivieren",
-		"minified": "Ein/Ausklappen",
-		"overlay": "Overlay",
-		"reload": "Reload"
-	},
-	"vehicles": {
-		"captions": {
-			"ambulances": "RTW",
-			"arff": "FLF",
-			"battalion_chief_vehicles": "ELW 1",
-			"boats": "Boot | Boote",
-			"bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
-			"civil_patrolcar": "Zivilstreifenwagen",
-			"diver_units": "GW-Taucher oder Tauchkraftwagen",
-			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
-			"fukw": "FüKw",
-			"fwk": "Feuerwehrkran | Feuerwehrkräne",
-			"gefkw": "GefKw",
-			"grukw": "GruKw",
-			"gw_san": "GW-San",
-			"gw_werkfeuerwehr": "GW-Werkfeuerwehr",
-			"gwmess": "GW-Messtechnik",
-			"gwoil": "GW-Öl",
-			"hazmat_dekon": "Dekon-P",
-			"hazmat_vehicles": "GW-Gefahrgut",
-			"heavy_rescue_vehicles": "Rüstwagen",
-			"height_rescue_units": "GW-Höhenrettung",
-			"helicopter_bucket": "Außenlastbehälter (allgemein)",
-			"k9": "DHuFüKW",
-			"k9_only_if_needed": "DHuFüKW (nur wenn aktiver Ausbau vorhanden)",
-			"lebefkw": "leBefKw",
-			"max_civil_patrol_replace_police_cars": "Zivilstreifenwagen kann Funkstreifenwagen ersetzen",
-			"mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
-			"mobile_air_vehicles": "GW-Atemschutz",
-			"mobile_command_vehicles": "ELW 2",
-			"platform_trucks": "Drehleiter | Drehleitern",
-			"police_cars": "Funkstreifenwagen",
-			"police_helicopters": "Polizeihubschauber",
-			"pump": "Schmutzwasserpumpe | Schmutzwasserpumpen",
-			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
-			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
-			"seg_elw": "ELW 1 (SEG)",
-			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",
-			"teleskopmast": "Teleskopmast | Teleskopmasten",
-			"thw_brmg_r": "BRmG R",
-			"thw_dle": "Anh DLE",
-			"thw_gkw": "GKW",
-			"thw_lkw": "LKW K9",
-			"thw_mtwtz": "MTW-TZ",
-			"thw_mzkw": "MzKw",
-			"turboloescher": "Turbolöscher",
-			"ulf": "ULF mit Löscharm",
-			"wasserwerfer": "WaWe 10",
-			"water_damage_pump": "Feuerlöschpumpe | Feuerlöschpumpen",
-			"water_tankers": "Schlauchwagen"
-		},
-		"multifunctionals": {
-			"battalion_chief_vehicles": {
-				"additional_text": "",
-				"reduce_from": "mobile_command_vehicles"
-			},
-			"heavy_rescue_vehicles": {
-				"additional_text": "davon mind. {n} HLF",
-				"reduce_from": "firetrucks"
-			},
-			"platform_trucks": {
-				"additional_text": "",
-				"reduce_from": "teleskopmast"
-			},
-			"thw_lkw": {
-				"additional_text": "mit {n} LKW K9",
-				"not_customizable": true,
-				"reduce_from": "thw_brmg_r"
-			}
-		},
-		"optional_alternatives": {
-			"allow_arff_instead_of_lf": {
-				"firetrucks": "Löschfahrzeug oder Flugfeldlöschfahrzeug | Löschfahrzeuge oder Flugfeldlöschfahrzeuge"
-			},
-			"allow_ktw_instead_of_rtw": {
-				"ambulances": "RTW oder KTW oder KTW Typ B"
-			},
-			"allow_rw_instead_of_lf": {
-				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
-			}
-		},
-		"patient_additionals": {
-			"5": "LNA",
-			"10": "OrgL"
-		},
-		"title": "Fahrzeuge"
-	}
+    "diyMission": "Dieser Einsatz scheint ein selbst erstellter Verbandsgroßeinsatz zu sein!",
+    "expansions": "Ausbreitung | Ausbreitungen",
+    "followups": "Folgeeinsatz | Folgeeinsätze",
+    "generated_by": "Generiert von",
+    "patients": {
+        "allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
+        "helicopter": "Wahrscheinlichkeit für einen RTH",
+        "nef": "Wahrscheinlichkeit für einen Notarzt",
+        "patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
+        "patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
+        "patient_other_treatment": "Wahrscheinlichkeit für Tragehilfe",
+        "patient_transport": "Transportwahrscheinlichkeit",
+        "possible_patient": "Patient maximal | Patienten maximal",
+        "possible_patient_exact": "genau {n} Patient | genau {n} Patienten",
+        "possible_patient_min": "Patient mindestens | Patienten mindestens",
+        "specializations": "Fachrichtung",
+        "title": "Patienten | {n} Patient | {n} Patienten"
+    },
+    "prerequisites": {
+        "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
+        "criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
+        "fire_stations": "Feuerwache | Feuerwachen",
+        "guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
+        "max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
+        "max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
+        "mek": "MEK-Zug | MEK-Züge",
+        "police_helicopter_stations": "Polizeihubschrauber-Landeplatz | Polizeihubschrauber-Landeplätze",
+        "police_service_group_leader": "Dienstgruppenleitung-Erweiterung | Dienstgruppenleitung-Erweiterungen",
+        "police_stations": "Polizeiwache | Polizeiwachen",
+        "rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
+        "rescue_stations": "Rettungswache | Rettungswachen",
+        "sek": "SEK-Zug | SEK-Züge",
+        "thw": "THW-Ortsverband | THW-Ortsverbände",
+        "thw_bergung_count": "THW-Ausbau: Bergungsgruppe 2 | THW-Ausbauten: Bergungsgruppe 2",
+        "thw_fg_raeumen_count": "THW-Ausbau: Fachgruppe Räumen | THW-Ausbauten: Fachgruppe Räumen",
+        "thw_gkw_count": "THW-Ausbau: Technischer Zug | THW-Ausbauten: Technische Züge",
+        "thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
+        "title": "Vorraussetzung | Vorraussetzungen",
+        "wasserrettung": "Wasserrettung | Wasserrettungen",
+        "water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
+        "werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
+    },
+    "prisoners": {
+        "max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
+        "title": "Gefangene | {n} Gefangener | {n} Gefangene"
+    },
+    "subsequent": "Anschlusseinsatz | Anschlusseinsätze",
+    "tip": {
+        "dragging": "Feld verschieben",
+        "maxState": "Maximale Anforderungen (de-)aktivieren",
+        "minified": "Ein/Ausklappen",
+        "overlay": "Overlay",
+        "reload": "Reload"
+    },
+    "vehicles": {
+        "captions": {
+            "ambulances": "RTW",
+            "arff": "FLF",
+            "battalion_chief_vehicles": "ELW 1",
+            "boats": "Boot | Boote",
+            "bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
+            "civil_patrolcar": "Zivilstreifenwagen",
+            "diver_units": "GW-Taucher oder Tauchkraftwagen",
+            "firetrucks": "Löschfahrzeug | Löschfahrzeuge",
+            "fukw": "FüKw",
+            "fwk": "Feuerwehrkran | Feuerwehrkräne",
+            "gefkw": "GefKw",
+            "grukw": "GruKw",
+            "gw_san": "GW-San",
+            "gw_werkfeuerwehr": "GW-Werkfeuerwehr",
+            "gwmess": "GW-Messtechnik",
+            "gwoil": "GW-Öl",
+            "hazmat_dekon": "Dekon-P",
+            "hazmat_vehicles": "GW-Gefahrgut",
+            "heavy_rescue_vehicles": "Rüstwagen",
+            "height_rescue_units": "GW-Höhenrettung",
+            "helicopter_bucket": "Außenlastbehälter (allgemein)",
+            "k9": "DHuFüKW",
+            "k9_only_if_needed": "DHuFüKW (nur wenn aktiver Ausbau vorhanden)",
+            "lebefkw": "leBefKw",
+            "max_civil_patrol_replace_police_cars": "Zivilstreifenwagen kann Funkstreifenwagen ersetzen",
+            "mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
+            "mobile_air_vehicles": "GW-Atemschutz",
+            "mobile_command_vehicles": "ELW 2",
+            "platform_trucks": "Drehleiter | Drehleitern",
+            "police_cars": "Funkstreifenwagen",
+            "police_helicopters": "Polizeihubschrauber",
+            "police_service_group_leader": "Funkstreifenwagen (DGL)",
+            "pump": "Schmutzwasserpumpe | Schmutzwasserpumpen",
+            "rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
+            "rettungstreppe": "Rettungstreppe | Rettungstreppen",
+            "seg_elw": "ELW 1 (SEG)",
+            "sek": "SEK-Fahrzeug | SEK-Fahrzeuge",
+            "teleskopmast": "Teleskopmast | Teleskopmasten",
+            "thw_brmg_r": "BRmG R",
+            "thw_dle": "Anh DLE",
+            "thw_gkw": "GKW",
+            "thw_lkw": "LKW K9",
+            "thw_mtwtz": "MTW-TZ",
+            "thw_mzkw": "MzKw",
+            "turboloescher": "Turbolöscher",
+            "ulf": "ULF mit Löscharm",
+            "wasserwerfer": "WaWe 10",
+            "water_damage_pump": "Feuerlöschpumpe | Feuerlöschpumpen",
+            "water_tankers": "Schlauchwagen"
+        },
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "additional_text": "",
+                "reduce_from": "mobile_command_vehicles"
+            },
+            "heavy_rescue_vehicles": {
+                "additional_text": "davon mind. {n} HLF",
+                "reduce_from": "firetrucks"
+            },
+            "platform_trucks": {
+                "additional_text": "",
+                "reduce_from": "teleskopmast"
+            },
+            "police_service_group_leader": {
+                "additional_text": "davon mind. {n} FuStW (DGL)",
+                "reduce_from": "police_cars"
+            },
+            "thw_lkw": {
+                "additional_text": "mit {n} LKW K9",
+                "not_customizable": true,
+                "reduce_from": "thw_brmg_r"
+            }
+        },
+        "optional_alternatives": {
+            "allow_arff_instead_of_lf": {
+                "firetrucks": "Löschfahrzeug oder Flugfeldlöschfahrzeug | Löschfahrzeuge oder Flugfeldlöschfahrzeuge"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "ambulances": "RTW oder KTW oder KTW Typ B"
+            },
+            "allow_rw_instead_of_lf": {
+                "firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
+            }
+        },
+        "patient_additionals": {
+            "5": "LNA",
+            "10": "OrgL"
+        },
+        "title": "Fahrzeuge"
+    }
 }

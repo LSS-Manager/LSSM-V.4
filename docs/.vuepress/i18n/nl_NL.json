@@ -1,10 +1,171 @@
 {
-	"apps": "Apps",
-	"description": "De Wiki voor LSS-Manager V.4",
-	"head": {
-		"alpha": "Deze module is nog in zijn absolute begin en is momenteel alleen beschikbaar voor Beta testers!",
-		"dev": "Deze module is nog in ontwikkeling. Daarom is het mogelijk dat er nog fouten in zitten!",
-		"mapkit": "Door de beperkingen van Mapkit is het momenteel niet mogelijk om deze module te gebruiken als je het kaarttype `Mapkit` gebruikt.",
-		"settings": "Deze module heeft instellingen! Voel je vrij om het naar eigen smaak aan te passen."
-	}
+    "404": {
+        "general": {
+            "home": "Naar de startpagina"
+        },
+        "modules": {
+            "content": "Beste gebruiker,\n\nBedankt voor je intresse in de wiki pagina van {{module}}! Helaas bestaat er nog geen pagina voor deze pagina voor jouw taal {{lang}}. Indien je wilt helpen door deze pagina toe te voegen, voel je vrij om deze pagina toe te voegen op {{github}}! We adviseren om een kijkje te nemen bij de andere talen voor voorbeelden {{docs_dir}}.",
+            "languages": "Deze module heeft al een Wiki pagina in de volgende talen:",
+            "title": "Er bestaat nog geen pagina voor deze module"
+        }
+    },
+    "apps": "Apps",
+    "containers": {
+        "danger": "Gevaarlijk",
+        "tip": "Tip",
+        "warning": "Waarschuwing"
+    },
+    "description": "De Wiki voor LSS-Manager V.4",
+    "edit": "Bewerk pagina",
+    "footer": {
+        "contributors": "Contributors",
+        "edit": "Bewerk pagina",
+        "lastUpdated": "Laatst geüpdated"
+    },
+    "head": {
+        "alpha": "Deze module is nog in zijn absolute begin en is momenteel alleen beschikbaar voor Beta testers!",
+        "dev": "Deze module is nog in ontwikkeling. Daarom is het mogelijk dat er nog fouten in zitten!",
+        "mapkit": "Door de beperkingen van Mapkit is het momenteel niet mogelijk om deze module te gebruiken als je het kaarttype `Mapkit` gebruikt.",
+        "settings": "Deze module heeft instellingen! Voel je vrij om het naar eigen smaak aan te passen."
+    },
+    "moment": {
+        "shorts": {
+            "L": "Datum met nullen",
+            "LL": "Datum met maand als woord",
+            "LLL": "Datum met maand als woord en tijd",
+            "LLLL": "Volledige datum met tijd",
+            "LT": "Tijd",
+            "LTS": "Tijd met seconden",
+            "l": "Datum zonder nullen",
+            "ll": "Datum met korte maand als woord",
+            "lll": "Datum met korte maand als woord en tijd",
+            "llll": "Volledige datum in verkorte vorm met tijd"
+        },
+        "titles": {
+            "shorts": {
+                "description": "Beschrijving",
+                "example": "Voorbeeld",
+                "variable": "Korte vorm"
+            },
+            "variables": {
+                "Variable": "Variabele",
+                "ampm": "AM / PM",
+                "category": "Categorie",
+                "description": "Beschrijving",
+                "dom": "Dag (Maand)",
+                "dow": "Weekdag",
+                "doy": "Dag (Jaar)",
+                "hour": "Uur",
+                "minute": "Minuut",
+                "month": "Maand",
+                "output": "Uitkomst",
+                "quarter": "Kwartaal",
+                "second": "Seconde",
+                "week": "Kalenderweek",
+                "year": "Jaar"
+            }
+        },
+        "variables": {
+            "ampm": {
+                "A": "AM / PM",
+                "a": "am / pm"
+            },
+            "dom": {
+                "D": "Dag in maand",
+                "DD": "Dag in maand (met nullen)",
+                "Do": "Dag in maand (met punt)"
+            },
+            "dow": {
+                "d": "Weekdag (Getal [zondag is 0])",
+                "dd": "Weekdag (Naam, korte vorm)",
+                "ddd": "Weekdag (Naam, korte vorm met punt)",
+                "dddd": "Weekdag (Naam)",
+                "do": "Weekdag (Getal met punt [zondag is 0])"
+            },
+            "doy": {
+                "DDD": "Dag in jaar",
+                "DDDD": "Dag in jaar (met nullen)",
+                "DDDo": "Dag in jaar (met punt)"
+            },
+            "hour": {
+                "H": "Uur (24h)",
+                "HH": "Uur (24h, met nullen)",
+                "h": "Uur (12h)",
+                "hh": "Uur (12h, met nullen)"
+            },
+            "minute": {
+                "m": "Minuut",
+                "mm": "Minuut (met nullen)"
+            },
+            "month": {
+                "M": "Actuele maand (Getal)",
+                "MM": "Actuele maand (Getal met nullen)",
+                "MMM": "Actuele maand (Naam, Korte vorm)",
+                "MMMM": "Actuele maand (Naam)",
+                "Mo": "Actuele maand (Getal met punt)"
+            },
+            "order": [
+                "month",
+                "quarter",
+                "dom",
+                "doy",
+                "dow",
+                "week",
+                "year",
+                "ampm",
+                "hour",
+                "minute",
+                "second"
+            ],
+            "quarter": {
+                "Q": "Actueel kwartaal",
+                "Qo": "Actueel kwartaal (met punt)"
+            },
+            "second": {
+                "s": "Seconde",
+                "ss": "Seconde (met nullen)"
+            },
+            "week": {
+                "w": "Kalenderweek",
+                "wo": "Kalenderweek (met punt)",
+                "ww": "Kalenderweek (met nullen)"
+            },
+            "year": {
+                "YY": "Jaar (Twee getallen)",
+                "YYYY": "Jaar (Vier getallen)"
+            }
+        }
+    },
+    "pwa": {
+        "button": "Ververs",
+        "message": "Nieuwe content is beschikbaar."
+    },
+    "readme": {
+        "serverStatus": {
+            "game": "Spel status",
+            "lssm": "LSSM server status"
+        }
+    },
+    "search": "Zoek in Wiki",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "minimum versie"
+    },
+    "v3": {
+        "modules": {},
+        "tables": {
+            "annotations": "Notities",
+            "changes": "Wijzigingen",
+            "description": "Beschrijving",
+            "feature": "Functie",
+            "module": "Module",
+            "setting": "Instelling"
+        },
+        "v4annotations": {
+            "asyncButtons": "Deze module is nog in ontwikkeling, meer functies worden toegevoegd.",
+            "lssmaql": "Een experiment, nog steeds in een erg onstabiele alpha fase."
+        }
+    }
 }

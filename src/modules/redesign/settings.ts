@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Hidden, Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Hidden, Toggle } from 'typings/Setting';
 
 export default (() => ({
     'alliances': <Hidden>{
@@ -55,6 +55,14 @@ export default (() => ({
         default: false,
     },
     'category.toplist': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    'category.tasks': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    'category.messages': <Toggle>{
         type: 'toggle',
         default: true,
     },

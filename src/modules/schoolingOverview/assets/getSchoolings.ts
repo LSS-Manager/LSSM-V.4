@@ -1,5 +1,5 @@
-import { Schooling } from 'typings/Schooling';
-import {
+import type { Schooling } from 'typings/Schooling';
+import type {
     OpenSchoolings,
     OwnSchoolings,
 } from 'typings/modules/SchoolingOverview/main';
@@ -26,10 +26,7 @@ export default (
             ownSchoolings.amounts[name] = 0;
         ownSchoolings.amounts[name]++;
         const category =
-            name
-                ?.match(/^.*?-/)?.[0]
-                .replace('-', '')
-                .trim() || '';
+            name?.match(/^.*?-/u)?.[0].replace('-', '').trim() || '';
         const endNode = schooling.querySelector('td:nth-of-type(2)');
         const owner = schooling.querySelector('td:nth-of-type(3)');
         if (!endNode || !owner) return;
@@ -37,7 +34,7 @@ export default (
         if (!ownSchoolings.tabs.hasOwnProperty(category))
             ownSchoolings.tabs[category] = [];
         const element = {
-            id: btn.href.replace(/\D+/g, ''),
+            id: new URL(btn.href).pathname.replace(/\D+/gu, ''),
             name,
             end,
             owner: owner.innerHTML,
@@ -59,10 +56,7 @@ export default (
         if (!btn) return;
         const name = btn.textContent || '';
         const category =
-            name
-                ?.match(/^.*?-/)?.[0]
-                .replace('-', '')
-                .trim() || '';
+            name?.match(/^.*?-/u)?.[0].replace('-', '').trim() || '';
         if (!openSchoolings.amounts.hasOwnProperty(name))
             openSchoolings.amounts[name] = { amount: 0, seats: 0 };
         openSchoolings.amounts[name].amount++;
@@ -78,7 +72,7 @@ export default (
         if (!openSchoolings.tabs.hasOwnProperty(category))
             openSchoolings.tabs[category] = [];
         const element = {
-            id: btn.href.replace(/\D+/g, ''),
+            id: new URL(btn.href).pathname.replace(/\D+/gu, ''),
             name,
             seats,
             price,
@@ -91,9 +85,7 @@ export default (
 
     Object.values(
         Object.entries(
-            (LSSM.$t('schoolings') as unknown) as {
-                [category: string]: Schooling[];
-            }
+            LSSM.$t('schoolings') as unknown as Record<string, Schooling[]>
         ).flatMap(([cat, schoolings]) =>
             Object.values(schoolings).map(
                 ({ caption }) => `${cat} - ${caption}`

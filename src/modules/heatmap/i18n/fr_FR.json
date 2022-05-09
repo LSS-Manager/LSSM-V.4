@@ -1,0 +1,15 @@
+{
+    "buildings": "Bâtiments",
+    "enable": "activer",
+    "includes": {
+        "buildings": "Types de bâtiments",
+        "vehicles": "Types de véhicules"
+    },
+    "intensity": "augmentation de l'activité",
+    "livePreview": "Aperçu en direct (auto-save)",
+    "radius": "rayon",
+    "save": "Sauver",
+    "static": "le rayon en pixels ?",
+    "title": "Paramètres de la carte thermique",
+    "vehicles": "Véhicules"
+}

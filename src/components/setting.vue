@@ -13,8 +13,8 @@
         <span
             v-if="
                 description &&
-                    description !==
-                        `modules.${moduleId}.settings.${settingId}.description`
+                description !==
+                    `modules.${moduleId}.settings.${settingId}.description`
             "
             v-html="description"
         >
@@ -27,8 +27,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { SettingProps } from '../../typings/components/Setting';
-import {
+import type { SettingProps } from '../../typings/components/Setting';
+import type {
     DefaultComputed,
     DefaultData,
     DefaultMethods,
@@ -40,7 +40,7 @@ export default Vue.extend<
     DefaultComputed,
     SettingProps
 >({
-    name: 'setting',
+    name: 'lssmv4-setting',
     props: {
         moduleId: {
             type: String,

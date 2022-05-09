@@ -1,17 +1,19 @@
 import missionHelper from './missionHelper.vue';
-import { ModuleMainFunction } from 'typings/Module';
 
-export default (async LSSM => {
+import type { ModuleMainFunction } from 'typings/Module';
+
+export default (async ({ LSSM }) => {
     if (
-        !window.location.href.match(/\/missions\/\d+/) ||
+        !window.location.href.match(/\/missions\/\d+/u) ||
         document.querySelector('.missionNotFound')
     )
         return;
 
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
-    const missionForm = document.getElementById('mission-form');
-    missionForm?.insertBefore(clear, missionForm.childNodes[0]);
+    const missionForm =
+        document.querySelector<HTMLFormElement>('#mission-form');
+    missionForm?.before(clear);
 
     new LSSM.$vue({
         store: LSSM.$store,

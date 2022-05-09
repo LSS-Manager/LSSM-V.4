@@ -1,32 +1,40 @@
 {
-	"description": "Empêcher l'actualisation de la page quand vous appuyez sur certains boutons.",
-	"name": "Boutons asynchrones",
-	"settings": {
-		"buildingPersonal": {
-			"description": "Empêche le rechargement lorsque vous relâchez le personnel.",
-			"title": "Divulgation de données personnelles"
-		},
-		"buildingTax": {
-			"description": "Empêche l'actualisation quand vous changez le taux des cellules ou lits d'hôpitaux.",
-			"title": "Taux des cellules ou lits"
-		},
-		"deleteARR": {
-			"description": "Empêche l'actualisation quand vous supprimez une régulation.",
-			"title": "Suppression de régulation"
-		},
-		"deleteForumPost": {
-			"description": "Empêche l'actualisation quand vous supprimez un message sur le forum.",
-			"title": "Suppression de message sur le forum"
-		},
-		"memberlistManageUser": {
-			"description": "Empêche l'actualisation lors du kick d'un joueur ou l'actualisation de ses droits.",
-			"title": "Droits des membres d'alliance"
-		},
-		"missionPrisoners": {
-			"title": "Prisonniers dans la fenêtre de mission"
-		},
-		"missionReply": {
-			"title": "Transports dans une mission"
-		}
-	}
+    "description": "Empêcher l'actualisation de la page quand vous appuyez sur certains boutons.",
+    "name": "Boutons asynchrones",
+    "settings": {
+        "buildExtension": {
+            "description": "Empêche le rechargement lorsque vous construisez une extension.",
+            "title": "Construire des extensions"
+        },
+        "buildingPersonal": {
+            "description": "Empêche le rechargement lorsque vous résiliez le contrat d'une personne.",
+            "title": "Licenciement du personnel"
+        },
+        "buildingTax": {
+            "description": "Empêche le rechargement lorsque vous définissez le coût de tes propres cellules ou lits d'hôpital..",
+            "title": "Prise en charge des coûts des cellules et des lits"
+        },
+        "deleteARR": {
+            "description": "Empêche le rechargement lorsque vous supprimez une entrée RAI.",
+            "title": "Suppression d'entrées RAI"
+        },
+        "deleteForumPost": {
+            "description": "Empêche le rechargement lorsque vous supprimez un message du forum.",
+            "title": "Suppression des messages du forum"
+        },
+        "memberlistManageUser": {
+            "description": "Empêche le rechargement si vous virez un membre de l'alliance ou si vous éditez ses droits.",
+            "title": "Droits des membres de l'Alliance"
+        },
+        "missionPrisoners": {
+            "title": "Prisonniers dans la fenêtre des missions"
+        },
+        "missionReply": {
+            "title": "Transports dans une mission"
+        },
+        "switchExtensionState": {
+            "description": "Empêche le rechargement lorsque vous activez ou désactivez une extension.",
+            "title": "(Dés)activer les extensions"
+        }
+    }
 }

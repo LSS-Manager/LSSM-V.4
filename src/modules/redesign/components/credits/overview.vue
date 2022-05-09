@@ -6,7 +6,7 @@
             <enhanced-table
                 :head="head"
                 :table-attrs="{ class: 'table table-striped' }"
-                :no-search="true"
+                no-search
             >
                 <tr
                     v-for="(entry, id) in data.entries"
@@ -44,39 +44,36 @@ import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import moment from 'moment';
 
-import { CreditsOverviewWindow } from '../../parsers/credits/overview';
-// to seperate typings
+import type { CreditsOverviewWindow } from '../../parsers/credits/overview';
+// to separate typings
 // eslint-disable-next-line no-duplicate-imports
-import { Options } from 'highcharts';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import VueI18n, { TranslateResult } from 'vue-i18n';
+import type { Options } from 'highcharts';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 HighchartsMore(Highcharts);
 
 export default Vue.extend<
     {
         moment: typeof moment;
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort: true;
-            };
-        };
+            }
+        >;
         chartId: string;
     },
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     },
     {
@@ -84,28 +81,21 @@ export default Vue.extend<
     },
     {
         data: CreditsOverviewWindow;
-        lightbox: RedesignLightboxVue<
-            'credits/overview',
-            CreditsOverviewWindow
-        >;
+        lightbox: RedesignLightboxVue<'credits/overview'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
     }
 >({
-    name: 'credits-overview',
+    name: 'lssmv4-redesign-credits-overview',
     components: {
         EnhancedTable: () =>
             import(
@@ -128,30 +118,16 @@ export default Vue.extend<
             return Array(this.data.entries.length)
                 .fill('')
                 .map((_, index) =>
-                    moment()
-                        .utc()
-                        .subtract(index, 'days')
-                        .format('L')
+                    moment().utc().subtract(index, 'days').format('L')
                 )
                 .reverse();
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/overview.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/overview.${key}`, amount, args);
         },
     },
@@ -199,9 +175,10 @@ export default Vue.extend<
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<
+                    string,
+                    VueI18n.TranslateResult
+                >),
             },
         });
         Highcharts.chart(this.chartId, {

@@ -1,0 +1,7 @@
+{
+    "distance": {
+        "axis": "Entfernung (km)",
+        "series": "Zurückgelegte Entfernung"
+    },
+    "title": "Fahrzeugstatistik der letzten {n} Tage"
+}

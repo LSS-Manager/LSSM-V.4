@@ -1,45 +1,50 @@
 {
-	"buildingPersonal": {
-		"deleteModal": {
-			"btnCancel": "Annuleren",
-			"btnConfirm": "Verwijderen",
-			"text": "Wil je deze persoon verwijderen?",
-			"title": "Verwijderen?"
-		}
-	},
-	"deleteARR": {
-		"deleteModal": {
-			"btnCancel": "Annuleren",
-			"btnConfirm": "Verwijderen",
-			"text": "Wil je dit inzetvoorstel verwijderen?",
-			"title": "Verwijderen?"
-		}
-	},
-	"forumPost": {
-		"deleteModal": {
-			"btnCancel": "Annuleren",
-			"btnConfirm": "Verwijderen",
-			"text": "Wilt u deze post verwijderen?",
-			"title": "Verwijderen?"
-		}
-	},
-	"memberlistManageUser": {
-		"hide": "Sluiten",
-		"kickModal": {
-			"btnCancel": "Annuleren",
-			"btnConfirm": "Verwijderen",
-			"text": "Wil je de speler echt eruit schoppen?",
-			"title": "Uitschoppen?"
-		},
-		"set": "Selecteren",
-		"unset": "Ongedaan maken"
-	},
-	"memberlistRoles": {
-		"admin": "Team-Admin",
-		"aufsichtsrat": "Toezichthouder",
-		"coadmin": "Team-Co-Admin",
-		"finance": "Penningmeester",
-		"schooling": "Docent",
-		"sprechwunsch_admin": "Spraakaanvraag-Admin"
-	}
+    "buildingPersonal": {
+        "deleteModal": {
+            "btnCancel": "Annuleren",
+            "btnConfirm": "Verwijderen",
+            "text": "Wil je deze persoon verwijderen?",
+            "title": "Verwijderen?"
+        }
+    },
+    "buildings": {
+        "active": "Beschikbaar",
+        "nonactive": "Niet beschikbaar"
+    },
+    "deleteARR": {
+        "deleteModal": {
+            "btnCancel": "Annuleren",
+            "btnConfirm": "Verwijderen",
+            "text": "Wil je dit inzetvoorstel verwijderen?",
+            "title": "Verwijderen?"
+        }
+    },
+    "forumPost": {
+        "deleteModal": {
+            "btnCancel": "Annuleren",
+            "btnConfirm": "Verwijderen",
+            "text": "Wilt u deze post verwijderen?",
+            "title": "Verwijderen?"
+        }
+    },
+    "memberlistManageUser": {
+        "hide": "Sluiten",
+        "kickModal": {
+            "btnCancel": "Annuleren",
+            "btnConfirm": "Verwijderen",
+            "text": "Wil je de speler echt eruit schoppen?",
+            "title": "Uitschoppen?"
+        },
+        "set": "Selecteren",
+        "unset": "Ongedaan maken"
+    },
+    "memberlistRoles": {
+        "admin": "Team-Admin",
+        "aufsichtsrat": "Toezichthouder",
+        "coadmin": "Team-Co-Admin",
+        "finance": "Penningmeester",
+        "schooling": "Docent",
+        "sprechwunsch_admin": "Spraakaanvraag-Admin",
+        "staff": "Medewerker alliantie"
+    }
 }

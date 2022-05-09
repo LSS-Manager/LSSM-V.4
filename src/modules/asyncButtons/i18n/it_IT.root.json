@@ -1,28 +1,36 @@
 {
-	"description": "Evita con questo modulo, che il gioco venga ricaricato quando premi determinati pulsanti.",
-	"name": "Pulsanti asincroni",
-	"settings": {
-		"buildingTax": {
-			"description": "Impedisce la ricarica mentre imposti il costo delle tue celle o di letti d'ospedale.",
-			"title": "Assorbimento dei costi delle celle e dei posti letto"
-		},
-		"deleteARR": {
-			"description": "Impedisce la ricarca mentre cancelli le voci ARR",
-			"title": "Elimina voci ARR"
-		},
-		"deleteForumPost": {
-			"description": "Impedisce la ricarica quando cancelli un post sul forum.",
-			"title": "Elimina i post del forum"
-		},
-		"memberlistManageUser": {
-			"description": "Impedisce la ricarica, se stai espellendo o modificando i diritti dei membri dell'Alleanza",
-			"title": "Diritti dei membri dell'Alleanza"
-		},
-		"missionPrisoners": {
-			"title": "Prigionieri nella finestra della missione"
-		},
-		"missionReply": {
-			"title": "MissionReplys nella missione"
-		}
-	}
+    "description": "Evita con questo modulo, che il gioco venga ricaricato quando premi determinati pulsanti.",
+    "name": "Pulsanti asincroni",
+    "settings": {
+        "buildingPersonal": {
+            "description": "Impedisce di ricaricare quando si rilascia il personale.",
+            "title": "Rilascio di personale"
+        },
+        "buildingTax": {
+            "description": "Impedisce la ricarica mentre imposti il costo delle tue celle o di letti d'ospedale.",
+            "title": "Assorbimento dei costi delle celle e dei posti letto"
+        },
+        "deleteARR": {
+            "description": "Impedisce la ricarca mentre cancelli le voci ARR",
+            "title": "Elimina voci ARR"
+        },
+        "deleteForumPost": {
+            "description": "Impedisce la ricarica quando cancelli un post sul forum.",
+            "title": "Elimina i post del forum"
+        },
+        "memberlistManageUser": {
+            "description": "Impedisce la ricarica, se stai espellendo o modificando i diritti dei membri dell'Alleanza",
+            "title": "Diritti dei membri dell'Alleanza"
+        },
+        "missionPrisoners": {
+            "title": "Prigionieri nella finestra della missione"
+        },
+        "missionReply": {
+            "title": "MissionReplys nella missione"
+        },
+        "switchExtensionState": {
+            "description": "Impedisce il ricaricamento quando si imposta lo stato di un'estensione",
+            "title": "(De-)attivare l'estensione"
+        }
+    }
 }

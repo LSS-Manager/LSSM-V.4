@@ -1,0 +1,47 @@
+{
+    "alerts": {
+        "alliance_ignored": "{name} det er forbudt å søke i alliansen din!",
+        "friend": "{name} er på vennelisten din! 🥳",
+        "ignored": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!"
+    },
+    "alliance": "Allianse",
+    "awards": {
+        "bronze": "Bronse",
+        "gold": "Gull",
+        "max": "15",
+        "own": "Åpne medaljene dine",
+        "silver": "Sølv",
+        "title": "Medaljer",
+        "title_amounts": "{sum} av {max} medaljer"
+    },
+    "buildings": {
+        "amount": "{n} Byggninger"
+    },
+    "buttons": {
+        "alliance_ignore": {
+            "add": "Forby alliansesøknad",
+            "destroy": "Tillat alliansesøknad"
+        },
+        "avatar": "Rediger profilbilde",
+        "chat": {
+            "ban": "Utesteng fra alliansechat",
+            "unban": "Opphev utestengelsen fra alliansens chat"
+        },
+        "edit": "Rediger profil",
+        "friend": {
+            "do": "Legg til som venn",
+            "undo": "Fjern fra vennene dine"
+        },
+        "gift": "Send gave",
+        "ignore": {
+            "do": "Ignorer spilleren",
+            "undo": "Slutt å ignorere spilleren"
+        },
+        "message": "Send en melding"
+    },
+    "credits": "{credits} opptjente kreditter",
+    "map": "Kart",
+    "rank": "Nåværende rangering",
+    "registration": "Registreringsdato",
+    "text": "Profiltekst"
+}

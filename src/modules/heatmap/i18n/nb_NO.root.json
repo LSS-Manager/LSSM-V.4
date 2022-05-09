@@ -1,0 +1,16 @@
+{
+    "description": "Generer et varmekart på kartet som viser deg tettheten til bygninger eller kjøretøy – fullt tilpassbart.",
+    "name": "Varmekart",
+    "positions": {
+        "bottom-left": "Nederst Venstre 🡧",
+        "bottom-right": "Nederst Høyre 🡦",
+        "top-left": "Oppe Venstre 🡤",
+        "top-right": "Oppe Høyre 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Velg i hvilket hjørne av kartet knappen for innstillinger skal vises",
+            "title": "Plassering av innstillinger"
+        }
+    }
+}

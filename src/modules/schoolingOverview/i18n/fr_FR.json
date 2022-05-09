@@ -1,15 +1,15 @@
 {
-	"all": "Toute",
-	"amount": "Nombre de formation",
-	"open": "Ouvrir formation",
-	"own": "Formation avec participant",
-	"schooling": "Formation",
-	"seats": "Nombre de participants",
-	"titles": {
-		"end": "Temps restant",
-		"name": "Formation",
-		"owner": "Joueur",
-		"price": "Cout",
-		"seats": "Places libres"
-	}
+    "all": "Toutes",
+    "amount": "Nombre de formations",
+    "open": "Formation ouverte",
+    "own": "Formation en cours",
+    "schooling": "Formation",
+    "seats": "Places disponibles",
+    "titles": {
+        "end": "Temps restant",
+        "name": "Formation",
+        "owner": "Organisateur de la formation",
+        "price": "Coût",
+        "seats": "Places disponibles"
+    }
 }

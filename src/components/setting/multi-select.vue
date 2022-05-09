@@ -2,7 +2,7 @@
     <div class="form-horizontal">
         <v-select
             :placeholder="placeholder"
-            :multiple="true"
+            multiple
             v-model="updateValue"
             :options="filteredOptions"
             :disabled="disabled"
@@ -18,8 +18,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData, DefaultMethods } from 'vue/types/options';
-import {
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type {
     MultiSelectComputed,
     MultiSelectProps,
 } from 'typings/components/setting/MultiSelect';
@@ -70,22 +70,23 @@ export default Vue.extend<
             get() {
                 return !this.value.length && this.allOnNone
                     ? this.options
-                    : (this.value
-                          .map(v =>
-                              this.options.find(
-                                  o => o.value.toString() === v.toString()
+                    : (
+                          this.value
+                              .map(v =>
+                                  this.options.find(
+                                      o => o.value.toString() === v.toString()
+                                  )
                               )
-                          )
-                          .filter(
-                              v => !!v
-                          ) as MultiSelectComputed['updateValue']).sort(
-                          (a, b) =>
-                              a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                              .filter(
+                                  v => !!v
+                              ) as MultiSelectComputed['updateValue']
+                      ).sort((a, b) =>
+                          a.value > b.value ? 1 : a.value < b.value ? -1 : 0
                       );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            set(values: ({ label: string; value: string } | string)[]) {
+            set(values: (string | { label: string; value: string })[]) {
                 this.$emit(
                     'input',
                     !values.length && this.allOnNone
@@ -95,9 +96,22 @@ export default Vue.extend<
             },
         },
         filteredOptions() {
-            return this.options.filter(
-                o => !this.updateValue.find(v => v.value === o.value)
+            const filtered = this.options.filter(
+                o => !this.updateValue.some(v => v.value === o.value)
             );
+            return filtered.every(({ label }) => label.match(/^\d+/u))
+                ? filtered.sort((a, b) => {
+                      const aLabel = a.label.replace(
+                          /(?<=^\d+)-(?=\d+:)/u,
+                          ':'
+                      );
+                      const bLabel = b.label.replace(
+                          /(?<=^\d+)-(?=\d+:)/u,
+                          ':'
+                      );
+                      return aLabel > bLabel ? 1 : aLabel < bLabel ? -1 : 0;
+                  })
+                : filtered;
         },
     },
 });

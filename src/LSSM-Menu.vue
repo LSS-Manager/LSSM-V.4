@@ -6,12 +6,13 @@
             :id="menuId"
             role="button"
             data-toggle="dropdown"
-            :style="`background-color: ${iconBg}`"
+            :style="`background-color: ${
+                iconBgAsNavBg ? 'transparent' : iconBg
+            }`"
         >
             <span v-if="labelInMenu" class="label label-success">
                 LSSM V.4
             </span>
-            <!--suppress HtmlUnknownTarget -->
             <img
                 :src="lssmLogo"
                 alt="LSSM V.4"
@@ -22,7 +23,11 @@
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu" :aria-labelledby="menuId">
-            <li role="presentation" style="text-align: center;">
+            <li
+                role="presentation"
+                style="text-align: center"
+                :id="versionWrapperId"
+            >
                 <span class="label label-default">
                     {{ version }} [{{ mode }}]
                 </span>
@@ -51,20 +56,16 @@
                 :class="{ hidden: !menuItems.length }"
             ></li>
             <li role="presentation">
-                <a :href="discord" target="_blank">
-                    Discord
-                </a>
+                <a :href="discord" target="_blank">Discord</a>
             </li>
             <li role="presentation">
-                <a class="lightbox-open" :href="wiki">
-                    Wiki
-                </a>
+                <a class="lightbox-open" :href="wiki">Wiki</a>
             </li>
-            <li role="presentation">
+            <!-- <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
                     LSSM-Server Status
                 </a>
-            </li>
+            </li> -->
             <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
@@ -72,6 +73,12 @@
             </li>
             <li role="presentation">
                 <label>
+                    <button
+                        @click="resetIconBg"
+                        class="pull-right btn btn-xs btn-default"
+                    >
+                        Reset
+                    </button>
                     Icon
                     <input
                         type="color"
@@ -90,15 +97,14 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
-import LibraryOverview from './components/libraryOverview.vue';
-import lssmLogo from './img/lssm_logo';
+import lssmLogo from './img/lssm.png';
 
-import { DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type {
     lssmMenuComputed,
     lssmMenuData,
     lssmMenuMethods,
-} from '../typings/LSSM-Menu';
+} from 'typings/LSSM-Menu';
 
 const draw = (img: HTMLImageElement) => {
     const canvas = document.createElement('canvas');
@@ -185,7 +191,7 @@ export default Vue.extend<
             iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
             iconBgAsNavBg: false,
             labelInMenu: false,
-            lssmLogo,
+            lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
             discord: this.$store.state.discord,
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,
@@ -199,6 +205,10 @@ export default Vue.extend<
                 navbar: null,
                 aborted: false,
             },
+            versionWrapperId: this.$store.getters.nodeAttribute(
+                'menu_version-wrapper',
+                true
+            ),
         };
     },
     computed: {
@@ -207,7 +217,7 @@ export default Vue.extend<
     directives: {
         child: {
             inserted(el, dir) {
-                el.appendChild(dir.value);
+                el.append(dir.value);
             },
         },
     },
@@ -215,6 +225,16 @@ export default Vue.extend<
         showAppstore() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
+            const closeWarningText = this.$t(
+                'modules.appstore.closeWarning.text'
+            ).toString();
+            const unloadListener = (event: BeforeUnloadEvent) => {
+                if (!this.$store.state.appstore.changes) return;
+                event.preventDefault();
+                event.returnValue = closeWarningText;
+                return closeWarningText;
+            };
+            window.addEventListener('beforeunload', unloadListener);
             this.$modal.show(
                 () =>
                     import(
@@ -227,7 +247,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function(event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel(): void }) {
                         if (!LSSM.$store.state.appstore.changes) {
                             if (LSSM.$store.state.appstore.reload) {
                                 event.cancel();
@@ -240,16 +260,20 @@ export default Vue.extend<
                             title: LSSM.$t(
                                 'modules.appstore.closeWarning.title'
                             ),
-                            text: LSSM.$t('modules.appstore.closeWarning.text'),
+                            text: closeWarningText,
                             buttons: [
                                 {
                                     title: LSSM.$t(
                                         'modules.appstore.closeWarning.saveAndExit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$appstore.save();
+                                        (
+                                            window[PREFIX] as Vue
+                                        ).$appstore.save();
+                                        window.removeEventListener(
+                                            'beforeunload',
+                                            unloadListener
+                                        );
                                         LSSM.$modal.hide('appstore');
                                     },
                                 },
@@ -258,9 +282,13 @@ export default Vue.extend<
                                         'modules.appstore.closeWarning.exit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$appstore.reset();
+                                        (
+                                            window[PREFIX] as Vue
+                                        ).$appstore.reset();
+                                        window.removeEventListener(
+                                            'beforeunload',
+                                            unloadListener
+                                        );
                                         LSSM.$modal.hide('appstore');
                                         LSSM.$modal.hide('dialog');
                                     },
@@ -270,6 +298,9 @@ export default Vue.extend<
                                         'modules.appstore.closeWarning.abort'
                                     ),
                                     default: true,
+                                    handler() {
+                                        LSSM.$modal.hide('dialog');
+                                    },
                                 },
                             ],
                         });
@@ -280,6 +311,16 @@ export default Vue.extend<
         showSettings() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
+            const closeWarningText = this.$t(
+                'modules.settings.closeWarning.text'
+            ).toString();
+            const unloadListener = (event: BeforeUnloadEvent) => {
+                if (!this.$store.state.settings.changes) return;
+                event.preventDefault();
+                event.returnValue = closeWarningText;
+                return closeWarningText;
+            };
+            window.addEventListener('beforeunload', unloadListener);
             LSSM.$modal.show(
                 () =>
                     import(
@@ -292,7 +333,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function(event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel(): void }) {
                         if (!LSSM.$store.state.settings.changes) {
                             if (LSSM.$store.state.settings.reload) {
                                 event.cancel();
@@ -305,7 +346,7 @@ export default Vue.extend<
                             title: LSSM.$t(
                                 'modules.settings.closeWarning.title'
                             ),
-                            text: LSSM.$t('modules.settings.closeWarning.text'),
+                            text: closeWarningText,
                             buttons: [
                                 {
                                     title: LSSM.$t(
@@ -314,9 +355,13 @@ export default Vue.extend<
                                     handler() {
                                         (window[PREFIX] as Vue).$settings
                                             .save()
-                                            .then(() =>
-                                                LSSM.$modal.hide('settings')
-                                            );
+                                            .then(() => {
+                                                window.removeEventListener(
+                                                    'beforeunload',
+                                                    unloadListener
+                                                );
+                                                LSSM.$modal.hide('settings');
+                                            });
                                     },
                                 },
                                 {
@@ -324,9 +369,13 @@ export default Vue.extend<
                                         'modules.settings.closeWarning.exit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$settings.discard();
+                                        (
+                                            window[PREFIX] as Vue
+                                        ).$settings.discard();
+                                        window.removeEventListener(
+                                            'beforeunload',
+                                            unloadListener
+                                        );
                                         LSSM.$modal.hide('dialog');
                                         LSSM.$modal.hide('settings');
                                     },
@@ -336,6 +385,9 @@ export default Vue.extend<
                                         'modules.settings.closeWarning.abort'
                                     ),
                                     default: true,
+                                    handler() {
+                                        LSSM.$modal.hide('dialog');
+                                    },
                                 },
                             ],
                         });
@@ -345,7 +397,10 @@ export default Vue.extend<
         },
         showLibraries() {
             this.$modal.show(
-                LibraryOverview,
+                () =>
+                    import(
+                        /* webpackChunkName: "components/libraryOverview" */ './components/libraryOverview.vue'
+                    ),
                 {},
                 {
                     name: 'libraryOverview',
@@ -394,6 +449,10 @@ export default Vue.extend<
                 `url("${dataURL}")`
             );
         },
+        resetIconBg() {
+            this.iconBg = this.$store.state.policechief ? '#004997' : '#C9302C';
+            this.storeIconBg();
+        },
     },
     beforeMount() {
         this.iconBg = null;
@@ -406,7 +465,8 @@ export default Vue.extend<
                 this.iconBgAsNavBg = iconBgAsNavBg;
 
                 if (iconBgAsNavBg) {
-                    this.navbg.navbar = document.getElementById('main_navbar');
+                    this.navbg.navbar =
+                        document.querySelector<HTMLElement>('#main_navbar');
                     const bgImg = this.navbg.navbar
                         ? window.getComputedStyle(this.navbg.navbar)
                               .backgroundImage
@@ -419,10 +479,8 @@ export default Vue.extend<
                         const context = draw(img);
                         if (!context) return;
                         const colors = getColors(context);
-                        const mainColor = Object.entries(
-                            colors
-                        ).sort(([, a], [, b]) =>
-                            a < b ? 1 : a > b ? -1 : 0
+                        const mainColor = Object.entries(colors).sort(
+                            ([, a], [, b]) => (a < b ? 1 : a > b ? -1 : 0)
                         )?.[0]?.[0];
                         if (!mainColor) return (this.navbg.aborted = true);
                         const r = parseInt(mainColor.slice(0, 2), 16);
@@ -448,23 +506,75 @@ export default Vue.extend<
                         this.navbg.svg.append(image);
                         this.setNavbarBG(iconBg);
                     });
-                    img.src = bgImg.replace(/^url\("|"\)$/g, '');
+                    img.src = bgImg.replace(/^url\("|"\)$/gu, '');
                 }
+            });
+    },
+    mounted() {
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'global',
+                settingId: 'v3MenuAsSubmenu',
+                default: false,
+            })
+            .then(v3MenuAsSubmenu => {
+                if (!v3MenuAsSubmenu) return;
+
+                const v3Dropdown =
+                    document.querySelector<HTMLLIElement>('#lssm_dropdown');
+                const versionWrapper = this.$el.querySelector<HTMLLIElement>(
+                    `#${this.versionWrapperId}`
+                );
+                if (!v3Dropdown || !versionWrapper) return;
+
+                const divider = document.createElement('li');
+                divider.classList.add('divider');
+                divider.setAttribute('role', 'presentation');
+
+                versionWrapper.after(divider, v3Dropdown);
+
+                const v3MenuSwitch =
+                    v3Dropdown.querySelector<HTMLAnchorElement>(
+                        '#lssm_menu_switch'
+                    );
+                if (v3MenuSwitch) {
+                    v3MenuSwitch.querySelector('b.caret')?.remove();
+                    const v3Label = v3MenuSwitch.querySelector(
+                        '.label.label-success'
+                    );
+                    if (v3Label) v3Label.textContent = 'LSS-Manager V.3';
+                    const submenuIcon = document.createElement('i');
+                    submenuIcon.classList.add('fas', 'fa-angle-double-left');
+                    submenuIcon.style.setProperty('margin-right', '1rem');
+                    v3MenuSwitch.prepend(submenuIcon);
+                }
+                const v3Menu =
+                    v3Dropdown.querySelector<HTMLUListElement>('#lssm_menu');
+                if (!v3Menu) return;
+                v3Menu.classList.add(
+                    'dropdown-submenu',
+                    'dropdown-submenu-left'
+                );
             });
     },
 });
 </script>
 
 <style lang="sass">
-#main_navbar
-    .navbar-right
-        display: flex
-        align-items: center
+@media (min-width: 768px)
+    #main_navbar
+        .navbar-right
+            display: flex
+            align-items: center
 
-        .navbar-form,
-        .navbar-form input
-            margin: 0
+            .navbar-form,
+            .navbar-form input
+                margin: 0
+@media (max-width: 768px)
+    #main_navbar #map_adress_search_form
+        margin-right: 0
 </style>
+
 <style scoped lang="sass">
 #main_navbar .navbar-right #lssmv4-indicator
     #lssmv4-indicator_menu
@@ -474,7 +584,28 @@ export default Vue.extend<
             height: 30.5px !important
             width: unset
 
-    .dropdown-menu label
-        padding: 3px 20px
-        font-weight: unset
+    .dropdown-menu[aria-labelledby="lssmv4-indicator_menu"]
+        label
+            padding: 3px 20px
+            font-weight: unset
+
+        a:focus
+            background-color: rgba(0, 0, 0, 0.3)
+            outline: none
+
+        ::v-deep li
+            position: relative
+
+            .dropdown-submenu
+                display: none
+                position: absolute
+                left: 100%
+                top: -7px
+
+                &.dropdown-submenu-left
+                    right: 100%
+                    left: auto
+
+            &:hover > .dropdown-submenu
+                display: block
 </style>

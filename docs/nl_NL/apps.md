@@ -1,5 +1,5 @@
 ---
-title: ℹ️ Algemeen
+title: ℹ️ Algemene infomatie over modules
 lang: nl_NL
 sidebarDepth: 2
 ---
@@ -12,30 +12,25 @@ Als u suggesties voor verbetering heeft, kunt u deze zoals altijd naar ons opstu
 
 :::danger Modules die niet werken in Mapkit
 Zoals beschreven in de uitleg van de [Appstore](appstore.md), zijn er modules die helaas niet compatibel zijn met het kaarttype `Mapkit`. Dit zijn de volgende modules:
-<ul>
-    <li v-for="module in $themeConfig.variables.noMapkitModules.nl_NL" :key="module.title">
-        <router-link :to="module.f">
-            {{ module.title }}
-        </router-link>
-    </li>
-</ul>
+
+<mapkit-modules settings-text="And these settings"/>
 :::
 
-:::warning modules V3 en V4
-Voor de modules die in beide versie zijn geïmplementeerd is het aan te raden om maar 1 versie te gebruiken. Hieronder welke module en instelling van versie 4 overeenkomt met een module uit versie 3. 
+## LSSM V.3 vs. LSSM V.4
 
-|                  V4 module                  |       V4 instelling      |            V3 module            |
-| :-----------------------------------------: | :----------------------: | :-----------------------------: |
-|          Uitgebreid meldingsvenster         |   Inzetvoorsteltellers   |          AUR-klik-teller        |
-|          Uitgebreid meldingsvenster         |      Generatietijd       |  Begintijd meldingen weergeven  |
-|               Notificaties                  |                          |         Browsermeldingen        |
-|                Dashboard                    |                          |            Dashboard            |
-|                  Klok                       |  Toon klok als overlay   |              Klok               |
-|              Inzethelper                    |                          |          Meldinghelper          |
-|               Overzicht                     |                          |            Overzicht            |
-|               Dashboard                     | Tabblad: Statusoverzicht |          Statustellers          |
-|         Uitgebreid meldingsvenster          |     Meldingstrefwoord    |    Steekwoorden bij meldingen   |
-|         Uitgebreide gebouwweergave          |                          |     Uitgebreide Bouwweergave    |
-|                 User-ID                     |                          |             User-ID             |
-|           Korte gebouwinformatie            |                          |   Voertuigstatus bij gebouwen   |
-:::
+Hieronder hebben we een lijst van de features van V.3 op een rijtje gezet en waar je ze in V.4 kunt vinden.
+In principe willen we alle functies van V.3 in de loop van de tijd in V.4 integreren!
+
+<v3-v4-comparison-integrated/>
+
+### Modules only in V3
+
+These Modules will be integrated into V4, but it will still take some time to integrate them.
+
+<v3-v4-comparison-v3only/>
+
+### New Modules in V4
+
+These Modules are new in V4.
+
+<v3-v4-comparison-new/>

@@ -35,13 +35,9 @@
                     <div class="btn-group" v-if="profile.can_alliance_ignore">
                         <button
                             class="btn btn-xs"
-                            :class="
-                                `btn-${
-                                    profile.alliance_ignored
-                                        ? 'warning'
-                                        : 'danger'
-                                }`
-                            "
+                            :class="`btn-${
+                                profile.alliance_ignored ? 'warning' : 'danger'
+                            }`"
                             :title="
                                 lightbox.$sm(
                                     `buttons.alliance_ignore.${
@@ -68,9 +64,7 @@
                             <ul class="dropdown-menu">
                                 <li v-for="time in profile.ban" :key="time">
                                     <a
-                                        :href="
-                                            `/profile/${profile.id}/chatban/${time}`
-                                        "
+                                        :href="`/profile/${profile.id}/chatban/${time}`"
                                     >
                                         {{
                                             moment
@@ -93,18 +87,14 @@
                     <div class="btn-group" v-if="!profile.self">
                         <a
                             class="btn btn-xs"
-                            :class="
-                                `btn-${profile.ignored ? 'warning' : 'danger'}`
-                            "
-                            :href="
-                                `/ignoriert/${
-                                    profile.ignored
-                                        ? 'entfernen'
-                                        : 'hinzufuegen'
-                                }/${profile.id}?user=${encodeURIComponent(
-                                    profile.id
-                                )}`
-                            "
+                            :class="`btn-${
+                                profile.ignored ? 'warning' : 'danger'
+                            }`"
+                            :href="`/ignoriert/${
+                                profile.ignored ? 'entfernen' : 'hinzufuegen'
+                            }/${profile.id}?user=${encodeURIComponent(
+                                profile.id
+                            )}`"
                             :title="
                                 lightbox.$sm(
                                     `buttons.ignore.${
@@ -120,16 +110,14 @@
                         <a
                             v-if="!profile.ignored"
                             class="btn btn-xs"
-                            :class="
-                                `btn-${profile.friend ? 'danger' : 'success'}`
-                            "
-                            :href="
-                                `/freunde/${
-                                    profile.friend ? 'entfernen' : 'hinzufuegen'
-                                }/${profile.id}?user=${encodeURIComponent(
-                                    profile.id
-                                )}`
-                            "
+                            :class="`btn-${
+                                profile.friend ? 'danger' : 'success'
+                            }`"
+                            :href="`/freunde/${
+                                profile.friend ? 'entfernen' : 'hinzufuegen'
+                            }/${profile.id}?user=${encodeURIComponent(
+                                profile.id
+                            )}`"
                             :title="
                                 lightbox.$sm(
                                     `buttons.friend.${
@@ -152,11 +140,9 @@
                         <a
                             class="btn btn-success btn-xs"
                             lightbox-open
-                            :href="
-                                `/messages/new?target=${encodeURIComponent(
-                                    profile.name
-                                )}`
-                            "
+                            :href="`/messages/new?target=${encodeURIComponent(
+                                profile.name
+                            )}`"
                             :title="lightbox.$sm('buttons.message')"
                         >
                             <font-awesome-icon
@@ -166,11 +152,9 @@
                         <a
                             class="btn btn-success btn-xs"
                             lightbox-open
-                            :href="
-                                `/coins?gift_for_user=${encodeURIComponent(
-                                    profile.id
-                                )}`
-                            "
+                            :href="`/coins?gift_for_user=${encodeURIComponent(
+                                profile.id
+                            )}`"
                             :title="lightbox.$sm('buttons.gift')"
                         >
                             <font-awesome-icon
@@ -214,8 +198,34 @@
                         <a :href="`/alliances/${profile.alliance.id}`">
                             {{ profile.alliance.name }}
                         </a>
+                        <ul
+                            v-if="
+                                allianceUser &&
+                                (allianceUser.roles.length ||
+                                    allianceUser.caption)
+                            "
+                            class="alliance-roles"
+                        >
+                            <li v-for="role in allianceUser.roles" :key="role">
+                                {{ role }}
+                            </li>
+                            <li v-if="allianceUser.caption">
+                                <span class="label label-default">
+                                    {{ allianceUser.caption }}
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <a
+                    v-if="profile.self"
+                    href="/auszeichnungen"
+                    lightbox-open
+                    class="btn btn-default btn-xs pull-right"
+                >
+                    {{ lightbox.$sm('awards.own') }}
+                </a>
+                <div class="clearfix"></div>
                 <img
                     v-if="profile.image"
                     :src="profile.image"
@@ -251,13 +261,11 @@
                             >
                                 <span
                                     class="label"
-                                    :class="
-                                        `label-${
-                                            hiddenFilters.includes(type)
-                                                ? 'danger'
-                                                : 'success'
-                                        }`
-                                    "
+                                    :class="`label-${
+                                        hiddenFilters.includes(type)
+                                            ? 'danger'
+                                            : 'success'
+                                    }`"
                                     v-if="buildings[0].buildingTypes.sum[type]"
                                     @click="toggleFilter(type)"
                                     @dblclick="onlyFilter(type)"
@@ -298,13 +306,11 @@
                             >
                                 <span
                                     class="label"
-                                    :class="
-                                        `label-${
-                                            hiddenFilters.includes(type)
-                                                ? 'danger'
-                                                : 'success'
-                                        }`
-                                    "
+                                    :class="`label-${
+                                        hiddenFilters.includes(type)
+                                            ? 'danger'
+                                            : 'success'
+                                    }`"
                                     v-if="buildings[0].buildingTypes.sum[type]"
                                     @click="toggleFilter(type)"
                                     @dblclick="onlyFilter(type)"
@@ -391,7 +397,7 @@
                                 class="panel-body"
                                 v-if="
                                     expandedDispatches.includes(dc.id) &&
-                                        dc.buildingTypes
+                                    dc.buildingTypes
                                 "
                             >
                                 <div class="dispatchcenter-summary">
@@ -471,9 +477,7 @@
                                                     :alt="building.name"
                                                 />
                                                 <a
-                                                    :href="
-                                                        `/buildings/${building.id}`
-                                                    "
+                                                    :href="`/buildings/${building.id}`"
                                                 >
                                                     {{
                                                         he.decode(building.name)
@@ -559,34 +563,35 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import moment from 'moment';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { InternalBuilding } from 'typings/Building';
-import { LayerGroup } from 'leaflet';
-import { MapVue } from 'typings/components/LeafletMap';
-// to seperate typings
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { InternalBuilding } from 'typings/Building';
+import type { LayerGroup } from 'leaflet';
+import type { MapVue } from 'typings/components/LeafletMap';
+// to separate typings
 // eslint-disable-next-line no-duplicate-imports
-import { PlotGaugeOptions } from 'highcharts';
-import { ProfileWindow } from '../parsers/profile';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { TranslateResult } from 'vue-i18n';
+import type { PlotGaugeOptions } from 'highcharts';
+import type { ProfileWindow } from '../parsers/profile';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { TranslateResult } from 'vue-i18n';
+import type { AllianceInfo, User } from 'typings/api/AllianceInfo';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
 
-type DispatchCenter = {
-    [id: number]: Partial<ProfileWindow['buildings'][0]> & {
+type DispatchCenter = Record<
+    number,
+    Partial<ProfileWindow['buildings'][0]> & {
         buildings: ProfileWindow['buildings'];
         buildingTypes: {
             [type: number]: number;
-            sum?: { [type: number]: number };
+            sum?: Record<number, number>;
         };
-    };
-};
+    }
+>;
 
 type Component = RedesignComponent<
     'profile',
     'profile',
-    ProfileWindow,
     {
         moment: typeof moment;
         he: typeof he;
@@ -601,16 +606,15 @@ type Component = RedesignComponent<
         faUnlock: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
-        buildingTypes: {
-            [type: number]: InternalBuilding;
-        };
+        buildingTypes: Record<number, InternalBuilding>;
         buildingTypesSorted: number[];
-        mapLayerGroups: { [id: number]: LayerGroup };
+        mapLayerGroups: Record<number, LayerGroup>;
         buildingMarkerIds: number[];
         expandedDispatches: number[];
         search: string;
         hiddenFilters: number[];
         show_map: boolean;
+        allianceUser: User | undefined;
     },
     {
         allianceIgnore(): void;
@@ -635,7 +639,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'profile',
+    name: 'lssmv4-redesign-profile',
     components: {
         LeafletMap: () =>
             import(
@@ -644,9 +648,10 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
-        const buildingTypes = this.$t('buildings') as {
-            [type: number]: InternalBuilding;
-        };
+        const buildingTypes = this.$t('buildings') as unknown as Record<
+            number,
+            InternalBuilding
+        >;
         return {
             moment,
             he,
@@ -685,6 +690,7 @@ export default Vue.extend<
             search: '',
             hiddenFilters: [],
             show_map: false,
+            allianceUser: undefined,
         };
     },
     methods: {
@@ -760,7 +766,7 @@ export default Vue.extend<
                         ? 'policechief'
                         : 'missionchief'
                 }`
-            ) as { [credits: number]: string };
+            ) as Record<number, string>;
             return (
                 Object.entries(ranks)
                     .reverse()
@@ -776,9 +782,9 @@ export default Vue.extend<
                 gold: 0,
             };
             this.profile.awards.forEach(({ image }) => {
-                if (image.match(/award_bronze/)) colors.bronze++;
-                else if (image.match(/award_silver/)) colors.silver++;
-                else if (image.match(/award_gold/)) colors.gold++;
+                if (image.match(/award_bronze/u)) colors.bronze++;
+                else if (image.match(/award_silver/u)) colors.silver++;
+                else if (image.match(/award_gold/u)) colors.gold++;
             });
             return colors;
         },
@@ -791,7 +797,7 @@ export default Vue.extend<
                     if (!this.buildingMarkerIds.includes(building.id)) {
                         const img = document.createElement('img');
                         img.src = building.icon;
-                        img.onload = () =>
+                        img.addEventListener('load', () =>
                             this.mapLayerGroups[
                                 building.building_type
                             ].addLayer(
@@ -814,7 +820,8 @@ export default Vue.extend<
                                             `/buildings/${building.id}`
                                         )
                                     )
-                            );
+                            )
+                        );
                         this.buildingMarkerIds.push(building.id);
                     }
                     if (dispatchCenters[0].buildingTypes.sum) {
@@ -873,10 +880,9 @@ export default Vue.extend<
             return dispatchCenters;
         },
         dispatchCentersSorted() {
-            return Object.values(
-                this.buildings
-            ).sort(({ name: a }, { name: b }) =>
-                (a ?? '') < (b ?? '') ? -1 : (a ?? '') > (b ?? '') ? 1 : 0
+            return Object.values(this.buildings).sort(
+                ({ name: a }, { name: b }) =>
+                    (a ?? '') < (b ?? '') ? -1 : (a ?? '') > (b ?? '') ? 1 : 0
             );
         },
     },
@@ -927,14 +933,21 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
+        this.$store
+            .dispatch('api/registerAllianceinfoUsage', {
+                feature: 'redesign-profile',
+            })
+            .then((allianceinfo: AllianceInfo) => {
+                this.allianceUser = allianceinfo.users.find(
+                    ({ id }) => id === this.profile.id
+                );
+            });
         this.maxAwards = parseInt(this.lightbox.$sm('awards.max').toString());
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as {
-                    [key: string]: TranslateResult;
-                }),
+                ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
         Highcharts.chart(this.awardsChartId, {
@@ -1077,6 +1090,13 @@ export default Vue.extend<
             min-width: 90%
             display: block
             margin: auto
+
+        .alliance-roles
+            list-style: none
+            margin-bottom: 0
+
+            li
+                list-style: none
 
     .profile-tabs
         width: 100%

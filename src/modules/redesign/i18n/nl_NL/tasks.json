@@ -1,0 +1,17 @@
+{
+    "all": "Alle",
+    "claim": "Claim",
+    "claimAll": "Alles claimen ({amount})",
+    "collectionTasks": {
+        "taskName": "Maak \\d+ \"(.*?)\" evenementopdrachten af",
+        "title": "Verzamel taken"
+    },
+    "confirmation": {
+        "cancel": "Annuleren",
+        "confirm": "Bevestigen",
+        "title": "Let op:"
+    },
+    "end": "Einde",
+    "nextTask": "Na het claimen van deze taak, zal er een nieuwe taak komen!",
+    "title": "Taken en evenementen"
+}

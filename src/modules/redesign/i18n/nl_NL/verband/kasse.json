@@ -1,0 +1,27 @@
+{
+    "disabled": "De teamkas is in dit team gedeactiveerd.",
+    "earnings": {
+        "credits": "Credits",
+        "daily": "Dagelijks",
+        "monthly": "Maandelijks",
+        "sum": "Totaal",
+        "title": "Donatie inkomsten",
+        "user": "Speler"
+    },
+    "spendings": {
+        "credits": "Credits",
+        "date": "Datum",
+        "desc": "Beschrijving",
+        "loadMore": "Volgende 10 transacties laden",
+        "title": "Uitgaven",
+        "user": "Speler"
+    },
+    "summary": {
+        "rate": "Donatiepercentage aan het team",
+        "title": "Teamkas"
+    },
+    "toggle": {
+        "disable": "Teamkas deactiveren",
+        "enable": "Teamkas activeren"
+    }
+}

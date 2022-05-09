@@ -33,7 +33,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= toplist.lastPage ||
-                    toplist.lastPage === Number.MAX_SAFE_INTEGER
+                toplist.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -64,11 +64,9 @@
                 <td>{{ entry.credits.toLocaleString() }}</td>
                 <td>
                     <img
-                        :src="
-                            `/images/user_${
-                                entry.online ? 'green' : 'gray'
-                            }.png`
-                        "
+                        :src="`/images/user_${
+                            entry.online ? 'green' : 'gray'
+                        }.png`"
                         alt=""
                     />
                     <a :href="`/profile/${entry.id}`">
@@ -91,23 +89,23 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { TopListWindow } from '../parsers/toplist';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { TopListWindow } from '../parsers/toplist';
 
 type Component = RedesignComponent<
     'toplist',
     'toplist',
-    TopListWindow,
     {
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         startPage: number;
         endPage: number;
     },
@@ -132,7 +130,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'toplist',
+    name: 'lssmv4-redesign-toplist',
     components: {
         EnhancedTable: () =>
             import(
@@ -185,6 +183,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -223,6 +225,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,

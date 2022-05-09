@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "actuel",
+        "title": "Banque de l'alliance",
+        "total": "total",
+        "updateNote": "Actualisé toutes les 5 minutes."
+    },
+    "coins": {
+        "list": "Journal"
+    },
+    "credits": {
+        "daily": "Résumé du jour",
+        "overview": "Aperçu"
+    },
+    "description": "Affiche des informations utiles sur les pièces et les crédits dans la barre de navigation sous forme de menu déroulant.",
+    "name": "Extension des crédits",
+    "nextRank": "Rang Suivant:",
+    "nextRankMissing": "restant",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Dès que vous avez atteint l'une des valeurs de crédits définies ici, le bouton devient vert en permanence - jusqu'à ce que vous ouvrez une fois le menu de l'extension de crédits.",
+            "title": "Objectifs"
+        },
+        "coinsInNavbar": {
+            "description": "Affiche la valeur actuelle des coins à la place de la tirelire dans la barre de navigation.",
+            "title": "Des coins au lieu d'une tirelire"
+        },
+        "creditsInNavbar": {
+            "description": "Affiche la valeur actuelle des crédits à la place de la tirelire dans la barre de navigation.",
+            "title": "Des crédits au lieu d'une tirelire"
+        },
+        "highlightSales": {
+            "description": "Surligne les pièces en vert si des soldes est disponible",
+            "title": "Mettre en évidence les soldes"
+        },
+        "showSales": {
+            "description": "Affiche les soldes de pièces lorsqu'elles sont disponibles.",
+            "title": "Affiche les soldes"
+        },
+        "showToplistPosition": {
+            "description": "Affiche la position actuelle dans le classement de l'extension de crédit.",
+            "title": "Position dans le classement dans l'extension de crédit"
+        }
+    },
+    "toplistPositionName": "Position dans le classement",
+    "totalEarnedCredits": "Total des crédits gagnés"
+}

@@ -1,0 +1,40 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "Automatique",
+                    "no": "Non",
+                    "phase": "1 Jour | {n} Jours"
+                },
+                "inConstruction": "{n} en construction",
+                "table": {
+                    "head": {
+                        "beds": "Lits",
+                        "cells": "Cellules",
+                        "classrooms": "Salles de formation",
+                        "hiring": "Phase de recrutement",
+                        "level": "Niveau",
+                        "name": "Nom",
+                        "staff": "Personnel (cible du personnel)",
+                        "vehicles": "Véhicules"
+                    }
+                },
+                "title": "bâtiments rattachés"
+            },
+            "title": "Aperçu"
+        },
+        "settings": {
+            "abort": "Annuler",
+            "buildings": "bâtiments rattachés",
+            "icon": "Icon",
+            "iconHelp": "choisir entre les icônes standard et les icônes des bâtiments rattachés",
+            "location": "Emplacement",
+            "name": "Nom",
+            "save": "Sauvegader",
+            "showMarkers": "Afficher les bâtiments rattachés sur la carte ?",
+            "title": "Modifier le complexe"
+        }
+    }
+}

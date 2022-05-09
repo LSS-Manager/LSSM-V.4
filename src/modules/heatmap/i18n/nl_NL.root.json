@@ -1,0 +1,16 @@
+{
+    "description": "Genereert een heatmap op de kaart die de dichtheid van de gebouwen of voertuigen toont, volledig aanpasbaar.",
+    "name": "Heatmap",
+    "positions": {
+        "bottom-left": "Linksonder 🡧",
+        "bottom-right": "Rechtsonder 🡦",
+        "top-left": "Linksboven 🡤",
+        "top-right": "Rechtsboven 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Selecteer in welke hoek van de kaart de knop voor de instellingen getoond moet worden",
+            "title": "Positie van instellingen"
+        }
+    }
+}

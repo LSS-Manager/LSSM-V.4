@@ -1,16 +1,87 @@
 {
-	"description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
-	"name": "Hotkeys",
-	"settings": {
-		"nextElementKey": {
-			"title": "Next \"Element\""
-		},
-		"prevElementKey": {
-			"title": "Previous \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Think of a cool description here",
-			"title": "prevNextElement"
-		}
-	}
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "åpne søknader",
+                "buildings": "åpne alliansebygningsoversikten",
+                "forum": "åpne forum",
+                "funds": "åpne alliansekapital vinduet",
+                "logfiles": "åpne loggfiler",
+                "members": "åpne medlemsoversikt",
+                "messages": "åpne meldinger",
+                "onlineMembers": "åpne medlemsliste(vis kun påloggede)",
+                "open": "åpne alliansevindu",
+                "schoolings": "åpne utdannings vinduet",
+                "title": "Allianse"
+            },
+            "credits": {
+                "daily": "åpne daglig oppsummering",
+                "open": "åpne logg",
+                "overview": "se oversikt fra siste 7 dager",
+                "title": "Kreditter"
+            },
+            "help": "Åpne denne menyen",
+            "profile": {
+                "awards": "åpne medaljeoversikt",
+                "level": "åpne graderingsoversikt",
+                "notes": "åpne notater",
+                "open": "åpne egen profil",
+                "title": "Profil"
+            },
+            "protocol": "åpne logg i nødsentral",
+            "tasks": {
+                "open": "åpne oversikt over oppgaver og hendelser",
+                "title": "oppgaver og hendelser"
+            },
+            "title": "Generell"
+        },
+        "main": {
+            "chat": {
+                "focus": "fokus på input feltet",
+                "title": "Chat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Meny",
+                    "toggle": "Åpne lukke"
+                },
+                "title": "LSS Manager"
+            },
+            "map": {
+                "search": {
+                    "focus": "fokus på input feltet",
+                    "title": "Adressesøk"
+                },
+                "title": "Kart"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "fokus på input feltet",
+                    "title": "Søk"
+                },
+                "title": "Oppdragsliste"
+            },
+            "title": "Hovedvindu"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Utalarmer og gå til neste oppdrag",
+                "alert_share_next": "Utalarmer, del og gå til neste oppdrag",
+                "next": "neste oppdrag",
+                "prev": "forrige oppdrag",
+                "title": "Sorterte oppdrag"
+            },
+            "title": "Oppdragsvindu"
+        }
+    },
+    "description": "Styr spillet med hurtigtaster som du kan sette selv.",
+    "name": "Hurtigtaster",
+    "settings": {
+        "command": "Handling",
+        "hotkey": "Hurtigtast",
+        "hotkeys": {
+            "description": "Sett egne hurtigtaster, handlinger fra kategorien \"Generell\" er tilgjengelig overalt i spillet. Trykk F1, for en oversikt over tilgjengelige hurtigtaster.",
+            "title": "Hurtigtaster"
+        }
+    }
 }

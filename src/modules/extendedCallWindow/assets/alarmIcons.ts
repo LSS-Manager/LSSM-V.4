@@ -2,14 +2,17 @@ export default (
     LSSM: Vue,
     icons: {
         icon: string;
-        type: 'fas' | 'far' | 'fab';
+        type: 'fab' | 'far' | 'fas';
         vehicleTypes: (number | string)[];
     }[]
 ): void => {
     LSSM.$store.commit('useFontAwesome');
 
-    const alarmBtn = document.getElementById('mission_alarm_btn');
-    const vehicleList = document.getElementById('vehicle_show_table_all');
+    const alarmBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_alarm_btn');
+    const vehicleList = document.querySelector<HTMLTableElement>(
+        '#vehicle_show_table_all'
+    );
     if (!alarmBtn || !vehicleList) return;
 
     alarmBtn.insertAdjacentHTML('afterbegin', '&nbsp;');
@@ -29,9 +32,9 @@ export default (
         );
         vehicles.forEach(v => {
             const type = v.getAttribute('vehicle_type_id');
-            const type_name = v.parentElement?.parentElement?.getAttribute(
+            const type_name = `${type}-${v.parentElement?.parentElement?.getAttribute(
                 'vehicle_type'
-            );
+            )}`;
             ([type, type_name].filter(t => !!t) as string[]).forEach(vType =>
                 icons
                     .filter(icon =>

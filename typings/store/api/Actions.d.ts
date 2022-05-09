@@ -1,5 +1,5 @@
-import { ActionContext } from 'vuex';
-import { APIState } from './State';
-import { RootState } from '../RootState';
+import type { ActionContext } from 'vuex';
+import type { APIState } from './State';
+import type { RootState } from '../RootState';
 
 export type APIActionStoreParams = ActionContext<APIState, RootState>;

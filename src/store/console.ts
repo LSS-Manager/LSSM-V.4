@@ -1,17 +1,18 @@
 /* eslint-disable no-console */
-import { ConsoleActionStoreParams } from '../../typings/store/console/Actions';
-import { RootState } from '../../typings/store/RootState';
-import { ActionTree, Module } from 'vuex';
+import type { ConsoleActionStoreParams } from '../../typings/store/console/Actions';
+import type { RootState } from '../../typings/store/RootState';
+import type { ActionTree, Module } from 'vuex';
 
 export default {
     namespaced: true,
     getters: {
-        prefixed: (_s, _g, rootState) => (params: unknown[]) => [
-            `%cLSSM V.${rootState.version}%c:`,
-            'font-weight: bold;',
-            'font-weight: normal;',
-            ...params,
-        ],
+        prefixed: (_s, _g, rootState) => (params: unknown[]) =>
+            [
+                `%cLSSM V.${rootState.version}%c:`,
+                'font-weight: bold;',
+                'font-weight: normal;',
+                ...params,
+            ],
     },
     actions: {
         warn({ getters }: ConsoleActionStoreParams, params: unknown[]) {

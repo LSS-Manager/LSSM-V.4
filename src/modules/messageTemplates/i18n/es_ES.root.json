@@ -1,13 +1,19 @@
 {
-	"description": "Escriba sus propias plantillas para mensajes en conversaciones privadas.",
-	"name": "Plantillas de mensajes",
-	"settings": {
-		"name": "Nombre",
-		"subject": "Sujeto",
-		"template": "Plantillas (variables (ver wiki): {{username}}, {{today[+n]}})",
-		"templates": {
-			"description": "Las variables están disponibles para las plantillas. Por favor, eche un vistazo a nuestro <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
-			"title": "Plantillas"
-		}
-	}
+    "description": "Escriba sus propias plantillas para mensajes en conversaciones privadas y en el chat.",
+    "name": "Plantillas de mensajes",
+    "settings": {
+        "chatTemplates": {
+            "description": "Mensaje para el chat de la alianza",
+            "name": "Nombre",
+            "text": "Mensaje",
+            "title": "Chat de mensajes"
+        },
+        "templates": {
+            "description": "Las variables están disponibles para las plantillas. Por favor, eche un vistazo a nuestro <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "name": "Nombre",
+            "subject": "Sujeto",
+            "template": "Plantillas (variables (ver wiki): {{username}}, {{today[+n]}})",
+            "title": "Plantillas"
+        }
+    }
 }

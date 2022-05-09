@@ -1,0 +1,56 @@
+{
+    "amount": "{n} joueur filtré | {n} joueurs filtrés",
+    "credits": "Crédits obtenus",
+    "discount": "Remise",
+    "edit_caption": {
+        "save": "Enregistrer"
+    },
+    "load": {
+        "next": "Page suivante",
+        "prev": "Page précédente"
+    },
+    "name": "Nom",
+    "online": {
+        "subtitle": "Seuls les membres en ligne sont affichés !",
+        "titles": {
+            "blue": "{user} est hors ligne et a été en ligne dans les 30 derniers jours !",
+            "gray": "{user} est hors ligne et a été en ligne dans les 7 derniers jours !",
+            "green": "{user} est en ligne !",
+            "red": "{user} est hors ligne depuis plus de 60 jours !",
+            "yellow": "{user} est hors ligne et a été en ligne dans les 60 derniers jours !"
+        },
+        "toggle": {
+            "false": "Afficher uniquement les joueurs en ligne",
+            "true": "Afficher tous les membres (également hors ligne)"
+        }
+    },
+    "rights": {
+        "admin": "Administrateur de l’alliance",
+        "aufsichtsrat": "Journal de modération",
+        "coadmin": "Coadministrateur de l’alliance",
+        "edit": "Modifier les droits",
+        "finance": "Trésorier de l’alliance",
+        "hide": "Fermer",
+        "kick": {
+            "btn": "Expulser"
+        },
+        "kickModal": {
+            "btnCancel": "Annuler",
+            "btnConfirm": "Expluser",
+            "text": "Voulez-vous vraiment exclure le joueur **{user}** de l'Alliance ?",
+            "title": "Exclusion"
+        },
+        "schooling": "Formateur de l’alliance",
+        "set": "Attribuer le rôle {role}",
+        "sprechwunsch_admin": "Gérer les transports",
+        "staff": "Staff de l’alliance",
+        "unset": "Retirer le rôle {role}"
+    },
+    "roles": "Rôle(s)",
+    "search_global": "Recherche globale",
+    "search_local": "Rechercher dans la page",
+    "search_subtitle": "Afficher {n} joueurs de {startPage} à {endPage} de {totalPages} pages",
+    "subtitle": "Afficher {n} joueurs de {startPage} ({firstCredits}) à {endPage} ({lastCredits}) de {totalPages} pages",
+    "tax": "Taux",
+    "title": "Membres"
+}

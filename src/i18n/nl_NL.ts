@@ -1,18 +1,15 @@
-import { Building } from 'typings/Building';
+import type { Building } from '../../typings/Building';
 
-const furtherFiles = require.context('./nl_NL/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Opslaan',
         reset: 'Reset',
         noMapkit:
             'Deze module werkt niet met de Mapkit kaart door de beperkingen van Mapkit!',
-        dev:
-            'Deze module is nog in ontwikkeling. Activeren kan leiden tot incomplete en niet werkende functies!',
+        dev: 'Deze module is nog in ontwikkeling. Activeren kan leiden tot incomplete en niet werkende functies!',
         closeWarning: {
             title: 'Niet opgeslagen wijzigingen',
-            text:
-                'Je hebt aanpassingen gedaan in de AppStore die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de AppStore te sluiten.',
+            text: 'Je hebt aanpassingen gedaan in de AppStore die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de AppStore te sluiten.',
             abort: 'Annuleren',
             saveAndExit: 'Opslaan en sluiten',
             exit: 'Sluiten zonder op te slaan',
@@ -25,25 +22,29 @@ const modules = {
         reset: 'Reset',
         export: 'Exporteer',
         import: 'Importeer',
+        appendableList: {
+            unique: {
+                title: 'Dubbele waarde',
+                text: 'Er mag geen dubbele waarde zijn in de **{title}** kolom. De waarde **{value}** bestaat al!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset de instellingen',
-            text:
-                'Weet je zeker dat je de instellingen wilt reseten naar de standaard waarden? Dit kan niet ongedaan gemaakt worden!',
+            text: 'Weet je zeker dat je de instellingen wilt reseten naar de standaard waarden? Dit kan niet ongedaan gemaakt worden!',
             close: 'Annuleren',
             total: 'Alle instellingen',
             module: 'Alleen van de module <b>{module}</b>',
         },
         resetWarningSetting: {
             title: 'Reset instelling',
-            text:
-                'Wil je echt de instelling <b>{setting}</b> van de module <b>{module}</b> terugzetten naar de standaard instellingen?',
+            text: 'Wil je echt de instelling <b>{setting}</b> van de module <b>{module}</b> terugzetten naar de standaard instellingen?',
             close: 'Annuleren',
             reset: 'Resetten',
         },
         closeWarning: {
             title: 'Niet opgeslagen wijzigingen',
-            text:
-                'Je hebt aanpassingen gedaan die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de instellingen te sluiten',
+            text: 'Je hebt aanpassingen gedaan die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de instellingen te sluiten',
             abort: 'Annuleren',
             saveAndExit: 'Opslaan en sluiten',
             exit: 'Sluiten zonder op te slaan',
@@ -52,33 +53,47 @@ const modules = {
             true: 'Aan',
             false: 'Uit',
         },
+        locationSelect: {
+            location: 'Selecteer positie',
+            zoom: 'Selecteer positie en zoom',
+            sync: 'Gebruik huidige positie',
+        },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
-
-const t = {} as { [key: string]: unknown };
-
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
+        msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
+        requestIssue: {
+            title: 'Foutief serververzoek: Status {status}',
+            text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
+<b>Statuscode</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Functie</b>: <code>{feature}</code><br>
+<b>Duur</b>: <code>{duration}ms</code><br>
+<b>Gebruiker</b>: <code>{uid}</code><br>
+<b>Tijdstip</b>: <code>{timestamp}</code>
+<br>
+Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
+Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
+            close: 'Mededeling sluiten',
+        },
     },
     warnings: {
         version: {
             title: 'Verkeerde LSS Manager versie',
-            text:
-                'Beste gebruiker, helaas moeten we vaststellen dat je niet de laatste versie van LSS Manager gebruikt. De nieuwste versie is {version}, maar je gebruikt {curver}. Herlaad het spel zonder cache (met Ctrl + F5, op Apple apparaten command + R), dit zou de fout moeten oplossen. Als de fout blijft bestaand, meld het dan aan het LSS Manager team! Als je de verkeerde versie gebruikt, kunnen we niet de volledige functionaliteit garanderen van de LSS-Manager.',
+            text: 'Beste gebruiker, helaas moeten we vaststellen dat je niet de laatste versie van LSS Manager gebruikt. De nieuwste versie is {version}, maar je gebruikt {curver}. Herlaad het spel zonder cache (met Ctrl + F5, op Apple apparaten command + R), dit zou de fout moeten oplossen. Als de fout blijft bestaand, meld het dan aan het LSS Manager team! Als je de verkeerde versie gebruikt, kunnen we niet de volledige functionaliteit garanderen van de LSS-Manager.',
             close: 'Sluit melding en herlaad het spel (aanbevolen)',
             abort: 'Sluit melding zonder te herladen',
         },
+    },
+    anniversary1: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+        title: '🎉 There is reason to celebrate! 🎉',
+        content:
+            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Algemene instellingen',
@@ -101,10 +116,25 @@ export default {
                 'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
             title: 'Kleur menubalk',
         },
+        loadingIndicator: {
+            description:
+                'Als deze instelling actief is, dan toont LSSM een kleine laadcirkel in de rechterbeneden hoek als LSSM nog aan het laden is.',
+            title: 'Toon laad voortgang',
+        },
         osmDarkTooltip: {
             description:
-                'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt',
+                'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt.',
             title: 'Donkere tooltips op de kaart',
+        },
+        osmDarkControls: {
+            description:
+                'Deze instelling zorgt dat er donkere knoppen op de kaart getoond worden als je een donker thema van het spel gebruikt.',
+            title: 'Donkere knoppen op de kaart',
+        },
+        v3MenuAsSubmenu: {
+            title: 'V3 menu als submenu',
+            description:
+                'Verplaatst het menu van LSSM V3 van de menubalk naar een knop in het menu van V4.',
         },
     },
     vehicles: {
@@ -113,20 +143,22 @@ export default {
             color: '#cc0000',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 500,
             icon: 'shuttle-van',
+            possibleBuildings: [0, 17],
         },
         1: {
             caption: 'TS 8/9',
             color: '#990000',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         2: {
             caption: 'Autoladder',
@@ -137,6 +169,7 @@ export default {
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         3: {
             caption: 'DA - Officier van Dienst',
@@ -147,6 +180,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 6 brandweerposten.',
             icon: 'car-side',
+            possibleBuildings: [0, 17],
         },
         4: {
             caption: 'Hulpverleningsvoertuig',
@@ -157,6 +191,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 4 brandweerposten.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         5: {
             caption: 'Adembeschermingsvoertuig',
@@ -167,46 +202,51 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 5 brandweerposten.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         6: {
             caption: 'TST 8/9',
             color: '#880000',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 3000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         7: {
             caption: 'TST 6/7',
             color: '#9c1c1c',
             minPersonnel: 1,
             maxPersonnel: 7,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 3000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         8: {
             caption: 'TST 4/5',
             color: '#d92626',
             minPersonnel: 1,
             maxPersonnel: 5,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         9: {
             caption: 'TS 4/5',
             color: '#bb0000',
             minPersonnel: 1,
             maxPersonnel: 5,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 1500,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         10: {
             caption: 'Slangenwagen',
@@ -218,6 +258,7 @@ export default {
             special:
                 'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         11: {
             caption: 'Verkenningseenheid Brandweer',
@@ -226,59 +267,70 @@ export default {
             maxPersonnel: 4,
             credits: 18_300,
             coins: 25,
-            schooling: 'Brandweer - Verkenningseenheid Brandweer',
-            shownSchooling: 'VEB',
+            schooling: {
+                Brandweer: {
+                    'Verkenningseenheid Brandweer': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Benodigd vanaf 10 brandweerposten.',
             icon: 'shuttle-van',
+            possibleBuildings: [0, 17],
         },
         12: {
             caption: 'TST-NB 8/9',
             color: '#770000',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         14: {
             caption: 'TST-NB 6/7',
             color: '#aa0000',
             minPersonnel: 1,
             maxPersonnel: 7,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         15: {
             caption: 'TST-NB 4/5',
             color: '#d02525',
             minPersonnel: 1,
             maxPersonnel: 5,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         16: {
             caption: 'Ambulance',
             color: '#f59f00',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             icon: 'ambulance',
+            possibleBuildings: [3, 13],
         },
         17: {
             caption: 'TS 6/7',
             color: '#ad1f1f',
             minPersonnel: 1,
             maxPersonnel: 7,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         18: {
             caption: 'Hoogwerker',
@@ -289,6 +341,7 @@ export default {
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         19: {
             caption: 'DA - Hoofdofficier van Dienst',
@@ -297,37 +350,46 @@ export default {
             maxPersonnel: 1,
             credits: 25_500,
             coins: 25,
-            schooling: 'Brandweer - Hoofd Officier van Dienst - Brandweer',
-            shownSchooling: 'HOvD-B',
+            schooling: {
+                Brandweer: {
+                    'Hoofd Officier van Dienst - Brandweer': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Benodigd vanaf 13 brandweerposten.',
             icon: 'car-side',
+            possibleBuildings: [0, 17],
         },
         20: {
             caption: 'DA',
             color: '#ca1616',
             minPersonnel: 1,
             maxPersonnel: 4,
-            credits: 2_000,
+            credits: 2000,
             coins: 10,
             icon: 'car-side',
+            possibleBuildings: [0, 17],
         },
         21: {
             caption: 'DB Klein',
             color: '#cc2222',
             minPersonnel: 1,
             maxPersonnel: 9,
-            credits: 2_500,
+            credits: 2500,
             coins: 12,
             icon: 'shuttle-van',
+            possibleBuildings: [0, 17],
         },
         22: {
             caption: 'DA Noodhulp',
             color: '#001bcc',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             icon: 'car-side',
+            possibleBuildings: [5, 18],
         },
         23: {
             caption: 'Lifeliner',
@@ -336,11 +398,17 @@ export default {
             maxPersonnel: 4,
             credits: 500_000,
             coins: 30,
-            schooling: 'Ambulance - MMT-Bemanningslid',
-            shownSchooling: 'MMT-Bemanningslid',
+            schooling: {
+                Ambulance: {
+                    'MMT-Bemanningslid': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Per 25 gebouwen (alle gebouwen) kan één Lifeliner gekocht worden',
             icon: 'helicopter',
+            possibleBuildings: [6],
         },
         24: {
             caption: 'DA - Adviseur Gevaarlijke stoffen',
@@ -349,40 +417,54 @@ export default {
             maxPersonnel: 2,
             credits: 19_200,
             coins: 25,
-            schooling: 'Brandweer - Adviseur Gevaarlijke Stoffen',
-            shownSchooling: 'AGS',
+            schooling: {
+                Brandweer: {
+                    'Adviseur Gevaarlijke Stoffen': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Benodigd vanaf 11 brandweerposten.',
             icon: 'car-side',
+            possibleBuildings: [0, 17],
         },
         25: {
             caption: 'DB Noodhulp',
             color: '#142ab8',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 6_000,
+            credits: 6000,
             coins: 25,
             icon: 'shuttle-van',
+            possibleBuildings: [5, 18],
         },
         26: {
             caption: 'Haakarmvoertuig',
             color: '#bb2222',
             minPersonnel: 1,
             maxPersonnel: 3,
-            credits: 5_000,
+            credits: 5000,
             coins: 12,
-            schooling: 'Brandweer - Brandweerchauffeur-zwaar',
-            shownSchooling: 'Brandweerchauffeur-zwaar',
+            schooling: {
+                Brandweer: {
+                    'Brandweerchauffeur-zwaar': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-pickup',
+            possibleBuildings: [0, 17],
         },
         27: {
             caption: 'Adembeschermingshaakarmbak',
             color: '#552222',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
+            possibleBuildings: [0, 17],
         },
         28: {
             caption: 'Politiehelikopter',
@@ -391,29 +473,37 @@ export default {
             maxPersonnel: 3,
             credits: 300_000,
             coins: 30,
-            schooling: 'Politie - Politiehelikopter',
-            shownSchooling: 'Politiehelikopter',
+            schooling: {
+                Politie: {
+                    Politiehelikopter: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'helicopter',
+            possibleBuildings: [9],
         },
         29: {
             caption: 'Watertankhaakarmbak',
             color: '#332222',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
-            wtank: 10000,
+            wtank: 10_000,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
+            possibleBuildings: [0, 17],
         },
         30: {
             caption: 'Zorgambulance',
             color: '#ffb61a',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 5_000,
+            credits: 5000,
             coins: 25,
             icon: 'ambulance',
+            possibleBuildings: [3, 13],
         },
         31: {
             caption: 'Commandovoertuig',
@@ -422,20 +512,27 @@ export default {
             maxPersonnel: 3,
             credits: 27_500,
             coins: 25,
-            schooling: 'Brandweer - Brandweerchauffeur-zwaar',
-            shownSchooling: 'Brandweerchauffeur-zwaar',
+            schooling: {
+                Brandweer: {
+                    'Brandweerchauffeur-zwaar': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Benodigd vanaf 14 brandweerposten.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         32: {
             caption: 'Commandohaakarmbak',
             color: '#442222',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
+            possibleBuildings: [0, 17],
         },
         33: {
             caption: 'Waterongevallenvoertuig',
@@ -444,9 +541,15 @@ export default {
             maxPersonnel: 6,
             credits: 10_000,
             coins: 25,
-            schooling: 'Brandweer - Duiker/Duikploegleider',
-            shownSchooling: 'Duiker/Duikploegleider',
+            schooling: {
+                Brandweer: {
+                    'Duiker/Duikploegleider': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [0, 17],
         },
         34: {
             caption: 'Watertankwagen',
@@ -455,9 +558,10 @@ export default {
             maxPersonnel: 3,
             credits: 17_000,
             coins: 25,
-            wtank: 15000,
+            wtank: 15_000,
             special: 'Benodigd vanaf 7 brandweerposten.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         35: {
             caption: 'Officier van Dienst - Politie',
@@ -466,20 +570,27 @@ export default {
             maxPersonnel: 1,
             credits: 10_000,
             coins: 25,
-            schooling: 'Politie - Officier van Dienst - Politie',
-            shownSchooling: 'Officier van Dienst - Politie',
+            schooling: {
+                Politie: {
+                    'Officier van Dienst - Politie': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [11],
         },
         36: {
             caption: 'Waterongevallenaanhanger',
             color: '#288f28',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 9_000,
+            credits: 9000,
             coins: 12,
             special:
                 'TS, TST, TST-NB, WO, HV, DB-K, SL, VEB, PM-OR of TS-OR benodigd',
             icon: 'trailer',
+            possibleBuildings: [0, 17],
         },
         37: {
             caption: 'MMT-Auto',
@@ -488,11 +599,17 @@ export default {
             maxPersonnel: 4,
             credits: 30_000,
             coins: 12,
-            schooling: 'Ambulance - MMT-Bemanningslid',
-            shownSchooling: 'MMT-Bemanningslid',
+            schooling: {
+                Ambulance: {
+                    'MMT-Bemanningslid': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één MMT-Auto gekocht worden',
             icon: 'car-side',
+            possibleBuildings: [6],
         },
         38: {
             caption: 'Officier van Dienst - Geneeskunde',
@@ -501,10 +618,16 @@ export default {
             maxPersonnel: 1,
             credits: 25_000,
             coins: 25,
-            schooling: 'Ambulance - Officier van Dienst Geneeskunde',
-            shownSchooling: 'Officier van Dienst Geneeskunde',
+            schooling: {
+                Ambulance: {
+                    'Officier van Dienst Geneeskunde': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Benodigd vanaf de 8 gebouwen en/of uitbreiding',
             icon: 'car-side',
+            possibleBuildings: [3, 6, 13],
         },
         39: {
             caption: 'ME Commandovoertuig',
@@ -513,9 +636,15 @@ export default {
             maxPersonnel: 4,
             credits: 10_000,
             coins: 25,
-            schooling: 'Politie - Mobiele Eenheid',
-            shownSchooling: 'Mobiele Eenheid',
+            schooling: {
+                Politie: {
+                    'Mobiele Eenheid': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11],
         },
         40: {
             caption: 'ME Flexbus',
@@ -524,9 +653,15 @@ export default {
             maxPersonnel: 8,
             credits: 10_000,
             coins: 25,
-            schooling: 'Politie - Mobiele Eenheid',
-            shownSchooling: 'Mobiele Eenheid',
+            schooling: {
+                Politie: {
+                    'Mobiele Eenheid': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11],
         },
         41: {
             caption: 'Crashtender (8x8)',
@@ -535,10 +670,17 @@ export default {
             maxPersonnel: 3,
             credits: 60_000,
             coins: 25,
-            wtank: 13300,
-            schooling: 'Brandweer - Vliegtuigbrandbestrijding',
-            shownSchooling: 'Vliegtuigbrandbestrijding',
+            wtank: 13_300,
+            ftank: 1600,
+            schooling: {
+                Brandweer: {
+                    Vliegtuigbrandbestrijding: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         42: {
             caption: 'Crashtender (6x6)',
@@ -547,10 +689,17 @@ export default {
             maxPersonnel: 3,
             credits: 40_000,
             coins: 25,
-            wtank: 10000,
-            schooling: 'Brandweer - Vliegtuigbrandbestrijding',
-            shownSchooling: 'Vliegtuigbrandbestrijding',
+            wtank: 10_000,
+            ftank: 1300,
+            schooling: {
+                Brandweer: {
+                    Vliegtuigbrandbestrijding: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         43: {
             caption: 'Crashtender (4x4)',
@@ -560,9 +709,16 @@ export default {
             credits: 15_000,
             coins: 25,
             wtank: 6000,
-            schooling: 'Brandweer - Vliegtuigbrandbestrijding',
-            shownSchooling: 'Vliegtuigbrandbestrijding',
+            ftank: 500,
+            schooling: {
+                Brandweer: {
+                    Vliegtuigbrandbestrijding: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         44: {
             caption: 'Airport Fire Officer / On Scene Commander',
@@ -571,40 +727,54 @@ export default {
             maxPersonnel: 2,
             credits: 12_000,
             coins: 25,
-            schooling: 'Brandweer - Airport Fire Officer / On Scene Commander',
-            shownSchooling: 'Airport Fire Officer / On Scene Commander',
+            schooling: {
+                Brandweer: {
+                    'Airport Fire Officer / On Scene Commander': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [0, 17],
         },
         45: {
             caption: 'Dompelpomphaakarmbak',
             color: '#681212',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special:
                 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
             icon: 'square',
+            possibleBuildings: [0, 17],
         },
         46: {
             caption: 'DM Noodhulp',
             color: '#0008e7',
             minPersonnel: 1,
             maxPersonnel: 1,
-            credits: 2_500,
+            credits: 2500,
             coins: 18,
             icon: 'motorcycle',
+            possibleBuildings: [5, 18],
         },
         47: {
             caption: 'DA Hondengeleider',
             color: '#0d0d73',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 8_000,
+            credits: 8000,
             coins: 25,
-            schooling: 'Politie - Hondengeleider',
-            shownSchooling: 'Hondengeleider',
+            schooling: {
+                Politie: {
+                    Hondengeleider: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [11],
         },
         48: {
             caption: 'DB Hondengeleider',
@@ -613,9 +783,15 @@ export default {
             maxPersonnel: 2,
             credits: 10_000,
             coins: 25,
-            schooling: 'Politie - Hondengeleider',
-            shownSchooling: 'Hondengeleider',
+            schooling: {
+                Politie: {
+                    Hondengeleider: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11],
         },
         49: {
             caption: 'PM-OR | Materieelvoertuig - Oppervlakteredding',
@@ -624,9 +800,15 @@ export default {
             maxPersonnel: 9,
             credits: 10_000,
             coins: 25,
-            schooling: 'Brandweer - Oppervlakteredder',
-            shownSchooling: 'Oppervlakteredder',
+            schooling: {
+                Brandweer: {
+                    Oppervlakteredder: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         50: {
             caption: 'TS-OR | Tankautospuit - Oppervlakteredding',
@@ -636,28 +818,36 @@ export default {
             credits: 10_000,
             coins: 25,
             wtank: 2000,
-            schooling: 'Brandweer - Oppervlakteredder',
-            shownSchooling: 'Oppervlakteredder',
+            schooling: {
+                Brandweer: {
+                    Oppervlakteredder: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         51: {
             caption: 'HulpverleningsHaakarmbak',
             color: '#440000',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
+            possibleBuildings: [0, 17],
         },
         52: {
             caption: 'Rapid Responder',
             color: '#b16b00',
             minPersonnel: 1,
             maxPersonnel: 1,
-            credits: 2_500,
+            credits: 2500,
             coins: 18,
             icon: 'car-side',
+            possibleBuildings: [3, 13],
         },
         53: {
             caption: 'AT-Commandant',
@@ -666,9 +856,15 @@ export default {
             maxPersonnel: 2,
             credits: 10_000,
             coins: 25,
-            schooling: 'Politie - Operator AT',
-            shownSchooling: 'Operator AT',
+            schooling: {
+                Politie: {
+                    'Operator AT': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [11],
         },
         54: {
             caption: 'AT-Operator',
@@ -677,9 +873,15 @@ export default {
             maxPersonnel: 4,
             credits: 10_000,
             coins: 25,
-            schooling: 'Politie - Operator AT',
-            shownSchooling: 'Operator AT',
+            schooling: {
+                Politie: {
+                    'Operator AT': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [11],
         },
         55: {
             caption: 'AT-Materiaalwagen',
@@ -688,9 +890,15 @@ export default {
             maxPersonnel: 2,
             credits: 15_000,
             coins: 25,
-            schooling: 'Politie - Operator AT',
-            shownSchooling: 'Operator AT',
+            schooling: {
+                Politie: {
+                    'Operator AT': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11],
         },
         56: {
             caption: 'DA Voorlichter',
@@ -699,10 +907,16 @@ export default {
             maxPersonnel: 1,
             credits: 15_000,
             coins: 25,
-            schooling: 'Brandweer - Voorlichter',
-            shownSchooling: 'Voorlichter',
+            schooling: {
+                Brandweer: {
+                    Voorlichter: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Benodigd vanaf 14 brandweerposten.',
             icon: 'car-side',
+            possibleBuildings: [0, 17],
         },
         57: {
             caption: 'DA Officier van Dienst - Geneeskundig / Rapid Responder',
@@ -711,53 +925,68 @@ export default {
             maxPersonnel: 1,
             credits: 25_000,
             coins: 25,
-            schooling: 'Ambulance - Officier van Dienst Geneeskunde',
-            shownSchooling: 'Officier van Dienst Geneeskunde',
+            schooling: {
+                Ambulance: {
+                    'Officier van Dienst Geneeskunde': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één OVDG-RR gekocht worden',
             icon: 'car-side',
+            possibleBuildings: [3, 6, 13],
         },
         58: {
             caption: 'DB Arrestantenvervoer',
             color: '#0B21F7',
-            minPersonnel: 2,
+            minPersonnel: 1,
             maxPersonnel: 2,
             credits: 20_000,
             coins: 25,
             special:
                 'Dit voertuig kan 5 arrestanten tegelijk vervoeren vanaf een melding',
             icon: 'shuttle-van',
+            possibleBuildings: [11],
         },
         59: {
             caption: 'Noodhulp - Onopvallend',
             color: '#0A20F7',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 6_000,
+            credits: 6000,
             coins: 25,
             icon: 'car-side',
+            possibleBuildings: [5, 18],
         },
         60: {
             caption: 'DB Biketeam',
             color: '#091FF7',
             minPersonnel: 1,
             maxPersonnel: 2,
-            credits: 8_000,
+            credits: 8000,
             coins: 25,
-            schooling: 'Politie - Biketeam',
-            shownSchooling: 'Biketeam',
+            schooling: {
+                Politie: {
+                    Biketeam: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [5, 18],
         },
         61: {
             caption: 'Slangenhaakarmbak',
             color: '#550000',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 6_000,
+            credits: 6000,
             coins: 12,
             special:
                 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'square',
+            possibleBuildings: [0, 17],
         },
         62: {
             caption: 'TS-HV | Tankautospuit-Hulpverlening',
@@ -769,15 +998,17 @@ export default {
             wtank: 2000,
             special: 'Per 10 brandweerposten kan één TS-HV gekocht worden.',
             icon: 'truck-moving',
+            possibleBuildings: [0, 17],
         },
         63: {
             caption: 'DM - Rapid Responder',
             color: '#9f6000',
             minPersonnel: 1,
             maxPersonnel: 1,
-            credits: 2_500,
+            credits: 2500,
             coins: 18,
             icon: 'motorcycle',
+            possibleBuildings: [3, 13],
         },
         64: {
             caption: 'ME Aanhoudingseenheid',
@@ -786,41 +1017,128 @@ export default {
             maxPersonnel: 8,
             credits: 20_000,
             coins: 25,
-            schooling: 'Politie - ME - Aanhoudingseenheid',
-            shownSchooling: 'AE-er',
+            schooling: {
+                Politie: {
+                    'ME - Aanhoudingseenheid': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11],
         },
         65: {
             caption: 'DA Terreinwaardig - Reddingsbrigade',
             color: '#F49A13',
             minPersonnel: 2,
             maxPersonnel: 4,
-            credits: 7_500,
+            credits: 7500,
             coins: 15,
-            schooling: 'Brandweer - Waterredding',
-            shownSchooling: 'Waterredder',
+            schooling: {
+                Brandweer: {
+                    Waterredding: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [16],
         },
         66: {
             caption: 'Kusthulpverleningsvoertuig',
             color: '#F5A42A',
             minPersonnel: 2,
             maxPersonnel: 6,
-            credits: 8_000,
+            credits: 8000,
             coins: 15,
-            schooling: 'Brandweer - Waterredding',
-            shownSchooling: 'Waterredder',
+            schooling: {
+                Brandweer: {
+                    Waterredding: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [16],
         },
         67: {
             caption: 'Bootaanhanger Reddingsbrigade',
             color: '#F5A42A',
             minPersonnel: 0,
             maxPersonnel: 0,
-            credits: 5_000,
+            credits: 5000,
             coins: 15,
             special: 'DAT-RB of KHV benodigd',
             icon: 'trailer',
+            possibleBuildings: [16],
+        },
+        68: {
+            caption: 'SB',
+            color: '#770000',
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            credits: 35_000,
+            coins: 10,
+            wtank: 10_000,
+            ftank: 1000,
+            schooling: {
+                Brandweer: {
+                    'Brandweerchauffeur-zwaar': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'truck-moving',
+            possibleBuildings: [0, 17],
+        },
+        69: {
+            caption: 'SBH',
+            color: '#950000',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 10_000,
+            coins: 12,
+            wtank: 8000,
+            ftank: 1000,
+            icon: 'square',
+            possibleBuildings: [0, 17],
+        },
+        70: {
+            caption: 'SBA',
+            color: '#ba0000',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 15_000,
+            coins: 10,
+            ftank: 500,
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB)',
+            icon: 'trailer',
+            possibleBuildings: [0, 17],
+        },
+        71: {
+            caption: 'MSA',
+            color: '#800000',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 10_000,
+            coins: 10,
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
+            icon: 'trailer',
+            possibleBuildings: [0, 17],
+        },
+        72: {
+            caption: 'DPA',
+            color: '#a80000',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 15_000,
+            coins: 10,
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
+            icon: 'trailer',
+            possibleBuildings: [0, 17],
         },
     },
     buildings: {
@@ -847,9 +1165,9 @@ export default {
                     credits: 400_000,
                     coins: 25,
                     duration: '7 Dagen',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
                 ...new Array(10).fill({
@@ -858,9 +1176,15 @@ export default {
                     coins: 20,
                     duration: '7 Dagen',
                 }),
+                {
+                    caption: 'Schuimblussing',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Dagen',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '5.000',
+            maxBuildings: '6.000',
             maxLevel: 24,
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
@@ -877,7 +1201,8 @@ export default {
                 'TST-NB 4/5',
                 'TS 6/7',
             ],
-            maxBuildingsFunction: (): number => 5_000,
+            schoolingTypes: ['Brandweer'],
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Meldkamer',
@@ -976,6 +1301,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+            schoolingTypes: ['Ambulance'],
         },
         4: {
             caption: 'Brandweer academie',
@@ -1022,7 +1348,8 @@ export default {
                 'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
             startPersonnel: 2,
             startVehicles: ['DA Noodhulp'],
-            maxBuildingsFunction: (): number => 1_700,
+            schoolingTypes: ['Politie'],
+            maxBuildingsFunction: (): number => 1700,
         },
         6: {
             caption: 'MMT Standplaats',
@@ -1036,6 +1363,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Ambulance'],
         },
         7: {
             caption: 'Universiteit Geneeskunde',
@@ -1088,6 +1416,7 @@ export default {
                 'Tot het 125ste gebouw (van alle soorten) kunnen maximaal 4 landingsplaatsen worden gebouwd. Dan groeit het aantal met 1 per 25 gebouwen (vanaf 125).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Politie'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1163,6 +1492,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: ['Officier van Dienst - Politie'],
+            schoolingTypes: ['Politie'],
         },
         12: {
             caption: 'Cellencomplex',
@@ -1203,6 +1533,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+            schoolingTypes: ['Ambulance'],
         },
         14: {
             caption: 'Groot gebouwencomplex',
@@ -1252,11 +1583,113 @@ export default {
             special: '',
             startPersonnel: 4,
             startVehicles: [],
+            schoolingTypes: ['Brandweer'],
+        },
+        17: {
+            caption: 'Brandweer, Kazerne (klein)',
+            color: '#bb0000',
+            coins: 25,
+            credits: 50_000,
+            extensions: [
+                {
+                    caption: 'Ambulance standplaats',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Waterongevallenbestrijding',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Vliegtuigbrandbestrijding',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Dagen',
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
+                        Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                },
+                ...new Array(2).fill({
+                    caption: 'Haakarmbak parkeerplaats',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dagen',
+                }),
+                {
+                    caption: 'Schuimblussing',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Dagen',
+                },
+            ],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Upgraden naar normale post : Verschil prijs naar normale post',
+            ],
+            maxBuildings: '6.000',
+            maxLevel: 6,
+            special:
+                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
+            startPersonnel: 10,
+            startVehicles: [
+                'SI-2',
+                'TS 8/9',
+                'TST 8/9',
+                'TST 6/7',
+                'TST 4/5',
+                'TS 4/5',
+                'TST-NB 8/9',
+                'TST-NB 6/7',
+                'TST-NB 4/5',
+                'TS 6/7',
+            ],
+            schoolingTypes: ['Brandweer'],
+            maxBuildingsFunction: (): number => 6000,
+        },
+        18: {
+            caption: 'Politie opkomstbureau (klein)',
+            color: '#007700',
+            coins: 25,
+            credits: 50_000,
+            extensions: [
+                {
+                    caption: 'Gevangeniscel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Extra cel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                },
+            ],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-4. 100.000',
+                'Upgraden naar normale post : Verschil prijs naar normale post',
+            ],
+            maxBuildings: '1.700',
+            maxLevel: 4,
+            special:
+                'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
+            startPersonnel: 2,
+            startVehicles: ['DA Noodhulp'],
+            schoolingTypes: ['Politie'],
+            maxBuildingsFunction: (): number => 1700,
         },
     },
     buildingCategories: {
         Brandweer: {
-            buildings: [0, 4],
+            buildings: [0, 4, 17],
             color: '#ff2d2d',
         },
         Ambulance: {
@@ -1264,7 +1697,7 @@ export default {
             color: '#ffa500',
         },
         Politie: {
-            buildings: [5, 8, 9, 11],
+            buildings: [5, 8, 9, 11, 18],
             color: '#00ac00',
         },
         Waterredding: {
@@ -1281,25 +1714,12 @@ export default {
             vehicles: {
                 'Tankautospuiten': [0, 1, 6, 7, 8, 9, 12, 14, 15, 17],
                 'Overige voertuigen': [
-                    2,
-                    3,
-                    4,
-                    5,
-                    10,
-                    11,
-                    18,
-                    19,
-                    20,
-                    21,
-                    24,
-                    31,
-                    34,
-                    56,
-                    62,
+                    2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56, 62, 68,
+                    70, 71, 72,
                 ],
                 'Waterongevallen': [33, 36, 49, 50, 65, 66, 67],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
-                'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61],
+                'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
             },
             color: '#ff2d2d',
         },
@@ -1326,9 +1746,11 @@ export default {
     },
     small_buildings: {
         3: 13,
+        0: 17,
+        5: 18,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16],
-    cellBuildings: [5],
+    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17, 18],
+    cellBuildings: [5, 18],
     cellExtensions: [
         '5_0',
         '5_1',
@@ -1340,6 +1762,8 @@ export default {
         '5_7',
         '5_8',
         '5_9',
+        '18_0',
+        '18_1',
     ],
     bedBuildings: [2],
     schoolBuildings: [4, 7, 8],
@@ -1349,82 +1773,101 @@ export default {
             {
                 caption: 'Verkenningseenheid Brandweer',
                 duration: '3 Dagen',
+                staffList: 'VEB',
             },
             {
                 caption: 'Hoofd Officier van Dienst - Brandweer',
                 duration: '7 Dagen',
+                staffList: 'HOvD-B',
             },
             {
                 caption: 'Adviseur Gevaarlijke Stoffen',
                 duration: '6 Dagen',
+                staffList: 'AGS',
             },
             {
                 caption: 'Brandweerchauffeur-zwaar',
                 duration: '2 Dagen',
+                staffList: 'Brandweerchauffeur-zwaar',
             },
             {
                 caption: 'Duiker/Duikploegleider',
                 duration: '7 Dagen',
+                staffList: 'Duiker/Duikploegleider',
             },
             {
                 caption: 'Vliegtuigbrandbestrijding',
                 duration: '7 Dagen',
+                staffList: 'Vliegtuigbrandbestrijding',
             },
             {
                 caption: 'Airport Fire Officer / On Scene Commander',
                 duration: '7 Dagen',
+                staffList: 'Airport Fire Officer / On Scene Commander',
             },
             {
                 caption: 'Oppervlakteredder',
                 duration: '7 Dagen',
+                staffList: 'Oppervlakteredder',
             },
             {
                 caption: 'Voorlichter',
                 duration: '5 Dagen',
+                staffList: 'Voorlichter',
             },
             {
                 caption: 'Waterredding',
                 duration: '3 Dagen',
+                staffList: 'Waterredder',
             },
         ],
         Politie: [
             {
                 caption: 'Politiehelikopter',
                 duration: '7 Dagen',
+                staffList: 'Politiehelikopter',
             },
             {
                 caption: 'Officier van Dienst - Politie',
                 duration: '7 Dagen',
+                staffList: 'Officier van Dienst - Politie',
             },
             {
                 caption: 'Mobiele Eenheid',
                 duration: '4 Dagen',
+                staffList: 'Mobiele Eenheid',
             },
             {
                 caption: 'Hondengeleider',
                 duration: '7 Dagen',
+                staffList: 'Hondengeleider',
             },
             {
                 caption: 'Operator AT',
                 duration: '10 Dagen',
+                staffList: 'Operator AT',
             },
             {
                 caption: 'Biketeam',
                 duration: '3 Dagen',
+                staffList: 'Biketeam',
             },
             {
                 caption: 'ME - Aanhoudingseenheid',
                 duration: '5 Dagen',
+                staffList: 'AE-er',
             },
         ],
         Ambulance: [
             {
                 caption: 'MMT-Bemanningslid',
                 duration: '7 Dagen',
+                staffList: 'MMT-Bemanningslid',
             },
             {
                 caption: 'Officier van Dienst Geneeskunde',
                 duration: '10 Dagen',
+                staffList: 'Officier van Dienst Geneeskunde',
             },
         ],
     },
@@ -1435,6 +1878,7 @@ export default {
     premiumNotice:
         'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Sluiten',
     fullscreen: {
         expand: 'Gebruik full-screen modus',
@@ -1553,6 +1997,8 @@ export default {
         'Strandopgang',
         'Duinen',
         'Tunnel',
+        'Vuurwerkopslag',
+        'Gasverdeelstation',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],

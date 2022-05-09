@@ -1,0 +1,10 @@
+{
+    "description": "Résume l'aperçu quotidien en catégories afin que vous puissiez obtenir un aperçu rapide de ce pour quoi vous avez obtenu de l'argent.",
+    "name": "Sommaire du crédit",
+    "settings": {
+        "showAverage": {
+            "description": "Affiche les crédits moyens pour chaque catégorie.",
+            "title": "Afficher la moyenne"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "amount": "Mengde",
+    "description": "Beskrivelse",
+    "filter": {
+        "total": {
+            "max": "Max. Totale kreditter",
+            "min": "Min. Totale kreditter"
+        },
+        "type": {
+            "all_types": "Vis alle typer",
+            "amount": "{n} filtrert oppføring | {n} filtrerte oppføringer",
+            "no_types": "Ikke vis typer",
+            "type": "Oppføringstyper vises"
+        }
+    },
+    "title": "Oppsummering",
+    "today": "I dag",
+    "total": "Totalt"
+}

@@ -1,13 +1,6 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
-    const getSetting = (settingId: string) => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
+export default (async ({ LSSM, getSetting }) => {
     if (window.location.pathname === '/' && (await getSetting('navbar'))) {
         document
             .querySelector('#navbar-main-collapse > ul')
@@ -29,11 +22,15 @@ export default (async (LSSM, MODULE_ID) => {
             const content = `(${
                 redesign
                     ? h1.getAttribute('id')
-                    : window.location.pathname.replace(/\D+/g, '')
+                    : window.location.pathname.replace(/\D+/gu, '')
             })`;
-            if (small) small.textContent = content;
-            else
-                h1.innerHTML += `&nbsp;<small id="${smallId}">${content}</small>`;
+            if (small) {
+                small.textContent = content;
+            } else {
+                h1.innerHTML += `${
+                    redesign ? '' : '&nbsp;'
+                }<small id="${smallId}">${content}</small>`;
+            }
         }
     };
     LSSM.$store
@@ -44,5 +41,5 @@ export default (async (LSSM, MODULE_ID) => {
             },
         })
         .then();
-    if (window.location.pathname.match(/\/profile\/\d+/)) addProfileId();
+    if (window.location.pathname.match(/\/profile\/\d+/u)) addProfileId();
 }) as ModuleMainFunction;

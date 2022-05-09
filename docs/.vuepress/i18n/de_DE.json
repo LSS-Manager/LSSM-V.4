@@ -1,10 +1,297 @@
 {
-	"apps": "Apps",
-	"description": "Das Wiki für den LSS-Manager V.4",
-	"head": {
-		"alpha": "Dieses Modul steht noch in seinen absoluten Anfängen und ist aktuell nur für Beta-Tester verfügbar!",
-		"dev": "Dieses Modul ist noch in Entwicklung. Es ist möglich, dass noch einige Fehler vorhanden sind!",
-		"mapkit": "Aufgrund von Beschränkungen seitens Mapkit ist es uns leider derzeit nicht möglich, dieses Modul beim Kartentyp `Mapkit` anzubieten.",
-		"settings": "Dieses Modul hat Einstellungen! Pass es dir gerne nach deinem Geschmack an."
-	}
+    "404": {
+        "general": {
+            "home": "Zur Startseite"
+        },
+        "modules": {
+            "content": "Hey,\n\nvielen Dank für dein Interesse in die Wikiseite des Moduls {{module}}! Leider existiert diese bislang nicht für die Sprache {{lang}}. Wenn du am Wiki mitwirken möchtest, darfst du gerne diese Seite auf {{github}} erstellen. Wir empfehlen hierzu, einen Blick auf anderssprachige Wikiseiten dieses Moduls im {{docs_dir}} zu werfen.",
+            "languages": "Dieses Modul hat bereits eine Wikiseite für die folgenden Spielversionen:",
+            "title": "Keine Wiki-Seite"
+        }
+    },
+    "apps": "Apps",
+    "containers": {
+        "danger": "Achtung",
+        "tip": "Tipp",
+        "warning": "Hinweis"
+    },
+    "description": "Das Wiki für den LSS-Manager V.4",
+    "footer": {
+        "contributors": "Contributors",
+        "edit": "Seite bearbeiten",
+        "lastUpdated": "Zuletzt aktualisiert"
+    },
+    "head": {
+        "alpha": "Dieses Modul steht noch in seinen absoluten Anfängen und ist aktuell nur für Beta-Tester verfügbar!",
+        "dev": "Dieses Modul ist noch in Entwicklung. Es ist möglich, dass noch einige Fehler vorhanden sind!",
+        "mapkit": "Aufgrund von Beschränkungen seitens Mapkit ist es uns leider derzeit nicht möglich, dieses Modul beim Kartentyp `Mapkit` anzubieten.",
+        "settings": "Dieses Modul hat Einstellungen! Pass es dir gerne nach deinem Geschmack an."
+    },
+    "moment": {
+        "shorts": {
+            "L": "Datum mit führenden Nullen",
+            "LL": "Datum mit Monat als Wort",
+            "LLL": "Datum mit Monat als Wort und Uhrzeit",
+            "LLLL": "Volles Datum mit Uhrzeit",
+            "LT": "Uhrzeit",
+            "LTS": "Uhrzeit mit Sekunden",
+            "l": "Datum ohne führende Nullen",
+            "ll": "Datum mit kurzem Monat als Wort",
+            "lll": "Datum mit kurzem Monat als Wort und Uhrzeit",
+            "llll": "Volles Datum in Kurzform mit Uhrzeit"
+        },
+        "titles": {
+            "shorts": {
+                "description": "Beschreibung",
+                "example": "Beispiel",
+                "variable": "Kurzform"
+            },
+            "variables": {
+                "Variable": "Variable",
+                "ampm": "AM / PM",
+                "category": "Kategorie",
+                "description": "Beschreibung",
+                "dom": "Tag (Monat)",
+                "dow": "Wochentag",
+                "doy": "Tag (Jahr)",
+                "hour": "Stunde",
+                "minute": "Minute",
+                "month": "Monat",
+                "output": "Ausgabe",
+                "quarter": "Quartal",
+                "second": "Sekunde",
+                "week": "Kalenderwoche",
+                "year": "Jahr"
+            }
+        },
+        "variables": {
+            "ampm": {
+                "A": "AM / PM",
+                "a": "am / pm"
+            },
+            "dom": {
+                "D": "Tag im Monat",
+                "DD": "Tag im Monat (mit führenden Nullen)",
+                "Do": "Tag im Monat (mit Punkt)"
+            },
+            "dow": {
+                "d": "Wochentag (Zahl [Sonntag ist 0])",
+                "dd": "Wochentag (Name, Kurzschreibweise)",
+                "ddd": "Wochentag (Name, Kurzschreibweise mit Punkt)",
+                "dddd": "Wochentag (Name)",
+                "do": "Wochentag (Zahl mit Punkt [Sonntag ist 0])"
+            },
+            "doy": {
+                "DDD": "Tag im Jahr",
+                "DDDD": "Tag im Jahr (mit führenden Nullen)",
+                "DDDo": "Tag im Jahr (mit Punkt)"
+            },
+            "hour": {
+                "H": "Stunde (24h)",
+                "HH": "Stunde (24h, mit führenden Nullen)",
+                "h": "Stunde (12h)",
+                "hh": "Stunde (12h, mit führenden Nullen)"
+            },
+            "minute": {
+                "m": "Minute",
+                "mm": "Minute (mit führenden Nullen)"
+            },
+            "month": {
+                "M": "aktueller Monat (Zahl)",
+                "MM": "aktueller Monat (Zahl mit führenden Nullen)",
+                "MMM": "aktueller Monat (Name, Kurzschreibweise)",
+                "MMMM": "aktueller Monat (Name)",
+                "Mo": "aktueller Monat (Zahl mit Punkt)"
+            },
+            "order": [
+                "month",
+                "quarter",
+                "dom",
+                "doy",
+                "dow",
+                "week",
+                "year",
+                "ampm",
+                "hour",
+                "minute",
+                "second"
+            ],
+            "quarter": {
+                "Q": "aktuelles Quartal",
+                "Qo": "aktuelles Quartal (mit Punkt)"
+            },
+            "second": {
+                "s": "Sekunde",
+                "ss": "Sekunde (mit führenden Nullen)"
+            },
+            "week": {
+                "w": "Kalenderwoche",
+                "wo": "Kalenderwoche (mit Punkt)",
+                "ww": "Kalenderwoche (mit führenden Nullen)"
+            },
+            "year": {
+                "YY": "Jahr (zweistellig)",
+                "YYYY": "Jahr (vierstellig)"
+            }
+        }
+    },
+    "pwa": {
+        "button": "Aktualisieren",
+        "message": "Neuer Inhalt verfügbar."
+    },
+    "readme": {
+        "serverStatus": {
+            "game": "Online-Status: Spiel",
+            "lssm": "Online-Status: LSSM"
+        }
+    },
+    "search": "Wiki durchsuchen",
+    "tables": {
+        "browser": "Browser",
+        "download": "Download",
+        "link": "Link",
+        "minVersion": "mind. Version"
+    },
+    "v3": {
+        "modules": {
+            "AaoSearch": {
+                "v3Name": "AAO-Suche"
+            },
+            "Center-Map": {
+                "v3Name": "Center-Map"
+            },
+            "Clock": {
+                "v3Name": "Clock"
+            },
+            "DestinationFilter": {
+                "annotation": "Dieser ist im Redesign für Fahrzeuge bereits integriert, soll aber auch noch als eigenes Modul in die V4 integriert werden.",
+                "v3Name": "Zielort Filter"
+            },
+            "DoctorRadioCall": {
+                "v3Name": "Nachforderungen per FMS"
+            },
+            "Eventsmission": {
+                "v3Name": "Markiert Eventeinsätze"
+            },
+            "FMS5InMap": {
+                "v3Name": "FMS 5 in der Karte"
+            },
+            "Layout01": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
+                "v3Name": "Layout 04"
+            },
+            "MissionOut": {
+                "v3Name": "MissionOut"
+            },
+            "Notification_Alert": {
+                "v3Name": "Notification Alert"
+            },
+            "Redesign01": {
+                "v3Name": "Redesign 01"
+            },
+            "RenameFZ": {
+                "v3Name": "Fahrzeuge umbenennen"
+            },
+            "ShareAlliancePost": {
+                "v3Name": "Alarmieren, Teilen & Posten"
+            },
+            "WachenHoverStati": {
+                "v3Name": "Wachen Status"
+            },
+            "aaoZaehler": {
+                "v3Name": "AAO-Klick-Zähler"
+            },
+            "allianceMissionlistShare": {
+                "v3Name": "Einsätze freigeben"
+            },
+            "centermap": {
+                "annotation": "Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt noch.",
+                "v3Name": "Center-Map"
+            },
+            "creditserweiterung": {
+                "v3Name": "Creditserweiterung"
+            },
+            "dashboard": {
+                "v3Name": "Dashboard"
+            },
+            "displayUserId": {
+                "v3Name": "User-ID"
+            },
+            "extendedBuilding": {
+                "v3Name": "Erweiterte Gebäudeansicht"
+            },
+            "heatmap": {
+                "v3Name": "LS-Heatmap"
+            },
+            "iconFilter": {
+                "v3Name": "Icon Gebäude Filter"
+            },
+            "keyboardAlert": {
+                "v3Name": "Keyboard Alarmierung"
+            },
+            "missionDate": {
+                "v3Name": "Meldedatum für Einsätze"
+            },
+            "missionHelper": {
+                "v3Name": "Einsatzhelfer"
+            },
+            "missionKeyword": {
+                "v3Name": "Einsatzstichworte"
+            },
+            "overview": {
+                "v3Name": "Übersicht"
+            },
+            "releaseNotes": {
+                "v3Name": "Release Notes"
+            },
+            "saveVGE": {
+                "v3Name": "Eigene VGE speichern"
+            },
+            "searchMissions": {
+                "v3Name": "Einsätze suchen"
+            },
+            "showChatButtonAbove": {
+                "v3Name": "show Chatbutton Above"
+            },
+            "showNotTransportButtonAbove": {
+                "v3Name": "show Patient entlassen Above"
+            },
+            "statusCount": {
+                "v3Name": "Status-Zähler"
+            },
+            "statusDispatching": {
+                "v3Name": "Verbesserte Status 5"
+            },
+            "sumDailyMissions": {
+                "v3Name": "Summe für die tägliche Zusammenfassung"
+            },
+            "verbandsverwaltung": {
+                "v3Name": "Verbandsverwaltung"
+            }
+        },
+        "tables": {
+            "annotations": "Hinweise",
+            "changes": "Änderungen",
+            "description": "Beschreibung",
+            "feature": "Feature",
+            "module": "Modul",
+            "setting": "Einstellung"
+        },
+        "v4annotations": {
+            "asyncButtons": "Noch in Entwicklung: Hier kommen in Zukunft noch mehr Features.",
+            "lssmaql": "Ein Experiment, welches mal dazu dienen soll schnell Daten aus der API auszulesen."
+        }
+    }
 }

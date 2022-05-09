@@ -62,7 +62,7 @@
                     <span
                         v-if="
                             modules[moduleId].description !==
-                                `modules.${moduleId}.description`
+                            `modules.${moduleId}.description`
                         "
                     >
                         {{ modules[moduleId].description }}
@@ -78,13 +78,13 @@ import Vue from 'vue';
 
 import isEqual from 'lodash/isEqual';
 
-import { DefaultProps } from 'vue/types/options';
-import { Modules } from '../../typings/Module';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Modules } from 'typings/Module';
+import type {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
-} from '../../typings/components/Appstore';
+} from 'typings/components/Appstore';
 
 export default Vue.extend<
     AppstoreData,
@@ -92,7 +92,7 @@ export default Vue.extend<
     AppstoreComputed,
     DefaultProps
 >({
-    name: 'appstore',
+    name: 'lssmv4-appstore',
     components: {
         Lightbox: () =>
             import(
@@ -170,9 +170,11 @@ export default Vue.extend<
                     'active',
                     this.activeStart.includes(module)
                 );
-                ((this.$refs[`moduleSwitch_${module}`] as unknown) as {
-                    toggled: boolean;
-                }[])[0].toggled = this.activeStart.includes(module);
+                (
+                    this.$refs[`moduleSwitch_${module}`] as unknown as {
+                        toggled: boolean;
+                    }[]
+                )[0].toggled = this.activeStart.includes(module);
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },

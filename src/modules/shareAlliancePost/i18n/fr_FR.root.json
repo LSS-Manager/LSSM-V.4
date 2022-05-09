@@ -1,0 +1,29 @@
+{
+    "description": "Alarme, partage de la mission et publication d'une note d'incident en un seul clic.",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
+    "name": "Partage-Alliance-Message",
+    "noMessage": "Sans note d'incident",
+    "settings": {
+        "enableCallList": {
+            "description": "Intègre ce module dans le module \"Missions de partage\" de la liste d'appels.",
+            "title": "Intégration à la liste d'appels"
+        },
+        "enableLSAM": {
+            "description": "Enable this option to select a incident note when creating a large scale alliance mission.",
+            "title": "Large scale alliance missions"
+        },
+        "message": "Note d'incident",
+        "messages": {
+            "description": "Définissez vos notes d'incident ici. Vous pouvez utiliser des variables, jetez donc un coup d'oeil à notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> ! Veuillez attribuer un nom unique à chaque réponse, afin de les identifier rapidement dans la fenêtre d'alarme. ",
+            "title": "Réponses"
+        },
+        "name": "Nom",
+        "postInChat": "Afficher une note dans le chat ?",
+        "stayInCallList": {
+            "description": "Avec cette option activée, vous pouvez envoyer des notes d'incident même sur des missions partagées.",
+            "title": "Rester sur la liste des missions"
+        }
+    }
+}

@@ -1,13 +1,19 @@
 {
-	"description": "Schreibe dir vorgefertigte Texte für private Konversationen.",
-	"name": "Nachrichten-Templates",
-	"settings": {
-		"name": "Name",
-		"subject": "Betreff",
-		"template": "Template (Variablen (siehe Wiki): {{username}}, {{today[+n]}})",
-		"templates": {
-			"description": "Für die Templates stehen Variablen zur Verfügung. Schau hierfür gerne in unser <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variablen\">Wiki</a>.",
-			"title": "Templates"
-		}
-	}
+    "description": "Schreibe dir vorgefertigte Texte für private Konversationen und den Verbands-Chat.",
+    "name": "Nachrichten-Templates",
+    "settings": {
+        "chatTemplates": {
+            "description": "Nachrichten für den Chat",
+            "name": "Name",
+            "text": "Nachricht",
+            "title": "Chat-Nachrichten"
+        },
+        "templates": {
+            "description": "Für die Templates stehen Variablen zur Verfügung. Schau hierfür gerne in unser <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variablen\">Wiki</a>.",
+            "name": "Name",
+            "subject": "Betreff",
+            "template": "Template (Variablen (siehe Wiki): {{username}}, {{today[+n]}})",
+            "title": "Templates für Konversationen"
+        }
+    }
 }

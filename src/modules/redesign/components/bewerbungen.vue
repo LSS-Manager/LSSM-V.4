@@ -31,11 +31,9 @@
                     <span class="btn-group">
                         <button
                             lightbox-open
-                            :href="
-                                `/messages/new?target=${encodeURIComponent(
-                                    user.name
-                                )}`
-                            "
+                            :href="`/messages/new?target=${encodeURIComponent(
+                                user.name
+                            )}`"
                             class="btn btn-xs btn-default"
                         >
                             <font-awesome-icon
@@ -51,17 +49,16 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li
-                                    v-for="({ name, subject, template },
-                                    index) in messageTemplates"
+                                    v-for="(
+                                        { name, subject, template }, index
+                                    ) in messageTemplates"
                                     :key="`${id}_${index}`"
                                 >
                                     <a
                                         lightbox-open
-                                        :href="
-                                            `/messages/new?target=${encodeURIComponent(
-                                                user.name
-                                            )}&template=${index}`
-                                        "
+                                        :href="`/messages/new?target=${encodeURIComponent(
+                                            user.name
+                                        )}&template=${index}`"
                                         :title="`${subject}\n---\n${template}`"
                                     >
                                         {{ name }}: {{ subject }}
@@ -69,6 +66,10 @@
                                 </li>
                             </ul>
                         </template>
+                    </span>
+                    <span>
+                        ({{ lightbox.$sm('earnedCredits') }}:
+                        {{ user.credits.toLocaleString() }})
                     </span>
                 </td>
                 <td style="text-align: right">
@@ -97,14 +98,12 @@ import Vue from 'vue';
 
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 
-import { BewerbungenWindow } from '../parsers/bewerbungen';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
-type Component = RedesignSubComponent<
+type Component = RedesignComponent<
     'bewerbungen',
     'bewerbungen',
-    BewerbungenWindow,
     {
         faEnvelope: IconDefinition;
         alertMsg: string;
@@ -113,6 +112,7 @@ type Component = RedesignSubComponent<
     {
         accept(id: number, username: string): void;
         decline(id: number, username: string): void;
+        updateCredits(): Promise<void[]>;
     }
 >;
 
@@ -122,7 +122,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'bewerbungen',
+    name: 'lssmv4-redesign-bewerbungen',
     components: {
         EnhancedTable: () =>
             import(
@@ -199,6 +199,54 @@ export default Vue.extend<
                     );
                 });
         },
+        async updateCredits() {
+            return Promise.all(
+                this.bewerbungen.applications
+                    .filter(({ user: { credits } }) => !credits)
+                    .map(({ user }) => {
+                        const url = new URL(
+                            `/profile/${user.id}`,
+                            window.location.origin
+                        ).toString();
+                        return new Promise<void>(resolve =>
+                            this.$store
+                                .dispatch('api/request', {
+                                    url,
+                                    feature: `redesign-bewerbungen-load-credits`,
+                                })
+                                .then((res: Response) => res.text())
+                                .then(html =>
+                                    import(
+                                        /*webpackChunkName: "modules/redesign/parsers/profile"*/ `../parsers/profile`
+                                    ).then(async parser => {
+                                        this.$set(
+                                            user,
+                                            'credits',
+                                            (
+                                                await parser.default({
+                                                    doc: new DOMParser().parseFromString(
+                                                        html,
+                                                        'text/html'
+                                                    ),
+                                                    href: url,
+                                                    getIdFromEl:
+                                                        this.lightbox
+                                                            .getIdFromEl,
+                                                    LSSM: this,
+                                                    $m: this.lightbox.$m,
+                                                    $sm: this.lightbox.$sm,
+                                                    $mc: this.lightbox.$mc,
+                                                    $smc: this.lightbox.$smc,
+                                                })
+                                            ).credits
+                                        );
+                                        resolve();
+                                    })
+                                )
+                        );
+                    })
+            );
+        },
     },
     props: {
         bewerbungen: {
@@ -213,14 +261,6 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
-            required: true,
-        },
         getSetting: {
             type: Function,
             required: true,
@@ -232,7 +272,9 @@ export default Vue.extend<
     },
     watch: {
         bewerbungen() {
-            this.lightbox.finishLoading('bewerbungen-updated-data');
+            this.updateCredits().then(() =>
+                this.lightbox.finishLoading('bewerbungen-updated-data')
+            );
         },
     },
     mounted() {
@@ -244,7 +286,9 @@ export default Vue.extend<
                 })
                 .then(({ value }) => (this.messageTemplates = value));
         }
-        this.lightbox.finishLoading('bewerbungen-mounted');
+        this.updateCredits().then(() =>
+            this.lightbox.finishLoading('bewerbungen-mounted')
+        );
     },
 });
 </script>

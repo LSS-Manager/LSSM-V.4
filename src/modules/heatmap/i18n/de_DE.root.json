@@ -1,0 +1,16 @@
+{
+    "description": "Generiere eine Heatmap auf der Karte, die dir die Dichte von Gebäuden oder Fahrzeugen anzeigt – voll und ganz individualisierbar.",
+    "name": "Heatmap",
+    "positions": {
+        "bottom-left": "Unten Links 🡧",
+        "bottom-right": "Unten Rechts 🡦",
+        "top-left": "Oben Links 🡤",
+        "top-right": "Oben Rechts 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Wähle hier, wo auf der Karte der Knopf zum Öffnen der Einstellungen erscheinen soll",
+            "title": "Position der Einstellungen"
+        }
+    }
+}

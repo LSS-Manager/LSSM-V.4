@@ -1,7 +1,7 @@
-import { ActionContext } from 'vuex';
-import { RootState } from '../RootState';
-import { SettingsState } from './State';
-import { ModuleSettings, Settings } from '../../Setting';
+import type { ActionContext } from 'vuex';
+import type { RootState } from '../RootState';
+import type { SettingsState } from './State';
+import type { ModuleSettings, Settings } from '../../Setting';
 
 export type SettingsActionStoreParams = ActionContext<SettingsState, RootState>;
 

@@ -4,15 +4,12 @@ import semverLte from 'semver/functions/lte';
 import semverRcompare from 'semver/functions/rcompare';
 import Showdown from 'showdown';
 
-import {
-    Releasenote,
-    Releasenotes,
-} from '../../../typings/modules/Releasenotes';
+import type { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
 export default async (LSSM: Vue): Promise<void> => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
+    const $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.releasenotes.${key}`, args);
 
     const sdConverter = new Showdown.Converter({
@@ -32,7 +29,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const notes: [string, Releasenote][] = Object.entries(
         (await LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json`,
+                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json?v=${VERSION}`,
                 init: {
                     method: 'GET',
                 },
@@ -52,7 +49,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 ...note,
                 content: sdConverter.makeHtml(
                     note.content.replace(
-                        /#(\d+)/g,
+                        /#(\d+)/gu,
                         ($0, $1) =>
                             `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
                     )
@@ -69,7 +66,7 @@ export default async (LSSM: Vue): Promise<void> => {
             { notes, last_seen: last_seen ?? notes[0][0] },
             { name: 'releasenotes', height: 'auto' },
             {
-                'before-close': async function() {
+                'before-close': async function () {
                     await LSSM.$store.dispatch('storage/set', {
                         key: LAST_VERSION_STORAGE_KEY,
                         value: notes[0][0],
@@ -80,7 +77,7 @@ export default async (LSSM: Vue): Promise<void> => {
 
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
-        .then(element => (element.onclick = () => openNotes()));
+        .then(element => element.addEventListener('click', () => openNotes()));
 
     LSSM.$store
         .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })

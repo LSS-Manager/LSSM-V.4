@@ -1,11 +1,18 @@
 node_modules/*
 */dist/*
 *.user.js
-build/*.js
+build/**/*.js
 docs/.vuepress/*.js
+docs/.vuepress/.cache
+docs/.vuepress/.temp
+docs/.vuepress/dist
+docs/.vuepress/node_modules
+docs/.vuepress/components/.temp
 prebuild/*.js
 scripts/**/*.js
 src/userscript.js
+src/config.js
+static/fontawesome_*.min.js
 
 src/modules/support/*
 src/modules/renameFz/*

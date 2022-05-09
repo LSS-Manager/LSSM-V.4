@@ -1,0 +1,116 @@
+{
+    "amount": "{n} viste oppdrag | {n} viste oppdrag",
+    "columns": {
+        "average_credits": "Gjennomsnittlig kreditter",
+        "details": "",
+        "duration": "varighet",
+        "generated_by": "Generert av",
+        "id": "",
+        "missing": "manglende krav",
+        "name": "sett inn",
+        "place": "POI / POIs",
+        "prerequisites": "krav"
+    },
+    "main_building_extensions": {
+        "text": "med følgende aktive utvidelser"
+    },
+    "missing": {
+        "date": "Dette oppdraget kan ikke genereres på dette tidspunktet fordi det er for øyeblikket bare aktivert for perioden fra **{date_start}** til **{date_end}**.",
+        "diff": "Gjennomsnittlig kreditter",
+        "have": "Gjennomsnittlig kreditter",
+        "need": "Gjennomsnittlig kreditter",
+        "req": "Gjennomsnittlig kreditter"
+    },
+    "no_dispatchcenter": "Gjennomsnittlig kreditter",
+    "prerequisite_calculations": {
+        "arff_count": [
+            "0.1"
+        ],
+        "atf_count": [
+            "18.1"
+        ],
+        "brush_extension": [
+            "0.3"
+        ],
+        "dea_count": [
+            "18.0"
+        ],
+        "federalpolice_stations": [
+            18
+        ],
+        "fire_aviation_count": [
+            17
+        ],
+        "fire_boat_docks": [
+            11
+        ],
+        "fire_stations": [
+            0,
+            13
+        ],
+        "game_warden_count": [
+            "5.11"
+        ],
+        "police_helicopter_stations": [
+            "Gjennomsnittlig kreditter"
+        ],
+        "police_stations": [
+            5,
+            15
+        ],
+        "rescue_boat_docks": [
+            12
+        ],
+        "rescue_stations": [
+            3,
+            16,
+            "0.0"
+        ],
+        "wasserrettung": [
+            "0.2"
+        ],
+        "water_police_count": [
+            "5.10"
+        ]
+    },
+    "prerequisites_long": {
+        "arff_count": "Aktiv utvidelse av flyplassutvidelsen",
+        "atf_count": "ATF-utvidelse | ATF Utvidelse",
+        "brush_extension": "Forestry Expansion | Forestry Utvidelse",
+        "dea_count": "DEA Expansion | DEA Utvidelse",
+        "federalpolice_stations": "Federal Police Station | Føderale politistasjoner",
+        "fire_aviation_count": "Brannflystasjon | Brannslukningsflystasjoner",
+        "fire_boat_docks": "Brannbåtbrygge | Brannbåtkai",
+        "fire_stations": "Brannstasjon | Brannstasjoner",
+        "game_warden_count": "Utvidelse av Game Warden | Game Warden-utvidelser",
+        "max_police_stations": "Maksimalt antall politistasjoner",
+        "max_rescue_stations": "ATF-utvidelse | ATF Utvidelse",
+        "police_helicopter_stations": "ATF-utvidelse | ATF Utvidelse",
+        "police_stations": "ATF-utvidelse | ATF Utvidelse",
+        "rescue_boat_docks": "ATF-utvidelse | ATF Utvidelse",
+        "rescue_stations": "ATF-utvidelse | ATF Utvidelse",
+        "wasserrettung": "ATF-utvidelse | ATF Utvidelse",
+        "water_police_count": "ATF-utvidelse | ATF Utvidelse"
+    },
+    "prerequisites_short": {
+        "arff_count": "Aktiv utvidelse av flyplassutvidelsen",
+        "atf_count": "ATF-utvidelse | ATF Expansions",
+        "brush_extension": "Forestry Expansion | Forestry Expansions",
+        "dea_count": "DEA Expansion | DEA Expansions",
+        "federalpolice_stations": "Federal Police Station | Føderale politistasjoner",
+        "fire_aviation_count": "Brannflystasjon | Brannslukningsflystasjoner",
+        "fire_boat_docks": "brannbåtbrygge | brannbåtkai",
+        "fire_stations": "Brannstasjon | Brannstasjoner",
+        "game_warden_count": "Utvidelse av Game Warden | Game Warden-utvidelser",
+        "max_police_stations": "Maksimalt antall politistasjoner",
+        "max_rescue_stations": "ATF-utvidelse | ATF Utvidelse",
+        "police_helicopter_stations": "ATF-utvidelse | ATF Utvidelse",
+        "police_stations": "ATF-utvidelse | ATF Utvidelse",
+        "rescue_boat_docks": "ATF-utvidelse | ATF Utvidelse",
+        "rescue_stations": "ATF-utvidelse | ATF Utvidelse",
+        "wasserrettung": "ATF-utvidelse | ATF Utvidelse",
+        "water_police_count": "ATF-utvidelse | ATF Utvidelse"
+    },
+    "select_dispatchcenter": "ATF-utvidelse | ATF Utvidelse",
+    "title": "ATF-utvidelse | ATF Utvidelse"
+}

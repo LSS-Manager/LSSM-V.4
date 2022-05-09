@@ -1,45 +1,50 @@
 {
-	"buildingPersonal": {
-		"deleteModal": {
-			"btnCancel": "Annuler",
-			"btnConfirm": "Communiqué",
-			"text": "Êtes-vous sûr de vouloir libérer cette personne ?",
-			"title": "Libérer ?"
-		}
-	},
-	"deleteARR": {
-		"deleteModal": {
-			"btnCancel": "Annuler",
-			"btnConfirm": "Supprimer",
-			"text": "Voulez-vous supprimer cette régulation ?",
-			"title": "Supprimer ?"
-		}
-	},
-	"forumPost": {
-		"deleteModal": {
-			"btnCancel": "Annuler",
-			"btnConfirm": "Supprimer",
-			"text": "Voulez-vous supprimer ce post ?",
-			"title": "Supprimer ?"
-		}
-	},
-	"memberlistManageUser": {
-		"hide": "Fermer",
-		"kickModal": {
-			"btnCancel": "Annuler",
-			"btnConfirm": "Kick",
-			"text": "Voulez-vous vraiment kicker ce joueur ?",
-			"title": "Kick ?"
-		},
-		"set": "Appliquer",
-		"unset": "Retirer"
-	},
-	"memberlistRoles": {
-		"admin": "Administrateur d'alliance",
-		"aufsichtsrat": "Journal de modération",
-		"coadmin": "Coadministrateur d'alliance",
-		"finance": "Finances de l'alliance",
-		"schooling": "Formateur de l'alliance",
-		"sprechwunsch_admin": "Demande de transport - administrateur"
-	}
+    "buildingPersonal": {
+        "deleteModal": {
+            "btnCancel": "Annuler",
+            "btnConfirm": "Communiqué",
+            "text": "Êtes-vous sûr de vouloir libérer cette personne ?",
+            "title": "Libérer ?"
+        }
+    },
+    "buildings": {
+        "active": "Prêt pour l'action",
+        "nonactive": "Pas prêt pour l'action"
+    },
+    "deleteARR": {
+        "deleteModal": {
+            "btnCancel": "Annuler",
+            "btnConfirm": "Supprimer",
+            "text": "Voulez-vous supprimer cette régulation ?",
+            "title": "Supprimer ?"
+        }
+    },
+    "forumPost": {
+        "deleteModal": {
+            "btnCancel": "Annuler",
+            "btnConfirm": "Supprimer",
+            "text": "Voulez-vous supprimer ce post ?",
+            "title": "Supprimer ?"
+        }
+    },
+    "memberlistManageUser": {
+        "hide": "Fermer",
+        "kickModal": {
+            "btnCancel": "Annuler",
+            "btnConfirm": "Virer",
+            "text": "Voulez-vous vraiment virer le joueur ?",
+            "title": "Virer ?"
+        },
+        "set": "Appliquer",
+        "unset": "Retirer"
+    },
+    "memberlistRoles": {
+        "admin": "Administrateur d'alliance",
+        "aufsichtsrat": "Journal de modération",
+        "coadmin": "Coadministrateur d'alliance",
+        "finance": "Finances de l'alliance",
+        "schooling": "Formateur de l'alliance",
+        "sprechwunsch_admin": "Demande de transport - administrateur",
+        "staff": "Personnel de l'alliance"
+    }
 }

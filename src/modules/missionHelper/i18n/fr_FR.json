@@ -1,98 +1,108 @@
 {
-	"diyMission": "Ceci est une mission d'alliance majeure",
-	"expansions": "Extension | Extensions",
-	"followups": "Mission à suivre | Missions à suivre",
-	"generated_by": "Généré par",
-	"patients": {
-		"allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
-		"critical_care": "Probabilité qu'un médecin soit requis",
-		"helicopter": "Probabilité de déclencher l'hélicoptère de secours",
-		"patient_allow_first_responder_chance": "First Responder Probability",
-		"patient_at_end_of_mission": "Le patient n'apparait qu'à la fin du traitement de la mission",
-		"patient_transport": "Probabilité de transport",
-		"possible_patient": "Patients max.",
-		"possible_patient_exact": "Il y a {n} patient | Il y a {n} patients",
-		"possible_patient_min": "Patients min.",
-		"specializations": "Spécialisation",
-		"title": "Patients | {n} Patient | {n} Patients"
-	},
-	"prerequisites": {
-		"brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
-		"fire_stations": "Caserne de pompier | Casernes de pompier",
-		"fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
-		"max_police_stations": "Postes de police max.",
-		"max_rescue_stations": "Postes de secours max.",
-		"police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
-		"police_stations": "Poste de police | Postes de police",
-		"rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
-		"rescue_stations": "Poste de secour | Postes de secours",
-		"title": "Condition | Conditions",
-		"wasserrettung": "Unité nautique"
-	},
-	"prisoners": {
-		"max_possible_prisoners": "Prisonniers max.",
-		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
-	},
-	"requirements": {
-		"water_needed": "Demande d'eau (litres)"
-	},
-	"tip": {
-		"dragging": "glisser la fenêtre",
-		"maxState": "exigences maximales on/off",
-		"minified": "effondrement",
-		"overlay": "superposition",
-		"reload": "recharger"
-	},
-	"vehicles": {
-		"captions": {
-			"ambulances": "Ambulance | Ambulances",
-			"arff": "ARFF",
-			"battalion_chief_vehicles": "Chefs de groupe",
-			"boats": "Bateau | Bateaux",
-			"brush_truck": "CCF",
-			"elw3": "VLHR",
-			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
-			"foam": "FMOGP",
-			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
-			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
-			"helicopter": "Dragon",
-			"hose": "Camion dévidoir",
-			"k9": "Unité cynophile",
-			"mobile_air_vehicles": "VAR | VAR",
-			"mobile_command_vehicles": "VPC | VPC",
-			"platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
-			"police_cars": "Véhicule de patrouille | Véhicules de patrouille",
-			"police_helicopters": "soutien aérien FAG",
-			"pump": "Motopompe | Motopompes",
-			"rth": "Hélicoptères de secours",
-			"sheriff": "Sheriff | Sherrifs",
-			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
-			"swat_suv": "SWAT SUV | SWAT SUVs",
-			"thw_gkw": "VTU",
-			"water_rescue": "VPL",
-			"water_tankers": "Camion-citerne | Camions-citernes"
-		},
-		"multifunctionals": {
-			"battalion_chief_vehicles": {
-				"additional_text": "",
-				"reduce_from": "mobile_command_vehicles"
-			},
-			"heavy_rescue_vehicles": {
-				"additional_text": "thereof at least. {n} Rescue Engines",
-				"reduce_from": "firetrucks"
-			}
-		},
-		"optional_alternatives": {
-			"allow_arff_instead_of_lf": {
-				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
-			},
-			"allow_rw_instead_of_lf": {
-				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
-			}
-		},
-		"patient_additionals": {
-			"8": "PC DSM"
-		},
-		"title": "Véhicules"
-	}
+    "diyMission": "Ceci est une mission d'alliance majeure",
+    "expansions": "Extension | Extensions",
+    "followups": "Mission à suivre | Missions à suivre",
+    "generated_by": "Généré par",
+    "patients": {
+        "allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
+        "critical_care": "Probabilité qu'un médecin soit requis",
+        "helicopter": "Probabilité de déclencher l'hélicoptère de secours",
+        "patient_allow_first_responder_chance": "Les unités de premiers secours peuvent traiter entièrement un patient",
+        "patient_at_end_of_mission": "Le patient n'apparait qu'à la fin du traitement de la mission",
+        "patient_transport": "Probabilité de transport",
+        "possible_patient": "Patients max.",
+        "possible_patient_exact": "Il y a {n} patient | Il y a {n} patients",
+        "possible_patient_min": "Patients min.",
+        "specializations": "Spécialisation",
+        "title": "Patients | {n} Patient | {n} Patients"
+    },
+    "prerequisites": {
+        "bereitschaftspolizei": "Compagnies de CRS",
+        "brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
+        "fire_stations": "Caserne de pompier | Casernes de pompier",
+        "fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
+        "max_police_stations": "Postes de police max.",
+        "max_rescue_stations": "Postes de secours max.",
+        "police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
+        "police_stations": "Poste de police | Postes de police",
+        "rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
+        "rescue_stations": "Poste de secours | Postes de secours",
+        "title": "Condition | Conditions",
+        "wasserrettung": "Unité nautique",
+        "water_cannon": "Section des Moyens Spécialisés | Sections des Moyens Spécialisés"
+    },
+    "prisoners": {
+        "max_possible_prisoners": "Prisonniers max.",
+        "title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
+    },
+    "requirements": {
+        "water_needed": "Demande d'eau (litres)"
+    },
+    "tip": {
+        "dragging": "glisser la fenêtre",
+        "maxState": "exigences maximales on/off",
+        "minified": "replier",
+        "overlay": "superposition",
+        "reload": "recharger"
+    },
+    "vehicles": {
+        "captions": {
+            "ambulances": "Ambulance | Ambulances",
+            "arff": "ARFF",
+            "battalion_chief_vehicles": "Chefs de groupe",
+            "boats": "Bateau | Bateaux",
+            "brush_truck": "CCF",
+            "detention_unit": "VTP",
+            "elw3": "VLHR",
+            "firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
+            "foam": "FMOGP",
+            "hazmat_vehicles": "Véhicule risques technologiques | Véhicule risques technologiques",
+            "heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
+            "helicopter": "Dragon",
+            "hose": "Camion dévidoir",
+            "k9": "Unité cynophile",
+            "kdow_orgl": "PC DSM",
+            "mobile_air_vehicles": "VAR | VAR",
+            "mobile_command_vehicles": "VPC | VPC",
+            "platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
+            "police_cars": "Véhicule de patrouille | Véhicules de patrouille",
+            "police_helicopters": "soutien aérien FAG",
+            "pump": "Motopompe | Motopompes",
+            "riot_police": "VR",
+            "riot_police_command": "VCT",
+            "riot_police_equipment": "RAM",
+            "riot_police_maintenance": "VAT",
+            "riot_police_trailer": "Barres-ponts",
+            "rth": "Hélicoptères de secours",
+            "sheriff": "Sheriff | Sherrifs",
+            "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
+            "swat_suv": "SWAT SUV | SWAT SUVs",
+            "thw_gkw": "VTU",
+            "wasserwerfer": "ELE",
+            "water_rescue": "VPL",
+            "water_tankers": "Camion-citerne | Camions-citernes"
+        },
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "additional_text": "",
+                "reduce_from": "mobile_command_vehicles"
+            },
+            "heavy_rescue_vehicles": {
+                "additional_text": "au moins. {n} Fourgon d'incendie",
+                "reduce_from": "Fourgon d'incendie"
+            }
+        },
+        "optional_alternatives": {
+            "allow_arff_instead_of_lf": {
+                "firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+            },
+            "allow_rw_instead_of_lf": {
+                "firetrucks": "Fourgon d’incendie ou VSR | Fourgons d’incendie ou VSR"
+            }
+        },
+        "patient_additionals": {
+            "8": "PC DSM"
+        },
+        "title": "Véhicules"
+    }
 }

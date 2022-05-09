@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "currently",
+        "title": "Alliance funds",
+        "total": "total",
+        "updateNote": "Updated every 5 minutes."
+    },
+    "coins": {
+        "list": "Protocol"
+    },
+    "credits": {
+        "daily": "Daily summary",
+        "overview": "Overview"
+    },
+    "description": "Shows useful information about credits in a dropdown menu in main navbar.",
+    "name": "Credits Expansion",
+    "nextRank": "Next rank",
+    "nextRankMissing": "remaining",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "As soon as you've reached one of the set amount of credits, credits expansion will be highlighted green until you click it.",
+            "title": "Goals"
+        },
+        "coinsInNavbar": {
+            "description": "Shows current coins in navbar instead of the cute piggy bank.",
+            "title": "Coins instead of piggy bank"
+        },
+        "creditsInNavbar": {
+            "description": "Shows current credits in navbar instead of the cute piggy bank.",
+            "title": "Credits instead of piggy bank"
+        },
+        "highlightSales": {
+            "description": "Highlights Coins green if a sale is available",
+            "title": "highlight Sales"
+        },
+        "showSales": {
+            "description": "Shows Sales for Coins when available.",
+            "title": "show Sales"
+        },
+        "showToplistPosition": {
+            "description": "Shows the current toplist-rank in the creditsextension.",
+            "title": "Toplist-Rank in creditsextension"
+        }
+    },
+    "toplistPositionName": "Toplist-Rank",
+    "totalEarnedCredits": "Total earned credits"
+}

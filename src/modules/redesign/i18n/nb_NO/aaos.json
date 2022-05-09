@@ -1,0 +1,26 @@
+{
+    "add": {
+        "arr": "Ny ARR",
+        "group": "Ny gruppe"
+    },
+    "categories": "Egne AAR-kategorier redigert",
+    "delete": {
+        "alle": {
+            "text": "Vil du virkelig slette ALLE ARR-oppføringer? Dette kan IKKE angres og all tidligere eksport av ARR-en din vil IKKE fungere lenger!",
+            "title": "Slett fullstendig ARR"
+        },
+        "arr": {
+            "text": "Vil du virkelig slette denne ene ARR-oppføringen? Dette kan ikke angres! Oppføringen vil ikke lenger vises i noen eksisterende eksport!",
+            "title": "Slett ARR"
+        },
+        "cancel": "Avbryt",
+        "confirm": "Slett!",
+        "vehicle_group": {
+            "text": "Vil du virkelig slette denne ene gruppen? Dette kan ikke angres!",
+            "title": "Slett gruppe"
+        }
+    },
+    "delete_all": "Slett fullstendig ARR!",
+    "export": "Eksporter ARR",
+    "title": "Alarm- og responsreguleringer og grupper"
+}

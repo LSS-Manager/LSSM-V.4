@@ -1,0 +1,41 @@
+{
+    "copy_url": "Copier le lien dans le presse-papiers: {url}",
+    "description": "Une refonte visuel générale - actuellement en phase alpha et toujours en cours de développement.",
+    "name": "Refonte du design",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "Une refonte des pages de l'alliance.",
+                "title": "Alliance"
+            },
+            "credits": {
+                "description": "Une refonte des pages des crédits et des pièces.",
+                "title": "Crédits et pièces"
+            },
+            "einsaetze": {
+                "description": "Une refonte de la liste des missions possibles et de la page \"Exigences pour cette mission\".",
+                "title": "Missions possibles"
+            },
+            "messages": {
+                "description": "Une refonte des messages privé et des messages systèmes.",
+                "title": "Messages"
+            },
+            "profile": {
+                "description": "Une refonte des pages de profil.",
+                "title": "Profil"
+            },
+            "tasks": {
+                "description": "Une refonte de la liste des tâches",
+                "title": "Tâches"
+            },
+            "toplist": {
+                "description": "Une refonte du classement.",
+                "title": "Classement"
+            },
+            "vehicles": {
+                "description": "Une refonte des pages sur les véhicules et de toutes les pages correspondantes.",
+                "title": "Véhicules"
+            }
+        }
+    }
+}

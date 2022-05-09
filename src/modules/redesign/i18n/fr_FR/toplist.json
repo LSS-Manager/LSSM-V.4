@@ -1,0 +1,15 @@
+{
+    "alliance": "Alliance",
+    "amount": "{n} joueurs filtrée | {n} joueurs filtrées",
+    "credits": "Total des crédits gagnés",
+    "load": {
+        "next": "Page suivante",
+        "prev": "Page précédente"
+    },
+    "name": "Joueurs",
+    "search_global": "Recherche globale",
+    "search_local": "Recherche dans les joueurs chargés",
+    "search_subtitle": "Afficher {n} joueur de la pages {startPage} à la page {endPage} pour un total de {totalPages} pages.",
+    "subtitle": "Afficher {n} joueur de la pages {startPage} ({firstCredits}) à la page {endPage} ({lastCredits}) pour un total de {totalPages} pages.",
+    "title": "Liste des joueurs"
+}

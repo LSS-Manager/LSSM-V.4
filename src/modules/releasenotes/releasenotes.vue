@@ -19,9 +19,9 @@
                         ><a
                             class="lightbox-open"
                             target="_blank"
-                            :href="
-                                `https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.${note[0]}`
-                            "
+                            :href="`https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v${
+                                semverLt(note[0], coerce('4.3.3')) ? '.' : ''
+                            }${note[0]}`"
                             >{{ note[0] }}</a
                         ></b
                     >
@@ -49,8 +49,8 @@ import coerce from 'semver/functions/coerce';
 import moment from 'moment';
 import semverLt from 'semver/functions/lt';
 
-import { DefaultData, DefaultMethods } from 'vue/types/options';
-import {
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type {
     ReleaseNoteComputed,
     ReleaseNoteProps,
 } from 'typings/modules/Releasenotes';
@@ -61,7 +61,7 @@ export default Vue.extend<
     ReleaseNoteComputed,
     ReleaseNoteProps
 >({
-    name: 'releasenotes',
+    name: 'lssmv4-releasenotes',
     data() {
         return {
             moment,
@@ -79,7 +79,7 @@ export default Vue.extend<
         minors() {
             const minors: Record<string, ReleaseNoteProps['notes']> = {};
             this.notes.forEach(([version, note]) => {
-                const minor = version.match(/^\d+\.\d+/)[0];
+                const minor = version.match(/^\d+\.\d+/u)?.[0] ?? '0';
                 if (!minors.hasOwnProperty(minor)) minors[minor] = [];
                 minors[minor].push([version, note]);
             });
@@ -124,4 +124,13 @@ h2
     padding: 1rem
     &:hover
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+
+    ::v-deep ul li
+        list-style: disc !important
+
+    ::v-deep a
+        color: #6dd5f4
+
+a
+    color: #6dd5f4
 </style>

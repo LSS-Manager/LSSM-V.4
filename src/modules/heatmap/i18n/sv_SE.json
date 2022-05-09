@@ -1,0 +1,15 @@
+{
+    "buildings": "Byggnader",
+    "enable": "Aktiva",
+    "includes": {
+        "buildings": "byggnadstyper",
+        "vehicles": "fordonstyper"
+    },
+    "intensity": "intensitetförstärkning",
+    "livePreview": "Live Förhansgranskning (Automatisk sparning)",
+    "radius": "radius",
+    "save": "Spara",
+    "static": "radius i pixlar?",
+    "title": "Heatmap inställningar",
+    "vehicles": "fordon"
+}

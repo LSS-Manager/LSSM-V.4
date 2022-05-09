@@ -31,8 +31,9 @@
                             <table class="table table-striped table-condensed">
                                 <tbody>
                                     <tr
-                                        v-for="({ saved, current },
-                                        setting) in changes"
+                                        v-for="(
+                                            { saved, current }, setting
+                                        ) in changes"
                                         :key="setting"
                                     >
                                         <td>
@@ -136,6 +137,8 @@
                                 ),
                                 {
                                     wiki: $store.getters.wiki,
+                                    fontAwesomeIconSearch:
+                                        $store.state.fontAwesomeIconSearch,
                                 }
                             )
                         "
@@ -209,6 +212,7 @@
                             :min="setting.min"
                             :max="setting.max"
                             :step="setting.step"
+                            :float="setting.float"
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
@@ -253,6 +257,19 @@
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
                         ></settings-hotkey>
+                        <settings-location
+                            v-else-if="setting.type === 'location'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :zoom="setting.zoom"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-location>
                         <settings-appendable-list
                             v-else-if="setting.type === 'appendable-list'"
                             :setting="setting"
@@ -280,17 +297,19 @@ import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
 
-import { DefaultProps } from 'vue/types/options';
-import {
+import loadingIndicatorStorageKey from '../../build/plugins/LoadingProgressPluginStorageKey';
+
+import type { DefaultProps } from 'vue/types/options';
+import type {
     AppendableList,
     ModuleSettings,
     Setting as SettingType,
 } from '../../typings/Setting';
-import {
+import type {
     SettingsComputed,
     SettingsData,
     SettingsMethods,
-} from '../../typings/components/Settings';
+} from 'typings/components/Settings';
 
 export default Vue.extend<
     SettingsData,
@@ -298,7 +317,7 @@ export default Vue.extend<
     SettingsComputed,
     DefaultProps
 >({
-    name: 'settings',
+    name: 'lssmv4-settings',
     components: {
         SettingsAppendableList: () =>
             import(
@@ -335,6 +354,10 @@ export default Vue.extend<
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './setting/hotkey.vue'
+            ),
+        SettingsLocation: () =>
+            import(
+                /* webpackChunkName: "components/setting/location" */ './setting/location.vue'
             ),
         Setting: () =>
             import(
@@ -413,9 +436,8 @@ export default Vue.extend<
                                     setting,
                                     {
                                         saved,
-                                        current: this.liveValueMap[module][
-                                            setting
-                                        ],
+                                        current:
+                                            this.liveValueMap[module][setting],
                                     },
                                 ])
                                 .filter(
@@ -439,7 +461,7 @@ export default Vue.extend<
                         this.settings[moduleId][settingId].value,
                         this.startSettings[moduleId][settingId].value
                     )) ||
-                !!Object.entries(this.settings).find(([module, settings]) =>
+                Object.entries(this.settings).some(([module, settings]) =>
                     Object.entries(settings).find(
                         ([setting, { value }]) =>
                             !isEqual(
@@ -451,9 +473,9 @@ export default Vue.extend<
             this.$store.commit('settings/setSettingsChanges', this.changes);
         },
         updateAppendableList(state, moduleId, settingId) {
-            (this.settings[moduleId][
-                settingId
-            ] as AppendableList).value.enabled = state;
+            (
+                this.settings[moduleId][settingId] as AppendableList
+            ).value.enabled = state;
             this.update(moduleId, settingId);
         },
         async save() {
@@ -477,6 +499,13 @@ export default Vue.extend<
             this.startSettings = cloneDeep(this.settings);
             this.update();
             this.getExportData();
+
+            localStorage.setItem(
+                loadingIndicatorStorageKey,
+                (
+                    this.settings.global.loadingIndicator.value as boolean
+                ).toString()
+            );
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);
@@ -492,6 +521,9 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.close'),
                         default: true,
+                        handler: () => {
+                            this.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: this.$m('resetWarning.total'),
@@ -561,27 +593,26 @@ export default Vue.extend<
             const disabledFun = this.settings[moduleId][settingId].disabled;
             if (dependence) {
                 const invert = dependence.startsWith('!');
-                dependence = dependence.replace(/^!/, '');
+                dependence = dependence.replace(/^!/u, '');
                 const base = dependence.startsWith('.')
                     ? this.settings[moduleId]
                     : this.settings;
-                dependence = dependence.replace(/^\./, '');
-                const setting = (dependence.split('/').reduce(
+                dependence = dependence.replace(/^\./u, '');
+                const setting = dependence.split('/').reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         (previousValue || base)[currentValue],
                     base
-                ) as unknown) as SettingType;
+                ) as unknown as SettingType;
                 if (invert) {
                     return (
                         setting?.isDisabled ||
-                        (!!setting?.value ?? !!setting?.default)
+                        !!(setting?.value ?? setting?.default)
                     );
                 }
                 return (
-                    setting?.isDisabled ||
-                    (!setting?.value ?? !setting?.default)
+                    setting?.isDisabled || !(setting?.value ?? setting?.default)
                 );
             } else if (disabledFun && typeof disabledFun === 'function') {
                 return disabledFun(this.settings);
@@ -616,14 +647,13 @@ export default Vue.extend<
 
             fileReader.readAsText(file);
 
-            fileReader.onload = async () => {
-                const result = JSON.parse(fileReader.result as string) as {
-                    [key: string]:
-                        | string[]
-                        | {
-                              [key: string]: SettingType['value'];
-                          };
-                };
+            fileReader.addEventListener('load', async () => {
+                const result = JSON.parse(
+                    fileReader.result as string
+                ) as Record<
+                    string,
+                    Record<string, SettingType['value']> | string[]
+                >;
                 if (result.activeModules) {
                     await this.$store.dispatch('storage/set', {
                         key: 'activeModules',
@@ -645,7 +675,7 @@ export default Vue.extend<
                                 window.location.reload();
                         });
                 });
-            };
+            });
         },
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.settings.${key}`, args),
@@ -695,4 +725,7 @@ button:not([disabled]):hover > #settings-changelist
 
 body.dark #settings-changelist
     background-color: #505050
+
+body:not(.dark) #settings-changelist
+    color: black
 </style>

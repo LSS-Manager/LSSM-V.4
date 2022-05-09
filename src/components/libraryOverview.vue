@@ -1,8 +1,6 @@
 <template>
     <lightbox name="libraryOverview">
-        <h1>
-            Open-Source Libraries
-        </h1>
+        <h1>Open-Source Libraries</h1>
         <label class="search_label">
             <input
                 type="search"
@@ -22,7 +20,7 @@
                     <img
                         :src="
                             lib.icon ||
-                                'https://github.githubassets.com/pinned-octocat.svg'
+                            'https://github.githubassets.com/pinned-octocat.svg'
                         "
                         :alt="libraryName"
                     />
@@ -53,8 +51,8 @@ import Vue from 'vue';
 
 import libraries from '../libraries.json';
 
-import { DefaultMethods, DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultMethods, DefaultProps } from 'vue/types/options';
+import type {
     LibraryOverviewComputed,
     LibraryOverviewData,
 } from '../../typings/components/LibraryOverview';
@@ -120,7 +118,7 @@ export default Vue.extend<
         flex-flow: row wrap
 
         img
-            width: 60px
+            width: 100%
             height: 60px
 
         .linebreak

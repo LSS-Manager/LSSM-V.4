@@ -1,0 +1,15 @@
+{
+    "buildings": "Gebäude",
+    "enable": "aktivieren",
+    "includes": {
+        "buildings": "Gebäudetypen",
+        "vehicles": "Fahrzeugtypen"
+    },
+    "intensity": "Intensitätsverstärkung",
+    "livePreview": "Live-Preview (automatisches Speichern)",
+    "radius": "Radius",
+    "save": "Speichern",
+    "static": "Radius in Pixeln?",
+    "title": "Heatmap Einstellungen",
+    "vehicles": "Fahrzeuge"
+}

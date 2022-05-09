@@ -2,12 +2,7 @@
     <div>
         <h1>
             {{ $sm('title') }}:
-            {{
-                moment()
-                    .utc()
-                    .add(page, 'days')
-                    .format('L')
-            }}
+            {{ moment().utc().add(page, 'days').format('L') }}
             <button
                 class="btn btn-success"
                 :href="`/credits/daily?page=${page - 1}`"
@@ -40,15 +35,13 @@
                 </span>
                 |
                 <span
-                    :class="
-                        `text-${
-                            sum.total > 0
-                                ? 'success'
-                                : sum.total < 0
-                                ? 'danger'
-                                : ''
-                        }`
-                    "
+                    :class="`text-${
+                        sum.total > 0
+                            ? 'success'
+                            : sum.total < 0
+                            ? 'danger'
+                            : ''
+                    }`"
                     >{{
                         (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
                     }}</span
@@ -107,11 +100,14 @@
                         class="btn btn-xs btn-default"
                         :disabled="filter.type.types.length === types.length"
                         @click.prevent.stop="
-                            $set(
-                                filter.type,
-                                'types',
-                                Object.keys(credits.creditsTypes)
-                            )
+                            () => {
+                                $set(
+                                    filter.type,
+                                    'types',
+                                    Object.keys(credits.creditsTypes)
+                                );
+                                updateFilter('type.types', filter.type.types);
+                            }
                         "
                     >
                         {{ lightbox.$sm('filter.type.all_types') }}
@@ -119,7 +115,12 @@
                     <button
                         class="btn btn-xs btn-default"
                         :disabled="!filter.type.types.length"
-                        @click.prevent.stop="$set(filter.type, 'types', [])"
+                        @click.prevent.stop="
+                            () => {
+                                $set(filter.type, 'types', []);
+                                updateFilter('type.types', filter.type.types);
+                            }
+                        "
                     >
                         {{ lightbox.$sm('filter.type.no_types') }}
                     </button>
@@ -197,9 +198,9 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { CreditsDailyWindow } from '../../parsers/credits/daily';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import VueI18n from 'vue-i18n';
+import type { CreditsDailyWindow } from '../../parsers/credits/daily';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -207,12 +208,13 @@ export default Vue.extend<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
-        head: {
-            [key: string]: {
+        head: Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         filter: {
             total: {
                 min: number;
@@ -227,16 +229,12 @@ export default Vue.extend<
     {
         $sm(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $smc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         setSort(type: string): void;
         updateFilter(filter: string, value: unknown): void;
@@ -250,25 +248,21 @@ export default Vue.extend<
     {
         credits: CreditsDailyWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'credits/daily', CreditsDailyWindow>;
+        lightbox: RedesignLightboxVue<'credits/daily'>;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        getSetting<T>(setting: string, defaultValue: T): Promise<T>;
+        setSetting<T>(settingId: string, value: T): Promise<void>;
     }
 >({
-    name: 'credits-daily',
+    name: 'lssmv4-redesign-credits-daily',
     components: {
         DailyCreditsSummary: () =>
             import(
@@ -325,7 +319,7 @@ export default Vue.extend<
                     JSON.stringify(Object.values(e))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase()) &&
-                    !!this.filter.type.types.some(a => e.types.includes(a))
+                    this.filter.type.types.some(a => e.types.includes(a))
                 ),
             }));
         },
@@ -355,21 +349,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $sm(key: string, args?: Record<string, unknown>) {
             return this.$m(`credits/daily.${key}`, args);
         },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`credits/daily.${key}`, amount, args);
         },
         setSort(type) {
@@ -426,7 +409,10 @@ export default Vue.extend<
         const types = this.credits.creditsTypes;
         this.types = Object.entries(types).map(([value, { regex, title }]) => ({
             value,
-            label: title ?? regex?.toString().replace(/^\/|\/$/g, '') ?? value,
+            label:
+                title ??
+                regex?.toString().replace(/^\/|\/[ADJUgimux]*$/gu, '') ??
+                value,
         }));
         this.filter.type.types = Object.keys(types);
         Object.entries(this.filter).forEach(([filter, props]) => {

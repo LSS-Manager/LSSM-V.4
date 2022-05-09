@@ -1,83 +1,84 @@
 {
-	"building-list": {
-		"actions": "",
-		"caption": "Name",
-		"current": "Anzahl (aktiv)",
-		"fastDispatchChooser": {
-			"noDispatch": "Keine Leitstelle"
-		},
-		"type": "Typ",
-		"unavailable": "Im Bau"
-	},
-	"building-types": {
-		"building": "Gebäude",
-		"current": "Anzahl (aktiv)",
-		"extension": "Ausbau",
-		"maximum": "Maximal möglich",
-		"title": "Alle {type}",
-		"unavailable": "Im Bau"
-	},
-	"chart-summaries": {
-		"buildings": {
-			"columnchart": "Balkendiagramm verwenden",
-			"personal_count": "Personal",
-			"tip": "Klicke auf eine der Kategorien (z.B. Feuerwehr oder Polizei), um die dieser Kategorie zugeordneten Gebäudetypen vergrößert dargzustellen. Klickst du anschließend auf einen Gebäudetyp, kannst du sehen, wie viele Fahrzeuge der einzelnen Fahrzeugtypen an den Gebäuden dieses Typs stehen. Somit kannst du z.B. schnell herausfinden, wie viele FuStW an Polizeiwachen und wie viele an Polizei-Kleinwachen stehen.",
-			"title": "Gebäude"
-		},
-		"vehicles": {
-			"empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
-			"tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen.",
-			"title": "Fahrzeuge"
-		}
-	},
-	"dispatchcenter-view": {
-		"building-selection": "Gebäude hinzufügen:",
-		"manage": {
-			"newBoard": "Neues Board",
-			"title": "Boards verwalten",
-			"titles": {
-				"buildings": {
-					"bold": "Gebäudetyp-Auswahl",
-					"small": "zeige nur Gebäude dieser Gebäudetypen zur Auswahl"
-				},
-				"dispatch": {
-					"bold": "Leitstellen-Auswahl",
-					"small": "zeige nur Gebäude dieser Leitstellen zur Auswahl"
-				},
-				"name": "Board-Name"
-			}
-		},
-		"no-buildings": "Keine Gebäude gefunden. Passe ggf. die Filter für dieses Board im \"Boards verwalten\"-Tab an."
-	},
-	"tabs": {
-		"building-types": "Gebäudeübersicht",
-		"chart-summary": "Zusammenfassung",
-		"dispatchcenter-view": "Leitstellenansicht",
-		"vehicle-types": "Statusübersicht"
-	},
-	"vehicle-list": {
-		"actions": "",
-		"building": "Gebäude",
-		"caption": "Name",
-		"fms": "FMS",
-		"target": "Anfahrt",
-		"type": "Typ"
-	},
-	"vehicle-types": {
-		"status": "Status",
-		"statuses": [
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			9
-		],
-		"sum": "Summe",
-		"title": "Alle {type} | Alle {type} im Status {n} | Alle {type} im Status {n}",
-		"type": "Fahrzeugtyp",
-		"vehicles": "Fahrzeuge"
-	}
+    "building-list": {
+        "actions": "",
+        "caption": "Name",
+        "current": "Anzahl (aktiv)",
+        "fastDispatchChooser": {
+            "noDispatch": "Keine Leitstelle"
+        },
+        "type": "Typ",
+        "unavailable": "Im Bau"
+    },
+    "building-types": {
+        "building": "Gebäude",
+        "current": "Anzahl (aktiv)",
+        "extension": "Ausbau",
+        "maximum": "Maximal möglich",
+        "title": "Alle {type}",
+        "unavailable": "Im Bau"
+    },
+    "chart-summaries": {
+        "buildings": {
+            "columnchart": "Balkendiagramm verwenden",
+            "personal_count": "Personal",
+            "tip": "Klicke auf eine der Kategorien (z.B. Feuerwehr oder Polizei), um die dieser Kategorie zugeordneten Gebäudetypen vergrößert dargzustellen. Klickst du anschließend auf einen Gebäudetyp, kannst du sehen, wie viele Fahrzeuge der einzelnen Fahrzeugtypen an den Gebäuden dieses Typs stehen. Somit kannst du z.B. schnell herausfinden, wie viele FuStW an Polizeiwachen und wie viele an Polizei-Kleinwachen stehen.",
+            "title": "Gebäude"
+        },
+        "vehicles": {
+            "empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
+            "tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen.",
+            "title": "Fahrzeuge"
+        }
+    },
+    "dispatchcenter-view": {
+        "building-selection": "Gebäude hinzufügen:",
+        "manage": {
+            "newBoard": "Neues Board",
+            "title": "Boards verwalten",
+            "titles": {
+                "buildings": {
+                    "bold": "Gebäudetyp-Auswahl",
+                    "small": "zeige nur Gebäude dieser Gebäudetypen zur Auswahl"
+                },
+                "dispatch": {
+                    "bold": "Leitstellen-Auswahl",
+                    "small": "zeige nur Gebäude dieser Leitstellen zur Auswahl"
+                },
+                "name": "Board-Name"
+            }
+        },
+        "no-buildings": "Keine Gebäude gefunden. Passe ggf. die Filter für dieses Board im \"Boards verwalten\"-Tab an."
+    },
+    "tabs": {
+        "building-types": "Gebäudeübersicht",
+        "chart-summary": "Zusammenfassung",
+        "dispatchcenter-view": "Leitstellenansicht",
+        "vehicle-types": "Statusübersicht"
+    },
+    "vehicle-list": {
+        "actions": "",
+        "building": "Gebäude",
+        "caption": "Name",
+        "fms": "FMS",
+        "target": "Anfahrt",
+        "type": "Typ"
+    },
+    "vehicle-types": {
+        "chart": "Status-Zusammenfassung",
+        "status": "Status",
+        "statuses": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9
+        ],
+        "sum": "Summe",
+        "title": "Alle {type} | Alle {type} im Status {n} | Alle {type} im Status {n}",
+        "type": "Fahrzeugtyp",
+        "vehicles": "Fahrzeuge"
+    }
 }

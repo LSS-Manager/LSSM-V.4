@@ -2,8 +2,6 @@
 node_modules
 /dist
 package-lock.json
-/docs/*/modules
-/docs/.vuepress/public/assets/*
 /static/db_access.php
 /static/.configs.json
 /static/.check_request.php
@@ -12,13 +10,24 @@ package-lock.json
 /src/userscript.js
 LSSM_V4.zip
 
+# docs files
+/docs/*/modules
+/docs/.vuepress/.cache
+/docs/.vuepress/.temp
+/docs/.vuepress/dist
+/docs/.vuepress/node_modules
+/docs/.vuepress/public/assets/*
+/docs/.vuepress/components/.temp
+
 # TypeScript Outputs
 webpack.config.js*
 build/**/*.js*
 typings/**/*.js*
 prebuild/**/*.js*
 src/config.js*
-docs/.vuepress/*.js*
+src/i18n/*.js
+docs/.vuepress/*.js
+docs/.vuepress/*.js.map
 scripts/**/*.js*
 
 # local env files

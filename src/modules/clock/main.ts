@@ -1,12 +1,8 @@
-import { ModuleMainFunction } from 'typings/Module';
 import moment from 'moment';
 
-export default (async (LSSM, MODULE_ID) => {
-    const getSetting = (settingId: string) =>
-        LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
+import type { ModuleMainFunction } from 'typings/Module';
+
+export default (async ({ LSSM, MODULE_ID, getSetting }) => {
     const className = LSSM.$store.getters.nodeAttribute('clock');
 
     moment.locale(LSSM.$store.state.lang);
@@ -63,7 +59,7 @@ export default (async (LSSM, MODULE_ID) => {
                 },
             });
         });
-        document.body.appendChild(clock);
+        document.body.append(clock);
     }
 
     const clocks = document.querySelectorAll(`.${className}`);

@@ -1,16 +1,87 @@
 {
-	"description": "Styr spelet med snabbtangenter på tangentbordet, som du själv kan ställa in.",
-	"name": "Snabbtangenter",
-	"settings": {
-		"nextElementKey": {
-			"title": "Nästa \"Element\""
-		},
-		"prevElementKey": {
-			"title": "Föregående \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Tänk på en cool beskrivning här",
-			"title": "prevNextElement"
-		}
-	}
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "visa medlemsansökningara",
+                "buildings": "visa alliansbyggnader",
+                "forum": "visa forumet",
+                "funds": "visa allianskassan",
+                "logfiles": "visa loggen",
+                "members": "visa medlemslistan",
+                "messages": "visa alliansmeddelanden",
+                "onlineMembers": "visa medlemslistan (filtrerat på bara online)",
+                "open": "visa aliansen",
+                "schoolings": "visa utbildningar",
+                "title": "Allians"
+            },
+            "credits": {
+                "daily": "visa ekonomisk sammanställning",
+                "open": "visa ekonomisidorna",
+                "overview": "visa ekonomisk översikt för de 7 senaste dagarna",
+                "title": "Krediter"
+            },
+            "help": "visa Hotkeys hjälpen",
+            "profile": {
+                "awards": "visa belöningslistan",
+                "level": "visa ranklistan",
+                "notes": "visa ateckningr",
+                "open": "visa egen profil",
+                "title": "Profil"
+            },
+            "protocol": "visa Larmlogg i larmcentralen",
+            "tasks": {
+                "open": "visa listan av pågående larm/even",
+                "title": "Uppgifter och event"
+            },
+            "title": "Generella"
+        },
+        "main": {
+            "chat": {
+                "focus": "välj chattfönstrets skrivruta",
+                "title": "Chat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Meny",
+                    "toggle": "visa / Stäng"
+                },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "välj karfönstrets sökruta",
+                    "title": "Platssökning"
+                },
+                "title": "karta"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "välj uppdragets fordonsökningslista",
+                    "title": "Sök"
+                },
+                "title": "Uppdragslista"
+            },
+            "title": "Huvudfönster"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Skicka enheter och gå till nästa",
+                "alert_share_next": "Skicka enheter, dela och gå till nästa",
+                "next": "nästa uppdrag",
+                "prev": "föregående upptrag",
+                "title": "Sortara uppdrag"
+            },
+            "title": "Huvud fönster"
+        }
+    },
+    "description": "Styr spelet med hotkeys som du själv kan definera.",
+    "name": "Hotkeys",
+    "settings": {
+        "command": "Handling",
+        "hotkey": "Hotkey",
+        "hotkeys": {
+            "description": "Här kan du binda dina egna hotkeys för specifika handlignar. Handlingar i kategorin \"Generella\" är tillgängliga överallt i spelet. Genom att trycka F1 samt statistik hur du använder dom",
+            "title": "Hotkeys"
+        }
+    }
 }

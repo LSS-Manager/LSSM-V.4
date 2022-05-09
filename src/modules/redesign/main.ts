@@ -1,23 +1,20 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { routeChecks } from 'typings/modules/Redesign';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { routeChecks } from 'typings/modules/Redesign';
 
-export default (async (LSSM, MODULE_ID) => {
-    const getSetting = <type = boolean>(settingId: string): Promise<type> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
+export default (async ({ LSSM, MODULE_ID, getSetting }) => {
     const routeChecks: routeChecks = {
         ...((await getSetting('category.alliance')) && {
             '^/verband/avatar/?$': 'alliance_avatar',
             '^/alliances/?$': 'alliances',
+            '^/alliance_chats/?$': 'chat',
             '^/schoolings/?$': 'schoolings',
             '^/verband/bewerbungen/?$': 'bewerbungen',
             '^/verband/bereitstellungsraume/?$': 'verband/bsr',
             '^/alliances/\\d+/edit/?$': 'verband/edit_name',
             '^/veband/text/edit/?$': 'verband/edit_text',
+            '^/verband/gebauede/?$': 'verband/gebauede',
             '^/(verband|alliances/\\d+)/?$': 'verband/home',
+            '^/verband/kasse/?$': 'verband/kasse',
             '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
             '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
             '^/alliance_logfiles/?$': 'verband/protokoll',
@@ -31,6 +28,7 @@ export default (async (LSSM, MODULE_ID) => {
         }),
         ...((await getSetting('category.vehicles')) && {
             '^/vehicles/\\d+/?$': 'vehicle',
+            '^/vehicles/\\d+/stats/?$': 'vehicle/stats',
             '^/fahrzeugfarbe/\\d+/?$': 'fahrzeugfarbe',
             // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
         }),
@@ -40,6 +38,7 @@ export default (async (LSSM, MODULE_ID) => {
             '^/profile/\\d+/?$': 'profile',
             '^/profile/edit/?$': 'profile/edit',
             '^/freunde/?$': 'freunde',
+            '^/note/?$': 'note',
         }),
         ...(MODE === 'beta' &&
             (await getSetting('category.einsaetze')) && {
@@ -48,6 +47,14 @@ export default (async (LSSM, MODULE_ID) => {
             }),
         ...((await getSetting('category.toplist')) && {
             '^/toplist/?$': 'toplist',
+        }),
+        ...((await getSetting('category.tasks')) && {
+            '^/tasks/index/?$': 'tasks',
+        }),
+        ...((await getSetting('category.messages')) && {
+            '^/messages/\\d+/?$': 'messages/conversation',
+            '^/messages/new/?$': 'messages/new',
+            '^/messages/system_message/\\d+/?$': 'messages/system_message',
         }),
     };
     LSSM.$store
@@ -69,18 +76,12 @@ export default (async (LSSM, MODULE_ID) => {
                         ),
                     {
                         url: href,
-                        $m: (
-                            key: string,
-                            args?: {
-                                [key: string]: unknown;
-                            }
-                        ) => LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
+                        $m: (key: string, args?: Record<string, unknown>) =>
+                            LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
                         $mc: (
                             key: string,
                             amount: number,
-                            args?: {
-                                [key: string]: unknown;
-                            }
+                            args?: Record<string, unknown>
                         ) =>
                             LSSM.$tc(
                                 `modules.${MODULE_ID}.${key}`,
@@ -125,12 +126,30 @@ export default (async (LSSM, MODULE_ID) => {
         const iframes = findIframes(document);
         if (!iframes || !iframes.length) return true;
         iframes.forEach(iframe => {
-            const container = iframe.contentDocument?.getElementById(
-                'iframe-inside-container'
-            );
+            const contentDocument = iframe.contentDocument;
+            if (!contentDocument) return;
+            const container =
+                iframe.contentDocument.querySelector<HTMLDivElement>(
+                    '#iframe-inside-container'
+                );
             if (!container) return true;
             container.style.width = '100%';
             container.style.height = '100%';
+            if (
+                !/^\/missions\/\d+\/?$/u.test(contentDocument.location.pathname)
+            ) {
+                const containerClass = LSSM.$store.getters.nodeAttribute(
+                    `${MODULE_ID}-lightbox-iframe-container-full-height`
+                );
+                container.classList.add(containerClass);
+                const style = document.createElement('style');
+                style.textContent = `
+                    .${containerClass} {
+                        height: 100% !important;
+                    }
+                `;
+                container.after(style);
+            }
         });
         const modal = document.querySelector<HTMLDivElement>(
             '.vm--overlay[data-modal^="redesign-lightbox-"] ~ .vm--modal'
@@ -179,7 +198,7 @@ export default (async (LSSM, MODULE_ID) => {
                       .querySelector<HTMLAnchorElement>(
                           'a.btn.btn-success[href^="/vehicles/"]'
                       )
-                      ?.href?.match(/\d+$/)?.[0]
+                      ?.href?.match(/\d+$/u)?.[0]
                 : null;
         if (type && (nextVehicle || type !== 'vehicle/nextfms')) {
             import(
@@ -196,9 +215,7 @@ export default (async (LSSM, MODULE_ID) => {
                                     : window.location.href,
                                 $m: (
                                     key: string,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$t(
                                         `modules.${MODULE_ID}.${key}`,
@@ -207,9 +224,7 @@ export default (async (LSSM, MODULE_ID) => {
                                 $mc: (
                                     key: string,
                                     amount: number,
-                                    args?: {
-                                        [key: string]: unknown;
-                                    }
+                                    args?: Record<string, unknown>
                                 ) =>
                                     LSSM.$tc(
                                         `modules.${MODULE_ID}.${key}`,
@@ -222,8 +237,9 @@ export default (async (LSSM, MODULE_ID) => {
                             },
                         }),
                 }).$mount(
-                    document.getElementById('iframe-inside-container') ??
-                        document.body
+                    document.querySelector<HTMLDivElement>(
+                        '#iframe-inside-container'
+                    ) ?? document.body
                 );
                 lightboxAdjust();
             });

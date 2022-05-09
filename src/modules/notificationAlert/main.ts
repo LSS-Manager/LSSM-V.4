@@ -1,28 +1,28 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { NotificationSetting } from 'typings/modules/NotificationAlert';
-import {
+import type { ModuleMainFunction } from 'typings/Module';
+import type { NotificationSetting } from 'typings/modules/NotificationAlert';
+import type {
     AllianceChatMessage,
     MissionMarkerAdd,
     RadioMessage,
 } from 'typings/Ingame';
 
-export default (async (LSSM, MODULE_ID, $m, $mc) => {
+export default (async ({ LSSM, $m, $mc, getSetting }) => {
     const alerts = (
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'alerts',
-        })
-    ).value as NotificationSetting[];
+        await getSetting<{ value: NotificationSetting[]; enabled: boolean }>(
+            'alerts'
+        )
+    ).value;
 
-    const events = {} as {
-        [event: string]: {
+    const events = {} as Record<
+        string,
+        {
             alertStyle: NotificationSetting['alertStyle'];
             duration: NotificationSetting['duration'];
             ingame: NotificationSetting['ingame'];
             desktop: NotificationSetting['desktop'];
             position: NotificationSetting['position'];
-        }[];
-    };
+        }[]
+    >;
     alerts.forEach(alert =>
         alert.events.forEach(event => {
             if (!events.hasOwnProperty(event)) events[event] = [];
@@ -64,8 +64,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             `@(${LSSM.$utils.escapeRegex(ucun)}|all[ :])`
                         )
                     ) ||
-                        (ucmsg.match(/@admin/) &&
-                            (window.alliance_admin || window.alliance_coadmin)))
+                        (ucmsg.match(/@admin/u) &&
+                            (window.alliance_admin ||
+                                window.alliance_coadmin ||
+                                window.alliance_owner)))
                 );
                 const title = `${
                     mission_id ? '🔔 ' : ''
@@ -174,6 +176,15 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         'sicherheitswache_error',
     ].filter(ce => events.hasOwnProperty(ce));
     if (fmsEvents.length) {
+        const extensionCloseCall = await LSSM.$store.dispatch(
+            'settings/getSetting',
+            {
+                moduleId: 'generalExtensions',
+                settingId: 'extensionCloseCall',
+                defaultValue: true,
+            }
+        );
+
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',
             async callback(message: RadioMessage) {
@@ -220,7 +231,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
 
                 const fmsAll = fmsEvents.includes('vehicle_fms');
                 const fmsStatuses = fmsEvents.filter(e =>
-                    e.match(/vehicle_fms_\d+/)
+                    e.match(/vehicle_fms_\d+/u)
                 );
                 if (
                     (fmsAll || fmsStatuses.length) &&
@@ -236,8 +247,23 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         vehicle: message.caption,
                         status: message.fms,
                     }).toString();
-                    const clickHandler = () =>
-                        window.lightboxOpen(`/vehicles/${message.id}`);
+                    const clickHandler = message.additionalText
+                        ? extensionCloseCall
+                            ? () => {
+                                  window.lightboxOpen(
+                                      `/missions/${message.mission_id}`
+                                  );
+                                  document
+                                      .querySelector<HTMLLIElement>(
+                                          `.radio_message_vehicle_${message.id}`
+                                      )
+                                      ?.remove();
+                              }
+                            : () =>
+                                  window.lightboxOpen(
+                                      `/missions/${message.mission_id}`
+                                  )
+                        : () => window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
                             LSSM.$store.dispatch(
@@ -291,7 +317,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 const newAmount = parseInt(amount);
                 const prevAmount = parseInt(
                     document
-                        .getElementById('message_top')
+                        .querySelector<HTMLSpanElement>('#message_top')
                         ?.textContent?.trim() || '-1'
                 );
                 if (newAmount <= prevAmount) return;
@@ -358,9 +384,11 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 const newAmount = parseInt(amount);
                 const prevAmount = parseInt(
                     document
-                        .getElementById('alliance_candidature_count')
+                        .querySelector<HTMLSpanElement>(
+                            '#alliance_candidature_count'
+                        )
                         ?.textContent?.trim()
-                        ?.replace(/(^\()|\)$/g, '') || '-1'
+                        ?.replace(/(^\()|\)$/gu, '') || '-1'
                 );
                 if (newAmount <= prevAmount) return;
                 events['allianceCandidature'].forEach(async alert =>
@@ -490,6 +518,45 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         });
     }
 
+    // Tasks
+    if (events['tasks_update']) {
+        await LSSM.$store.dispatch('hook', {
+            event: 'tasksUpdate',
+            post: false,
+            callback(amount: number, newTasks: boolean) {
+                if (
+                    !amount ||
+                    newTasks ||
+                    document.querySelector<HTMLSpanElement>(
+                        '#completed_tasks_counter'
+                    )?.textContent === amount.toString()
+                )
+                    return;
+                events['tasks_update'].forEach(async alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.tasksUpdate.title'),
+                        text: $m('messages.tasksUpdate.body'),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/tasks" */ './assets/tasks.svg'
+                            )
+                        ).default,
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/tasks/index');
+                        },
+                    })
+                );
+            },
+        });
+    }
+
     // Mission messages
     const missionEvents = [
         'mission_new',
@@ -508,10 +575,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             callback(mission: MissionMarkerAdd) {
                 const color = ['red', 'yellow', 'green'][
                     mission.vehicle_state
-                ] as 'red' | 'yellow' | 'green';
+                ] as 'green' | 'red' | 'yellow';
                 // mission_getred(_alliance)? | mission_new
-                const missionElement = document.getElementById(
-                    `mission_${mission.id}`
+                const missionElement = document.querySelector<HTMLDivElement>(
+                    `#mission_${mission.id}`
                 );
                 const isAllianceMission = mission.user_id !== window.user_id;
                 const isAllianceOnlyMission =
@@ -527,8 +594,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         : 0) || `/images/${mission.icon}.png`;
                 const isEventMission =
                     isAllianceMission && mission.user_id === null;
-                let { caption } = mission;
-                if (isAllianceMission) caption = `📤 ${caption}`;
+                const { caption, address, id } = mission;
+                const processedCaption = isAllianceMission
+                    ? `📤 ${caption}`
+                    : caption;
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission) {
                         events['mission_new']?.forEach(alert =>
@@ -537,16 +606,14 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: caption,
-                                    text: mission.address,
+                                    title: processedCaption,
+                                    text: address,
                                     icon,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
                                     clickHandler() {
-                                        window.lightboxOpen(
-                                            `/missions/${mission.id}`
-                                        );
+                                        window.lightboxOpen(`/missions/${id}`);
                                     },
                                 }
                             )
@@ -562,13 +629,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: caption,
+                                    title: processedCaption,
                                     text: $m(
                                         `messages.mission_getred${
                                             isAllianceMission ? '_alliance' : ''
                                         }.body`,
                                         {
-                                            address: mission.address,
+                                            address,
                                         }
                                     ),
                                     icon,
@@ -576,9 +643,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
                                     clickHandler() {
-                                        window.lightboxOpen(
-                                            `/missions/${mission.id}`
-                                        );
+                                        window.lightboxOpen(`/missions/${id}`);
                                     },
                                 }
                             )
@@ -594,14 +659,14 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: caption,
-                            text: mission.address,
+                            title: processedCaption,
+                            text: address,
                             icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                window.lightboxOpen(`/missions/${mission.id}`);
+                                window.lightboxOpen(`/missions/${id}`);
                             },
                         })
                     );
@@ -610,14 +675,14 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: caption,
-                            text: mission.address,
+                            title: processedCaption,
+                            text: address,
                             icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                window.lightboxOpen(`/missions/${mission.id}`);
+                                window.lightboxOpen(`/missions/${id}`);
                             },
                         })
                     );

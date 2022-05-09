@@ -1,0 +1,12 @@
+{
+    "accept": "Godta",
+    "alert": {
+        "accepted": "{username} ble godtatt i alliansen!",
+        "declined": "Søknaden til **{username}** ble avvist!"
+    },
+    "decline": "Avslå",
+    "earnedCredits": "opptjente kreditter",
+    "rules": "Søknadsregler",
+    "title": "Søknad: {n} | Søknader: {n}",
+    "user": "Søkere"
+}

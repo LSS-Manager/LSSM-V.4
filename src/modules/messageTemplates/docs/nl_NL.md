@@ -8,7 +8,7 @@ In de instellingen kan je nieuwe templates aanmaken, daarvoor kan je gebruik mak
 
 ### Gebruikersnaam
 
-Daarvoor kan je de variabele <code><span>{{</span>username<span>}}</span></code> gebruiken, deze wordt **bij nieuwe berichten** door de gebruikersnaam van de ontvanger vervangen.
+Daarvoor kan je de variabele <variable variable="username"/> gebruiken, deze wordt **bij nieuwe berichten** door de gebruikersnaam van de ontvanger vervangen.
 
 :::tip Waarom werkt het alleen bij nieuwe berichten?
 Heel eenvoudig: Momenteel hebben we niet bij bestaande berichten de mogelijkheid om de ontvanger eenvoudig te selecteren!
@@ -17,9 +17,9 @@ Heel eenvoudig: Momenteel hebben we niet bij bestaande berichten de mogelijkheid
 
 ### Datum
 
-Met <code><span>{{</span>today<span>}}</span></code> Kan je heel eenvoud de datum van vandaag invoegen.
+Met <variable variable="today"/> Kan je heel eenvoud de datum van vandaag invoegen.
 
-Wil je een datum in de toekomst toevoegen, bijvoorbeeld vandaag over 2 weken? Dan gebruik je daarvoor: <code><span>{{</span>today+14<span>}}</span></code>, om vandaag + 14 dagen te gebruiken. Hetzelfde werkt bijvoorbeeld: <code><span>{{</span>today-436<span>}}</span></code>, om 436 dagen voor vandaag in te voegen.
+Wil je een datum in de toekomst toevoegen, bijvoorbeeld vandaag over 2 weken? Dan gebruik je daarvoor: <variable variable="today+14"/>, om vandaag + 14 dagen te gebruiken. Hetzelfde werkt bijvoorbeeld: <variable variable="today-436"/>, om 436 dagen voor vandaag in te voegen.
 
 
 ## Gebruik templates

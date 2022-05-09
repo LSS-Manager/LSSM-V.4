@@ -1,0 +1,40 @@
+{
+    "nav": {
+        "links": {
+            "/alliance_logfiles": "Journal de modération",
+            "/alliance_messages": "Messages",
+            "/alliance_threads": "Mur",
+            "/alliances/{id}": "Présentation",
+            "/schoolings": "Formations",
+            "/verband/bereitstellungsraume": "Centres de Regroupement des Moyens",
+            "/verband/bewerbungen": "Candidature",
+            "/verband/gebauede": "Bâtiments",
+            "/verband/kasse": "Banque",
+            "/verband/mitglieder/{id}": "Membres",
+            "/verband/news/{id}": "News",
+            "/verband/regeln/{id}": "Règlement",
+            "/verband/werbung": "Publicités"
+        },
+        "other": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}"
+        ],
+        "self": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}",
+            "/alliance_logfiles",
+            "/alliance_threads",
+            "/alliance_messages",
+            "/verband/werbung",
+            "/schoolings",
+            "/verband/bereitstellungsraume",
+            "/verband/kasse",
+            "/verband/gebauede",
+            "/verband/bewerbungen"
+        ]
+    }
+}

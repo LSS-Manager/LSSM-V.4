@@ -1,25 +1,25 @@
 import 'i18n-js';
-import { DefaultProps } from 'vue/types/options';
-import Highcharts from 'highcharts';
-import { MapFilterInitializer } from '../src/modules/centerMap/assets/getMapFilterInitializer';
-import { POI } from './modules/EnhancedPOI';
-import { sceditor } from './SCEditor';
-import { Store } from 'vuex';
-import VueI18n from 'vue-i18n';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type Highcharts from 'highcharts';
+import type L from 'leaflet';
+import type { POI } from './modules/EnhancedPOI';
+import type { sceditor } from './SCEditor';
+import type { Store } from 'vuex';
+import type VueI18n from 'vue-i18n';
+import type {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
 } from 'typings/components/Appstore';
-import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
-import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
-import L, {
-    LayerGroup,
-    LayersControlEventHandlerFn,
-    Map,
-    Marker,
-} from 'leaflet';
-import {
+import type {
+    BuildingMarker,
+    BuildingMarkerAdd,
+    MissionMarker,
+    PatientTimer,
+    POIMarker,
+} from './Ingame';
+import type { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
+import type {
     SettingsComputed,
     SettingsData,
     SettingsMethods,
@@ -38,29 +38,35 @@ declare global {
         user_premium: boolean;
         alliance_admin: boolean;
         alliance_coadmin: boolean;
+        alliance_owner: boolean;
         building_markers: BuildingMarker[];
+        mission_markers: MissionMarker[];
         map_pois_service: {
             getMissionPoiMarkersArray(): POIMarker[];
             leafletMissionPositionMarkerAdd(poi: POI): void;
         };
         map_filters_service: {
-            initialize(a: MapFilterInitializer): void;
-            getMapFiltersLayersForMap(): Record<string, LayerGroup>;
-            getMapFiltersLayers(): Record<string, LayerGroup>;
+            // initialize(a: MapFilterInitializer): void;
+            getMapFiltersLayersForMap(): Record<string, L.LayerGroup>;
+            getMapFiltersLayers(): Record<string, L.LayerGroup>;
             getFilterLayerByBuildingParams(
-                building: BuildingMarkerAdd
-            ): LayerGroup | Map;
-            onOverlayChanged: LayersControlEventHandlerFn;
+                building: Pick<BuildingMarkerAdd, 'building_type' | 'user_id'>
+            ): L.LayerGroup | L.Map;
+            onOverlayChanged: L.LayersControlEventHandlerFn;
             massFiltersChange(filter_id: string, add: boolean): void;
             decorateFilterText(text: string, filter_id: string): string;
         };
         [PREFIX: string]: Vue | unknown;
-        map: Map;
+        map: L.Map;
         L: typeof L;
-        mission_position_new_marker?: Marker;
-        building_new_marker?: Marker;
-        building_move_marker?: Marker;
+        icon_empty: L.Icon;
+        mission_position_new_marker?: L.Marker;
+        building_new_marker?: L.Marker;
+        building_move_marker?: L.Marker;
         mission_graphics: [string, string, string][];
+        patient_timers: PatientTimer[];
+        sale_count_down: number;
+        mission_label: boolean;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -71,11 +77,16 @@ declare global {
             buildingIds: number[],
             checkbox: JQuery<HTMLInputElement>
         ): boolean;
-        extensionCountdown(remaining: number, id: number): void;
-        educationCountdown(remaining: number, id: string | number): void;
+        extensionCountdown(remaining: number, id: number | string): void;
+        educationCountdown(remaining: number, id: number | string): void;
         formatTime(remaining: number, t?: boolean): string;
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
         buildingMarkerBulkContentCacheDraw(): void;
+        iconAnchorCalculate(size: [number, number]): [number, number];
+        iconMapGenerate(url: string, marker: L.Marker): void;
+        getBuildingMarkerIcon(
+            building: Pick<BuildingMarkerAdd, 'building_type'>
+        ): string;
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;
@@ -83,6 +94,21 @@ declare global {
         mapMoveToSearch(): void;
         lightboxClose(creation?: string): void; // creation Param only for LSSM Redesign
         buildingsVehicleLoadVisible(): void;
+        missionScrollUpdate(): void;
+        mapExpand(design_big_map: boolean): void;
+        setupTimer(timer: {
+            $timer: JQuery<HTMLElement>;
+            format: string | 'long';
+            onTimerEnd(): void;
+        }): void;
+        updateTimer(
+            timer: Pick<
+                Parameters<this['setupTimer']>[0],
+                '$timer' | 'format'
+            > & {
+                endTime: Date;
+            }
+        ): void;
     }
 }
 
@@ -98,10 +124,27 @@ declare module 'vue/types/vue' {
         $utils: {
             urlRegex: RegExp;
             escapeRegex(s: string): string;
+            getMissionTypeInMissionWindow(): string;
+            getMissionOptions(
+                LSSM: Vue,
+                MODULE_ID: string,
+                reason: string
+            ): Promise<{ missionIds: string[]; missionNames: string[] }>;
+            getNumberFromText<Multiple extends boolean = false>(
+                text: string,
+                allNumbers?: Multiple,
+                fallback?: number
+            ): Multiple extends true ? number[] : number;
             getTextNodes(
                 root: Node,
                 filter: (node: Node, ...args: unknown[]) => boolean
             ): Text[];
+            activeCountdowns: string[];
+            countdown(
+                id: string,
+                countdown: number,
+                initialCall?: boolean
+            ): void;
             highChartsDarkMode: Highcharts.Options;
         };
         $appstore: CombinedVueInstance<
@@ -120,9 +163,7 @@ declare module 'vue/types/vue' {
         >;
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     }
 }

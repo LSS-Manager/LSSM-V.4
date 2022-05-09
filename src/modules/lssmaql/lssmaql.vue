@@ -46,9 +46,9 @@ import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import parser from './assets/parser';
 import tokenizer from './assets/tokenizer';
 
-import { DefaultProps } from 'vue/types/options';
-import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
+import type {
     LSSMAQL,
     LSSMAQLComputed,
     LSSMAQLMethods,
@@ -98,15 +98,13 @@ const parse_filter = (
                   cloneDeep(filter),
                   [tree.base, ...tree.attributes].join('.')
               ) as ObjectTree);
-    let sideObject = (typeof oneside === 'string' ||
-    typeof oneside === 'number' ||
-    typeof oneside === 'boolean'
-        ? oneside
-        : [...oneside.base.split('.'), ...oneside.attributes]) as
-        | string
-        | number
-        | Record<string, unknown>
-        | (string | number)[];
+    let sideObject = (
+        typeof oneside === 'string' ||
+        typeof oneside === 'number' ||
+        typeof oneside === 'boolean'
+            ? oneside
+            : [...oneside.base.split('.'), ...oneside.attributes]
+    ) as (number | string)[] | Record<string, unknown> | number | string;
     if (!sideObject) return;
     if (Array.isArray(sideObject)) {
         while (sideObject.includes('..')) {
@@ -123,10 +121,10 @@ const parse_filter = (
                 newObject = (newObject as never[]).map(e => e[attr]);
             } else {
                 newObject = (newObject as Record<string, unknown>)[attr] as
-                    | string
-                    | number
+                    | never[]
                     | Record<string, unknown>
-                    | never[];
+                    | number
+                    | string;
             }
         });
         sideObject = newObject;
@@ -178,7 +176,7 @@ export default Vue.extend<
     LSSMAQLComputed,
     DefaultProps
 >({
-    name: 'lssmaql',
+    name: 'lssmv4-lssmaql-console',
     components: {
         Lightbox: () =>
             import(

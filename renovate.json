@@ -1,0 +1,71 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "labels": ["dependencies"],
+  "assignees": ["Suchty112"],
+  "baseBranches": ["dev"],
+  "commitMessagePrefix": "⬆️",
+  "commitMessageTopic": "`{{depName}}`",
+  "dependencyDashboard": true,
+  "dependencyDashboardLabels": ["dependencies"],
+  "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
+  "packageRules": [
+    {
+      "description": "Disable updating vue on main repo",
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^vue(-i18n|-loader|x)?$"],
+      "matchPaths": ["+(package.json)"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@types/"],
+      "groupName": "types",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@fortawesome/"],
+      "groupName": "fontawesome",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@typescript-eslint"],
+      "groupName": "typescript-eslint",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@vuepress"],
+      "matchPackageNames": ["vuepress"],
+      "groupName": "vuepress",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["npm", "yarn", "node"],
+      "groupName": "engines",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump",
+      "extends": ["schedule:monthly"]
+    },
+    {
+      "matchManagers": ["npm"],
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    }
+  ],
+  "rangeStrategy": "bump",
+  "reviewers": ["Suchty112"],
+  "schedule": ["before 3am every weekday"]
+}

@@ -37,8 +37,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
-import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
+import type { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
+import type {
+    DefaultComputed,
+    DefaultData,
+    DefaultProps,
+} from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -46,7 +50,7 @@ export default Vue.extend<
     DefaultComputed,
     DefaultProps
 >({
-    name: 'dashboard',
+    name: 'lssmv4-dashboard',
     components: {
         DispatchcenterView: () =>
             import(

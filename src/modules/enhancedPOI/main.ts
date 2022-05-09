@@ -1,25 +1,19 @@
-import { LayersControlEvent } from 'leaflet';
-import { POI } from 'typings/modules/EnhancedPOI';
-import { POIMarker } from 'typings/Ingame';
-import { $m, ModuleMainFunction } from 'typings/Module';
+import type { LayersControlEvent } from 'leaflet';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { POI } from 'typings/modules/EnhancedPOI';
+import type { POIMarker } from 'typings/Ingame';
 
-export default (async (LSSM, MODULE_ID, $m: $m) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
     await LSSM.$store.dispatch('api/registerSettings', { feature: MODULE_ID });
 
     const style = await (async () => {
-        const predef = await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'predefined_style',
-        });
-        if (predef === 'custom') {
-            return await LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'custom_style',
-            });
-        }
+        const predef = await getSetting<string>('predefined_style');
+        if (predef === 'custom')
+            return await getSetting<string>('custom_style');
+
         switch (predef) {
             case 'brown':
                 return 'sepia(100%) contrast(500%)';
@@ -33,18 +27,15 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     })();
 
     const modifyMarker = (poi: POIMarker, caption: string) => {
-        poi.bindTooltip(caption)
-            .getElement()
-            ?.setAttribute('caption', caption);
+        poi.bindTooltip(caption).getElement()?.setAttribute('caption', caption);
         poi.getElement()?.classList.add('poi');
     };
 
     let modifiedMarkers = false;
-    let lastSavedPOIType: string =
-        (await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'lastSavedPOIType',
-        })) ?? '';
+    let lastSavedPOIType: string = await getSetting<string>(
+        'lastSavedPOIType',
+        ''
+    );
 
     const modifyMarkers = () =>
         LSSM.$store
@@ -102,9 +93,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         }
     };
 
-    const poiHighlightedClass = LSSM.$store.getters.nodeAttribute(
-        'poi-highlighted'
-    );
+    const poiHighlightedClass =
+        LSSM.$store.getters.nodeAttribute('poi-highlighted');
     const poiSettingsWrapperId = LSSM.$store.getters.nodeAttribute(
         'poi-settings',
         true
@@ -126,26 +116,24 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     ]);
 
     const colorMarkers = (caption: string) =>
-        (document.querySelectorAll('.poi') as NodeListOf<
-            HTMLImageElement
-        >).forEach(el =>
-            el.classList[
-                el.getAttribute('caption') === caption ? 'add' : 'remove'
-            ](poiHighlightedClass)
-        );
+        document
+            .querySelectorAll<HTMLImageElement>('.poi')
+            .forEach(el =>
+                el.classList[
+                    el.getAttribute('caption') === caption ? 'add' : 'remove'
+                ](poiHighlightedClass)
+            );
 
     window.map.addEventListener('moveend', resetNewPoiMarker);
     window.map.addEventListener(
         'overlayadd',
         ({ name }: LayersControlEvent) =>
-            !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
+            !modifiedMarkers &&
+            name.match(/app-pois-filter/u) &&
+            modifyMarkers()
     );
 
-    let shown_types = (await LSSM.$store.dispatch('settings/getSetting', {
-        moduleId: MODULE_ID,
-        settingId: 'shown_types',
-        defaultValue: poi_types,
-    })) as string[];
+    let shown_types = await getSetting<string[]>('shown_types', poi_types);
 
     const refresh_shown_pois = () => {
         const selector = shown_types
@@ -155,10 +143,10 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
             'poi-hider-style',
             true
         );
-        document.getElementById(extraStyleId)?.remove();
+        document.querySelector<HTMLStyleElement>(`#${extraStyleId}`)?.remove();
         const style = document.createElement('style');
         style.id = extraStyleId;
-        style.innerText = `${selector} {display: block !important;}`;
+        style.textContent = `${selector} {display: block !important;}`;
         document.body.append(style);
     };
     refresh_shown_pois();
@@ -174,14 +162,19 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
             );
             if (!form) {
                 isPOIWindow = false;
-                (document.querySelectorAll(
-                    `.poi.${poiHighlightedClass}`
-                ) as NodeListOf<HTMLImageElement>).forEach(el =>
-                    el.classList.remove(poiHighlightedClass)
-                );
+                document
+                    .querySelectorAll<HTMLImageElement>(
+                        `.poi.${poiHighlightedClass}`
+                    )
+                    .forEach(el => el.classList.remove(poiHighlightedClass));
                 return;
             }
-            if (isPOIWindow && document.getElementById(poiSettingsWrapperId))
+            if (
+                isPOIWindow &&
+                document.querySelector<HTMLDivElement>(
+                    `#${poiSettingsWrapperId}`
+                )
+            )
                 return;
             isPOIWindow = true;
 
@@ -229,7 +222,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                         poi === 'all'
                             ? shown_types === poi_types
                             : poi === 'none'
-                            ? shown_types === []
+                            ? !shown_types.length
                             : shown_types.includes(poi);
                     if (poi === 'all') {
                         input.addEventListener('change', () => {
@@ -242,14 +235,14 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                             });
                             refresh_shown_pois();
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input:not([name="all"]):not([name="none"])'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = true));
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input[name="all"], input[name="none"]'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = false));
                         });
                     } else if (poi === 'none') {
@@ -263,14 +256,14 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                             });
                             refresh_shown_pois();
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input:not([name="all"]):not([name="none"])'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = false));
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input[name="all"], input[name="none"]'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = false));
                         });
                     } else {
@@ -306,7 +299,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         });
     });
 
-    const buildingsElement = document.getElementById('buildings');
+    const buildingsElement =
+        document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 }) as ModuleMainFunction;

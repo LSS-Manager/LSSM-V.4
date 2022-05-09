@@ -38,11 +38,13 @@ export default async (
         });
     };
 
-    const observer = new MutationObserver(mutations => {
+    const observer = new MutationObserver(mutations =>
         mutations.forEach(mutation => {
-            const form = (mutation.target as HTMLElement).querySelector<
-                HTMLFormElement
-            >('#new_building[action="/buildings"]');
+            const form = (
+                mutation.target as HTMLElement
+            ).querySelector<HTMLFormElement>(
+                '#new_building[action="/buildings"]'
+            );
             if (!form) {
                 isBuildingMenu = false;
                 return;
@@ -53,9 +55,10 @@ export default async (
             checkFormValidity(form);
 
             if (saveLastBuildingType) {
-                const buildingTypeSelect = form.querySelector<
-                    HTMLSelectElement
-                >('#building_building_type');
+                const buildingTypeSelect =
+                    form.querySelector<HTMLSelectElement>(
+                        '#building_building_type'
+                    );
                 if (buildingTypeSelect) {
                     buildingTypeSelect.value = lastBuildingType;
                     buildingTypeSelect.dispatchEvent(new Event('change'));
@@ -71,9 +74,10 @@ export default async (
                 }
             }
             if (saveLastDispatchCenter) {
-                const dispatchCenterSelect = form.querySelector<
-                    HTMLSelectElement
-                >('#building_leitstelle_building_id');
+                const dispatchCenterSelect =
+                    form.querySelector<HTMLSelectElement>(
+                        '#building_leitstelle_building_id'
+                    );
                 if (dispatchCenterSelect) {
                     dispatchCenterSelect.value = lastDispatchCenter;
                     dispatchCenterSelect.dispatchEvent(new Event('change'));
@@ -132,11 +136,12 @@ export default async (
                         const response = document
                             .createRange()
                             .createContextualFragment(res);
-                        const successAlert = response.querySelector<
-                            HTMLDivElement
-                        >('#building_panel_body .alert');
+                        const successAlert =
+                            response.querySelector<HTMLDivElement>(
+                                '#building_panel_body .alert'
+                            );
                         if (!successAlert) return;
-                        form.insertAdjacentElement('beforebegin', successAlert);
+                        form.before(successAlert);
                         btn.setAttribute('type', 'submit');
                         form['building[name]'].value = '';
                         form.build_with_coins.removeAttribute('value');
@@ -147,7 +152,7 @@ export default async (
                                 .querySelector<HTMLAnchorElement>(
                                     'a.lightbox-open.btn[href^="/buildings/"]'
                                 )
-                                ?.href.match(/\d+\/?$/)?.[0] ?? '-1'
+                                ?.href.match(/\d+\/?$/u)?.[0] ?? '-1'
                         );
                         const script = response.querySelector('script');
                         if (!script) return;
@@ -165,13 +170,13 @@ export default async (
                         window.building_maps_redraw();
                         const currentCredits = parseInt(
                             script.innerHTML.match(
-                                /(?<=creditsUpdate\()\d+(?=\)$)/m
+                                /(?<=creditsUpdate\()\d+(?=\);$)/mu
                             )?.[0] ?? '-1'
                         );
                         window.creditsUpdate(currentCredits);
                         const currentCoins = parseInt(
                             script.innerHTML.match(
-                                /(?<=coinsUpdate\()\d+(?=\);$)/m
+                                /(?<=coinsUpdate\()\d+(?=\);$)/mu
                             )?.[0] ?? '-1'
                         );
                         window.coinsUpdate(currentCoins);
@@ -180,8 +185,8 @@ export default async (
                         ).forEach(creditsBtn => {
                             const credits = parseInt(
                                 creditsBtn.value
-                                    .match(/\d{1,3}(\.\d{3})*/)?.[0]
-                                    .replace(/\./, '') ?? '-1'
+                                    .match(/\d{1,3}(\.\d{3})*/u)?.[0]
+                                    .replace(/\./u, '') ?? '-1'
                             );
                             if (credits <= currentCredits) return;
                             creditsBtn.classList.replace(
@@ -195,8 +200,8 @@ export default async (
                         ).forEach(coinsBtn => {
                             const coins = parseInt(
                                 coinsBtn.value
-                                    .match(/\d{1,3}(\.\d{3})*/)?.[0]
-                                    .replace(/\./, '') ?? '-1'
+                                    .match(/\d{1,3}(\.\d{3})*/u)?.[0]
+                                    .replace(/\./u, '') ?? '-1'
                             );
                             if (coins <= currentCoins) return;
                             coinsBtn.classList.replace(
@@ -208,10 +213,11 @@ export default async (
                         checkFormValidity(form);
                     });
             });
-        });
-    });
+        })
+    );
 
-    const buildingsElement = document.getElementById('buildings');
+    const buildingsElement =
+        document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 };

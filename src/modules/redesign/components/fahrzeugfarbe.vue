@@ -37,14 +37,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { FahrzeugfarbeWindow } from '../parsers/fahrzeugfarbe';
-import { InternalVehicle } from 'typings/Vehicle';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'fahrzeugfarbe',
     'fahrzeugfarbe',
-    FahrzeugfarbeWindow,
     { showSavedNote: boolean },
     { updateColor(): void; resetColor(): void },
     {
@@ -61,7 +59,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'fahrzeugfarbe',
+    name: 'lssmv4-redesign-fahrzeugfarbe',
     data() {
         return {
             showSavedNote: false,
@@ -71,9 +69,12 @@ export default Vue.extend<
         vehicleTypeCaption() {
             return (
                 this.fahrzeugfarbe.customVehicleType ??
-                (this.$t('vehicles') as Record<number, InternalVehicle>)[
-                    this.fahrzeugfarbe.vehicleType
-                ].caption
+                (
+                    this.$t('vehicles') as unknown as Record<
+                        number,
+                        InternalVehicle
+                    >
+                )[this.fahrzeugfarbe.vehicleType].caption
             );
         },
         hasColor() {
@@ -100,7 +101,7 @@ export default Vue.extend<
             url.searchParams.append('_method', 'put');
             url.searchParams.append(
                 'vehicle_color[color]',
-                (this.$refs.color as HTMLInputElement).value.replace(/^#/, '')
+                (this.$refs.color as HTMLInputElement).value.replace(/^#/u, '')
             );
             url.searchParams.append(
                 'authenticity_token',

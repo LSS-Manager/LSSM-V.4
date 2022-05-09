@@ -1,0 +1,29 @@
+{
+    "description": "Alarmeren, delen en post een chatbericht met 1 klik.",
+    "lsam": {
+        "help": "Variabelen worden op dezelfde manier vervangen als in de meldingenlijst."
+    },
+    "name": "Alarmeren, delen en posten",
+    "noMessage": "Zonder chatbericht",
+    "settings": {
+        "enableCallList": {
+            "description": "Integreert deze module in de functie \"Deel meldingen\" van de \"Uitgebreide meldingenlijst\".",
+            "title": "Integreert in de meldingenlijst"
+        },
+        "enableLSAM": {
+            "description": "Zet deze instelling aan om een bericht te selecteren bij het aanmaken van een grote inzet.",
+            "title": "Grote inzetten"
+        },
+        "message": "Chatbericht",
+        "messages": {
+            "description": "Leg hier de chatberichten vast, die je in het meldingsvenster kan kiezen. Variabelen worden ondersteund, zie hiervoor onze <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variablen\">Wiki</a>! Je kan ieder chatbericht een korte naam geven, zodat je hem sneller kan vinden in het meldingsvenster.",
+            "title": "Chatberichten"
+        },
+        "name": "Naam",
+        "postInChat": "Chatbericht ook in de chat posten?",
+        "stayInCallList": {
+            "description": "Met deze instelling aan, kan je een bericht sturen naar een al gedeelde melding.",
+            "title": "Blijf in meldinglijst"
+        }
+    }
+}

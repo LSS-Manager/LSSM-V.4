@@ -1,0 +1,8 @@
+{
+    "load": {
+        "next": "Laad 20 oudere berichten",
+        "prev": "Laad 20 nieuwere berichten"
+    },
+    "subtitle": "Toont {n} berichten van pagina {startPage} ({firstDate}) tot pagina {endPage} ({lastDate}) van totaal {totalPages} pagina's.",
+    "title": "Teamchat"
+}

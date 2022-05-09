@@ -1,0 +1,8 @@
+{
+    "description": "W oknie wezwania ten kolor jest ustawiony jako tło pola wyboru dla wszystkich pojazdów tego typu pojazdu.",
+    "noColor": "Żaden kolor pojazdu nie jest obecnie ustawiony",
+    "reset": "Usuń kolor",
+    "save": "Zapisz",
+    "savedNote": "Kolor pojazdu został pomyślnie zapisany!",
+    "title": "Edytuj kolor pojazdu: {type}"
+}

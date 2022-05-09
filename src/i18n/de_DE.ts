@@ -1,18 +1,15 @@
-import { Building } from 'typings/Building';
+import type { Building } from '../../typings/Building';
 
-const furtherFiles = require.context('./de_DE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Speichern',
         reset: 'Reset',
         noMapkit:
             'Dieses Modul funktioniert mit dem Kartentyp "Mapkit" wegen Beschränkungen seitens Mapkit nicht!',
-        dev:
-            'Dieses Modul befindet sich aktuell noch in der Entwicklung. Ein Aktivieren kann zu unvollständigen und fehlerhaften Funktionen führen!',
+        dev: 'Dieses Modul befindet sich aktuell noch in der Entwicklung. Ein Aktivieren kann zu unvollständigen und fehlerhaften Funktionen führen!',
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
-            text:
-                'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schliessen.',
+            text: 'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schließen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
             exit: 'Ohne Speichern verlassen',
@@ -25,25 +22,29 @@ const modules = {
         reset: 'Reset',
         export: 'Exportieren',
         import: 'Importieren',
+        appendableList: {
+            unique: {
+                title: 'Doppelter Wert',
+                text: 'In der Spalte **{title}** dürfen keine doppelten Werte vorkommen. Der Wert **{value}** ist bereits vorhanden!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Zurücksetzen der Einstellungen',
-            text:
-                'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
+            text: 'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
             close: 'Abbrechen',
             total: 'Alle Einstellungen',
             module: 'Nur von diesem Modul <b>{module}</b>',
         },
         resetWarningSetting: {
             title: 'Einstellung zurücksetzen',
-            text:
-                'Möchtest du wirklich diese eine Einstellung <b>{setting}</b> des Moduls <b>{module}</b> auf ihren Standartwert zurücksetzen?',
+            text: 'Möchtest du wirklich diese eine Einstellung <b>{setting}</b> des Moduls <b>{module}</b> auf ihren Standartwert zurücksetzen?',
             close: 'Abbrechen',
             reset: 'Zurücksetzen',
         },
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
-            text:
-                'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schliessen.',
+            text: 'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schließen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
             exit: 'Ohne Speichern verlassen',
@@ -52,33 +53,48 @@ const modules = {
             true: 'An',
             false: 'Aus',
         },
+        locationSelect: {
+            location: 'Position auswählen',
+            zoom: 'Position und Zoomstufe auswählen',
+            sync: 'aktuelle Position verwenden',
+        },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
-
-const t = {} as { [key: string]: unknown };
-
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS-Manager: Fehler',
-        msg:
-            'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
+        msg: 'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
+        requestIssue: {
+            title: 'Fehlerhafte Anfrage: Status {status}',
+            text: `Huch, bei dieser Serveranfrage ist leider ein Fehler aufgetreten:<br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Dauer</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
+<br>
+Bitte versuche, die gewünschte Aktion nochmals auszuführen.<br>
+Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverproblemen liegen. Bitte versuche es dann zu einem späteren Zeitpunkt erneut.`,
+            close: 'Hinweis schließen',
+        },
     },
     warnings: {
         version: {
             title: 'Falsche LSS-Manager Version',
-            text:
-                'Lieber Nutzer, leider mussten wir fetstellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS-Managers gewährleisten.',
+            text: 'Lieber Nutzer, leider mussten wir feststellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS-Managers gewährleisten.',
             close: 'Meldung schließen und Spiel neu laden (empfohlen)',
             abort: 'Meldung schließen ohne Spiel neu zu laden',
         },
+    },
+    anniversary1: {
+        closeNote:
+            'Tipp: Zum Schließen kannst du auch auf die Ballons klicken!',
+        title: '🎉 Es gibt Grund zu Feiern! 🎉',
+        content:
+            'Wow, wie schnell die Zeit vergeht!<br>Es ist nun schon <b>ein Jahr</b> her, dass der LSS-Manager V.4 online ging! In diesem Jahr hat sich natürlich einiges getan und deshalb möchten wir zu diesem besonderen Anlass ganz besonders euch, den Nutzern, danken. Die Freude, mit der Ihr unsere neuen Features austestet begeistert uns immer wieder und gibt uns immer wieder neue Motivation, weiter zu machen. Ebenfalls geht ein fettes Danke an unsere Übersetzer, die sich ehrenamtlich darum kümmern, den LSSM auch in anderen Versionen des Spiels nutzbar machen zu können.</br>Zur Feier des Tages möchten wir hier ein paar Fakten und Zahlen veröffentlichen:<ul><li><code>10.02.2020</code>: Der Erste Commit auf GitHub wurde gemacht: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Seitdem haben wir über 5.600 Commits getätigt!</li><li><code>19.09.2020</code>: Die V.4 wurde ein erstes Mal offiziell im Forum angekündigt: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS-Manager V.4</a>. Damit hat auch die Bewerbungsphase für Beta-Tester gestartet</li><li><code>17.10.2020</code>: Die Beta-Tester haben das erste Mal Zugriff auf die V.4 bekommen. Die 4-wöchige Beta-Phase hat damit begonnen</li><li><code>21.11.2020</code>: Der LSS-Manager V.4 geht für alle online!</li><li>Unsere Telemetrie verzeichnet aktuell rund 5.000 Nutzer in den vergangenen 6 Monaten. Davon waren über 2.200 in den letzten 14 Tagen aktiv. Die Dunkelziffer (Zahl der Nutzer, die die Telemetrie deaktiviert haben) ist nicht abschätzbar.</li><li>Unser Thread im Forum hat mittlerweile fast 1.200 Nachrichten erreicht. Das ist zwar einiges, aber der Thread der V.3, der aktuell an den 3.500 Antworten kratzt, ist noch lange nicht aufgeholt.</li><li>Weitere Statistiken findest du in unserem Thread im Forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS-Manager V.4</a></li></ul><br>Wir freuen uns auf viele weitere schöne Momente in der Zeit des LSSM V.4!<br>Euer LSSM-Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Allgemeine Einstellungen',
@@ -99,13 +115,28 @@ export default {
         },
         iconBgAsNavBg: {
             description:
-                'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an',
+                'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an.',
             title: 'Navigationsleiste einfärben',
+        },
+        loadingIndicator: {
+            description:
+                'Ist diese Einstellung aktiv, zeigt der LSSM einen kleinen Ladekreisel in der unteren rechten Ecke an, wenn er eigene Dateien lädt.',
+            title: 'Ladekreisel anzeigen',
         },
         osmDarkTooltip: {
             description:
-                'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast',
+                'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast.',
             title: 'Dunkle Tooltips in der Karte',
+        },
+        osmDarkControls: {
+            description:
+                'Zeigt die Knöpfe auf der Karte in einer dunkleren Farbe an, wenn du das Spiel im dunklen Modus hast.',
+            title: 'Dunkle Knöpfe in der Karte',
+        },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menü als Untermenü',
+            description:
+                'Verschiebt das Menü des LSSM V3 in das Menü der V4 um Platz in der Navigationsleiste zu sparen.',
         },
     },
     vehicles: {
@@ -119,6 +150,7 @@ export default {
             wtank: 2000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'LF 10',
@@ -130,50 +162,51 @@ export default {
             wtank: 1200,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'DLK 23',
             color: '#d92626',
             coins: 30,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 3 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         3: {
             caption: 'ELW 1',
             color: '#d02525',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'car-side',
+            possibleBuildings: [0, 18],
         },
         4: {
             caption: 'RW',
             color: '#ad1f1f',
             coins: 25,
-            credits: 12180,
+            credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 4 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         5: {
             caption: 'GW-A',
             color: '#9c1c1c',
             coins: 25,
-            credits: 11680,
+            credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 5 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         6: {
             caption: 'LF 8/6',
@@ -185,6 +218,7 @@ export default {
             wtank: 600,
             pumpcap: 800,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         7: {
             caption: 'LF 20/16',
@@ -196,6 +230,7 @@ export default {
             wtank: 1600,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         8: {
             caption: 'LF 10/6',
@@ -207,6 +242,7 @@ export default {
             wtank: 600,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         9: {
             caption: 'LF 16-TS',
@@ -215,93 +251,98 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         10: {
             caption: 'GW-Öl',
             color: '#8b1818',
             coins: 25,
-            credits: 12000,
+            credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         11: {
             caption: 'GW-L2-Wasser',
             color: '#e61919',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         12: {
             caption: 'GW-Messtechnik',
             color: '#791515',
             coins: 25,
-            credits: 18300,
+            credits: 18_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
-            schooling: 'Feuerwehr - GW-Messtechnik Lehrgang',
-            shownSchooling: 'GW-Messtechnik',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Messtechnik Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 10 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         13: {
             caption: 'SW 1000',
             color: '#dc1818',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         14: {
             caption: 'SW 2000',
             color: '#ca1616',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         15: {
             caption: 'SW 2000-Tr',
             color: '#b81414',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         16: {
             caption: 'SW Kats',
             color: '#a51212',
             coins: 25,
-            credits: 17300,
+            credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         17: {
             caption: 'TLF 2000',
@@ -313,6 +354,7 @@ export default {
             wtank: 2000,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         18: {
             caption: 'TLF 3000',
@@ -324,6 +366,7 @@ export default {
             wtank: 3000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         19: {
             caption: 'TLF 8/8',
@@ -335,6 +378,7 @@ export default {
             wtank: 800,
             pumpcap: 800,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         20: {
             caption: 'TLF 8/18',
@@ -346,6 +390,7 @@ export default {
             wtank: 1800,
             pumpcap: 800,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         21: {
             caption: 'TLF 16/24-Tr',
@@ -357,6 +402,7 @@ export default {
             wtank: 2400,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         22: {
             caption: 'TLF 16/25',
@@ -368,6 +414,7 @@ export default {
             wtank: 2400,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         23: {
             caption: 'TLF 16/45',
@@ -379,6 +426,7 @@ export default {
             wtank: 4500,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         24: {
             caption: 'TLF 20/40',
@@ -390,6 +438,7 @@ export default {
             wtank: 4000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         25: {
             caption: 'TLF 20/40-SL',
@@ -401,6 +450,7 @@ export default {
             wtank: 4000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         26: {
             caption: 'TLF 16',
@@ -412,19 +462,25 @@ export default {
             wtank: 1800,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         27: {
             caption: 'GW-Gefahrgut',
             color: '#681212',
             coins: 25,
-            credits: 19200,
+            credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
-            schooling: 'Feuerwehr - GW-Gefahrgut Lehrgang',
-            shownSchooling: 'GW-Gefahrgut',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Gefahrgut Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 11 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         28: {
             caption: 'RTW',
@@ -434,41 +490,60 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'ambulance',
+            possibleBuildings: [0, 18, 2, 12, 20],
         },
         29: {
             caption: 'NEF',
             color: '#e09200',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
-            shownSchooling: 'Notarzt',
+            schooling: {
+                Feuerwehr: {
+                    'Notarzt-Ausbildung': {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 3 Rettungswachen benötigt.',
             icon: 'car_side',
+            possibleBuildings: [0, 18, 2, 20],
         },
         30: {
             caption: 'HLF 20',
             color: '#440000',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         31: {
             caption: 'RTH',
             color: '#ddaa3c',
             coins: 30,
-            credits: 300000,
+            credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
-            shownSchooling: 'Notarzt',
+            schooling: {
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 3 Rettungswachen benötigt.',
             icon: 'helicopter',
+            possibleBuildings: [5],
         },
         32: {
             caption: 'FuStW',
@@ -478,43 +553,60 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'taxi',
+            possibleBuildings: [6, 19],
         },
         33: {
             caption: 'GW-Höhenrettung',
             color: '#570f0f',
             coins: 25,
-            credits: 19500,
+            credits: 19_500,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
-            schooling: 'Feuerwehr - Höhenrettung Lehrgang',
-            shownSchooling: 'GW-Höhenrettung',
+            schooling: {
+                Feuerwehr: {
+                    ['Höhenrettung Lehrgang']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 12 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         34: {
             caption: 'ELW 2',
             color: '#bf2222',
             coins: 25,
-            credits: 25500,
+            credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
-            schooling: 'Feuerwehr - ELW 2 Lehrgang',
-            shownSchooling: 'ELW 2',
+            schooling: {
+                Feuerwehr: {
+                    'ELW 2 Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 13 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         35: {
             caption: 'leBefKw',
             color: '#288f28',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Zugführer (leBefKw)',
-            shownSchooling: 'Zugführer (leBefKw)',
+            schooling: {
+                Polizei: {
+                    ['Zugführer (leBefKw)']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus',
+            possibleBuildings: [11],
         },
         36: {
             caption: 'MTW',
@@ -523,8 +615,8 @@ export default {
             credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             icon: 'shuttle-van',
+            possibleBuildings: [0, 18],
         },
         37: {
             caption: 'TSF-W',
@@ -536,6 +628,7 @@ export default {
             wtank: 500,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         38: {
             caption: 'KTW',
@@ -545,15 +638,17 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         39: {
             caption: 'GKW',
             color: '#00138f',
             coins: 25,
-            credits: 13000,
+            credits: 13_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'truck-moving',
+            possibleBuildings: [9],
         },
         40: {
             caption: 'MTW-TZ',
@@ -562,50 +657,65 @@ export default {
             credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'THW - Zugtrupp',
-            shownSchooling: 'Zugtrupp',
+            schooling: {
+                THW: {
+                    Zugtrupp: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [9],
         },
         41: {
             caption: 'MzKW',
             color: '#0018b8',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'truck-moving',
+            possibleBuildings: [9],
         },
         42: {
             caption: 'LKW K 9',
             color: '#001bcc',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'THW - Fachgruppe Räumen',
-            shownSchooling: 'Fachgruppe Räumen',
+            schooling: {
+                THW: {
+                    ['Fachgruppe Räumen']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-pickup',
+            possibleBuildings: [9],
         },
         43: {
             caption: 'BRmG R',
             color: '#001ee0',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
             icon: 'snowplow',
+            possibleBuildings: [9],
         },
         44: {
             caption: 'Anh DLE',
             color: '#0021f5',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
                 'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         45: {
             caption: 'MLW 5',
@@ -614,9 +724,15 @@ export default {
             credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'THW - Fachgruppe Räumen',
-            shownSchooling: 'Fachgruppe Räumen',
+            schooling: {
+                THW: {
+                    ['Fachgruppe Räumen']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [9],
         },
         46: {
             caption: 'WLF',
@@ -625,10 +741,15 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
-            schooling: 'Feuerwehr - Wechsellader Lehrgang',
-            shownSchooling: 'Wechsellader',
+            schooling: {
+                Feuerwehr: {
+                    'Wechsellader Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             truck: 'truck-pickup',
+            possibleBuildings: [0, 18],
         },
         47: {
             caption: 'AB-Rüst',
@@ -638,6 +759,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         48: {
             caption: 'AB-Atemschutz',
@@ -647,6 +769,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         49: {
             caption: 'AB-Öl',
@@ -656,48 +779,63 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         50: {
             caption: 'GruKw',
             color: '#2d9f29',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'bus',
+            possibleBuildings: [11],
         },
         51: {
             caption: 'FüKw',
             color: '#31af31',
             coins: 25,
-            credits: 17500,
+            credits: 17_500,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Hundertschaftsführer (FüKw)',
-            shownSchooling: 'Hundertschaftsführer (FüKw)',
+            schooling: {
+                Polizei: {
+                    ['Hundertschaftsführer (FüKw)']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
+            possibleBuildings: [11],
         },
         52: {
             caption: 'GefKw',
             color: '#36bf36',
             coins: 25,
-            credits: 13000,
+            credits: 13_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'bus-alt',
+            possibleBuildings: [11],
         },
         53: {
             caption: 'Dekon-P',
             color: '#450909',
             coins: 25,
-            credits: 23100,
+            credits: 23_100,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Feuerwehr - Dekon-P Lehrgang',
-            shownSchooling: 'Dekon-P',
+            schooling: {
+                Feuerwehr: {
+                    'Dekon-P Lehrgang': {
+                        min: 0,
+                    },
+                },
+            },
             special:
                 'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         54: {
             caption: 'AB-Dekon-P',
@@ -707,45 +845,61 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         55: {
             caption: 'KdoW-LNA',
             color: '#805c0f',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
-            schooling: 'Rettungsdienst - LNA-Ausbildung',
-            shownSchooling: 'LNA',
+            schooling: {
+                Rettungsdienst: {
+                    'LNA-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 5 Rettungswachen benötigt.',
             icon: 'car-side',
+            possibleBuildings: [2, 20],
         },
         56: {
             caption: 'KdoW-OrgL',
             color: '#926911',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
-            schooling: 'Rettungsdienst - OrgL-Ausbildung',
-            shownSchooling: 'OrgL',
+            schooling: {
+                Rettungsdienst: {
+                    'OrgL-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 10 Rettungswachen benötigt.',
             icon: 'car-side',
+            possibleBuildings: [2, 20],
         },
         57: {
             caption: 'FwK',
             color: '#230606',
             coins: 25,
-            credits: 30000,
+            credits: 30_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
-            schooling: 'Feuerwehr - Feuerwehrkran Lehrgang',
-            shownSchooling: 'Feuerwehrkran',
+            schooling: {
+                Feuerwehr: {
+                    'Feuerwehrkran Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 14 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         58: {
             caption: 'KTW Typ B',
@@ -757,43 +911,62 @@ export default {
             special:
                 'Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich.',
             icon: 'ambulance',
+            possibleBuildings: [12],
         },
         59: {
             caption: 'ELW 1 (SEG)',
             color: '#a34100',
             coins: 25,
-            credits: 25500,
+            credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - SEG - Einsatzleitung',
-            shownSchooling: 'Einsatzleitung (SEG)',
+            schooling: {
+                Rettungsdienst: {
+                    'SEG - Einsatzleitung': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
             icon: 'car-side',
+            possibleBuildings: [12],
         },
         60: {
             caption: 'GW-San',
             color: '#8f3900',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            schooling: 'Rettungsdienst - SEG - GW-San',
-            shownSchooling: 'GW-San',
+            schooling: {
+                Rettungsdienst: {
+                    'SEG - GW-San': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
             icon: 'truck',
+            possibleBuildings: [12],
         },
         61: {
             caption: 'Polizeihubschrauber',
             color: '#14743f',
             coins: 30,
-            credits: 300000,
+            credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Polizeihubschrauber',
-            shownSchooling: 'Polizeihubschrauber',
+            schooling: {
+                Polizei: {
+                    Polizeihubschrauber: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'helicopter',
+            possibleBuildings: [13],
         },
         62: {
             caption: 'AB-Schlauch',
@@ -803,37 +976,61 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         63: {
             caption: 'GW-Taucher',
             color: '#88ecc4',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
-            shownSchooling: 'GW-Taucher',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Taucher Lehrgang': {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    'GW-Taucher Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [0, 12, 15, 18, 22],
         },
         64: {
             caption: 'GW-Wasserrettung',
             color: '#91dab5',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
-            shownSchooling: 'GW-Wasserrettung',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Wasserrettung Lehrgang': {
+                        min: 0,
+                    },
+                },
+                Rettungsdienst: {
+                    'GW-Wasserrettung Lehrgang': {
+                        min: 0,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [0, 12, 15, 18, 22],
         },
         65: {
             caption: 'LKW 7 Lkr 19 tm',
             color: '#123183',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'truck-pickup',
+            possibleBuildings: [9],
         },
         66: {
             caption: 'Anh MzB',
@@ -845,6 +1042,7 @@ export default {
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         67: {
             caption: 'Anh SchlB',
@@ -856,6 +1054,7 @@ export default {
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         68: {
             caption: 'Anh MzAB',
@@ -867,17 +1066,24 @@ export default {
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         69: {
             caption: 'Tauchkraftwagen',
             color: '#36759e',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'THW - Fachgruppe Bergungstaucher',
-            shownSchooling: 'GW-Taucher',
+            schooling: {
+                THW: {
+                    'Fachgruppe Bergungstaucher': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [9],
         },
         70: {
             caption: 'MZB',
@@ -889,6 +1095,7 @@ export default {
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [0, 12, 15, 18, 22],
         },
         71: {
             caption: 'AB-MZB',
@@ -900,65 +1107,107 @@ export default {
             special:
                 'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         72: {
             caption: 'WaWe 10',
             color: '#36b15d',
             coins: 25,
-            credits: 13000,
+            credits: 13_000,
             minPersonnel: 5,
             maxPersonnel: 5,
-            schooling: 'Polizei - Wasserwerfer',
-            shownSchooling: 'Wasserwerfer',
+            schooling: {
+                Polizei: {
+                    Wasserwerfer: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus-alt',
+            possibleBuildings: [11],
         },
         73: {
             caption: 'GRTW',
             color: '#cc8500',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 6,
             maxPersonnel: 6,
+            schooling: {
+                Feuerwehr: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+            },
             special:
-                'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
+                'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden. Es wird kein Notarzt zum Ausrücken benötigt.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden. Es wird mind. 1 Notarzt zum Ausrücken benötigt.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         74: {
             caption: 'NAW',
             color: '#b87700',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
-            shownSchooling: 'Notarzt',
+            schooling: {
+                Feuerwehr: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+            },
             special:
-                'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
+                'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache platzierbar.',
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         75: {
             caption: 'FLF',
             color: '#7a534a',
             coins: 25,
-            credits: 80000,
+            credits: 80_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 12000,
-            schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
-            shownSchooling: 'Flugfeldlöschfahrzeug',
+            wtank: 12_000,
+            schooling: {
+                Feuerwehr: {
+                    ['Flugfeldlöschfahrzeug-Ausbildung']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         76: {
             caption: 'Rettungstreppe',
             color: '#6f6157',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            wtank: 0,
-            schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
-            shownSchooling: 'Rettungstreppe',
+            schooling: {
+                Feuerwehr: {
+                    'Rettungstreppen-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         77: {
             caption: 'AB-Gefahrgut',
@@ -968,6 +1217,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         78: {
             caption: 'AB-Einsatzleitung',
@@ -977,98 +1227,144 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         79: {
             caption: 'SEK - ZF',
             color: '#217d1a',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 4,
-            schooling: 'Polizei - SEK',
-            shownSchooling: 'SEK',
+            schooling: {
+                Polizei: {
+                    SEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11, 17],
         },
         80: {
             caption: 'SEK - MTF',
             color: '#1a7d1b',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 9,
             maxPersonnel: 9,
-            schooling: 'Polizei - SEK',
-            shownSchooling: 'SEK',
+            schooling: {
+                Polizei: {
+                    SEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus',
+            possibleBuildings: [11, 17],
         },
         81: {
             caption: 'MEK - ZF',
             color: '#1a7d22',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 4,
-            schooling: 'Polizei - MEK',
-            shownSchooling: 'MEK',
+            schooling: {
+                Polizei: {
+                    MEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
+            possibleBuildings: [11, 17],
         },
         82: {
             caption: 'MEK - MTF',
             color: '#1a7d2a',
             coins: 25,
-            credits: 10000,
+            credits: 10_000,
             minPersonnel: 9,
             maxPersonnel: 9,
-            schooling: 'Polizei - MEK',
-            shownSchooling: 'MEK',
+            schooling: {
+                Polizei: {
+                    MEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus',
+            possibleBuildings: [11, 17],
         },
         83: {
             caption: 'GW-Werkfeuerwehr',
             color: '#99222b',
             coins: 30,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         84: {
             caption: 'ULF mit Löscharm',
             color: '#992234',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 5000,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         85: {
             caption: 'TM 50',
             color: '#992b22',
             coins: 30,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         86: {
             caption: 'Turbolöscher',
             color: '#993422',
             coins: 30,
-            credits: 12500,
+            credits: 12_500,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         87: {
             caption: 'TLF 4000',
@@ -1080,6 +1376,7 @@ export default {
             wtank: 4000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         88: {
             caption: 'KLF',
@@ -1091,6 +1388,7 @@ export default {
             wtank: 500,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         89: {
             caption: 'MLF',
@@ -1102,30 +1400,38 @@ export default {
             wtank: 1000,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         90: {
             caption: 'HLF 10',
             color: '#330000',
             coins: 25,
-            credits: 20000,
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1000,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         91: {
             caption: 'Rettungshundefahrzeug',
             color: '#864708',
             coins: 25,
-            credits: 25000,
+            credits: 25_000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            schooling: 'Rettungsdienst - Rettungshundeführer (SEG)',
-            shownSchooling: 'Rettungshundeführer (SEG)',
+            schooling: {
+                Rettungsdienst: {
+                    ['Rettungshundeführer (SEG)']: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
             icon: 'paw',
+            possibleBuildings: [12, 21],
         },
         92: {
             caption: 'Anh Hund',
@@ -1137,28 +1443,41 @@ export default {
             special:
                 'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
             icon: 'paw',
+            possibleBuildings: [9],
         },
         93: {
             caption: 'MTW-OV',
             color: '#14165e',
             coins: 0,
-            credits: 19000,
+            credits: 19_000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            schooling: 'THW - Fachgruppe Rettungshundeführer',
-            shownSchooling: 'Rettungshundeführer (THW)',
+            schooling: {
+                THW: {
+                    ['Fachgruppe Rettungshundeführer']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'paw',
+            possibleBuildings: [9],
         },
         94: {
             caption: 'DHuFüKw',
             color: '#339900',
             coins: 10,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizei - Hundeführer (Schutzhund)',
-            shownSchooling: 'Hundeführer (Schutzhund)',
+            schooling: {
+                Polizei: {
+                    ['Hundeführer (Schutzhund)']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'paw',
+            possibleBuildings: [6, 11, 17, 19, 22],
         },
         95: {
             caption: 'Polizeimotorrad',
@@ -1167,35 +1486,59 @@ export default {
             credits: 3000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Polizei - Motorradstaffel',
-            shownSchooling: 'Motorradstaffel',
+            schooling: {
+                Polizei: {
+                    Motorradstaffel: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
             icon: 'motorcycle',
+            possibleBuildings: [6, 19],
         },
         96: {
             caption: 'Außenlastbehälter (allgemein)',
             color: '#0a580c',
             coins: 10,
-            credits: 50000,
+            credits: 50_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
                 'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
             icon: 'fill',
+            possibleBuildings: [13],
         },
         97: {
             caption: 'ITW',
             color: '#b87700',
             coins: 25,
-            credits: 30000,
+            credits: 30_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Rettungsdienst - Intensivpflege',
-            shownSchooling: 'Intensivpflege',
+            schooling: {
+                Feuerwehr: {
+                    'Intensivpflege': {
+                        min: 2,
+                    },
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+                Rettungsdienst: {
+                    'Intensivpflege': {
+                        min: 2,
+                    },
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+            },
             special:
                 'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         98: {
             caption: 'Zivilstreifenwagen',
@@ -1204,53 +1547,92 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizei - Kriminalpolizei',
-            shownSchooling: 'Kriminalpolizist',
+            schooling: {
+                Polizei: {
+                    Kriminalpolizei: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
             icon: 'taxi',
+            possibleBuildings: [6, 19],
         },
         99: {
             caption: 'LKW 7 Lbw',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
-            shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
+            schooling: {
+                THW: {
+                    'Fachgruppe Wasserschaden/Pumpen': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [9],
         },
         100: {
             caption: 'MLW 4',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 7,
-            schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
-            shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
+            schooling: {
+                THW: {
+                    'Fachgruppe Wasserschaden/Pumpen': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
+            possibleBuildings: [9],
         },
         101: {
             caption: 'Anh SwPu',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            pumpcap: 15000,
+            pumpcap: 15_000,
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         102: {
             caption: 'Anh 7',
             color: '#36759e',
             coins: 25,
-            credits: 15000,
+            credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            pumpcap: 12400,
+            pumpcap: 12_400,
             icon: 'trailer',
+            possibleBuildings: [9],
+        },
+        103: {
+            caption: 'FuStW (DGL)',
+            color: '#339900',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: {
+                Polizei: {
+                    ['Dienstgruppenleitung']: {
+                        min: 1,
+                    },
+                },
+            },
+            icon: 'taxi',
+            special:
+                'Pro aktivierten Dienstgruppenleitung-Ausbau kann ein Funkstreifenwagen (Dienstgruppenleitung) gekauft werden.',
+            possibleBuildings: [6, 19],
         },
     },
     buildings: {
@@ -1289,9 +1671,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -1303,9 +1685,9 @@ export default {
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -1326,7 +1708,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '5.000 mit kleinen Feuerwachen zusammen',
+            maxBuildings: '6.000 mit kleinen Feuerwachen zusammen',
             maxLevel: 16,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -1343,7 +1725,8 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
-            maxBuildingsFunction: (): number => 5_000,
+            schoolingTypes: ['Feuerwehr'],
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Feuerwehrschule',
@@ -1376,6 +1759,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['RTW'],
+            schoolingTypes: ['Rettungsdienst'],
         },
         3: {
             caption: 'Rettungsschule',
@@ -1475,9 +1859,10 @@ export default {
             maxBuildings: 'siehe Besonderheiten',
             maxLevel: 6,
             special:
-                'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
+                'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Rettungsdienst'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1507,6 +1892,12 @@ export default {
                     coins: 20,
                     duration: '7 Tage',
                 },
+                {
+                    caption: 'Dienstgruppenleitung-Erweiterung',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
             maxBuildings: '1.700 mit kleinen Polizeiwachen zusammen',
@@ -1515,7 +1906,8 @@ export default {
                 'Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
-            maxBuildingsFunction: (): number => 1_700,
+            schoolingTypes: ['Polizei'],
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Leitstelle',
@@ -1619,6 +2011,7 @@ export default {
                 'Mit dem Bau eines THW-Ortsverbands bekommt man einen GKW und 9 Mitglieder geschenkt. Baukosten für weitere THW-Liegenschaften: 2. Ortsverband 300.000 Credits/ 35 Coins, 3. Ortsverband 358.496 Credits/ 35 Coins, 4. Ortsverband 432.193 Credits/ 35 Coins, 5. Ortsverband 458.496 Credits/ 35 Coins. Formel: <code>200.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Wachen + 1)</code>',
             startPersonnel: 9,
             startVehicles: ['GKW'],
+            schoolingTypes: ['THW'],
         },
         10: {
             caption: 'THW Bundesschule',
@@ -1707,6 +2100,7 @@ export default {
                 'Mit dem Bau einer Bereitschaftspolizei bekommt man automatisch 4 Stellplätze für einen Zug (3 GruKw & 1 leBefKw) geschenkt. Die Wache generiert noch keine Einsätze. Um Einsätze zu erhalten muss man die erste Ausbaustufe bauen.',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Polizei'],
         },
         12: {
             caption: 'Schnelleinsatzgruppe (SEG)',
@@ -1745,6 +2139,7 @@ export default {
             special: 'SEGs können ab der 5. Rettungswache gebaut werden.',
             startPersonnel: 0,
             startVehicles: ['KTW Typ B'],
+            schoolingTypes: ['Rettungsdienst'],
         },
         13: {
             caption: 'Polizeihubschrauberstation',
@@ -1766,6 +2161,7 @@ export default {
                 'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Polizei'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1798,6 +2194,7 @@ export default {
                 'Beim Bau bekommst du 10 Leute sowie ein GW-Wasserrettung geschenkt.',
             startPersonnel: 6,
             startVehicles: ['GW-Wasserrettung'],
+            schoolingTypes: ['Rettungsdienst'],
         },
         16: {
             caption: 'Verbandszellen',
@@ -1860,6 +2257,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Polizei'],
         },
         18: {
             caption: 'Feuerwache (Kleinwache)',
@@ -1867,13 +2265,44 @@ export default {
             coins: 25,
             credits: 50_000,
             extensions: [
-                null,
+                {
+                    caption: 'Rettungsdienst-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
                 ...new Array(2).fill({
                     caption: 'Abrollbehälter-Stellplatz',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',
                 }),
+                {
+                    caption: 'Wasserrettungs-Erweiterung',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Flughafen-Erweiterung',
+                    credits: 300_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                                10
+                        ),
+                },
+                {
+                    caption: 'Werkfeuerwehr',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
             ],
             levelcost: [
                 '1. 10.000',
@@ -1881,10 +2310,10 @@ export default {
                 '3.-5. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: '5.000 mit Feuerwachen zusammen',
+            maxBuildings: '6.000 mit Feuerwachen zusammen',
             maxLevel: 5,
             special:
-                'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
+                'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(50.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
             startPersonnel: 10,
             startVehicles: [
                 'LF 20',
@@ -1896,21 +2325,42 @@ export default {
                 'KLF',
                 'MLF',
                 'TSF-W',
-                '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 15.000 höher)',
+                '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
             ],
-            maxBuildingsFunction: (): number => 5_000,
+            schoolingTypes: ['Feuerwehr'],
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Polizeiwache (Kleinwache)',
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: new Array(2).fill({
-                caption: 'Zelle',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Tage',
-            }),
+            extensions: [
+                ...new Array(2).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+                {
+                    caption: 'Diensthundestaffel',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Tage',
+                },
+                {
+                    caption: 'Kriminalpolizei-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Dienstgruppenleitung-Erweiterung',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1920,10 +2370,11 @@ export default {
             maxBuildings: '1.700 mit Polizeiwachen zusammen',
             maxLevel: 4,
             special:
-                'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
+                'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(50.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
-            maxBuildingsFunction: (): number => 1_700,
+            schoolingTypes: ['Polizei'],
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Rettungswache (Kleinwache)',
@@ -1942,6 +2393,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['RTW'],
+            schoolingTypes: ['Rettungsdienst'],
         },
         21: {
             caption: 'Rettungshundestaffel',
@@ -1955,6 +2407,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: ['Rettungshundefahrzeug'],
+            schoolingTypes: ['Rettungsdienst'],
         },
         22: {
             caption: 'Großer Komplex',
@@ -1991,9 +2444,9 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2005,9 +2458,9 @@ export default {
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
-                    maxExtensionsFunction: (buildingsByType: {
-                        [type: number]: Building[];
-                    }): number =>
+                    maxExtensionsFunction: (
+                        buildingsByType: Record<number, Building[]>
+                    ): number =>
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
@@ -2101,17 +2554,7 @@ export default {
             vehicles: {
                 ['Löschfahrzeuge']: [0, 1, 6, 7, 8, 9, 30, 37, 88, 89, 90],
                 ['Tanklöschfahrzeuge']: [
-                    17,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22,
-                    23,
-                    24,
-                    25,
-                    26,
-                    87,
+                    17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 87,
                 ],
                 Schlauchwagen: [11, 13, 14, 15, 16],
                 Sonderfahrzeuge: [2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57],
@@ -2133,7 +2576,7 @@ export default {
         },
         Polizei: {
             vehicles: {
-                'Funkstreifenwagen': [32, 95, 98],
+                'Funkstreifenwagen': [32, 95, 98, 103],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
                 'Polizeihubschrauber': [61, 96],
                 'SEK': [79, 80],
@@ -2167,22 +2610,7 @@ export default {
         6: 19,
     },
     vehicleBuildings: [
-        0,
-        2,
-        5,
-        6,
-        9,
-        11,
-        12,
-        13,
-        15,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
+        0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21, 22, 23,
     ],
     cellBuildings: [6, 19],
     cellExtensions: [
@@ -2207,164 +2635,208 @@ export default {
             {
                 caption: 'Dekon-P Lehrgang',
                 duration: '3 Tage',
+                staffList: 'Dekon-P',
             },
             {
                 caption: 'ELW 2 Lehrgang',
                 duration: '7 Tage',
+                staffList: 'ELW 2',
             },
             {
                 caption: 'Feuerwehrkran Lehrgang',
                 duration: '3 Tage',
+                staffList: 'Feuerwehrkran',
             },
             {
                 caption: 'Flugfeldlöschfahrzeug-Ausbildung',
                 duration: '7 Tage',
+                staffList: 'Flugfeldlöschfahrzeug',
             },
             {
                 caption: 'GW-Gefahrgut Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Gefahrgut',
             },
             {
                 caption: 'GW-Messtechnik Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Messtechnik',
             },
             {
                 caption: 'GW-Taucher Lehrgang',
                 duration: '5 Tage',
+                staffList: 'GW-Taucher',
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Wasserrettung',
             },
             {
                 caption: 'Höhenrettung Lehrgang',
                 duration: '4 Tage',
+                staffList: 'GW-Höhenrettung',
             },
             {
                 caption: 'Notarzt-Ausbildung',
                 duration: '7 Tage',
+                staffList: 'Notarzt',
             },
             {
                 caption: 'Rettungstreppen-Ausbildung',
                 duration: '2 Tage',
+                staffList: 'Rettungstreppe',
             },
             {
                 caption: 'Wechsellader Lehrgang',
                 duration: '2 Tage',
+                staffList: 'Wechsellader',
             },
             {
                 caption: 'Werkfeuerwehr-Ausbildung',
                 duration: '2 Tage',
+                staffList: 'Werkfeuerwehr',
             },
             {
                 caption: 'Intensivpflege',
                 duration: '3 Tage',
+                staffList: 'Intensivpflege',
             },
         ],
         Polizei: [
             {
                 caption: 'Hundeführer (Schutzhund)',
                 duration: '7 Tage',
+                staffList: 'Hundeführer (Schutzhund)',
             },
             {
                 caption: 'Hundertschaftsführer (FüKw)',
                 duration: '7 Tage',
+                staffList: 'Hundertschaftsführer (FüKw)',
             },
             {
                 caption: 'MEK',
                 duration: '7 Tage',
+                staffList: 'MEK',
             },
             {
                 caption: 'Brandbekämpfung',
                 duration: '3 Tage',
+                staffList: 'Brandbekämpfung',
             },
             {
                 caption: 'Motorradstaffel',
                 duration: '3 Tage',
+                staffList: 'Motorradstaffel',
             },
             {
                 caption: 'Polizeihubschrauber',
                 duration: '7 Tage',
+                staffList: 'Polizeihubschrauber',
             },
             {
                 caption: 'SEK',
                 duration: '7 Tage',
+                staffList: 'SEK',
             },
             {
                 caption: 'Wasserwerfer',
                 duration: '7 Tage',
+                staffList: 'Wasserwerfer',
             },
             {
                 caption: 'Zugführer (leBefKw)',
                 duration: '7 Tage',
+                staffList: 'Zugführer (leBefKw)',
             },
             {
                 caption: 'Kriminalpolizei',
                 duration: '7 Tage',
+                staffList: 'Kriminalpolizist',
+            },
+            {
+                caption: 'Dienstgruppenleitung',
+                duration: '7 Tage',
+                staffList: 'Dienstgruppenleitung',
             },
         ],
         Rettungsdienst: [
             {
                 caption: 'GW-Taucher Lehrgang',
                 duration: '5 Tage',
+                staffList: 'GW-Taucher',
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Wasserrettung',
             },
             {
                 caption: 'LNA-Ausbildung',
                 duration: '9 Tage',
+                staffList: 'LNA',
             },
             {
                 caption: 'Notarzt-Ausbildung',
                 duration: '7 Tage',
+                staffList: 'Notarzt',
             },
             {
                 caption: 'Rettungshundeführer (SEG)',
                 duration: '5 Tage',
+                staffList: 'Rettungshundeführer (SEG)',
             },
             {
                 caption: 'OrgL-Ausbildung',
                 duration: '11 Tage',
+                staffList: 'OrgL',
             },
             {
                 caption: 'SEG - Einsatzleitung',
                 duration: '4 Tage',
+                staffList: 'Einsatzleitung (SEG)',
             },
             {
                 caption: 'SEG - GW-San',
                 duration: '3 Tage',
+                staffList: 'GW-San',
             },
             {
                 caption: 'Intensivpflege',
                 duration: '3 Tage',
+                staffList: 'Intensivpflege',
             },
         ],
         THW: [
             {
                 caption: 'Fachgruppe Bergungstaucher',
                 duration: '5 Tage',
+                staffList: 'GW-Taucher',
             },
             {
                 caption: 'Fachgruppe Räumen',
                 duration: '7 Tage',
+                staffList: 'Fachgruppe Räumen',
             },
             {
                 caption: 'Fachgruppe Rettungshundeführer',
                 duration: '5 Tage',
+                staffList: 'Rettungshundeführer (THW)',
             },
             {
                 caption: 'Fachgruppe Wassergefahren',
                 duration: '3 Tage',
+                staffList: 'GW-Wasserrettung',
             },
             {
                 caption: 'Zugtrupp',
                 duration: '7 Tage',
+                staffList: 'Zugtrupp',
             },
             {
                 caption: 'Fachgruppe Wasserschaden/Pumpen',
                 duration: '7 Tage',
+                staffList: 'Fachgruppe Wasserschaden/Pumpen',
             },
         ],
     },
@@ -2375,6 +2847,7 @@ export default {
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Schließen',
     fullscreen: {
         expand: 'Vollbildmodus aktivieren',
@@ -2483,6 +2956,10 @@ export default {
         'Innenstadt',
         'Möbelhaus',
         'Campingplatz',
+        'Kompostieranlage',
+        'Textilverarbeitung',
+        'Moor',
+        'Hüttenwerk',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

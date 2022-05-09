@@ -24,7 +24,7 @@ export interface Settings {
     progress_animation: boolean;
     leitstelle_building_id: number | null;
     backalarm_automatic_rettungsdienst: boolean;
-    start_view: 'map' | 'missions' | 'buildings' | 'chat' | 'radio';
+    start_view: 'buildings' | 'chat' | 'map' | 'missions' | 'radio';
     hide_faq_button: boolean;
     design_mode: number; //0=Default,1=Dark,2=Bright,3=Window Design,4=Window Design Dark
 }

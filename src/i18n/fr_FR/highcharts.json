@@ -1,0 +1,19 @@
+{
+    "contextButtonTitle": "Plein écran, Exportation, ...",
+    "decimalPoint": ".",
+    "downloadCSV": "Télécharger comme CSV",
+    "downloadJPEG": "Télécharger comme image (JPEG)",
+    "downloadPDF": "Télécharger comme document (PDF)",
+    "downloadPNG": "Télécharger comme image (PNG)",
+    "downloadSVG": "Télécharger comme vector graphic (SVG)",
+    "downloadXLS": "Télécharger comme document (XLS)",
+    "drillUpText": "Retour",
+    "exitFullscreen": "Quitter le mode plein écran",
+    "exportData": {
+        "categoryHeader": "Categorie"
+    },
+    "loading": "Chargement...",
+    "printChart": "Imprimer",
+    "viewData": "Afficher la table",
+    "viewFullscreen": "Afficher en mode plein écran"
+}

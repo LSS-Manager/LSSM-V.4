@@ -4,18 +4,34 @@
         "commonjs": true,
         "es6": true
     },
-    "plugins": ["vue", "prettier", "@typescript-eslint"],
+    "plugins": [
+        "@typescript-eslint",
+        "compat",
+        "import",
+        "prettier",
+        "unicorn",
+        "regexp",
+        "vue"
+    ],
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:vue/essential"
+        "plugin:compat/recommended",
+        "plugin:import/typescript",
+        "plugin:regexp/recommended",
+        "plugin:vue/essential",
+        "prettier"
     ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
         "process": "readonly",
         "__dirname": "readonly",
-        "PREFIX": "readonly"
+        "PREFIX": "readonly",
+        "MODE": "readonly",
+        "VERSION": "readonly",
+        "LOADSCRIPT_EVENT_START": "readonly",
+        "LOADSCRIPT_EVENT_END": "readonly"
     },
     "parserOptions": {
         "parser": "@typescript-eslint/parser",
@@ -23,14 +39,44 @@
         "sourceType": "module"
     },
     "rules": {
+        "@typescript-eslint/array-type": ["error"],
+        "@typescript-eslint/consistent-indexed-object-style": [ "error", "record"],
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "@typescript-eslint/consistent-type-imports": ["error"],
+        "@typescript-eslint/method-signature-style": ["error", "method"],
+        "@typescript-eslint/sort-type-union-intersection-members": ["error"],
         "array-callback-return": ["error"],
         "block-scoped-var": "warn",
         "curly": ["error", "multi-or-nest", "consistent"],
         "default-case-last": "error",
         "guard-for-in": "error",
+        "import/order": ["error", {
+            "groups": [
+                ["builtin"],
+                ["external"],
+                ["internal"],
+                ["parent", "sibling"],
+                ["index"],
+                ["object"],
+                ["type"]
+            ],
+            "pathGroups": [
+                {
+                    "pattern": "vue",
+                    "group": "builtin",
+                    "position": "before"
+                }
+            ],
+            "pathGroupsExcludedImportTypes": ["vue"],
+            "newlines-between": "always"
+        }],
+        "no-constant-binary-expression": "error",
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
         "no-floating-decimal": "warn",
+        "no-implicit-coercion": ["error", {
+            "allow": ["!!"]
+        }],
         "no-loop-func": "error",
         "no-loss-of-precision": "error",
 //        "no-magic-numbers": ["warn", {
@@ -62,6 +108,25 @@
         "prefer-spread": "error",
         "prefer-template": "error",
         "prettier/prettier": "error",
+        "regexp/hexadecimal-escape": ["error", "never"],
+        "regexp/letter-case": ["error"],
+        "regexp/no-control-character": ["error"],
+        "regexp/no-empty-character-class": ["error"],
+        "regexp/no-misleading-unicode-character": ["error"],
+        "regexp/no-octal": ["error"],
+        "regexp/no-standalone-backslash": ["error"],
+        "regexp/prefer-escape-replacement-dollar-char": ["error"],
+        "regexp/prefer-lookaround": ["error"],
+        "regexp/prefer-named-backreference": ["error"],
+        "regexp/prefer-named-replacement": ["error"],
+        // "regexp/prefer-quantifier": ["error"], // Waiting for the option to enable for > 3 repetitions,
+        "regexp/prefer-result-array-groups": ["error"],
+        "regexp/prefer-regexp-test": ["error"],
+        "regexp/require-unicode-regexp": ["error"],
+        "regexp/sort-alternatives": ["error"],
+        "regexp/sort-character-class-elements": ["error"],
+        "regexp/unicode-escape": ["error", "unicodeEscape"],
+        "regexp/use-ignore-case": ["error"],
         "semi": ["error", "always"],
         "sort-imports": ["warn", {
             "allowSeparatedGroups": true,
@@ -69,10 +134,32 @@
             "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
         }],
         "template-curly-spacing": "error",
+        "unicorn/consistent-destructuring": ["error"],
+        "unicorn/no-array-push-push": ["error"],
+        "unicorn/no-for-loop": ["error"],
+        "unicorn/no-unreadable-iife": ["error"],
+        "unicorn/no-useless-switch-case": ["error"],
+        "unicorn/no-zero-fractions": ["error"],
+        "unicorn/numeric-separators-style": ["error"],
+        "unicorn/prefer-add-event-listener": ["error"],
+        "unicorn/prefer-array-find": ["error"],
+        "unicorn/prefer-array-flat": ["error"],
+        "unicorn/prefer-array-flat-map": ["error"],
+        "unicorn/prefer-array-some": ["error"],
+        "unicorn/prefer-dom-node-append": ["error"],
+        "unicorn/prefer-dom-node-remove": ["error"],
+        "unicorn/prefer-dom-node-text-content": ["error"],
+        "unicorn/prefer-keyboard-event-key": ["error"],
+        "unicorn/prefer-modern-dom-apis": ["error"],
+        "unicorn/prefer-modern-math-apis": ["error"],
+        "unicorn/prefer-native-coercion-functions": ["error"],
+        "unicorn/prefer-negative-index": ["error"],
+        "unicorn/prefer-object-from-entries": ["error"],
+        "unicorn/prefer-query-selector": ["error"],
         "vue/no-unused-refs": "warn",
+        "vue/prefer-true-attribute-shorthand": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
         }]
-        // TODO: Style
     }
 }

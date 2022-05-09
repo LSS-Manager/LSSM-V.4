@@ -1,0 +1,10 @@
+{
+    "description": "Oppsummerer den daglige oversikten i kategorier slik at du kan få en rask oversikt over hva du fikk penger til.",
+    "name": "Kredittoppsummering",
+    "settings": {
+        "showAverage": {
+            "description": "Viser gjennomsnittlig studiepoeng for hver kategori.",
+            "title": "vis gjennomsnitt"
+        }
+    }
+}

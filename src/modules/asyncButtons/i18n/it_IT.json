@@ -1,37 +1,46 @@
 {
-	"deleteARR": {
-		"deleteModal": {
-			"btnCancel": "Annulla",
-			"btnConfirm": "Cancella",
-			"text": "Vuoi cancellare queta voce AAO?",
-			"title": "Cancellare?"
-		}
-	},
-	"forumPost": {
-		"deleteModal": {
-			"btnCancel": "Annulla",
-			"btnConfirm": "Cancella",
-			"text": "Vuoi cancellare questo post?",
-			"title": "Cancellare?"
-		}
-	},
-	"memberlistManageUser": {
-		"hide": "Chiudi",
-		"kickModal": {
-			"btnCancel": "Annulla",
-			"btnConfirm": "Espelli",
-			"text": "Vuoi veramente espellere questo giocatore?",
-			"title": "Espellere?"
-		},
-		"set": "set",
-		"unset": "remove"
-	},
-	"memberlistRoles": {
-		"admin": "Admin alleanza",
-		"aufsichtsrat": "log azioni Moderatore",
-		"coadmin": "Co-Admin alleanza",
-		"finance": "Finanziere alleanza",
-		"schooling": "Istruttore alleanza",
-		"sprechwunsch_admin": "Admin - Richiesta trasporti"
-	}
+    "buildingPersonal": {
+        "deleteModal": {
+            "btnCancel": "Cancella",
+            "btnConfirm": "Rilasciare",
+            "text": "Sei sicuro di voler rilasciare questa persona?",
+            "title": "Rilasciare?"
+        }
+    },
+    "deleteARR": {
+        "deleteModal": {
+            "btnCancel": "Annulla",
+            "btnConfirm": "Cancella",
+            "text": "Vuoi cancellare queta voce AAO?",
+            "title": "Cancellare?"
+        }
+    },
+    "forumPost": {
+        "deleteModal": {
+            "btnCancel": "Annulla",
+            "btnConfirm": "Cancella",
+            "text": "Vuoi cancellare questo post?",
+            "title": "Cancellare?"
+        }
+    },
+    "memberlistManageUser": {
+        "hide": "Chiudi",
+        "kickModal": {
+            "btnCancel": "Annulla",
+            "btnConfirm": "Espelli",
+            "text": "Vuoi veramente espellere questo giocatore?",
+            "title": "Espellere?"
+        },
+        "set": "set",
+        "unset": "remove"
+    },
+    "memberlistRoles": {
+        "admin": "Admin alleanza",
+        "aufsichtsrat": "log azioni Moderatore",
+        "coadmin": "Co-Admin alleanza",
+        "finance": "Finanziere alleanza",
+        "schooling": "Istruttore alleanza",
+        "sprechwunsch_admin": "Admin - Richiesta trasporti",
+        "staff": "Personale dell'alleanza"
+    }
 }

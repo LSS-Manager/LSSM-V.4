@@ -40,11 +40,10 @@
                         <div v-if="award.progress" class="progress">
                             <div
                                 class="progress-bar"
-                                :style="
-                                    `width: ${(award.progress[0] /
-                                        award.progress[1]) *
-                                        100}%`
-                                "
+                                :style="`width: ${
+                                    (award.progress[0] / award.progress[1]) *
+                                    100
+                                }%`"
                             ></div>
                         </div>
                     </div>
@@ -57,10 +56,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { AwardsWindow } from '../parsers/awards';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
-type Component = RedesignComponent<'awards', 'awards', AwardsWindow>;
+type Component = RedesignComponent<'awards', 'awards'>;
 
 export default Vue.extend<
     Component['Data'],
@@ -68,7 +66,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'awards',
+    name: 'lssmv4-redesign-awards',
     props: {
         awards: {
             type: Object,

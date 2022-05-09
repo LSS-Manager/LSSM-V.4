@@ -1,0 +1,19 @@
+{
+    "amount": "Nombre",
+    "description": "Description",
+    "filter": {
+        "total": {
+            "max": "Total Max. des crédits",
+            "min": "Total Min. des crédits"
+        },
+        "type": {
+            "all_types": "Afficher tous les types",
+            "amount": "{n} entrée filtrée | {n} entrées filtrées",
+            "no_types": "Ne pas afficher les types",
+            "type": "Types d'entrée affichés"
+        }
+    },
+    "title": "Sommaire",
+    "today": "Aujourd'hui",
+    "total": "Total"
+}

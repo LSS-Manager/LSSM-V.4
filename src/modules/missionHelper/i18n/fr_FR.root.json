@@ -1,183 +1,179 @@
 {
-	"description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
-	"name": "Missionhelper",
-	"noVehicleRequirements": {
-		"average_min_fire_personnel": {
-			"badge": false,
-			"in": "additional",
-			"text": "Moyenne minimale Pompiers"
-		},
-		"average_min_police_personnel": {
-			"badge": false,
-			"in": "additional",
-			"text": "Moyenne minimale Policiers"
-		},
-		"height_rescue_personnel": {
-			"badge": false,
-			"in": "additional",
-			"text": "Spécialistes IMP requis"
-		},
-		"water_needed": {
-			"badge": true,
-			"in": "requirements",
-			"text": "Eau: {n} litre | Eau: {n} litres"
-		}
-	},
-	"settings": {
-		"chances": {
-			"100": {
-				"description": "Affiche les probabilités à 100%.",
-				"title": "Affiche les probabilités à 100%"
-			},
-			"normal": {
-				"description": "Affiche les chances de réquisition de véhicule.",
-				"title": "Afficher probabilité"
-			}
-		},
-		"credits": {
-			"description": "Affiche les crédits moyens.",
-			"title": "Crédits"
-		},
-		"expansions": {
-			"description": "Affiche une liste des missions à extension.",
-			"title": "Extension"
-		},
-		"followup": {
-			"description": "Montre ce que la mission peut générer pour les missions de suivi",
-			"title": "Missions de suivi"
-		},
-		"generatedBy": {
-			"description": "Affiche le type de bâtiment qui a généré cette mission.",
-			"title": "Généré par (type de bâtiment)"
-		},
-		"hide_battalion_chief_vehicles": {
-			"description": "Cache le nombre de VLCG et affiche seulement les VPC.",
-			"title": "Cacher VLCG"
-		},
-		"hoverTip": {
-			"description": "Infobulles pour le bouton de superposition, par exemple.",
-			"title": "Infobulles"
-		},
-		"id": {
-			"description": "Affiche l'ID de la mission à côté de son titre.",
-			"title": "Mission ID"
-		},
-		"k9_only_if_needed": {
-			"description": "Indique si des unités cynophiles sont disponibles (seulement si elles sont requises).",
-			"title": "Unité cynophile dispos"
-		},
-		"multifunctionals": {
-			"battalion_chief_vehicles": {
-				"description": "Soustrait le nombre de VPC au nombre de VLCG. Cache le nombre de VLCG si il est inférieur à zéro.",
-				"title": "VLCG restants"
-			},
-			"heavy_rescue_vehicles": {
-				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
-				"title": "Heavy Rescue Simple Rate"
-			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
-			}
-		},
-		"noVehicleRequirements": {
-			"description": "Set here which special requirements to show, if they exist for that mission.",
-			"title": "Special requirements"
-		},
-		"optionalAlternatives": {
-			"allow_ktw_instead_of_rtw": {
-				"description": "Indique si une ambulance de type A peut être utilisée à la place d'une ASSU..",
-				"title": "Ambulance de type A au lieu d'ASSU"
-			},
-			"allow_rw_instead_of_lf": {
-				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
-				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
-			}
-		},
-		"patients": {
-			"content": {
-				"description": "Affiche des détail sur les patients éventuels.",
-				"title": "Détails sur les patients"
-			},
-			"critical_care": {
-				"description": "Montre la Probabilité qu'un médecin soit requis",
-				"title": "Détails des éventuelles qu'un médecins"
-			},
-			"hideWhenNoNeed": {
-				"description": "Cache les détails sur les patients si il y a plus d'un patient et si les patients n'apparaissent qu'à la fin du traitement de mission.",
-				"title": "Détails sur les patients à la fin"
-			},
-			"live": {
-				"description": "Affiche le nombre de patients actuellement sur la mission en haut des infos Mission Helper.",
-				"title": "Numbre de patients actuels"
-			},
-			"patient_allow_first_responder_chance": {
-				"description": "Shows with how much % any vehicle is sufficient to treat.",
-				"title": "First Responder Probability"
-			},
-			"title": {
-				"description": "Affiche l'en-tête \"Patients\" au dessus des détails pour de possibles patients.",
-				"title": "Patients (Title)"
-			}
-		},
-		"place": {
-			"description": "Affiche les POI requis à côté du titre de la mission.",
-			"title": "POI"
-		},
-		"prerequisites": {
-			"description": "Affiche les conditions de la mission (par exemple : 3 postes de police et 5 casernes de pompier)",
-			"title": "Conditions"
-		},
-		"prisoners": {
-			"content": {
-				"description": "Afficher les détails sur de possibles prisonniers.",
-				"title": "Détail sur les prisonniers"
-			},
-			"live": {
-				"description": "Affiche le nombre de prisonniers actuellement sur la mission en haut des infos Mission Helper.",
-				"title": "Nombre de prisonniers actuels"
-			},
-			"title": {
-				"description": "Affiche l'en-tête \"Prisonniers\" au dessus des détails pour de possibles patients.",
-				"title": "Prisonniers (Title)"
-			}
-		},
-		"title": {
-			"description": "Affiche le nom de la mission en titre, par ex. \"Feu de poubelle\".",
-			"title": "mission name"
-		},
-		"type": {
-			"description": "Shows the type number of the mission next to the title.",
-			"title": "Type number"
-		},
-		"vehicles": {
-			"content": {
-				"description": "Affiche les véhicules requis.",
-				"title": "Vyepéhicule requis"
-			},
-			"patient_additionals": {
-				"description": "S'il y a actuellement plus de 10 patients sur place, PC DSM est automatiquement inscrit au début des exigences relatives au véhicule.",
-				"title": "Mentionner PC DSM extra"
-			},
-			"sort": {
-				"amount": "Nombre de véhicules requis",
-				"caption": "Nom du prérequis",
-				"description": "Définir l'ordre de tri des véhicules réquis.",
-				"percentage": "Probabilité",
-				"title": "Tri des véhicules requis"
-			},
-			"sortDesc": {
-				"description": "Trie les exigences du véhicule dans un ordre décroissant.",
-				"title": "Véhicules par ordre décroissant"
-			},
-			"title": {
-				"description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
-				"title": "Véhicules (Title)"
-			},
-			"xAfterNumber": {
-				"description": "Met un x derrière le nombre de véhicules",
-				"title": "x derrière le montant"
-			}
-		}
-	}
+    "description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
+    "name": "Aide à la mission",
+    "noVehicleRequirements": {
+        "average_min_fire_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Moyenne minimale Pompiers"
+        },
+        "average_min_police_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Moyenne minimale Policiers"
+        },
+        "height_rescue_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Spécialistes IMP requis"
+        },
+        "water_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Eau: {n} litre | Eau: {n} litres"
+        }
+    },
+    "settings": {
+        "chances": {
+            "100": {
+                "description": "Affiche les probabilités à 100%.",
+                "title": "Affiche les probabilités à 100%"
+            },
+            "normal": {
+                "description": "Affiche les chances de réquisition de véhicule.",
+                "title": "Afficher probabilité"
+            }
+        },
+        "credits": {
+            "description": "Affiche les crédits moyens.",
+            "title": "Crédits"
+        },
+        "expansions": {
+            "description": "Affiche une liste des missions à extension.",
+            "title": "Extension"
+        },
+        "followup": {
+            "description": "Montre ce que la mission peut générer pour les missions de suivi",
+            "title": "Missions de suivi"
+        },
+        "generatedBy": {
+            "description": "Affiche le type de bâtiment qui a généré cette mission.",
+            "title": "Généré par (type de bâtiment)"
+        },
+        "hide_battalion_chief_vehicles": {
+            "description": "Cache le nombre de VLCG et affiche seulement les VPC.",
+            "title": "Cacher VLCG"
+        },
+        "hoverTip": {
+            "description": "Infobulles pour le bouton de superposition, par exemple.",
+            "title": "Infobulles"
+        },
+        "id": {
+            "description": "Affiche l'ID de la mission à côté de son titre.",
+            "title": "Mission ID"
+        },
+        "k9_only_if_needed": {
+            "description": "Indique si des unités cynophiles sont disponibles (seulement si elles sont requises).",
+            "title": "Unité cynophile dispos"
+        },
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "description": "Soustrait le nombre de VPC au nombre de VLCG. Cache le nombre de VLCG si il est inférieur à zéro.",
+                "title": "VLCG restants"
+            },
+            "heavy_rescue_vehicles": {
+                "description": "Soustrait le nombre de camions de pompiers requis du VSR. Cache le nombre de camion de pompier si il est inférieur à zéro.",
+                "title": "VSR restants"
+            }
+        },
+        "noVehicleRequirements": {
+            "description": "Définissez ici les conditions particulières à afficher, si elles existent pour cette mission.",
+            "title": "Conditions particulières"
+        },
+        "optionalAlternatives": {
+            "allow_ktw_instead_of_rtw": {
+                "description": "Indique si une ambulance de type A peut être utilisée à la place d'une ASSU..",
+                "title": "Ambulance de type A au lieu d'ASSU"
+            },
+            "allow_rw_instead_of_lf": {
+                "description": "Indique si, au lieu d'un camion de pompiers, il est possible d'utiliser un véhicule de secours routier ou une échelle pivotante automatique",
+                "title": "Afficher VSR/EPA au lieu des camions de pompiers"
+            }
+        },
+        "patients": {
+            "content": {
+                "description": "Affiche des détail sur les patients éventuels.",
+                "title": "Détails sur les patients"
+            },
+            "critical_care": {
+                "description": "Montre la Probabilité qu'un médecin soit requis",
+                "title": "Détails des éventuelles qu'un médecins"
+            },
+            "hideWhenNoNeed": {
+                "description": "Cache les détails sur les patients si il y a plus d'un patient et si les patients n'apparaissent qu'à la fin du traitement de mission.",
+                "title": "Détails sur les patients à la fin"
+            },
+            "live": {
+                "description": "Affiche le nombre de patients actuellement sur la mission en haut des infos Mission Helper.",
+                "title": "Nombre de patients actuels"
+            },
+            "patient_allow_first_responder_chance": {
+                "description": "Affiche le pourcentage de tout véhicule nécessaire au traitement.",
+                "title": "Probabilité de traitement"
+            },
+            "title": {
+                "description": "Affiche l'en-tête \"Patients\" au dessus des détails pour de possibles patients.",
+                "title": "Patients (Titre)"
+            }
+        },
+        "place": {
+            "description": "Affiche les POI requis à côté du titre de la mission.",
+            "title": "POI"
+        },
+        "prerequisites": {
+            "description": "Affiche les conditions de la mission (par exemple : 3 postes de police et 5 casernes de pompier)",
+            "title": "Conditions"
+        },
+        "prisoners": {
+            "content": {
+                "description": "Afficher les détails sur de possibles prisonniers.",
+                "title": "Détail sur les prisonniers"
+            },
+            "live": {
+                "description": "Affiche le nombre de prisonniers actuellement sur la mission en haut des infos Mission Helper.",
+                "title": "Nombre de prisonniers actuels"
+            },
+            "title": {
+                "description": "Affiche l'en-tête \"Prisonniers\" au dessus des détails pour de possibles patients.",
+                "title": "Prisonniers (Titre)"
+            }
+        },
+        "title": {
+            "description": "Affiche le nom de la mission en titre, par ex. \"Feu de poubelle\".",
+            "title": "Nom de la missions"
+        },
+        "type": {
+            "description": "Affiche le numéro de type de la mission à côté du titre.",
+            "title": "Numéro de type"
+        },
+        "vehicles": {
+            "content": {
+                "description": "Affiche les véhicules requis.",
+                "title": "Véhicules requis"
+            },
+            "patient_additionals": {
+                "description": "S'il y a actuellement plus de 10 patients sur place, PC DSM est automatiquement inscrit au début des exigences relatives au véhicule.",
+                "title": "Mentionner PC DSM extra"
+            },
+            "sort": {
+                "amount": "Nombre de véhicules requis",
+                "caption": "Nom du prérequis",
+                "description": "Définir l'ordre de tri des véhicules réquis.",
+                "percentage": "Probabilité",
+                "title": "Tri des véhicules requis"
+            },
+            "sortDesc": {
+                "description": "Trie les exigences du véhicule dans un ordre décroissant.",
+                "title": "Véhicules par ordre décroissant"
+            },
+            "title": {
+                "description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
+                "title": "Véhicules (Titre)"
+            },
+            "xAfterNumber": {
+                "description": "Met un x derrière le nombre de véhicules",
+                "title": "X derrière le montant"
+            }
+        }
+    }
 }

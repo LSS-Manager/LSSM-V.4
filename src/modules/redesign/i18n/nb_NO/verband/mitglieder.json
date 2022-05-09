@@ -1,0 +1,56 @@
+{
+    "amount": "{n} filtrerte spillere | {n} filtrerte spillere",
+    "credits": "totale kreditter inntjent",
+    "discount": "avslag",
+    "edit_caption": {
+        "save": "lagre"
+    },
+    "last": {
+        "next": "neste side",
+        "prev": "forrige side"
+    },
+    "name": "spiller",
+    "på nett": {
+        "subtitle": "Kun påloggede spillere vises",
+        "titler": {
+            "blue": "{user} er frakoblet og har vært online de siste 30 dagene!",
+            "gray": "{user} er frakoblet og var online de siste 7 dagene!",
+            "green": "{user} er tilkoblet!",
+            "red": "{user} har vært offline i mer enn 60 dager!",
+            "yellow": "{user} er frakoblet og har vært tilkoblet de siste 60 dagene!"
+        },
+        "toggle": {
+            "false": "Vis kun online spillere",
+            "true": "Vis alle medlemmer (også frakoblet)"
+        }
+    },
+    "rights": {
+        "admin": "Alliance Admin",
+        "aufsichtsrat": "Moderator handlingslogg",
+        "coadmin": "Alliance Co-Admin",
+        "edit": "Redigeringsrettigheter",
+        "finance": "Alliansens økonomi",
+        "hide": "Lukk",
+        "kick": {
+            "btn": "Kick"
+        },
+        "kickModal": {
+            "btnCancel": "Avbryt",
+            "btnConfirm": "Spark",
+            "text": "Vil du virkelig sparke spilleren **{user}** ut av alliansen?",
+            "title": "Spark?"
+        },
+        "schooling": "Alliansepedagog",
+        "set": "Angi som {role}",
+        "sprechwunsch_admin": "Transportforespørsel - Admin",
+        "staff": "Alliansens ansatte",
+        "unset": "Fjern som {role}"
+    },
+    "roles": "Rolle(r)",
+    "search_global": "Globalt søk",
+    "search_local": "Søk i lastede spillere",
+    "search_subtitle": "Vis {n} spillere fra {startPage} til {endPage} av {totalPages} sider",
+    "subtitle": "Vis {n} spillere av {startPage} ({firstCredits}) til {endPage} ({lastCredits}) av {totalPages} sider",
+    "tax": "skattesats",
+    "title": "Medlemmer"
+}

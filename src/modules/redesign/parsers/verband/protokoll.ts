@@ -2,8 +2,8 @@ import moment from 'moment';
 
 import verbandParser from './verbandParser';
 
-import { RedesignParser } from 'typings/modules/Redesign';
-import { VerbandWindow } from 'typings/modules/Redesign/Verband';
+import type { RedesignParser } from 'typings/modules/Redesign';
+import type { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 interface Building {
     name: string;
@@ -25,25 +25,25 @@ interface Entry {
     description: string;
     type:
         | ''
-        | 'mission'
-        | 'event'
+        | 'added_role'
+        | 'allow_appl'
         | 'appl_accepted'
         | 'appl_declined'
-        | 'deny_appl'
-        | 'allow_appl'
-        | 'left'
-        | 'kicked'
-        | 'set_chatban'
-        | 'remove_chatban'
-        | 'added_role'
-        | 'removed_role'
-        | 'start_schooling'
-        | 'complete_schooling'
-        | 'start_extension'
-        | 'complete_extension'
         | 'build'
-        | 'demolish';
-    affected?: User | Building;
+        | 'complete_extension'
+        | 'complete_schooling'
+        | 'demolish'
+        | 'deny_appl'
+        | 'event'
+        | 'kicked'
+        | 'left'
+        | 'mission'
+        | 'remove_chatban'
+        | 'removed_role'
+        | 'set_chatban'
+        | 'start_extension'
+        | 'start_schooling';
+    affected?: Building | User;
 }
 
 export interface VerbandProtokollWindow extends VerbandWindow {
@@ -69,21 +69,21 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
     ).default;
     const getUser = (
         cell: HTMLTableCellElement | null
-    ): User | Building | undefined =>
+    ): Building | User | undefined =>
         cell?.innerText.trim()
             ? cell?.querySelector<HTMLAnchorElement>('a[href^="/profile/"]')
                 ? {
                       icon:
                           cell.querySelector<HTMLImageElement>('img')?.src ??
                           '',
-                      name: cell.innerText.trim(),
+                      name: cell.textContent?.trim() ?? '',
                       id: getIdFromEl(
                           cell.querySelector<HTMLAnchorElement>('a')
                       ),
                       type: 'user',
                   }
                 : {
-                      name: cell.innerText.trim(),
+                      name: cell.textContent?.trim() ?? '',
                       id: getIdFromEl(
                           cell.querySelector<HTMLAnchorElement>('a')
                       ),
@@ -99,7 +99,7 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
                 row
                     .querySelector<HTMLTableCellElement>('td:nth-child(3)')
                     ?.innerText?.trim()
-                    .split(/\n/g)
+                    .split(/\n/gu)
                     .map(t => t.trim())
                     .join(' ') ?? '';
             const time = new Date(

@@ -65,6 +65,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandEditText>
+        <VerbandGebauede
+            v-else-if="type === 'verband/gebauede'"
+            :gebauede="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandGebauede>
         <VerbandHome
             v-else-if="type === 'verband/home'"
             :home="data"
@@ -75,6 +85,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandHome>
+        <VerbandKasse
+            v-else-if="type === 'verband/kasse'"
+            :kasse="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandKasse>
         <VerbandMitglieder
             v-else-if="type === 'verband/mitglieder'"
             :mitglieder="data"
@@ -131,10 +151,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData } from 'vue/types/options';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { VerbandHomeWindow } from '../parsers/verband/home';
-import VueI18n from 'vue-i18n';
+import type { DefaultData } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 interface Link {
     href: string;
@@ -144,21 +163,16 @@ interface Link {
 type Component = RedesignComponent<
     'data',
     'verband/home',
-    VerbandHomeWindow,
     DefaultData<Vue>,
     {
         $m(
             key: string,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         $mc(
             key: string,
             amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
+            args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
     },
     { nav: Link[] },
@@ -171,7 +185,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-lightbox',
+    name: 'lssmv4-redesign-verband-lightbox',
     components: {
         VerbandBSR: () =>
             import(
@@ -185,9 +199,17 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/edit_text"*/ './verband/edit_text.vue'
             ),
+        VerbandGebauede: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/gebauede"*/ './verband/gebauede.vue'
+            ),
         VerbandHome: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/home"*/ './verband/home.vue'
+            ),
+        VerbandKasse: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/kasse"*/ './verband/kasse.vue'
             ),
         VerbandMitglieder: () =>
             import(
@@ -215,13 +237,13 @@ export default Vue.extend<
     },
     computed: {
         nav() {
-            const links = (this.lightbox.$m(
+            const links = this.lightbox.$m(
                 'verband.nav.links'
-            ) as unknown) as Record<string, string>;
+            ) as unknown as Record<string, string>;
             return Object.values(
-                (this.lightbox.$m(
+                this.lightbox.$m(
                     `verband.nav.${this.data.meta.self ? 'self' : 'other'}`
-                ) as unknown) as Record<number, string>
+                ) as unknown as Record<number, string>
             )
                 .filter(link => {
                     if (
@@ -231,39 +253,34 @@ export default Vue.extend<
                         return false;
                     return (
                         new URL(
-                            this.url.match(/\/verband\/?$/)
+                            this.url.match(/\/verband\/?$/u)
                                 ? `/alliances/${this.data.meta.id}`
                                 : this.url,
                             window.location.origin
-                        ).pathname.replace(/\/$/g, '') !==
+                        ).pathname.replace(/\/$/gu, '') !==
                         new URL(
-                            link.replace(/{id}/g, this.data.meta.id.toString()),
+                            link.replace(
+                                /\{id\}/gu,
+                                this.data.meta.id.toString()
+                            ),
                             window.location.origin
-                        ).pathname.replace(/\/$/g, '')
+                        ).pathname.replace(/\/$/gu, '')
                     );
                 })
                 .map(link => ({
-                    href: link.replace(/{id}/g, this.data.meta.id.toString()),
+                    href: link.replace(
+                        /\{id\}/gu,
+                        this.data.meta.id.toString()
+                    ),
                     text: links[link],
                 }));
         },
     },
     methods: {
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $m(key: string, args?: Record<string, unknown>) {
             return this.lightbox.$m(`verband.${key}`, args);
         },
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
+        $mc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.lightbox.$mc(`verband.${key}`, amount, args);
         },
     },

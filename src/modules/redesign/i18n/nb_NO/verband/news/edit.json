@@ -1,0 +1,10 @@
+{
+    "caption": "Tittel",
+    "public": "Offentlig (synlig for alle spillere av spillet)",
+    "save": "Lagre",
+    "text": "Innhold",
+    "title": {
+        "edit": "Alliansenyheter redigert",
+        "new": "Lag nyhet"
+    }
+}

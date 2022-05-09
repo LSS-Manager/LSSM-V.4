@@ -1,7 +1,7 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Modules } from '../Module';
-import VueI18n from 'vue-i18n';
-import { ModuleSettings, MultiSelect, Select, Setting } from '../Setting';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Modules } from '../Module';
+import type VueI18n from 'vue-i18n';
+import type { ModuleSettings, MultiSelect, Select, Setting } from '../Setting';
 
 export interface SettingsData {
     faHistory: IconDefinition;
@@ -29,36 +29,25 @@ export interface SettingsMethods {
     disabled(moduleId: string, settingId: string): boolean;
     getExportData(): void;
     importSettings(): void;
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     getSelectOptions(
         module: string,
-        setting: Select | MultiSelect,
+        setting: MultiSelect | Select,
         settingId: string
     ): { label: string; value: string }[];
 }
 
 export interface SettingsComputed {
-    liveValueMap: {
-        [module: string]: {
-            [setting: string]: Setting['value'];
-        };
-    };
-    savedValueMap: {
-        [module: string]: {
-            [setting: string]: Setting['value'];
-        };
-    };
-    changeList: {
-        [module: string]: {
-            [setting: string]: {
+    liveValueMap: Record<string, Record<string, Setting['value']>>;
+    savedValueMap: Record<string, Record<string, Setting['value']>>;
+    changeList: Record<
+        string,
+        Record<
+            string,
+            {
                 saved: Setting['value'];
                 current: Setting['value'];
-            };
-        };
-    };
+            }
+        >
+    >;
 }

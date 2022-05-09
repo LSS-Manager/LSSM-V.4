@@ -1,49 +1,53 @@
 {
-	"desktopTest": {
-		"text": "Desktop-Benachrichtigungen wurden erfolgreich aktiviert!",
-		"title": "Desktop-Benachrichtigungen"
-	},
-	"messages": {
-		"allianceCandidature": {
-			"body": "Dein Verband hat eine neue Bewerbung! Aktuell offene Bewerbungen: {n}",
-			"title": "Neue Bewerbung! | Neue Bewerbungen!"
-		},
-		"allianceForum": {
-			"body": "Es gibt einen neuen Beitrag im Forum deines Verbandes! Öffne das Forum mit einem Klick auf diese Benachrichtigung.",
-			"title": "Neuer Beitrag im Verbandsforum!"
-		},
-		"allianceMessage": {
-			"body": "Es gibt eine neue Verbandsnachricht! Schau sie dir mit einem Klick auf diese Benachrichtigung direkt an.",
-			"title": "Neue Verbandsnachricht!"
-		},
-		"allianceNews": {
-			"body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite.",
-			"title": "Neue Verbandsnews!"
-		},
-		"dm": {
-			"body": "Damit hast du insgesamt {n} ungelesene Nachricht. | Damit hast du insgesamt {n} ungelesene Nachrichten.",
-			"title": "Du hast {n} neue Nachricht! | Du hast {n} neue Nachrichten!"
-		},
-		"ingame_news": {
-			"body": "Es gibt Neues im Spiel! Schau doch mal auf Facebook oder im Blog, was die heutigen Updates sind!",
-			"title": "Neuigkeiten im Spiel"
-		},
-		"mission_getred": {
-			"body": "{address}<br>Dieser Einsatz braucht Aufmerksamkeit!"
-		},
-		"mission_getred_alliance": {
-			"body": "{address}<br>Dieser Verbandseinsatz braucht Aufmerksamkeit!"
-		},
-		"radioMessage": {
-			"title": "{vehicle} meldet Status {status}!"
-		}
-	},
-	"noPermission": {
-		"text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!",
-		"title": "Desktop-Benachrichtigungen"
-	},
-	"permission": {
-		"text": "Bitte erlaube Desktop-Benachrichtigungen mit einem Klick auf diese Benachrichtigung!",
-		"title": "Desktop-Benachrichtigungen"
-	}
+    "desktopTest": {
+        "text": "Desktop-Benachrichtigungen wurden erfolgreich aktiviert!",
+        "title": "Desktop-Benachrichtigungen"
+    },
+    "messages": {
+        "allianceCandidature": {
+            "body": "Dein Verband hat eine neue Bewerbung! Aktuell offene Bewerbungen: {n}",
+            "title": "Neue Bewerbung! | Neue Bewerbungen!"
+        },
+        "allianceForum": {
+            "body": "Es gibt einen neuen Beitrag im Forum deines Verbandes! Öffne das Forum mit einem Klick auf diese Benachrichtigung.",
+            "title": "Neuer Beitrag im Verbandsforum!"
+        },
+        "allianceMessage": {
+            "body": "Es gibt eine neue Verbandsnachricht! Schau sie dir mit einem Klick auf diese Benachrichtigung direkt an.",
+            "title": "Neue Verbandsnachricht!"
+        },
+        "allianceNews": {
+            "body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite.",
+            "title": "Neue Verbandsnews!"
+        },
+        "dm": {
+            "body": "Damit hast du insgesamt {n} ungelesene Nachricht. | Damit hast du insgesamt {n} ungelesene Nachrichten.",
+            "title": "Du hast {n} neue Nachricht! | Du hast {n} neue Nachrichten!"
+        },
+        "ingame_news": {
+            "body": "Es gibt Neues im Spiel! Schau doch mal auf Facebook oder im Blog, was die heutigen Updates sind!",
+            "title": "Neuigkeiten im Spiel"
+        },
+        "mission_getred": {
+            "body": "{address}<br>Dieser Einsatz braucht Aufmerksamkeit!"
+        },
+        "mission_getred_alliance": {
+            "body": "{address}<br>Dieser Verbandseinsatz braucht Aufmerksamkeit!"
+        },
+        "radioMessage": {
+            "title": "{vehicle} meldet Status {status}!"
+        },
+        "tasksUpdate": {
+            "body": "Du hast eine Aufgabe abgeschlossen. Hol dir schnell deine Belohnung ab!",
+            "title": "Aufgabe abgeschlossen"
+        }
+    },
+    "noPermission": {
+        "text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!",
+        "title": "Desktop-Benachrichtigungen"
+    },
+    "permission": {
+        "text": "Bitte erlaube Desktop-Benachrichtigungen mit einem Klick auf diese Benachrichtigung!",
+        "title": "Desktop-Benachrichtigungen"
+    }
 }

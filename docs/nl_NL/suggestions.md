@@ -5,7 +5,7 @@ sidebarDepth: 2
 ---
 
 # Suggesties :bulb:
-::: tip
+:::tip
 Werk suggesties zo goed mogelijk uit voordat u ze publiceert. Dit helpt ons te begrijpen wat uw suggestie is en we hoeven minder vragen te stellen.
 :::
 
@@ -13,4 +13,4 @@ Werk suggesties zo goed mogelijk uit voordat u ze publiceert. Dit helpt ons te b
 In onze <discord/> kun je suggesties doen in het <discord-channel channel="suggestions"/> kanaal.
 
 ## Op GitHub
-U kunt ook een issue openen op <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer a.u.b. of er al een issue is met deze suggestie en volg het op.
+U kunt ook een issue openen op <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer a.u.b. of er al een issue is met deze suggestie en volg het op.

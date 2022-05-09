@@ -1,7 +1,4 @@
-export type Options = {
-    format: 'bbcode' | 'xhtml';
-    style: string;
-} & Partial<{
+export type Options = Partial<{
     toolbar: string;
     toolbarExclude: string;
     fonts: string;
@@ -78,7 +75,10 @@ export type Options = {
     zIndex: number | null;
     bbcodeTrim: boolean;
     disableBlockRemove: boolean;
-    allowedIframeUrls: (string | RegExp)[];
+    allowedIframeUrls: (RegExp | string)[];
     parserOptions: unknown;
     dropDownCss: Record<string, number | string>;
-}>;
+}> & {
+    format: 'bbcode' | 'xhtml';
+    style: string;
+};

@@ -1,142 +1,235 @@
 {
-	"description": "Extends missionlist by some cool Features!",
-	"eventMissions": {
-		"default": {
-			"☘️": [
-				296,
-				297,
-				298,
-				299,
-				300,
-				301
-			],
-			"🌞": [
-				178,
-				179,
-				180,
-				181,
-				182,
-				183,
-				337,
-				338,
-				339
-			],
-			"🌹": [
-				275,
-				276,
-				277,
-				278,
-				279,
-				280,
-				281,
-				282,
-				283
-			],
-			"🎃": [
-				75,
-				76,
-				77,
-				78,
-				79,
-				80,
-				81,
-				82,
-				83
-			],
-			"🎅": [
-				86,
-				87,
-				88,
-				89,
-				90,
-				91,
-				92
-			],
-			"🥚": [
-				154,
-				155,
-				156,
-				157,
-				158,
-				159,
-				160,
-				161,
-				162,
-				163,
-				164,
-				312,
-				313,
-				314,
-				315,
-				316,
-				317
-			],
-			"🧨": [
-				99,
-				100,
-				101,
-				102,
-				103,
-				104,
-				105,
-				106,
-				107,
-				108,
-				109,
-				110,
-				111,
-				227,
-				228,
-				229,
-				230,
-				231,
-				232,
-				233,
-				234,
-				235,
-				236,
-				237,
-				238,
-				239,
-				240,
-				241,
-				243,
-				254,
-				255,
-				256,
-				257,
-				258,
-				259,
-				260,
-				261,
-				262,
-				263
-			]
-		}
-	},
-	"name": "Extended Missionlist",
-	"settings": {
-		"averageCredits": {
-			"description": "Shows the average earnable credits for each mission in a compact way.",
-			"title": "Show avg. credits"
-		},
-		"eventMissions": {
-			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
-			"missions": "Missions",
-			"text": "Text",
-			"title": "Mark seasonal missions"
-		},
-		"remainingTime": {
-			"description": "Shows at missions how long each mission still is in progress.",
-			"title": "Remaining Missiontime"
-		},
-		"remainingTimeGreenOnly": {
-			"description": "Show remaining Time on green missions only.",
-			"title": "Missiontime for green missions only"
-		},
-		"starrableMissions": {
-			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
-			"title": "Mark Missions"
-		}
-	}
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Collapse all missions",
+            "expand": "Expand all missions"
+        },
+        "collapse": "Collapse this mission",
+        "expand": "Expand this mission"
+    },
+    "description": "Extends missionlist by some cool Features!",
+    "eventMissions": {
+        "default": {
+            "☘️": [
+                296,
+                297,
+                298,
+                299,
+                300,
+                301
+            ],
+            "🌞": [
+                178,
+                179,
+                180,
+                181,
+                182,
+                183,
+                337,
+                338,
+                339
+            ],
+            "🌹": [
+                275,
+                276,
+                277,
+                278,
+                279,
+                280,
+                281,
+                282,
+                283
+            ],
+            "🎃": [
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83
+            ],
+            "🎅": [
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92
+            ],
+            "🥚": [
+                154,
+                155,
+                156,
+                157,
+                158,
+                159,
+                160,
+                161,
+                162,
+                163,
+                164,
+                312,
+                313,
+                314,
+                315,
+                316,
+                317
+            ],
+            "🧨": [
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                227,
+                228,
+                229,
+                230,
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241,
+                243,
+                254,
+                255,
+                256,
+                257,
+                258,
+                259,
+                260,
+                261,
+                262,
+                263
+            ]
+        }
+    },
+    "name": "Extended Missionlist",
+    "settings": {
+        "averageCredits": {
+            "description": "Shows the average earnable credits for each mission in a compact way.",
+            "title": "Show avg. credits"
+        },
+        "collapsableMissions": {
+            "description": "Collapse individual (or all) missions to reduce their size in mission list.",
+            "title": "Collapse missions"
+        },
+        "currentPatients": {
+            "description": "Shows current amount of patients for each mission",
+            "title": "Current Patients"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Shows current amount of patients also in the tooltips on the map.",
+            "title": "Current Patients in Tooltips"
+        },
+        "currentPrisoners": {
+            "description": "Shows current amount of prisoners for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
+        "eventMissions": {
+            "description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
+            "missions": "Missions",
+            "text": "Text",
+            "title": "Mark seasonal missions"
+        },
+        "hide0CurrentPatients": {
+            "description": "Hides amount of patients if there are no patients at scene",
+            "title": "Hide 0 Patients"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
+        },
+        "remainingPatientTime": {
+            "description": "Shows for patients how much time remains until they are fully treated",
+            "title": "Remaining time for patients"
+        },
+        "remainingPumpingTime": {
+            "description": "Shows for pumping progresses how much time remains until they are finished.",
+            "title": "Remaining time for pumping progress"
+        },
+        "remainingTime": {
+            "description": "Shows at missions how long each mission still is in progress.",
+            "title": "Remaining Missiontime"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Show remaining Time on green missions only.",
+            "title": "Missiontime for green missions only"
+        },
+        "shareMissions": {
+            "description": "Share missions with the alliance directly from the mission list.",
+            "title": "Share missions"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Red",
+            "default": "Black or white (based on design)",
+            "description": "Select the background color of the share buttons",
+            "info": "Light blue",
+            "primary": "Dark blue",
+            "success": "Green",
+            "title": "Share missions: Button color",
+            "warning": "Orange"
+        },
+        "shareMissionsMinCredits": {
+            "description": "The button for sharing a mission is only shown for missions that do have an average reward of more than what you've set here.",
+            "title": "Share missions: minimum credits"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "description": "Set up which of the calls you want to enable the share button for.",
+            "own": "Emergency-Calls",
+            "sicherheitswache": "Planned missions",
+            "title": "Share missions: mission types"
+        },
+        "sortMissions": {
+            "description": "Sort your mission list!",
+            "title": "Sort missions"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Select the background color of the sorting button",
+            "title": "Sort missions: Button color"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implements the sorting in mission windows. Optionally, you may set custom Hotkeys in our Module \"Hotkeys\" for the modified buttons.",
+            "title": "Sorting in mission window"
+        },
+        "starrableMissions": {
+            "description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
+            "title": "Mark Missions"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alphabet",
+            "credits": "Credits",
+            "default": "no sorting",
+            "distance_dispatch": "Distance to next dispatch center",
+            "distance_station": "Distance to next station",
+            "id": "Age",
+            "remaining_patients": "Current patients",
+            "remaining_prisoners": "Current prisoners"
+        }
+    }
 }

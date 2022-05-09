@@ -1,228 +1,292 @@
 {
-	"description": "Deze module bevat diverse functies om het meldingenscherm te verbeteren",
-	"name": "Uitgebreid meldingsvenster",
-	"settings": {
-		"alarmIcons": {
-			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
-			"icon": "Icoon",
-			"preview": "Voorvertoning",
-			"style": "Icoon-Type",
-			"title": "Alarm-Iconen",
-			"vehicles": "Voertuigtypen"
-		},
-		"alarmTime": {
-			"description": "Geeft naast de alarmeer-knop aan hoe lang het voertuig met de langste aanrijdtijd onderweg is.",
-			"title": "Langste aanrijdtijd"
-		},
-		"arrClickHighlight": {
-			"description": "Geeft een kader om de aangeklikte inzetvoorstellen.",
-			"title": "Aangeklikte inzetvoorstellen markeren"
-		},
-		"arrClickHighlightColor": {
-			"description": "Stel hier de kleur van het kader om de inzetvoorstellen in.",
-			"title": "Kleur kader inzetvoorstellen"
-		},
-		"arrClickHighlightWidth": {
-			"description": "Stel hier in hoe breed (in pixels) het kader om de inzetvoorstellen moet zijn.",
-			"title": "Breedte kader inzetvoorstellen"
-		},
-		"arrCounter": {
-			"description": "Telt hoe vaak er op een inzetvoorstel is geklikt. Alle tellers kunnen met de knop rechtsonder of met een inzetvoorstel met resetfunctie worden gereset.",
-			"title": "Inzetvoorsteltellers"
-		},
-		"arrCounterAsBadge": {
-			"description": "Toont de inzetvoorstel-teller in een klein rood rondje naast het inzetvoorstel.",
-			"title": "Inzetvoorstelteller als badge"
-		},
-		"arrCounterResetSelection": {
-			"description": "Voegt rechtsonder een knop toe om de voertuig selectie te reseten. Let op: de inzetvoorsteltellers en -kaders worden ook gereset.",
-			"title": "Voertuigselectie reseten"
-		},
-		"arrMatchHighlight": {
-			"description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
-			"title": "Niet passende inzetvoorstellen grijs"
-		},
-		"arrSpecs": {
-			"description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
-			"title": "Inzetvoorstel details"
-		},
-		"arrTime": {
-			"description": "Toont wat de langste aanrijdtijd zou zijn van een inzetvoorstel als je er met je muis over heen gaat.",
-			"title": "Inzetvoorstel aanrijdtijden"
-		},
-		"centerMap": {
-			"description": "Hiermee kan je de kaart op het hoofdscherm centreren op de locatie van de melding met een knop in het meldingenscherm.",
-			"title": "Kaart centreren op melding"
-		},
-		"enhancedMissingVehicles": {
-			"description": "Toont de benodigde voertuigen in een duidelijke tabel.",
-			"title": "Benodigde voertuigen weergave"
-		},
-		"generationDate": {
-			"description": "Laat naast het adres zien wanneer de melding is gegenereerd.",
-			"title": "Generatietijd"
-		},
-		"hideVehicleList": {
-			"description": "Verbergt de voertuigenlijst en opent deze weer met een druk op de knop.",
-			"title": "Voertuigenlijst verbergen"
-		},
-		"hoverTip": {
-			"description": "Toont de naam van de knop als je met de muis er boven gaat staan. Bijvoorbeeld bij de overlay knop.",
-			"title": "Knopinfo"
-		},
-		"loadMoreVehiclesInHeader": {
-			"description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
-			"title": "Voertuigen laden knop in koptekst"
-		},
-		"missionKeywords": {
-			"autotextcolor": "Automatische tekstkleur",
-			"color": "Achtergrondkleur",
-			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
-			"keyword": "Trefwoord",
-			"missions": "Meldingen",
-			"prepend": "Vóór de meldingsnaam weergeven",
-			"preview": "Voorvertoning",
-			"textcolor": "Tekstkleur",
-			"title": "Meldingstrefwoord"
-		},
-		"patientSummary": {
-			"description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
-			"title": "Patiëntensamenvatting"
-		},
-		"redBorder": {
-			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
-			"title": "Rood kader"
-		},
-		"stagingAreaSelectedCounter": {
-			"description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
-			"title": "Voertuigselectieteller in UGS"
-		},
-		"stickyHeader": {
-			"description": "Toont altijd de bovenste balk in het meldingenscherm, zelfs als je naar beneden scrolt.",
-			"title": "Koptekst altijd laten zien"
-		},
-		"tailoredTabs": {
-			"color": "Kleur",
-			"description": "Pas hier de voertuigtabs in het meldingenscherm aan. \"Alle\" en \"Dooralarmeren\" zullen altijd zichtbaar zijn.",
-			"name": "Naam",
-			"title": "Voertuigcategorieën",
-			"vehicles": "Voertuigtypen"
-		},
-		"vehicleTypeInList": {
-			"description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
-			"title": "Voertuigtype weergeven"
-		},
-		"yellowBorder": {
-			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
-			"title": "Geel kader"
-		}
-	},
-	"tailoredTabs": {
-		"defaultTabs": [
-			{
-				"name": "TS",
-				"vehicleTypes": [
-					0,
-					1,
-					6,
-					7,
-					8,
-					9,
-					12,
-					14,
-					15,
-					17,
-					50,
-					62
-				]
-			},
-			{
-				"name": "Brandweer overig",
-				"vehicleTypes": [
-					2,
-					18,
-					3,
-					19,
-					4,
-					51,
-					5,
-					27,
-					10,
-					29,
-					34,
-					45,
-					31,
-					32,
-					11,
-					24,
-					56,
-					26,
-					20,
-					21,
-					61,
-					62
-				]
-			},
-			{
-				"name": "Waterongevallen",
-				"vehicleTypes": [
-					33,
-					49,
-					50,
-					36,
-					65,
-					66,
-					67
-				]
-			},
-			{
-				"name": "Vliegveld",
-				"vehicleTypes": [
-					41,
-					42,
-					43,
-					44
-				]
-			},
-			{
-				"name": "Ambulance",
-				"vehicleTypes": [
-					16,
-					52,
-					57,
-					30,
-					23,
-					37,
-					38,
-					63
-				]
-			},
-			{
-				"name": "Politie Noodhulp",
-				"vehicleTypes": [
-					22,
-					25,
-					46,
-					59
-				]
-			},
-			{
-				"name": "Politie overig",
-				"vehicleTypes": [
-					35,
-					28,
-					47,
-					48,
-					39,
-					40,
-					53,
-					54,
-					55,
-					58,
-					60,
-					64
-				]
-			}
-		]
-	}
+    "description": "Deze module bevat diverse functies om het meldingenscherm te verbeteren",
+    "name": "Uitgebreid meldingsvenster",
+    "settings": {
+        "alarmIcons": {
+            "description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
+            "icon": "Icoon",
+            "preview": "Voorvertoning",
+            "style": "Icoon-Type",
+            "title": "Alarm-Iconen",
+            "vehicles": "Voertuigtypen"
+        },
+        "alarmTime": {
+            "description": "Geeft naast de alarmeer-knop aan hoe lang het voertuig met de langste aanrijdtijd onderweg is.",
+            "title": "Langste aanrijdtijd"
+        },
+        "arrClickHighlight": {
+            "description": "Geeft een kader om de aangeklikte inzetvoorstellen.",
+            "title": "Aangeklikte inzetvoorstellen markeren"
+        },
+        "arrClickHighlightColor": {
+            "description": "Stel hier de kleur van het kader om de inzetvoorstellen in.",
+            "title": "Kleur kader inzetvoorstellen"
+        },
+        "arrClickHighlightWidth": {
+            "description": "Stel hier in hoe breed (in pixels) het kader om de inzetvoorstellen moet zijn.",
+            "title": "Breedte kader inzetvoorstellen"
+        },
+        "arrCounter": {
+            "description": "Telt hoe vaak er op een inzetvoorstel is geklikt. Alle tellers kunnen met de knop rechtsonder of met een inzetvoorstel met resetfunctie worden gereset.",
+            "title": "Inzetvoorsteltellers"
+        },
+        "arrCounterAsBadge": {
+            "description": "Toont de inzetvoorstel-teller in een klein rood rondje naast het inzetvoorstel.",
+            "title": "Inzetvoorstelteller als badge"
+        },
+        "arrCounterResetSelection": {
+            "description": "Voegt rechtsonder een knop toe om de voertuig selectie te reseten. Let op: de inzetvoorsteltellers en -kaders worden ook gereset.",
+            "title": "Voertuigselectie reseten"
+        },
+        "arrMatchHighlight": {
+            "description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
+            "title": "Niet passende inzetvoorstellen grijs"
+        },
+        "arrSearch": {
+            "description": "Toont een zoekbalk boven de inzetvoorstellen om deze te filteren.",
+            "title": "Inzetvoorstellen zoeken"
+        },
+        "arrSearchAutoFocus": {
+            "description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
+            "title": "Inzetvoorstellen zoeken: Focussen"
+        },
+        "arrSearchCloseDropdownOnSelect": {
+            "description": "sluit de dropdown na het selecteren van een inzetvoorstel.",
+            "title": "sluit dropdown na selectie"
+        },
+        "arrSearchDissolveCategories": {
+            "description": "Toon alle categoriën tegelijk bij het zoeken in de inzetvoorstellen.",
+            "title": "Inzetvoorstellen zoeken: Toon alle categoriën"
+        },
+        "arrSearchDropdown": {
+            "description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",
+            "title": "Inzetvoorstellen als dropdown"
+        },
+        "arrSpecs": {
+            "description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
+            "title": "Inzetvoorstel details"
+        },
+        "arrTime": {
+            "description": "Toont wat de langste aanrijdtijd zou zijn van een inzetvoorstel als je er met je muis over heen gaat.",
+            "title": "Inzetvoorstel aanrijdtijden"
+        },
+        "centerMap": {
+            "description": "Hiermee kan je de kaart op het hoofdscherm centreren op de locatie van de melding met een knop in het meldingenscherm.",
+            "title": "Kaart centreren op melding"
+        },
+        "collapsablePatients": {
+            "description": "Minimaliseer de patiënten in het meldingsvenster en toont alleen een korte samenvatting.",
+            "title": "Minimaliseer patiënten"
+        },
+        "collapsablePatientsMinPatients": {
+            "description": "Stel hier in vanaf hoeveel patiënten er in de melding moeten zijn voordat ze worden geminimaliseerd.",
+            "title": "Minimaliseer patiënten: minimum aantal"
+        },
+        "emvMaxStaff": {
+            "description": "'Benodigde voertuigen weergave' Gebruikt voor de berekeningen voor alle voertuigen de maximale capaciteit.",
+            "title": "Maximum personeel benodigde voertuigen weergave"
+        },
+        "enhancedMissingVehicles": {
+            "description": "Toont de benodigde voertuigen in een duidelijke tabel.",
+            "title": "Benodigde voertuigen weergave"
+        },
+        "generationDate": {
+            "description": "Laat naast het adres zien wanneer de melding is gegenereerd.",
+            "title": "Generatietijd"
+        },
+        "hideVehicleList": {
+            "description": "Verbergt de voertuigenlijst en opent deze weer met een druk op de knop.",
+            "title": "Voertuigenlijst verbergen"
+        },
+        "hoverTip": {
+            "description": "Toont de naam van de knop als je met de muis er boven gaat staan. Bijvoorbeeld bij de overlay knop.",
+            "title": "Knopinfo"
+        },
+        "loadMoreVehiclesInHeader": {
+            "description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
+            "title": "Voertuigen laden knop in koptekst"
+        },
+        "missionKeywords": {
+            "allMissions": "Alle meldingen",
+            "autotextcolor": "Automatische tekstkleur",
+            "color": "Achtergrondkleur",
+            "description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
+            "keyword": "Trefwoord",
+            "missions": "Meldingen",
+            "prepend": "Vóór de meldingsnaam weergeven",
+            "preview": "Voorvertoning",
+            "textcolor": "Tekstkleur",
+            "title": "Meldingstrefwoord"
+        },
+        "patientSummary": {
+            "description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
+            "title": "Patiëntensamenvatting"
+        },
+        "playerCounter": {
+            "description": "Toont aan de bovenkant van de personeelslijst hoeveel spelers er een voertuig naar de melding hebben gestuurd. Klik er op om een tabel met details te openen.",
+            "title": "Spelersteller"
+        },
+        "playerCounterColor": {
+            "description": "Kies welke kleur je de spelersteller wilt hebben.",
+            "title": "Spelersteller: kleur"
+        },
+        "redBorder": {
+            "description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
+            "title": "Rood kader"
+        },
+        "remainingPatientTime": {
+            "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+            "title": "Patiëntenbehandelingsduur"
+        },
+        "stagingAreaSelectedCounter": {
+            "description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
+            "title": "Voertuigselectieteller in UGS"
+        },
+        "stickyHeader": {
+            "description": "Toont altijd de bovenste balk in het meldingenscherm, zelfs als je naar beneden scrolt.",
+            "title": "Koptekst altijd laten zien"
+        },
+        "tailoredTabs": {
+            "color": "Kleur",
+            "description": "Pas hier de voertuigtabs in het meldingenscherm aan. \"Alle\" en \"Dooralarmeren\" zullen altijd zichtbaar zijn.",
+            "name": "Naam",
+            "title": "Voertuigcategorieën",
+            "vehicles": "Voertuigtypen"
+        },
+        "vehicleCounter": {
+            "description": "Toont aan de bovenkant van de personeelslijst hoeveel voertuigen naar de melding zijn gestuurd. Klik er op om een tabel met details te openen.",
+            "title": "Voertuigteller"
+        },
+        "vehicleCounterColor": {
+            "danger": "Rood",
+            "default": "Grijs",
+            "description": "Kies welke kleur je de label van de voertuigteller wilt hebben.",
+            "info": "Licht blauw",
+            "primary": "Donker blauw",
+            "success": "Groen",
+            "title": "Voertuigteller: kleur",
+            "warning": "Oranje"
+        },
+        "vehicleTypeInList": {
+            "description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
+            "title": "Voertuigtype weergeven"
+        },
+        "yellowBorder": {
+            "description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
+            "title": "Geel kader"
+        }
+    },
+    "tailoredTabs": {
+        "defaultTabs": [
+            {
+                "name": "TS",
+                "vehicleTypes": [
+                    0,
+                    1,
+                    6,
+                    7,
+                    8,
+                    9,
+                    12,
+                    14,
+                    15,
+                    17,
+                    50,
+                    62
+                ]
+            },
+            {
+                "name": "Brandweer overig",
+                "vehicleTypes": [
+                    2,
+                    18,
+                    3,
+                    19,
+                    4,
+                    51,
+                    5,
+                    27,
+                    10,
+                    29,
+                    34,
+                    45,
+                    31,
+                    32,
+                    11,
+                    24,
+                    56,
+                    26,
+                    20,
+                    21,
+                    61,
+                    62,
+                    68,
+                    69,
+                    70,
+                    71,
+                    72
+                ]
+            },
+            {
+                "name": "Waterongevallen",
+                "vehicleTypes": [
+                    33,
+                    49,
+                    50,
+                    36,
+                    65,
+                    66,
+                    67
+                ]
+            },
+            {
+                "name": "Vliegveld",
+                "vehicleTypes": [
+                    41,
+                    42,
+                    43,
+                    44
+                ]
+            },
+            {
+                "name": "Ambulance",
+                "vehicleTypes": [
+                    16,
+                    52,
+                    57,
+                    30,
+                    23,
+                    37,
+                    38,
+                    63
+                ]
+            },
+            {
+                "name": "Politie Noodhulp",
+                "vehicleTypes": [
+                    22,
+                    25,
+                    46,
+                    59
+                ]
+            },
+            {
+                "name": "Politie overig",
+                "vehicleTypes": [
+                    35,
+                    28,
+                    47,
+                    48,
+                    39,
+                    40,
+                    53,
+                    54,
+                    55,
+                    58,
+                    60,
+                    64
+                ]
+            }
+        ]
+    }
 }

@@ -1,9 +1,9 @@
 import lssm_logo from '../img/lssm_logo';
 
-import { NotificationsState } from 'typings/store/notifications/State';
-import { RootState } from 'typings/store/RootState';
-import { ActionTree, Module, MutationTree } from 'vuex';
-import {
+import type { NotificationsState } from 'typings/store/notifications/State';
+import type { RootState } from 'typings/store/RootState';
+import type { ActionTree, Module, MutationTree } from 'vuex';
+import type {
     NotificationsActionStoreParams,
     NotificationsSend,
 } from 'typings/store/notifications/Actions';
@@ -102,20 +102,22 @@ export default {
             let computedType = type;
             if (
                 !computedGroup ||
-                !computedGroup.match(/^(top|bottom)[ _](left|center|right)$/)
+                !computedGroup.match(/^(bottom|top)[ _](center|left|right)$/u)
             )
                 computedGroup = 'bottom right';
             if (!state.groups.includes(computedGroup))
                 commit('addGroup', computedGroup);
             if (
                 !computedType ||
-                !computedType.match(/^(warning|danger|success|info)$/)
+                !computedType.match(
+                    /^(danger|info|success|unimportant|warning)$/u
+                )
             )
                 computedType = 'info';
             if (ingame) {
                 (window[PREFIX] as Vue).$nextTick().then(() => {
                     (window[PREFIX] as Vue).$notify({
-                        group: computedGroup.replace(/ /g, '_'),
+                        group: computedGroup.replace(/ /gu, '_'),
                         type: computedType,
                         title,
                         text,
@@ -142,8 +144,9 @@ export default {
                     requireInteraction: duration <= 0,
                 });
                 if (clickHandler) {
-                    notification.onclick = e =>
-                        clickHandler(null, e as MouseEvent);
+                    notification.addEventListener('click', e =>
+                        clickHandler(null, e as MouseEvent)
+                    );
                 }
                 if (duration > 0)
                     window.setTimeout(() => notification.close(), duration);

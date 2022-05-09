@@ -1,0 +1,19 @@
+{
+    "description": "Skriv dine egne maler for meldinger i private samtaler and in the chat.",
+    "name": "Meldingsmaler",
+    "settings": {
+        "chatTemplates": {
+            "description": "Messages for alliance-chat",
+            "name": "Name",
+            "text": "Message",
+            "title": "Chat-Messages"
+        },
+        "templates": {
+            "description": "Variabler er tilgjengelige for malene. Vennligst ta en titt på vår <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "name": "Navn",
+            "subject": "Emne",
+            "template": "Mal (variabler (se wiki): {{username}}, {{today[+n]}})",
+            "title": "Maler"
+        }
+    }
+}

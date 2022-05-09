@@ -1,0 +1,53 @@
+{
+    "desktopTest": {
+        "text": "Powiadomienia na pulpicie zostały pomyślnie aktywowane!",
+        "title": "Powiadomienia na pulpicie"
+    },
+    "messages": {
+        "allianceCandidature": {
+            "body": "Twój sojusz ma nowych kandydatów! : {n}",
+            "title": "Nowy kandydat! | Nowi kandydaci!"
+        },
+        "allianceForum": {
+            "body": "Na forum twojego sojuszu pojawił się nowy post! Otwórz forum, klikając to powiadomienie.",
+            "title": "Nowy post na forum sojuszu!"
+        },
+        "allianceMessage": {
+            "body": "Pojawiła się nowa wiadomość Sojuszu! Wyświetl je bezpośrednio, klikając to powiadomienie.",
+            "title": "Nowa wiadomość sojuszu!"
+        },
+        "allianceNews": {
+            "body": "Twój Sojusz opublikował nowe ogłoszenie! Kliknij to powiadomienie, aby przejść bezpośrednio do strony z wiadomościami.",
+            "title": "Nowe ogłoszenie sojuszu!"
+        },
+        "dm": {
+            "body": "Masz {n} nieprzeczytaną wiadomość. | Masz łącznie {n} nieprzeczytanych wiadomości.",
+            "title": "Masz {n} nową wiadomość! | Masz {n} nowych wiadomości!"
+        },
+        "ingame_news": {
+            "body": "W grze pojawiły się nowe funkcje! Zajrzyj na Facebooka, aby zobaczyć, jakie są dzisiejsze aktualizacje!",
+            "title": "Nowości w grze"
+        },
+        "mission_getred": {
+            "body": "{address}<br>Ta misja wymaga uwagi!"
+        },
+        "mission_getred_alliance": {
+            "body": "{address}<br>Ta misja sojuszu wymaga uwagi!"
+        },
+        "radioMessage": {
+            "title": "{vehicle} zgłosił status {status}!"
+        },
+        "tasksUpdate": {
+            "body": "Zakończyłeś zadanie. Szybko odbierz nagrodę!",
+            "title": "Ukończono zadanie"
+        }
+    },
+    "noPermission": {
+        "text": "Twoja przeglądarka jest skonfigurowana tak, że gra nie ma uprawnień do wysyłania powiadomień na pulpicie. Jeśli nadal chcesz otrzymywać te powiadomienia, musisz je najpierw zresetować w ustawieniach przeglądarki!",
+        "title": "Powiadomienia na pulpicie"
+    },
+    "permission": {
+        "text": "Zezwól na powiadomienia na pulpicie, klikając to powiadomienie!",
+        "title": "Powiadomienia na pulpicie"
+    }
+}

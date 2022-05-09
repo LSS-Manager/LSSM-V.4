@@ -1,0 +1,80 @@
+{
+    "default": [
+        {
+            "ids": [
+                0,
+                18
+            ],
+            "name": "Base de pompiers"
+        },
+        {
+            "ids": [
+                2,
+                4,
+                5,
+                20
+            ],
+            "name": "Secours"
+        },
+        {
+            "ids": [
+                6,
+                8,
+                16,
+                19
+            ],
+            "name": "Poste de police"
+        },
+        {
+            "ids": [
+                1,
+                3
+            ],
+            "name": "École"
+        },
+        {
+            "ids": [
+                7
+            ],
+            "name": "Traitement Appels"
+        },
+        {
+            "ids": [
+                13
+            ],
+            "name": "Gendarmerie"
+        },
+        {
+            "ids": [
+                11
+            ],
+            "name": "Compagnie de CRS"
+        },
+        {
+            "ids": [
+                21,
+                22
+            ],
+            "name": "Complexe"
+        }
+    ],
+    "description": "Personnalisez les filtres de la liste de construction !",
+    "name": "Liste des bâtiments personnalisable",
+    "settings": {
+        "buildings": "Types de bâtiments",
+        "contentType": {
+            "labels": [
+                "Texte",
+                "Icône"
+            ],
+            "title": "Texte ou Icône?"
+        },
+        "filters": {
+            "description": "Laissez les icônes dans l'onglet \"Alarme\". Afficher le bouton, en fonction de votre sélection. Vous pouvez choisir entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">toutes les icônes gratuites de Font-Awesome</a>. Il suffit de préciser le nom de l'icône. Un aperçu en direct vous montrera alors l'icône.",
+            "title": "Filtre pour liste des bâtiments"
+        },
+        "icon_style": "Icon-Type",
+        "preview": "Prévisualisation",
+        "title": "Titre (ou Icône)"
+    }
+}

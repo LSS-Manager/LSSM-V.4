@@ -1,50 +1,72 @@
 {
-	"description": "Plein d'améliorations (les liens sont cliquables par exemple).",
-	"name": "Améliorations générales",
-	"settings": {
-		"browserTitle": {
-			"description": "Ajuste le titre de l'onglet du navigateur pour montrer ce qui est actuellement ouvert en jeu.",
-			"title": "Titre de l'onglet"
-		},
-		"clickableLinks": {
-			"description": "Les liens textes (dans le chat, forum, message etc.) sont cliquables. Ils s'ouvrent dans un nouvel onglet.",
-			"title": "Liens cliquables"
-		},
-		"emojiPicker": {
-			"description": "Affiche une séléction d'émoji quand vous tapez : suivi d'un texte.",
-			"title": "Émojis"
-		},
-		"extensionCloseCall": {
-			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
-			"title": "Spreading improved FMS 5"
-		},
-		"linkPreviews": {
-			"buildings": "Bâtiments",
-			"description": "Affiche une info-bulle au survol d'un lien. Choisissez ici pour quels lien les info-bulles sont actives :",
-			"missions": "Missions",
-			"profile": "Profil",
-			"title": "Prévisualiser le lien",
-			"vehicles": "Véhicules"
-		},
-		"mapUndo": {
-			"description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",
-			"title": "Sauvegarde centrage de carte"
-		},
-		"ownMapMarkers": {
-			"description": "Enregistrez vos propres lieux sur la carte pour y accéder en un seul clic !",
-			"title": "Signets pour la carte"
-		},
-		"saveLastBuildingType": {
-			"description": "Se souvient du type de bâtiment sélectionné lors de la construction d'un nouveau bâtiment et le sélectionne automatiquement pour les nouveaux bâtiments.",
-			"title": "Se souvenir du type de bâtiment"
-		},
-		"saveLastDispatchCenter": {
-			"description": "Se souvient du centre de répartition sélectionné lors de la construction d'un nouveau bâtiment et le sélectionne automatiquement pour les nouveaux bâtiments.",
-			"title": "Se souvenir du centre d'expédition"
-		},
-		"showImg": {
-			"description": "Essaie de générer une miniature. Ne fonctionne que si \"Liens cliquables\" est activé aussi.",
-			"title": "Miniature de prévisualisation"
-		}
-	}
+    "description": "Plein d'améliorations (les liens sont cliquables par exemple).",
+    "name": "Améliorations générales",
+    "positions": {
+        "bottom-left": "En bas à gauche 🡧",
+        "bottom-right": "En bas à droite 🡦",
+        "top-left": "En haut à gauche 🡤",
+        "top-right": "En haut à droite 🡥"
+    },
+    "settings": {
+        "aaoExportQr": {
+            "description": "Affiche un QR-Code du lien d'exportation lors de l'exportation d'un RAI",
+            "title": "RAI-Exporter en tant que QR-Code"
+        },
+        "browserTitle": {
+            "description": "Ajuste le titre de l'onglet du navigateur pour montrer ce qui est actuellement ouvert en jeu.",
+            "title": "Titre de l'onglet"
+        },
+        "clickableLinks": {
+            "description": "Les liens textes (dans le chat, forum, message etc.) sont cliquables. Ils s'ouvrent dans un nouvel onglet.",
+            "title": "Liens cliquables"
+        },
+        "emojiPicker": {
+            "description": "Affiche une séléction d'émoji quand vous tapez : suivi d'un texte.",
+            "title": "Émojis"
+        },
+        "extensionCloseCall": {
+            "description": "Ferme les demandes de communication même si le bouton \"Allez en mission\" est activé.",
+            "title": "Diffusion d'un FMS amélioré 5"
+        },
+        "linkPreviews": {
+            "buildings": "Bâtiments",
+            "description": "Affiche une info-bulle au survol d'un lien. Choisissez ici pour quels lien les info-bulles sont actives :",
+            "missions": "Missions",
+            "profile": "Profil",
+            "title": "Prévisualiser le lien",
+            "vehicles": "Véhicules"
+        },
+        "mapSearchOnMap": {
+            "description": "Déplace la recherche d'emplacement dans la fenêtre principale vers la carte",
+            "title": "Recherche de lieux sur la carte"
+        },
+        "mapSearchOnMapPosition": {
+            "description": "Sélectionnez l'endroit de la carte où la recherche doit apparaître.",
+            "title": "Position de la recherche sur la carte"
+        },
+        "mapUndo": {
+            "description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",
+            "title": "Enregistrer le centrage de la carte"
+        },
+        "notePreview": {
+            "description": "Les liens dans les notes sont rendus cliquables en affichant un aperçu des notes.",
+            "title": "Notes"
+        },
+        "ownMapMarkers": {
+            "description": "Enregistrez vos propres lieux sur la carte pour y accéder en un seul clic !",
+            "title": "Signets pour la carte"
+        },
+        "saveLastBuildingType": {
+            "description": "Se souvient du type de bâtiment sélectionné lors de la construction d'un nouveau bâtiment et le sélectionne automatiquement pour les nouveaux bâtiments.",
+            "title": "Se souvenir du type de bâtiment"
+        },
+        "saveLastDispatchCenter": {
+            "description": "Se souvient du centre de répartition sélectionné lors de la construction d'un nouveau bâtiment et le sélectionne automatiquement pour les nouveaux bâtiments.",
+            "title": "Se souvenir du centre d'expédition"
+        },
+        "showImg": {
+            "description": "Essaie de générer une miniature. Ne fonctionne que si \"Liens cliquables\" est activé aussi.",
+            "title": "Aperçu des images"
+        }
+    }
 }

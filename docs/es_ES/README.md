@@ -1,20 +1,20 @@
 ---
 title: LSS-Manager V.4
-lang: es_ES
+lang: es-ES
 sidebarDepth: 2
 ---
 
-# Wiki 🇪🇸 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+# Wiki 🇪🇸 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $theme.variables.versions.stable }}</i>
 > 
-> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+> beta: <i>{{ $theme.variables.versions.beta }}</i>
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
-
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
 ## Sobre LSSM
 
@@ -49,9 +49,9 @@ Tenga en cuenta que no admitimos oficialmente navegadores más antiguos, navegad
 :::
 
 ### Paso Nº 2: Userscript
-Si Tampermonkey ha sido instalado con éxito en tu navegador, puedes hacer click <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">AQUÍ</a> o crear un nuevo script de usuario con el siguiente contenido:
+Si Tampermonkey ha sido instalado con éxito en tu navegador, puedes hacer click <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">AQUÍ</a> o crear un nuevo script de usuario con el siguiente contenido:
 
-<<< ./dist/static/lssm-v4.user.js
+@[code js](@userscript)
 
 ### Paso Nº 3: Activación
 El indicador LSSM es un texto resaltado en verde `LSSM V.4`, presenten en la esquina superior derecha de Centro de Mando.  

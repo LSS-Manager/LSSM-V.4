@@ -1,0 +1,8 @@
+{
+    "description": "I alarmvinduet er denne fargen satt som bakgrunn for avmerkingsboksen for alle kjøretøyer av denne kjøretøytypen.",
+    "noColor": "Ingen kjøretøyfarge er angitt for øyeblikket",
+    "reset": "Slett farge",
+    "save": "Lagre",
+    "savedNote": "Kjøretøyets farge er lagret!",
+    "title": "Rediger kjøretøyfarge: {type}"
+}

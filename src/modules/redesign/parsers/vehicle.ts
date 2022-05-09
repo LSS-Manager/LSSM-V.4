@@ -1,13 +1,13 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface Mission {
     image: string;
     caption: string;
     id: number;
-    type: number;
+    type: string;
     adress: string;
     distance: string;
-    list: 'mission_own' | 'mission_alliance';
+    list: 'mission_alliance' | 'mission_own';
     progress: {
         active: boolean;
         width: number;
@@ -16,7 +16,7 @@ interface Mission {
         current: number;
         total: number;
     };
-    status: 'red' | 'yellow' | 'green';
+    status: 'green' | 'red' | 'yellow';
 }
 
 interface Hospital {
@@ -25,8 +25,8 @@ interface Hospital {
     distance: string;
     beds: number;
     department: boolean;
-    state: 'success' | 'danger' | 'warning';
-    list: 'own_hospitals' | 'alliance_hospitals';
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance_hospitals' | 'own_hospitals';
     tax: number;
 }
 
@@ -35,8 +35,8 @@ interface Cell {
     id: number;
     distance: string;
     free: number;
-    state: 'success' | 'danger' | 'warning';
-    list: 'own_cells' | 'alliance_cells';
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance_cells' | 'own_cells';
     tax: number;
 }
 
@@ -85,6 +85,7 @@ export interface VehicleWindow {
     }[];
     staff?: Record<string, string>;
     water_amount?: string;
+    foam_amount?: string;
     mission_own: Mission[];
     mission_alliance: Mission[];
     has_hospitals: boolean;
@@ -93,6 +94,7 @@ export interface VehicleWindow {
     load_all_hospitals: boolean;
     hospital_department: string;
     patient_releaseable: boolean;
+    patient_doctor_transport: boolean;
     has_cells: boolean;
     own_cells: Cell[];
     alliance_cells: Cell[];
@@ -107,13 +109,13 @@ export default <RedesignParser<VehicleWindow>>(({
     getIdFromEl = () => -1,
 }) => {
     const id = parseInt(
-        new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
+        new URL(href, window.location.href).pathname.match(/\d+\/?$/u)?.[0] ??
             '-1'
     );
     const fms = parseInt(
         doc
             .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
-            ?.className?.match(/(?<=building_list_fms_)\d+/)?.[0] ?? '-1'
+            ?.className?.match(/(?<=building_list_fms_)\d+/u)?.[0] ?? '-1'
     );
     const buildingEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-station a[href^="/buildings/"]'
@@ -146,31 +148,33 @@ export default <RedesignParser<VehicleWindow>>(({
     const own_cells: Cell[] = [];
     const alliance_cells: Cell[] = [];
     if (hasCells) {
-        let list: 'own_cells' | 'alliance_cells' = 'own_cells';
+        let list: 'alliance_cells' | 'own_cells' = 'own_cells';
         doc.querySelectorAll<HTMLAnchorElement>(
             `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
         ).forEach(cell => {
             if (cell.previousElementSibling?.matches('h5'))
                 list = 'alliance_cells';
             const text = cell.textContent ?? '';
-            const infos = (text.match(/(?<=\()[^(]*?(?=\)$)/)?.[0] ?? '').split(
-                ':'
-            );
+            const infos = text
+                .trim()
+                .match(
+                    /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
+                );
             const cellinfos: Cell = {
                 id: getIdFromEl(cell),
-                caption: text.replace(/\([^(]*?\)$/, ''),
+                caption: text.replace(/\([^(]*?\)$/u, ''),
                 list,
                 state: cell.classList.contains('btn-success')
                     ? 'success'
                     : cell.classList.contains('btn-warning')
                     ? 'warning'
                     : 'danger',
-                free: parseInt(infos[1].trim()),
-                distance: infos[2].split(/,(?=\s)/)[0].trim(),
+                free: parseInt(infos?.groups?.free ?? '-1'),
+                distance: infos?.groups?.distance ?? '-1km',
                 tax:
                     list === 'own_cells'
                         ? 0
-                        : parseInt(infos[3].match(/\d+(?=%)/)?.[0] ?? '-1'),
+                        : parseInt(infos?.groups?.tax ?? '-1'),
             };
             if (list === 'own_cells') own_cells.push(cellinfos);
             else alliance_cells.push(cellinfos);
@@ -179,10 +183,13 @@ export default <RedesignParser<VehicleWindow>>(({
     const wlf_table = doc.querySelector<HTMLTableElement>(
         '#vehicle_show_table'
     );
+    const hospital_departmentNode = doc.querySelector(
+        '.col-md-9 .alert.alert-info b'
+    );
     // because missions may appear in own and alliance lists
     const mission_ids: number[] = [];
     const get_hospitals = (
-        list: 'own_hospitals' | 'alliance_hospitals'
+        list: 'alliance_hospitals' | 'own_hospitals'
     ): Hospital[] => {
         if (!hasHospitals) return [];
         return Array.from(
@@ -196,13 +203,16 @@ export default <RedesignParser<VehicleWindow>>(({
             .map(h => {
                 if (h.children.length <= 1) return null;
                 const isOwn = list === 'own_hospitals';
-                const alarmEl = h.children[isOwn ? 4 : 5].querySelector<
-                    HTMLAnchorElement
-                >('a');
+                const alarmEl =
+                    h.children[isOwn ? 4 : 5].querySelector<HTMLAnchorElement>(
+                        'a'
+                    );
                 return {
                     caption:
-                        ((h.children[0] as HTMLElement | null)
-                            ?.firstChild as Text)?.wholeText?.trim() ?? '',
+                        (
+                            (h.children[0] as HTMLElement | null)
+                                ?.firstChild as Text
+                        )?.wholeText?.trim() ?? '',
                     distance: h.children[1]?.textContent?.trim() ?? '',
                     beds: parseInt(h.children[2]?.textContent?.trim() ?? '-1'),
                     department: !!h.children[isOwn ? 3 : 4].querySelector(
@@ -222,6 +232,20 @@ export default <RedesignParser<VehicleWindow>>(({
             })
             .filter(h => !!h) as Hospital[];
     };
+    const imgVehicleGraphicId = imageEl?.getAttribute('vehicle_graphic_id');
+    const vehicleGraphicsRegex = `vehicle_graphics${
+        imgVehicleGraphicId ? `_sorted\\[${imgVehicleGraphicId}]` : ''
+    }\\s*=\\s*`;
+
+    const getMissionType = (el: HTMLElement) => {
+        let type = el.dataset.missionType ?? '-1';
+        const overlay = el.dataset.overlayIndex;
+        const overlays = el.dataset.additiveOverlays;
+        if (overlay) type += `-${overlay}`;
+        if (overlays) type += `/${overlays}`;
+        return type;
+    };
+
     return {
         id,
         building: {
@@ -239,35 +263,40 @@ export default <RedesignParser<VehicleWindow>>(({
         can_move: !!doc.querySelector('a[href$="/move"]'),
         fms,
         max_staff: parseInt(
-            doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
-                '-1'
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-max-personnel')
+                ?.textContent ?? '-1'
         ),
-        mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
+        mileage:
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-total-km')
+                ?.textContent ?? '',
         image:
-            imageEl?.getAttribute('image_replace_allowed') === 'true' &&
-            ((doc.documentElement.innerHTML.match(
-                /vehicle_graphics(_sorted\[\d+])?\s*=\s*/
-            )
-                ? JSON.parse(
-                      Array.from(doc.scripts)
-                          .find(({ innerText }) =>
-                              innerText.match(/vehicle_graphics/)
-                          )
-                          ?.innerText.match(
-                              /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:\[".*?",".*?","(?:true|false)"]|null),?)+]/
-                          )?.[0] ?? '[]'
-                  )[vehicleType]?.[0]
-                : imageEl?.src) ??
-                imageEl?.src ??
-                ''),
+            imageEl?.getAttribute('image_replace_allowed') === 'true'
+                ? (doc.documentElement.innerHTML.match(
+                      new RegExp(vehicleGraphicsRegex)
+                  )
+                      ? JSON.parse(
+                            Array.from(doc.scripts)
+                                .find(({ textContent }) =>
+                                    textContent?.match(/vehicle_graphics/u)
+                                )
+                                ?.innerText.match(
+                                    new RegExp(
+                                        `(?<=${vehicleGraphicsRegex})\\[(?:(?:\\[".*?",".*?","(?:true|false)"]|null),?)+]`
+                                    )
+                                )?.[0] ?? '[]'
+                        )[vehicleType]?.[0]
+                      : imageEl?.src) ??
+                  imageEl?.src ??
+                  ''
+                : imageEl?.src ?? '',
         user: userEl
             ? {
                   name: userEl.textContent ?? '',
                   id: getIdFromEl(userEl),
                   online:
-                      (userEl?.previousElementSibling as HTMLImageElement | null)?.src?.endsWith(
-                          '/images/user_green.png'
-                      ) ?? false,
+                      (
+                          userEl?.previousElementSibling as HTMLImageElement | null
+                      )?.src?.endsWith('/images/user_green.png') ?? false,
               }
             : undefined,
         current_mission: currentMissionEl
@@ -290,8 +319,11 @@ export default <RedesignParser<VehicleWindow>>(({
             )
         ),
         water_amount:
-            doc.getElementById('vehicle-attr-water-amount')?.textContent ??
-            undefined,
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-water-amount')
+                ?.textContent ?? undefined,
+        foam_amount:
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-foam-amount')
+                ?.textContent ?? undefined,
         ...(Object.fromEntries(
             ['mission_own', 'mission_alliance'].map(list => [
                 list,
@@ -301,12 +333,14 @@ export default <RedesignParser<VehicleWindow>>(({
                     )
                 )
                     .map(m => {
-                        const linkEl = m.children[1]?.querySelector<
-                            HTMLAnchorElement
-                        >('a[href^="/missions/"]');
-                        const progressEl = m.children[3]?.querySelector<
-                            HTMLDivElement
-                        >('.progress .progress-bar');
+                        const linkEl =
+                            m.children[2]?.querySelector<HTMLAnchorElement>(
+                                'a[href^="/missions/"]'
+                            );
+                        const progressEl =
+                            m.children[4]?.querySelector<HTMLDivElement>(
+                                '.progress .progress-bar'
+                            );
                         const id = getIdFromEl(linkEl);
                         if (mission_ids.includes(id)) return null;
                         mission_ids.push(id);
@@ -315,14 +349,12 @@ export default <RedesignParser<VehicleWindow>>(({
                                 m.children[0]?.querySelector('img')?.src ?? '',
                             caption: linkEl?.textContent?.trim() ?? '',
                             id: getIdFromEl(linkEl),
-                            type: parseInt(
-                                m.getAttribute('data-mission-type') ?? '-1'
-                            ),
-                            adress: Array.from(m.children[1]?.childNodes ?? [])
+                            type: getMissionType(m),
+                            adress: Array.from(m.children[2]?.childNodes ?? [])
                                 .map(c => (c as Text).wholeText ?? '')
                                 .join('')
                                 .trim(),
-                            distance: m.children[2]?.textContent?.trim() ?? '',
+                            distance: m.children[3]?.textContent?.trim() ?? '',
                             list,
                             progress: {
                                 active: !!progressEl?.querySelector(
@@ -334,12 +366,12 @@ export default <RedesignParser<VehicleWindow>>(({
                             },
                             patients: {
                                 current: parseInt(
-                                    m.children[4]?.textContent?.trim() ?? '-1'
+                                    m.children[5]?.textContent?.trim() ?? '-1'
                                 ),
                                 total: parseInt(
-                                    m.children[4]?.textContent
+                                    m.children[5]?.textContent
                                         ?.trim()
-                                        ?.match(/\d+$/)?.[0] ?? '-1'
+                                        ?.match(/\d+$/u)?.[0] ?? '-1'
                                 ),
                             },
                             status:
@@ -356,11 +388,11 @@ export default <RedesignParser<VehicleWindow>>(({
             'a[href$="?load_all=true"]'
         ),
         hospital_department: hasHospitals
-            ? doc
-                  .querySelector('.col-md-9 .alert.alert-info b')
-                  ?.textContent?.trim() ?? ''
+            ? hospital_departmentNode?.textContent?.trim() ?? ''
             : '',
         patient_releaseable: !!doc.querySelector('a[href$="/patient/-1"]'),
+        patient_doctor_transport:
+            !!hospital_departmentNode?.nextSibling?.textContent?.trim().length,
         has_cells: hasCells,
         own_cells,
         alliance_cells,
@@ -373,14 +405,13 @@ export default <RedesignParser<VehicleWindow>>(({
                   wlf_table.querySelectorAll<HTMLTableRowElement>('tbody tr')
               ).map(wlf => {
                   const building = wlf.children[3];
-                  const buildingA = building.querySelector<HTMLAnchorElement>(
-                      'a'
-                  );
+                  const buildingA =
+                      building.querySelector<HTMLAnchorElement>('a');
                   return {
                       id: parseInt(
                           wlf.children[0]
                               .querySelector<HTMLAnchorElement>('a')
-                              ?.href?.match(/\d+$/)?.[0] ?? '-1'
+                              ?.href?.match(/\d+$/u)?.[0] ?? '-1'
                       ),
                       caption: wlf.children[1].textContent?.trim() ?? '',
                       distance: wlf.children[2].textContent?.trim() ?? '',

@@ -1,7 +1,7 @@
 import verbandParser from './verbandParser';
 
-import { RedesignParser } from 'typings/modules/Redesign';
-import { VerbandWindow } from 'typings/modules/Redesign/Verband';
+import type { RedesignParser } from 'typings/modules/Redesign';
+import type { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 interface BSR {
     id: number;
@@ -25,21 +25,21 @@ export default <RedesignParser<VerbandBSRWindow>>(({
     getIdFromEl = () => -1,
 }) => {
     const markerScript = Array.from(doc.scripts)
-        .map(({ innerText }) => innerText.trim())
-        .find(t => t.match(/L\.map/));
+        .map(({ textContent }) => textContent?.trim() ?? '')
+        .find(t => t.match(/L\.map/u));
     if (!markerScript)
         throw new Error('Could not find a script that sets the map!');
     return {
         ...verbandParser({ doc, getIdFromEl }),
         buildings: Array.from(
             markerScript.matchAll(
-                /(?<=L\.marker\(\[)(?<lat>\d+(?:\.\d+)?)\W*,\W*(?<long>\d+(?:\.\d+)?)(?=])(?=].*?\))(?:.|\n)*?(?<=\/buildings\/)(?<id>\d+)/g
+                /(?<=L\.marker\(\[)(?<lat>-?\d+(?:\.\d+)?)\s*,\s*(?<long>-?\d+(?:\.\d+)?)\](?:.|\n)*?(?<=\/buildings\/)(?<id>\d+)/gu
             )
         ).map(
             ({
                 groups: { lat, long, id } = {},
             }: {
-                groups?: Partial<Record<'lat' | 'long' | 'id', string>>;
+                groups?: Partial<Record<'id' | 'lat' | 'long', string>>;
             }) => {
                 if (!lat || !long || !id) {
                     throw new Error(
@@ -67,7 +67,8 @@ export default <RedesignParser<VerbandBSRWindow>>(({
                     row
                         .querySelector<HTMLScriptElement>('script')
                         ?.textContent?.trim()
-                        .match(/(?<=educationCountdown\()\d+(?=,)/)?.[0] ?? '-1'
+                        .match(/(?<=educationCountdown\()\d+(?=,)/u)?.[0] ??
+                        '-1'
                 );
                 return <BSR>{
                     lat: parseFloat(lat),

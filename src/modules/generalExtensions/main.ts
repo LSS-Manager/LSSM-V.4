@@ -1,52 +1,42 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
-    const getSetting = <returnType>(settingId: string): Promise<returnType> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+    LSSM.$store.commit('useFontAwesome');
 
-    (
-        await import(
-            /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
-        )
-    ).default(LSSM);
+    import(
+        /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
+    ).then(({ default: inputMaxLen }) => inputMaxLen(LSSM));
 
     if (await getSetting<boolean>('browserTitle')) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/browserTitle" */ './assets/browserTitle'
-            )
-        ).default(LSSM);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/browserTitle" */ './assets/browserTitle'
+        ).then(({ default: browserTitle }) => browserTitle(LSSM));
     }
 
     if (await getSetting<boolean>('emojiPicker')) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/emojiPicker" */ './assets/emojiPicker'
-            )
-        ).default(LSSM);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/emojiPicker" */ './assets/emojiPicker'
+        ).then(({ default: emojiPicker }) => emojiPicker(LSSM));
     }
 
+    const isNotePage = window.location.pathname.match(/^\/note\/?/u);
     if (
-        !window.location.pathname.match(/^\/note\/?$/) &&
-        (await getSetting<boolean>('clickableLinks'))
+        (await getSetting<boolean>('clickableLinks')) &&
+        (!isNotePage || (await getSetting('notePreview')))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/clickableLinks" */ './assets/clickableLinks'
-            )
-        ).default(LSSM, await getSetting('showImg'));
+        import(
+            /* webpackChunkName: "modules/generalExtensions/clickableLinks" */ './assets/clickableLinks'
+        ).then(async ({ default: clickableLinks }) =>
+            clickableLinks(LSSM, await getSetting('showImg'))
+        );
     }
     const linkPreviewSetting = await getSetting<string[]>('linkPreviews');
     if (linkPreviewSetting.length) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
-            )
-        ).default(LSSM, linkPreviewSetting, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
+        ).then(({ default: linkPreviews }) =>
+            linkPreviews(LSSM, linkPreviewSetting, MODULE_ID)
+        );
     }
     const mapUndo = await getSetting<boolean>('mapUndo');
     const ownMapMarkers = await getSetting<boolean>('ownMapMarkers');
@@ -55,21 +45,19 @@ export default (async (LSSM, MODULE_ID, $m) => {
         !LSSM.$store.state.mapkit &&
         (mapUndo || ownMapMarkers)
     ) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
-            )
-        ).default(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
+        ).then(({ default: mapMarkers }) =>
+            mapMarkers(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID)
+        );
     }
     if (
         window.location.pathname === '/' &&
         (await getSetting<boolean>('extensionCloseCall'))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/extensionCloseCall" */ './assets/extensionCloseCall'
-            )
-        ).default();
+        import(
+            /* webpackChunkName: "modules/generalExtensions/extensionCloseCall" */ './assets/extensionCloseCall'
+        ).then(({ default: extensionCloseCall }) => extensionCloseCall());
     }
     const saveLastBuildingType = await getSetting<boolean>(
         'saveLastBuildingType'
@@ -78,50 +66,58 @@ export default (async (LSSM, MODULE_ID, $m) => {
         'saveLastDispatchCenter'
     );
     if (window.location.pathname === '/') {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
+        import(
+            /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
+        ).then(({ default: newBuilding }) =>
+            newBuilding(
+                LSSM,
+                saveLastBuildingType,
+                saveLastDispatchCenter,
+                getSetting,
+                MODULE_ID
             )
-        ).default(
-            LSSM,
-            saveLastBuildingType,
-            saveLastDispatchCenter,
-            getSetting,
-            MODULE_ID
         );
     }
 
-    const isProfile =
-        !!window.location.pathname.match(/^\/profile\/\d+\/?$/) && !!window.map;
     const addToPanelHeading = !!window.location.pathname.match(
-        /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/
+        /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/u
     );
     const isDispatchCenter =
-        !!window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
-        !!document.getElementById('tab_projected_missions');
+        !!window.location.pathname.match(/^\/buildings\/\d+\/?$/u) &&
+        !!document.querySelector<HTMLDivElement>('#tab_projected_missions');
 
-    if (isProfile || addToPanelHeading || isDispatchCenter) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
-            )
-        ).default(LSSM.$t('mapSearch').toString(), {
-            isProfile,
+    const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
+
+    import(
+        /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
+    ).then(async ({ default: mapSearches }) =>
+        mapSearches(
+            LSSM.$t('mapSearch').toString(),
             addToPanelHeading,
-            isDispatchCenter,
-        });
-    }
+            mapSearchOnMap,
+            await getSetting<
+                'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'
+            >('mapSearchOnMapPosition'),
+            LSSM
+        )
+    );
 
     if (isDispatchCenter) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/protocolDeletionConfirmation" */ './assets/protocolDeletionConfirmation'
+        import(
+            /* webpackChunkName: "modules/generalExtensions/protocolDeletionConfirmation" */ './assets/protocolDeletionConfirmation'
+        ).then(async ({ default: protocolDeletionConfirmation }) =>
+            protocolDeletionConfirmation(
+                LSSM,
+                t => $m(`protocolDeletionConfirmation.${t}`),
+                await getSetting('deleteSingleProtocolEntry'),
+                MODULE_ID
             )
-        ).default(
-            LSSM,
-            t => $m(`protocolDeletionConfirmation.${t}`),
-            !!(await getSetting('deleteSingleProtocolEntry')),
-            MODULE_ID
         );
+    }
+
+    if (window.location.pathname.match(/\/aao_exports\/?$/u)) {
+        import(
+            /* webpackChunkName: "modules/generalExtensions/aaoExportQr" */ './assets/aaoExportQr'
+        ).then(({ default: aaoExportQr }) => aaoExportQr());
     }
 }) as ModuleMainFunction;

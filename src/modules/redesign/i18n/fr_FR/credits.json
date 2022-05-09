@@ -1,0 +1,23 @@
+{
+    "nav": {
+        "links": [
+            {
+                "href": "/credits",
+                "text": "Transactions"
+            },
+            {
+                "href": "/credits/overview",
+                "text": "Aperçu"
+            },
+            {
+                "href": "/credits/daily",
+                "text": "Résumé de la journée"
+            },
+            {
+                "href": "/coins/list",
+                "text": "Journal des Pièces"
+            }
+        ],
+        "title": "Crédits"
+    }
+}

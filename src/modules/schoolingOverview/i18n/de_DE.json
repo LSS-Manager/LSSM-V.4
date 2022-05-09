@@ -1,15 +1,15 @@
 {
-	"all": "Alle",
-	"amount": "Anzahl Lehrgänge",
-	"open": "Offene Lehrgänge",
-	"own": "Lehrgänge mit eigenen Teilnehmern",
-	"schooling": "Lehrgang",
-	"seats": "Anzahl Plätze",
-	"titles": {
-		"end": "Spätestens Fertig",
-		"name": "Lehrgang",
-		"owner": "Lehrgangsausführer",
-		"price": "Kosten",
-		"seats": "Freie Plätze"
-	}
+    "all": "Alle",
+    "amount": "Anzahl Lehrgänge",
+    "open": "Offene Lehrgänge",
+    "own": "Lehrgänge mit eigenen Teilnehmern",
+    "schooling": "Lehrgang",
+    "seats": "Anzahl Plätze",
+    "titles": {
+        "end": "Spätestens Fertig",
+        "name": "Lehrgang",
+        "owner": "Lehrgangsausführer",
+        "price": "Kosten",
+        "seats": "Freie Plätze"
+    }
 }

@@ -1,0 +1,27 @@
+{
+    "disabled": "Die Verbandskasse ist in diesem Verband deaktiviert.",
+    "earnings": {
+        "credits": "Credits",
+        "daily": "Täglich",
+        "monthly": "Monatlich",
+        "sum": "Summe",
+        "title": "Einnahmen",
+        "user": "Spieler"
+    },
+    "spendings": {
+        "credits": "Credits",
+        "date": "Datum",
+        "desc": "Beschreibung",
+        "loadMore": "10 weitere Einträge laden",
+        "title": "Ausgaben",
+        "user": "Spieler"
+    },
+    "summary": {
+        "rate": "Abgaberate",
+        "title": "Verbandskasse"
+    },
+    "toggle": {
+        "disable": "Verbandskasse deaktivieren",
+        "enable": "Verbandskasse aktivieren"
+    }
+}

@@ -1,4 +1,4 @@
-import { Libraries } from '../Library';
+import type { Libraries } from '../Library';
 
 export interface LibraryOverviewData {
     librarySearch: string;

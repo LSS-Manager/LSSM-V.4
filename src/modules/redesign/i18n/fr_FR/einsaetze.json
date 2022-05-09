@@ -1,0 +1,116 @@
+{
+    "amount": "{n} mission affichée | {n} missions affichées",
+    "columns": {
+        "average_credits": "Crédits moyens",
+        "details": "",
+        "duration": "durée",
+        "generated_by": "Généré par",
+        "id": "",
+        "missing": "conditions manquantes",
+        "name": "insérer",
+        "place": "POI / POIs",
+        "prerequisites": "conditions requises"
+    },
+    "main_building_extensions": {
+        "text": "avec les extensions actives suivantes"
+    },
+    "missing": {
+        "date": "Cette mission ne peut pas être générée pour le moment car elle n'est actuellement activée que pour la période allant de **{date_start}** à **{date_end}**.",
+        "diff": "Toujours nécessaire",
+        "have": "Vous avez",
+        "need": "Besoin de",
+        "req": "conditions"
+    },
+    "no_dispatchcenter": "Sans centre de contrôle",
+    "prerequisite_calculations": {
+        "arff_count": [
+            "0.1"
+        ],
+        "atf_count": [
+            "18.1"
+        ],
+        "brush_extension": [
+            "0.3"
+        ],
+        "dea_count": [
+            "18.0"
+        ],
+        "federalpolice_stations": [
+            18
+        ],
+        "fire_aviation_count": [
+            17
+        ],
+        "fire_boat_docks": [
+            11
+        ],
+        "fire_stations": [
+            0,
+            13
+        ],
+        "game_warden_count": [
+            "5.11"
+        ],
+        "police_helicopter_stations": [
+            "8.level"
+        ],
+        "police_stations": [
+            5,
+            15
+        ],
+        "rescue_boat_docks": [
+            12
+        ],
+        "rescue_stations": [
+            3,
+            16,
+            "0.0"
+        ],
+        "wasserrettung": [
+            "0.2"
+        ],
+        "water_police_count": [
+            "5.10"
+        ]
+    },
+    "prerequisites_long": {
+        "arff_count": "Active expansion of the airport extension",
+        "atf_count": "ATF Expansion | ATF Expansions",
+        "brush_extension": "Forestry Expansion | Forestry Expansions",
+        "dea_count": "DEA Expansion | DEA Expansions",
+        "federalpolice_stations": "Federal Police Station | Federal Police Stations",
+        "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+        "fire_boat_docks": "fire boat dock | fire boat docks",
+        "fire_stations": "Caserne de pompiers | Casernes de pompiers",
+        "game_warden_count": "Game Warden Expansion | Game Warden Expansions",
+        "max_police_stations": "Maximum de postes de police",
+        "max_rescue_stations": "Maximum de postes de secours",
+        "police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
+        "police_stations": "poste de police | postes de police",
+        "rescue_boat_docks": "rescue boat dock | rescue boat docks",
+        "rescue_stations": "Ambulance Station | Ambulance Stations",
+        "wasserrettung": "Water Rescue Station",
+        "water_police_count": "Water Police Expansion | Water Police Expansions"
+    },
+    "prerequisites_short": {
+        "arff_count": "Active expansion of the airport extension",
+        "atf_count": "ATF Expansion | ATF Expansions",
+        "brush_extension": "Forestry Expansion | Forestry Expansions",
+        "dea_count": "DEA Expansion | DEA Expansions",
+        "federalpolice_stations": "Federal Police Station | Federal Police Stations",
+        "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+        "fire_boat_docks": "fire boat dock | fire boat docks",
+        "fire_stations": "Caserne de pompiers | Casernes de pompiers",
+        "game_warden_count": "Game Warden Expansion | Game Warden Expansions",
+        "max_police_stations": "Maximum de postes de police",
+        "max_rescue_stations": "Maximum de postes de secours",
+        "police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
+        "police_stations": "poste de police | postes de police",
+        "rescue_boat_docks": "rescue boat dock | rescue boat docks",
+        "rescue_stations": "Ambulance Station | Ambulance Stations",
+        "wasserrettung": "Water Rescue Station",
+        "water_police_count": "Water Police Expansion | Water Police Expansions"
+    },
+    "select_dispatchcenter": "Sélectionner le centre de contrôle",
+    "title": "Missions possible"
+}

@@ -1,0 +1,47 @@
+{
+    "alerts": {
+        "alliance_ignored": "{name} il est interdit de postuler dans l'alliance !",
+        "friend": "{name} est sur votre liste d'amis ! 🥳",
+        "ignored": "Vous ignorez ce joueur. {name} ne peut plus vous envoyer de messages !"
+    },
+    "alliance": "Alliance",
+    "awards": {
+        "bronze": "Bronze",
+        "gold": "Or",
+        "max": "15",
+        "own": "Ouvrir vos trophées",
+        "silver": "Argent",
+        "title": "Trophée",
+        "title_amounts": "{sum} sur {max} Trophée"
+    },
+    "buildings": {
+        "amount": "{n} Bâtiments"
+    },
+    "buttons": {
+        "alliance_ignore": {
+            "add": "Interdire la demande d'alliance",
+            "destroy": "Autoriser la demande d'alliance"
+        },
+        "avatar": "Modifier la photo de profil",
+        "chat": {
+            "ban": "Bannir du chat de l'alliance",
+            "unban": "Débannir du chat de l'alliance"
+        },
+        "edit": "Modifier profil",
+        "friend": {
+            "do": "Ajouter comme ami",
+            "undo": "Supprimer l'ami"
+        },
+        "gift": "Envoyer un cadeau",
+        "ignore": {
+            "do": "Ignorer le joueur",
+            "undo": "Arrêtez d'ignorer le joueur"
+        },
+        "message": "Envoyer un message"
+    },
+    "credits": "{credits} Crédits gagnés",
+    "map": "Map",
+    "rank": "Rang actuel",
+    "registration": "Date d'inscription",
+    "text": "Texte du profil"
+}

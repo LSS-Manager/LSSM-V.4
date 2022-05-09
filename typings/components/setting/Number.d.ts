@@ -1,3 +1,7 @@
+export interface NumberMethods {
+    normalize(num: number | string): number;
+}
+
 export interface NumberProps {
     name: string;
     placeholder: string;
@@ -5,6 +9,7 @@ export interface NumberProps {
     min: number;
     max: number;
     step: number;
+    float: boolean;
     disabled: boolean;
 }
 

@@ -6,72 +6,54 @@ sidebarDepth: 3
 
 # FAQ ❓
 
-### How much does LSS Manager cost?
-LSS-Manager is a free extension. - we do not intend to change this.
+### Ile kosztuje Menedżer LSS?
+LSS-Manager to bezpłatne rozszerzenie. - nie zamierzamy tego zmieniać.
 
-::: warning Donations
-There are a few kind users who would like to donate money to us. Howevever, LSS-Manager is and will remain free of charge. We will not accept any donations for this project.
+:::warning Darowizny
+Jest kilku życzliwych użytkowników, którzy chcieliby przekazać nam pieniądze. Jednak LSSM jest i pozostanie bezpłatny. Nie przyjmujemy żadnych darowizn na ten projekt.
 
 There are several reasons:
-* This project is developed on a voluntary basis in participating developers' spare time.
-* A subscription option, similar to the premium in Missionchief would put too much pressure on us to continue programming LSS Manager.
+* Ten projekt jest rozwijany na zasadzie dobrowolności, w wolnym czasie programistów.
+* Opcja subskrypcji, podobna do konta premium w OperatorzeRatunkowym, wywarłaby na nas zbyt dużą presję, abyśmy kontynuowali rpace nad LSSM.
 * For legal reasons we cannot accept donations;
-    * If we would found a company for LSS Manager so that we could receive donations, there would be no future, because a company without expenses cannot be a company.
-    * If we would run the servers, which are currently running LSS Manager, through a company, they would immediately nullify the income.
+    * Gdybyśmy założyli firmę dla LSS Managera po to, by otrzymywać darowizny, nie byłoby dla nas przyszłości, bo firma bez wydatków nie może być firmą.
+    * Gdybyśmy uruchomili serwery, na których obecnie działa LSSM, za pośrednictwem firmy, natychmiast stracilibyśmy dochód z darowizn.
 :::
 
-### How can I contribute to LSS Manager?
-The end user can [report bugs][error] or [make suggestions][suggestions].
+### Jak mogę przyczynić się do rozwoju Menedżera LSS?
+Użytkownik końcowy może: [zgłaszać błędy][error] lub [dawać sugestie][suggestions] dotyczące rozwoju.
 
-We are currently designing a style guide for developers, so that they too can easily add their own plugins to LSSM. We have tried to keep our code structure clear and understandable. However, adding a plugin does not in any way imply joining the team.
+Obecnie projektujemy przewodnik po stylu dla programistów, aby oni również mogli łatwo dodawać własne wtyczki do LSSM. Staraliśmy się, aby struktura naszego kodu była przejrzysta i zrozumiała. Jednak dodanie wtyczki w żaden sposób nie oznacza dołączenia do zespołu.
 
-### How do I report bugs?
-Please have a look at our [report bugs][error] page.
+### Jak zgłaszać błędy?
+Proszę spojrzeć na naszą stronę [Zgłoś błędy][error].
 
-### Where can I get support?
-Through our support system [here][support].
+### Gdzie mogę uzyskać wsparcie?
+Poprzez nasz system wsparcia [tutaj][support].
 
-### How can I submit ideas?
-On the [suggestions][suggestions] page.
+### Jak mogę zgłaszać pomysły?
+Na naszej stronie [sugestie][suggestions].
 
-### Which browsers does LSS Manager work in?
-Only desktop browsers are listed here, as mobile browsers are not officially supported.
-This table is not necessarily up to date and will be updated when new information is available!
+### W jakich przeglądarkach działa LSS Manager?
+W tym miejscu wymieniono tylko przeglądarki komputerowe, ponieważ przeglądarki mobilne nie są przez nas oficjalnie wspierane.
 
-Since we want to keep the latest coding standards throughout, a modern and up-to-date browser is necessary and recommended - if only for security reasons, even outside the game.
+Ponieważ chcemy zachować najnowsze standardy kodowania przez cały czas, nowoczesna i aktualna przeglądarka jest niezbędna, a wręcz zalecana - choćby ze względów bezpieczeństwa, także poza grą.
 
-::: warning Compatibility
-A compatibility listed here does not guarantee functionality. This is only information collected and evaluated by third parties.
+<browser-support-table/>
+
+:::danger Internet Explorer i Safari
+Te dwie przeglądarki można opisać jako „problematyczne dzieci” współczesnego twórcy stron internetowych. Niektóre funkcje w nich nie działają lub wymagają dodatkowego kodu.
+
+Nie widzimy sensu robienia tego i oficjalnie **nie** obsługujemy tych dwóch przeglądarek.
 :::
 
-<table>
-<thead>
-    <tr>
-        <th>Browser</th>
-        <th>min. version</th>
-        <th>Download</th>
-    </tr>
-</thead>
-<tbody>
-    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
-        <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
-        <td>{{ supported }}</td>
-        <td><a :href="download" target="_blank">Download</a></td>
-    </tr>
-</tbody>
-</table>
+### Czy mogę zapisać, przenieść lub podzielić się
+z kimś moją konfiguracją?
+Tak, w tym celu musimy przejść do zakładki "ustawienia", gdzie u góry zobaczymy dwa przyciski "export" oraz "import".
+Po kliknięciu w ten pierwszy pobierze się wam plik z konfiguracją. Możecie go trzymać u siebie na dysku jako "backup" lub udostępnić znajomym. Ten drugi przycisk służy natomiast to importowania, czy też inaczej wgrywania, już wcześniej stworzonej konfiguracji. W tym celu należy w niego kliknąć, a następnie wybrać z dysku plik konfiguracji.
 
-::: danger Internet Explorer and Safari
-These two browsers can be described as the "problem children" of a modern web developer. There are some functions that do not work in them, or require additional code.
-
-We don't see the point of doing this everywhere and officially **do not** support these two browsers.
-:::
-
-### I want to share my setup with friends or use it on multiple devices. Is that possible?
-This is not currently supported, but we plan to implement this in the future.
-
-### Is there a way to save settings account bound so that you don't have to import them on another device?
-This is not currently supported, but we plan to implement this in the future.
+### Czy istnieje sposób na zapisanie ustawień związanych z kontem, aby nie trzeba było ich importować na innym urządzeniu?
+Obecnie nie jest to obsługiwane, ale planujemy wdrożyć to w przyszłości.
 
 [support]: support.md
 [error]: error_report.md

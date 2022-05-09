@@ -1,29 +1,12 @@
-import { Config } from '../typings/Config';
+import browsers from './utils/browsers.json';
+
+import type { Config } from '../typings/Config';
+
+const PREFIX = 'lssmv4';
 
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
-    browser: {
-        chrome: {
-            latest: 91,
-            supported: 84,
-            download: 'https://chrome.com',
-        },
-        firefox: {
-            latest: 88,
-            supported: 79,
-            download: 'https://firefox.com',
-        },
-        opera: {
-            latest: 76,
-            supported: 70,
-            download: 'https://opera.com',
-        },
-        edge: {
-            latest: 90,
-            supported: 86,
-            download: 'https://microsoft.com/edge',
-        },
-    },
+    browser: browsers,
     discord: {
         invite: 'RcTNjpB',
         id: '254167535446917120',
@@ -182,6 +165,11 @@ export default {
     modules: {
         'core-modules': ['telemetry', 'releasenotes', 'support'],
     },
-    prefix: 'lssmv4',
+    loadScript: {
+        start: `${PREFIX}-load-script-start`,
+        end: `${PREFIX}-load-script-end`,
+    },
+    prefix: PREFIX,
     server: 'https://proxy.lss-manager.de/v4/',
+    fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
 } as Config;

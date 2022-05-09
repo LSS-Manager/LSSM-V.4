@@ -1,14 +1,18 @@
 {
-	"description": "Extends the chat by some cool features",
-	"name": "Enhanced Chat",
-	"settings": {
-		"chatTime": {
-			"description": "Adjusts the timestamp to the format you have set!",
-			"title": "Own timestamp format"
-		},
-		"chatTimeFormat": {
-			"description": "Here you can choose the format of your choice. You can find help <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">here</a>.",
-			"title": "Format of the date and time"
-		}
-	}
+    "description": "Extends the chat by some cool features",
+    "name": "Enhanced Chat",
+    "settings": {
+        "chatTime": {
+            "description": "Adjusts the timestamp to the format you have set!",
+            "title": "Own timestamp format"
+        },
+        "chatTimeFormat": {
+            "description": "Here you can choose the format of your choice. You can find help <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">here</a>.",
+            "title": "Format of the date and time"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
+            "title": "Show Chat-History in Header"
+        }
+    }
 }

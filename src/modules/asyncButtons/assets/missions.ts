@@ -8,13 +8,14 @@ export default (
         document.querySelector('.vehicle_prisoner_select') &&
         missionSettings.includes('missionPrisoners')
     ) {
-        const prisonersLabel = document.getElementById('h2_prisoners');
+        const prisonersLabel =
+            document.querySelector<HTMLHeadingElement>('#h2_prisoners');
         let currentPrisoners = parseInt(
-            prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
+            prisonersLabel?.textContent?.trim().match(/^\d+/u)?.[0] || '0'
         );
         if (prisonersLabel && currentPrisoners) {
             document
-                .getElementById('mission_vehicle_at_mission')
+                .querySelector<HTMLTableElement>('#mission_vehicle_at_mission')
                 ?.addEventListener('click', e => {
                     const target = e.target as HTMLElement;
                     if (
@@ -31,14 +32,15 @@ export default (
                             feature: `${MODULE_ID}-missions-prisoners`,
                         })
                         .then(() => {
-                            const vehicleId = target.parentElement?.getAttribute(
-                                'vehicle_id'
-                            );
+                            const vehicleId =
+                                target.parentElement?.getAttribute(
+                                    'vehicle_id'
+                                );
                             const amount = 1;
                             let remainingCells = -1;
                             const newTextContent =
                                 target.textContent?.trim()?.replace(
-                                    /(\(.*?: )(\d+)(, .*\)$)/,
+                                    /(\(.*?: )(\d+)(, .*\)$)/u,
                                     (_, before, cells, after) =>
                                         `${before}${(() => {
                                             remainingCells =
@@ -48,9 +50,11 @@ export default (
                                 ) || target.textContent;
                             Array.from(
                                 document.querySelectorAll(
-                                    `.vehicle_prisoner_select a.btn[href$="/gefangener/${target
-                                        .getAttribute('href')
-                                        ?.match(/\d+$/)?.[0] || '-1'}"]`
+                                    `.vehicle_prisoner_select a.btn[href$="/gefangener/${
+                                        target
+                                            .getAttribute('href')
+                                            ?.match(/\d+$/u)?.[0] || '-1'
+                                    }"]`
                                 )
                             ).forEach(cell => {
                                 cell.textContent = newTextContent;
@@ -67,7 +71,9 @@ export default (
                             });
 
                             document
-                                .getElementById(`vehicle_row_${vehicleId}`)
+                                .querySelector<HTMLTableRowElement>(
+                                    `#vehicle_row_${vehicleId}`
+                                )
                                 ?.remove();
                             target.parentElement?.parentElement?.remove();
                             currentPrisoners -= amount;
@@ -75,7 +81,7 @@ export default (
                                 prisonersLabel.textContent
                                     ?.trim()
                                     .replace(
-                                        /^\d+/,
+                                        /^\d+/u,
                                         currentPrisoners.toString()
                                     ) || '';
                             if (!currentPrisoners) {
@@ -90,43 +96,105 @@ export default (
         }
     }
 
-    // MissionReply [WIP]
-    /*if (
-        document.getElementById('mission_reply_mission_id') &&
-        missionSettings.includes('missionReply')
-    )
-        (() => {
-            const reply_form = document.getElementById(
-                'new_mission_reply'
-            ) as HTMLFormElement | null;
-            if (!reply_form) return;
+    // MissionReply
+    const replyButton = document.querySelector<HTMLButtonElement>(
+        '#mission_reply_content ~ div button[type="submit"]'
+    );
+    const replyInputField = document.querySelector<HTMLInputElement>(
+        '#mission_reply_content'
+    );
+    if (
+        missionSettings.includes('missionReply') &&
+        replyButton &&
+        replyInputField
+    ) {
+        replyButton.disabled = !replyInputField.value;
+        replyInputField.addEventListener(
+            'input',
+            () => (replyButton.disabled = !replyInputField.value)
+        );
+        replyButton.addEventListener('click', e => {
+            e.preventDefault();
 
-            reply_form.addEventListener('submit', e => {
-                e.preventDefault();
-                const form = document.getElementById(
-                    'new_mission_reply'
-                ) as HTMLFormElement | null;
-                if (!form) return;
-                Array.from(form.elements).forEach(item => {
-                    item.classList.add('disabled');
-                    item.setAttribute('disabled', 'true');
-                });
-                LSSM.$store
-                    .dispatch('api/request', {
-                        url: '/mission_replies',
-                        init: {
-                            method: 'POST',
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            body: new URLSearchParams(new FormData(form)),
+            const message = replyInputField.value;
+            if (!message) return;
+
+            replyButton.disabled = true;
+            replyInputField.disabled = true;
+
+            const url = new URL('/mission_replies', window.location.origin);
+            url.searchParams.append('utf8', '✓');
+            const authToken =
+                document.querySelector<HTMLMetaElement>(
+                    'meta[name="csrf-token"]'
+                )?.content ?? '';
+            url.searchParams.append('authenticity_token', authToken);
+            url.searchParams.append('mission_reply[alliance_chat]', '0');
+            if (
+                document.querySelector<HTMLInputElement>(
+                    '#mission_reply_alliance_chat'
+                )?.checked
+            )
+                url.searchParams.append('mission_reply[alliance_chat]', '1');
+
+            url.searchParams.append('mission_reply[content]', message);
+
+            const missionId = window.location.pathname.split('/')[2];
+            url.searchParams.append(
+                'mission_reply[mission_id]',
+                missionId.toString()
+            );
+            LSSM.$store
+                .dispatch('api/request', {
+                    url: '/mission_replies',
+                    feature: `${MODULE_ID}_missionReply`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                    })
-                    .then(() => {
-                        Array.from(form.elements).forEach(item => {
-                            item.classList.remove('disabled');
-                            item.removeAttribute('disabled');
-                        });
-                    });
-            });
-        })();*/
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                })
+                .then(() => {
+                    let missionReplies =
+                        document.querySelector<HTMLUListElement>(
+                            '#mission_replies'
+                        );
+                    if (!missionReplies) {
+                        missionReplies = document.createElement('ul');
+                        missionReplies.id = 'mission_replies';
+                        document
+                            .querySelector<HTMLDivElement>(
+                                '#new_mission_reply + .clearfix'
+                            )
+                            ?.after(missionReplies);
+                    }
+
+                    const reply = document.createElement('li');
+                    reply.setAttribute('title', new Date().toLocaleString());
+                    const userLink = document.createElement('a');
+                    userLink.setAttribute('href', `/profile/${user_id}`);
+                    userLink.textContent = window.username;
+                    reply.append(
+                        document.createTextNode(
+                            `[${new Date().toLocaleTimeString(undefined, {
+                                hour12: false,
+                                timeStyle: 'short',
+                            })}] `
+                        ),
+                        userLink,
+                        document.createTextNode(`: ${message}`)
+                    );
+
+                    missionReplies.prepend(reply);
+
+                    replyButton.disabled = true;
+                    replyInputField.value = '';
+                    replyInputField.disabled = false;
+                });
+        });
+    }
 };

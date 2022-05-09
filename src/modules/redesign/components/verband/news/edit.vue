@@ -42,14 +42,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { SCEditor } from 'typings/SCEditor/SCEditor';
-import { VerbandNewsEditWindow } from '../../../parsers/verband/news/edit';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { SCEditor } from 'typings/SCEditor/SCEditor';
 
 type Component = RedesignSubComponent<
     'news',
     'verband/news/edit',
-    VerbandNewsEditWindow,
     {
         captionId: string;
         contentId: string;
@@ -64,7 +62,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-news-edit',
+    name: 'lssmv4-redesign-verband-news-edit',
     data() {
         return {
             captionId: this.$store.getters.nodeAttribute(
@@ -140,7 +138,7 @@ export default Vue.extend<
                                         .split('\n')
                                         .map(l =>
                                             l.replace(
-                                                /^<div>|(<br>)?<\/div>$/g,
+                                                /^<div>|(<br>)?<\/div>$/gu,
                                                 ''
                                             )
                                         ),
@@ -193,9 +191,9 @@ export default Vue.extend<
         },
     },
     mounted() {
-        const contentArea = document.getElementById(
-            this.contentId
-        ) as HTMLTextAreaElement | null;
+        const contentArea = document.querySelector<HTMLTextAreaElement>(
+            `#${this.contentId}`
+        );
         if (contentArea) {
             window.sceditor.create(contentArea, {
                 format: 'bbcode',

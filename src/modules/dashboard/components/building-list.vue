@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="building-list" :no-title-hide="true" :no-fullscreen="true">
+    <lightbox name="building-list" no-title-hide no-fullscreen>
         <h4>{{ title }}: {{ buildings.length }}</h4>
         <enhanced-table
             :head="{
@@ -43,13 +43,11 @@
                                     building.building_type
                                 ) && listType === 'building'
                             "
-                            :href="
-                                `${
-                                    building.leitstelle_building_id
-                                        ? `/buildings/${building.leitstelle_building_id}`
-                                        : '#'
-                                }`
-                            "
+                            :href="`${
+                                building.leitstelle_building_id
+                                    ? `/buildings/${building.leitstelle_building_id}`
+                                    : '#'
+                            }`"
                             class="btn btn-default btn-xs lightbox-open"
                             :id="`dispatch-btn-${building.id}`"
                         >
@@ -90,7 +88,7 @@
                                     {{ dispatchBuilding.caption }}
                                     <button
                                         class="btn btn-xs btn-success pull-right"
-                                        style="marginleft: 1ch"
+                                        style="margin-left: 1ch"
                                         @click="
                                             setDispatchCenter(
                                                 building,
@@ -123,8 +121,8 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
-import { Building, InternalBuilding } from 'typings/Building';
-import {
+import type { Building, InternalBuilding } from 'typings/Building';
+import type {
     BuildingList,
     BuildingListComputed,
     BuildingListMethods,
@@ -137,7 +135,7 @@ export default Vue.extend<
     BuildingListComputed,
     BuildingListProps
 >({
-    name: 'building-list',
+    name: 'lssmv4-dashboard-building-list',
     components: {
         Lightbox: () =>
             import(
@@ -153,35 +151,39 @@ export default Vue.extend<
             building_type: { title: this.$m('type') },
             caption: { title: this.$m('caption') },
             actions: { title: this.$m('actions'), noSort: true },
-        } as {
-            [name: string]: {
+        } as Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
-        const headingsExtensions = (this.listType === 'extension'
-            ? {
-                  current: { title: this.$m('current'), noSort: true },
-                  unavailable: {
-                      title: this.$m('unavailable'),
-                      noSort: true,
-                  },
-              }
-            : {}) as {
-            [name: string]: {
+            }
+        >;
+        const headingsExtensions = (
+            this.listType === 'extension'
+                ? {
+                      current: { title: this.$m('current'), noSort: true },
+                      unavailable: {
+                          title: this.$m('unavailable'),
+                          noSort: true,
+                      },
+                  }
+                : {}
+        ) as Record<
+            string,
+            {
                 title: string;
                 noSort?: boolean;
-            };
-        };
+            }
+        >;
         const dispatchBuildings = [
             {
                 caption: this.$m('fastDispatchChooser.noDispatch'),
                 id: 0,
             },
         ] as Building[];
-        const buildingsByType = this.$store.getters['api/buildingsByType'] as {
-            [type: number]: Building[];
-        };
+        const buildingsByType = this.$store.getters[
+            'api/buildingsByType'
+        ] as Record<number, Building[]>;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         ) as number[];
@@ -200,9 +202,10 @@ export default Vue.extend<
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as {
-                        [id: number]: InternalBuilding;
-                    }
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
                 ).map(([index, { caption }]) => [index, caption])
             ),
             search: '',
@@ -270,9 +273,10 @@ export default Vue.extend<
                     feature: `dashboard-buildingList-fastDispatchChooser`,
                 })
                 .then(() => {
-                    const dispatchBtn = document.getElementById(
-                        `dispatch-btn-${building.id}`
-                    );
+                    const dispatchBtn =
+                        document.querySelector<HTMLButtonElement>(
+                            `#dispatch-btn-${building.id}`
+                        );
                     if (!dispatchBtn) return;
                     dispatchBtn.setAttribute(
                         'href',

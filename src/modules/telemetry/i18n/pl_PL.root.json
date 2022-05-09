@@ -1,0 +1,27 @@
+{
+    "browsersupport": {
+        "close": "Ukryj podpowiedź",
+        "faqAnchor": "in-which-browsers-does-lss-manager-work",
+        "not": {
+            "text": "Drogi użytkowniku LSSM,<br>niestety LSSM nie obsługuje twojej przeglądarki <b>{name}</b>! Oznacza to, że nie ma gwarancji, że wszystkie funkcjonalności będą działać poprawnie. Listę obsługiwanych przez nas przeglądarek można znaleźć w naszym <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> oraz w poniższej tabeli:",
+            "title": "Nieobsługiwana przeglądarka"
+        },
+        "old": {
+            "text": "Wygląda na to, że używasz przestarzałej przeglądarki! Obecnie używasz <b>{name} {current}</b>, ale najnowsza wersja to <b>{name} {latest}</b>! Należy pamiętać, że Menedżer LSS może używać tej przeglądarki tylko w wersji obsługiwanej przez <b>{supported}</b>.<br>Ze względów bezpieczeństwa i kompatybilności. Ogólnie zaleca się, aby zawsze używać aktualnej przeglądarki!<br>Najnowszą wersję przeglądarki możesz pobrać <a href='{download}' target='_blank'>tutaj</a>.<br>Aktualną listę obsługiwanych przeglądarek można znaleźć na naszym <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> oraz w poniższej tabeli:",
+            "title": "Nieaktualna przeglądarka"
+        },
+        "table": {
+            "browser": "Przeglądarka",
+            "download": "Pobierz",
+            "latest": "Ostatnia wersja",
+            "min": "min. Wersja"
+        }
+    },
+    "info": {
+        "close": "Nie pokazuj ponownie tej wiadomości",
+        "decline": "Nie zezwalaj na zbieranie danych",
+        "text": "Menedżer LSS zbiera metadane zgodnie z opisem w <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Zawsze możesz anulować swoją zgodę w późniejszym czasie.",
+        "title": "Informacje o gromadzeniu metadanych"
+    },
+    "name": "Telemetria"
+}

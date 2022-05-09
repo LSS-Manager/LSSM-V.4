@@ -1,4 +1,4 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 export interface NextFMSWindow {
     next: number;
@@ -10,6 +10,6 @@ export default <RedesignParser<NextFMSWindow>>(({ doc }) => ({
             .querySelector<HTMLAnchorElement>(
                 'a.btn.btn-success[href^="/vehicles/"]'
             )
-            ?.href?.match(/\d+$/)?.[0] ?? '-1'
+            ?.href?.match(/\d+$/u)?.[0] ?? '-1'
     ),
 }));

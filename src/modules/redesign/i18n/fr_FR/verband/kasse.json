@@ -1,0 +1,27 @@
+{
+    "disabled": "Les fonds de l'alliance sont désactivés dans cette alliance.",
+    "earnings": {
+        "credits": "Crédits",
+        "daily": "Journalier",
+        "monthly": "Mensuel",
+        "sum": "Total",
+        "title": "Rémunération",
+        "user": "Joueur"
+    },
+    "spendings": {
+        "credits": "Crédits",
+        "date": "Date",
+        "desc": "Description",
+        "loadMore": "Affichez 20 entrée supplémentaire",
+        "title": "Dépenses",
+        "user": "Joueur"
+    },
+    "summary": {
+        "rate": "Taux de cotisation de l'Alliance",
+        "title": "Les fonds de l'Alliance"
+    },
+    "toggle": {
+        "disable": "Désactiver les fonds d'alliance",
+        "enable": "Activer les fonds d'alliance"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "description": "Alarma, comparte misión y publica una nota de incidente con un solo clic .",
+    "lsam": {
+        "help": "Variables are replaced same way as in missions list."
+    },
+    "name": "Alarma-Compartir-Publicar",
+    "noMessage": "Sin nota de incidencia",
+    "settings": {
+        "enableCallList": {
+            "description": "Integra este módulo en \"Share missions\" de lista de llamadas extendidas.",
+            "title": "Integración a la lista de llamadas"
+        },
+        "enableLSAM": {
+            "description": "Habilita esta opción para seleccionar una nota de incidente al crear una misión de alianza a gran escala.",
+            "title": "Misiones de alianza a gran escala"
+        },
+        "message": "Nota de incidente",
+        "messages": {
+            "description": "Establezca sus notas de incidencias aquí. Puede usar variables, por favor, eche un vistazo a nuestra <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> por lo tanto, asigne un nombre único a cada respuesta para identificarlas rápidamente en la ventana de alarma.",
+            "title": "Respuestas"
+        },
+        "name": "Nombre",
+        "postInChat": "¿Publicar nota en el chat?",
+        "stayInCallList": {
+            "description": "Con esta opción habilitada, puedes enviar notas de incidentes incluso en misiones compartidas.",
+            "title": "Permanecer en la lista de llamadas"
+        }
+    }
+}

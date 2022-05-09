@@ -34,7 +34,7 @@ export default (LSSM: Vue): void => {
     ).forEach(btn => {
         const counter = document.createElement('span');
         counter.classList.add('badge');
-        counter.innerText = '0';
+        counter.textContent = '0';
         if (!floatBtn.value) floatBtn.value = btn.value;
         btn.after(counter);
         counters.push(counter);
@@ -45,7 +45,7 @@ export default (LSSM: Vue): void => {
                 'input.vehicle_checkbox:checked'
             )
             .length.toLocaleString();
-        counters.forEach(counter => (counter.innerText = amount));
+        counters.forEach(counter => (counter.textContent = amount));
     };
     LSSM.$store
         .dispatch('hook', {

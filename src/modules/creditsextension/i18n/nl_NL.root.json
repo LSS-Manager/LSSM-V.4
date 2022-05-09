@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "Huidig",
+        "title": "Teamkas",
+        "total": "Totaal",
+        "updateNote": "Wordt elke 5 minuten geüpdatet."
+    },
+    "coins": {
+        "list": "Coins overzicht"
+    },
+    "credits": {
+        "daily": "Dagelijkse samenvatting",
+        "overview": "Overzicht"
+    },
+    "description": "Tooont nuttige informatie over credits in een dropdown menu.",
+    "name": "Credits uitbreiding",
+    "nextRank": "Volgende rang",
+    "nextRankMissing": "Nog nodig",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Zodra je het doel behaald hebt, zal de creditsuitbreiding groen blijven totdat je het hebt aangeklikt.",
+            "title": "Doelen"
+        },
+        "coinsInNavbar": {
+            "description": "Toont de huidige coins in de menubalk i.p.v. de het icoontje.",
+            "title": "Coins i.p.v. het icoon."
+        },
+        "creditsInNavbar": {
+            "description": "Toont de huidige credits in de menubalk i.p.v. de het icoontje.",
+            "title": "Credits i.p.v. het icoon."
+        },
+        "highlightSales": {
+            "description": "Highlight coins groen als er een aanbieiding beschikbaar is.",
+            "title": "Highlight aanbiedingen"
+        },
+        "showSales": {
+            "description": "Toont aanbiedingen voor coins als ze beschikbaar zijn.",
+            "title": "Toon aanbiedingen"
+        },
+        "showToplistPosition": {
+            "description": "Toont de huidige positie in de toplist in de creditsuitbreiding.",
+            "title": "Toplist-positie in creditsuitbreiding"
+        }
+    },
+    "toplistPositionName": "Toplist",
+    "totalEarnedCredits": "Totaal verdiende credits"
+}

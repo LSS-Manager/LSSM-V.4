@@ -1,3 +1,16 @@
 {
-	"inputMaxLen": "Questo campo d'inserimento deve avere tra {min} e {max} caratteri!"
+    "inputMaxLen": "Questo campo d'inserimento deve avere tra {min} e {max} caratteri!",
+    "protocolDeletionConfirmation": {
+        "all": {
+            "text": "Vuoi davvero eliminare questo registro?",
+            "title": "Elimina registro"
+        },
+        "cancel": "Annulla",
+        "confirm": "Conferma",
+        "single": {
+            "text": "Vuoi davvero eliminare questo specifico registro? Non potrai annullare questa azione",
+            "title": "Elimina registro specifico"
+        },
+        "toggleSingle": "Chiedi la conferma quando cancello un solo registro per volta"
+    }
 }

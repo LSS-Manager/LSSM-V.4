@@ -1,14 +1,18 @@
 {
-	"description": "Voegt een aantal nuttige verbeteringen in de chat toe.",
-	"name": "Chat verbeteringen",
-	"settings": {
-		"chatTime": {
-			"description": "Verandert de tijdsnotatie in de chat. Je kan het formaat zelf aanpassen.",
-			"title": "Tijdnotatie in chat aanpassen"
-		},
-		"chatTimeFormat": {
-			"description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuratie\">hier</a> vinden.",
-			"title": "Formaat van de datum en tijd"
-		}
-	}
+    "description": "Voegt een aantal nuttige verbeteringen in de chat toe.",
+    "name": "Chat verbeteringen",
+    "settings": {
+        "chatTime": {
+            "description": "Verandert de tijdsnotatie in de chat. Je kan het formaat zelf aanpassen.",
+            "title": "Tijdnotatie in chat aanpassen"
+        },
+        "chatTimeFormat": {
+            "description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuratie\">hier</a> vinden.",
+            "title": "Formaat van de datum en tijd"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Toont de knop voor de chatgeschiedenis boven de chat, zodat je niet naar beneden hoeft te scrollen.",
+            "title": "Toont the chatgeschiedenis knop boven de chat"
+        }
+    }
 }

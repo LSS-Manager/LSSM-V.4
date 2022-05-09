@@ -1,6 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { $m } from 'typings/Module';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { $m } from 'typings/Module';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
@@ -11,9 +10,9 @@ export default async (
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
-            document.querySelectorAll('#vehicle_table tbody tr') as NodeListOf<
-                HTMLTableRowElement
-            >
+            document.querySelectorAll<HTMLTableRowElement>(
+                '#vehicle_table tbody tr'
+            )
         );
 
         if (!vehicles.length) return;
@@ -23,6 +22,7 @@ export default async (
             'personnelAssignmentBtn'
         );
         const vehicleTypes = await getSetting('vehicleTypes');
+        const vehicleTypesOnlyOwn = await getSetting('vehicleTypesOnlyOwn');
         const lastRowSettings = {
             vehiclesPersonnelMax: await getSetting('vehiclesPersonnelMax'),
             vehiclesPersonnelCurrent: await getSetting(
@@ -31,13 +31,12 @@ export default async (
             vehiclesPersonnelAssigned: await getSetting(
                 'vehiclesPersonnelAssigned'
             ),
-        } as {
-            [setting: string]: boolean;
-        };
+        } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$t('vehicles') as {
-            [id: number]: InternalVehicle;
-        };
+        const internalVehicleTypes = LSSM.$t('vehicles') as unknown as Record<
+            number,
+            InternalVehicle
+        >;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 
@@ -82,25 +81,36 @@ export default async (
                 vehicle
                     .querySelector('a[href^="/vehicles/"]')
                     ?.getAttribute('href')
-                    ?.match(/\d+$/)?.[0] || '0'
+                    ?.match(/\d+$/u)?.[0] || '0'
             );
             const editBtn = vehicle.querySelector(
                 'a[href^="/vehicles/"][href$="/edit"]'
             );
 
-            const linkWrapper = (BUILDING_MODE === 'dispatch'
-                ? document.getElementById(`vehicle_caption_${vehicleId}`)
-                : vehicle.querySelector(`a[href="/vehicles/${vehicleId}"]`)
+            const linkWrapper = (
+                BUILDING_MODE === 'dispatch'
+                    ? document.querySelector<HTMLSpanElement>(
+                          `#vehicle_caption_${vehicleId}`
+                      )
+                    : vehicle.querySelector<HTMLAnchorElement>(
+                          `a[href="/vehicles/${vehicleId}"]`
+                      )
             )?.parentElement;
 
             if (!vehicleId || !linkWrapper) return;
 
-            const storedVehicle = (LSSM.$store.state.api
-                .vehicles as Vehicle[]).find(v => v.id === vehicleId);
+            const storedVehicle = (
+                LSSM.$store.state.api.vehicles as Vehicle[]
+            ).find(v => v.id === vehicleId);
 
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
                 fmsBtn?.addEventListener('click', () => {
+                    if (
+                        !fmsBtn.classList.contains('building_list_fms_2') &&
+                        !fmsBtn.classList.contains('building_list_fms_6')
+                    )
+                        return;
                     const nextFms = fmsBtn.classList.contains(
                         'building_list_fms_2'
                     )
@@ -119,31 +129,36 @@ export default async (
                                     }`,
                                     `building_list_fms_${nextFms}`
                                 );
-                                fmsBtn.textContent = ((LSSM.$t(
-                                    'fmsReal2Show'
-                                ) as unknown) as { [status: number]: number })[
-                                    nextFms
-                                ].toString();
+                                fmsBtn.textContent = (
+                                    LSSM.$t(
+                                        'fmsReal2Show'
+                                    ) as unknown as Record<number, number>
+                                )[nextFms].toString();
                             }
                         });
                 });
             }
             if (vehicleTypes) {
                 const typeWrapper = document.createElement('td');
-                vehicle.insertBefore(typeWrapper, linkWrapper);
+                linkWrapper.before(typeWrapper);
                 if (storedVehicle) {
-                    const vehicleTypeNode = document.createElement('a');
-                    vehicleTypeNode.classList.add(
-                        'btn',
-                        'btn-default',
-                        'btn-xs',
-                        'disabled'
-                    );
-                    vehicleTypeNode.textContent =
-                        internalVehicleTypes[
-                            storedVehicle.vehicle_type
-                        ]?.caption;
-                    typeWrapper.append(vehicleTypeNode);
+                    if (
+                        !vehicleTypesOnlyOwn ||
+                        !storedVehicle.vehicle_type_caption
+                    ) {
+                        const vehicleTypeNode = document.createElement('a');
+                        vehicleTypeNode.classList.add(
+                            'btn',
+                            'btn-default',
+                            'btn-xs',
+                            'disabled'
+                        );
+                        vehicleTypeNode.textContent =
+                            internalVehicleTypes[
+                                storedVehicle.vehicle_type
+                            ]?.caption;
+                        typeWrapper.append(vehicleTypeNode);
+                    }
                     if (storedVehicle.vehicle_type_caption) {
                         const customTypeNode = document.createElement('a');
                         customTypeNode.classList.add(
@@ -163,8 +178,8 @@ export default async (
                     if (!editBtn?.parentElement) return;
                     const actionsWrapper = document.createElement('div');
                     actionsWrapper.classList.add('btn-group');
-                    editBtn.parentElement.appendChild(actionsWrapper);
-                    actionsWrapper.appendChild(editBtn);
+                    editBtn.parentElement.append(actionsWrapper);
+                    actionsWrapper.append(editBtn);
                     const pABtn = document.createElement('a');
                     pABtn.classList.add('btn', 'btn-default', 'btn-xs');
                     pABtn.setAttribute(
@@ -172,7 +187,7 @@ export default async (
                         `/vehicles/${vehicleId}/zuweisung`
                     );
                     pABtn.innerHTML = '<i class="fas fa-users"></i>';
-                    actionsWrapper.appendChild(pABtn);
+                    actionsWrapper.append(pABtn);
                 }
                 if (lastRowItems.length && storedVehicle) {
                     (async () => {
@@ -215,13 +230,15 @@ export default async (
                         ].innerHTML = `(${lastRowItems
                             .map(
                                 item =>
-                                    (({
-                                        vehiclesPersonnelCurrent: currentPersonnel,
-                                        vehiclesPersonnelMax: maxPersonnel,
-                                        vehiclesPersonnelAssigned: assignedPersonnel,
-                                    } as {
-                                        [key: string]: number;
-                                    })[item])
+                                    ((
+                                        {
+                                            vehiclesPersonnelCurrent:
+                                                currentPersonnel,
+                                            vehiclesPersonnelMax: maxPersonnel,
+                                            vehiclesPersonnelAssigned:
+                                                assignedPersonnel,
+                                        } as Record<string, number>
+                                    )[item])
                             )
                             .join(' / ')})`;
                     })();

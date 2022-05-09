@@ -1,49 +1,49 @@
 {
-	"desktopTest": {
-		"text": "Desktop notifications were successfully activated!",
-		"title": "Desktop notifications"
-	},
-	"messages": {
-		"allianceCandidature": {
-			"body": "Your alliance has a new application! Currently open applications: {n}",
-			"title": "New application! | New applications!"
-		},
-		"allianceForum": {
-			"body": "There is a new post in your alliance forum! Open the forum with a click on this notification.",
-			"title": "Neuer Beitrag im Verbandsforum!"
-		},
-		"allianceMessage": {
-			"body": "There is a new Alliance message! View them directly by clicking on this notification.",
-			"title": "New Alliance Message!"
-		},
-		"allianceNews": {
-			"body": "Your Alliance has published new news! Click on this notification to go directly to the news page.",
-			"title": "New Alliancenews!"
-		},
-		"dm": {
-			"body": "So you have a total of {n} unread message. | So you have a total of {n} unread messages.",
-			"title": "You have {n} new message! | You have {n} new messages!"
-		},
-		"ingame_news": {
-			"body": "There are new features in the game! Have a look on Facebook to see what today's updates are!",
-			"title": "News in the game"
-		},
-		"mission_getred": {
-			"body": "{address}<br>This mission needs attention!"
-		},
-		"mission_getred_alliance": {
-			"body": "{address}<br>This alliancemission needs attention!"
-		},
-		"radioMessage": {
-			"title": "{vehicle} reports status {status}!"
-		}
-	},
-	"noPermission": {
-		"text": "Your browser is set up so that the game has no permission to send desktop notifications. If you still want to receive these notifications, you must first reset this in your browser settings!",
-		"title": "Desktop notifications"
-	},
-	"permission": {
-		"text": "Please allow desktop notifications by clicking on this notification!",
-		"title": "Desktop notifications"
-	}
+    "desktopTest": {
+        "text": "Skrivebordsvarsler ble aktivert!",
+        "title": "Skrivebordsvarsler"
+    },
+    "messages": {
+        "allianceCandidature": {
+            "body": "Alliansen din har en ny søknad! For øyeblikket åpne søknader: {n}",
+            "title": "Ny søknad! | Nye søknader!"
+        },
+        "allianceForum": {
+            "body": "Det er et nytt innlegg i allianseforumet ditt! Åpne forumet med et klikk på dette varselet.",
+            "title": "Nytt innlegg i allianseforumet!"
+        },
+        "allianceMessage": {
+            "body": "Det er en ny alliansemelding! Se den ved å klikke på dette varselet.",
+            "title": "Ny alliansemelding!"
+        },
+        "allianceNews": {
+            "body": "Din allianse har publisert nye nyheter! Klikk på denne varslingen for å gå direkte til nyhetssiden.",
+            "title": "Nye Alliancenyhet!"
+        },
+        "dm": {
+            "body": "Så du har totalt {n} ulest melding. | Så du har totalt {n} uleste meldinger.",
+            "title": "Du har {n} ny melding! | Du har {n} nye meldinger!"
+        },
+        "ingame_news": {
+            "body": "Det er nye funksjoner i spillet! Ta en titt på Facebook for å se hva dagens oppdateringer er!",
+            "title": "Nyheter i spillet"
+        },
+        "mission_getred": {
+            "body": "{address}<br>Dette oppdraget trenger oppmerksomhet!"
+        },
+        "mission_getred_alliance": {
+            "body": "{address}<br>Denne alliansemisjonen trenger oppmerksomhet!"
+        },
+        "radioMessage": {
+            "title": "{vehicle} rapporterer status {status}!"
+        }
+    },
+    "noPermission": {
+        "text": "Nettleseren din er satt opp slik at spillet ikke har tillatelse til å sende skrivebordsvarsler. Hvis du fortsatt ønsker å motta disse varslene, må du først tilbakestille dette i nettleserinnstillingene!",
+        "title": "Skrivebordsvarsler"
+    },
+    "permission": {
+        "text": "Vennligst tillat skrivebordsvarsler ved å klikke på dette varselet!",
+        "title": "Skrivebordsvarsler"
+    }
 }

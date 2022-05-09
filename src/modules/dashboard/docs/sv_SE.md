@@ -1,7 +1,7 @@
 ## Sammanfattning
 Sammanfattningen ger en snabb översikt över ditt antal byggnader och fordon.
 
-![Sammanfattning](dashboardSummary.png)
+![Sammanfattning](./summary.png)
 
 #### Byggnader
 Om du klickar på en kategori i byggnadsöversikten (t.ex.: "Ambulans") visas bara dessa byggnader.
@@ -18,9 +18,9 @@ Du kan sortera tabellen genom att klicka på kolumnrubrikerna.
 Om du flyttar musen över bordet ser du en knapp med en bil, om du trycker på den knappen kommer du att se en lista över alla fordon som matchar typ och status.
 Du kan också snabbt växla fordon från status 5 till 6 eller vice versa i statusöversikten.
 
-![Statusöversikt](dashboardStatusoverzicht.png)
+![Statusöversikt](./status_table.png)
 
-![Fordonsstatusöversikt](dashboardVehicles.png)
+![Fordonsstatusöversikt](./vehiclelist.png)
 
 ## Byggnadsöversikt
 I byggnadsöversikten får du en snabb och enkel översikt över alla dina byggnader.
@@ -28,7 +28,7 @@ I byggnadsöversikten får du en snabb och enkel översikt över alla dina byggn
 Du ser per byggnadstyp hur många du har och hur många tillägg du har för den byggnadstypen.
 Efter antalet förlängningar, mellan parentes `()` kan du se hur många som är aktiva. Instrumentpanelen beräknar också automatiskt det maximala antalet möjliga byggnader och / eller tillägg av en typ.
 
-![Byggnadsöversikt](dashboardBuildings.png)
+![Byggnadsöversikt](./buildinglist.png)
 
 ## Översikt över kontrollrummet
 ::: warning Kontrollrumsöversikt

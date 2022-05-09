@@ -1,10 +1,10 @@
-import { Building } from '../../../typings/Building';
-import { ModuleMainFunction } from 'typings/Module';
-import { PointTuple } from 'leaflet';
-import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
-import { InternalVehicle, Vehicle } from '../../../typings/Vehicle';
+import type { Building } from 'typings/Building';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { PointTuple } from 'leaflet';
+import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         autoUpdate: true,
         feature: MODULE_ID,
@@ -14,9 +14,10 @@ export default (async (LSSM, MODULE_ID) => {
         feature: MODULE_ID,
     });
 
-    const vehicleTypes = LSSM.$t('vehicles') as {
-        [id: number]: InternalVehicle;
-    };
+    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
+        number,
+        InternalVehicle
+    >;
 
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.${LSSM.$store.getters.nodeAttribute(
@@ -29,9 +30,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    let vehiclesByBuilding: {
-        [buildingId: number]: Vehicle[];
-    };
+    let vehiclesByBuilding: Record<number, Vehicle[]>;
 
     let buildings: Building[];
 
@@ -42,7 +41,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     updateBuildings();
 
-    const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
+    const buildingIcons = LSSM.$t('buildingIcons') as unknown as string[];
 
     const setTooltip = (marker?: BuildingMarker, presetBuilding?: Building) => {
         if (!marker) return;
@@ -73,8 +72,9 @@ export default (async (LSSM, MODULE_ID) => {
                     building.building_type
                 )
             ) {
-                data += `<br><i class="fa fa-parking"></i>&nbsp;${building.level +
-                    1}&nbsp;<i class="fa fa-car"></i>&nbsp;${
+                data += `<br><i class="fa fa-parking"></i>&nbsp;${
+                    building.level + 1
+                }&nbsp;<i class="fa fa-car"></i>&nbsp;${
                     vehicles.length
                 }&nbsp;<i class="fa fa-users"></i>&nbsp;${
                     building.personal_count
@@ -116,15 +116,17 @@ export default (async (LSSM, MODULE_ID) => {
                     building.building_type
                 )
             ) {
-                data += `<br><i class="fa fa-procedures"></i>&nbsp;${building.level +
-                    10}`;
+                data += `<br><i class="fa fa-procedures"></i>&nbsp;${
+                    building.level + 10
+                }`;
             } else if (
                 Object.values(LSSM.$t('schoolBuildings')).includes(
                     building.building_type
                 )
             ) {
-                data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${building
-                    .extensions.length + 1}`;
+                data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${
+                    building.extensions.length + 1
+                }`;
             }
         }
 

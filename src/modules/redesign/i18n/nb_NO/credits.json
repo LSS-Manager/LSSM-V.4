@@ -1,0 +1,23 @@
+{
+    "nav": {
+        "links": [
+            {
+                "href": "/credits",
+                "text": "Transaksjoner"
+            },
+            {
+                "href": "/credits/overview",
+                "text": "Oversikt"
+            },
+            {
+                "href": "/credits/daily",
+                "text": "Summary day"
+            },
+            {
+                "href": "/coins/list",
+                "text": "Myntprotokoll"
+            }
+        ],
+        "title": "Credits"
+    }
+}

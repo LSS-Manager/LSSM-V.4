@@ -1,4 +1,4 @@
-import {
+import type {
     Condition,
     FunctionTree,
     ObjectTree,
@@ -29,7 +29,7 @@ const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
             if (tokens[0].type === 'getter_num') {
                 tree.attributes.push(
                     parseInt(
-                        tokens.shift()?.value.replace(/^\[|]$/g, '') || '-1'
+                        tokens.shift()?.value.replace(/^\[|\]$/gu, '') || '-1'
                     )
                 );
             } else if (tokens.length >= 2 && tokens[1].type === 'identifier') {

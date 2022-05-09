@@ -1,0 +1,17 @@
+{
+    "all": "All",
+    "claim": "Claim",
+    "claimAll": "Claim all ({amount})",
+    "collectionTasks": {
+        "taskName": "Finish \\d+ \"(.*?)\" event tasks",
+        "title": "Collective tasks"
+    },
+    "confirmation": {
+        "cancel": "Abort",
+        "confirm": "Continue",
+        "title": "Attention:"
+    },
+    "end": "End",
+    "nextTask": "After Claiming, a new Task will appear!",
+    "title": "Tasks and Events"
+}

@@ -18,15 +18,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { SchoolingsWindow } from '../parsers/schoolings';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { SchoolingsWindow } from '../parsers/schoolings';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-
-type Component = RedesignSubComponent<
-    'schoolings',
-    'schoolings',
-    SchoolingsWindow
->;
+type Component = RedesignSubComponent<'schoolings', 'schoolings'>;
 
 export default Vue.extend<
     Component['Data'],
@@ -34,7 +29,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'schoolings',
+    name: 'lssmv4-redesign-schoolings',
     components: {
         SchoolingsOverview: () =>
             import(

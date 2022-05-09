@@ -1,0 +1,14 @@
+{
+    "applied": "Du har søkt til denne alliansen, du trenger bare å bli akseptert av en (med)administrator av alliansen. Lykke til!",
+    "apply": "Søk",
+    "edit_logo": "Rediger logo",
+    "edit_name": "Gi nytt navn til alliansen",
+    "edit_text": "Rediger introduksjonstekst, regler, viktig allianseinformasjon og Discord webhooks",
+    "leave": {
+        "cancel": "Avbryt",
+        "confirm": "Forlat!",
+        "text": "Vil du virkelig forlate alliansen **{caption}**? Handlingen kan ikke angres!",
+        "title": "Forlat allianse"
+    },
+    "unapply": "Trekk tilbake søknad"
+}

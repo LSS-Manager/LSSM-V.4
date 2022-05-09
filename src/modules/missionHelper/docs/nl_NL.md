@@ -1,10 +1,10 @@
 ## Algemeen
 Soms is het handig om van meldingen de benodigdheden meteen te kunnen zien. Deze module maakt een mooi overzicht van alle benodigdheden en de overige gegevens van een melding.
 
-Indien de inzethelper laadt, maar geen gegevens laat zien, kan je ze proberen te herladen door op het herlaad knopje te drukken. ![Herlaad](missionHelperReload.png)<br>
-Indien je de inzethelper wilt loskoppelen van het meldingenscherm, zodat je die kan verplaatsen, dan druk je op de volgende knop: ![Loskoppelen](missionHelperLos.png)<br>
-Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is, dan druk je op de volgende knop: ![Inklappen](missionHelperExpand.png)<br>
-Indien je het maximaal aantal mogelijke benodigdheden wilt zien, dan klik je op de volgende knop: ![Uitbreiding](missionHelperMax.png)
+Indien de inzethelper laadt, maar geen gegevens laat zien, kan je ze proberen te herladen door op het herlaad knopje te drukken. ![Herlaad](./missionHelperReload.png)<br>
+Indien je de inzethelper wilt loskoppelen van het meldingenscherm, zodat je die kan verplaatsen, dan druk je op de volgende knop: ![Loskoppelen](./missionHelperLos.png)<br>
+Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is, dan druk je op de volgende knop: ![Inklappen](./missionHelperExpand.png)<br>
+Indien je het maximaal aantal mogelijke benodigdheden wilt zien, dan klik je op de volgende knop: ![Uitbreiding](./missionHelperMax.png)
 
 ## Mogelijke instellingen
 
@@ -43,8 +43,8 @@ Hieronder zal ik de mogelijkheden opsommen, deze zijn per stuk in en uit te scha
  
 ## Voorbeelden
 
- ![Voorbeeld 1](missionHelper1.png)
+ ![Voorbeeld 1](./missionHelper1.png)
 
- ![Voorbeeld 2](missionHelper2.png)
+ ![Voorbeeld 2](./missionHelper2.png)
 
- ![Voorbeeld 3](missionHelper3.png)
+ ![Voorbeeld 3](./missionHelper3.png)

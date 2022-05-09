@@ -1,0 +1,29 @@
+{
+    "description": "Alarmiere, Teile den Einsatz und Poste eine Rückmeldung mit nur einem Klick.",
+    "lsam": {
+        "help": "Die Variablen werden beim Posten wie in der Einsatzliste ersetzt."
+    },
+    "name": "Share-Alliance-Post",
+    "noMessage": "Ohne Rückmeldung",
+    "settings": {
+        "enableCallList": {
+            "description": "Integriert dieses Modul in die Funktion \"Einsätze teilen\" der erweiterten Einsatzliste.",
+            "title": "Integration in die Einsatzliste"
+        },
+        "enableLSAM": {
+            "description": "Aktiviere diese Option, um direkt beim Erstellen eines Verbandsgroßeinsatzes eine Rückmeldung festzulegen.",
+            "title": "VGE erstellen"
+        },
+        "message": "Rückmeldungstext",
+        "messages": {
+            "description": "Lege hier Rückmeldungen fest, die du im Einsatzfenster auswählen kannst. Variablen werden unterstützt, schau hierzu in unser <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variablen\">Wiki</a>! Du kannst jeder Rückmeldung einen kurzen Namen geben, damit du sie im Einsatzfenster schneller findest.",
+            "title": "Rückmeldungen"
+        },
+        "name": "Name",
+        "postInChat": "Rückmeldung im Chat posten?",
+        "stayInCallList": {
+            "description": "Nach dem Teilen kannst du trotzdem noch Rückmeldungen aus der Einsatzliste heraus posten.",
+            "title": "In Einsatzliste bleiben"
+        }
+    }
+}

@@ -1,9 +1,10 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface Application {
     user: {
         id: number;
         name: string;
+        credits: number;
     };
     id: number;
 }
@@ -27,6 +28,7 @@ export default <RedesignParser<BewerbungenWindow>>(({
             user: {
                 id: getIdFromEl(user),
                 name: user?.textContent?.trim() ?? '',
+                credits: 0,
             },
             id: getIdFromEl(
                 row.querySelector<HTMLAnchorElement>(

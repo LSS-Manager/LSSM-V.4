@@ -1,33 +1,41 @@
 {
-	"copy_url": "Copy link into clipboard: {url}",
-	"description": "A general Redesign – currently in an alpha phase and still in development.",
-	"name": "Redesign",
-	"settings": {
-		"category": {
-			"alliance": {
-				"description": "A redesign of the alliance pages.",
-				"title": "Alliance"
-			},
-			"credits": {
-				"description": "A redesign for the credits and coins overviews.",
-				"title": "Credits and coins"
-			},
-			"einsaetze": {
-				"description": "A redesign of the possible missions list and the \"Requirements for this Mission\"-page.",
-				"title": "Possible missions"
-			},
-			"profile": {
-				"description": "A redesign of the profile pages.",
-				"title": "Profile"
-			},
-			"toplist": {
-				"description": "A redesign of the toplist.",
-				"title": "Toplist"
-			},
-			"vehicles": {
-				"description": "A redesign of the vehicle pages and all corresponding pages.",
-				"title": "Vehicles"
-			}
-		}
-	}
+    "copy_url": "Copy link into clipboard: {url}",
+    "description": "A general Redesign – currently in an alpha phase and still in development.",
+    "name": "Redesign",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "A redesign of the alliance pages.",
+                "title": "Alliance"
+            },
+            "credits": {
+                "description": "A redesign for the credits and coins overviews.",
+                "title": "Credits and coins"
+            },
+            "einsaetze": {
+                "description": "A redesign of the possible missions list and the \"Requirements for this Mission\"-page.",
+                "title": "Possible missions"
+            },
+            "messages": {
+                "description": "A Redesign of private Messages and System messages.",
+                "title": "Messages"
+            },
+            "profile": {
+                "description": "A redesign of the profile pages.",
+                "title": "Profile"
+            },
+            "tasks": {
+                "description": "A redesign of the task list",
+                "title": "Tasks"
+            },
+            "toplist": {
+                "description": "A redesign of the toplist.",
+                "title": "Toplist"
+            },
+            "vehicles": {
+                "description": "A redesign of the vehicle pages and all corresponding pages.",
+                "title": "Vehicles"
+            }
+        }
+    }
 }

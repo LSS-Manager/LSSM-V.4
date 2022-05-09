@@ -1,8 +1,8 @@
 import counter from './counter.vue';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
         feature: 'statusCounter-initial',
     });
@@ -11,7 +11,9 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         MODULE_ID
     );
     const wrapper = document.createElement('span');
-    document.getElementById('radio_panel_heading')?.append(wrapper);
+    document
+        .querySelector<HTMLDivElement>('#radio_panel_heading')
+        ?.append(wrapper);
     new LSSM.$vue({
         store: LSSM.$store,
         i18n: LSSM.$i18n,

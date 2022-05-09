@@ -1,131 +1,74 @@
-import { MissionMarkerAdd } from 'typings/Ingame';
+import createBtn, { type StarrableButton } from './createBtn';
 
-export default (LSSM: Vue, missions: string[], MODULE_ID: string): void => {
-    const btnClass: string = LSSM.$store.getters.nodeAttribute(
-        'ecl-sm-starbutton'
-    );
+import type { ButtonGroupCallback } from '../utils/buttonGroup';
 
-    const removes: string[] = [];
-    missions.forEach(id => {
-        if (!document.getElementById(`mission_${id}`)) removes.push(id);
-    });
-    removes.forEach(id =>
-        missions.splice(
-            missions.findIndex(m => m === id),
-            1
-        )
-    );
-    LSSM.$store
-        .dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'starredMissions',
-            value: missions,
-        })
-        .then();
+export type AddStarrableButton = (
+    mission: ButtonGroupCallback,
+    starredMissionBtnClass: string
+) => void;
 
-    const moveMissionUp = (id: string): void => {
-        const missionElement = document.getElementById(`mission_${id}`);
+export default (
+    LSSM: Vue,
+    MODULE_ID: string,
+    missions: string[],
+    starredMissionBtnClass: string,
+    starredMissionPanelClass: string
+): AddStarrableButton => {
+    const buttons: StarrableButton[] = [];
+
+    const move = (btn: HTMLButtonElement, id: string) => {
+        const missionElement = document.querySelector<HTMLDivElement>(
+            `#mission_${id}`
+        );
         if (!missionElement) return;
-        const placeholder = document.createElement('div');
-        placeholder.classList.add('hidden');
-        placeholder.setAttribute('data-mission-placeholder', id);
-        missionElement.after(placeholder);
-        missionElement.parentElement?.prepend(missionElement);
-    };
 
-    const moveMissionDown = (id: string): void => {
-        const missionElement = document.getElementById(`mission_${id}`);
-        const placeholder = missionElement?.parentElement?.querySelector(
-            `[data-mission-placeholder="${id}"]`
-        );
-        if (!missionElement || !placeholder) return;
-        placeholder.after(missionElement);
-        placeholder.remove();
+        if (btn.classList.contains('btn-warning')) {
+            const placeholder = document.createElement('div');
+            placeholder.classList.add('hidden');
+            placeholder.dataset.missionPlaceholder = id;
+            missionElement.after(placeholder);
+            missionElement.classList.add(starredMissionPanelClass);
+            missionElement.parentElement?.prepend(missionElement);
+        } else {
+            const placeholder = missionElement?.parentElement?.querySelector(
+                `[data-mission-placeholder="${id}"]`
+            );
+            if (!placeholder) return;
+            missionElement.classList.remove(starredMissionPanelClass);
+            placeholder.after(missionElement);
+            placeholder.remove();
+        }
     };
 
     document
-        .getElementById('missions-panel-body')
-        ?.addEventListener('click', e => {
-            const btn = (e.target as HTMLElement).closest(`.${btnClass}`);
-            if (!btn) return;
-            const mission = btn.getAttribute('data-mission') ?? '-1';
-            const missionElement =
-                btn.parentElement?.parentElement?.parentElement;
-            if (mission === '-1' || !missionElement) return;
-            const remove = missions.includes(mission);
-            const btnClassReplace: [string, string] = [
-                'btn-default',
-                'btn-warning',
-            ];
-            if (remove) btnClassReplace.reverse();
-            btn.classList.replace(...btnClassReplace);
-            btn.querySelector('svg')?.setAttribute(
-                'data-prefix',
-                remove ? 'far' : 'fas'
+        .querySelector<HTMLDivElement>('#missions-panel-body')
+        ?.addEventListener('click', async e => {
+            const btn: HTMLButtonElement | null = (
+                e.target as HTMLElement
+            ).closest(`.${starredMissionBtnClass}`);
+            const id = btn?.dataset.mission;
+            if (!btn || !id) return;
+
+            const button = buttons.find(
+                ({ dataset: { mission } }) => mission === id
             );
-            if (remove) {
-                missions.splice(
-                    missions.findIndex(m => m === mission),
-                    1
-                );
-            } else {
-                missions.push(mission);
-            }
-            LSSM.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
-                    settingId: 'starredMissions',
-                    value: missions,
-                })
-                .then();
-            if (remove) moveMissionDown(mission);
-            else moveMissionUp(mission);
+            if (!button) return;
+            await button.switch?.();
+
+            move(btn, id);
         });
 
-    const getStarBtn = (id: string): HTMLButtonElement => {
-        const starred = missions.includes(id);
-        const btn = document.createElement('button');
-        btn.classList.add(
-            btnClass,
-            'btn',
-            'btn-xs',
-            `btn-${starred ? 'warning' : 'default'}`
+    return (mission, starredMissionBtnClass) => {
+        const starred = missions.includes(mission.id.toString());
+        const btn = createBtn(
+            LSSM,
+            MODULE_ID,
+            mission.id.toString(),
+            starred,
+            starredMissionBtnClass
         );
-        btn.setAttribute('data-mission', id);
-        const icon = document.createElement('i');
-        icon.classList.add(`fa${starred ? 's' : 'r'}`, 'fa-star');
-        if (starred) moveMissionUp(id);
-        btn.append(icon);
-        return btn;
+        mission.btnGroup.append(btn);
+        buttons.push(btn);
+        if (starred) move(btn, mission.id.toString());
     };
-
-    document
-        .querySelectorAll<HTMLAnchorElement>(
-            '#missions-panel-body .missionSideBarEntry a[id^="alarm_button_"]'
-        )
-        .forEach(alarm => {
-            const btn = getStarBtn(
-                alarm.getAttribute('href')?.match(/\d+$/)?.[0] ?? '-1'
-            );
-            alarm.before(btn);
-        });
-
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                if (
-                    !document.querySelector(
-                        `button.${btnClass}[data-mission="${marker.id}"]`
-                    )
-                ) {
-                    document
-                        .querySelector<HTMLAnchorElement>(
-                            `#missions-panel-body .missionSideBarEntry a[id="alarm_button_${marker.id}"]`
-                        )
-                        ?.before(getStarBtn(marker.id.toString()));
-                }
-            },
-        })
-        .then();
 };

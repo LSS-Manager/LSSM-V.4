@@ -21,14 +21,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData } from 'vue/types/options';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandEditNameWindow } from '../../parsers/verband/edit_name';
+import type { DefaultData } from 'vue/types/options';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignSubComponent<
     'alliance',
     'verband/edit_name',
-    VerbandEditNameWindow,
     DefaultData<Vue>,
     { submit(): void }
 >;
@@ -39,7 +37,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-edit-name',
+    name: 'lssmv4-redesign-verband-edit-name',
     data() {
         return {};
     },

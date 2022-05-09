@@ -1,19 +1,15 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Uložit',
         reset: 'Resetovat',
         noMapkit:
             'Tento modul nefunguje s typem map "Mapkit" z důvodu omezení Mapkitu!',
-        dev:
-            'Tento modul je v současné době ve vývoji. Aktivací může vést k neúplným funkcím.',
+        dev: 'Tento modul je v současné době ve vývoji. Aktivací může vést k neúplným funkcím.',
         closeWarning: {
             title: 'Neulozené změny',
-            text:
-                'Ve sbírce aplikací jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a ukončete sbírku aplikací.',
+            text: 'Ve sbírce aplikací jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a ukončete sbírku aplikací.',
             close: 'Zavřít zprávu',
         },
     },
@@ -26,23 +22,20 @@ const modules = {
         import: 'Import',
         resetWarning: {
             title: 'Resetovat nastavení',
-            text:
-                'Opravdu chcete resetovat nastavení do počátečních hodnot? Tento krok nelze vrátit!',
+            text: 'Opravdu chcete resetovat nastavení do počátečních hodnot? Tento krok nelze vrátit!',
             close: 'Zavřít',
             total: 'Všechna nastavení',
             module: 'Pouze pro tento modul',
         },
         resetWarningSetting: {
             title: 'Resetovat nastavení',
-            text:
-                'Opravdu chcete resetovat toto jedno nastavení <b>{setting}</b> modulu <b>{module}</b> na výchozí hodnotu?',
+            text: 'Opravdu chcete resetovat toto jedno nastavení <b>{setting}</b> modulu <b>{module}</b> na výchozí hodnotu?',
             close: 'zrušení',
             reset: 'Resetovat',
         },
         closeWarning: {
             title: 'Neuložené změny',
-            text:
-                'V nastavení jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a zavřete nastavení.',
+            text: 'V nastavení jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a zavřete nastavení.',
             close: 'Zavřít zprávu',
         },
         changeList: {
@@ -50,20 +43,10 @@ const modules = {
             false: 'Deaktivovat',
         },
     },
-} as { [moduleId: string]: { [key: string]: unknown } };
-
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
+} as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg: 'Pokud k této chybě dochází často, prosím kontaktujte tým LSSM!',
@@ -71,11 +54,16 @@ export default {
     warnings: {
         version: {
             title: 'Špatná verze LSS Managera',
-            text:
-                'Vážený uživateli, bohužel jsme zjistili, že nemáte nejnovější verzi doplňku LSS Manager. Nejnovější verze je {version}, ale vy aktuálně máte {curver}. Prosíme o znovunačtení hry bez mezipaměti (pomocí Ctrl + F5, na zařízeních Apple příkaz + R), tímto může být chyba odstraněna. Pokud chyba přetrvává, prosím nahlašte to týmu LSSM! Pokud používáte špatnou verzi, nemůžeme garantovat plnou funkcionalitu doplňku LSS-Manager.',
+            text: 'Vážený uživateli, bohužel jsme zjistili, že nemáte nejnovější verzi doplňku LSS Manager. Nejnovější verze je {version}, ale vy aktuálně máte {curver}. Prosíme o znovunačtení hry bez mezipaměti (pomocí Ctrl + F5, na zařízeních Apple příkaz + R), tímto může být chyba odstraněna. Pokud chyba přetrvává, prosím nahlašte to týmu LSSM! Pokud používáte špatnou verzi, nemůžeme garantovat plnou funkcionalitu doplňku LSS-Manager.',
             close: 'Uzavřít zprávu a znovunačíst hru(doporučeno)',
             abort: 'Zavřít zprávu bez znovunačtení hry',
         },
+    },
+    anniversary1: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+        title: '🎉 There is reason to celebrate! 🎉',
+        content:
+            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Základní nastavení',
@@ -104,7 +92,7 @@ export default {
             caption: 'CAS 20',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 4,
             maxPersonnel: 6,
         },
@@ -112,7 +100,7 @@ export default {
             caption: 'CAS 30',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
         },
@@ -147,7 +135,7 @@ export default {
             caption: 'RZP',
             color: '#9c1c1c',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 3,
             maxPersonnel: 3,
         },
@@ -175,7 +163,7 @@ export default {
             caption: 'Policejní automobil',
             color: '#8b1818',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 2,
             maxPersonnel: 4,
         },
@@ -220,7 +208,7 @@ export default {
             caption: 'Vozidlo Kynologů PČR',
             color: '#ca1616',
             coins: 25,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Policie - Kynologové Policie',
@@ -231,7 +219,7 @@ export default {
             caption: 'Policejní motocykl',
             color: '#ca1616',
             coins: 18,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: 'Policie - Policejní motocykl',
@@ -241,7 +229,7 @@ export default {
             caption: 'URNA SUV',
             color: '#ca1616',
             coins: 23,
-            credits: 7_000,
+            credits: 7000,
             minPersonnel: 2,
             maxPersonnel: 4,
             schooling: 'Policie - URNA',
@@ -291,8 +279,8 @@ export default {
         20: {
             caption: 'Přívěs se člunem',
             color: '#990000',
-            coins: 0,
-            credits: 0_000,
+            coins: 12,
+            credits: 6000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special: 'Požadováno po vybudování 11 požárních stanic',
@@ -301,7 +289,7 @@ export default {
             caption: 'Přívěs se člunem VZS ČČK',
             color: '#990000',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
@@ -310,10 +298,10 @@ export default {
         22: {
             caption: 'Potápěčský automobil',
             color: '#990000',
-            coins: 0,
-            credits: 0_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
             special: 'Požadováno po vybudování 11 požárních stanic',
         },
         23: {
@@ -336,7 +324,7 @@ export default {
             caption: 'RV',
             color: '#9c1c1c',
             coins: 20,
-            credits: 4_000,
+            credits: 4000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
@@ -360,6 +348,42 @@ export default {
             maxPersonnel: 3,
             schooling: 'Záchranáři - Školení lékaře',
             shownSchooling: 'Školení lékaře',
+        },
+        28: {
+            caption: 'VYA',
+            color: '#791515',
+            coins: 10,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Požární stanice - ',
+            shownSchooling: '',
+        },
+        29: {
+            caption: 'AJ',
+            color: '#791515',
+            coins: 10,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Požární stanice - ',
+            shownSchooling: '',
+        },
+        30: {
+            caption: 'DA',
+            color: '#791515',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+        },
+        31: {
+            caption: 'RZA',
+            color: '#791515',
+            coins: 10,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
         },
     },
     buildings: {
@@ -389,13 +413,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '5.000 together with small fire stations',
+            maxBuildings: '6.000 together with small fire stations',
             maxLevel: 39,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         1: {
             caption: 'Fire academy',
@@ -549,13 +573,13 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.500 together with small police stations',
+            maxBuildings: '1.700 together with small police stations',
             maxLevel: 39,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol car'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1700,
         },
         7: {
             caption: 'Dispatch Center',
@@ -666,13 +690,13 @@ export default {
                 '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '5.000 together with fire stations',
+            maxBuildings: '6.000 together with fire stations',
             maxLevel: 5,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6000,
         },
         19: {
             caption: 'Police station (Small station)',
@@ -686,13 +710,13 @@ export default {
                 '3.-4. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '1.500 mit Polizeiwachen zusammen',
+            maxBuildings: '1.700 mit Polizeiwachen zusammen',
             maxLevel: 4,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol Car'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1700,
         },
         20: {
             caption: 'Ambulance station (Small station)',
@@ -896,7 +920,8 @@ export default {
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
-    credits: 'Credits',
+    credits: 'Kredity',
+    coins: 'Mincí',
     close: 'Close',
     fullscreen: {
         expand: 'Activate full screen mode',
@@ -1003,6 +1028,17 @@ export default {
         'Sklad pyrotechniky',
         'Autobusové nádraží',
         'Vlakové nádraží',
+        'Sklad uhlí',
+        'Náměstí',
+        'Centrum města',
+        'Motorest',
+        'Panelový dům',
+        'Prolézačky',
+        'Plnírna plyn',
+        'Pole',
+        'Bioplynová stanice',
+        'Elektrorozvodna',
+        'Staveniště',
     ],
     only_alliance_missions: [57, 74],
 };

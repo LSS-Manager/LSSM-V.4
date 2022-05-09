@@ -1,67 +1,40 @@
-import moment from 'moment';
+import type { ModuleMainFunction } from 'typings/Module';
 
-import { ModuleMainFunction } from 'typings/Module';
+export interface ConversationMessageTemplate {
+    name: string;
+    subject: string;
+    template: string;
+}
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
-    moment.locale(LSSM.$store.state.lang);
+export interface ChatMessageTemplate {
+    name: string;
+    text: string;
+}
 
-    window.moment = moment;
-
-    const messages: { name: string; subject: string; template: string }[] = (
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'templates',
-        })
-    ).value;
-
-    const preselected = parseInt(
-        new URL(window.location.toString()).searchParams.get('template') ?? '-1'
-    );
-
-    const group = document.createElement('div');
-    group.classList.add('btn-group', 'pull-right');
-    const insert = document.createElement('button');
-    insert.classList.add('btn', 'btn-default', 'dropdown-toggle');
-    insert.setAttribute('data-toggle', 'dropdown');
-    insert.innerHTML = `${$m('name')}&nbsp;<span class="caret"></span>`;
-    const optionList = document.createElement('ul');
-    optionList.classList.add('dropdown-menu');
-    messages.forEach(({ name, subject, template }, index) => {
-        const liEl = document.createElement('li');
-        const aEl = document.createElement('a');
-        aEl.textContent = name;
-        aEl.title = `${subject}\n---\n${template}`;
-        aEl.onclick = () => {
-            const titleEl = document.querySelector<HTMLInputElement>(
-                '#message_subject'
-            );
-            if (titleEl) titleEl.value = subject;
-            const bodyEl = document.querySelector<HTMLTextAreaElement>(
-                '#message_body'
-            );
-            if (bodyEl) {
-                bodyEl.value = template
-                    .replace(
-                        /{{username}}/g,
-                        document
-                            .querySelector<HTMLInputElement>(
-                                '#message_recipients'
-                            )
-                            ?.value?.trim() ?? '{{username}}'
-                    )
-                    .replace(
-                        /{{today(?<offset>[+-]\d+)?}}/g,
-                        (_, offsetString) =>
-                            moment()
-                                .add(parseInt(offsetString ?? '0'), 'days')
-                                .format('L')
-                    );
-            }
-        };
-        if (preselected === index) aEl.click();
-        liEl.append(aEl);
-        optionList.append(liEl);
-    });
-    group.append(insert, optionList);
-    document.querySelector('.page-header')?.append(group);
+export default <ModuleMainFunction>(async ({ $m, getSetting }) => {
+    if (/^\/?$/u.test(window.location.pathname)) {
+        const messages = (
+            await getSetting<{
+                value: ChatMessageTemplate[];
+                enabled: boolean;
+            }>('chatTemplates')
+        ).value;
+        if (messages.length) {
+            import(
+                /* webpackChunkName: "modules/messageTemplates/chat" */ './assets/chat/main'
+            ).then(({ default: conversations }) => conversations(messages));
+        }
+    } else if (/^\/messages\/(?:new|\d+)\/?$/u.test(window.location.pathname)) {
+        const messages = (
+            await getSetting<{
+                value: ConversationMessageTemplate[];
+                enabled: boolean;
+            }>('templates')
+        ).value;
+        if (messages.length) {
+            import(
+                /* webpackChunkName: "modules/messageTemplates/conversations" */ './assets/conversations/main'
+            ).then(({ default: conversations }) => conversations(messages, $m));
+        }
+    }
 });

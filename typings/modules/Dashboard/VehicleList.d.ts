@@ -1,38 +1,34 @@
-import { Building } from 'typings/Building';
-import { Vehicle } from 'typings/Vehicle';
-import VueI18n from 'vue-i18n';
+import type { Building } from 'typings/Building';
+import type { Vehicle } from 'typings/Vehicle';
+import type VueI18n from 'vue-i18n';
 
 interface VehicleWithBuilding extends Vehicle {
     building: string | undefined;
 }
 
 export interface VehicleList {
-    vehicleTypeNames: { [id: number]: string };
+    vehicleTypeNames: Record<number, string>;
     vehiclesWithBuildings: VehicleWithBuilding[];
     buildings: Building[];
     search: string;
-    sort: string;
+    sort: keyof VehicleWithBuilding;
     sortDir: string;
     resolveLinkClass: string;
     resolving: number | null;
 }
 
 export interface VehicleListMethods {
-    setSort(type: string): void;
+    setSort(type: keyof VehicleWithBuilding): void;
     toggleFMS(vehicle: Vehicle): void;
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
-    startResolve(type: 'mission' | 'building', id: number): void;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
+    startResolve(type: 'building' | 'mission', id: number): void;
     endResolve(): void;
+    resolveMission(id: number): string;
 }
 
 export interface VehicleListComputed {
-    vehiclesFiltered: Vehicle[];
-    vehiclesSorted: Vehicle[];
+    vehiclesFiltered: VehicleWithBuilding[];
+    vehiclesSorted: VehicleWithBuilding[];
 }
 
 export interface VehicleListProps {

@@ -1,0 +1,16 @@
+{
+    "description": "Generara en heatmap på kartan som visar desinteten av fordon och byggnader - helt anpassningsbar.",
+    "name": "Heatmap",
+    "positions": {
+        "bottom-left": "Nedre Vänstra 🡧",
+        "bottom-right": "Nedre Höggra 🡦",
+        "top-left": "Övre Vänstra 🡤",
+        "top-right": "Övre Högra 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Välj i vilket hörn på kartfönstret som inställningsknappen ska visas",
+            "title": "Inställningsknappens placering"
+        }
+    }
+}

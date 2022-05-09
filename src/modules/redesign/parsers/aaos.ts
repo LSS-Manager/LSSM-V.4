@@ -1,4 +1,4 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface AAO {
     id: number;
@@ -22,7 +22,7 @@ export default <RedesignParser<AAOsWindow>>(({ doc }) => {
                       '.aao_btn_group > a, .aao_searchable'
                   )
               ).map(arr => ({
-                  id: parseInt(arr.href.match(/\d+/)?.[0] ?? '-1'),
+                  id: parseInt(arr.href.match(/\d+/u)?.[0] ?? '-1'),
                   bg_color: arr.style.backgroundColor,
                   color: arr.style.color,
                   title: arr.textContent?.trim() ?? '',
@@ -54,8 +54,8 @@ export default <RedesignParser<AAOsWindow>>(({ doc }) => {
                 Array.from(
                     doc.querySelectorAll<HTMLAnchorElement>('#aao-tabs li a')
                 ).map(tab => [
-                    tab.innerText.trim(),
-                    getAAOCategory(new URL(tab.href).hash.replace(/^#/, '')),
+                    tab.textContent?.trim() ?? '',
+                    getAAOCategory(new URL(tab.href).hash.replace(/^#/u, '')),
                 ])
             ),
         },

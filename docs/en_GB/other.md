@@ -17,7 +17,7 @@ LSS Manager is licensed under [Creative Commons Attribution-NonCommercial-ShareA
 We have decided to use this license to prevent misuse of our code to violate the terms and conditions of the game.
 
 ## The LSSM Team
-Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are of course also administratively active!
+Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are of course also administratively active! We also got a lot of volunteer translators helping us translate LSSM.
 
 ### The developers
 * Aisaka *[CEO, Serveradministrator, Senior Developer]*
@@ -38,7 +38,14 @@ Currently, LSS Manager consists of 4 developers and 6 additional supporters for 
     * Buggs
 * 🇳🇱
     * MPR
- 
+
+
+### volunteer translators <3
+A lot of thanks go to our volunteer translators who help us with the porting into other language versions. Of course, as a small development team, we don't speak all languages, so we only provide the German and English texts.
+
+To give some credit to the translators we have created a list here:
+<translators/>
+
 ## Open Source Libraries
 LSSM of course also uses public libraries from third parties - otherwise some functions would simply be far too much to program.
 
@@ -64,5 +71,13 @@ Imagine how long a fault in LSSM would last if no one reported it - we would cer
 
 ### Every single user
 Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
+
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en

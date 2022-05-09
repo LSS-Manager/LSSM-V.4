@@ -80,7 +80,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     SchoolingSummary,
     SchoolingSummaryComputed,
     SchoolingSummaryMethods,
@@ -93,7 +93,7 @@ export default Vue.extend<
     SchoolingSummaryComputed,
     SchoolingSummaryProps
 >({
-    name: 'schoolingSummary',
+    name: 'lssmv4-schoolingSummary',
     components: {
         EnhancedTable: () =>
             import(
@@ -130,13 +130,14 @@ export default Vue.extend<
                     bound,
                 })
             );
-            return (this.allSchoolingsSearch
-                ? schoolings.filter(schooling =>
-                      JSON.stringify(Object.values(schooling))
-                          .toLowerCase()
-                          .match(this.allSchoolingsSearch.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.allSchoolingsSearch
+                    ? schoolings.filter(schooling =>
+                          JSON.stringify(Object.values(schooling))
+                              .toLowerCase()
+                              .match(this.allSchoolingsSearch.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortAllDir === 'desc') modifier = -1;
@@ -155,13 +156,14 @@ export default Vue.extend<
                     max,
                 })
             );
-            return (this.eachSchoolingsSearch
-                ? schoolings.filter(schooling =>
-                      JSON.stringify(Object.values(schooling))
-                          .toLowerCase()
-                          .match(this.eachSchoolingsSearch.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.eachSchoolingsSearch
+                    ? schoolings.filter(schooling =>
+                          JSON.stringify(Object.values(schooling))
+                              .toLowerCase()
+                              .match(this.eachSchoolingsSearch.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortEachDir === 'desc') modifier = -1;

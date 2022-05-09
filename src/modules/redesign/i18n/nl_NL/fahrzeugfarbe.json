@@ -1,0 +1,8 @@
+{
+    "description": "In het meldingsvenster wordt deze kleur bij alle voertuigen van dit type als achtergrond van het vinkje weergegeven.",
+    "noColor": "Momenteel is er geen kleur ingesteld",
+    "reset": "Kleur reseten",
+    "save": "Opslaan",
+    "savedNote": "De voertuigkleur is opgeslagen!",
+    "title": "Voertuigkleur bewerken: {type}"
+}

@@ -1,50 +1,73 @@
 {
-	"description": "Gör att du kan aktivera allmänna förbättringar såsom klickbara länkar i hela spelet.",
-	"name": "Allmänna förbättringar",
-	"settings": {
-		"browserTitle": {
-			"description": "Justerar titeln på webbläsarfliken så att den visar vad som för närvarande är öppet i spelet.",
-			"title": "Webbläsarens flikens titel"
-		},
-		"clickableLinks": {
-			"description": "Länkar som visas som klartext (t.ex. i chatt, forum, meddelanden etc.) görs klickbara. De öppnas automatiskt i en ny flik.",
-			"title": "Gör länkar klickbara"
-		},
-		"emojiPicker": {
-			"description": "Visar dig emojis för val när du skriver: följt av text.",
-			"title": "Emoji-picker"
-		},
-		"extensionCloseCall": {
-			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
-			"title": "Spreading improved FMS 5"
-		},
-		"linkPreviews": {
-			"byggnader": "Byggnader",
-			"description": "Visar en liten inforuta när du väntar med musen över en länk en kort stund. Här kan du ställa in för vilka länkar infoboxen ska aktiveras:",
-			"fordon": "Fordon",
-			"missions": "Missions",
-			"profile": "User",
-			"title": "Förhandsgranskning av länk"
-		},
-		"mapUndo": {
-			"description": "Centrera kartan på positioner som var centrerade tidigare. - Fungerar för närvarande bara med karttyp \"OpenStreetMap\"",
-			"title": "Spara karthopp"
-		},
-		"ownMapMarkers": {
-			"description": "Spara dina egna platser på kartan för att komma åt dem med ett enda klick!",
-			"title": "Bokmärken för kartan"
-		},
-		"saveLastBuildingType": {
-			"description": "Kommer ihåg vald byggnadstyp när du bygger en ny byggnad och väljer den automatiskt för nya byggnader.",
-			"title": "Kom ihåg byggnadstyp"
-		},
-		"saveLastDispatchCenter": {
-			"description": "Kommer ihåg valt avsändningscenter när du bygger en ny byggnad och väljer det automatiskt för nya byggnader.",
-			"title": "Kom ihåg leveranscenter"
-		},
-		"showImg": {
-			"description": "Försök att skapa en förhandsgranskning av bilden. Fungerar bara i kombination med \"Gör länkar klickbara\"!",
-			"title": "Aktivera förhandsgranskning av bild"
-		}
-	}
+    "description": "Gör att du kan aktivera allmänna förbättringar såsom klickbara länkar i hela spelet.",
+    "name": "Allmänna förbättringar",
+    "positions": {
+        "bottom-left": "Nedre vänstra 🡧",
+        "bottom-right": "Nedre högra 🡦",
+        "top-left": "Övre vänstra 🡤",
+        "top-right": "Övre högra 🡥"
+    },
+    "settings": {
+        "aaoExportQr": {
+            "description": "Visa en QR-Kod för exportlänken när du exporterar ett ARR.",
+            "title": "ARR-Export som QR-Code"
+        },
+        "browserTitle": {
+            "description": "Justerar titeln på webbläsarfliken så att den visar vad som för närvarande är öppet i spelet.",
+            "title": "Webbläsarens flikens titel"
+        },
+        "clickableLinks": {
+            "description": "Länkar som visas som klartext (t.ex. i chatt, forum, meddelanden etc.) görs klickbara. De öppnas automatiskt i en ny flik.",
+            "title": "Gör länkar klickbara"
+        },
+        "emojiPicker": {
+            "description": "Visar dig emojis för val när du skriver: följt av text.",
+            "title": "Emoji-picker"
+        },
+        "extensionCloseCall": {
+            "description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
+            "title": "Spreading improved FMS 5"
+        },
+        "linkPreviews": {
+            "buildings": "Byggnader",
+            "description": "Visar en liten inforuta när du väntar med musen över en länk en kort stund. Här kan du ställa in för vilka länkar infoboxen ska aktiveras:",
+            "fordon": "Fordon",
+            "missions": "Uppdrag",
+            "profile": "Profil",
+            "title": "Förhandsgranskning av länk",
+            "vehicles": "Fordon"
+        },
+        "mapSearchOnMap": {
+            "description": "Flyttar sökfältet för platser från huvudmenyn till kartan",
+            "title": "Placera sökfält i kartan"
+        },
+        "mapSearchOnMapPosition": {
+            "description": "Välj var på kartan sökfältet ska vara",
+            "title": "Position för sökfältet"
+        },
+        "mapUndo": {
+            "description": "Centrera kartan på positioner som var centrerade tidigare. - Fungerar för närvarande bara med karttyp \"OpenStreetMap\"",
+            "title": "Spara karthopp"
+        },
+        "notePreview": {
+            "description": "Länkar i anteckning görs klickbara gemom att förhandsgranska anteckningen.",
+            "title": "Anteckningar"
+        },
+        "ownMapMarkers": {
+            "description": "Spara dina egna platser på kartan för att komma åt dem med ett enda klick!",
+            "title": "Bokmärken för kartan"
+        },
+        "saveLastBuildingType": {
+            "description": "Kommer ihåg vald byggnadstyp när du bygger en ny byggnad och väljer den automatiskt för nya byggnader.",
+            "title": "Kom ihåg byggnadstyp"
+        },
+        "saveLastDispatchCenter": {
+            "description": "Kommer ihåg valt avsändningscenter när du bygger en ny byggnad och väljer det automatiskt för nya byggnader.",
+            "title": "Kom ihåg leveranscenter"
+        },
+        "showImg": {
+            "description": "Försök att skapa en förhandsgranskning av bilden. Fungerar bara i kombination med \"Gör länkar klickbara\"!",
+            "title": "Aktivera förhandsgranskning av bild"
+        }
+    }
 }

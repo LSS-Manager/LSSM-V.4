@@ -1,0 +1,8 @@
+{
+    "load": {
+        "next": "load 20 older messages",
+        "prev": "load 20 newer messages"
+    },
+    "subtitle": "Showing {n} Messages from page {startPage} ({firstDate}) to page {endPage} ({lastDate}) from a total of {totalPages} pages.",
+    "title": "Alliance Chat"
+}

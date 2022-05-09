@@ -1,0 +1,16 @@
+{
+    "description": "Générez une carte thermique sur la carte qui vous montre la densité des bâtiments ou des véhicules - entièrement personnalisable.",
+    "name": "Carte thermique",
+    "positions": {
+        "bottom-left": "En bas à gauche 🡧",
+        "bottom-right": "En bas à droite 🡦",
+        "top-left": "En haut à gauche 🡤",
+        "top-right": "En haut à droite 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Sélectionnez dans quel coin de la carte le bouton pour les paramètres doit apparaître",
+            "title": "Position des paramètres"
+        }
+    }
+}

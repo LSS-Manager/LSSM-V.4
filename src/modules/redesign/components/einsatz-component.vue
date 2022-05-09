@@ -13,8 +13,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { Mission } from 'typings/Mission';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { Mission } from 'typings/Mission';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -27,11 +27,11 @@ export default Vue.extend<
         missionId: number;
     }
 >({
-    name: 'einsatz-component',
+    name: 'lssmv4-redesign-einsatz-component',
     computed: {
         mission() {
             return (this.$store.state.api.missions as Mission[]).find(
-                ({ id }) => id === this.type
+                ({ id }) => id === this.type.toString()
             );
         },
     },

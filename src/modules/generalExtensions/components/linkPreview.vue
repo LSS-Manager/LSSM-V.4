@@ -21,7 +21,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            vehicleBuildings.includes(building.building_type)
+                        vehicleBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -37,7 +37,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            cellBuildings.includes(building.building_type)
+                        cellBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -57,7 +57,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            bedBuildings.includes(building.building_type)
+                        bedBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -67,7 +67,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            schoolBuildings.includes(building.building_type)
+                        schoolBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -94,7 +94,7 @@
             <table
                 v-else-if="
                     type === 'buildings' &&
-                        vehicleBuildings.includes(building.building_type)
+                    vehicleBuildings.includes(building.building_type)
                 "
             >
                 <tr v-for="vehicle in buildingVehicles" :key="vehicle.id">
@@ -137,9 +137,9 @@ import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
-import { InternalBuilding } from 'typings/Building';
-import { InternalVehicle } from 'typings/Vehicle';
-import {
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type {
     LinkPreview,
     LinkPreviewComputed,
     LinkPreviewMethods,
@@ -152,7 +152,7 @@ export default Vue.extend<
     LinkPreviewComputed,
     LinkPreviewProps
 >({
-    name: 'linkPreview',
+    name: 'lssmv4-linkPreview',
     data() {
         return {
             faParking,
@@ -170,9 +170,10 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: (this.$t('vehicles') as unknown) as {
-                [id: number]: InternalVehicle;
-            },
+            vehicleTypes: this.$t('vehicles') as unknown as Record<
+                number,
+                InternalVehicle
+            >,
             vehicleBuildings: Object.values(
                 this.$t('vehicleBuildings')
             ) as number[],
@@ -263,9 +264,12 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (this.$t('buildings') as { [id: number]: InternalBuilding })[
-                    building.building_type
-                ].caption
+                (
+                    this.$t('buildings') as unknown as Record<
+                        number,
+                        InternalBuilding
+                    >
+                )[building.building_type].caption
             );
         },
         setVehicle(vehicle) {

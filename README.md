@@ -27,7 +27,7 @@ Der LSS-MANAGER V.4 ist eine Erweiterung für das Leitstellenspiel.de und dessen
 Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll.
 
 ### Wiki
-In unserem [Wiki](https://proxy.lss-manager.de/v4/docs/) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
+In unserem [Wiki](https://proxy.lss-manager.de/v4/docs/de_DE/) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
 
 ### Support Server
 
@@ -100,6 +100,26 @@ Basta cliccare sul banner qui sotto per accedere al Server Discord di Supporto!
 L'uso dello script è a proprio rischio. Non siamo responsabili per eventuali danni o simili, che sono causati dall'uso di questo script. Shplay Gmbh non è in alcun modo responsabile del contenuto dello script.
 </details>
 
+<details>
+  <summary>🇫🇷</summary>
+LSS-MANAGER V.4 est une extension pour le jeu operateur112.fr et ses versions en d'autres langues.
+
+Avec cette extension, un Appstore est ajouté au jeu, qui permet d'installer des plugins. Toutes les fonctions sont modulaires - il est possible de déterminer jusqu'au dernier module ce qui doit être activé.
+
+### Wiki
+Dans notre [Wiki](https://proxy.lss-manager.de/v4/docs/fr_FR/) tu trouveras tout sur l'installation, la FAQ et une explication de toutes les fonctions.
+
+### Serveur de support
+
+Clique simplement sur la bannière ci-dessous pour accéder à notre serveur de support Discord !
+
+[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+
+## Responsabilité / Divers
+
+L'utilisation de ce script se fait à vos propres risques. Nous ne sommes pas responsables des éventuels dégâts ou autres qui pourraient résulter de l'utilisation de ce script. SHPlay GmbH n'est en aucun cas responsable du contenu de ce script.
+</details>
+
 ## Contributors & Contributing ✨
 
 ### [Code of Conduct](CODE_OF_CONDUCT.md)
@@ -124,8 +144,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Suchty112"><img src="https://avatars0.githubusercontent.com/u/1109899?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Suchty112</b></sub></a><br /><a href="#question-Suchty112" title="Answering Questions">💬</a> <a href="#translation-Suchty112" title="Translation">🌍</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/pulls?q=is%3Apr+reviewed-by%3ASuchty112" title="Reviewed Pull Requests">👀</a> <a href="https://www.leitstellenspiel.de" title="Translations for Leitstellenspiel.de (de_DE)">🇩🇪</a> <a href="https://www.missionchief.com" title="Translations for Missionschief.com (en_US)">🇺🇸</a> <a href="https://www.missionchief.co.uk" title="Translations for Missionchief.co.uk (en_GB)">🇬🇧</a> <a href="https://www.missionchief-australia.com" title="Translations for Missionchief-Australia.com (en_AU)">🇦🇺</a></td>
     <td align="center"><a href="https://github.com/Tsumiki-Chan"><img src="https://avatars2.githubusercontent.com/u/8158524?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tsumiki</b></sub></a><br /><a href="#infra-Tsumiki-Chan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#security-Tsumiki-Chan" title="Security">🛡️</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/pulls?q=is%3Apr+reviewed-by%3ATsumiki-Chan" title="Reviewed Pull Requests">👀</a> <a href="#question-Tsumiki-Chan" title="Answering Questions">💬</a> <a href="#financial-Tsumiki-Chan" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/CSA-Verweigerer"><img src="https://avatars3.githubusercontent.com/u/29802197?v=4?s=100" width="100px;" alt=""/><br /><sub><b>CSA-Verweigerer</b></sub></a><br /><a href="#ideas-CSA-Verweigerer" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-CSA-Verweigerer" title="User Testing">📓</a></td>
-    <td align="center"><a href="https://github.com/KokosnussDEV"><img src="https://avatars3.githubusercontent.com/u/42553393?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kdev</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=kdev" title="Documentation">📖</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=kdev" title="Code">💻</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/pulls?q=is%3Apr+reviewed-by%3Akdev" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/Cr4zyc4k3"><img src="https://avatars.githubusercontent.com/u/69073372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arne</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Cr4zyc4k3" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/kdev"><img src="https://avatars3.githubusercontent.com/u/42553393?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kdev</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=kdev" title="Documentation">📖</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=kdev" title="Code">💻</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/pulls?q=is%3Apr+reviewed-by%3Akdev" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/Cr4zyc4k3"><img src="https://avatars.githubusercontent.com/u/69073372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cr4zyc4k3</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Cr4zyc4k3" title="Code">💻</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/JRH-1997"><img src="https://avatars1.githubusercontent.com/u/65117490?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JRH-1997</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=JRH-1997" title="Documentation">📖</a> <a href="#translation-JRH-1997" title="Translation">🌍</a> <a href="https://www.meldkamerspel.com" title="Translations for Meldkamerspel.com (nl_NL)">🇳🇱</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=JRH-1997" title="Code">💻</a></td>
@@ -148,6 +168,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/Gooochy"><img src="https://avatars.githubusercontent.com/u/85019809?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gooochy</b></sub></a><br /><a href="#translation-Gooochy" title="Translation">🌍</a> <a href="https://www.missionchief.co.uk" title="Translations for Missionchief.co.uk (en_GB)">🇬🇧</a></td>
     <td align="center"><a href="https://github.com/02Miki"><img src="https://avatars.githubusercontent.com/u/35926600?v=4?s=100" width="100px;" alt=""/><br /><sub><b>02Miki</b></sub></a><br /><a href="#translation-02Miki" title="Translation">🌍</a> <a href="https://www.operatore112.it" title="Translations for Operatore112.it (it_IT)">🇮🇹</a></td>
+    <td align="center"><a href="https://github.com/deoxis9001"><img src="https://avatars.githubusercontent.com/u/638243?v=4?s=100" width="100px;" alt=""/><br /><sub><b>deoxis9001</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=deoxis9001" title="Documentation">📖</a> <a href="#translation-deoxis9001" title="Translation">🌍</a> <a href="https://www.operateur112.fr" title="Translations for Operateur112.fr (fr_FR)">🇫🇷</a></td>
+    <td align="center"><a href="https://www.operatorratunkowy.pl/profile/304057"><img src="https://avatars.githubusercontent.com/u/31404125?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kemon58</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Kemon22" title="Documentation">📖</a> <a href="#translation-Kemon22" title="Translation">🌍</a> <a href="https://www.operatorratunkowy.pl" title="Translations for Operatorraunkowy.pl (pl_PL)">🇵🇱</a></td>
   </tr>
 </table>
 

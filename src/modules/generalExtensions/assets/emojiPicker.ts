@@ -1,16 +1,14 @@
 export default async (LSSM: Vue): Promise<void> => {
-    const emojiByName = {} as { [unicode: string]: string };
-    const emojiyByAlias = {} as { [unicode: string]: string };
+    const emojiByName = {} as Record<string, string>;
+    const emojiyByAlias = {} as Record<string, string>;
     const emojiMap = (
         await import(
             /* webpackChunkName: "utils/emojis" */ '../../../utils/emojis.json'
         )
-    ).default as {
-        [unicode: string]: string[];
-    };
+    ).default as Record<string, string[]>;
     Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {
         namesAndAliases.forEach(name => {
-            if (name.match(/^:.*:$/)) emojiByName[name] = emoji;
+            if (name.match(/^:.*:$/u)) emojiByName[name] = emoji;
             else emojiyByAlias[name] = emoji;
         });
     });
@@ -22,7 +20,7 @@ export default async (LSSM: Vue): Promise<void> => {
     );
     const emojiNames = Object.keys(emojiByName);
 
-    const popupMap = {} as { [name: string]: HTMLDivElement };
+    const popupMap = {} as Record<string, HTMLDivElement>;
     const optionClass = LSSM.$store.getters.nodeAttribute(
         'emoji-picker-option'
     );
@@ -62,7 +60,7 @@ export default async (LSSM: Vue): Promise<void> => {
         emoji: string,
         e: KeyboardEvent
     ) => {
-        input.value = input.value.replace(/:[^:]*?$/, emojiByName[emoji]);
+        input.value = input.value.replace(/:[^:]*$/u, emojiByName[emoji]);
         input.focus();
         popupMap[input.name].innerHTML = '';
         popupMap[input.name].style.display = 'none';
@@ -90,14 +88,14 @@ export default async (LSSM: Vue): Promise<void> => {
             input.parentElement?.prepend(popup);
         }
         input.value = input.value.replace(
-            /:.*?:/g,
+            /:.*?:/gu,
             name => emojiByName[name.toLowerCase()] ?? name
         );
         input.value = input.value.replace(emojiAliasRegex, name => {
-            const trimmedName = name.replace(/ $/, '');
+            const trimmedName = name.replace(/ $/u, '');
             return `${emojiyByAlias[trimmedName] ?? trimmedName} `;
         });
-        const end = input.value.match(/(?<=:)[^:]*?$/);
+        const end = input.value.match(/(?<=:)[^:]*$/u);
         if (
             !end?.length ||
             (input.selectionStart ?? 0) < input.value.length - end[0].length ||
@@ -172,7 +170,8 @@ export default async (LSSM: Vue): Promise<void> => {
                     currentFocus = currentFocus.parentElement
                         ?.firstElementChild as HTMLSpanElement | null;
                 } else {
-                    currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
+                    currentFocus =
+                        currentFocus.nextElementSibling as HTMLSpanElement | null;
                 }
                 currentFocus?.classList.add('focused');
                 break;
@@ -185,7 +184,8 @@ export default async (LSSM: Vue): Promise<void> => {
                     currentFocus = currentFocus.parentElement
                         ?.lastElementChild as HTMLSpanElement | null;
                 } else {
-                    currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
+                    currentFocus =
+                        currentFocus.previousElementSibling as HTMLSpanElement | null;
                 }
                 currentFocus?.classList.add('focused');
                 break;

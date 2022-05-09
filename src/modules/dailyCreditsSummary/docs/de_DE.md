@@ -4,12 +4,19 @@ Für die V4 haben wir das ganze etwas aufgepeppt und ein verbessertes Design ver
 
 Standardmäßig werden wieder die sog. Badges angezeigt:
 
-![Badges](badges.png)
+![Badges](./badges.png)
+
+Die Anzeige der Durchschnittswerte kannst du über die Einstellungen deaktivieren.
 
 Klickst du auf das kleine `i`, bekommst du zusätzlich eine sortierbare Tabelle präsentiert:
 
-![Tabelle](table.png)
+![Tabelle](./table.png)
 
+Zudem werden je ein Kreisdiagramm für Einnahmen und Ausgaben angezeigt.
+
+Über der Tabelle findest du einen Knopf, um die Daten zu exportieren.
+
+---
 
 Folgende Kategorien verwenden wir:
 

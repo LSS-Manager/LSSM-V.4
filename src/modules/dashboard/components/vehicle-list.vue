@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="vehicle-list" :no-title-hide="true" :no-fullscreen="true">
+    <lightbox name="vehicle-list" no-title-hide no-fullscreen>
         <h4>{{ title }}: {{ vehicles.length }}</h4>
         <enhanced-table
             :head="{
@@ -73,7 +73,10 @@
                 </td>
                 <td>
                     <a
-                        v-if="vehicle.target_type"
+                        v-if="
+                            vehicle.target_type &&
+                            vehicle.target_type !== 'mission'
+                        "
                         class="lightbox-open"
                         :class="resolveLinkClass"
                         :data-resolve-type="vehicle.target_type"
@@ -87,6 +90,13 @@
                         {{ vehicle.target_id }}
                         <small>{{ vehicle.target_type }}</small>
                     </a>
+                    <a
+                        v-if="vehicle.target_type === 'mission'"
+                        class="lightbox-open"
+                        :href="`/${vehicle.target_type}s/${vehicle.target_id}`"
+                    >
+                        {{ resolveMission(vehicle.target_id) }}
+                    </a>
                 </td>
             </tr>
         </enhanced-table>
@@ -99,8 +109,8 @@ import Vue from 'vue';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
-import { InternalVehicle } from 'typings/Vehicle';
-import {
+import type { InternalVehicle } from 'typings/Vehicle';
+import type {
     VehicleList,
     VehicleListComputed,
     VehicleListMethods,
@@ -113,7 +123,7 @@ export default Vue.extend<
     VehicleListComputed,
     VehicleListProps
 >({
-    name: 'vehicle-list',
+    name: 'lssmv4-dashboard-vehicle-list',
     components: {
         Lightbox: () =>
             import(
@@ -128,9 +138,10 @@ export default Vue.extend<
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('vehicles') as {
-                        [id: number]: InternalVehicle;
-                    }
+                    this.$t('vehicles') as unknown as Record<
+                        number,
+                        InternalVehicle
+                    >
                 ).map(([index, { caption }]) => [index, caption])
             ),
             vehiclesWithBuildings: [],
@@ -196,9 +207,12 @@ export default Vue.extend<
                 })
                 .then(() => {
                     vehicle.fms_real = target;
-                    vehicle.fms_show = ((this.$t(
-                        'fmsReal2Show'
-                    ) as unknown) as { [status: number]: number })[target];
+                    vehicle.fms_show = (
+                        this.$t('fmsReal2Show') as unknown as Record<
+                            number,
+                            number
+                        >
+                    )[target];
                 });
         },
         startResolve(type, id) {
@@ -220,8 +234,9 @@ export default Vue.extend<
                             let subtitle = '';
                             if (type === 'mission') {
                                 title =
-                                    doc.getElementById('missionH1')
-                                        ?.textContent ?? '';
+                                    doc.querySelector<HTMLHeadingElement>(
+                                        '#missionH1'
+                                    )?.textContent ?? '';
                                 subtitle =
                                     doc.querySelector<HTMLElement>(
                                         '#missionH1 + small'
@@ -238,8 +253,8 @@ export default Vue.extend<
                                 .forEach(link => {
                                     const small = link.querySelector('small');
                                     if (small)
-                                        small.innerText = subtitle.trim();
-                                    link.innerText = title.trim();
+                                        small.textContent = subtitle.trim();
+                                    link.textContent = title.trim();
                                     link.classList.remove(
                                         this.resolveLinkClass
                                     );
@@ -252,6 +267,19 @@ export default Vue.extend<
         endResolve() {
             if (this.resolving) window.clearTimeout(this.resolving);
             this.resolving = null;
+        },
+        resolveMission(id) {
+            let missionName =
+                document.querySelector<HTMLAnchorElement>(
+                    `#mission_caption_${id}`
+                )?.innerText ?? '';
+            missionName = missionName.replace(
+                document.querySelector<HTMLSpanElement>(
+                    `#mission_old_caption_${id}`
+                )?.innerText ?? '',
+                ''
+            );
+            return missionName.trim();
         },
     },
     beforeMount() {

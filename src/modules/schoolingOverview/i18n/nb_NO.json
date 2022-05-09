@@ -1,15 +1,15 @@
 {
-	"all": "Alle",
-	"amount": "Amount Courses",
-	"open": "Open Courses",
-	"own": "Courses with participants",
-	"schooling": "Course",
-	"seats": "Number of places",
-	"titles": {
-		"end": "Time left",
-		"name": "Course",
-		"owner": "User",
-		"price": "Price",
-		"seats": "Free Places"
-	}
+    "all": "Alle",
+    "amount": "Antall kurs",
+    "open": "Åpne kurs",
+    "own": "Kurs med deltakere",
+    "schooling": "Kurs",
+    "seats": "Antall plasser",
+    "titles": {
+        "end": "Tid igjen",
+        "name": "Kurs",
+        "owner": "Kursholder",
+        "price": "Pris",
+        "seats": "Ledige plasser"
+    }
 }

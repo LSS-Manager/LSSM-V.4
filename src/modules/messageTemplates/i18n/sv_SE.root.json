@@ -1,0 +1,19 @@
+{
+    "description": "Skriv den egen meddelandemall för privata meddelanden och i chatten.",
+    "name": "Meddelande-Mall",
+    "settings": {
+        "chatTemplates": {
+            "description": "Messages for alliance-chat",
+            "name": "Name",
+            "text": "Message",
+            "title": "Chat-Messages"
+        },
+        "templates": {
+            "description": "Du kan använda variabler för i mallarna. Se <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wikin</a> för mer info.",
+            "name": "Namn",
+            "subject": "Rubrik",
+            "template": "Mall (variabler (se wikin): {{username}}, {{today[+n]}})",
+            "title": "Mallar"
+        }
+    }
+}

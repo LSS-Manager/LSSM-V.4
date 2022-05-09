@@ -1,9 +1,12 @@
+import he from 'he';
+
+import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
-import { Building } from 'typings/Building';
-import { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
-import { Color, Toggle } from 'typings/Setting';
+import type { Building } from 'typings/Building';
+import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
+import type { Color, Hidden, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
     window.console.info(
@@ -13,10 +16,43 @@ export default async (LSSM: Vue): Promise<void> => {
         'font-style: italic;'
     );
 
+    require('./natives/betterFooterLinks');
+
     const indicatorWrapper = document.createElement('li') as HTMLLIElement;
     document
         .querySelector('.navbar-default .navbar-right')
         ?.appendChild(indicatorWrapper);
+
+    LSSM.$store.commit(
+        'updateCredits',
+        LSSM.$utils.getNumberFromText(
+            document
+                .querySelector<HTMLSpanElement>('.credits-value')
+                ?.textContent?.trim() ?? '-1'
+        )
+    );
+    await LSSM.$store.dispatch('hook', {
+        event: 'creditsUpdate',
+        callback(credits: number) {
+            if (credits !== LSSM.$store.state.credits)
+                LSSM.$store.commit('updateCredits', credits);
+        },
+    });
+    LSSM.$store.commit(
+        'updateCoins',
+        LSSM.$utils.getNumberFromText(
+            document
+                .querySelector<HTMLSpanElement>('.coins-value')
+                ?.textContent?.trim() ?? '-1'
+        )
+    );
+    await LSSM.$store.dispatch('hook', {
+        event: 'coinsUpdate',
+        callback(coins: number) {
+            if (coins !== LSSM.$store.state.coins)
+                LSSM.$store.commit('updateCoins', coins);
+        },
+    });
 
     LSSM.$store
         .dispatch('settings/register', {
@@ -46,6 +82,23 @@ export default async (LSSM: Vue): Promise<void> => {
                     noMapkit: true,
                     disabled: () => !LSSM.$store.state.darkmode,
                 },
+                osmDarkControls: <Toggle>{
+                    type: 'toggle',
+                    default: LSSM.$store.state.darkmode,
+                    noMapkit: true,
+                    disabled: () => !LSSM.$store.state.darkmode,
+                },
+                v3MenuAsSubmenu: <Toggle>{
+                    type: 'toggle',
+                    default: false,
+                },
+                anniversary1Clicked: <Hidden>{
+                    type: 'hidden',
+                },
+                loadingIndicator: <Toggle>{
+                    type: 'toggle',
+                    default: true,
+                },
             },
         })
         .then(() => {
@@ -54,6 +107,34 @@ export default async (LSSM: Vue): Promise<void> => {
                 i18n: LSSM.$i18n,
                 render: h => h(LSSMMenu),
             }).$mount(indicatorWrapper);
+
+            if (
+                new Date() >= new Date('2021-11-20T00:00') &&
+                new Date() < new Date('2021-11-29T00:00')
+            ) {
+                LSSM.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'global',
+                        settingId: 'anniversary1Clicked',
+                        defaultValue: false,
+                    })
+                    .then((clicked: boolean) => {
+                        if (!clicked) {
+                            import(
+                                /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
+                            ).then(({ default: anniversary }) => {
+                                const anniversaryWrapper =
+                                    document.createElement('div');
+                                document.body.append(anniversaryWrapper);
+                                new LSSM.$vue({
+                                    store: LSSM.$store,
+                                    i18n: LSSM.$i18n,
+                                    render: h => h(anniversary),
+                                }).$mount(anniversaryWrapper);
+                            });
+                        }
+                    });
+            }
 
             LSSM.$store
                 .dispatch('settings/getSetting', {
@@ -66,7 +147,58 @@ export default async (LSSM: Vue): Promise<void> => {
                         !allowDark &&
                         document.body.classList.add('leaflet-no-dark-tooltip')
                 );
+
+            LSSM.$store
+                .dispatch('settings/getSetting', {
+                    moduleId: 'global',
+                    settingId: 'osmDarkControls',
+                    default: true,
+                })
+                .then(
+                    allowDark =>
+                        allowDark &&
+                        document.body.classList.add('leaflet-dark-controls')
+                );
+
+            LSSM.$store
+                .dispatch('settings/getSetting', {
+                    moduleId: 'global',
+                    settingId: 'loadingIndicator',
+                    default: true,
+                })
+                .then(loadingIndicator =>
+                    localStorage.setItem(
+                        loadingIndicatorStorageKey,
+                        loadingIndicator
+                    )
+                );
         });
+
+    if (!window.location.search.includes('mapview=true') && !window.mapkit) {
+        LSSM.$store
+            .dispatch('addOSMControl', { position: 'top-left' })
+            .then((control: HTMLAnchorElement) => {
+                LSSM.$store.commit('useFontAwesome');
+                const icon = document.createElement('i');
+                icon.classList.add('fas', 'fa-expand-arrows-alt');
+                control.append(icon);
+                control.style.setProperty('cursor', 'pointer');
+                LSSM.$store
+                    .dispatch('api/registerSettings', {
+                        feature: 'mainpage-core_map-expand',
+                    })
+                    .then(() =>
+                        control.addEventListener('click', () => {
+                            window.mapExpand(
+                                LSSM.$store.state.api.settings.design_mode >= 3
+                            );
+                        })
+                    );
+                document
+                    .querySelector<HTMLDivElement>('.map-expand-button')
+                    ?.remove();
+            });
+    }
 
     telemetry(LSSM, settingId => {
         return LSSM.$store.dispatch('settings/getSetting', {
@@ -92,6 +224,16 @@ export default async (LSSM: Vue): Promise<void> => {
         },
     });
 
+    await LSSM.$store.dispatch('api/initialUpdate', {
+        type: 'buildings',
+        feature: 'mainpageCore-initial_update',
+    });
+
+    await LSSM.$store.dispatch('api/getMissions', {
+        force: true,
+        feature: 'mainpageCore-initial_update',
+    });
+
     await LSSM.$store.dispatch('hook', {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
@@ -100,17 +242,20 @@ export default async (LSSM: Vue): Promise<void> => {
             const building = buildings.find(
                 ({ id }) => id === buildingMarker.id
             );
-            if (!building || building.caption !== buildingMarker.name) {
+            if (
+                !building ||
+                building.caption !== he.decode(buildingMarker.name)
+            ) {
                 LSSM.$store
                     .dispatch('api/fetchBuilding', {
                         id: buildingMarker.id,
-                        feature: 'core-buildingMarkerAdd',
+                        feature: 'mainpageCore-buildingMarkerAdd',
                     })
                     .then(building =>
                         LSSM.$store
                             .dispatch('api/fetchVehiclesAtBuilding', {
                                 id: building.id,
-                                feature: 'core-buildingMarkerAdd',
+                                feature: 'mainpageCore-buildingMarkerAdd',
                             })
                             .then(
                                 async () =>

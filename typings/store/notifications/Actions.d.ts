@@ -1,6 +1,6 @@
-import { ActionContext } from 'vuex';
-import { NotificationsState } from './State';
-import { RootState } from '../RootState';
+import type { ActionContext } from 'vuex';
+import type { NotificationsState } from './State';
+import type { RootState } from '../RootState';
 
 export type NotificationsActionStoreParams = ActionContext<
     NotificationsState,
@@ -9,15 +9,13 @@ export type NotificationsActionStoreParams = ActionContext<
 
 export interface NotificationsSend {
     group: NotificationsState['groups'][0];
-    type: 'warning' | 'danger' | 'success' | 'info';
+    type: 'danger' | 'info' | 'success' | 'unimportant' | 'warning';
     title: string;
     text: string;
     icon?: string;
     duration: number;
     speed: number;
-    data: {
-        [key: string]: unknown;
-    };
+    data: Record<string, unknown>;
     clean: boolean;
     ingame: boolean;
     desktop: boolean;

@@ -1,0 +1,27 @@
+{
+    "disabled": "Alliance funds are disabled in this alliance.",
+    "earnings": {
+        "credits": "Credits",
+        "daily": "Daily",
+        "monthly": "Monthly",
+        "sum": "Sum",
+        "title": "Earnings",
+        "user": "Player"
+    },
+    "spendings": {
+        "credits": "Credits",
+        "date": "Date",
+        "desc": "Description",
+        "loadMore": "load 10 more entries",
+        "title": "Spendings",
+        "user": "Player"
+    },
+    "summary": {
+        "rate": "Alliance contribution rate",
+        "title": "Alliance funds"
+    },
+    "toggle": {
+        "disable": "Disable alliance funds",
+        "enable": "Enable alliance funds"
+    }
+}

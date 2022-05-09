@@ -58,7 +58,7 @@
                     :color="arr.color"
                     :type="arr.type"
                     :title="arr.title"
-                    :editable="true"
+                    editable
                     @click="edit(arr.id, arr.type)"
                     @edit="edit(arr.id, arr.type)"
                     @copy="copy(arr.id, arr.type)"
@@ -87,7 +87,7 @@
                             :color="arr.color"
                             :type="arr.type"
                             :title="arr.title"
-                            :editable="true"
+                            editable
                             @click="edit(arr.id, arr.type)"
                             @edit="edit(arr.id, arr.type)"
                             @copy="copy(arr.id, arr.type)"
@@ -112,7 +112,7 @@
                         :color="arr.color"
                         :type="arr.type"
                         :title="arr.title"
-                        :editable="true"
+                        editable
                         @click="edit(arr.id, arr.type)"
                         @edit="edit(arr.id, arr.type)"
                         @copy="copy(arr.id, arr.type)"
@@ -131,7 +131,7 @@
                 :color="arr.color"
                 :type="arr.type"
                 :title="arr.title"
-                :editable="true"
+                editable
                 @click="edit(arr.id, arr.type)"
                 @edit="edit(arr.id, arr.type)"
                 @copy="copy(arr.id, arr.type)"
@@ -148,14 +148,13 @@ import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import { AAOsWindow } from '../parsers/aaos';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { AAOsWindow } from '../parsers/aaos';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'aaos',
     'aaos',
-    AAOsWindow,
     {
         faPlus: IconDefinition;
         faFileExport: IconDefinition;
@@ -181,7 +180,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'aaos',
+    name: 'lssmv4-redesign-aaos',
     components: {
         ARR: () =>
             import(

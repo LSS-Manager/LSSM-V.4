@@ -1,0 +1,40 @@
+{
+    "nav": {
+        "links": {
+            "/alliance_logfiles": "Protokoll",
+            "/alliance_messages": "Meldinger",
+            "/alliance_threads": "Styre",
+            "/alliances/{id}": "Intro",
+            "/schoolings": "Kurs",
+            "/verband/bereitstellungsraume": "Oppsamlingsområder",
+            "/verband/bewerbungen": "Søknader",
+            "/verband/gebauede": "Bygninger",
+            "/verband/kasse": "Alliansefond",
+            "/verband/mitglieder/{id}": "Medlemmer",
+            "/verband/news/{id}": "Meldinger0",
+            "/verband/regeln/{id}": "Meldinger1",
+            "/verband/werbung": "Meldinger2"
+        },
+        "other": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}"
+        ],
+        "self": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}",
+            "/alliance_logfiles",
+            "/alliance_threads",
+            "/alliance_messages",
+            "/verband/werbung",
+            "/schoolings",
+            "/verband/bereitstellungsraume",
+            "/verband/kasse",
+            "/verband/gebauede",
+            "/verband/bewerbungen"
+        ]
+    }
+}

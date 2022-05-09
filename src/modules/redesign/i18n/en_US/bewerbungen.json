@@ -1,11 +1,12 @@
 {
-	"accept": "Accept",
-	"alert": {
-		"accepted": "{username} was successfully accepted into the alliance!",
-		"declined": "The application of **{username}** was rejected!"
-	},
-	"decline": "Decline",
-	"rules": "Application rules",
-	"title": "Application: {n} | Applications: {n}",
-	"user": "Applicants"
+    "accept": "Accept",
+    "alert": {
+        "accepted": "{username} was successfully accepted into the alliance!",
+        "declined": "The application of **{username}** was rejected!"
+    },
+    "decline": "Decline",
+    "earnedCredits": "earned Credits",
+    "rules": "Application rules",
+    "title": "Application: {n} | Applications: {n}",
+    "user": "Applicants"
 }

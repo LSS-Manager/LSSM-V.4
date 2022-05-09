@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "nuvarande",
+        "title": "Allians tillgånga",
+        "total": "totalt",
+        "updateNote": "Uppdateras var 5e minut."
+    },
+    "coins": {
+        "list": "Protokoll"
+    },
+    "credits": {
+        "daily": "Daglig sammanställning",
+        "overview": "Översikt"
+    },
+    "description": "Visa användarbar information om tillgångar i menyn under den primära navigeringsmenyn",
+    "name": "Credit Expansion",
+    "nextRank": "Nästa nivå",
+    "nextRankMissing": "kvarvarande",
+    "settings": {
+        "alerts": {
+            "credits": "krediter",
+            "description": "När du nått en av de fördefinerade kreditnivåerna kommer kredit expansionen markeras som grön tills du har tryckt på demn.",
+            "title": "Mål"
+        },
+        "coinsInNavbar": {
+            "description": "Visar nuvarande mynt i menyn istället för i den söta grisen.",
+            "title": "Mynt utan söta grisen"
+        },
+        "creditsInNavbar": {
+            "description": "Visar nuvarade krediter i menyn utan att gå via den gulliga grisen.",
+            "title": "Krediter utan gullig gris"
+        },
+        "highlightSales": {
+            "description": "Markera Mynt med grönt om försäljning är tillgänlig",
+            "title": "Markera Försäljningar"
+        },
+        "showSales": {
+            "description": "Visa försäljningar för Mynt när det är tillgängligt.",
+            "title": "Visa Försäljningar"
+        },
+        "showToplistPosition": {
+            "description": "Visar nuvarande ranking i 'creditsextension'.",
+            "title": "Rankning i 'creditsextension'"
+        }
+    },
+    "toplistPositionName": "Rakning",
+    "totalEarnedCredits": "Totalt intjändade krediter"
+}

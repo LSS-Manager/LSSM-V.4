@@ -5,7 +5,7 @@
                 id="verband-bsr-map"
                 ref="map"
                 :layers="markers"
-                :center-group="markerFeatureGroup"
+                :center-group="bsr.buildings.length ? markerFeatureGroup : null"
             ></leaflet-map>
         </div>
         <div class="col-lg-6">
@@ -61,15 +61,13 @@ import Vue from 'vue';
 
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandBSRWindow } from '../../parsers/verband/bsr';
-import { FeatureGroup, Marker } from 'leaflet';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { FeatureGroup, Marker } from 'leaflet';
 
 type Component = RedesignSubComponent<
     'bsr',
     'verband/bsr',
-    VerbandBSRWindow,
     {
         faMapMarkedAlt: IconDefinition;
         markers: Marker[];
@@ -83,7 +81,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-bsr',
+    name: 'lssmv4-redesign-verband-bsr',
     components: {
         LeafletMap: () =>
             import(
@@ -164,6 +162,7 @@ export default Vue.extend<
                 );
             }
         );
+
         this.markerFeatureGroup = window.L.featureGroup(this.markers);
     },
     mounted() {

@@ -1,0 +1,27 @@
+{
+    "disabled": "Alliansekapital er skrudd av.",
+    "earnings": {
+        "credits": "Kreditter",
+        "daily": "Daglig",
+        "monthly": "Månedtlig",
+        "sum": "Sum",
+        "title": "Fortjeneste",
+        "user": "Spiller"
+    },
+    "spendings": {
+        "credits": "Kreditter",
+        "date": "Dato",
+        "desc": "Beskrivelse",
+        "loadMore": "last 10 flere oppføringer",
+        "title": "Utgifter",
+        "user": "Spiller"
+    },
+    "summary": {
+        "rate": "Alliansebidragssats",
+        "title": "Alliansekapital"
+    },
+    "toggle": {
+        "disable": "Deaktiver alliansekapital",
+        "enable": "Aktiver alliansemidler"
+    }
+}

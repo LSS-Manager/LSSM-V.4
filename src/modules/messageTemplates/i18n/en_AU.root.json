@@ -1,13 +1,19 @@
 {
-	"description": "Write your own templates for messages in private conversations.",
-	"name": "Message-Templates",
-	"settings": {
-		"name": "Name",
-		"subject": "Subject",
-		"template": "Template (variables (see wiki): {{username}}, {{today[+n]}})",
-		"templates": {
-			"description": "Variables are available for the templates. Please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
-			"title": "Templates"
-		}
-	}
+    "description": "Write your own templates for messages in private conversations and alliance chat.",
+    "name": "Message-Templates",
+    "settings": {
+        "chatTemplates": {
+            "description": "Messages for alliance-chat",
+            "name": "Name",
+            "text": "Message",
+            "title": "Chat-Messages"
+        },
+        "templates": {
+            "description": "Variables are available for the templates. Please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "name": "Name",
+            "subject": "Subject",
+            "template": "Template (variables (see wiki): {{username}}, {{today[+n]}})",
+            "title": "Templates"
+        }
+    }
 }

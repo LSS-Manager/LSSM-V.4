@@ -62,9 +62,7 @@
                             <ul>
                                 <li
                                     v-for="extension in mission.main_building_extensions"
-                                    :key="
-                                        `${mission.id}_${index}_generatedby_extensions_${extension}`
-                                    "
+                                    :key="`${mission.id}_${index}_generatedby_extensions_${extension}`"
                                 >
                                     {{
                                         $t(
@@ -86,9 +84,7 @@
                     <ul v-else-if="col === 'place'">
                         <li
                             v-for="(place, pindex) in mission.place_array"
-                            :key="
-                                `${mission.id}_${index}_${col}_places_${pindex}_${place}`
-                            "
+                            :key="`${mission.id}_${index}_${col}_places_${pindex}_${place}`"
                         >
                             {{ place }}
                         </li>
@@ -96,9 +92,7 @@
                     <ul v-else-if="col === 'prerequisites'">
                         <li
                             v-for="(amount, req) in mission.prerequisites"
-                            :key="
-                                `${mission.id}_${index}_${col}_prerequisites_${req}`
-                            "
+                            :key="`${mission.id}_${index}_${col}_prerequisites_${req}`"
                         >
                             {{ amount.toLocaleString() }}
                             {{
@@ -143,9 +137,7 @@
                                         req,
                                         { have, need, diff },
                                     ] in mission.unfullfilled_prerequisites"
-                                    :key="
-                                        `${mission.id}_${index}_${col}_unfullfilled_${req}`
-                                    "
+                                    :key="`${mission.id}_${index}_${col}_unfullfilled_${req}`"
                                 >
                                     <td>
                                         <template
@@ -166,9 +158,7 @@
                                             <ul>
                                                 <li
                                                     v-for="extension in mission.main_building_extensions"
-                                                    :key="
-                                                        `${mission.id}_${index}_generatedby_extensions_${extension}`
-                                                    "
+                                                    :key="`${mission.id}_${index}_generatedby_extensions_${extension}`"
                                                 >
                                                     {{
                                                         $t(
@@ -217,10 +207,9 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { Building } from 'typings/Building';
-import { EinsaetzeWindow } from '../parsers/einsaetze';
-import { Mission } from 'typings/Mission';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { Building } from 'typings/Building';
+import type { Mission } from 'typings/Mission';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type MissionEntry = Omit<Mission, 'prerequisites'> & {
     prerequisites: Record<string, number>;
@@ -228,27 +217,26 @@ type MissionEntry = Omit<Mission, 'prerequisites'> & {
     main_building_extensions: Mission['prerequisites']['main_building_extensions'];
     unfullfilled_prerequisites: [
         string,
-        Record<'have' | 'need' | 'diff', number>
+        Record<'diff' | 'have' | 'need', number>
     ][];
     date_not_fitting: boolean;
 };
 
 type cols =
+    | 'average_credits'
+    | 'duration'
+    | 'generated_by'
     | 'id'
+    | 'missing'
     | 'name'
     | 'place'
-    | 'average_credits'
-    | 'generated_by'
-    | 'prerequisites'
-    | 'duration'
-    | 'missing';
+    | 'prerequisites';
 
 type sort = Exclude<cols, 'missing' | 'prerequisites'>;
 
 type Component = RedesignComponent<
     'window',
     'einsaetze',
-    EinsaetzeWindow,
     {
         moment: typeof moment;
         cols: cols[];
@@ -277,7 +265,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'einsaetze',
+    name: 'lssmv4-redesign-einsaetze',
     components: {
         EnhancedTable: () =>
             import(
@@ -329,9 +317,9 @@ export default Vue.extend<
                 .filter(d => d?.generate_own_missions);
         },
         prerequisites() {
-            const calcs = (this.lightbox.$sm(
+            const calcs = this.lightbox.$sm(
                 'prerequisite_calculations'
-            ) as unknown) as Record<string, Record<number, number | string>>;
+            ) as unknown as Record<string, Record<number, number | string>>;
             const dispatches: Record<string, Record<string, number>> = {
                 '0': {},
                 ...Object.fromEntries(
@@ -390,7 +378,7 @@ export default Vue.extend<
         missions() {
             return (this.$store.state.api.missions as Mission[]).map(
                 mission => {
-                    const prerequisites = (Object.fromEntries(
+                    const prerequisites = Object.fromEntries(
                         Object.entries(mission.prerequisites ?? {}).filter(
                             ([req, amount]) =>
                                 typeof amount === 'number' &&
@@ -399,40 +387,43 @@ export default Vue.extend<
                                     'main_building_extensions',
                                 ].includes(req)
                         )
-                    ) as unknown) as Record<string, number>;
+                    ) as unknown as Record<string, number>;
                     return {
                         ...mission,
                         prerequisites,
                         main_building_extensions:
                             mission.prerequisites.main_building_extensions,
                         main_building: mission.prerequisites.main_building,
-                        unfullfilled_prerequisites: ([
-                            ...Object.entries(prerequisites),
-                            ...(mission.prerequisites.main_building_extensions
-                                ? [
-                                      [
-                                          Object.values(
-                                              mission.prerequisites
-                                                  .main_building_extensions ??
-                                                  {}
-                                          )
-                                              .map(
-                                                  extension =>
-                                                      `${mission.prerequisites.main_building}.${extension}`
+                        unfullfilled_prerequisites: (
+                            [
+                                ...Object.entries(prerequisites),
+                                ...(mission.prerequisites
+                                    .main_building_extensions
+                                    ? [
+                                          [
+                                              Object.values(
+                                                  mission.prerequisites
+                                                      .main_building_extensions ??
+                                                      {}
                                               )
-                                              .join(','),
-                                          1,
-                                      ],
-                                  ]
-                                : []),
-                        ] as [string, number][])
+                                                  .map(
+                                                      extension =>
+                                                          `${mission.prerequisites.main_building}.${extension}`
+                                                  )
+                                                  .join(','),
+                                              1,
+                                          ],
+                                      ]
+                                    : []),
+                            ] as [string, number][]
+                        )
                             .map<
                                 [
                                     string,
-                                    Record<'have' | 'need' | 'diff', number>
+                                    Record<'diff' | 'have' | 'need', number>
                                 ]
                             >(([req, amount]) => {
-                                const have = req.match(/\d+\.\d+/)
+                                const have = req.match(/\d+\.\d+/u)
                                     ? this.buildings[
                                           mission.prerequisites.main_building
                                       ]?.find(
@@ -461,7 +452,7 @@ export default Vue.extend<
                                         : 0
                                     : this.prerequisites[
                                           this.selectedDispatchCenter
-                                      ][req.replace(/^max_/, '')] ?? 0;
+                                      ][req.replace(/^max_/u, '')] ?? 0;
                                 return [
                                     req,
                                     {

@@ -1,15 +1,15 @@
-import { Command } from './Command';
-import { DOM } from './DOM';
-import { Escape } from './Escape';
-import { Options } from './Options';
-import { SCEditor } from './SCEditor';
-import { Utils } from './Utils';
+import type { Command } from './Command';
+import type { DOM } from './DOM';
+import type { Escape } from './Escape';
+import type { Options } from './Options';
+import type { SCEditor } from './SCEditor';
+import type { Utils } from './Utils';
 
 export interface sceditor {
     command: {
-        get: (name: string) => unknown;
-        set: (name: string, cmd: unknown) => unknown;
-        remove: (name: string) => unknown;
+        get(name: string): unknown;
+        set(name: string, cmd: unknown): unknown;
+        remove(name: string): unknown;
     };
     commands: Record<string, Command>;
     defaultOptions: Options;

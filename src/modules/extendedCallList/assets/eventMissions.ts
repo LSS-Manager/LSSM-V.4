@@ -1,10 +1,10 @@
-import { MissionMarkerAdd } from 'typings/Ingame';
+import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export default (
     LSSM: Vue,
-    events: { text: string; missions: number[] }[]
+    events: { text: string; missions: string[] }[]
 ): void => {
-    const eventsById: Record<number, string[]> = {};
+    const eventsById: Record<string, string[]> = {};
     events.forEach(({ text, missions }) =>
         missions.forEach(mission => {
             if (!eventsById.hasOwnProperty(mission)) eventsById[mission] = [];
@@ -17,10 +17,17 @@ export default (
     );
 
     const checkEvent = (panel: HTMLDivElement): void => {
-        const mission = parseInt(panel.getAttribute('mission_type_id') ?? '-1');
+        let mission = panel.getAttribute('mission_type_id') ?? '-1';
         const title = panel.querySelector<HTMLAnchorElement>(
             '.map_position_mover[id^="mission_caption_"]'
         );
+        const overlayIndex = panel.getAttribute('data-overlay-index') ?? 'null';
+        if (overlayIndex && overlayIndex !== 'null')
+            mission += `-${overlayIndex}`;
+        const additionalOverlay =
+            panel.getAttribute('data-additive-overlays') ?? 'null';
+        if (additionalOverlay && additionalOverlay !== 'null')
+            mission += `/${additionalOverlay}`;
         if (
             !eventsById.hasOwnProperty(mission) ||
             !title ||
@@ -28,10 +35,18 @@ export default (
         )
             return;
         const wrapper = document.createElement('span');
-        wrapper.innerText = `[${eventsById[mission].join(' ')}]`;
+        wrapper.textContent = `[${eventsById[mission].join(' ')}]`;
         wrapper.classList.add(wrapperClass);
         wrapper.style.setProperty('margin-right', '0.5rem');
         title.before(wrapper);
+
+        const searchAttr = panel.getAttribute('search_attribute') ?? '';
+        if (!searchAttr.includes(wrapper.textContent)) {
+            panel.setAttribute(
+                'search_attribute',
+                `${searchAttr} ${wrapper.textContent}`
+            );
+        }
     };
 
     document

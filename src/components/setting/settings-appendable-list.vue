@@ -1,9 +1,9 @@
 <template>
     <div :class="{ disabled: !enabled }">
-        <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        <div class="row" style="margin-left: 0; margin-right: 0">
             <div class="col col-xs-11 row">
                 <div
-                    class="col"
+                    class="col appendable-list-row"
                     v-for="(item, index) in setting.listItem"
                     :key="index"
                     :class="`col-xs-${layout[index]}`"
@@ -25,7 +25,7 @@
         >
             <div class="col col-xs-11 row">
                 <div
-                    class="col"
+                    class="col appendable-list-row"
                     v-for="(item, list_index) in setting.listItem"
                     :key="list_index"
                     :class="`col-xs-${layout[list_index]}`"
@@ -40,7 +40,7 @@
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                         :disabled="false"
                     ></settings-text>
                     <settings-textarea
@@ -48,21 +48,21 @@
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                         :disabled="false"
                     ></settings-textarea>
                     <settings-toggle
                         v-else-if="item.setting.type === 'toggle'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                         :pull-right="false"
                     ></settings-toggle>
                     <settings-color
                         v-else-if="item.setting.type === 'color'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-color>
                     <settings-number
                         v-else-if="item.setting.type === 'number'"
@@ -72,35 +72,52 @@
                         :min="item.setting.min"
                         :max="item.setting.max"
                         :step="item.setting.step"
-                        @input="changeValue(index, value)"
+                        :float="item.setting.float"
+                        @input="changeValue(index, value, item)"
                     ></settings-number>
                     <settings-select
                         v-else-if="item.setting.type === 'select'"
                         :name="setting.name"
                         v-model="value[item.name]"
-                        :options="getOptions(item.setting)"
+                        :options="getOptions(item, value[item.name])"
                         :placeholder="item.title"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-select>
                     <settings-multi-select
                         v-else-if="item.setting.type === 'multiSelect'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        :options="getOptions(item.setting)"
+                        :options="
+                            getMultiselectOptions(item, value[item.name], index)
+                        "
                         :placeholder="item.title"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-multi-select>
                     <settings-hotkey
                         v-else-if="item.setting.type === 'hotkey'"
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-hotkey>
+                    <settings-location
+                        v-else-if="item.setting.type === 'location'"
+                        :name="item.name"
+                        :placeholder="item.title"
+                        :zoom="item.setting.zoom"
+                        v-model="value[item.name]"
+                        @input="changeValue(index, value, item)"
+                    ></settings-location>
                     <div
                         v-else-if="item.setting.type === 'hidden'"
                         class="hidden"
                     ></div>
+                    <component
+                        v-else-if="item.setting.type === 'custom'"
+                        :is="item.setting.component"
+                        v-model="value[item.name]"
+                        @update="changeValue(index, value, item)"
+                    ></component>
                     <pre v-else>{{ setting }}</pre>
                 </div>
             </div>
@@ -149,7 +166,8 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 
-import {
+import type { AppendableListSetting } from 'typings/Setting';
+import type {
     AppendableList,
     AppendableListComputed,
     AppendableListMethods,
@@ -195,6 +213,10 @@ export default Vue.extend<
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './hotkey.vue'
+            ),
+        SettingsLocation: () =>
+            import(
+                /* webpackChunkName: "components/setting/location" */ './location.vue'
             ),
     },
     data() {
@@ -251,6 +273,11 @@ export default Vue.extend<
                 .filter(v => !!v)
                 .map(v => ({ ...this.setting.defaultItem, ...v }));
         },
+        uniqueColumns() {
+            return this.setting.listItem
+                .filter(item => item.hasOwnProperty('setting') && item.unique)
+                .map(item => (item as AppendableListSetting).name);
+        },
     },
     methods: {
         addItem() {
@@ -269,7 +296,36 @@ export default Vue.extend<
                 updated.filter(v => !!v)
             );
         },
-        changeValue(index, value) {
+        changeValue(index, value, { name: column, title }) {
+            if (
+                this.uniqueColumns.includes(column) &&
+                this.value.map(item => item[column]).includes(value[column])
+            ) {
+                this.$modal.show('dialog', {
+                    title: this.$t(
+                        'modules.settings.appendableList.unique.title'
+                    ),
+                    text: this.$t(
+                        'modules.settings.appendableList.unique.text',
+                        {
+                            value: value[column],
+                            title,
+                        }
+                    ),
+                    buttons: [
+                        {
+                            title: this.$t(
+                                'modules.settings.appendableList.unique.confirm'
+                            ),
+                            default: true,
+                            handler: () => {
+                                this.$modal.hide('dialog');
+                            },
+                        },
+                    ],
+                });
+                return this.$set(value, column, this.value[index][column]);
+            }
             const updated = cloneDeep(this.updateValues);
             updated[index] = value;
             this.$emit(
@@ -277,11 +333,36 @@ export default Vue.extend<
                 updated.filter(v => !!v)
             );
         },
-        getOptions(setting) {
-            return setting.values.map((v, vi) => ({
+        getOptions({ setting, unique, name }, currentValue) {
+            const options = setting.values.map((v, vi) => ({
                 label: setting.labels?.[vi] ?? v,
                 value: v,
             }));
+            if (unique) {
+                const usedValues = this.updateValues.map(item => item[name]);
+                return options.filter(
+                    ({ value }) =>
+                        !usedValues.includes(value) || value === currentValue
+                );
+            }
+            return options;
+        },
+        getMultiselectOptions({ setting, unique, name }, currentValue, index) {
+            const options = setting.values.map((v, vi) => ({
+                label: setting.labels?.[vi] ?? v,
+                value: v,
+            }));
+            if (unique) {
+                const usedValues = this.updateValues.flatMap((item, rowIndex) =>
+                    index === rowIndex ? [] : item[name]
+                );
+                return options.filter(
+                    ({ value }) =>
+                        !usedValues.includes(value) ||
+                        currentValue.includes(value)
+                );
+            }
+            return options;
         },
         moveUp(index) {
             const updated = cloneDeep(this.updateValues);
@@ -320,6 +401,9 @@ export default Vue.extend<
                             'modules.settings.resetWarningSetting.close'
                         ),
                         default: true,
+                        handler: () => {
+                            this.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: this.$t(
@@ -348,4 +432,7 @@ export default Vue.extend<
     pointer-events: none
     cursor: not-allowed
     opacity: 0.5
+
+.appendable-list-row
+    word-break: break-word
 </style>

@@ -8,11 +8,12 @@ export default (LSSM: Vue): void => {
         let title =
             window.location.pathname === '/'
                 ? ''
-                : heading?.textContent
-                      ?.trim()
-                      .replace(/\n/g, ' ')
-                      .replace(/ {2,}/g, ' ') ||
-                  window.location.pathname.replace(/^\/|\/$/g, '');
+                : Array.from(heading?.childNodes ?? [])
+                      ?.find(node => node.nodeType === Node.TEXT_NODE)
+                      ?.textContent?.trim()
+                      .replace(/\n/gu, ' ')
+                      .replace(/ {2,}/gu, ' ') ||
+                  window.location.pathname.replace(/^\/|\/[ADJUgimux]*$/gu, '');
         const navbarBrand = document.querySelector('.navbar-brand');
         if (navbarBrand && navbarBrand?.textContent?.trim())
             title = `${navbarBrand?.textContent.trim()}: ${title}`;

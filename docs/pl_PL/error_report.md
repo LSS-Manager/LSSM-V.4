@@ -1,33 +1,33 @@
 ---
-title: Report Bugs
+title: Zgłaszanie błędów
 lang: pl_PL
 sidebarDepth: 2
 ---
 
-# Report bugs
+# Zgłaszanie błędów
 
 ## Guidelines
-Here is a small tutorial about how to optimally report a bug.
+Oto mały samouczek o tym, jak optymalnie zgłosić błąd.
 
-Before reporting a bug, check the wiki to see if it is an intended feature, or an already reported bug.
+Zanim zgłosisz błąd, sprawdź wiki, czy jest to zamierzona funkcja lub już zgłoszony błąd.
 
-::: tip
-When reporting a bug, describe it in as much detail as possible. The more detailed the report, the faster we can help you.
+:::tip Porada
+Zgłaszając błąd, opisz go tak szczegółowo, jak to możliwe. Im bardziej szczegółowy raport otrzymamy, tym szybciej ci pomożemy.
 :::
-::: warning
+:::warning Uwaga!
 Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
 :::
 
-### 1. Describe Bug
-* Describe the bug. 
-* Provide any and all information that could be important. 
-* Explain what you were doing when the error occurred.
+### 1. Opis błędu
+* Opisz błąd. 
+* Podaj wszelkie informacje, które mogą być ważne. 
+* Wyjaśnij, co robiłeś, gdy wystąpił błąd.
 
-### 2. Specify user data
-Please provide your;
-* username or User ID.
-* List of activated modules
-* LSSM Version: Found via clicking on `LSSM V.4` in the top right corner of the game main page, in the first line.
+### 2. Podaj dane użytkownika
+Proszę podać swoje;
+* Nazwa użytkownika lub identyfikator użytkownika.
+* Lista aktywowanych modułów
+* Wersja LSSM: Możesz ją znaleźć po kliknięciu `LSSM V.4` w prawym górnym rogu gry, w pierwszym wierszu.
 
-### 3. Report problem
-Now you can send us your bug report. To do this, open an issue on <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if an issue for this bug already exists and then follow it up.
+### 3. Zgłaszanie problemu
+Teraz możesz wysłać nam swój raport o błędzie. Aby to zrobić, otwórz zgłoszenie na  <a :href="$theme.variables.github + '/issues'" target="_blank">GitHubie</a>. Sprawdź, czy istnieje już zgłoszenie dotyczące tego problemu. Jeżeli tak to postępuj zgodnie z instrukcją w jego opisie.

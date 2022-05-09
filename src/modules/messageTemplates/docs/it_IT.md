@@ -4,13 +4,13 @@ Poiché ciò è spesso fastidioso, con questo modulo **Modello News**, che prima
 
 Nelle impostazioni è possibile inserire diversi template:
 
-![Impostazioni](settings.png)
+![Impostazioni](./settings.png)
 
 ## Variabili
 
 ### Nome utente
 
-Puoi usare il segnaposto <code><span>{{</span>username<span>}}</span></code> che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
+Puoi usare il segnaposto <variable variable="username"/> che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
 
 :::tip Perché succede solo ai nuovi messaggi?
 È molto semplice: al momento non abbiamo purtroppo la possibilità di individuare chiaramente il destinatario durante le conversazioni esistenti!
@@ -18,21 +18,21 @@ Puoi usare il segnaposto <code><span>{{</span>username<span>}}</span></code> che
 
 ### Data
 
-Con <code><span>{{</span>today<span>}}</span></code> puoi inserire semplicemente la data di oggi.
+Con <variable variable="today"/> puoi inserire semplicemente la data di oggi.
 
-Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <code><span>{{</span>today+14<span>}}</span></code>, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. <code><span>{{</span>today-436<span>}}</span></code>, da inserire oggi 436 giorni fa.
+Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <variable variable="today+14"/>, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. <variable variable="today-436"/>, da inserire oggi 436 giorni fa.
 
 
 ## Esempi
 
 Per esempio, in caso di nuove notizie le cose stanno così:
 
-![Avvia conversazione](new_message.png)
+![Avvia conversazione](./new_message.png)
 
 dopo l'inserimento del primo template:
 
-![Aggiunta del template](entered.png)
+![Aggiunta del template](./entered.png)
 
 E quindi, nelle conversazioni esistenti:
 
-![Conversazione esistente](existing_messages.png)
+![Conversazione esistente](./existing_messages.png)

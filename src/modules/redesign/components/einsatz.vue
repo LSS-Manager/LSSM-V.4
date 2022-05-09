@@ -5,14 +5,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { EinsatzWindow } from '../parsers/einsatz';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
 type Component = RedesignComponent<
     'mission',
     'einsatz',
-    EinsatzWindow,
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     { type: number; missionId: number }
@@ -24,7 +22,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'einsatz',
+    name: 'lssmv4-redesign-einsatz',
     components: {
         EinsatzComponent: () =>
             import(
@@ -35,7 +33,7 @@ export default Vue.extend<
         type() {
             return parseInt(
                 new URL(this.url, window.location.origin).pathname.match(
-                    /\d+\/?$/
+                    /\d+\/?$/u
                 )?.[0] ?? '-1'
             );
         },

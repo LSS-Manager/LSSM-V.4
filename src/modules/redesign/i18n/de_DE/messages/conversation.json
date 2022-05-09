@@ -1,0 +1,10 @@
+{
+    "back": "Zurück zum Posteingang",
+    "delete": "Konversation löschen",
+    "load": {
+        "next": "Ältere Nachrichten laden",
+        "prev": "Neuere Nachrichten laden"
+    },
+    "subtitle": "Eine Konversation mit",
+    "subtitleAlliance": "Eine Nachricht vom Verband"
+}

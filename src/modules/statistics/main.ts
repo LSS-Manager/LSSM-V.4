@@ -4,16 +4,16 @@ import moment from 'moment';
 
 import config from '../../config';
 
-import { AllianceInfo } from 'typings/api/AllianceInfo';
-import { Building } from 'typings/Building';
-import { CreditsInfo } from 'typings/api/Credits';
-import { ModuleMainFunction } from 'typings/Module';
+import type { AllianceInfo } from 'typings/api/AllianceInfo';
+import type { Building } from 'typings/Building';
+import type { CreditsInfo } from 'typings/api/Credits';
+import type { ModuleMainFunction } from 'typings/Module';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     if (
         !window.location.pathname.match(
             new RegExp(`/profile/${window.user_id}/?`)
@@ -28,7 +28,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     const btnIcon = document.createElement('i');
     btnIcon.classList.add('fas', 'fa-chart-line');
-    generationBtn.appendChild(btnIcon);
+    generationBtn.append(btnIcon);
 
     const header = document.querySelector<HTMLHeadingElement>('h1');
     if (!header) return;
@@ -66,7 +66,7 @@ export default (async (LSSM, MODULE_ID) => {
 
         const allianceName = alliance?.innerText;
         const allianceInfo: AllianceInfo = LSSM.$store.state.api.allianceinfo;
-        const allianceRoles = {} as { [role: string]: number };
+        const allianceRoles = {} as Record<string, number>;
         const allianceListPage = alliance
             ? Math.ceil(allianceInfo.rank / 20)
             : 0;
@@ -218,8 +218,9 @@ export default (async (LSSM, MODULE_ID) => {
                                           ],
                                           [
                                               'Verbands-ID',
-                                              alliance.href.match(/\d+/)?.[0] ??
-                                                  '',
+                                              alliance.href.match(
+                                                  /\d+/u
+                                              )?.[0] ?? '',
                                           ],
                                           [
                                               'Verdiente Credits',

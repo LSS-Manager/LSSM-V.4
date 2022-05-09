@@ -1,0 +1,125 @@
+{
+    "approach": "Wyślij",
+    "backalarm": "Anuluj",
+    "backalarmNext": "Wyślij bezpośrednio na te misję",
+    "cells": {
+        "cell": "Budynki",
+        "free": "Wolne jednostki"
+    },
+    "color": "Dostosuj kolor",
+    "current_mission": "Aktualna misja",
+    "delete": {
+        "button": "Usuń",
+        "cancel": "Anuluj",
+        "confirm": "Usuń",
+        "text": "Czy na pewno chcesz usunąć **{caption}** z budynku **{building}**?",
+        "title": "Usuń pojazd"
+    },
+    "distance": "Dystans",
+    "edit": "Edytuj",
+    "false": "Nie",
+    "filter": {
+        "cells": {
+            "distance": "Maksymalna odległość:",
+            "each": "Pokaż x budynków każdego",
+            "free": "Minimalna ilość wolnych celi",
+            "tax": "Maksymalny podatek"
+        },
+        "hospitals": {
+            "beds": "Minimalna ilość wolnych łóżek",
+            "department": {
+                "title": "Department: {department}"
+            },
+            "distance": "Maksymalna odległość",
+            "each": "Pokaż x budynków",
+            "tax": "Maksymalny podatek"
+        },
+        "missions": {
+            "credits": "Minimalne kredyty",
+            "distance": "Maksymalna odległość",
+            "participation": {
+                "title": "Pojazdy na miejscu"
+            },
+            "progress": "Maks. postęp %",
+            "status": {
+                "blue": "[1]Dostępne",
+                "green": "[2]Dostępne na posterunku",
+                "red": "[4]Na miejscu",
+                "title": "Status",
+                "yellow": "[3]Reagowanie"
+            }
+        },
+        "wlf": {
+            "distance": "Maksymalna odległość",
+            "same": "Te same budynki"
+        }
+    },
+    "fms": "Stan",
+    "fms_switch": {
+        "is_s2": "Niedostępny",
+        "is_s6": "Dostępny"
+    },
+    "foam_amount": "Ilość piany",
+    "followup_missions": "Misja następująca | Misje uzupełniające",
+    "hospitals": {
+        "beds": "Wolne łóżka",
+        "department": "Department: {department}",
+        "hospital": "Szpital"
+    },
+    "load_all_hospitals": {
+        "btn": "Załaduj wszystkie!",
+        "text": "Liczba wyświetlonych szpitali jest ograniczona. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
+    },
+    "max_staff": "Personel",
+    "mileage": "Przebieg",
+    "missions": {
+        "alarm": "Alarm",
+        "alarmed": "Obecna misja",
+        "credits": "Kredyty",
+        "mission": "Misja",
+        "participation": "Udział",
+        "patients": "Pacjenci",
+        "progress": "Postęp"
+    },
+    "move": "Przenieś",
+    "owner": "Właściciel",
+    "owner_pic_state": {
+        "offline": "{user} jest offline!",
+        "online": "{user} jest online!"
+    },
+    "release": {
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "disable": "Potwierdź i przejdź do kolejnego",
+        "patient": {
+            "text": "Czy na pewno chcesz anulować transport pacjenta?",
+            "title": "Anuluj transport"
+        },
+        "prisoner": {
+            "text": "Czy naprawdę chcesz uwolnić **wszystkich** więźniów tej misji?",
+            "title": "Zwolnij więźniów"
+        }
+    },
+    "release_patient": "Anuluj transport",
+    "release_prisoner": "Zwolnij więźniów",
+    "staff": {
+        "name": "Nazwa",
+        "schooling": "Szkolenie",
+        "title": "Załoga"
+    },
+    "station": "Budynek",
+    "stats": "Statystyki",
+    "tabs": {
+        "all": "Wszystkie {type}: {amount}",
+        "alliance": "Sojusznicze {type}: {amount}",
+        "cells": "cele",
+        "hospitals": "szpitale",
+        "missions": "misje",
+        "own": "Twoje {type}: {amount}"
+    },
+    "tax": "Podatek",
+    "true": "Tak",
+    "vehicletype": "Typ pojazdu",
+    "water_amount": "Ilość wody",
+    "zuweisung": "Przydział personelu"
+}

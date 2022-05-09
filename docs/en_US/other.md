@@ -17,12 +17,12 @@ LSS Manager is licensed under [Creative Commons Attribution-NonCommercial-ShareA
 We have decided to use this license to prevent misuse of our code to violate the Terms and Conditions of the game.
 
 ## The LSSM Team
-Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are also administratively active!
+Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are of course also administratively active! We also got a lot of volunteer translators helping us translate LSSM.
 
 ### The developers
-* Aisaka *[CEO, Server Administrator & Senior Developer]*
-* Jan *[Senior Architect & Developer]*
-* Sanni *[Quality Checker, Bugfixer & Junior Developer]*
+* Aisaka *[CEO, Serveradministrator, Senior Developer]*
+* Jan *[Senior Architect and Developer]*
+* Sanni *[Quality Check, Bugfixing, Junior Developer]*
 * Ron31 *[Bugfixer, Junior Developer]*
 
 ### The Discord-Team
@@ -39,10 +39,14 @@ Currently, LSS Manager consists of 4 developers and 6 additional supporters for 
 * 🇳🇱
     * MPR
 
-# Acknowledgements
+### volunteer translators <3
+A lot of thanks go to our volunteer translators who help us with the porting into other language versions. Of course, as a small development team, we don't speak all languages, so we only provide the German and English texts.
+
+To give some credit to the translators we have created a list here:
+<translators/>
 
 ## Open Source Libraries
-LSSM uses public libraries from third parties 
+LSSM uses public libraries from third parties
 
 A list of which libraries we use can be found directly in the game in the LSSM menu and is kept up to date.
 
@@ -59,10 +63,18 @@ Our Beta Testers program is limited, and we will not add users between applicati
 :::
 
 ### To all who report bugs & make suggestions
-Imagine how long a fault in LSSM would exist for if no one reported it - we would certainly not find it so quickly. 
+Imagine how long a fault in LSSM would exist for if no one reported it - we would certainly not find it so quickly.
 Thank you also for suggestions that keep coming in. The development of LSSM is strongly influenced by the participation and wishes of its users.
 
 ### To every single user
 Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
+
+## Stats
+
+Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+
+### Files & Lines of code
+
+<stats-cloc/>
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en

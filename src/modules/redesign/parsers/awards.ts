@@ -1,4 +1,4 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface Award {
     caption: string;
@@ -38,14 +38,13 @@ export default <RedesignParser<AwardsWindow>>(({ doc }) => ({
                             )
                     )
                     ?.textContent?.trim() ?? '',
-            finished: !!award.querySelector<HTMLDivElement>(
-                '.label-award-gold'
-            ),
+            finished:
+                !!award.querySelector<HTMLDivElement>('.label-award-gold'),
             progress:
                 award
                     .querySelector<HTMLDivElement>('.progress')
                     ?.nextSibling?.textContent?.trim()
-                    .match(/\d+/g)
+                    .match(/\d+/gu)
                     ?.map(n => parseInt(n)) ?? null,
         })
     ),

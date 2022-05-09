@@ -1,16 +1,87 @@
 {
-	"description": "Contrôler avec des raccourcis clavier, que vous faites vous-même.",
-	"name": "Raccourcis",
-	"settings": {
-		"nextElementKey": {
-			"title": "\"Element\" suivant"
-		},
-		"prevElementKey": {
-			"title": "\"Element\" précédent"
-		},
-		"prevNextElement": {
-			"description": "Une description cool ?",
-			"title": "prevNextElement"
-		}
-	}
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "ouvrir les candidatures",
+                "buildings": "ouvrir la vue d'ensemble des bâtiments de l'alliance",
+                "forum": "ouvrir le mur",
+                "funds": "ouvrir la banque de l'alliance",
+                "logfiles": "ouvrir journal de modération",
+                "members": "ouvrir la liste des membres",
+                "messages": "ouvrir les messages",
+                "onlineMembers": "ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)",
+                "open": "ouvrir une fenêtre d'alliance",
+                "schoolings": "ouvrir la fenêtre de formation",
+                "title": "Alliance"
+            },
+            "credits": {
+                "daily": "ouvrir le résumé quotidien",
+                "open": "ouvrir les log",
+                "overview": "ouvrir l'aperçu des 7 derniers jours",
+                "title": "Crédits"
+            },
+            "help": "ouvrir cette aide",
+            "profile": {
+                "awards": "ouvrir la liste des récompenses",
+                "level": "ouvrir la liste des niveaux",
+                "notes": "ouvrir les notes",
+                "open": "ouvrir le profil personnel",
+                "title": "profil"
+            },
+            "protocol": "ouvrir le journal des gestion des appelles",
+            "tasks": {
+                "open": "ouvrir la liste des Tâches et événements",
+                "title": "Tâches et événements"
+            },
+            "title": "Général"
+        },
+        "main": {
+            "chat": {
+                "focus": "focus sur le champ de saisie",
+                "title": "Chat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Menu",
+                    "toggle": "Ouvrir / Fermer"
+                },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "focus sur le champ de saisie",
+                    "title": "Recherche de lieu"
+                },
+                "title": "Map"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "focus sur le champ de saisie",
+                    "title": "Recherche"
+                },
+                "title": "Liste des missions"
+            },
+            "title": "Fenêtre principale"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Déployer et aller à la mission suivante",
+                "alert_share_next": "Déployer, partager et aller à la mission suivante",
+                "next": "prochaine mission",
+                "prev": "mission précédente",
+                "title": "Missions triées"
+            },
+            "title": "Fenêtre des missions"
+        }
+    },
+    "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",
+    "name": "Touches de raccourci",
+    "settings": {
+        "command": "Action",
+        "hotkey": "Touches de raccourci",
+        "hotkeys": {
+            "description": "Définissez ici vos propres touches de raccourci pour certaines actions. Les actions de la catégorie \"Général\" sont disponibles partout dans le jeu. En appuyant sur F1, vous pouvez afficher un aperçu des raccourcis que vous avez activés à tout moment.",
+            "title": "Touches de raccourci"
+        }
+    }
 }

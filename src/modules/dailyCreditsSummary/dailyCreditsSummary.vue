@@ -18,18 +18,30 @@
             </h4>
             <div
                 :class="{ 'col-lg-6': !hidden, 'col-lg-12': hidden }"
-                class="badges"
+                class="badges-charts"
             >
-                <dsc-badge
-                    v-for="type in sorted"
-                    :key="type.desc"
-                    :backgroundColor="type.backgroundColor"
-                    :textColor="type.textColor"
-                    :amount="type.amount"
-                    :total="type.total"
-                    :desc="type.desc"
-                    :show-average="showAverage"
-                ></dsc-badge>
+                <div class="badges">
+                    <dsc-badge
+                        v-for="type in sorted"
+                        :key="type.desc"
+                        :backgroundColor="type.backgroundColor"
+                        :textColor="type.textColor"
+                        :amount="type.amount"
+                        :total="type.total"
+                        :desc="type.desc"
+                        :show-average="showAverage"
+                    ></dsc-badge>
+                </div>
+                <div v-if="!hidden">
+                    <div class="col-lg-6">
+                        <highcharts :options="incomeChartOptions"></highcharts>
+                    </div>
+                    <div class="col-lg-6">
+                        <highcharts
+                            :options="expensesChartOptions"
+                        ></highcharts>
+                    </div>
+                </div>
             </div>
             <div v-if="!hidden" class="col-lg-6">
                 <enhanced-table
@@ -54,31 +66,66 @@
                     :search="search"
                     @search="s => (search = s)"
                 >
+                    <template v-slot:head>
+                        <div class="btn-group pull-right">
+                            <button
+                                class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                {{ $m('export.export') }}&nbsp;<span
+                                    class="caret"
+                                ></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a
+                                        download="credits.json"
+                                        :href="`data:application/json;charset=utf-8,${encodeURIComponent(
+                                            JSON.stringify(creditsTypeSum)
+                                        )}`"
+                                    >
+                                        {{ $m('export.json.raw') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        download="credits.json"
+                                        :href="`data:application/json;charset=utf-8,${encodeURIComponent(
+                                            JSON.stringify(
+                                                creditsTypeSum,
+                                                null,
+                                                4
+                                            )
+                                        )}`"
+                                    >
+                                        {{ $m('export.json.prettified') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </template>
                     <tr v-for="type in sorted" :key="type.desc">
                         <td>{{ type.desc }}</td>
                         <td
-                            :class="
-                                `text-${
-                                    type.total > 0
-                                        ? 'success'
-                                        : type.total < 0
-                                        ? 'danger'
-                                        : ''
-                                }`
-                            "
+                            :class="`text-${
+                                type.total > 0
+                                    ? 'success'
+                                    : type.total < 0
+                                    ? 'danger'
+                                    : ''
+                            }`"
                         >
                             {{ type.total.toLocaleString() }}
                         </td>
                         <td
-                            :class="
-                                `text-${
-                                    type.total > 0
-                                        ? 'success'
-                                        : type.total < 0
-                                        ? 'danger'
-                                        : ''
-                                }`
-                            "
+                            :class="`text-${
+                                type.total > 0
+                                    ? 'success'
+                                    : type.total < 0
+                                    ? 'danger'
+                                    : ''
+                            }`"
                         >
                             {{
                                 Math.round(
@@ -97,8 +144,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
-import {
+import { Chart } from 'highcharts-vue';
+
+import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
+import type {
     Category,
     DailyCreditsSummary,
     DailyCreditsSummaryComputed,
@@ -112,7 +161,7 @@ export default Vue.extend<
     DailyCreditsSummaryComputed,
     DailyCreditsSummaryProps
 >({
-    name: 'dailyCreditsSummary',
+    name: 'lssmv4-dcs',
     components: {
         EnhancedTable: () =>
             import(
@@ -122,6 +171,7 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "modules/dailyCreditsSummary/components/dsc-badge" */ './components/dscBadge.vue'
             ),
+        Highcharts: Chart,
     },
     data() {
         return {
@@ -130,6 +180,29 @@ export default Vue.extend<
             sortDir: 'asc',
             search: '',
             showAverage: true,
+            basicChartOptions: {
+                chart: {
+                    type: 'pie',
+                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                    margin: 0,
+                    spacing: [5, 10, 0, 10],
+                    height: '100%',
+                    borderRadius: '4px',
+                },
+                tooltip: {
+                    pointFormat:
+                        '{series.name}: <b>{point.value}</b> ({point.percentage:.1f}%)',
+                },
+                plotOptions: {
+                    pie: {
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
+                        },
+                    },
+                },
+            },
         } as DailyCreditsSummary;
     },
     props: {
@@ -161,16 +234,16 @@ export default Vue.extend<
             );
         },
         creditsTypeSum() {
-            const result: {
-                [key: string]: Category;
-            } = Object.fromEntries(
+            const result: Record<string, Category> = Object.fromEntries(
                 Object.entries(this.creditsTypes as CreditsTypes).map(
                     ([key, { regex, title, backgroundColor, textColor }]) => [
                         key,
                         {
                             desc:
                                 title ??
-                                regex?.toString().replace(/^\/|\/$/g, '') ??
+                                regex
+                                    ?.toString()
+                                    .replace(/^\/|\/[ADJUgimux]*$/gu, '') ??
                                 '',
                             total: 0,
                             amount: 0,
@@ -188,6 +261,62 @@ export default Vue.extend<
                 });
             });
             return Object.values(result).filter(({ amount }) => amount > 0);
+        },
+        incomeChartOptions() {
+            return {
+                ...this.basicChartOptions,
+                title: {
+                    text: this.$m('charts.income').toString(),
+                    align: 'left',
+                },
+                series: [
+                    {
+                        name: this.$m('charts.income').toString(),
+                        data: this.creditsTypeSum
+                            .filter(({ total }) => total > 0)
+                            .map(
+                                ({
+                                    desc: name,
+                                    total: y,
+                                    backgroundColor,
+                                }) => ({
+                                    name,
+                                    y,
+                                    value: y.toLocaleString(),
+                                    color: backgroundColor,
+                                })
+                            ),
+                    },
+                ],
+            };
+        },
+        expensesChartOptions() {
+            return {
+                ...this.basicChartOptions,
+                title: {
+                    text: this.$m('charts.expenses').toString(),
+                    align: 'left',
+                },
+                series: [
+                    {
+                        name: this.$m('charts.expenses').toString(),
+                        data: this.creditsTypeSum
+                            .filter(({ total }) => total < 0)
+                            .map(
+                                ({
+                                    desc: name,
+                                    total: y,
+                                    backgroundColor,
+                                }) => ({
+                                    name,
+                                    y: -y,
+                                    value: y.toLocaleString(),
+                                    color: backgroundColor,
+                                })
+                            ),
+                    },
+                ],
+            };
         },
     },
     methods: {
@@ -225,7 +354,13 @@ export default Vue.extend<
             margin-left: -15px
             width: 100%
 
-        .badges
+        .badges-charts
             display: flex
-            flex-wrap: wrap
+            flex-flow: column
+            height: calc(100% - 30px)
+
+            .badges
+                display: flex
+                flex-flow: row
+                flex-wrap: wrap
 </style>

@@ -70,12 +70,12 @@ import { faSort } from '@fortawesome/free-solid-svg-icons/faSort';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
 import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 
-import { DefaultComputed } from 'vue/types/options';
-import {
+import type { DefaultComputed } from 'vue/types/options';
+import type {
     EnhancedTableData,
     EnhancedTableMethods,
     EnhancedTableProps,
-} from '../../typings/components/Enhanced-Table';
+} from 'typings/components/Enhanced-Table';
 
 export default Vue.extend<
     EnhancedTableData,

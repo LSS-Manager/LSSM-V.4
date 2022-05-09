@@ -1,39 +1,39 @@
 {
-	"enhancedPersonnelAssignment": {
-		"toggleFittingPersonnel": "Verberg personeel zonder juiste opleiding"
-	},
-	"expansions": {
-		"notBuild": "Nog niet gebouwd"
-	},
-	"fastDispatchChooser": {
-		"noDispatch": "Geen meldkamer"
-	},
-	"personnelDemands": {
-		"additional": "Waarden tussen haakjes zijn zonder de voertuigen met status 6.",
-		"demand": "Benodigd personeel"
-	},
-	"schoolingSummary": {
-		"all": "Alle combinaties",
-		"amount": "Aantal",
-		"bound": "Toegewezen",
-		"each": "Per opleiding",
-		"max": "momenteel maximaal nodig",
-		"min": "momenteel minimaal nodig",
-		"noSchooling": "Geen opleiding",
-		"schooling": "Opleiding",
-		"title": "Personeelsoverzicht"
-	},
-	"upgradeConfirmation": {
-		"modal": {
-			"btnCancel": "Annuleer",
-			"btnConfirm": "Bevestig",
-			"text": "Wil je dit gebouw echt upgraden?",
-			"title": "Upgrade Gebouw?"
-		}
-	},
-	"vehiclePersonnel": {
-		"vehiclesPersonnelAssigned": "toegewezen",
-		"vehiclesPersonnelCurrent": "huidig",
-		"vehiclesPersonnelMax": "max"
-	}
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Verberg personeel zonder juiste opleiding"
+    },
+    "expansions": {
+        "notBuild": "Nog niet gebouwd"
+    },
+    "fastDispatchChooser": {
+        "noDispatch": "Geen meldkamer"
+    },
+    "personnelDemands": {
+        "additional": "Waarden tussen haakjes zijn zonder de voertuigen met status 6.",
+        "demand": "Benodigd personeel"
+    },
+    "schoolingSummary": {
+        "all": "Alle combinaties",
+        "amount": "Aantal",
+        "bound": "Toegewezen",
+        "each": "Per opleiding",
+        "max": "momenteel maximaal nodig",
+        "min": "momenteel minimaal nodig",
+        "noSchooling": "Geen opleiding",
+        "schooling": "Opleiding",
+        "title": "Personeelsoverzicht"
+    },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Annuleer",
+            "btnConfirm": "Bevestig",
+            "text": "Wil je dit gebouw echt upgraden?",
+            "title": "Upgrade Gebouw?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "toegewezen",
+        "vehiclesPersonnelCurrent": "huidig",
+        "vehiclesPersonnelMax": "max"
+    }
 }

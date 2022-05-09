@@ -1,8 +1,8 @@
 import preview from './components/preview.vue';
 
-import { InternalBuilding } from 'typings/Building';
-import { ModuleSettingFunction } from 'typings/Module';
-import {
+import type { InternalBuilding } from 'typings/Building';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Hidden,
@@ -14,7 +14,7 @@ import {
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const defaultFilters = Object.values(
-        ($m('default') as unknown) as Record<
+        $m('default') as unknown as Record<
             number,
             {
                 ids: Record<number, number>;
@@ -30,14 +30,14 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const buildingCaptions = [] as string[];
     const buildingIds = [] as string[];
     Object.entries(
-        LSSM.$t('buildings') as { [id: number]: InternalBuilding }
+        LSSM.$t('buildings') as unknown as Record<number, InternalBuilding>
     ).forEach(([id, { caption }]) => {
         buildingCaptions.push(caption);
         buildingIds.push(id);
     });
 
     return {
-        filters: <Omit<AppendableList, 'value' | 'isDisabled'>>{
+        filters: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultFilters,
             listItem: [

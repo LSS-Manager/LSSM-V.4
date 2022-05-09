@@ -1,16 +1,87 @@
 {
-	"description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",
-	"name": "Hotkeys",
-	"settings": {
-		"nextElementKey": {
-			"title": "Nächstes \"Element\""
-		},
-		"prevElementKey": {
-			"title": "Vorheriges \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Think of a cool description here",
-			"title": "prevNextElement"
-		}
-	}
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "Bewerbungen öffnen",
+                "buildings": "Verbandsgebäudeübersicht öffnen",
+                "forum": "Forum öffnen",
+                "funds": "Seite der Verbandskasse öffnen",
+                "logfiles": "Verbandsprotokoll öffnen",
+                "members": "Mitgliederliste öffnen",
+                "messages": "Nachrichten öffnen",
+                "onlineMembers": "Mitgliederliste öffnen (nur online Spieler anzeigen)",
+                "open": "Startseite öffnen",
+                "schoolings": "Lehrgangsübersicht öffnen",
+                "title": "Verband"
+            },
+            "credits": {
+                "daily": "Tageszusammenfassung öffnen",
+                "open": "Log öffnen",
+                "overview": "Übersicht der letzten Tage öffnen",
+                "title": "Credits"
+            },
+            "help": "Diese Hilfe öffnen",
+            "profile": {
+                "awards": "Eigene Auszeichnungen öffnen",
+                "level": "Level-Seite öffnen",
+                "notes": "Notizen öffnen",
+                "open": "Eigenes Profil öffnen",
+                "title": "Profil"
+            },
+            "protocol": "Leitstellen-Protokoll öffnen",
+            "tasks": {
+                "open": "Aufgabenliste öffnen",
+                "title": "Aufgaben und Events"
+            },
+            "title": "Allgemein"
+        },
+        "main": {
+            "chat": {
+                "focus": "Eingabefeld fokussieren",
+                "title": "Chat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Menü",
+                    "toggle": "Öffnen / Schließen"
+                },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "Eingabefeld fokussieren",
+                    "title": "Ortssuche"
+                },
+                "title": "Karte"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "Eingabefeld fokussieren",
+                    "title": "Suche"
+                },
+                "title": "Einsatzliste"
+            },
+            "title": "Hauptfenster"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Alarmieren und weiter",
+                "alert_share_next": "Alarmieren, Teilen und weiter",
+                "next": "nächster Einsatz",
+                "prev": "vorheriger Einsatz",
+                "title": "Einsatzsortierung"
+            },
+            "title": "Einsatzfenster"
+        }
+    },
+    "description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",
+    "name": "Hotkeys",
+    "settings": {
+        "command": "Aktion",
+        "hotkey": "Hotkey",
+        "hotkeys": {
+            "description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest. Aktionen der Kategorie \"Allgemein\" funktionieren auf allen Seiten. Mittels F1 kannst du jederzeit eine Übersicht der von dir geöffneten Hotkeys einsehen.",
+            "title": "Hotkeys"
+        }
+    }
 }

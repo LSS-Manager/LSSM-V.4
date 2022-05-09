@@ -1,59 +1,62 @@
 ---
 title: LSS-Manager V.4
-lang: pl_PL
+lang: pl-PL
 sidebarDepth: 2
 ---
 
-# Wiki 🇵🇱 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+# Wiki 🇵🇱 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $theme.variables.versions.stable }}</i>
 > 
-> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+> beta: <i>{{ $theme.variables.versions.beta }}</i>
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
-
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
-## About LSSM
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
-LSS MANAGER V.4 is an extension for [Missionchief.com](https://www.missionchief.com) and its other language versions.
+## O nas (LSSM)
 
-With this extension, an appstore is added to the game, allowing the usage of modules. You can decide which modules to activate.
+LSS MANAGER V.4 to rozszerzenie dla [operatorratunkowy.pl](https://www.operatorratunkowy.pl) i jego innych wersji językowych.
 
-Deactivated plugins are not loaded into your browser, for better performance.
+Dzięki temu rozszerzeniu do gry zostaje dodany sklep z aplikacjami, umożliwiający korzystanie z modułów. Możesz zdecydować, które moduły chcesz aktywować.
+
+Dezaktywowane wtyczki nie są ładowane do przeglądarki, aby zapewnić lepszą wydajność.
 
 
-## Installation 📥
-[By using LSSM you agree that we collect metadata.](metadata.md)
+## Instalacja 📥
+[Korzystając z LSSM, zgadzasz się na zbieranie metadanych.](metadata.md)
 
-A table with which browsers LSSM is compatible can be found in our [FAQ](faq.md)
+Tabelę, z którymi przeglądarkami jest zgodny LSSM, można znaleźć na naszym [FAQ](faq.md)
 
-::: tip Using LSSM on mobile phones
-We do not support using LSSM on mobile. While Firefox on mobile allows add-ons, we do not guarantee functionality.
+::: tip Korzystanie z LSSM na telefonach komórkowych
+LSSM nie obsługuje urządzeń mobilnych. Chociaż Firefox na urządzeniach mobilnych zezwala na dodatki, nie gwarantujemy funkcjonalności.
 
-Official support of mobile browsers is currently **not** planned.
+Obecnie **nie** planujemy oficjalnego wsparcia przeglądarek mobilnych.
 :::
-
-### Step 1: Install Tampermonkey
-Install Tampermonkey extension into your browser.
+### Krok 1: Zainstaluj Tampermonkey
+Zainstaluj rozszerzenie Tampermonkey w swojej przeglądarce.
 
 <tampermonkey-download-table/>
 
-For other browsers you can download Tampermonkey on [tampermonkey.net](https://www.tampermonkey.net/).
+W przypadku innych przeglądarek możesz pobrać Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 
-::: warning
-Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
+::: warning Uwaga!
+Należy pamiętać, że oficjalnie nie wspieramy: 
+-starszych przeglądarkek;
+-przeglądarkek mobilnych;
+-Microsoft Edge;
+-Internet Explorer.
 :::
 
-### Step 2: Userscript
-If Tampermonkey was successfully installed in your browser, you can either click <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">here</a> or create a new userscript with the following content:
+### Krok 2: Skrypt użytkownika
+Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, możesz kliknąć <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">tutaj</a> lub utworzyć nowy skrypt użytkownika o następującej treści:
 
-<<< ./dist/static/lssm-v4.user.js
+@[code js](@userscript)
 
-### Step 3: Activate
-The LSSM indicator is a green highlighted text `LSSM V.4`, present in the upper right corner of Missionchief.
-If you cannot find this indicator, click on the tampermonkey icon in your browser and check if the switch for LSS-Manager script is set to `on`.
+### Krok 3: Aktywuj
+Wskaźnik LSSM to podświetlony na zielono tekst „LSSM V.4”, znajdujący się w prawym górnym rogu OperatoraRatunkowego.
+Jeśli nie możesz znaleźć tego wskaźnika, kliknij ikonę tampermonkey w przeglądarce i sprawdź, czy przełącznik skryptu LSS-Manager jest ustawiony na `on`.
 
-If you have any problems, feel free to contact [Support](support.md).
+Jeśli masz jakiekolwiek problemy, skontaktuj się z nami: [Support](support.md).

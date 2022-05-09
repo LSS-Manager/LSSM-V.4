@@ -1,6 +1,6 @@
-import { RootState } from '../../typings/store/RootState';
-import { ActionTree, Module } from 'vuex';
-import {
+import type { RootState } from 'typings/store/RootState';
+import type { ActionTree, Module } from 'vuex';
+import type {
     CreateEvent,
     EventActionStoreParams,
 } from 'typings/store/event/Actions';
@@ -10,9 +10,9 @@ export default {
     getters: {
         eventName: (_s, _g, rootState) => (name: string) =>
             `${rootState.prefix}-event-${name
-                .replace(/ /g, '_')
-                .replace(/["']/g, '')
-                .replace(/[^a-zA-Z0-9_\-.]/g, '-')}`,
+                .replace(/ /gu, '_')
+                .replace(/["']/gu, '')
+                .replace(/[^\w\-.]/gu, '-')}`,
     },
     actions: {
         createEvent(

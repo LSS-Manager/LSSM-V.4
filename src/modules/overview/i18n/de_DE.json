@@ -1,36 +1,41 @@
 {
-	"extensionTitle": "{caption} (bis zu {n} mal)",
-	"tabs": {
-		"buildings": "Gebäude",
-		"schoolings": "Lehrgänge",
-		"vehicles": "Fahrzeuge"
-	},
-	"titles": {
-		"buildings": {
-			"caption": "Gebäudetyp",
-			"cost": "Preis",
-			"extensions": "Ausbauten",
-			"levelcost": "Kosten der Ausbaustufen",
-			"maxBuildings": "Baugrenze",
-			"maxLevel": "maximale Ausbaustufe",
-			"special": "Besonderes",
-			"startPersonnel": "Start Personal",
-			"startVehicles": "Mögliche Startfahrzeuge"
-		},
-		"schoolings": {
-			"caption": "Lehrgangsname",
-			"duration": "Ausbildungsdauer",
-			"required_for": "Benötigt für"
-		},
-		"vehicles": {
-			"caption": "Fahrzeugtyp",
-			"cost": "Preis",
-			"maxPersonnel": "maximal Personal",
-			"minPersonnel": "mindest Personal",
-			"pumpcap": "Pumpleistung l/min",
-			"schooling": "Ausbildung",
-			"special": "Besonderes",
-			"wtank": "Wassertank"
-		}
-	}
+    "extensionTitle": "{caption} (bis zu {n} mal)",
+    "schoolings": {
+        "all": "alle",
+        "min": "mind. {n}x"
+    },
+    "tabs": {
+        "buildings": "Gebäude",
+        "schoolings": "Lehrgänge",
+        "vehicles": "Fahrzeuge"
+    },
+    "titles": {
+        "buildings": {
+            "caption": "Gebäudetyp",
+            "cost": "Preis",
+            "extensions": "Ausbauten",
+            "levelcost": "Kosten der Ausbaustufen",
+            "maxBuildings": "Baugrenze",
+            "maxLevel": "maximale Ausbaustufe",
+            "special": "Besonderes",
+            "startPersonnel": "Start Personal",
+            "startVehicles": "Mögliche Startfahrzeuge"
+        },
+        "schoolings": {
+            "caption": "Lehrgangsname",
+            "duration": "Ausbildungsdauer",
+            "required_for": "Benötigt für",
+            "staffList": "Ausbildung"
+        },
+        "vehicles": {
+            "caption": "Fahrzeugtyp",
+            "cost": "Preis",
+            "maxPersonnel": "maximal Personal",
+            "minPersonnel": "mindest Personal",
+            "pumpcap": "Pumpleistung l/min",
+            "schooling": "Ausbildung",
+            "special": "Besonderes",
+            "wtank": "Wassertank"
+        }
+    }
 }

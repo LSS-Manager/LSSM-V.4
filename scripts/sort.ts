@@ -10,10 +10,15 @@ fs.writeFileSync(
 
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
+    if (/node_modules/u.test(folder)) return [];
     fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
         if (item.isDirectory())
             jsons.push(...getJsons(`${folder}/${item.name}`));
-        else if (item.isFile() && item.name.endsWith('.json'))
+        else if (
+            item.isFile() &&
+            item.name.endsWith('.json') &&
+            item.name !== 'package.json'
+        )
             jsons.push(`${folder}/${item.name}`);
     });
     return jsons;
@@ -35,6 +40,7 @@ export default (): string => {
             'typings',
         ].forEach(folder =>
             getJsons(`./${folder}`).forEach(file => {
+                if (file === './src/utils/emojis.json') return;
                 currentFile = file;
                 const sortArray = false;
                 fs.writeFileSync(
@@ -45,7 +51,7 @@ export default (): string => {
                             sortArray
                         ),
                         null,
-                        '\t'
+                        4
                     )
                 );
                 output.push(file);

@@ -1,16 +1,87 @@
 {
-	"description": "Controle el juego con teclas de acceso rápido en el teclado, que puede configurar usted mismo.",
-	"name": "Teclas de acceso rápido",
-	"settings": {
-		"nextElementKey": {
-			"title": "Siguiente \"Elemento\""
-		},
-		"prevElementKey": {
-			"title": "Vista previa \"Elemento\""
-		},
-		"prevNextElement": {
-			"description": "Piense en una descripción interesante aquí",
-			"title": "Vista previa del próximo elemento"
-		}
-	}
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "Aplicaciones abiertas",
+                "buildings": "Abrir ventana de edificios construidos",
+                "forum": "Abrir ventana del foro",
+                "funds": "Abrir ventana de fondos de la alianza",
+                "logfiles": "Abrir archivos de registro",
+                "members": "Abrir lista de miembros",
+                "messages": "Abrir mensajes",
+                "onlineMembers": "Abrir lista de miembros On-Line",
+                "open": "Abrir ventana de alianza",
+                "schoolings": "Abrir venta de cursos",
+                "title": "Alianza"
+            },
+            "credits": {
+                "daily": "Abrir el resumen diario",
+                "open": "Abrir registro",
+                "overview": "Abrir registro de los últimos 7 días",
+                "title": "Créditos"
+            },
+            "help": "Abrir esta ayuda",
+            "profile": {
+                "awards": "Abrir lista de premios",
+                "level": "Abrir lista de niveles",
+                "notes": "Abrir notas",
+                "open": "Abrir mi propio perfil",
+                "title": "Perfil"
+            },
+            "protocol": "Abrir registros de la centralita",
+            "tasks": {
+                "open": "Abrir lista de tareas actuales",
+                "title": "Tareas y Eventos"
+            },
+            "title": "General"
+        },
+        "main": {
+            "chat": {
+                "focus": "Campo de entrada de enfoque",
+                "title": "Chat"
+            },
+            "lssm": {
+                "menu": {
+                    "title": "Menu",
+                    "toggle": "Abrir / Cerrar"
+                },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "Campo de entrada de enfoque",
+                    "title": "Búsqueda de ubicación"
+                },
+                "title": "Mapa"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "Campo de entrada de enfoque",
+                    "title": "Buscar"
+                },
+                "title": "Lista de misiones"
+            },
+            "title": "Ventana principal"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Alarma e ir a la siguiente misión",
+                "alert_share_next": "Alarma, compartir e ir a la siguiente misión",
+                "next": "Siguiente misión",
+                "prev": "Misión anterior",
+                "title": "Misiones ordenadas"
+            },
+            "title": "Ventana de misiones"
+        }
+    },
+    "description": "Controla el juego con teclas de acceso rápido en el teclado que puedes configurar tú mismo.",
+    "name": "Teclas de acceso directo",
+    "settings": {
+        "command": "Acción",
+        "hotkey": "Teclas de acceso directo",
+        "hotkeys": {
+            "description": "Configure sus propias teclas de acceso rápido para ciertas acciones aquí. Acciones de categoría \"General\" está disponible en todas las partes del juego. Al presionar F1, puede ver una descripción general de las teclas de acceso rápido que has abierto en cualquier momento.",
+            "title": "Teclas de acceso directo"
+        }
+    }
 }

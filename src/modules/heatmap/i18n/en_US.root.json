@@ -1,0 +1,16 @@
+{
+    "description": "Generate a heat map on the map that shows you the density of buildings or vehicles - fully customizable.",
+    "name": "Heatmap",
+    "positions": {
+        "bottom-left": "Bottom Left 🡧",
+        "bottom-right": "Bottom Right 🡦",
+        "top-left": "Top Left 🡤",
+        "top-right": "Top Right 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Select in which corner of the map the button for settings should appear",
+            "title": "Position of settings"
+        }
+    }
+}

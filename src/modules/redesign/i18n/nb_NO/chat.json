@@ -1,0 +1,8 @@
+{
+    "load": {
+        "next": "last inn 20 eldre meldinger",
+        "prev": "last inn 20 nyere meldinger"
+    },
+    "subtitle": "Viser {n} meldinger fra side {startPage} ({firstDate}) til side {endPage} ({lastDate}) fra totalt {totalPages} sider.",
+    "title": "Alliance Chat"
+}

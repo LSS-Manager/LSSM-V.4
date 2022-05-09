@@ -9,11 +9,11 @@ sidebarDepth: 2
 ## Guideline
 Eine kleine Hilfe, die beim Erstellen einer Supportanfrage helfen soll.
 
-::: tip Tipp
+:::tip
 Wenn du Hilfe benötigst, beschreibe dein Problem so genau wie möglich. Je besser und detaillierter du dein Problem beschreibst, desto schneller und besser können wir dir helfen.
 :::
-::: warning Hinweis
-Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
+:::warning
+Bitte beachte, dass wir ältere Browser, sowie mobile Browser, Safari und Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
 :::
 
 ### 1. Problem ausformulieren
@@ -29,9 +29,9 @@ Nun kannst du uns dein ausformuliertes Problem mit Nutzerdaten senden. Nutze hie
 Auf unserem <discord/> kann man sich im Channel <discord-channel channel="lssm-help"/> Support einholen.
 
 ## auf GitHub
-Gerne darf auch ein Issue auf <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a> eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Problem bereits existiert und diesem dann auch anschließen.
+Gerne darf auch ein Issue auf <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a> eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Problem bereits existiert und diesem dann auch anschließen.
 
 ## Geplant: Support direkt im Spiel
 Um dir noch schneller und einfacher Support geben zu können, möchten wir einen eigenen Support-Chat integrieren. Diesen kannst du dann über das LSSM-Menü im Spiel erreichen. Wir geben unser bestes, dir so gut und schnell wie möglich zu helfen, aber auch hier gilt: Je detaillierter du dein Problem von Anfang an beschreibst, desto besser können wir dir helfen!
 
-Sobald es soweit ist werden wir natürlich über die Releasenotes darüber informieren :wink:
+Sobald es so weit ist, werden wir natürlich über die Releasenotes darüber informieren :wink:

@@ -1,0 +1,33 @@
+{
+    "copy_url": "Kopier lenken til utklippstavlen: {url}",
+    "description": "En generell redesign – for tiden i en alfafase og fortsatt under utvikling.",
+    "name": "Redesign",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "En redesign av alliansesidene.",
+                "title": "Allianse"
+            },
+            "credits": {
+                "description": "Et redesign for kreditt- og myntoversiktene.",
+                "title": "Kreditt- og myntoversiktene."
+            },
+            "einsaetze": {
+                "description": "En redesign av listen over mulige oppdrag og \"Krav for dette oppdraget\"-siden.",
+                "title": "Mulige oppdrag"
+            },
+            "profile": {
+                "description": "En redesign av profilsidene.",
+                "title": "Profil"
+            },
+            "toplist": {
+                "description": "En redesign av topplisten.",
+                "title": "Toppliste"
+            },
+            "vehicles": {
+                "description": "En redesign av kjøretøysidene og alle tilhørende sider.",
+                "title": "Kjøretøy"
+            }
+        }
+    }
+}

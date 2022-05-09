@@ -1,0 +1,19 @@
+{
+    "affected": "Affecté",
+    "amount": "{n} entrée filtrée | {n} entrées filtrées",
+    "description": "description",
+    "executor": "déclenchement",
+    "filter": {
+        "all_types": "Afficher tous les types",
+        "no_types": "Ne pas afficher les types",
+        "type": "types d'entrées affichées"
+    },
+    "load": {
+        "next": "Page suivante",
+        "prev": "Page précédente"
+    },
+    "search_local": "Recherche dans les entrées chargées",
+    "subtitle": "Afficher {n} Entrées de la pages {startPage} ({firstDate}) à {endPage} ({lastDate}) au total {totalPages} pages",
+    "time": "temps",
+    "title": "Journal d'alliance"
+}

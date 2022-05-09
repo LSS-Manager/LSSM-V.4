@@ -1,9 +1,10 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Mission } from 'typings/Mission';
-import VueI18n from 'vue-i18n';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Mission } from 'typings/Mission';
+import type VueI18n from 'vue-i18n';
 
-export interface VehicleRequirements {
-    [vehicle: string]: {
+export type VehicleRequirements = Record<
+    string,
+    {
         amount: number;
         caption: string;
         old?: number;
@@ -12,8 +13,8 @@ export interface VehicleRequirements {
 
         // General
         [key: string]: number | string | undefined;
-    };
-}
+    }
+>;
 
 export interface MissionHelper {
     faSyncAlt: IconDefinition;
@@ -51,12 +52,8 @@ export interface MissionHelper {
             normal: boolean;
             100: boolean;
         };
-        multifunctionals: {
-            [setting: string]: boolean;
-        };
-        optionalAlternatives: {
-            [setting: string]: boolean;
-        };
+        multifunctionals: Record<string, boolean>;
+        optionalAlternatives: Record<string, boolean>;
         patients: {
             title: boolean;
             content: boolean;
@@ -104,24 +101,17 @@ export interface MissionHelperComputed {
     specialRequirements: { badge: string[]; nonbadge: string[] };
 }
 export interface MissionHelperMethods {
-    $m(
-        key: string,
-        args?: {
-            [key: string]: unknown;
-        }
-    ): VueI18n.TranslateResult;
+    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     $mc(
         key: string,
         amount: number,
-        args?: {
-            [key: string]: unknown;
-        }
+        args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
     reloadSpecs(force?: boolean): void;
-    getMission(id: number, force: boolean): Promise<Mission | undefined>;
+    getMission(id: string): Promise<Mission | undefined>;
     loadSetting(
         id: string,
-        base: { [key: string]: unknown },
+        base: Record<string, unknown>,
         base_string?: string
     ): void;
     toggleOverlay(): void;

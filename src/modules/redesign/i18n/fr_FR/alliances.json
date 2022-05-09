@@ -1,0 +1,16 @@
+{
+    "alliance": "Alliance",
+    "amount": "{n} alliance filtrée | {n} alliances filtrées",
+    "credits": "Crédits gagnés",
+    "load": {
+        "next": "Page suivante",
+        "prev": "Page précédente"
+    },
+    "members": "Nombre de membres",
+    "name": "Alliance",
+    "search_global": "Recherche globale",
+    "search_local": "Recherche d'alliances chargées",
+    "search_subtitle": "Afficher {n} la page des alliances de {startPage} à {endPage} au total {totalPages} pages",
+    "subtitle": "Afficher {n} la page des alliances de {startPage} ({firstCredits}) à {endPage} ({lastCredits}) au total {totalPages} pages",
+    "title": "Liste des alliances"
+}

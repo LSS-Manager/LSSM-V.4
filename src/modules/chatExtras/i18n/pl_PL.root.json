@@ -1,14 +1,18 @@
 {
-	"description": "Rozszerza czat o kilka fajnych funkcji",
-	"name": "Rozszerzony czat",
-	"settings": {
-		"chatTime": {
-			"description": "Dostosowuje sygnaturę czasową do ustawionego formatu!",
-			"title": "Własny format sygnatury czasowej"
-		},
-		"chatTimeFormat": {
-			"description": "Tutaj możesz wybrać żądany format. Możesz znaleźć pomoc <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">here</a>.",
-			"title": "Format daty i godziny"
-		}
-	}
+    "description": "Rozszerza czat o kilka fajnych funkcji",
+    "name": "Rozszerzony czat",
+    "settings": {
+        "chatTime": {
+            "description": "Dostosowuje sygnaturę czasową do ustawionego formatu!",
+            "title": "Własny format sygnatury czasowej"
+        },
+        "chatTimeFormat": {
+            "description": "Tutaj możesz wybrać żądany format. Pomoc znajdziesz <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">tutaj!</a>.",
+            "title": "Format daty i godziny"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Pokazuje przycisk historii czatu w nagłówku, dzięki czemu nie musisz przewijać czatu, aby uzyskać do niego dostęp.",
+            "title": "Pokaż historię czatu w nagłówku"
+        }
+    }
 }

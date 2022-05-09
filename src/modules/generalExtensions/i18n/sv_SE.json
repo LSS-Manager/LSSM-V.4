@@ -1,3 +1,16 @@
 {
-	"inputMaxLen": "Detta inmatningsfält måste innehålla mellan {min} och {max} tecken!"
+    "inputMaxLen": "Detta inmatningsfält måste innehålla mellan {min} och {max} tecken!",
+    "protocolDeletionConfirmation": {
+        "all": {
+            "text": "Vill du verkligen radera detta protkoll? Detta kan ej ångras!!!",
+            "title": "Radera protokoll"
+        },
+        "cancel": "Avbryt",
+        "confirm": "Proceed",
+        "single": {
+            "text": "Vill du verkligen radera denna post i protokollet? Detta kan ej ångras!!!",
+            "title": "Radera post"
+        },
+        "toggleSingle": "Begär bekräftelse att radera post i protokollet"
+    }
 }

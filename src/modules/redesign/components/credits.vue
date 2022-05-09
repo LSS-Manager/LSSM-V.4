@@ -76,12 +76,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { CoinsListWindow } from '../parsers/coins/list';
-import { CreditsDailyWindow } from '../parsers/credits/daily';
-import { CreditsListWindow } from '../parsers/credits/list';
-import { CreditsOverviewWindow } from '../parsers/credits/overview';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
 interface Link {
     href: string;
@@ -90,11 +86,7 @@ interface Link {
 
 type Component = RedesignComponent<
     'data',
-    'credits/list' | 'credits/daily' | 'credits/overview' | 'coins/list',
-    | CreditsListWindow
-    | CreditsDailyWindow
-    | CreditsOverviewWindow
-    | CoinsListWindow,
+    'coins/list' | 'credits/daily' | 'credits/list' | 'credits/overview',
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     {
@@ -109,7 +101,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'credits-lightbox',
+    name: 'lssmv4-redesign-credits-lightbox',
     components: {
         CreditsList: () =>
             import(
@@ -136,17 +128,18 @@ export default Vue.extend<
             return {
                 title: this.lightbox.$m('credits.nav.title').toString(),
                 links: Object.values(
-                    (this.lightbox.$m('credits.nav.links') as unknown) as {
-                        [index: number]: Link;
-                    }
+                    this.lightbox.$m('credits.nav.links') as unknown as Record<
+                        number,
+                        Link
+                    >
                 ).filter(
                     ({ href }) =>
                         new URL(
                             this.url,
                             window.location.origin
-                        ).pathname.replace(/\/$/g, '') !==
+                        ).pathname.replace(/\/$/gu, '') !==
                         new URL(href, window.location.origin).pathname.replace(
-                            /\/$/g,
+                            /\/$/gu,
                             ''
                         )
                 ),

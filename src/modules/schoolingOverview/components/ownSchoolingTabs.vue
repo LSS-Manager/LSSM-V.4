@@ -36,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     OwnSchoolingTabs,
     OwnSchoolingTabsComputed,
     OwnSchoolingTabsMethods,
@@ -49,7 +49,7 @@ export default Vue.extend<
     OwnSchoolingTabsComputed,
     OwnSchoolingTabsProps
 >({
-    name: 'ownSchoolingTabs',
+    name: 'lssmv4-so-ownSchoolingTabs',
     components: {
         EnhancedTable: () =>
             import(
@@ -57,11 +57,12 @@ export default Vue.extend<
             ),
     },
     data() {
-        const heads = {} as {
-            [key: string]: {
+        const heads = {} as Record<
+            string,
+            {
                 title: string;
-            };
-        };
+            }
+        >;
         ['name', 'end', 'owner'].forEach(
             head =>
                 (heads[head] = {
@@ -85,13 +86,14 @@ export default Vue.extend<
     computed: {
         schoolings() {
             const schoolings = this.tabs[this.currentTab] || [];
-            return (this.search
-                ? schoolings.filter(a =>
-                      JSON.stringify(Object.values(a))
-                          .toLowerCase()
-                          .match(this.search.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.search
+                    ? schoolings.filter(a =>
+                          JSON.stringify(Object.values(a))
+                              .toLowerCase()
+                              .match(this.search.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;

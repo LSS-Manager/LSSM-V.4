@@ -1,20 +1,20 @@
 ---
 title: LSS-Manager V.4
-lang: cs_CZ
+lang: cs-CZ
 sidebarDepth: 2
 ---
 
-# Wiki 🇨🇿 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+# Wiki 🇨🇿 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $theme.variables.versions.stable }}</i>
 > 
-> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+> beta: <i>{{ $theme.variables.versions.beta }}</i>
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
-
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+
+<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
 ## O LSSM
 
@@ -30,7 +30,7 @@ Pro lepší stabilitu hry nejsou načítány neaktivní moduly.
 
 Tabulku kompatibilních prohlížečů s LSSM naleznete v našich [FAQ](faq.md)
 
-::: tip LSSM na mobilních telefonech
+:::tip LSSM na mobilních telefonech
 Nezajišťujeme používání LSSM na mobilech. Pokud Firefox na mobilu povoluje doplňky, nemůžeme zaručit funkcionalitu.
 
 Oficiální podpora mobilních prohlížečů **není** plánována.
@@ -43,14 +43,14 @@ Nainstaluj doplněk Tampermonkey do tvého prohlížeče.
 
 Pro ostatní prohlížeče můžete stáhnout Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 
-::: warning
+:::warning
 Berte prosím na vědomí, že nepodporujeme: starší prohlížeče, mobilní prohlížeče, Microsoft Edge nebo Internet Explorer.
 :::
 
 ### Krok 2: Uživatelský script
-Pokud byl Tampermonkey úspěšně nainstalován do Vašeho prohlížeče, můžete kliknout <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">ZDE</a> nebo vytvořit nový uživatelský script s následujícím obsahem:
+Pokud byl Tampermonkey úspěšně nainstalován do Vašeho prohlížeče, můžete kliknout <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">ZDE</a> nebo vytvořit nový uživatelský script s následujícím obsahem:
 
-<<< ./dist/static/lssm-v4.user.js
+@[code js](@userscript)
 
 ### Krok 3: Aktivace
 Indikátorem LSSM je zeleně zvýrazněný text `LSSM V.4`, který se nachází v pravém horním rohu hry Operační středisko.

@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     MapComputed,
     MapData,
     MapMethods,
@@ -34,6 +34,11 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
             }).addTo(this.map);
             if (this.centerGroup)
                 this.map.fitBounds(this.centerGroup.getBounds());
+            window.dispatchEvent(
+                new CustomEvent('lssmv4-map-loaded', {
+                    detail: { id: this.mapId, map: this.map },
+                })
+            );
         },
         setView(lat, long, zoom = undefined) {
             this.map?.setView([lat, long], zoom ?? this.map?.getZoom() ?? 15);
@@ -57,12 +62,12 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
         startLat: {
             type: Number,
             required: false,
-            default: () => 48.78320089873878,
+            default: () => 48.783_200_898_738_78,
         },
         startLong: {
             type: Number,
             required: false,
-            default: () => 9.18036460876465,
+            default: () => 9.180_364_608_764_65,
         },
         startZoom: {
             type: Number,
@@ -81,6 +86,7 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
     },
     mounted() {
         this.redraw();
+        this.$emit('mounted', this.map);
     },
 });
 </script>
