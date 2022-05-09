@@ -18,4 +18,7 @@ export default (async ({ LSSM, getSetting }) => {
             ).then(({ default: cloner }) => cloner());
         }
     });
+    getSetting('cloneHistoryBtnToHeader').then(clone => {
+        import('./assets/lightDesignChatHistory')
+    });
 }) as ModuleMainFunction;
