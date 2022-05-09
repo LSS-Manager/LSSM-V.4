@@ -20,6 +20,22 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
         // do nothing. Appears when highcharts-translations do not exist
     }
 
+    const extraFileNames = ['buildings'];
+    const extraFiles: Record<string, unknown> = {};
+
+    for (const extraFile of extraFileNames) {
+        try {
+            extraFiles[extraFile] = (
+                await import(
+                    /* webpackChunkName: `i18n/[request]` */
+                    `./i18n/${locale}/${extraFile}.ts`
+                )
+            ).default;
+        } catch (e) {
+            // do nothing. Appears when highcharts-translations do not exist
+        }
+    }
+
     const i18n = new VueI18n({
         locale,
         messages: {
@@ -32,6 +48,7 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
                     )
                 ).default,
                 ...(highcharts ? { highcharts } : {}),
+                ...extraFiles,
             },
         },
     });

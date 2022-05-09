@@ -1,5 +1,3 @@
-import buildings from './cs_CZ/buildings';
-
 const modules = {
     appstore: {
         save: 'Uložit',
@@ -386,7 +384,6 @@ export default {
             maxPersonnel: 3,
         },
     },
-    buildings,
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 4, 11, 13, 17],

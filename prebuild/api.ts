@@ -9,6 +9,25 @@ const distPath = path.join(rootPath, 'dist');
 const apiPath = path.join(distPath, 'api');
 const i18nPath = path.join(rootPath, 'src', 'i18n');
 
+const getTSFile = async (
+    sourcePath: string,
+    outputPath = ''
+): Promise<Record<number | string, unknown>> => {
+    const targetPath = outputPath || sourcePath.replace(/\.ts$/u, '.js');
+    execSync(`tsc "${sourcePath}" --target esnext --moduleResolution node`);
+    fs.writeFileSync(
+        targetPath,
+        fs
+            .readFileSync(targetPath)
+            .toString()
+            .replace(/export default/u, 'module.exports = ')
+    );
+
+    const result = (await import(targetPath)).default;
+    fs.rmSync(targetPath);
+    return result;
+};
+
 export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
 
@@ -29,28 +48,18 @@ export default async (): Promise<void> => {
 
     for (const locale of locales) {
         const outputPath = path.join(apiPath, locale);
+        const localeDir = path.join(i18nPath, locale);
         const jsPath = path.join(i18nPath, `${locale}.js`);
         if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
-        execSync(
-            `tsc "${path.join(
-                i18nPath,
-                `${locale}.ts`
-            )}" --target esnext --moduleResolution node`
-        );
-        fs.writeFileSync(
-            jsPath,
-            fs
-                .readFileSync(jsPath)
-                .toString()
-                .replace(/export default/u, 'module.exports = ')
-        );
-        const t = (await import(jsPath)).default;
-        types.forEach(type => {
+
+        const t = await getTSFile(path.join(i18nPath, `${locale}.ts`), jsPath);
+        for (const type of types) {
+            const typePath = path.join(localeDir, `${type}.ts`);
+            if (fs.existsSync(typePath)) t[type] = await getTSFile(typePath);
             fs.writeFileSync(
                 path.join(outputPath, `${type}.json`),
                 JSON.stringify(t[type] ?? {})
             );
-        });
-        fs.rmSync(jsPath);
+        }
     }
 };

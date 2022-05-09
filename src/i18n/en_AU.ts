@@ -1,5 +1,3 @@
-import buildings from './en_AU/buildings';
-
 const modules = {
     appstore: {
         save: 'Save',
@@ -642,7 +640,6 @@ If several requests fail in a short time, this could be due to server problems. 
             },
         },
     },
-    buildings,
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 1, 18, 23],

@@ -1,5 +1,3 @@
-import buildings from './de_DE/buildings';
-
 const modules = {
     appstore: {
         save: 'Speichern',
@@ -1635,7 +1633,6 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
             possibleBuildings: [6, 19],
         },
     },
-    buildings,
     buildingCategories: {
         Feuerwehr: {
             buildings: [0, 1, 18],

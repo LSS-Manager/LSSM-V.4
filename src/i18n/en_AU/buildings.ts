@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { InternalBuilding } from '../../../typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 

@@ -6,22 +6,24 @@ import getLibraries from './getLibraries';
 import setVersion from './setVersion';
 import updateBrowserVersions from './updateBrowserVersions';
 
+const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
+    console.time(`\t${name}`);
+    console.info(await fn());
+    console.timeEnd(`\t${name}`);
+};
+
 (async () => {
+    console.time('prebuild');
     console.log('Running LSSM-Prebuild-Scripts...');
 
-    console.info('\tsetVersion');
-    console.info(setVersion());
-    console.info('\tupdate latest browser versions');
-    updateBrowserVersions();
-    console.info('\tbuildUserscript');
-    await buildUserscript();
-    console.info('\temptyDir');
-    emptyFolder('./dist');
-    console.info('\tcopyStatic');
-    copyStatic();
-    console.info('\tbuild API');
-    await buildAPI();
-    console.log('\tCollect Third-Party Libraries');
-    getLibraries();
+    await timeWrap('setVersion', setVersion);
+    await timeWrap('update latest browser versions', updateBrowserVersions);
+    await timeWrap('buildUserscript', buildUserscript);
+    await timeWrap('emptyDir', () => emptyFolder('./dist'));
+    await timeWrap('copyStatic', copyStatic);
+    await timeWrap('build API', buildAPI);
+    await timeWrap('Collect Third-Party Libraries', getLibraries);
+
+    console.timeEnd('prebuild');
     console.log('Prebuild ran successfully, building...');
 })();
