@@ -1,3 +1,4 @@
+
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, getSetting }) => {
@@ -18,7 +19,19 @@ export default (async ({ LSSM, getSetting }) => {
             ).then(({ default: cloner }) => cloner());
         }
     });
-    getSetting('cloneHistoryBtnToHeader').then(clone => {
-        import('./assets/lightDesignChatHistory')
+    getSetting('cloneHistoryBtnToHeader').then(lightChatDesignActive  => {
+      if(lightChatDesignActive){
+        import('./assets/lightDesignChatHistory').then(({default: addLightChatDesign}) => {
+          if(location.pathname.includes('alliance_chats')) {
+            addLightChatDesign(false);
+          }
+          LSSM.$store.dispatch('event/addListener', {
+            name: 'redesign-finished-loading',
+            listener(e: CustomEvent) {
+              if(e.detail.type == 'chat') addLightChatDesign(location.pathname === '/');
+            }
+          });
+        })
+      }
     });
 }) as ModuleMainFunction;
