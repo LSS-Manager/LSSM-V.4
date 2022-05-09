@@ -15,4 +15,8 @@ export default (() => ({
         type: 'toggle',
         default: false,
     },
+    lightDesignChatHistory: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
 })) as ModuleSettingFunction;
