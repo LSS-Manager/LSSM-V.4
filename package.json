@@ -1,5 +1,5 @@
 {
-    "version": "4.5.9+20220507.1807",
+    "version": "4.5.9+20220509.0903",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -67,7 +67,7 @@
         "all-contributors-cli": "^6.20.0",
         "copy-dir": "^1.3.0",
         "css-loader": "^6.7.1",
-        "eslint": "^8.14.0",
+        "eslint": "^8.15.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-formatter-table": "^7.32.1",
         "eslint-import-resolver-typescript": "^2.7.1",

@@ -1,0 +1,44 @@
+{
+    "description": "Migliora la mappa con delle caratteristiche tutte nuove.",
+    "name": "Mappa migliorata",
+    "positions": {
+        "bottomleft": "In basso a sinistra 🡧",
+        "bottomright": "In basso a destra 🡦",
+        "topleft": "In alto a sinistra 🡤",
+        "topright": "In alto a destra 🡥"
+    },
+    "settings": {
+        "buildingComplexes": {
+            "buildings": "Edifici Collegati",
+            "description": "Una modifica puramente grafica, permette di unire molteplici edifici nella mappa in uno solo.",
+            "name": "Nome",
+            "position": "Posizione",
+            "title": "Complessi edilizi"
+        },
+        "centerMap": {
+            "description": "Centra la mappa in maniera dinamica o statica quando il gioco viene aperto.",
+            "title": "Centra la mappa"
+        },
+        "centerMapStaticLocation": {
+            "title": "Centra la mappa: Posizione Statica"
+        },
+        "centerMapType": {
+            "description": "Scegli se vuoi un centraggio statico o dinamico [il centraggio dinamico non è disponibile per ora]",
+            "dynamic": "Dinamico",
+            "static": "Statico",
+            "title": "Centra la mappa: Modalità"
+        },
+        "mapScale": {
+            "description": "Mostra la scala della mappa e quanto quest'ultima sia zoommata",
+            "title": "Scala"
+        },
+        "mapScalePosition": {
+            "description": "Seleziona l'angolo della mappa dove far comparire la scala",
+            "title": "Posizione della scala"
+        },
+        "markerNewWindow": {
+            "description": "Permette di aprire le missioni e gli edifici in una nuova scheda, tramite Ctrl + click o più semplicemente tramite un semplice click della rotellina.",
+            "title": "Apri edifici e missioni in una nuova scheda"
+        }
+    }
+}
