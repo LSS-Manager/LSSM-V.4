@@ -10,7 +10,7 @@ export default (redesignActive: boolean, modalName: string) => {
     });
     document.querySelectorAll<HTMLParagraphElement>(`${startPhrase}di.chat-element-container p`).forEach((el: HTMLParagraphElement) => {
         if(!el.classList.contains('label')) {
-            el.parentElement.querySelector('span').append(': ' + el.textContent);
+            el.parentElement.querySelector('span')?.append(': ' + el.textContent);
             el.classList.remove('chat-element-container');
             el.remove();
         };
