@@ -14,7 +14,7 @@ import type { Building, InternalBuilding } from 'typings/Building';
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
 
-    const buildingTypes = LSSM.$t('buildings') as unknown as Record<
+    const buildingTypes = LSSM.$store.getters.$tBuildings as Record<
         number,
         InternalBuilding
     >;

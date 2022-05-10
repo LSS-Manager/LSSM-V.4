@@ -202,7 +202,7 @@ export default Vue.extend<
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as unknown as Record<
+                    this.$store.getters.$tBuildings as Record<
                         number,
                         InternalBuilding
                     >

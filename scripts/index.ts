@@ -15,9 +15,9 @@ const build = (mode: string) => {
 const scriptHandlers = {
     sort,
     tsc() {
-        console.time('tsc');
+        console.time('tsc -b');
         console.log(execSync('tsc -b').toString());
-        console.timeEnd('tsc');
+        console.timeEnd('tsc -b');
     },
     emojis() {
         fetchEmojis();
