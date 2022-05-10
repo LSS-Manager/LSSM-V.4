@@ -1,6 +1,6 @@
 export default {
     mission: { regex: /Rozpoczęto dużą misję/u },
-    event: { regex: /Rozpoczęło się wydarzenie Sojuszu/u },
+    event: { regex: /Rozpoczęło się wydarzenie sojuszu/u },
     appl_accepted: { regex: /Dodano do sojuszu/u },
     appl_declined: { regex: /Odrzucono wniosek/u },
     deny_appl: { regex: /Nie można zgłaszać się do sojuszu/u },

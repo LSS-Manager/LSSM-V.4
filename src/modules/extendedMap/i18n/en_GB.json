@@ -23,7 +23,16 @@
                 },
                 "title": "attached buildings"
             },
-            "title": "Overview"
+            "classrooms": {
+                "title": "Classrooms"
+            },
+            "extensions": {
+                "title": "Extensions"
+            },
+            "title": "Overview",
+            "vehicles": {
+                "title": "Vehicles"
+            }
         },
         "settings": {
             "abort": "Abort",

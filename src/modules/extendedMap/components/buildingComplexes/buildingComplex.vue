@@ -16,222 +16,264 @@
         </h1>
         <tabs :onSelect="selectTab">
             <tab :title="$m('overview.title')">
-                <!-- List of attached buildings -->
-                <h2>
-                    {{ $m('overview.buildings.title') }}:
-                    {{ complex.buildings.length.toLocaleString() }}
-                </h2>
-                <enhanced-table
-                    :table-attrs="{ class: 'table table-striped' }"
-                    :head="{
-                        icon: {
-                            title: '',
-                            noSort: true,
-                            attrs: { style: 'width: 0' },
-                        },
-                        type: {
-                            title: '',
-                            noSort: true,
-                            attrs: { style: 'width: 0' },
-                        },
-                        name: {
-                            title: $m('overview.buildings.table.head.name'),
-                            noSort: true,
-                        },
-                        level: {
-                            title: $m('overview.buildings.table.head.level'),
-                            noSort: true,
-                        },
-                        ...(hasVehicleBuildings
-                            ? {
-                                  vehicles: {
-                                      title: $m(
-                                          'overview.buildings.table.head.vehicles'
-                                      ),
-                                      noSort: true,
-                                  },
-                              }
-                            : {}),
-                        ...(hasBedBuildings
-                            ? {
-                                  beds: {
-                                      title: $m(
-                                          'overview.buildings.table.head.beds'
-                                      ),
-                                      noSort: true,
-                                  },
-                              }
-                            : {}),
-                        ...(hasClassroomBuildings
-                            ? {
-                                  classrooms: {
-                                      title: $m(
-                                          'overview.buildings.table.head.classrooms'
-                                      ),
-                                      noSort: true,
-                                  },
-                              }
-                            : {}),
-                        ...(hasCellBuildings
-                            ? {
-                                  cells: {
-                                      title: $m(
-                                          'overview.buildings.table.head.cells'
-                                      ),
-                                      noSort: true,
-                                  },
-                              }
-                            : {}),
-                        ...(hasStaffBuildings
-                            ? {
-                                  staff: {
-                                      title: $m(
-                                          'overview.buildings.table.head.staff'
-                                      ),
-                                      noSort: true,
-                                  },
-                                  hiring: {
-                                      title: $m(
-                                          'overview.buildings.table.head.hiring'
-                                      ),
-                                      noSort: true,
-                                  },
-                              }
-                            : {}),
-                    }"
-                    :search="search"
-                    @search="s => (search = s)"
-                >
-                    <tr
-                        v-for="building in filteredBuildings"
-                        :key="building.id"
-                    >
-                        <td>
-                            <img
-                                :src="getBuildingIcon(building)"
-                                alt="building icon"
-                            />
-                        </td>
-                        <td class="table-cell-right">
-                            <a class="btn btn-default btn-xs disabled">
-                                {{
-                                    buildingTypes[building.building_type]
-                                        .caption
-                                }}
-                            </a>
-                        </td>
-                        <td>
-                            <a
-                                :href="`/buildings/${building.id}`"
-                                class="lightbox-open"
+                <tabs>
+                    <!-- List of attached buildings -->
+                    <tab :title="$m('overview.buildings.title')">
+                        <h2>
+                            {{ $m('overview.buildings.title') }}:
+                            {{ complex.buildings.length.toLocaleString() }}
+                        </h2>
+                        <enhanced-table
+                            :table-attrs="{ class: 'table table-striped' }"
+                            :head="{
+                                icon: {
+                                    title: '',
+                                    noSort: true,
+                                    attrs: { style: 'width: 0' },
+                                },
+                                type: {
+                                    title: '',
+                                    noSort: true,
+                                    attrs: { style: 'width: 0' },
+                                },
+                                name: {
+                                    title: $m(
+                                        'overview.buildings.table.head.name'
+                                    ),
+                                    noSort: true,
+                                },
+                                level: {
+                                    title: $m(
+                                        'overview.buildings.table.head.level'
+                                    ),
+                                    noSort: true,
+                                },
+                                ...(hasVehicleBuildings
+                                    ? {
+                                          vehicles: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.vehicles'
+                                              ),
+                                              noSort: true,
+                                          },
+                                      }
+                                    : {}),
+                                ...(hasBedBuildings
+                                    ? {
+                                          beds: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.beds'
+                                              ),
+                                              noSort: true,
+                                          },
+                                      }
+                                    : {}),
+                                ...(hasClassroomBuildings
+                                    ? {
+                                          classrooms: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.classrooms'
+                                              ),
+                                              noSort: true,
+                                          },
+                                      }
+                                    : {}),
+                                ...(hasCellBuildings
+                                    ? {
+                                          cells: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.cells'
+                                              ),
+                                              noSort: true,
+                                          },
+                                      }
+                                    : {}),
+                                ...(hasStaffBuildings
+                                    ? {
+                                          staff: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.staff'
+                                              ),
+                                              noSort: true,
+                                          },
+                                          hiring: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.hiring'
+                                              ),
+                                              noSort: true,
+                                          },
+                                      }
+                                    : {}),
+                            }"
+                            :search="search"
+                            @search="s => (search = s)"
+                        >
+                            <tr
+                                v-for="building in filteredBuildings"
+                                :key="building.id"
                             >
-                                {{ building.caption }}
-                            </a>
-                        </td>
-                        <td>
-                            {{ building.level }}
-                        </td>
-                        <td v-if="hasVehicleBuildings">
-                            {{ vehiclesByBuilding[building.id].length }} /
-                            {{ building.level + 1 }}
-                        </td>
-                        <td v-if="hasBedBuildings">
-                            <template
-                                v-if="
-                                    bedBuildingTypes.includes(
-                                        building.building_type
-                                    )
-                                "
-                            >
-                                {{ building.level + 10 }}
-                            </template>
-                        </td>
-                        <td v-if="hasClassroomBuildings">
-                            <template
-                                v-if="
-                                    classroomBuildingTypes.includes(
-                                        building.building_type
-                                    )
-                                "
-                            >
-                                {{ building.extensions.length + 1 }}
-                                <template
-                                    v-if="
-                                        building.extensions.some(
-                                            ({ available }) => !available
-                                        )
-                                    "
-                                >
-                                    ({{
-                                        $mc(
-                                            'overview.buildings.inConstruction',
-                                            building.extensions.filter(
-                                                ({ available }) => !available
-                                            ).length
-                                        )
-                                    }})
+                                <td>
+                                    <img
+                                        :src="getBuildingIcon(building)"
+                                        alt="building icon"
+                                    />
+                                </td>
+                                <td class="table-cell-right">
+                                    <a class="btn btn-default btn-xs disabled">
+                                        {{
+                                            buildingTypes[
+                                                building.building_type
+                                            ].caption
+                                        }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a
+                                        :href="`/buildings/${building.id}`"
+                                        class="lightbox-open"
+                                    >
+                                        {{ building.caption }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ building.level }}
+                                </td>
+                                <td v-if="hasVehicleBuildings">
+                                    {{ vehiclesByBuilding[building.id].length }}
+                                    /
+                                    {{ building.level + 1 }}
+                                </td>
+                                <td v-if="hasBedBuildings">
+                                    <template
+                                        v-if="
+                                            bedBuildingTypes.includes(
+                                                building.building_type
+                                            )
+                                        "
+                                    >
+                                        {{ building.level + 10 }}
+                                    </template>
+                                </td>
+                                <td v-if="hasClassroomBuildings">
+                                    <template
+                                        v-if="
+                                            classroomBuildingTypes.includes(
+                                                building.building_type
+                                            )
+                                        "
+                                    >
+                                        {{ building.extensions.length + 1 }}
+                                        <template
+                                            v-if="
+                                                building.extensions.some(
+                                                    ({ available }) =>
+                                                        !available
+                                                )
+                                            "
+                                        >
+                                            ({{
+                                                $mc(
+                                                    'overview.buildings.inConstruction',
+                                                    building.extensions.filter(
+                                                        ({ available }) =>
+                                                            !available
+                                                    ).length
+                                                )
+                                            }})
+                                        </template>
+                                    </template>
+                                </td>
+                                <td v-if="hasCellBuildings">
+                                    <template>
+                                        {{
+                                            getCellsForBuilding(building)
+                                                .length || ''
+                                        }}
+                                        <template
+                                            v-if="
+                                                getCellsForBuilding(
+                                                    building
+                                                ).some(
+                                                    ({ available }) =>
+                                                        !available
+                                                )
+                                            "
+                                        >
+                                            ({{
+                                                $mc(
+                                                    'overview.buildings.inConstruction',
+                                                    getCellsForBuilding(
+                                                        building
+                                                    ).filter(
+                                                        ({ available }) =>
+                                                            !available
+                                                    ).length
+                                                )
+                                            }})
+                                        </template>
+                                    </template>
+                                </td>
+                                <template v-if="hasStaffBuildings">
+                                    <td>
+                                        {{ building.personal_count }}
+                                        <template
+                                            v-if="
+                                                building.personal_count_target
+                                            "
+                                        >
+                                            ({{
+                                                building.personal_count_target
+                                            }})
+                                        </template>
+                                    </td>
+                                    <td>
+                                        <template
+                                            v-if="building.hiring_automatic"
+                                        >
+                                            {{
+                                                $m(
+                                                    'overview.buildings.hiring.automatic'
+                                                )
+                                            }}
+                                        </template>
+                                        <template
+                                            v-else-if="building.hiring_phase"
+                                        >
+                                            {{
+                                                $mc(
+                                                    'overview.buildings.hiring.phase',
+                                                    building.hiring_phase
+                                                )
+                                            }}
+                                        </template>
+                                        <template v-else>
+                                            {{
+                                                $m(
+                                                    'overview.buildings.hiring.no'
+                                                )
+                                            }}
+                                        </template>
+                                    </td>
                                 </template>
-                            </template>
-                        </td>
-                        <td v-if="hasCellBuildings">
-                            <template>
-                                {{ getCellsForBuilding(building).length || '' }}
-                                <template
-                                    v-if="
-                                        getCellsForBuilding(building).some(
-                                            ({ available }) => !available
-                                        )
-                                    "
-                                >
-                                    ({{
-                                        $mc(
-                                            'overview.buildings.inConstruction',
-                                            getCellsForBuilding(
-                                                building
-                                            ).filter(
-                                                ({ available }) => !available
-                                            ).length
-                                        )
-                                    }})
-                                </template>
-                            </template>
-                        </td>
-                        <template v-if="hasStaffBuildings">
-                            <td>
-                                {{ building.personal_count }}
-                                <template v-if="building.personal_count_target">
-                                    ({{ building.personal_count_target }})
-                                </template>
-                            </td>
-                            <td>
-                                <template v-if="building.hiring_automatic">
-                                    {{
-                                        $m(
-                                            'overview.buildings.hiring.automatic'
-                                        )
-                                    }}
-                                </template>
-                                <template v-else-if="building.hiring_phase">
-                                    {{
-                                        $mc(
-                                            'overview.buildings.hiring.phase',
-                                            building.hiring_phase
-                                        )
-                                    }}
-                                </template>
-                                <template v-else>
-                                    {{ $m('overview.buildings.hiring.no') }}
-                                </template>
-                            </td>
-                        </template>
-                    </tr>
-                </enhanced-table>
+                            </tr>
+                        </enhanced-table>
+                    </tab>
 
-                <!-- Extensions -->
+                    <!-- All vehicles -->
+                    <tab :title="$m('overview.vehicles.title')">
+                        Vehicles coming soon
+                    </tab>
 
-                <!-- Classrooms / start schoolings -->
+                    <!-- Extensions -->
+                    <tab :title="$m('overview.extensions.title')">
+                        Extensions coming soon
+                    </tab>
 
-                <!-- All vehicles -->
+                    <!-- Classrooms / start schoolings -->
+                    <tab :title="$m('overview.classrooms.title')">
+                        Classrooms and schoolings coming soon
+                    </tab>
+                </tabs>
             </tab>
             <tab
                 v-for="building in sortedBuildingsByName"
