@@ -25,7 +25,7 @@ export default (async ({ LSSM, getSetting }) => {
             /* webpackChunkName: "modules/chatExtras/lightDesignChatHistory" */ './assets/lightDesignChatHistory'
         ).then(({default: addLightChatDesign}) => {
           if(location.pathname.includes('alliance_chats')) {
-            addLightChatDesign(false);
+            addLightChatDesign(false, '');
           }
           LSSM.$store.dispatch('event/addListener', {
             name: 'redesign-finished-loading',
