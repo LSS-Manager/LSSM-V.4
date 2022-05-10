@@ -20,4 +20,6 @@ Es ermöglicht dir, den Knopf "Chatverlauf" im oberen Bereich des Chats anzuzeig
 
 Dieses Modul ermöglicht es dir, den Chatverlauf in einem kompakten Design erscheinen zu lassen.
 
-![Chatverlauf: kompates Design](./lightDesignChatHistory.png)
+![Chatverlauf: kompaktes Design ohne Redesign](./chat_light_design.png)
+
+![Chatverlauf: kompaktes Design mit Redesign](./chat_light_design_redesign.png)
