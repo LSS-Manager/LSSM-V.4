@@ -170,7 +170,7 @@ Il y a une liste officielle des missions : `https://www.operateur112.fr/einsaetz
 
 Pour obtenir toutes les missions, groupées par leur date de début et de fin, exécutez le code suivant dans le jeu : *(remplacez `www.operateur112.fr` par votre jeu bien sûr)*
 ```js
-fetch('https://www.operateur112.fr/einsaetze.json').then(res => res.json()).then(m => console.log(m.groupBy(m => `${m.additional.date_start} - ${m.additional.date_end}`)))
+fetch('https://www.operateur112.fr/einsaetze.json').then(res => res.json()).then(m => {const g = {}; m.forEach(e => {const d = `${e.additional.date_start} - ${e.additional.date_end}`; if(!g[d]) {g[d] = []} g[d].push(e)}); console.log(g)})
 ```
 
 Chaque groupe est un objet d'IDs avec le nom de mission correspondant.
