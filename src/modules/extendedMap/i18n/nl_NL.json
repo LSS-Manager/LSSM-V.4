@@ -1,40 +1,40 @@
 {
     "buildingComplexes": {
-        "openInLightbox": "Open building in Lightbox",
+        "openInLightbox": "Open gebouw in Lightbox",
         "overview": {
             "buildings": {
                 "hiring": {
-                    "automatic": "automatically",
-                    "no": "None",
-                    "phase": "1 Day | {n} Days"
+                    "automatic": "automatisch",
+                    "no": "Geen",
+                    "phase": "1 dag | {n} dagen"
                 },
-                "inConstruction": "thereof {n} under construction",
+                "inConstruction": "waarvan {n} in aanbouw",
                 "table": {
                     "head": {
-                        "beds": "Beds",
-                        "cells": "Cells",
-                        "classrooms": "Classrooms",
-                        "hiring": "Hiring Phase",
+                        "beds": "Bedden",
+                        "cells": "Cellen",
+                        "classrooms": "Klassen",
+                        "hiring": "Aanneemfase",
                         "level": "Level",
-                        "name": "Name",
-                        "staff": "Staff (Staff target)",
-                        "vehicles": "Vehicles"
+                        "name": "Naam",
+                        "staff": "Personeel (Doel)",
+                        "vehicles": "Voertuigen"
                     }
                 },
-                "title": "attached buildings"
+                "title": "gekoppelde gebouwen"
             },
-            "title": "Overview"
+            "title": "Overzicht"
         },
         "settings": {
-            "abort": "Abort",
-            "buildings": "attached buildings",
-            "icon": "Icon",
-            "iconHelp": "Select between standard icons and icons of attached buildings",
-            "location": "Location",
-            "name": "Name",
-            "save": "Save",
-            "showMarkers": "Show attached buildings on map?",
-            "title": "Edit complex"
+            "abort": "Annuleren",
+            "buildings": "gekoppelde gebouwen buildings",
+            "icon": "Icoon",
+            "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
+            "location": "Locatie",
+            "name": "Naam",
+            "save": "Opslaan",
+            "showMarkers": "Toon gekoppelde gebouwen op de kaart?",
+            "title": "Bewerk complex"
         }
     }
 }
