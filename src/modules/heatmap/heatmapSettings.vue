@@ -296,7 +296,7 @@ export default Vue.extend<
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
                 return Object.entries(
-                    this.$t('buildings') as unknown as Record<
+                    this.$store.getters.$tBuildings as Record<
                         number,
                         InternalBuilding
                     >

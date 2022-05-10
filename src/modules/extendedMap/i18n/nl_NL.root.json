@@ -9,11 +9,11 @@
     },
     "settings": {
         "buildingComplexes": {
-            "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
-            "name": "Name",
-            "position": "Location",
-            "title": "Building complexes"
+            "buildings": "Gekoppelde gebouwen buildings",
+            "description": "Een Design-update dat er voor zorgt dat je meerdere gebouwen als 1 kan weergeven op de kaart.",
+            "name": "Naam",
+            "position": "Locatie",
+            "title": "Gebouwcomplexen"
         },
         "centerMap": {
             "description": "Centreert de kaart dynamisch of statisch als het spel opstart",

@@ -136,7 +136,7 @@ export default Vue.extend<
             ) as unknown as Record<string, BuildingCategory>,
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as unknown as Record<
+                    this.$store.getters.$tBuildings as Record<
                         number,
                         InternalBuilding
                     >
@@ -144,7 +144,7 @@ export default Vue.extend<
             ),
             buildingTypeColors: Object.fromEntries(
                 Object.entries(
-                    this.$t('buildings') as unknown as Record<
+                    this.$store.getters.$tBuildings as Record<
                         number,
                         InternalBuilding
                     >
