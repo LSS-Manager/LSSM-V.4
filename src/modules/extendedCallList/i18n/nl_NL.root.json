@@ -194,12 +194,12 @@
             "title": "Huidige patiënten in tooltips"
         },
         "currentPrisoners": {
-            "description": "Shows current amount of prisoners for each mission",
-            "title": "Current Prisoners"
+            "description": "Laat het huidige aantal arrestanten zien bij elke melding",
+            "title": "Huidige arrestanten"
         },
         "currentPrisonersInTooltips": {
-            "description": "Shows current amount of prisoners also in the tooltips on the map.",
-            "title": "Current Prisoners in Tooltips"
+            "description": "Toont het huidige aantal arrestanten ook in de tooltips op de kaart.",
+            "title": "Huidige arrestanten in tooltips"
         },
         "eventMissions": {
             "description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
@@ -278,7 +278,7 @@
             "distance_station": "Afstand tot dichtstbijzijnde post",
             "id": "Generatietijd",
             "remaining_patients": "Huidige patiënten",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Huidige arrestanten"
         }
     }
 }
