@@ -3,6 +3,12 @@
         "openInLightbox": "Open gebouw in Lightbox",
         "overview": {
             "buildings": {
+                "classrooms": {
+                    "title": "Classrooms"
+                },
+                "extensions": {
+                    "title": "Extensions"
+                },
                 "hiring": {
                     "automatic": "automatisch",
                     "no": "Geen",
@@ -21,13 +27,16 @@
                         "vehicles": "Voertuigen"
                     }
                 },
-                "title": "gekoppelde gebouwen"
+                "title": "gekoppelde gebouwen",
+                "vehicles": {
+                    "title": "Vehicles"
+                }
             },
             "title": "Overzicht"
         },
         "settings": {
             "abort": "Annuleren",
-            "buildings": "gekoppelde gebouwen buildings",
+            "buildings": "gekoppelde gebouwen",
             "icon": "Icoon",
             "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
             "location": "Locatie",
