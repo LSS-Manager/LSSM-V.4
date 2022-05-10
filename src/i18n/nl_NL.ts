@@ -1,5 +1,3 @@
-import type { Building } from '../../typings/Building';
-
 const modules = {
     appstore: {
         save: 'Opslaan',
