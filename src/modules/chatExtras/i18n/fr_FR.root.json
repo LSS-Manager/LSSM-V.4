@@ -13,6 +13,10 @@
         "cloneHistoryBtnToHeader": {
             "description": "Afficher le bouton pour l'historique du salon dans l'en-tête afin que vous n'ayez pas à faire défiler le chat pour y accéder.",
             "title": "Afficher le bouton l'historique du salon dans l'en-tête."
+        },
+        "lightDesignChatHistory": {
+            "description": "A light design of the chat-history",
+            "title": "Chat-history light design"
         }
     }
 }
