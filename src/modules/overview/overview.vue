@@ -376,7 +376,7 @@ export default Vue.extend<
         const buildingTypes = Object.fromEntries(
             Object.entries(
                 cloneDeep(
-                    this.$t('buildings') as unknown as Record<
+                    this.$store.getters.$tBuildings as Record<
                         number,
                         InternalBuilding
                     >

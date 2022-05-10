@@ -1,0 +1,40 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Visualizza l'edificio nella Lightbox",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "Automaticamente",
+                    "no": "Nessuno",
+                    "phase": "1 Giorno | {n} Giorni"
+                },
+                "inConstruction": "thereof {n} under construction",
+                "table": {
+                    "head": {
+                        "beds": "Letti",
+                        "cells": "Celle",
+                        "classrooms": "Classi",
+                        "hiring": "Fase di reclutamento",
+                        "level": "Livello",
+                        "name": "Nome",
+                        "staff": "Personale (Personale necessario)",
+                        "vehicles": "Veicoli"
+                    }
+                },
+                "title": "Edifici collegati"
+            },
+            "title": "Panoramica"
+        },
+        "settings": {
+            "abort": "Annulla",
+            "buildings": "Edifici collegati",
+            "icon": "Icona",
+            "iconHelp": "Seleziona tra icone di default e le icone degli edifici collegati",
+            "location": "Posizione",
+            "name": "Nome",
+            "save": "Salva",
+            "showMarkers": "Mostra edifici collegati nella mappa?",
+            "title": "Modifica complesso edilizio"
+        }
+    }
+}

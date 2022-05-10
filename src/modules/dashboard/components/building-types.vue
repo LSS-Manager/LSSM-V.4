@@ -117,7 +117,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as unknown as Record<
+        const buildingTypes = this.$store.getters.$tBuildings as Record<
             number,
             InternalBuilding
         >;

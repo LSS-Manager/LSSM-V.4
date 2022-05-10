@@ -1,6 +1,6 @@
 <template>
     <lightbox
-        :name="`redesign-lightbox-${creation}`"
+        :name="modalName"
         :full-height="!type"
         no-title-hide
         :no-modal="noModal"
@@ -519,6 +519,9 @@ export default Vue.extend<
                     });
             },
         },
+        modalName() {
+            return `redesign-lightbox-${this.creation}`;
+        },
     },
     methods: {
         $sm(key: string, args?: Record<string, unknown>) {
@@ -573,6 +576,7 @@ export default Vue.extend<
                         extra: text,
                         type: this.type,
                         data: this.data,
+                        modalName: this.modalName,
                     },
                 })
                 .then(event =>

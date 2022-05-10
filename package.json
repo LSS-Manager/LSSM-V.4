@@ -1,5 +1,5 @@
 {
-    "version": "4.5.9+20220509.0903",
+    "version": "4.5.9+20220510.1527",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -11,9 +11,7 @@
         "eslint:fix": "ts-node scripts lint",
         "order-json": "ts-node scripts sort",
         "fetch-emojis": "ts-node scripts emojis",
-        "tsc:prebuild": "ts-node scripts tscPrebuild",
-        "tsc:build": "ts-node scripts tscBuild",
-        "tsc:docs": "ts-node scripts tscDocs",
+        "tsc": "ts-node scripts tsc",
         "api": "ts-node scripts api",
         "force-clean": "yarn cache clean && git clean -dfX && yarn install --force && cd ./docs/.vuepress && yarn install --force"
     },
@@ -62,8 +60,8 @@
         "@types/webpack": "^5.28.0",
         "@types/webpack-dev-server": "^4.7.2",
         "@types/webpack-env": "^1.16.4",
-        "@typescript-eslint/eslint-plugin": "^5.22.0",
-        "@typescript-eslint/parser": "^5.22.0",
+        "@typescript-eslint/eslint-plugin": "^5.23.0",
+        "@typescript-eslint/parser": "^5.23.0",
         "all-contributors-cli": "^6.20.0",
         "copy-dir": "^1.3.0",
         "css-loader": "^6.7.1",
