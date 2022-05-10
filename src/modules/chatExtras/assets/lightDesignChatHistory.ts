@@ -1,12 +1,13 @@
-export default (redesignActive: boolean) => {
-    document.querySelectorAll(`${redesignActive ? '#modals-container ' : ''} .well`).forEach((el) => {
+export default (redesignActive: boolean, modalName: string) => {
+    let startPhrase = `#modals-container [data-modal="${modalName}"] + .vm--modal .redesign-wrapper `
+    document.querySelectorAll(`${redesignActive ? startPhrase : ''}.well`).forEach((el) => {
         el.classList.remove('well');
     });
-    document.querySelectorAll(`${redesignActive ? '#modals-container ' : ''} .pull-right`).forEach((el) => {
+    document.querySelectorAll(`${redesignActive ? startPhrase : ''}.pull-right`).forEach((el) => {
         el.classList.remove('pull-right');
         el.textContent = '[' + el.textContent + ']';
     });
-    document.querySelectorAll(`${redesignActive ? '#modals-container ' : ''} p`).forEach((el) => {
+    document.querySelectorAll(`${redesignActive ? startPhrase : ''}p`).forEach((el) => {
         el.parentElement.querySelector('span').append(': ' + el.textContent);
         el.remove();
     });
