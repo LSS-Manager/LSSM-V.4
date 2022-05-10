@@ -1,7 +1,7 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, getSetting }) => {
-    getSetting('chatTime').then(chatTime => {
+    if(location.pathname === '/') getSetting('chatTime').then(chatTime => {
         if (chatTime) {
             import(
                 /* webpackChunkName: "modules/chatExtras/timeFormatter" */ './assets/timeFormatter'
@@ -11,7 +11,7 @@ export default (async ({ LSSM, getSetting }) => {
         }
     });
 
-    getSetting('cloneHistoryBtnToHeader').then(clone => {
+    if(location.pathname === '/') getSetting('cloneHistoryBtnToHeader').then(clone => {
         if (clone) {
             import(
                 /* webpackChunkName: "modules/chatExtras/cloneHistoryBtnToHeader" */ './assets/cloneHistoryBtnToHeader'
@@ -30,7 +30,7 @@ export default (async ({ LSSM, getSetting }) => {
           LSSM.$store.dispatch('event/addListener', {
             name: 'redesign-finished-loading',
             listener(e: CustomEvent) {
-              if(e.detail.type == 'chat') addLightChatDesign(location.pathname === '/', e.detail.modalName);
+              if(e.detail.type === 'chat') addLightChatDesign(location.pathname === '/', e.detail.modalName);
             }
           });
         })
