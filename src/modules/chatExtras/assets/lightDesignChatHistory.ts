@@ -8,7 +8,7 @@ export default (redesignActive: boolean, modalName: string) => {
         el.textContent = '[' + el.textContent + ']';
     });
     document.querySelectorAll(`${redesignActive ? startPhrase : ''}p`).forEach((el) => {
-        if(!el.innerHTML.includes('Nachrichten werden automatisch nach 3 Tagen gelöscht.')) {
+        if(!el.classList.contains('label')) {
             el.parentElement.querySelector('span').append(': ' + el.textContent);
             el.remove();
         };
