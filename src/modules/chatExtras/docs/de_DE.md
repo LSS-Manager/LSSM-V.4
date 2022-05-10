@@ -16,9 +16,10 @@ Es ermöglicht dir, den Knopf "Chatverlauf" im oberen Bereich des Chats anzuzeig
 
 ![Chatverlauf-Knopf im Header anzeigen](./cloneHistoryBtnToHeader.png)
 
-## Chatverlauf: kompates Design
+## Chatverlauf: kompaktes Design
 
-Dieses Modul ermöglicht es dir, den Chatverlauf in einem kompakten Design erscheinen zu lassen.
+Dieses Feature ermöglicht es dir, den Chatverlauf in einem kompakten Design erscheinen zu lassen.
+Das Ganze ist natürlich mit dem [Redesign](../redesign/) kompatibel!
 
 ![Chatverlauf: kompaktes Design ohne Redesign](./chat_light_design.png)
 
