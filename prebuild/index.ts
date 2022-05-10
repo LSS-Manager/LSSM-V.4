@@ -7,9 +7,12 @@ import setVersion from './setVersion';
 import updateBrowserVersions from './updateBrowserVersions';
 
 const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
-    console.time(`\t${name}`);
-    console.info(await fn());
-    console.timeEnd(`\t${name}`);
+    console.log('--');
+    console.time(`  ${name}`);
+    const result = await fn();
+    console.timeEnd(`  ${name}`);
+    if (result) console.info(`    ${result}`);
+    console.log('--');
 };
 
 (async () => {
