@@ -8,7 +8,7 @@ export default (redesignActive: boolean, modalName: string) => {
         el.classList.remove('well');
         el.classList.add('chat-element-container');
     });
-    document.querySelectorAll<HTMLParagraphElement>(`${startPhrase}p.chat-element-container`).forEach((el: HTMLParagraphElement) => {
+    document.querySelectorAll<HTMLParagraphElement>(`${startPhrase}di.chat-element-container p`).forEach((el: HTMLParagraphElement) => {
         if(!el.classList.contains('label')) {
             el.parentElement.querySelector('span').append(': ' + el.textContent);
             el.classList.remove('chat-element-container');
