@@ -15,3 +15,9 @@ Mit diesem Feature wird das Modul "Show chatbutton above" aus der V3 in die V4 i
 Es ermöglicht dir, den Knopf "Chatverlauf" im oberen Bereich des Chats anzuzeigen, sodass du nicht erst scrollen musst, um den Knopf zu erreichen.
 
 ![Chatverlauf-Knopf im Header anzeigen](./cloneHistoryBtnToHeader.png)
+
+## Chatverlauf: kompates Design
+
+Dieses Modul ermöglicht es dir, den Chatverlauf in einem kompakten Design erscheinen zu lassen.
+
+![Chatverlauf: kompates Design](./lightDesignChatHistory.png)
