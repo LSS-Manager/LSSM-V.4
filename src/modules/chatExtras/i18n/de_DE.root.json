@@ -13,6 +13,10 @@
         "cloneHistoryBtnToHeader": {
             "description": "Zeigt den Knopf für den Chatverlauf in der Kopfzeile an, so dass du nicht immer den Chat nach unten scrollen musst, um ihn zu drücken.",
             "title": "Chatverlauf-Knopf im Header anzeigen"
+        },
+        "lightDesignChatHistory": {
+            "description": "Ein kompaktes Design des Chatverlaufs",
+            "title": "Chatverlauf Kompates Design"
         }
     }
 }
