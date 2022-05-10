@@ -169,7 +169,7 @@ There's an official List of missions: `https://missionchief.com/einsaetze.json`.
 
 For getting all missions, grouped by their start and end date, execute the following code in game: *(replace `missionchief.com` with your game of course)*
 ```js
-fetch('https://www.missionchief.com/einsaetze.json').then(res => res.json()).then(m => console.log(m.groupBy(m => `${m.additional.date_start} - ${m.additional.date_end}`)))
+fetch('https://www.missionchief.com/einsaetze.json').then(res => res.json()).then(m => {const g = {}; m.forEach(e => {const d = `${e.additional.date_start} - ${e.additional.date_end}`; if(!g[d]) {g[d] = []} g[d].push(e)}); console.log(g)})
 ```
 
 Each group is an Object of IDs with the corresponding mission name.

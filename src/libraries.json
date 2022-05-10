@@ -93,11 +93,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.22.0"
+        "version": "5.23.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.22.0"
+        "version": "5.23.0"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -153,7 +153,7 @@
     "eslint": {
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "url": "https://eslint.org",
-        "version": "8.14.0"
+        "version": "8.15.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",

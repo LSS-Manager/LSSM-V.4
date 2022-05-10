@@ -1,5 +1,5 @@
 ---
-title: Création d'un \"Pull Request\"
+title: "Création d'un \"Pull Request\""
 lang: fr_FR
 sidebarDepth: 2
 ---

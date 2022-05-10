@@ -140,7 +140,7 @@ Pour ouvrir la console, appuyez sur `F12`, `Ctrl+Shift+K` ou `Ctrl+Shift+I` (cer
 Vous pouvez maintenant copier le code de nos extraits de code fournis ci-dessous et le coller dans la console. Certains navigateurs (comme Firefox) vous demandent de taper une courte phrase. Tapez-la simplement, Firefox la remplacera par le code, une fois que vous aurez terminé la phrase.
 
 Lorsque le code est collé dans la console, il suffit d'appuyer sur la touche `Enter` de votre clavier pour exécuter l'extrait. Le résultat apparaîtra automatiquement dans la console, mais certains d'entre eux peuvent prendre quelques secondes.
-:: :
+:::
 
 #### Véhicules
 
@@ -170,7 +170,7 @@ Il y a une liste officielle des missions : `https://www.operateur112.fr/einsaetz
 
 Pour obtenir toutes les missions, groupées par leur date de début et de fin, exécutez le code suivant dans le jeu : *(remplacez `www.operateur112.fr` par votre jeu bien sûr)*
 ```js
-fetch('https://www.operateur112.fr/einsaetze.json').then(res => res.json()).then(m => console.log(m.groupBy(m => `${m.additional.date_start} - ${m.additional.date_end}`)))
+fetch('https://www.operateur112.fr/einsaetze.json').then(res => res.json()).then(m => {const g = {}; m.forEach(e => {const d = `${e.additional.date_start} - ${e.additional.date_end}`; if(!g[d]) {g[d] = []} g[d].push(e)}); console.log(g)})
 ```
 
 Chaque groupe est un objet d'IDs avec le nom de mission correspondant.

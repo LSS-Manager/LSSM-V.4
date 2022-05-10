@@ -162,6 +162,7 @@ export interface RedesignLightbox<
         loaderOffset: number;
         fullUrl: string;
         src: string;
+        modalName: string;
     };
     Props: {
         url: string;
