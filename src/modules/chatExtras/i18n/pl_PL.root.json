@@ -13,6 +13,10 @@
         "cloneHistoryBtnToHeader": {
             "description": "Pokazuje przycisk historii czatu w nagłówku, dzięki czemu nie musisz przewijać czatu, aby uzyskać do niego dostęp.",
             "title": "Pokaż historię czatu w nagłówku"
+        },
+        "lightDesignChatHistory": {
+            "description": "A light design of the chat-history",
+            "title": "Chat-history light design"
         }
     }
 }
