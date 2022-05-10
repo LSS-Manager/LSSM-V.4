@@ -3,6 +3,12 @@
         "openInLightbox": "Open building in Lightbox",
         "overview": {
             "buildings": {
+                "classrooms": {
+                    "title": "Classrooms"
+                },
+                "extensions": {
+                    "title": "Extensions"
+                },
                 "hiring": {
                     "automatic": "automatically",
                     "no": "None",
@@ -21,7 +27,10 @@
                         "vehicles": "Vehicles"
                     }
                 },
-                "title": "attached buildings"
+                "title": "attached buildings",
+                "vehicles": {
+                    "title": "Vehicles"
+                }
             },
             "title": "Overview"
         },

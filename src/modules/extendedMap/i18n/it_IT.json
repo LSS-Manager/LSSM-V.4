@@ -3,6 +3,12 @@
         "openInLightbox": "Visualizza l'edificio nella Lightbox",
         "overview": {
             "buildings": {
+                "classrooms": {
+                    "title": "Classrooms"
+                },
+                "extensions": {
+                    "title": "Extensions"
+                },
                 "hiring": {
                     "automatic": "Automaticamente",
                     "no": "Nessuno",
@@ -21,7 +27,10 @@
                         "vehicles": "Veicoli"
                     }
                 },
-                "title": "Edifici collegati"
+                "title": "Edifici collegati",
+                "vehicles": {
+                    "title": "Vehicles"
+                }
             },
             "title": "Panoramica"
         },

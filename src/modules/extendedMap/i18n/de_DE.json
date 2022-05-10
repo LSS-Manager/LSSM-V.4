@@ -23,7 +23,16 @@
                 },
                 "title": "angehängte Gebäude"
             },
-            "title": "Übersicht"
+            "classrooms": {
+                "title": "Klassenzimmer"
+            },
+            "extensions": {
+                "title": "Ausbauten"
+            },
+            "title": "Übersicht",
+            "vehicles": {
+                "title": "Fahrzeuge"
+            }
         },
         "settings": {
             "abort": "Abbrechen",

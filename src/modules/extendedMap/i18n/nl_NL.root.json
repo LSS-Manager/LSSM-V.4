@@ -9,7 +9,7 @@
     },
     "settings": {
         "buildingComplexes": {
-            "buildings": "Gekoppelde gebouwen buildings",
+            "buildings": "Gekoppelde gebouwen",
             "description": "Een Design-update dat er voor zorgt dat je meerdere gebouwen als 1 kan weergeven op de kaart.",
             "name": "Naam",
             "position": "Locatie",
