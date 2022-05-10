@@ -1,4 +1,3 @@
-
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, getSetting }) => {
@@ -19,9 +18,12 @@ export default (async ({ LSSM, getSetting }) => {
             ).then(({ default: cloner }) => cloner());
         }
     });
-    getSetting('cloneHistoryBtnToHeader').then(lightChatDesignActive  => {
+
+    getSetting('lightDesignChatHistory').then(lightChatDesignActive  => {
       if(lightChatDesignActive){
-        import('./assets/lightDesignChatHistory').then(({default: addLightChatDesign}) => {
+        import(
+            /* webpackChunkName: "modules/chatExtras/cloneHistoryBtnToHeader" */ './assets/lightDesignChatHistory'
+        ).then(({default: addLightChatDesign}) => {
           if(location.pathname.includes('alliance_chats')) {
             addLightChatDesign(false);
           }
