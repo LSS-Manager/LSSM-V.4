@@ -19,10 +19,10 @@ export default (async ({ LSSM, getSetting }) => {
         }
     });
 
-    getSetting('lightDesignChatHistory').then(lightChatDesignActive  => {
+    getSetting('lightDesignChatHistory').then((lightChatDesignActive)  => {
       if(lightChatDesignActive){
         import(
-            /* webpackChunkName: "modules/chatExtras/cloneHistoryBtnToHeader" */ './assets/lightDesignChatHistory'
+            /* webpackChunkName: "modules/chatExtras/lightDesignChatHistory" */ './assets/lightDesignChatHistory'
         ).then(({default: addLightChatDesign}) => {
           if(location.pathname.includes('alliance_chats')) {
             addLightChatDesign(false);
@@ -30,7 +30,7 @@ export default (async ({ LSSM, getSetting }) => {
           LSSM.$store.dispatch('event/addListener', {
             name: 'redesign-finished-loading',
             listener(e: CustomEvent) {
-              if(e.detail.type == 'chat') addLightChatDesign(location.pathname === '/');
+              if(e.detail.type == 'chat') addLightChatDesign(location.pathname === '/', e.detail.modalName);
             }
           });
         })
