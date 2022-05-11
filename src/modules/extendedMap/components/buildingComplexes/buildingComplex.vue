@@ -143,12 +143,18 @@
                                     {{ building.level }}
                                 </td>
                                 <td v-if="hasVehicleBuildings">
-                                    {{
-                                        getVehiclesByBuilding(building.id)
-                                            .length
-                                    }}
-                                    /
-                                    {{ building.level + 1 }}
+                                    <template
+                                        v-if="
+                                            getMaxVehiclesByBuilding(building)
+                                        "
+                                    >
+                                        {{
+                                            getVehiclesByBuilding(building.id)
+                                                .length
+                                        }}
+                                        /
+                                        {{ getMaxVehiclesByBuilding(building) }}
+                                    </template>
                                 </td>
                                 <td v-if="hasBedBuildings">
                                     <template
@@ -222,43 +228,53 @@
                                 </td>
                                 <template v-if="hasStaffBuildings">
                                     <td>
-                                        {{ building.personal_count }}
                                         <template
-                                            v-if="
-                                                building.personal_count_target
-                                            "
+                                            v-if="building.personal_count"
                                         >
-                                            ({{
-                                                building.personal_count_target
-                                            }})
+                                            {{ building.personal_count }}
+                                            <template
+                                                v-if="
+                                                    building.personal_count_target
+                                                "
+                                            >
+                                                ({{
+                                                    building.personal_count_target
+                                                }})
+                                            </template>
                                         </template>
                                     </td>
                                     <td>
                                         <template
-                                            v-if="building.hiring_automatic"
+                                            v-if="building.personal_count"
                                         >
-                                            {{
-                                                $m(
-                                                    'overview.buildings.hiring.automatic'
-                                                )
-                                            }}
-                                        </template>
-                                        <template
-                                            v-else-if="building.hiring_phase"
-                                        >
-                                            {{
-                                                $mc(
-                                                    'overview.buildings.hiring.phase',
+                                            <template
+                                                v-if="building.hiring_automatic"
+                                            >
+                                                {{
+                                                    $m(
+                                                        'overview.buildings.hiring.automatic'
+                                                    )
+                                                }}
+                                            </template>
+                                            <template
+                                                v-else-if="
                                                     building.hiring_phase
-                                                )
-                                            }}
-                                        </template>
-                                        <template v-else>
-                                            {{
-                                                $m(
-                                                    'overview.buildings.hiring.no'
-                                                )
-                                            }}
+                                                "
+                                            >
+                                                {{
+                                                    $mc(
+                                                        'overview.buildings.hiring.phase',
+                                                        building.hiring_phase
+                                                    )
+                                                }}
+                                            </template>
+                                            <template v-else>
+                                                {{
+                                                    $m(
+                                                        'overview.buildings.hiring.no'
+                                                    )
+                                                }}
+                                            </template>
                                         </template>
                                     </td>
                                 </template>
@@ -311,7 +327,12 @@ import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Vehicle } from 'typings/Vehicle';
 import type { $m, $mc } from 'typings/Module';
-import type { Building, Extension, InternalBuilding } from 'typings/Building';
+import type {
+    Building,
+    Extension,
+    InternalBuilding,
+    InternalExtension,
+} from 'typings/Building';
 
 export default Vue.extend<
     {
@@ -322,7 +343,6 @@ export default Vue.extend<
         classroomBuildingTypes: number[];
         cellBuildingTypes: number[];
         cellExtensionIDs: string[];
-        vehicleBuildingTypes: number[];
         currentBuildingId: number;
         vehiclesByBuilding: Record<number, Vehicle[]>;
         search: string;
@@ -334,6 +354,7 @@ export default Vue.extend<
         getBuildingIcon(building: Building): string;
         getCellsForBuilding(building: Building): Extension[];
         getVehiclesByBuilding(buildingId: number): Vehicle[];
+        getMaxVehiclesByBuilding(building: Building): number;
     },
     {
         sortedBuildingsByName: Building[];
@@ -380,7 +401,6 @@ export default Vue.extend<
             classroomBuildingTypes: Object.values(this.$t('schoolBuildings')),
             cellBuildingTypes: Object.values(this.$t('cellBuildings')),
             cellExtensionIDs: Object.values(this.$t('cellExtensions')),
-            vehicleBuildingTypes: Object.values(this.$t('vehicleBuildings')),
             currentBuildingId: 0,
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             search: '',
@@ -421,8 +441,8 @@ export default Vue.extend<
             );
         },
         hasVehicleBuildings() {
-            return this.sortedBuildingsByName.some(({ building_type }) =>
-                this.vehicleBuildingTypes.includes(building_type)
+            return this.sortedBuildingsByName.some(building =>
+                this.getMaxVehiclesByBuilding(building)
             );
         },
         filteredBuildings() {
@@ -498,6 +518,30 @@ export default Vue.extend<
         },
         getVehiclesByBuilding(buildingId) {
             return this.vehiclesByBuilding[buildingId] ?? [];
+        },
+        getMaxVehiclesByBuilding(building) {
+            const buildingType = this.buildingTypes[building.building_type];
+            if (!('startParkingLots' in buildingType)) return 0;
+            return (
+                building.level +
+                buildingType.startParkingLots +
+                building.extensions
+                    .map(extension => {
+                        const extensionType: InternalExtension =
+                            buildingType.extensions[extension.type_id];
+                        if (
+                            !extension.available ||
+                            !('isVehicleExtension' in extensionType)
+                        )
+                            return 0;
+                        return (
+                            extensionType.givesParkingLots +
+                            (extensionType.givesParkingLotsPerLevel ?? 0) *
+                                building.level
+                        );
+                    })
+                    .reduce((a, b) => a + b, 0)
+            );
         },
     },
     props: {

@@ -683,7 +683,7 @@ export default {
                 duration: '3 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                givesParkingLotsPerLevel: true,
+                givesParkingLotsPerLevel: 1,
                 unlocksVehicleTypes: [96],
                 parkingLotReservations: [[96]],
             },

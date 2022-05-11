@@ -39,11 +39,11 @@
             "buildings": "gekoppelde gebouwen",
             "dissolve": {
                 "buttons": {
-                    "abort": "Abort",
-                    "continue": "Dissolve"
+                    "abort": "Annuleren",
+                    "continue": "Verwijderen"
                 },
-                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
-                "title": "Dissolve complex"
+                "text": "Wil je dit gebouwencomplex verwijderen? Alle gekoppelde gebouwen zullen weer op de kaart worden getoond, zoals daarvoor.",
+                "title": "Verwijder complex"
             },
             "icon": "Icoon",
             "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
