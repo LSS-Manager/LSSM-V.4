@@ -37,6 +37,14 @@
         "settings": {
             "abort": "Annulla",
             "buildings": "Edifici collegati",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abort",
+                    "continue": "Dissolve"
+                },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Dissolve complex"
+            },
             "icon": "Icona",
             "iconHelp": "Seleziona tra icone di default e le icone degli edifici collegati",
             "location": "Posizione",

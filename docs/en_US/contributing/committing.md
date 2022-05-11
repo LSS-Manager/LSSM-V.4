@@ -27,7 +27,7 @@ After you changed a file you need to write a commit message. If you want to make
 ![](../images/contributing/committing/GH_commit_msg.png)
 
 :::tip What's next?
-* Read [hot to create a Pull Request](./prs.md)
+* Read [how to create a Pull Request](./prs.md)
 * Read one of the special sections for contribution topics
 
 :::

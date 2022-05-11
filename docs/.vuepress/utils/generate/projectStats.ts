@@ -83,8 +83,8 @@ const fullClocResult = `
         relativeClocStats.header.elapsed_seconds
     ).toFixed(2)}s*
 
-|Language|files|blank (%)|comment (%)|code (%)|total|% of lines|
-|:-------|----:|--------:|----------:|-------:|----:|---------:|
+|Language|files (%)|blank (%)|comment (%)|code (%)|total|% of lines|
+|:-------|--------:|--------:|----------:|-------:|----:|---------:|
 ${Object.entries(absoluteClocStats)
     .filter(([key]) => !['header', 'SUM'].includes(key))
     .sort(([, { code: codeA }], [, { code: codeB }]) => codeB - codeA)
@@ -92,7 +92,9 @@ ${Object.entries(absoluteClocStats)
         ([lang, { nFiles, blank, comment, code }]) =>
             `|${[
                 lang,
-                intToLocaleNum(nFiles),
+                `${intToLocaleNum(nFiles)} (${floatToLocaleNum(
+                    (nFiles / absoluteClocStats.SUM.nFiles) * 100
+                )}%)`,
                 `${intToLocaleNum(blank)} (${floatToLocaleNum(
                     relativeClocStats[lang].blank_pct
                 )}%)`,

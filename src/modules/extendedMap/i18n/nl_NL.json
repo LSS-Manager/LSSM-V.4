@@ -4,10 +4,10 @@
         "overview": {
             "buildings": {
                 "classrooms": {
-                    "title": "Classrooms"
+                    "title": "Klaslokalen"
                 },
                 "extensions": {
-                    "title": "Extensions"
+                    "title": "Uitbreidingen"
                 },
                 "hiring": {
                     "automatic": "automatisch",
@@ -29,7 +29,7 @@
                 },
                 "title": "gekoppelde gebouwen",
                 "vehicles": {
-                    "title": "Vehicles"
+                    "title": "Voertuigen"
                 }
             },
             "title": "Overzicht"
@@ -37,6 +37,14 @@
         "settings": {
             "abort": "Annuleren",
             "buildings": "gekoppelde gebouwen",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Annuleren",
+                    "continue": "Verwijderen"
+                },
+                "text": "Wil je dit gebouwencomplex verwijderen? Alle gekoppelde gebouwen zullen weer op de kaart worden getoond, zoals daarvoor.",
+                "title": "Verwijder complex"
+            },
             "icon": "Icoon",
             "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
             "location": "Locatie",
