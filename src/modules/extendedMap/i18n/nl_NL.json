@@ -37,6 +37,14 @@
         "settings": {
             "abort": "Annuleren",
             "buildings": "gekoppelde gebouwen",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abort",
+                    "continue": "Dissolve"
+                },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Dissolve complex"
+            },
             "icon": "Icoon",
             "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
             "location": "Locatie",

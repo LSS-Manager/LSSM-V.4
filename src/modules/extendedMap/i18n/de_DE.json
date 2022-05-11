@@ -37,6 +37,14 @@
         "settings": {
             "abort": "Abbrechen",
             "buildings": "angehängte Gebäude",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abbrechen",
+                    "continue": "Auflösen"
+                },
+                "text": "Möchtest du diesen Gebäudekomplex auflösen? Alle angehängten Gebäude werden wieder wie vorher auf der Karte angezeigt werden.",
+                "title": "Gebäudekomplex auflösen"
+            },
             "icon": "Gebäude-Bild",
             "iconHelp": "Wähle zwischen den Standard-Bildern und den Bildern der angehängten Gebäude",
             "location": "Standort",

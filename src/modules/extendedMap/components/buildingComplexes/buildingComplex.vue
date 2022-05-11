@@ -143,7 +143,10 @@
                                     {{ building.level }}
                                 </td>
                                 <td v-if="hasVehicleBuildings">
-                                    {{ vehiclesByBuilding[building.id].length }}
+                                    {{
+                                        getVehiclesByBuilding(building.id)
+                                            .length
+                                    }}
                                     /
                                     {{ building.level + 1 }}
                                 </td>
@@ -330,6 +333,7 @@ export default Vue.extend<
         openSettings(): void;
         getBuildingIcon(building: Building): string;
         getCellsForBuilding(building: Building): Extension[];
+        getVehiclesByBuilding(buildingId: number): Vehicle[];
     },
     {
         sortedBuildingsByName: Building[];
@@ -348,6 +352,7 @@ export default Vue.extend<
         allAttachedBuildings: string[];
         $m: $m;
         $mc: $mc;
+        dissolve(): Promise<void>;
         updateComplex(complex: Complex): void;
     }
 >({
@@ -462,6 +467,7 @@ export default Vue.extend<
                     ),
                     $m: <$m>((key, args) => this.$m(`settings.${key}`, args)),
                     close: () => this.$modal.hide(settingsModalName),
+                    dissolve: this.dissolve,
                     updateValues: this.updateComplex,
                 },
                 {
@@ -490,6 +496,9 @@ export default Vue.extend<
                 extensionIds.includes(`${building.building_type}_${type_id}`)
             );
         },
+        getVehiclesByBuilding(buildingId) {
+            return this.vehiclesByBuilding[buildingId] ?? [];
+        },
     },
     props: {
         complexIndex: {
@@ -513,6 +522,10 @@ export default Vue.extend<
             required: true,
         },
         $mc: {
+            type: Function,
+            required: true,
+        },
+        dissolve: {
             type: Function,
             required: true,
         },

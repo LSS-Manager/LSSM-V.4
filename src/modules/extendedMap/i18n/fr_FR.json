@@ -37,6 +37,14 @@
         "settings": {
             "abort": "Annuler",
             "buildings": "bâtiments rattachés",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abort",
+                    "continue": "Dissolve"
+                },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Dissolve complex"
+            },
             "icon": "Icon",
             "iconHelp": "choisir entre les icônes standard et les icônes des bâtiments rattachés",
             "location": "Emplacement",

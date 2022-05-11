@@ -86,6 +86,16 @@
                     v-model="location"
                 />
             </div>
+
+            <hr />
+            <!-- Delete the complex -->
+            <a
+                class="btn btn-danger btn-sm pull-right"
+                @click="dissolveHandler"
+            >
+                <font-awesome-icon :icon="faTrashCan" />
+                {{ $m('dissolve.title') }}
+            </a>
         </form>
     </lightbox>
 </template>
@@ -94,6 +104,7 @@
 import Vue from 'vue';
 
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
 
 import type { $m } from 'typings/Module';
@@ -104,6 +115,7 @@ import type { Building, InternalBuilding } from 'typings/Building';
 export default Vue.extend<
     {
         faSave: IconDefinition;
+        faTrashCan: IconDefinition;
         buildings: Record<number, Building>;
         name: string;
         icon: string;
@@ -114,7 +126,7 @@ export default Vue.extend<
         iconBase64s: string[];
         excludedCustomIcons: string[];
     },
-    { save(): void },
+    { save(): void; dissolveHandler(): void },
     {
         canSave: boolean;
         assignedBuildings: Building[];
@@ -128,6 +140,7 @@ export default Vue.extend<
         allOtherAttachedBuildings: string[];
         $m: $m;
         close(): void;
+        dissolve(): Promise<void>;
         updateValues(complex: Complex): Promise<void>;
     }
 >({
@@ -157,6 +170,7 @@ export default Vue.extend<
 
         return {
             faSave,
+            faTrashCan,
             buildings: userBuildings,
             name: '',
             icon: '',
@@ -262,6 +276,29 @@ export default Vue.extend<
             });
             this.close();
         },
+        dissolveHandler() {
+            const hide = () => this.$modal.hide('dialog');
+            const dissolve = () => this.dissolve().then(() => this.close());
+            this.$modal.show('dialog', {
+                title: this.$m('dissolve.title'),
+                text: this.$m('dissolve.text'),
+                buttons: [
+                    {
+                        title: this.$m('dissolve.buttons.abort'),
+                        default: true,
+                        handler() {
+                            hide();
+                        },
+                    },
+                    {
+                        title: this.$m('dissolve.buttons.continue'),
+                        async handler() {
+                            dissolve().then(hide);
+                        },
+                    },
+                ],
+            });
+        },
     },
     props: {
         modalName: {
@@ -281,6 +318,10 @@ export default Vue.extend<
             required: true,
         },
         close: {
+            type: Function,
+            required: true,
+        },
+        dissolve: {
             type: Function,
             required: true,
         },
@@ -309,7 +350,7 @@ export default Vue.extend<
             fetch(icon)
                 .then(res => res.arrayBuffer())
                 .then(buffer => {
-                    const base64 = btoa(
+                    const base64 = window.btoa(
                         String.fromCharCode(...new Uint8Array(buffer))
                     );
                     if (this.iconBase64s.includes(base64))

@@ -166,6 +166,35 @@ export default async (
                                 showModal();
                             });
                     },
+                    dissolve() {
+                        complexes.splice(index, 1);
+                        complexesBuildingsLayers.splice(index, 1);
+                        attachedMarkersList[index].forEach(marker => {
+                            marker.remove();
+                            marker.addTo(
+                                window.map_filters_service.getFilterLayerByBuildingParams(
+                                    {
+                                        user_id: window.user_id,
+                                        building_type:
+                                            userBuildings[marker.building_id]
+                                                .building_type,
+                                    }
+                                )
+                            );
+                        });
+                        marker.remove();
+                        attachedMarkersList.splice(index, 1);
+                        return LSSM.$store
+                            .dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'buildingComplexes',
+                                value: {
+                                    enabled: true,
+                                    value: complexes,
+                                },
+                            })
+                            .then(() => LSSM.$modal.hide(modalName));
+                    },
                 },
                 {
                     name: modalName,
