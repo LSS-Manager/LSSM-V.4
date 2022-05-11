@@ -18,7 +18,7 @@ If you're new to contributing to LSSM, please read [Introduction][introduction],
 
 ## General workflow
 
-1. Update your fork
+1. Create or update your fork
 2. Change a file with the help of our guides:
    * [Translations](./contributing/translations.md)
 3. Commit the updated file
