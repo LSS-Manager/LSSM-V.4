@@ -4,10 +4,10 @@
         "overview": {
             "buildings": {
                 "classrooms": {
-                    "title": "Classrooms"
+                    "title": "Klaslokalen"
                 },
                 "extensions": {
-                    "title": "Extensions"
+                    "title": "Uitbreidingen"
                 },
                 "hiring": {
                     "automatic": "automatisch",
@@ -29,7 +29,7 @@
                 },
                 "title": "gekoppelde gebouwen",
                 "vehicles": {
-                    "title": "Vehicles"
+                    "title": "Voertuigen"
                 }
             },
             "title": "Overzicht"

@@ -19,10 +19,6 @@
                 <tabs>
                     <!-- List of attached buildings -->
                     <tab :title="$m('overview.buildings.title')">
-                        <h2>
-                            {{ $m('overview.buildings.title') }}:
-                            {{ complex.buildings.length.toLocaleString() }}
-                        </h2>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{
@@ -108,6 +104,14 @@
                             :search="search"
                             @search="s => (search = s)"
                         >
+                            <template v-slot:head>
+                                <h2 class="overview-heading">
+                                    {{ $m('overview.buildings.title') }}:
+                                    {{
+                                        complex.buildings.length.toLocaleString()
+                                    }}
+                                </h2>
+                            </template>
                             <tr
                                 v-for="building in filteredBuildings"
                                 :key="building.id"
@@ -260,7 +264,10 @@
                     </tab>
 
                     <!-- All vehicles -->
-                    <tab :title="$m('overview.vehicles.title')">
+                    <tab
+                        :title="$m('overview.vehicles.title')"
+                        v-if="hasVehicleBuildings"
+                    >
                         Vehicles coming soon
                     </tab>
 
@@ -270,7 +277,10 @@
                     </tab>
 
                     <!-- Classrooms / start schoolings -->
-                    <tab :title="$m('overview.classrooms.title')">
+                    <tab
+                        :title="$m('overview.classrooms.title')"
+                        v-if="hasClassroomBuildings"
+                    >
                         Classrooms and schoolings coming soon
                     </tab>
                 </tabs>
@@ -536,6 +546,9 @@ export default Vue.extend<
             iframe
                 width: 100%
                 height: 100%
+
+    .overview-heading
+        width: 100%
 
     .table-cell-right
         text-align: right
