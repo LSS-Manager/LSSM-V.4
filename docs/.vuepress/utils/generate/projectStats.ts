@@ -92,7 +92,9 @@ ${Object.entries(absoluteClocStats)
         ([lang, { nFiles, blank, comment, code }]) =>
             `|${[
                 lang,
-                `${intToLocaleNum(nFiles)} (${floatToLocaleNum((nFiles / absoluteClocStats.SUM.nFiles) * 100)}%)`,
+                `${intToLocaleNum(nFiles)} (${floatToLocaleNum(
+                    (nFiles / absoluteClocStats.SUM.nFiles) * 100
+                )}%)`,
                 `${intToLocaleNum(blank)} (${floatToLocaleNum(
                     relativeClocStats[lang].blank_pct
                 )}%)`,
