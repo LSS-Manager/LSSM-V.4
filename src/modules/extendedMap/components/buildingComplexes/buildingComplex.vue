@@ -38,12 +38,16 @@
                                     ),
                                     noSort: true,
                                 },
-                                level: {
-                                    title: $m(
-                                        'overview.buildings.table.head.level'
-                                    ),
-                                    noSort: true,
-                                },
+                                ...(hasLevelBuildings
+                                    ? {
+                                          level: {
+                                              title: $m(
+                                                  'overview.buildings.table.head.level'
+                                              ),
+                                              noSort: true,
+                                          },
+                                      }
+                                    : {}),
                                 ...(hasVehicleBuildings
                                     ? {
                                           vehicles: {
@@ -118,17 +122,13 @@
                             >
                                 <td>
                                     <img
-                                        :src="getBuildingIcon(building)"
+                                        :src="building.icon"
                                         alt="building icon"
                                     />
                                 </td>
                                 <td class="table-cell-right">
                                     <a class="btn btn-default btn-xs disabled">
-                                        {{
-                                            buildingTypes[
-                                                building.building_type
-                                            ].caption
-                                        }}
+                                        {{ building.typeName }}
                                     </a>
                                 </td>
                                 <td>
@@ -136,91 +136,53 @@
                                         :href="`/buildings/${building.id}`"
                                         class="lightbox-open"
                                     >
-                                        {{ building.caption }}
+                                        {{ building.name }}
                                     </a>
                                 </td>
-                                <td>
-                                    {{ building.level }}
+                                <td v-if="hasLevelBuildings">
+                                    {{
+                                        building.hasLevel ? building.level : ''
+                                    }}
                                 </td>
                                 <td v-if="hasVehicleBuildings">
-                                    <template
-                                        v-if="
-                                            getMaxVehiclesByBuilding(building)
-                                        "
-                                    >
-                                        {{
-                                            getVehiclesByBuilding(building.id)
-                                                .length
-                                        }}
+                                    <template v-if="building.hasVehicles">
+                                        {{ building.vehicles.length }}
                                         /
-                                        {{ getMaxVehiclesByBuilding(building) }}
+                                        {{ building.maxVehicles }}
                                     </template>
                                 </td>
                                 <td v-if="hasBedBuildings">
-                                    <template
-                                        v-if="
-                                            bedBuildingTypes.includes(
-                                                building.building_type
-                                            )
-                                        "
-                                    >
-                                        {{ building.level + 10 }}
+                                    <template v-if="building.hasBeds">
+                                        {{ building.beds }}
                                     </template>
                                 </td>
                                 <td v-if="hasClassroomBuildings">
-                                    <template
-                                        v-if="
-                                            classroomBuildingTypes.includes(
-                                                building.building_type
-                                            )
-                                        "
-                                    >
-                                        {{ building.extensions.length + 1 }}
+                                    <template v-if="building.hasClassrooms">
+                                        {{ building.classrooms }}
                                         <template
                                             v-if="
-                                                building.extensions.some(
-                                                    ({ available }) =>
-                                                        !available
-                                                )
+                                                building.classRoomsUnavailable
                                             "
                                         >
                                             ({{
                                                 $mc(
                                                     'overview.buildings.inConstruction',
-                                                    building.extensions.filter(
-                                                        ({ available }) =>
-                                                            !available
-                                                    ).length
+                                                    building.classRoomsUnavailable
                                                 )
                                             }})
                                         </template>
                                     </template>
                                 </td>
                                 <td v-if="hasCellBuildings">
-                                    <template>
-                                        {{
-                                            getCellsForBuilding(building)
-                                                .length || ''
-                                        }}
+                                    <template v-if="building.hasCells">
+                                        {{ building.cells }}
                                         <template
-                                            v-if="
-                                                getCellsForBuilding(
-                                                    building
-                                                ).some(
-                                                    ({ available }) =>
-                                                        !available
-                                                )
-                                            "
+                                            v-if="building.cellsUnavailable"
                                         >
                                             ({{
                                                 $mc(
                                                     'overview.buildings.inConstruction',
-                                                    getCellsForBuilding(
-                                                        building
-                                                    ).filter(
-                                                        ({ available }) =>
-                                                            !available
-                                                    ).length
+                                                    building.cellsUnavailable
                                                 )
                                             }})
                                         </template>
@@ -228,25 +190,17 @@
                                 </td>
                                 <template v-if="hasStaffBuildings">
                                     <td>
-                                        <template
-                                            v-if="building.personal_count"
-                                        >
-                                            {{ building.personal_count }}
+                                        <template v-if="building.hasStaff">
+                                            {{ building.staff }}
                                             <template
-                                                v-if="
-                                                    building.personal_count_target
-                                                "
+                                                v-if="building.staffTarget"
                                             >
-                                                ({{
-                                                    building.personal_count_target
-                                                }})
+                                                ({{ building.staffTarget }})
                                             </template>
                                         </template>
                                     </td>
                                     <td>
-                                        <template
-                                            v-if="building.personal_count"
-                                        >
+                                        <template v-if="building.hasStaff">
                                             <template
                                                 v-if="building.hiring_automatic"
                                             >
@@ -329,10 +283,50 @@ import type { Vehicle } from 'typings/Vehicle';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
-    Extension,
     InternalBuilding,
     InternalExtension,
 } from 'typings/Building';
+
+type AttributedBuildingBeds =
+    | { hasBeds: false }
+    | { hasBeds: true; beds: number };
+type AttributedBuildingCells =
+    | { hasCells: false }
+    | { hasCells: true; cells: number; cellsUnavailable: number };
+type AttributedBuildingClassrooms =
+    | {
+          hasClassrooms: true;
+          classrooms: number;
+          classRoomsUnavailable: number;
+      }
+    | { hasClassrooms: false };
+type AttributedBuildingLevel =
+    | { hasLevel: false }
+    | { hasLevel: true; level: number };
+type AttributedBuildingStaff =
+    | {
+          hasStaff: true;
+          staff: number;
+          staffTarget?: number;
+          hiring_automatic: boolean;
+          hiring_phase: number;
+      }
+    | { hasStaff: false };
+type AttributedBuildingVehicles =
+    | { hasVehicles: false }
+    | { hasVehicles: true; vehicles: Vehicle[]; maxVehicles: number };
+
+type AttributedBuilding = AttributedBuildingBeds &
+    AttributedBuildingCells &
+    AttributedBuildingClassrooms &
+    AttributedBuildingLevel &
+    AttributedBuildingStaff &
+    AttributedBuildingVehicles & {
+        id: number;
+        icon: string;
+        typeName: string;
+        name: string;
+    };
 
 export default Vue.extend<
     {
@@ -351,20 +345,18 @@ export default Vue.extend<
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
-        getBuildingIcon(building: Building): string;
-        getCellsForBuilding(building: Building): Extension[];
-        getVehiclesByBuilding(buildingId: number): Vehicle[];
-        getMaxVehiclesByBuilding(building: Building): number;
     },
     {
+        attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: Building[];
         sortedBuildingIdsByName: number[];
+        filteredBuildings: AttributedBuilding[];
+        hasLevelBuildings: boolean;
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
-        filteredBuildings: Building[];
     },
     {
         complexIndex: number;
@@ -407,6 +399,155 @@ export default Vue.extend<
         };
     },
     computed: {
+        attributedBuildings() {
+            return this.complex.buildings
+                .map(buildingId => {
+                    const building = this.buildings[parseInt(buildingId)];
+                    const buildingType =
+                        this.buildingTypes[building.building_type];
+
+                    const buildingAttrs = {
+                        id: building.id,
+                        icon:
+                            building.custom_icon_url ??
+                            window
+                                .getBuildingMarkerIcon({
+                                    building_type: building.building_type,
+                                })
+                                ?.replace(/_other(?=\.png$)/u, ''),
+                        typeName: buildingType.caption,
+                        name: building.caption,
+                    };
+
+                    const beds: AttributedBuildingBeds =
+                        'startBeds' in buildingType
+                            ? {
+                                  hasBeds: true,
+                                  beds: buildingType.startBeds + building.level,
+                              }
+                            : { hasBeds: false };
+
+                    const cellExtensions = {
+                        cells:
+                            'startCells' in buildingType
+                                ? buildingType.startCells
+                                : 0,
+                        cellsUnavailable: 0,
+                    };
+                    building.extensions.forEach(extension => {
+                        if (
+                            !(
+                                'newCells' in
+                                buildingType.extensions[extension.type_id]
+                            )
+                        )
+                            return;
+                        if (!extension.available)
+                            cellExtensions.cellsUnavailable++;
+                        cellExtensions.cells++;
+                    });
+
+                    const cells: AttributedBuildingCells =
+                        'startCells' in buildingType
+                            ? {
+                                  hasCells: true,
+                                  ...cellExtensions,
+                              }
+                            : { hasCells: false };
+
+                    const classroomExtensions = {
+                        classrooms:
+                            'startClassrooms' in buildingType
+                                ? buildingType.startClassrooms
+                                : 0,
+                        classRoomsUnavailable: 0,
+                    };
+                    building.extensions.forEach(extension => {
+                        if (
+                            !(
+                                'newClassrooms' in
+                                buildingType.extensions[extension.type_id]
+                            )
+                        )
+                            return;
+                        if (!extension.available)
+                            classroomExtensions.classRoomsUnavailable++;
+                        classroomExtensions.classrooms++;
+                    });
+
+                    const classrooms: AttributedBuildingClassrooms =
+                        'startClassrooms' in buildingType
+                            ? {
+                                  hasClassrooms: true,
+                                  ...classroomExtensions,
+                              }
+                            : { hasClassrooms: false };
+
+                    const level: AttributedBuildingLevel =
+                        buildingType.maxLevel !== 0
+                            ? { hasLevel: true, level: building.level }
+                            : { hasLevel: false };
+
+                    const staff: AttributedBuildingStaff =
+                        'startParkingLots' in buildingType
+                            ? {
+                                  hasStaff: true,
+                                  staff: building.personal_count,
+                                  staffTarget: building.personal_count_target,
+                                  hiring_automatic: building.hiring_automatic,
+                                  hiring_phase: building.hiring_phase,
+                              }
+                            : { hasStaff: false };
+
+                    const vehicles: AttributedBuildingVehicles =
+                        'startParkingLots' in buildingType
+                            ? {
+                                  hasVehicles: true,
+                                  vehicles:
+                                      this.vehiclesByBuilding[building.id] ??
+                                      [],
+                                  maxVehicles:
+                                      (buildingType.levelNotIncreasingLots
+                                          ? 0
+                                          : building.level) +
+                                      buildingType.startParkingLots +
+                                      building.extensions
+                                          .map(extension => {
+                                              const extensionType: InternalExtension =
+                                                  buildingType.extensions[
+                                                      extension.type_id
+                                                  ];
+                                              if (
+                                                  !extension.available ||
+                                                  !(
+                                                      'isVehicleExtension' in
+                                                      extensionType
+                                                  )
+                                              )
+                                                  return 0;
+                                              return (
+                                                  extensionType.givesParkingLots +
+                                                  (extensionType.givesParkingLotsPerLevel ??
+                                                      0) *
+                                                      building.level
+                                              );
+                                          })
+                                          .reduce((a, b) => a + b, 0),
+                              }
+                            : { hasVehicles: false };
+
+                    return {
+                        ...buildingAttrs,
+                        ...beds,
+                        ...cells,
+                        ...classrooms,
+                        ...level,
+                        ...staff,
+                        ...vehicles,
+                    };
+                })
+                .filter(Boolean);
+        },
         sortedBuildingsByName() {
             const buildings: Building[] = this.complex.buildings
                 .map(id => this.buildings[parseInt(id)])
@@ -419,37 +560,33 @@ export default Vue.extend<
         sortedBuildingIdsByName() {
             return this.sortedBuildingsByName.map(({ id }) => id);
         },
-        hasStaffBuildings() {
-            return this.sortedBuildingsByName.some(
-                ({ personal_count, personal_count_target }) =>
-                    personal_count || personal_count_target
-            );
-        },
-        hasBedBuildings() {
-            return this.sortedBuildingsByName.some(({ building_type }) =>
-                this.bedBuildingTypes.includes(building_type)
-            );
-        },
-        hasClassroomBuildings() {
-            return this.sortedBuildingsByName.some(({ building_type }) =>
-                this.classroomBuildingTypes.includes(building_type)
-            );
-        },
-        hasCellBuildings() {
-            return this.sortedBuildingsByName.some(({ building_type }) =>
-                this.cellBuildingTypes.includes(building_type)
-            );
-        },
-        hasVehicleBuildings() {
-            return this.sortedBuildingsByName.some(building =>
-                this.getMaxVehiclesByBuilding(building)
-            );
-        },
         filteredBuildings() {
-            return this.sortedBuildingsByName.filter(building =>
+            return this.attributedBuildings.filter(building =>
                 JSON.stringify(Object.values(building))
                     .toLowerCase()
                     .includes(this.search.toLowerCase())
+            );
+        },
+        hasLevelBuildings() {
+            return this.attributedBuildings.some(({ hasLevel }) => hasLevel);
+        },
+        hasStaffBuildings() {
+            return this.attributedBuildings.some(({ hasStaff }) => hasStaff);
+        },
+        hasBedBuildings() {
+            return this.attributedBuildings.some(({ hasBeds }) => hasBeds);
+        },
+        hasClassroomBuildings() {
+            return this.attributedBuildings.some(
+                ({ hasClassrooms }) => hasClassrooms
+            );
+        },
+        hasCellBuildings() {
+            return this.attributedBuildings.some(({ hasCells }) => hasCells);
+        },
+        hasVehicleBuildings() {
+            return this.attributedBuildings.some(
+                ({ hasVehicles }) => hasVehicles
             );
         },
     },
@@ -496,51 +633,6 @@ export default Vue.extend<
                     clickToClose: false,
                     shiftY: 0.1,
                 }
-            );
-        },
-        getBuildingIcon(building) {
-            return (
-                building.custom_icon_url ??
-                window
-                    .getBuildingMarkerIcon({
-                        building_type: building.building_type,
-                    })
-                    ?.replace(/_other(?=\.png$)/u, '')
-            );
-        },
-        getCellsForBuilding(building) {
-            const extensionIds = this.cellExtensionIDs.filter(id =>
-                id.startsWith(building.building_type.toString())
-            );
-            return building.extensions.filter(({ type_id }) =>
-                extensionIds.includes(`${building.building_type}_${type_id}`)
-            );
-        },
-        getVehiclesByBuilding(buildingId) {
-            return this.vehiclesByBuilding[buildingId] ?? [];
-        },
-        getMaxVehiclesByBuilding(building) {
-            const buildingType = this.buildingTypes[building.building_type];
-            if (!('startParkingLots' in buildingType)) return 0;
-            return (
-                building.level +
-                buildingType.startParkingLots +
-                building.extensions
-                    .map(extension => {
-                        const extensionType: InternalExtension =
-                            buildingType.extensions[extension.type_id];
-                        if (
-                            !extension.available ||
-                            !('isVehicleExtension' in extensionType)
-                        )
-                            return 0;
-                        return (
-                            extensionType.givesParkingLots +
-                            (extensionType.givesParkingLotsPerLevel ?? 0) *
-                                building.level
-                        );
-                    })
-                    .reduce((a, b) => a + b, 0)
             );
         },
     },

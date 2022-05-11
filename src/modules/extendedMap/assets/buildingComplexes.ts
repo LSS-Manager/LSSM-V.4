@@ -23,6 +23,9 @@ export default async (
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: `buildingComplexes`,
     });
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        feature: `buildingComplexes`,
+    });
 
     const userBuildings: Record<number, Building> =
         LSSM.$store.getters['api/buildingsById'];

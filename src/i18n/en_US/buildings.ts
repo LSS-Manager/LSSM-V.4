@@ -450,6 +450,7 @@ export default {
         startPersonnel: 0,
         startParkingLots: 2,
         startBeds: 5,
+        levelNotIncreasingLots: true,
         startVehicles: ['Non. You can buy max. 2 Vehicles'],
         schoolingTypes: ['Rescue'],
     },
