@@ -27,16 +27,14 @@
                                     noSort: true,
                                     attrs: { style: 'width: 0' },
                                 },
-                                type: {
+                                typeName: {
                                     title: '',
-                                    noSort: true,
                                     attrs: { style: 'width: 0' },
                                 },
                                 name: {
                                     title: $m(
                                         'overview.buildings.table.head.name'
                                     ),
-                                    noSort: true,
                                 },
                                 ...(hasLevelBuildings
                                     ? {
@@ -44,7 +42,6 @@
                                               title: $m(
                                                   'overview.buildings.table.head.level'
                                               ),
-                                              noSort: true,
                                           },
                                       }
                                     : {}),
@@ -54,7 +51,6 @@
                                               title: $m(
                                                   'overview.buildings.table.head.vehicles'
                                               ),
-                                              noSort: true,
                                           },
                                       }
                                     : {}),
@@ -64,7 +60,6 @@
                                               title: $m(
                                                   'overview.buildings.table.head.beds'
                                               ),
-                                              noSort: true,
                                           },
                                       }
                                     : {}),
@@ -74,7 +69,6 @@
                                               title: $m(
                                                   'overview.buildings.table.head.classrooms'
                                               ),
-                                              noSort: true,
                                           },
                                       }
                                     : {}),
@@ -84,7 +78,6 @@
                                               title: $m(
                                                   'overview.buildings.table.head.cells'
                                               ),
-                                              noSort: true,
                                           },
                                       }
                                     : {}),
@@ -94,19 +87,20 @@
                                               title: $m(
                                                   'overview.buildings.table.head.staff'
                                               ),
-                                              noSort: true,
                                           },
                                           hiring: {
                                               title: $m(
                                                   'overview.buildings.table.head.hiring'
                                               ),
-                                              noSort: true,
                                           },
                                       }
                                     : {}),
                             }"
                             :search="search"
                             @search="s => (search = s)"
+                            :sort="sort"
+                            :sort-dir="sortDir"
+                            @sort="setSort"
                         >
                             <template v-slot:head>
                                 <h2 class="overview-heading">
@@ -117,7 +111,7 @@
                                 </h2>
                             </template>
                             <tr
-                                v-for="building in filteredBuildings"
+                                v-for="building in sortedBuildings"
                                 :key="building.id"
                             >
                                 <td>
@@ -261,7 +255,7 @@
             <tab
                 v-for="building in sortedBuildingsByName"
                 :key="building.id"
-                :title="building.caption"
+                :title="building.name"
             >
                 <iframe
                     :src="`/buildings/${building.id}`"
@@ -328,6 +322,17 @@ type AttributedBuilding = AttributedBuildingBeds &
         name: string;
     };
 
+type SortAttribute =
+    | 'beds'
+    | 'cells'
+    | 'classrooms'
+    | 'hiring'
+    | 'level'
+    | 'name'
+    | 'staff'
+    | 'typeName'
+    | 'vehicles';
+
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
@@ -340,17 +345,21 @@ export default Vue.extend<
         currentBuildingId: number;
         vehiclesByBuilding: Record<number, Vehicle[]>;
         search: string;
+        sort: SortAttribute;
+        sortDir: 'asc' | 'desc';
     },
     {
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
+        setSort(sort: SortAttribute): void;
     },
     {
         attributedBuildings: AttributedBuilding[];
-        sortedBuildingsByName: Building[];
+        sortedBuildingsByName: AttributedBuilding[];
         sortedBuildingIdsByName: number[];
         filteredBuildings: AttributedBuilding[];
+        sortedBuildings: AttributedBuilding[];
         hasLevelBuildings: boolean;
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
@@ -396,6 +405,8 @@ export default Vue.extend<
             currentBuildingId: 0,
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             search: '',
+            sort: 'name',
+            sortDir: 'asc',
         };
     },
     computed: {
@@ -549,23 +560,83 @@ export default Vue.extend<
                 .filter(Boolean);
         },
         sortedBuildingsByName() {
-            const buildings: Building[] = this.complex.buildings
-                .map(id => this.buildings[parseInt(id)])
-                .filter(Boolean);
-            return buildings.sort(
-                ({ caption: captionA }, { caption: captionB }) =>
-                    captionA.localeCompare(captionB)
+            const buildings = this.attributedBuildings;
+            return buildings.sort(({ name: captionA }, { name: captionB }) =>
+                captionA.localeCompare(captionB)
             );
         },
         sortedBuildingIdsByName() {
             return this.sortedBuildingsByName.map(({ id }) => id);
         },
         filteredBuildings() {
-            return this.attributedBuildings.filter(building =>
-                JSON.stringify(Object.values(building))
-                    .toLowerCase()
-                    .includes(this.search.toLowerCase())
-            );
+            return this.search
+                ? this.attributedBuildings.filter(building =>
+                      JSON.stringify(Object.values(building))
+                          .toLowerCase()
+                          .includes(this.search.toLowerCase())
+                  )
+                : this.attributedBuildings;
+        },
+        sortedBuildings() {
+            if (this.sort === 'name') {
+                return this.sortDir === 'asc'
+                    ? this.sortedBuildingsByName
+                    : [...this.sortedBuildingsByName].reverse();
+            }
+            return [...this.filteredBuildings].sort((buildingA, buildingB) => {
+                // Workaround for TypeScript <3
+                const getSortValue = (building: AttributedBuilding) => {
+                    switch (this.sort) {
+                        case 'beds':
+                            return 'beds' in building ? building.beds : -1;
+                        case 'cells':
+                            return 'cells' in building ? building.cells : -1;
+                        case 'classrooms':
+                            return 'classrooms' in building
+                                ? building.classrooms
+                                : -1;
+                        case 'hiring':
+                            if ('staff' in building) {
+                                if (building.hiring_automatic) return 0;
+                                return building.hiring_phase || -1;
+                            }
+                            return -2;
+                        case 'level':
+                            return 'level' in building ? building.level : -1;
+                        case 'name':
+                            return 'name' in building ? building.name : '';
+                        case 'staff':
+                            return 'staff' in building ? building.staff : -1;
+                        case 'typeName':
+                            return 'typeName' in building
+                                ? building.typeName
+                                : '';
+                        case 'vehicles':
+                            return 'vehicles' in building
+                                ? building.vehicles.length
+                                : -1;
+                    }
+                };
+                const attributeA = getSortValue(buildingA);
+                const attributeB = getSortValue(buildingB);
+
+                let result = 0;
+
+                if (
+                    typeof attributeA === 'number' &&
+                    typeof attributeB === 'number'
+                )
+                    result = attributeA - attributeB;
+                else if (
+                    typeof attributeA === 'string' &&
+                    typeof attributeB === 'string'
+                )
+                    result = attributeA.localeCompare(attributeB);
+
+                if (this.sortDir === 'desc') result *= -1;
+
+                return result;
+            });
         },
         hasLevelBuildings() {
             return this.attributedBuildings.some(({ hasLevel }) => hasLevel);
@@ -634,6 +705,12 @@ export default Vue.extend<
                     shiftY: 0.1,
                 }
             );
+        },
+        setSort(sort) {
+            const s = sort;
+            this.sortDir =
+                s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
+            this.sort = s;
         },
     },
     props: {
