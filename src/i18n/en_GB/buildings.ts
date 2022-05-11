@@ -519,6 +519,7 @@ export default {
         schoolingTypes: ['Rescue'],
         startParkingLots: 2,
         startBeds: 5,
+        levelNotIncreasingLots: true,
     },
     22: {
         caption: 'Home Response Location',
@@ -647,5 +648,6 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Police'],
         startParkingLots: 1,
+        startCells: 0,
     },
 } as Record<number, InternalBuilding>;
