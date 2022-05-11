@@ -48,9 +48,9 @@ interface VehicleExtension extends BaseExtension {
     isVehicleExtension: true;
     givesParkingLots: number;
     givesParkingLotsPerLevel?: boolean;
-    unlocksVehicleTypes: number[];
-    parkingLotReservations: number[][];
-    giftsVehicles: number[];
+    unlocksVehicleTypes?: number[];
+    parkingLotReservations?: number[][];
+    giftsVehicles?: number[];
 }
 
 interface ClassroomExtension extends BaseExtension {
