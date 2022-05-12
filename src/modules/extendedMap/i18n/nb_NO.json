@@ -3,12 +3,6 @@
         "openInLightbox": "Open building in Lightbox",
         "overview": {
             "buildings": {
-                "classrooms": {
-                    "title": "Classrooms"
-                },
-                "extensions": {
-                    "title": "Extensions"
-                },
                 "hiring": {
                     "automatic": "automatically",
                     "no": "None",
@@ -27,12 +21,26 @@
                         "vehicles": "Vehicles"
                     }
                 },
-                "title": "attached buildings",
-                "vehicles": {
-                    "title": "Vehicles"
-                }
+                "title": "attached buildings"
             },
-            "title": "Overview"
+            "classrooms": {
+                "title": "Classrooms"
+            },
+            "extensions": {
+                "title": "Extensions"
+            },
+            "title": "Overview",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Vehicles"
+            }
         },
         "settings": {
             "abort": "Abort",

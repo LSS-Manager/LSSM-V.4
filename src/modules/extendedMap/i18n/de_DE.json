@@ -31,6 +31,14 @@
             },
             "title": "Übersicht",
             "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Gebäude",
+                        "fms": "FMS",
+                        "name": "Name",
+                        "staff": "Personal (zugewiesen / maximal)"
+                    }
+                },
                 "title": "Fahrzeuge"
             }
         },

@@ -3,12 +3,6 @@
         "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
             "buildings": {
-                "classrooms": {
-                    "title": "Classrooms"
-                },
-                "extensions": {
-                    "title": "Extensions"
-                },
                 "hiring": {
                     "automatic": "Automatique",
                     "no": "Non",
@@ -27,12 +21,26 @@
                         "vehicles": "Véhicules"
                     }
                 },
-                "title": "bâtiments rattachés",
-                "vehicles": {
-                    "title": "Vehicles"
-                }
+                "title": "bâtiments rattachés"
             },
-            "title": "Aperçu"
+            "classrooms": {
+                "title": "Classrooms"
+            },
+            "extensions": {
+                "title": "Extensions"
+            },
+            "title": "Aperçu",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Vehicles"
+            }
         },
         "settings": {
             "abort": "Annuler",

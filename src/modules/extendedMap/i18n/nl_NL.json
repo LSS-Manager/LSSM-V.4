@@ -3,12 +3,6 @@
         "openInLightbox": "Open gebouw in Lightbox",
         "overview": {
             "buildings": {
-                "classrooms": {
-                    "title": "Klaslokalen"
-                },
-                "extensions": {
-                    "title": "Uitbreidingen"
-                },
                 "hiring": {
                     "automatic": "automatisch",
                     "no": "Geen",
@@ -27,12 +21,26 @@
                         "vehicles": "Voertuigen"
                     }
                 },
-                "title": "gekoppelde gebouwen",
-                "vehicles": {
-                    "title": "Voertuigen"
-                }
+                "title": "gekoppelde gebouwen"
             },
-            "title": "Overzicht"
+            "classrooms": {
+                "title": "Klaslokalen"
+            },
+            "extensions": {
+                "title": "Uitbreidingen"
+            },
+            "title": "Overzicht",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Voertuigen"
+            }
         },
         "settings": {
             "abort": "Annuleren",

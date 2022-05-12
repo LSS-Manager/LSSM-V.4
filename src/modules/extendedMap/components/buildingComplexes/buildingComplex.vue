@@ -96,11 +96,11 @@
                                       }
                                     : {}),
                             }"
-                            :search="search"
-                            @search="s => (search = s)"
-                            :sort="sort"
-                            :sort-dir="sortDir"
-                            @sort="setSort"
+                            :search="buildingsTable.search"
+                            @search="s => (buildingsTable.search = s)"
+                            :sort="buildingsTable.sort"
+                            :sort-dir="buildingsTable.sortDir"
+                            @sort="setSortBuildingsTable"
                         >
                             <template v-slot:head>
                                 <h2 class="overview-heading">
@@ -235,7 +235,105 @@
                         :title="$m('overview.vehicles.title')"
                         v-if="hasVehicleBuildings"
                     >
-                        Vehicles coming soon
+                        <enhanced-table
+                            :table-attrs="{ class: 'table table-striped' }"
+                            :head="{
+                                icon: {
+                                    title: '',
+                                    noSort: true,
+                                    attrs: { style: 'width: 0' },
+                                },
+                                customTypeName: {
+                                    title: '',
+                                    noSort: true,
+                                    attrs: { style: 'width: 0' },
+                                },
+                                name: {
+                                    title: $m(
+                                        'overview.vehicles.table.head.name'
+                                    ),
+                                    noSort: true,
+                                },
+                                fms_show: {
+                                    title: $m(
+                                        'overview.vehicles.table.head.fms'
+                                    ),
+                                    noSort: true,
+                                },
+                                buildingName: {
+                                    title: $m(
+                                        'overview.vehicles.table.head.building'
+                                    ),
+                                    noSort: true,
+                                },
+                                maxStaff: {
+                                    title: $m(
+                                        'overview.vehicles.table.head.staff'
+                                    ),
+                                    noSort: true,
+                                },
+                            }"
+                            no-search
+                        >
+                            <template v-slot:head>
+                                <h2 class="overview-heading">
+                                    {{ $m('overview.vehicles.title') }}:
+                                    {{ vehicles.length.toLocaleString() }}
+                                </h2>
+                            </template>
+                            <tr v-for="vehicle in vehicles" :key="vehicle.id">
+                                <td>icon</td>
+                                <td class="table-cell-right">
+                                    <a
+                                        class="btn btn-default btn-xs disabled"
+                                        v-if="vehicle.customTypeName"
+                                    >
+                                        {{ vehicle.customTypeName }}
+                                    </a>
+                                    <a class="btn btn-default btn-xs disabled">
+                                        {{ vehicle.typeName }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a
+                                        class="lightbox-open"
+                                        :href="`/vehicles/${vehicle.id}`"
+                                    >
+                                        {{ vehicle.name }}
+                                    </a>
+                                    <a
+                                        class="btn btn-default btn-xs pull-right lightbox-open"
+                                        :href="`/vehicles/${vehicle.id}/edit`"
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faPencilAlt"
+                                        />
+                                    </a>
+                                </td>
+                                <td>
+                                    <span
+                                        class="building_list_fms"
+                                        :class="`building_list_fms_${vehicle.fms_real}`"
+                                    >
+                                        {{ vehicle.fms_show }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a
+                                        class="lightbox-open"
+                                        :href="`/buildings/${vehicle.buildingId}`"
+                                    >
+                                        {{ vehicle.buildingName }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <template v-if="vehicle.maxStaff">
+                                        {{ vehicle.assignedStaff }} /
+                                        {{ vehicle.maxStaff }}
+                                    </template>
+                                </td>
+                            </tr>
+                        </enhanced-table>
                     </tab>
 
                     <!-- Extensions -->
@@ -273,13 +371,13 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { Vehicle } from 'typings/Vehicle';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
     InternalBuilding,
     InternalExtension,
 } from 'typings/Building';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 type AttributedBuildingBeds =
     | { hasBeds: false }
@@ -322,6 +420,20 @@ type AttributedBuilding = AttributedBuildingBeds &
         name: string;
     };
 
+interface AttributedVehicle {
+    id: number;
+    icon: string;
+    customTypeName?: string;
+    typeName: string;
+    name: string;
+    fms_show: number;
+    fms_real: number;
+    buildingId: number;
+    buildingName: string;
+    assignedStaff: number;
+    maxStaff: number;
+}
+
 type SortAttribute =
     | 'beds'
     | 'cells'
@@ -338,21 +450,25 @@ export default Vue.extend<
         faPencilAlt: IconDefinition;
         buildings: Record<number, Building>;
         buildingTypes: Record<number, InternalBuilding>;
-        bedBuildingTypes: number[];
-        classroomBuildingTypes: number[];
-        cellBuildingTypes: number[];
-        cellExtensionIDs: string[];
+        vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
         vehiclesByBuilding: Record<number, Vehicle[]>;
-        search: string;
-        sort: SortAttribute;
-        sortDir: 'asc' | 'desc';
+        buildingsTable: {
+            search: string;
+            sort: SortAttribute;
+            sortDir: 'asc' | 'desc';
+        };
+        vehiclesTable: {
+            search: string;
+            sort: keyof AttributedVehicle;
+            sortDir: 'asc' | 'desc';
+        };
     },
     {
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
-        setSort(sort: SortAttribute): void;
+        setSortBuildingsTable(sort: SortAttribute): void;
     },
     {
         attributedBuildings: AttributedBuilding[];
@@ -366,6 +482,7 @@ export default Vue.extend<
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
+        vehicles: AttributedVehicle[];
     },
     {
         complexIndex: number;
@@ -390,23 +507,29 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$store.getters.$tBuildings as Record<
-            number,
-            InternalBuilding
-        >;
         return {
             faPencilAlt,
             buildings: this.$store.getters['api/buildingsById'],
-            buildingTypes,
-            bedBuildingTypes: Object.values(this.$t('bedBuildings')),
-            classroomBuildingTypes: Object.values(this.$t('schoolBuildings')),
-            cellBuildingTypes: Object.values(this.$t('cellBuildings')),
-            cellExtensionIDs: Object.values(this.$t('cellExtensions')),
+            buildingTypes: this.$store.getters.$tBuildings as Record<
+                number,
+                InternalBuilding
+            >,
+            vehicleTypes: this.$store.getters.$tVehicles as Record<
+                number,
+                InternalVehicle
+            >,
             currentBuildingId: 0,
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
-            search: '',
-            sort: 'name',
-            sortDir: 'asc',
+            buildingsTable: {
+                search: '',
+                sort: 'name',
+                sortDir: 'asc',
+            },
+            vehiclesTable: {
+                search: '',
+                sort: 'name',
+                sortDir: 'asc',
+            },
         };
     },
     computed: {
@@ -569,24 +692,24 @@ export default Vue.extend<
             return this.sortedBuildingsByName.map(({ id }) => id);
         },
         filteredBuildings() {
-            return this.search
+            return this.buildingsTable.search
                 ? this.attributedBuildings.filter(building =>
                       JSON.stringify(Object.values(building))
                           .toLowerCase()
-                          .includes(this.search.toLowerCase())
+                          .includes(this.buildingsTable.search.toLowerCase())
                   )
                 : this.attributedBuildings;
         },
         sortedBuildings() {
-            if (this.sort === 'name') {
-                return this.sortDir === 'asc'
+            if (this.buildingsTable.sort === 'name') {
+                return this.buildingsTable.sortDir === 'asc'
                     ? this.sortedBuildingsByName
                     : [...this.sortedBuildingsByName].reverse();
             }
             return [...this.filteredBuildings].sort((buildingA, buildingB) => {
                 // Workaround for TypeScript <3
                 const getSortValue = (building: AttributedBuilding) => {
-                    switch (this.sort) {
+                    switch (this.buildingsTable.sort) {
                         case 'beds':
                             return 'beds' in building ? building.beds : -1;
                         case 'cells':
@@ -633,7 +756,7 @@ export default Vue.extend<
                 )
                     result = attributeA.localeCompare(attributeB);
 
-                if (this.sortDir === 'desc') result *= -1;
+                if (this.buildingsTable.sortDir === 'desc') result *= -1;
 
                 return result;
             });
@@ -658,6 +781,33 @@ export default Vue.extend<
         hasVehicleBuildings() {
             return this.attributedBuildings.some(
                 ({ hasVehicles }) => hasVehicles
+            );
+        },
+        vehicles() {
+            return this.attributedBuildings.flatMap(building =>
+                building.hasVehicles
+                    ? building.vehicles.map(vehicle => {
+                          const vehicleType =
+                              this.vehicleTypes[vehicle.vehicle_type];
+                          return {
+                              id: vehicle.id,
+                              icon: '',
+                              customTypeName:
+                                  vehicle.vehicle_type_caption ?? undefined,
+                              typeName: vehicleType.caption,
+                              name: vehicle.caption,
+                              fms_show: vehicle.fms_show,
+                              fms_real: vehicle.fms_real,
+                              buildingId: vehicle.building_id,
+                              buildingName:
+                                  this.buildings[vehicle.building_id].caption,
+                              assignedStaff: vehicle.assigned_personnel_count,
+                              maxStaff:
+                                  vehicle.max_personnel_override ??
+                                  vehicleType.maxPersonnel,
+                          };
+                      })
+                    : []
             );
         },
     },
@@ -706,11 +856,14 @@ export default Vue.extend<
                 }
             );
         },
-        setSort(sort) {
+        setSortBuildingsTable(sort) {
             const s = sort;
-            this.sortDir =
-                s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
-            this.sort = s;
+            this.buildingsTable.sortDir =
+                s === this.buildingsTable.sort &&
+                this.buildingsTable.sortDir === 'asc'
+                    ? 'desc'
+                    : 'asc';
+            this.buildingsTable.sort = s;
         },
     },
     props: {

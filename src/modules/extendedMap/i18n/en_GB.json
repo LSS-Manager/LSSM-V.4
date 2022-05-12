@@ -31,6 +31,14 @@
             },
             "title": "Overview",
             "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
                 "title": "Vehicles"
             }
         },
