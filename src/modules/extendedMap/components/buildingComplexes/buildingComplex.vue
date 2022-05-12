@@ -245,35 +245,34 @@
                                 },
                                 customTypeName: {
                                     title: '',
-                                    noSort: true,
                                     attrs: { style: 'width: 0' },
                                 },
                                 name: {
                                     title: $m(
                                         'overview.vehicles.table.head.name'
                                     ),
-                                    noSort: true,
                                 },
                                 fms_show: {
                                     title: $m(
                                         'overview.vehicles.table.head.fms'
                                     ),
-                                    noSort: true,
                                 },
                                 buildingName: {
                                     title: $m(
                                         'overview.vehicles.table.head.building'
                                     ),
-                                    noSort: true,
                                 },
                                 maxStaff: {
                                     title: $m(
                                         'overview.vehicles.table.head.staff'
                                     ),
-                                    noSort: true,
                                 },
                             }"
-                            no-search
+                            :search="vehiclesTable.search"
+                            @search="s => (vehiclesTable.search = s)"
+                            :sort="vehiclesTable.sort"
+                            :sort-dir="vehiclesTable.sortDir"
+                            @sort="setSortVehiclesTable"
                         >
                             <template v-slot:head>
                                 <h2 class="overview-heading">
@@ -281,8 +280,16 @@
                                     {{ vehicles.length.toLocaleString() }}
                                 </h2>
                             </template>
-                            <tr v-for="vehicle in vehicles" :key="vehicle.id">
-                                <td>icon</td>
+                            <tr
+                                v-for="vehicle in sortedVehicles"
+                                :key="vehicle.id"
+                            >
+                                <td>
+                                    <img
+                                        :src="vehicle.icon"
+                                        alt="vehicle icon"
+                                    />
+                                </td>
                                 <td class="table-cell-right">
                                     <a
                                         class="btn btn-default btn-xs disabled"
@@ -469,6 +476,7 @@ export default Vue.extend<
         updateIframe(event: Event): void;
         openSettings(): void;
         setSortBuildingsTable(sort: SortAttribute): void;
+        setSortVehiclesTable(sort: keyof AttributedVehicle): void;
     },
     {
         attributedBuildings: AttributedBuilding[];
@@ -483,6 +491,8 @@ export default Vue.extend<
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
         vehicles: AttributedVehicle[];
+        filteredVehicles: AttributedVehicle[];
+        sortedVehicles: AttributedVehicle[];
     },
     {
         complexIndex: number;
@@ -791,7 +801,9 @@ export default Vue.extend<
                               this.vehicleTypes[vehicle.vehicle_type];
                           return {
                               id: vehicle.id,
-                              icon: '',
+                              icon: window.vehicle_graphics[
+                                  vehicle.vehicle_type
+                              ][0],
                               customTypeName:
                                   vehicle.vehicle_type_caption ?? undefined,
                               typeName: vehicleType.caption,
@@ -809,6 +821,45 @@ export default Vue.extend<
                       })
                     : []
             );
+        },
+        filteredVehicles() {
+            return this.vehiclesTable.search
+                ? this.vehicles.filter(vehicle =>
+                      JSON.stringify(Object.values(vehicle))
+                          .toLowerCase()
+                          .includes(this.vehiclesTable.search.toLowerCase())
+                  )
+                : this.vehicles;
+        },
+        sortedVehicles() {
+            return [...this.filteredVehicles].sort((vehicleA, vehicleB) => {
+                const attributeA = vehicleA[this.vehiclesTable.sort];
+                const attributeB = vehicleB[this.vehiclesTable.sort];
+
+                let result = 0;
+
+                if (
+                    typeof attributeA === 'number' &&
+                    typeof attributeB === 'number'
+                ) {
+                    result = attributeA - attributeB;
+                } else if (this.vehiclesTable.sort === 'customTypeName') {
+                    result = (attributeA ?? vehicleA.typeName)
+                        .toString()
+                        .localeCompare(
+                            (attributeB ?? vehicleB.typeName).toString()
+                        );
+                } else if (
+                    typeof attributeA === 'string' &&
+                    typeof attributeB === 'string'
+                ) {
+                    result = attributeA.localeCompare(attributeB);
+                }
+
+                if (this.vehiclesTable.sortDir === 'desc') result *= -1;
+
+                return result;
+            });
         },
     },
     methods: {
@@ -864,6 +915,15 @@ export default Vue.extend<
                     ? 'desc'
                     : 'asc';
             this.buildingsTable.sort = s;
+        },
+        setSortVehiclesTable(sort) {
+            const s = sort;
+            this.vehiclesTable.sortDir =
+                s === this.vehiclesTable.sort &&
+                this.vehiclesTable.sortDir === 'asc'
+                    ? 'desc'
+                    : 'asc';
+            this.vehiclesTable.sort = s;
         },
     },
     props: {
