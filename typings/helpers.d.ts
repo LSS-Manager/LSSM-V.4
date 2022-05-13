@@ -67,7 +67,7 @@ declare global {
         patient_timers: PatientTimer[];
         sale_count_down: number;
         mission_label: boolean;
-        vehicle_graphics: [string, string, 'false' | 'true'][]; // it seems to be sexy to stringify booleans according to the game...
+        vehicle_graphics: ([string, string, 'false' | 'true'] | null)[]; // it seems to be sexy to stringify booleans according to the game...
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;

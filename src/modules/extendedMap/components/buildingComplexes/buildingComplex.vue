@@ -345,7 +345,86 @@
 
                     <!-- Extensions -->
                     <tab :title="$m('overview.extensions.title')">
-                        Extensions coming soon
+                        <enhanced-table
+                            :table-attrs="{ class: 'table table-striped' }"
+                            :head="{
+                                name: {
+                                    title: $m(
+                                        'overview.extensions.table.head.name'
+                                    ),
+                                    noSort: true,
+                                },
+                                buildingName: {
+                                    title: $m(
+                                        'overview.extensions.table.head.building'
+                                    ),
+                                    noSort: true,
+                                },
+                                actions: {
+                                    title: '',
+                                    noSort: true,
+                                },
+                            }"
+                            no-search
+                        >
+                            <template v-slot:head>
+                                <h2 class="overview-heading indented-title">
+                                    {{ $m('overview.extensions.title') }}
+                                    <br />
+                                    <small>
+                                        {{
+                                            $mc(
+                                                'overview.extensions.summary.built',
+                                                1,
+                                                { n: 'n' }
+                                            )
+                                        }},
+                                        {{
+                                            $mc(
+                                                'overview.extensions.summary.inConstruction',
+                                                1,
+                                                { n: 'm' }
+                                            )
+                                        }},
+                                        {{
+                                            $mc(
+                                                'overview.extensions.summary.available',
+                                                1,
+                                                { n: 'x' }
+                                            )
+                                        }},
+                                        {{
+                                            $mc(
+                                                'overview.extensions.summary.total',
+                                                extensions.length,
+                                                {
+                                                    n: extensions.length.toLocaleString(),
+                                                }
+                                            )
+                                        }}
+                                    </small>
+                                </h2>
+                            </template>
+                            <tr
+                                v-for="(extension, index) in extensions"
+                                :key="index"
+                            >
+                                <td>
+                                    {{ extension.name }}
+                                </td>
+                                <td>
+                                    <a
+                                        :href="`/buildings/${extension.buildingId}`"
+                                        class="lightbox-open"
+                                    >
+                                        {{ extension.buildingName }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <pre>{{ extension }}</pre>
+                                </td>
+                            </tr>
+                        </enhanced-table>
                     </tab>
 
                     <!-- Classrooms / start schoolings -->
@@ -381,6 +460,7 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
+    Extension,
     InternalBuilding,
     InternalExtension,
 } from 'typings/Building';
@@ -422,9 +502,11 @@ type AttributedBuilding = AttributedBuildingBeds &
     AttributedBuildingStaff &
     AttributedBuildingVehicles & {
         id: number;
+        type: number;
         icon: string;
         typeName: string;
         name: string;
+        extensions: Extension[];
     };
 
 interface AttributedVehicle {
@@ -441,7 +523,16 @@ interface AttributedVehicle {
     maxStaff: number;
 }
 
-type SortAttribute =
+type AttributedExtension = {
+    buildingId: number;
+    buildingName: string;
+    name: string;
+} & (
+    | { bought: true; available: boolean; enabled: boolean }
+    | { canBuy: boolean; duration: string; credits: number; coins: number }
+);
+
+type BuildingSortAttribute =
     | 'beds'
     | 'cells'
     | 'classrooms'
@@ -462,7 +553,7 @@ export default Vue.extend<
         vehiclesByBuilding: Record<number, Vehicle[]>;
         buildingsTable: {
             search: string;
-            sort: SortAttribute;
+            sort: BuildingSortAttribute;
             sortDir: 'asc' | 'desc';
         };
         vehiclesTable: {
@@ -475,7 +566,7 @@ export default Vue.extend<
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
-        setSortBuildingsTable(sort: SortAttribute): void;
+        setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
     },
     {
@@ -493,6 +584,8 @@ export default Vue.extend<
         vehicles: AttributedVehicle[];
         filteredVehicles: AttributedVehicle[];
         sortedVehicles: AttributedVehicle[];
+        boughtExtensionsAmountByType: Record<number, Record<number, number>>;
+        extensions: AttributedExtension[];
     },
     {
         complexIndex: number;
@@ -552,6 +645,7 @@ export default Vue.extend<
 
                     const buildingAttrs = {
                         id: building.id,
+                        type: building.building_type,
                         icon:
                             building.custom_icon_url ??
                             window
@@ -561,6 +655,7 @@ export default Vue.extend<
                                 ?.replace(/_other(?=\.png$)/u, ''),
                         typeName: buildingType.caption,
                         name: building.caption,
+                        extensions: building.extensions,
                     };
 
                     const beds: AttributedBuildingBeds =
@@ -801,9 +896,10 @@ export default Vue.extend<
                               this.vehicleTypes[vehicle.vehicle_type];
                           return {
                               id: vehicle.id,
-                              icon: window.vehicle_graphics[
-                                  vehicle.vehicle_type
-                              ][0],
+                              icon:
+                                  window.vehicle_graphics[
+                                      vehicle.vehicle_type
+                                  ]?.[0] ?? '',
                               customTypeName:
                                   vehicle.vehicle_type_caption ?? undefined,
                               typeName: vehicleType.caption,
@@ -860,6 +956,98 @@ export default Vue.extend<
 
                 return result;
             });
+        },
+        boughtExtensionsAmountByType() {
+            const data: Record<
+                number,
+                Record<number, number>
+            > = Object.fromEntries(
+                Object.keys(this.buildingTypes).map(type => [type, {}])
+            );
+            Object.values(this.buildings).forEach(
+                ({ building_type, extensions }) => {
+                    extensions.forEach(({ type_id }) => {
+                        if (!data[building_type].hasOwnProperty(type_id))
+                            data[building_type][type_id] = 0;
+                        data[building_type][type_id]++;
+                    });
+                }
+            );
+            return data;
+        },
+        extensions() {
+            const maxExtensionsFunctionResults: Record<
+                number,
+                Record<number, number>
+            > = {};
+
+            return this.attributedBuildings.flatMap(
+                ({
+                    id: buildingId,
+                    extensions,
+                    name: buildingName,
+                    type: buildingTypeId,
+                }) => {
+                    const buildingType = this.buildingTypes[buildingTypeId];
+                    if (
+                        !maxExtensionsFunctionResults.hasOwnProperty(
+                            buildingTypeId
+                        )
+                    )
+                        maxExtensionsFunctionResults[buildingTypeId] = {};
+                    return buildingType.extensions.map(
+                        (extensionType, index) => {
+                            const boughtExtension = extensions.find(
+                                ({ type_id }) => index === type_id
+                            );
+                            if (
+                                !boughtExtension &&
+                                extensionType.maxExtensionsFunction
+                            ) {
+                                maxExtensionsFunctionResults[buildingTypeId][
+                                    index
+                                ] ??= extensionType.maxExtensionsFunction(
+                                    this.$store.getters['api/buildingsByType']
+                                );
+                            }
+
+                            return {
+                                buildingId,
+                                buildingName,
+                                name: extensionType.caption,
+                                ...(boughtExtension
+                                    ? {
+                                          bought: true,
+                                          available: boughtExtension.available,
+                                          enabled: boughtExtension.enabled,
+                                      }
+                                    : {
+                                          canBuy:
+                                              extensionType.requiredExtensions?.every(
+                                                  extension =>
+                                                      extensions.find(
+                                                          ({ type_id }) =>
+                                                              extension ===
+                                                              type_id
+                                                      )
+                                              ) ??
+                                              extensionType.canBuyByAmount?.(
+                                                  this
+                                                      .boughtExtensionsAmountByType,
+                                                  maxExtensionsFunctionResults[
+                                                      buildingTypeId
+                                                  ][index]
+                                              ) ??
+                                              true,
+                                          duration: extensionType.duration,
+                                          credits: extensionType.credits,
+                                          coins: extensionType.coins,
+                                      }),
+                            };
+                        }
+                    );
+                }
+            );
         },
     },
     methods: {
@@ -991,4 +1179,8 @@ export default Vue.extend<
 
     .table-cell-right
         text-align: right
+
+    .indented-title
+        text-indent: -0.5em
+        padding-left: 0.5em
 </style>

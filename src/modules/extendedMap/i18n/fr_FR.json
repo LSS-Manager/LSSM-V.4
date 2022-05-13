@@ -27,6 +27,18 @@
                 "title": "Classrooms"
             },
             "extensions": {
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} built",
+                    "inConstruction": "{n} under construction",
+                    "total": "{n} possible in total"
+                },
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "name": "Name"
+                    }
+                },
                 "title": "Extensions"
             },
             "title": "Aperçu",

@@ -27,6 +27,18 @@
                 "title": "Klassenzimmer"
             },
             "extensions": {
+                "summary": {
+                    "available": "{n} aktuell baubar",
+                    "built": "{n} gebaut",
+                    "inConstruction": "{n} im Bau",
+                    "total": "insgesamt {n} möglich"
+                },
+                "table": {
+                    "head": {
+                        "building": "Gebäude",
+                        "name": "Name"
+                    }
+                },
                 "title": "Ausbauten"
             },
             "title": "Übersicht",

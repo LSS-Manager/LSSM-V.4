@@ -42,6 +42,11 @@ interface BaseExtension {
     maxExtensionsFunction?(
         buildingsByType?: Record<number, Building[]>
     ): number;
+    canBuyByAmount?(
+        boughtExtensionsAmountByType: Record<number, Record<number, number>>,
+        maxExtensions: number
+    ): boolean;
+    requiredExtensions?: number[];
 }
 
 interface VehicleExtension extends BaseExtension {
