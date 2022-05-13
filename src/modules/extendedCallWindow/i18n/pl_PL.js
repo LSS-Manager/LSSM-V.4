@@ -145,7 +145,7 @@ module.exports = {
             [/^Samoch(ód|odów) SLRw$/u]: [24],
             [/^SLOp lub SLRr$/u]: [3, 28],
             [/^SPGaz$/u]: [10, 42, 52],
-            [/^Sprzęt przeciwpowodziowy$/u]: [51],
+            [/^sprzęty? przeciwpowodziow[ey]$/u]: [46, 51, 63],
         },
     },
     tailoredTabs: {
