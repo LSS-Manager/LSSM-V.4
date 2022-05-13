@@ -72,8 +72,8 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    boughtExtensionsAmountByType[0][8] +
-                        boughtExtensionsAmountByType[18][4] <
+                    (boughtExtensionsAmountByType[0][8] ?? 0) +
+                        (boughtExtensionsAmountByType[18][4] ?? 0) <
                     maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 0,
@@ -93,7 +93,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    boughtExtensionsAmountByType[0][9] < maxExtensions,
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
             },
@@ -923,8 +923,8 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    boughtExtensionsAmountByType[0][8] +
-                        boughtExtensionsAmountByType[18][4] <
+                    (boughtExtensionsAmountByType[0][8] ?? 0) +
+                        (boughtExtensionsAmountByType[18][4] ?? 0) <
                     maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 0,

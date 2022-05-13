@@ -27,6 +27,11 @@
                 "title": "Klassenzimmer"
             },
             "extensions": {
+                "abort": "Abbrechen",
+                "disabled": "Fertig gebaut & deaktiviert",
+                "enabled": "Fertig gebaut & aktiviert",
+                "limit": "Du kannst aktuell maximal {n} dieser Ausbauten bauen!",
+                "missingRequirements": "Folgende Voraussetzungen sind nicht erfüllt:",
                 "summary": {
                     "available": "{n} aktuell baubar",
                     "built": "{n} gebaut",
@@ -39,7 +44,8 @@
                         "name": "Name"
                     }
                 },
-                "title": "Ausbauten"
+                "title": "Ausbauten",
+                "underConstruction": "im Bau"
             },
             "title": "Übersicht",
             "vehicles": {

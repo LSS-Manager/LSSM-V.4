@@ -421,7 +421,104 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <pre>{{ extension }}</pre>
+                                    <template v-if="extension.bought">
+                                        <template v-if="extension.available">
+                                            <span
+                                                v-if="extension.enabled"
+                                                class="label label-success"
+                                            >
+                                                {{
+                                                    $m(
+                                                        'overview.extensions.enabled'
+                                                    )
+                                                }}
+                                            </span>
+                                            <span
+                                                v-else
+                                                class="label label-danger"
+                                            >
+                                                {{
+                                                    $m(
+                                                        'overview.extensions.disabled'
+                                                    )
+                                                }}
+                                            </span>
+                                        </template>
+                                        <template v-else>
+                                            <span class="label label-default">
+                                                {{
+                                                    $m(
+                                                        'overview.extensions.underConstruction'
+                                                    )
+                                                }}
+                                            </span>
+                                            &nbsp;
+                                            <button
+                                                class="btn btn-default btn-xs"
+                                                disabled
+                                            >
+                                                {{
+                                                    $m(
+                                                        'overview.extensions.abort'
+                                                    )
+                                                }}
+                                            </button>
+                                        </template>
+                                    </template>
+                                    <template v-else>
+                                        <button
+                                            :class="`btn btn-${
+                                                extension.enoughCredits
+                                                    ? 'success'
+                                                    : 'danger'
+                                            } btn-sm`"
+                                            :disabled="
+                                                !extension.canBuy ||
+                                                !extension.enoughCredits ||
+                                                true
+                                            "
+                                        >
+                                            {{
+                                                extension.credits.toLocaleString()
+                                            }}
+                                            {{ $t('credits') }}
+                                        </button>
+                                        <button
+                                            :class="`btn btn-${
+                                                extension.enoughCoins
+                                                    ? 'success'
+                                                    : 'danger'
+                                            } btn-sm`"
+                                            :disabled="
+                                                !extension.canBuy ||
+                                                !extension.enoughCoins ||
+                                                true
+                                            "
+                                        >
+                                            {{
+                                                extension.coins.toLocaleString()
+                                            }}
+                                            {{ $t('coins') }}
+                                        </button>
+                                        {{ extension.duration }}
+                                        <ul v-if="!extension.canBuy">
+                                            <li>
+                                                {{
+                                                    $m(
+                                                        'overview.extensions.missingRequirements'
+                                                    )
+                                                }}
+                                            </li>
+                                            <li
+                                                v-for="(
+                                                    requirement, index
+                                                ) in extension.requirements"
+                                                :key="index"
+                                            >
+                                                {{ requirement }}
+                                            </li>
+                                        </ul>
+                                    </template>
                                 </td>
                             </tr>
                         </enhanced-table>
@@ -529,7 +626,13 @@ type AttributedExtension = {
     name: string;
 } & (
     | { bought: true; available: boolean; enabled: boolean }
-    | { canBuy: boolean; duration: string; credits: number; coins: number }
+    | ({
+          duration: string;
+          credits: number;
+          coins: number;
+          enoughCredits: boolean;
+          enoughCoins: boolean;
+      } & ({ canBuy: false; requirements: string[] } | { canBuy: true }))
 );
 
 type BuildingSortAttribute =
@@ -1011,6 +1114,29 @@ export default Vue.extend<
                                 );
                             }
 
+                            const requiredExtensions =
+                                extensionType.requiredExtensions;
+
+                            const allRequiredExtensionsBought =
+                                requiredExtensions?.every(extension =>
+                                    extensions.find(
+                                        ({ type_id }) => extension === type_id
+                                    )
+                                );
+
+                            const canBuyByAmount =
+                                extensionType.canBuyByAmount?.(
+                                    this.boughtExtensionsAmountByType,
+                                    maxExtensionsFunctionResults[
+                                        buildingTypeId
+                                    ][index]
+                                );
+
+                            const canBuy =
+                                allRequiredExtensionsBought ??
+                                canBuyByAmount ??
+                                true;
+
                             return {
                                 buildingId,
                                 buildingName,
@@ -1022,26 +1148,43 @@ export default Vue.extend<
                                           enabled: boughtExtension.enabled,
                                       }
                                     : {
-                                          canBuy:
-                                              extensionType.requiredExtensions?.every(
-                                                  extension =>
-                                                      extensions.find(
-                                                          ({ type_id }) =>
-                                                              extension ===
-                                                              type_id
-                                                      )
-                                              ) ??
-                                              extensionType.canBuyByAmount?.(
-                                                  this
-                                                      .boughtExtensionsAmountByType,
-                                                  maxExtensionsFunctionResults[
-                                                      buildingTypeId
-                                                  ][index]
-                                              ) ??
-                                              true,
+                                          ...(canBuy
+                                              ? {
+                                                    canBuy: true,
+                                                }
+                                              : {
+                                                    canBuy: false,
+                                                    requirements: [
+                                                        ...(requiredExtensions?.map(
+                                                            id =>
+                                                                buildingType
+                                                                    .extensions[
+                                                                    id
+                                                                ].caption
+                                                        ) ?? []),
+                                                        ...(canBuyByAmount ||
+                                                        typeof canBuyByAmount ===
+                                                            'undefined'
+                                                            ? []
+                                                            : [
+                                                                  this.$mc(
+                                                                      'overview.extensions.limit',
+                                                                      maxExtensionsFunctionResults[
+                                                                          buildingTypeId
+                                                                      ][index]
+                                                                  ).toString(),
+                                                              ]),
+                                                    ],
+                                                }),
                                           duration: extensionType.duration,
                                           credits: extensionType.credits,
                                           coins: extensionType.coins,
+                                          enoughCredits:
+                                              this.$store.state.credits >=
+                                              extensionType.credits,
+                                          enoughCoins:
+                                              this.$store.state.coins >=
+                                              extensionType.coins,
                                       }),
                             };
                         }
@@ -1183,4 +1326,12 @@ export default Vue.extend<
     .indented-title
         text-indent: -0.5em
         padding-left: 0.5em
+
+    ul li
+        &:first-child
+            margin-left: -1em
+            font-weight: bold
+
+        &:not(:first-child)
+            list-style: unset !important
 </style>

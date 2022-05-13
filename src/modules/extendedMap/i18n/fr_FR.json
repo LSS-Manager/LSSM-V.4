@@ -27,6 +27,11 @@
                 "title": "Classrooms"
             },
             "extensions": {
+                "abort": "Abort",
+                "disabled": "Finished & disabled",
+                "enabled": "Finished & enabled",
+                "limit": "You cannot buy more than {n} of this extensions currently!",
+                "missingRequirements": "Following requirements are not met:",
                 "summary": {
                     "available": "{n} ready to be built",
                     "built": "{n} built",
@@ -39,7 +44,8 @@
                         "name": "Name"
                     }
                 },
-                "title": "Extensions"
+                "title": "Extensions",
+                "underConstruction": "under construction"
             },
             "title": "Aperçu",
             "vehicles": {
