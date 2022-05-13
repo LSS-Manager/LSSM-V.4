@@ -1156,9 +1156,9 @@ camelcase@^5.0.0:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001304, caniuse-lite@^1.0.30001332:
-  version "1.0.30001338"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001338.tgz"
-  integrity sha512-1gLHWyfVoRDsHieO+CaeYe7jSo/MT7D7lhaXUiwwbuR5BwQxORs0f1tAwUSQr3YbxRXJvxHM/PA5FfPQRnsPeQ==
+  version "1.0.30001340"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001340.tgz"
+  integrity sha512-jUNz+a9blQTQVu4uFcn17uAD8IDizPzQkIKh3LCJfg9BkyIqExYYdyc/ZSlWUSKb8iYiXxKsxbv4zYSvkqjrxw==
 
 chalk@^2.0.0:
   version "2.4.2"
