@@ -24,7 +24,7 @@ export default {
                 duration: '7 jours',
                 isVehicleExtension: true,
                 givesParkingLot: 0,
-                unlicksVehicleTypes: [25, 26],
+                unlocksVehicleTypes: [25, 26],
             },
             {
                 caption: 'Extension de soutien à incendie',
@@ -33,7 +33,7 @@ export default {
                 duration: '3 jours',
                 isVehicleExtension: true,
                 givesParkingLot: 0,
-                unlicksVehicleTypes: [35, 36, 37, 38],
+                unlocksVehicleTypes: [35, 36, 37, 38],
             },
             {
                 caption: 'Unité nautique',
@@ -42,7 +42,7 @@ export default {
                 duration: '7 jours',
                 isVehicleExtension: true,
                 givesParkingLot: 0,
-                unlicksVehicleTypes: [16, 17],
+                unlocksVehicleTypes: [16, 17],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
@@ -414,7 +414,7 @@ export default {
                 duration: '7 jours',
                 isVehicleExtension: true,
                 givesParkingLot: 0,
-                unlicksVehicleTypes: [25, 26],
+                unlocksVehicleTypes: [25, 26],
             },
             {
                 caption: 'Extension de soutien à incendie',
@@ -423,7 +423,7 @@ export default {
                 duration: '3 jours',
                 isVehicleExtension: true,
                 givesParkingLot: 0,
-                unlicksVehicleTypes: [35, 36, 37, 38],
+                unlocksVehicleTypes: [35, 36, 37, 38],
             },
             {
                 caption: 'Unité nautique',
@@ -432,7 +432,7 @@ export default {
                 duration: '7 jours',
                 isVehicleExtension: true,
                 givesParkingLot: 0,
-                unlicksVehicleTypes: [16, 17],
+                unlocksVehicleTypes: [16, 17],
             },
         ],
         levelcost: [
