@@ -79,4 +79,8 @@ Hier vind je een aantal min of meer intressante feitens en statistieken over LSS
 
 <stats-cloc/>
 
+### Commits & Changes
+
+<stats-commits/>
+
 [Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl
