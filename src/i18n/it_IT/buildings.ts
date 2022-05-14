@@ -405,7 +405,7 @@ export default {
         maxLevel: 0,
         special:
             "Questo edificio può essere costruito solo dagli amministratori dell'alleanza",
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Caserma dei vigili del fuoco (piccola)',

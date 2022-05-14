@@ -411,7 +411,7 @@ export default {
         maxLevel: 0,
         special:
             'Penningmeesters en Admins kunnen de Team cellencomplex met behulp van de credits van de Teamkas uitbreiden.',
-        startCells: 0,
+        startCells: 1,
     },
     13: {
         caption: 'Ambulance VWS-post',
