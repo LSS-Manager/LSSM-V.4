@@ -375,22 +375,28 @@
                                         {{
                                             $mc(
                                                 'overview.extensions.summary.built',
-                                                1,
-                                                { n: 'n' }
+                                                extensionsAvailableCount,
+                                                {
+                                                    n: extensionsAvailableCount.toLocaleString(),
+                                                }
                                             )
                                         }},
                                         {{
                                             $mc(
                                                 'overview.extensions.summary.inConstruction',
-                                                1,
-                                                { n: 'm' }
+                                                extensionsUnderConstructionCount,
+                                                {
+                                                    n: extensionsUnderConstructionCount.toLocaleString(),
+                                                }
                                             )
                                         }},
                                         {{
                                             $mc(
                                                 'overview.extensions.summary.available',
-                                                1,
-                                                { n: 'x' }
+                                                extensionsCanBuyCount,
+                                                {
+                                                    n: extensionsCanBuyCount.toLocaleString(),
+                                                }
                                             )
                                         }},
                                         {{
@@ -414,7 +420,7 @@
                                 </td>
                                 <td>
                                     <a
-                                        :href="`/buildings/${extension.buildingId}`"
+                                        :href="`/buildings/${extension.buildingId}#ausbauten`"
                                         class="lightbox-open"
                                     >
                                         {{ extension.buildingName }}
@@ -475,7 +481,15 @@
                                             :disabled="
                                                 !extension.canBuy ||
                                                 !extension.enoughCredits ||
-                                                true
+                                                tempDisableAllExtensionButtons
+                                            "
+                                            @click="
+                                                buyExtension(
+                                                    extension.buildingId,
+                                                    extension.type,
+                                                    'credits',
+                                                    extension.credits
+                                                )
                                             "
                                         >
                                             {{
@@ -492,7 +506,15 @@
                                             :disabled="
                                                 !extension.canBuy ||
                                                 !extension.enoughCoins ||
-                                                true
+                                                tempDisableAllExtensionButtons
+                                            "
+                                            @click="
+                                                buyExtension(
+                                                    extension.buildingId,
+                                                    extension.type,
+                                                    'coins',
+                                                    extension.coins
+                                                )
                                             "
                                         >
                                             {{
@@ -624,6 +646,7 @@ type AttributedExtension = {
     buildingId: number;
     buildingName: string;
     name: string;
+    type: number;
 } & (
     | { bought: true; available: boolean; enabled: boolean }
     | ({
@@ -649,7 +672,6 @@ type BuildingSortAttribute =
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
-        buildings: Record<number, Building>;
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
@@ -664,6 +686,7 @@ export default Vue.extend<
             sort: keyof AttributedVehicle;
             sortDir: 'asc' | 'desc';
         };
+        tempDisableAllExtensionButtons: boolean;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
@@ -671,8 +694,15 @@ export default Vue.extend<
         openSettings(): void;
         setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
+        buyExtension(
+            buildingId: number,
+            extensionType: number,
+            method: 'coins' | 'credits',
+            price: number
+        ): void;
     },
     {
+        buildings: Record<number, Building>;
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
         sortedBuildingIdsByName: number[];
@@ -689,6 +719,9 @@ export default Vue.extend<
         sortedVehicles: AttributedVehicle[];
         boughtExtensionsAmountByType: Record<number, Record<number, number>>;
         extensions: AttributedExtension[];
+        extensionsAvailableCount: number;
+        extensionsUnderConstructionCount: number;
+        extensionsCanBuyCount: number;
     },
     {
         complexIndex: number;
@@ -715,7 +748,6 @@ export default Vue.extend<
     data() {
         return {
             faPencilAlt,
-            buildings: this.$store.getters['api/buildingsById'],
             buildingTypes: this.$store.getters.$tBuildings as Record<
                 number,
                 InternalBuilding
@@ -736,15 +768,35 @@ export default Vue.extend<
                 sort: 'name',
                 sortDir: 'asc',
             },
+            tempDisableAllExtensionButtons: false,
         };
     },
     computed: {
+        buildings() {
+            return this.$store.getters['api/buildingsById'];
+        },
         attributedBuildings() {
+            const smallBuildings = this.$t(
+                'small_buildings'
+            ) as unknown as Record<number, number>;
+
             return this.complex.buildings
                 .map(buildingId => {
                     const building = this.buildings[parseInt(buildingId)];
                     const buildingType =
                         this.buildingTypes[building.building_type];
+
+                    let bigBuildingType = building.building_type;
+                    if (building.small_building) {
+                        bigBuildingType = parseInt(
+                            (
+                                Object.entries(smallBuildings).find(
+                                    ([, small]) =>
+                                        small === building.building_type
+                                )?.[0] ?? bigBuildingType
+                            ).toString()
+                        );
+                    }
 
                     const buildingAttrs = {
                         id: building.id,
@@ -753,7 +805,7 @@ export default Vue.extend<
                             building.custom_icon_url ??
                             window
                                 .getBuildingMarkerIcon({
-                                    building_type: building.building_type,
+                                    building_type: bigBuildingType,
                                 })
                                 ?.replace(/_other(?=\.png$)/u, ''),
                         typeName: buildingType.caption,
@@ -1141,6 +1193,7 @@ export default Vue.extend<
                                 buildingId,
                                 buildingName,
                                 name: extensionType.caption,
+                                type: index,
                                 ...(boughtExtension
                                     ? {
                                           bought: true,
@@ -1191,6 +1244,27 @@ export default Vue.extend<
                     );
                 }
             );
+        },
+        extensionsAvailableCount() {
+            return this.extensions.filter(
+                extension =>
+                    'bought' in extension &&
+                    extension.bought &&
+                    extension.available
+            ).length;
+        },
+        extensionsUnderConstructionCount() {
+            return this.extensions.filter(
+                extension =>
+                    'bought' in extension &&
+                    extension.bought &&
+                    !extension.available
+            ).length;
+        },
+        extensionsCanBuyCount() {
+            return this.extensions.filter(
+                extension => 'canBuy' in extension && extension.canBuy
+            ).length;
         },
     },
     methods: {
@@ -1255,6 +1329,50 @@ export default Vue.extend<
                     ? 'desc'
                     : 'asc';
             this.vehiclesTable.sort = s;
+        },
+        buyExtension(buildingId, extensionType, method, price) {
+            this.tempDisableAllExtensionButtons = true;
+            const url = new URL('/', window.location.origin);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                document.querySelector<HTMLMetaElement>(
+                    'meta[name="csrf-token"]'
+                )?.content ?? ''
+            );
+            const feature = 'buildingComplexes-build-extension';
+            this.$store
+                .dispatch('api/request', {
+                    url: `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
+                    init: {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `/buildings/${buildingId}`,
+                        method: 'POST',
+                        body: url.searchParams.toString(),
+                    },
+                    feature,
+                })
+                .then(() => {
+                    this.$store
+                        .dispatch('api/fetchBuilding', {
+                            id: buildingId,
+                            feature,
+                        })
+                        .then(() => {
+                            this.tempDisableAllExtensionButtons = false;
+                            if (method === 'credits') {
+                                window.creditsUpdate(
+                                    this.$store.state.credits - price
+                                );
+                            } else {
+                                window.coinsUpdate(
+                                    this.$store.state.coins - price
+                                );
+                            }
+                        });
+                });
         },
     },
     props: {
