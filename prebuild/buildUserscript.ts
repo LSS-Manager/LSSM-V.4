@@ -43,14 +43,23 @@ ${Object.values(config.games)
 /* global I18n, user_id */
 ${
     (
-        await Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {
-            compress: {
-                global_defs: {
-                    host: config.server,
-                    prefix: config.prefix,
+        await Terser.minify(
+            fs
+                .readFileSync('./src/userscript.js')
+                .toString()
+                .replace(
+                    /exports\.__esModule = true;|require\("tampermonkey"\);/gu,
+                    ''
+                ),
+            {
+                compress: {
+                    global_defs: {
+                        host: config.server,
+                        prefix: config.prefix,
+                    },
                 },
-            },
-        })
+            }
+        )
     ).code
 }
 `
