@@ -495,6 +495,7 @@ export default {
         coins: 5,
         duration: '7 Days',
         newCells: 1,
+    },
     9
 ),   
             },
