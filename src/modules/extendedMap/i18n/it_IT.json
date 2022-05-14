@@ -30,6 +30,17 @@
                 "abort": "Annulla",
                 "disabled": "Completata ma disabilitata",
                 "enabled": "Completata e in funzione",
+                "filter": {
+                    "all": "All",
+                    "buildings": "Buildings",
+                    "canBuy": "can buy",
+                    "cannotBuy": "cannot buy",
+                    "disabled": "finished & disabled",
+                    "enabled": "finished & enabled",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "under construction"
+                },
                 "limit": "Non puoi comprare più di {n} estensioni di questo tipo al momento!",
                 "missingRequirements": "I seguenti requisiti non sono stati soddisfatti:",
                 "summary": {
