@@ -352,20 +352,21 @@
                                     title: $m(
                                         'overview.extensions.table.head.name'
                                     ),
-                                    noSort: true,
                                 },
                                 buildingName: {
                                     title: $m(
                                         'overview.extensions.table.head.building'
                                     ),
-                                    noSort: true,
                                 },
                                 actions: {
                                     title: '',
-                                    noSort: true,
                                 },
                             }"
-                            no-search
+                            :search="extensionsTable.search"
+                            @search="s => (extensionsTable.search = s)"
+                            :sort="extensionsTable.sort"
+                            :sort-dir="extensionsTable.sortDir"
+                            @sort="setSortExtensionsTable"
                         >
                             <template v-slot:head>
                                 <h2 class="overview-heading indented-title">
@@ -412,7 +413,7 @@
                                 </h2>
                             </template>
                             <tr
-                                v-for="(extension, index) in extensions"
+                                v-for="(extension, index) in sortedExtensions"
                                 :key="index"
                             >
                                 <td>
@@ -669,6 +670,8 @@ type BuildingSortAttribute =
     | 'typeName'
     | 'vehicles';
 
+type ExtensionSortAttribute = 'actions' | 'buildingName' | 'name';
+
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
@@ -686,6 +689,11 @@ export default Vue.extend<
             sort: keyof AttributedVehicle;
             sortDir: 'asc' | 'desc';
         };
+        extensionsTable: {
+            search: string;
+            sort: ExtensionSortAttribute;
+            sortDir: 'asc' | 'desc';
+        };
         tempDisableAllExtensionButtons: boolean;
     },
     {
@@ -694,6 +702,7 @@ export default Vue.extend<
         openSettings(): void;
         setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
+        setSortExtensionsTable(sort: ExtensionSortAttribute): void;
         buyExtension(
             buildingId: number,
             extensionType: number,
@@ -719,6 +728,8 @@ export default Vue.extend<
         sortedVehicles: AttributedVehicle[];
         boughtExtensionsAmountByType: Record<number, Record<number, number>>;
         extensions: AttributedExtension[];
+        filteredExtensions: AttributedExtension[];
+        sortedExtensions: AttributedExtension[];
         extensionsAvailableCount: number;
         extensionsUnderConstructionCount: number;
         extensionsCanBuyCount: number;
@@ -766,6 +777,11 @@ export default Vue.extend<
             vehiclesTable: {
                 search: '',
                 sort: 'name',
+                sortDir: 'asc',
+            },
+            extensionsTable: {
+                search: '',
+                sort: 'buildingName',
                 sortDir: 'asc',
             },
             tempDisableAllExtensionButtons: false,
@@ -1245,6 +1261,47 @@ export default Vue.extend<
                 }
             );
         },
+        filteredExtensions() {
+            return this.extensionsTable.search
+                ? this.extensions.filter(extension =>
+                      JSON.stringify(Object.values(extension))
+                          .toLowerCase()
+                          .includes(this.extensionsTable.search.toLowerCase())
+                  )
+                : this.extensions;
+        },
+        sortedExtensions() {
+            const getActionsNumber = (
+                extension: AttributedExtension
+            ): number => {
+                const min = Number.MIN_SAFE_INTEGER / 2;
+                if ('bought' in extension) {
+                    if (!extension.available) return min + 2;
+                    if (extension.enabled) return min;
+                    return min + 1;
+                }
+                return extension.credits;
+            };
+
+            return [...this.filteredExtensions].sort(
+                (extensionA, extensionB) => {
+                    let result: number;
+                    if (this.extensionsTable.sort === 'actions') {
+                        result =
+                            getActionsNumber(extensionA) -
+                            getActionsNumber(extensionB);
+                    } else {
+                        result = extensionA[
+                            this.extensionsTable.sort
+                        ].localeCompare(extensionB[this.extensionsTable.sort]);
+                    }
+
+                    if (this.extensionsTable.sortDir === 'desc') result *= -1;
+
+                    return result;
+                }
+            );
+        },
         extensionsAvailableCount() {
             return this.extensions.filter(
                 extension =>
@@ -1329,6 +1386,15 @@ export default Vue.extend<
                     ? 'desc'
                     : 'asc';
             this.vehiclesTable.sort = s;
+        },
+        setSortExtensionsTable(sort) {
+            const s = sort;
+            this.extensionsTable.sortDir =
+                s === this.extensionsTable.sort &&
+                this.extensionsTable.sortDir === 'asc'
+                    ? 'desc'
+                    : 'asc';
+            this.extensionsTable.sort = s;
         },
         buyExtension(buildingId, extensionType, method, price) {
             this.tempDisableAllExtensionButtons = true;
