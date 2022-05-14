@@ -399,7 +399,7 @@ export default {
         maxLevel: 0,
         special:
             "Ce bâtiment ne peut être construit que par le chef des finances ou des administateurs avec les crédits de la banque d'alliance. Les cellules sont disponibles pour tous les membres de l'alliance.",
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Centre de Première Intervention',
