@@ -22,6 +22,10 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Days',
+                unlocksVehicleTypes: '5, 10',
+                givesParkingLots: '0',
+                isVehicleExtension: true,
+
             },
             {
                 caption: 'Airport extension',
@@ -34,12 +38,21 @@ export default {
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Days',
+                unlocksVehicleTypes: '35, 36, 37, 38',
+                givesParkingLots: '0',
+                isVehicleExtension: true,
+
             },
             {
                 caption: 'Swap Body Parking Space',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Days',
+                unlocksVehicleTypes: '40, 41, 42, 43, 44, 45 , 46, 47, 48 , 49, 50',
+                givesParkingLots: '1',
+                isVehicleExtension: true,
+                parkingLotReservations: '41, 42, 43, 44, 45 , 46, 47, 48 , 49, 50',
+
             },
             ...multiplyExtension(
                 {
@@ -101,6 +114,10 @@ export default {
                 credits: 150_000,
                 coins: 20,
                 duration: '5 Days',
+                unlocksVehicleTypes: '33, 34',
+                givesParkingLots: '2',
+                isVehicleExtension: true,
+                parkingLotReservations: '33, 34'
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -250,12 +267,21 @@ export default {
                 credits: 100_000,
                 coins: 15,
                 duration: '7 Days',
+                unlocksVehicleTypes: '53, 54, 55, 56',
+                givesParkingLots: '1',
+                isVehicleExtension: true,
+                parkingLotReservations: '54',
+                
             },
             {
                 caption: 'Additional Detention Van Parking Spaces',
                 credits: 100_000,
                 coins: 15,
                 duration: '5 Days',
+                givesParkingLots: '2',
+                isVehicleExtension: true,
+                parkingLotReservations: '54, 54',
+     
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -264,7 +290,7 @@ export default {
         special:
             'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
         startPersonnel: 2,
-        startVehicles: ['Incident response vehicle (IRV)'],
+        startVehicles: ['Incident response vehicle'],
         schoolingTypes: ['Police'],
         startParkingLots: 1,
         startCells: 0,
@@ -370,7 +396,7 @@ export default {
         maxLevel: 0,
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-        startCells: 1,
+        startCells: 0,
     },
     18: {
         caption: 'Fire station (Small station) ',
@@ -383,6 +409,9 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Days',
+                unlocksVehicleTypes: '5, 10',
+                givesParkingLots: '0',
+                isVehicleExtension: true,
             },
             {
                 caption: 'Airport extension',
@@ -395,18 +424,29 @@ export default {
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Days',
+                unlocksVehicleTypes: '35, 36, 37, 38',
+                givesParkingLots: '0',
+                isVehicleExtension: true,
             },
             {
                 caption: 'Swap Body Parking Space',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Days',
+                unlocksVehicleTypes: '40, 41, 42, 43, 44, 45 , 46, 47, 48 , 49, 50',
+                givesParkingLots: '1',
+                isVehicleExtension: true,
+                parkingLotReservations: '41, 42, 43, 44, 45 , 46, 47, 48 , 49, 50',
             },
             {
                 caption: 'Swap Body Parking Space',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Days',
+                unlocksVehicleTypes: '40, 41, 42, 43, 44, 45 , 46, 47, 48 , 49, 50',
+                givesParkingLots: '1',
+                isVehicleExtension: true,
+                parkingLotReservations: '41, 42, 43, 44, 45 , 46, 47, 48 , 49, 50',
             },
             {
                 caption: 'Water rescue expansion',
@@ -443,19 +483,25 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
-            },
-            {
-                caption: 'Additional cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-                newCells: 1,
+            },...multiplyExtension(
+    {
+        caption: 'Additional cell',
+        credits: 25_000,
+        coins: 5,
+        duration: '7 Days',
+        newCells: 1,
+    },
+    9
+),
+      
+          
             },
             {
                 caption: 'Police & Public Order Extension',
                 credits: 100_000,
                 coins: 15,
                 duration: '7 Days',
+                
             },
         ],
         levelcost: [
@@ -469,7 +515,7 @@ export default {
         special:
             'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
         startPersonnel: 2,
-        startVehicles: ['Incident response vehicle (IRV)'],
+        startVehicles: ['Incident response vehicle'],
         schoolingTypes: ['Police'],
         startParkingLots: 1,
         startCells: 0,
@@ -486,8 +532,12 @@ export default {
                 credits: 150_000,
                 coins: 20,
                 duration: '5 Days',
+                unlocksVehicleTypes: '33, 34',
+                givesParkingLots: '2',
+                isVehicleExtension: true,
+                parkingLotReservations: '33, 34'
             },
-        ],
+   ],
         levelcost: [
             '1. 10.000',
             '2. 50.000',
