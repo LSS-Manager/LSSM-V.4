@@ -38,6 +38,7 @@ ${Object.values(config.games)
 // @icon         ${config.server}docs/img/lssm.png
 // @supportURL   ${config.server}docs/en_US/error_report
 // @run-at       document-idle
+// @grant        GM_info
 // ==/UserScript==
 /* global I18n, user_id */
 ${
@@ -46,6 +47,7 @@ ${
             compress: {
                 global_defs: {
                     host: config.server,
+                    prefix: config.prefix,
                 },
             },
         })
