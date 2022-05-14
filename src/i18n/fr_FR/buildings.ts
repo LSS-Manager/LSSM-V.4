@@ -51,7 +51,7 @@ export default {
         special:
             'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
         startPersonnel: 10,
-        startVehicles: ['FPT', 'FPTL', 'FTPSR', 'CCRL', 'CCRM', 'CCRSR'],
+        startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
@@ -446,7 +446,7 @@ export default {
         special:
             'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
         startPersonnel: 10,
-        startVehicles: ['FPT', 'FPTL', 'FTPSR', 'CCRL', 'CCRM', 'CCRSR'],
+        startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
