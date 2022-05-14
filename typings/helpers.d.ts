@@ -57,6 +57,7 @@ declare global {
             decorateFilterText(text: string, filter_id: string): string;
         };
         [PREFIX: string]: Vue | unknown;
+        [`lssmv4-GM_Info`]: Tampermonkey.ScriptInfo;
         map: L.Map;
         L: typeof L;
         icon_empty: L.Icon;

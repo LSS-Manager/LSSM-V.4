@@ -69,6 +69,11 @@
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
         "version": "2.0.0"
     },
+    "@types/tampermonkey": {
+        "icon": "https://avatars.githubusercontent.com/u/3637556",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
+        "version": "4.0.5"
+    },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "version": "0.7.36"

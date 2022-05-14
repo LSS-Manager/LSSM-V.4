@@ -55,6 +55,7 @@
         "@types/qrcode": "^1.4.2",
         "@types/semver": "^7.3.9",
         "@types/showdown": "^2.0.0",
+        "@types/tampermonkey": "^4.0.5",
         "@types/ua-parser-js": "^0.7.36",
         "@types/vue-select": "^3.16.0",
         "@types/webpack": "^5.28.0",
