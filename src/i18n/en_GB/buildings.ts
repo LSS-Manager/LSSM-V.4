@@ -296,7 +296,7 @@ export default {
                 givesParkingLots: 2,
                 isVehicleExtension: true,
                 parkingLotReservations: [54, 54],
-                requiredExtensions: [10]
+                requiredExtensions: [10],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -716,7 +716,7 @@ export default {
                 givesParkingLots: 2,
                 isVehicleExtension: true,
                 parkingLotReservations: [54, 54],
-                requiredExtensions: [40]
+                requiredExtensions: [40],
             },
         ],
         levelcost: [
@@ -730,7 +730,8 @@ export default {
         ],
         maxBuildings: 'no limit',
         maxLevel: 20,
-        special: 'You Can build every 50 Police Stations. Each level gives two more parking lots.',
+        special:
+            'You Can build every 50 Police Stations. Each level gives two more parking lots.',
         startPersonnel: 20,
         startVehicles: [],
         schoolingTypes: ['Police'],
