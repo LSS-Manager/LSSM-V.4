@@ -802,7 +802,7 @@ export default {
         maxLevel: 0,
         special:
             'Dieses Gebäude kann nur von Admins und Finanzministern mit Credits aus der Verbandskasse gebaut und ausgebaut werden. Die gebauten Zellen stehen allen Verbandsmitgliedern zur Verfügung.',
-        startCells: 0,
+        startCells: 1,
     },
     17: {
         caption: 'Polizei-Sondereinheiten',

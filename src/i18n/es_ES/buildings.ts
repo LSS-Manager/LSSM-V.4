@@ -332,7 +332,7 @@ export default {
         maxLevel: 0,
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Parque de bomberos (pequeño) ',

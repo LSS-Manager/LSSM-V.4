@@ -342,7 +342,7 @@ export default {
         maxLevel: 0,
         special:
             'Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.',
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Brannstasjon (liten)',
