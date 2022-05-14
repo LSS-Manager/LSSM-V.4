@@ -599,7 +599,7 @@ export default {
         startPersonnel: 10,
         startVehicles: [],
         schoolingTypes: ['Rescue'],
-        startParkingLots: 1,
+        startParkingLots: 5,
     },
     26: {
         caption: 'Large Police Depot',
@@ -652,7 +652,7 @@ export default {
         startPersonnel: 20,
         startVehicles: [],
         schoolingTypes: ['Police'],
-        startParkingLots: 1,
+        startParkingLots: 10,
         startCells: 0,
     },
 } as Record<number, InternalBuilding>;
