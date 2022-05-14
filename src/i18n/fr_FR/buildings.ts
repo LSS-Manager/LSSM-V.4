@@ -23,7 +23,7 @@ export default {
                 coins: 20,
                 duration: '7 jours',
                 isVehicleExtension: true,
-                givesParkingLot: 0,
+                givesParkingLots: 0,
                 unlocksVehicleTypes: [25, 26],
             },
             {
@@ -32,7 +32,7 @@ export default {
                 coins: 15,
                 duration: '3 jours',
                 isVehicleExtension: true,
-                givesParkingLot: 0,
+                givesParkingLots: 0,
                 unlocksVehicleTypes: [35, 36, 37, 38],
             },
             {
@@ -41,7 +41,7 @@ export default {
                 coins: 20,
                 duration: '7 jours',
                 isVehicleExtension: true,
-                givesParkingLot: 0,
+                givesParkingLots: 0,
                 unlocksVehicleTypes: [16, 17],
             },
         ],
@@ -413,7 +413,7 @@ export default {
                 coins: 20,
                 duration: '7 jours',
                 isVehicleExtension: true,
-                givesParkingLot: 0,
+                givesParkingLots: 0,
                 unlocksVehicleTypes: [25, 26],
             },
             {
@@ -422,7 +422,7 @@ export default {
                 coins: 15,
                 duration: '3 jours',
                 isVehicleExtension: true,
-                givesParkingLot: 0,
+                givesParkingLots: 0,
                 unlocksVehicleTypes: [35, 36, 37, 38],
             },
             {
@@ -431,7 +431,7 @@ export default {
                 coins: 20,
                 duration: '7 jours',
                 isVehicleExtension: true,
-                givesParkingLot: 0,
+                givesParkingLots: 0,
                 unlocksVehicleTypes: [16, 17],
             },
         ],
