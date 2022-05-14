@@ -85,7 +85,7 @@ export default {
         startClassrooms: 1,
     },
     2: {
-        caption: ' Stacja Pogotowia',
+        caption: 'Stacja Pogotowia',
         color: '#ffffcc',
         coins: 35,
         credits: 200_000,
