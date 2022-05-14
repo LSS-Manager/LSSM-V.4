@@ -294,6 +294,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 6,
                 parkingLotReservations: [[39], [39], [39], [43], [44], [44]],
+                unlocksVehicleTypes: [43, 44],
             },
             {
                 caption: 'Section des Moyens Spécialisés n°2',
@@ -331,6 +332,7 @@ export default {
         startPersonnel: 25,
         startVehicles: [],
         startParkingLots: 13,
+        startParkingLotReservations: [[39], [39], [39], [39], [39], [39], [39], [39], [39], [40], [41], [42], [45]],
         schoolingTypes: ['Poste de police'],
         special: '',
     },
