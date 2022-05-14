@@ -717,7 +717,6 @@ export default {
                 isVehicleExtension: true,
                 parkingLotReservations: [54, 54],
                 requiredExtensions: [40]
-
             },
         ],
         levelcost: [
