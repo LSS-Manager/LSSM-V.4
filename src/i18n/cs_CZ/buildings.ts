@@ -2,8 +2,13 @@ import type { InternalBuilding } from '../../../typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
-const multiplyExtension = (extension: Extension, amount: number): Extension[] =>
-    new Array(amount).fill(extension);
+const multiplyExtension = (
+    extension: Extension | ((index: number) => Extension),
+    amount: number
+): Extension[] =>
+    typeof extension === 'function'
+        ? new Array(amount).fill('0').map((_, index) => extension(index))
+        : new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -213,6 +218,7 @@ export default {
             'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
         startPersonnel: 2,
         startParkingLots: 1,
+        startCells: 0,
         startVehicles: ['Policejní automobil'],
         maxBuildingsFunction: (): number => 1700,
         schoolingTypes: ['Policejní Akademie'],
@@ -322,7 +328,7 @@ export default {
         maxLevel: 0,
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Požární stanice (malá)',

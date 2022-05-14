@@ -27,10 +27,36 @@
                 "title": "Klassenzimmer"
             },
             "extensions": {
-                "title": "Ausbauten"
+                "abort": "Abbrechen",
+                "disabled": "Fertig gebaut & deaktiviert",
+                "enabled": "Fertig gebaut & aktiviert",
+                "limit": "Du kannst aktuell maximal {n} dieser Ausbauten bauen!",
+                "missingRequirements": "Folgende Voraussetzungen sind nicht erfüllt:",
+                "summary": {
+                    "available": "{n} aktuell baubar",
+                    "built": "{n} gebaut",
+                    "inConstruction": "{n} im Bau",
+                    "total": "insgesamt {n} möglich"
+                },
+                "table": {
+                    "head": {
+                        "building": "Gebäude",
+                        "name": "Name"
+                    }
+                },
+                "title": "Ausbauten",
+                "underConstruction": "im Bau"
             },
             "title": "Übersicht",
             "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Gebäude",
+                        "fms": "FMS",
+                        "name": "Name",
+                        "staff": "Personal (zugewiesen / maximal)"
+                    }
+                },
                 "title": "Fahrzeuge"
             }
         },

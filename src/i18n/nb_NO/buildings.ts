@@ -2,8 +2,13 @@ import type { InternalBuilding } from '../../../typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
-const multiplyExtension = (extension: Extension, amount: number): Extension[] =>
-    new Array(amount).fill(extension);
+const multiplyExtension = (
+    extension: Extension | ((index: number) => Extension),
+    amount: number
+): Extension[] =>
+    typeof extension === 'function'
+        ? new Array(amount).fill('0').map((_, index) => extension(index))
+        : new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -337,7 +342,7 @@ export default {
         maxLevel: 0,
         special:
             'Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.',
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Brannstasjon (liten)',

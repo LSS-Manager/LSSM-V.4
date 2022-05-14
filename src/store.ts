@@ -10,6 +10,7 @@ import settings from './store/settings';
 import storage from './store/storage';
 
 import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type { LSSMEvent } from 'typings/helpers';
 import type { Modules } from 'typings/Module';
 import type { RootState } from 'typings/store/RootState';
@@ -204,6 +205,11 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 return (window[PREFIX] as Vue).$t(
                     'buildings'
                 ) as unknown as Record<number, InternalBuilding>;
+            },
+            $tVehicles() {
+                return (window[PREFIX] as Vue).$t(
+                    'vehicles'
+                ) as unknown as Record<number, InternalVehicle>;
             },
         } as GetterTree<RootState, RootState>,
         actions: {

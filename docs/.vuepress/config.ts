@@ -135,7 +135,15 @@ LANGS.forEach(lang => {
 const statsComponentsPath = path.join(DOCS_COMPONENTS_PATH, '.temp', 'stats');
 fs.mkdirSync(statsComponentsPath, { recursive: true });
 const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
-run('generate/projectStats', ROOT_PATH, VUEPRESS_PATH, clocStatsPath);
+const commitStatsPath = path.join(statsComponentsPath, 'commits.vue');
+run(
+    'generate/projectStats',
+    `https://github.com/${config.github.repo}`,
+    ROOT_PATH,
+    VUEPRESS_PATH,
+    clocStatsPath,
+    commitStatsPath
+);
 
 run(
     'generate/manifest',
@@ -346,6 +354,7 @@ export default defineUserConfig({
                     'variable-code.vue'
                 ),
                 'stats-cloc': clocStatsPath,
+                'stats-commits': commitStatsPath,
             },
         }),
         pwaPlugin({}),

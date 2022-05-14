@@ -3,12 +3,6 @@
         "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
             "buildings": {
-                "classrooms": {
-                    "title": "Classrooms"
-                },
-                "extensions": {
-                    "title": "Extensions"
-                },
                 "hiring": {
                     "automatic": "Automatique",
                     "no": "Non",
@@ -27,12 +21,44 @@
                         "vehicles": "Véhicules"
                     }
                 },
-                "title": "bâtiments rattachés",
-                "vehicles": {
-                    "title": "Vehicles"
-                }
+                "title": "bâtiments rattachés"
             },
-            "title": "Aperçu"
+            "classrooms": {
+                "title": "Classrooms"
+            },
+            "extensions": {
+                "abort": "Abort",
+                "disabled": "Finished & disabled",
+                "enabled": "Finished & enabled",
+                "limit": "You cannot buy more than {n} of this extensions currently!",
+                "missingRequirements": "Following requirements are not met:",
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} built",
+                    "inConstruction": "{n} under construction",
+                    "total": "{n} possible in total"
+                },
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "name": "Name"
+                    }
+                },
+                "title": "Extensions",
+                "underConstruction": "under construction"
+            },
+            "title": "Aperçu",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Vehicles"
+            }
         },
         "settings": {
             "abort": "Annuler",

@@ -2,8 +2,13 @@ import type { InternalBuilding } from '../../../typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
-const multiplyExtension = (extension: Extension, amount: number): Extension[] =>
-    new Array(amount).fill(extension);
+const multiplyExtension = (
+    extension: Extension | ((index: number) => Extension),
+    amount: number
+): Extension[] =>
+    typeof extension === 'function'
+        ? new Array(amount).fill('0').map((_, index) => extension(index))
+        : new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -400,7 +405,7 @@ export default {
         maxLevel: 0,
         special:
             "Questo edificio può essere costruito solo dagli amministratori dell'alleanza",
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Caserma dei vigili del fuoco (piccola)',

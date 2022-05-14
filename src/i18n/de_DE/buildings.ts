@@ -2,8 +2,13 @@ import type { Building, InternalBuilding } from '../../../typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
-const multiplyExtension = (extension: Extension, amount: number): Extension[] =>
-    new Array(amount).fill(extension);
+const multiplyExtension = (
+    extension: Extension | ((index: number) => Extension),
+    amount: number
+): Extension[] =>
+    typeof extension === 'function'
+        ? new Array(amount).fill('0').map((_, index) => extension(index))
+        : new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -66,6 +71,10 @@ export default {
                             (buildingsByType[18]?.length ?? 0)) /
                             10
                     ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][8] ?? 0) +
+                        (boughtExtensionsAmountByType[18][4] ?? 0) <
+                    maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [75, 76],
@@ -83,7 +92,8 @@ export default {
                             (buildingsByType[18]?.length ?? 0)) /
                             10
                     ),
-
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
             },
@@ -138,13 +148,14 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
                 newClassrooms: 1,
-            },
+                requiredExtensions: index ? [index - 1] : [],
+            }),
             3
         ),
         levelcost: [],
@@ -175,13 +186,14 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
                 newClassrooms: 1,
-            },
+                requiredExtensions: index ? [index - 1] : [],
+            }),
             3
         ),
         levelcost: [],
@@ -214,42 +226,49 @@ export default {
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [1],
             },
             {
                 caption: 'Urologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [1],
             },
             {
                 caption: 'Unfallchirurgie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [1],
             },
             {
                 caption: 'Neurologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [0],
             },
             {
                 caption: 'Neurochirurgie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [1],
             },
             {
                 caption: 'Kardiologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [0],
             },
             {
                 caption: 'Kardiochirurgie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Tage',
+                requiredExtensions: [1],
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -285,6 +304,13 @@ export default {
         coins: 35,
         credits: 100_000,
         extensions: [
+            {
+                caption: 'Zelle',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Tage',
+                newCells: 1,
+            },
             ...multiplyExtension(
                 {
                     caption: 'Zelle',
@@ -292,8 +318,9 @@ export default {
                     coins: 5,
                     duration: '7 Tage',
                     newCells: 1,
+                    requiredExtensions: [0],
                 },
-                10
+                9
             ),
             {
                 caption: 'Diensthundestaffel',
@@ -356,13 +383,14 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
                 newClassrooms: 1,
-            },
+                requiredExtensions: index ? [index - 1] : [],
+            }),
             3
         ),
         levelcost: [],
@@ -407,6 +435,7 @@ export default {
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [42, 43, 44, 45],
                 parkingLotReservations: [[42], [43], [44], [45]],
+                requiredExtensions: [0, 1],
             },
             {
                 caption: 'Fachgruppe Wassergefahren',
@@ -417,6 +446,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [65, 66, 67, 68, 69],
                 parkingLotReservations: [[65], [66], [67], [68], [69]],
+                requiredExtensions: [0, 1],
             },
             {
                 caption: '2. Technischer Zug - Grundvoraussetzungen',
@@ -427,6 +457,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [39],
                 parkingLotReservations: [[39]],
+                requiredExtensions: [0, 1],
             },
             {
                 caption: '2. Technischer Zug: Bergungsgruppe 2',
@@ -437,6 +468,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [41],
                 parkingLotReservations: [[41]],
+                requiredExtensions: [4],
             },
             {
                 caption: '2. Technischer Zug: Zugtrupp',
@@ -447,6 +479,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [40],
                 parkingLotReservations: [[40]],
+                requiredExtensions: [4],
             },
             {
                 caption: 'Fachgruppe Ortung',
@@ -458,6 +491,7 @@ export default {
                 unlocksVehicleTypes: [92, 93],
                 parkingLotReservations: [[92], [93]],
                 giftsVehicles: [92, 93],
+                requiredExtensions: [0, 1],
             },
             {
                 caption: 'Fachgruppe Wasserschaden/Pumpen',
@@ -468,6 +502,7 @@ export default {
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [99, 100, 101, 102],
                 parkingLotReservations: [[99], [100], [101], [102]],
+                requiredExtensions: [0, 1],
             },
         ],
         levelcost: [],
@@ -486,13 +521,14 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
                 newClassrooms: 1,
-            },
+                requiredExtensions: index ? [index - 1] : [],
+            }),
             3
         ),
         levelcost: [],
@@ -527,6 +563,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [35, 50, 51],
                 parkingLotReservations: [[35], [50], [50], [50], [51]],
+                requiredExtensions: [0],
             },
             {
                 caption: 'Sonderfahrzeug: Gefangenenkraftwagen',
@@ -537,6 +574,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [52],
                 parkingLotReservations: [[52]],
+                requiredExtensions: [1],
             },
             {
                 caption: 'Technischer Zug: Wasserwerfer',
@@ -567,6 +605,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 79, 80],
                 parkingLotReservations: [[51], [79], [79], [79], [80]],
+                requiredExtensions: [4],
             },
             {
                 caption: 'MEK: 1. Zug',
@@ -587,6 +626,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 81, 82],
                 parkingLotReservations: [[51], [81], [81], [81], [82]],
+                requiredExtensions: [6],
             },
             {
                 caption: 'Diensthundestaffel',
@@ -737,7 +777,7 @@ export default {
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
-        extensions: multiplyExtension(
+        extensions: [
             {
                 caption: 'Zelle',
                 credits: 25_000,
@@ -745,14 +785,24 @@ export default {
                 duration: '7 Tage',
                 newCells: 1,
             },
-            10
-        ),
+            ...multiplyExtension(
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                    newCells: 1,
+                    requiredExtensions: [0],
+                },
+                9
+            ),
+        ],
         levelcost: [],
         maxBuildings: 'Keine Grenze',
         maxLevel: 0,
         special:
             'Dieses Gebäude kann nur von Admins und Finanzministern mit Credits aus der Verbandskasse gebaut und ausgebaut werden. Die gebauten Zellen stehen allen Verbandsmitgliedern zur Verfügung.',
-        startCells: 0,
+        startCells: 1,
     },
     17: {
         caption: 'Polizei-Sondereinheiten',
@@ -779,6 +829,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 79, 80],
                 parkingLotReservations: [[51], [79], [79], [79], [80]],
+                requiredExtensions: [0],
             },
             {
                 caption: 'MEK: 1. Zug',
@@ -799,6 +850,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 81, 82],
                 parkingLotReservations: [[51], [81], [81], [81], [82]],
+                requiredExtensions: [2],
             },
             {
                 caption: 'Diensthundestaffel',
@@ -870,6 +922,10 @@ export default {
                             (buildingsByType[18]?.length ?? 0)) /
                             10
                     ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][8] ?? 0) +
+                        (boughtExtensionsAmountByType[18][4] ?? 0) <
+                    maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [75, 76],
@@ -917,16 +973,21 @@ export default {
         coins: 25,
         credits: 50_000,
         extensions: [
-            ...multiplyExtension(
-                {
-                    caption: 'Zelle',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Tage',
-                    newCells: 1,
-                },
-                2
-            ),
+            {
+                caption: 'Zelle',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Tage',
+                newCells: 1,
+            },
+            {
+                caption: 'Zelle',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Tage',
+                newCells: 1,
+                requiredExtensions: [0],
+            },
             {
                 caption: 'Diensthundestaffel',
                 credits: 100_000,
