@@ -1,6 +1,6 @@
 {
     "buildingComplexes": {
-        "openInLightbox": "Visualizza l'edificio nella Lightbox",
+        "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
             "buildings": {
                 "hiring": {
@@ -8,7 +8,7 @@
                     "no": "Nessuno",
                     "phase": "1 Giorno | {n} Giorni"
                 },
-                "inConstruction": "thereof {n} under construction",
+                "inConstruction": "delle quali {n} in costruzione",
                 "table": {
                     "head": {
                         "beds": "Letti",
@@ -17,47 +17,47 @@
                         "hiring": "Fase di reclutamento",
                         "level": "Livello",
                         "name": "Nome",
-                        "staff": "Personale (Personale necessario)",
+                        "staff": "Personale (Personale desiderato)",
                         "vehicles": "Veicoli"
                     }
                 },
                 "title": "Edifici collegati"
             },
             "classrooms": {
-                "title": "Classrooms"
+                "title": "Classi"
             },
             "extensions": {
-                "abort": "Abort",
-                "disabled": "Finished & disabled",
-                "enabled": "Finished & enabled",
-                "limit": "You cannot buy more than {n} of this extensions currently!",
-                "missingRequirements": "Following requirements are not met:",
+                "abort": "Annulla",
+                "disabled": "Completata ma disabilitata",
+                "enabled": "Completata e in funzione",
+                "limit": "Non puoi comprare più di {n} estensioni di questo tipo al momento!",
+                "missingRequirements": "I seguenti requisiti non sono stati soddisfatti:",
                 "summary": {
-                    "available": "{n} ready to be built",
-                    "built": "{n} built",
-                    "inConstruction": "{n} under construction",
-                    "total": "{n} possible in total"
+                    "available": "{n} possono essere costruite",
+                    "built": "{n} costruite",
+                    "inConstruction": "{n} in costruzione",
+                    "total": "{n} possibili in totale"
                 },
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "name": "Name"
+                        "building": "Edificio",
+                        "name": "Nome"
                     }
                 },
-                "title": "Extensions",
-                "underConstruction": "under construction"
+                "title": "Estensioni",
+                "underConstruction": "In costruzione"
             },
             "title": "Panoramica",
             "vehicles": {
                 "table": {
                     "head": {
-                        "building": "Building",
+                        "building": "Edificio",
                         "fms": "Status",
-                        "name": "Name",
-                        "staff": "Staff (assigned / max)"
+                        "name": "Nome",
+                        "staff": "Personale (assegnato / massimo)"
                     }
                 },
-                "title": "Vehicles"
+                "title": "Veicoli"
             }
         },
         "settings": {
@@ -65,11 +65,11 @@
             "buildings": "Edifici collegati",
             "dissolve": {
                 "buttons": {
-                    "abort": "Abort",
-                    "continue": "Dissolve"
+                    "abort": "Annulla",
+                    "continue": "Elimina"
                 },
-                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
-                "title": "Dissolve complex"
+                "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",
+                "title": "Elimina Complesso di Edifici"
             },
             "icon": "Icona",
             "iconHelp": "Seleziona tra icone di default e le icone degli edifici collegati",
