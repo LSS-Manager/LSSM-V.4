@@ -936,7 +936,8 @@ export default Vue.extend<
                                               )
                                                   return 0;
                                               return (
-                                                  extensionType.givesParkingLots +
+                                                  (extensionType.givesParkingLots ??
+                                                      0) +
                                                   (extensionType.givesParkingLotsPerLevel ??
                                                       0) *
                                                       building.level
