@@ -65,7 +65,7 @@
                         "building": "Budynek",
                         "fms": "Status",
                         "name": "Nazwa",
-                        "staff": "Personel (przydzielony / maksymalny)",
+                        "staff": "Personel (przydzielony / maksymalny)"
                     }
                 },
                 "title": "Pojazdy"
