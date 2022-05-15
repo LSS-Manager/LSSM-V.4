@@ -62,10 +62,10 @@
             "vehicles": {
                 "table": {
                     "head": {
-                        "building": "Budynek
+                        "building": "Budynek",
                         "fms": "Status",
-                        "name": "Nazwa
-                        "staff": "Personel (przydzielony / maksymalny)"
+                        "name": "Nazwa,
+                        "staff": "Personel (przydzielony / maksymalny)",
                     }
                 },
                 "title": "Pojazdy"
