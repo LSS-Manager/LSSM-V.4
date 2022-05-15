@@ -103,11 +103,22 @@
                             @sort="setSortBuildingsTable"
                         >
                             <template v-slot:head>
-                                <h2 class="overview-heading">
+                                <h2 class="overview-heading indented-title">
                                     {{ $m('overview.buildings.title') }}:
                                     {{
                                         complex.buildings.length.toLocaleString()
                                     }}
+                                    <br />
+                                    <small>
+                                        {{
+                                            buildingTypeAmounts
+                                                .map(
+                                                    ([type, amount]) =>
+                                                        `${type}: ${amount.toLocaleString()}`
+                                                )
+                                                .join(', ')
+                                        }}
+                                    </small>
                                 </h2>
                             </template>
                             <tr
@@ -283,9 +294,20 @@
                             @sort="setSortVehiclesTable"
                         >
                             <template v-slot:head>
-                                <h2 class="overview-heading">
+                                <h2 class="overview-heading indented-title">
                                     {{ $m('overview.vehicles.title') }}:
                                     {{ vehicles.length.toLocaleString() }}
+                                    <br />
+                                    <small>
+                                        {{
+                                            vehicleTypeAmounts
+                                                .map(
+                                                    ([type, amount]) =>
+                                                        `${type}: ${amount.toLocaleString()}`
+                                                )
+                                                .join(', ')
+                                        }}
+                                    </small>
                                 </h2>
                             </template>
                             <tr
@@ -832,9 +854,11 @@ export default Vue.extend<
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
+        buildingTypeAmounts: [string, number][];
         vehicles: AttributedVehicle[];
         filteredVehicles: AttributedVehicle[];
         sortedVehicles: AttributedVehicle[];
+        vehicleTypeAmounts: [string, number][];
         boughtExtensionsAmountByType: Record<number, Record<number, number>>;
         extensions: AttributedExtension[];
         filteredExtensions: AttributedExtension[];
@@ -1191,6 +1215,16 @@ export default Vue.extend<
                 ({ hasVehicles }) => hasVehicles
             );
         },
+        buildingTypeAmounts() {
+            const types: Record<string, number> = {};
+            this.attributedBuildings.forEach(({ typeName }) => {
+                if (!types.hasOwnProperty(typeName)) types[typeName] = 0;
+                types[typeName]++;
+            });
+            return Object.entries(types).sort(([typeA], [typeB]) =>
+                typeA.localeCompare(typeB)
+            );
+        },
         vehicles() {
             return this.attributedBuildings.flatMap(building =>
                 building.hasVehicles
@@ -1259,6 +1293,16 @@ export default Vue.extend<
 
                 return result;
             });
+        },
+        vehicleTypeAmounts() {
+            const types: Record<string, number> = {};
+            this.vehicles.forEach(({ typeName }) => {
+                if (!types.hasOwnProperty(typeName)) types[typeName] = 0;
+                types[typeName]++;
+            });
+            return Object.entries(types).sort(([typeA], [typeB]) =>
+                typeA.localeCompare(typeB)
+            );
         },
         boughtExtensionsAmountByType() {
             const data: Record<
