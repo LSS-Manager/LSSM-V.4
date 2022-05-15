@@ -113,7 +113,7 @@ type CanHaveVehiclesBuilding<
     startVehicles: string[];
     startParkingLots: number;
     startParkingLotReservations?: number[][];
-    levelNotIncreasingLots?: boolean;
+    parkingLotsPerLevel?: number;
 };
 
 type BuildingTypes =

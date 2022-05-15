@@ -1031,9 +1031,8 @@ export default Vue.extend<
                                       this.vehiclesByBuilding[building.id] ??
                                       [],
                                   maxVehicles:
-                                      (buildingType.levelNotIncreasingLots
-                                          ? 0
-                                          : building.level) +
+                                      (buildingType.parkingLotsPerLevel ?? 1) *
+                                          building.level +
                                       buildingType.startParkingLots +
                                       building.extensions
                                           .map(extension => {
