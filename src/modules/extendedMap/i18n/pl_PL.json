@@ -2,12 +2,6 @@
     "buildingComplexes": {
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
-                "classrooms": {
-                    "title": "Sale"
-                },
-                "extensions": {
-                    "title": "Rozszerzenia"
-                },
             "buildings": {
                 "hiring": {
                     "automatic": "Automatycznie",
@@ -27,16 +21,67 @@
                         "vehicles": "Pojazdy"
                     }
                 },
-                "title": "wybrane budynki",
+                "title": "wybrane budynki"
             },
-                "vehicles": {
-                    "title": "Pojazdy"
-                }
-            "title": "Przegląd"
+            "classrooms": {
+                "title": "Sale"
+            },
+            "extensions": {
+                "abort": "Abort",
+                "disabled": "Finished & disabled",
+                "enabled": "Finished & enabled",
+                "filter": {
+                    "all": "All",
+                    "buildings": "Buildings",
+                    "canBuy": "can buy",
+                    "cannotBuy": "cannot buy",
+                    "disabled": "finished & disabled",
+                    "enabled": "finished & enabled",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "under construction"
+                },
+                "limit": "You cannot buy more than {n} of this extensions currently!",
+                "missingRequirements": "Following requirements are not met:",
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} built",
+                    "inConstruction": "{n} under construction",
+                    "total": "{n} possible in total"
+                },
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "name": "Name"
+                    }
+                },
+                "title": "Rozszerzenia",
+                "underConstruction": "under construction"
+            },
+            "title": "Przegląd",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Pojazdy"
+            }
         },
         "settings": {
             "abort": "Przerwij",
             "buildings": "wybrane budynki",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abort",
+                    "continue": "Dissolve"
+                },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Dissolve complex"
+            },
             "icon": "Ikona",
             "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
             "location": "Lokacja",
