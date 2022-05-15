@@ -3,12 +3,6 @@
         "openInLightbox": "Open building in Lightbox",
         "overview": {
             "buildings": {
-                "classrooms": {
-                    "title": "Classrooms"
-                },
-                "extensions": {
-                    "title": "Extensions"
-                },
                 "hiring": {
                     "automatic": "automatically",
                     "no": "None",
@@ -27,16 +21,67 @@
                         "vehicles": "Vehicles"
                     }
                 },
-                "title": "attached buildings",
-                "vehicles": {
-                    "title": "Vehicles"
-                }
+                "title": "attached buildings"
             },
-            "title": "Overview"
+            "classrooms": {
+                "title": "Classrooms"
+            },
+            "extensions": {
+                "abort": "Abort",
+                "disabled": "Finished & disabled",
+                "enabled": "Finished & enabled",
+                "filter": {
+                    "all": "All",
+                    "buildings": "Buildings",
+                    "canBuy": "can buy",
+                    "cannotBuy": "cannot buy",
+                    "disabled": "finished & disabled",
+                    "enabled": "finished & enabled",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "under construction"
+                },
+                "limit": "You cannot buy more than {n} of this extensions currently!",
+                "missingRequirements": "Following requirements are not met:",
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} built",
+                    "inConstruction": "{n} under construction",
+                    "total": "{n} possible in total"
+                },
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "name": "Name"
+                    }
+                },
+                "title": "Extensions",
+                "underConstruction": "under construction"
+            },
+            "title": "Overview",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Vehicles"
+            }
         },
         "settings": {
             "abort": "Abort",
             "buildings": "attached buildings",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abort",
+                    "continue": "Dissolve"
+                },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Dissolve complex"
+            },
             "icon": "Icon",
             "iconHelp": "Select between standard icons and icons of attached buildings",
             "location": "Location",

@@ -2,8 +2,13 @@ import type { InternalBuilding } from '../../../typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
-const multiplyExtension = (extension: Extension, amount: number): Extension[] =>
-    new Array(amount).fill(extension);
+const multiplyExtension = (
+    extension: Extension | ((index: number) => Extension),
+    amount: number
+): Extension[] =>
+    typeof extension === 'function'
+        ? new Array(amount).fill('0').map((_, index) => extension(index))
+        : new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -339,7 +344,7 @@ export default {
         maxLevel: 0,
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-        startCells: 0,
+        startCells: 1,
     },
     11: {
         caption: 'Fire Boat Dock',
@@ -450,6 +455,7 @@ export default {
         startPersonnel: 0,
         startParkingLots: 2,
         startBeds: 5,
+        parkingLotsPerLevel: 0,
         startVehicles: ['Non. You can buy max. 2 Vehicles'],
         schoolingTypes: ['Rescue'],
     },

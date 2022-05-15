@@ -18,7 +18,7 @@ Si vous ne savez pas comment contribuer à LSSM, lisez d'abord [l'introduction][
 
 ## Procédure générale de travail
 
-1. Mettez à jour votre fork
+1. Créer ou mettre à jour votre fork
 2. Modifiez un fichier à l'aide de nos guides :
    * [Traduction][translations]
 3. Validez le fichier mis à jour

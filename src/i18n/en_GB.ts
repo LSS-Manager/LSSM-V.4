@@ -230,7 +230,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Required once you have built 11 fire stations. A HazMat unit which can be used for a range of hazardous calls. ',
         },
         8: {
-            caption: 'Incident response vehicle (IRV)',
+            caption: 'Incident response vehicle',
             color: '#188b35',
             coins: 25,
             credits: 5000,
@@ -286,7 +286,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'A Police Helicopter, useful for pursuits and firearms attacks.',
         },
         12: {
-            caption: 'Dog Support Unit (DSU)',
+            caption: 'Dog Support Unit',
             color: '#1f7915',
             coins: 25,
             credits: 7000,
@@ -304,7 +304,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Required once you have built 6 police stations. Acts as a Dog Support Unit (DSU) and Incident Response Vehicle. A dog for tracking and chasing criminals.',
         },
         13: {
-            caption: 'Armed Response Vehicle (ARV)',
+            caption: 'Armed Response Vehicle',
             color: '#438a17',
             coins: 23,
             credits: 7000,
@@ -849,7 +849,7 @@ If several requests fail in a short time, this could be due to server problems. 
             possibleBuildings: [0, 18],
         },
         51: {
-            caption: 'PSU Carrier',
+            caption: 'Police Support Unit Carrier',
             color: '#3a5522',
             coins: 10,
             credits: 8000,
@@ -925,7 +925,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'This unit will transport horses from stables to riots in order to get a higher view of what is happening in the crowd. Needs Police and Public Order Extension.',
         },
         56: {
-            caption: 'M-RAV',
+            caption: 'Multi-Role Armoured Vehicle',
             color: '#3a5522',
             coins: 23,
             credits: 10_000,

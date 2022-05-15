@@ -119,7 +119,7 @@ module.exports = {
         vehiclesByRequirement: {
             [/^– SH lub SD$/u]: [2, 13],
             [/^– Rchem$/u]: [41, 7, 49, 50],
-            [/^Ambulanse$/u]: [5, 31],
+            [/^Ambulanse(\(-ów\))?$/u]: [5, 31],
             [/^Ambulanse? P$/u]: [5, 31],
             [/^cystern(a|\(-y\)) z wodą?$/u]: [47, 6, 61, 64],
             [/^Dźwigi? SP$/u]: [25, 37],
@@ -137,7 +137,7 @@ module.exports = {
             ],
             [/^samoch(ód|ody\(-ów\)) dowodzenia i łączności?$/u]: [43, 11],
             [/^Samoch(ód|odów) Ratownictwa wysokościowego$/u]: [27],
-            [/^Samoch(ód|odów) wężowy(ch)?$/u]: [61, 62, 64],
+            [/^Samoch(ód|od(y|ów)) wężow(e|y(ch)?)$/u]: [61, 62, 64],
             [/^Samoch(ód|od(y|ów)) ze zbiornikiem na pianę?$/u]: [
                 55, 56, 57, 58, 59, 44, 60,
             ],
@@ -145,7 +145,7 @@ module.exports = {
             [/^Samoch(ód|odów) SLRw$/u]: [24],
             [/^SLOp lub SLRr$/u]: [3, 28],
             [/^SPGaz$/u]: [10, 42, 52],
-            [/^Sprzęt przeciwpowodziowy$/u]: [51],
+            [/^sprzęty? przeciwpowodziow[ey]$/u]: [46, 51, 63],
         },
     },
     tailoredTabs: {

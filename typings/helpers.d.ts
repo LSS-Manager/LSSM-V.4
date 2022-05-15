@@ -57,6 +57,7 @@ declare global {
             decorateFilterText(text: string, filter_id: string): string;
         };
         [PREFIX: string]: Vue | unknown;
+        [`lssmv4-GM_Info`]: Tampermonkey.ScriptInfo;
         map: L.Map;
         L: typeof L;
         icon_empty: L.Icon;
@@ -67,6 +68,7 @@ declare global {
         patient_timers: PatientTimer[];
         sale_count_down: number;
         mission_label: boolean;
+        vehicle_graphics: ([string, string, 'false' | 'true'] | null)[]; // it seems to be sexy to stringify booleans according to the game...
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;

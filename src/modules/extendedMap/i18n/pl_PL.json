@@ -2,13 +2,13 @@
     "buildingComplexes": {
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
-            "buildings": {
                 "classrooms": {
                     "title": "Sale"
                 },
                 "extensions": {
                     "title": "Rozszerzenia"
                 },
+            "buildings": {
                 "hiring": {
                     "automatic": "Automatycznie",
                     "no": "Brak",
@@ -28,10 +28,10 @@
                     }
                 },
                 "title": "wybrane budynki",
+            },
                 "vehicles": {
                     "title": "Pojazdy"
                 }
-            },
             "title": "Przegląd"
         },
         "settings": {

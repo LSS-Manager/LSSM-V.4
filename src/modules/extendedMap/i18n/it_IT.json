@@ -1,20 +1,14 @@
 {
     "buildingComplexes": {
-        "openInLightbox": "Visualizza l'edificio nella Lightbox",
+        "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
             "buildings": {
-                "classrooms": {
-                    "title": "Classrooms"
-                },
-                "extensions": {
-                    "title": "Extensions"
-                },
                 "hiring": {
                     "automatic": "Automaticamente",
                     "no": "Nessuno",
                     "phase": "1 Giorno | {n} Giorni"
                 },
-                "inConstruction": "thereof {n} under construction",
+                "inConstruction": "delle quali {n} in costruzione",
                 "table": {
                     "head": {
                         "beds": "Letti",
@@ -23,20 +17,71 @@
                         "hiring": "Fase di reclutamento",
                         "level": "Livello",
                         "name": "Nome",
-                        "staff": "Personale (Personale necessario)",
+                        "staff": "Personale (Personale desiderato)",
                         "vehicles": "Veicoli"
                     }
                 },
-                "title": "Edifici collegati",
-                "vehicles": {
-                    "title": "Vehicles"
-                }
+                "title": "Edifici collegati"
             },
-            "title": "Panoramica"
+            "classrooms": {
+                "title": "Classi"
+            },
+            "extensions": {
+                "abort": "Annulla",
+                "disabled": "Completata ma disabilitata",
+                "enabled": "Completata ed in funzione",
+                "filter": {
+                    "all": "Tutto",
+                    "buildings": "Edifici",
+                    "canBuy": "Disponibili",
+                    "cannotBuy": "Non disponibili",
+                    "disabled": "Completata ma disabilitata",
+                    "enabled": "Completata ed in funzione",
+                    "extensions": "Estensioni",
+                    "states": "Status",
+                    "underConstruction": "In costruzione"
+                },
+                "limit": "Non puoi comprare più di {n} estensioni di questo tipo al momento!",
+                "missingRequirements": "I seguenti requisiti non sono stati soddisfatti:",
+                "summary": {
+                    "available": "{n} possono essere costruite",
+                    "built": "{n} costruite",
+                    "inConstruction": "{n} in costruzione",
+                    "total": "{n} possibili in totale"
+                },
+                "table": {
+                    "head": {
+                        "building": "Edificio",
+                        "name": "Nome"
+                    }
+                },
+                "title": "Estensioni",
+                "underConstruction": "In costruzione"
+            },
+            "title": "Panoramica",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Edificio",
+                        "fms": "Status",
+                        "name": "Nome",
+                        "staff": "Personale (assegnato / massimo)"
+                    }
+                },
+                "title": "Veicoli"
+            }
         },
         "settings": {
             "abort": "Annulla",
             "buildings": "Edifici collegati",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Annulla",
+                    "continue": "Elimina"
+                },
+                "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",
+                "title": "Elimina Complesso di Edifici"
+            },
             "icon": "Icona",
             "iconHelp": "Seleziona tra icone di default e le icone degli edifici collegati",
             "location": "Posizione",

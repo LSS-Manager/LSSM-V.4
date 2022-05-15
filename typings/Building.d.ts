@@ -42,15 +42,20 @@ interface BaseExtension {
     maxExtensionsFunction?(
         buildingsByType?: Record<number, Building[]>
     ): number;
+    canBuyByAmount?(
+        boughtExtensionsAmountByType: Record<number, Record<number, number>>,
+        maxExtensions: number
+    ): boolean;
+    requiredExtensions?: number[];
 }
 
 interface VehicleExtension extends BaseExtension {
     isVehicleExtension: true;
     givesParkingLots: number;
-    givesParkingLotsPerLevel?: boolean;
-    unlocksVehicleTypes: number[];
-    parkingLotReservations: number[][];
-    giftsVehicles: number[];
+    givesParkingLotsPerLevel?: number;
+    unlocksVehicleTypes?: number[];
+    parkingLotReservations?: number[][];
+    giftsVehicles?: number[];
 }
 
 interface ClassroomExtension extends BaseExtension {
@@ -108,6 +113,7 @@ type CanHaveVehiclesBuilding<
     startVehicles: string[];
     startParkingLots: number;
     startParkingLotReservations?: number[][];
+    parkingLotsPerLevel?: number;
 };
 
 type BuildingTypes =

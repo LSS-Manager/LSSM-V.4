@@ -104,4 +104,8 @@ Voici quelques informations et statistiques plus ou moins intéressantes sur LSS
 
 <stats-cloc/>
 
+### Commits et changements
+
+<stats-commits/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
