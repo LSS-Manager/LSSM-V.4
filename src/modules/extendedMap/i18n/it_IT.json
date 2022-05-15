@@ -29,17 +29,17 @@
             "extensions": {
                 "abort": "Annulla",
                 "disabled": "Completata ma disabilitata",
-                "enabled": "Completata e in funzione",
+                "enabled": "Completata ed in funzione",
                 "filter": {
-                    "all": "All",
-                    "buildings": "Buildings",
-                    "canBuy": "can buy",
-                    "cannotBuy": "cannot buy",
-                    "disabled": "finished & disabled",
-                    "enabled": "finished & enabled",
-                    "extensions": "Extensions",
+                    "all": "Tutto",
+                    "buildings": "Edifici",
+                    "canBuy": "Disponibili",
+                    "cannotBuy": "Non disponibili",
+                    "disabled": "Completata ma disabilitata",
+                    "enabled": "Completata ed in funzione",
+                    "extensions": "Estensioni",
                     "states": "Status",
-                    "underConstruction": "under construction"
+                    "underConstruction": "In costruzione"
                 },
                 "limit": "Non puoi comprare più di {n} estensioni di questo tipo al momento!",
                 "missingRequirements": "I seguenti requisiti non sono stati soddisfatti:",
