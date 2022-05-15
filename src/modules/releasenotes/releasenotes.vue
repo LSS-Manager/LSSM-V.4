@@ -1,5 +1,10 @@
 <template>
-    <lightbox name="releasenotes" no-fullscreen no-title-hide>
+    <lightbox
+        name="releasenotes"
+        :extra-classes="{ releasenotes: true }"
+        no-fullscreen
+        no-title-hide
+    >
         <h1>LSSM V.4: {{ $t('modules.releasenotes.name') }}</h1>
         <div v-for="(notes, minor) in minors" :key="minor">
             <h2
@@ -48,6 +53,8 @@ import Vue from 'vue';
 import coerce from 'semver/functions/coerce';
 import moment from 'moment';
 import semverLt from 'semver/functions/lt';
+
+import lssmLogo from '../../img/lssm.png';
 
 import type { DefaultData, DefaultMethods } from 'vue/types/options';
 import type {
@@ -99,38 +106,67 @@ export default Vue.extend<
     },
     mounted() {
         moment.locale(this.$store.state.lang);
+        document
+            .querySelector<HTMLDivElement>('.releasenotes-modal .vm--modal')
+            ?.style.setProperty(
+                'background-image',
+                `url("${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}")`
+            );
     },
 });
 </script>
 
+<style lang="sass">
+.releasenotes-modal .vm--modal
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center center
+
+    body.dark &
+        background-blend-mode: soft-light
+</style>
+
 <style scoped lang="sass">
-h2
-    cursor: pointer
-
-    &::before
-      content: "▾"
-
-    &.closed
-        &::before
-            content: "▸"
-
-        ~ .note
-          display: none
-
-.note
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
-    transition: box-shadow 0.3s
-    border-radius: 5px
-    padding: 1rem
-    &:hover
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
-
-    ::v-deep ul li
-        list-style: disc !important
-
-    ::v-deep a
+.releasenotes
+    body.dark & a
         color: #6dd5f4
 
-a
-    color: #6dd5f4
+    body:not(.dark) &
+        margin: -1rem
+        padding: 1rem
+        background-color: rgba(255, 255, 255, 0.8)
+
+    h2
+        cursor: pointer
+
+        &::before
+          content: "▾"
+
+        &.closed
+            &::before
+                content: "▸"
+
+            ~ .note
+              display: none
+
+    .note
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+        transition: box-shadow 0.3s
+        border-radius: 5px
+        padding: 1rem
+        margin-bottom: 0.5em
+        &:hover
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+
+        ::v-deep ul li
+            list-style: disc !important
+
+        body.dark &
+            background-color: rgba(0, 0, 0, 0.3)
+
+            &::v-deep a
+                color: #6dd5f4
+
+        body:not(.dark) &
+            background-color: rgba(0, 0, 0, 0.05)
 </style>
