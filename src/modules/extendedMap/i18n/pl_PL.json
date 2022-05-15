@@ -27,60 +27,60 @@
                 "title": "Sale"
             },
             "extensions": {
-                "abort": "Abort",
-                "disabled": "Finished & disabled",
-                "enabled": "Finished & enabled",
+                "abort": "Anuluj",
+                "disabled": "Ukończone i wyłączone",
+                "enabled": "Ukończone i włączone",
                 "filter": {
-                    "all": "All",
-                    "buildings": "Buildings",
-                    "canBuy": "can buy",
-                    "cannotBuy": "cannot buy",
-                    "disabled": "finished & disabled",
-                    "enabled": "finished & enabled",
-                    "extensions": "Extensions",
+                    "all": "Wszystko",
+                    "buildings": "Budynki",
+                    "canBuy": "można kupić",
+                    "cannotBuy": "nie można kupić",
+                    "disabled": "skończony i wyłączony",
+                    "enabled": "skończony i włączony",
+                    "extensions": "Rozbudowy",
                     "states": "Status",
-                    "underConstruction": "under construction"
+                    "underConstruction": "w budowie"
                 },
-                "limit": "You cannot buy more than {n} of this extensions currently!",
-                "missingRequirements": "Following requirements are not met:",
+                "limit": "Obecnie nie możesz kupić więcej niż {n} z tych rozszerzeń!",
+                "missingRequirements": "Następujące wymagania nie są spełnione:",
                 "summary": {
-                    "available": "{n} ready to be built",
-                    "built": "{n} built",
-                    "inConstruction": "{n} under construction",
-                    "total": "{n} possible in total"
+                    "available": "{n} gotowych do zbudowania",
+                    "built": "{n} zbudowanych",
+                    "inConstruction": "{n} w budowie",
+                    "total": "{n} możliwych w sumie"
                 },
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "name": "Name"
+                        "building": "Budynki",
+                        "name": "Nazwa"
                     }
                 },
                 "title": "Rozszerzenia",
-                "underConstruction": "under construction"
+                "underConstruction": "w budowie"
             },
             "title": "Przegląd",
             "vehicles": {
                 "table": {
                     "head": {
-                        "building": "Building",
+                        "building": "Budynek
                         "fms": "Status",
-                        "name": "Name",
-                        "staff": "Staff (assigned / max)"
+                        "name": "Nazwa
+                        "staff": "Personel (przydzielony / maksymalny)"
                     }
                 },
                 "title": "Pojazdy"
             }
         },
         "settings": {
-            "abort": "Przerwij",
+            "abort": "Anuluj",
             "buildings": "wybrane budynki",
             "dissolve": {
                 "buttons": {
-                    "abort": "Abort",
-                    "continue": "Dissolve"
+                    "abort": "Anuluj",
+                    "continue": "Usuń"
                 },
-                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
-                "title": "Dissolve complex"
+                "text": "Czy chcesz usunąć ten kompleks budynków? Wszystkie dołączone budynki zostaną ponownie wyświetlone na mapie, jak poprzednio.",
+                "title": "Usuń kompleks"
             },
             "icon": "Ikona",
             "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
