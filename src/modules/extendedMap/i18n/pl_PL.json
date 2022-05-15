@@ -1,49 +1,49 @@
 {
     "buildingComplexes": {
-        "openInLightbox": "Open building in Lightbox",
+        "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
             "buildings": {
                 "classrooms": {
-                    "title": "Classrooms"
+                    "title": "Sale"
                 },
                 "extensions": {
-                    "title": "Extensions"
+                    "title": "Rozszerzenia"
                 },
                 "hiring": {
-                    "automatic": "automatically",
-                    "no": "None",
-                    "phase": "1 Day | {n} Days"
+                    "automatic": "Automatycznie",
+                    "no": "Brak",
+                    "phase": "1 Dzień | {n} Dni"
                 },
-                "inConstruction": "thereof {n} under construction",
+                "inConstruction": "z tego {n} w budowie",
                 "table": {
                     "head": {
-                        "beds": "Beds",
-                        "cells": "Cells",
-                        "classrooms": "Classrooms",
-                        "hiring": "Hiring Phase",
-                        "level": "Level",
-                        "name": "Name",
-                        "staff": "Staff (Staff target)",
-                        "vehicles": "Vehicles"
+                        "beds": "Łóżka",
+                        "cells": "Cele",
+                        "classrooms": "Sale wykładowe",
+                        "hiring": "Faza rekrutacji",
+                        "level": "Poziom",
+                        "name": "Nazwa",
+                        "staff": "Personel (Personel docelowy)",
+                        "vehicles": "Pojazdy"
                     }
                 },
-                "title": "attached buildings",
+                "title": "wybrane budynki",
                 "vehicles": {
-                    "title": "Vehicles"
+                    "title": "Pojazdy"
                 }
             },
-            "title": "Overview"
+            "title": "Przegląd"
         },
         "settings": {
-            "abort": "Abort",
-            "buildings": "attached buildings",
-            "icon": "Icon",
-            "iconHelp": "Select between standard icons and icons of attached buildings",
-            "location": "Location",
-            "name": "Name",
-            "save": "Save",
-            "showMarkers": "Show attached buildings on map?",
-            "title": "Edit complex"
+            "abort": "Przerwij",
+            "buildings": "wybrane budynki",
+            "icon": "Ikona",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
+            "location": "Lokacja",
+            "name": "Nazwa",
+            "save": "Zapisz",
+            "showMarkers": "Wyświetl wybrane budynki na mapie",
+            "title": "Edytuj kompleks"
         }
     }
 }
