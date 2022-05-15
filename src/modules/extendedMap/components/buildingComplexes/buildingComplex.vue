@@ -132,6 +132,14 @@
                                     >
                                         {{ building.name }}
                                     </a>
+                                    <a
+                                        class="btn btn-default btn-xs pull-right lightbox-open"
+                                        :href="`/buildings/${building.id}/edit`"
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faPencilAlt"
+                                        />
+                                    </a>
                                 </td>
                                 <td v-if="hasLevelBuildings">
                                     {{
@@ -321,6 +329,13 @@
                                     <span
                                         class="building_list_fms"
                                         :class="`building_list_fms_${vehicle.fms_real}`"
+                                        @click="
+                                            [2, 6].includes(
+                                                vehicle.fms_real
+                                                    ? toggleVehicleFMS(vehicle)
+                                                    : () => {}
+                                            )
+                                        "
                                     >
                                         {{ vehicle.fms_show }}
                                     </span>
@@ -761,7 +776,6 @@ export default Vue.extend<
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
-        vehiclesByBuilding: Record<number, Vehicle[]>;
         buildingsTable: {
             search: string;
             sort: BuildingSortAttribute;
@@ -788,6 +802,7 @@ export default Vue.extend<
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
+        toggleVehicleFMS(vehicle: AttributedVehicle): void;
         setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
         setSortExtensionsTable(sort: ExtensionSortAttribute): void;
@@ -805,6 +820,7 @@ export default Vue.extend<
     },
     {
         buildings: Record<number, Building>;
+        vehiclesByBuilding: Record<number, Vehicle[]>;
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
         sortedBuildingIdsByName: number[];
@@ -877,7 +893,6 @@ export default Vue.extend<
                 InternalVehicle
             >,
             currentBuildingId: 0,
-            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             buildingsTable: {
                 search: '',
                 sort: 'name',
@@ -904,6 +919,9 @@ export default Vue.extend<
     computed: {
         buildings() {
             return this.$store.getters['api/buildingsById'];
+        },
+        vehiclesByBuilding() {
+            return this.$store.getters['api/vehiclesByBuilding'];
         },
         attributedBuildings() {
             const smallBuildings = this.$t(
@@ -1626,6 +1644,24 @@ export default Vue.extend<
                 }
             );
         },
+        toggleVehicleFMS(vehicle) {
+            if (![2, 6].includes(vehicle.fms_real)) return;
+            const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
+            const feature = 'buildingComplex-setFMS';
+            this.$store
+                .dispatch('api/request', {
+                    url: `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
+                    feature,
+                })
+                .then(() => {
+                    this.$store
+                        .dispatch('api/fetchVehicle', {
+                            id: vehicle.id,
+                            feature,
+                        })
+                        .then();
+                });
+        },
         setSortBuildingsTable(sort) {
             const s = sort;
             this.buildingsTable.sortDir =
@@ -1808,6 +1844,10 @@ export default Vue.extend<
     .indented-title
         text-indent: -0.5em
         padding-left: 0.5em
+
+    .building_list_fms_2,
+    .building_list_fms_6
+        cursor: pointer
 
     .extensions-filter
         flex-grow: 1
