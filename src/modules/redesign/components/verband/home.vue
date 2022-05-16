@@ -13,7 +13,7 @@
         >
             <div
                 class="btn-group pull-right edit-btns"
-                v-if="home.edit_text || home.edit_logo || home.edit_name"
+                v-if="home.edit_text || home.edit_logo || home.edit_name || home.edit_settings"
             >
                 <!-- Ah yes, there is really missing an `r` in `verband`. But adding the `r` results in a sweet and cool 404 :) -->
                 <a
@@ -22,6 +22,15 @@
                     lightbox-open
                     href="/veband/text/edit?close-after-submit"
                     :title="lightbox.$sm('edit_text')"
+                >
+                    <font-awesome-icon :icon="faEdit"></font-awesome-icon>
+                </a>
+                <a
+                    v-if="home.edit_settings"
+                    class="btn btn-default btn-xs"
+                    lightbox-open
+                    href="/veband/text/edit?close-after-submit"
+                    :title="lightbox.$sm('edit_settings')"
                 >
                     <font-awesome-icon :icon="faEdit"></font-awesome-icon>
                 </a>
