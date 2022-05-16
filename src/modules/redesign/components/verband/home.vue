@@ -34,7 +34,7 @@
                     v-if="home.edit_settings"
                     class="btn btn-default btn-xs"
                     lightbox-open
-                    href="/veband/text/edit?close-after-submit"
+                    href="/verband/settings?close-after-submit"
                     :title="lightbox.$sm('edit_settings')"
                 >
                     <font-awesome-icon :icon="faEdit"></font-awesome-icon>
