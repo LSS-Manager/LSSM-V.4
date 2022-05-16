@@ -2,19 +2,19 @@ import 'tampermonkey';
 
 declare let host: string;
 declare let user_id: string | undefined;
+declare let I18n: unknown & { locale: string };
 declare let prefix: string;
-declare let GM_Info: Tampermonkey.ScriptInfo;
 
 const loadLSSM = () => {
     const script = document.createElement('script');
 
     script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
-        window.I18n.locale
+        I18n.locale
     }-${user_id}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
 
-    window[`${prefix}-GM_Info`] = GM_Info;
+    window[`${prefix}-GM_Info`] = JSON.parse(JSON.stringify(GM_info));
 
     document.body.append(script);
 };
@@ -26,7 +26,7 @@ if (
         window.frameElement?.src.startsWith('https')) &&
     !window.location.pathname.match(/^\/users\//u) &&
     typeof user_id !== 'undefined' &&
-    typeof window.I18n !== 'undefined'
+    typeof I18n !== 'undefined'
 ) {
     if (
         window !== window.parent &&

@@ -41,6 +41,7 @@
                     v-model="buildingIds"
                     :options="buildingOptions"
                     :close-on-select="false"
+                    :clearSearchOnSelect="false"
                     multiple
                     clearable
                     append-to-body

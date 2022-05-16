@@ -103,11 +103,22 @@
                             @sort="setSortBuildingsTable"
                         >
                             <template v-slot:head>
-                                <h2 class="overview-heading">
+                                <h2 class="overview-heading indented-title">
                                     {{ $m('overview.buildings.title') }}:
                                     {{
                                         complex.buildings.length.toLocaleString()
                                     }}
+                                    <br />
+                                    <small>
+                                        {{
+                                            buildingTypeAmounts
+                                                .map(
+                                                    ([type, amount]) =>
+                                                        `${type}: ${amount.toLocaleString()}`
+                                                )
+                                                .join(', ')
+                                        }}
+                                    </small>
                                 </h2>
                             </template>
                             <tr
@@ -131,6 +142,14 @@
                                         class="lightbox-open"
                                     >
                                         {{ building.name }}
+                                    </a>
+                                    <a
+                                        class="btn btn-default btn-xs pull-right lightbox-open"
+                                        :href="`/buildings/${building.id}/edit`"
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faPencilAlt"
+                                        />
                                     </a>
                                 </td>
                                 <td v-if="hasLevelBuildings">
@@ -275,9 +294,20 @@
                             @sort="setSortVehiclesTable"
                         >
                             <template v-slot:head>
-                                <h2 class="overview-heading">
+                                <h2 class="overview-heading indented-title">
                                     {{ $m('overview.vehicles.title') }}:
                                     {{ vehicles.length.toLocaleString() }}
+                                    <br />
+                                    <small>
+                                        {{
+                                            vehicleTypeAmounts
+                                                .map(
+                                                    ([type, amount]) =>
+                                                        `${type}: ${amount.toLocaleString()}`
+                                                )
+                                                .join(', ')
+                                        }}
+                                    </small>
                                 </h2>
                             </template>
                             <tr
@@ -321,6 +351,13 @@
                                     <span
                                         class="building_list_fms"
                                         :class="`building_list_fms_${vehicle.fms_real}`"
+                                        @click="
+                                            [2, 6].includes(
+                                                vehicle.fms_real
+                                                    ? toggleVehicleFMS(vehicle)
+                                                    : () => {}
+                                            )
+                                        "
                                     >
                                         {{ vehicle.fms_show }}
                                     </span>
@@ -369,7 +406,7 @@
                             @sort="setSortExtensionsTable"
                         >
                             <template v-slot:head>
-                                <h2 class="overview-heading indented-title">
+                                <h2 class="indented-title">
                                     {{ $m('overview.extensions.title') }}
                                     <br />
                                     <small>
@@ -411,6 +448,80 @@
                                         }}
                                     </small>
                                 </h2>
+                                <div class="form-group extensions-filter">
+                                    <div>
+                                        <label>
+                                            {{
+                                                $m(
+                                                    'overview.extensions.filter.extensions'
+                                                )
+                                            }}
+                                        </label>
+                                        <multi-select
+                                            name="extensions_select"
+                                            :placeholder="
+                                                $m(
+                                                    'overview.extensions.filter.extensions'
+                                                )
+                                            "
+                                            :value="extensionsFilterNamesValue"
+                                            :options="
+                                                extensionsFilterNamesOptions
+                                            "
+                                            @input="updateExtensionsFilterNames"
+                                        ></multi-select>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            {{
+                                                $m(
+                                                    'overview.extensions.filter.buildings'
+                                                )
+                                            }}
+                                        </label>
+                                        <multi-select
+                                            name="extensions_buildings_select"
+                                            :placeholder="
+                                                $m(
+                                                    'overview.extensions.filter.buildings'
+                                                )
+                                            "
+                                            :value="
+                                                extensionsFilterBuildingsValue
+                                            "
+                                            :options="
+                                                extensionsFilterBuildingsOptions
+                                            "
+                                            @input="
+                                                updateExtensionsFilterBuildings
+                                            "
+                                        ></multi-select>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            {{
+                                                $m(
+                                                    'overview.extensions.filter.states'
+                                                )
+                                            }}
+                                        </label>
+                                        <multi-select
+                                            name="extensions_states_select"
+                                            :placeholder="
+                                                $m(
+                                                    'overview.extensions.filter.states'
+                                                )
+                                            "
+                                            :value="extensionsFilterStatesValue"
+                                            :options="
+                                                extensionsFilterStatesOptions
+                                            "
+                                            @input="
+                                                updateExtensionsFilterStates
+                                            "
+                                        ></multi-select>
+                                    </div>
+                                </div>
                             </template>
                             <tr
                                 v-for="(extension, index) in sortedExtensions"
@@ -460,6 +571,7 @@
                                                 }}
                                             </span>
                                             &nbsp;
+                                            <!-- Disabled until we know which one can be aborted (and finished early)
                                             <button
                                                 class="btn btn-default btn-xs"
                                                 disabled
@@ -470,6 +582,7 @@
                                                     )
                                                 }}
                                             </button>
+                                            -->
                                         </template>
                                     </template>
                                     <template v-else>
@@ -672,13 +785,19 @@ type BuildingSortAttribute =
 
 type ExtensionSortAttribute = 'actions' | 'buildingName' | 'name';
 
+type ExtensionStateFilters =
+    | 'canBuy'
+    | 'cannotBuy'
+    | 'disabled'
+    | 'enabled'
+    | 'underConstruction';
+
 export default Vue.extend<
     {
         faPencilAlt: IconDefinition;
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
-        vehiclesByBuilding: Record<number, Vehicle[]>;
         buildingsTable: {
             search: string;
             sort: BuildingSortAttribute;
@@ -693,6 +812,11 @@ export default Vue.extend<
             search: string;
             sort: ExtensionSortAttribute;
             sortDir: 'asc' | 'desc';
+            filters: {
+                extensionNames: string[] | 'all';
+                buildings: number[] | 'all';
+                states: ExtensionStateFilters[] | 'all';
+            };
         };
         tempDisableAllExtensionButtons: boolean;
     },
@@ -700,6 +824,7 @@ export default Vue.extend<
         selectTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
+        toggleVehicleFMS(vehicle: AttributedVehicle): void;
         setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
         setSortExtensionsTable(sort: ExtensionSortAttribute): void;
@@ -709,9 +834,15 @@ export default Vue.extend<
             method: 'coins' | 'credits',
             price: number
         ): void;
+        updateExtensionsFilterNames(names: string[]): void;
+        updateExtensionsFilterBuildings(buildings: (number | '*')[]): void;
+        updateExtensionsFilterStates(
+            states: (ExtensionStateFilters | '*')[]
+        ): void;
     },
     {
         buildings: Record<number, Building>;
+        vehiclesByBuilding: Record<number, Vehicle[]>;
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
         sortedBuildingIdsByName: number[];
@@ -723,9 +854,11 @@ export default Vue.extend<
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
+        buildingTypeAmounts: [string, number][];
         vehicles: AttributedVehicle[];
         filteredVehicles: AttributedVehicle[];
         sortedVehicles: AttributedVehicle[];
+        vehicleTypeAmounts: [string, number][];
         boughtExtensionsAmountByType: Record<number, Record<number, number>>;
         extensions: AttributedExtension[];
         filteredExtensions: AttributedExtension[];
@@ -733,6 +866,18 @@ export default Vue.extend<
         extensionsAvailableCount: number;
         extensionsUnderConstructionCount: number;
         extensionsCanBuyCount: number;
+        extensionsFilterNamesValue: string[];
+        extensionsFilterNamesOptions: { label: string; value: string }[];
+        extensionsFilterBuildingsValue: number[] | ['*'];
+        extensionsFilterBuildingsOptions: {
+            label: string;
+            value: number | '*';
+        }[];
+        extensionsFilterStatesValue: ExtensionStateFilters[] | ['*'];
+        extensionsFilterStatesOptions: {
+            label: string;
+            value: ExtensionStateFilters | '*';
+        }[];
     },
     {
         complexIndex: number;
@@ -755,6 +900,10 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
             ),
+        MultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/multi-select" */ '../../../../components/setting/multi-select.vue'
+            ),
     },
     data() {
         return {
@@ -768,7 +917,6 @@ export default Vue.extend<
                 InternalVehicle
             >,
             currentBuildingId: 0,
-            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             buildingsTable: {
                 search: '',
                 sort: 'name',
@@ -783,6 +931,11 @@ export default Vue.extend<
                 search: '',
                 sort: 'buildingName',
                 sortDir: 'asc',
+                filters: {
+                    extensionNames: 'all',
+                    buildings: 'all',
+                    states: 'all',
+                },
             },
             tempDisableAllExtensionButtons: false,
         };
@@ -790,6 +943,9 @@ export default Vue.extend<
     computed: {
         buildings() {
             return this.$store.getters['api/buildingsById'];
+        },
+        vehiclesByBuilding() {
+            return this.$store.getters['api/vehiclesByBuilding'];
         },
         attributedBuildings() {
             const smallBuildings = this.$t(
@@ -917,9 +1073,8 @@ export default Vue.extend<
                                       this.vehiclesByBuilding[building.id] ??
                                       [],
                                   maxVehicles:
-                                      (buildingType.levelNotIncreasingLots
-                                          ? 0
-                                          : building.level) +
+                                      (buildingType.parkingLotsPerLevel ?? 1) *
+                                          building.level +
                                       buildingType.startParkingLots +
                                       building.extensions
                                           .map(extension => {
@@ -936,7 +1091,8 @@ export default Vue.extend<
                                               )
                                                   return 0;
                                               return (
-                                                  extensionType.givesParkingLots +
+                                                  (extensionType.givesParkingLots ??
+                                                      0) +
                                                   (extensionType.givesParkingLotsPerLevel ??
                                                       0) *
                                                       building.level
@@ -1059,6 +1215,16 @@ export default Vue.extend<
                 ({ hasVehicles }) => hasVehicles
             );
         },
+        buildingTypeAmounts() {
+            const types: Record<string, number> = {};
+            this.attributedBuildings.forEach(({ typeName }) => {
+                if (!types.hasOwnProperty(typeName)) types[typeName] = 0;
+                types[typeName]++;
+            });
+            return Object.entries(types).sort(([typeA], [typeB]) =>
+                typeA.localeCompare(typeB)
+            );
+        },
         vehicles() {
             return this.attributedBuildings.flatMap(building =>
                 building.hasVehicles
@@ -1127,6 +1293,16 @@ export default Vue.extend<
 
                 return result;
             });
+        },
+        vehicleTypeAmounts() {
+            const types: Record<string, number> = {};
+            this.vehicles.forEach(({ typeName }) => {
+                if (!types.hasOwnProperty(typeName)) types[typeName] = 0;
+                types[typeName]++;
+            });
+            return Object.entries(types).sort(([typeA], [typeB]) =>
+                typeA.localeCompare(typeB)
+            );
         },
         boughtExtensionsAmountByType() {
             const data: Record<
@@ -1262,13 +1438,64 @@ export default Vue.extend<
             );
         },
         filteredExtensions() {
-            return this.extensionsTable.search
-                ? this.extensions.filter(extension =>
-                      JSON.stringify(Object.values(extension))
-                          .toLowerCase()
-                          .includes(this.extensionsTable.search.toLowerCase())
-                  )
-                : this.extensions;
+            return (
+                this.extensionsTable.search
+                    ? this.extensions.filter(extension =>
+                          JSON.stringify(Object.values(extension))
+                              .toLowerCase()
+                              .includes(
+                                  this.extensionsTable.search.toLowerCase()
+                              )
+                      )
+                    : this.extensions
+            ).filter(extension => {
+                if (
+                    this.extensionsTable.filters.extensionNames !== 'all' &&
+                    !this.extensionsTable.filters.extensionNames.includes(
+                        extension.name
+                    )
+                )
+                    return false;
+                if (
+                    this.extensionsTable.filters.buildings !== 'all' &&
+                    !this.extensionsTable.filters.buildings.includes(
+                        extension.buildingId
+                    )
+                )
+                    return false;
+                if (this.extensionsTable.filters.states !== 'all') {
+                    return (
+                        (this.extensionsTable.filters.states.includes(
+                            'canBuy'
+                        ) &&
+                            'canBuy' in extension &&
+                            extension.canBuy) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'cannotBuy'
+                        ) &&
+                            'canBuy' in extension &&
+                            !extension.canBuy) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            'bought' in extension &&
+                            !extension.enabled) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'underConstruction'
+                        ) &&
+                            'bought' in extension &&
+                            !extension.available)
+                    );
+                }
+
+                return true;
+            });
         },
         sortedExtensions() {
             const getActionsNumber = (
@@ -1323,6 +1550,98 @@ export default Vue.extend<
                 extension => 'canBuy' in extension && extension.canBuy
             ).length;
         },
+        extensionsFilterNamesValue() {
+            return this.extensionsTable.filters.extensionNames === 'all'
+                ? ['*']
+                : [...this.extensionsTable.filters.extensionNames];
+        },
+        extensionsFilterNamesOptions() {
+            return [
+                ...(this.extensionsTable.filters.extensionNames === 'all'
+                    ? []
+                    : [
+                          {
+                              label: this.$m(
+                                  'overview.extensions.filter.all'
+                              ).toString(),
+                              value: '*',
+                          },
+                      ]),
+                ...[...new Set(this.extensions.map(({ name }) => name))]
+                    .sort((extensionA, extensionB) =>
+                        extensionA.localeCompare(extensionB)
+                    )
+                    .map(extension => ({ label: extension, value: extension })),
+            ];
+        },
+        extensionsFilterBuildingsValue() {
+            return this.extensionsTable.filters.buildings === 'all'
+                ? ['*']
+                : [...this.extensionsTable.filters.buildings];
+        },
+        extensionsFilterBuildingsOptions() {
+            return [
+                ...(this.extensionsTable.filters.buildings === 'all'
+                    ? []
+                    : ([
+                          {
+                              label: this.$m(
+                                  'overview.extensions.filter.all'
+                              ).toString(),
+                              value: '*',
+                          },
+                      ] as [{ label: string; value: '*' }])),
+                ...[
+                    ...new Set(
+                        this.extensions.map(({ buildingId }) => buildingId)
+                    ),
+                ]
+                    .map(buildingId => ({
+                        label: this.buildings[buildingId].caption,
+                        value: buildingId,
+                    }))
+                    .sort((buildingA, buildingB) =>
+                        buildingA.label.localeCompare(buildingB.label)
+                    ),
+            ];
+        },
+        extensionsFilterStatesValue() {
+            return this.extensionsTable.filters.states === 'all'
+                ? ['*']
+                : [...this.extensionsTable.filters.states];
+        },
+        extensionsFilterStatesOptions() {
+            return [
+                ...(this.extensionsTable.filters.states === 'all'
+                    ? []
+                    : ([
+                          {
+                              label: this.$m(
+                                  'overview.extensions.filter.all'
+                              ).toString(),
+                              value: '*',
+                          },
+                      ] as [{ label: string; value: '*' }])),
+                ...(
+                    [
+                        'canBuy',
+                        'cannotBuy',
+                        'disabled',
+                        'enabled',
+                        'underConstruction',
+                    ] as ExtensionStateFilters[]
+                )
+                    .map(state => ({
+                        label: this.$m(
+                            `overview.extensions.filter.${state}`
+                        ).toString(),
+                        value: state,
+                    }))
+                    .sort((stateA, stateB) =>
+                        stateA.label.localeCompare(stateB.label)
+                    ),
+            ];
+        },
     },
     methods: {
         selectTab(event, index) {
@@ -1368,6 +1687,24 @@ export default Vue.extend<
                     shiftY: 0.1,
                 }
             );
+        },
+        toggleVehicleFMS(vehicle) {
+            if (![2, 6].includes(vehicle.fms_real)) return;
+            const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
+            const feature = 'buildingComplex-setFMS';
+            this.$store
+                .dispatch('api/request', {
+                    url: `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
+                    feature,
+                })
+                .then(() => {
+                    this.$store
+                        .dispatch('api/fetchVehicle', {
+                            id: vehicle.id,
+                            feature,
+                        })
+                        .then();
+                });
         },
         setSortBuildingsTable(sort) {
             const s = sort;
@@ -1440,6 +1777,47 @@ export default Vue.extend<
                         });
                 });
         },
+        updateExtensionsFilterNames(names) {
+            if (
+                names.findIndex(name => name === '*') === names.length - 1 ||
+                !names.length
+            ) {
+                this.extensionsTable.filters.extensionNames = 'all';
+            } else {
+                this.extensionsTable.filters.extensionNames = names.filter(
+                    name => name !== '*'
+                );
+            }
+        },
+        updateExtensionsFilterBuildings(buildings) {
+            if (
+                buildings.findIndex(building => building === '*') ===
+                    buildings.length - 1 ||
+                !buildings.length
+            ) {
+                this.extensionsTable.filters.buildings = 'all';
+            } else {
+                const removeAllElement = <S>(
+                    building: S | '*'
+                ): building is S => building !== '*';
+                this.extensionsTable.filters.buildings =
+                    buildings.filter(removeAllElement);
+            }
+        },
+        updateExtensionsFilterStates(states) {
+            if (
+                states.findIndex(state => state === '*') ===
+                    states.length - 1 ||
+                !states.length
+            ) {
+                this.extensionsTable.filters.states = 'all';
+            } else {
+                const removeAllElement = <S>(state: S | '*'): state is S =>
+                    state !== '*';
+                this.extensionsTable.filters.states =
+                    states.filter(removeAllElement);
+            }
+        },
     },
     props: {
         complexIndex: {
@@ -1510,6 +1888,20 @@ export default Vue.extend<
     .indented-title
         text-indent: -0.5em
         padding-left: 0.5em
+
+    .building_list_fms_2,
+    .building_list_fms_6
+        cursor: pointer
+
+    .extensions-filter
+        flex-grow: 1
+        display: flex
+        flex-flow: row
+        justify-content: end
+
+        > div
+            flex-grow: 1
+            margin-right: 1em
 
     ul li
         &:first-child

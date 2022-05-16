@@ -6,6 +6,8 @@
   "commitMessagePrefix": "⬆️",
   "commitMessageTopic": "`{{depName}}`",
   "dependencyDashboard": true,
+  "dependencyDashboardFooter": "PRs will be created on weekdays before 3am (CEST) for any dependencies except engines.\nEngine (node, npm, yarn) updates will be created on first day of month.",
+  "dependencyDashboardHeader": "# ℹ️ Renovate Dependency-Dashboard ℹ\nScheduled and currently open dependency updates are listed here\n",
   "dependencyDashboardLabels": ["dependencies"],
   "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
   "packageRules": [

@@ -340,7 +340,7 @@ export default {
         maxLevel: 0,
         special:
             'Denna byggnad kan endast byggas av CFO eller administratörer med Alliance Bank-credits. Celler är tillgängliga för alla alliansmedlemmar.',
-        startCells: 0,
+        startCells: 1,
     },
     18: {
         caption: 'Brandstation (liten)',
