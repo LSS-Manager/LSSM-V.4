@@ -94,7 +94,7 @@
     "engines": {
         "node": "^16.13.2 || ^18.0.0",
         "npm": ">=8.10.0",
-        "yarn": "^1.22.18"
+        "yarn": ">=1.22.18"
     },
     "prettier": {
         "arrowParens": "avoid",
