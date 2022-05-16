@@ -13,7 +13,12 @@
         >
             <div
                 class="btn-group pull-right edit-btns"
-                v-if="home.edit_text || home.edit_logo || home.edit_name || home.edit_settings"
+                v-if="
+                    home.edit_text ||
+                    home.edit_logo ||
+                    home.edit_name ||
+                    home.edit_settings
+                "
             >
                 <!-- Ah yes, there is really missing an `r` in `verband`. But adding the `r` results in a sweet and cool 404 :) -->
                 <a

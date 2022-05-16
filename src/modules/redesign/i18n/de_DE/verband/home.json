@@ -3,8 +3,8 @@
     "apply": "Bewerben",
     "edit_logo": "Logo bearbeiten",
     "edit_name": "Verband umbenennen",
-    "edit_text": "Vorstellungstext, Regeln, wichtige Verbandsinformationen und Discord-Webhooks bearbeiten",
     "edit_settings": "Verbandseinstellungen verwalten, wie z.b. Wer Nachrichten posten darf im Punkt Nachrichten",
+    "edit_text": "Vorstellungstext, Regeln, wichtige Verbandsinformationen und Discord-Webhooks bearbeiten",
     "leave": {
         "cancel": "Abbrechen",
         "confirm": "Verlassen!",
