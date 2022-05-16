@@ -46,7 +46,13 @@ export default async (
             .bindTooltip(name)
             .addTo(complexesLayer);
 
-        window.iconMapGenerate(icon, marker);
+        window.iconMapGenerate(
+            icon.replace(
+                /^https:\/\/www\.leitstellenspiel\.de\/hostedimages/u,
+                'https://leitstellenspiel.s3.amazonaws.com'
+            ),
+            marker
+        );
 
         allAttachedBuildings.push(...buildings);
 
@@ -97,8 +103,15 @@ export default async (
 
                         complexes[index] = updatedComplex;
 
-                        if (updatedComplex.icon !== icon)
-                            window.iconMapGenerate(updatedComplex.icon, marker);
+                        if (updatedComplex.icon !== icon) {
+                            window.iconMapGenerate(
+                                updatedComplex.icon.replace(
+                                    /^https:\/\/www\.leitstellenspiel\.de\/hostedimages/u,
+                                    'https://leitstellenspiel.s3.amazonaws.com'
+                                ),
+                                marker
+                            );
+                        }
 
                         marker.unbindTooltip();
                         marker.bindTooltip(updatedComplex.name);
