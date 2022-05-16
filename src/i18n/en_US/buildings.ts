@@ -24,7 +24,7 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [29, 48, 49, 50, 57, 58, 59, 60, 61],
+                unlocksVehicleTypes: [5, 15, 20, 28, 27, 29, 48, 49, 50, 57, 58, 59, 60, 61],
             },
             {
                 caption: 'Airport Extension',
