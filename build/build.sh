@@ -10,6 +10,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 18 # install node 18
 nvm use 18
 
+npm install -g npm
 npm install -g yarn
 
 # version output helps when there are debugging needs
