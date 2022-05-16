@@ -142,6 +142,10 @@ Vous pouvez maintenant copier le code de nos extraits de code fournis ci-dessous
 Lorsque le code est collé dans la console, il suffit d'appuyer sur la touche `Enter` de votre clavier pour exécuter l'extrait. Le résultat apparaîtra automatiquement dans la console, mais certains d'entre eux peuvent prendre quelques secondes.
 :::
 
+:::warning Avis de non-responsabilité de l'API
+L'API est générée à partir des fichiers de traduction et peut donc contenir des valeurs erronées. En cas d'insécurité, veuillez toujours utiliser les informations disponibles dans le jeu !
+:::
+
 #### Véhicules
 
 API: `https://api.lss-manager.de/{lang}/vehicles`

@@ -141,6 +141,10 @@ You can now copy the code from our code snippets provided below and paste it in 
 When the code is pasted into console, just press the `Enter` Key on your keyboard to execute the snippet. The result will automatically appear in the console but some of them may take few seconds.
 :::
 
+:::warning API disclaimer
+the API is generated from the translation files and thus may contain wrong values. In case of insecurity, please always use information available in game!
+:::
+
 #### Vehicles
 
 API: `https://api.lss-manager.de/{lang}/vehicles`
