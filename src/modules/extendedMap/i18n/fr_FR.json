@@ -30,6 +30,17 @@
                 "abort": "Abort",
                 "disabled": "Finished & disabled",
                 "enabled": "Finished & enabled",
+                "filter": {
+                    "all": "All",
+                    "buildings": "Buildings",
+                    "canBuy": "can buy",
+                    "cannotBuy": "cannot buy",
+                    "disabled": "finished & disabled",
+                    "enabled": "finished & enabled",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "under construction"
+                },
                 "limit": "You cannot buy more than {n} of this extensions currently!",
                 "missingRequirements": "Following requirements are not met:",
                 "summary": {
@@ -62,6 +73,7 @@
         },
         "settings": {
             "abort": "Annuler",
+            "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "bâtiments rattachés",
             "dissolve": {
                 "buttons": {

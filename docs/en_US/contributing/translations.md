@@ -108,11 +108,12 @@ In general, these updates are necessary:
 * `/src/i18n/{lang}.ts`
   * Update vehicles
   * Update vehicle categories
-  * Update buildings/extensions
   * Update building categories
   * Update schoolings
   * Update buildings-lists
     * `vehicleBuildings`, `cellBuildings`, `cellExtensions`, `bedBuildings`, `schoolBuildings`, `dispatchCenterBuildings`
+* `/src/i18n/{lang}/buildings.ts`
+  * Update [buildings/extensions](#buildings-extensions)
 * `/src/modules/buildingListFilter/i18n/{lang}.root.json`
   * update default
 * `/src/modules/extendedCallWindow/i18n/{lang}.js`
@@ -139,6 +140,10 @@ To open the console, press `F12`, `Ctrl+Shift+K` or `Ctrl+Shift+I` (some browser
 You can now copy the code from our code snippets provided below and paste it in the console. Some Browsers (such as Firefox) require you to type a short sentence. Just type it, Firefox will replace it with the code, once you finished the sentence.
 
 When the code is pasted into console, just press the `Enter` Key on your keyboard to execute the snippet. The result will automatically appear in the console but some of them may take few seconds.
+:::
+
+:::warning API disclaimer
+the API is generated from the translation files and thus may contain wrong values. In case of insecurity, please always use information available in game!
 :::
 
 #### Vehicles
@@ -180,3 +185,92 @@ To get an up-to-date list of POIs for `/src/i18n/{lang}.ts`, go to `https://www.
 ```js
 Array.from(document.querySelectorAll('#mission_position_poi_type option')).map(option => [option.value, option.textContent.trim()]).sort(([idA], [idB]) => idA - idB).map(([, caption]) => caption)
 ```
+
+
+### Help on particular translation topics
+
+#### Buildings & extensions
+
+The translations can be found in the file `/src/i18n/{lang}/buildings.ts`. It follows the simple structure `[buildingType: number]: BuildingInformation`. You can retrieve the type ID of each building as described in [Finding IDs: Buildings](#buildings).
+
+A `BuildingInformation` consists of several required information:
+* `caption` (string, required): The name of the building. Must be the same as in game.
+* `color` (string, required): Choose a color (hex-code with `#`-prefix) that fits to the building. E.g. for fire stations, a red tone is a good choice.
+  * The colors will be used within [Dashboard][module-dashboard] module.
+* `credits` (number, required): How much this building costs in Credits.
+    * If the price is changing with having more buildings, please note this in `special`.
+* `coins` (number, required): How much this building costs in Coins.
+* `extensions` (list of extensions, required): The extensions that are available to be built at this building.
+  * Each extension requires at least the following attributes:
+    * `caption` (string, required): The name of this extension. Must be the same as in game.
+    * `credits` (number, required): How much this extension costs in Credits.
+    * `coins` (number, required): How much this extension costs in Coins.
+    * `duration` (string, required): How long it takes to build this extension
+      * this could e.g. be `7 days`
+  * some extensions cannot be bought without having other extensions at this station. They require the following attributes:
+    * `requiredExtensions` (list of numbers): Which extension IDs this extension depends on.
+      * Extension IDs start counting at `0` for each building type
+  * some extensions may be restricted by the amount of buildings (e.g. an expansion that can be bought once every 10 fire stations). They should contain following attributes:
+    * `maxExtensionsFunction` (function): returns a number indicating how many of these extensions can currently be built. It takes the following parameters:
+      * `buildingsByType`: `Record<number, Building[]>` where `Building` is a building as returned from in-game's buildings API
+    * `canBuyByAmount` (function): returns a boolean whether more extensions of this type can be bought. It takes the following parameters:
+      * `boughtExtensionsAmountByType`: `Record<number, Record<number, number>>` lists how many of each extension type are already bought for each building type
+      * `maxExtensions`: `number` will be the result of `maxExtensionsFunction` function
+  * if an extension adds one or more new classrooms to the building, following attributes are required: *Note that the building MUST have the attribute `startClassrooms` then*
+    * `newClassrooms` (number): indicating the amount of classrooms added by finishing this extension.
+  * if an extension adds one or more new prison cells to the building, following attributes are required: *Note that the building MUST have the attribute `startCells` then*
+    * `newCells` (number): indicating the amount of prison cells added by finishing this extension.
+  * if finishing this extension unlocks new vehicles for this station, gives new parking lots or gifts vehicles, the following attributes are possible:
+    * `isVehicleExtension` must always be `true`
+    * `givesParkingLots` (number, required): how many new parking lots are added by finishing this extension
+      * even if the lot is pre-filled with a vehicle (the vehicle is gifted), it needs to be mentioned here
+      * if the extension does not add new parking lots, please set `0` as a value
+    * `givesParkingLotsPerLevel` (number, optional): if the extension gives one or more parking lots for each station level
+    * `unlocksVehicleTypes` (list of numbers, optional): a list of vehicle type IDs that are unlocked for this station by finishing the extension
+    * `parkingLotReservations` (list of list of numbers, optional): specifies if newly added parking lots are reserved for certain vehicle types
+      * this is multi-nested list because each element represents a parking lot and which vehicle-types can be put on it
+    * `giftsVehicles` (list of numbers, optional): can list vehicle type Ids for vehicles that are automatically added to the station by finishing the extension
+* `levelcost` (list of strings, required): You can give information on how much it costs to increase the level in here.
+  * The information will be shown in [Overview][module-overview] module
+* `maxBuildings` (string or number, required): This indicates how many buildings one can buy of this type.
+  * The information will be shown in [Overview][module-overview] module
+  * If there is no limit, you can use e.g. `'no limit'`
+* `maxLevel` (number, required): Set here how often this building can be expanded / leveled up.
+  * If this building cannot be leveled up, choose `0` as value
+* `special` (string, required): This attribute allows you to give additional information on this building.
+  * The information will be shown in [Overview][module-overview] module
+
+If the amount of buildings of a type is restricted by the total amount of buildings the player has, set the following attributes:
+* `maxBuildingsFunction` (function): returns a number indicating how many buildings can currently be built. Takes the following parameters:
+  * `buildingsAmountTotal` (number) the amount buildings the player currently has
+
+Some buildings may have classrooms or extensions that add classrooms. They need to have the following attributes set:
+* `startClassrooms` (number)
+
+Some buildings may have prison cells or extensions that add prison cells.  They need to have the following attributes set:
+* `startCells` (number)
+
+Some buildings may have hospital beds.  They need to have the following attributes set:
+* `startBeds` (number)
+  * this automatically enables that `level` also increases the amount of beds available
+
+If a building is a dispatch center, it needs to have the following attributes:
+* `isDispatchCenter` must always be `true`
+
+If a building is a staging area, it needs to have the following attributes:
+* `isStagingArea` must always be `true`
+
+If a building can have vehicles, these attributes are possible in addition:
+* `startPersonnel` (number, required): how much staff the building has initially
+* `startVehicles` (list of strings, required): which vehicles can be selected as first vehicle (or if it's always the same vehicle)
+  * empty list, if none can be selected
+  * list of strings because it's only shown in [Overview][module-overview] and not processed any further
+* `startParkingLots` (number, required): how many parking lots there are initially
+* `schoolingTypes` (list of strings, required): which of the schools this building type is shown in 
+  * **important**: after starting a new schooling / course, the name of the schooling will have the form `{schoolType} - {schoolingName}`. This attribute's values need to be the `{schoolType}` part, not the name of the school itself!
+* `startParkingLotReservations` (list of list of numbers, optional): if the initial parking lots are reserved for certain vehicle types
+  * this is multi-nested list because each element represents a parking lot and which vehicle-types can be put on it
+* `parkingLotsPerLevel` (number, optional): if each level does not give 1 new parking lot, the number needs to be changed in here
+
+[module-overview]: ../modules/overview/
+[module-dashboard]: ../modules/dashboard/

@@ -41,18 +41,11 @@
                     v-model="buildingIds"
                     :options="buildingOptions"
                     :close-on-select="false"
+                    :clearSearchOnSelect="false"
                     multiple
                     clearable
                     append-to-body
                 ></v-select>
-            </div>
-
-            <!-- show markers on map -->
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" v-model="showMarkers" />
-                    {{ $m('showMarkers') }}
-                </label>
             </div>
 
             <!-- edit icon -->
@@ -75,6 +68,22 @@
                     </template>
                 </v-select>
                 <p class="help-block">{{ $m('iconHelp') }}</p>
+            </div>
+
+            <!-- show markers on map -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" v-model="showMarkers" />
+                    {{ $m('showMarkers') }}
+                </label>
+            </div>
+
+            <!-- show tabs in complex view -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" v-model="buildingTabs" />
+                    {{ $m('buildingTabs') }}
+                </label>
             </div>
 
             <!-- edit location -->
@@ -123,6 +132,7 @@ export default Vue.extend<
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
         showMarkers: boolean;
+        buildingTabs: boolean;
         iconBase64s: string[];
         excludedCustomIcons: string[];
     },
@@ -178,6 +188,7 @@ export default Vue.extend<
             buildingTypes,
             location: [0, 0],
             showMarkers: false,
+            buildingTabs: true,
             iconBase64s: [],
             excludedCustomIcons: [],
         };
@@ -194,7 +205,8 @@ export default Vue.extend<
                 this.icon !== this.complex.icon ||
                 this.location[0] !== this.complex.position[0] ||
                 this.location[1] !== this.complex.position[1] ||
-                this.showMarkers !== this.complex.showMarkers
+                this.showMarkers !== this.complex.showMarkers ||
+                this.buildingTabs !== this.complex.buildingTabs
             );
         },
         assignedBuildings() {
@@ -273,6 +285,7 @@ export default Vue.extend<
                 buildings: this.buildingIds.map(({ value }) => value),
                 position: this.location,
                 showMarkers: this.showMarkers,
+                buildingTabs: this.buildingTabs,
             });
             this.close();
         },
@@ -345,6 +358,7 @@ export default Vue.extend<
             .filter(removeUndefined);
         this.location = this.complex.position;
         this.showMarkers = this.complex.showMarkers;
+        this.buildingTabs = this.complex.buildingTabs;
 
         this.customIcons.forEach(icon => {
             fetch(icon)
