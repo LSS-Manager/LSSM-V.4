@@ -9,7 +9,14 @@ export interface Complex {
     position: [number, number];
     icon: string;
     showMarkers: boolean;
+    buildingTabs: boolean;
 }
+
+const replaceHostedImagesUrl = (url: string) =>
+    url.replace(
+        /^https:\/\/www\.leitstellenspiel\.de\/hostedimages/u,
+        'https://leitstellenspiel.s3.amazonaws.com'
+    );
 
 export default async (
     MODULE_ID: string,
@@ -37,6 +44,9 @@ export default async (
     const allAttachedBuildings: string[] = [];
 
     complexes.forEach((complex, index) => {
+        complex.icon = replaceHostedImagesUrl(complex.icon);
+        complex.buildingTabs ??= true;
+
         const { position, name, icon, buildings, showMarkers } = complex;
         const marker = window.L.marker(position, {
             zIndexOffset: 5000,
@@ -46,13 +56,7 @@ export default async (
             .bindTooltip(name)
             .addTo(complexesLayer);
 
-        window.iconMapGenerate(
-            icon.replace(
-                /^https:\/\/www\.leitstellenspiel\.de\/hostedimages/u,
-                'https://leitstellenspiel.s3.amazonaws.com'
-            ),
-            marker
-        );
+        window.iconMapGenerate(icon, marker);
 
         allAttachedBuildings.push(...buildings);
 
@@ -92,6 +96,10 @@ export default async (
                             $mc(`buildingComplexes.${key}`, amount, args))
                     ),
                     updateComplex(updatedComplex: Complex) {
+                        updatedComplex.icon = replaceHostedImagesUrl(
+                            updatedComplex.icon
+                        );
+
                         const removedBuildings = complexes[
                             index
                         ].buildings.filter(
@@ -103,15 +111,8 @@ export default async (
 
                         complexes[index] = updatedComplex;
 
-                        if (updatedComplex.icon !== icon) {
-                            window.iconMapGenerate(
-                                updatedComplex.icon.replace(
-                                    /^https:\/\/www\.leitstellenspiel\.de\/hostedimages/u,
-                                    'https://leitstellenspiel.s3.amazonaws.com'
-                                ),
-                                marker
-                            );
-                        }
+                        if (updatedComplex.icon !== icon)
+                            window.iconMapGenerate(updatedComplex.icon, marker);
 
                         marker.unbindTooltip();
                         marker.bindTooltip(updatedComplex.name);

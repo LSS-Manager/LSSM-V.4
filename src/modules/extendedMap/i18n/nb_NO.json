@@ -73,6 +73,7 @@
         },
         "settings": {
             "abort": "Abort",
+            "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "attached buildings",
             "dissolve": {
                 "buttons": {
