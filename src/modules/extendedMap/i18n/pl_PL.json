@@ -74,6 +74,7 @@
         "settings": {
             "abort": "Anuluj",
             "buildings": "wybrane budynki",
+            "buildingTabs": "Show tabs for attached buildings?",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",

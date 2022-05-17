@@ -19,6 +19,28 @@
                 <tabs>
                     <!-- List of attached buildings -->
                     <tab :title="$m('overview.buildings.title')">
+                        <div
+                            v-show="buildingsTable.showSummary"
+                            class="summary-alert alert alert-unimportant"
+                        >
+                            <span
+                                class="close"
+                                @click="
+                                    () => (buildingsTable.showSummary = false)
+                                "
+                            >
+                                ×
+                            </span>
+                            <ul>
+                                <li
+                                    v-for="buildingType in buildingTypeAmounts"
+                                    :key="buildingType[0]"
+                                >
+                                    {{ buildingType[1].toLocaleString() }}x
+                                    {{ buildingType[0] }}
+                                </li>
+                            </ul>
+                        </div>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{
@@ -108,16 +130,17 @@
                                     {{
                                         complex.buildings.length.toLocaleString()
                                     }}
-                                    <br />
-                                    <small>
-                                        {{
-                                            buildingTypeAmounts
-                                                .map(
-                                                    ([type, amount]) =>
-                                                        `${type}: ${amount.toLocaleString()}`
-                                                )
-                                                .join(', ')
-                                        }}
+                                    <small
+                                        class="summary-icon"
+                                        @click="
+                                            () =>
+                                                (buildingsTable.showSummary =
+                                                    !buildingsTable.showSummary)
+                                        "
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faCircleInfo"
+                                        />
                                     </small>
                                 </h2>
                             </template>
@@ -254,6 +277,28 @@
                         :title="$m('overview.vehicles.title')"
                         v-if="hasVehicleBuildings"
                     >
+                        <div
+                            v-show="vehiclesTable.showSummary"
+                            class="summary-alert alert alert-unimportant"
+                        >
+                            <span
+                                class="close"
+                                @click="
+                                    () => (vehiclesTable.showSummary = false)
+                                "
+                            >
+                                ×
+                            </span>
+                            <ul>
+                                <li
+                                    v-for="vehicleType in vehicleTypeAmounts"
+                                    :key="vehicleType[0]"
+                                >
+                                    {{ vehicleType[1].toLocaleString() }}x
+                                    {{ vehicleType[0] }}
+                                </li>
+                            </ul>
+                        </div>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{
@@ -297,16 +342,17 @@
                                 <h2 class="overview-heading indented-title">
                                     {{ $m('overview.vehicles.title') }}:
                                     {{ vehicles.length.toLocaleString() }}
-                                    <br />
-                                    <small>
-                                        {{
-                                            vehicleTypeAmounts
-                                                .map(
-                                                    ([type, amount]) =>
-                                                        `${type}: ${amount.toLocaleString()}`
-                                                )
-                                                .join(', ')
-                                        }}
+                                    <small
+                                        class="summary-icon"
+                                        @click="
+                                            () =>
+                                                (vehiclesTable.showSummary =
+                                                    !vehiclesTable.showSummary)
+                                        "
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faCircleInfo"
+                                        />
                                     </small>
                                 </h2>
                             </template>
@@ -637,7 +683,10 @@
                                             {{ $t('coins') }}
                                         </button>
                                         {{ extension.duration }}
-                                        <ul v-if="!extension.canBuy">
+                                        <ul
+                                            v-if="!extension.canBuy"
+                                            class="requirements-list"
+                                        >
                                             <li>
                                                 {{
                                                     $m(
@@ -669,16 +718,18 @@
                     </tab>
                 </tabs>
             </tab>
-            <tab
-                v-for="building in sortedBuildingsByName"
-                :key="building.id"
-                :title="building.name"
-            >
-                <iframe
-                    :src="`/buildings/${building.id}`"
-                    @load="updateIframe"
-                />
-            </tab>
+            <template v-if="complex.buildingTabs">
+                <tab
+                    v-for="building in sortedBuildingsByName"
+                    :key="building.id"
+                    :title="building.name"
+                >
+                    <iframe
+                        :src="`/buildings/${building.id}`"
+                        @load="updateIframe"
+                    />
+                </tab>
+            </template>
         </tabs>
     </lightbox>
 </template>
@@ -686,6 +737,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 import type { Complex } from '../../assets/buildingComplexes';
@@ -794,6 +846,7 @@ type ExtensionStateFilters =
 
 export default Vue.extend<
     {
+        faCircleInfo: IconDefinition;
         faPencilAlt: IconDefinition;
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
@@ -802,11 +855,13 @@ export default Vue.extend<
             search: string;
             sort: BuildingSortAttribute;
             sortDir: 'asc' | 'desc';
+            showSummary: boolean;
         };
         vehiclesTable: {
             search: string;
             sort: keyof AttributedVehicle;
             sortDir: 'asc' | 'desc';
+            showSummary: boolean;
         };
         extensionsTable: {
             search: string;
@@ -907,6 +962,7 @@ export default Vue.extend<
     },
     data() {
         return {
+            faCircleInfo,
             faPencilAlt,
             buildingTypes: this.$store.getters.$tBuildings as Record<
                 number,
@@ -921,11 +977,13 @@ export default Vue.extend<
                 search: '',
                 sort: 'name',
                 sortDir: 'asc',
+                showSummary: false,
             },
             vehiclesTable: {
                 search: '',
                 sort: 'name',
                 sortDir: 'asc',
+                showSummary: false,
             },
             extensionsTable: {
                 search: '',
@@ -1885,6 +1943,10 @@ export default Vue.extend<
     .table-cell-right
         text-align: right
 
+    .summary-icon
+        color: white
+        cursor: pointer
+
     .indented-title
         text-indent: -0.5em
         padding-left: 0.5em
@@ -1903,11 +1965,25 @@ export default Vue.extend<
             flex-grow: 1
             margin-right: 1em
 
-    ul li
+    ul.requirements-list li
         &:first-child
             margin-left: -1em
             font-weight: bold
 
         &:not(:first-child)
             list-style: unset !important
+
+.summary-alert
+    position: fixed
+    top: calc(2% + 1rem)
+    right: calc(2% + 1rem)
+    z-index: 1
+
+    > ul
+        padding-left: 0
+        list-style: none
+
+    .close
+        opacity: 1
+        color: white
 </style>

@@ -75,8 +75,8 @@ type InternalExtension =
 interface BaseBuilding {
     caption: string;
     color: string;
-    coins: number;
     credits: number;
+    coins: number;
     extensions: InternalExtension[];
     levelcost: string[];
     maxBuildings: number | string;

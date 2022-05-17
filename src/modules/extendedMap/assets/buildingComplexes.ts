@@ -9,7 +9,14 @@ export interface Complex {
     position: [number, number];
     icon: string;
     showMarkers: boolean;
+    buildingTabs: boolean;
 }
+
+const replaceHostedImagesUrl = (url: string) =>
+    url.replace(
+        /^https:\/\/www\.leitstellenspiel\.de\/hostedimages/u,
+        'https://leitstellenspiel.s3.amazonaws.com'
+    );
 
 export default async (
     MODULE_ID: string,
@@ -37,6 +44,9 @@ export default async (
     const allAttachedBuildings: string[] = [];
 
     complexes.forEach((complex, index) => {
+        complex.icon = replaceHostedImagesUrl(complex.icon);
+        complex.buildingTabs ??= true;
+
         const { position, name, icon, buildings, showMarkers } = complex;
         const marker = window.L.marker(position, {
             zIndexOffset: 5000,
@@ -86,6 +96,10 @@ export default async (
                             $mc(`buildingComplexes.${key}`, amount, args))
                     ),
                     updateComplex(updatedComplex: Complex) {
+                        updatedComplex.icon = replaceHostedImagesUrl(
+                            updatedComplex.icon
+                        );
+
                         const removedBuildings = complexes[
                             index
                         ].buildings.filter(
