@@ -73,6 +73,7 @@
         },
         "settings": {
             "abort": "Annuleren",
+            "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "gekoppelde gebouwen",
             "dissolve": {
                 "buttons": {

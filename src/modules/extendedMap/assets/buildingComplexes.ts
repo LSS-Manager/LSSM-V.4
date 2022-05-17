@@ -9,6 +9,7 @@ export interface Complex {
     position: [number, number];
     icon: string;
     showMarkers: boolean;
+    buildingTabs: boolean;
 }
 
 const replaceHostedImagesUrl = (url: string) =>
@@ -44,6 +45,7 @@ export default async (
 
     complexes.forEach((complex, index) => {
         complex.icon = replaceHostedImagesUrl(complex.icon);
+        complex.buildingTabs ??= true;
 
         const { position, name, icon, buildings, showMarkers } = complex;
         const marker = window.L.marker(position, {

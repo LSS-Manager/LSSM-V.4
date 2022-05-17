@@ -718,16 +718,18 @@
                     </tab>
                 </tabs>
             </tab>
-            <tab
-                v-for="building in sortedBuildingsByName"
-                :key="building.id"
-                :title="building.name"
-            >
-                <iframe
-                    :src="`/buildings/${building.id}`"
-                    @load="updateIframe"
-                />
-            </tab>
+            <template v-if="complex.buildingTabs">
+                <tab
+                    v-for="building in sortedBuildingsByName"
+                    :key="building.id"
+                    :title="building.name"
+                >
+                    <iframe
+                        :src="`/buildings/${building.id}`"
+                        @load="updateIframe"
+                    />
+                </tab>
+            </template>
         </tabs>
     </lightbox>
 </template>

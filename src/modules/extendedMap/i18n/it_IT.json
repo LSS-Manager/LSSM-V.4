@@ -73,6 +73,7 @@
         },
         "settings": {
             "abort": "Annulla",
+            "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "Edifici collegati",
             "dissolve": {
                 "buttons": {
