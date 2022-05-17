@@ -176,6 +176,11 @@ export default {
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [41, 57, 58],
+                parkingLotReservations:[[57, 58], [57, 58]],
+                
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
@@ -542,6 +547,10 @@ export default {
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [41, 57, 58],
+                parkingLotReservations:[[57, 58], [57, 58]],
             },
         ],
         levelcost: [
