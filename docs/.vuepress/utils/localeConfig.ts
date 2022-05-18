@@ -7,7 +7,7 @@ import type { $t } from './i18n';
 import type { DefaultThemeLocaleData } from '@vuepress/theme-default/lib/shared/options';
 import type { Locale } from '../types/Locale';
 import type { ModulesFile } from './generate/modules';
-import type { SiteLocaleData } from '@vuepress/shared/lib/types/site';
+import type { SiteLocaleData } from '@vuepress/shared';
 
 export type LocaleSiteConfig = Partial<SiteLocaleData>;
 export type LocaleThemeConfig = DefaultThemeLocaleData;
@@ -27,6 +27,7 @@ export default (
         siteConfig: LocaleSiteConfig;
         themeConfig: LocaleThemeConfig;
         searchPlaceholder: string;
+        pwaPopupConfig: { message: string; buttonText: string };
     } => {
         const game = config.games[lang];
         const flag = game.flag;
@@ -69,6 +70,23 @@ export default (
                             )
                         )
                         .map(file => `${langPath}${file}`),
+                    ...(fs.existsSync(
+                        path.posix.join(DOCS_PATH, lang, `contributing.md`)
+                    )
+                        ? [
+                              {
+                                  text: `Contributing`,
+                                  collapsible: true,
+                                  children: [
+                                      `/${lang}/contributing`,
+                                      `/${lang}/contributing/introduction`,
+                                      `/${lang}/contributing/committing`,
+                                      `/${lang}/contributing/prs`,
+                                      `/${lang}/contributing/translations`,
+                                  ],
+                              },
+                          ]
+                        : []),
                     {
                         text: `${$t(lang, 'apps')} 📦`,
                         collapsible: true,
@@ -104,6 +122,10 @@ export default (
                 backToHome: $t(lang, '404.general.home').toString(),
             },
             searchPlaceholder: $t(lang, 'search').toString(),
+            pwaPopupConfig: {
+                message: $t(lang, 'pwa.message').toString(),
+                buttonText: $t(lang, 'pwa.button').toString(),
+            },
         };
     };
 };

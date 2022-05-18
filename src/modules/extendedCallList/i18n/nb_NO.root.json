@@ -61,6 +61,14 @@
             "description": "Viser gjeldende mengde pasienter også i verktøytipsene på kartet.",
             "title": "Aktuelle pasienter i Tooltips"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of prisoners for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Markerer sesongmessige oppdrag. Eventuelt kan du tilpasse hele greia og også markere ikke-sesongbaserte oppdrag.",
             "missions": "Oppdrag",
@@ -70,6 +78,10 @@
         "hide0CurrentPatients": {
             "description": "Skjuler antall pasienter hvis det ikke er noen pasienter på stedet",
             "title": "Skjul 0 pasienter"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Viser for pasienter hvor lang tid som gjenstår før de er ferdigbehandlet",
@@ -106,6 +118,7 @@
             "title": "Del oppdrag: minimum kreditter"
         },
         "shareMissionsTypes": {
+            "alliance": "Alliance missions (only for Share-Alliance-Post)",
             "description": "Sett opp hvilke av oppdragene du vil aktivere deleknappen for.",
             "own": "Nødanrop",
             "sicherheitswache": "Planlagte oppdrag",
@@ -136,7 +149,8 @@
             "distance_dispatch": "Distance to next dispatch center",
             "distance_station": "Distance to next station",
             "id": "Alder",
-            "remaining_patients": "Nåværende pasienter"
+            "remaining_patients": "Nåværende pasienter",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }

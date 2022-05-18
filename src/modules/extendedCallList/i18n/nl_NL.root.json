@@ -193,6 +193,14 @@
             "description": "Toont het huidige aantal patiënten ook in de tooltips op de kaart.",
             "title": "Huidige patiënten in tooltips"
         },
+        "currentPrisoners": {
+            "description": "Laat het huidige aantal arrestanten zien bij elke melding",
+            "title": "Huidige arrestanten"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Toont het huidige aantal arrestanten ook in de tooltips op de kaart.",
+            "title": "Huidige arrestanten in tooltips"
+        },
         "eventMissions": {
             "description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
             "missions": "Melding",
@@ -202,6 +210,10 @@
         "hide0CurrentPatients": {
             "description": "Verbergt het aantal patiënten als er geen patiënten meer zijn",
             "title": "Verberg 0 patiënten"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
@@ -234,6 +246,7 @@
             "title": "Deel meldingen: minimum credits"
         },
         "shareMissionsTypes": {
+            "alliance": "Teammeldingen (alleen voor alarmeer, delen en posten)",
             "description": "Stel in voor welke type meldingen je de deelknop wilt tonen.",
             "own": "Eigen meldingen",
             "sicherheitswache": "Geplande meldingen",
@@ -264,7 +277,8 @@
             "distance_dispatch": "Afstand tot dichtstbijzijnde meldkamer",
             "distance_station": "Afstand tot dichtstbijzijnde post",
             "id": "Generatietijd",
-            "remaining_patients": "Huidige patiënten"
+            "remaining_patients": "Huidige patiënten",
+            "remaining_prisoners": "Huidige arrestanten"
         }
     }
 }

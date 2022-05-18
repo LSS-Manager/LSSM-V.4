@@ -1,0 +1,39 @@
+{
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Ukryj personel bez odpowiedniego przeszkolenia"
+    },
+    "expansions": {
+        "notBuild": "Jeszcze nie zbudowano"
+    },
+    "fastDispatchChooser": {
+        "noDispatch": "Brak CPR"
+    },
+    "personnelDemands": {
+        "additional": "Wartości w nawiasach wykluczają pojazdy o statusie 6.",
+        "demand": "Wymagany personel"
+    },
+    "schoolingSummary": {
+        "all": "Wszystkie kombinacje",
+        "amount": "Ilość",
+        "bound": "Przypisani",
+        "each": "Wszystkie kursy",
+        "max": "obecnie wymagane maksimum",
+        "min": "obecnie wymagane minimum",
+        "noSchooling": "Bez edukacji",
+        "schooling": "Edukacja",
+        "title": "Przegląd personelu"
+    },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Anuluj",
+            "btnConfirm": "Potwierdź",
+            "text": "Czy na pewno chcesz ulepszyć ten budynek?",
+            "title": "Ulepszyć budynek?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "przydzielony",
+        "vehiclesPersonnelCurrent": "obecny",
+        "vehiclesPersonnelMax": "maksymalny"
+    }
+}

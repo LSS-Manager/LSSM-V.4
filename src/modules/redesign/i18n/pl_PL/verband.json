@@ -1,0 +1,40 @@
+{
+    "nav": {
+        "links": {
+            "/alliance_logfiles": "Protokół",
+            "/alliance_messages": "Wiadomości",
+            "/alliance_threads": "Forum",
+            "/alliances/{id}": "Wstęp",
+            "/schoolings": "Kursy",
+            "/verband/bereitstellungsraume": "Obszary tymczasowe",
+            "/verband/bewerbungen": "Nowi kandydaci",
+            "/verband/gebauede": "Budynki",
+            "/verband/kasse": "Fundusze Sojuszu",
+            "/verband/mitglieder/{id}": "Członkowie",
+            "/verband/news/{id}": "Wiadomości",
+            "/verband/regeln/{id}": "Zasady",
+            "/verband/werbung": "Promuj"
+        },
+        "other": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}"
+        ],
+        "self": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}",
+            "/alliance_logfiles",
+            "/alliance_threads",
+            "/alliance_messages",
+            "/verband/werbung",
+            "/schoolings",
+            "/verband/bereitstellungsraume",
+            "/verband/kasse",
+            "/verband/gebauede",
+            "/verband/bewerbungen"
+        ]
+    }
+}

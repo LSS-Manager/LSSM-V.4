@@ -1,0 +1,10 @@
+{
+    "back": "Indietro",
+    "delete": "Cancella conversazione",
+    "load": {
+        "next": "Carica messaggi più vecchi",
+        "prev": "Carica messaggi più recenti"
+    },
+    "subtitle": "Una conversazione con",
+    "subtitleAlliance": "Un messaggio dall'alleanza"
+}

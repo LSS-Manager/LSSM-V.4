@@ -1,0 +1,48 @@
+{
+    "allianceFunds": {
+        "currently": "Al momento",
+        "title": "Fondi dell'alleanza",
+        "total": "Totale",
+        "updateNote": "Aggiornato ogni 5 minuti."
+    },
+    "coins": {
+        "list": "Protocol"
+    },
+    "credits": {
+        "daily": "Riepilogo giornaliero",
+        "overview": "Panoramica"
+    },
+    "description": "Mostra delle informazioni utili sui crediti in un menù a tendina nella barra principale.",
+    "name": "Espansione dei Crediti",
+    "nextRank": "Prossimo grado",
+    "nextRankMissing": "Rimanenti",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Appena raggiungi una certa quantità di crediti, l'icona si illuminerà di verde fino a che non verrà premuta.",
+            "title": "Obiettivi"
+        },
+        "coinsInNavbar": {
+            "description": "Mostra le tue monete nella barra principale in un salvadanaio.",
+            "title": "Monete al posto del salvadanaio"
+        },
+        "creditsInNavbar": {
+            "description": "Mostra i tuoi crediti nella barra principale in un salvadanaio.",
+            "title": "Crediti al posto del salvadanaio"
+        },
+        "highlightSales": {
+            "description": "Evidenzia le monete in verde se è in corso un saldo",
+            "title": "Evidenzia i saldi"
+        },
+        "showSales": {
+            "description": "Mostra i saldi per le monete, quando disponibili.",
+            "title": "Mostra saldi"
+        },
+        "showToplistPosition": {
+            "description": "Mostra la graduatoria nell'estensione dei crediti.",
+            "title": "Graduatoria nell'estensione dei crediti"
+        }
+    },
+    "toplistPositionName": "Graduatoria gradi",
+    "totalEarnedCredits": "Totale crediti guadagnati"
+}

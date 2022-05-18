@@ -39,16 +39,16 @@
     },
     "subsequent": "Missione successiva | Missioni successive",
     "tip": {
-        "dragging": "trascinare la finestra",
-        "maxState": "requisiti massimi on/off",
-        "minified": "crollo",
-        "overlay": "Sovrapposizione",
-        "reload": "Ricaricare"
+        "dragging": "Trascina la finestra",
+        "maxState": "Requisiti massimi on/off",
+        "minified": "Minimizza",
+        "overlay": "Sovrapponi",
+        "reload": "Ricarica"
     },
     "vehicles": {
         "captions": {
             "ambulances": "Ambulanza Medicalizzata",
-            "arff": "Flotta antincendio aereporti",
+            "arff": "Flotta antincendio aeroporti",
             "battalion_chief_vehicles": "Funzionari",
             "boats": "Barche",
             "brush_truck": "Mezzi AIB",

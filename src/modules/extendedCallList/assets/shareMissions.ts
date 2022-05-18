@@ -11,11 +11,12 @@ export type UpdateShareBtn = (mission: MissionUpdateCallback) => void;
 export default async (
     LSSM: Vue,
     MODULE_ID: string,
-    types: ('' | 'sicherheitswache')[],
+    types: ('' | 'alliance' | 'sicherheitswache')[],
     minCredits: number,
     buttonColor: string,
     enableSap: boolean,
-    sapMessages: Message[]
+    sapMessages: Message[],
+    SAPStay: boolean
 ): Promise<{ addShareBtn: AddShareBtn; updateShareBtn: UpdateShareBtn }> => {
     const typesIdsSelector = types
         .map(type => `#mission_list${type ? `_${type}` : ''}`)
@@ -48,10 +49,15 @@ export default async (
 
     const addShareBtn: AddShareBtn = mission => {
         if (
-            mission.element.querySelector('.panel-success') ||
-            !mission.element.closest(typesIdsSelector)
+            !mission.element.closest(typesIdsSelector) ||
+            (!SAPStay && mission.element.querySelector('.panel-success'))
         )
             return;
+
+        const stayMode = !!(
+            SAPStay && mission.element.querySelector('.panel-success')
+        );
+
         let missionType =
             mission.element.getAttribute('mission_type_id') ?? '-1';
         const overlayIndex =
@@ -67,7 +73,10 @@ export default async (
         const btn = document.createElement('button');
         btn.classList.add('btn', `btn-${buttonColor}`, 'btn-xs', shareBtnClass);
         const icon = document.createElement('i');
-        icon.classList.add('fas', 'fa-share-alt');
+        icon.classList.add(
+            'fas',
+            stayMode ? 'fa-comment-dots' : 'fa-share-nodes'
+        );
         btn.append(icon);
 
         if (enableSap) {
@@ -97,7 +106,9 @@ export default async (
                     missionType,
                     missionsById[missionType],
                     sapNoMessage,
-                    authToken
+                    authToken,
+                    updateShareBtn,
+                    stayMode
                 )
             );
             mission.btnGroup.append(group);
@@ -115,16 +126,16 @@ export default async (
         }
     };
 
+    const updateShareBtn: UpdateShareBtn = mission => {
+        if (mission.element.querySelector('.panel-success') && !SAPStay)
+            return mission.element.querySelector(`.${shareBtnClass}`)?.remove();
+
+        if (!mission.element.querySelector(`.${shareBtnClass}`))
+            addShareBtn(mission);
+    };
+
     return {
         addShareBtn,
-        updateShareBtn: mission => {
-            if (mission.element.querySelector('.panel-success')) {
-                return mission.element
-                    .querySelector(`.${shareBtnClass}`)
-                    ?.remove();
-            }
-            if (!mission.element.querySelector(`.${shareBtnClass}`))
-                addShareBtn(mission);
-        },
+        updateShareBtn,
     };
 };

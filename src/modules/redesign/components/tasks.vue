@@ -32,7 +32,7 @@
                 :title="title"
             >
                 <tabs>
-                    <tab :title="`[${lightbox.$sm('all')}]`">
+                    <tab :title="`[${lightbox.$sm('all')}]`" class="task-board">
                         <lssmv4-redesign-task
                             v-for="task in category.all"
                             :key="task.id"
@@ -51,6 +51,7 @@
                         v-for="(group, countdown) in category.times"
                         :key="`${title}_${countdown}`"
                         :title="countdown"
+                        class="task-board"
                     >
                         <lssmv4-redesign-task
                             v-for="task in group"
@@ -69,6 +70,7 @@
                     <tab
                         v-if="category.collection.length"
                         :title="lightbox.$sm('collectionTasks.title')"
+                        class="task-board"
                     >
                         <lssmv4-redesign-task
                             v-for="task in category.collection"
@@ -464,3 +466,9 @@ export default Vue.extend<
     },
 });
 </script>
+
+<style scoped lang="sass">
+.task-board
+    display: flex
+    flex-flow: wrap
+</style>

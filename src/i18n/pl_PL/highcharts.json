@@ -1,0 +1,19 @@
+{
+    "contextButtonTitle": "Pełny ekran, Eksport, ...",
+    "decimalPoint": ",",
+    "downloadCSV": "Pobierz jako CSV",
+    "downloadJPEG": "Pobierz jako obraz JPEG",
+    "downloadPDF": "Pobierz jako dokument PDF",
+    "downloadPNG": "Pobierz jako obraz PNG",
+    "downloadSVG": "Pobierz jako grafikę wektorową SVG",
+    "downloadXLS": "Pobierz jako dokument XLS",
+    "drillUpText": "Z powrotem",
+    "exitFullscreen": "Wyjdź z trybu pełnoekranowego",
+    "exportData": {
+        "categoryHeader": "Kategoria"
+    },
+    "loading": "ładowanie...",
+    "printChart": "Wydrukować",
+    "viewData": "Pokaż tabelę",
+    "viewFullscreen": "Pokaż w trybie pełnoekranowym"
+}

@@ -176,7 +176,7 @@ export default (
                     const reply = document.createElement('li');
                     reply.setAttribute('title', new Date().toLocaleString());
                     const userLink = document.createElement('a');
-                    userLink.setAttribute('href', `/profile/${user_id}`);
+                    userLink.setAttribute('href', `/profile/${window.user_id}`);
                     userLink.textContent = window.username;
                     reply.append(
                         document.createTextNode(

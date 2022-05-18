@@ -1,6 +1,6 @@
 {
-    "approach": "Approccio",
-    "backalarm": "Allarme posteriore",
+    "approach": "Seleziona",
+    "backalarm": "Torna alla base",
     "cells": {
         "cell": "Edificio",
         "free": "Celle libere"
@@ -8,9 +8,9 @@
     "color": "Modifica colore",
     "current_mission": "Missione attuale",
     "delete": {
-        "button": "elimina",
-        "cancel": "cancella",
-        "confirm": "Elimina",
+        "button": "Elimina",
+        "cancel": "Annulla",
+        "confirm": "Conferma",
         "text": "Vuoi davvero distruggere **{caption}** all'edificio **{building}** permanentemente?",
         "title": "Distruggi veicolo"
     },
@@ -21,11 +21,11 @@
         "cells": {
             "distance": "Distanza Massima",
             "each": "Mostra x per ogni edificio",
-            "free": "Minimo celle libere",
+            "free": "Minime celle libere",
             "tax": "Tassa massima"
         },
         "hospitals": {
-            "beds": "Minimo letti liberi",
+            "beds": "Minimi letti liberi",
             "department": {
                 "title": "Dipartimento: {department}"
             },
@@ -41,10 +41,10 @@
             },
             "progress": "Progresso max. %",
             "status": {
-                "green": "verde",
-                "red": "rosso",
+                "green": "Verde",
+                "red": "Rosso",
                 "title": "Stato",
-                "yellow": "giallo"
+                "yellow": "Giallo"
             }
         },
         "wlf": {
@@ -54,23 +54,24 @@
     },
     "fms": "FMS",
     "fms_switch": {
-        "is_s2": "imposta S6",
-        "is_s6": "imposta S2"
+        "is_s2": "Imposta S6 (non disponibile)",
+        "is_s6": "Imposta S2 (disponibile)"
     },
+    "foam_amount": "Q.tà schiuma",
     "followup_missions": "Segui missione | Segui missioni",
     "hospitals": {
-        "beds": "letti liberi",
-        "department": "Dipartimento: {department}",
+        "beds": "Letti liberi",
+        "department": "Reparto: {department}",
         "hospital": "Ospedale"
     },
     "load_all_hospitals": {
         "btn": "Carica tutto ",
-        "text": "Solo 50 ospedali alleanza sono visualizzati. Caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
+        "text": "Solo 50 ospedali alleanza sono visualizzati. Il caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
     },
     "max_staff": "Staff max.",
-    "mileage": "Chilometraggio",
+    "mileage": "Chilometri percorsi",
     "missions": {
-        "alarm": "Allarme",
+        "alarm": "Invia",
         "alarmed": "Missione attuale",
         "credits": "Ricompensa",
         "mission": "Missione",
@@ -86,8 +87,8 @@
     },
     "release": {
         "cancel": "Annulla",
-        "confirm": "Si, dimetti!",
-        "disable": "discharge and disable confirmation",
+        "confirm": "Dimetti",
+        "disable": "Dimetti e non chiedermelo più",
         "patient": {
             "text": "Vuoi veramente congedare il paziente di questo veicolo? Nessun pagamento sarà accreditato per il paziente!",
             "title": "Congeda paziente"
@@ -107,16 +108,22 @@
     "station": "Edificio",
     "stats": "Statistiche",
     "tabs": {
-        "all": "tutto {type}: {amount}",
-        "alliance": "alleanza {type}: {amount}",
+        "all": "{type}: {amount}",
+        "alliance": "{type} dell'alleanza: {amount}",
         "cells": "Celle",
         "hospitals": "Ospedali",
         "missions": "Missioni",
-        "own": "proprietario {type}: {amount}"
+        "own": "{type} propri: {amount}"
     },
-    "tax": "tasse",
-    "true": "si",
+    "tax": "Tassa",
+    "true": "Sì",
     "vehicletype": "Tipo veicolo",
-    "water_amount": "Q.ta acqua",
+    "water_amount": "Q.tà acqua",
+    "wlf": {
+        "alarm": "Seleziona",
+        "building": "Edificio",
+        "caption": "Veicolo Trainante",
+        "same": "Stesso edificio: {building}"
+    },
     "zuweisung": "Assegnamento staff"
 }

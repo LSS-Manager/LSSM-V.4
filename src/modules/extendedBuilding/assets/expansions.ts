@@ -123,19 +123,4 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             },
         })
         .then();
-    // window.extensionCountdown = (remaining, id) => {
-    //     if (remaining > 0) {
-    //         document
-    //             .querySelectorAll(`.extension_countdown_${id}`)
-    //             .forEach(
-    //                 countdown =>
-    //                     (countdown.textContent = `${window.formatTime(
-    //                         remaining
-    //                     )} (${moment().add(remaining, 'seconds').calendar()})`)
-    //             );
-    //         setTimeout(() => {
-    //             window.extensionCountdown(remaining - 1, id);
-    //         }, 1000);
-    //     }
-    // };
 };

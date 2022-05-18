@@ -395,6 +395,11 @@ export default {
             );
             return buildingsByCategory;
         },
+        buildingsById(state) {
+            const buildings: Record<number, Building> = {};
+            state.buildings.forEach(b => (buildings[b.id] = b));
+            return buildings;
+        },
         vehiclesByType(state) {
             const types = {} as Record<string, Vehicle[]>;
             state.vehicles.forEach(vehicle => {
@@ -859,7 +864,7 @@ export default {
                 );
             }
 
-            init.mode = 'cors' || init.mode;
+            init.mode = init.mode || 'cors';
 
             const startTime = Date.now();
             return fetch(target, init).then(

@@ -8,6 +8,13 @@
         "topright": "Top Right 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Attached buildings",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "name": "Name",
+            "position": "Location",
+            "title": "Building complexes"
+        },
         "centerMap": {
             "description": "Center the map dynamically or to a static view when opening the game",
             "title": "Center map"

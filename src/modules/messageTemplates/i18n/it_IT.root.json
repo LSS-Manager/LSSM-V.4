@@ -1,12 +1,18 @@
 {
-    "description": "Scrivi i tuoi modelli per i messaggi nelle conversazioni private.",
+    "description": "Scrivi i tuoi modelli per i messaggi nelle conversazioni private e nella chat.",
     "name": "Modello Messaggi",
     "settings": {
-        "name": "Nome",
-        "subject": "Soggetto",
-        "template": "Modello (variabili (vedi wiki): {{username}}, {{today[+n]}})",
+        "chatTemplates": {
+            "description": "Messages for alliance-chat",
+            "name": "Name",
+            "text": "Message",
+            "title": "Chat-Messages"
+        },
         "templates": {
             "description": "Le variabili sono disponibili per i modelli. Dai un'occhiata alla nostra <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variabili\">Wiki</a>.",
+            "name": "Nome",
+            "subject": "Soggetto",
+            "template": "Modello (variabili (vedi wiki): {{username}}, {{today[+n]}})",
             "title": "Modelli"
         }
     }

@@ -1,5 +1,3 @@
-//import { Building } from 'typings/Building';
-
 const modules = {
     appstore: {
         save: 'Zapisz',
@@ -11,6 +9,9 @@ const modules = {
             title: 'Niezapisane zmiany',
             text: 'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
             close: 'Zamknij',
+            saveAndExit: 'Zapisz i wyjdź',
+            exit: 'Wyjdź bez zapisywania',
+            abort: 'Anuluj',
         },
     },
     settings: {
@@ -20,6 +21,13 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        appendableList: {
+            unique: {
+                title: 'podwójna wartość',
+                text: 'W kolumnie {title} nie może być zduplikowanych wartości. Wartość {value} już istnieje!',
+                confirm: 'Potwierdź',
+            },
+        },
         resetWarning: {
             title: 'Resetuj ustawienia',
             text: 'Czy na pewno chcesz zresetować ustawienia do wartości domyślnych? Tego nie można cofnąć!',
@@ -37,10 +45,17 @@ const modules = {
             title: 'Niezapisane zmiany',
             text: 'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
             close: 'Zamknij',
+            saveAndExit: 'Zapisz i wyjdź',
+            exit: 'Wyjdź bez zapisywania',
         },
         changeList: {
             true: 'On',
             false: 'Off',
+        },
+        locationSelect: {
+            location: 'Wybierz pozycję',
+            zoom: 'Wybierz pozycję i zoom',
+            sync: 'użyj aktualnej pozycji',
         },
     },
 } as Record<string, Record<string, unknown>>;
@@ -48,8 +63,22 @@ const modules = {
 export default {
     modules,
     error: {
-        title: 'LSS Manager: Błąd',
+        title: 'Menedżer LSS: błąd',
         msg: 'Jeśli ten błąd występuje często, zgłoś go zespołowi LSSM!',
+        requestIssue: {
+            title: 'Błędne żądanie: Status {status}',
+            text: `Ouch, unfortunately an error occurred with this server request:<br>
+<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Feature</b>: <code>{feature}</code><br>
+<b>Duration</b>: <code>{duration}ms</code><br>
+<b>User</b>: <code>{uid}</code><br>
+<b>Timestamp</b>: <code>{timestamp}</code>
+<br>
+Please try to perform the desired action again.<br>
+If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
+            close: 'Odrzuć',
+        },
     },
     warnings: {
         version: {
@@ -74,17 +103,37 @@ export default {
         },
         allowTelemetry: {
             description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
+                'Kontroluje, czy LSS-Manager może wysyłać dane, które pomagają nam w rozwijaniu tego rozszerzenia.',
+            title: 'Zezwól na telemetrię',
         },
         iconBg: {
-            description: 'Change the background of LSSM-Icon!',
-            title: 'LSSM-Icon Background',
+            description: 'Zmień tło likony LSSM!',
+            title: 'Tło likony LSSM',
         },
         iconBgAsNavBg: {
             description:
-                'Color the whole navbar in the color of LSSM-Icon Background!',
-            title: 'colorize navbar',
+                'Pokoloruj cały pasek nawigacyjny w kolorze tła ikony LSSM!',
+            title: 'Pokoloruj pasek nawigacyjny',
+        },
+        loadingIndicator: {
+            description:
+                'Jeśli to ustawienie jest aktywne, LSSM wyświetla małe kółko ładowania w prawym dolnym rogu, gdy ładuje własne pliki.',
+            title: 'Pokaż postęp ładowania',
+        },
+        osmDarkTooltip: {
+            description:
+                'To ustawienie przyciemnia podpowiedzi na mapie, jeśli włączyłeś tryb ciemny.',
+            title: 'Ciemne podpowiedzi na mapie',
+        },
+        osmDarkControls: {
+            description:
+                'To ustawienie przyciemnia przyciski na mapie, jeśli włączyłeś tryb ciemny.',
+            title: 'Ciemne przyciski na mapie',
+        },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menu jako podmenu',
+            description:
+                'Przenosi menu LSSM V3 do menu V4, aby zaoszczędzić trochę miejsca na pasku nawigacyjnym.',
         },
     },
     vehicles: {
@@ -758,469 +807,6 @@ export default {
             possibleBuildings: [0],
         },
     },
-    buildings: {
-        0: {
-            caption: 'Jednostka Ratowniczo-Gaśnicza',
-            color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Rozbudowa dla pogotowia',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Ratownictwo Wodne',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Rozbudowa dla pojazdów proszkowych',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 Dni',
-                },
-                {
-                    caption: 'Rozbudowa dla kontenerów',
-                    credits: 50_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                },
-                ...new Array(11).fill({
-                    caption: 'Rozbudowa dla kontenerów',
-                    credits: 80_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '6.000 włącznie z Remizami',
-            maxLevel: 16,
-            special:
-                'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
-            startPersonnel: 10,
-            startVehicles: [
-                'Ciężki samochód gaśniczy',
-                'Średni samochód gaśniczy',
-                'GBARt',
-                'GLBA',
-            ],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Szkoła pożarnicza',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Dodatkowa sala',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Dni',
-            }),
-            levelcost: [],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 0,
-            special:
-                'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        2: {
-            caption: ' Stacja Pogotowia',
-            color: '#ffffcc',
-            coins: 35,
-            credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 16,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulans P'],
-        },
-        3: {
-            caption: 'Akademia Służb Ratownictwa Medycznego',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Dodatkowa sala',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 0,
-            special:
-                'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        4: {
-            caption: 'Szpital',
-            color: '#bbe944',
-            coins: 25,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Interna',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Chirurg ogólny',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Ginekologia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Urologia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Traumatologia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Neurologia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Neurochirurgia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Kardiologia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Kardiochirurgia',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dni',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 Kredytów / 11 Monet'],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 20,
-            special:
-                'Administratorzy Finansów sojuszu mogą rozbudować szpital z finansów sojuszu.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        5: {
-            caption: 'Stacja helikopterów',
-            color: '#FFFFCC',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'see specials',
-            maxLevel: 0,
-            special:
-                'Do 125 budynku (wszystkich typów) łącznie można zbudować max 4 lądowiska. Następnie liczba wzrasta o 1 co 25 budynków (począwszy od 125.).',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        6: {
-            caption: 'Komenda Policji',
-            color: '#93B7FF',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Cela więzienna',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                },
-                ...new Array(9).fill({
-                    caption: 'Dodatkowa cela',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '1.700 włącznie z Posterunkami Policji',
-            maxLevel: 16,
-            special:
-                'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
-            startPersonnel: 2,
-            startVehicles: ['Radiowóz OPI'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        7: {
-            caption: 'Centrum Powiadamiania Ratunkowego',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings:
-                'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
-            maxLevel: 0,
-            special: 'The control center is the administrative center.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        8: {
-            caption: 'Akademia Policyjna',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Dodatkowa sala',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 0,
-            special:
-                'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        13: {
-            caption: 'Stacja Helikopterów Policji',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 Kredytów / 50 Monet'],
-            maxBuildings: 'see specials',
-            maxLevel: 1,
-            special:
-                'Na stacji można zbudować do 2 lądowisk (w wyniku rozbudowy). Do 125 budynku (wszystkich typów) łącznie można zbudować max 4 lądowiska. Następnie liczba wzrasta o 1 co 25 budynków (począwszy od 125.).',
-            startPersonnel: 3,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        14: {
-            caption: 'Miejsce koncentracji Sił i Środków',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 4,
-            maxLevel: 0,
-            special:
-                'Możesz ustawić dowolną liczbę własnych pojazdów w strefie postojowej,także członkowie sojuszu mogą niego skorzystać. Budynek stoi przez 24 godziny, ale możesz przedłużyć czas o 24 godzin w dowolnym momencie.Z kontem premium możesz mieć 8 stref w tym samym czasie',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 4,
-        },
-        15: {
-            caption: 'Stacja WOPR',
-            color: '#F9D74A',
-            coins: 35,
-            credits: 150_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 5,
-            special:
-                'Żeby stacja poprawnie funkcjonowała potrzebujemy do każdej łodzi pojazdu które posłuży jako laweta do holowania łodzi.',
-            startPersonnel: 10,
-            startVehicles: ['S.WOPR'],
-        },
-        16: {
-            caption: 'Prison',
-            coins: 'x',
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Prison cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                },
-                ...new Array(9).fill({
-                    caption: 'Additional cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 0,
-            special:
-                "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        18: {
-            caption: 'Remiza',
-            color: '#990000',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Rozbudowa dla pogotowia',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Ratownictwo Wodne',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                },
-                {
-                    caption: 'Rozbudowa dla pojazdów proszkowych',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 Dni',
-                },
-                {
-                    caption: 'Rozbudowa dla kontenerów',
-                    credits: 50_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                },
-                ...new Array(1).fill({
-                    caption: 'Rozbudowa dla kontenerów',
-                    credits: 80_000,
-                    coins: 20,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Ulepszenie do JRG wynosi różnicę w cenie budynków',
-            ],
-            maxBuildings: '6.000 włącznie z JRG',
-            maxLevel: 5,
-            special:
-                'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
-            startPersonnel: 10,
-            startVehicles: [
-                'Ciężki samochód gaśniczy',
-                'Średni samochód gaśniczy',
-                'GBARt',
-                'GLBA',
-            ],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        19: {
-            caption: 'Posterunek Policji',
-            color: '#93B7FF',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Cela więzienna',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                },
-                ...new Array(1).fill({
-                    caption: 'Dodatkowa cela',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                }),
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Cena przebudowy na Komendę Policji wynosi różnicę w cenach budynków ',
-            ],
-            maxBuildings: '1.700 włącznie z Komendami Policji',
-            maxLevel: 4,
-            special:
-                'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
-            startPersonnel: 2,
-            startVehicles: ['Radiowóz OPI'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        20: {
-            caption: 'Podstacja Pogotowia Ratunkowego',
-            color: '#FFFFCC',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Cena przebudowy na Stację Pogotowania Ratunkowego wynosi różnicę w cenach budynków ',
-            ],
-            maxBuildings: 'Bez limitu',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulans P'],
-        },
-        21: {
-            caption: 'Duży kompleks',
-            color: '#8B4513',
-            coins: 'Zbyt drogie',
-            credits: 'Zbyt drogie',
-            extensions: [],
-            levelcost: ['Zbyt drogie'],
-            maxBuildings: 'Keine Grenze',
-            maxLevel: 5,
-            special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO',
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        22: {
-            caption: 'Mały kompleks',
-            color: '#8B4513',
-            coins: 'Zbyt drogie',
-            credits: 'Zbyt drogie',
-            extensions: [],
-            levelcost: ['Zbyt drogie'],
-            maxBuildings: 'Keine Grenze',
-            maxLevel: 5,
-            special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO',
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-    },
     buildingCategories: {
         ['Straż pożarna']: {
             buildings: [0, 1, 18],
@@ -1477,4 +1063,19 @@ export default {
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],
+    ranks: {
+        missionchief: {
+            0: 'Nowy',
+            200: 'Strażak',
+            10_000: 'Starszy strażak',
+            100_000: 'Ogniomistrz',
+            1_000_000: 'Aspirant',
+            5_000_000: 'Kapitan',
+            20_000_000: 'Starszy kapitan',
+            50_000_000: 'Szef brygady',
+            1_000_000_000: 'Nadbrygadier',
+            2_000_000_000: 'Zastępca komendanta głównego',
+            5_000_000_000: 'Komendant główny',
+        },
+    },
 };

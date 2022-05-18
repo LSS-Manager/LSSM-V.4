@@ -135,6 +135,10 @@
             }
         }
     },
+    "pwa": {
+        "button": "Aktualisieren",
+        "message": "Neuer Inhalt verfügbar."
+    },
     "readme": {
         "serverStatus": {
             "game": "Online-Status: Spiel",

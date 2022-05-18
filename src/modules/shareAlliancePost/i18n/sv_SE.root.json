@@ -20,6 +20,10 @@
             "title": "Insats"
         },
         "name": "Name",
-        "postInChat": "Posta insidentrapprot i chatten?"
+        "postInChat": "Posta insidentrapprot i chatten?",
+        "stayInCallList": {
+            "description": "With this option enabled, you can send incident notes even on shared missions.",
+            "title": "Stay in Call-list"
+        }
     }
 }

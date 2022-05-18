@@ -21,6 +21,7 @@ export interface Building {
     personal_count_target: number;
     hiring_phase: 0 | 1 | 2 | 3;
     hiring_automatic: boolean;
+    custom_icon_url?: string;
 }
 
 export interface BuildingCategory {
@@ -33,35 +34,95 @@ export interface ResolvedBuildingCategory {
     buildings: InternalBuilding[];
 }
 
-interface InternalExtension {
+interface BaseExtension {
     caption: string;
     credits: number;
     coins: number;
-    duration: number;
+    duration: string;
     maxExtensionsFunction?(
         buildingsByType?: Record<number, Building[]>
     ): number;
+    canBuyByAmount?(
+        boughtExtensionsAmountByType: Record<number, Record<number, number>>,
+        maxExtensions: number
+    ): boolean;
+    requiredExtensions?: number[];
 }
 
-export interface InternalBuilding {
+interface VehicleExtension extends BaseExtension {
+    isVehicleExtension: true;
+    givesParkingLots: number;
+    givesParkingLotsPerLevel?: number;
+    unlocksVehicleTypes?: number[];
+    parkingLotReservations?: number[][];
+    giftsVehicles?: number[];
+}
+
+interface ClassroomExtension extends BaseExtension {
+    newClassrooms: number;
+}
+
+interface CellExtension extends BaseExtension {
+    newCells: number;
+}
+
+type InternalExtension =
+    | BaseExtension
+    | CellExtension
+    | ClassroomExtension
+    | VehicleExtension;
+
+interface BaseBuilding {
     caption: string;
     color: string;
-    coins: number;
     credits: number;
+    coins: number;
     extensions: InternalExtension[];
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
+    maxBuildingsFunction?(buildingsAmountTotal?: number): number;
+}
+
+interface CellBuilding extends BaseBuilding {
+    startCells: number;
+}
+
+interface HospitalBuilding extends BaseBuilding {
+    startBeds: number;
+}
+
+interface SchoolBuilding extends BaseBuilding {
+    startClassrooms: number;
+}
+
+interface DispatchCenterBuilding extends BaseBuilding {
+    isDispatchCenter: true;
+}
+
+interface StagingAreaBuilding extends BaseBuilding {
+    isStagingArea: true;
+}
+
+type CanHaveVehiclesBuilding<
+    BaseBuildingType extends BaseBuilding | InternalBuilding
+> = BaseBuildingType & {
+    schoolingTypes: string[];
     startPersonnel: number;
     startVehicles: string[];
-    schoolingTypes: string[];
-    maxBuildingsFunction?(buildingsAmountTotal?: number): number;
-    [key: string]:
-        | InternalExtension[]
-        | string[]
-        | number
-        | string
-        | (() => number)
-        | undefined;
-}
+    startParkingLots: number;
+    startParkingLotReservations?: number[][];
+    parkingLotsPerLevel?: number;
+};
+
+type BuildingTypes =
+    | CellBuilding
+    | DispatchCenterBuilding
+    | HospitalBuilding
+    | SchoolBuilding
+    | StagingAreaBuilding;
+
+export type InternalBuilding =
+    | BuildingTypes
+    | CanHaveVehiclesBuilding<BaseBuilding | BuildingTypes>;

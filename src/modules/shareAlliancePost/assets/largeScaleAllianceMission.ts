@@ -1,7 +1,5 @@
 import {
     addHoursToNow,
-    createEditBtn,
-    createEditField,
     createIcon,
     dateToTime,
     getCityFromAddress,
@@ -35,7 +33,7 @@ const getModifiedMessage = (
     LSSM: Vue,
     mission: HTMLDivElement,
     missionId: number | string,
-    missionSpecs: Mission
+    missionSpecs: Mission | undefined
 ) => {
     const address =
         mission
@@ -51,7 +49,7 @@ const getModifiedMessage = (
             .trim() ?? '–';
 
     const replacements: Record<string, string> = {
-        credits: missionSpecs.average_credits?.toLocaleString() ?? '–',
+        credits: missionSpecs?.average_credits?.toLocaleString() ?? '–',
         patients: (
             (mission.querySelector('[id^="mission_patients_"] [id^="patient_"]')
                 ? mission.querySelectorAll('.patient_progress').length

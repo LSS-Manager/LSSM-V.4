@@ -7,9 +7,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm install 16 # install node 16
-nvm use 16
+nvm install 18 # install node 18
+nvm use 18
 
+npm install -g npm
 npm install -g yarn
 
 # version output helps when there are debugging needs

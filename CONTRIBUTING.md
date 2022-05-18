@@ -1,6 +1,8 @@
 # Contribution Guide
 You want to contribute to LSS-Manager? Here are some tips on how to contribute!
 
+**Hint**: There is a new guide available in our [Wiki](https://proxy.lss-manager.de/v4/docs/en_US/contributing/) that helps with translating. The content of this file will be merged with it soon.
+
 **If you got any questions on contributing, you can contact LSSM Team at any time!**
 
 **Do NOT work on master branch or create branches from `master` branch. Do always use [`dev`](/tree/dev) as reference!**
@@ -8,7 +10,7 @@ You want to contribute to LSS-Manager? Here are some tips on how to contribute!
 > *Please keep this file up to date!*
 
 ## Styleguide
-**Please use ESLint before commiting files!**
+**Please use ESLint before committing files!**
 
 ## Doing first translation for a new locale
 replace `xx_XX` with the lang-code

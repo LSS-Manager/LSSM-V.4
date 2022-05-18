@@ -50,15 +50,17 @@ declare global {
             getMapFiltersLayersForMap(): Record<string, L.LayerGroup>;
             getMapFiltersLayers(): Record<string, L.LayerGroup>;
             getFilterLayerByBuildingParams(
-                building: BuildingMarkerAdd
+                building: Pick<BuildingMarkerAdd, 'building_type' | 'user_id'>
             ): L.LayerGroup | L.Map;
             onOverlayChanged: L.LayersControlEventHandlerFn;
             massFiltersChange(filter_id: string, add: boolean): void;
             decorateFilterText(text: string, filter_id: string): string;
         };
         [PREFIX: string]: Vue | unknown;
+        [`lssmv4-GM_Info`]: Tampermonkey.ScriptInfo;
         map: L.Map;
         L: typeof L;
+        icon_empty: L.Icon;
         mission_position_new_marker?: L.Marker;
         building_new_marker?: L.Marker;
         building_move_marker?: L.Marker;
@@ -66,6 +68,7 @@ declare global {
         patient_timers: PatientTimer[];
         sale_count_down: number;
         mission_label: boolean;
+        vehicle_graphics: ([string, string, 'false' | 'true'] | null)[]; // it seems to be sexy to stringify booleans according to the game...
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -81,6 +84,11 @@ declare global {
         formatTime(remaining: number, t?: boolean): string;
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
         buildingMarkerBulkContentCacheDraw(): void;
+        iconAnchorCalculate(size: [number, number]): [number, number];
+        iconMapGenerate(url: string, marker: L.Marker): void;
+        getBuildingMarkerIcon(
+            building: Pick<BuildingMarkerAdd, 'building_type'>
+        ): string;
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;

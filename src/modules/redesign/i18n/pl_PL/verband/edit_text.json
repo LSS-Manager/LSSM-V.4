@@ -1,0 +1,16 @@
+{
+    "automaticMessage": {
+        "content": "Automatyczna wiadomość powitalna: Wiadomość",
+        "subject": "Automatyczna wiadomość powitalna: Temat",
+        "title": "Automatyczna wiadomość powitalna"
+    },
+    "faq": "FAQ",
+    "header": "Ważne powiadomienia sojuszu",
+    "header_help": "Będą wyświetlane na stronie startowej nad czatem.",
+    "rules": "Zasady sojuszu",
+    "save": "Zapisz",
+    "text": "Tekst opisu (Strona początkowa)",
+    "title": "Edytuj sojuszu",
+    "webhook": "Hak internetowy Discord",
+    "webhook_help": "Więcej informacji na temat haków internetowych Discord można znaleźć pod adresem: "
+}

@@ -1,0 +1,10 @@
+{
+    "caption": "Tytuł",
+    "public": "Publiczny (będzie widoczny dla wszystkich graczy w grze)",
+    "save": "Zapisz",
+    "text": "Zawartość",
+    "title": {
+        "edit": "Edytowane wiadomości o sojuszu",
+        "new": "Utwórz wiadomości"
+    }
+}

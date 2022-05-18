@@ -1,0 +1,14 @@
+{
+    "applied": "Zgłosiłeś się do tego Sojuszu, wystarczy, że zostaniesz zaakceptowany przez (Współ)Administratora Sojuszu. Powodzenia!",
+    "apply": "Zgłoś się",
+    "edit_logo": "Edytuj logo",
+    "edit_name": "Zmień nazwę sojuszu",
+    "edit_text": "Edytuj tekst wprowadzenia, zasady, ważne informacje o sojuszu i webhooki Discorda",
+    "leave": {
+        "cancel": "Anuluj",
+        "confirm": "Potwierdź",
+        "text": "Czy na pewno chcesz opuścić Sojusz {caption}? Tej czynności nie można cofnąć!",
+        "title": "Opuść z Sojuszu"
+    },
+    "unapply": "Wycofaj wniosek"
+}

@@ -15,7 +15,8 @@ export type Sort =
     | 'distance_dispatch'
     | 'distance_station'
     | 'id'
-    | 'remaining_patients';
+    | 'remaining_patients'
+    | 'remaining_prisoners';
 
 export default (
     LSSM: Vue,
@@ -34,6 +35,7 @@ export default (
         'id',
         'credits',
         'remaining_patients',
+        'remaining_prisoners',
         'alphabet',
         'distance_dispatch',
         'distance_station',
@@ -168,6 +170,7 @@ export default (
         distance_station = 'building',
         id = 'clock-rotate-left',
         remaining_patients = 'user-injured',
+        remaining_prisoners = 'handcuffs',
     }
 
     enum faDirectionIcon {
@@ -372,6 +375,16 @@ export default (
                     .toString();
             }
             return '0';
+        },
+        remaining_prisoners: mission => {
+            return (
+                mission
+                    .querySelector(
+                        '.mission_prisoners[id^="mission_prisoners_"]'
+                    )
+                    ?.querySelectorAll('.small[id^="prisoner_"]')
+                    .length.toString() ?? '0'
+            );
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';

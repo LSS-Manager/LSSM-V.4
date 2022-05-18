@@ -20,6 +20,10 @@
             "title": "Rückmeldungen"
         },
         "name": "Name",
-        "postInChat": "Rückmeldung im Chat posten?"
+        "postInChat": "Rückmeldung im Chat posten?",
+        "stayInCallList": {
+            "description": "Nach dem Teilen kannst du trotzdem noch Rückmeldungen aus der Einsatzliste heraus posten.",
+            "title": "In Einsatzliste bleiben"
+        }
     }
 }

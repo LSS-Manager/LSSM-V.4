@@ -96,4 +96,16 @@ Imaginez combien de temps durerait un défaut dans LSSM si personne ne le signal
 ### Chaque utilisateur
 Chaque utilisateur nous donne toujours la motivation de continuer et de développer et améliorer LSSM de plus en plus.
 
+## Stats
+
+Voici quelques informations et statistiques plus ou moins intéressantes sur LSSM et son code source.
+
+### Fichiers et lignes de code
+
+<stats-cloc/>
+
+### Commits et changements
+
+<stats-commits/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en

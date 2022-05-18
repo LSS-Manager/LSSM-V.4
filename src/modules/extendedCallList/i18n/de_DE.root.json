@@ -170,6 +170,14 @@
             "description": "Zeigt die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte an.",
             "title": "Patientenzahl in Tooltips"
         },
+        "currentPrisoners": {
+            "description": "Zeigt die aktuelle Zahl der Gefangenen bei jedem Einsatz an.",
+            "title": "Gefangenenzahl"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Zeigt die aktuelle Zahl der Gefangenen auch in den Tooltips auf der Karte an.",
+            "title": "Gefangenenzahl in Tooltips"
+        },
         "eventMissions": {
             "description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
             "missions": "Einsätze",
@@ -179,6 +187,10 @@
         "hide0CurrentPatients": {
             "description": "Versteckt die Patientenzahl, wenn diese 0 beträgt.",
             "title": "Verstecke 0 Patienten"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Versteckt die Gefangenenzahl, wenn diese 0 beträgt.",
+            "title": "Verstecke 0 Gefangene"
         },
         "remainingPatientTime": {
             "description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
@@ -215,6 +227,7 @@
             "title": "Einsätze teilen: Minimale Credits"
         },
         "shareMissionsTypes": {
+            "alliance": "Verbandseinsätze (nur für Share-Alliance-Post)",
             "description": "Hiermit kannst du festlegen, dass der Knopf zum Teilen von Einsätzen nur bei bestimmten Einsätzen angezeigt werden soll.",
             "own": "Notfall-Einsätze",
             "sicherheitswache": "Geplante Einsätze",
@@ -245,7 +258,8 @@
             "distance_dispatch": "Entfernung zur nächsten Leitstelle",
             "distance_station": "Entfernung zur nächsten Wache",
             "id": "Alter",
-            "remaining_patients": "aktuelle Patienten"
+            "remaining_patients": "aktuelle Patienten",
+            "remaining_prisoners": "aktuelle Gefangene"
         }
     }
 }

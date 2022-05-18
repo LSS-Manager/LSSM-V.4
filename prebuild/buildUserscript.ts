@@ -32,23 +32,34 @@ ${Object.values(config.games)
             }`
     )
     .join('\n')}
-// @homepage     ${config.server}/docs/
+// @homepage     ${config.server}docs/
 // @updateURL    ${config.server}lssm-v4.user.js
 // @downloadURL  ${config.server}lssm-v4.user.js
 // @icon         ${config.server}docs/img/lssm.png
 // @supportURL   ${config.server}docs/en_US/error_report
 // @run-at       document-idle
+// @grant        GM_info
 // ==/UserScript==
 /* global I18n, user_id */
 ${
     (
-        await Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {
-            compress: {
-                global_defs: {
-                    host: config.server,
+        await Terser.minify(
+            fs
+                .readFileSync('./src/userscript.js')
+                .toString()
+                .replace(
+                    /exports\.__esModule = true;|require\("tampermonkey"\);/gu,
+                    ''
+                ),
+            {
+                compress: {
+                    global_defs: {
+                        host: config.server,
+                        prefix: config.prefix,
+                    },
                 },
-            },
-        })
+            }
+        )
     ).code
 }
 `

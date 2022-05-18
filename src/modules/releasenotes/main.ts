@@ -64,7 +64,11 @@ export default async (LSSM: Vue): Promise<void> => {
                     /* webpackChunkName: "releasenotes/releasenotes" */ './releasenotes.vue'
                 ),
             { notes, last_seen: last_seen ?? notes[0][0] },
-            { name: 'releasenotes', height: 'auto' },
+            {
+                name: 'releasenotes',
+                height: 'auto',
+                class: 'releasenotes-modal',
+            },
             {
                 'before-close': async function () {
                     await LSSM.$store.dispatch('storage/set', {

@@ -155,9 +155,11 @@ export default <RedesignParser<VehicleWindow>>(({
             if (cell.previousElementSibling?.matches('h5'))
                 list = 'alliance_cells';
             const text = cell.textContent ?? '';
-            const infos = (
-                text.match(/(?<=\()[^(]*?(?=\)$)/u)?.[0] ?? ''
-            ).split(':');
+            const infos = text
+                .trim()
+                .match(
+                    /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
+                );
             const cellinfos: Cell = {
                 id: getIdFromEl(cell),
                 caption: text.replace(/\([^(]*?\)$/u, ''),
@@ -167,12 +169,12 @@ export default <RedesignParser<VehicleWindow>>(({
                     : cell.classList.contains('btn-warning')
                     ? 'warning'
                     : 'danger',
-                free: parseInt(infos[1].trim()),
-                distance: infos[2].split(/,(?=\s)/u)[0].trim(),
+                free: parseInt(infos?.groups?.free ?? '-1'),
+                distance: infos?.groups?.distance ?? '-1km',
                 tax:
                     list === 'own_cells'
                         ? 0
-                        : parseInt(infos[3].match(/\d+(?=%)/u)?.[0] ?? '-1'),
+                        : parseInt(infos?.groups?.tax ?? '-1'),
             };
             if (list === 'own_cells') own_cells.push(cellinfos);
             else alliance_cells.push(cellinfos);

@@ -73,12 +73,19 @@ interface HotKey extends SettingTemplate {
     value: string;
 }
 
-interface Location extends SettingTemplate {
+interface LocationWithoutZoom extends SettingTemplate {
+    type: 'location';
+    default: [number, number];
+    value: [number, number];
+    zoom?: false;
+}
+interface LocationWithZoom extends SettingTemplate {
     type: 'location';
     default: [number, number, number];
     value: [number, number, number];
-    zoom?: boolean;
+    zoom: true;
 }
+type Location = LocationWithoutZoom | LocationWithZoom;
 
 interface Custom<
     Data = unknown,

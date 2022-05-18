@@ -14,7 +14,7 @@ There are two possibilities:
 
 LSS-Manager only works in games that it has translations for. We (the LSSM-Team) decided not to add translations for all games, because it would take too much time, and we don't speak most of the languages ourselves.
 
-If you want LSSM to work in your game, you can help us by adding the translations. Help with that can be found on our <discord/>.
+If you want LSSM to work in your game, you can help us by adding the translations. Help with that can be found on our <discord/>. Please also have a look at our [contribution guide][contributing] which guides on how to do translations.
 
 #### 2. There's a bug in LSS-Manager.
 
@@ -23,19 +23,8 @@ In that case, please refer to [report bugs][error] or [support][support].
 ### How much does LSS Manager cost?
 LSS-Manager is a free extension. - we do not intend to change this.
 
-:::warning Donations
-There are a few kind users who would like to donate money to us. Howevever, LSS-Manager is and will remain free of charge. We will not accept any donations for this project.
-
-There are several reasons:
-* This project is developed on a voluntary basis in participating developers' spare time.
-* A subscription option, similar to the premium in Missionchief would put too much pressure on us to continue programming LSS Manager.
-* For legal reasons we cannot accept donations;
-    * If we would found a company for LSS Manager so that we could receive donations, there would be no future, because a company without expenses cannot be a company.
-    * If we would run the servers, which are currently running LSS Manager, through a company, they would immediately nullify the income.
-:::
-
 ### How can I contribute to LSS Manager?
-The end user can [report bugs][error] or [make suggestions][suggestions].
+The end user can [report bugs][error] or [make suggestions][suggestions]. For translations, please refer to our [contribution guide][contributing].
 
 We are currently designing a style guide for developers, so that they too can easily add their own plugins to LSSM. We have tried to keep our code structure clear and understandable. However, adding a plugin does not in any way imply joining the team.
 
@@ -62,7 +51,7 @@ We don't see the point of doing this everywhere and officially **do not** suppor
 :::
 
 ### I want to share my setup with friends or use it on multiple devices. Is that possible?
-This is not currently supported, but we plan to implement this in the future.
+Yes, it is. Just open the [settings][settings] and click `Export`, to download a config-file. `Import` lets you choose a config-file to import the settings.
 
 ### Is there a way to save settings account bound so that you don't have to import them on another device?
 This is not currently supported, but we plan to implement this in the future.
@@ -70,3 +59,4 @@ This is not currently supported, but we plan to implement this in the future.
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
+[contributing]: contributing.md

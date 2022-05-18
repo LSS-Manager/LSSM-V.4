@@ -93,8 +93,9 @@
                                     </span>
                                 </template>
                                 <tr
-                                    v-for="entry in kasse.earnings.earnings"
-                                    :key="entry.user.id"
+                                    v-for="(entry, index) in kasse.earnings
+                                        .earnings"
+                                    :key="index"
                                 >
                                     <td>
                                         <a

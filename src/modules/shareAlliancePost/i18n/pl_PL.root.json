@@ -1,0 +1,29 @@
+{
+    "description": "Alarm, udostępnij misję i opublikuj notatkę o zdarzeniu jednym kliknięciem.",
+    "lsam": {
+        "help": "Zmienne są zastępowane w taki sam sposób jak w liście misji."
+    },
+    "name": "Udostępnij post sojuszu",
+    "noMessage": "Bez notatki o zdarzeniu",
+    "settings": {
+        "enableCallList": {
+            "description": "Integruje ten moduł z \"Udostępnij misje\" rozszerzonej listy misji.",
+            "title": "Integracja z listą misji"
+        },
+        "enableLSAM": {
+            "description": "Włącz tę opcję, aby wybrać notatkę o incydencie podczas tworzenia misji sojuszu na dużą skalę.",
+            "title": "Misje sojusznicze na dużą skalę"
+        },
+        "message": "Notatka dotycząca incydentu",
+        "messages": {
+            "description": "Tutaj możesz ustawić swoje notatki dotyczące incydentów. Możesz używać zmiennych, więc spójrz na naszą <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a>! Proszę przypisać unikalną nazwę do każdej odpowiedzi, aby szybko zidentyfikować je w oknie wezwania.",
+            "title": "Odpowiedzi"
+        },
+        "name": "Nazwa",
+        "postInChat": "Opublikować notatkę na czacie?",
+        "stayInCallList": {
+            "description": "With this option enabled, you can send incident notes even on shared missions.",
+            "title": "Stay in Call-list"
+        }
+    }
+}

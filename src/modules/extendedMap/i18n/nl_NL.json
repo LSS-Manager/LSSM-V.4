@@ -1,0 +1,95 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Open gebouw in Lightbox",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "automatisch",
+                    "no": "Geen",
+                    "phase": "1 dag | {n} dagen"
+                },
+                "inConstruction": "waarvan {n} in aanbouw",
+                "table": {
+                    "head": {
+                        "beds": "Bedden",
+                        "cells": "Cellen",
+                        "classrooms": "Klassen",
+                        "hiring": "Aanneemfase",
+                        "level": "Level",
+                        "name": "Naam",
+                        "staff": "Personeel (Doel)",
+                        "vehicles": "Voertuigen"
+                    }
+                },
+                "title": "gekoppelde gebouwen"
+            },
+            "classrooms": {
+                "title": "Klaslokalen"
+            },
+            "extensions": {
+                "abort": "Abort",
+                "disabled": "Finished & disabled",
+                "enabled": "Finished & enabled",
+                "filter": {
+                    "all": "All",
+                    "buildings": "Buildings",
+                    "canBuy": "can buy",
+                    "cannotBuy": "cannot buy",
+                    "disabled": "finished & disabled",
+                    "enabled": "finished & enabled",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "under construction"
+                },
+                "limit": "You cannot buy more than {n} of this extensions currently!",
+                "missingRequirements": "Following requirements are not met:",
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} built",
+                    "inConstruction": "{n} under construction",
+                    "total": "{n} possible in total"
+                },
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "name": "Name"
+                    }
+                },
+                "title": "Uitbreidingen",
+                "underConstruction": "under construction"
+            },
+            "title": "Overzicht",
+            "vehicles": {
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Voertuigen"
+            }
+        },
+        "settings": {
+            "abort": "Annuleren",
+            "buildingTabs": "Show tabs for attached buildings?",
+            "buildings": "gekoppelde gebouwen",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Annuleren",
+                    "continue": "Verwijderen"
+                },
+                "text": "Wil je dit gebouwencomplex verwijderen? Alle gekoppelde gebouwen zullen weer op de kaart worden getoond, zoals daarvoor.",
+                "title": "Verwijder complex"
+            },
+            "icon": "Icoon",
+            "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
+            "location": "Locatie",
+            "name": "Naam",
+            "save": "Opslaan",
+            "showMarkers": "Toon gekoppelde gebouwen op de kaart?",
+            "title": "Bewerk complex"
+        }
+    }
+}

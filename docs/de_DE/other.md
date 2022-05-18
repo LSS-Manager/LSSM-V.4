@@ -96,4 +96,16 @@ Stell dir mal vor, wie lange ein Fehler im LSSM wäre, würde ihn keiner melden 
 ### Jeder einzelne Nutzer
 Jeder Nutzer gibt uns stets die Motivation weiter zu machen und den LSSM immer mehr zu erweitern und zu verbessern. Uns selbst macht es einen riesen Spaß, den LSSM zu programmieren, das wäre aber bestimmt nicht so, wenn unsere Community nicht hinter uns stehen würde.
 
+## Statistiken
+
+Hier finden sich einige mehr oder weniger spannende Statistiken über den LSSM und seinen Quellcode.
+
+### Dateien & Code-Zeilen
+
+<stats-cloc/>
+
+### Commits & Änderungen
+
+<stats-commits/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de

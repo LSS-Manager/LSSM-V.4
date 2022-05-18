@@ -1,0 +1,10 @@
+{
+    "back": "Wróć do skrzynki odbiorczej",
+    "delete": "Usuń konwersację",
+    "load": {
+        "next": "wczytaj starsze wiadomości",
+        "prev": "załaduj nowsze wiadomości"
+    },
+    "subtitle": "Rozmowa z",
+    "subtitleAlliance": "Wiadomość od sojuszu"
+}

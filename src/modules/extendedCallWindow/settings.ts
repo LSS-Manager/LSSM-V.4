@@ -27,7 +27,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
+    const vehicles = LSSM.$t('vehicles') as unknown as Record<
+        number,
+        InternalVehicle
+    >;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {
@@ -241,6 +244,14 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                         type: 'text',
                     },
                 },
+                <AppendableListSetting<Color>>{
+                    name: 'color',
+                    title: $m('settings.tailoredTabs.color'),
+                    size: 1,
+                    setting: {
+                        type: 'color',
+                    },
+                },
                 <AppendableListSetting<MultiSelect>>{
                     name: 'vehicleTypes',
                     title: $m('settings.tailoredTabs.vehicles'),
@@ -254,6 +265,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             ],
             defaultItem: {
                 name: '',
+                color: LSSM.$store.state.darkmode ? '#505050' : '#fff',
                 vehicleTypes: [],
             },
             orderable: true,

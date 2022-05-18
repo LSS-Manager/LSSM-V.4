@@ -2,9 +2,23 @@ import type { InternalVehicle } from 'typings/Vehicle';
 import type { StorageSet } from 'typings/store/storage/Actions';
 import type { $m, $mc } from 'typings/Module';
 
+const isLightColor = (color: `#${string}`): boolean => {
+    const hex = parseInt(color.replace(/^#/u, ''), 16);
+    const r = hex >> 16;
+    const g = (hex >> 8) & 255;
+    const b = hex & 255;
+    return (
+        Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b)) > 255 / 2
+    );
+};
+
 export default (
     LSSM: Vue,
-    tabs: { name: string; vehicleTypes: (number | string)[] }[],
+    tabs: {
+        name: string;
+        vehicleTypes: (number | string)[];
+        color: `#${string}`;
+    }[],
     stagingMode: boolean,
     $m: $m,
     $mc: $mc
@@ -61,7 +75,7 @@ export default (
 
     if (vehiclesNotInTabs.length) {
         const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
-        const vehicleTypes = LSSM.$t('vehicles') as Record<
+        const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
             number,
             InternalVehicle
         >;
@@ -212,7 +226,7 @@ export default (
     >;
     const vehicleTypeMap = {} as Record<string, string[]>;
     const idByName: Record<string, string> = {};
-    tabs.forEach(({ name, vehicleTypes }) => {
+    tabs.forEach(({ name, vehicleTypes, color }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabId = LSSM.$store.getters.nodeAttribute(
             `tailoredtabs-${name}`,
@@ -227,6 +241,14 @@ export default (
         tabLink.textContent = name;
         tabSelector.append(tabLink);
         occupiedTab.before(tabSelector);
+
+        if (color !== (LSSM.$store.state.darkmode ? '#505050' : '#fff')) {
+            tabLink.style.setProperty('background-color', color);
+            tabLink.style.setProperty(
+                'color',
+                isLightColor(color) ? '#000' : '#fff'
+            );
+        }
 
         const tabPane = document.createElement('div');
         tabPane.classList.add('tab-pane');

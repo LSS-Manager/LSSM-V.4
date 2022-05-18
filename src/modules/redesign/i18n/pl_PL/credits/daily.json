@@ -1,0 +1,19 @@
+{
+    "amount": "Ilość",
+    "description": "Opis",
+    "filter": {
+        "total": {
+            "max": "Maks. łączne kredyty",
+            "min": "Min. łączne kredyty"
+        },
+        "type": {
+            "all_types": "Pokaż wszystkie typy",
+            "amount": "{n} filtrowany wpis | {n} filtrowane wpisy",
+            "no_types": "Nie pokazuj typów",
+            "type": "Wyświetlane typy wpisów"
+        }
+    },
+    "title": "Podsumowanie dnia",
+    "today": "Dzisiaj",
+    "total": "Całkowite"
+}

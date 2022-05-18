@@ -113,26 +113,29 @@ webpack(entry, (err, stats) => {
         console.error('Build Error: stats is a falsy value!');
         return process.exit(-1);
     } else {
+        const jsonStats = stats.toJson();
         fs.writeFileSync(
             `./dist/webpack.out.${
                 mode === 'production' ? 'public' : 'beta'
             }.json`,
-            JSON.stringify(stats.toJson(), null, '\t')
+            JSON.stringify(jsonStats, null, '\t')
+        );
+        const fileSizes = Object.fromEntries(
+            jsonStats.assets?.map(({ name, size }) => [
+                name.replace(/\.js$/u, ''),
+                size,
+            ]) ?? []
         );
         fs.writeFileSync(
             './dist/static/fileSizes.json',
-            JSON.stringify(
-                Object.fromEntries(
-                    stats
-                        .toJson()
-                        .assets?.map(({ name, size }) => [
-                            name.replace(/\.js$/u, ''),
-                            size,
-                        ]) ?? []
-                )
-            )
+            JSON.stringify(fileSizes)
         );
-        addToBuildStats({ version });
+        addToBuildStats({
+            version,
+            size: Object.values(fileSizes).reduce((a, b) => a + b, 0),
+            files: Object.entries(fileSizes).length,
+            time: jsonStats.time,
+        });
     }
     console.log('Stats:');
     console.log(stats?.toString({ colors: true }));
