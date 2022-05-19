@@ -39,6 +39,7 @@ ${Object.values(config.games)
 // @supportURL   ${config.server}docs/en_US/error_report
 // @run-at       document-idle
 // @grant        GM_info
+// @grant        unsafeWindow
 // ==/UserScript==
 /* global I18n, user_id */
 ${

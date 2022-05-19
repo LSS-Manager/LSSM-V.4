@@ -25,6 +25,7 @@ export interface Config {
         start: string;
         end: string;
     };
+    userscript_latest_update: string;
     prefix: string;
     server: string;
     fontAwesomeIconSearch: string;

@@ -1,11 +1,14 @@
 import Vue from 'vue';
 
 import * as Tabs from 'vue-slim-tabs';
+import coerce from 'semver/functions/coerce';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
+import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
 import VueJSModal from 'vue-js-modal';
 
+import config from './config';
 import i18n from './i18n';
 import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMV4 from './LSSMV4.vue';
@@ -118,6 +121,46 @@ utils(Vue);
             core => core.default(LSSM)
         );
     }
+
+    // show a dialog if userscript is out of date
+    await (async () => {
+        // this feature was introduced during this version
+        if (VERSION.startsWith('4.5.9')) return;
+
+        const userscript_latest_update = coerce(
+            config.userscript_latest_update
+        );
+        const userscript_version = coerce(
+            window['lssmv4-GM_Info']?.script.version
+        );
+        if (
+            !userscript_latest_update ||
+            !userscript_version ||
+            (userscript_latest_update &&
+                userscript_version &&
+                semverLt(userscript_version, userscript_latest_update))
+        ) {
+            return new Promise<void>(resolve => {
+                LSSM.$modal.show('dialog', {
+                    title: LSSM.$t('updateUserscript.title'),
+                    text: LSSM.$t('updateUserscript.text', {
+                        minVersion: `<b>${userscript_latest_update}</b>`,
+                        updateLink: `<a href="${config.server}lssm-v4.user.js" target='_blank'>lssm-v4.user.js</a>`,
+                    }),
+                    options: {},
+                    buttons: [
+                        {
+                            title: LSSM.$t('updateUserscript.close'),
+                            handler() {
+                                LSSM.$modal.hide('dialog');
+                                resolve();
+                            },
+                        },
+                    ],
+                });
+            });
+        }
+    })();
 
     LSSM.$store
         .dispatch('storage/get', {
