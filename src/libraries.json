@@ -98,11 +98,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.24.0"
+        "version": "5.25.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.24.0"
+        "version": "5.25.0"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -196,7 +196,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://eslint.vuejs.org",
-        "version": "8.7.1"
+        "version": "9.0.1"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -265,7 +265,7 @@
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "12.6.0"
+        "version": "13.0.0"
     },
     "semver": {
         "version": "7.3.7"

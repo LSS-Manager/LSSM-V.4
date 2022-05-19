@@ -17,9 +17,7 @@
                     `modules.${moduleId}.settings.${settingId}.description`
             "
             v-html="description"
-        >
-            <br />
-        </span>
+        ></span>
         <slot v-if="!beforeDescription"></slot>
     </div>
 </template>
@@ -27,7 +25,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import type { SettingProps } from '../../typings/components/Setting';
+import type { SettingProps } from 'typings/components/Setting';
 import type {
     DefaultComputed,
     DefaultData,

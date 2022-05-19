@@ -1062,7 +1062,8 @@ export default Vue.extend<
                         if (
                             !(
                                 'newCells' in
-                                buildingType.extensions[extension.type_id]
+                                (buildingType.extensions[extension.type_id] ??
+                                    {})
                             )
                         )
                             return;
@@ -1090,7 +1091,8 @@ export default Vue.extend<
                         if (
                             !(
                                 'newClassrooms' in
-                                buildingType.extensions[extension.type_id]
+                                (buildingType.extensions[extension.type_id] ??
+                                    {})
                             )
                         )
                             return;
@@ -1136,11 +1138,12 @@ export default Vue.extend<
                                       buildingType.startParkingLots +
                                       building.extensions
                                           .map(extension => {
-                                              const extensionType: InternalExtension =
+                                              const extensionType: InternalExtension | null =
                                                   buildingType.extensions[
                                                       extension.type_id
                                                   ];
                                               if (
+                                                  !extensionType ||
                                                   !extension.available ||
                                                   !(
                                                       'isVehicleExtension' in
@@ -1400,8 +1403,13 @@ export default Vue.extend<
                         )
                     )
                         maxExtensionsFunctionResults[buildingTypeId] = {};
-                    return buildingType.extensions.map(
-                        (extensionType, index) => {
+
+                    const removeNull = <S>(value: S | null): value is S =>
+                        !!value;
+
+                    return buildingType.extensions
+                        .filter(removeNull)
+                        .map((extensionType, index) => {
                             const boughtExtension = extensions.find(
                                 ({ type_id }) => index === type_id
                             );
@@ -1463,7 +1471,7 @@ export default Vue.extend<
                                                                 buildingType
                                                                     .extensions[
                                                                     id
-                                                                ].caption
+                                                                ]?.caption ?? ''
                                                         ) ?? []),
                                                         ...(canBuyByAmount ||
                                                         typeof canBuyByAmount ===
@@ -1490,8 +1498,7 @@ export default Vue.extend<
                                               extensionType.coins,
                                       }),
                             };
-                        }
-                    );
+                        });
                 }
             );
         },
