@@ -20,6 +20,7 @@ Door `LSSM` (Leitstellenspiel Manager, userscript voor de browser) te gebruiken,
   * inclusief informatie of het de politieversie is of niet
 * welke kaart type wordt gebruikt (OSM of Mapkit)
 * LSSM versie
+* version of the installed LSSM userscript
 
 Deze data wordt gebruikt om de extensie te verbeteren, maar ook als gids voor de ontwikkeling van bestaande of toekomstige modules.
 Ze zijn ook de basis voor spannende statistieken, welke gepubliceerd kunnen worden, bijvoorbeeld als nieuws (voor meer informatie, zie [onder](#publiceren-van-statistieken)).

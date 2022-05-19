@@ -158,6 +158,11 @@ export default (
                             modules: await LSSM.$store.dispatch('storage/get', {
                                 key: 'activeModules',
                             }),
+                            userscript_version:
+                                window[
+                                    'lssmv4-GM_Info'
+                                ]?.script.version.replace(/-.*$/u, '') ??
+                                '4.0.0',
                         },
                         flag: config.games[LSSM.$i18n.locale].flag,
                     }),
