@@ -24,7 +24,9 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [5, 15, 20, 28, 27, 29, 48, 49, 50, 57, 58, 59, 60, 61],
+                unlocksVehicleTypes: [
+                    5, 15, 20, 28, 27, 29, 48, 49, 50, 57, 58, 59, 60, 61,
+                ],
             },
             {
                 caption: 'Airport Extension',
@@ -186,8 +188,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [41, 57, 58],
-                parkingLotReservations:[[57, 58], [57, 58]],
-                
+                parkingLotReservations: [
+                    [57, 58],
+                    [57, 58],
+                ],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
@@ -261,7 +265,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [55],
-                parkingLotReservations:[[55], [55]],
+                parkingLotReservations: [[55], [55]],
             },
             {
                 caption: 'Additional Patrol Boat Parking Spaces',
@@ -271,7 +275,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 requiredExtensions: [10],
-                parkingLotReservations:[[55], [55]],
+                parkingLotReservations: [[55], [55]],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
@@ -436,7 +440,9 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [5, 15, 20, 27, 28, 29, 48, 49, 50, 57, 58, 59, 60, 61],
+                unlocksVehicleTypes: [
+                    5, 15, 20, 27, 28, 29, 48, 49, 50, 57, 58, 59, 60, 61,
+                ],
             },
             {
                 caption: 'Airport Extension',
@@ -547,7 +553,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [55],
-                parkingLotReservations:[[55], [55]],
+                parkingLotReservations: [[55], [55]],
             },
             {
                 caption: 'Additional Patrol Boat Parking Spaces',
@@ -557,7 +563,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 requiredExtensions: [10],
-                parkingLotReservations:[[55], [55]],
+                parkingLotReservations: [[55], [55]],
             },
         ],
         levelcost: [
@@ -591,7 +597,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [41, 57, 58],
-                parkingLotReservations:[[57, 58], [57, 58]],
+                parkingLotReservations: [
+                    [57, 58],
+                    [57, 58],
+                ],
             },
         ],
         levelcost: [
