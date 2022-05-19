@@ -26,12 +26,7 @@ export default {
                 givesParkingLots: 0,
                 isVehicleExtension: true,
             },
-            {
-                caption: 'Airport extension',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-            },
+            null,
             {
                 caption: 'Foam Extension',
                 credits: 150_000,
@@ -72,12 +67,7 @@ export default {
                 },
                 11
             ),
-            {
-                caption: 'Water rescue expansion',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-            },
+            null,
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: '6.000 together with small fire stations',

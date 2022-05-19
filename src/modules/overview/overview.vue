@@ -388,7 +388,7 @@ export default Vue.extend<
                 extensions.forEach(extension => {
                     if (!extension) return;
                     const e = minifiedExtensions.find(
-                        e => extension.caption === e.caption
+                        e => extension.caption === e?.caption
                     );
                     if (e) {
                         if (!multipleExtensions.hasOwnProperty(e.caption))
@@ -401,7 +401,7 @@ export default Vue.extend<
                 Object.entries(multipleExtensions).forEach(
                     ([caption, amount]) => {
                         const e = minifiedExtensions.find(
-                            e => e.caption === caption
+                            e => e?.caption === caption
                         );
                         if (e) {
                             e.caption = this.$tc(

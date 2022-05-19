@@ -77,7 +77,7 @@ interface BaseBuilding {
     color: string;
     credits: number;
     coins: number;
-    extensions: InternalExtension[];
+    extensions: (InternalExtension | null)[]; // null if extension is not available
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;
