@@ -28,17 +28,17 @@
             },
             "extensions": {
                 "abort": "Annulla",
-                "disable": "disable",
+                "disable": "Disabilita",
                 "disabled": "Completata ma disabilitata",
-                "enable": "enable",
+                "enable": "Abilita",
                 "enabled": "Completata ed in funzione",
                 "filter": {
                     "all": "Tutto",
                     "buildings": "Edifici",
                     "canBuy": "Disponibili",
-                    "canToggle": "can enable/disable",
+                    "canToggle": "Si può abilitare/disabilitare",
                     "cannotBuy": "Non disponibili",
-                    "cannotToggle": "cannot enable/disable",
+                    "cannotToggle": "Non si può abilitare/disabilitare",
                     "disabled": "Completata ma disabilitata",
                     "enabled": "Completata ed in funzione",
                     "extensions": "Estensioni",
@@ -77,7 +77,7 @@
         },
         "settings": {
             "abort": "Annulla",
-            "buildingTabs": "Show tabs for attached buildings?",
+            "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
             "dissolve": {
                 "buttons": {
@@ -92,7 +92,7 @@
             "location": "Posizione",
             "name": "Nome",
             "save": "Salva",
-            "showMarkers": "Mostra edifici collegati nella mappa?",
+            "showMarkers": "Mostra nella mappa gli edifici collegati",
             "title": "Modifica complesso edilizio"
         }
     }
