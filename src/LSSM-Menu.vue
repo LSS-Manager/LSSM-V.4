@@ -581,7 +581,7 @@ export default Vue.extend<
         padding: 10px
 
         img
-            height: 30.5px !important
+            height: 30px !important
             width: unset
 
     .dropdown-menu[aria-labelledby="lssmv4-indicator_menu"]
