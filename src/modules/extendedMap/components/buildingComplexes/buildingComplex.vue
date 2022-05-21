@@ -863,6 +863,8 @@ type ExtensionSortAttribute = 'actions' | 'buildingName' | 'name';
 type ExtensionStateFilters =
     | 'canBuy'
     | 'cannotBuy'
+    | 'cannotToggle'
+    | 'canToggle'
     | 'disabled'
     | 'enabled'
     | 'underConstruction';
@@ -1569,19 +1571,93 @@ export default Vue.extend<
                         (this.extensionsTable.filters.states.includes(
                             'disabled'
                         ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
                             'bought' in extension &&
                             !extension.enabled) ||
                         (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            'bought' in extension &&
+                            !extension.enabled &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
+                            'bought' in extension &&
+                            !extension.enabled &&
+                            !extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
                             'enabled'
                         ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
                             'bought' in extension &&
                             extension.enabled &&
                             extension.available) ||
                         (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available &&
+                            !extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
                             'underConstruction'
                         ) &&
                             'bought' in extension &&
-                            !extension.available)
+                            !extension.available) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'canToggle'
+                        ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'enabled'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'disabled'
+                            ) &&
+                            'bought' in extension &&
+                            extension.available &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'cannotToggle'
+                        ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'enabled'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'disabled'
+                            ) &&
+                            'bought' in extension &&
+                            extension.available &&
+                            !extension.canToggle)
                     );
                 }
 
@@ -1718,6 +1794,8 @@ export default Vue.extend<
                     [
                         'canBuy',
                         'cannotBuy',
+                        'canToggle',
+                        'cannotToggle',
                         'disabled',
                         'enabled',
                         'underConstruction',
