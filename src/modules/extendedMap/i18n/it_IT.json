@@ -28,7 +28,9 @@
             },
             "extensions": {
                 "abort": "Annulla",
+                "disable": "disable",
                 "disabled": "Completata ma disabilitata",
+                "enable": "enable",
                 "enabled": "Completata ed in funzione",
                 "filter": {
                     "all": "Tutto",

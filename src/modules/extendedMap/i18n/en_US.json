@@ -28,7 +28,9 @@
             },
             "extensions": {
                 "abort": "Abort",
+                "disable": "disable",
                 "disabled": "Finished & disabled",
+                "enable": "enable",
                 "enabled": "Finished & enabled",
                 "filter": {
                     "all": "All",

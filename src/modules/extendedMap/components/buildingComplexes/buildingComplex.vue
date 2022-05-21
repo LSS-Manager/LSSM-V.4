@@ -607,6 +607,29 @@
                                                     )
                                                 }}
                                             </span>
+                                            <button
+                                                v-if="extension.canToggle"
+                                                class="btn btn-xs btn-default extension-toggle"
+                                                @click="
+                                                    toggleExtension(
+                                                        extension.buildingId,
+                                                        extension.type
+                                                    )
+                                                "
+                                                :disabled="
+                                                    tempDisableAllExtensionButtons
+                                                "
+                                            >
+                                                {{
+                                                    $m(
+                                                        `overview.extensions.${
+                                                            extension.enabled
+                                                                ? 'disable'
+                                                                : 'enable'
+                                                        }`
+                                                    )
+                                                }}
+                                            </button>
                                         </template>
                                         <template v-else>
                                             <span class="label label-default">
@@ -814,7 +837,7 @@ type AttributedExtension = {
     name: string;
     type: number;
 } & (
-    | { bought: true; available: boolean; enabled: boolean }
+    | { bought: true; available: boolean; enabled: boolean; canToggle: boolean }
     | ({
           duration: string;
           credits: number;
@@ -889,6 +912,7 @@ export default Vue.extend<
             method: 'coins' | 'credits',
             price: number
         ): void;
+        toggleExtension(buildingId: number, extensionType: number): void;
         updateExtensionsFilterNames(names: string[]): void;
         updateExtensionsFilterBuildings(buildings: (number | '*')[]): void;
         updateExtensionsFilterStates(
@@ -1457,6 +1481,8 @@ export default Vue.extend<
                                           bought: true,
                                           available: boughtExtension.available,
                                           enabled: boughtExtension.enabled,
+                                          canToggle:
+                                              !extensionType.cannotDisable,
                                       }
                                     : {
                                           ...(canBuy
@@ -1842,6 +1868,41 @@ export default Vue.extend<
                         });
                 });
         },
+        toggleExtension(buildingId, extensionType) {
+            this.tempDisableAllExtensionButtons = true;
+            const url = new URL('/', window.location.origin);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                document.querySelector<HTMLMetaElement>(
+                    'meta[name="csrf-token"]'
+                )?.content ?? ''
+            );
+            const feature = 'buildingComplexes-toggle-extension';
+            this.$store
+                .dispatch('api/request', {
+                    url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
+                    init: {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `/buildings/${buildingId}`,
+                        method: 'POST',
+                        body: url.searchParams.toString(),
+                    },
+                    feature,
+                })
+                .then(() => {
+                    this.$store
+                        .dispatch('api/fetchBuilding', {
+                            id: buildingId,
+                            feature,
+                        })
+                        .then(() => {
+                            this.tempDisableAllExtensionButtons = false;
+                        });
+                });
+        },
         updateExtensionsFilterNames(names) {
             if (
                 names.findIndex(name => name === '*') === names.length - 1 ||
@@ -1971,6 +2032,9 @@ export default Vue.extend<
         > div
             flex-grow: 1
             margin-right: 1em
+
+    .extension-toggle
+        margin-left: 1rem
 
     ul.requirements-list li
         &:first-child

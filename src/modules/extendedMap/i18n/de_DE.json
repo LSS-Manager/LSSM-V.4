@@ -28,7 +28,9 @@
             },
             "extensions": {
                 "abort": "Abbrechen",
+                "disable": "deaktivieren",
                 "disabled": "Fertig gebaut & deaktiviert",
+                "enable": "aktivieren",
                 "enabled": "Fertig gebaut & aktiviert",
                 "filter": {
                     "all": "Alle",
