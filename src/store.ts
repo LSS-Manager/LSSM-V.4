@@ -53,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             mode: MODE,
             lang: window.I18n.locale,
             discord: `https://discord.gg/${config.discord.invite}`,
+            github: `https://github.com/${config.github.repo}`,
             games: config.games,
             server: config.server,
             fontAwesomeIconSearch: config.fontAwesomeIconSearch,

@@ -61,6 +61,9 @@
             <li role="presentation">
                 <a class="lightbox-open" :href="wiki">Wiki</a>
             </li>
+            <li role="presentation">
+                <a class="lightbox-open" :href="$store.state.github">GitHub</a>
+            </li>
             <!-- <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
                     LSSM-Server Status
