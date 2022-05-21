@@ -1594,9 +1594,10 @@ export default Vue.extend<
             ): number => {
                 const min = Number.MIN_SAFE_INTEGER / 2;
                 if ('bought' in extension) {
-                    if (!extension.available) return min + 2;
-                    if (extension.enabled) return min;
-                    return min + 1;
+                    if (!extension.available) return min + 4;
+                    const toggleBonus = extension.canToggle ? 0 : 1;
+                    if (extension.enabled) return min + toggleBonus;
+                    return min + 2 + toggleBonus;
                 }
                 return extension.credits;
             };
