@@ -58,11 +58,59 @@ utils(Vue);
 (async () => {
     if (window.hasOwnProperty(PREFIX)) return;
 
+    let couldNotLoadI18n = false;
+
     const LSSM = new Vue({
         store: store(Vue),
-        i18n: await i18n(Vue),
+        i18n: await i18n(Vue).catch(() => {
+            couldNotLoadI18n = true;
+            return undefined;
+        }),
         render: h => h(LSSMV4),
     }).$mount(appContainer);
+
+    if (couldNotLoadI18n) {
+        if (window.location.pathname === '/') {
+            LSSM.$modal.show('dialog', {
+                title: 'LSSM V.4: Language not supported',
+                text: `Thank you for using LSSM V.4!<br>
+unfortunately your language <code>${LSSM.$store.state.lang}</code> is not yet supported. Why? The translations simply don't exist.<br>
+V.4 is too big for LSSM-Team to maintain all translations, so we need to rely on volunteer translators. You can find information on this at:
+<ul>
+    <li style='list-style: unset !important;'>
+        <a href='${LSSM.$store.state.server}docs/en_US/faq' target='_blank'>
+            FAQ
+        </a>
+    </li>
+    <li style='list-style: unset !important;'>
+        <a href='${LSSM.$store.state.server}docs/en_US/contributing' target='_blank'>
+            Contribution guide
+        </a>
+    </li>
+    <li style='list-style: unset !important;'>
+        <a href='${LSSM.$store.state.discord}' target='_blank'>
+            LSSM Discord Server
+        </a>
+    </li>
+</ul>
+We would be happy if you help to make LSSM available in this language version!<br>
+<br>
+Yours<br>
+LSSM-Team`,
+                options: {},
+                buttons: [
+                    {
+                        title: 'OK',
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                ],
+            });
+        }
+
+        return;
+    }
 
     window[PREFIX] = LSSM;
 
