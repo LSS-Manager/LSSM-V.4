@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         LSS-Manager V.4
 // @version      4.5.9-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
-// @author       Aisaka | Sanni | Jan (jxn_30) | Ron31
-// @description  A Script-Collection for Leitstellenspiel, Missionchief and its other language versions.
+// @author       The LSSM-Team: Aisaka, Sanni, Jan (jxn_30), Ron31
+// @description  LSSM V4 is a Script-Collection for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions.
 // @namespace    https://lss-manager.de/
 // @homepage     https://proxy.lss-manager.de/v4/docs/
 // @downloadURL  https://proxy.lss-manager.de/v4/lssm-v4.user.js
