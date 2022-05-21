@@ -39,6 +39,7 @@ interface BaseExtension {
     credits: number;
     coins: number;
     duration: string;
+    cannotDisable?: true;
     maxExtensionsFunction?(
         buildingsByType?: Record<number, Building[]>
     ): number;

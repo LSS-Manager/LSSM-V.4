@@ -54,6 +54,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -98,6 +99,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -119,54 +121,63 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Cirugía general',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Ginecología',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Urología',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatología',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurología',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurocirugía',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiología',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Cirugía cardiovascular',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 / 11 Monedas'],
@@ -208,6 +219,7 @@ export default {
                 coins: 5,
                 duration: '7 Días',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -216,6 +228,7 @@ export default {
                     coins: 5,
                     duration: '7 Días',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -259,6 +272,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -315,6 +329,7 @@ export default {
                 coins: 5,
                 duration: '7 Días',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -323,6 +338,7 @@ export default {
                     coins: 5,
                     duration: '7 Días',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -382,6 +398,7 @@ export default {
                 coins: 5,
                 duration: '7 Días',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Más celdas',
@@ -389,6 +406,7 @@ export default {
                 coins: 5,
                 duration: '7 Días',
                 newCells: 1,
+                cannotDisable: true,
             },
         ],
         levelcost: [

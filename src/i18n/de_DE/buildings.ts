@@ -36,6 +36,7 @@ export default {
                     givesParkingLots: 1,
                     unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
                     parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    cannotDisable: true,
                 },
                 5
             ),
@@ -57,6 +58,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
                 parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                cannotDisable: true,
             },
             {
                 caption: 'Flughafen-Erweiterung',
@@ -96,6 +98,7 @@ export default {
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -107,6 +110,7 @@ export default {
                     givesParkingLots: 1,
                     unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
                     parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    cannotDisable: true,
                 },
                 3
             ),
@@ -155,6 +159,7 @@ export default {
                 duration: '7 Tage',
                 newClassrooms: 1,
                 requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
             }),
             3
         ),
@@ -193,6 +198,7 @@ export default {
                 duration: '7 Tage',
                 newClassrooms: 1,
                 requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
             }),
             3
         ),
@@ -214,12 +220,14 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Tage',
+                cannotDisable: true,
             },
             {
                 caption: 'Allgemeine Chirurgie',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Tage',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynäkologie',
@@ -227,6 +235,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Urologie',
@@ -234,6 +243,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Unfallchirurgie',
@@ -241,6 +251,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurologie',
@@ -248,6 +259,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurochirurgie',
@@ -255,6 +267,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Kardiologie',
@@ -262,6 +275,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Kardiochirurgie',
@@ -269,6 +283,7 @@ export default {
                 coins: 15,
                 duration: '7 Tage',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -310,6 +325,7 @@ export default {
                 coins: 5,
                 duration: '7 Tage',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -319,6 +335,7 @@ export default {
                     duration: '7 Tage',
                     newCells: 1,
                     requiredExtensions: [0],
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -390,6 +407,7 @@ export default {
                 duration: '7 Tage',
                 newClassrooms: 1,
                 requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
             }),
             3
         ),
@@ -528,6 +546,7 @@ export default {
                 duration: '7 Tage',
                 newClassrooms: 1,
                 requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
             }),
             3
         ),
@@ -784,6 +803,7 @@ export default {
                 coins: 5,
                 duration: '7 Tage',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -793,6 +813,7 @@ export default {
                     duration: '7 Tage',
                     newCells: 1,
                     requiredExtensions: [0],
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -897,6 +918,7 @@ export default {
                     givesParkingLots: 1,
                     unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
                     parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    cannotDisable: true,
                 },
                 2
             ),
@@ -979,6 +1001,7 @@ export default {
                 coins: 5,
                 duration: '7 Tage',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Zelle',
@@ -987,6 +1010,7 @@ export default {
                 duration: '7 Tage',
                 newCells: 1,
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Diensthundestaffel',

@@ -49,6 +49,7 @@ export default {
                 parkingLotReservations: [
                     [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
                 ],
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -64,6 +65,7 @@ export default {
                     parkingLotReservations: [
                         [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
                     ],
+                    cannotDisable: true,
                 },
                 11
             ),
@@ -92,6 +94,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -140,6 +143,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -161,12 +165,14 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'General Surgeon',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynecology',
@@ -174,6 +180,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Urology',
@@ -181,6 +188,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatology',
@@ -188,6 +196,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurology',
@@ -195,6 +204,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurosurgery',
@@ -202,6 +212,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiology',
@@ -209,6 +220,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiac Surgery',
@@ -216,6 +228,7 @@ export default {
                 coins: 15,
                 duration: '7 Days',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -257,6 +270,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -265,6 +279,7 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -328,6 +343,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -384,6 +400,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -392,6 +409,7 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -446,6 +464,7 @@ export default {
                 parkingLotReservations: [
                     41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
                 ],
+                cannotDisable: true,
             },
             {
                 caption: 'Swap Body Parking Space',
@@ -460,6 +479,7 @@ export default {
                 parkingLotReservations: [
                     41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
                 ],
+                cannotDisable: true,
             },
             {
                 caption: 'Water rescue expansion',
@@ -496,6 +516,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -504,6 +525,7 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -577,6 +599,7 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1-5. 20.000'],
@@ -677,6 +700,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -685,6 +709,7 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 39
             ),

@@ -68,6 +68,7 @@ export default {
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -105,6 +106,7 @@ export default {
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -126,12 +128,14 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 jours',
+                cannotDisable: true,
             },
             {
                 caption: 'Chirurgien général',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 jours',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynécologie',
@@ -139,6 +143,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Urologie',
@@ -146,6 +151,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatologie',
@@ -153,6 +159,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurologie',
@@ -160,6 +167,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurochirurgie',
@@ -167,6 +175,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiologie',
@@ -174,6 +183,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Chirurgie cardiaque',
@@ -181,6 +191,7 @@ export default {
                 coins: 15,
                 duration: '7 jours',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 crédits / 11 pièces'],
@@ -221,6 +232,7 @@ export default {
                 coins: 5,
                 duration: '7 jours',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -229,6 +241,7 @@ export default {
                     coins: 5,
                     duration: '7 jours',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -270,6 +283,7 @@ export default {
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -396,6 +410,7 @@ export default {
                 coins: 5,
                 duration: '7 jours',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -404,6 +419,7 @@ export default {
                     coins: 5,
                     duration: '7 jours',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -477,6 +493,7 @@ export default {
                 coins: 5,
                 duration: '7 jours',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Plus de cellules',
@@ -484,6 +501,7 @@ export default {
                 coins: 5,
                 duration: '7 jours',
                 newCells: 1,
+                cannotDisable: true,
             },
         ],
         levelcost: [
