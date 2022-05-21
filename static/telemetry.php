@@ -29,7 +29,7 @@ if ($MYSQLI->connect_errno) {
 }
 
 $userscript_version = '4.0.0';
-if (!isset($post->userscript_version)) $userscript_version = $post->userscript_version;
+if (isset($post->userscript_version)) $userscript_version = $post->userscript_version;
 
 if ($USER == null) {
     if (!($insert = $MYSQLI->prepare('INSERT INTO `v4_user`(`id`, `game`, `uid`, `version`, `name`, `data`, `police`, `userscript_version`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'))) {
