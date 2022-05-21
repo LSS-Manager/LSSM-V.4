@@ -169,6 +169,7 @@ export default {
         start: `${PREFIX}-load-script-start`,
         end: `${PREFIX}-load-script-end`,
     },
+    userscript_latest_update: '4.5.10',
     prefix: PREFIX,
     server: 'https://proxy.lss-manager.de/v4/',
     fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',

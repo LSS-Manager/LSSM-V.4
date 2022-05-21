@@ -65,6 +65,7 @@ export default {
                 coins: 40,
                 duration: '7 dager',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -109,6 +110,7 @@ export default {
                 coins: 40,
                 duration: '7 dager',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -130,54 +132,63 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Generell kirurgi',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynekologisk',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Urologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Traume',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Nevrologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Nevrokirurgi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Kardiologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
             {
                 caption: 'Karkirurgi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dager',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -219,6 +230,7 @@ export default {
                 coins: 5,
                 duration: '7 Dager',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -227,6 +239,7 @@ export default {
                     coins: 5,
                     duration: '7 Dager',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -269,6 +282,7 @@ export default {
                 coins: 40,
                 duration: '7 dager',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -325,6 +339,7 @@ export default {
                 coins: 5,
                 duration: '7 Dager',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -333,6 +348,7 @@ export default {
                     coins: 5,
                     duration: '7 Dager',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -403,6 +419,7 @@ export default {
                 coins: 5,
                 duration: '7 Dager',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Flere celler',
@@ -410,6 +427,7 @@ export default {
                 coins: 5,
                 duration: '7 Dager',
                 newCells: 1,
+                cannotDisable: true,
             },
         ],
         levelcost: [
@@ -467,6 +485,7 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 dager',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
@@ -477,6 +496,7 @@ export default {
         startVehicles: ['Ikke. Du kan kjøpe maks. 2 Kjøretøy'],
         startParkingLots: 2,
         startBeds: 5,
+        parkingLotsPerLevel: 0,
     },
     22: {
         caption: 'Stort kompleks',

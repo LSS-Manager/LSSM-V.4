@@ -61,6 +61,16 @@ const modules = {
 
 export default {
     modules,
+    updateUserscript: {
+        title: 'Userscript veraltet',
+        text: `Lieber LSSM-Nutzer,<br>
+leider ist dein LSSM V.4 Userscript veraltet. In der neuesten Version wurden änderungen am Userscript vorgenommen, die wichtig für die Funktion des LSSM V.4 sind.<br>
+Du benötigst mindestens Version {minVersion}, das Update kannst du bequem per Klick auf {updateLink} durchführen.<br>
+<br>
+Liebe Grüße,<br>
+Dein LSSM-Team`,
+        close: 'Ok',
+    },
     error: {
         title: 'LSS-Manager: Fehler',
         msg: 'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',

@@ -28,13 +28,17 @@
             },
             "extensions": {
                 "abort": "Anuluj",
+                "disable": "disable",
                 "disabled": "Ukończone i wyłączone",
+                "enable": "enable",
                 "enabled": "Ukończone i włączone",
                 "filter": {
                     "all": "Wszystko",
                     "buildings": "Budynki",
                     "canBuy": "można kupić",
+                    "canToggle": "can enable/disable",
                     "cannotBuy": "nie można kupić",
+                    "cannotToggle": "cannot enable/disable",
                     "disabled": "skończony i wyłączony",
                     "enabled": "skończony i włączony",
                     "extensions": "Rozbudowy",
