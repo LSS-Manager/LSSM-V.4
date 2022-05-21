@@ -22,6 +22,12 @@ export default async (): Promise<void> =>
             .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}
+// @namespace    https://lss-manager.de/
+// @homepage     ${config.server}docs/
+// @downloadURL  ${config.server}lssm-v4.user.js
+// @updateURL    ${config.server}lssm-v4.user.js
+// @supportURL   ${config.server}docs/en_US/error_report
+// @icon         ${config.server}docs/img/lssm.png
 ${Object.values(config.games)
     .map(
         ({ shortURL, police }) =>
@@ -32,11 +38,6 @@ ${Object.values(config.games)
             }`
     )
     .join('\n')}
-// @homepage     ${config.server}docs/
-// @updateURL    ${config.server}lssm-v4.user.js
-// @downloadURL  ${config.server}lssm-v4.user.js
-// @icon         ${config.server}docs/img/lssm.png
-// @supportURL   ${config.server}docs/en_US/error_report
 // @run-at       document-idle
 // @grant        GM_info
 // @grant        unsafeWindow
