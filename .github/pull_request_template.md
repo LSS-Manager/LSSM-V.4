@@ -1,11 +1,8 @@
----
-name: "Pull Request"
-about: "The general PR template"
-title: "🔀"
----
+<!-- Please start the title of this PR with 🔀 -->
 
 <!-- Note: Please stick to this template to help us keep LSSM clean! -->
 **What kind of update does this PR provide?** *Please check*
+<!-- you can check a checkbox by replacing the space ` ` with a `x`: [x] -->
 - [ ] new translations / updated translations / translation fixes
 - [ ] a new feature
 - [ ] a new module
