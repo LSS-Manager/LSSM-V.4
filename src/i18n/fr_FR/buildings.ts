@@ -62,14 +62,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Plus de salles de cours',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -100,14 +101,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Plus de salles de cours',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -242,6 +244,7 @@ export default {
                     duration: '7 jours',
                     newCells: 1,
                     cannotDisable: true,
+                    requiredExtensions: [0],
                 },
                 9
             ),
@@ -277,14 +280,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Plus de salles de cours',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -422,6 +426,7 @@ export default {
                     duration: '7 jours',
                     newCells: 1,
                     cannotDisable: true,
+                    requiredExtensions: [0],
                 },
                 9
             ),
@@ -504,6 +509,7 @@ export default {
                 duration: '7 jours',
                 newCells: 1,
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
         ],
         levelcost: [
