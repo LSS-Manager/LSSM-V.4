@@ -17,6 +17,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             '#tab_protocol'
         )
             ? 'dispatch'
+            : document.querySelector<HTMLDivElement>('#schooling_running')
+            ? 'schooling'
             : 'building';
 
         const path = window.location.pathname.split('/').filter(s => !!s);
@@ -26,7 +28,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             feature: `${MODULE_ID}-main`,
         });
 
-        if (await getSetting('enhanceVehicleList')) {
+        if (
+            (BUILDING_MODE === 'dispatch' || BUILDING_MODE === 'building') &&
+            (await getSetting('enhanceVehicleList'))
+        ) {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
             ).then(({ default: evl }) =>
@@ -80,6 +85,17 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
             ).then(({ default: buildingsLeftRight }) =>
                 buildingsLeftRight(LSSM)
+            );
+        }
+
+        if (
+            BUILDING_MODE === 'schooling' &&
+            (await getSetting('schoolsBuildingFilter'))
+        ) {
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/schoolsBuildingFilter" */ './assets/schoolsBuildingFilter'
+            ).then(({ default: schoolsBuildingFilter }) =>
+                schoolsBuildingFilter(LSSM)
             );
         }
     } else if (

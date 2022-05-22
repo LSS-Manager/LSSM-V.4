@@ -38,6 +38,10 @@
             "description": "Laat in het personeelsoverzicht van een gebouw zien hoeveel personen welke opleiding(en) hebben.",
             "title": "Personeelsamenvatting"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
         "upgradeConfirmation": {
             "description": "Vraagt of u uw gebouw echt wilt upgraden.",
             "title": "Upgrade Gebouw"

@@ -38,6 +38,10 @@
             "description": "Zeigt in der Personalübersicht eines Gebäudes an, wie viele Personen welche Ausbildung(en) haben.",
             "title": "Personalzusammenfassung"
         },
+        "schoolsBuildingFilter": {
+            "description": "Nützliche Filter, um die Gebäudeliste im Lehrgangsfenster zu kürzen",
+            "title": "Gebäudefilter bei Lehrgangsauswahl"
+        },
         "upgradeConfirmation": {
             "description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
             "title": "Gebäude ausbauen"
