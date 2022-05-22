@@ -1,5 +1,5 @@
-import type { Vehicle } from 'typings/Vehicle';
 import type { Building } from 'typings/Building';
+import type { Vehicle } from 'typings/Vehicle';
 
 interface BuildingInfos {
     el: HTMLDivElement;
