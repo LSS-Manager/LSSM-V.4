@@ -3361,10 +3361,16 @@ vue@^3.2.33, vue@^3.2.35:
     "@vue/server-renderer" "3.2.35"
     "@vue/shared" "3.2.35"
 
-vuepress-plugin-clipboard@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-clipboard/-/vuepress-plugin-clipboard-1.0.8.tgz#725c30208c52f097a309b386d96e7c0a141460ad"
-  integrity sha512-npzJpmIoU73iwuihVCYq82my9opkphp4MQR30lEDQ9upBVjbkFLetMYx/DApTX+y7SKVV+jufS33shzoGBn7Xw==
+vuepress-plugin-clipboard@^2.0.3:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-clipboard/-/vuepress-plugin-clipboard-2.1.0.tgz#40837cd02efa6ebab0647f4a84b34a718f374aa4"
+  integrity sha512-AGGEK5xqXie2nacFL5aC6pX6ucAGSOr12Mem9EpgJDXNhepxFDAy1n+Ve04VkOQtFqEAyT6hIQTesGxh9P4+xg==
+  dependencies:
+    "@vuepress/client" "2.0.0-beta.45"
+    "@vuepress/core" "2.0.0-beta.45"
+    "@vuepress/utils" "2.0.0-beta.45"
+    vue "^3.2.33"
+    vue-router "^4.0.15"
 
 vuepress-vite@2.0.0-beta.45:
   version "2.0.0-beta.45"
