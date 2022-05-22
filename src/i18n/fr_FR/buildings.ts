@@ -68,6 +68,7 @@ export default {
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
             },
             3
@@ -106,6 +107,7 @@ export default {
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
             },
             3
@@ -242,6 +244,7 @@ export default {
                     duration: '7 jours',
                     newCells: 1,
                     cannotDisable: true,
+					requiredExtensions: [1],
                 },
                 9
             ),
@@ -283,6 +286,7 @@ export default {
                 coins: 40,
                 duration: '7 jours',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
             },
             3
@@ -422,6 +426,7 @@ export default {
                     duration: '7 jours',
                     newCells: 1,
                     cannotDisable: true,
+					requiredExtensions: [1],
                 },
                 9
             ),
@@ -504,6 +509,7 @@ export default {
                 duration: '7 jours',
                 newCells: 1,
                 cannotDisable: true,
+				requiredExtensions: [1],
             },
         ],
         levelcost: [
