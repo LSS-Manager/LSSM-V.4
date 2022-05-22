@@ -28,13 +28,17 @@
             },
             "extensions": {
                 "abort": "Abort",
+                "disable": "disable",
                 "disabled": "Finished & disabled",
+                "enable": "enable",
                 "enabled": "Finished & enabled",
                 "filter": {
                     "all": "All",
                     "buildings": "Buildings",
                     "canBuy": "can buy",
+                    "canToggle": "can enable/disable",
                     "cannotBuy": "cannot buy",
+                    "cannotToggle": "cannot enable/disable",
                     "disabled": "finished & disabled",
                     "enabled": "finished & enabled",
                     "extensions": "Extensions",
@@ -73,6 +77,7 @@
         },
         "settings": {
             "abort": "Abort",
+            "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "attached buildings",
             "dissolve": {
                 "buttons": {

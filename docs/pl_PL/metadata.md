@@ -19,6 +19,7 @@ Używając `LSSM` (Leitstellenspiel Manager, userscript for the browser) użytko
   * w tym informacje, czy wersja policyjna (jeśli jest dostępna) czy nie
 * Jaki typ mapy jest aktywny (OSM czy Mapkit)
 * Wersja LSSM
+* version of the installed LSSM userscript
 
 Dane te są wykorzystywane do ulepszania rozszerzenia, a także do kierowania rozwojem istniejących lub przyszłych modułów.
  Stanowią też podstawę do tworzenia ciekawych statystyk, które mogą być publikowane np. jako newsy (więcej informacji patrz [poniżej](#publikowanie-statystyk)).

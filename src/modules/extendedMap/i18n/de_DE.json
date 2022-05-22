@@ -28,13 +28,17 @@
             },
             "extensions": {
                 "abort": "Abbrechen",
+                "disable": "deaktivieren",
                 "disabled": "Fertig gebaut & deaktiviert",
+                "enable": "aktivieren",
                 "enabled": "Fertig gebaut & aktiviert",
                 "filter": {
                     "all": "Alle",
                     "buildings": "Gebäude",
                     "canBuy": "kaufbar",
+                    "canToggle": "(de-)aktivierbar",
                     "cannotBuy": "nicht kaufbar",
+                    "cannotToggle": "nicht (de-)aktivierbar",
                     "disabled": "fertiggestellt & deaktiviert",
                     "enabled": "fertiggestellt & aktiviert",
                     "extensions": "Ausbauten",
@@ -73,6 +77,7 @@
         },
         "settings": {
             "abort": "Abbrechen",
+            "buildingTabs": "Tabs für angehängte Gebäude anzeigen?",
             "buildings": "angehängte Gebäude",
             "dissolve": {
                 "buttons": {

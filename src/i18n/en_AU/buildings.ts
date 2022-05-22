@@ -53,6 +53,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -90,6 +91,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -111,54 +113,63 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'General Surgeon',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynecology',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Urology',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatology',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurology',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurosurgery',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiology',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiac Surgery',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Days',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -200,6 +211,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -208,6 +220,7 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -268,6 +281,7 @@ export default {
                 coins: 40,
                 duration: '7 Days',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -339,6 +353,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -347,6 +362,7 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -399,6 +415,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Additional cell',
@@ -406,6 +423,7 @@ export default {
                 coins: 5,
                 duration: '7 Days',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Riot Police Extension',

@@ -50,6 +50,16 @@ const modules = {
 
 export default {
     modules,
+    updateUserscript: {
+        title: 'Userscript out of date',
+        text: `Dear LSSM-User,<br>
+unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of the LSSM V.4.<br>
+You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.
+<br>
+Kind regards,<br>
+your LSSM team`,
+        close: 'Ok',
+    },
     error: {
         title: 'LSS Manager: Error',
         msg: 'Om denne feilen skjer ofte, vennligst rapporter det til LSSM teamet!',

@@ -86,6 +86,7 @@ export default {
                 coins: 40,
                 duration: '7 Giorni',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -134,6 +135,7 @@ export default {
                 coins: 40,
                 duration: '7 Giorni',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -155,12 +157,14 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Giorni',
+                cannotDisable: true,
             },
             {
                 caption: 'Chirurgia generale',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Giorni',
+                cannotDisable: true,
             },
             {
                 caption: 'Ginecologia',
@@ -168,6 +172,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Urologia',
@@ -175,6 +180,7 @@ export default {
                 coins: 15,
                 duration: '7 giorni',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatologia',
@@ -182,6 +188,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurologia',
@@ -189,6 +196,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Neurochirurgia',
@@ -196,6 +204,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiologia',
@@ -203,6 +212,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Chirurgia Cardiaca',
@@ -210,6 +220,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [1],
+                cannotDisable: true,
             },
             {
                 caption: 'Psichiatria',
@@ -217,6 +228,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Oncologia',
@@ -224,6 +236,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Gastroenterologia',
@@ -231,6 +244,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Oculistica',
@@ -238,6 +252,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Otorinolaringoiatria',
@@ -245,6 +260,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Dermatologia',
@@ -252,6 +268,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
             {
                 caption: 'Malattie infettive',
@@ -259,6 +276,7 @@ export default {
                 coins: 15,
                 duration: '7 Giorni',
                 requiredExtensions: [0],
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -300,6 +318,7 @@ export default {
                 coins: 5,
                 duration: '7 giorni',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -308,6 +327,7 @@ export default {
                     coins: 5,
                     duration: '7 giorni',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -350,6 +370,7 @@ export default {
                 coins: 40,
                 duration: '7 giorni',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -421,6 +442,7 @@ export default {
                 coins: 5,
                 duration: '7 giorni',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -429,6 +451,7 @@ export default {
                     coins: 5,
                     duration: '7 giorni',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -520,6 +543,7 @@ export default {
                 coins: 5,
                 duration: '7 giorni',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Altra cella',
@@ -527,6 +551,7 @@ export default {
                 coins: 5,
                 duration: '7 giorni',
                 newCells: 1,
+                cannotDisable: true,
             },
         ],
         levelcost: [

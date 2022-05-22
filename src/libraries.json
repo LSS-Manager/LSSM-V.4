@@ -47,7 +47,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "17.0.33"
+        "version": "17.0.35"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -94,15 +94,15 @@
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.16.4"
+        "version": "1.17.0"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.23.0"
+        "version": "5.25.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.23.0"
+        "version": "5.25.0"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -196,7 +196,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://eslint.vuejs.org",
-        "version": "8.7.1"
+        "version": "9.0.1"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -260,12 +260,12 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.51.0"
+        "version": "1.52.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "12.6.0"
+        "version": "13.0.0"
     },
     "semver": {
         "version": "7.3.7"
@@ -356,7 +356,7 @@
     "vue3": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.2.33"
+        "version": "3.2.35"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",

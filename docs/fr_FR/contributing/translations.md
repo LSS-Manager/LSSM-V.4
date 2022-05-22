@@ -230,6 +230,8 @@ A `BuildingInformation` consists of several required information:
         * `parkingLotReservations` (list of list of numbers, optional): specifies if newly added parking lots are reserved for certain vehicle types
             * this is multi-nested list because each element represents a parking lot and which vehicle-types can be put on it
         * `giftsVehicles` (list of numbers, optional): can list vehicle type Ids for vehicles that are automatically added to the station by finishing the extension
+    * if the extension cannot be disabled (e.g. prison cells), add:
+        * `cannotDisable` which must always be `true`
 * `levelcost` (list of strings, required): You can give information on how much it costs to increase the level in here.
     * The information will be shown in [Overview][module-overview] module
 * `maxBuildings` (string or number, required): This indicates how many buildings one can buy of this type.

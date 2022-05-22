@@ -65,6 +65,7 @@ export default {
                 coins: 40,
                 duration: '7 dagar',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -109,6 +110,7 @@ export default {
                 coins: 40,
                 duration: '7 dagar',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -130,54 +132,63 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Allmän kirurg',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynekologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Urologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurology',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurokirurgi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Kardiologi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
             {
                 caption: 'Hjärtkirurgi',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 dagar',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 coins'],
@@ -218,6 +229,7 @@ export default {
                 coins: 5,
                 duration: '7 dagar',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -226,6 +238,7 @@ export default {
                     coins: 5,
                     duration: '7 dagar',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -267,6 +280,7 @@ export default {
                 coins: 40,
                 duration: '7 dagar',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -323,6 +337,7 @@ export default {
                 coins: 5,
                 duration: '7 dagar',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -331,6 +346,7 @@ export default {
                     coins: 5,
                     duration: '7 dagar',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 1
             ),
@@ -401,6 +417,7 @@ export default {
                 coins: 5,
                 duration: '7 dagar',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Fler celler',
@@ -408,6 +425,7 @@ export default {
                 coins: 5,
                 duration: '7 dagar',
                 newCells: 1,
+                cannotDisable: true,
             },
         ],
         levelcost: [

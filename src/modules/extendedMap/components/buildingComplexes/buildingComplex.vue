@@ -19,6 +19,28 @@
                 <tabs>
                     <!-- List of attached buildings -->
                     <tab :title="$m('overview.buildings.title')">
+                        <div
+                            v-show="buildingsTable.showSummary"
+                            class="summary-alert alert alert-unimportant"
+                        >
+                            <span
+                                class="close"
+                                @click="
+                                    () => (buildingsTable.showSummary = false)
+                                "
+                            >
+                                ×
+                            </span>
+                            <ul>
+                                <li
+                                    v-for="buildingType in buildingTypeAmounts"
+                                    :key="buildingType[0]"
+                                >
+                                    {{ buildingType[1].toLocaleString() }}x
+                                    {{ buildingType[0] }}
+                                </li>
+                            </ul>
+                        </div>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{
@@ -108,16 +130,17 @@
                                     {{
                                         complex.buildings.length.toLocaleString()
                                     }}
-                                    <br />
-                                    <small>
-                                        {{
-                                            buildingTypeAmounts
-                                                .map(
-                                                    ([type, amount]) =>
-                                                        `${type}: ${amount.toLocaleString()}`
-                                                )
-                                                .join(', ')
-                                        }}
+                                    <small
+                                        class="summary-icon"
+                                        @click="
+                                            () =>
+                                                (buildingsTable.showSummary =
+                                                    !buildingsTable.showSummary)
+                                        "
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faCircleInfo"
+                                        />
                                     </small>
                                 </h2>
                             </template>
@@ -254,6 +277,28 @@
                         :title="$m('overview.vehicles.title')"
                         v-if="hasVehicleBuildings"
                     >
+                        <div
+                            v-show="vehiclesTable.showSummary"
+                            class="summary-alert alert alert-unimportant"
+                        >
+                            <span
+                                class="close"
+                                @click="
+                                    () => (vehiclesTable.showSummary = false)
+                                "
+                            >
+                                ×
+                            </span>
+                            <ul>
+                                <li
+                                    v-for="vehicleType in vehicleTypeAmounts"
+                                    :key="vehicleType[0]"
+                                >
+                                    {{ vehicleType[1].toLocaleString() }}x
+                                    {{ vehicleType[0] }}
+                                </li>
+                            </ul>
+                        </div>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{
@@ -297,16 +342,17 @@
                                 <h2 class="overview-heading indented-title">
                                     {{ $m('overview.vehicles.title') }}:
                                     {{ vehicles.length.toLocaleString() }}
-                                    <br />
-                                    <small>
-                                        {{
-                                            vehicleTypeAmounts
-                                                .map(
-                                                    ([type, amount]) =>
-                                                        `${type}: ${amount.toLocaleString()}`
-                                                )
-                                                .join(', ')
-                                        }}
+                                    <small
+                                        class="summary-icon"
+                                        @click="
+                                            () =>
+                                                (vehiclesTable.showSummary =
+                                                    !vehiclesTable.showSummary)
+                                        "
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faCircleInfo"
+                                        />
                                     </small>
                                 </h2>
                             </template>
@@ -561,6 +607,29 @@
                                                     )
                                                 }}
                                             </span>
+                                            <button
+                                                v-if="extension.canToggle"
+                                                class="btn btn-xs btn-default extension-toggle"
+                                                @click="
+                                                    toggleExtension(
+                                                        extension.buildingId,
+                                                        extension.type
+                                                    )
+                                                "
+                                                :disabled="
+                                                    tempDisableAllExtensionButtons
+                                                "
+                                            >
+                                                {{
+                                                    $m(
+                                                        `overview.extensions.${
+                                                            extension.enabled
+                                                                ? 'disable'
+                                                                : 'enable'
+                                                        }`
+                                                    )
+                                                }}
+                                            </button>
                                         </template>
                                         <template v-else>
                                             <span class="label label-default">
@@ -637,7 +706,10 @@
                                             {{ $t('coins') }}
                                         </button>
                                         {{ extension.duration }}
-                                        <ul v-if="!extension.canBuy">
+                                        <ul
+                                            v-if="!extension.canBuy"
+                                            class="requirements-list"
+                                        >
                                             <li>
                                                 {{
                                                     $m(
@@ -669,16 +741,18 @@
                     </tab>
                 </tabs>
             </tab>
-            <tab
-                v-for="building in sortedBuildingsByName"
-                :key="building.id"
-                :title="building.name"
-            >
-                <iframe
-                    :src="`/buildings/${building.id}`"
-                    @load="updateIframe"
-                />
-            </tab>
+            <template v-if="complex.buildingTabs">
+                <tab
+                    v-for="building in sortedBuildingsByName"
+                    :key="building.id"
+                    :title="building.name"
+                >
+                    <iframe
+                        :src="`/buildings/${building.id}`"
+                        @load="updateIframe"
+                    />
+                </tab>
+            </template>
         </tabs>
     </lightbox>
 </template>
@@ -686,6 +760,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 import type { Complex } from '../../assets/buildingComplexes';
@@ -762,7 +837,7 @@ type AttributedExtension = {
     name: string;
     type: number;
 } & (
-    | { bought: true; available: boolean; enabled: boolean }
+    | { bought: true; available: boolean; enabled: boolean; canToggle: boolean }
     | ({
           duration: string;
           credits: number;
@@ -788,12 +863,15 @@ type ExtensionSortAttribute = 'actions' | 'buildingName' | 'name';
 type ExtensionStateFilters =
     | 'canBuy'
     | 'cannotBuy'
+    | 'cannotToggle'
+    | 'canToggle'
     | 'disabled'
     | 'enabled'
     | 'underConstruction';
 
 export default Vue.extend<
     {
+        faCircleInfo: IconDefinition;
         faPencilAlt: IconDefinition;
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
@@ -802,11 +880,13 @@ export default Vue.extend<
             search: string;
             sort: BuildingSortAttribute;
             sortDir: 'asc' | 'desc';
+            showSummary: boolean;
         };
         vehiclesTable: {
             search: string;
             sort: keyof AttributedVehicle;
             sortDir: 'asc' | 'desc';
+            showSummary: boolean;
         };
         extensionsTable: {
             search: string;
@@ -834,6 +914,7 @@ export default Vue.extend<
             method: 'coins' | 'credits',
             price: number
         ): void;
+        toggleExtension(buildingId: number, extensionType: number): void;
         updateExtensionsFilterNames(names: string[]): void;
         updateExtensionsFilterBuildings(buildings: (number | '*')[]): void;
         updateExtensionsFilterStates(
@@ -907,6 +988,7 @@ export default Vue.extend<
     },
     data() {
         return {
+            faCircleInfo,
             faPencilAlt,
             buildingTypes: this.$store.getters.$tBuildings as Record<
                 number,
@@ -921,11 +1003,13 @@ export default Vue.extend<
                 search: '',
                 sort: 'name',
                 sortDir: 'asc',
+                showSummary: false,
             },
             vehiclesTable: {
                 search: '',
                 sort: 'name',
                 sortDir: 'asc',
+                showSummary: false,
             },
             extensionsTable: {
                 search: '',
@@ -1004,7 +1088,8 @@ export default Vue.extend<
                         if (
                             !(
                                 'newCells' in
-                                buildingType.extensions[extension.type_id]
+                                (buildingType.extensions[extension.type_id] ??
+                                    {})
                             )
                         )
                             return;
@@ -1032,7 +1117,8 @@ export default Vue.extend<
                         if (
                             !(
                                 'newClassrooms' in
-                                buildingType.extensions[extension.type_id]
+                                (buildingType.extensions[extension.type_id] ??
+                                    {})
                             )
                         )
                             return;
@@ -1078,11 +1164,12 @@ export default Vue.extend<
                                       buildingType.startParkingLots +
                                       building.extensions
                                           .map(extension => {
-                                              const extensionType: InternalExtension =
+                                              const extensionType: InternalExtension | null =
                                                   buildingType.extensions[
                                                       extension.type_id
                                                   ];
                                               if (
+                                                  !extensionType ||
                                                   !extension.available ||
                                                   !(
                                                       'isVehicleExtension' in
@@ -1342,8 +1429,13 @@ export default Vue.extend<
                         )
                     )
                         maxExtensionsFunctionResults[buildingTypeId] = {};
-                    return buildingType.extensions.map(
-                        (extensionType, index) => {
+
+                    const removeNull = <S>(value: S | null): value is S =>
+                        !!value;
+
+                    return buildingType.extensions
+                        .filter(removeNull)
+                        .map((extensionType, index) => {
                             const boughtExtension = extensions.find(
                                 ({ type_id }) => index === type_id
                             );
@@ -1391,6 +1483,8 @@ export default Vue.extend<
                                           bought: true,
                                           available: boughtExtension.available,
                                           enabled: boughtExtension.enabled,
+                                          canToggle:
+                                              !extensionType.cannotDisable,
                                       }
                                     : {
                                           ...(canBuy
@@ -1405,7 +1499,7 @@ export default Vue.extend<
                                                                 buildingType
                                                                     .extensions[
                                                                     id
-                                                                ].caption
+                                                                ]?.caption ?? ''
                                                         ) ?? []),
                                                         ...(canBuyByAmount ||
                                                         typeof canBuyByAmount ===
@@ -1432,8 +1526,7 @@ export default Vue.extend<
                                               extensionType.coins,
                                       }),
                             };
-                        }
-                    );
+                        });
                 }
             );
         },
@@ -1478,19 +1571,93 @@ export default Vue.extend<
                         (this.extensionsTable.filters.states.includes(
                             'disabled'
                         ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
                             'bought' in extension &&
                             !extension.enabled) ||
                         (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            'bought' in extension &&
+                            !extension.enabled &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
+                            'bought' in extension &&
+                            !extension.enabled &&
+                            !extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
                             'enabled'
                         ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
                             'bought' in extension &&
                             extension.enabled &&
                             extension.available) ||
                         (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available &&
+                            !extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
                             'underConstruction'
                         ) &&
                             'bought' in extension &&
-                            !extension.available)
+                            !extension.available) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'canToggle'
+                        ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'enabled'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'disabled'
+                            ) &&
+                            'bought' in extension &&
+                            extension.available &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'cannotToggle'
+                        ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'enabled'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'disabled'
+                            ) &&
+                            'bought' in extension &&
+                            extension.available &&
+                            !extension.canToggle)
                     );
                 }
 
@@ -1503,9 +1670,10 @@ export default Vue.extend<
             ): number => {
                 const min = Number.MIN_SAFE_INTEGER / 2;
                 if ('bought' in extension) {
-                    if (!extension.available) return min + 2;
-                    if (extension.enabled) return min;
-                    return min + 1;
+                    if (!extension.available) return min + 4;
+                    const toggleBonus = extension.canToggle ? 0 : 1;
+                    if (extension.enabled) return min + toggleBonus;
+                    return min + 2 + toggleBonus;
                 }
                 return extension.credits;
             };
@@ -1626,6 +1794,8 @@ export default Vue.extend<
                     [
                         'canBuy',
                         'cannotBuy',
+                        'canToggle',
+                        'cannotToggle',
                         'disabled',
                         'enabled',
                         'underConstruction',
@@ -1777,6 +1947,41 @@ export default Vue.extend<
                         });
                 });
         },
+        toggleExtension(buildingId, extensionType) {
+            this.tempDisableAllExtensionButtons = true;
+            const url = new URL('/', window.location.origin);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                document.querySelector<HTMLMetaElement>(
+                    'meta[name="csrf-token"]'
+                )?.content ?? ''
+            );
+            const feature = 'buildingComplexes-toggle-extension';
+            this.$store
+                .dispatch('api/request', {
+                    url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
+                    init: {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `/buildings/${buildingId}`,
+                        method: 'POST',
+                        body: url.searchParams.toString(),
+                    },
+                    feature,
+                })
+                .then(() => {
+                    this.$store
+                        .dispatch('api/fetchBuilding', {
+                            id: buildingId,
+                            feature,
+                        })
+                        .then(() => {
+                            this.tempDisableAllExtensionButtons = false;
+                        });
+                });
+        },
         updateExtensionsFilterNames(names) {
             if (
                 names.findIndex(name => name === '*') === names.length - 1 ||
@@ -1885,6 +2090,10 @@ export default Vue.extend<
     .table-cell-right
         text-align: right
 
+    .summary-icon
+        color: white
+        cursor: pointer
+
     .indented-title
         text-indent: -0.5em
         padding-left: 0.5em
@@ -1903,11 +2112,28 @@ export default Vue.extend<
             flex-grow: 1
             margin-right: 1em
 
-    ul li
+    .extension-toggle
+        margin-left: 1rem
+
+    ul.requirements-list li
         &:first-child
             margin-left: -1em
             font-weight: bold
 
         &:not(:first-child)
             list-style: unset !important
+
+.summary-alert
+    position: fixed
+    top: calc(2% + 1rem)
+    right: calc(2% + 1rem)
+    z-index: 1
+
+    > ul
+        padding-left: 0
+        list-style: none
+
+    .close
+        opacity: 1
+        color: white
 </style>
