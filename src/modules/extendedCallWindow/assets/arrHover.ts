@@ -248,7 +248,10 @@ export default (
             vehicleType =>
                 (amounts[vehicleType] =
                     document.querySelectorAll<HTMLInputElement>(
-                        `#all tr[vehicle_type="${vehicleType}"] .vehicle_checkbox:not(:checked):not([ignore_aao="1"])`
+                        `#all tr[vehicle_type="${vehicleType.replace(
+                            /["\\]/gu,
+                            '\\$&'
+                        )}"] .vehicle_checkbox:not(:checked):not([ignore_aao="1"])`
                     ).length)
         );
 
