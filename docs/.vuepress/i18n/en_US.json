@@ -10,6 +10,7 @@
         }
     },
     "apps": "Apps",
+	"contributing": "Contributing",
     "containers": {
         "danger": "Danger",
         "tip": "Tip",
