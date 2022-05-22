@@ -328,6 +328,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 3,
                 parkingLotReservations: [[39], [39], [39]],
+                cannotDisable: true,
             },
             {
                 caption: "Section de Protection et d'Intervention n°2",
@@ -338,6 +339,7 @@ export default {
                 givesParkingLots: 3,
                 parkingLotReservations: [[39], [39], [39]],
                 requiredExtensions: [2],
+                cannotDisable: true,
             },
         ],
         levelcost: [],
