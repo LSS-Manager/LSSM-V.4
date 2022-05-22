@@ -75,7 +75,7 @@ export default (
                     )
                         ? [
                               {
-                                  text: `${$t(lang, 'contributing')}`,
+                                  text: $t(lang, 'contributing').toString(),
                                   collapsible: true,
                                   children: [
                                       `/${lang}/contributing`,

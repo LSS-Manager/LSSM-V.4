@@ -10,12 +10,12 @@
         }
     },
     "apps": "Apps",
-	"contributing": "Contribution",
     "containers": {
         "danger": "Danger",
         "tip": "Tip",
         "warning": "Attention"
     },
+    "contributing": "Contribution",
     "description": "Le Wiki pour LSS-Manager V.4",
     "footer": {
         "contributors": "Contributeurs",
