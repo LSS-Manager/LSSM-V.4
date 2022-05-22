@@ -1,5 +1,5 @@
 {
-    "version": "4.5.9+20220521.1601",
+    "version": "4.5.9+20220522.0018",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -112,7 +112,7 @@
     ],
     "userscript": {
         "name": "LSS-Manager V.4",
-        "author": "Aisaka | Sanni | Jan (jxn_30) | Ron31",
-        "description": "A Script-Collection for Leitstellenspiel, Missionchief and its other language versions."
+        "author": "The LSSM-Team: Aisaka, Sanni, Jan (jxn_30), Ron31",
+        "description": "LSSM V4 is a Script-Collection for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions."
     }
 }

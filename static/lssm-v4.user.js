@@ -1,8 +1,14 @@
 // ==UserScript==
 // @name         LSS-Manager V.4
 // @version      4.5.9-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
-// @author       Aisaka | Sanni | Jan (jxn_30) | Ron31
-// @description  A Script-Collection for Leitstellenspiel, Missionchief and its other language versions.
+// @author       The LSSM-Team: Aisaka, Sanni, Jan (jxn_30), Ron31
+// @description  LSSM V4 is a Script-Collection for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions.
+// @namespace    https://lss-manager.de/
+// @homepage     https://proxy.lss-manager.de/v4/docs/
+// @downloadURL  https://proxy.lss-manager.de/v4/lssm-v4.user.js
+// @updateURL    https://proxy.lss-manager.de/v4/lssm-v4.user.js
+// @supportURL   https://proxy.lss-manager.de/v4/docs/en_US/error_report
+// @icon         https://proxy.lss-manager.de/v4/docs/img/lssm.png
 // @match        https://www.operacni-stredisko.cz/*
 // @match        https://policie.operacni-stredisko.cz/*
 // @match        https://www.alarmcentral-spil.dk/*
@@ -41,11 +47,6 @@
 // @match        https://polis.larmcentralen-spelet.se/*
 // @match        https://www.112-merkez.com/*
 // @match        https://www.dyspetcher101-game.com/*
-// @homepage     https://proxy.lss-manager.de/v4/docs/
-// @updateURL    https://proxy.lss-manager.de/v4/lssm-v4.user.js
-// @downloadURL  https://proxy.lss-manager.de/v4/lssm-v4.user.js
-// @icon         https://proxy.lss-manager.de/v4/docs/img/lssm.png
-// @supportURL   https://proxy.lss-manager.de/v4/docs/en_US/error_report
 // @run-at       document-idle
 // @grant        GM_info
 // @grant        unsafeWindow
