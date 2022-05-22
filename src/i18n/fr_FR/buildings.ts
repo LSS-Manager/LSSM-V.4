@@ -244,7 +244,7 @@ export default {
                     duration: '7 jours',
                     newCells: 1,
                     cannotDisable: true,
-					requiredExtensions: [0],
+                    requiredExtensions: [0],
                 },
                 9
             ),
@@ -426,7 +426,7 @@ export default {
                     duration: '7 jours',
                     newCells: 1,
                     cannotDisable: true,
-					requiredExtensions: [0],
+                    requiredExtensions: [0],
                 },
                 9
             ),
@@ -509,7 +509,7 @@ export default {
                 duration: '7 jours',
                 newCells: 1,
                 cannotDisable: true,
-				requiredExtensions: [0],
+                requiredExtensions: [0],
             },
         ],
         levelcost: [
