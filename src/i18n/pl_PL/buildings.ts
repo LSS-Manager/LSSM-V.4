@@ -59,8 +59,12 @@ export default {
                     credits: 80_000,
                     coins: 20,
                     duration: '7 Dni',
-                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                },
+                    unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    givesParkingLots: 1,
+                    parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
+            },
                 11
             ),
         ],
