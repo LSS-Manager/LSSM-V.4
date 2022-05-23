@@ -1,5 +1,5 @@
-import type { Building } from 'typings/Building';
 import type { Vehicle } from 'typings/Vehicle';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 interface BuildingInfos {
     el: HTMLDivElement;
@@ -31,6 +31,9 @@ export default async (LSSM: Vue) => {
     const vehiclesByBuilding: Record<number, Vehicle[]> =
         LSSM.$store.getters['api/vehiclesByBuilding'];
 
+    const buildingTypes: Record<number, InternalBuilding> =
+        LSSM.$store.getters.$tBuildings;
+
     accordion.querySelectorAll<HTMLDivElement>('.panel').forEach(panel => {
         const heading = panel.querySelector<HTMLDivElement>('.panel-heading');
         if (!heading) return;
@@ -56,30 +59,58 @@ export default async (LSSM: Vue) => {
         });
     });
 
+    const filterWrapper = document.createElement('div');
+    filterWrapper.classList.add('pull-right');
+
+    const buildingTypeFilter = document.createElement('select');
+    const allOption = document.createElement('option');
+    allOption.value = '*';
+    buildingTypeFilter.append(allOption);
+    new Set(buildings.map(({ buildingType }) => buildingType)).forEach(
+        buildingType => {
+            const option = document.createElement('option');
+            option.value = buildingType.toString();
+            option.textContent = buildingTypes[buildingType].caption;
+            buildingTypeFilter.append(option);
+        }
+    );
+
     const searchLabel = document.createElement('label');
-    searchLabel.classList.add('pull-right');
     const searchInput = document.createElement('input');
     searchInput.setAttribute('type', 'search');
-    searchInput.classList.add('search_input_field');
     const clearfix = document.createElement('div');
     clearfix.classList.add('clearfix');
 
     searchLabel.append(searchInput);
-    accordion.prepend(searchLabel, clearfix);
 
-    const filterByName = () => {
+    filterWrapper.append(buildingTypeFilter, searchLabel);
+    accordion.prepend(filterWrapper, clearfix);
+
+    const filter = () => {
         const search = searchInput.value.trim().toLowerCase();
-        buildings.forEach(({ name, el }) => {
-            if (name.toLowerCase().includes(search))
-                el.classList.remove('hidden');
+        const buildingTypeFilterValue = parseInt(buildingTypeFilter.value);
+        buildings.forEach(({ name, el, buildingType }) => {
+            let show = true;
+            if (search.length && !name.toLowerCase().includes(search))
+                show = false;
+            if (
+                !Number.isNaN(buildingTypeFilterValue) &&
+                buildingType !== buildingTypeFilterValue
+            )
+                show = false;
+
+            if (show) el.classList.remove('hidden');
             else el.classList.add('hidden');
         });
     };
 
     let nameFilterTimeout: number | null = null;
 
-    searchInput.addEventListener('keyup', () => {
+    const updateFilter = () => {
         if (nameFilterTimeout) clearTimeout(nameFilterTimeout);
-        nameFilterTimeout = window.setTimeout(filterByName, 100);
-    });
+        nameFilterTimeout = window.setTimeout(filter, 100);
+    };
+
+    searchInput.addEventListener('keyup', updateFilter);
+    buildingTypeFilter.addEventListener('change', updateFilter);
 };
