@@ -55,9 +55,9 @@ export default async (LSSM: Vue) => {
             buildingType: buildingsById[buildingId].building_type,
             vehicleTypes: Array.from(
                 new Set(
-                    vehiclesByBuilding[buildingId].map(
+                    vehiclesByBuilding[buildingId]?.map(
                         ({ vehicle_type }) => vehicle_type
-                    )
+                    ) ?? []
                 )
             ),
         });
