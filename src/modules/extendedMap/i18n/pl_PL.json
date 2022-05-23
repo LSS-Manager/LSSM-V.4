@@ -28,22 +28,22 @@
             },
             "extensions": {
                 "abort": "Anuluj",
-                "disable": "disable",
+                "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
-                "enable": "enable",
+                "enable": "Włącz",
                 "enabled": "Ukończone i włączone",
                 "filter": {
                     "all": "Wszystko",
                     "buildings": "Budynki",
                     "canBuy": "można kupić",
-                    "canToggle": "can enable/disable",
-                    "cannotBuy": "nie można kupić",
-                    "cannotToggle": "cannot enable/disable",
-                    "disabled": "skończony i wyłączony",
-                    "enabled": "skończony i włączony",
+                    "canToggle": "Można włączyć/wyłączyć",
+                    "cannotBuy": "Nie można kupić",
+                    "cannotToggle": "Nie można włączyć/wyłączyć",
+                    "disabled": "Skończony i wyłączony",
+                    "enabled": "Skończony i włączony",
                     "extensions": "Rozbudowy",
                     "states": "Status",
-                    "underConstruction": "w budowie"
+                    "underConstruction": "W budowie"
                 },
                 "limit": "Obecnie nie możesz kupić więcej niż {n} z tych rozszerzeń!",
                 "missingRequirements": "Następujące wymagania nie są spełnione:",
@@ -77,8 +77,8 @@
         },
         "settings": {
             "abort": "Anuluj",
-            "buildings": "wybrane budynki",
-            "buildingTabs": "Show tabs for attached buildings?",
+            "buildings": "Wybrane budynki",
+            "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",
