@@ -38,6 +38,10 @@
             "description": "Muestra un resumen general del personal de un edificio de cuántas personas tienen formación(es).",
             "title": "Resumen del personal"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
         "upgradeConfirmation": {
             "description": "Pregunta si realmente desea mejorar su edificio.",
             "title": "Mejorar edificio"

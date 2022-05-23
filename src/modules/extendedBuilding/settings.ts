@@ -88,6 +88,10 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: true,
     },
+    schoolsBuildingFilter: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
     //autoBuyLevels: {
     //    type: 'toggle',
     //    default: false,
