@@ -39,7 +39,7 @@ export default {
                 coins: 15,
                 duration: '5 Dni',
                 isVehicleExtension: true,
-                unlocksVehicleTypes: [44, 55, 56 , 57, 58, 59, 60],
+                unlocksVehicleTypes: [44, 55, 56, 57, 58, 59, 60],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
@@ -47,11 +47,11 @@ export default {
                 coins: 20,
                 duration: '7 Dni',
                 isVehicleExtension: true,
-                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                unlocksVehicleTypes: [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
                 givesParkingLots: 1,
                 parkingLotReservations: [
-                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                    ],
+                    [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
+                ],
             },
             ...multiplyExtension(
                 {
@@ -59,12 +59,14 @@ export default {
                     credits: 80_000,
                     coins: 20,
                     duration: '7 Dni',
-                    unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    unlocksVehicleTypes: [
+                        40, 41, 42, 42, 43, 44, 45, 46, 47, 64,
+                    ],
                     givesParkingLots: 1,
                     parkingLotReservations: [
-                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                        [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
                     ],
-            },
+                },
                 11
             ),
         ],
@@ -268,17 +270,17 @@ export default {
                 cannotDisable: true,
             },
             multiplyExtension(
-            index => ({
-                caption: 'Dodatkowa cela',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Dni',
-                newClassrooms: 1,
-                requiredExtensions: index ? [index - 1] : [],
-                cannotDisable: true,
-            }),
-            9
-        ),
+                index => ({
+                    caption: 'Dodatkowa cela',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dni',
+                    newClassrooms: 1,
+                    requiredExtensions: index ? [index - 1] : [],
+                    cannotDisable: true,
+                }),
+                9
+            ),
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: '1.700 włącznie z Posterunkami Policji',
@@ -301,7 +303,8 @@ export default {
         levelcost: [],
         maxBuildings: 'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
         maxLevel: 0,
-        special: 'CPR służy m.in. do dzielenia budynków na różne obszary np. powiat.',
+        special:
+            'CPR służy m.in. do dzielenia budynków na różne obszary np. powiat.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
@@ -441,7 +444,7 @@ export default {
                 coins: 15,
                 duration: '5 Dni',
                 isVehicleExtension: true,
-                unlocksVehicleTypes: [44, 55, 56 , 57, 58, 59, 60],
+                unlocksVehicleTypes: [44, 55, 56, 57, 58, 59, 60],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
@@ -449,12 +452,11 @@ export default {
                 coins: 20,
                 duration: '7 Dni',
                 isVehicleExtension: true,
-                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                unlocksVehicleTypes: [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
                 givesParkingLots: 1,
                 parkingLotReservations: [
-                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                    ],
-                
+                    [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
+                ],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
@@ -462,11 +464,11 @@ export default {
                 coins: 20,
                 duration: '7 Dni',
                 isVehicleExtension: true,
-                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                unlocksVehicleTypes: [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
                 givesParkingLots: 1,
                 parkingLotReservations: [
-                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                    ],
+                    [40, 41, 42, 42, 43, 44, 45, 46, 47, 64],
+                ],
             },
         ],
         levelcost: [

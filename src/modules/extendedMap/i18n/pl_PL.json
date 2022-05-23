@@ -77,8 +77,8 @@
         },
         "settings": {
             "abort": "Anuluj",
-            "buildings": "Wybrane budynki",
             "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
+            "buildings": "Wybrane budynki",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",
