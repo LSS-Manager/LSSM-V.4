@@ -48,7 +48,7 @@ export default {
                 duration: '7 Dni',
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                givesParkingLots 1,
+                givesParkingLots: 1,
                 parkingLotReservations: [
                         [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
                     ],
@@ -446,7 +446,7 @@ export default {
                 duration: '7 Dni',
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                givesParkingLots 1,
+                givesParkingLots: 1,
                 parkingLotReservations: [
                         [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
                     ],
@@ -459,7 +459,7 @@ export default {
                 duration: '7 Dni',
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
-                givesParkingLots 1,
+                givesParkingLots: 1,
                 parkingLotReservations: [
                         [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
                     ],
