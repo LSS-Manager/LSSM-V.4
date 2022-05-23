@@ -1,99 +1,99 @@
 {
     "buildingComplexes": {
-        "openInLightbox": "Open building in Lightbox",
+        "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
             "buildings": {
                 "hiring": {
-                    "automatic": "automatically",
-                    "no": "None",
-                    "phase": "1 Day | {n} Days"
+                    "automatic": "Automatycznie",
+                    "no": "Brak",
+                    "phase": "1 Dzień | {n} Dni"
                 },
-                "inConstruction": "thereof {n} under construction",
+                "inConstruction": "z tego {n} w budowie",
                 "table": {
                     "head": {
-                        "beds": "Beds",
-                        "cells": "Cells",
-                        "classrooms": "Classrooms",
-                        "hiring": "Hiring Phase",
-                        "level": "Level",
-                        "name": "Name",
-                        "staff": "Staff (Staff target)",
-                        "vehicles": "Vehicles"
+                        "beds": "Łóżka",
+                        "cells": "Cele",
+                        "classrooms": "Sale wykładowe",
+                        "hiring": "Faza rekrutacji",
+                        "level": "Poziom",
+                        "name": "Nazwa",
+                        "staff": "Personel (Personel docelowy)",
+                        "vehicles": "Pojazdy"
                     }
                 },
-                "title": "attached buildings"
+                "title": "wybrane budynki"
             },
             "classrooms": {
-                "title": "Classrooms"
+                "title": "Sale"
             },
             "extensions": {
-                "abort": "Abort",
-                "disable": "disable",
-                "disabled": "Finished & disabled",
-                "enable": "enable",
-                "enabled": "Finished & enabled",
+                "abort": "Anuluj",
+                "disable": "Wyłącz",
+                "disabled": "Ukończone i wyłączone",
+                "enable": "Włącz",
+                "enabled": "Ukończone i włączone",
                 "filter": {
-                    "all": "All",
-                    "buildings": "Buildings",
-                    "canBuy": "can buy",
-                    "canToggle": "can enable/disable",
-                    "cannotBuy": "cannot buy",
-                    "cannotToggle": "cannot enable/disable",
-                    "disabled": "finished & disabled",
-                    "enabled": "finished & enabled",
-                    "extensions": "Extensions",
+                    "all": "Wszystko",
+                    "buildings": "Budynki",
+                    "canBuy": "można kupić",
+                    "canToggle": "Można włączyć/wyłączyć",
+                    "cannotBuy": "Nie można kupić",
+                    "cannotToggle": "Nie można włączyć/wyłączyć",
+                    "disabled": "Skończony i wyłączony",
+                    "enabled": "Skończony i włączony",
+                    "extensions": "Rozbudowy",
                     "states": "Status",
-                    "underConstruction": "under construction"
+                    "underConstruction": "W budowie"
                 },
-                "limit": "You cannot buy more than {n} of this extensions currently!",
-                "missingRequirements": "Following requirements are not met:",
+                "limit": "Obecnie nie możesz kupić więcej niż {n} z tych rozszerzeń!",
+                "missingRequirements": "Następujące wymagania nie są spełnione:",
                 "summary": {
-                    "available": "{n} ready to be built",
-                    "built": "{n} built",
-                    "inConstruction": "{n} under construction",
-                    "total": "{n} possible in total"
+                    "available": "{n} gotowych do zbudowania",
+                    "built": "{n} zbudowanych",
+                    "inConstruction": "{n} w budowie",
+                    "total": "{n} możliwych w sumie"
                 },
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "name": "Name"
+                        "building": "Budynki",
+                        "name": "Nazwa"
                     }
                 },
-                "title": "Extensions",
-                "underConstruction": "under construction"
+                "title": "Rozszerzenia",
+                "underConstruction": "w budowie"
             },
-            "title": "Overview",
+            "title": "Przegląd",
             "vehicles": {
                 "table": {
                     "head": {
-                        "building": "Building",
+                        "building": "Budynek",
                         "fms": "Status",
-                        "name": "Name",
-                        "staff": "Staff (assigned / max)"
+                        "name": "Nazwa",
+                        "staff": "Personel (przydzielony / maksymalny)"
                     }
                 },
-                "title": "Vehicles"
+                "title": "Pojazdy"
             }
         },
         "settings": {
-            "abort": "Abort",
-            "buildingTabs": "Show tabs for attached buildings?",
-            "buildings": "attached buildings",
+            "abort": "Anuluj",
+            "buildings": "Wybrane budynki",
+            "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "dissolve": {
                 "buttons": {
-                    "abort": "Abort",
-                    "continue": "Dissolve"
+                    "abort": "Anuluj",
+                    "continue": "Usuń"
                 },
-                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
-                "title": "Dissolve complex"
+                "text": "Czy chcesz usunąć ten kompleks budynków? Wszystkie dołączone budynki zostaną ponownie wyświetlone na mapie, jak poprzednio.",
+                "title": "Usuń kompleks"
             },
-            "icon": "Icon",
-            "iconHelp": "Select between standard icons and icons of attached buildings",
-            "location": "Location",
-            "name": "Name",
-            "save": "Save",
-            "showMarkers": "Show attached buildings on map?",
-            "title": "Edit complex"
+            "icon": "Ikona",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
+            "location": "Lokacja",
+            "name": "Nazwa",
+            "save": "Zapisz",
+            "showMarkers": "Wyświetl wybrane budynki na mapie",
+            "title": "Edytuj kompleks"
         }
     }
 }

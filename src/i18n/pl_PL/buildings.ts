@@ -22,24 +22,36 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [5, 31],
             },
             {
                 caption: 'Ratownictwo Wodne',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [19, 20, 21, 22, 23, 24, 26],
             },
             {
                 caption: 'Rozbudowa dla pojazdów proszkowych',
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [44, 55, 56 , 57, 58, 59, 60],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
             },
             ...multiplyExtension(
                 {
@@ -47,8 +59,12 @@ export default {
                     credits: 80_000,
                     coins: 20,
                     duration: '7 Dni',
-                    cannotDisable: true,
-                },
+                    unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    givesParkingLots: 1,
+                    parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
+            },
                 11
             ),
         ],
@@ -62,7 +78,9 @@ export default {
             'Ciężki samochód gaśniczy',
             'Średni samochód gaśniczy',
             'GBARt',
-            'GLBA',
+            'Lekki samochód gaśniczy',
+            'GCBARt',
+            'GLBARt',
         ],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
@@ -74,14 +92,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Dodatkowa sala',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dni',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -92,7 +111,7 @@ export default {
         startClassrooms: 1,
     },
     2: {
-        caption: ' Stacja Pogotowia',
+        caption: 'Stacja Pogotowia Ratunkowego',
         color: '#ffffcc',
         coins: 35,
         credits: 200_000,
@@ -112,14 +131,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Dodatkowa sala',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dni',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -155,6 +175,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Urologia',
@@ -162,6 +183,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Traumatologia',
@@ -169,6 +191,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Neurologia',
@@ -176,6 +199,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
             {
                 caption: 'Neurochirurgia',
@@ -183,6 +207,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Kardiologia',
@@ -190,6 +215,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
             {
                 caption: 'Kardiochirurgia',
@@ -197,6 +223,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
         ],
         levelcost: ['1.-20. 19.000 Kredytów / 11 Monet'],
@@ -213,7 +240,7 @@ export default {
         credits: 1_000_000,
         extensions: [],
         levelcost: [],
-        maxBuildings: 'see specials',
+        maxBuildings: 'Zobacz specjalne',
         maxLevel: 0,
         special:
             'Do 125 budynku (wszystkich typów) łącznie można zbudować max 4 lądowiska. Następnie liczba wzrasta o 1 co 25 budynków (począwszy od 125.).',
@@ -240,17 +267,18 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
-            ...multiplyExtension(
-                {
-                    caption: 'Dodatkowa cela',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                    newCells: 1,
-                    cannotDisable: true,
-                },
-                9
-            ),
+            multiplyExtension(
+            index => ({
+                caption: 'Dodatkowa cela',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Dni',
+                newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
+            }),
+            9
+        ),
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: '1.700 włącznie z Posterunkami Policji',
@@ -273,7 +301,7 @@ export default {
         levelcost: [],
         maxBuildings: 'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
         maxLevel: 0,
-        special: 'The control center is the administrative center.',
+        special: 'CPR służy m.in. do dzielenia budynków na różne obszary np. powiat.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
@@ -284,14 +312,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Dodatkowa sala',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dni',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -319,7 +348,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
-        schoolingTypes: ['Ratownictwo'],
+        schoolingTypes: ['Policja'],
     },
     14: {
         caption: 'Miejsce koncentracji Sił i Środków',
@@ -328,12 +357,12 @@ export default {
         credits: 0,
         extensions: [],
         levelcost: [],
-        maxBuildings: 4,
+        maxBuildings: 1,
         maxLevel: 0,
         special:
-            'Możesz ustawić dowolną liczbę własnych pojazdów w strefie postojowej,także członkowie sojuszu mogą niego skorzystać. Budynek stoi przez 24 godziny, ale możesz przedłużyć czas o 24 godzin w dowolnym momencie.Z kontem premium możesz mieć 8 stref w tym samym czasie',
+            'Możesz ustawić dowolną liczbę własnych pojazdów w strefie postojowej, także członkowie sojuszu mogą z niego skorzystać. Budynek stoi przez 24 godziny, ale możesz przedłużyć czas o 24 godzin w dowolnym momencie.',
         isStagingArea: true,
-        maxBuildingsFunction: (): number => 4,
+        maxBuildingsFunction: (): number => 1,
     },
     15: {
         caption: 'Stacja WOPR',
@@ -345,11 +374,11 @@ export default {
         maxBuildings: 'Bez limitu',
         maxLevel: 5,
         special:
-            'Żeby stacja poprawnie funkcjonowała potrzebujemy do każdej łodzi pojazdu które posłuży jako laweta do holowania łodzi.',
+            'Żeby stacja poprawnie funkcjonowała potrzebujemy do każdej łodzi pojazd, który posłuży jako laweta do holowania łodzi.',
         startPersonnel: 10,
         startVehicles: ['S.WOPR'],
         startParkingLots: 1,
-        schoolingTypes: ['Posterunek straży pożarnej'],
+        schoolingTypes: ['Ratownictwo'],
     },
     16: {
         caption: 'Prison',
@@ -395,32 +424,49 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [5, 31],
             },
             {
                 caption: 'Ratownictwo Wodne',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [19, 20, 21, 22, 23, 24, 26],
             },
             {
                 caption: 'Rozbudowa dla pojazdów proszkowych',
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [44, 55, 56 , 57, 58, 59, 60],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Dni',
-                cannotDisable: true,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
+                
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
                 credits: 80_000,
                 coins: 20,
                 duration: '7 Dni',
-                cannotDisable: true,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
             },
         ],
         levelcost: [
@@ -438,7 +484,9 @@ export default {
             'Ciężki samochód gaśniczy',
             'Średni samochód gaśniczy',
             'GBARt',
-            'GLBA',
+            'Lekki samochód gaśniczy',
+            'GCBARt',
+            'GLBARt',
         ],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
@@ -465,6 +513,7 @@ export default {
                 duration: '7 Dni',
                 newCells: 1,
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
         ],
         levelcost: [
@@ -511,9 +560,9 @@ export default {
         credits: -1,
         extensions: [],
         levelcost: ['Zbyt drogie'],
-        maxBuildings: 'Keine Grenze',
+        maxBuildings: 'Nie kupuj',
         maxLevel: 5,
-        special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO',
+        special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO, NIE OPŁACA SIĘ',
         startPersonnel: 0,
         startVehicles: [''],
         startParkingLots: 0,
@@ -528,7 +577,7 @@ export default {
         levelcost: ['Zbyt drogie'],
         maxBuildings: 'Keine Grenze',
         maxLevel: 5,
-        special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO',
+        special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO, NIE OPŁACA SIĘ',
         startPersonnel: 0,
         startVehicles: [''],
         startParkingLots: 0,
