@@ -22,25 +22,36 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [5, 31],
             },
             {
                 caption: 'Ratownictwo Wodne',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [19, 20, 21, 22, 23, 24, 26],
             },
             {
                 caption: 'Rozbudowa dla pojazdów proszkowych',
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [44, 55, 56 , 57, 58, 59, 60],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Dni',
-                cannotDisable: true,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                givesParkingLots 1,
+                parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
             },
             ...multiplyExtension(
                 {
@@ -48,7 +59,7 @@ export default {
                     credits: 80_000,
                     coins: 20,
                     duration: '7 Dni',
-                    cannotDisable: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
                 },
                 11
             ),
@@ -77,14 +88,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Dodatkowa sala',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dni',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -115,14 +127,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Dodatkowa sala',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dni',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -158,6 +171,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Urologia',
@@ -165,6 +179,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Traumatologia',
@@ -172,6 +187,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Neurologia',
@@ -179,6 +195,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
             {
                 caption: 'Neurochirurgia',
@@ -186,6 +203,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
             {
                 caption: 'Kardiologia',
@@ -193,6 +211,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
             {
                 caption: 'Kardiochirurgia',
@@ -200,6 +219,7 @@ export default {
                 coins: 15,
                 duration: '7 Dni',
                 cannotDisable: true,
+                requiredExtensions: [1],
             },
         ],
         levelcost: ['1.-20. 19.000 Kredytów / 11 Monet'],
@@ -243,17 +263,18 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
-            ...multiplyExtension(
-                {
-                    caption: 'Dodatkowa cela',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dni',
-                    newCells: 1,
-                    cannotDisable: true,
-                },
-                9
-            ),
+            multiplyExtension(
+            index => ({
+                caption: 'Dodatkowa cela',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Dni',
+                newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
+            }),
+            9
+        ),
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: '1.700 włącznie z Posterunkami Policji',
@@ -287,14 +308,15 @@ export default {
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
-            {
+            index => ({
                 caption: 'Dodatkowa sala',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dni',
                 newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
                 cannotDisable: true,
-            },
+            }),
             3
         ),
         levelcost: [],
@@ -398,33 +420,49 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [5, 31],
             },
             {
                 caption: 'Ratownictwo Wodne',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [19, 20, 21, 22, 23, 24, 26],
             },
             {
                 caption: 'Rozbudowa dla pojazdów proszkowych',
                 credits: 150_000,
                 coins: 15,
-                special: 'Dodaje specjalne pojazdy strażackie z dużą ilością piany gaśniczej. Rozszerzenie umożliwi również generowanie unikalnych misji.',
                 duration: '5 Dni',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [44, 55, 56 , 57, 58, 59, 60],
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
                 credits: 50_000,
                 coins: 20,
                 duration: '7 Dni',
-                cannotDisable: true,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                givesParkingLots 1,
+                parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
+                
             },
             {
                 caption: 'Rozbudowa dla kontenerów',
                 credits: 80_000,
                 coins: 20,
                 duration: '7 Dni',
-                cannotDisable: true,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                givesParkingLots 1,
+                parkingLotReservations: [
+                        [40, 41, 42, 42, 43,44, 45, 46, 47, 64],
+                    ],
             },
         ],
         levelcost: [
@@ -471,6 +509,7 @@ export default {
                 duration: '7 Dni',
                 newCells: 1,
                 cannotDisable: true,
+                requiredExtensions: [0],
             },
         ],
         levelcost: [
