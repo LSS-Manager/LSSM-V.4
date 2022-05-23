@@ -44,6 +44,7 @@ export default {
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Dagen',
+                    cannotDisable: true,
                 },
                 10
             ),
@@ -102,54 +103,63 @@ export default {
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Algemene Heelkunde',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Gynaecologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Urologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Traumatologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Neurochirurgie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiologie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             {
                 caption: 'Cardiochirurgie',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -186,6 +196,7 @@ export default {
                 coins: 40,
                 duration: '7 Dagen',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -207,6 +218,7 @@ export default {
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Dagen',
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -215,6 +227,7 @@ export default {
                     coins: 5,
                     duration: '7 Dagen',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -258,6 +271,7 @@ export default {
                 coins: 40,
                 duration: '7 Dagen',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -280,6 +294,7 @@ export default {
                 coins: 40,
                 duration: '7 Dagen',
                 newClassrooms: 1,
+                cannotDisable: true,
             },
             3
         ),
@@ -394,6 +409,7 @@ export default {
                 coins: 5,
                 duration: '7 Dagen',
                 newCells: 1,
+                cannotDisable: true,
             },
             ...multiplyExtension(
                 {
@@ -402,6 +418,7 @@ export default {
                     coins: 5,
                     duration: '7 Dagen',
                     newCells: 1,
+                    cannotDisable: true,
                 },
                 9
             ),
@@ -516,6 +533,7 @@ export default {
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Dagen',
+                    cannotDisable: true,
                 },
                 2
             ),
@@ -565,6 +583,7 @@ export default {
                 coins: 5,
                 duration: '7 Dagen',
                 newCells: 1,
+                cannotDisable: true,
             },
             {
                 caption: 'Extra cel',
@@ -572,6 +591,7 @@ export default {
                 coins: 5,
                 duration: '7 Dagen',
                 newCells: 1,
+                cannotDisable: true,
             },
         ],
         levelcost: [

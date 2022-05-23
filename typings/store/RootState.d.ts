@@ -8,6 +8,7 @@ export interface RootState {
     readonly mode: string;
     readonly lang: string;
     readonly discord: string;
+    readonly github: string;
     readonly games: Games;
     readonly server: string;
     readonly fontAwesomeIconSearch: string;
