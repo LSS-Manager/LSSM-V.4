@@ -284,7 +284,7 @@ export default {
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: '1.700 włącznie z Posterunkami Policji',
-        maxLevel: 16,
+        maxLevel: 19,
         special:
             'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
         startPersonnel: 2,

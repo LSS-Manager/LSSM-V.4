@@ -1033,7 +1033,10 @@ If several requests fail in a short time, this could be due to server problems. 
         },
         OPP: {
             vehicles: {
-                '': [],
+                OPP: [
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+                    80,
+                ],
             },
             color: '#00ac00',
         },
