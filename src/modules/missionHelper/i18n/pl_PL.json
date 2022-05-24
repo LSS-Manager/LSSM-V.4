@@ -22,6 +22,8 @@
         "max_rescue_stations": "Maksymalne stacje ratunkowe",
         "police_helicopter_stations": "Policyjny posterunek śmigłowców | Stacje śmigłowców policyjnych",
         "police_stations": "Posterunek policji | Komisariaty",
+        "police_service_group_leader": "rozbudowy o stanowisko dowodzenia",
+        "riot_police": "Oddziały Prewencji Policji",
         "rescue_helicopter_stations": "Liczba helikopterów LPR",
         "rescue_stations": "Pogotowie | Pogotowie",
         "title": "Wymagania misji | Wymagania misji",
@@ -64,6 +66,10 @@
             "police_helicopters": "Helikopter policyjny | Helikoptery policyjne",
             "swat_suv": "SPKP | SPKP",
             "traffic_car": "WRD | WRD",
+            "police_service_group_leader": "Ruchome Stanowisko Dowodzenia",
+            "riot_police_equipment": "specjalistyczny sprzęt OPP (Pickup)",
+            "wasserwerfer": "armatki wodne",
+            "road_rescue": "APRD",
             "water_tankers": "Cysterna | Cysterny"
         },
         "multifunctionals": {
