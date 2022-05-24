@@ -337,7 +337,7 @@ export default {
         caption: 'Poligon Oddziału Prewencji Policji',
         color: '#93B7FF',
         coins: 50,
-        credits: 0_000,
+        credits: -1,
         extensions: [
             {
                 caption: 'Rozbudowa o policyjne więźniarki',
@@ -347,7 +347,7 @@ export default {
             },
             {
                 caption: 'Rozbudowa o stanowisko dowodzenia',
-                credits: 0_000,
+                credits: -1,
                 coins: 25,
                 duration: '7 Dni',
             },
@@ -616,7 +616,7 @@ export default {
         caption: 'Poligon Oddziału Prewencji Policji',
         color: '#93B7FF',
         coins: 25,
-        credits: 0_000,
+        credits: -1,
         extensions: [],
         levelcost: ['1. 10.000', '2. 25.000', '3.-7. 100.000'],
         maxBuildings: 'no limit',
