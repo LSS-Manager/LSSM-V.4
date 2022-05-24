@@ -358,6 +358,7 @@ export default {
         startPersonnel: 15,
         startVehicles: [],
         startParkingLots: 5,
+        special: '',
         schoolingTypes: ['Policja'],
     },
     13: {
@@ -622,6 +623,7 @@ export default {
         maxBuildings: 'no limit',
         maxLevel: 7,
         startPersonnel: 6,
+        special: '',
         startVehicles: ['Samochód SM'],
         startParkingLots: 1,
         schoolingTypes: ['Policja'],
