@@ -48,6 +48,7 @@ interface BaseExtension {
         maxExtensions: number
     ): boolean;
     requiredExtensions?: number[];
+    requiredRank?: number;
 }
 
 interface VehicleExtension extends BaseExtension {
@@ -83,6 +84,7 @@ interface BaseBuilding {
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
+    requiredRank?: number;
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
 }
 
