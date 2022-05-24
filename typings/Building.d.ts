@@ -14,7 +14,7 @@ export interface Building {
     latitude: number;
     longitude: number;
     extensions: Extension[];
-    leitstelle_building_id: number;
+    leitstelle_building_id: number | null;
     small_building: boolean;
     enabled: boolean;
     generate_own_missions: boolean;
