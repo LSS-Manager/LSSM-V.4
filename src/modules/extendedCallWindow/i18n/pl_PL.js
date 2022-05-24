@@ -48,7 +48,7 @@ module.exports = {
             fustw_or_police_motorcycle: 'Radiowóz OPI lub Quad Policyjny',
             municipal_police: 'Straż miejska',
             riot_police: 'Radiowóz OPP',
-            detention_unit: 'Więźniarka', 
+            detention_unit: 'Więźniarka',
             fwk: 'Dźwig SP',
             gw_taucher: 'Samochód SLRw',
             gw_wasserrettung: 'Rozbudowa ratownictwa wodnego',
