@@ -8,10 +8,9 @@ const modules = {
         closeWarning: {
             title: 'Niezapisane zmiany',
             text: 'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
-            close: 'Zamknij',
+            abort: 'Anuluj',
             saveAndExit: 'Zapisz i wyjdź',
             exit: 'Wyjdź bez zapisywania',
-            abort: 'Anuluj',
         },
     },
     settings: {
@@ -44,7 +43,7 @@ const modules = {
         closeWarning: {
             title: 'Niezapisane zmiany',
             text: 'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
-            close: 'Zamknij',
+            abort: 'Anuluj',
             saveAndExit: 'Zapisz i wyjdź',
             exit: 'Wyjdź bez zapisywania',
         },
