@@ -137,7 +137,7 @@ module.exports = {
             [/^[Rr]adiow(oz([uy]|ów)|óz) OPP$/u]: [65, 66, 67],
             [/^[Rr]adiow(oz([uy]|ów)|óz) straży miejskiej$/u]: [],
             [/^[Rr]adiow(oz([uy]|ów)|óz) WRD$/u]: [30],
-            [/^Ruchom(e|ych) Stanowiska? Dowodzenia$/u]: [],
+            [/^Ruchom(e|ych) Stanowisk[ao]? Dowodzenia$/u]: [],
             [/^samoch(ód|ody\(-ów\)) pożarnicz(y|e\(-ych\))?$/u]: [
                 0, 1, 29, 55, 56, 38, 12, 39, 44, 48, 63,
             ],
@@ -153,10 +153,10 @@ module.exports = {
             [/^Samoch(ód|odów) WOPR$/u]: [19],
             [/^Samoch(ód|odów) SLRw$/u]: [24],
             [/^SLOp lub SLRr$/u]: [3, 28],
-            [/^specjalistyczny(ch|czne)? sprzęt(ów|y)? OPP$/u]: [],
+            [/^specjalistycz(czne|nych)? sprzęt(ów|y)? OPP$/u]: [],
             [/^SPGaz$/u]: [10, 42, 52],
             [/^sprzęty? przeciwpowodziow[ey]$/u]: [46, 51, 63],
-            [/^wymagan(a|e|yvh) więźniar(ek|k[ai])$/u]: [79, 80],
+            [/^wymagan(a|e|ych) więźniar(ek|k[ai])$/u]: [79, 80],
         },
     },
     tailoredTabs: {
