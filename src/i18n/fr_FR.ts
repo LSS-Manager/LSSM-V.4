@@ -65,7 +65,7 @@ export default {
         title: 'Script utilisateur obsolète',
         text: `Cher utilisateur de LSSM,<br>
 malheureusement votre userscript LSSM V.4 est périmé. Dans la dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de la V.4 de LSSM.<br>
-Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être effectuée confortablement en cliquant sur {updateLink}.
+Vous avez besoin d\'au moins la version {minVersion}, la mise à jour peut être effectuée confortablement en cliquant sur {updateLink}.
 <br>
 Bien à vous,<br>
 votre équipe LSSM`,
