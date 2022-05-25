@@ -53,7 +53,7 @@
             "foam": "samochody ze zbiornikiem na piane",
             "fwk": "Dźwig SP",
             "hazmat_vehicles": "Rchem | Rchem",
-            "heavy_rescue_vehicles": "Rescue Support Unit or Rescue Pump | Rescue Support Unit or Rescue Pump",
+            "heavy_rescue_vehicles": "Wóz ratownictwa technicznego | Wozy ratownictwa technicznego",
             "height_rescue_units": "Ratownictwo Wyskościowe",
             "helicopter": "HEMS",
             "hose": "samochody wężowe",
@@ -84,7 +84,7 @@
         },
         "optional_alternatives": {
             "allow_arff_instead_of_lf": {
-                "firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+                "firetrucks": "Lotniskowy wóz strażacki | Lotniskowe wozy strażackie"
             },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Wóz strażacki | Wozy strażackie"
