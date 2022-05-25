@@ -1265,6 +1265,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Fuel Storage Depot',
         'Multi-Storey Car Park',
         'Low Bridge',
+        'Care Home',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],
