@@ -118,6 +118,10 @@
             "textcolor": "Tekstkleur",
             "title": "Meldingstrefwoord"
         },
+        "moreReleasePatientButtons": {
+            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
+            "title": "More buttons to release patients"
+        },
         "patientSummary": {
             "description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
             "title": "Patiëntensamenvatting"

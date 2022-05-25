@@ -189,4 +189,7 @@ module.exports = {
         'vehicles': 'Pojazdy',
         'players': 'Gracze',
     },
+    releasePatient: {
+        release: 'Release patient (No reward)',
+    },
 };
