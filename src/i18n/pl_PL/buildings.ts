@@ -696,7 +696,7 @@ export default {
         schoolingTypes: [],
     },
     23: {
-        caption: 'Poligon Oddziału Prewencji Policji',
+        caption: 'Stacja Straży Miejskiej',
         color: '#93B7FF',
         coins: 25,
         credits: -1,

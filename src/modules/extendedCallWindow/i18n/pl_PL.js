@@ -122,9 +122,9 @@ module.exports = {
         vehiclesByRequirement: {
             [/^– SH lub SD$/u]: [2, 13],
             [/^– Rchem$/u]: [41, 7, 49, 50],
-            [/^[Aa]mbulans(e|\(-ów\))?$/u]: [5, 31],
+            [/^[Aa]mbulans(e|\(-ów\)|e\(-ów\))?$/u]: [5, 31],
             [/^[Aa]mbulans(e|ów)? OPP$/u]: [68],
-            [/^[Aa]mbulans(e|\(-ów\))? P$/u]: [5, 31],
+            [/^[Aa]mbulans(e|\(-ów\)|e\(-ów\))? P$/u]: [5, 31],
             [/^armat(ek|k[ai]) wodn(a|e|ych)$/u]: [69],
             [/^cystern(a|\(-y\)) z wodą?$/u]: [47, 6, 61, 64],
             [/^Dźwigi? SP$/u]: [25, 37],
