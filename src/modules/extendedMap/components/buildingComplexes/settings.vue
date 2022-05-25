@@ -173,10 +173,8 @@ export default Vue.extend<
         const userBuildings = this.$store.getters[
             'api/buildingsById'
         ] as Record<number, Building>;
-        const buildingTypes = this.$store.getters.$tBuildings as Record<
-            number,
-            InternalBuilding
-        >;
+        const buildingTypes: Record<number, InternalBuilding> =
+            this.$store.getters.$tBuildings;
 
         return {
             faSave,

@@ -648,10 +648,8 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
-        const buildingTypes = this.$store.getters.$tBuildings as Record<
-            number,
-            InternalBuilding
-        >;
+        const buildingTypes: Record<number, InternalBuilding> =
+            this.$store.getters.$tBuildings;
         return {
             moment,
             he,
