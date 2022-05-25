@@ -117,6 +117,10 @@
             "textcolor": "Colore del testo",
             "title": "Parole chiavi missioni"
         },
+        "moreReleasePatientButtons": {
+            "description": "Mostra un pulsante per l'annullamento del trasporto di un paziente, di fianco ad ogni richiesta di trasporto nella schermata della missione.",
+            "title": "Più pulsanti per il trasporto pazienti"
+        },
         "patientSummary": {
             "description": "Mostra accanto al numero dei pazienti, di quale equipaggiamento medico necessitano.",
             "title": "Sommario paziente"

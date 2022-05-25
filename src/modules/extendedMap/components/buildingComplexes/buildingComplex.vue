@@ -815,6 +815,7 @@ type AttributedBuilding = AttributedBuildingBeds &
         typeName: string;
         name: string;
         extensions: Extension[];
+        leitstelle: number | null;
     };
 
 interface AttributedVehicle {
@@ -932,6 +933,7 @@ export default Vue.extend<
         hasLevelBuildings: boolean;
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
+        classroomBuildings: AttributedBuilding[];
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
@@ -1067,6 +1069,7 @@ export default Vue.extend<
                         typeName: buildingType.caption,
                         name: building.caption,
                         extensions: building.extensions,
+                        leitstelle: building.leitstelle_building_id,
                     };
 
                     const beds: AttributedBuildingBeds =
@@ -1288,6 +1291,11 @@ export default Vue.extend<
         },
         hasBedBuildings() {
             return this.attributedBuildings.some(({ hasBeds }) => hasBeds);
+        },
+        classroomBuildings() {
+            return this.attributedBuildings.filter(
+                ({ hasClassrooms }) => hasClassrooms
+            );
         },
         hasClassroomBuildings() {
             return this.attributedBuildings.some(

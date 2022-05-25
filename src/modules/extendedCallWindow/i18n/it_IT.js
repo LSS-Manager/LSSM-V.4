@@ -156,4 +156,7 @@ module.exports = {
         'vehicles': 'Veicoli',
         'players': 'Giocatori',
     },
+    releasePatient: {
+        release: 'Annulla trasporto (Nessuna ricompensa)',
+    },
 };

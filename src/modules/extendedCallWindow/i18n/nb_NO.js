@@ -110,4 +110,7 @@ module.exports = {
         show: 'Vis kjøretøyliste',
         hide: 'Skjul kjøretøyliste',
     },
+    releasePatient: {
+        release: 'Release patient (No reward)',
+    },
 };

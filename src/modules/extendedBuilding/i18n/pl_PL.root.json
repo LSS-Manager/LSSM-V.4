@@ -39,8 +39,8 @@
             "title": "Podsumowanie personelu"
         },
         "schoolsBuildingFilter": {
-            "description": "Useful filters to shorten the building list in the course window",
-            "title": "Building filter for course selection"
+            "description": "Przydatne filtry do skrócenia listy budynków w oknie kursów",
+            "title": "Filtr budynku do wyboru kursu"
         },
         "upgradeConfirmation": {
             "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",

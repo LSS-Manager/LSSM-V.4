@@ -232,6 +232,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.arrSearchDropdown',
         },
+        moreReleasePatientButtons: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,

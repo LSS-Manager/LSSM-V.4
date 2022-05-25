@@ -14,7 +14,7 @@ export interface Building {
     latitude: number;
     longitude: number;
     extensions: Extension[];
-    leitstelle_building_id: number;
+    leitstelle_building_id: number | null;
     small_building: boolean;
     enabled: boolean;
     generate_own_missions: boolean;
@@ -48,6 +48,7 @@ interface BaseExtension {
         maxExtensions: number
     ): boolean;
     requiredExtensions?: number[];
+    requiredRank?: number;
 }
 
 interface VehicleExtension extends BaseExtension {
@@ -83,6 +84,7 @@ interface BaseBuilding {
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
+    requiredRank?: number;
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
 }
 

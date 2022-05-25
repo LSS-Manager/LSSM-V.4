@@ -8,10 +8,9 @@ const modules = {
         closeWarning: {
             title: 'Niezapisane zmiany',
             text: 'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
-            close: 'Zamknij',
+            abort: 'Anuluj',
             saveAndExit: 'Zapisz i wyjdź',
             exit: 'Wyjdź bez zapisywania',
-            abort: 'Anuluj',
         },
     },
     settings: {
@@ -44,7 +43,7 @@ const modules = {
         closeWarning: {
             title: 'Niezapisane zmiany',
             text: 'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
-            close: 'Zamknij',
+            abort: 'Anuluj',
             saveAndExit: 'Zapisz i wyjdź',
             exit: 'Wyjdź bez zapisywania',
         },
@@ -55,7 +54,7 @@ const modules = {
         locationSelect: {
             location: 'Wybierz pozycję',
             zoom: 'Wybierz pozycję i zoom',
-            sync: 'użyj aktualnej pozycji',
+            sync: 'Użyj aktualnej pozycji',
         },
     },
 } as Record<string, Record<string, unknown>>;
@@ -63,7 +62,7 @@ const modules = {
 export default {
     modules,
     updateUserscript: {
-        title: 'Userscript out of date',
+        title: 'Skrypt użytkownika nieaktualny',
         text: `Dear LSSM-User,<br>
 unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of the LSSM V.4.<br>
 You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.
@@ -99,8 +98,8 @@ If several requests fail in a short time, this could be due to server problems. 
         },
     },
     anniversary1: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
-        title: '🎉 There is reason to celebrate! 🎉',
+        closeNote: 'Wskazówka: możesz również kliknąć balony, aby zamknąć!',
+        title: '🎉 Jest powód do świętowania! 🎉',
         content:
             'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
@@ -330,7 +329,7 @@ If several requests fail in a short time, this could be due to server problems. 
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
         17: {
-            caption: 'Motocykl Policyjny',
+            caption: 'Quad Policyjny',
             color: '#93B7FF',
             coins: 18,
             credits: 2500,
@@ -568,6 +567,7 @@ If several requests fail in a short time, this could be due to server problems. 
             wtank: 6500,
             ftank: 500,
             possibleBuildings: [0, 18],
+            special: 'Potrzebujesz przynajmniej stopnia : Kapitan.',
         },
         39: {
             caption: 'GLBARt',
@@ -579,6 +579,7 @@ If several requests fail in a short time, this could be due to server problems. 
             wtank: 1500,
             ftank: 100,
             possibleBuildings: [0, 18],
+            special: 'Potrzebujesz przynajmniej stopnia : Kapitan.',
         },
         40: {
             caption: 'Kontener inżynieryjno - techniczny',
@@ -625,6 +626,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 0,
             ftank: 800,
             possibleBuildings: [0],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         45: {
             caption: 'Kontener socjalno - sanitarny',
@@ -728,6 +730,7 @@ If several requests fail in a short time, this could be due to server problems. 
             wtank: 6000,
             ftank: 1500,
             possibleBuildings: [0],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         56: {
             caption: 'GBAPr',
@@ -739,6 +742,7 @@ If several requests fail in a short time, this could be due to server problems. 
             wtank: 2500,
             ftank: 750,
             possibleBuildings: [0],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         57: {
             caption: 'GCPr',
@@ -749,6 +753,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 4,
             ftank: 6000,
             possibleBuildings: [0],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         58: {
             caption: 'GPr',
@@ -759,6 +764,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 4,
             ftank: 3000,
             possibleBuildings: [0],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         59: {
             caption: 'GLPr',
@@ -769,6 +775,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 6,
             ftank: 750,
             possibleBuildings: [0],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         60: {
             caption: 'Przyczepa ze środkiem pianotwórczym',
@@ -779,6 +786,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 0,
             ftank: 450,
             possibleBuildings: [0, 18],
+            special: 'Wymagana rozbudowa: Rozbudowa dla pojazdów proszkowych.',
         },
         61: {
             caption: 'SW',
@@ -816,55 +824,226 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 0,
             possibleBuildings: [0],
         },
+        65: {
+            caption: 'Furgonetka OPP',
+            color: '#93B7FF',
+            coins: 5,
+            credits: 10_000,
+            minPersonnel: 6,
+            maxPersonnel: 8,
+            possibleBuildings: [11],
+        },
+        66: {
+            caption: 'Van OPP',
+            color: '#93B7FF',
+            coins: 5,
+            credits: 10_000,
+            minPersonnel: 4,
+            maxPersonnel: 7,
+            possibleBuildings: [11],
+        },
+        67: {
+            caption: 'Pickup OPP',
+            color: '#93B7FF',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [11],
+        },
+        68: {
+            caption: 'Ambulans OPP',
+            color: '#93B7FF',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [11],
+        },
+        69: {
+            caption: 'Armatka wodna',
+            color: '#93B7FF',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [11],
+        },
+        70: {
+            caption: 'Autobus policyjny',
+            color: '#93B7FF',
+            coins: 10,
+            credits: 30_000,
+            minPersonnel: 12,
+            maxPersonnel: 36,
+            possibleBuildings: [11],
+        },
+        71: {
+            caption: 'Samochód SM',
+            color: '#93B7FF',
+            coins: 10,
+            credits: 5000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [23],
+        },
+        72: {
+            caption: 'Furgonetka SM',
+            color: '#93B7FF',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [23],
+        },
+        73: {
+            caption: 'Szybki Radiowóz WRD',
+            color: '#93B7FF',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [],
+        },
+        74: {
+            caption: 'Motocykl WRD',
+            color: '#93B7FF',
+            coins: 10,
+            credits: 8000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [],
+        },
+        75: {
+            caption: 'APRD',
+            color: '#93B7FF',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [],
+        },
+        76: {
+            caption: 'Furgonetka policyjna',
+            color: '#93B7FF',
+            coins: 25,
+            credits: 8000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [6, 19],
+        },
+        77: {
+            caption: 'Samochód terenowy',
+            color: '#93B7FF',
+            coins: 25,
+            credits: 5000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            possibleBuildings: [6, 19],
+        },
+        78: {
+            caption: 'Ruchome Stanowisko Dowodzenia',
+            color: '#93B7FF',
+            coins: 25,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [],
+        },
+        79: {
+            caption: 'Mała więźniarka',
+            color: '#93B7FF',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [],
+        },
+        80: {
+            caption: 'Duża więźniarka',
+            color: '#93B7FF',
+            coins: 25,
+            credits: 50_000,
+            minPersonnel: 4,
+            maxPersonnel: 6,
+            possibleBuildings: [],
+        },
     },
     buildingCategories: {
         ['Straż pożarna']: {
-            buildings: [0, 1, 18],
+            buildings: [0, 18],
             color: '#990000',
         },
         'Pogotowie ratunkowe': {
-            buildings: [2, 3, 5, 20],
+            buildings: [2, 5, 20],
             color: '#FFFFCC',
         },
         'Policja': {
-            buildings: [6, 8, 13, 19],
+            buildings: [6, 13, 26, 19],
+            color: '#93B7FF',
+        },
+        'OPP': {
+            buildings: [11, 23],
             color: '#93B7FF',
         },
         'WOPR': {
-            buildings: [3, 15],
+            buildings: [15],
             color: '#F9D74A',
+        },
+        ['Szkoły']: {
+            buildings: [1, 3, 8],
+            color: '#02a18c',
         },
         'Inne': {
             buildings: [7, 4, 14, 21, 22],
-            color: '#02a18c',
+            color: '#a10269',
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        ['Straż Pożarna']: {
             vehicles: {
-                'Fire engines': [0, 1, 16],
-                'Water Carrier': [6],
-                'Aerial Trucks': [2, 17],
-                'Special Vehicles': [3, 4, 7, 14, 15, 18, 23],
+                ['Gaśnicze']: [0, 1, 12, 55, 38, 39, 55, 56, 29],
+                'Kontenery': [40, 41, 42, 43, 44, 45, 46, 47, 64],
+                'Przyczepy': [48, 49, 50, 51, 52, 53, 60, 62, 63],
+                'Pojazdy specjalne': [
+                    3, 4, 7, 10, 11, 15, 18, 23, 25, 27, 28, 2, 13, 6, 61, 47,
+                    35, 36, 37, 57, 58, 59,
+                ],
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        Ratownictwo: {
             vehicles: {
-                'Ambulances': [5, 31, 32, 33, 34],
-                'HEMS': [9],
-                'First Responder': [10, 19, 21, 22],
-                'Other EMS Vehicle': [20],
+                Ambulanse: [5, 31, 34],
+                HEMS: [9],
+                ['Pozostałe pojazdy ratownictwa']: [32, 33],
             },
             color: '#ffa500',
         },
-        'Police Vehicles': {
+        Policja: {
             vehicles: {
-                'Police Car': [8],
-                'ARP': [13],
-                'Police helicopter': [11],
-                'DSU': [12],
-                'Traffic Cars': [24, 25],
+                'Radiowozy': [8],
+                'SPKP': [15, 18],
+                'Helikoptery Policyjne': [14],
+                'K-9': [16],
+                'Motocykle': [17],
+                ['Radiowóz WRD']: [30],
+            },
+            color: '#00ac00',
+        },
+        OPP: {
+            vehicles: {
+                OPP: [
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+                    80,
+                ],
+            },
+            color: '#00ac00',
+        },
+        WOPR: {
+            vehicles: {
+                'Pojazdy ratownicze': [19, 20, 24],
+                ['Łodzie']: [21, 22, 23, 26, 54],
             },
             color: '#00ac00',
         },
@@ -874,7 +1053,7 @@ If several requests fail in a short time, this could be due to server problems. 
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 15, 18, 19, 20],
+    vehicleBuildings: [0, 2, 5, 6, 11, 13, 14, 15, 18, 19, 20, 21, 22, 23],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
@@ -945,6 +1124,18 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'Szkolenie WRD',
                 duration: '3 Dni',
             },
+            {
+                caption: 'Szkolenie OPP',
+                duration: '2 Dni',
+            },
+            {
+                caption: 'Policyjny ratownik medyczny',
+                duration: '5 Dni',
+            },
+            {
+                caption: 'Szkolenie policyjnego dowódcy',
+                duration: '7 Dni',
+            },
         ],
         Ratownictwo: [
             {
@@ -965,25 +1156,25 @@ If several requests fail in a short time, this could be due to server problems. 
             },
         ],
     },
-    amount: 'Quantity',
-    search: 'Search',
-    alliance: 'Alliance',
+    amount: 'Ilość',
+    search: 'Szukaj',
+    alliance: 'Sojusz',
     premiumNotice:
-        'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
+        'Ta funkcja rozszerza funkcję premium gry i dlatego jest dostępna tylko dla graczy z kontem premium Operatora ratukowego!',
     credits: 'Kredyty',
     coins: 'Monety',
-    close: 'Close',
+    close: 'Zamknij',
     fullscreen: {
-        expand: 'Activate full screen mode',
-        compress: 'Disable full screen mode',
+        expand: 'Aktywuj tryb pełnoekranowy',
+        compress: 'Wyłącz tryb pełnoekranowy',
     },
-    hideTitle: 'Show heading | Hide heading',
-    vehicle: 'Cars | Car | Cars',
-    building: 'Buildings',
-    station: 'Stations | Station | Stations',
-    distance: 'Distance | Distances',
-    vehicleType: 'Vehicle type',
-    noOptions: 'Sorry, no matching options.',
+    hideTitle: 'Pokaż nagłówek | Ukryj nagłówek',
+    vehicle: 'Samochody | Samochód | Samochody',
+    building: 'Budynki',
+    station: 'Stacje | Stacja | Stacje',
+    distance: 'Dystans | Odległości',
+    vehicleType: 'Typ pojazdu',
+    noOptions: 'Przepraszamy, brak pasujących opcji.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -1034,6 +1225,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Warsztat samochodowy',
         'Zjazd z autostrady',
         'Jarmark Bożonarodzeniowy',
+        'Magazyn',
         'Dyskoteka',
         'Stadion',
         'Gospodarstwo rolne',
@@ -1047,7 +1239,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Duży port lotniczy (pas startowy)',
         'Terminal portu lotniczego',
         'Bank',
-        'Magazyn',
+        'Magazyn firmowy',
         'Most',
         'Bar szybkiej obsługi',
         'Cargo-port',
