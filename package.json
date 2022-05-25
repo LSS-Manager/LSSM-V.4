@@ -85,7 +85,7 @@
         "terser": "^5.13.1",
         "ts-loader": "^9.3.0",
         "ts-node": "^10.8.0",
-        "typescript": "^4.6.4",
+        "typescript": "^4.7.2",
         "url-loader": "^4.1.1",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.14",
