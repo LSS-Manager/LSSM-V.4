@@ -1148,7 +1148,7 @@ export default Vue.extend<
 .alert
 
     &.overlay
-        z-index: 2
+        z-index: 4
         position: fixed
         top: 3%
         right: 3%

@@ -81,6 +81,10 @@
             "module": "chatExtras",
             "setting": "cloneHistoryBtnToHeader"
         },
+        "showNotTransportButtonAbove": {
+            "module": "extendedCallWindow",
+            "setting": "moreReleasePatientButtons"
+        },
         "statusCount": {
             "module": "statusCounter"
         },
@@ -99,7 +103,6 @@
         "RenameFZ",
         "saveVGE",
         "searchMissions",
-        "showNotTransportButtonAbove",
         "statusDispatching",
         "verbandsverwaltung"
     ],
