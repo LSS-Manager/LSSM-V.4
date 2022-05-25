@@ -9,11 +9,11 @@
     },
     "settings": {
         "buildingComplexes": {
-            "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
-            "name": "Name",
-            "position": "Location",
-            "title": "Building complexes"
+            "buildings": "Dołączone budynki",
+            "description": "Aktualizacja projektu, która umożliwia łączenie wielu budynków w jeden na mapie. Graficznie działa identycznie jak kompleksy w grze.",
+            "name": "Nazwa",
+            "position": "Lokacja",
+            "title": "Kompleksy budynków"
         },
         "centerMap": {
             "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",

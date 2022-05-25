@@ -118,8 +118,8 @@
             "title": "Słowa kluczowe misji"
         },
         "moreReleasePatientButtons": {
-            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
-            "title": "More buttons to release patients"
+            "description": "Wyświetla przycisk zwolnienia pacjenta w górnej części okna pojazdu. Obok każdego przycisku transportu w oknie misji.",
+            "title": "Więcej przycisków do zwalniania pacjentów"
         },
         "patientSummary": {
             "description": "Pokazuje obok liczby pacjentów, jakiego sprzętu ratunkowego potrzebują.",
