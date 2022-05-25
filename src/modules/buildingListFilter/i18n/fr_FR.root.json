@@ -19,7 +19,7 @@
         {
             "ids": [
                 6,
-                8,
+                13,
                 16,
                 19
             ],
@@ -28,7 +28,8 @@
         {
             "ids": [
                 1,
-                3
+                3,
+                8
             ],
             "name": "École"
         },
@@ -36,13 +37,7 @@
             "ids": [
                 7
             ],
-            "name": "Traitement Appels"
-        },
-        {
-            "ids": [
-                13
-            ],
-            "name": "Gendarmerie"
+            "name": "Traitement Des Appels"
         },
         {
             "ids": [
@@ -70,11 +65,11 @@
             "title": "Texte ou Icône?"
         },
         "filters": {
-            "description": "Laissez les icônes dans l'onglet \"Alarme\". Afficher le bouton, en fonction de votre sélection. Vous pouvez choisir entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">toutes les icônes gratuites de Font-Awesome</a>. Il suffit de préciser le nom de l'icône. Un aperçu en direct vous montrera alors l'icône.",
+            "description": "Afficher les icônes dans l'onglet \"Alarme\". Afficher le bouton, en fonction de votre sélection. Vous pouvez opter pour <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">l'ensemble des icônes gratuites de Font-Awesome</a>. Il vous suffit de préciser le nom de l'icône. Un aperçu en direct vous montrera alors l'icône.",
             "title": "Filtre pour liste des bâtiments"
         },
         "icon_style": "Icon-Type",
-        "preview": "Prévisualisation",
+        "preview": "Aperçu",
         "title": "Titre (ou Icône)"
     }
 }

@@ -14,11 +14,11 @@ Nous avons intégré cet asynchronisme à différents endroits :
 ## Bâtiment
 * Pour les cellules et les hôpitaux : Prise en charge des coûts par le membre de l'alliance
 * (Dés)activation des extensions
-* licenciement du personnel
+* Licenciement du personnel
 
 ### Prévu :
 * Valider ou ne plus valider les cellules / lits d'hôpitaux dans l'alliance
-* construire des extensions
+* Construire des extensions
 
 ## Déploiements
 * Evacuer les prisonniers

@@ -50,10 +50,10 @@
         "no-buildings": "Pas de bâtiment trouvé. Si nécessaire, changer les filtres de ce pannel dans l'onglet \"Gestion de pannel\"."
     },
     "tabs": {
-        "building-types": "Aperçu de bâtiment",
-        "chart-summary": "Sommaire",
+        "building-types": "Aperçu des bâtiments",
+        "chart-summary": "Aperçu",
         "dispatchcenter-view": "Aperçu CTA",
-        "vehicle-types": "Aperçu status"
+        "vehicle-types": "Aperçu des statuts"
     },
     "vehicle-list": {
         "actions": "",
