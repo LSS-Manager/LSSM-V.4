@@ -66,6 +66,9 @@ export default {
         text: `Lieber LSSM-Nutzer,<br>
 leider ist dein LSSM V.4 Userscript veraltet. In der neuesten Version wurden änderungen am Userscript vorgenommen, die wichtig für die Funktion des LSSM V.4 sind.<br>
 Du benötigst mindestens Version {minVersion}, das Update kannst du bequem per Klick auf {updateLink} durchführen.<br>
+Manchmal funktioniert ein Update per Link aus unerklärlichen Gründen nicht richtig. Dann lässt sich ein Update manuell triggern: Tampermonkey-Icon im Browser anklicken -> "Übersicht" anklicken -> Haken beim LSSM V.4 Script setzen -> bei Aktion "Aktualisieren" drücken.<br>
+Wenn das auch nicht klappt, kannst du den Inhalt des Scripts in Tampermonkey mit dem Inhalt von {bypassLink} ersetzen.<br>
+Wir entschuldigen uns für Probleme, die hierdurch entstanden sind.
 <br>
 Liebe Grüße,<br>
 Dein LSSM-Team`,

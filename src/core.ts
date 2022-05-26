@@ -198,6 +198,7 @@ LSSM-Team`,
                     text: LSSM.$t('updateUserscript.text', {
                         minVersion: `<b>${userscript_latest_update}</b>`,
                         updateLink: `<a href="${userscriptLink}" target='_blank'>lssm-v4.user.js</a>`,
+                        bypassLink: `<a href="${userscriptLink}#bypass=true" target='_blank'>lssm-v4.user.js</a>`,
                     }),
                     options: {},
                     buttons: [
