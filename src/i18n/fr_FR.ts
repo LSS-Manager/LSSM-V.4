@@ -66,10 +66,10 @@ export default {
         text: `Cher utilisateur de LSSM,<br>
 malheureusement votre userscript LSSM V.4 est périmé. Dans la dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de la V.4 de LSSM.<br>
 Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être effectuée confortablement en cliquant sur {updateLink}.<br>
-Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
-If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
-Sometimes, LSSM is installed multiple times after an update. In this case, please delete the script that does not have version 4.5.10 (in Tampermonkey).<br>
-We're sorry for any caused issue if updates did not work correctly.
+Il peut arriver que la mise à jour ne fonctionne pas en cliquant sur le lien (pour des raisons inconnues). Vous pouvez alors soit déclencher une mise à jour dans Tampermonkey (cliquez sur l'icône de Tampermonkey dans votre navigateur, puis sur "Aperçu". Cochez la case en face du userscript LSSM et sélectionnez "Update" comme action. <br>
+Si cela ne fonctionne pas non plus, modifiez le script LSSM dans Tampermonkey en remplaçant tout le contenu du script par le contenu de {bypassLink}.<br>
+Parfois, LSSM est installé plusieurs fois après une mise à jour. Dans ce cas, veuillez supprimer le script qui n'a pas la version 4.5.10 (dans Tampermonkey).<br>
+Nous sommes désolés pour tout problème causé si les mises à jour n'ont pas fonctionné correctement.
 <br>
 Bien à vous,<br>
 votre équipe LSSM`,
