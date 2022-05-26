@@ -62,14 +62,14 @@ const modules = {
 export default {
     modules,
     updateUserscript: {
-        title: 'Userscript out of date',
-        text: `Dear LSSM-User,<br>
-unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of the LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.
+        title: 'Userscript verouderd',
+        text: `Beste LSSM-gebruiker,<br>
+Helaas is je LSSM V.4 userscript verouderdd. In de laatste versie zijn er wijzigingen gedaan in het userscript, welke belangrijk zijn voor de werking van LSSM V.4.<br>
+Je hebt minimaal versie {minVersion} nodig, de update kan makkelijk gedaan worden door te klikken op {updateLink}.
 <br>
-Kind regards,<br>
-your LSSM team`,
-        close: 'Ok',
+Met vriendelijke groet,<br>
+Het LSSM team`,
+        close: 'Oké',
     },
     error: {
         title: 'LSS Manager: Error',
@@ -327,7 +327,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 5000,
             coins: 25,
             icon: 'ambulance',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         17: {
             caption: 'TS 6/7',
@@ -511,7 +511,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 5000,
             coins: 25,
             icon: 'ambulance',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         31: {
             caption: 'Commandovoertuig',
@@ -855,7 +855,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 2500,
             coins: 18,
             icon: 'car-side',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         53: {
             caption: 'AT-Commandant',
@@ -1016,7 +1016,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 2500,
             coins: 18,
             icon: 'motorcycle',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         64: {
             caption: 'ME Aanhoudingseenheid',

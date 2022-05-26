@@ -183,6 +183,6 @@ module.exports = {
         'players': 'Spelers',
     },
     releasePatient: {
-        release: 'Release patient (No reward)',
+        release: 'Ontsla patiënt (Geen beloning)',
     },
 };

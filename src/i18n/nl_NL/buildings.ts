@@ -22,21 +22,34 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [16, 30, 52, 63],
             },
             {
                 caption: 'Waterongevallenbestrijding',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [33, 36, 49, 50],
             },
             {
                 caption: 'Vliegtuigbrandbestrijding',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [41, 42, 43, 44],
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
                 ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][8] ?? 0) +
+                    (boughtExtensionsAmountByType[17][8] ?? 0) <
+                    maxExtensions,
             },
             ...multiplyExtension(
                 {
@@ -44,6 +57,10 @@ export default {
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Dagen',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [26, 27, 29, 32, 45, 51, 61],
+                    parkingLotReservations: [[27, 29, 32, 45, 51, 61]],
                     cannotDisable: true,
                 },
                 10
@@ -53,6 +70,9 @@ export default {
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [68, 69, 70],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
@@ -218,6 +238,7 @@ export default {
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Dagen',
+                newCells: 1,
                 cannotDisable: true,
             },
             ...multiplyExtension(
@@ -350,42 +371,70 @@ export default {
                 credits: 40_000,
                 coins: 5,
                 duration: '3 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [],
+                parkingLotReservations: [[35]]
             },
             {
                 caption: 'Arrestantenvervoer',
                 credits: 100_000,
                 coins: 10,
                 duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [58],
+                parkingLotReservations: [[58], [58]]
             },
             {
                 caption: 'Mobiele Eenheid, Sectie',
                 credits: 100_000,
                 coins: 20,
                 duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 4,
+                unlocksVehicleTypes: [39, 40],
+                parkingLotReservations: [[39], [40], [40], [40]]
             },
             {
                 caption: 'Mobiele Eenheid, 2e Sectie',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 3,
+                unlocksVehicleTypes: [40],
+                parkingLotReservations: [[40], [40], [40]]
             },
             {
                 caption: 'Mobiele Eenheid, Aanhoudingseenheid',
                 credits: 100_000,
                 coins: 20,
                 duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [64],
+                parkingLotReservations: [[64]]
             },
             {
                 caption: 'Hondenbrigade',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 4,
+                unlocksVehicleTypes: [47, 48],
+                parkingLotReservations: [[47], [47], [48], [48]]
             },
             {
                 caption: 'Arrestatieteam',
                 credits: 200_000,
                 coins: 20,
                 duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 6,
+                unlocksVehicleTypes: [53,54,55],
+                parkingLotReservations: [[53],[54],[54],[54],[54],[55]]
             },
         ],
         levelcost: [],
@@ -396,6 +445,7 @@ export default {
         startVehicles: ['Officier van Dienst - Politie'],
         schoolingTypes: ['Politie'],
         startParkingLots: 1,
+        startParkingLotReservations: [[35]]
     },
     12: {
         caption: 'Cellencomplex',
@@ -511,21 +561,34 @@ export default {
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [16, 30, 52, 63],
             },
             {
                 caption: 'Waterongevallenbestrijding',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [33, 36, 49, 50],
             },
             {
                 caption: 'Vliegtuigbrandbestrijding',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [41, 42, 43, 44],
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
                 ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][8] ?? 0) +
+                    (boughtExtensionsAmountByType[17][8] ?? 0) <
+                    maxExtensions,
             },
             ...multiplyExtension(
                 {
@@ -533,6 +596,10 @@ export default {
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Dagen',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [26, 27, 29, 32, 45, 51, 61],
+                    parkingLotReservations: [[27, 29, 32, 45, 51, 61]],
                     cannotDisable: true,
                 },
                 2
@@ -542,6 +609,9 @@ export default {
                 credits: 150_000,
                 coins: 15,
                 duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [68, 69, 70],
             },
         ],
         levelcost: [
