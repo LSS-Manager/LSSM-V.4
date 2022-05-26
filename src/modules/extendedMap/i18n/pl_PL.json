@@ -64,7 +64,7 @@
             },
             "title": "Przegląd",
             "vehicles": {
-                "imageInfo": "Note: Currently only standard vehicle icons or those of the set graphic pack can be shown. Icons set on a vehicle or station individually cannot be recognized yet unfortunately.",
+                "imageInfo": "Notatka: Obecnie można wyświetlać tylko standardowe ikony pojazdów lub ikony zestawu graficznego. Ikony ustawione indywidualnie na pojeździe lub stacji nie są jeszcze rozpoznawane.",
                 "table": {
                     "head": {
                         "building": "Budynek",
