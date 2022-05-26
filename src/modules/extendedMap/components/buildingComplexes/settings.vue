@@ -253,6 +253,7 @@ export default Vue.extend<
                         '/images/building_home_response_location_other.png',
                         '/images/building_hospital_other.png',
                         '/images/building_leitstelle_other.png',
+                        '/images/building_municipal_police_other.png',
                         '/images/building_police_depot_other.png',
                         '/images/building_polizeischule_other.png',
                         '/images/building_polizeisondereinheiten_other.png',
