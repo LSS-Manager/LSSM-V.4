@@ -212,8 +212,8 @@
             "title": "Verberg 0 patiënten"
         },
         "hide0CurrentPrisoners": {
-            "description": "Hides amount of prisoners if there are no prisoners at scene",
-            "title": "Hide 0 Prisoners"
+            "description": "Verbergt het aantal arrestanten als er geen arrestanten zijn",
+            "title": "Verberg 0 arrestanten"
         },
         "remainingPatientTime": {
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",

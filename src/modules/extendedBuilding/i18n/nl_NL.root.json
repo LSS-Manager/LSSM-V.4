@@ -39,8 +39,8 @@
             "title": "Personeelsamenvatting"
         },
         "schoolsBuildingFilter": {
-            "description": "Useful filters to shorten the building list in the course window",
-            "title": "Building filter for course selection"
+            "description": "Handige filters om de gebouwenlijst te filteren in het opleidingsscherm bij de personeelsselectie",
+            "title": "Gebouwenfilter bij opleidingen"
         },
         "upgradeConfirmation": {
             "description": "Vraagt of u uw gebouw echt wilt upgraden.",
