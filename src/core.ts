@@ -189,11 +189,15 @@ LSSM-Team`,
                 semverLt(userscript_version, userscript_latest_update))
         ) {
             return new Promise<void>(resolve => {
+                const userscriptLink =
+                    MODE === 'stable'
+                        ? `${config.server}lssm-v4.user.js`
+                        : `https://github.com/${config.github.repo}/raw/dev/static/lssm-v4.user.js`;
                 LSSM.$modal.show('dialog', {
                     title: LSSM.$t('updateUserscript.title'),
                     text: LSSM.$t('updateUserscript.text', {
                         minVersion: `<b>${userscript_latest_update}</b>`,
-                        updateLink: `<a href="${config.server}lssm-v4.user.js" target='_blank'>lssm-v4.user.js</a>`,
+                        updateLink: `<a href="${userscriptLink}" target='_blank'>lssm-v4.user.js</a>`,
                     }),
                     options: {},
                     buttons: [
