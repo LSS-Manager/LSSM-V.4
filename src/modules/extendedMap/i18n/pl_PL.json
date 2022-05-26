@@ -64,6 +64,7 @@
             },
             "title": "Przegląd",
             "vehicles": {
+                "imageInfo": "Note: Currently only standard vehicle icons or those of the set graphic pack can be shown. Icons set on a vehicle or station individually cannot be recognized yet unfortunately.",
                 "table": {
                     "head": {
                         "building": "Budynek",
