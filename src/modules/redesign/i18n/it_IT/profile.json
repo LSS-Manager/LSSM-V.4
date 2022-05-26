@@ -9,6 +9,7 @@
         "bronze": "Bronzo",
         "gold": "Oro",
         "max": "16",
+        "own": "I tuoi premi",
         "silver": "Argento",
         "title": "Premi",
         "title_amounts": "{sum} da {max} Premi"

@@ -8,6 +8,13 @@
         "topright": "Na górze po prawej 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Dołączone budynki",
+            "description": "Aktualizacja projektu, która umożliwia łączenie wielu budynków w jeden na mapie. Graficznie działa identycznie jak kompleksy w grze.",
+            "name": "Nazwa",
+            "position": "Lokacja",
+            "title": "Kompleksy budynków"
+        },
         "centerMap": {
             "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
             "title": "Centrowanie mapy"

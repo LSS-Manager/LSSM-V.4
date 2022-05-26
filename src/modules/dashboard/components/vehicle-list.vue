@@ -135,11 +135,13 @@ export default Vue.extend<
             ),
     },
     data() {
+        const internalVehicleTypes: Record<number, InternalVehicle> =
+            this.$store.getters.$tVehicles;
         return {
             vehicleTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             vehiclesWithBuildings: [],
             buildings: this.$store.state.api.buildings,

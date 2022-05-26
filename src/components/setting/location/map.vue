@@ -113,11 +113,12 @@ export default Vue.extend<
             save.style.setProperty('align-content', 'center');
             save.addEventListener('click', e => {
                 e.preventDefault();
-                const center = map.getCenter();
+                const location =
+                    this.locationMarker?.getLatLng() ?? map.getCenter();
                 this.save(
                     this.zoom
-                        ? [center.lat, center.lng, map.getZoom()]
-                        : [center.lat, center.lng]
+                        ? [location.lat, location.lng, map.getZoom()]
+                        : [location.lat, location.lng]
                 );
                 this.$emit('close');
             });

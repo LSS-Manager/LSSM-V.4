@@ -66,19 +66,18 @@ export default (
         '#vehicle_list_step .tab-content'
     );
 
+    const vehicleTypes: Record<number, InternalVehicle> =
+        LSSM.$store.getters.$tVehicles;
+
     const vehiclesInTabs = [
         ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),
     ].map(vehicle => vehicle.toString());
-    const vehiclesNotInTabs = Object.keys(LSSM.$t('vehicles'))
+    const vehiclesNotInTabs = Object.keys(vehicleTypes)
         .filter(vehicle => !vehiclesInTabs.includes(vehicle))
         .sort();
 
     if (vehiclesNotInTabs.length) {
         const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
-        const vehicleTypes = LSSM.$t('vehicles') as Record<
-            number,
-            InternalVehicle
-        >;
 
         const warningBtnWrapper = document.createElement('span');
         const warningBtn = document.createElement('i');

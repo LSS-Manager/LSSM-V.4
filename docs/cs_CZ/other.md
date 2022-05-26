@@ -79,4 +79,8 @@ Here are some more or less interesting facts and stats about LSSM and its source
 
 <stats-cloc/>
 
+### Commits & Changes
+
+<stats-commits/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.cs

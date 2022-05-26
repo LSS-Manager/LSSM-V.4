@@ -6,6 +6,7 @@ import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     EachSchooling,
     SchoolingSummaryObject,
+    Schooling as SchoolingSummarySchooling,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
@@ -33,7 +34,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     dataData.append(overviewWrapper);
     dataList.append(dataTitle, dataData);
 
-    const summaryAll = {} as SchoolingSummaryObject;
+    const summaryAll = {} as SchoolingSummaryObject<SchoolingSummarySchooling>;
     const summaryEach = {} as SchoolingSummaryObject<EachSchooling>;
 
     personnel.forEach(p => {
@@ -70,16 +71,19 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
-        number,
-        InternalVehicle
-    >;
+    const vehicleTypes: Record<number, InternalVehicle> =
+        LSSM.$store.getters.$tVehicles;
 
-    const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[
+    const buildingType = (
+        LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
+    )[
         (LSSM.$store.state.api.buildings as Building[]).find(
             ({ id }) => id === buildingId
         )?.building_type ?? -1
-    ]?.schoolingTypes;
+    ];
+
+    const schools =
+        'schoolingTypes' in buildingType ? buildingType.schoolingTypes : null;
 
     if (!schools) return;
 

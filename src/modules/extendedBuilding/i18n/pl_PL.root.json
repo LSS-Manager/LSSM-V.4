@@ -38,6 +38,10 @@
             "description": "Pokazuje w przeglądzie personelu budynku, ile osób przeszło które szkolenie (a).",
             "title": "Podsumowanie personelu"
         },
+        "schoolsBuildingFilter": {
+            "description": "Przydatne filtry do skrócenia listy budynków w oknie kursów",
+            "title": "Filtr budynku do wyboru kursu"
+        },
         "upgradeConfirmation": {
             "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
             "title": "Ulepsz budynek"

@@ -160,6 +160,11 @@ export default (
                             }),
                         },
                         flag: config.games[LSSM.$i18n.locale].flag,
+                        userscript_version:
+                            window['lssmv4-GM_Info']?.script.version.replace(
+                                /-.*$/u,
+                                ''
+                            ) ?? '4.0.0',
                     }),
                 },
                 feature: `telemetry-sendStats`,

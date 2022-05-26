@@ -38,6 +38,10 @@
             "description": "Visar i personalöversikten över en byggnad hur många personer som har någon utbildning.",
             "title": "Personalöversikt"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
         "vehicleTypes": {
             "description": "Visar fordonstypen (och, om tillgänglig, egen fordonsklass) i en separat kolumn",
             "title": "Fordonstyp"

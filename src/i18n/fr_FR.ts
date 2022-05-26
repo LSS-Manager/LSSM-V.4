@@ -1,5 +1,3 @@
-// import { Building } from 'typings/Building';
-
 const modules = {
     appstore: {
         save: 'Sauvegarder',
@@ -24,7 +22,7 @@ const modules = {
         import: 'Importer',
         appendableList: {
             unique: {
-                title: 'valeur en double',
+                title: 'Valeur en double',
                 text: 'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
                 confirm: 'OK',
             },
@@ -56,13 +54,23 @@ const modules = {
         locationSelect: {
             location: 'Sélectionnez une position',
             zoom: 'Sélectionner la position et le zoom',
-            sync: 'utiliser la position actuelle',
+            sync: 'Utiliser la position actuelle',
         },
     },
 } as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
+    updateUserscript: {
+        title: 'Script utilisateur obsolète',
+        text: `Cher utilisateur de LSSM,<br>
+malheureusement votre userscript LSSM V.4 est périmé. Dans la dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de la V.4 de LSSM.<br>
+Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être effectuée confortablement en cliquant sur {updateLink}.
+<br>
+Bien à vous,<br>
+votre équipe LSSM`,
+        close: 'Ok',
+    },
     error: {
         title: 'LSS Manager: Erreur',
         msg: "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
@@ -71,9 +79,9 @@ export default {
             text: `Aïe, malheureusement une erreur s'est produite avec cette requête du serveur :<br>
 <b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
-<b>Feature</b>: <code>{feature}</code><br>
+<b>Fonctionnalité</b>: <code>{feature}</code><br>
 <b>Durée</b>: <code>{duration}ms</code><br>
-<b>User</b>: <code>{uid}</code><br>
+<b>Utilisateur</b>: <code>{uid}</code><br>
 <b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Veuillez réessayer d'effectuer l'action souhaitée.<br>
@@ -90,8 +98,9 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
     },
     anniversary1: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
-        title: '🎉 There is reason to celebrate! 🎉',
+        closeNote:
+            'Astuce : Vous pouvez également cliquer sur les ballons pour les fermer !',
+        title: '🎉 Il y a des raisons de faire la fête ! 🎉',
         content:
             'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
@@ -119,7 +128,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         loadingIndicator: {
             description:
                 'Si ce paramètre est actif, LSSM affiche un petit cercle de chargement dans le coin inférieur droit.',
-            title: 'afficher la progression du chargement',
+            title: 'Afficher la progression du chargement',
         },
         osmDarkTooltip: {
             description:
@@ -624,6 +633,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         39: {
             caption: 'VR',
+            color: '#225CB5',
             coins: 5,
             credits: 10_000,
             minPersonnel: 1,
@@ -632,6 +642,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         40: {
             caption: 'VCT',
+            color: '#225CB5',
             coins: 10,
             credits: 25_000,
             minPersonnel: 1,
@@ -647,6 +658,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         41: {
             caption: 'RAM',
+            color: '#225CB5',
             coins: 10,
             credits: 25_000,
             minPersonnel: 1,
@@ -661,6 +673,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         42: {
             caption: 'VTP',
+            color: '#225CB5',
             coins: 10,
             credits: 15_000,
             minPersonnel: 2,
@@ -669,6 +682,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         43: {
             caption: 'ELE',
+            color: '#225CB5',
             coins: 10,
             credits: 35_000,
             minPersonnel: 1,
@@ -684,6 +698,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         44: {
             caption: 'ReBP',
+            color: '#225CB5',
             coins: 10,
             credits: 10_000,
             minPersonnel: 0,
@@ -693,467 +708,12 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         45: {
             caption: 'VAT',
+            color: '#225CB5',
             coins: 10,
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [11],
-        },
-    },
-    buildings: {
-        0: {
-            caption: 'Centre de secours',
-            color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Service de Santé et de Secours Médical',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Extension de soutien à incendie',
-                    credits: 75_000,
-                    coins: 15,
-                    duration: '3 jours',
-                },
-                {
-                    caption: 'Unité nautique',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 jours',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '6.000',
-            maxLevel: 24,
-            special:
-                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
-            startPersonnel: 10,
-            startVehicles: ['FPT', 'FPTL'],
-            schoolingTypes: ['Centre de secours'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Centre de Formation Départemental',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Plus de salles de cours',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 jours',
-            }),
-            levelcost: [],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 0,
-            special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        2: {
-            caption: 'Poste Ambulancier',
-            color: '#ffa500',
-            coins: 35,
-            credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 14,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['UMH'],
-            schoolingTypes: ['Secours'],
-        },
-        3: {
-            caption: 'École de médecine',
-            color: '#ffa500',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Plus de salles de cours',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 jours',
-            }),
-            levelcost: [],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 0,
-            special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        4: {
-            caption: 'Centre Hospitalier',
-            color: '#bbe944',
-            coins: 35,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Interne général',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Chirurgien général',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Gynécologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Urologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Traumatologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Neurologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Neurochirurgie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Cardiologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Chirurgie cardiaque',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 jours',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 crédits / 11 pièces'],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 20,
-            special:
-                "Le chef des finances et les administrateurs peuvent construire et agrandir les hôpitaux grance à la banque de l'alliance",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        5: {
-            caption: "Station d'hélicoptère",
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'see specials',
-            maxLevel: 0,
-            special:
-                'Nombre de stations max : nombre de bâtiments divisé par 25.',
-            startPersonnel: 0,
-            startVehicles: [],
-            schoolingTypes: ['Secours'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        6: {
-            caption: 'Poste de police',
-            color: '#007700',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Cellule de prison',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 jours',
-                },
-                ...new Array(9).fill({
-                    caption: 'Plus de cellules',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 jours',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: '1700 postes de police/gendarmerie',
-            maxLevel: 14,
-            startPersonnel: 2,
-            startVehicles: ['Véhicule de patrouille'],
-            schoolingTypes: ['Poste de police'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        7: {
-            caption: 'Centre de Traitement des Appels',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'Un CTA tous les 25 batiments',
-            maxLevel: 0,
-            special: 'Le CTA est le centre administratif.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        8: {
-            caption: 'École de Gendarmerie',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Plus de salles de cours',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 jours',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 0,
-            special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        11: {
-            caption: 'Compagnie de CRS',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                {
-                    caption: 'Section des Moyens Spécialisés n°1',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 jours',
-                },
-                {
-                    caption: 'Section des Moyens Spécialisés n°2',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 jours',
-                },
-                {
-                    caption: "Section d'Appui et de Manoeuvre n°2",
-                    credits: 30_000,
-                    coins: 10,
-                    duration: '5 jours',
-                },
-                {
-                    caption: "Section de Protection et d'Intervention n°2",
-                    credits: 30_000,
-                    coins: 10,
-                    duration: '5 jours',
-                },
-            ],
-            levelcost: [],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 0,
-            startPersonnel: 25,
-            startVehicles: [],
-            schoolingTypes: ['Poste de police'],
-        },
-        13: {
-            caption: 'Forces aériennes de la Gendarmerie nationale',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 crédits / 50 pièces'],
-            maxBuildings: 'see specials',
-            maxLevel: 1,
-            special:
-                "Attention : Vous ne pouvez construire un maximum de 25 héliports de Gendarmerie. Il n'y a pas de différence si vous construisez un nouveau bâtiment ou une nouvelle extension. (Plus vous construisez de bâtiments et plus vous pourrez construire d'héliports).",
-            startPersonnel: 3,
-            startVehicles: [],
-            schoolingTypes: ['Poste de police'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        14: {
-            caption: 'Centre de Regroupement des Moyens',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 1,
-            maxLevel: 0,
-            special:
-                'Vous pouvez construire la zone intermédiaire gratuitement. Celle-ci agit comme une plateforme et vous permet de stationner et déployer temporairement vos unités. Elle disparaît après 24 heures. Veuillez sélectionner la ou les unités que vous souhaitez déployer ici.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 1,
-        },
-        16: {
-            caption: 'Prison',
-            coins: 'x',
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Cellule de prison',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 jours',
-                },
-                ...new Array(9).fill({
-                    caption: 'Plus de cellules',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 jours',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 0,
-            special:
-                "Ce bâtiment ne peut être construit que par le chef des finances ou des administateurs avec les crédits de la banque d'alliance. Les cellules sont disponibles pour tous les membres de l'alliance.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        18: {
-            caption: 'Centre de Première Intervention',
-            color: '#aa1111',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Service de Santé et de Secours Médical',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 jours',
-                },
-                {
-                    caption: 'Extension de soutien à incendie',
-                    credits: 75_000,
-                    coins: 15,
-                    duration: '3 jours',
-                },
-                {
-                    caption: 'Unité nautique',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 jours',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
-            ],
-            maxBuildings: '6.000 casernes de pompiers',
-            maxLevel: 5,
-            special:
-                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
-            startPersonnel: 10,
-            startVehicles: ['FPT', 'FPTL'],
-            schoolingTypes: ['Centre de secours'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        19: {
-            caption: 'Poste de police (petit)',
-            color: '#116611',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Cellule de prison',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 jours',
-                },
-                ...new Array(1).fill({
-                    caption: 'Plus de cellules',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 jours',
-                }),
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Ceci est un petit poste de police. Si vous souhaitez l’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un poste de police ordinaire. Ce processus prend 24 heures.',
-            ],
-            maxBuildings: '1700 postes de police/gendarmerie',
-            maxLevel: 4,
-            special:
-                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
-            startPersonnel: 2,
-            startVehicles: ['Véhicule de patrouille'],
-            schoolingTypes: ['Poste de police'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        20: {
-            caption: 'Poste Ambulancier (petit)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Ceci est un petit Poste Ambulancier. Si vous souhaitez l’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un Poste Ambulancier ordinaire. Ce processus prend 24 heures.',
-            ],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['UMH'],
-            schoolingTypes: ['Secours'],
-        },
-        21: {
-            caption: 'Grand complexe',
-            color: '#8B4513',
-            coins: 'Trop cher',
-            credits: 'Trop cher',
-            extensions: [],
-            levelcost: ['Trop cher'],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 5,
-            special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        22: {
-            caption: 'Petit complexe',
-            color: '#8B4513',
-            coins: 'Trop cher',
-            credits: 'Trop cher',
-            extensions: [],
-            levelcost: ['Trop cher'],
-            maxBuildings: 'Aucune limite',
-            maxLevel: 5,
-            special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
-            startPersonnel: 'there is none',
-            startVehicles: [''],
         },
     },
     buildingCategories: {
@@ -1177,11 +737,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
     vehicleCategories: {
         Incendie: {
             vehicles: {
-                ['Fourgon dìncendie']: [0, 1, 12, 13],
+                ["Fourgons d'incendie"]: [0, 1, 12, 13],
                 ['Échelles']: [2, 15],
                 ['Véhicules spéciaux']: [4, 6, 7, 10, 14, 31, 36, 37, 38],
                 'Chefs de groupe': [3, 11],
-                'Ambulance': [25, 26],
+                'Ambulances': [25, 26],
                 'Nautique': [16, 17],
                 ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
             },
@@ -1196,10 +756,10 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         Police: {
             vehicles: {
-                ['Véhicule de patrouille']: [8],
-                ['Unité motocycliste']: [20],
+                ['Véhicules de patrouille']: [8],
+                ['Unités motocyclistes']: [20],
                 Choucas: [18],
-                ['Équipe cynophile']: [19],
+                ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',

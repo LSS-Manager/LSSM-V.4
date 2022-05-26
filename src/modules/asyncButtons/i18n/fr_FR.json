@@ -8,8 +8,8 @@
         }
     },
     "buildings": {
-        "active": "Prêt pour l'action",
-        "nonactive": "Pas prêt pour l'action"
+        "active": "Prêt et paré",
+        "nonactive": "Pas encore prêt"
     },
     "deleteARR": {
         "deleteModal": {

@@ -5,7 +5,6 @@ import type { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 
 interface ResolvedSchooling extends Pick<Schooling, 'caption' | 'duration'> {
     required_for: string[];
-    [key: string]: string[] | string;
 }
 
 export interface Overview {
@@ -19,7 +18,7 @@ export interface Overview {
             }
         >;
         search: string;
-        sort: string;
+        sort: keyof InternalVehicle;
         sortDir: string;
         current: {
             category: number;
@@ -36,7 +35,7 @@ export interface Overview {
             }
         >;
         search: string;
-        sort: string;
+        sort: keyof InternalBuilding;
         sortDir: string;
         current: {
             category: number;
@@ -51,7 +50,7 @@ export interface Overview {
             }
         >;
         search: string;
-        sort: string;
+        sort: keyof ResolvedSchooling;
         sortDir: string;
         current: {
             category: number;
@@ -77,9 +76,9 @@ export interface OverviewMethods {
         n: number,
         args?: Record<string, unknown>
     ): VueI18n.TranslateResult;
-    setSortBuildings(type: string): void;
-    setSortVehicles(type: string): void;
-    setSortSchoolings(type: string): void;
+    setSortBuildings(type: keyof InternalBuilding): void;
+    setSortVehicles(type: keyof InternalVehicle): void;
+    setSortSchoolings(type: keyof ResolvedSchooling): void;
     setVehicleCategory(_: unknown, group: number): void;
     setVehicleGroup(_: unknown, group: number): void;
     setBuildingCategory(_: unknown, group: number): void;

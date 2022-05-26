@@ -43,6 +43,6 @@ export interface SchoolingSummaryMethods {
 }
 
 export interface SchoolingSummaryProps {
-    allSchoolings: SchoolingSummaryObject;
+    allSchoolings: SchoolingSummaryObject<Schooling>;
     eachSchoolings: SchoolingSummaryObject<EachSchooling>;
 }

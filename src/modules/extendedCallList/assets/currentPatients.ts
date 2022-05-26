@@ -25,8 +25,9 @@ export default (
             wrapper.classList.add('pull-right');
             wrapper.style.setProperty('white-space', 'nowrap');
             const icon = document.createElement('i');
-            icon.classList.add('fas', 'fa-user-injured');
+            icon.classList.add('fas', 'fa-user-injured', 'fa-fw');
             icon.style.setProperty('margin-left', '0.2em');
+            icon.style.setProperty('margin-right', '0.2em');
             patientHolder = document.createElement('span');
             patientHolder.classList.add(patientHolderClass);
             wrapper.append(icon, patientHolder);

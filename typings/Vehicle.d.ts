@@ -20,13 +20,6 @@ export interface Vehicle {
     queued_mission_id: number | null;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
-    [key: string]:
-        | IconDefinition
-        | boolean
-        | number
-        | string
-        | null
-        | undefined;
 }
 
 export interface VehicleCategory {
@@ -58,12 +51,4 @@ export interface InternalVehicle {
     special?: string;
     icon: string;
     possibleBuildings: number[];
-
-    // general
-    [key: string]:
-        | number[]
-        | Record<string, Record<string, VehicleSchooling>>
-        | number
-        | string
-        | undefined;
 }

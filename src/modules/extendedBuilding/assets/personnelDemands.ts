@@ -11,7 +11,8 @@ export default (
 
     if (!dataList) return;
 
-    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
+    const vehicleTypes: Record<number, InternalVehicle> =
+        LSSM.$store.getters.$tVehicles;
 
     let sumMinPersonnel = 0;
     let sumMaxPersonnel = 0;

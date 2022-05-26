@@ -4,7 +4,10 @@ import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Vehicle } from 'typings/Vehicle';
 import type { LatLng, Map } from 'leaflet';
-import type { Settings, UpdateSettings } from './heatmapSettings.vue';
+import type {
+    Settings,
+    UpdateSettings,
+} from 'typings/modules/heatmap/Settings';
 
 interface HeatLayer {
     setLatLngs(points: LatLng[]): void;

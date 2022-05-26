@@ -386,10 +386,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as Record<
-            number,
-            InternalBuilding
-        >;
+        const buildingTypes: Record<number, InternalBuilding> =
+            this.$store.getters.$tBuildings;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );

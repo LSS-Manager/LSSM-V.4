@@ -1,0 +1,100 @@
+{
+    "buildingComplexes": {
+        "openInLightbox": "Open gebouw in Lightbox",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "automatisch",
+                    "no": "Geen",
+                    "phase": "1 dag | {n} dagen"
+                },
+                "inConstruction": "waarvan {n} in aanbouw",
+                "table": {
+                    "head": {
+                        "beds": "Bedden",
+                        "cells": "Cellen",
+                        "classrooms": "Klassen",
+                        "hiring": "Aanneemfase",
+                        "level": "Level",
+                        "name": "Naam",
+                        "staff": "Personeel (Doel)",
+                        "vehicles": "Voertuigen"
+                    }
+                },
+                "title": "gekoppelde gebouwen"
+            },
+            "classrooms": {
+                "title": "Klaslokalen"
+            },
+            "extensions": {
+                "abort": "Annuleren",
+                "disable": "Niet beschikbaar maken",
+                "disabled": "Voltooid en niet beschikbaar",
+                "enable": "Beschikbaar maken",
+                "enabled": "Voltooid en beschikbaar",
+                "filter": {
+                    "all": "Alles",
+                    "buildings": "Gebouwen",
+                    "canBuy": "kan kopen",
+                    "canToggle": "kan (niet) beschikbaar maken",
+                    "cannotBuy": "kan niet kopen",
+                    "cannotToggle": "kan niet (niet) beschikbaar maken",
+                    "disabled": "voltooid en niet beschikbaar",
+                    "enabled": "voltooid en beschikbaar",
+                    "extensions": "Uitbreidingen",
+                    "states": "Status",
+                    "underConstruction": "in aanbouw"
+                },
+                "limit": "Je kan niet meer dan {n} van deze uitbreiding kopen momenteel!",
+                "missingRequirements": "Je mist de volgende vereisten:",
+                "summary": {
+                    "available": "{n} klaar om te bouwen",
+                    "built": "{n} gebouwd",
+                    "inConstruction": "{n} in aanbouw",
+                    "total": "{n} mogelijk totaal"
+                },
+                "table": {
+                    "head": {
+                        "building": "Gebouw",
+                        "name": "Naam"
+                    }
+                },
+                "title": "Uitbreidingen",
+                "underConstruction": "in aanbout"
+            },
+            "title": "Overzicht",
+            "vehicles": {
+                "imageInfo": "Let op: Momenteel alleen de standaard voertuig iconen of de iconen van een afbeeldingsverzameling kunnen worden weergegeven. Iconen ingesteld op een individueel voertuig of gebouw kunnen helaas nog niet worden herkend.",
+                "table": {
+                    "head": {
+                        "building": "Gebouw",
+                        "fms": "Status",
+                        "name": "Naam",
+                        "staff": "Personeel (toegewezen / max)"
+                    }
+                },
+                "title": "Voertuigen"
+            }
+        },
+        "settings": {
+            "abort": "Annuleren",
+            "buildingTabs": "Toon tabs voor gekoppelde gebouwen?",
+            "buildings": "gekoppelde gebouwen",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Annuleren",
+                    "continue": "Verwijderen"
+                },
+                "text": "Wil je dit gebouwencomplex verwijderen? Alle gekoppelde gebouwen zullen weer op de kaart worden getoond, zoals daarvoor.",
+                "title": "Verwijder complex"
+            },
+            "icon": "Icoon",
+            "iconHelp": "Kies uit standard iconen of de iconen van de gekoppelde gebouwen",
+            "location": "Locatie",
+            "name": "Naam",
+            "save": "Opslaan",
+            "showMarkers": "Toon gekoppelde gebouwen op de kaart?",
+            "title": "Bewerk complex"
+        }
+    }
+}

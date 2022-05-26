@@ -9,6 +9,8 @@ import notifications from './store/notifications';
 import settings from './store/settings';
 import storage from './store/storage';
 
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type { LSSMEvent } from 'typings/helpers';
 import type { Modules } from 'typings/Module';
 import type { RootState } from 'typings/store/RootState';
@@ -21,7 +23,7 @@ import type {
     premodifyParams,
     ProxyParams,
 } from 'typings/store/Actions';
-// to seperate typings
+// to separate typings
 // eslint-disable-next-line no-duplicate-imports
 import type {
     ActionTree,
@@ -51,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             mode: MODE,
             lang: window.I18n.locale,
             discord: `https://discord.gg/${config.discord.invite}`,
+            github: `https://github.com/${config.github.repo}`,
             games: config.games,
             server: config.server,
             fontAwesomeIconSearch: config.fontAwesomeIconSearch,
@@ -198,6 +201,16 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         .toString();
                     return left < right ? -1 : left > right ? 1 : 0;
                 });
+            },
+            $tBuildings() {
+                return (window[PREFIX] as Vue).$t(
+                    'buildings'
+                ) as unknown as Record<number, InternalBuilding>;
+            },
+            $tVehicles() {
+                return (window[PREFIX] as Vue).$t(
+                    'vehicles'
+                ) as unknown as Record<number, InternalVehicle>;
             },
         } as GetterTree<RootState, RootState>,
         actions: {

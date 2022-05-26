@@ -33,10 +33,8 @@ export default async (
             ),
         } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$t('vehicles') as Record<
-            number,
-            InternalVehicle
-        >;
+        const internalVehicleTypes: Record<number, InternalVehicle> =
+            LSSM.$store.getters.$tVehicles;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 

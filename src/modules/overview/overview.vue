@@ -293,12 +293,12 @@ import type {
     InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
-} from '../../../typings/Vehicle';
+} from 'typings/Vehicle';
 import type {
     Overview,
     OverviewComputed,
     OverviewMethods,
-} from '../../../typings/modules/Overview';
+} from 'typings/modules/Overview';
 
 export default Vue.extend<
     Overview,
@@ -321,10 +321,8 @@ export default Vue.extend<
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = this.$t('vehicles') as Record<
-            number,
-            InternalVehicle
-        >;
+        const vehicleTypes: Record<number, InternalVehicle> =
+            this.$store.getters.$tVehicles;
         const resolvedVehicleCategories = {} as Record<
             string,
             ResolvedVehicleCategory
@@ -376,7 +374,10 @@ export default Vue.extend<
         const buildingTypes = Object.fromEntries(
             Object.entries(
                 cloneDeep(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$store.getters.$tBuildings as Record<
+                        number,
+                        InternalBuilding
+                    >
                 )
             ).map(([index, building]) => {
                 const extensions = Object.values(building.extensions);
@@ -385,7 +386,7 @@ export default Vue.extend<
                 extensions.forEach(extension => {
                     if (!extension) return;
                     const e = minifiedExtensions.find(
-                        e => extension.caption === e.caption
+                        e => extension.caption === e?.caption
                     );
                     if (e) {
                         if (!multipleExtensions.hasOwnProperty(e.caption))
@@ -398,7 +399,7 @@ export default Vue.extend<
                 Object.entries(multipleExtensions).forEach(
                     ([caption, amount]) => {
                         const e = minifiedExtensions.find(
-                            e => e.caption === caption
+                            e => e?.caption === caption
                         );
                         if (e) {
                             e.caption = this.$tc(

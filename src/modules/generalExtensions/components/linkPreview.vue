@@ -170,7 +170,7 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: this.$t('vehicles') as unknown as Record<
+            vehicleTypes: this.$store.getters.$tVehicles as Record<
                 number,
                 InternalVehicle
             >,
@@ -264,9 +264,12 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (this.$t('buildings') as Record<number, InternalBuilding>)[
-                    building.building_type
-                ].caption
+                (
+                    this.$store.getters.$tBuildings as Record<
+                        number,
+                        InternalBuilding
+                    >
+                )[building.building_type].caption
             );
         },
         setVehicle(vehicle) {

@@ -157,25 +157,12 @@ import type { $m } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import type { InternalBuilding } from 'typings/Building';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
-
-type Mode = 'buildings' | 'vehicles';
-
-type Subsetting<Scope extends Mode | ''> = Record<
-    `${Scope}IntensityMaxZoom` | `${Scope}RadiusM` | `${Scope}RadiusPx`,
-    number
-> &
-    Record<`${Scope}Includes`, { value: number | string; label: string }[]> &
-    Record<`${Scope}StaticRadius`, boolean>;
-
-export type Settings = Subsetting<'buildings'> &
-    Subsetting<'vehicles'> & {
-        position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-        active: boolean;
-        livePreview: boolean;
-        heatmapMode: Mode;
-    };
-
-export type UpdateSettings = (updated: Omit<Settings, 'active'>) => void;
+import type {
+    Mode,
+    Settings,
+    Subsetting,
+    UpdateSettings,
+} from 'typings/modules/heatmap/Settings';
 
 export default Vue.extend<
     {
@@ -254,7 +241,7 @@ export default Vue.extend<
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
-            vehicleTypes: this.$t('vehicles') as Record<
+            vehicleTypes: this.$store.getters.$tVehicles as Record<
                 number,
                 InternalVehicle
             >,
@@ -308,13 +295,17 @@ export default Vue.extend<
                         : 0
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
+                const removeNull = <S>(value: S | null): value is S => !!value;
                 return Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
+                    this.$store.getters.$tBuildings as Record<
+                        number,
+                        InternalBuilding
+                    >
                 )
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },
                         ...extensions
-                            .filter(Boolean)
+                            .filter(removeNull)
                             .flatMap(({ caption: extensionCaption }) => [
                                 {
                                     value: `${id}-${extensionCaption}`,

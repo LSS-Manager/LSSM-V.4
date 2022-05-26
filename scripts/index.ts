@@ -14,6 +14,11 @@ const build = (mode: string) => {
 
 const scriptHandlers = {
     sort,
+    tsc() {
+        console.time('tsc -b');
+        console.log(execSync('tsc -b').toString());
+        console.timeEnd('tsc -b');
+    },
     emojis() {
         fetchEmojis();
     },
@@ -28,6 +33,7 @@ const scriptHandlers = {
     predev() {
         this.emojis();
         this.lint();
+        this.tsc();
         console.log(execSync('ts-node prebuild').toString());
     },
     dev() {
@@ -40,11 +46,15 @@ const scriptHandlers = {
                 './docs/.vuepress/node_modules/.bin/vuepress build docs'
             ).toString()
         );
+        if (fs.existsSync('./dist/docs'))
+            fs.rmSync('./dist/docs', { recursive: true });
+        fs.mkdirSync('./dist/docs', { recursive: true });
         fs.cpSync('./docs/.vuepress/dist/', './dist/docs', { recursive: true });
     },
     preBuild() {
         this.emojis();
         this.lint();
+        this.tsc();
         console.log(execSync('ts-node prebuild production').toString());
     },
     build() {

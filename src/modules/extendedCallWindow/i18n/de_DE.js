@@ -269,4 +269,7 @@ module.exports = {
         'vehicles': 'Fahrzeuge',
         'players': 'Spieler',
     },
+    releasePatient: {
+        release: 'Patient entlassen (Keine Vergütung)',
+    },
 };

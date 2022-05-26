@@ -1,8 +1,11 @@
 export interface StarrableButton extends HTMLButtonElement {
-    switch?(): Promise<void>;
+    switch?(triggeredInMissionWindow?: boolean): Promise<void>;
 }
 
-const switchBtnState = (btn: HTMLButtonElement) => {
+const switchBtnState = (
+    btn: HTMLButtonElement,
+    triggeredInMissionWindow = false
+) => {
     const starred = btn.classList.contains('btn-warning');
     const btnClassReplace: [string, string] = ['btn-default', 'btn-warning'];
     if (starred) btnClassReplace.reverse();
@@ -11,6 +14,22 @@ const switchBtnState = (btn: HTMLButtonElement) => {
         'data-prefix',
         starred ? 'far' : 'fas'
     );
+    if (triggeredInMissionWindow) {
+        (window[PREFIX] as Vue).$store
+            .dispatch('event/createEvent', {
+                name: 'ecl_starrable-missions_toggle',
+                detail: {
+                    missionId: btn.dataset.mission,
+                },
+            })
+            .then(event =>
+                (window[PREFIX] as Vue).$store.dispatch(
+                    'event/dispatchEvent',
+                    event
+                )
+            )
+            .then();
+    }
 };
 
 export default (
@@ -33,7 +52,7 @@ export default (
     icon.classList.add(`fa${isStarred ? 's' : 'r'}`, 'fa-star');
     btn.append(icon);
 
-    const send = () =>
+    const send = (triggeredInMissionWindow = false) =>
         LSSM.$store
             .dispatch('broadcast/send_custom_message', {
                 name: 'starredMissions_update',
@@ -42,12 +61,18 @@ export default (
                         .querySelectorAll<HTMLButtonElement>(
                             `button.${msg.data.starredMissionBtnClass}[data-mission="${msg.data.missionId}"]`
                         )
-                        // eslint-disable-next-line no-eval
-                        .forEach(eval(`${msg.data.switchBtnState}`));
+                        .forEach(btn =>
+                            // eslint-disable-next-line no-eval
+                            eval(`${msg.data.switchBtnState}`)(
+                                btn,
+                                msg.data.triggeredInMissionWindow
+                            )
+                        );
                 },
                 data: {
                     missionId,
                     starredMissionBtnClass,
+                    triggeredInMissionWindow,
                     switchBtnState: switchBtnState.toString(),
                 },
             })
@@ -77,10 +102,10 @@ export default (
         });
     };
 
-    btn.switch = async () => {
+    btn.switch = async (triggeredInMissionWindow = false) => {
         await store();
-        await send();
-        switchBtnState(btn);
+        await send(triggeredInMissionWindow);
+        switchBtnState(btn, triggeredInMissionWindow);
     };
 
     return btn;
