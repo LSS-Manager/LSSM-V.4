@@ -18,8 +18,8 @@ En utilisant le `LSSM` (Leitstellenspiel Manager, extension pour le navigateur),
 * La langue du jeux 
   *  Y compris si vous utilisez la version police ou pas
 * Le type de carte actif (OSM ou Mapkit)
-* la version LSSM
-* version of the installed LSSM userscript
+* La version LSSM
+* La version de l'userscript de LSSM installé
 
 Ces données sont utilisées pour améliorer l'extension ainsi que pour guider le développement de modules existants ou futurs.
 Elles constituent également la base de statistiques passionnantes, qui peuvent être publiées, par exemple sous forme de news (pour plus d'informations, voir [ci-dessous](#publication-de-statistiques)).
