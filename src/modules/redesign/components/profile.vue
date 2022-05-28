@@ -256,8 +256,26 @@
                     <tab v-if="profile.has_map" :title="lightbox.$sm('map')">
                         <div class="dispatchcenter-summary">
                             <span
-                                v-for="type in buildingTypesSorted"
-                                :key="type"
+                                class="label"
+                                :class="`label-${
+                                    hiddenFilters.length ? 'danger' : 'success'
+                                }`"
+                                @click="toggleAllFilters"
+                            >
+                                {{
+                                    lightbox.$smc(
+                                        'buildings.amount',
+                                        profile.buildings.length,
+                                        {
+                                            n: profile.buildings.length.toLocaleString(),
+                                        }
+                                    )
+                                }}
+                            </span>
+                            <template
+                                v-for="type in buildingTypesSorted.filter(
+                                    t => buildings[0].buildingTypes.sum[t]
+                                )"
                             >
                                 <span
                                     class="label"
@@ -266,7 +284,7 @@
                                             ? 'danger'
                                             : 'success'
                                     }`"
-                                    v-if="buildings[0].buildingTypes.sum[type]"
+                                    :key="type"
                                     @click="toggleFilter(type)"
                                     @dblclick="onlyFilter(type)"
                                 >
@@ -277,7 +295,7 @@
                                         ].toLocaleString()
                                     }}
                                 </span>
-                            </span>
+                            </template>
                         </div>
                     </tab>
                     <tab
@@ -301,8 +319,26 @@
                         </label>
                         <div class="dispatchcenter-summary">
                             <span
-                                v-for="type in buildingTypesSorted"
-                                :key="type"
+                                class="label"
+                                :class="`label-${
+                                    hiddenFilters.length ? 'danger' : 'success'
+                                }`"
+                                @click="toggleAllFilters"
+                            >
+                                {{
+                                    lightbox.$smc(
+                                        'buildings.amount',
+                                        profile.buildings.length,
+                                        {
+                                            n: profile.buildings.length.toLocaleString(),
+                                        }
+                                    )
+                                }}
+                            </span>
+                            <template
+                                v-for="type in buildingTypesSorted.filter(
+                                    t => buildings[0].buildingTypes.sum[t]
+                                )"
                             >
                                 <span
                                     class="label"
@@ -311,7 +347,7 @@
                                             ? 'danger'
                                             : 'success'
                                     }`"
-                                    v-if="buildings[0].buildingTypes.sum[type]"
+                                    :key="type"
                                     @click="toggleFilter(type)"
                                     @dblclick="onlyFilter(type)"
                                 >
@@ -322,7 +358,7 @@
                                         ].toLocaleString()
                                     }}
                                 </span>
-                            </span>
+                            </template>
                         </div>
                         <div
                             class="panel panel-default profile-dispatchcenter"
@@ -620,6 +656,7 @@ type Component = RedesignComponent<
         allianceIgnore(): void;
         toggleFilter(type: number): void;
         onlyFilter(type: number): void;
+        toggleAllFilters(): void;
     },
     {
         rank: string;
@@ -747,13 +784,30 @@ export default Vue.extend<
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
         onlyFilter(type) {
-            this.hiddenFilters = this.buildingTypesSorted.filter(t => {
-                (this.$refs.map as MapVue)?.map?.[
-                    t === type ? 'addLayer' : 'removeLayer'
-                ](this.mapLayerGroups[t]);
-                return t !== type;
-            });
+            this.hiddenFilters = Object.keys(
+                this.buildings[0].buildingTypes.sum ?? {}
+            )
+                .filter(t => {
+                    (this.$refs.map as MapVue)?.map?.[
+                        t === type.toString() ? 'addLayer' : 'removeLayer'
+                    ](this.mapLayerGroups[parseInt(t)]);
+                    return t !== type.toString();
+                })
+                .map(t => parseInt(t));
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
+        },
+        toggleAllFilters() {
+            if (
+                Object.keys(this.buildings[0].buildingTypes.sum ?? {}).every(
+                    type => this.hiddenFilters.includes(parseInt(type))
+                )
+            ) {
+                this.hiddenFilters.forEach(type =>
+                    this.$nextTick().then(() => this.toggleFilter(type))
+                );
+            } else {
+                this.onlyFilter(-1);
+            }
         },
     },
     computed: {
