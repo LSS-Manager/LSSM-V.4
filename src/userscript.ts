@@ -14,7 +14,7 @@ const loadLSSM = () => {
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
 
-    window[`${prefix}-GM_Info`] = JSON.parse(JSON.stringify(GM_info));
+    unsafeWindow[`${prefix}-GM_Info`] = JSON.parse(JSON.stringify(GM_info));
 
     document.body.append(script);
 };

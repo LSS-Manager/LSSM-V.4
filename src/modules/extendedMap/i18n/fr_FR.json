@@ -21,70 +21,75 @@
                         "vehicles": "Véhicules"
                     }
                 },
-                "title": "bâtiments rattachés"
+                "title": "Bâtiments rattachés"
             },
             "classrooms": {
-                "title": "Classrooms"
+                "title": "Salles de formation"
             },
             "extensions": {
-                "abort": "Abort",
-                "disabled": "Finished & disabled",
-                "enabled": "Finished & enabled",
+                "abort": "Annuler",
+                "disable": "Pas encore prêt",
+                "disabled": "Pas encore prêt",
+                "enable": "Prêt et paré",
+                "enabled": "Prêt et paré",
                 "filter": {
-                    "all": "All",
-                    "buildings": "Buildings",
-                    "canBuy": "can buy",
-                    "cannotBuy": "cannot buy",
-                    "disabled": "finished & disabled",
-                    "enabled": "finished & enabled",
+                    "all": "Tout",
+                    "buildings": "Bâtiments",
+                    "canBuy": "Peut être acheté",
+                    "canToggle": "Peut être (dés)activer",
+                    "cannotBuy": "Ne peut pas être acheté",
+                    "cannotToggle": "Ne peut pas être (dés)activer",
+                    "disabled": "Pas encore prêt",
+                    "enabled": "Prêt et paré",
                     "extensions": "Extensions",
                     "states": "Status",
-                    "underConstruction": "under construction"
+                    "underConstruction": "En construction"
                 },
-                "limit": "You cannot buy more than {n} of this extensions currently!",
-                "missingRequirements": "Following requirements are not met:",
+                "limit": "Vous ne pouvez pas acheter plus de {n} de ces extensions actuellement !",
+                "missingRequirements": "Les exigences suivantes ne sont pas respectées:",
                 "summary": {
-                    "available": "{n} ready to be built",
-                    "built": "{n} built",
-                    "inConstruction": "{n} under construction",
-                    "total": "{n} possible in total"
+                    "available": "{n} prêt à être construit",
+                    "built": "{n} construit",
+                    "inConstruction": "{n} en construction",
+                    "total": "{n} possible en tout"
                 },
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "name": "Name"
+                        "building": "Bâtiments",
+                        "name": "Nom"
                     }
                 },
                 "title": "Extensions",
-                "underConstruction": "under construction"
+                "underConstruction": "En construction"
             },
             "title": "Aperçu",
             "vehicles": {
+                "imageInfo": "Remarque : actuellement, seules les icônes standard des véhicules ou ceux du pack graphique peuvent être affichés. Les icônes définies sur un véhicule ou une station de manière individuelle ne peuvent malheureusement pas encore être reconnues.",
                 "table": {
                     "head": {
-                        "building": "Building",
+                        "building": "Bâtiments",
                         "fms": "Status",
-                        "name": "Name",
-                        "staff": "Staff (assigned / max)"
+                        "name": "Nom",
+                        "staff": "Personnel (assigné / max)"
                     }
                 },
-                "title": "Vehicles"
+                "title": "Véhicules"
             }
         },
         "settings": {
             "abort": "Annuler",
-            "buildingTabs": "Show tabs for attached buildings?",
-            "buildings": "bâtiments rattachés",
+            "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
+            "buildings": "Bâtiments rattachés",
             "dissolve": {
                 "buttons": {
-                    "abort": "Abort",
-                    "continue": "Dissolve"
+                    "abort": "Annuler",
+                    "continue": "Dissoudre"
                 },
-                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
-                "title": "Dissolve complex"
+                "text": "Voulez-vous dissoudre cet ensemble de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
+                "title": "Dissoudre le complexe"
             },
             "icon": "Icon",
-            "iconHelp": "choisir entre les icônes standard et les icônes des bâtiments rattachés",
+            "iconHelp": "Choisir entre les icônes standard et les icônes des bâtiments rattachés",
             "location": "Emplacement",
             "name": "Nom",
             "save": "Sauvegader",

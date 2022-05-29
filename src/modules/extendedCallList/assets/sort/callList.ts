@@ -336,7 +336,7 @@ export default (
         credits: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
             if (missionType === '-1' || missionType === 'null')
-                return maxCSSInteger.toString();
+                return (maxCSSInteger - 1).toString();
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex && overlayIndex !== 'null')

@@ -28,13 +28,17 @@
             },
             "extensions": {
                 "abort": "Annulla",
+                "disable": "Disabilita",
                 "disabled": "Completata ma disabilitata",
+                "enable": "Abilita",
                 "enabled": "Completata ed in funzione",
                 "filter": {
                     "all": "Tutto",
                     "buildings": "Edifici",
                     "canBuy": "Disponibili",
+                    "canToggle": "Si può abilitare/disabilitare",
                     "cannotBuy": "Non disponibili",
+                    "cannotToggle": "Non si può abilitare/disabilitare",
                     "disabled": "Completata ma disabilitata",
                     "enabled": "Completata ed in funzione",
                     "extensions": "Estensioni",
@@ -60,6 +64,7 @@
             },
             "title": "Panoramica",
             "vehicles": {
+                "imageInfo": "Attenzione: al momento, solo le icone standard dei veicoli e/o delle stazioni possono essere visualizzate. Ci dispiace, ma le icone dei veicoli o delle stazioni impostate individualmente non potranno essere riconosciute per ora.",
                 "table": {
                     "head": {
                         "building": "Edificio",
@@ -73,7 +78,7 @@
         },
         "settings": {
             "abort": "Annulla",
-            "buildingTabs": "Show tabs for attached buildings?",
+            "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
             "dissolve": {
                 "buttons": {
@@ -88,7 +93,7 @@
             "location": "Posizione",
             "name": "Nome",
             "save": "Salva",
-            "showMarkers": "Mostra edifici collegati nella mappa?",
+            "showMarkers": "Mostra nella mappa gli edifici collegati",
             "title": "Modifica complesso edilizio"
         }
     }

@@ -70,7 +70,7 @@ export default Vue.extend<
             return (
                 this.fahrzeugfarbe.customVehicleType ??
                 (
-                    this.$t('vehicles') as unknown as Record<
+                    this.$store.getters.$tVehicles as Record<
                         number,
                         InternalVehicle
                     >

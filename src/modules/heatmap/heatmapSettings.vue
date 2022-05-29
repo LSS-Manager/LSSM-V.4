@@ -241,7 +241,7 @@ export default Vue.extend<
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
-            vehicleTypes: this.$t('vehicles') as unknown as Record<
+            vehicleTypes: this.$store.getters.$tVehicles as Record<
                 number,
                 InternalVehicle
             >,
@@ -295,6 +295,7 @@ export default Vue.extend<
                         : 0
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
+                const removeNull = <S>(value: S | null): value is S => !!value;
                 return Object.entries(
                     this.$store.getters.$tBuildings as Record<
                         number,
@@ -304,7 +305,7 @@ export default Vue.extend<
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },
                         ...extensions
-                            .filter(Boolean)
+                            .filter(removeNull)
                             .flatMap(({ caption: extensionCaption }) => [
                                 {
                                     value: `${id}-${extensionCaption}`,

@@ -28,13 +28,17 @@
             },
             "extensions": {
                 "abort": "Abbrechen",
+                "disable": "deaktivieren",
                 "disabled": "Fertig gebaut & deaktiviert",
+                "enable": "aktivieren",
                 "enabled": "Fertig gebaut & aktiviert",
                 "filter": {
                     "all": "Alle",
                     "buildings": "Gebäude",
                     "canBuy": "kaufbar",
+                    "canToggle": "(de-)aktivierbar",
                     "cannotBuy": "nicht kaufbar",
+                    "cannotToggle": "nicht (de-)aktivierbar",
                     "disabled": "fertiggestellt & deaktiviert",
                     "enabled": "fertiggestellt & aktiviert",
                     "extensions": "Ausbauten",
@@ -60,6 +64,7 @@
             },
             "title": "Übersicht",
             "vehicles": {
+                "imageInfo": "Temporärer Hinweis: Aktuell werden nur Standardgrafiken bzw. die Grafiken des ausgewählten Grafiksets angezeigt. In Fahrzeugen und Wachen eingestellte Grafiken und Grafiksets können wir aktuell leider noch nicht erkennen.",
                 "table": {
                     "head": {
                         "building": "Gebäude",

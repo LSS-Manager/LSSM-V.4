@@ -117,10 +117,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$store.getters.$tBuildings as Record<
-            number,
-            InternalBuilding
-        >;
+        const buildingTypes: Record<number, InternalBuilding> =
+            this.$store.getters.$tBuildings;
         const categories = this.$t('buildingCategories') as unknown as Record<
             string,
             BuildingCategory
@@ -141,6 +139,9 @@ export default Vue.extend<
                     color,
                     rows: Object.fromEntries(
                         Object.values(buildings).flatMap(buildingType => {
+                            const removeNull = <S>(
+                                value: S | null
+                            ): value is S => !!value;
                             const buildingsOfType =
                                 buildingsByType[buildingType];
                             const extensionsOfType = {} as Record<
@@ -156,7 +157,7 @@ export default Vue.extend<
                                     Object.values(
                                         buildingTypes[buildingType].extensions
                                     )
-                                        .filter(e => !!e)
+                                        .filter(removeNull)
                                         .map(({ caption }) => caption)
                                 ),
                             ].forEach(caption => {
@@ -227,7 +228,7 @@ export default Vue.extend<
                                                     buildingTypes[buildingType]
                                                         .extensions
                                                 )
-                                                    .filter(e => !!e)
+                                                    .filter(removeNull)
                                                     .map(e => e.caption)
                                             ),
                                         ].length,
@@ -250,7 +251,7 @@ export default Vue.extend<
                                 ...Object.values(
                                     buildingTypes[buildingType].extensions
                                 )
-                                    .filter(e => !!e)
+                                    .filter(removeNull)
                                     .map(
                                         ({
                                             caption,

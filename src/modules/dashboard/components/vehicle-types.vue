@@ -156,6 +156,8 @@ export default Vue.extend<
                 titleAttr: string;
             }
         >;
+        const internalVehicleTypes: Record<number, InternalVehicle> =
+            this.$store.getters.$tVehicles;
         Object.values(statuses).forEach(
             status =>
                 (statusHeads[`s${status}`] = {
@@ -165,12 +167,9 @@ export default Vue.extend<
         );
         return {
             vehicleTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as unknown as Record<
-                        number,
-                        InternalVehicle
-                    >
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             statuses,
             statusHeads,

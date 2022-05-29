@@ -15,7 +15,7 @@ export default (
         starredMissions.includes(missionId),
         starredMissionBtnClass
     );
-    btn.addEventListener('click', () => btn.switch?.().then());
+    btn.addEventListener('click', () => btn.switch?.(true).then());
     document
         .querySelector(
             '#mission_general_info > div[style*="float: left;"] > img'

@@ -69,5 +69,6 @@
   ],
   "rangeStrategy": "bump",
   "reviewers": ["Suchty112"],
-  "schedule": ["before 1am every weekday"]
+  "schedule": ["before 3am every weekday"],
+  "timezone": "Europe/Berlin"
 }

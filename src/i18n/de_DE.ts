@@ -61,6 +61,20 @@ const modules = {
 
 export default {
     modules,
+    updateUserscript: {
+        title: 'Userscript veraltet',
+        text: `Lieber LSSM-Nutzer,<br>
+leider ist dein LSSM V.4 Userscript veraltet. In der neuesten Version wurden änderungen am Userscript vorgenommen, die wichtig für die Funktion des LSSM V.4 sind.<br>
+Du benötigst mindestens Version {minVersion}, das Update kannst du bequem per Klick auf {updateLink} durchführen.<br>
+Manchmal funktioniert ein Update per Link aus unerklärlichen Gründen nicht richtig. Dann lässt sich ein Update manuell triggern: Tampermonkey-Icon im Browser anklicken -> "Übersicht" anklicken -> Haken beim LSSM V.4 Script setzen -> bei Aktion "Aktualisieren" drücken.<br>
+Wenn das auch nicht klappt, kannst du den Inhalt des Scripts in Tampermonkey mit dem Inhalt von {bypassLink} ersetzen.<br>
+Manchmal ist der LSSM nach einem Update plötzlich doppelt installiert. In dem Fall bitte das Script löschen, das nicht Version 4.5.10 (Im Tampermonkey) hat.<br>
+Wir entschuldigen uns für Probleme, die hierdurch entstanden sind.
+<br>
+Liebe Grüße,<br>
+Dein LSSM-Team`,
+        close: 'Ok',
+    },
     error: {
         title: 'LSS-Manager: Fehler',
         msg: 'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',

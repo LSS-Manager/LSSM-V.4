@@ -22,7 +22,7 @@ const modules = {
         import: 'Importer',
         appendableList: {
             unique: {
-                title: 'valeur en double',
+                title: 'Valeur en double',
                 text: 'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
                 confirm: 'OK',
             },
@@ -54,13 +54,27 @@ const modules = {
         locationSelect: {
             location: 'Sélectionnez une position',
             zoom: 'Sélectionner la position et le zoom',
-            sync: 'utiliser la position actuelle',
+            sync: 'Utiliser la position actuelle',
         },
     },
 } as Record<string, Record<string, unknown>>;
 
 export default {
     modules,
+    updateUserscript: {
+        title: 'Script utilisateur obsolète',
+        text: `Cher utilisateur de LSSM,<br>
+malheureusement votre userscript LSSM V.4 est périmé. Dans la dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de la V.4 de LSSM.<br>
+Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être effectuée confortablement en cliquant sur {updateLink}.<br>
+Il peut arriver que la mise à jour ne fonctionne pas en cliquant sur le lien (pour des raisons inconnues). Vous pouvez alors soit déclencher une mise à jour dans Tampermonkey (cliquez sur l'icône de Tampermonkey dans votre navigateur, puis sur "Aperçu". Cochez la case en face du userscript LSSM et sélectionnez "Update" comme action. <br>
+Si cela ne fonctionne pas non plus, modifiez le script LSSM dans Tampermonkey en remplaçant tout le contenu du script par le contenu de {bypassLink}.<br>
+Parfois, LSSM est installé plusieurs fois après une mise à jour. Dans ce cas, veuillez supprimer le script qui n'a pas la version 4.5.10 (dans Tampermonkey).<br>
+Nous sommes désolés pour tout problème causé si les mises à jour n'ont pas fonctionné correctement.
+<br>
+Bien à vous,<br>
+votre équipe LSSM`,
+        close: 'Ok',
+    },
     error: {
         title: 'LSS Manager: Erreur',
         msg: "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
@@ -69,9 +83,9 @@ export default {
             text: `Aïe, malheureusement une erreur s'est produite avec cette requête du serveur :<br>
 <b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
-<b>Feature</b>: <code>{feature}</code><br>
+<b>Fonctionnalité</b>: <code>{feature}</code><br>
 <b>Durée</b>: <code>{duration}ms</code><br>
-<b>User</b>: <code>{uid}</code><br>
+<b>Utilisateur</b>: <code>{uid}</code><br>
 <b>Timestamp</b>: <code>{timestamp}</code>
 <br>
 Veuillez réessayer d'effectuer l'action souhaitée.<br>
@@ -88,8 +102,9 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
     },
     anniversary1: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
-        title: '🎉 There is reason to celebrate! 🎉',
+        closeNote:
+            'Astuce : Vous pouvez également cliquer sur les ballons pour les fermer !',
+        title: '🎉 Il y a des raisons de faire la fête ! 🎉',
         content:
             'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
@@ -117,7 +132,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         loadingIndicator: {
             description:
                 'Si ce paramètre est actif, LSSM affiche un petit cercle de chargement dans le coin inférieur droit.',
-            title: 'afficher la progression du chargement',
+            title: 'Afficher la progression du chargement',
         },
         osmDarkTooltip: {
             description:

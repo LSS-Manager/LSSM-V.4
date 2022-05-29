@@ -58,6 +58,19 @@ export default (
             move(btn, id);
         });
 
+    LSSM.$store
+        .dispatch('event/addListener', {
+            name: 'ecl_starrable-missions_toggle',
+            listener(e: CustomEvent) {
+                const missionId = e.detail.missionId.toString();
+                const btn = buttons.find(
+                    ({ dataset: { mission } }) => mission === missionId
+                );
+                if (btn) move(btn, missionId);
+            },
+        })
+        .then();
+
     return (mission, starredMissionBtnClass) => {
         const starred = missions.includes(mission.id.toString());
         const btn = createBtn(

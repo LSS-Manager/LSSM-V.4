@@ -18,8 +18,19 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         vehicleTypes: string[];
     }[];
 
+    if (window.location.pathname.match(/^\/vehicles\/\d+\/?$/u)) {
+        if (await getSetting('moreReleasePatientButtons')) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/moreReleasePatientButtons/vehicle" */ './assets/moreReleasePatientButtons/vehicle'
+            ).then(({ default: moreReleasePatientButtons }) =>
+                moreReleasePatientButtons()
+            );
+        }
+        return;
+    }
+
     if (
-        !window.location.pathname.match(/^\/(buildings|missions)\/\d+$\/?/u) ||
+        !window.location.pathname.match(/^\/(buildings|missions)\/\d+\/?$/u) ||
         document.querySelector<HTMLDivElement>('.missionNotFound')
     )
         return;
@@ -38,6 +49,16 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
                 'opacity': '0.65',
             },
         });
+
+        if (await getSetting('moreReleasePatientButtons')) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/moreReleasePatientButtons/mission" */ './assets/moreReleasePatientButtons/mission'
+            ).then(({ default: moreReleasePatientButtons }) =>
+                moreReleasePatientButtons(
+                    $m('releasePatient.release').toString()
+                )
+            );
+        }
 
         if (await getSetting('vehicleTypeInList')) {
             import(

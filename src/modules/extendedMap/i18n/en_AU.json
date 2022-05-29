@@ -28,13 +28,17 @@
             },
             "extensions": {
                 "abort": "Abort",
+                "disable": "disable",
                 "disabled": "Finished & disabled",
+                "enable": "enable",
                 "enabled": "Finished & enabled",
                 "filter": {
                     "all": "All",
                     "buildings": "Buildings",
                     "canBuy": "can buy",
+                    "canToggle": "can enable/disable",
                     "cannotBuy": "cannot buy",
+                    "cannotToggle": "cannot enable/disable",
                     "disabled": "finished & disabled",
                     "enabled": "finished & enabled",
                     "extensions": "Extensions",
@@ -60,6 +64,7 @@
             },
             "title": "Overview",
             "vehicles": {
+                "imageInfo": "Note: Currently only standard vehicle icons or those of the set graphic pack can be shown. Icons set on a vehicle or station individually cannot be recognized yet unfortunately.",
                 "table": {
                     "head": {
                         "building": "Building",

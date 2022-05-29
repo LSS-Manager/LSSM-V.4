@@ -299,6 +299,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <small>{{ $m('overview.vehicles.imageInfo') }}</small>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{
@@ -607,6 +608,29 @@
                                                     )
                                                 }}
                                             </span>
+                                            <button
+                                                v-if="extension.canToggle"
+                                                class="btn btn-xs btn-default extension-toggle"
+                                                @click="
+                                                    toggleExtension(
+                                                        extension.buildingId,
+                                                        extension.type
+                                                    )
+                                                "
+                                                :disabled="
+                                                    tempDisableAllExtensionButtons
+                                                "
+                                            >
+                                                {{
+                                                    $m(
+                                                        `overview.extensions.${
+                                                            extension.enabled
+                                                                ? 'disable'
+                                                                : 'enable'
+                                                        }`
+                                                    )
+                                                }}
+                                            </button>
                                         </template>
                                         <template v-else>
                                             <span class="label label-default">
@@ -792,6 +816,7 @@ type AttributedBuilding = AttributedBuildingBeds &
         typeName: string;
         name: string;
         extensions: Extension[];
+        leitstelle: number | null;
     };
 
 interface AttributedVehicle {
@@ -814,7 +839,7 @@ type AttributedExtension = {
     name: string;
     type: number;
 } & (
-    | { bought: true; available: boolean; enabled: boolean }
+    | { bought: true; available: boolean; enabled: boolean; canToggle: boolean }
     | ({
           duration: string;
           credits: number;
@@ -840,6 +865,8 @@ type ExtensionSortAttribute = 'actions' | 'buildingName' | 'name';
 type ExtensionStateFilters =
     | 'canBuy'
     | 'cannotBuy'
+    | 'cannotToggle'
+    | 'canToggle'
     | 'disabled'
     | 'enabled'
     | 'underConstruction';
@@ -889,6 +916,7 @@ export default Vue.extend<
             method: 'coins' | 'credits',
             price: number
         ): void;
+        toggleExtension(buildingId: number, extensionType: number): void;
         updateExtensionsFilterNames(names: string[]): void;
         updateExtensionsFilterBuildings(buildings: (number | '*')[]): void;
         updateExtensionsFilterStates(
@@ -906,6 +934,7 @@ export default Vue.extend<
         hasLevelBuildings: boolean;
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
+        classroomBuildings: AttributedBuilding[];
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
@@ -1041,6 +1070,7 @@ export default Vue.extend<
                         typeName: buildingType.caption,
                         name: building.caption,
                         extensions: building.extensions,
+                        leitstelle: building.leitstelle_building_id,
                     };
 
                     const beds: AttributedBuildingBeds =
@@ -1062,7 +1092,8 @@ export default Vue.extend<
                         if (
                             !(
                                 'newCells' in
-                                buildingType.extensions[extension.type_id]
+                                (buildingType.extensions[extension.type_id] ??
+                                    {})
                             )
                         )
                             return;
@@ -1090,7 +1121,8 @@ export default Vue.extend<
                         if (
                             !(
                                 'newClassrooms' in
-                                buildingType.extensions[extension.type_id]
+                                (buildingType.extensions[extension.type_id] ??
+                                    {})
                             )
                         )
                             return;
@@ -1136,11 +1168,12 @@ export default Vue.extend<
                                       buildingType.startParkingLots +
                                       building.extensions
                                           .map(extension => {
-                                              const extensionType: InternalExtension =
+                                              const extensionType: InternalExtension | null =
                                                   buildingType.extensions[
                                                       extension.type_id
                                                   ];
                                               if (
+                                                  !extensionType ||
                                                   !extension.available ||
                                                   !(
                                                       'isVehicleExtension' in
@@ -1259,6 +1292,11 @@ export default Vue.extend<
         },
         hasBedBuildings() {
             return this.attributedBuildings.some(({ hasBeds }) => hasBeds);
+        },
+        classroomBuildings() {
+            return this.attributedBuildings.filter(
+                ({ hasClassrooms }) => hasClassrooms
+            );
         },
         hasClassroomBuildings() {
             return this.attributedBuildings.some(
@@ -1400,8 +1438,13 @@ export default Vue.extend<
                         )
                     )
                         maxExtensionsFunctionResults[buildingTypeId] = {};
-                    return buildingType.extensions.map(
-                        (extensionType, index) => {
+
+                    const removeNull = <S>(value: S | null): value is S =>
+                        !!value;
+
+                    return buildingType.extensions
+                        .filter(removeNull)
+                        .map((extensionType, index) => {
                             const boughtExtension = extensions.find(
                                 ({ type_id }) => index === type_id
                             );
@@ -1449,6 +1492,8 @@ export default Vue.extend<
                                           bought: true,
                                           available: boughtExtension.available,
                                           enabled: boughtExtension.enabled,
+                                          canToggle:
+                                              !extensionType.cannotDisable,
                                       }
                                     : {
                                           ...(canBuy
@@ -1463,7 +1508,7 @@ export default Vue.extend<
                                                                 buildingType
                                                                     .extensions[
                                                                     id
-                                                                ].caption
+                                                                ]?.caption ?? ''
                                                         ) ?? []),
                                                         ...(canBuyByAmount ||
                                                         typeof canBuyByAmount ===
@@ -1490,8 +1535,7 @@ export default Vue.extend<
                                               extensionType.coins,
                                       }),
                             };
-                        }
-                    );
+                        });
                 }
             );
         },
@@ -1536,19 +1580,93 @@ export default Vue.extend<
                         (this.extensionsTable.filters.states.includes(
                             'disabled'
                         ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
                             'bought' in extension &&
                             !extension.enabled) ||
                         (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            'bought' in extension &&
+                            !extension.enabled &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'disabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
+                            'bought' in extension &&
+                            !extension.enabled &&
+                            !extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
                             'enabled'
                         ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
                             'bought' in extension &&
                             extension.enabled &&
                             extension.available) ||
                         (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'canToggle'
+                            ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'enabled'
+                        ) &&
+                            this.extensionsTable.filters.states.includes(
+                                'cannotToggle'
+                            ) &&
+                            'bought' in extension &&
+                            extension.enabled &&
+                            extension.available &&
+                            !extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
                             'underConstruction'
                         ) &&
                             'bought' in extension &&
-                            !extension.available)
+                            !extension.available) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'canToggle'
+                        ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'enabled'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'disabled'
+                            ) &&
+                            'bought' in extension &&
+                            extension.available &&
+                            extension.canToggle) ||
+                        (this.extensionsTable.filters.states.includes(
+                            'cannotToggle'
+                        ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'enabled'
+                            ) &&
+                            !this.extensionsTable.filters.states.includes(
+                                'disabled'
+                            ) &&
+                            'bought' in extension &&
+                            extension.available &&
+                            !extension.canToggle)
                     );
                 }
 
@@ -1561,9 +1679,10 @@ export default Vue.extend<
             ): number => {
                 const min = Number.MIN_SAFE_INTEGER / 2;
                 if ('bought' in extension) {
-                    if (!extension.available) return min + 2;
-                    if (extension.enabled) return min;
-                    return min + 1;
+                    if (!extension.available) return min + 4;
+                    const toggleBonus = extension.canToggle ? 0 : 1;
+                    if (extension.enabled) return min + toggleBonus;
+                    return min + 2 + toggleBonus;
                 }
                 return extension.credits;
             };
@@ -1684,6 +1803,8 @@ export default Vue.extend<
                     [
                         'canBuy',
                         'cannotBuy',
+                        'canToggle',
+                        'cannotToggle',
                         'disabled',
                         'enabled',
                         'underConstruction',
@@ -1835,6 +1956,41 @@ export default Vue.extend<
                         });
                 });
         },
+        toggleExtension(buildingId, extensionType) {
+            this.tempDisableAllExtensionButtons = true;
+            const url = new URL('/', window.location.origin);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                document.querySelector<HTMLMetaElement>(
+                    'meta[name="csrf-token"]'
+                )?.content ?? ''
+            );
+            const feature = 'buildingComplexes-toggle-extension';
+            this.$store
+                .dispatch('api/request', {
+                    url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
+                    init: {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `/buildings/${buildingId}`,
+                        method: 'POST',
+                        body: url.searchParams.toString(),
+                    },
+                    feature,
+                })
+                .then(() => {
+                    this.$store
+                        .dispatch('api/fetchBuilding', {
+                            id: buildingId,
+                            feature,
+                        })
+                        .then(() => {
+                            this.tempDisableAllExtensionButtons = false;
+                        });
+                });
+        },
         updateExtensionsFilterNames(names) {
             if (
                 names.findIndex(name => name === '*') === names.length - 1 ||
@@ -1964,6 +2120,9 @@ export default Vue.extend<
         > div
             flex-grow: 1
             margin-right: 1em
+
+    .extension-toggle
+        margin-left: 1rem
 
     ul.requirements-list li
         &:first-child

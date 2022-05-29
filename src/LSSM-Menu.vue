@@ -61,6 +61,9 @@
             <li role="presentation">
                 <a class="lightbox-open" :href="wiki">Wiki</a>
             </li>
+            <li role="presentation">
+                <a :href="$store.state.github" target="_blank">GitHub</a>
+            </li>
             <!-- <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
                     LSSM-Server Status
@@ -581,7 +584,7 @@ export default Vue.extend<
         padding: 10px
 
         img
-            height: 30.5px !important
+            height: 30px !important
             width: unset
 
     .dropdown-menu[aria-labelledby="lssmv4-indicator_menu"]

@@ -118,6 +118,10 @@
             "textcolor": "Tekstkleur",
             "title": "Meldingstrefwoord"
         },
+        "moreReleasePatientButtons": {
+            "description": "Toont een ontsla patiënt knop bovenaan het voertuigscherm. Naast de elke transport knop in het meldingsvenster.",
+            "title": "Meer knoppen om patiënten te ontslaan"
+        },
         "patientSummary": {
             "description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
             "title": "Patiëntensamenvatting"

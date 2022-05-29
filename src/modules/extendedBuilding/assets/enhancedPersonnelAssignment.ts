@@ -32,10 +32,9 @@ export default async (
             id: vehicleId,
             feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
         })) as Vehicle);
-    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
-        number,
-        InternalVehicle
-    >;
+    const vehicleTypes: Record<number, InternalVehicle> =
+        LSSM.$store.getters.$tVehicles;
+
     if (vehicleId < 0 || !vehicle) return;
 
     const buildingType = (

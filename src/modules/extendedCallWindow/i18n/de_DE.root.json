@@ -117,6 +117,10 @@
             "textcolor": "Schriftfarbe",
             "title": "Einsatzstichworte"
         },
+        "moreReleasePatientButtons": {
+            "description": "Zeigt im Fahrzeug einen Knopf zum Entlassen von Patienten oben an, im Einsatzfenster neben jedem Knopf zum Sprechwunsch bearbeiten.",
+            "title": "Mehr Knöpfe zum Patienten entlassen"
+        },
         "patientSummary": {
             "description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
             "title": "Patientenzusammenfassung"

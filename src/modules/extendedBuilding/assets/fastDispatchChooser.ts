@@ -3,7 +3,7 @@ import type { Building } from 'typings/Building';
 
 export default async (
     LSSM: Vue,
-    BUILDING_MODE: 'building' | 'dispatch',
+    BUILDING_MODE: 'building' | 'dispatch' | 'schooling',
     $m: $m,
     MODULE_ID: string
 ): Promise<void> => {
@@ -13,7 +13,7 @@ export default async (
     const buildingId = parseInt(path[path.length - 1]);
     const allBuildings = LSSM.$store.state.api.buildings as Building[];
     const callback = () => {
-        const buildingIds = BUILDING_MODE === 'building' ? [buildingId] : [];
+        const buildingIds = BUILDING_MODE === 'dispatch' ? [] : [buildingId];
         Array.from(
             document.querySelectorAll<HTMLTableRowElement>(
                 '#tab_buildings #building_table tbody tr'
@@ -44,7 +44,7 @@ export default async (
             const building = allBuildings.find(({ id }) => id === buildingID);
             if (!building) return;
             const dispatchBtn = (
-                BUILDING_MODE === 'building'
+                BUILDING_MODE !== 'dispatch'
                     ? document.querySelector(
                           `#building-navigation-container a${
                               building.leitstelle_building_id
