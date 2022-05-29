@@ -64,6 +64,7 @@
             },
             "title": "Panoramica",
             "vehicles": {
+                "imageInfo": "Attenzione: al momento, solo le icone standard dei veicoli e/o delle stazioni possono essere visualizzate. Ci dispiace, ma le icone dei veicoli o delle stazioni impostate individualmente non potranno essere riconosciute per ora.",
                 "table": {
                     "head": {
                         "building": "Edificio",

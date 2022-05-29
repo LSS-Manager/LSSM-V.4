@@ -53,7 +53,11 @@ export default {
         title: 'Userscript out of date',
         text: `Dear LSSM-User,<br>
 unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of the LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.
+You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
+Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
+If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
+Sometimes, LSSM is installed multiple times after an update. In this case, please delete the script that does not have version 4.5.10 (in Tampermonkey).<br>
+We're sorry for any caused issue if updates did not work correctly.
 <br>
 Kind regards,<br>
 your LSSM team`,
@@ -880,13 +884,12 @@ If several requests fail in a short time, this could be due to server problems. 
         'Officina meccanica',
         'Uscita autostradale',
         'Mercatino di Natale',
-        '',
         'Discoteca',
         'Stadio',
         'Azienda agricola',
         'Edificio adibito a uffici',
         'Piscina',
-        '',
+        'Passaggio a livello',
         'Teatro',
         'Luna park',
         'Fiume',
@@ -902,7 +905,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Grattacielo',
         'Molo navi da crociera',
         'Porticciolo',
-        'Passaggio a livello',
+        'Passaggio a livello pedonale',
         'Galleria',
         'Magazzino a celle frigorifere',
         'Centrale elettrica',

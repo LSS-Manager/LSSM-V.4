@@ -241,7 +241,7 @@ export default Vue.extend<
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
-            vehicleTypes: this.$t('vehicles') as unknown as Record<
+            vehicleTypes: this.$store.getters.$tVehicles as Record<
                 number,
                 InternalVehicle
             >,

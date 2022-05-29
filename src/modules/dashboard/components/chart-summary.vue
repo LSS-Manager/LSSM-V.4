@@ -125,6 +125,10 @@ export default Vue.extend<
 >({
     name: 'lssmv4-dashboard-chart-summary',
     data() {
+        const internalBuildingTypes: Record<number, InternalBuilding> =
+            this.$store.getters.$tBuildings;
+        const internalVehicleTypes: Record<number, InternalVehicle> =
+            this.$store.getters.$tVehicles;
         return {
             buildingsId: this.$store.getters.nodeAttribute(
                 'chart-summary-buildings',
@@ -135,20 +139,14 @@ export default Vue.extend<
                 'buildingCategories'
             ) as unknown as Record<string, BuildingCategory>,
             buildingTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$store.getters.$tBuildings as Record<
-                        number,
-                        InternalBuilding
-                    >
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalBuildingTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             buildingTypeColors: Object.fromEntries(
-                Object.entries(
-                    this.$store.getters.$tBuildings as Record<
-                        number,
-                        InternalBuilding
-                    >
-                ).map(([index, { color }]) => [index, color])
+                Object.entries(internalBuildingTypes).map(
+                    ([index, { color }]) => [index, color]
+                )
             ),
             vehiclesId: this.$store.getters.nodeAttribute(
                 'chart-summary-vehicles',
@@ -159,20 +157,14 @@ export default Vue.extend<
                 'vehicleCategories'
             ) as unknown as Record<string, VehicleCategory>,
             vehicleTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as unknown as Record<
-                        number,
-                        InternalVehicle
-                    >
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             vehicleTypeColors: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as unknown as Record<
-                        number,
-                        InternalVehicle
-                    >
-                ).map(([index, { color }]) => [index, color])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { color }]) => [index, color]
+                )
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             buildingsAsColumn: false,

@@ -299,6 +299,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <small>{{ $m('overview.vehicles.imageInfo') }}</small>
                         <enhanced-table
                             :table-attrs="{ class: 'table table-striped' }"
                             :head="{

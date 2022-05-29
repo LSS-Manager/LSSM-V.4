@@ -7,12 +7,12 @@ Les informations suivantes sont incluses :
 * Nombre de véhicules (pour les postes)
 * Nombre de personnel (pour les postes)
 * Véhicules dans le poste avec
-	* statut
-	* nom
-	* type de véhicule
-* nombre de lits disponibles (hôpitaux)
-* nombre de salles de classe disponibles (écoles)
-* nombre de cellules terminées et nombre total entre parenthèses (terminées + en cours d'aménagement) pour les postes de police
+	* Statut
+	* Nom
+	* Type de véhicule
+* Nombre de lits disponibles (hôpitaux)
+* Nombre de salles de classe disponibles (écoles)
+* Nombre de cellules terminées et nombre total entre parenthèses (terminées + en cours d'aménagement) pour les postes de police
 
 ***
 
