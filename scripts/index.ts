@@ -66,7 +66,7 @@ const scriptHandlers = {
 (async () => {
     const execute = async (script: string) => {
         console.log(`### ${script} ###\n\n`);
-        console.time(script);postDocs
+        console.time(script);
         await scriptHandlers[script]?.();
         console.log(`\n\n=== end ${script} ===`);
         console.timeEnd(script);
