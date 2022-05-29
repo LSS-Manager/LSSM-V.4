@@ -1,5 +1,5 @@
 {
-    "version": "4.5.10+20220530.0010",
+    "version": "4.5.10+20220530.0029",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "yarn ts-node scripts predev",
