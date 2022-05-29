@@ -7,16 +7,18 @@ import sort from './sort';
 const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
-    console.time('games');
-    console.log(execSync(`ts-node build --esModuleInterop ${mode}`).toString());
-    console.timeEnd('games');
+    console.time('run-webpack-build');
+    console.log(
+        execSync(`yarn ts-node build --esModuleInterop ${mode}`).toString()
+    );
+    console.timeEnd('run-webpack-build');
 };
 
 const scriptHandlers = {
     sort,
     tsc() {
         console.time('tsc -b');
-        console.log(execSync('tsc -b').toString());
+        console.log(execSync('yarn tsc -b').toString());
         console.timeEnd('tsc -b');
     },
     emojis() {
@@ -26,7 +28,7 @@ const scriptHandlers = {
         this.sort();
         console.log(
             execSync(
-                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js,.ts,.vue -f table --no-error-on-unmatched-pattern --fix --report-unused-disable-directives'
+                'yarn eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js,.ts,.vue -f table --no-error-on-unmatched-pattern --fix --report-unused-disable-directives'
             ).toString()
         );
     },
@@ -34,18 +36,13 @@ const scriptHandlers = {
         this.emojis();
         this.lint();
         this.tsc();
-        console.log(execSync('ts-node prebuild').toString());
+        console.log(execSync('yarn ts-node prebuild').toString());
     },
     dev() {
         build('development');
         this.showChanges();
     },
-    docs() {
-        console.log(
-            execSync(
-                './docs/.vuepress/node_modules/.bin/vuepress build docs'
-            ).toString()
-        );
+    postDocs() {
         if (fs.existsSync('./dist/docs'))
             fs.rmSync('./dist/docs', { recursive: true });
         fs.mkdirSync('./dist/docs', { recursive: true });
@@ -55,7 +52,7 @@ const scriptHandlers = {
         this.emojis();
         this.lint();
         this.tsc();
-        console.log(execSync('ts-node prebuild production').toString());
+        console.log(execSync('yarn ts-node prebuild production').toString());
     },
     build() {
         build('production');
@@ -69,7 +66,7 @@ const scriptHandlers = {
 (async () => {
     const execute = async (script: string) => {
         console.log(`### ${script} ###\n\n`);
-        console.time(script);
+        console.time(script);postDocs
         await scriptHandlers[script]?.();
         console.log(`\n\n=== end ${script} ===`);
         console.timeEnd(script);

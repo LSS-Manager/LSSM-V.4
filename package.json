@@ -1,19 +1,19 @@
 {
-    "version": "4.5.10+20220528.1010",
+    "version": "4.5.10+20220528.1636",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "predev": "ts-node scripts predev",
-        "dev": "ts-node scripts dev",
-        "postdev": "ts-node scripts docs",
-        "prebuild": "ts-node scripts preBuild",
-        "build": "ts-node scripts build",
-        "postbuild": "ts-node scripts docs",
-        "eslint:fix": "ts-node scripts lint",
-        "order-json": "ts-node scripts sort",
-        "fetch-emojis": "ts-node scripts emojis",
-        "tsc": "ts-node scripts tsc",
-        "api": "ts-node scripts api",
-        "force-clean": "yarn cache clean && git clean -dfX && yarn install --force && cd ./docs/.vuepress && yarn install --force"
+        "predev": "yarn ts-node scripts predev",
+        "dev": "yarn predev && yarn ts-node scripts dev && yarn postdev",
+        "postdev": "yarn docs && yarn ts-node scripts postDocs",
+        "prebuild": "yarn ts-node scripts preBuild",
+        "build": "yarn prebuild && yarn ts-node scripts build && yarn postbuild",
+        "postbuild": "yarn docs && yarn ts-node scripts postDocs",
+        "eslint:fix": "yarn ts-node scripts lint",
+        "order-json": "yarn ts-node scripts sort",
+        "fetch-emojis": "yarn ts-node scripts emojis",
+        "check-tsc": "yarn ts-node scripts tsc",
+        "api": "yarn ts-node scripts api",
+        "docs": "vuepress build docs"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -92,10 +92,12 @@
         "webpack": "^5.72.1"
     },
     "engines": {
-        "node": "^16.13.2 || ^18.0.0",
-        "npm": ">=8.10.0",
-        "yarn": ">=1.22.18"
+        "node": "^16.13.2 || ^18.0.0"
     },
+    "packageManager": "yarn@3.2.1",
+    "workspaces": [
+        "./docs/.vuepress/"
+    ],
     "prettier": {
         "arrowParens": "avoid",
         "endOfLine": "lf",

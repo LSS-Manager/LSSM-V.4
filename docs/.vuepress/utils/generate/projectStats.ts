@@ -65,12 +65,12 @@ const sdConverter = new Showdown.Converter({
 
 const absoluteClocStats: AbsoluteClocResult = JSON.parse(
     execSync(
-        `cd "${ROOT_PATH}" && "${VUEPRESS_PATH}/node_modules/.bin/cloc" --vcs git --skip-uniqueness --json`
+        `cd "${ROOT_PATH}" && cloc --vcs git --skip-uniqueness --json`
     ).toString()
 );
 const relativeClocStats: RelativeClocResult = JSON.parse(
     execSync(
-        `cd "${ROOT_PATH}" && "${VUEPRESS_PATH}/node_modules/.bin/cloc" --vcs git --skip-uniqueness --json --by-percent cmb`
+        `cd "${ROOT_PATH}" && cloc --vcs git --skip-uniqueness --json --by-percent cmb`
     ).toString()
 );
 
