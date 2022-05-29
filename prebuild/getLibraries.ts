@@ -12,20 +12,15 @@ const dependencies = Object.keys({
 
 const docsDependencies = Object.keys(docsPackageJson.dependencies);
 
-const addDependencies = (dependencies: string[], isDocs = false) =>
+const addDependencies = (dependencies: string[], node_modules: string) =>
     dependencies.forEach(module => {
         let moduleId = module;
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         if (!libraries.hasOwnProperty(module)) libraries[module] = {};
-        const isVue3 = module === 'vue' && isDocs;
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const mod = require(`${
-            isVue3
-                ? path.join(__dirname, '../docs/.vuepress/node_modules')
-                : path.join(__dirname, '../node_modules')
-        }/${module}/package.json`);
-        if (isVue3) {
+        const mod = require(`${node_modules}/${module}/package.json`);
+        if (module === 'vue' && mod.version.startsWith('3.')) {
             moduleId = 'vue3';
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -52,8 +47,11 @@ const addDependencies = (dependencies: string[], isDocs = false) =>
         libraries[moduleId] = entry;
     });
 
-addDependencies(dependencies);
-addDependencies(docsDependencies, true);
+addDependencies(dependencies, path.join(__dirname, '../node_modules'));
+addDependencies(
+    docsDependencies,
+    path.join(__dirname, '../docs/.vuepress/node_modules')
+);
 
 const librariesSorted = {};
 Object.keys(libraries)

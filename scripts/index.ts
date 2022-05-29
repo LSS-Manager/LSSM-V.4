@@ -42,7 +42,12 @@ const scriptHandlers = {
         build('development');
         this.showChanges();
     },
-    postDocs() {
+    docs() {
+        console.log(
+            execSync(
+                './docs/.vuepress/node_modules/.bin/vuepress build docs'
+            ).toString()
+        );
         if (fs.existsSync('./dist/docs'))
             fs.rmSync('./dist/docs', { recursive: true });
         fs.mkdirSync('./dist/docs', { recursive: true });
