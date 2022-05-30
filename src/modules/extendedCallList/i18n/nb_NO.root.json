@@ -75,6 +75,10 @@
             "text": "Tekst",
             "title": "Merk sesongoppdrag"
         },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
+        },
         "hide0CurrentPatients": {
             "description": "Skjuler antall pasienter hvis det ikke er noen pasienter på stedet",
             "title": "Skjul 0 pasienter"

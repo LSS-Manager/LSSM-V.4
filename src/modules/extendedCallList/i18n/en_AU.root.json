@@ -154,6 +154,10 @@
             "text": "Text",
             "title": "Mark seasonal missions"
         },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
+        },
         "hide0CurrentPatients": {
             "description": "Hides amount of patients if there are no patients at scene",
             "title": "Hide 0 Patients"

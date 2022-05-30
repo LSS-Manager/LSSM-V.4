@@ -43,6 +43,10 @@
             "text": "Text",
             "title": "Označit sezónní mise"
         },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
+        },
         "hide0CurrentPatients": {
             "description": "Skryje počet pacientů, pokud se na misi žádný nenachází.",
             "title": "Skrýt 0 pacientů"

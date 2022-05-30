@@ -104,6 +104,10 @@
             "text": "Texto",
             "title": "Marcar las misiones estacionales"
         },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
+        },
         "hide0CurrentPatients": {
             "description": "Oculta la cantidad de pacientes si no hay pacientes en la misión",
             "title": "Ocultar 0 pacientes"
