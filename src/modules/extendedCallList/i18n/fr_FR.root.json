@@ -215,8 +215,8 @@
             "title": "Marquer les missions saisonnières"
         },
         "fixedEventInfo": {
-            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
-            "title": "Always show event info"
+            "description": "Affiche les informations sur un événement en cours de manière permanente, quelle que soit la position que vous avez atteinte dans la liste des missions.",
+            "title": "Toujours afficher les informations de l'événement"
         },
         "hide0CurrentPatients": {
             "description": "Masquer le nombre de patients s'il n'y en a pas sur place",
