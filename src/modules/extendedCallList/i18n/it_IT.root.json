@@ -100,7 +100,7 @@
             "title": "Contrassegna le missioni stagionali"
         },
         "fixedEventInfo": {
-            "description": "Mostra delle informazioni sull’evento in corso, non importa quanto tu scorra in basso.",
+            "description": "Mostra permanentemente delle informazioni sull’evento in corso, non importa quanto tu scorra in basso.",
             "title": "Mostra sempre le informazioni sull’evento"
         },
         "hide0CurrentPatients": {
