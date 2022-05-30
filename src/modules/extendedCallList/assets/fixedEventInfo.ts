@@ -15,7 +15,7 @@ export default (LSSM: Vue) => {
             style: {
                 'position': 'absolute',
                 'width': 'calc(100% - 2 * (15px + 1px) - 18px)',
-                'z-index': 1,
+                'z-index': 10,
             },
         })
         .then();
