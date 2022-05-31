@@ -111,6 +111,7 @@ declare global {
                 endTime: Date;
             }
         ): void;
+        flavouredAsset(asset: string, scope?: string): string;
     }
 }
 

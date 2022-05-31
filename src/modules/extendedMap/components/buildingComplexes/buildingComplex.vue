@@ -1062,11 +1062,13 @@ export default Vue.extend<
                         type: building.building_type,
                         icon:
                             building.custom_icon_url ??
-                            window
-                                .getBuildingMarkerIcon({
-                                    building_type: bigBuildingType,
-                                })
-                                ?.replace(/_other(?=\.png$)/u, ''),
+                            window.flavouredAsset(
+                                window
+                                    .getBuildingMarkerIcon({
+                                        building_type: bigBuildingType,
+                                    })
+                                    ?.replace(/_other(?=\.png$)/u, '')
+                            ),
                         typeName: buildingType.caption,
                         name: building.caption,
                         extensions: building.extensions,
@@ -1329,10 +1331,11 @@ export default Vue.extend<
                               this.vehicleTypes[vehicle.vehicle_type];
                           return {
                               id: vehicle.id,
-                              icon:
+                              icon: window.flavouredAsset(
                                   window.vehicle_graphics[
                                       vehicle.vehicle_type
-                                  ]?.[0] ?? '',
+                                  ]?.[0] ?? ''
+                              ),
                               customTypeName:
                                   vehicle.vehicle_type_caption ?? undefined,
                               typeName: vehicleType.caption,
