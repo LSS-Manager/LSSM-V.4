@@ -111,7 +111,7 @@ module.exports = {
             [/^Battalion chief unit(s)?$/u]: [3, 12],
             [/^Heavy Rescue Vehicle(s)?$/u]: [4, 8, 18, 21, 28, 61],
             [/^Mobile Air$/u]: [6],
-            [/^Water Tanker(s)?$/u]: [7, 33],
+            [/^Water Tanker(s)?$/u]: [7, 33, 64],
             [/^Mobile Command Vehicle(s)?$/u]: [12],
             [/^HazMat$/u]: [9, 50],
             [/^Ambulance(s)?$/u]: [5, 27, 48, 49, 50],
