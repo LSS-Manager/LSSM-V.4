@@ -720,7 +720,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Elicottero': [13],
                 'Antidroga': [15],
                 'Finanza': [21],
-                'New': [38, 39, 40, 41]
+                'New': [38, 39, 40, 41],
             },
             color: '#00ac00',
         },

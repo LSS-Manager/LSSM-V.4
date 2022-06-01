@@ -66,7 +66,8 @@ module.exports = {
             swat_suv: 'UOPI Suv',
             k9: 'Unità cinofila antidroga',
             commerce_police: 'Volante Finanza',
-            any_traffic_car: 'Pattuglia Polizia Stradale e Moto Polizia Stradale',
+            any_traffic_car:
+                'Pattuglia Polizia Stradale e Moto Polizia Stradale',
             gkw: 'Utility Truck',
             boot: 'Barca',
             fwk: 'AG',
