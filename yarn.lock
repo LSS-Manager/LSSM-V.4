@@ -3550,9 +3550,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broadcast-channel@npm:^4.12.0":
-  version: 4.12.0
-  resolution: "broadcast-channel@npm:4.12.0"
+"broadcast-channel@npm:^4.13.0":
+  version: 4.13.0
+  resolution: "broadcast-channel@npm:4.13.0"
   dependencies:
     "@babel/runtime": ^7.16.0
     detect-node: ^2.1.0
@@ -3561,7 +3561,7 @@ __metadata:
     p-queue: 6.6.2
     rimraf: 3.0.2
     unload: 2.3.1
-  checksum: 0587fcef59e4ff853a00a3fe2f70f6cf13f272dbc34663b2cfe5e769bae8073c1cf4170d3f5c4e3e84f587881129fbe3e67f27bc7ac5b4547848b5a5ec084a61
+  checksum: 1832ce31a1c3f7436fe49047254d2bfb0803473edb87df7fd2ec09a4512c069ec243e4125d686619908d86acaf5d1c18e5e4f7171488c9045e13c46cbf577e31
   languageName: node
   linkType: hard
 
@@ -8686,7 +8686,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.27.0
     all-contributors-cli: ^6.20.0
     axios: ^0.27.2
-    broadcast-channel: ^4.12.0
+    broadcast-channel: ^4.13.0
     copy-dir: ^1.3.0
     css-loader: ^6.7.1
     eslint: ^8.16.0
