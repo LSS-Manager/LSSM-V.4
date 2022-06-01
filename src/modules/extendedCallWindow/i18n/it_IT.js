@@ -66,6 +66,7 @@ module.exports = {
             swat_suv: 'UOPI Suv',
             k9: 'Unità cinofila antidroga',
             commerce_police: 'Volante Finanza',
+            any_traffic_car: 'Pattuglia Polizia Stradale e Moto Polizia Stradale',
             gkw: 'Utility Truck',
             boot: 'Barca',
             fwk: 'AG',
@@ -124,6 +125,9 @@ module.exports = {
             [/^Velivol[io] Antincendio?$/u]: [34, 35],
             [/^DOS$/u]: [31],
             [/^DTS$/u]: [27],
+            [/^Pattuglia Forestale$/u]: [40],
+            [/^Pattuglia della Stradale$/u]: [38, 39],
+            [/^Idrante Antisommossa$/u]: [41],
         },
     },
     tailoredTabs: {
