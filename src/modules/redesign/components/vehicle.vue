@@ -1930,7 +1930,7 @@ export default Vue.extend<
                 );
                 this.$store
                     .dispatch('api/request', {
-                        url: url.pathname,
+                        url: `${url.pathname}?vehicle_id=${this.vehicle.id}`,
                         init: {
                             credentials: 'include',
                             headers: {
