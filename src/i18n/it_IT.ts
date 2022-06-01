@@ -638,7 +638,7 @@ If several requests fail in a short time, this could be due to server problems. 
             ftank: 2000,
             possibleBuildings: [0],
         },
-        22: {
+        38: {
             caption: 'Pattuglia Polizia Stradale',
             color: '#0a2bff',
             coins: -1,
@@ -647,7 +647,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 2,
             possibleBuildings: [6, 19],
         },
-        22: {
+        39: {
             caption: 'Moto Polizia Stradale',
             color: '#0a2bff',
             coins: -1,
@@ -656,7 +656,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 1,
             possibleBuildings: [6, 19],
         },
-        22: {
+        40: {
             caption: 'Pattuglia Forestale',
             color: '#0a2bff',
             coins: -1,
