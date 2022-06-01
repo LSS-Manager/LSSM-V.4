@@ -114,7 +114,7 @@ module.exports = {
             [/^Water Tanker(s)?$/u]: [7, 33, 64],
             [/^Mobile Command Vehicle(s)?$/u]: [12],
             [/^HazMat$/u]: [9, 50],
-            [/^Ambulance(s)?$/u]: [5, 27, 48, 49, 50],
+            [/^Ambulance(s)?$/u]: [5, 27, 48, 49, 50, 61],
             [/^Patrol car(s)?$/u]: [10, 26, 19, 47, 49, 56, 62],
             [/^HEMS$/u]: [11],
             [/^Policehelicopter(s)?$/u]: [14],
