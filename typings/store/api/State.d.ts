@@ -9,6 +9,7 @@ export interface StorageAPIs {
     buildings: Building[];
     vehicles: Vehicle[];
     missions: Mission[];
+    alliance_buildings: Building[];
     // eslint-disable-next-line @typescript-eslint/ban-types
     allianceinfo: AllianceInfo | {};
     // eslint-disable-next-line @typescript-eslint/ban-types

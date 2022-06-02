@@ -6,6 +6,7 @@ import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 export interface Complex {
     name: string;
     buildings: string[];
+    allianceBuildings: string[];
     position: [number, number];
     icon: string;
     showMarkers: boolean;
@@ -30,7 +31,13 @@ export default async (
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: `buildingComplexes`,
     });
+    await LSSM.$store.dispatch('api/registerAllianceBuildingsUsage', {
+        feature: `buildingComplexes`,
+    });
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        feature: `buildingComplexes`,
+    });
+    await LSSM.$store.dispatch('api/registerAllianceinfoUsage', {
         feature: `buildingComplexes`,
     });
 
@@ -42,12 +49,21 @@ export default async (
     const attachedMarkersList: BuildingMarker[][] = [];
 
     const allAttachedBuildings: string[] = [];
+    const allAttachedAllianceBuildings: string[] = [];
 
     complexes.forEach((complex, index) => {
         complex.icon = replaceHostedImagesUrl(complex.icon);
         complex.buildingTabs ??= true;
+        complex.allianceBuildings ??= [];
 
-        const { position, name, icon, buildings, showMarkers } = complex;
+        const {
+            position,
+            name,
+            icon,
+            buildings,
+            showMarkers,
+            allianceBuildings,
+        } = complex;
         const marker = window.L.marker(position, {
             zIndexOffset: 5000,
             title: name,
@@ -59,6 +75,7 @@ export default async (
         window.iconMapGenerate(icon, marker);
 
         allAttachedBuildings.push(...buildings);
+        allAttachedAllianceBuildings.push(...allianceBuildings);
 
         const attachedBuildingsLayer = window.L.layerGroup();
         complexesBuildingsLayers.push(attachedBuildingsLayer);
@@ -88,6 +105,7 @@ export default async (
                     modalName,
                     complex: complexes[index],
                     allAttachedBuildings,
+                    allAttachedAllianceBuildings,
                     $m: <$m>(
                         ((key, args) => $m(`buildingComplexes.${key}`, args))
                     ),

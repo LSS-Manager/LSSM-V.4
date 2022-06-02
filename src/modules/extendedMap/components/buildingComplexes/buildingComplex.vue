@@ -161,6 +161,19 @@
                                 </td>
                                 <td>
                                     <a
+                                        v-if="
+                                            building.alliance &&
+                                            hasAllianceAndPrivateBuildings
+                                        "
+                                        class="btn btn-default btn-xs disabled"
+                                    >
+                                        {{
+                                            $m(
+                                                'overview.buildings.table.alliance'
+                                            )
+                                        }}
+                                    </a>
+                                    <a
                                         :href="`/buildings/${building.id}`"
                                         class="lightbox-open"
                                     >
@@ -579,6 +592,19 @@
                                 </td>
                                 <td>
                                     <a
+                                        v-if="
+                                            extension.allianceBuilding &&
+                                            hasAllianceAndPrivateBuildings
+                                        "
+                                        class="btn btn-default btn-xs disabled"
+                                    >
+                                        {{
+                                            $m(
+                                                'overview.buildings.table.alliance'
+                                            )
+                                        }}
+                                    </a>
+                                    <a
                                         :href="`/buildings/${extension.buildingId}#ausbauten`"
                                         class="lightbox-open"
                                     >
@@ -655,7 +681,13 @@
                                             -->
                                         </template>
                                     </template>
-                                    <template v-else>
+                                    <template
+                                        v-else-if="
+                                            !extension.allianceBuilding ||
+                                            (extension.allianceBuilding &&
+                                                userHasAllianceFinanceRights)
+                                        "
+                                    >
                                         <button
                                             :class="`btn btn-${
                                                 extension.enoughCredits
@@ -672,7 +704,8 @@
                                                     extension.buildingId,
                                                     extension.type,
                                                     'credits',
-                                                    extension.credits
+                                                    extension.credits,
+                                                    extension.allianceBuilding
                                                 )
                                             "
                                         >
@@ -697,7 +730,8 @@
                                                     extension.buildingId,
                                                     extension.type,
                                                     'coins',
-                                                    extension.coins
+                                                    extension.coins,
+                                                    extension.allianceBuilding
                                                 )
                                             "
                                         >
@@ -764,6 +798,7 @@ import Vue from 'vue';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
+import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { $m, $mc } from 'typings/Module';
@@ -810,6 +845,7 @@ type AttributedBuilding = AttributedBuildingBeds &
     AttributedBuildingLevel &
     AttributedBuildingStaff &
     AttributedBuildingVehicles & {
+        alliance: boolean;
         id: number;
         type: number;
         icon: string;
@@ -834,6 +870,7 @@ interface AttributedVehicle {
 }
 
 type AttributedExtension = {
+    allianceBuilding: boolean;
     buildingId: number;
     buildingName: string;
     name: string;
@@ -914,7 +951,8 @@ export default Vue.extend<
             buildingId: number,
             extensionType: number,
             method: 'coins' | 'credits',
-            price: number
+            price: number,
+            allianceBuilding: boolean
         ): void;
         toggleExtension(buildingId: number, extensionType: number): void;
         updateExtensionsFilterNames(names: string[]): void;
@@ -925,6 +963,7 @@ export default Vue.extend<
     },
     {
         buildings: Record<number, Building>;
+        allianceBuildings: Record<number, Building>;
         vehiclesByBuilding: Record<number, Vehicle[]>;
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
@@ -938,6 +977,7 @@ export default Vue.extend<
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
+        hasAllianceAndPrivateBuildings: boolean;
         buildingTypeAmounts: [string, number][];
         vehicles: AttributedVehicle[];
         filteredVehicles: AttributedVehicle[];
@@ -962,12 +1002,14 @@ export default Vue.extend<
             label: string;
             value: ExtensionStateFilters | '*';
         }[];
+        userHasAllianceFinanceRights: boolean;
     },
     {
         complexIndex: number;
         modalName: string;
         complex: Complex;
         allAttachedBuildings: string[];
+        allAttachedAllianceBuildings: string[];
         $m: $m;
         $mc: $mc;
         dissolve(): Promise<void>;
@@ -1031,6 +1073,9 @@ export default Vue.extend<
         buildings() {
             return this.$store.getters['api/buildingsById'];
         },
+        allianceBuildings() {
+            return this.$store.getters['api/allianceBuildingsById'];
+        },
         vehiclesByBuilding() {
             return this.$store.getters['api/vehiclesByBuilding'];
         },
@@ -1039,9 +1084,17 @@ export default Vue.extend<
                 'small_buildings'
             ) as unknown as Record<number, number>;
 
-            return this.complex.buildings
+            return [
+                ...this.complex.buildings,
+                ...this.complex.allianceBuildings,
+            ]
                 .map(buildingId => {
-                    const building = this.buildings[parseInt(buildingId)];
+                    const intId = parseInt(buildingId);
+                    const isAllianceBuilding =
+                        this.allianceBuildings.hasOwnProperty(intId);
+                    const building = isAllianceBuilding
+                        ? this.allianceBuildings[intId]
+                        : this.buildings[intId];
                     const buildingType =
                         this.buildingTypes[building.building_type];
 
@@ -1058,6 +1111,7 @@ export default Vue.extend<
                     }
 
                     const buildingAttrs = {
+                        alliance: isAllianceBuilding,
                         id: building.id,
                         type: building.building_type,
                         icon:
@@ -1313,6 +1367,12 @@ export default Vue.extend<
                 ({ hasVehicles }) => hasVehicles
             );
         },
+        hasAllianceAndPrivateBuildings() {
+            return !!(
+                this.complex.buildings.length &&
+                this.complex.allianceBuildings.length
+            );
+        },
         buildingTypeAmounts() {
             const types: Record<string, number> = {};
             this.attributedBuildings.forEach(({ typeName }) => {
@@ -1429,6 +1489,7 @@ export default Vue.extend<
 
             return this.attributedBuildings.flatMap(
                 ({
+                    alliance,
                     id: buildingId,
                     extensions,
                     name: buildingName,
@@ -1486,6 +1547,7 @@ export default Vue.extend<
                                 true;
 
                             return {
+                                allianceBuilding: alliance,
                                 buildingId,
                                 buildingName,
                                 name: extensionType.caption,
@@ -1777,7 +1839,10 @@ export default Vue.extend<
                     ),
                 ]
                     .map(buildingId => ({
-                        label: this.buildings[buildingId].caption,
+                        label: (
+                            this.buildings[buildingId] ??
+                            this.allianceBuildings[buildingId]
+                        ).caption,
                         value: buildingId,
                     }))
                     .sort((buildingA, buildingB) =>
@@ -1824,6 +1889,14 @@ export default Vue.extend<
                     ),
             ];
         },
+        userHasAllianceFinanceRights() {
+            const allianceUserRoleFlags = (
+                this.$store.state.api.allianceinfo as AllianceInfo
+            ).users.find(({ id }) => id === window.user_id)?.role_flags;
+            return !!(
+                allianceUserRoleFlags?.admin || allianceUserRoleFlags?.finance
+            );
+        },
     },
     methods: {
         selectTab(event, index) {
@@ -1857,6 +1930,13 @@ export default Vue.extend<
                     allOtherAttachedBuildings: this.allAttachedBuildings.filter(
                         building => !this.complex.buildings.includes(building)
                     ),
+                    allOtherAttachedAllianceBuildings:
+                        this.allAttachedAllianceBuildings.filter(
+                            building =>
+                                !this.complex.allianceBuildings.includes(
+                                    building
+                                )
+                        ),
                     $m: <$m>((key, args) => this.$m(`settings.${key}`, args)),
                     close: () => this.$modal.hide(settingsModalName),
                     dissolve: this.dissolve,
@@ -1915,7 +1995,15 @@ export default Vue.extend<
                     : 'asc';
             this.extensionsTable.sort = s;
         },
-        buyExtension(buildingId, extensionType, method, price) {
+        buyExtension(
+            buildingId,
+            extensionType,
+            method,
+            price,
+            allianceBuilding
+        ) {
+            if (allianceBuilding)
+                return alert('alliance extensions coming soon');
             this.tempDisableAllExtensionButtons = true;
             const url = new URL('/', window.location.origin);
             url.searchParams.append('_method', 'post');
@@ -2050,6 +2138,10 @@ export default Vue.extend<
             required: true,
         },
         allAttachedBuildings: {
+            type: Array,
+            required: true,
+        },
+        allAttachedAllianceBuildings: {
             type: Array,
             required: true,
         },
