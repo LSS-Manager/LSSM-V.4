@@ -11,6 +11,7 @@
                 },
                 "inConstruction": "davon {n} im Bau",
                 "table": {
+                    "alliance": "Verband",
                     "head": {
                         "beds": "Betten",
                         "cells": "Zellen",

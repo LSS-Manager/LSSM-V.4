@@ -48,6 +48,25 @@
                 ></v-select>
             </div>
 
+            <!-- edit alliance buildings -->
+            <div class="form-group">
+                <label for="alliance_buildings">
+                    {{ $m('allianceBuildings') }}
+                </label>
+                <v-select
+                    name="alliance_buildings"
+                    uid="lssmv4-complex-settings-alliance_buildings"
+                    :placeholder="$m('allianceBuildings')"
+                    v-model="allianceBuildingIds"
+                    :options="allianceBuildingOptions"
+                    :close-on-select="false"
+                    :clearSearchOnSelect="false"
+                    multiple
+                    clearable
+                    append-to-body
+                ></v-select>
+            </div>
+
             <!-- edit icon -->
             <div class="form-group">
                 <label for="icon">{{ $m('icon') }}</label>
@@ -126,9 +145,11 @@ export default Vue.extend<
         faSave: IconDefinition;
         faTrashCan: IconDefinition;
         buildings: Record<number, Building>;
+        allianceBuildings: Record<number, Building>;
         name: string;
         icon: string;
         buildingIds: { value: string; label: string }[];
+        allianceBuildingIds: { value: string; label: string }[];
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
         showMarkers: boolean;
@@ -141,6 +162,8 @@ export default Vue.extend<
         canSave: boolean;
         assignedBuildings: Building[];
         buildingOptions: { value: string; label: string }[];
+        assignedAllianceBuildings: Building[];
+        allianceBuildingOptions: { value: string; label: string }[];
         customIcons: string[];
         icons: string[];
     },
@@ -148,6 +171,7 @@ export default Vue.extend<
         modalName: string;
         complex: Complex;
         allOtherAttachedBuildings: string[];
+        allOtherAttachedAllianceBuildings: string[];
         $m: $m;
         close(): void;
         dissolve(): Promise<void>;
@@ -173,6 +197,9 @@ export default Vue.extend<
         const userBuildings = this.$store.getters[
             'api/buildingsById'
         ] as Record<number, Building>;
+        const allianceBuildings = this.$store.getters[
+            'api/allianceBuildingsById'
+        ] as Record<number, Building>;
         const buildingTypes: Record<number, InternalBuilding> =
             this.$store.getters.$tBuildings;
 
@@ -180,9 +207,11 @@ export default Vue.extend<
             faSave,
             faTrashCan,
             buildings: userBuildings,
+            allianceBuildings,
             name: '',
             icon: '',
             buildingIds: [],
+            allianceBuildingIds: [],
             buildingTypes,
             location: [0, 0],
             showMarkers: false,
@@ -200,6 +229,10 @@ export default Vue.extend<
                     this.buildingIds.map(({ value }) => value),
                     this.complex.buildings
                 ) ||
+                !isEqual(
+                    this.allianceBuildingIds.map(({ value }) => value),
+                    this.complex.allianceBuildings
+                ) ||
                 this.icon !== this.complex.icon ||
                 this.location[0] !== this.complex.position[0] ||
                 this.location[1] !== this.complex.position[1] ||
@@ -212,12 +245,34 @@ export default Vue.extend<
                 .map(({ value }) => this.buildings[parseInt(value)])
                 .filter(Boolean);
         },
+        assignedAllianceBuildings() {
+            return this.allianceBuildingIds
+                .map(({ value }) => this.allianceBuildings[parseInt(value)])
+                .filter(Boolean);
+        },
         buildingOptions() {
             return Object.entries(this.buildings)
                 .filter(
                     ([id]) =>
                         !this.buildingIds.some(({ value }) => value === id) &&
                         !this.allOtherAttachedBuildings.includes(id)
+                )
+                .map(([id, { caption, building_type }]) => ({
+                    value: id.toString(),
+                    label: `[${this.buildingTypes[building_type].caption}] ${caption}`,
+                }))
+                .sort(({ label: labelA }, { label: labelB }) =>
+                    labelA.localeCompare(labelB)
+                );
+        },
+        allianceBuildingOptions() {
+            return Object.entries(this.allianceBuildings)
+                .filter(
+                    ([id]) =>
+                        !this.allianceBuildingIds.some(
+                            ({ value }) => value === id
+                        ) &&
+                        !this.allOtherAttachedAllianceBuildings.includes(id)
                 )
                 .map(([id, { caption, building_type }]) => ({
                     value: id.toString(),
@@ -292,6 +347,9 @@ export default Vue.extend<
                 name: this.name.trim(),
                 icon: this.icon,
                 buildings: this.buildingIds.map(({ value }) => value),
+                allianceBuildings: this.allianceBuildingIds.map(
+                    ({ value }) => value
+                ),
                 position: this.location,
                 showMarkers: this.showMarkers,
                 buildingTabs: this.buildingTabs,
@@ -335,6 +393,10 @@ export default Vue.extend<
             type: Array,
             required: true,
         },
+        allOtherAttachedAllianceBuildings: {
+            type: Array,
+            required: true,
+        },
         $m: {
             type: Function,
             required: true,
@@ -364,6 +426,11 @@ export default Vue.extend<
             !!value;
         this.buildingIds = this.complex.buildings
             .map(id => this.buildingOptions.find(({ value }) => id === value))
+            .filter(removeUndefined);
+        this.allianceBuildingIds = this.complex.allianceBuildings
+            .map(id =>
+                this.allianceBuildingOptions.find(({ value }) => id === value)
+            )
             .filter(removeUndefined);
         this.location = this.complex.position;
         this.showMarkers = this.complex.showMarkers;
@@ -395,7 +462,8 @@ form
 
 <style lang="sass">
 #vslssmv4-complex-settings-icon__listbox,
-#vslssmv4-complex-settings-buildings__listbox
+#vslssmv4-complex-settings-buildings__listbox,
+#vslssmv4-complex-settings-alliance_buildings__listbox
     &.vs__dropdown-menu
         z-index: 6000
 </style>
