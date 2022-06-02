@@ -1,6 +1,8 @@
 import type { AllianceInfo } from 'typings/api/AllianceInfo';
 
 export default (LSSM: Vue, releaseText: string) => {
+    if (!document.querySelector<HTMLDivElement>('.mission_patient')) return;
+
     const dangerAlert = document.querySelector<HTMLDivElement>(
         '.alert.alert-danger:not(.alert-missing-vehicles)'
     );
