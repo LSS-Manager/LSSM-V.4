@@ -50,11 +50,38 @@ export default async (LSSM: Vue): Promise<void> => {
             {
                 ...note,
                 content: sdConverter.makeHtml(
-                    note.content.replace(
-                        /#(\d+)/gu,
-                        ($0, $1) =>
-                            `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
-                    )
+                    note.content
+                        .replace(
+                            /#(\d+)/gu,
+                            ($0, $1) =>
+                                `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
+                        )
+                        .replace(/\$m\('(?<module>[^.]*?)'\)/gu, (...args) =>
+                            LSSM.$t(
+                                `modules.${
+                                    args[args.length - 1].module ?? ''
+                                }.name`
+                            ).toString()
+                        )
+                        .replace(
+                            /\$s\((?<noModule>!?)'(?<module>[^.]*?)(?:\.(?<setting>.*?))?'\)/gu,
+                            (...args) => {
+                                const groups = args[args.length - 1];
+                                const noModule = groups.noModule?.length > 0;
+                                const module = groups.module ?? '';
+                                const setting = groups.setting ?? '';
+                                const path = `modules.${module}`;
+                                const moduleName = LSSM.$t(
+                                    `${path}.name`
+                                ).toString();
+                                if (!setting) return moduleName;
+                                return `${
+                                    !noModule ? `${moduleName} / ` : ''
+                                }${LSSM.$t(
+                                    `modules.${module}.settings.${setting}.title`
+                                )}`;
+                            }
+                        )
                 ),
             },
         ]);
