@@ -1,11 +1,14 @@
 import * as fs from 'fs';
+import path from 'path';
 
-import * as tsconfig from '../tsconfig.json';
 import sortJSON from './utils/sortJSON';
+import tsconfig from '../tsconfig.json';
+
+const ROOT_PATH = path.join(__dirname, '..');
 
 fs.writeFileSync(
-    '../tsconfig.json',
-    JSON.stringify(sortJSON(tsconfig, true), null, '\t')
+    path.join(ROOT_PATH, 'tsconfig.json'),
+    JSON.stringify(sortJSON(tsconfig, true), null, 4)
 );
 
 const getJsons = (folder: string): string[] => {
@@ -24,42 +27,41 @@ const getJsons = (folder: string): string[] => {
     return jsons;
 };
 
-export default (): string => {
-    let currentFile = '';
-    try {
-        const output = [] as string[];
-        [
-            '.github',
-            'build',
-            'docs',
-            'lssmaql',
-            'prebuild',
-            'scripts',
-            'src',
-            'static',
-            'typings',
-        ].forEach(folder =>
-            getJsons(`./${folder}`).forEach(file => {
-                if (file === './src/utils/emojis.json') return;
-                currentFile = file;
-                const sortArray = false;
-                fs.writeFileSync(
-                    file,
-                    JSON.stringify(
-                        sortJSON(
-                            JSON.parse(fs.readFileSync(file).toString()),
-                            sortArray
-                        ),
-                        null,
-                        4
-                    )
-                );
-                output.push(file);
-            })
-        );
-        return output.map(f => `✨ sorted file "${f}"`).join('\n');
-    } catch (e) {
-        console.error(currentFile, e);
-        process.exit(1);
-    }
-};
+let currentFile = '';
+try {
+    let fileCounter = 0;
+    [
+        '.github',
+        'build',
+        'docs',
+        'lssmaql',
+        'prebuild',
+        'scripts',
+        'src',
+        'static',
+        'typings',
+    ].forEach(folder =>
+        getJsons(path.join(ROOT_PATH, folder)).forEach(file => {
+            if (file === path.join(ROOT_PATH, './src/utils/emojis.json'))
+                return;
+            currentFile = file;
+            const sortArray = false;
+            fs.writeFileSync(
+                file,
+                JSON.stringify(
+                    sortJSON(
+                        JSON.parse(fs.readFileSync(file).toString()),
+                        sortArray
+                    ),
+                    null,
+                    4
+                )
+            );
+            fileCounter++;
+        })
+    );
+    console.log(`✨ sorted ${fileCounter} JSON files!`);
+} catch (e) {
+    console.error(currentFile, e);
+    process.exit(1);
+}

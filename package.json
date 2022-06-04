@@ -2,17 +2,14 @@
     "version": "4.5.11+20220604.1205",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "predev": "yarn ts-node scripts predev",
-        "dev": "yarn predev && yarn ts-node scripts dev && yarn postdev",
-        "postdev": "yarn ts-node scripts docs",
-        "prebuild": "yarn ts-node scripts preBuild",
-        "build": "yarn prebuild && yarn ts-node scripts build && yarn postbuild",
-        "postbuild": "yarn ts-node scripts docs",
-        "eslint:fix": "yarn ts-node scripts lint",
-        "order-json": "yarn ts-node scripts sort",
-        "fetch-emojis": "yarn ts-node scripts emojis",
-        "check-tsc": "yarn ts-node scripts tsc",
-        "api": "yarn ts-node scripts api"
+        "dev": "yarn prebuild && ./scripts/build.sh development && yarn docs",
+        "prebuild": "./scripts/prebuild.sh",
+        "build": "yarn prebuild && ./scripts/build.sh production && yarn docs",
+        "docs": "./scripts/docs.sh",
+        "eslint:fix": "./scripts/lint_fix.sh",
+        "order-json": "./scripts/sort.sh",
+        "fetch-emojis": "./scripts/emojis.sh",
+        "check-tsc": "./scripts/tsc.sh"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
