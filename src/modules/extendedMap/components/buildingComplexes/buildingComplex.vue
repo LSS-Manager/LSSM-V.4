@@ -180,6 +180,11 @@
                                         {{ building.name }}
                                     </a>
                                     <a
+                                        v-if="
+                                            !building.alliance ||
+                                            (building.alliance &&
+                                                userHasAllianceFinanceRights)
+                                        "
                                         class="btn btn-default btn-xs pull-right lightbox-open"
                                         :href="`/buildings/${building.id}/edit`"
                                     >
