@@ -12,6 +12,21 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     });
     LSSM.$store.commit('useFontAwesome');
 
+    const fixedFilters = await getSetting('fixedFilters');
+
+    if (fixedFilters) {
+        LSSM.$store
+            .dispatch('addStyle', {
+                selectorText: `#${wrapper.id}`,
+                style: {
+                    'position': 'absolute',
+                    'width': 'calc(100% - 4 * 15px)',
+                    'z-index': 10,
+                },
+            })
+            .then();
+    }
+
     interface Filter {
         contentType: 'icon' | 'text';
         icon_style: 'fab' | 'far' | 'fas';
@@ -279,7 +294,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             );
         });
 
-        wrapper.style.setProperty('width', '100%');
+        if (!fixedFilters) wrapper.style.setProperty('width', '100%');
         wrapper.prepend(searchBtn, sortBtn);
         wrapper.append(search);
         window.buildingsVehicleLoadVisible();

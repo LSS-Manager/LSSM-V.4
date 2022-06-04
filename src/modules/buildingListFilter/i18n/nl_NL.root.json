@@ -89,6 +89,10 @@
             "description": "Stel hier de filters in. Je kan kiezen voor een tekst of een afbeelding voor de knoppen. Voor de afbeelding kun je kiezen uit <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis afbeeldingen van Font-Awesome</a>. Het is genoeg om de naam van de afbeelding op te geven. Een live voorvertoning zal dan worden weergegeven.",
             "title": "Gebouwenfilter"
         },
+        "fixedFilters": {
+            "description": "Shows filters even when scrolling through the list of buildings",
+            "title": "Always show filters"
+        },
         "icon_style": "Afbeeldingstype",
         "preview": "Voorvertoning",
         "title": "Titel (of afbeelding)"
