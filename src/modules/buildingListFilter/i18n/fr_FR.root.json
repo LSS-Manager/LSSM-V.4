@@ -69,8 +69,8 @@
             "title": "Filtre pour liste des bâtiments"
         },
         "fixedFilters": {
-            "description": "Shows filters even when scrolling through the list of buildings",
-            "title": "Always show filters"
+            "description": "Affiche les filtres même en faisant défiler la liste des bâtiments",
+            "title": "Toujours afficher les filtres"
         },
         "icon_style": "Icon-Type",
         "preview": "Aperçu",
