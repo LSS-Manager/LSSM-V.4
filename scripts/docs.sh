@@ -10,7 +10,7 @@ cd "$dir"/../ || exit 1
 
 mkdir -p ./dist/docs
 rm -rd ./dist/docs/*
-cp -r ./docs/.vuepress/dist ./dist/docs
+cp -r ./docs/.vuepress/dist/* ./dist/docs
 
 end_time=$(date +%s%N)
 echo "$script_name": $(((end_time - start_time) / 1000000))ms
