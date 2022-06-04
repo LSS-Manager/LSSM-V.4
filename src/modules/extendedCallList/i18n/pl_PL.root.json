@@ -204,6 +204,10 @@
             "text": "Tekst",
             "title": "Oznacz misje sezonowe"
         },
+        "fixedEventInfo": {
+            "description": "Wyświetla informacje o trwającym wydarzeniu na stałe, bez względu na to, jak daleko przewinąłeś listę misji.",
+            "title": "Zawsze pokazuj informacje o wydarzeniu"
+        },
         "hide0CurrentPatients": {
             "description": "Ukrywa liczbę pacjentów, jeśli na miejscu nie ma pacjentów",
             "title": "Ukryj bez pacjentów"

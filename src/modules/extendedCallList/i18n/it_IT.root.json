@@ -99,6 +99,10 @@
             "text": "Testo",
             "title": "Contrassegna le missioni stagionali"
         },
+        "fixedEventInfo": {
+            "description": "Mostra permanentemente delle informazioni sull’evento in corso, non importa quanto tu scorra in basso.",
+            "title": "Mostra sempre le informazioni sull’evento"
+        },
         "hide0CurrentPatients": {
             "description": "Nascondi l'indicatore dei pazienti, se non ce n'è nessuno.",
             "title": "Nascondi 0 Pazienti"

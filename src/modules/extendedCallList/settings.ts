@@ -169,6 +169,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.currentPrisoners',
         },
+        fixedEventInfo: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         eventMissions: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultEventmissions,

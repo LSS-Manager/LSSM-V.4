@@ -269,6 +269,12 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         );
     }
 
+    if (await getSetting('fixedEventInfo')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallList/fixedEventInfo" */ './assets/fixedEventInfo'
+        ).then(({ default: fixedEventInfo }) => fixedEventInfo(LSSM));
+    }
+
     const averageCredits = await getSetting('averageCredits');
     if (averageCredits) {
         import(

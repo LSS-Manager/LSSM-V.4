@@ -43,7 +43,7 @@ export default async (
 
     const allAttachedBuildings: string[] = [];
 
-    complexes.forEach((complex, index) => {
+    const iterateComplex = (complex: Complex, index: number) => {
         complex.icon = replaceHostedImagesUrl(complex.icon);
         complex.buildingTabs ??= true;
 
@@ -221,7 +221,11 @@ export default async (
             );
 
         marker.on('click', () => showModal());
-    });
+
+        return marker;
+    };
+
+    complexes.forEach(iterateComplex);
 
     LSSM.$store
         .dispatch('hook', {
@@ -243,4 +247,29 @@ export default async (
             },
         })
         .then();
+
+    const newComplexBtn = document.createElement('a');
+    newComplexBtn.classList.add('btn', 'btn-xs', 'btn-default');
+    newComplexBtn.textContent = $m('buildingComplexes.new').toString();
+
+    newComplexBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const newComplexIndex = complexes.length;
+        const center = window.map.getCenter();
+        const newComplex: Complex = {
+            name: `#${newComplexIndex}`,
+            buildings: [],
+            position: [center.lat, center.lng],
+            icon: '/images/building_complex.png',
+            buildingTabs: true,
+            showMarkers: false,
+        };
+        complexes.push(newComplex);
+
+        iterateComplex(newComplex, newComplexIndex).fireEvent('click');
+    });
+
+    document
+        .querySelector<HTMLDivElement>('#building_panel_heading .btn-group')
+        ?.append(newComplexBtn);
 };

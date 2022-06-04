@@ -207,6 +207,10 @@
             "text": "Tekst",
             "title": "Seizoensmeldingen markeren"
         },
+        "fixedEventInfo": {
+            "description": "Toont de info over een lopend evenement altijd, hoe ver je ook gescrolld hebt in de meldingenlijst.",
+            "title": "Toon evenement info altijd"
+        },
         "hide0CurrentPatients": {
             "description": "Verbergt het aantal patiënten als er geen patiënten meer zijn",
             "title": "Verberg 0 patiënten"

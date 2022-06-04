@@ -10,26 +10,18 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 18 # install node 18
 nvm use 18
 
-npm install -g npm
-npm install -g yarn
+# use modern yarn
+corepack enable
+yarn set version stable
 
 # version output helps when there are debugging needs
-echo "node: $(node -v) – npm: $(npm -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
+echo "node: $(node -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
 
 echo "=== main: update browserslist ==="
 npx -y browserslist@latest --update-db
 echo "=/= END: main: update browserslist =/="
 echo "=== main: yarn install ==="
-yarn install --frozen-lockfile
+yarn install --immutable
 echo "=/= END: main: yarn install =/="
-
-cd ./docs/.vuepress/
-echo "=== docs: update browserslist ==="
-npx -y browserslist@latest --update-db
-echo "=/= END: docs: update browserslist =/="
-echo "=== docs: yarn install ==="
-yarn install --frozen-lockfile
-echo "=/= END: docs: yarn install =/="
-cd ../../
 
 yarn run "$RUN_BRANCH"
