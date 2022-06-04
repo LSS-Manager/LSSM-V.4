@@ -183,8 +183,8 @@
             "title": "Zwiń misje"
         },
         "collapsableMissionsAllBtn": {
-            "description": "Shows a button to collapse all missions at once",
-            "title": "Collapse all missions at once"
+            "description": "Pokazuje przycisk do zwinięcia wszystkich misji naraz",
+            "title": "Zwiń wszystkie misje na raz"
         },
         "currentPatients": {
             "description": "Pokazuje aktualną liczbę pacjentów dla każdej misji",

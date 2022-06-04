@@ -1,6 +1,6 @@
 {
     "buildingComplexes": {
-        "new": "New LSSM building complex",
+        "new": "Nowy kompleks LSSM",
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
             "buildings": {
@@ -11,7 +11,7 @@
                 },
                 "inConstruction": "z tego {n} w budowie",
                 "table": {
-                    "alliance": "Alliance",
+                    "alliance": "Sojusz",
                     "head": {
                         "beds": "Łóżka",
                         "cells": "Cele",
@@ -30,7 +30,7 @@
             },
             "extensions": {
                 "abort": "Anuluj",
-                "allianceFunds": "payed with alliance funds",
+                "allianceFunds": "opłać z funduszy sojuszu",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -81,7 +81,7 @@
         },
         "settings": {
             "abort": "Anuluj",
-            "allianceBuildings": "attached alliance buildings",
+            "allianceBuildings": "Dołączone budynki sojuszu",
             "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "buildings": "Wybrane budynki",
             "dissolve": {
