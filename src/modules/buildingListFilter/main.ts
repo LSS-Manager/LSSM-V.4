@@ -23,6 +23,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     );
     wrapper.style.setProperty('display', 'flex');
     wrapper.style.setProperty('margin-bottom', '1rem');
+    wrapper.style.setProperty('justify-content', 'space-between');
     selectGroup.before(wrapper);
     wrapper.append(selectGroup, extraBtnsGroup);
 
@@ -328,7 +329,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         } else {
             selectGroup.style.setProperty('width', '100%');
         }
-        extraBtnsGroup.append(searchBtn, sortBtn, search);
+        extraBtnsGroup.append(searchBtn, search, sortBtn);
         window.buildingsVehicleLoadVisible();
     };
 
