@@ -53,6 +53,10 @@
             "description": "Skjul individuelle (eller alle) oppdrag for å redusere størrelsen på oppdragslisten.",
             "title": "Kollaps oppdrag"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Viser gjeldende antall pasienter for hvert oppdrag",
             "title": "Nåværende pasienter"

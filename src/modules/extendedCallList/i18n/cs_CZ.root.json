@@ -21,6 +21,10 @@
             "description": "Sbalí konkrétní (nebo všechny) mise ke zmenšení řádků ve výpisu misí.",
             "title": "Sbalit mise"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Zobrazí aktuální počet pacientů u každé mise.",
             "title": "Aktuálně pacientů"

@@ -192,6 +192,10 @@
             "description": "Réduisez la taille des missions individuelles (ou toutes) dans la liste des missions.",
             "title": "Réduire les missions"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Indique le nombre actuel de patients pour chaque mission",
             "title": "Patients actuels"

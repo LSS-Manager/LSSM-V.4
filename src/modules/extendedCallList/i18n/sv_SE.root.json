@@ -2,6 +2,10 @@
     "description": "Utökar missionlistan med några häftiga funktioner!",
     "name": "Utökad uppdragslista",
     "settings": {
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPrisoners": {
             "description": "Shows current amount of prisoners for each mission",
             "title": "Current Prisoners"

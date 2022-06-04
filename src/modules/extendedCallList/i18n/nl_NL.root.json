@@ -185,6 +185,10 @@
             "description": "Klap losse (of alle) meldingen in om ruimte in de meldingenlijst te besparen.",
             "title": "Meldingen inklappen"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Laat het huidige aantal patiënten zien bij elke melding",
             "title": "Huidige patiënten"

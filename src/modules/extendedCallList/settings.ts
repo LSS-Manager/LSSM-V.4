@@ -81,6 +81,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        collapsableMissionsAllBtn: <Toggle>{
+            type: 'toggle',
+            default: true,
+            dependsOn: '.collapsableMissions',
+        },
         collapsedMissions: <Hidden>{
             type: 'hidden',
         },
