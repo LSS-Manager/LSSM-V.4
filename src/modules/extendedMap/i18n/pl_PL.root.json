@@ -10,7 +10,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Dołączone budynki",
-            "description": "Aktualizacja projektu, która umożliwia łączenie wielu budynków w jeden na mapie. Graficznie działa identycznie jak kompleksy w grze.",
+            "description": "Aktualizacja projektu, która umożliwia łączenie wielu budynków w jeden na mapie. Graficznie działa identycznie jak kompleksy w grze. More settings are available within each complex.",
             "name": "Nazwa",
             "position": "Lokacja",
             "title": "Kompleksy budynków"
