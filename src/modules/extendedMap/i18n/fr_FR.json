@@ -30,7 +30,7 @@
             },
             "extensions": {
                 "abort": "Annuler",
-                "allianceFunds": "payed with alliance funds",
+                "allianceFunds": "payé avec les fonds de l'alliance",
                 "disable": "Pas encore prêt",
                 "disabled": "Pas encore prêt",
                 "enable": "Prêt et paré",
@@ -81,16 +81,16 @@
         },
         "settings": {
             "abort": "Annuler",
-            "allianceBuildings": "attached alliance buildings",
+            "allianceBuildings": "Bâtiments de l'alliance rattachés",
             "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
             "buildings": "Bâtiments rattachés",
             "dissolve": {
                 "buttons": {
                     "abort": "Annuler",
-                    "continue": "Dissoudre"
+                    "continue": "Supprimer"
                 },
-                "text": "Voulez-vous dissoudre cet ensemble de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
-                "title": "Dissoudre le complexe"
+                "text": "Voulez-vous supprimer le complexe de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
+                "title": "Supprimer le complexe"
             },
             "icon": "Icon",
             "iconHelp": "Choisir entre les icônes standard et les icônes des bâtiments rattachés",

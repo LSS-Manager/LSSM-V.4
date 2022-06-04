@@ -193,8 +193,8 @@
             "title": "Réduire les missions"
         },
         "collapsableMissionsAllBtn": {
-            "description": "Shows a button to collapse all missions at once",
-            "title": "Collapse all missions at once"
+            "description": "Affiche un bouton permettant de réduire toutes les missions en une seule fois.",
+            "title": "Réduire toutes les missions en une seule fois"
         },
         "currentPatients": {
             "description": "Indique le nombre actuel de patients pour chaque mission",
