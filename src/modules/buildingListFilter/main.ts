@@ -2,17 +2,41 @@ import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
-    let wrapper = document.querySelector<HTMLDivElement>(
+    let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
-    if (!wrapper) return;
+    if (!selectGroup) return;
 
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: 'buildingListFilter-initial',
     });
     LSSM.$store.commit('useFontAwesome');
 
+    const extraBtnsGroup = document.createElement('div');
+    extraBtnsGroup.classList.add('btn-group');
+    extraBtnsGroup.style.setProperty('flex-shrink', '0');
+
+    const wrapper = document.createElement('div');
+    wrapper.id = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}-wrapper`,
+        true
+    );
+    wrapper.style.setProperty('display', 'flex');
+    wrapper.style.setProperty('margin-bottom', '1rem');
+    selectGroup.before(wrapper);
+    wrapper.append(selectGroup, extraBtnsGroup);
+
+    let breakElement: HTMLElement | null;
+    while (
+        (breakElement = document.querySelector<HTMLElement>(
+            `#${wrapper.id} + br`
+        ))
+    )
+        breakElement.remove();
+
     const fixedFilters = await getSetting('fixedFilters');
+
+    const fixedWhiteSpace = document.createElement('div');
 
     if (fixedFilters) {
         LSSM.$store
@@ -25,6 +49,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 },
             })
             .then();
+        fixedWhiteSpace.style.setProperty('margin-bottom', '1rem');
+        wrapper.after(fixedWhiteSpace);
     }
 
     interface Filter {
@@ -116,11 +142,11 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     >;
 
     const updateFilters = async () => {
-        wrapper = document.querySelector<HTMLDivElement>(
+        selectGroup = document.querySelector<HTMLDivElement>(
             '#btn-group-building-select'
         );
-        if (!wrapper) return;
-        wrapper.querySelectorAll('a').forEach(a => a.remove());
+        if (!selectGroup) return;
+        selectGroup.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
 
         const buildingsByType: Record<number, Building[]> =
@@ -179,7 +205,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                     else enable(btn, buildings, index);
                 }
                 btns.push([btn, buildings]);
-                wrapper?.append(btn);
+                selectGroup?.append(btn);
             }
         );
 
@@ -223,7 +249,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             .then();
 
         const sortBtn = document.createElement('button');
-        sortBtn.classList.add('btn', 'btn-xs', 'btn-default', 'pull-right');
+        sortBtn.classList.add('btn', 'btn-xs', 'btn-default');
         sortBtn.style.setProperty('margin-top', '-4px');
         const sortIcon = document.createElement('i');
         sortIcon.classList.add('fas', 'fa-sort-alpha-down');
@@ -250,7 +276,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         let searchTimeout = null as number | null;
 
         const searchBtn = document.createElement('button');
-        searchBtn.classList.add('btn', 'btn-xs', 'btn-default', 'pull-right');
+        searchBtn.classList.add('btn', 'btn-xs', 'btn-default');
         searchBtn.style.setProperty('margin-top', '-4px');
         const searchIcon = document.createElement('i');
         searchIcon.classList.add('fas', 'fa-search');
@@ -259,7 +285,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
         const search = document.createElement('input');
         search.type = 'search';
-        search.classList.add('pull-right', 'search_input_field', 'hidden');
+        search.classList.add('search_input_field', 'hidden');
         search.style.setProperty('position', 'absolute');
         search.style.setProperty('margin-top', '-4px');
         search.style.setProperty('right', '22px');
@@ -294,9 +320,15 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             );
         });
 
-        if (!fixedFilters) wrapper.style.setProperty('width', '100%');
-        wrapper.prepend(searchBtn, sortBtn);
-        wrapper.append(search);
+        if (fixedFilters) {
+            fixedWhiteSpace.style.setProperty(
+                'height',
+                getComputedStyle(wrapper).height
+            );
+        } else {
+            selectGroup.style.setProperty('width', '100%');
+        }
+        extraBtnsGroup.append(searchBtn, sortBtn, search);
         window.buildingsVehicleLoadVisible();
     };
 
