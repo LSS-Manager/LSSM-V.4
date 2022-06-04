@@ -1037,7 +1037,7 @@ If several requests fail in a short time, this could be due to server problems. 
             color: '#00ac00',
         },
         'Other': {
-            buildings: [2, 9, 14, 20, 21],
+            buildings: [1, 2, 9, 14, 20, 21],
             color: '#02a18c',
         },
     },
