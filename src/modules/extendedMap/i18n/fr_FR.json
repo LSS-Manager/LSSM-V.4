@@ -11,6 +11,7 @@
                 },
                 "inConstruction": "{n} en construction",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Lits",
                         "cells": "Cellules",
@@ -29,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Annuler",
+                "allianceFunds": "payed with alliance funds",
                 "disable": "Pas encore prêt",
                 "disabled": "Pas encore prêt",
                 "enable": "Prêt et paré",
@@ -79,6 +81,7 @@
         },
         "settings": {
             "abort": "Annuler",
+            "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
             "buildings": "Bâtiments rattachés",
             "dissolve": {

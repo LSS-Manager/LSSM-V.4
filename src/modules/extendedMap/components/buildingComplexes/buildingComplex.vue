@@ -715,6 +715,7 @@
                                             {{ $t('credits') }}
                                         </button>
                                         <button
+                                            v-if="!extension.allianceBuilding"
                                             :class="`btn btn-${
                                                 extension.enoughCoins
                                                     ? 'success'
@@ -740,6 +741,16 @@
                                             }}
                                             {{ $t('coins') }}
                                         </button>
+                                        <span
+                                            v-else
+                                            class="label label-default extensions-alliance-funds-label"
+                                        >
+                                            {{
+                                                $m(
+                                                    'overview.extensions.allianceFunds'
+                                                )
+                                            }}
+                                        </span>
                                         {{ extension.duration }}
                                         <ul
                                             v-if="!extension.canBuy"
@@ -1593,7 +1604,13 @@ export default Vue.extend<
                                           credits: extensionType.credits,
                                           coins: extensionType.coins,
                                           enoughCredits:
-                                              this.$store.state.credits >=
+                                              (alliance
+                                                  ? (
+                                                        this.$store.state.api
+                                                            .allianceinfo as AllianceInfo
+                                                    ).credits_current
+                                                  : this.$store.state
+                                                        .credits) >=
                                               extensionType.credits,
                                           enoughCoins:
                                               this.$store.state.coins >=
@@ -2002,8 +2019,6 @@ export default Vue.extend<
             price,
             allianceBuilding
         ) {
-            if (allianceBuilding)
-                return alert('alliance extensions coming soon');
             this.tempDisableAllExtensionButtons = true;
             const url = new URL('/', window.location.origin);
             url.searchParams.append('_method', 'post');
@@ -2029,10 +2044,17 @@ export default Vue.extend<
                 })
                 .then(() => {
                     this.$store
-                        .dispatch('api/fetchBuilding', {
-                            id: buildingId,
-                            feature,
-                        })
+                        .dispatch(
+                            `api/${
+                                allianceBuilding
+                                    ? 'fetchAllianceBuilding'
+                                    : 'fetchBuilding'
+                            }`,
+                            {
+                                id: buildingId,
+                                feature,
+                            }
+                        )
                         .then(() => {
                             this.tempDisableAllExtensionButtons = false;
                             if (method === 'credits') {
@@ -2218,6 +2240,9 @@ export default Vue.extend<
 
     .extension-toggle
         margin-left: 1rem
+
+    .extensions-alliance-funds-label
+        margin-right: 0.5rem
 
     ul.requirements-list li
         &:first-child

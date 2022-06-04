@@ -11,6 +11,7 @@
                 },
                 "inConstruction": "delle quali {n} in costruzione",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Letti",
                         "cells": "Celle",
@@ -29,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Annulla",
+                "allianceFunds": "payed with alliance funds",
                 "disable": "Disabilita",
                 "disabled": "Completata ma disabilitata",
                 "enable": "Abilita",
@@ -79,6 +81,7 @@
         },
         "settings": {
             "abort": "Annulla",
+            "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
             "dissolve": {

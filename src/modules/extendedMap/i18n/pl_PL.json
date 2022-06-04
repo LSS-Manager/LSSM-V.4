@@ -11,6 +11,7 @@
                 },
                 "inConstruction": "z tego {n} w budowie",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Łóżka",
                         "cells": "Cele",
@@ -29,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Anuluj",
+                "allianceFunds": "payed with alliance funds",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -79,6 +81,7 @@
         },
         "settings": {
             "abort": "Anuluj",
+            "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "buildings": "Wybrane budynki",
             "dissolve": {

@@ -30,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Abbrechen",
+                "allianceFunds": "aus Verbandskasse bezahlt",
                 "disable": "deaktivieren",
                 "disabled": "Fertig gebaut & deaktiviert",
                 "enable": "aktivieren",
@@ -80,6 +81,7 @@
         },
         "settings": {
             "abort": "Abbrechen",
+            "allianceBuildings": "angehängte Verbandsgebäude",
             "buildingTabs": "Tabs für angehängte Gebäude anzeigen?",
             "buildings": "angehängte Gebäude",
             "dissolve": {

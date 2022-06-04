@@ -11,6 +11,7 @@
                 },
                 "inConstruction": "waarvan {n} in aanbouw",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Bedden",
                         "cells": "Cellen",
@@ -29,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Annuleren",
+                "allianceFunds": "payed with alliance funds",
                 "disable": "Niet beschikbaar maken",
                 "disabled": "Voltooid en niet beschikbaar",
                 "enable": "Beschikbaar maken",
@@ -79,6 +81,7 @@
         },
         "settings": {
             "abort": "Annuleren",
+            "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Toon tabs voor gekoppelde gebouwen?",
             "buildings": "gekoppelde gebouwen",
             "dissolve": {

@@ -81,7 +81,9 @@ export default async (
         complexesBuildingsLayers.push(attachedBuildingsLayer);
 
         const attachedMarkers = window.building_markers.filter(
-            ({ building_id }) => buildings.includes(building_id.toString())
+            ({ building_id }) =>
+                buildings.includes(building_id.toString()) ||
+                allianceBuildings.includes(building_id.toString())
         );
         attachedMarkersList.push(attachedMarkers);
 
@@ -118,14 +120,28 @@ export default async (
                             updatedComplex.icon
                         );
 
-                        const removedBuildings = complexes[
-                            index
-                        ].buildings.filter(
-                            id => !updatedComplex.buildings.includes(id)
-                        );
-                        const addedBuildings = updatedComplex.buildings.filter(
-                            id => !complexes[index].buildings.includes(id)
-                        );
+                        const removedBuildings = [
+                            ...complexes[index].buildings.filter(
+                                id => !updatedComplex.buildings.includes(id)
+                            ),
+                            ...complexes[index].allianceBuildings.filter(
+                                id =>
+                                    !updatedComplex.allianceBuildings.includes(
+                                        id
+                                    )
+                            ),
+                        ];
+                        const addedBuildings = [
+                            ...updatedComplex.buildings.filter(
+                                id => !complexes[index].buildings.includes(id)
+                            ),
+                            ...updatedComplex.allianceBuildings.filter(
+                                id =>
+                                    !complexes[
+                                        index
+                                    ].allianceBuildings.includes(id)
+                            ),
+                        ];
 
                         complexes[index] = updatedComplex;
 
@@ -277,6 +293,7 @@ export default async (
         const newComplex: Complex = {
             name: `#${newComplexIndex}`,
             buildings: [],
+            allianceBuildings: [],
             position: [center.lat, center.lng],
             icon: '/images/building_complex.png',
             buildingTabs: true,

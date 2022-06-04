@@ -540,7 +540,7 @@ export default {
                 await get_api_values(
                     'alliance_buildings',
                     store,
-                    `store/api/registerBuildingsUsage(${feature})`
+                    `store/api/registerAllianceBuildingsUsage(${feature})`
                 );
             if (!allianceBuildings) return;
             set_api_storage(
@@ -586,6 +586,40 @@ export default {
                             building;
                         set_api_storage(
                             'buildings',
+                            {
+                                value: buildings,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(building);
+                    });
+            });
+        },
+        async fetchAllianceBuilding(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/alliance_buildings/${id}`,
+                        feature: `store/api/fetchAllianceBuilding(${feature})`,
+                    })
+                    .then(res => res.json())
+                    .then(async (building: Building) => {
+                        const { value: buildings, lastUpdate } =
+                            await get_api_values(
+                                'alliance_buildings',
+                                store,
+                                `store/api/fetchAllianceBuilding(${feature})`
+                            );
+                        if (!buildings) return reject();
+                        buildings[buildings.findIndex(b => b.id === id)] =
+                            building;
+                        set_api_storage(
+                            'alliance_buildings',
                             {
                                 value: buildings,
                                 lastUpdate,
