@@ -20,16 +20,16 @@
             </h2>
             <div v-for="note in notes" :key="note[0]" class="note">
                 <h4>
-                    <b
-                        ><a
-                            class="lightbox-open"
+                    <b>
+                        <a
                             target="_blank"
                             :href="`https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v${
                                 semverLt(note[0], coerce('4.3.3')) ? '.' : ''
                             }${note[0]}`"
-                            >{{ note[0] }}</a
-                        ></b
-                    >
+                        >
+                            {{ note[0] }}
+                        </a>
+                    </b>
                     <sup
                         class="badge beta_label"
                         v-if="
