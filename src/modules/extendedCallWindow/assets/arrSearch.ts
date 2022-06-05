@@ -33,7 +33,7 @@ export default (
         );
 
         const panelHasResultsClass = LSSM.$store.getters.nodeAttribute(
-            'ecw-arrsearch-panel_has_results'
+            'ecw-arr_search-panel_has_results'
         );
 
         searchField.addEventListener('input', () => {
@@ -46,17 +46,32 @@ export default (
                 hideStyle.remove();
                 styleAdded = false;
             }
+            const searchAttributeSelectors = Array.from(
+                new Set(
+                    [search.toLowerCase(), search.toUpperCase()].map(
+                        s => `[search_attribute*="${s}" i]`
+                    )
+                )
+            );
             panels.forEach(panel =>
                 panel.classList[
                     panel.querySelector(
-                        `.aao_searchable[search_attribute*="${search}"i]`
+                        searchAttributeSelectors
+                            .map(
+                                attributeSelector =>
+                                    `.aao_searchable${attributeSelector}`
+                            )
+                            .join(', ')
                     )
                         ? 'add'
                         : 'remove'
                 ](panelHasResultsClass)
             );
+            const notAttributesSelector = searchAttributeSelectors
+                .map(attributeSelector => `:not(${attributeSelector})`)
+                .join('');
             hideStyle.textContent = `
-                .aao_searchable:not([search_attribute*="${search}"i]), .aao_searchable:not([search_attribute*="${search}"i]) + br {
+                .aao_searchable${notAttributesSelector}, .aao_searchable${notAttributesSelector} + br {
                     display: none;
                 }`;
             if (dissolveCategories) {
