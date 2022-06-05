@@ -1,5 +1,6 @@
 {
     "buildingComplexes": {
+        "new": "Nowy kompleks LSSM",
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
             "buildings": {
@@ -10,6 +11,7 @@
                 },
                 "inConstruction": "z tego {n} w budowie",
                 "table": {
+                    "alliance": "Sojusz",
                     "head": {
                         "beds": "Łóżka",
                         "cells": "Cele",
@@ -28,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Anuluj",
+                "allianceFunds": "opłać z funduszy sojuszu",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -64,6 +67,7 @@
             },
             "title": "Przegląd",
             "vehicles": {
+                "imageInfo": "Notatka: Obecnie można wyświetlać tylko standardowe ikony pojazdów lub ikony zestawu graficznego. Ikony ustawione indywidualnie na pojeździe lub stacji nie są jeszcze rozpoznawane.",
                 "table": {
                     "head": {
                         "building": "Budynek",
@@ -77,6 +81,7 @@
         },
         "settings": {
             "abort": "Anuluj",
+            "allianceBuildings": "Dołączone budynki sojuszu",
             "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "buildings": "Wybrane budynki",
             "dissolve": {

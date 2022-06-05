@@ -77,6 +77,10 @@
             "description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
             "title": "Crollo delle missioni"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Mostra quanti pazienti ci sono in ogni missione.",
             "title": "Quantità Pazienti"
@@ -98,6 +102,10 @@
             "missions": "Missioni",
             "text": "Testo",
             "title": "Contrassegna le missioni stagionali"
+        },
+        "fixedEventInfo": {
+            "description": "Mostra permanentemente delle informazioni sull’evento in corso, non importa quanto tu scorra in basso.",
+            "title": "Mostra sempre le informazioni sull’evento"
         },
         "hide0CurrentPatients": {
             "description": "Nascondi l'indicatore dei pazienti, se non ce n'è nessuno.",
@@ -158,7 +166,7 @@
         },
         "sortMissionsInMissionwindow": {
             "description": "Implementa la possibilità di ordinare le missioni dentro le specifica finestra. Opzionalmente, puoi impostare delle Hotkeys nel modulo \"Hotkeys\".",
-            "title": "Sorting in mission window"
+            "title": "Ordinamento nella finestra di missione"
         },
         "starrableMissions": {
             "description": "Contrassegna le missioni in modo che vengano visualizzate nella lista delle missioni in alto. Puoi contrassegnarle nella finestra delle missioni e nell'elenco delle missioni.",
@@ -174,7 +182,7 @@
             "distance_station": "Distanza dalla prossima stazione",
             "id": "Cronologico",
             "remaining_patients": "Pazienti",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Prigionieri rimanenti"
         }
     }
 }

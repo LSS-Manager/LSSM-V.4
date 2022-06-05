@@ -159,6 +159,6 @@ module.exports = {
         'players': 'Joueurs',
     },
     releasePatient: {
-        release: 'Release patient (No reward)',
+        release: 'Libérer le patient (Pas de récompenses)',
     },
 };

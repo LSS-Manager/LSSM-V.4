@@ -1,5 +1,6 @@
 {
     "buildingComplexes": {
+        "new": "Neuer LSSM-Gebäudekomplex",
         "openInLightbox": "Gebäude in Lightbox öffnen",
         "overview": {
             "buildings": {
@@ -10,6 +11,7 @@
                 },
                 "inConstruction": "davon {n} im Bau",
                 "table": {
+                    "alliance": "Verband",
                     "head": {
                         "beds": "Betten",
                         "cells": "Zellen",
@@ -28,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Abbrechen",
+                "allianceFunds": "aus Verbandskasse bezahlt",
                 "disable": "deaktivieren",
                 "disabled": "Fertig gebaut & deaktiviert",
                 "enable": "aktivieren",
@@ -64,6 +67,7 @@
             },
             "title": "Übersicht",
             "vehicles": {
+                "imageInfo": "Temporärer Hinweis: Aktuell werden nur Standardgrafiken bzw. die Grafiken des ausgewählten Grafiksets angezeigt. In Fahrzeugen und Wachen eingestellte Grafiken und Grafiksets können wir aktuell leider noch nicht erkennen.",
                 "table": {
                     "head": {
                         "building": "Gebäude",
@@ -77,6 +81,7 @@
         },
         "settings": {
             "abort": "Abbrechen",
+            "allianceBuildings": "angehängte Verbandsgebäude",
             "buildingTabs": "Tabs für angehängte Gebäude anzeigen?",
             "buildings": "angehängte Gebäude",
             "dissolve": {

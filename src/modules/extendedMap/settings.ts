@@ -14,10 +14,8 @@ import type { Building, InternalBuilding } from 'typings/Building';
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
 
-    const buildingTypes = LSSM.$store.getters.$tBuildings as Record<
-        number,
-        InternalBuilding
-    >;
+    const buildingTypes: Record<number, InternalBuilding> =
+        LSSM.$store.getters.$tBuildings;
 
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: `${MODULE_ID}-settings`,
@@ -117,6 +115,12 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                         labels: userBuildingLabels,
                     },
                 },
+                <AppendableListSetting<Hidden>>{
+                    name: 'allianceBuildings',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
                 <AppendableListSetting<Location>>{
                     name: 'position',
                     title: $m('settings.buildingComplexes.position'),
@@ -143,6 +147,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
             defaultItem: {
                 name: '',
                 buildings: [],
+                allianceBuildings: [],
                 position: [0, 0],
                 icon: '/images/building_complex.png',
                 showMarkers: false,

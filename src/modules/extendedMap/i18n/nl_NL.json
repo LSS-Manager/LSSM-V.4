@@ -1,5 +1,6 @@
 {
     "buildingComplexes": {
+        "new": "Nieuw LSSM gebouwencomplex",
         "openInLightbox": "Open gebouw in Lightbox",
         "overview": {
             "buildings": {
@@ -10,6 +11,7 @@
                 },
                 "inConstruction": "waarvan {n} in aanbouw",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Bedden",
                         "cells": "Cellen",
@@ -27,49 +29,51 @@
                 "title": "Klaslokalen"
             },
             "extensions": {
-                "abort": "Abort",
-                "disable": "disable",
-                "disabled": "Finished & disabled",
-                "enable": "enable",
-                "enabled": "Finished & enabled",
+                "abort": "Annuleren",
+                "allianceFunds": "payed with alliance funds",
+                "disable": "Niet beschikbaar maken",
+                "disabled": "Voltooid en niet beschikbaar",
+                "enable": "Beschikbaar maken",
+                "enabled": "Voltooid en beschikbaar",
                 "filter": {
-                    "all": "All",
-                    "buildings": "Buildings",
-                    "canBuy": "can buy",
-                    "canToggle": "can enable/disable",
-                    "cannotBuy": "cannot buy",
-                    "cannotToggle": "cannot enable/disable",
-                    "disabled": "finished & disabled",
-                    "enabled": "finished & enabled",
-                    "extensions": "Extensions",
+                    "all": "Alles",
+                    "buildings": "Gebouwen",
+                    "canBuy": "kan kopen",
+                    "canToggle": "kan (niet) beschikbaar maken",
+                    "cannotBuy": "kan niet kopen",
+                    "cannotToggle": "kan niet (niet) beschikbaar maken",
+                    "disabled": "voltooid en niet beschikbaar",
+                    "enabled": "voltooid en beschikbaar",
+                    "extensions": "Uitbreidingen",
                     "states": "Status",
-                    "underConstruction": "under construction"
+                    "underConstruction": "in aanbouw"
                 },
-                "limit": "You cannot buy more than {n} of this extensions currently!",
-                "missingRequirements": "Following requirements are not met:",
+                "limit": "Je kan niet meer dan {n} van deze uitbreiding kopen momenteel!",
+                "missingRequirements": "Je mist de volgende vereisten:",
                 "summary": {
-                    "available": "{n} ready to be built",
-                    "built": "{n} built",
-                    "inConstruction": "{n} under construction",
-                    "total": "{n} possible in total"
+                    "available": "{n} klaar om te bouwen",
+                    "built": "{n} gebouwd",
+                    "inConstruction": "{n} in aanbouw",
+                    "total": "{n} mogelijk totaal"
                 },
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "name": "Name"
+                        "building": "Gebouw",
+                        "name": "Naam"
                     }
                 },
                 "title": "Uitbreidingen",
-                "underConstruction": "under construction"
+                "underConstruction": "in aanbout"
             },
             "title": "Overzicht",
             "vehicles": {
+                "imageInfo": "Let op: Momenteel alleen de standaard voertuig iconen of de iconen van een afbeeldingsverzameling kunnen worden weergegeven. Iconen ingesteld op een individueel voertuig of gebouw kunnen helaas nog niet worden herkend.",
                 "table": {
                     "head": {
-                        "building": "Building",
+                        "building": "Gebouw",
                         "fms": "Status",
-                        "name": "Name",
-                        "staff": "Staff (assigned / max)"
+                        "name": "Naam",
+                        "staff": "Personeel (toegewezen / max)"
                     }
                 },
                 "title": "Voertuigen"
@@ -77,7 +81,8 @@
         },
         "settings": {
             "abort": "Annuleren",
-            "buildingTabs": "Show tabs for attached buildings?",
+            "allianceBuildings": "attached alliance buildings",
+            "buildingTabs": "Toon tabs voor gekoppelde gebouwen?",
             "buildings": "gekoppelde gebouwen",
             "dissolve": {
                 "buttons": {

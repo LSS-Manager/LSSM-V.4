@@ -55,7 +55,11 @@
         },
         "filters": {
             "description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
-            "title": "Buildinglist filter"
+            "title": "Filters"
+        },
+        "fixedFilters": {
+            "description": "Shows filters even when scrolling through the list of buildings",
+            "title": "Always show filters"
         },
         "icon_style": "Icon-Type",
         "preview": "Preview",

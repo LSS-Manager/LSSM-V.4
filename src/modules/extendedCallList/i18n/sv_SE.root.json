@@ -2,6 +2,10 @@
     "description": "Utökar missionlistan med några häftiga funktioner!",
     "name": "Utökad uppdragslista",
     "settings": {
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPrisoners": {
             "description": "Shows current amount of prisoners for each mission",
             "title": "Current Prisoners"
@@ -9,6 +13,10 @@
         "currentPrisonersInTooltips": {
             "description": "Shows current amount of prisoners also in the tooltips on the map.",
             "title": "Current Prisoners in Tooltips"
+        },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
         },
         "hide0CurrentPrisoners": {
             "description": "Hides amount of prisoners if there are no prisoners at scene",

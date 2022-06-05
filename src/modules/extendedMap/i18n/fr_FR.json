@@ -1,5 +1,6 @@
 {
     "buildingComplexes": {
+        "new": "Nouveau complexe immobilier LSSM",
         "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
             "buildings": {
@@ -10,6 +11,7 @@
                 },
                 "inConstruction": "{n} en construction",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Lits",
                         "cells": "Cellules",
@@ -28,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Annuler",
+                "allianceFunds": "payé avec les fonds de l'alliance",
                 "disable": "Pas encore prêt",
                 "disabled": "Pas encore prêt",
                 "enable": "Prêt et paré",
@@ -64,6 +67,7 @@
             },
             "title": "Aperçu",
             "vehicles": {
+                "imageInfo": "Remarque : actuellement, seules les icônes standard des véhicules ou ceux du pack graphique peuvent être affichés. Les icônes définies sur un véhicule ou une station de manière individuelle ne peuvent malheureusement pas encore être reconnues.",
                 "table": {
                     "head": {
                         "building": "Bâtiments",
@@ -77,15 +81,16 @@
         },
         "settings": {
             "abort": "Annuler",
+            "allianceBuildings": "Bâtiments de l'alliance rattachés",
             "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
             "buildings": "Bâtiments rattachés",
             "dissolve": {
                 "buttons": {
                     "abort": "Annuler",
-                    "continue": "Dissoudre"
+                    "continue": "Supprimer"
                 },
-                "text": "Voulez-vous dissoudre cet ensemble de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
-                "title": "Dissoudre le complexe"
+                "text": "Voulez-vous supprimer le complexe de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
+                "title": "Supprimer le complexe"
             },
             "icon": "Icon",
             "iconHelp": "Choisir entre les icônes standard et les icônes des bâtiments rattachés",

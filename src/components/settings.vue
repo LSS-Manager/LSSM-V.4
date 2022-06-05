@@ -622,8 +622,9 @@ export default Vue.extend<
         getExportData() {
             this.$store.dispatch('storage/getAllItems').then(storage => {
                 this.exportData = `data:application/json;charset=utf-8,${encodeURIComponent(
-                    JSON.stringify(
-                        Object.fromEntries(
+                    JSON.stringify({
+                        safeFileVersion: 1,
+                        ...Object.fromEntries(
                             Object.entries(storage)
                                 .filter(
                                     ([key]) =>
@@ -634,8 +635,8 @@ export default Vue.extend<
                                     key.replace('settings_', ''),
                                     value,
                                 ])
-                        )
-                    )
+                        ),
+                    })
                 )}`;
             });
         },
@@ -654,7 +655,10 @@ export default Vue.extend<
                     string,
                     Record<string, SettingType['value']> | string[]
                 >;
-                if (result.activeModules) {
+                if (
+                    result.activeModules &&
+                    Array.isArray(result.activeModules)
+                ) {
                     await this.$store.dispatch('storage/set', {
                         key: 'activeModules',
                         value: result.activeModules,
@@ -662,7 +666,8 @@ export default Vue.extend<
                 }
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
-                    if (['activeModules'].includes(module)) return;
+                    if (['activeModules', 'safeFileVersion'].includes(module))
+                        return;
                     this.$store
                         .dispatch('storage/set', {
                             key: `settings_${module}`,

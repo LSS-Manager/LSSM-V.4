@@ -130,7 +130,7 @@ module.exports = {
             [/^Dźwigi? SP$/u]: [25, 37],
             [/^Helikopter(ów)? Policyjny(ch)?$/u]: [14],
             [/^Jednost(ek|ka) K-9?$/u]: [16],
-            [/^łod(ź|zi\(-e\))$/u]: [21, 22, 23, 26, 54],
+            [/^ł[oó]d(ź|zi\(-e\))$/u]: [21, 22, 23, 26, 54],
             [/^pojazdów SPKP$/u]: [15, 18],
             [/^radiowóz OPI$/u]: [8, 17, 65, 66, 76, 77],
             [/^[Rr]adiow(oz([uy]|ów)|óz) APRD$/u]: [75],

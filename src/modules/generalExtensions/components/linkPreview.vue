@@ -170,7 +170,7 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: this.$t('vehicles') as unknown as Record<
+            vehicleTypes: this.$store.getters.$tVehicles as Record<
                 number,
                 InternalVehicle
             >,

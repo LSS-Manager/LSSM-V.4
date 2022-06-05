@@ -192,6 +192,10 @@
             "description": "Réduisez la taille des missions individuelles (ou toutes) dans la liste des missions.",
             "title": "Réduire les missions"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Affiche un bouton permettant de réduire toutes les missions en une seule fois.",
+            "title": "Réduire toutes les missions en une seule fois"
+        },
         "currentPatients": {
             "description": "Indique le nombre actuel de patients pour chaque mission",
             "title": "Patients actuels"
@@ -213,6 +217,10 @@
             "missions": "Missions",
             "text": "Texte",
             "title": "Marquer les missions saisonnières"
+        },
+        "fixedEventInfo": {
+            "description": "Affiche les informations sur un événement en cours de manière permanente, quelle que soit la position que vous avez atteinte dans la liste des missions.",
+            "title": "Toujours afficher les informations de l'événement"
         },
         "hide0CurrentPatients": {
             "description": "Masquer le nombre de patients s'il n'y en a pas sur place",

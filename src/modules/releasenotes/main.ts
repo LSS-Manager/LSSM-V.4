@@ -29,7 +29,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const notes: [string, Releasenote][] = Object.entries(
         (await LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json?v=${VERSION}`,
+                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json?v=${VERSION}&uid=${LSSM.$store.state.lang}-${window.user_id}`,
                 init: {
                     method: 'GET',
                 },
@@ -37,8 +37,10 @@ export default async (LSSM: Vue): Promise<void> => {
             })
             .then(res => res.json())) as Releasenotes
     )
-        .filter(([version]) =>
-            semverLte(coerce(version) ?? '4.0.0', currentVersion)
+        .filter(
+            ([version]) =>
+                MODE === 'beta' ||
+                semverLte(coerce(version) ?? '4.0.0', currentVersion)
         )
         .sort((a, b) =>
             semverRcompare(coerce(a[0]) ?? '0', coerce(b[0]) ?? '0')
@@ -48,11 +50,38 @@ export default async (LSSM: Vue): Promise<void> => {
             {
                 ...note,
                 content: sdConverter.makeHtml(
-                    note.content.replace(
-                        /#(\d+)/gu,
-                        ($0, $1) =>
-                            `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
-                    )
+                    note.content
+                        .replace(
+                            /#(\d+)/gu,
+                            ($0, $1) =>
+                                `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
+                        )
+                        .replace(/\$m\('(?<module>[^.]*?)'\)/gu, (...args) =>
+                            LSSM.$t(
+                                `modules.${
+                                    args[args.length - 1].module ?? ''
+                                }.name`
+                            ).toString()
+                        )
+                        .replace(
+                            /\$s\((?<noModule>!?)'(?<module>[^.]*?)(?:\.(?<setting>.*?))?'\)/gu,
+                            (...args) => {
+                                const groups = args[args.length - 1];
+                                const noModule = groups.noModule?.length > 0;
+                                const module = groups.module ?? '';
+                                const setting = groups.setting ?? '';
+                                const path = `modules.${module}`;
+                                const moduleName = LSSM.$t(
+                                    `${path}.name`
+                                ).toString();
+                                if (!setting) return moduleName;
+                                return `${
+                                    !noModule ? `${moduleName} / ` : ''
+                                }${LSSM.$t(
+                                    `modules.${module}.settings.${setting}.title`
+                                )}`;
+                            }
+                        )
                 ),
             },
         ]);

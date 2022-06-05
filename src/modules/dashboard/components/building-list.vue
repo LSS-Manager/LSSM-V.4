@@ -127,7 +127,7 @@ import type {
     BuildingListComputed,
     BuildingListMethods,
     BuildingListProps,
-} from '../../../../typings/modules/Dashboard/BuildingList';
+} from 'typings/modules/Dashboard/BuildingList';
 
 export default Vue.extend<
     BuildingList,

@@ -1,5 +1,6 @@
 {
     "buildingComplexes": {
+        "new": "New LSSM building complex",
         "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
             "buildings": {
@@ -10,6 +11,7 @@
                 },
                 "inConstruction": "delle quali {n} in costruzione",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Letti",
                         "cells": "Celle",
@@ -28,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Annulla",
+                "allianceFunds": "payed with alliance funds",
                 "disable": "Disabilita",
                 "disabled": "Completata ma disabilitata",
                 "enable": "Abilita",
@@ -64,6 +67,7 @@
             },
             "title": "Panoramica",
             "vehicles": {
+                "imageInfo": "Attenzione: al momento, solo le icone standard dei veicoli e/o delle stazioni possono essere visualizzate. Ci dispiace, ma le icone dei veicoli o delle stazioni impostate individualmente non potranno essere riconosciute per ora.",
                 "table": {
                     "head": {
                         "building": "Edificio",
@@ -77,6 +81,7 @@
         },
         "settings": {
             "abort": "Annulla",
+            "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
             "dissolve": {

@@ -63,6 +63,10 @@
             "description": "Pozostaw ikony w przycisku „Alarm” Pokaż, w zależności od dokonanego wyboru. Możesz wybrać między <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkie darmowe ikony od Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ikonę.",
             "title": "Filtr listy budynków"
         },
+        "fixedFilters": {
+            "description": "Pokazuje filtry nawet podczas przewijania listy budynków",
+            "title": "Zawsze pokazuj filtry"
+        },
         "icon_style": "Icon-Type",
         "preview": "Preview",
         "title": "Tytuł (lub ikona)"

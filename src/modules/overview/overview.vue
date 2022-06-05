@@ -321,10 +321,8 @@ export default Vue.extend<
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = this.$t('vehicles') as unknown as Record<
-            number,
-            InternalVehicle
-        >;
+        const vehicleTypes: Record<number, InternalVehicle> =
+            this.$store.getters.$tVehicles;
         const resolvedVehicleCategories = {} as Record<
             string,
             ResolvedVehicleCategory

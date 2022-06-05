@@ -10,6 +10,7 @@ import type {
     PreviewElement,
     Select,
     Text,
+    Toggle,
 } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
@@ -37,6 +38,10 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     });
 
     return {
+        fixedFilters: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         filters: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultFilters,

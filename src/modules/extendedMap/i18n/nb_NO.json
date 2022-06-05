@@ -1,5 +1,6 @@
 {
     "buildingComplexes": {
+        "new": "New LSSM building complex",
         "openInLightbox": "Open building in Lightbox",
         "overview": {
             "buildings": {
@@ -10,6 +11,7 @@
                 },
                 "inConstruction": "thereof {n} under construction",
                 "table": {
+                    "alliance": "Alliance",
                     "head": {
                         "beds": "Beds",
                         "cells": "Cells",
@@ -28,6 +30,7 @@
             },
             "extensions": {
                 "abort": "Abort",
+                "allianceFunds": "payed with alliance funds",
                 "disable": "disable",
                 "disabled": "Finished & disabled",
                 "enable": "enable",
@@ -64,6 +67,7 @@
             },
             "title": "Overview",
             "vehicles": {
+                "imageInfo": "Note: Currently only standard vehicle icons or those of the set graphic pack can be shown. Icons set on a vehicle or station individually cannot be recognized yet unfortunately.",
                 "table": {
                     "head": {
                         "building": "Building",
@@ -77,6 +81,7 @@
         },
         "settings": {
             "abort": "Abort",
+            "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "attached buildings",
             "dissolve": {

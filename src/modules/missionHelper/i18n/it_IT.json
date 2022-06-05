@@ -21,13 +21,16 @@
         "fire_aviation_count": "Base Aerea Antincendio",
         "fire_stations": "Caserma VVF | Caserme VVF",
         "fire_support_count": "espansione Sistema schiumogeno",
+        "game_warden_count": "Estensione Forestale",
         "max_police_stations": "Massimale delle polizze",
         "max_rescue_stations": "Massimale di soccorso",
         "police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
         "police_stations": "Stazione di Polizia | Stazioni di Polizia",
         "rescue_stations": "Stazione ambulanza | Stazioni ambulanze",
         "title": "Prerequisito | Prerequisiti",
-        "wasserrettung": "Caserma soccorso acquatico VVF"
+        "traffic_police": "Estensione Polizia Stradale",
+        "wasserrettung": "Caserma soccorso acquatico VVF",
+        "water_cannon": "Idrante Antisommossa"
     },
     "prisoners": {
         "max_possible_prisoners": "Massimo prigioniere | Prigionieri massimali",
@@ -59,6 +62,7 @@
             "fire_aviation": "Mezzi Aerei Antincendio",
             "firetrucks": "APS/ABP",
             "fwk": "Autogrù",
+            "game_warden": "pattuglia Forestale",
             "hazmat_vehicles": "NBCR",
             "heavy_rescue_vehicles": "Unità polisoccorso",
             "helicopter": "Elisoccorso",
@@ -70,6 +74,8 @@
             "police_helicopters": "Elicottero della polizia",
             "swat_armored_vehicle": "Furgone Antisommossa",
             "swat_suv": "Suv UOPI",
+            "traffic_car": "Polizia Stradale",
+            "wasserwerfer": "Idrante Antisommossa",
             "water_rescue": "Pickup SAF",
             "water_tankers": "Kilolitriche"
         },

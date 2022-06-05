@@ -55,6 +55,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
                 /* webpackChunkName: "modules/extendedCallWindow/moreReleasePatientButtons/mission" */ './assets/moreReleasePatientButtons/mission'
             ).then(({ default: moreReleasePatientButtons }) =>
                 moreReleasePatientButtons(
+                    LSSM,
                     $m('releasePatient.release').toString()
                 )
             );

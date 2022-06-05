@@ -10,7 +10,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map. More settings are available within each complex.",
             "name": "Name",
             "position": "Location",
             "title": "Building complexes"

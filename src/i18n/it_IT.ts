@@ -53,7 +53,11 @@ export default {
         title: 'Userscript out of date',
         text: `Dear LSSM-User,<br>
 unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of the LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.
+You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
+Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
+If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
+Sometimes, LSSM is installed multiple times after an update. In this case, please delete the script that does not have version 4.5.10 (in Tampermonkey).<br>
+We're sorry for any caused issue if updates did not work correctly.
 <br>
 Kind regards,<br>
 your LSSM team`,
@@ -634,6 +638,42 @@ If several requests fail in a short time, this could be due to server problems. 
             ftank: 2000,
             possibleBuildings: [0],
         },
+        38: {
+            caption: 'Pattuglia Polizia Stradale',
+            color: '#0a2bff',
+            coins: -1,
+            credits: -1,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+        },
+        39: {
+            caption: 'Moto Polizia Stradale',
+            color: '#0a2bff',
+            coins: -1,
+            credits: -1,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [6, 19],
+        },
+        40: {
+            caption: 'Pattuglia Forestale',
+            color: '#0a2bff',
+            coins: -1,
+            credits: -1,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+        },
+        41: {
+            caption: 'Idrante Antisommossa',
+            color: '#0a2bff',
+            coins: -1,
+            credits: -1,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+        },
     },
     buildingCategories: {
         'Vigili del Fuoco': {
@@ -680,6 +720,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Elicottero': [13],
                 'Antidroga': [15],
                 'Finanza': [21],
+                'New': [38, 39, 40, 41],
             },
             color: '#00ac00',
         },
@@ -795,6 +836,11 @@ If several requests fail in a short time, this could be due to server problems. 
                 duration: '3 giorni',
                 staffList: 'Corso Artificieri',
             },
+            {
+                caption: 'Operatore Idrante Antisommossa',
+                duration: '3 giorni',
+                staffList: 'Operatore Idrante Antisommossa',
+            },
         ],
         'Soccorso': [
             {
@@ -880,13 +926,12 @@ If several requests fail in a short time, this could be due to server problems. 
         'Officina meccanica',
         'Uscita autostradale',
         'Mercatino di Natale',
-        '',
         'Discoteca',
         'Stadio',
         'Azienda agricola',
         'Edificio adibito a uffici',
         'Piscina',
-        '',
+        'Passaggio a livello',
         'Teatro',
         'Luna park',
         'Fiume',
@@ -902,7 +947,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Grattacielo',
         'Molo navi da crociera',
         'Porticciolo',
-        'Passaggio a livello',
+        'Passaggio a livello pedonale',
         'Galleria',
         'Magazzino a celle frigorifere',
         'Centrale elettrica',

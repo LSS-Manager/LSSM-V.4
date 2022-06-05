@@ -185,6 +185,10 @@
             "description": "Klap losse (of alle) meldingen in om ruimte in de meldingenlijst te besparen.",
             "title": "Meldingen inklappen"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Laat het huidige aantal patiënten zien bij elke melding",
             "title": "Huidige patiënten"
@@ -207,13 +211,17 @@
             "text": "Tekst",
             "title": "Seizoensmeldingen markeren"
         },
+        "fixedEventInfo": {
+            "description": "Toont de info over een lopend evenement altijd, hoe ver je ook gescrolld hebt in de meldingenlijst.",
+            "title": "Toon evenement info altijd"
+        },
         "hide0CurrentPatients": {
             "description": "Verbergt het aantal patiënten als er geen patiënten meer zijn",
             "title": "Verberg 0 patiënten"
         },
         "hide0CurrentPrisoners": {
-            "description": "Hides amount of prisoners if there are no prisoners at scene",
-            "title": "Hide 0 Prisoners"
+            "description": "Verbergt het aantal arrestanten als er geen arrestanten zijn",
+            "title": "Verberg 0 arrestanten"
         },
         "remainingPatientTime": {
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",

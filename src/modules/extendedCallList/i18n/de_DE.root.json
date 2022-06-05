@@ -162,6 +162,10 @@
             "description": "Klappe einzelne (oder alle) Einsätze ein, um Platz in der Einsatzliste zu sparen.",
             "title": "Einsätze einklappen"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Zeigt einen Knopf an, über den sich alle Einsätze auf einmal ein- bzw. ausklappen lassen können.",
+            "title": "Alle Einsätze auf einmal einklappen"
+        },
         "currentPatients": {
             "description": "Zeigt die aktuelle Zahl der Patienten bei jedem Einsatz an.",
             "title": "Patientenzahl"
@@ -183,6 +187,10 @@
             "missions": "Einsätze",
             "text": "Text",
             "title": "Saisonale Einsätze markieren"
+        },
+        "fixedEventInfo": {
+            "description": "Zeigt die Info über ein laufendes Event dauerhaft an, egal wie weit in der Einsatzliste gescrollt wurde.",
+            "title": "Event-Info immer anzeigen"
         },
         "hide0CurrentPatients": {
             "description": "Versteckt die Patientenzahl, wenn diese 0 beträgt.",

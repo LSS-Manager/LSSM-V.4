@@ -6,6 +6,7 @@ import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 export interface Complex {
     name: string;
     buildings: string[];
+    allianceBuildings: string[];
     position: [number, number];
     icon: string;
     showMarkers: boolean;
@@ -30,7 +31,13 @@ export default async (
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: `buildingComplexes`,
     });
+    await LSSM.$store.dispatch('api/registerAllianceBuildingsUsage', {
+        feature: `buildingComplexes`,
+    });
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        feature: `buildingComplexes`,
+    });
+    await LSSM.$store.dispatch('api/registerAllianceinfoUsage', {
         feature: `buildingComplexes`,
     });
 
@@ -42,12 +49,21 @@ export default async (
     const attachedMarkersList: BuildingMarker[][] = [];
 
     const allAttachedBuildings: string[] = [];
+    const allAttachedAllianceBuildings: string[] = [];
 
-    complexes.forEach((complex, index) => {
+    const iterateComplex = (complex: Complex, index: number) => {
         complex.icon = replaceHostedImagesUrl(complex.icon);
         complex.buildingTabs ??= true;
+        complex.allianceBuildings ??= [];
 
-        const { position, name, icon, buildings, showMarkers } = complex;
+        const {
+            position,
+            name,
+            icon,
+            buildings,
+            showMarkers,
+            allianceBuildings,
+        } = complex;
         const marker = window.L.marker(position, {
             zIndexOffset: 5000,
             title: name,
@@ -59,12 +75,15 @@ export default async (
         window.iconMapGenerate(icon, marker);
 
         allAttachedBuildings.push(...buildings);
+        allAttachedAllianceBuildings.push(...allianceBuildings);
 
         const attachedBuildingsLayer = window.L.layerGroup();
         complexesBuildingsLayers.push(attachedBuildingsLayer);
 
         const attachedMarkers = window.building_markers.filter(
-            ({ building_id }) => buildings.includes(building_id.toString())
+            ({ building_id }) =>
+                buildings.includes(building_id.toString()) ||
+                allianceBuildings.includes(building_id.toString())
         );
         attachedMarkersList.push(attachedMarkers);
 
@@ -88,6 +107,7 @@ export default async (
                     modalName,
                     complex: complexes[index],
                     allAttachedBuildings,
+                    allAttachedAllianceBuildings,
                     $m: <$m>(
                         ((key, args) => $m(`buildingComplexes.${key}`, args))
                     ),
@@ -100,14 +120,28 @@ export default async (
                             updatedComplex.icon
                         );
 
-                        const removedBuildings = complexes[
-                            index
-                        ].buildings.filter(
-                            id => !updatedComplex.buildings.includes(id)
-                        );
-                        const addedBuildings = updatedComplex.buildings.filter(
-                            id => !complexes[index].buildings.includes(id)
-                        );
+                        const removedBuildings = [
+                            ...complexes[index].buildings.filter(
+                                id => !updatedComplex.buildings.includes(id)
+                            ),
+                            ...complexes[index].allianceBuildings.filter(
+                                id =>
+                                    !updatedComplex.allianceBuildings.includes(
+                                        id
+                                    )
+                            ),
+                        ];
+                        const addedBuildings = [
+                            ...updatedComplex.buildings.filter(
+                                id => !complexes[index].buildings.includes(id)
+                            ),
+                            ...updatedComplex.allianceBuildings.filter(
+                                id =>
+                                    !complexes[
+                                        index
+                                    ].allianceBuildings.includes(id)
+                            ),
+                        ];
 
                         complexes[index] = updatedComplex;
 
@@ -221,7 +255,11 @@ export default async (
             );
 
         marker.on('click', () => showModal());
-    });
+
+        return marker;
+    };
+
+    complexes.forEach(iterateComplex);
 
     LSSM.$store
         .dispatch('hook', {
@@ -243,4 +281,30 @@ export default async (
             },
         })
         .then();
+
+    const newComplexBtn = document.createElement('a');
+    newComplexBtn.classList.add('btn', 'btn-xs', 'btn-default');
+    newComplexBtn.textContent = $m('buildingComplexes.new').toString();
+
+    newComplexBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const newComplexIndex = complexes.length;
+        const center = window.map.getCenter();
+        const newComplex: Complex = {
+            name: `#${newComplexIndex}`,
+            buildings: [],
+            allianceBuildings: [],
+            position: [center.lat, center.lng],
+            icon: '/images/building_complex.png',
+            buildingTabs: true,
+            showMarkers: false,
+        };
+        complexes.push(newComplex);
+
+        iterateComplex(newComplex, newComplexIndex).fireEvent('click');
+    });
+
+    document
+        .querySelector<HTMLDivElement>('#building_panel_heading .btn-group')
+        ?.append(newComplexBtn);
 };
