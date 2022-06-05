@@ -7,7 +7,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         ) &&
             !window.location.pathname.match(
                 /^\/vehicles\/\d+\/zuweisung\/?$/u
-            )) ||
+            ) &&
+            !window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) ||
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
@@ -131,6 +132,14 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
             ).then(({ default: enhancedPersonnelAssignment }) =>
                 enhancedPersonnelAssignment(LSSM, MODULE_ID, getSetting, $m)
+            );
+        }
+    } else if (window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) {
+        if (await getSetting('schoolsBuildingFilter')) {
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/schoolsBuildingFilter" */ './assets/schoolsBuildingFilter'
+            ).then(({ default: schoolsBuildingFilter }) =>
+                schoolsBuildingFilter(LSSM)
             );
         }
     }

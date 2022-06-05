@@ -112,6 +112,7 @@ declare global {
             }
         ): void;
         flavouredAsset(asset: string, scope?: string): string;
+        schooling_check_educated_counter_visible_check?(): void; // in schooling windows
     }
 }
 
