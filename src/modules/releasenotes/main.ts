@@ -38,9 +38,10 @@ export default async (LSSM: Vue): Promise<void> => {
             .then(res => res.json())) as Releasenotes
     )
         .filter(
-            ([version]) =>
-                MODE === 'beta' ||
-                semverLte(coerce(version) ?? '4.0.0', currentVersion)
+            ([version, { content }]) =>
+                content &&
+                (MODE === 'beta' ||
+                    semverLte(coerce(version) ?? '4.0.0', currentVersion))
         )
         .sort((a, b) =>
             semverRcompare(coerce(a[0]) ?? '0', coerce(b[0]) ?? '0')
