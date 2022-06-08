@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Details"
+        },
         "new": "Neuer LSSM-Gebäudekomplex",
         "openInLightbox": "Gebäude in Lightbox öffnen",
         "overview": {

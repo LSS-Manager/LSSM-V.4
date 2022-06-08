@@ -2,6 +2,7 @@ import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
+    // TODO: Complexes filters, search & sorting
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
