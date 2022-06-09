@@ -2,6 +2,15 @@ import type { ModuleMainFunction } from 'typings/Module';
 import type { ProfileWindow } from '../redesign/parsers/profile';
 import type { RedesignParser } from 'typings/modules/Redesign';
 
+/*
+Der Bewerbungshelfer sollte folgendes am Ende können:
+1. Einstellungsmöglichkeiten für die einzelnen Verbände ermöglichen, die nur durch die Admins verändert werden können
+    - Eine Ablehnungsnachricht
+    - Eine Creditgrenze (visuell über Farben dargestellt)
+    - Eine individuelle Begrüßungsnachricht (auch, wenn schon systemseitig)
+2. Das Profil des Bewerbers in der Zeile darstellen (Profilbild, Profilbeschreibung, Wachen als Hyperlinks, gesamt erspielte Credits)
+*/
+
 export default <ModuleMainFunction>(({ LSSM, MODULE_ID, $m, $mc }) => {
     document
         .querySelectorAll<HTMLAnchorElement>('a[href*="profile"]')
