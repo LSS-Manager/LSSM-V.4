@@ -1,6 +1,10 @@
 import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
+interface FilterBtn extends HTMLButtonElement {
+    reload?(): void;
+}
+
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
@@ -73,59 +77,43 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             .value,
     ];
 
-    let btns: [HTMLButtonElement, number[]][] = [];
+    let btns: [FilterBtn, number[]][] = [];
 
-    const enable = (
-        btn: HTMLButtonElement,
-        buildings: number[],
-        index: number
-    ) => {
+    const applyFilter = (buildings: number[], show: boolean) =>
+        buildings.length &&
+        document
+            .querySelectorAll<HTMLDivElement>(
+                buildings
+                    .map(
+                        b =>
+                            `#buildings .building_list_li[building_type_id="${b}"]`
+                    )
+                    .join(',')
+            )
+            .forEach(b => {
+                b.classList.add('category_selected');
+                b.style.setProperty('display', show ? 'block' : 'none');
+            });
+
+    const enable = (btn: FilterBtn, buildings: number[], index: number) => {
         btn.classList.replace('btn-danger', 'btn-success');
         if (!index) {
             filters.forEach(
                 (filter, index) => index && enable(...btns[index], index)
             );
         } else if (buildings.length) {
-            document
-                .querySelectorAll<HTMLDivElement>(
-                    buildings
-                        .map(
-                            b =>
-                                `#buildings .building_list_li[building_type_id="${b}"]`
-                        )
-                        .join(',')
-                )
-                .forEach(b => {
-                    b.classList.add('category_selected');
-                    b.style.setProperty('display', 'block');
-                });
+            applyFilter(buildings, true);
         }
         filters[index].state = 'enabled';
     };
-    const disable = (
-        btn: HTMLButtonElement,
-        buildings: number[],
-        index: number
-    ) => {
+    const disable = (btn: FilterBtn, buildings: number[], index: number) => {
         btn.classList.replace('btn-success', 'btn-danger');
         if (!index) {
             filters.forEach(
                 (filter, index) => index && disable(...btns[index], index)
             );
         } else if (buildings.length) {
-            document
-                .querySelectorAll<HTMLDivElement>(
-                    buildings
-                        .map(
-                            b =>
-                                `#buildings .building_list_li[building_type_id="${b}"]`
-                        )
-                        .join(',')
-                )
-                .forEach(b => {
-                    b.classList.remove('category_selected');
-                    b.style.setProperty('display', 'none');
-                });
+            applyFilter(buildings, false);
         }
         filters[index].state = 'disabled';
     };
@@ -141,6 +129,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         number,
         number
     >;
+
+    let updateBuildingsArrayHookAttached = false;
 
     const updateFilters = async () => {
         selectGroup = document.querySelector<HTMLDivElement>(
@@ -176,7 +166,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
         filters.forEach(
             ({ contentType, title, icon_style, buildings, state }, index) => {
-                const btn = document.createElement('button');
+                const btn: FilterBtn = document.createElement('button');
                 btn.classList.add('btn', 'btn-xs', 'btn-success');
                 if (contentType === 'text') {
                     if (title) btn.textContent = title;
@@ -193,6 +183,12 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                     updateSettings();
                     window.buildingsVehicleLoadVisible();
                 });
+                btn.reload = () => {
+                    applyFilter(
+                        buildings,
+                        btn.classList.contains('btn-success')
+                    );
+                };
                 if (index) {
                     btn.addEventListener('dblclick', () => {
                         btns.forEach(([btnI, buildings], index) => {
@@ -214,16 +210,40 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             document.querySelector<HTMLUListElement>('#building_list');
         if (!buildingList) return;
 
-        const buildings: [HTMLLIElement, string][] = Array.from(
-            buildingList.querySelectorAll<HTMLLIElement>('li.building_list_li')
-        ).map(building => [
-            building,
-            building
-                .querySelector<HTMLAnchorElement>(
-                    '.building_list_caption a.map_position_mover'
-                )
-                ?.textContent?.toLowerCase() ?? '',
-        ]);
+        const buildings: [HTMLLIElement, string][] = [];
+
+        const updateBuildingsArray = () => {
+            buildings.splice(
+                0,
+                buildings.length,
+                ...Array.from(
+                    buildingList.querySelectorAll<HTMLLIElement>(
+                        'li.building_list_li'
+                    )
+                ).map<[HTMLLIElement, string]>(building => [
+                    building,
+                    building
+                        .querySelector<HTMLAnchorElement>(
+                            '.building_list_caption a.map_position_mover'
+                        )
+                        ?.textContent?.toLowerCase() ?? '',
+                ])
+            );
+        };
+
+        if (!updateBuildingsArrayHookAttached) {
+            LSSM.$store
+                .dispatch('hook', {
+                    event: 'buildingMarkerBulkContentCacheDraw',
+                    callback() {
+                        btns.forEach(([btn], index) => index && btn.reload?.());
+                    },
+                })
+                .then();
+            updateBuildingsArrayHookAttached = true;
+        }
+
+        updateBuildingsArray();
 
         const searchHideClass = LSSM.$store.getters.nodeAttribute(
             'blf-search-not-matching'

@@ -40,6 +40,7 @@
         }
     ],
     "description": "¡Personaliza los filtros de la lista de edificios!",
+    "lssmComplex": "LSSM building complex",
     "name": "Lista de edificios personalizables",
     "settings": {
         "buildings": "Tipos de Edificios",

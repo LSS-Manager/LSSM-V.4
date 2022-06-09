@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Détails"
+        },
         "new": "Nouveau complexe immobilier LSSM",
         "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
@@ -84,6 +87,7 @@
             "allianceBuildings": "Bâtiments de l'alliance rattachés",
             "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
             "buildings": "Bâtiments rattachés",
+            "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
                 "buttons": {
                     "abort": "Annuler",

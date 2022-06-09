@@ -97,6 +97,14 @@
                 </label>
             </div>
 
+            <!-- show buildings in the buildings list -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" v-model="buildingsInList" />
+                    {{ $m('buildingsInList') }}
+                </label>
+            </div>
+
             <!-- show tabs in complex view -->
             <div class="checkbox">
                 <label>
@@ -153,6 +161,7 @@ export default Vue.extend<
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
         showMarkers: boolean;
+        buildingsInList: boolean;
         buildingTabs: boolean;
         iconBase64s: string[];
         excludedCustomIcons: string[];
@@ -215,6 +224,7 @@ export default Vue.extend<
             buildingTypes,
             location: [0, 0],
             showMarkers: false,
+            buildingsInList: false,
             buildingTabs: true,
             iconBase64s: [],
             excludedCustomIcons: [],
@@ -237,6 +247,7 @@ export default Vue.extend<
                 this.location[0] !== this.complex.position[0] ||
                 this.location[1] !== this.complex.position[1] ||
                 this.showMarkers !== this.complex.showMarkers ||
+                this.buildingsInList !== this.complex.buildingsInList ||
                 this.buildingTabs !== this.complex.buildingTabs
             );
         },
@@ -283,7 +294,10 @@ export default Vue.extend<
                 );
         },
         customIcons() {
-            return this.assignedBuildings
+            return [
+                ...this.assignedBuildings,
+                ...this.assignedAllianceBuildings,
+            ]
                 .map(b => b.custom_icon_url ?? '')
                 .filter(Boolean);
         },
@@ -352,6 +366,7 @@ export default Vue.extend<
                 ),
                 position: this.location,
                 showMarkers: this.showMarkers,
+                buildingsInList: this.buildingsInList,
                 buildingTabs: this.buildingTabs,
             });
             this.close();
@@ -434,6 +449,7 @@ export default Vue.extend<
             .filter(removeUndefined);
         this.location = this.complex.position;
         this.showMarkers = this.complex.showMarkers;
+        this.buildingsInList = this.complex.buildingsInList;
         this.buildingTabs = this.complex.buildingTabs;
 
         this.customIcons.forEach(icon => {
