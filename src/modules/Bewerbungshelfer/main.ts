@@ -1,0 +1,79 @@
+import type { ModuleMainFunction } from 'typings/Module';
+import type { ProfileWindow } from '../redesign/parsers/profile';
+import type { RedesignParser } from 'typings/modules/Redesign';
+
+export default <ModuleMainFunction>(({ LSSM, MODULE_ID, $m, $mc }) => {
+    document
+        .querySelectorAll<HTMLAnchorElement>('a[href*="profile"]')
+        .forEach(async profile => {
+            const url = profile.getAttribute('href');
+            const userProfile = await new Promise<ProfileWindow>(resolve =>
+                LSSM.$store
+                    .dispatch('api/request', {
+                        url,
+                        feature: MODULE_ID,
+                    })
+                    .then((res: Response) => res.text())
+                    .then(html => {
+                        const doc = new DOMParser().parseFromString(
+                            html,
+                            'text/html'
+                        );
+                        import(
+                            /* webpackChunkName: "modules/redesign/parsers/profile" */ '../redesign/parsers/profile'
+                        ).then(
+                            async ({
+                                default: parser,
+                            }: {
+                                default: RedesignParser<ProfileWindow>;
+                            }) =>
+                                resolve(
+                                    await parser({
+                                        href: url ?? '',
+                                        doc,
+                                        LSSM,
+                                        $m,
+                                        $mc,
+                                        $sm: $m,
+                                        $smc: $mc,
+                                    })
+                                )
+                        );
+                    })
+            );
+            profile.after(`<p style="color:limegreen;display:inline;margin-left:2em">${userProfile.credits.toLocaleString()} verdiente Credits</p>
+                            <div class="glyphicon glyphicon-info-sign" style="display:inline;margin-left:2em;cursor:pointer"></div>
+                            <div class="glyphicon glyphicon-user" style="display:inline;margin-left:2em;cursor:pointer"></div>`);
+            const buildingHtml = userProfile.buildings.map(
+                b =>
+                    `<a href="/buildings/${b.id}" class="lightbox-open">${b.name}</a>`
+            );
+            profile.after(
+                `<div class="hidden user_buildings">${buildingHtml.join(
+                    `<span style="color:red"> - </span>`
+                )}</div>`
+            );
+            let userHtml = '';
+            if (userProfile.image)
+                userHtml += `<img src="${userProfile.image}">`;
+
+            if (userProfile.text) userHtml += `<p>${userProfile.text}</p>`;
+
+            if (!userHtml) userHtml = 'keine Profilinformationen vorhanden!';
+            profile.after(`<div class="hidden user_infos">${userHtml}</div>`);
+        });
+    document.addEventListener('click', e => {
+        const target = e.target;
+        if (!target || !(target instanceof HTMLElement)) return;
+        if (target.closest('.glyphicon-info-sign')) {
+            target.parentElement
+                ?.querySelector('.user_buildings')
+                ?.classList.toggle('hidden');
+        }
+        if (target.closest('.glyphicon-user')) {
+            target.parentElement
+                ?.querySelector('.user_infos')
+                ?.classList.toggle('hidden');
+        }
+    });
+});

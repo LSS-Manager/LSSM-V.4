@@ -1,0 +1,4 @@
+{
+    "location": "^/verband/bewerbungen/?$",
+    "settings": true
+}
