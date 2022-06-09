@@ -1,8 +1,11 @@
 import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
+interface FilterBtn extends HTMLButtonElement {
+    reload?(): void;
+}
+
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
-    // TODO: Complexes filters
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
@@ -74,59 +77,43 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             .value,
     ];
 
-    let btns: [HTMLButtonElement, number[]][] = [];
+    let btns: [FilterBtn, number[]][] = [];
 
-    const enable = (
-        btn: HTMLButtonElement,
-        buildings: number[],
-        index: number
-    ) => {
+    const applyFilter = (buildings: number[], show: boolean) =>
+        buildings.length &&
+        document
+            .querySelectorAll<HTMLDivElement>(
+                buildings
+                    .map(
+                        b =>
+                            `#buildings .building_list_li[building_type_id="${b}"]`
+                    )
+                    .join(',')
+            )
+            .forEach(b => {
+                b.classList.add('category_selected');
+                b.style.setProperty('display', show ? 'block' : 'none');
+            });
+
+    const enable = (btn: FilterBtn, buildings: number[], index: number) => {
         btn.classList.replace('btn-danger', 'btn-success');
         if (!index) {
             filters.forEach(
                 (filter, index) => index && enable(...btns[index], index)
             );
         } else if (buildings.length) {
-            document
-                .querySelectorAll<HTMLDivElement>(
-                    buildings
-                        .map(
-                            b =>
-                                `#buildings .building_list_li[building_type_id="${b}"]`
-                        )
-                        .join(',')
-                )
-                .forEach(b => {
-                    b.classList.add('category_selected');
-                    b.style.setProperty('display', 'block');
-                });
+            applyFilter(buildings, true);
         }
         filters[index].state = 'enabled';
     };
-    const disable = (
-        btn: HTMLButtonElement,
-        buildings: number[],
-        index: number
-    ) => {
+    const disable = (btn: FilterBtn, buildings: number[], index: number) => {
         btn.classList.replace('btn-success', 'btn-danger');
         if (!index) {
             filters.forEach(
                 (filter, index) => index && disable(...btns[index], index)
             );
         } else if (buildings.length) {
-            document
-                .querySelectorAll<HTMLDivElement>(
-                    buildings
-                        .map(
-                            b =>
-                                `#buildings .building_list_li[building_type_id="${b}"]`
-                        )
-                        .join(',')
-                )
-                .forEach(b => {
-                    b.classList.remove('category_selected');
-                    b.style.setProperty('display', 'none');
-                });
+            applyFilter(buildings, false);
         }
         filters[index].state = 'disabled';
     };
@@ -179,7 +166,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
         filters.forEach(
             ({ contentType, title, icon_style, buildings, state }, index) => {
-                const btn = document.createElement('button');
+                const btn: FilterBtn = document.createElement('button');
                 btn.classList.add('btn', 'btn-xs', 'btn-success');
                 if (contentType === 'text') {
                     if (title) btn.textContent = title;
@@ -196,6 +183,12 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                     updateSettings();
                     window.buildingsVehicleLoadVisible();
                 });
+                btn.reload = () => {
+                    applyFilter(
+                        buildings,
+                        btn.classList.contains('btn-success')
+                    );
+                };
                 if (index) {
                     btn.addEventListener('dblclick', () => {
                         btns.forEach(([btnI, buildings], index) => {
@@ -243,7 +236,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 .dispatch('hook', {
                     event: 'buildingMarkerBulkContentCacheDraw',
                     callback() {
-                        updateBuildingsArray();
+                        btns.forEach(([btn], index) => index && btn.reload?.());
                     },
                 })
                 .then();

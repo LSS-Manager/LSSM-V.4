@@ -10,6 +10,7 @@ export interface Complex {
     position: [number, number];
     icon: string;
     showMarkers: boolean;
+    buildingsInList: boolean;
     buildingTabs: boolean;
 }
 
@@ -24,6 +25,8 @@ const COMPLEX_TYPE_ID = COMPLEX_ID_START;
 const COMPLEX_LEITSTELLE_ID = COMPLEX_ID_START;
 
 const getComplexId = (index: number) => COMPLEX_ID_START + index;
+
+const buildingListHideStyle = document.createElement('style');
 
 export default async (
     MODULE_ID: string,
@@ -56,6 +59,18 @@ export default async (
                 value: complexes,
             },
         });
+
+    const updateBuildingListHideStyle = () =>
+        (buildingListHideStyle.textContent = `${complexes
+            .filter(({ buildingsInList }) => !buildingsInList)
+            .flatMap(({ buildings }) =>
+                buildings
+                    .map(building => `#building_list_caption_${building}`)
+                    .flatMap(bs => [bs, `${bs} ~ *`])
+            )
+            .join(', ')} {display: none !important;}`);
+    updateBuildingListHideStyle();
+    document.head.append(buildingListHideStyle);
 
     const userBuildings: Record<number, Building> =
         LSSM.$store.getters['api/buildingsById'];
@@ -331,6 +346,8 @@ export default async (
                         ?.parentElement?.remove();
                     constructMissingBuildingElements();
 
+                    updateBuildingListHideStyle();
+
                     save().then(() => {
                         LSSM.$modal.hide(modalName);
                         showModal(index);
@@ -385,6 +402,7 @@ export default async (
     const iterateComplex = (complex: Complex, index: number) => {
         complex.icon = replaceHostedImagesUrl(complex.icon);
         complex.buildingTabs ??= true;
+        complex.buildingsInList ??= false;
         complex.allianceBuildings ??= [];
 
         const {
@@ -473,6 +491,7 @@ export default async (
             position: [center.lat, center.lng],
             icon: '/images/building_complex.png',
             buildingTabs: true,
+            buildingsInList: false,
             showMarkers: false,
         };
         complexes.push(newComplex);

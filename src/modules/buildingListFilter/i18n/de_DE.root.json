@@ -84,6 +84,7 @@
         }
     ],
     "description": "Passe dir die Filter der Gebäudeliste frei an!",
+    "lssmComplex": "LSSM Gebäudekomplex",
     "name": "Anpassbare Gebäudeliste",
     "settings": {
         "buildings": "Gebäudetypen",

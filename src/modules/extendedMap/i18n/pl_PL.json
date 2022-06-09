@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Szczegóły"
+        },
         "new": "Nowy kompleks LSSM",
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
@@ -84,6 +87,7 @@
             "allianceBuildings": "Dołączone budynki sojuszu",
             "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "buildings": "Wybrane budynki",
+            "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",

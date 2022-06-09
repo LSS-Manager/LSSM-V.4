@@ -151,6 +151,8 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                 position: [0, 0],
                 icon: '/images/building_complex.png',
                 showMarkers: false,
+                buildingsInList: false,
+                buildingTabs: true,
             },
             orderable: false,
             disableable: false,

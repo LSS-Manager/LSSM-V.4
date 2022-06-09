@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Dettagli"
+        },
         "new": "New LSSM building complex",
         "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
@@ -84,6 +87,7 @@
             "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
+            "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
                 "buttons": {
                     "abort": "Annulla",

@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Info"
+        },
         "new": "New LSSM building complex",
         "openInLightbox": "Open building in Lightbox",
         "overview": {
@@ -84,6 +87,7 @@
             "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "attached buildings",
+            "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
                 "buttons": {
                     "abort": "Abort",

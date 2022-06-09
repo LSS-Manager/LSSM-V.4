@@ -56,6 +56,7 @@
         }
     ],
     "description": "Tilpass filtre for byggelisten!",
+    "lssmComplex": "LSSM building complex",
     "name": "Tilpassbar liste over bygninger",
     "settings": {
         "buildings": "Bygningstyper",

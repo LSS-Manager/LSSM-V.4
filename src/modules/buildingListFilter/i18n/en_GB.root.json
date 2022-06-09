@@ -43,6 +43,7 @@
         }
     ],
     "description": "Customize filters of the buildinglist!",
+    "lssmComplex": "LSSM building complex",
     "name": "Customizable buildings list",
     "settings": {
         "buildings": "Building Types",
