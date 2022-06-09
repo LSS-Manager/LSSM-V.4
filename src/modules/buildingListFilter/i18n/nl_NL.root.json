@@ -75,6 +75,7 @@
         }
     ],
     "description": "Pas de filter van de gebouwenlijst aan!",
+    "lssmComplex": "LSSM building complex",
     "name": "Aanpasbare gebouwenlijst",
     "settings": {
         "buildings": "Gebouwtypen",
