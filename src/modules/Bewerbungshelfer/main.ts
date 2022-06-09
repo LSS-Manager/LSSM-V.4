@@ -50,26 +50,34 @@ export default <ModuleMainFunction>(({ LSSM, MODULE_ID, $m, $mc }) => {
                         );
                     })
             );
-            profile.after(`<p style="color:limegreen;display:inline;margin-left:2em">${userProfile.credits.toLocaleString()} verdiente Credits</p>
+            const extrasSpan = document.createElement('span');
+            profile.after(extrasSpan);
+
+            extrasSpan.innerHTML += `<p style="color:limegreen;display:inline;margin-left:2em">${userProfile.credits.toLocaleString()} verdiente Credits</p>
                             <div class="glyphicon glyphicon-info-sign" style="display:inline;margin-left:2em;cursor:pointer"></div>
-                            <div class="glyphicon glyphicon-user" style="display:inline;margin-left:2em;cursor:pointer"></div>`);
+                            <div class="glyphicon glyphicon-user" style="display:inline;margin-left:2em;cursor:pointer"></div>`;
+
             const buildingHtml = userProfile.buildings.map(
                 b =>
                     `<a href="/buildings/${b.id}" class="lightbox-open">${b.name}</a>`
             );
-            profile.after(
-                `<div class="hidden user_buildings">${buildingHtml.join(
-                    `<span style="color:red"> - </span>`
-                )}</div>`
-            );
+            extrasSpan.innerHTML += `<div class="hidden user_buildings">${buildingHtml.join(
+                `<span style="color:red"> - </span>`
+            )}</div>`;
+
             let userHtml = '';
             if (userProfile.image)
-                userHtml += `<img src="${userProfile.image}">`;
+                userHtml += `<img src="${userProfile.image}" alt='profile image;'/>`;
 
-            if (userProfile.text) userHtml += `<p>${userProfile.text}</p>`;
+            if (userProfile.text) {
+                userHtml += `<p>${userProfile.text.replace(
+                    /\n/gu,
+                    '<br>'
+                )}</p>`;
+            }
 
             if (!userHtml) userHtml = 'keine Profilinformationen vorhanden!';
-            profile.after(`<div class="hidden user_infos">${userHtml}</div>`);
+            extrasSpan.innerHTML += `<div class="hidden user_infos" style="display: flex">${userHtml}</div>`;
         });
     document.addEventListener('click', e => {
         const target = e.target;
