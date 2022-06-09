@@ -1893,12 +1893,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:^1.7.10":
-  version: 1.7.10
-  resolution: "@types/leaflet@npm:1.7.10"
+"@types/leaflet@npm:^1.7.11":
+  version: 1.7.11
+  resolution: "@types/leaflet@npm:1.7.11"
   dependencies:
     "@types/geojson": "*"
-  checksum: 212b01080df85994eb0d8e9b81f51d218da47876a9dcf59b5c34ffd1916979b9a784364d1838be72f5712ae969a21698ee36ed81350ec6a36d19fe8ccc1b3473
+  checksum: 6613dbc91f174545ed39183a8564a344152f1884f02ab4dbc002b6bd4816d8525b5247e62217694763daf727ca5e589f40144dc809edb7194064e6bdc2f4369a
   languageName: node
   linkType: hard
 
@@ -8669,7 +8669,7 @@ __metadata:
     "@types/he": ^1.1.2
     "@types/i18n-js": ^3.8.2
     "@types/jquery": ^3.5.14
-    "@types/leaflet": ^1.7.10
+    "@types/leaflet": ^1.7.11
     "@types/lodash": ^4.14.182
     "@types/node": ^17.0.41
     "@types/pdfmake": ^0.1.21
