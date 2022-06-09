@@ -14,7 +14,7 @@
                 },
                 "inConstruction": "waarvan {n} in aanbouw",
                 "table": {
-                    "alliance": "Alliance",
+                    "alliance": "Team",
                     "head": {
                         "beds": "Bedden",
                         "cells": "Cellen",
@@ -33,7 +33,7 @@
             },
             "extensions": {
                 "abort": "Annuleren",
-                "allianceFunds": "payed with alliance funds",
+                "allianceFunds": "wordt betaald met de teamkas",
                 "disable": "Niet beschikbaar maken",
                 "disabled": "Voltooid en niet beschikbaar",
                 "enable": "Beschikbaar maken",
@@ -84,10 +84,10 @@
         },
         "settings": {
             "abort": "Annuleren",
-            "allianceBuildings": "attached alliance buildings",
+            "allianceBuildings": "gekoppelde teamgebouwen",
             "buildingTabs": "Toon tabs voor gekoppelde gebouwen?",
             "buildings": "gekoppelde gebouwen",
-            "buildingsInList": "Show attached buildings in the buildings list?",
+            "buildingsInList": "Toon gekoppelde gebouwen in de gebouwenlijst?",
             "dissolve": {
                 "buttons": {
                     "abort": "Annuleren",

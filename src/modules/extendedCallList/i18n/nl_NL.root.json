@@ -186,8 +186,8 @@
             "title": "Meldingen inklappen"
         },
         "collapsableMissionsAllBtn": {
-            "description": "Shows a button to collapse all missions at once",
-            "title": "Collapse all missions at once"
+            "description": "Toont een knop om alle meldingen tegelijk in te klappen a button to collapse all missions at once",
+            "title": "Klap alle meldingen direct in"
         },
         "currentPatients": {
             "description": "Laat het huidige aantal patiënten zien bij elke melding",

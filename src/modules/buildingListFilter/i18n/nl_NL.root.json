@@ -75,7 +75,7 @@
         }
     ],
     "description": "Pas de filter van de gebouwenlijst aan!",
-    "lssmComplex": "LSSM building complex",
+    "lssmComplex": "LSSM gebouwencomplex",
     "name": "Aanpasbare gebouwenlijst",
     "settings": {
         "buildings": "Gebouwtypen",
@@ -91,8 +91,8 @@
             "title": "Gebouwenfilter"
         },
         "fixedFilters": {
-            "description": "Shows filters even when scrolling through the list of buildings",
-            "title": "Always show filters"
+            "description": "Toont de filters ook als je door de gebouwenlijst scrollt",
+            "title": "Toon filters altijd"
         },
         "icon_style": "Afbeeldingstype",
         "preview": "Voorvertoning",
