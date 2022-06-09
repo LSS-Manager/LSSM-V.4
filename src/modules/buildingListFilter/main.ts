@@ -2,7 +2,7 @@ import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
-    // TODO: Complexes filters, search & sorting
+    // TODO: Complexes filters
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
@@ -143,6 +143,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         number
     >;
 
+    let updateBuildingsArrayHookAttached = false;
+
     const updateFilters = async () => {
         selectGroup = document.querySelector<HTMLDivElement>(
             '#btn-group-building-select'
@@ -215,16 +217,40 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             document.querySelector<HTMLUListElement>('#building_list');
         if (!buildingList) return;
 
-        const buildings: [HTMLLIElement, string][] = Array.from(
-            buildingList.querySelectorAll<HTMLLIElement>('li.building_list_li')
-        ).map(building => [
-            building,
-            building
-                .querySelector<HTMLAnchorElement>(
-                    '.building_list_caption a.map_position_mover'
-                )
-                ?.textContent?.toLowerCase() ?? '',
-        ]);
+        const buildings: [HTMLLIElement, string][] = [];
+
+        const updateBuildingsArray = () => {
+            buildings.splice(
+                0,
+                buildings.length,
+                ...Array.from(
+                    buildingList.querySelectorAll<HTMLLIElement>(
+                        'li.building_list_li'
+                    )
+                ).map<[HTMLLIElement, string]>(building => [
+                    building,
+                    building
+                        .querySelector<HTMLAnchorElement>(
+                            '.building_list_caption a.map_position_mover'
+                        )
+                        ?.textContent?.toLowerCase() ?? '',
+                ])
+            );
+        };
+
+        if (!updateBuildingsArrayHookAttached) {
+            LSSM.$store
+                .dispatch('hook', {
+                    event: 'buildingMarkerBulkContentCacheDraw',
+                    callback() {
+                        updateBuildingsArray();
+                    },
+                })
+                .then();
+            updateBuildingsArrayHookAttached = true;
+        }
+
+        updateBuildingsArray();
 
         const searchHideClass = LSSM.$store.getters.nodeAttribute(
             'blf-search-not-matching'

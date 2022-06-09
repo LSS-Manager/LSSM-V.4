@@ -114,6 +114,27 @@ export default async (
         window.constructBuildingListElement(complexMarkerAdd);
     };
 
+    const constructMissingBuildingElements = () => {
+        complexes.forEach((complex, index) => {
+            const complexId = getComplexId(index);
+            if (
+                document.querySelector<HTMLDivElement>(
+                    `#building_list #building_list_caption_${complexId}`
+                )
+            )
+                return;
+            if (
+                window.buildingMarkerBulkContentCache.some(html =>
+                    html.includes(`building_type_id="${complexId}"`)
+                )
+            )
+                return;
+            constructBuildingListElement(complex, index);
+        });
+        if (window.buildingMarkerBulkContentCache.length)
+            window.buildingMarkerBulkContentCacheDraw();
+    };
+
     document
         .querySelector<HTMLDivElement>('#buildings')
         ?.addEventListener('click', e => {
@@ -141,26 +162,50 @@ export default async (
         })
         .then();
 
+    let buildingMarkerBulkContentCacheLSSMCache: string[] = [];
+
     LSSM.$store
         .dispatch('hook', {
             event: 'buildingMarkerBulkContentCacheDraw',
-            post: true,
+            post: false,
             callback() {
-                complexes.forEach((complex, index) => {
-                    const complexId = getComplexId(index);
-                    if (
-                        document.querySelector<HTMLDivElement>(
-                            `#building_list #building_list_caption_${complexId}`
+                buildingMarkerBulkContentCacheLSSMCache =
+                    window.buildingMarkerBulkContentCache
+                        .map(
+                            html =>
+                                html.match(
+                                    /(?<=building_list_caption_)-\d+/u
+                                )?.[0]
+                        )
+                        .filter(
+                            <S>(value: S | undefined): value is S => !!value
+                        );
+            },
+        })
+        .then();
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'buildingMarkerBulkContentCacheDraw',
+            callback() {
+                constructMissingBuildingElements();
+                // sort the buildings list
+                const getName = (element: HTMLElement) =>
+                    element
+                        .querySelector<HTMLAnchorElement>('.map_position_mover')
+                        ?.textContent?.trim() ?? '';
+                buildingMarkerBulkContentCacheLSSMCache.forEach(complexId => {
+                    const element = document.querySelector<HTMLDivElement>(
+                        `#building_list_caption_${complexId}`
+                    )?.parentElement;
+                    if (!element) return;
+                    const name = getName(element);
+                    Array.from(
+                        document.querySelectorAll<HTMLLIElement>(
+                            '#building_list > .building_list_li'
                         )
                     )
-                        return;
-                    if (
-                        window.buildingMarkerBulkContentCache.some(html =>
-                            html.includes(`building_type_id="${complexId}"`)
-                        )
-                    )
-                        return;
-                    constructBuildingListElement(complex, index);
+                        .find(el => getName(el).localeCompare(name) > 0)
+                        ?.before(element);
                 });
             },
         })
@@ -174,6 +219,168 @@ export default async (
             },
         })
         .then();
+
+    const showModal = (index: number) => {
+        const modalName = `building-complex-${index}`;
+        const marker = complexMarkers[index];
+        const attachedBuildingsLayer = complexesBuildingsLayers[index];
+        const attachedMarkers = attachedMarkersList[index];
+
+        LSSM.$modal.show(
+            () =>
+                import(
+                    /* webpackChunkName: "modules/extendedMap/components/buildingComplexes/buildingComplex" */ '../components/buildingComplexes/buildingComplex.vue'
+                ),
+            {
+                complexIndex: index,
+                modalName,
+                complex: complexes[index],
+                allAttachedBuildings,
+                allAttachedAllianceBuildings,
+                $m: <$m>((key, args) => $m(`buildingComplexes.${key}`, args)),
+                $mc: <$mc>(
+                    ((key, amount, args) =>
+                        $mc(`buildingComplexes.${key}`, amount, args))
+                ),
+                updateComplex(updatedComplex: Complex) {
+                    updatedComplex.icon = replaceHostedImagesUrl(
+                        updatedComplex.icon
+                    );
+
+                    const removedBuildings = [
+                        ...complexes[index].buildings.filter(
+                            id => !updatedComplex.buildings.includes(id)
+                        ),
+                        ...complexes[index].allianceBuildings.filter(
+                            id => !updatedComplex.allianceBuildings.includes(id)
+                        ),
+                    ];
+                    const addedBuildings = [
+                        ...updatedComplex.buildings.filter(
+                            id => !complexes[index].buildings.includes(id)
+                        ),
+                        ...updatedComplex.allianceBuildings.filter(
+                            id =>
+                                !complexes[index].allianceBuildings.includes(id)
+                        ),
+                    ];
+
+                    const oldIcon = complexes[index].icon;
+
+                    complexes[index] = updatedComplex;
+
+                    if (updatedComplex.icon !== oldIcon)
+                        window.iconMapGenerate(updatedComplex.icon, marker);
+
+                    marker.unbindTooltip();
+                    marker.bindTooltip(updatedComplex.name);
+                    marker.setLatLng(updatedComplex.position);
+
+                    if (updatedComplex.showMarkers)
+                        attachedBuildingsLayer.addTo(window.map);
+                    else attachedBuildingsLayer.remove();
+
+                    removedBuildings.forEach(id => {
+                        const attachedMarkerIndex = attachedMarkers.findIndex(
+                            ({ building_id }) => building_id.toString() === id
+                        );
+                        if (attachedMarkerIndex >= 0) {
+                            const marker = attachedMarkers[attachedMarkerIndex];
+                            attachedMarkers.splice(attachedMarkerIndex, 1);
+                            marker.remove();
+                            marker.addTo(
+                                window.map_filters_service.getFilterLayerByBuildingParams(
+                                    {
+                                        user_id: window.user_id,
+                                        building_type:
+                                            userBuildings[parseInt(id)]
+                                                .building_type,
+                                    }
+                                )
+                            );
+                        }
+
+                        const allAttachedBuildingsIndex =
+                            allAttachedBuildings.findIndex(
+                                building => building === id
+                            );
+                        if (allAttachedBuildingsIndex >= 0) {
+                            allAttachedBuildings.splice(
+                                allAttachedBuildingsIndex,
+                                1
+                            );
+                        }
+                    });
+
+                    allAttachedBuildings.push(...addedBuildings);
+
+                    const addedBuildingMarkers = window.building_markers.filter(
+                        ({ building_id }) =>
+                            addedBuildings.includes(building_id.toString())
+                    );
+
+                    addedBuildingMarkers.forEach(marker => {
+                        marker.remove();
+                        marker.addTo(attachedBuildingsLayer);
+                    });
+
+                    document
+                        .querySelector<HTMLDivElement>(
+                            `#building_list_caption_${getComplexId(index)}`
+                        )
+                        ?.parentElement?.remove();
+                    constructMissingBuildingElements();
+
+                    save().then(() => {
+                        LSSM.$modal.hide(modalName);
+                        showModal(index);
+                    });
+                },
+                dissolve() {
+                    complexes.splice(index, 1);
+                    complexesBuildingsLayers.splice(index, 1);
+                    attachedMarkersList[index].forEach(marker => {
+                        marker.remove();
+                        marker.addTo(
+                            window.map_filters_service.getFilterLayerByBuildingParams(
+                                {
+                                    user_id: window.user_id,
+                                    building_type:
+                                        userBuildings[marker.building_id]
+                                            .building_type,
+                                }
+                            )
+                        );
+                    });
+                    marker.remove();
+                    complexMarkers.splice(index, 1);
+                    attachedMarkersList.splice(index, 1);
+                    document
+                        .querySelector<HTMLDivElement>(
+                            `#building_list_caption_${getComplexId(index)}`
+                        )
+                        ?.parentElement?.remove();
+                    for (let i = index; i < complexes.length; i++) {
+                        complexMarkers[i]
+                            .clearAllEventListeners()
+                            .on('click', () => showModal(i));
+                        document
+                            .querySelector<HTMLDivElement>(
+                                `#building_list_caption_${getComplexId(i + 1)}`
+                            )
+                            ?.parentElement?.remove();
+                    }
+                    constructMissingBuildingElements();
+                    return save().then(() => LSSM.$modal.hide(modalName));
+                },
+            },
+            {
+                name: modalName,
+                height: '96%',
+                width: '96%',
+            }
+        );
+    };
 
     const iterateComplex = (complex: Complex, index: number) => {
         complex.icon = replaceHostedImagesUrl(complex.icon);
@@ -220,154 +427,7 @@ export default async (
 
         if (showMarkers) attachedBuildingsLayer.addTo(window.map);
 
-        const modalName = `building-complex-${index}`;
-
-        const showModal = () =>
-            LSSM.$modal.show(
-                () =>
-                    import(
-                        /* webpackChunkName: "modules/extendedMap/components/buildingComplexes/buildingComplex" */ '../components/buildingComplexes/buildingComplex.vue'
-                    ),
-                {
-                    complexIndex: index,
-                    modalName,
-                    complex: complexes[index],
-                    allAttachedBuildings,
-                    allAttachedAllianceBuildings,
-                    $m: <$m>(
-                        ((key, args) => $m(`buildingComplexes.${key}`, args))
-                    ),
-                    $mc: <$mc>(
-                        ((key, amount, args) =>
-                            $mc(`buildingComplexes.${key}`, amount, args))
-                    ),
-                    updateComplex(updatedComplex: Complex) {
-                        updatedComplex.icon = replaceHostedImagesUrl(
-                            updatedComplex.icon
-                        );
-
-                        const removedBuildings = [
-                            ...complexes[index].buildings.filter(
-                                id => !updatedComplex.buildings.includes(id)
-                            ),
-                            ...complexes[index].allianceBuildings.filter(
-                                id =>
-                                    !updatedComplex.allianceBuildings.includes(
-                                        id
-                                    )
-                            ),
-                        ];
-                        const addedBuildings = [
-                            ...updatedComplex.buildings.filter(
-                                id => !complexes[index].buildings.includes(id)
-                            ),
-                            ...updatedComplex.allianceBuildings.filter(
-                                id =>
-                                    !complexes[
-                                        index
-                                    ].allianceBuildings.includes(id)
-                            ),
-                        ];
-
-                        complexes[index] = updatedComplex;
-
-                        if (updatedComplex.icon !== icon)
-                            window.iconMapGenerate(updatedComplex.icon, marker);
-
-                        marker.unbindTooltip();
-                        marker.bindTooltip(updatedComplex.name);
-                        marker.setLatLng(updatedComplex.position);
-
-                        if (updatedComplex.showMarkers)
-                            attachedBuildingsLayer.addTo(window.map);
-                        else attachedBuildingsLayer.remove();
-
-                        removedBuildings.forEach(id => {
-                            const attachedMarkerIndex =
-                                attachedMarkers.findIndex(
-                                    ({ building_id }) =>
-                                        building_id.toString() === id
-                                );
-                            if (attachedMarkerIndex >= 0) {
-                                const marker =
-                                    attachedMarkers[attachedMarkerIndex];
-                                attachedMarkers.splice(attachedMarkerIndex, 1);
-                                marker.remove();
-                                marker.addTo(
-                                    window.map_filters_service.getFilterLayerByBuildingParams(
-                                        {
-                                            user_id: window.user_id,
-                                            building_type:
-                                                userBuildings[parseInt(id)]
-                                                    .building_type,
-                                        }
-                                    )
-                                );
-                            }
-
-                            const allAttachedBuildingsIndex =
-                                allAttachedBuildings.findIndex(
-                                    building => building === id
-                                );
-                            if (allAttachedBuildingsIndex >= 0) {
-                                allAttachedBuildings.splice(
-                                    allAttachedBuildingsIndex,
-                                    1
-                                );
-                            }
-                        });
-
-                        allAttachedBuildings.push(...addedBuildings);
-
-                        const addedBuildingMarkers =
-                            window.building_markers.filter(({ building_id }) =>
-                                addedBuildings.includes(building_id.toString())
-                            );
-
-                        addedBuildingMarkers.forEach(marker => {
-                            marker.remove();
-                            marker.addTo(attachedBuildingsLayer);
-                        });
-
-                        save().then(() => {
-                            LSSM.$modal.hide(modalName);
-                            showModal();
-                        });
-                    },
-                    dissolve() {
-                        complexes.splice(index, 1);
-                        complexesBuildingsLayers.splice(index, 1);
-                        attachedMarkersList[index].forEach(marker => {
-                            marker.remove();
-                            marker.addTo(
-                                window.map_filters_service.getFilterLayerByBuildingParams(
-                                    {
-                                        user_id: window.user_id,
-                                        building_type:
-                                            userBuildings[marker.building_id]
-                                                .building_type,
-                                    }
-                                )
-                            );
-                        });
-                        marker.remove();
-                        attachedMarkersList.splice(index, 1);
-                        document
-                            .querySelector<HTMLDivElement>(
-                                `#building_list_caption_${getComplexId(index)}`
-                            )
-                            ?.parentElement?.remove();
-                        return save().then(() => LSSM.$modal.hide(modalName));
-                    },
-                },
-                {
-                    name: modalName,
-                    height: '96%',
-                    width: '96%',
-                }
-            );
-
-        marker.on('click', () => showModal());
+        marker.on('click', () => showModal(index));
 
         constructBuildingListElement(complex, index);
 
