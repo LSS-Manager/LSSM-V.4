@@ -82,6 +82,10 @@
             "description": "Contraiga misiones individuales (o todas) para reducir su tamaño en la lista de misiones.",
             "title": "Contraer misiones"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Muestra la cantidad actual de pacientes de cada misión",
             "title": "Pacientes actuales"

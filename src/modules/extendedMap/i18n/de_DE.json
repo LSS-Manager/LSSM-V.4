@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Details"
+        },
         "new": "Neuer LSSM-Gebäudekomplex",
         "openInLightbox": "Gebäude in Lightbox öffnen",
         "overview": {
@@ -11,6 +14,7 @@
                 },
                 "inConstruction": "davon {n} im Bau",
                 "table": {
+                    "alliance": "Verband",
                     "head": {
                         "beds": "Betten",
                         "cells": "Zellen",
@@ -29,6 +33,7 @@
             },
             "extensions": {
                 "abort": "Abbrechen",
+                "allianceFunds": "aus Verbandskasse bezahlt",
                 "disable": "deaktivieren",
                 "disabled": "Fertig gebaut & deaktiviert",
                 "enable": "aktivieren",
@@ -79,8 +84,10 @@
         },
         "settings": {
             "abort": "Abbrechen",
+            "allianceBuildings": "angehängte Verbandsgebäude",
             "buildingTabs": "Tabs für angehängte Gebäude anzeigen?",
             "buildings": "angehängte Gebäude",
+            "buildingsInList": "Angehängte Gebäude in der Gebäudeliste anzeigen?",
             "dissolve": {
                 "buttons": {
                     "abort": "Abbrechen",

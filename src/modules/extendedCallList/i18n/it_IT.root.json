@@ -77,6 +77,10 @@
             "description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
             "title": "Crollo delle missioni"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Mostra quanti pazienti ci sono in ogni missione.",
             "title": "Quantità Pazienti"

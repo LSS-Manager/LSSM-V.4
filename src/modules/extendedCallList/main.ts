@@ -127,6 +127,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                           allMissionsCollapsed,
                           collapsedMissionBtnClass,
                           sortBtnId,
+                          await getSetting('collapsableMissionsAllBtn'),
                           $m
                       )
                     : null;

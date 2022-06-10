@@ -10,6 +10,7 @@ import type {
     PreviewElement,
     Select,
     Text,
+    Toggle,
 } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
@@ -27,8 +28,8 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         buildings: Object.values(ids),
     }));
 
-    const buildingCaptions = [] as string[];
-    const buildingIds = [] as string[];
+    const buildingCaptions = [$m('lssmComplex')] as string[];
+    const buildingIds = [Number.MIN_SAFE_INTEGER.toString()] as string[];
     Object.entries(
         LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
     ).forEach(([id, { caption }]) => {
@@ -37,6 +38,10 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     });
 
     return {
+        fixedFilters: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         filters: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: defaultFilters,

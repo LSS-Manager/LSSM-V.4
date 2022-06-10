@@ -131,6 +131,10 @@
             "description": "Collapse individual (or all) missions to reduce their size in mission list.",
             "title": "Collapse missions"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Shows current amount of patients for each mission",
             "title": "Current Patients"

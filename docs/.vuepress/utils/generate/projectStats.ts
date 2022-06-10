@@ -151,7 +151,9 @@ const amountOfCommits = parseInt(
     execSync('git log --format=oneline | wc -l').toString()
 );
 const amountOfCommitsStable = parseInt(
-    execSync('git log master --format=oneline | wc -l').toString()
+    execSync(
+        'git fetch origin master:master && git log master --format=oneline | wc -l'
+    ).toString()
 );
 const firstCommit = execSync(
     'git log --reverse --format="%h: %s %n %ai" --shortstat | head -4'

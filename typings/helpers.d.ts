@@ -69,6 +69,7 @@ declare global {
         sale_count_down: number;
         mission_label: boolean;
         vehicle_graphics: ([string, string, 'false' | 'true'] | null)[]; // it seems to be sexy to stringify booleans according to the game...
+        buildingMarkerBulkContentCache: string[];
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -83,6 +84,7 @@ declare global {
         educationCountdown(remaining: number, id: number | string): void;
         formatTime(remaining: number, t?: boolean): string;
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
+        constructBuildingListElement(marker: BuildingMarkerAdd): void;
         buildingMarkerBulkContentCacheDraw(): void;
         iconAnchorCalculate(size: [number, number]): [number, number];
         iconMapGenerate(url: string, marker: L.Marker): void;
@@ -112,6 +114,7 @@ declare global {
             }
         ): void;
         flavouredAsset(asset: string, scope?: string): string;
+        schooling_check_educated_counter_visible_check?(): void; // in schooling windows
     }
 }
 

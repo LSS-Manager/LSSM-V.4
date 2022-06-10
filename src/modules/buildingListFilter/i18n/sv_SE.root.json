@@ -54,6 +54,7 @@
         }
     ],
     "description": "Anpassa filtrena för byggnadslistan!",
+    "lssmComplex": "LSSM building complex",
     "name": "Anpassningsbara byggnadslistor",
     "settings": {
         "buildings": "Byggnadslista",
@@ -67,6 +68,10 @@
         "filters": {
             "description": "Visa Ikoner i \"Alarm\" visnings knappen, baserat på dina val. Du kan välja melllan alla <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alla gratis ikoner ifrån Font-Awesome</a>.  Du kan direkt förhandsgranska den valda ikonen.",
             "title": "biggnadslistsfiltrering"
+        },
+        "fixedFilters": {
+            "description": "Shows filters even when scrolling through the list of buildings",
+            "title": "Always show filters"
         },
         "icon_style": "Ikontyp",
         "preview": "Förhandsgransta",

@@ -16,6 +16,7 @@ export default (
     allMissionsCollapsed: boolean,
     collapsableMissionBtnClass: string,
     sortBtnId: string,
+    showAllBtn: boolean,
     $m: $m
 ): AddCollapsableButton => {
     const buttons: CollapsableButton[] = [];
@@ -150,6 +151,8 @@ export default (
         collapsedBarContentClass,
         $m
     );
+
+    if (!showAllBtn) allBtn.classList.add('hidden');
 
     allBtn.classList.add('btn-xs');
     allBtn.addEventListener('click', async () => {
