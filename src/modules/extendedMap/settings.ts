@@ -143,6 +143,18 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                         type: 'hidden',
                     },
                 },
+                <AppendableListSetting<Hidden>>{
+                    name: 'buildingsInList',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'buildingTabs',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
             ],
             defaultItem: {
                 name: '',
