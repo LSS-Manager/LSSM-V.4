@@ -87,7 +87,7 @@
             "allianceBuildings": "Dołączone budynki sojuszu",
             "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
             "buildings": "Wybrane budynki",
-            "buildingsInList": "Show attached buildings in the buildings list?",
+            "buildingsInList": "Pokazać wybrane budynki na liście?",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",

@@ -49,7 +49,7 @@
         }
     ],
     "description": "Dostosuj filtry listy budynków!",
-    "lssmComplex": "LSSM building complex",
+    "lssmComplex": "Kompleksy budynków LSSM",
     "name": "Konfigurowalna lista budynków",
     "settings": {
         "buildings": "Rodzaje budynków",
