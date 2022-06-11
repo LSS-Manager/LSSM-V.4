@@ -76,7 +76,7 @@ export default <ModuleMainFunction>(({ LSSM, MODULE_ID, $m, $mc }) => {
                 )}</p>`;
             }
 
-            if (!userHtml) userHtml = 'keine Profilinformationen vorhanden!';
+            if (!userHtml) userHtml = $m('noProfileInfo').toString();
             extrasSpan.innerHTML += `<div class="hidden user_infos" style="display: flex">${userHtml}</div>`;
         });
     document.addEventListener('click', e => {
