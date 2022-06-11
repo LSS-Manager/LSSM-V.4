@@ -10,14 +10,22 @@ export default (LSSM: Vue) => {
     eventInfo.after(whitespace);
 
     LSSM.$store
-        .dispatch('addStyle', {
-            selectorText: `#eventInfo`,
-            style: {
-                'position': 'absolute',
-                'width': 'calc(100% - 2 * (15px + 1px) - 18px)',
-                'z-index': 10,
+        .dispatch('addStyles', [
+            {
+                selectorText: `#eventInfo`,
+                style: {
+                    'position': 'absolute',
+                    'width': 'calc(100% - 2 * (15px + 1px) - 18px)',
+                    'z-index': 10,
+                },
             },
-        })
+            {
+                selectorText: `body.bigMap #eventInfo`,
+                style: {
+                    width: 'calc(100% - 2 * 5px)',
+                },
+            },
+        ])
         .then();
 
     LSSM.$store
