@@ -20,21 +20,32 @@
             </h2>
             <div v-for="note in notes" :key="note[0]" class="note">
                 <h4>
-                    <b
-                        ><a
-                            class="lightbox-open"
+                    <b>
+                        <a
                             target="_blank"
                             :href="`https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v${
                                 semverLt(note[0], coerce('4.3.3')) ? '.' : ''
                             }${note[0]}`"
-                            >{{ note[0] }}</a
-                        ></b
+                        >
+                            {{ note[0] }}
+                        </a>
+                    </b>
+                    <sup
+                        class="badge beta_label"
+                        v-if="
+                            semverLt(currentVersion, coerce(note[0]) || '4.0.0')
+                        "
                     >
+                        Beta
+                    </sup>
                     <sup
                         class="badge message_new"
-                        v-if="semverLt(last_seen, coerce(note[0]) || '4.0.0')"
-                        >New!</sup
+                        v-else-if="
+                            semverLt(last_seen, coerce(note[0]) || '4.0.0')
+                        "
                     >
+                        New!
+                    </sup>
                     <small
                         class="pull-right"
                         :title="moment(note[1].timestamp).format('LLLL')"
@@ -56,14 +67,20 @@ import semverLt from 'semver/functions/lt';
 
 import lssmLogo from '../../img/lssm.png';
 
-import type { DefaultData, DefaultMethods } from 'vue/types/options';
+import type { DefaultMethods } from 'vue/types/options';
+import type { SemVer } from 'semver';
 import type {
     ReleaseNoteComputed,
     ReleaseNoteProps,
 } from 'typings/modules/Releasenotes';
 
 export default Vue.extend<
-    DefaultData<Vue>,
+    {
+        moment: typeof moment;
+        semverLt: typeof semverLt;
+        coerce: typeof coerce;
+        currentVersion: SemVer | string;
+    },
     DefaultMethods<Vue>,
     ReleaseNoteComputed,
     ReleaseNoteProps
@@ -74,6 +91,7 @@ export default Vue.extend<
             moment,
             semverLt,
             coerce,
+            currentVersion: coerce(VERSION) || VERSION,
         };
     },
     components: {
@@ -157,6 +175,9 @@ export default Vue.extend<
         margin-bottom: 0.5em
         &:hover
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+
+        .beta_label
+            background-color: #f0ad4e
 
         ::v-deep ul li
             list-style: disc !important

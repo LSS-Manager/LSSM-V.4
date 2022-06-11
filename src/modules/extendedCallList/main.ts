@@ -127,6 +127,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                           allMissionsCollapsed,
                           collapsedMissionBtnClass,
                           sortBtnId,
+                          await getSetting('collapsableMissionsAllBtn'),
                           $m
                       )
                     : null;
@@ -267,6 +268,12 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         ).then(({ default: remainingPumpingTime }) =>
             remainingPumpingTime(LSSM)
         );
+    }
+
+    if (await getSetting('fixedEventInfo')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallList/fixedEventInfo" */ './assets/fixedEventInfo'
+        ).then(({ default: fixedEventInfo }) => fixedEventInfo(LSSM));
     }
 
     const averageCredits = await getSetting('averageCredits');

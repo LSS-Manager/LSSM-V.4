@@ -84,6 +84,7 @@
         }
     ],
     "description": "Passe dir die Filter der Gebäudeliste frei an!",
+    "lssmComplex": "LSSM Gebäudekomplex",
     "name": "Anpassbare Gebäudeliste",
     "settings": {
         "buildings": "Gebäudetypen",
@@ -97,6 +98,10 @@
         "filters": {
             "description": "Lege hier die Filter fest. Du kannst statt Text auch ein Icon angeben, zur Auswahl stehen dir hierbei <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
             "title": "Gebäudefilter"
+        },
+        "fixedFilters": {
+            "description": "Zeigt Filter und Suche immer an, auch wenn du duch die Gebäudeliste scrollst.",
+            "title": "Filter immer anzeigen"
         },
         "icon_style": "Icon-Typ",
         "preview": "Vorschau",

@@ -102,8 +102,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
             addMenuItem(state: RootState, element: HTMLAnchorElement) {
                 state.menuItems.push(element);
             },
-            insertStyleSheet(state: RootState) {
+            insertStyleSheet(state: RootState, id: string) {
                 state.styles.styleSheet = document.createElement('style');
+                state.styles.styleSheet.id = id;
                 document.head.append(state.styles.styleSheet);
                 state.styles.inserted = true;
             },
@@ -302,10 +303,15 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 );
             },
             addStyle(
-                { state, commit }: ActionStoreParams,
+                { state, commit, getters }: ActionStoreParams,
                 { selectorText, style }: addStyle
             ) {
-                if (!state.styles.inserted) commit('insertStyleSheet');
+                if (!state.styles.inserted) {
+                    commit(
+                        'insertStyleSheet',
+                        getters.nodeAttribute('addStyle-stylesheet', true)
+                    );
+                }
                 if (state.styles.styleSheet) {
                     state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
                         style

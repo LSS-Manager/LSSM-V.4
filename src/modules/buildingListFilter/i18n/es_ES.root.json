@@ -40,6 +40,7 @@
         }
     ],
     "description": "¡Personaliza los filtros de la lista de edificios!",
+    "lssmComplex": "LSSM building complex",
     "name": "Lista de edificios personalizables",
     "settings": {
         "buildings": "Tipos de Edificios",
@@ -53,6 +54,10 @@
         "filters": {
             "description": "Deje los iconos en el botón Mostrar \"Alarma\", según su selección. Puedes elegir entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
             "title": "Filtro de lista de edificios"
+        },
+        "fixedFilters": {
+            "description": "Shows filters even when scrolling through the list of buildings",
+            "title": "Always show filters"
         },
         "icon_style": "Tipo de icono",
         "preview": "Avance",

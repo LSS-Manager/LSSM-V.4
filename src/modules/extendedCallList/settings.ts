@@ -81,6 +81,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        collapsableMissionsAllBtn: <Toggle>{
+            type: 'toggle',
+            default: true,
+            dependsOn: '.collapsableMissions',
+        },
         collapsedMissions: <Hidden>{
             type: 'hidden',
         },
@@ -168,6 +173,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
             dependsOn: '.currentPrisoners',
+        },
+        fixedEventInfo: <Toggle>{
+            type: 'toggle',
+            default: false,
         },
         eventMissions: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',

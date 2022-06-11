@@ -17,6 +17,7 @@ import type { Building, BuildingCategory } from 'typings/Building';
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
+    alliance_buildings: 'aAllianceBuildings',
     allianceinfo: 'aAlliance',
     settings: 'aSettings',
     credits: 'aCreditsInfo',
@@ -26,6 +27,7 @@ const STORAGE_KEYS = {
 const MUTATION_SETTERS = {
     buildings: 'setBuildings',
     vehicles: 'setVehicles',
+    alliance_buildings: 'setAllianceBuildings',
     allianceinfo: 'setAllianceinfo',
     settings: 'setSettings',
     credits: 'setCreditsInfo',
@@ -209,6 +211,7 @@ export default {
     state: {
         buildings: [],
         vehicles: [],
+        alliance_buildings: [],
         allianceinfo: {},
         vehicleStates: {},
         autoUpdates: [],
@@ -237,6 +240,17 @@ export default {
             );
             state.lastUpdates.buildings = lastUpdate;
             state.buildings = buildings;
+        },
+        setAllianceBuildings(
+            state: APIState,
+            {
+                value: allianceBuildings,
+                lastUpdate,
+            }: StorageGetterReturn<'alliance_buildings'>
+        ) {
+            if (!allianceBuildings) return;
+            state.lastUpdates.alliance_buildings = lastUpdate;
+            state.alliance_buildings = allianceBuildings;
         },
         setVehicles(
             state: APIState,
@@ -400,6 +414,11 @@ export default {
             state.buildings.forEach(b => (buildings[b.id] = b));
             return buildings;
         },
+        allianceBuildingsById(state) {
+            const buildings: Record<number, Building> = {};
+            state.alliance_buildings.forEach(b => (buildings[b.id] = b));
+            return buildings;
+        },
         vehiclesByType(state) {
             const types = {} as Record<string, Vehicle[]>;
             state.vehicles.forEach(vehicle => {
@@ -510,6 +529,40 @@ export default {
                 );
             }
         },
+        async registerAllianceBuildingsUsage(
+            store: APIActionStoreParams,
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
+        ) {
+            const { value: allianceBuildings, lastUpdate } =
+                await get_api_values(
+                    'alliance_buildings',
+                    store,
+                    `store/api/registerAllianceBuildingsUsage(${feature})`
+                );
+            if (!allianceBuildings) return;
+            set_api_storage(
+                'alliance_buildings',
+                {
+                    value: allianceBuildings,
+                    lastUpdate,
+                    user_id: window.user_id,
+                },
+                store
+            );
+            if (
+                autoUpdate &&
+                !store.state.autoUpdates.includes('alliance_buildings')
+            ) {
+                store.commit('enableAutoUpdate', 'alliance_buildings');
+                window.setInterval(
+                    () => store.dispatch('registerBuildingsUsage', { feature }),
+                    API_MIN_UPDATE
+                );
+            }
+        },
         async fetchBuilding(
             store: APIActionStoreParams,
             { id, feature }: { id: number; feature: string }
@@ -533,6 +586,40 @@ export default {
                             building;
                         set_api_storage(
                             'buildings',
+                            {
+                                value: buildings,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(building);
+                    });
+            });
+        },
+        async fetchAllianceBuilding(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/alliance_buildings/${id}`,
+                        feature: `store/api/fetchAllianceBuilding(${feature})`,
+                    })
+                    .then(res => res.json())
+                    .then(async (building: Building) => {
+                        const { value: buildings, lastUpdate } =
+                            await get_api_values(
+                                'alliance_buildings',
+                                store,
+                                `store/api/fetchAllianceBuilding(${feature})`
+                            );
+                        if (!buildings) return reject();
+                        buildings[buildings.findIndex(b => b.id === id)] =
+                            building;
+                        set_api_storage(
+                            'alliance_buildings',
                             {
                                 value: buildings,
                                 lastUpdate,

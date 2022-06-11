@@ -115,6 +115,12 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                         labels: userBuildingLabels,
                     },
                 },
+                <AppendableListSetting<Hidden>>{
+                    name: 'allianceBuildings',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
                 <AppendableListSetting<Location>>{
                     name: 'position',
                     title: $m('settings.buildingComplexes.position'),
@@ -137,13 +143,28 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                         type: 'hidden',
                     },
                 },
+                <AppendableListSetting<Hidden>>{
+                    name: 'buildingsInList',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'buildingTabs',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
             ],
             defaultItem: {
                 name: '',
                 buildings: [],
+                allianceBuildings: [],
                 position: [0, 0],
                 icon: '/images/building_complex.png',
                 showMarkers: false,
+                buildingsInList: false,
+                buildingTabs: true,
             },
             orderable: false,
             disableable: false,

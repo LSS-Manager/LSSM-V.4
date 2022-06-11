@@ -182,6 +182,10 @@
             "description": "Zwiń poszczególne (lub wszystkie) misje, aby zmniejszyć ich rozmiar na liście misji.",
             "title": "Zwiń misje"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Pokazuje przycisk do zwinięcia wszystkich misji naraz",
+            "title": "Zwiń wszystkie misje na raz"
+        },
         "currentPatients": {
             "description": "Pokazuje aktualną liczbę pacjentów dla każdej misji",
             "title": "Obecni pacjenci"
@@ -203,6 +207,10 @@
             "missions": "Misje",
             "text": "Tekst",
             "title": "Oznacz misje sezonowe"
+        },
+        "fixedEventInfo": {
+            "description": "Wyświetla informacje o trwającym wydarzeniu na stałe, bez względu na to, jak daleko przewinąłeś listę misji.",
+            "title": "Zawsze pokazuj informacje o wydarzeniu"
         },
         "hide0CurrentPatients": {
             "description": "Ukrywa liczbę pacjentów, jeśli na miejscu nie ma pacjentów",

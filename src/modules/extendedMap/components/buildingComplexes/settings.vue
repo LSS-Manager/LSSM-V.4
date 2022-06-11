@@ -48,6 +48,25 @@
                 ></v-select>
             </div>
 
+            <!-- edit alliance buildings -->
+            <div class="form-group">
+                <label for="alliance_buildings">
+                    {{ $m('allianceBuildings') }}
+                </label>
+                <v-select
+                    name="alliance_buildings"
+                    uid="lssmv4-complex-settings-alliance_buildings"
+                    :placeholder="$m('allianceBuildings')"
+                    v-model="allianceBuildingIds"
+                    :options="allianceBuildingOptions"
+                    :close-on-select="false"
+                    :clearSearchOnSelect="false"
+                    multiple
+                    clearable
+                    append-to-body
+                ></v-select>
+            </div>
+
             <!-- edit icon -->
             <div class="form-group">
                 <label for="icon">{{ $m('icon') }}</label>
@@ -75,6 +94,14 @@
                 <label>
                     <input type="checkbox" v-model="showMarkers" />
                     {{ $m('showMarkers') }}
+                </label>
+            </div>
+
+            <!-- show buildings in the buildings list -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" v-model="buildingsInList" />
+                    {{ $m('buildingsInList') }}
                 </label>
             </div>
 
@@ -126,12 +153,15 @@ export default Vue.extend<
         faSave: IconDefinition;
         faTrashCan: IconDefinition;
         buildings: Record<number, Building>;
+        allianceBuildings: Record<number, Building>;
         name: string;
         icon: string;
         buildingIds: { value: string; label: string }[];
+        allianceBuildingIds: { value: string; label: string }[];
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
         showMarkers: boolean;
+        buildingsInList: boolean;
         buildingTabs: boolean;
         iconBase64s: string[];
         excludedCustomIcons: string[];
@@ -141,6 +171,8 @@ export default Vue.extend<
         canSave: boolean;
         assignedBuildings: Building[];
         buildingOptions: { value: string; label: string }[];
+        assignedAllianceBuildings: Building[];
+        allianceBuildingOptions: { value: string; label: string }[];
         customIcons: string[];
         icons: string[];
     },
@@ -148,6 +180,7 @@ export default Vue.extend<
         modalName: string;
         complex: Complex;
         allOtherAttachedBuildings: string[];
+        allOtherAttachedAllianceBuildings: string[];
         $m: $m;
         close(): void;
         dissolve(): Promise<void>;
@@ -173,6 +206,9 @@ export default Vue.extend<
         const userBuildings = this.$store.getters[
             'api/buildingsById'
         ] as Record<number, Building>;
+        const allianceBuildings = this.$store.getters[
+            'api/allianceBuildingsById'
+        ] as Record<number, Building>;
         const buildingTypes: Record<number, InternalBuilding> =
             this.$store.getters.$tBuildings;
 
@@ -180,12 +216,15 @@ export default Vue.extend<
             faSave,
             faTrashCan,
             buildings: userBuildings,
+            allianceBuildings,
             name: '',
             icon: '',
             buildingIds: [],
+            allianceBuildingIds: [],
             buildingTypes,
             location: [0, 0],
             showMarkers: false,
+            buildingsInList: false,
             buildingTabs: true,
             iconBase64s: [],
             excludedCustomIcons: [],
@@ -200,16 +239,26 @@ export default Vue.extend<
                     this.buildingIds.map(({ value }) => value),
                     this.complex.buildings
                 ) ||
+                !isEqual(
+                    this.allianceBuildingIds.map(({ value }) => value),
+                    this.complex.allianceBuildings
+                ) ||
                 this.icon !== this.complex.icon ||
                 this.location[0] !== this.complex.position[0] ||
                 this.location[1] !== this.complex.position[1] ||
                 this.showMarkers !== this.complex.showMarkers ||
+                this.buildingsInList !== this.complex.buildingsInList ||
                 this.buildingTabs !== this.complex.buildingTabs
             );
         },
         assignedBuildings() {
             return this.buildingIds
                 .map(({ value }) => this.buildings[parseInt(value)])
+                .filter(Boolean);
+        },
+        assignedAllianceBuildings() {
+            return this.allianceBuildingIds
+                .map(({ value }) => this.allianceBuildings[parseInt(value)])
                 .filter(Boolean);
         },
         buildingOptions() {
@@ -227,8 +276,28 @@ export default Vue.extend<
                     labelA.localeCompare(labelB)
                 );
         },
+        allianceBuildingOptions() {
+            return Object.entries(this.allianceBuildings)
+                .filter(
+                    ([id]) =>
+                        !this.allianceBuildingIds.some(
+                            ({ value }) => value === id
+                        ) &&
+                        !this.allOtherAttachedAllianceBuildings.includes(id)
+                )
+                .map(([id, { caption, building_type }]) => ({
+                    value: id.toString(),
+                    label: `[${this.buildingTypes[building_type].caption}] ${caption}`,
+                }))
+                .sort(({ label: labelA }, { label: labelB }) =>
+                    labelA.localeCompare(labelB)
+                );
+        },
         customIcons() {
-            return this.assignedBuildings
+            return [
+                ...this.assignedBuildings,
+                ...this.assignedAllianceBuildings,
+            ]
                 .map(b => b.custom_icon_url ?? '')
                 .filter(Boolean);
         },
@@ -237,10 +306,13 @@ export default Vue.extend<
                 ...new Set([
                     ...[
                         '/images/building_bereitschaftspolizei_other.png',
+                        '/images/policechief_building_bereitschaftspolizei.png',
                         '/images/building_bereitstellungsraum_other.png',
                         '/images/building_bomb_disposal_other.png',
+                        '/images/policechief_building_bomb_disposal.png',
                         '/images/building_clinic_other.png',
                         '/images/building_commerce_police_other.png',
+                        '/images/policechief_building_commerce_police.png',
                         '/images/building_complex_other.png',
                         '/images/building_federal_police_other.png',
                         '/images/building_fire_aviation_station_other.png',
@@ -250,14 +322,21 @@ export default Vue.extend<
                         '/images/building_fireschool_other.png',
                         '/images/building_hazard_response_ems_other.png',
                         '/images/building_helipad_other.png',
+                        '/images/building_helipad_polizei.png',
+                        '/images/policechief_building_helipad_polizei.png',
                         '/images/building_home_response_location_other.png',
                         '/images/building_hospital_other.png',
                         '/images/building_leitstelle_other.png',
                         '/images/building_municipal_police_other.png',
+                        '/images/policechief_building_municipal_police.png',
                         '/images/building_police_depot_other.png',
+                        '/images/policechief_building_police_depot.png',
                         '/images/building_polizeischule_other.png',
+                        '/images/policechief_building_polizeischule.png',
                         '/images/building_polizeisondereinheiten_other.png',
+                        '/images/policechief_building_polizeisondereinheiten.png',
                         '/images/building_polizeiwache_other.png',
+                        '/images/policechief_building_polizeiwache.png',
                         '/images/building_rescue_boat_dock_other.png',
                         '/images/building_rescue_dog_unit_other.png',
                         '/images/building_rettungsschule_other.png',
@@ -282,8 +361,12 @@ export default Vue.extend<
                 name: this.name.trim(),
                 icon: this.icon,
                 buildings: this.buildingIds.map(({ value }) => value),
+                allianceBuildings: this.allianceBuildingIds.map(
+                    ({ value }) => value
+                ),
                 position: this.location,
                 showMarkers: this.showMarkers,
+                buildingsInList: this.buildingsInList,
                 buildingTabs: this.buildingTabs,
             });
             this.close();
@@ -325,6 +408,10 @@ export default Vue.extend<
             type: Array,
             required: true,
         },
+        allOtherAttachedAllianceBuildings: {
+            type: Array,
+            required: true,
+        },
         $m: {
             type: Function,
             required: true,
@@ -355,8 +442,14 @@ export default Vue.extend<
         this.buildingIds = this.complex.buildings
             .map(id => this.buildingOptions.find(({ value }) => id === value))
             .filter(removeUndefined);
+        this.allianceBuildingIds = this.complex.allianceBuildings
+            .map(id =>
+                this.allianceBuildingOptions.find(({ value }) => id === value)
+            )
+            .filter(removeUndefined);
         this.location = this.complex.position;
         this.showMarkers = this.complex.showMarkers;
+        this.buildingsInList = this.complex.buildingsInList;
         this.buildingTabs = this.complex.buildingTabs;
 
         this.customIcons.forEach(icon => {
@@ -385,7 +478,8 @@ form
 
 <style lang="sass">
 #vslssmv4-complex-settings-icon__listbox,
-#vslssmv4-complex-settings-buildings__listbox
+#vslssmv4-complex-settings-buildings__listbox,
+#vslssmv4-complex-settings-alliance_buildings__listbox
     &.vs__dropdown-menu
         z-index: 6000
 </style>

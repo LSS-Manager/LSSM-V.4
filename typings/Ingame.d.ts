@@ -138,7 +138,7 @@ export interface BuildingMarkerAdd {
     longitude: number;
     latitude: number;
     icon: string;
-    vgi: unknown | null;
+    vgi: number | null; // ID of assigned vehicle graphic set
     lbid: number;
     show_vehicles_at_startpage: boolean;
     level: number;

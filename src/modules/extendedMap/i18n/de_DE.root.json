@@ -10,7 +10,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Angehängte Gebäude",
-            "description": "Eine Design-Änderung, die es ermöglicht mehrere Gebäude auf der Karte zu einem zusammenzufassen.",
+            "description": "Eine Design-Änderung, die es ermöglicht mehrere Gebäude auf der Karte zu einem zusammenzufassen. Mehr Einstellungen sind im jeweiligen Gebäudekomplex zu finden.",
             "name": "Name",
             "position": "Standort",
             "title": "Gebäudekomplexe"

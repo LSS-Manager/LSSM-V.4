@@ -11,7 +11,7 @@ interface BuildingInfos {
 
 export default async (LSSM: Vue) => {
     const accordion = document.querySelector<HTMLDivElement>(
-        '#schooling #accordion'
+        'form[action$="/education"] #accordion'
     );
 
     if (!accordion) return;
@@ -131,6 +131,7 @@ export default async (LSSM: Vue) => {
             if (show) el.classList.remove('hidden');
             else el.classList.add('hidden');
         });
+        window.schooling_check_educated_counter_visible_check?.();
     };
 
     let nameFilterTimeout: number | null = null;

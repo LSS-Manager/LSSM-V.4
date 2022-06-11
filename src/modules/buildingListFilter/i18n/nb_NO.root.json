@@ -56,6 +56,7 @@
         }
     ],
     "description": "Tilpass filtre for byggelisten!",
+    "lssmComplex": "LSSM building complex",
     "name": "Tilpassbar liste over bygninger",
     "settings": {
         "buildings": "Bygningstyper",
@@ -69,6 +70,10 @@
         "filters": {
             "description": "La ikonene stå i \"Alarm\" Vis-knappen, basert på valget ditt. Du kan velge mellom <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis ikoner fra Font-Awesome</a>. Det er nok å spesifisere navnet på ikonet. En direkte forhåndsvisning vil da vise deg ikonet.",
             "title": "Bygningslistefilter"
+        },
+        "fixedFilters": {
+            "description": "Shows filters even when scrolling through the list of buildings",
+            "title": "Always show filters"
         },
         "icon_style": "Ikon-type",
         "preview": "Forhåndsvis",

@@ -54,6 +54,7 @@
         }
     ],
     "description": "Personnalisez les filtres de la liste de construction !",
+    "lssmComplex": "LSSM building complex",
     "name": "Liste des bâtiments personnalisable",
     "settings": {
         "buildings": "Types de bâtiments",
@@ -67,6 +68,10 @@
         "filters": {
             "description": "Afficher les icônes dans l'onglet \"Alarme\". Afficher le bouton, en fonction de votre sélection. Vous pouvez opter pour <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">l'ensemble des icônes gratuites de Font-Awesome</a>. Il vous suffit de préciser le nom de l'icône. Un aperçu en direct vous montrera alors l'icône.",
             "title": "Filtre pour liste des bâtiments"
+        },
+        "fixedFilters": {
+            "description": "Affiche les filtres même en faisant défiler la liste des bâtiments",
+            "title": "Toujours afficher les filtres"
         },
         "icon_style": "Icon-Type",
         "preview": "Aperçu",

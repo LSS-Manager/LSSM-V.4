@@ -221,6 +221,12 @@ LSSM-Team`,
             defaultValue: [],
         })
         .then((activeModules: string[]) => {
+            if (!Array.isArray(activeModules)) {
+                return LSSM.$store.dispatch('storage/set', {
+                    key: 'activeModules',
+                    value: [],
+                });
+            }
             let filteredActiveModules = activeModules.filter(module =>
                 LSSM.$store.state.modules.hasOwnProperty(module)
             );
