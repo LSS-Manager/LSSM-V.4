@@ -55,7 +55,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                     },
                 },
                 {
-                    selectorText: `#${wrapper.id}`,
+                    selectorText: `body.bigMap #${wrapper.id}`,
                     style: {
                         width: 'calc(100% - 2 * 5px)',
                     },
