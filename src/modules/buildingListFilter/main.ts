@@ -45,14 +45,22 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
     if (fixedFilters) {
         LSSM.$store
-            .dispatch('addStyle', {
-                selectorText: `#${wrapper.id}`,
-                style: {
-                    'position': 'absolute',
-                    'width': 'calc(100% - 4 * 15px)',
-                    'z-index': 10,
+            .dispatch('addStyles', [
+                {
+                    selectorText: `#${wrapper.id}`,
+                    style: {
+                        'position': 'absolute',
+                        'width': 'calc(100% - 4 * 15px)',
+                        'z-index': 10,
+                    },
                 },
-            })
+                {
+                    selectorText: `#${wrapper.id}`,
+                    style: {
+                        width: 'calc(100% - 2 * 5px)',
+                    },
+                },
+            ])
             .then();
         fixedWhiteSpace.style.setProperty('margin-bottom', '1rem');
         wrapper.after(fixedWhiteSpace);
@@ -236,6 +244,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 .dispatch('hook', {
                     event: 'buildingMarkerBulkContentCacheDraw',
                     callback() {
+                        updateBuildingsArray();
                         btns.forEach(([btn], index) => index && btn.reload?.());
                     },
                 })
