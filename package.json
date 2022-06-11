@@ -1,10 +1,11 @@
 {
-    "version": "4.5.12+20220611.1123",
+    "version": "4.5.12+20220611.1048",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "dev": "yarn prebuild && ./scripts/build.sh development && yarn docs",
-        "prebuild": "./scripts/prebuild.sh",
-        "build": "yarn prebuild && ./scripts/build.sh production && yarn docs",
+        "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
+        "prebuild:dev": "./scripts/prebuild.sh development",
+        "prebuild:stable": "./scripts/prebuild.sh production",
+        "build": "yarn prebuild:stable && ./scripts/build.sh production && yarn docs",
         "docs": "./scripts/docs.sh",
         "eslint:fix": "./scripts/lint_fix.sh",
         "order-json": "./scripts/sort.sh",
