@@ -128,7 +128,7 @@
                                 <h2 class="overview-heading indented-title">
                                     {{ $m('overview.buildings.title') }}:
                                     {{
-                                        complex.buildings.length.toLocaleString()
+                                        attributedBuildings.length.toLocaleString()
                                     }}
                                     <small
                                         class="summary-icon"
