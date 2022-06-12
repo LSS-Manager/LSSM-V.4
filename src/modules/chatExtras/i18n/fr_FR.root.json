@@ -17,7 +17,7 @@
         "lightDesignChatHistory": {
             "description": "Un design allégé pour l'historique du chat",
             "title": "Design léger de l'historique du chat"
-        }
+        },
         "selfHighlight": {
             "description": "highlights your username in the chat with a custom color",
             "title": "custom color in chat"
