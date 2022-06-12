@@ -13,6 +13,14 @@
         "cloneHistoryBtnToHeader": {
             "description": "Afficher le bouton pour l'historique du salon dans l'en-tête afin que vous n'ayez pas à faire défiler le chat pour y accéder.",
             "title": "Afficher le bouton l'historique du salon dans l'en-tête."
+        },
+        "selfHighlight": {
+            "description": "highlights your username in the chat with a custom color",
+            "title": "custom color in chat"
+        },
+        "selfHighlightColor": {
+            "description": "choose here, which color your username should be highlighted in",
+            "title": "custom color in chat: color"
         }
     }
 }

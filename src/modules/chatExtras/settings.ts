@@ -1,5 +1,5 @@
 import type { ModuleSettingFunction } from 'typings/Module';
-import type { Text, Toggle } from 'typings/Setting';
+import type { Color, Text, Toggle } from 'typings/Setting';
 
 export default (() => ({
     chatTime: <Toggle>{
@@ -14,5 +14,14 @@ export default (() => ({
     cloneHistoryBtnToHeader: <Toggle>{
         type: 'toggle',
         default: false,
+    },
+    selfHighlight: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    selfHighlightColor: <Color>{
+        type: 'color',
+        default: '#5cb85c',
+        dependsOn: '.selfHighlight',
     },
 })) as ModuleSettingFunction;
