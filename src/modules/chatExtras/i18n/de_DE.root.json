@@ -17,6 +17,14 @@
         "lightDesignChatHistory": {
             "description": "Ein kompaktes Design des Chatverlaufs",
             "title": "Chatverlauf: kompates Design"
+        },
+        "selfHighlight": {
+            "description": "Hebt eigene Nachrichten im Chat vor, indem dem Nutzernamen eine eigene Farbe gegeben wird.",
+            "title": "eigene Farbe im Chat"
+        },
+        "selfHighlightColor": {
+            "description": "Wähle hier aus, welche Farbe dein Nutzername haben soll",
+            "title": "eigene Farbe im Chat: Farbe"
         }
     }
 }

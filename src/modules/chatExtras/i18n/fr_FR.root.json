@@ -15,8 +15,16 @@
             "title": "Afficher le bouton l'historique du salon dans l'en-tête."
         },
         "lightDesignChatHistory": {
-            "description": "A light design of the chat-history",
-            "title": "Chat-history light design"
+            "description": "Un design allégé pour l'historique du chat",
+            "title": "Design léger de l'historique du chat"
+        }
+        "selfHighlight": {
+            "description": "highlights your username in the chat with a custom color",
+            "title": "custom color in chat"
+        },
+        "selfHighlightColor": {
+            "description": "choose here, which color your username should be highlighted in",
+            "title": "custom color in chat: color"
         }
     }
 }
