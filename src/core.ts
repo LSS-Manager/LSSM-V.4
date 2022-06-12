@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
+import { useConsoleStore } from '@stores/console';
 import VueJSModal from 'vue-js-modal';
 import { createPinia, PiniaVuePlugin } from 'pinia';
 
@@ -116,6 +117,8 @@ LSSM-Team`,
 
         return;
     }
+
+    const consoleStore = useConsoleStore();
 
     window[PREFIX] = LSSM;
 
@@ -263,9 +266,9 @@ LSSM-Team`,
                             )
                         )
                         .catch(() =>
-                            LSSM.$store?.dispatch('console/warn', [
-                                `[core] root translation ${moduleId}/${LSSM.$store.state.lang}.root could not be imported. The file is probably nonexistent`,
-                            ])
+                            consoleStore.warn(
+                                `[core] root translation »${moduleId}/${LSSM.$store.state.lang}.root« could not be imported. The file is probably nonexistent`
+                            )
                         )
                         .finally(async () => {
                             if (filteredActiveModules.includes(moduleId)) {

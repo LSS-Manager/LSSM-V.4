@@ -104,6 +104,10 @@
         "icon": "https://avatars.githubusercontent.com/u/46634674",
         "version": "5.27.1"
     },
+    "@vue/composition-api": {
+        "url": "https://github.com/vuejs/composition-api#readme",
+        "version": "1.6.2"
+    },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
@@ -247,6 +251,10 @@
     "pdfmake": {
         "url": "http://pdfmake.org",
         "version": "0.2.5"
+    },
+    "pinia": {
+        "url": "https://github.com/vuejs/pinia#readme",
+        "version": "2.0.14"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",

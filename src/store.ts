@@ -3,7 +3,6 @@ import Vuex from 'vuex';
 import api from './store/api';
 import broadcast from './store/broadcast';
 import config from './config';
-import console from './store/console';
 import event from './store/event';
 import notifications from './store/notifications';
 import settings from './store/settings';
@@ -42,7 +41,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
             storage,
             settings,
             api,
-            console,
             notifications,
             broadcast,
             event,

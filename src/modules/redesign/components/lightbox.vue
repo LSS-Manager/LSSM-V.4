@@ -84,6 +84,7 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useConsoleStore } from '@stores/console';
 
 import type {
     RedesignLightbox,
@@ -339,6 +340,7 @@ export default Vue.extend<
                 return this.src ?? this.url;
             },
             set(url) {
+                const consoleStore = useConsoleStore();
                 this.loading = true;
                 this.errors = [];
                 const link = new URL(url, window.location.origin);
@@ -511,8 +513,10 @@ export default Vue.extend<
                                         'height'
                                     );
                                 } catch (e) {
-                                    if (e instanceof Error) this.errors.push(e);
-                                    this.$store.dispatch('console/error', [e]);
+                                    if (e instanceof Error) {
+                                        this.errors.push(e);
+                                        consoleStore.error(e);
+                                    }
                                 }
                             }
                         );

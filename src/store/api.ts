@@ -1,5 +1,7 @@
 import type Vue from 'vue';
 
+import { useConsoleStore } from '@stores/console';
+
 import type { ActionStoreParams } from 'typings/store/Actions';
 import type { APIActionStoreParams } from 'typings/store/api/Actions';
 import type { Mission } from 'typings/Mission';
@@ -868,20 +870,18 @@ export default {
                 dialogOnError: boolean;
             }
         ) {
+            const consoleStore = useConsoleStore();
+
             if (input && url) {
-                await dispatch(
-                    'console/warn',
-                    [
+                await consoleStore.warn({
+                    messages: [
                         `Request was initialized with both, input and URL, input object will be used!`,
                         'input:',
                         input,
                         'URL:',
                         url,
                     ],
-                    {
-                        root: true,
-                    }
-                );
+                });
             }
             init.headers = init.headers || {};
             if (Array.isArray(init.headers)) {
@@ -914,19 +914,14 @@ export default {
                     : (headers[header] = value);
 
             if (init.headers.hasOwnProperty('X-LSS-Manager')) {
-                await dispatch(
-                    'console/warn',
-                    [
-                        `Request Header "X-LSS-Manager" with value ${JSON.stringify(
-                            getHeader(init.headers, 'X-LSS-Manager')
-                        )} will be overwritten by ${JSON.stringify(
-                            rootState.version
-                        )}!`,
+                await consoleStore.warn({
+                    messages: [
+                        'Request Header "X-LSS-Manager" with value',
+                        getHeader(init.headers, 'X-LSS-Manager'),
+                        'will be overwritten by',
+                        rootState.version,
                     ],
-                    {
-                        root: true,
-                    }
-                );
+                });
             }
             setHeader(init.headers, 'X-LSS-Manager', rootState.version);
             setHeader(init.headers, 'X-LSS-Manager-Feature', feature);
