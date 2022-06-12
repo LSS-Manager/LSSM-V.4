@@ -2331,6 +2331,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/composition-api@npm:^1.6.2":
+  version: 1.6.2
+  resolution: "@vue/composition-api@npm:1.6.2"
+  peerDependencies:
+    vue: ">= 2.5 < 3"
+  checksum: 76016b8f36d382b11696112c09033bdd857cd99c6c67b4e7ac10f6a98dd56acbdc790164b915875cc2a674bb6421840b5c34bff3fa9abb5a79fd02eb35b46a7f
+  languageName: node
+  linkType: hard
+
 "@vue/devtools-api@npm:^6.0.0, @vue/devtools-api@npm:^6.1.4":
   version: 6.1.4
   resolution: "@vue/devtools-api@npm:6.1.4"
@@ -8040,6 +8049,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pinia@npm:^2.0.14":
+  version: 2.0.14
+  resolution: "pinia@npm:2.0.14"
+  dependencies:
+    "@vue/devtools-api": ^6.1.4
+    vue-demi: "*"
+  peerDependencies:
+    "@vue/composition-api": ^1.4.0
+    typescript: ">=4.4.4"
+    vue: ^2.6.14 || ^3.2.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+    typescript:
+      optional: true
+  checksum: d07ed55b53e92da0971c3fcc0a1bd520b26cd50d266f46c8bab24fed87788461782a2c75088cf97c79810e7a4ceb28381f5d77daf280883ad3340c41962d0934
+  languageName: node
+  linkType: hard
+
 "pluralize@npm:^8.0.0":
   version: 8.0.0
   resolution: "pluralize@npm:8.0.0"
@@ -8677,6 +8705,7 @@ __metadata:
     "@types/webpack-env": ^1.17.0
     "@typescript-eslint/eslint-plugin": ^5.27.1
     "@typescript-eslint/parser": ^5.27.1
+    "@vue/composition-api": ^1.6.2
     all-contributors-cli: ^6.20.0
     axios: ^0.27.2
     broadcast-channel: ^4.13.0
@@ -8703,6 +8732,7 @@ __metadata:
     moment: ^2.29.3
     moment-timezone: ^0.5.34
     pdfmake: ^0.2.5
+    pinia: ^2.0.14
     prettier: ^2.6.2
     qrcode: ^1.5.0
     sass: ^1.52.3

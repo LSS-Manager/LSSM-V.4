@@ -7,6 +7,7 @@ import Notifications from 'vue-notification';
 import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
 import VueJSModal from 'vue-js-modal';
+import { createPinia, PiniaVuePlugin } from 'pinia';
 
 import config from './config';
 import i18n from './i18n';
@@ -51,6 +52,7 @@ Vue.use(VueJSModal, {
 Vue.use(ToggleButton);
 Vue.use(Tabs);
 Vue.use(Notifications);
+Vue.use(PiniaVuePlugin);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 utils(Vue);
@@ -60,8 +62,11 @@ utils(Vue);
 
     let couldNotLoadI18n = false;
 
+    const pinia = createPinia();
+
     const LSSM = new Vue({
         store: store(Vue),
+        pinia,
         i18n: await i18n(Vue).catch(() => {
             couldNotLoadI18n = true;
             return undefined;
