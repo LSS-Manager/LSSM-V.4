@@ -124,14 +124,27 @@
             </div>
 
             <hr />
-            <!-- Delete the complex -->
-            <a
-                class="btn btn-danger btn-sm pull-right"
-                @click="dissolveHandler"
-            >
-                <font-awesome-icon :icon="faTrashCan" />
-                {{ $m('dissolve.title') }}
-            </a>
+            <span class="btn-group pull-right">
+                <button
+                    class="btn btn-success btn-sm"
+                    :disabled="!canSave"
+                    @click="save"
+                >
+                    <font-awesome-icon :icon="faSave" />
+                    {{ $m('save') }}
+                </button>
+                <button class="btn btn-warning btn-sm" @click="close">
+                    {{ $m('abort') }}
+                </button>
+                <!-- Delete the complex -->
+                <button
+                    class="btn btn-danger btn-sm pull-right"
+                    @click="dissolveHandler"
+                >
+                    <font-awesome-icon :icon="faTrashCan" />
+                    {{ $m('dissolve.title') }}
+                </button>
+            </span>
         </form>
     </lightbox>
 </template>

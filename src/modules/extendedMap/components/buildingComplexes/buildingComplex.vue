@@ -2262,6 +2262,8 @@ export default Vue.extend<
     top: calc(2% + 1rem)
     right: calc(2% + 1rem)
     z-index: 1
+    max-height: calc(96% - 2rem)
+    overflow: auto
 
     > ul
         padding-left: 0
