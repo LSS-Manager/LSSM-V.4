@@ -200,7 +200,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://eslint.vuejs.org",
-        "version": "9.1.0"
+        "version": "9.1.1"
     },
     "he": {
         "url": "https://mths.be/he",
