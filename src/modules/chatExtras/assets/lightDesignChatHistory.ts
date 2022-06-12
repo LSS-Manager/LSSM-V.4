@@ -3,7 +3,7 @@ export default (redesignActive: boolean, modalName: string) => {
     document.querySelectorAll<HTMLSpanElement>(`${startPhrase}div.well span.pull-right`).forEach((el: HTMLSpanElement) => {
         el.classList.remove('pull-right');
         el.textContent = '[' + el.textContent + ']';
-        el.parentElement?.querySelector('strong')?.after(el)
+        el.parentElement?.querySelector('strong')?.before(el)
     });
     document.querySelectorAll<HTMLDivElement>(`${startPhrase}div.well`).forEach((el: HTMLDivElement) => {
         el.classList.remove('well');
