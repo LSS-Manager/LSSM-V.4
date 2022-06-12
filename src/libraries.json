@@ -12,7 +12,7 @@
     "@fortawesome/vue-fontawesome": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://github.com/FortAwesome/vue-fontawesome",
-        "version": "2.0.6"
+        "version": "2.0.7"
     },
     "@primer/octicons": {
         "icon": "https://primer.style/octicons/icons/icon-512x512.png",
