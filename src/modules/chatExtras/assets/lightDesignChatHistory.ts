@@ -3,16 +3,15 @@ export default (redesignActive: boolean, modalName: string) => {
     document.querySelectorAll<HTMLSpanElement>(`${startPhrase}div.well span.pull-right`).forEach((el: HTMLSpanElement) => {
         el.classList.remove('pull-right');
         el.textContent = '[' + el.textContent + ']';
+        el.parentElement.querySelector('strong').insertAdjacentElement('beforebegin', el)
     });
     document.querySelectorAll<HTMLDivElement>(`${startPhrase}div.well`).forEach((el: HTMLDivElement) => {
         el.classList.remove('well');
         el.classList.add('chat-element-container');
     });
     document.querySelectorAll<HTMLParagraphElement>(`${startPhrase}div.chat-element-container p`).forEach((el: HTMLParagraphElement) => {
-        if(!el.classList.contains('label')) {
-            el.parentElement?.querySelector('span')?.append(': ' + el.textContent);
-            el.classList.remove('chat-element-container');
-            el.remove();
-        };
+        el.parentElement?.querySelector('strong')?.insertAdjacentElement('afterend', el);
+        el.style.display = 'inline';
+        el.classList.remove('chat-element-container');
     });
 }
