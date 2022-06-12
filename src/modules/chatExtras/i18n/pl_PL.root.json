@@ -19,12 +19,12 @@
             "title": "Chat-history light design"
         },
         "selfHighlight": {
-            "description": "highlights your username in the chat with a custom color",
-            "title": "custom color in chat"
+            "description": "Podświetla twoją nazwę użytkownika na czacie niestandardowym kolorem",
+            "title": "Niestandardowy kolor na czacie"
         },
         "selfHighlightColor": {
-            "description": "choose here, which color your username should be highlighted in",
-            "title": "custom color in chat: color"
+            "description": "Wybierz tutaj, jakim kolorem ma być podświetlona twoja nazwa użytkownika",
+            "title": "Niestandardowy kolor na czacie: kolor"
         }
     }
 }
