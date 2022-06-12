@@ -54,7 +54,7 @@
         }
     ],
     "description": "Personnalisez les filtres de la liste de construction !",
-    "lssmComplex": "LSSM building complex",
+    "lssmComplex": "Complexe de bâtiments LSSM",
     "name": "Liste des bâtiments personnalisable",
     "settings": {
         "buildings": "Types de bâtiments",

@@ -2266,6 +2266,7 @@ export default Vue.extend<
     > ul
         padding-left: 0
         list-style: none
+        margin-right: 1em
 
     .close
         opacity: 1
