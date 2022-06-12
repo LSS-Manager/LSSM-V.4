@@ -24,7 +24,10 @@ export default (async ({ LSSM, getSetting }) => {
             import(
                 /* webpackChunkName: "modules/chatExtras/selfHighlight" */ './assets/selfHighlight'
             ).then(async ({ default: selfHighlight }) =>
-                selfHighlight(LSSM, await getSetting<string>('selfHighlightColor'))
+                selfHighlight(
+                    LSSM,
+                    await getSetting<string>('selfHighlightColor')
+                )
             );
         }
     });
