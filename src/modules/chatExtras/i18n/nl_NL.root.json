@@ -15,12 +15,12 @@
             "title": "Toont the chatgeschiedenis knop boven de chat"
         },
         "selfHighlight": {
-            "description": "highlights your username in the chat with a custom color",
-            "title": "custom color in chat"
+            "description": "Geeft je eigen gebruikersnaam in de chat weer met een aangepaste kleur",
+            "title": "Aangepaste kleur in chat"
         },
         "selfHighlightColor": {
-            "description": "choose here, which color your username should be highlighted in",
-            "title": "custom color in chat: color"
+            "description": "Kies hier welke kleur je wilt voor je eigen gebruikersnaam",
+            "title": "Aangepaste kleur in chat: kleur"
         }
     }
 }
