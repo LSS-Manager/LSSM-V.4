@@ -1,5 +1,6 @@
 import createBtn, { type StarrableButton } from './createBtn';
 
+import type { ModuleMainFunction } from 'typings/Module';
 import type { ButtonGroupCallback } from '../utils/buttonGroup';
 
 export type AddStarrableButton = (
@@ -12,7 +13,9 @@ export default (
     MODULE_ID: string,
     missions: string[],
     starredMissionBtnClass: string,
-    starredMissionPanelClass: string
+    starredMissionPanelClass: string,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): AddStarrableButton => {
     const buttons: StarrableButton[] = [];
 
@@ -76,7 +79,9 @@ export default (
             MODULE_ID,
             mission.id.toString(),
             starred,
-            starredMissionBtnClass
+            starredMissionBtnClass,
+            getSetting,
+            setSetting
         );
         mission.btnGroup.append(btn);
         buttons.push(btn);

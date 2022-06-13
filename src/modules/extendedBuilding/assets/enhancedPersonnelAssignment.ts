@@ -1,12 +1,13 @@
-import type { $m } from 'typings/Module';
 import type { Schooling } from 'typings/Schooling';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 import type { Building, InternalBuilding } from 'typings/Building';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
     MODULE_ID: string,
-    getSetting: (key: string) => Promise<boolean>,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): Promise<void> => {
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
@@ -126,11 +127,10 @@ export default async (
     toggleFittingInput.addEventListener('change', () => {
         const mode = toggleFittingInput.checked ? 'add' : 'remove';
         nonFittingRows.forEach(row => row.classList[mode]('hidden'));
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'enhancedPersonnelAssignmentCheckbox',
-            value: toggleFittingInput.checked,
-        });
+        setSetting(
+            'enhancedPersonnelAssignmentCheckbox',
+            toggleFittingInput.checked
+        );
     });
 
     document

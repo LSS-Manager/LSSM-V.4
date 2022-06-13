@@ -1,5 +1,5 @@
-import type { $m } from 'typings/Module';
 import type { Sort } from './callList';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export enum SortedMissionsRawButtonClasses {
     alert_next = 'alert_next_sorted',
@@ -13,7 +13,8 @@ export default async (
     MODULE_ID: string,
     $m: $m,
     sort: Sort,
-    checked: boolean
+    checked: boolean,
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ) => {
     if (sort === 'default') return;
     const order: Record<string, string[]> = JSON.parse(
@@ -296,11 +297,10 @@ export default async (
                     'hidden'
                 );
             });
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'sortMissionsInMissionwindowChecked',
-                value: toggleInput.checked,
-            });
+            await setSetting(
+                'sortMissionsInMissionwindowChecked',
+                toggleInput.checked
+            );
             LSSM.$stores.event.createAndDispatchEvent({
                 name: `${MODULE_ID}_sorted-missions_toggle-missionwindow`,
                 detail: {

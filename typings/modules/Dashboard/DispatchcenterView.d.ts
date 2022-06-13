@@ -1,3 +1,4 @@
+import type { useSettingsStore } from '@stores/settings';
 import type { Vehicle } from 'typings/Vehicle';
 import type VueI18n from 'vue-i18n';
 import type { Building, InternalBuilding } from 'typings/Building';
@@ -53,6 +54,7 @@ export interface DispatchcenterView {
         caption: string;
     }[];
     dispatchBuildings: Building[];
+    settingsStore: ReturnType<typeof useSettingsStore>;
 }
 
 export interface DispatchcenterViewComputed {

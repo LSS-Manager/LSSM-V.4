@@ -7,6 +7,7 @@ import type { sceditor } from './SCEditor';
 import type { Store } from 'vuex';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
+import type { useSettingsStore } from '@stores/settings';
 import type { useStorageStore } from '@stores/storage';
 import type VueI18n from 'vue-i18n';
 import type {
@@ -126,6 +127,7 @@ declare module 'vue/types/vue' {
         $stores: {
             console: ReturnType<typeof useConsoleStore>;
             event: ReturnType<typeof useEventStore>;
+            settings: ReturnType<typeof useSettingsStore>;
             storage: ReturnType<typeof useStorageStore>;
         };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

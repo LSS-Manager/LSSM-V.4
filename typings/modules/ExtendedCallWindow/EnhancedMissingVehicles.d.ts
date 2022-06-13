@@ -58,6 +58,8 @@ export interface EnhancedMissingVehiclesComputed {
 export interface EnhancedMissingVehiclesMethods {
     $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     setSort(s: string): void;
+    getSetting<T = boolean>(settingId: string): Promise<T>;
+    setSetting<T>(settingId: string, value: T): Promise<T>;
     toggleOverlay(): void;
     toggleMinified(): void;
     toggleTextMode(): void;

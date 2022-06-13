@@ -341,6 +341,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useSettingsStore } from '@stores/settings';
+
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
 import type { Building, InternalBuilding } from 'typings/Building';
@@ -417,6 +419,7 @@ export default Vue.extend<
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
+            settingsStore: useSettingsStore(),
         } as DispatchcenterView;
     },
     computed: {
@@ -456,7 +459,7 @@ export default Vue.extend<
                             )) ||
                         (this.board.dispatchBuildings.length &&
                             !this.board.dispatchBuildings.includes(
-                                building.leitstelle_building_id
+                                building.leitstelle_building_id ?? -1
                             ))
                     )
                         return false;
@@ -699,7 +702,7 @@ export default Vue.extend<
             this.saveBoards();
         },
         saveBoards() {
-            this.$store.dispatch('settings/setSetting', {
+            this.settingsStore.setSetting({
                 moduleId: 'dashboard',
                 settingId: 'dispatchcenter-view',
                 value: { boards: this.boards },
@@ -720,8 +723,12 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$store
-            .dispatch('settings/getModule', 'dashboard')
+        this.settingsStore
+            .getModule<{
+                'dispatchcenter-view'?: {
+                    boards: DispatchcenterView['boards'];
+                };
+            }>('dashboard')
             .then(async settings => {
                 this.$set(
                     this,

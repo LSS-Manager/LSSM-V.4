@@ -47,8 +47,8 @@ export default async (LSSM: Vue): Promise<void> => {
         },
     });
 
-    LSSM.$store
-        .dispatch('settings/register', {
+    LSSM.$stores.settings
+        .registerModule({
             moduleId: 'global',
             settings: {
                 labelInMenu: <Toggle>{
@@ -105,13 +105,13 @@ export default async (LSSM: Vue): Promise<void> => {
                 new Date() >= new Date('2021-11-20T00:00') &&
                 new Date() < new Date('2021-11-29T00:00')
             ) {
-                LSSM.$store
-                    .dispatch('settings/getSetting', {
+                LSSM.$stores.settings
+                    .getSetting({
                         moduleId: 'global',
                         settingId: 'anniversary1Clicked',
                         defaultValue: false,
                     })
-                    .then((clicked: boolean) => {
+                    .then(clicked => {
                         if (!clicked) {
                             import(
                                 /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
@@ -129,11 +129,11 @@ export default async (LSSM: Vue): Promise<void> => {
                     });
             }
 
-            LSSM.$store
-                .dispatch('settings/getSetting', {
+            LSSM.$stores.settings
+                .getSetting({
                     moduleId: 'global',
                     settingId: 'osmDarkTooltip',
-                    default: true,
+                    defaultValue: true,
                 })
                 .then(
                     allowDark =>
@@ -141,11 +141,11 @@ export default async (LSSM: Vue): Promise<void> => {
                         document.body.classList.add('leaflet-no-dark-tooltip')
                 );
 
-            LSSM.$store
-                .dispatch('settings/getSetting', {
+            LSSM.$stores.settings
+                .getSetting({
                     moduleId: 'global',
                     settingId: 'osmDarkControls',
-                    default: true,
+                    defaultValue: true,
                 })
                 .then(
                     allowDark =>
@@ -153,16 +153,16 @@ export default async (LSSM: Vue): Promise<void> => {
                         document.body.classList.add('leaflet-dark-controls')
                 );
 
-            LSSM.$store
-                .dispatch('settings/getSetting', {
+            LSSM.$stores.settings
+                .getSetting({
                     moduleId: 'global',
                     settingId: 'loadingIndicator',
-                    default: true,
+                    defaultValue: true,
                 })
                 .then(loadingIndicator =>
                     localStorage.setItem(
                         loadingIndicatorStorageKey,
-                        loadingIndicator
+                        loadingIndicator.toString()
                     )
                 );
         });
@@ -194,7 +194,7 @@ export default async (LSSM: Vue): Promise<void> => {
     }
 
     telemetry(LSSM, settingId => {
-        return LSSM.$store.dispatch('settings/getSetting', {
+        return LSSM.$stores.settings.getSetting({
             moduleId: 'global',
             settingId,
         });

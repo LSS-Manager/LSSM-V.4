@@ -1,8 +1,11 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
 export default async (
     LSSM: Vue,
     mapUndo: boolean,
     ownMapMarkers: boolean,
-    getSetting: <returnType>(settingId: string) => Promise<returnType>,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     MODULE_ID: string
 ): Promise<void> => {
     LSSM.$store.commit('useFontAwesome');
@@ -88,11 +91,7 @@ export default async (
     pinIcon.classList.add('fas', 'fa-thumbtack');
     pinBtn.addEventListener('click', () => {
         historyList.classList.toggle('pinned');
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'mapMarkerPinned',
-            value: historyList.classList.contains('pinned'),
-        });
+        setSetting('mapMarkerPinned', historyList.classList.contains('pinned'));
     });
     pinBtn.append(pinIcon);
 
@@ -151,11 +150,7 @@ export default async (
                     ),
                     1
                 );
-                LSSM.$store.dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
-                    settingId: 'savedOwnMapMarkers',
-                    value: ownMarkers,
-                });
+                setSetting('savedOwnMapMarkers', ownMarkers);
             }
         });
 
@@ -184,11 +179,7 @@ export default async (
             history.push(entry);
             ownMarkers.push(entry);
 
-            LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'savedOwnMapMarkers',
-                value: ownMarkers,
-            });
+            setSetting('savedOwnMapMarkers', ownMarkers);
 
             updateHistoryList();
         });

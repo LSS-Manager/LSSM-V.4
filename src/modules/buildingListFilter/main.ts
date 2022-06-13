@@ -5,7 +5,12 @@ interface FilterBtn extends HTMLButtonElement {
     reload?(): void;
 }
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    MODULE_ID,
+    getSetting,
+    setSetting,
+}) => {
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
@@ -127,11 +132,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     };
 
     const updateSettings = () =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'filters',
-            value: { value: filters.slice(1), enabled: true },
-        });
+        setSetting('filters', { value: filters.slice(1), enabled: true });
 
     const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
@@ -292,13 +293,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             const state = buildingList.classList.toggle(reversedListClass);
             if (state) icon.setAttribute('data-icon', 'arrow-up-a-z');
             else icon.setAttribute('data-icon', 'arrow-down-z-a');
-            LSSM.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
-                    settingId: 'sortDesc',
-                    value: state,
-                })
-                .then();
+            setSetting('sortDesc', state);
         });
 
         if (await getSetting('sortDesc')) sortBtn.click();

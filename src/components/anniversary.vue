@@ -16,6 +16,7 @@
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { useSettingsStore } from '@stores/settings';
 
 import lssmLogo from '../img/lssm_logo';
 
@@ -96,7 +97,7 @@ export default Vue.extend<
         if (modal) {
             const modalFall = () => {
                 modal.classList.add('falling');
-                this.$store.dispatch('settings/setSetting', {
+                useSettingsStore().setSetting({
                     moduleId: 'global',
                     settingId: 'anniversary1Clicked',
                     value: true,

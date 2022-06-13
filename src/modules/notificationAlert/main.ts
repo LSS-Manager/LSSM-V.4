@@ -176,14 +176,11 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
         'sicherheitswache_error',
     ].filter(ce => events.hasOwnProperty(ce));
     if (fmsEvents.length) {
-        const extensionCloseCall = await LSSM.$store.dispatch(
-            'settings/getSetting',
-            {
-                moduleId: 'generalExtensions',
-                settingId: 'extensionCloseCall',
-                defaultValue: true,
-            }
-        );
+        const extensionCloseCall = await LSSM.$stores.settings.getSetting({
+            moduleId: 'generalExtensions',
+            settingId: 'extensionCloseCall',
+            defaultValue: true,
+        });
 
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',

@@ -10,7 +10,7 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const sortMissions = await getSetting('sortMissions');
 
     if (window.location.pathname.match(/^\/vehicles\/\d+\/?/u)) {
@@ -43,7 +43,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                     LSSM,
                     MODULE_ID,
                     starredMissions,
-                    starredMissionBtnClass
+                    starredMissionBtnClass,
+                    getSetting,
+                    setSetting
                 )
             );
         }
@@ -57,7 +59,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                     $m,
                     (await getSetting<Sort>('sortMissionsType')) ?? 'default',
                     (await getSetting('sortMissionsInMissionwindowChecked')) ??
-                        true
+                        true,
+                    setSetting
                 )
             );
         }
@@ -77,11 +80,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                         `#mission_${missionId}`
                     )
             );
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'starredMissions',
-                value: starredMissions,
-            });
+            await setSetting('starredMissions', starredMissions);
             const addStarrableBtn: AddStarrableButton | null = starrableMissions
                 ? (
                       await import(
@@ -92,7 +91,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                       MODULE_ID,
                       starredMissions,
                       starredMissionBtnClass,
-                      starredMissionPanelClass
+                      starredMissionPanelClass,
+                      getSetting,
+                      setSetting
                   )
                 : null;
 
@@ -106,11 +107,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             );
             const allMissionsCollapsed =
                 (await getSetting<boolean>('allMissionsCollapsed')) ?? false;
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'collapsedMissions',
-                value: collapsedMissions,
-            });
+            await setSetting('collapsedMissions', collapsedMissions);
             const collapsedMissionBtnClass = LSSM.$store.getters.nodeAttribute(
                 `${MODULE_ID}_collapsable-missions_btn`
             );
@@ -128,6 +125,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                           collapsedMissionBtnClass,
                           sortBtnId,
                           await getSetting('collapsableMissionsAllBtn'),
+                          getSetting,
+                          setSetting,
                           $m
                       )
                     : null;
@@ -135,23 +134,26 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 key: 'activeModules',
                 defaultValue: [],
             });
-            const enableSAP: boolean =
+            const enableSAP =
                 activeModules.includes('shareAlliancePost') &&
-                (await LSSM.$store.dispatch('settings/getSetting', {
+                (await LSSM.$stores.settings.getSetting<boolean>({
                     moduleId: 'shareAlliancePost',
                     settingId: 'enableCallList',
                 }));
-            const sapMessages: Message[] = enableSAP
+            const sapMessages = enableSAP
                 ? (
-                      await LSSM.$store.dispatch('settings/getSetting', {
+                      await LSSM.$stores.settings.getSetting<{
+                          value: Message[];
+                          enabled: boolean;
+                      }>({
                           moduleId: 'shareAlliancePost',
                           settingId: 'messages',
                       })
                   ).value
                 : [];
-            const SAPStay: boolean =
+            const SAPStay =
                 activeModules.includes('shareAlliancePost') &&
-                (await LSSM.$store.dispatch('settings/getSetting', {
+                (await LSSM.$stores.settings.getSetting<boolean>({
                     moduleId: 'shareAlliancePost',
                     settingId: 'stayInCallList',
                 }));
@@ -212,6 +214,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 await getSetting<string>('sortMissionsButtonColor'),
                 sortBtnId,
                 starredMissionPanelClass,
+                setSetting,
                 $m
             )
         );

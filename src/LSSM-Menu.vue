@@ -99,6 +99,7 @@ import Vue from 'vue';
 
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
+import { useSettingsStore } from '@stores/settings';
 
 import lssmLogo from './img/lssm.png';
 
@@ -212,6 +213,7 @@ export default Vue.extend<
                 'menu_version-wrapper',
                 true
             ),
+            settingsStore: useSettingsStore(),
         };
     },
     computed: {
@@ -426,7 +428,7 @@ export default Vue.extend<
                         (this.$store.state.policechief ? '#004997' : '#C9302C')
                 );
             }
-            this.$store.dispatch('settings/setSetting', {
+            this.settingsStore.setSetting({
                 moduleId: 'global',
                 settingId: 'iconBg',
                 value: this.iconBg,
@@ -460,8 +462,12 @@ export default Vue.extend<
     beforeMount() {
         this.iconBg = null;
         this.labelInMenu = false;
-        this.$store
-            .dispatch('settings/getModule', 'global')
+        this.settingsStore
+            .getModule<{
+                labelInMenu: boolean;
+                iconBgAsNavBg: boolean;
+                iconBg: string;
+            }>('global')
             .then(({ labelInMenu, iconBg, iconBgAsNavBg }) => {
                 this.labelInMenu = labelInMenu;
                 this.iconBg = iconBg;
@@ -514,11 +520,11 @@ export default Vue.extend<
             });
     },
     mounted() {
-        this.$store
-            .dispatch('settings/getSetting', {
+        this.settingsStore
+            .getSetting({
                 moduleId: 'global',
                 settingId: 'v3MenuAsSubmenu',
-                default: false,
+                defaultValue: false,
             })
             .then(v3MenuAsSubmenu => {
                 if (!v3MenuAsSubmenu) return;

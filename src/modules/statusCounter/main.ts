@@ -6,10 +6,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
         feature: 'statusCounter-initial',
     });
-    const settings = await LSSM.$store.dispatch(
-        'settings/getModule',
-        MODULE_ID
-    );
+    const settings = await LSSM.$stores.settings.getModule(MODULE_ID);
     const wrapper = document.createElement('span');
     document
         .querySelector<HTMLDivElement>('#radio_panel_heading')

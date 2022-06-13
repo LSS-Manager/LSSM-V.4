@@ -84,8 +84,9 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { useEventStore } from '@stores/event';
 import { useConsoleStore } from '@stores/console';
+import { useEventStore } from '@stores/event';
+import { useSettingsStore } from '@stores/settings';
 
 import type {
     RedesignLightbox,
@@ -296,6 +297,7 @@ export default Vue.extend<
             },
             consoleStore: useConsoleStore(),
             eventStore: useEventStore(),
+            settingsStore: useSettingsStore(),
             windows,
         };
     },
@@ -537,34 +539,31 @@ export default Vue.extend<
             return this.$mc(`${this.type}.${key}`, amount, args);
         },
         getSetting() {
-            return <T>(setting: string, defaultValue: T): Promise<T> =>
-                new Promise(resolve =>
-                    this.$store
-                        .dispatch('settings/getSetting', {
-                            moduleId: 'redesign',
-                            settingId: this.type,
-                        })
-                        .then(settings =>
-                            resolve(settings[setting] ?? defaultValue)
-                        )
-                );
-        },
-        setSetting() {
-            return <T>(settingId: string, value: T): Promise<void> =>
-                this.$store
-                    .dispatch('settings/getSetting', {
+            return <S extends string, T>(
+                setting: S,
+                defaultValue: T
+            ): Promise<T> =>
+                this.settingsStore
+                    .getSetting<Record<S, T>>({
                         moduleId: 'redesign',
                         settingId: this.type,
                     })
-                    .then(settings =>
-                        this.$store
-                            .dispatch('settings/setSetting', {
-                                moduleId: 'redesign',
-                                settingId: this.type,
-                                value: { ...settings, [settingId]: value },
-                            })
-                            .then()
-                    );
+                    .then(settings => settings[setting] ?? defaultValue);
+        },
+        setSetting() {
+            return <S extends string, T>(settingId: S, value: T) =>
+                this.settingsStore
+                    .getSetting<Record<S, T>>({
+                        moduleId: 'redesign',
+                        settingId: this.type,
+                    })
+                    .then(settings => {
+                        this.settingsStore.setSetting({
+                            moduleId: 'redesign',
+                            settingId: this.type,
+                            value: { ...settings, [settingId]: value },
+                        });
+                    });
         },
         getIdFromEl(el) {
             return parseInt(
@@ -629,8 +628,10 @@ export default Vue.extend<
     },
     mounted() {
         this.$store.commit('useFontAwesome');
-        this.$store
-            .dispatch('settings/getModule', 'generalExtensions')
+        this.settingsStore
+            .getModule<{ clickableLinks: boolean; showImg: boolean }>(
+                'generalExtensions'
+            )
             .then(({ clickableLinks, showImg }) => {
                 this.clickableLinks.enabled = clickableLinks;
                 this.clickableLinks.pictures = showImg;

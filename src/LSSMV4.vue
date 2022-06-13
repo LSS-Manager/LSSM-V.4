@@ -48,6 +48,7 @@
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { useSettingsStore } from '@stores/settings';
 
 import type { DefaultMethods, DefaultProps } from 'vue/types/options';
 import type { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
@@ -81,9 +82,8 @@ export default Vue.extend<
         },
     },
     mounted() {
-        // TODO re-enable this after migrating settings store to pinia
-        /*this.$store
-            .dispatch('settings/getModule', 'global')
+        useSettingsStore()
+            .getModule('global')
             .then(({ iconBg, iconBgAsNavBg }) => {
                 if (iconBgAsNavBg) {
                     this.$store.dispatch('addStyle', {
@@ -94,7 +94,7 @@ export default Vue.extend<
                         },
                     });
                 }
-            });*/
+            });
 
         // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
         const modalsContainer =

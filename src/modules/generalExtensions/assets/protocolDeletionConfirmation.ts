@@ -1,10 +1,11 @@
-import type { $m } from 'typings/Module';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export default async (
     LSSM: Vue,
     $sm: $m,
     initialSingleState: boolean,
-    MODULE_ID: string
+    MODULE_ID: string,
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): Promise<void> => {
     let singleState = initialSingleState;
 
@@ -32,11 +33,7 @@ export default async (
         toggleInput.checked = singleState;
         toggleInput.addEventListener('change', () => {
             singleState = toggleInput.checked;
-            LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'deleteSingleProtocolEntry',
-                value: singleState,
-            });
+            setSetting('deleteSingleProtocolEntry', singleState);
         });
         const toggleSpan = document.createElement('span');
         toggleSpan.classList.add('pull-right');

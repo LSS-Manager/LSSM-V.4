@@ -216,14 +216,11 @@ export default (
                                                 );
                                             });
                                         // Now we store if we allowed telemetry
-                                        LSSM.$store.dispatch(
-                                            'settings/setSetting',
-                                            {
-                                                moduleId: 'global',
-                                                settingId: 'allowTelemetry',
-                                                value: false,
-                                            }
-                                        );
+                                        LSSM.$stores.settings.setSetting({
+                                            moduleId: 'global',
+                                            settingId: 'allowTelemetry',
+                                            value: false,
+                                        });
                                     },
                                 },
                                 {
@@ -248,14 +245,11 @@ export default (
                                                 })
                                             );
                                         // Now we store if we allowed telemetry
-                                        LSSM.$store.dispatch(
-                                            'settings/setSetting',
-                                            {
-                                                moduleId: 'global',
-                                                settingId: 'allowTelemetry',
-                                                value: true,
-                                            }
-                                        );
+                                        LSSM.$stores.settings.setSetting({
+                                            moduleId: 'global',
+                                            settingId: 'allowTelemetry',
+                                            value: true,
+                                        });
                                     },
                                 },
                             ],

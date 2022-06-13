@@ -1,6 +1,7 @@
 import type VueI18n from 'vue-i18n';
 import type { Building, BuildingCategory } from 'typings/Building';
 import type { Vehicle, VehicleCategory } from 'typings/Vehicle';
+import { useSettingsStore } from '@stores/settings';
 
 export interface ChartSummary {
     buildingsId: string;
@@ -15,6 +16,7 @@ export interface ChartSummary {
     vehicleTypeColors: Record<number, string>;
     vehiclesByBuilding: Record<string, Vehicle[]>;
     buildingsAsColumn: boolean;
+    settingsStore: ReturnType<typeof useSettingsStore>;
 }
 
 export interface ChartSummaryMethods {

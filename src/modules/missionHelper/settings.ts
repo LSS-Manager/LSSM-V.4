@@ -313,7 +313,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: {
                 active: false,
                 top: 60,
-                left: window.innerWidth * 0.03,
+                right: window.innerWidth * 0.03,
                 offset: {
                     x: 0,
                     y: 0,

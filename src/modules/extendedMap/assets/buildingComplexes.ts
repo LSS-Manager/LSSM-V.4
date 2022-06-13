@@ -1,5 +1,5 @@
 import type { Building } from 'typings/Building';
-import type { $m, $mc } from 'typings/Module';
+import type { $m, $mc, ModuleMainFunction } from 'typings/Module';
 import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 import type { LayerGroup, Marker } from 'leaflet';
 
@@ -32,6 +32,7 @@ export default async (
     MODULE_ID: string,
     LSSM: Vue,
     complexes: Complex[],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m,
     $mc: $mc
 ) => {
@@ -51,13 +52,9 @@ export default async (
     });
 
     const save = () =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'buildingComplexes',
-            value: {
-                enabled: true,
-                value: complexes,
-            },
+        setSetting('buildingComplexes', {
+            enabled: true,
+            value: complexes,
         });
 
     const updateBuildingListHideStyle = () =>

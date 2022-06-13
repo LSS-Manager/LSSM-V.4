@@ -97,7 +97,9 @@
 import Vue from 'vue';
 
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import { useSettingsStore } from '@stores/settings';
 
+import type { ConversationMessageTemplate } from '../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
@@ -279,10 +281,14 @@ export default Vue.extend<
     },
     mounted() {
         if (this.$store.state.modules.messageTemplates.active) {
-            this.$store
-                .dispatch('settings/getSetting', {
+            useSettingsStore()
+                .getSetting<{
+                    value: ConversationMessageTemplate[];
+                    enabled: boolean;
+                }>({
                     moduleId: 'messageTemplates',
                     settingId: 'templates',
+                    defaultValue: { value: [], enabled: true },
                 })
                 .then(({ value }) => (this.messageTemplates = value));
         }

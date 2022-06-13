@@ -1,7 +1,7 @@
-import type { $m } from 'typings/Module';
 import type { Building } from 'typings/Building';
 import type { LatLng } from 'leaflet';
 import type { Mission } from 'typings/Mission';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
@@ -26,6 +26,7 @@ export default (
     buttonColor: string,
     sortBtnId: string,
     starredMissionPanelClass: string,
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ) => {
     LSSM.$store.commit('useFontAwesome');
@@ -264,16 +265,8 @@ export default (
         document
             .querySelector<SVGElement>(`#${directionIcon.id}`)
             ?.setAttribute('data-icon', faDirectionIcon[sortDirection]);
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'sortMissionsType',
-            value: sortingType,
-        });
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'sortMissionsDirection',
-            value: sortDirection,
-        });
+        await setSetting('sortMissionsType', sortingType);
+        await setSetting('sortMissionsDirection', sortDirection);
         if (updateOrderListTimeout) window.clearTimeout(updateOrderListTimeout);
         updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
         resetOrder();

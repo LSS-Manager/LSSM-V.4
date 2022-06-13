@@ -23,10 +23,10 @@
 import Vue from 'vue';
 
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
-import { useEventStore } from '@stores/event';
 
 type Component = RedesignComponent<
     'message',

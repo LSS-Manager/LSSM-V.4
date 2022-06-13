@@ -43,6 +43,7 @@ import type { CombinedVueInstance } from 'vue/types/vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
+import type { useSettingsStore } from '@stores/settings';
 import type VueI18n from 'vue-i18n';
 import type { $m, $mc } from 'typings/Module';
 import type {
@@ -116,6 +117,7 @@ interface Data<T extends RedesignKey | '' | 'default'> {
     };
     consoleStore: ReturnType<typeof useConsoleStore>;
     eventStore: ReturnType<typeof useEventStore>;
+    settingsStore: ReturnType<typeof useSettingsStore>;
     windows: Record<
         Exclude<
             RedesignKey,
@@ -157,8 +159,14 @@ export interface RedesignLightbox<
             args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         getIdFromEl(el: HTMLAnchorElement | null): number;
-        getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting(): <T>(settingId: string, value: T) => Promise<void>;
+        getSetting(): <S extends string, T>(
+            setting: S,
+            defaultValue: T
+        ) => Promise<T>;
+        setSetting(): <S extends string, T>(
+            settingId: S,
+            value: T
+        ) => Promise<void>;
         finishLoading(text?: string): void;
         copyUrl(): void;
     };
@@ -217,8 +225,14 @@ export interface RedesignComponent<
         Record<DataName, Redesigns[Type] & { authenticity_token: string }> & {
             url: string;
             lightbox: RedesignLightboxVue<Type>;
-            getSetting<T>(setting: string, defaultValue: T): Promise<T>;
-            setSetting<T>(settingId: string, value: T): Promise<void>;
+            getSetting<S extends string, T>(
+                setting: S,
+                defaultValue: T
+            ): Promise<T>;
+            setSetting<S extends string, T>(
+                settingId: S,
+                value: T
+            ): Promise<void>;
         };
 }
 

@@ -13,7 +13,12 @@ interface HeatLayer {
     setLatLngs(points: LatLng[]): void;
 }
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    MODULE_ID,
+    $m,
+    setSetting,
+}) => {
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
         return;
 
@@ -26,15 +31,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    const setSetting = <T>(settingId: string, value: T): Promise<void> =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-            value,
-        });
-
-    const getModuleSettings = (): Promise<Settings> =>
-        LSSM.$store.dispatch('settings/getModule', MODULE_ID);
+    const getModuleSettings = () =>
+        LSSM.$stores.settings.getModule<Settings>(MODULE_ID);
 
     const pxPerMeter = (map: Map) => {
         const CenterOfMap = map.getSize().y / 2;

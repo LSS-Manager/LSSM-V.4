@@ -8,6 +8,7 @@ import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
+import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 import VueJSModal from 'vue-js-modal';
 import { createPinia, PiniaVuePlugin } from 'pinia';
@@ -123,6 +124,7 @@ LSSM-Team`,
     LSSM.$stores = {
         console: useConsoleStore(),
         event: useEventStore(),
+        settings: useSettingsStore(),
         storage: useStorageStore(),
     };
 
@@ -296,24 +298,19 @@ LSSM-Team`,
                                     );
 
                                 if (settings) {
-                                    await LSSM.$store.dispatch(
-                                        'settings/register',
-                                        {
-                                            LSSM,
-                                            moduleId,
-                                            settings: await (
-                                                (
-                                                    await import(
-                                                        /* webpackChunkName: "modules/settings/[request]" */
-                                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                                        /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                                        `./modules/${moduleId}/settings`
-                                                    )
+                                    await LSSM.$stores.settings.registerModule({
+                                        moduleId,
+                                        settings: await (
+                                            (
+                                                await import(
+                                                    /* webpackChunkName: "modules/settings/[request]" */
+                                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                                    `./modules/${moduleId}/settings`
                                                 )
-                                                    .default as ModuleSettingFunction
-                                            )(moduleId, LSSM, $m),
-                                        }
-                                    );
+                                            ).default as ModuleSettingFunction
+                                        )(moduleId, LSSM, $m),
+                                    });
                                 }
 
                                 if (window.location.pathname.match(location)) {
@@ -361,12 +358,22 @@ LSSM-Team`,
                                                         settingId,
                                                         defaultValue
                                                     ) =>
-                                                        LSSM.$store.dispatch(
-                                                            'settings/getSetting',
+                                                        LSSM.$stores.settings.getSetting(
                                                             {
                                                                 moduleId,
                                                                 settingId,
                                                                 defaultValue,
+                                                            }
+                                                        ),
+                                                    setSetting: (
+                                                        settingId,
+                                                        value
+                                                    ) =>
+                                                        LSSM.$stores.settings.setSetting(
+                                                            {
+                                                                moduleId,
+                                                                settingId,
+                                                                value,
                                                             }
                                                         ),
                                                 })

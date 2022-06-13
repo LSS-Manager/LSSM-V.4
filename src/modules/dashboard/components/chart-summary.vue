@@ -80,6 +80,7 @@ import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
+import { useSettingsStore } from '@stores/settings';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { TranslateResult } from 'vue-i18n';
@@ -168,6 +169,7 @@ export default Vue.extend<
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             buildingsAsColumn: false,
+            settingsStore: useSettingsStore(),
         } as ChartSummary;
     },
     computed: {
@@ -185,10 +187,11 @@ export default Vue.extend<
                 ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
-        this.$store
-            .dispatch('settings/getSetting', {
+        this.settingsStore
+            .getSetting<boolean>({
                 moduleId: 'dashboard',
                 settingId: 'buildings_column_chart',
+                defaultValue: false,
             })
             .then(column => {
                 this.buildingsAsColumn = column ?? false;
@@ -307,7 +310,7 @@ export default Vue.extend<
             return this.$m(`chart-summaries.${key}`, args);
         },
         changeBuildingChart() {
-            this.$store.dispatch('settings/setSetting', {
+            this.settingsStore.setSetting({
                 moduleId: 'dashboard',
                 settingId: 'buildings_column_chart',
                 value: this.buildingsAsColumn,

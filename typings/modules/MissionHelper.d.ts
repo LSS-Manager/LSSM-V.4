@@ -1,3 +1,4 @@
+import type { $m, ModuleMainFunction } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Mission } from 'typings/Mission';
 import type VueI18n from 'vue-i18n';
@@ -101,12 +102,6 @@ export interface MissionHelperComputed {
     specialRequirements: { badge: string[]; nonbadge: string[] };
 }
 export interface MissionHelperMethods {
-    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
-    $mc(
-        key: string,
-        amount: number,
-        args?: Record<string, unknown>
-    ): VueI18n.TranslateResult;
     reloadSpecs(force?: boolean): void;
     getMission(id: string): Promise<Mission | undefined>;
     loadSetting(
@@ -125,4 +120,11 @@ export interface MissionHelperMethods {
     ): VehicleRequirements;
     getMaxVehicles(currentSpecs: MissionHelper['missionSpecs']): void;
     toggleMaximum(): void;
+}
+
+export interface MissionHelperProps {
+    $m: Parameters<ModuleMainFunction>[0]['$m'];
+    $mc: Parameters<ModuleMainFunction>[0]['$mc'];
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'];
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'];
 }

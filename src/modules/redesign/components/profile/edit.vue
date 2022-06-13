@@ -18,9 +18,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { DefaultData } from 'vue/types/options';
 import type { RedesignComponent } from 'typings/modules/Redesign';
-import { useEventStore } from '@stores/event';
 
 type Component = RedesignComponent<
     'profile',

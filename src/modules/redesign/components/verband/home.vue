@@ -104,10 +104,10 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
-import { useEventStore } from '@stores/event';
 
 type Component = RedesignSubComponent<
     'home',

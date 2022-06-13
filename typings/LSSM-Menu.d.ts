@@ -1,3 +1,5 @@
+import type { useSettingsStore } from '@stores/settings';
+
 export interface lssmMenuData {
     id: string;
     menuId: string;
@@ -16,6 +18,7 @@ export interface lssmMenuData {
         aborted: boolean;
     };
     versionWrapperId: string;
+    settingsStore: ReturnType<typeof useSettingsStore>;
 }
 
 export interface lssmMenuComputed {

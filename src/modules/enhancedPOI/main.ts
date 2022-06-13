@@ -3,7 +3,7 @@ import type { ModuleMainFunction } from 'typings/Module';
 import type { POI } from 'typings/modules/EnhancedPOI';
 import type { POIMarker } from 'typings/Ingame';
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
@@ -196,11 +196,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                         poiTypeSelect.querySelector('option:checked')
                             ?.textContent || ''
                     );
-                    LSSM.$store.dispatch('settings/setSetting', {
-                        moduleId: MODULE_ID,
-                        settingId: 'lastSavedPOIType',
-                        value: poiTypeSelect.value,
-                    });
+                    setSetting('lastSavedPOIType', poiTypeSelect.value);
                     lastSavedPOIType = poiTypeSelect.value;
                 });
             }
@@ -228,11 +224,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                         input.addEventListener('change', () => {
                             if (!input.checked) return;
                             shown_types = poi_types;
-                            LSSM.$store.dispatch('settings/setSetting', {
-                                moduleId: MODULE_ID,
-                                settingId: 'shown_types',
-                                value: shown_types,
-                            });
+                            setSetting('shown_types', shown_types);
                             refresh_shown_pois();
                             Array.from(
                                 settingsWrapper.querySelectorAll<HTMLInputElement>(
@@ -249,11 +241,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                         input.addEventListener('change', () => {
                             if (!input.checked) return;
                             shown_types = [];
-                            LSSM.$store.dispatch('settings/setSetting', {
-                                moduleId: MODULE_ID,
-                                settingId: 'shown_types',
-                                value: shown_types,
-                            });
+                            setSetting('shown_types', shown_types);
                             refresh_shown_pois();
                             Array.from(
                                 settingsWrapper.querySelectorAll<HTMLInputElement>(
@@ -277,11 +265,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                                 );
                             }
                             shown_types.sort();
-                            LSSM.$store.dispatch('settings/setSetting', {
-                                moduleId: MODULE_ID,
-                                settingId: 'shown_types',
-                                value: shown_types,
-                            });
+                            setSetting('shown_types', shown_types);
                             refresh_shown_pois();
                         });
                     }

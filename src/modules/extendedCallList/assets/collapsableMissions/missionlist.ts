@@ -1,6 +1,7 @@
 import toggle from './toggle';
 import createBtn, { type CollapsableButton } from './createBtn';
 
+import type { ModuleMainFunction } from 'typings/Module';
 import type { $m } from 'typings/Module';
 import type { ButtonGroupCallback } from '../utils/buttonGroup';
 
@@ -17,6 +18,8 @@ export default (
     collapsableMissionBtnClass: string,
     sortBtnId: string,
     showAllBtn: boolean,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): AddCollapsableButton => {
     const buttons: CollapsableButton[] = [];
@@ -149,6 +152,8 @@ export default (
         collapsableMissionBtnClass,
         collapsedClass,
         collapsedBarContentClass,
+        getSetting,
+        setSetting,
         $m
     );
 
@@ -182,6 +187,8 @@ export default (
             collapsableMissionBtnClass,
             collapsedClass,
             collapsedBarContentClass,
+            getSetting,
+            setSetting,
             $m
         );
         mission.btnGroup.append(btn);

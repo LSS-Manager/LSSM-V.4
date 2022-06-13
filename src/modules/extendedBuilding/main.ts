@@ -1,6 +1,6 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/u
@@ -131,7 +131,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
             ).then(({ default: enhancedPersonnelAssignment }) =>
-                enhancedPersonnelAssignment(LSSM, MODULE_ID, getSetting, $m)
+                enhancedPersonnelAssignment(
+                    LSSM,
+                    MODULE_ID,
+                    getSetting,
+                    setSetting,
+                    $m
+                )
             );
         }
     } else if (window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) {

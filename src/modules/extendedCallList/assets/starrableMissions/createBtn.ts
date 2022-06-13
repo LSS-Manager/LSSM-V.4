@@ -1,3 +1,5 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
 export interface StarrableButton extends HTMLButtonElement {
     switch?(triggeredInMissionWindow?: boolean): Promise<void>;
 }
@@ -29,7 +31,9 @@ export default (
     MODULE_ID: string,
     missionId: string,
     isStarred: boolean,
-    starredMissionBtnClass: string
+    starredMissionBtnClass: string,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): StarrableButton => {
     const btn: StarrableButton = document.createElement('button');
 
@@ -71,14 +75,7 @@ export default (
             .then();
 
     const store = async () => {
-        const missions: string[] = await LSSM.$store.dispatch(
-            'settings/getSetting',
-            {
-                moduleId: MODULE_ID,
-                settingId: 'starredMissions',
-                defaultValue: [],
-            }
-        );
+        const missions = await getSetting<string[]>('starredMissions', []);
         if (btn.classList.contains('btn-warning')) {
             missions.splice(
                 missions.findIndex(mission => mission === missionId),
@@ -87,11 +84,7 @@ export default (
         } else {
             missions.push(missionId);
         }
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'starredMissions',
-            value: missions,
-        });
+        await setSetting('starredMissions', missions);
     };
 
     btn.switch = async (triggeredInMissionWindow = false) => {

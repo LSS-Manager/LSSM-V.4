@@ -296,6 +296,7 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 
 import loadingIndicatorStorageKey from '../../build/plugins/LoadingProgressPluginStorageKey';
@@ -397,6 +398,7 @@ export default Vue.extend<
             tab: 0,
             exportData: '',
             storageStore: useStorageStore(),
+            settingsStore: useSettingsStore(),
         };
     },
     computed: {
@@ -472,7 +474,7 @@ export default Vue.extend<
                             )
                     )
                 );
-            this.$store.commit('settings/setSettingsChanges', this.changes);
+            this.settingsStore.setChangesStatus(this.changes);
         },
         updateAppendableList(state, moduleId, settingId) {
             (
@@ -487,16 +489,14 @@ export default Vue.extend<
                 for (const [settingId, { current }] of Object.entries(
                     settings
                 )) {
-                    await this.$store.dispatch('settings/setSetting', {
+                    await this.settingsStore.setSetting({
                         moduleId,
                         settingId,
                         value: current,
                     });
                 }
             }
-            await this.$store.dispatch('settings/saveSettings', {
-                settings: this.settings,
-            });
+            await this.settingsStore.saveSettings(this.settings);
             this.settings = cloneDeep(this.$store.state.settings.settings);
             this.startSettings = cloneDeep(this.settings);
             this.update();

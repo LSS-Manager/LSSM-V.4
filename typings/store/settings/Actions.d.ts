@@ -1,26 +1,25 @@
 import type { ActionContext } from 'vuex';
 import type { RootState } from '../RootState';
 import type { SettingsState } from './State';
-import type { ModuleSettings, Settings } from '../../Setting';
+import type { ModuleSettings, RegisterSettings } from '../../Setting';
 
 export type SettingsActionStoreParams = ActionContext<SettingsState, RootState>;
 
 export interface SettingsRegister {
-    LSSM: Vue;
     moduleId: string;
-    settings: Settings;
+    settings: RegisterSettings;
 }
 
-export interface SettingsSet {
+export interface SettingsSet<SettingType> {
     moduleId: string;
     settingId: string;
-    value: unknown;
+    value: SettingType;
 }
 
-export interface SettingsGet {
+export interface SettingsGet<SettingType> {
     moduleId: string;
     settingId: string;
-    defaultValue: unknown;
+    defaultValue?: SettingType;
 }
 
 export interface SettingsSave {

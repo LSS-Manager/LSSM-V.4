@@ -1,6 +1,6 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     LSSM.$store.commit('useFontAwesome');
 
     import(
@@ -48,7 +48,14 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         import(
             /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
         ).then(({ default: mapMarkers }) =>
-            mapMarkers(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID)
+            mapMarkers(
+                LSSM,
+                mapUndo,
+                ownMapMarkers,
+                getSetting,
+                setSetting,
+                MODULE_ID
+            )
         );
     }
     if (
@@ -74,6 +81,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 saveLastBuildingType,
                 saveLastDispatchCenter,
                 getSetting,
+                setSetting,
                 MODULE_ID
             )
         );
@@ -110,7 +118,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 LSSM,
                 t => $m(`protocolDeletionConfirmation.${t}`),
                 await getSetting('deleteSingleProtocolEntry'),
-                MODULE_ID
+                MODULE_ID,
+                setSetting
             )
         );
     }

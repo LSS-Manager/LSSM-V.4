@@ -177,6 +177,7 @@ import Vue from 'vue';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import moment from 'moment';
+import { useSettingsStore } from '@stores/settings';
 
 import type { ConversationMessageTemplate } from '../../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -199,6 +200,7 @@ type Component = RedesignComponent<
             enabled: boolean;
             templates: ConversationMessageTemplate[];
         };
+        settingsStore: ReturnType<typeof useSettingsStore>;
     },
     {
         loadPage(mode: 'next' | 'prev'): void;
@@ -250,6 +252,7 @@ export default Vue.extend<
                 enabled: false,
                 templates: [],
             },
+            settingsStore: useSettingsStore(),
         };
     },
     methods: {
@@ -410,10 +413,13 @@ export default Vue.extend<
                 ).then(async ({ default: fillDropdown }) =>
                     fillDropdown(
                         (
-                            await this.$store.dispatch('settings/getSetting', {
+                            await this.settingsStore.getSetting<{
+                                value: ConversationMessageTemplate[];
+                                enabled: boolean;
+                            }>({
                                 moduleId: 'messageTemplates',
                                 settingId: 'templates',
-                                defaultValue: [],
+                                defaultValue: { value: [], enabled: true },
                             })
                         ).value,
                         dropdown,
@@ -492,29 +498,27 @@ export default Vue.extend<
                     ) ?? '-1'
                 );
                 if (preselected < 0) return;
-                this.$store
-                    .dispatch('settings/getSetting', {
+                this.settingsStore
+                    .getSetting<{
+                        value: ConversationMessageTemplate[];
+                        enabled: boolean;
+                    }>({
                         moduleId: 'messageTemplates',
                         settingId: 'templates',
-                        defaultValue: [],
+                        defaultValue: { value: [], enabled: true },
                     })
-                    .then(
-                        ({
-                            value: templates,
-                        }: {
-                            value: ConversationMessageTemplate[];
-                        }) =>
-                            import(
-                                /*webpackChunkName: "modules/messageTemplates/conversations/modifyMessage"*/ '../../../messageTemplates/assets/conversations/modifyMessage'
-                            ).then(
-                                async ({ default: modifyMessage }) =>
-                                    (this.response = modifyMessage(
-                                        templates[preselected].template,
-                                        {
-                                            username: this.other?.name,
-                                        }
-                                    ))
-                            )
+                    .then(({ value: templates }) =>
+                        import(
+                            /*webpackChunkName: "modules/messageTemplates/conversations/modifyMessage"*/ '../../../messageTemplates/assets/conversations/modifyMessage'
+                        ).then(
+                            async ({ default: modifyMessage }) =>
+                                (this.response = modifyMessage(
+                                    templates[preselected].template,
+                                    {
+                                        username: this.other?.name,
+                                    }
+                                ))
+                        )
                     );
             });
     },
