@@ -5,6 +5,8 @@ import type L from 'leaflet';
 import type { POI } from './modules/EnhancedPOI';
 import type { sceditor } from './SCEditor';
 import type { Store } from 'vuex';
+import type { useConsoleStore } from '@stores/console';
+import type { useEventStore } from '@stores/event';
 import type VueI18n from 'vue-i18n';
 import type {
     AppstoreComputed,
@@ -120,6 +122,10 @@ declare global {
 
 declare module 'vue/types/vue' {
     interface Vue {
+        $stores: {
+            console: ReturnType<typeof useConsoleStore>;
+            event: ReturnType<typeof useEventStore>;
+        };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         $store: Store<any>;
         $vue: VueConstructor;

@@ -3,7 +3,6 @@ import Vuex from 'vuex';
 import api from './store/api';
 import broadcast from './store/broadcast';
 import config from './config';
-import event from './store/event';
 import notifications from './store/notifications';
 import settings from './store/settings';
 import storage from './store/storage';
@@ -43,7 +42,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
             api,
             notifications,
             broadcast,
-            event,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,

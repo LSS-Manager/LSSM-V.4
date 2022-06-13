@@ -141,7 +141,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         setTooltip(marker);
     });
 
-    await LSSM.$store.dispatch('event/addListener', {
+    LSSM.$stores.event.addListener({
         name: 'buildingMarkerAdd',
         listener({
             detail: { building },

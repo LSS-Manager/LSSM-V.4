@@ -8,3 +8,8 @@ export interface CreateEvent {
     detail?: unknown;
     init?: EventInit;
 }
+
+export interface AddListener {
+    name: string;
+    listener(event: Event): void;
+}

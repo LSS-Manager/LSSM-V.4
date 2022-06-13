@@ -301,17 +301,13 @@ export default async (
                 settingId: 'sortMissionsInMissionwindowChecked',
                 value: toggleInput.checked,
             });
-            LSSM.$store
-                .dispatch('event/createEvent', {
-                    name: `${MODULE_ID}_sorted-missions_toggle-missionwindow`,
-                    detail: {
-                        sorted: toggleInput.checked,
-                        alertNextBtnClass,
-                    },
-                })
-                .then(event =>
-                    LSSM.$store.dispatch('event/dispatchEvent', event)
-                );
+            LSSM.$stores.event.createAndDispatchEvent({
+                name: `${MODULE_ID}_sorted-missions_toggle-missionwindow`,
+                detail: {
+                    sorted: toggleInput.checked,
+                    alertNextBtnClass,
+                },
+            });
         });
 
         if (checked) {

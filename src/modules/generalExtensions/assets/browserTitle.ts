@@ -47,10 +47,8 @@ export default (LSSM: Vue): void => {
         })
         .then();
 
-    LSSM.$store
-        .dispatch('event/addListener', {
-            name: 'redesign-finished-loading',
-            listener: () => findTitle(true),
-        })
-        .then();
+    LSSM.$stores.event.addListener({
+        name: 'redesign-finished-loading',
+        listener: () => findTitle(true),
+    });
 };

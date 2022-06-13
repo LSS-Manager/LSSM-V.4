@@ -129,27 +129,20 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
                     if (this.contentEditor) {
-                        this.$store
-                            .dispatch('event/createEvent', {
-                                name: 'redesign-new/edit-alliance-news',
-                                detail: {
-                                    content: this.contentEditor
-                                        .getWysiwygEditorValue(false)
-                                        .split('\n')
-                                        .map(l =>
-                                            l.replace(
-                                                /^<div>|(<br>)?<\/div>$/gu,
-                                                ''
-                                            )
-                                        ),
-                                },
-                            })
-                            .then(event =>
-                                this.$store.dispatch(
-                                    'event/dispatchEvent',
-                                    event
-                                )
-                            );
+                        this.$stores.event.createAndDispatchEvent({
+                            name: 'redesign-new/edit-alliance-news',
+                            detail: {
+                                content: this.contentEditor
+                                    .getWysiwygEditorValue(false)
+                                    .split('\n')
+                                    .map(l =>
+                                        l.replace(
+                                            /^<div>|(<br>)?<\/div>$/gu,
+                                            ''
+                                        )
+                                    ),
+                            },
+                        });
                     }
                     window.lightboxClose(this.lightbox.creation);
                 });

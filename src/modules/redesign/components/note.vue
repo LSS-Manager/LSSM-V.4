@@ -101,17 +101,13 @@ export default Vue.extend<
                     feature: 'redesign-note',
                 })
                 .then(() =>
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-note-saved',
-                            detail: {
-                                content: this.noteText,
-                                previewId: this.previewId,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        )
+                    this.$stores.event.createAndDispatchEvent({
+                        name: 'redesign-note-saved',
+                        detail: {
+                            content: this.noteText,
+                            previewId: this.previewId,
+                        },
+                    })
                 );
         },
         toggleEdit() {

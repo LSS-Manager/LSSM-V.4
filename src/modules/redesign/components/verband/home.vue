@@ -256,27 +256,25 @@ export default Vue.extend<
         },
     },
     mounted() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const Alliance = this;
-        this.$store.dispatch('event/addListener', {
+        this.$stores.event.addListener({
             name: 'redesign-edit-alliance-text-submitted',
-            listener({ detail: { content } }: CustomEvent) {
-                if (Alliance.home.meta.self)
-                    Alliance.$set(Alliance.lightbox.data, 'text', content);
+            listener: ({ detail: { content } }: CustomEvent) => {
+                if (this.home.meta.self)
+                    this.$set(this.lightbox.data, 'text', content);
             },
         });
-        this.$store.dispatch('event/addListener', {
+        this.$stores.event.addListener({
             name: 'redesign-edit-alliance-avatar-submitted',
-            listener({ detail: { img } }: CustomEvent) {
-                if (Alliance.home.meta.self)
-                    Alliance.$set(Alliance.lightbox.data, 'image', img);
+            listener: ({ detail: { img } }: CustomEvent) => {
+                if (this.home.meta.self)
+                    this.$set(this.lightbox.data, 'image', img);
             },
         });
-        this.$store.dispatch('event/addListener', {
+        this.$stores.event.addListener({
             name: 'redesign-edit-alliance-name-submitted',
-            listener({ detail: { content } }: CustomEvent) {
-                if (Alliance.home.meta.self)
-                    Alliance.$set(Alliance.lightbox.data.meta, 'name', content);
+            listener: ({ detail: { content } }: CustomEvent) => {
+                if (this.home.meta.self)
+                    this.$set(this.lightbox.data.meta, 'name', content);
             },
         });
         this.lightbox.finishLoading('verband/home-mounted');

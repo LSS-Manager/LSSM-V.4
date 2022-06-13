@@ -966,20 +966,18 @@ export default Vue.extend<
         },
     },
     mounted() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const Profile = this;
-        this.$store.dispatch('event/addListener', {
+        this.$stores.event.addListener({
             name: 'redesign-edit-profile-submitted',
-            listener({ detail: { content } }: CustomEvent) {
-                if (Profile.profile.self)
-                    Profile.$set(Profile.lightbox.data, 'text', content);
+            listener: ({ detail: { content } }: CustomEvent) => {
+                if (this.profile.self)
+                    this.$set(this.lightbox.data, 'text', content);
             },
         });
-        this.$store.dispatch('event/addListener', {
+        this.$stores.event.addListener({
             name: 'redesign-edit-avatar-submitted',
-            listener({ detail: { img } }: CustomEvent) {
-                if (Profile.profile.self)
-                    Profile.$set(Profile.lightbox.data, 'image', img);
+            listener: ({ detail: { img } }: CustomEvent) => {
+                if (this.profile.self)
+                    this.$set(this.lightbox.data, 'image', img);
             },
         });
         this.getSetting('hiddenFilters', []).then(

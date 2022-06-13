@@ -9,6 +9,7 @@ import ToggleButton from 'vue-js-toggle-button';
 import { useConsoleStore } from '@stores/console';
 import VueJSModal from 'vue-js-modal';
 import { createPinia, PiniaVuePlugin } from 'pinia';
+import { useEventStore } from '@stores/event';
 
 import config from './config';
 import i18n from './i18n';
@@ -118,7 +119,10 @@ LSSM-Team`,
         return;
     }
 
-    const consoleStore = useConsoleStore();
+    LSSM.$stores = {
+        console: useConsoleStore(),
+        event: useEventStore(),
+    };
 
     window[PREFIX] = LSSM;
 
@@ -266,7 +270,7 @@ LSSM-Team`,
                             )
                         )
                         .catch(() =>
-                            consoleStore.warn(
+                            LSSM.$stores?.console.warn(
                                 `[core] root translation »${moduleId}/${LSSM.$store.state.lang}.root« could not be imported. The file is probably nonexistent`
                             )
                         )

@@ -77,7 +77,6 @@
 import Vue from 'vue';
 
 import isEqual from 'lodash/isEqual';
-import { useConsoleStore } from '@stores/console';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Modules } from 'typings/Module';
@@ -152,7 +151,6 @@ export default Vue.extend<
             this.$store.commit('setAppstoreChanges', this.changes);
         },
         save() {
-            const consoleStore = useConsoleStore();
             this.$store
                 .dispatch('storage/set', {
                     key: 'activeModules',
@@ -163,7 +161,7 @@ export default Vue.extend<
                     this.$store.commit('setAppstoreChanges', this.changes);
                     this.$store.commit('setAppstoreReload');
                 })
-                .catch(err => consoleStore.error(err));
+                .catch(err => this.$stores.console.error(err));
         },
         reset() {
             Object.keys(this.modules).forEach(module => {

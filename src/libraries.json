@@ -105,6 +105,7 @@
         "version": "5.27.1"
     },
     "@vue/composition-api": {
+        "icon": "https://vuejs.org/images/logo.png",
         "url": "https://github.com/vuejs/composition-api#readme",
         "version": "1.6.2"
     },
@@ -253,6 +254,7 @@
         "version": "0.2.5"
     },
     "pinia": {
+        "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
         "version": "2.0.14"
     },

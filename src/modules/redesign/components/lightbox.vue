@@ -84,7 +84,6 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { useConsoleStore } from '@stores/console';
 
 import type {
     RedesignLightbox,
@@ -340,7 +339,6 @@ export default Vue.extend<
                 return this.src ?? this.url;
             },
             set(url) {
-                const consoleStore = useConsoleStore();
                 this.loading = true;
                 this.errors = [];
                 const link = new URL(url, window.location.origin);
@@ -515,7 +513,7 @@ export default Vue.extend<
                                 } catch (e) {
                                     if (e instanceof Error) {
                                         this.errors.push(e);
-                                        consoleStore.error(e);
+                                        this.$stores.console.error(e);
                                     }
                                 }
                             }
@@ -573,19 +571,15 @@ export default Vue.extend<
         },
         finishLoading(text) {
             this.loading = false;
-            this.$store
-                .dispatch('event/createEvent', {
-                    name: 'redesign-finished-loading',
-                    detail: {
-                        extra: text,
-                        type: this.type,
-                        data: this.data,
-                        modalName: this.modalName,
-                    },
-                })
-                .then(event =>
-                    this.$store.dispatch('event/dispatchEvent', event)
-                );
+            this.$stores.event.createAndDispatchEvent({
+                name: 'redesign-finished-loading',
+                detail: {
+                    extra: text,
+                    type: this.type,
+                    data: this.data,
+                    modalName: this.modalName,
+                },
+            });
             if (this.clickableLinks.enabled) {
                 import(
                     /* webpackChunkName: "utils/clickableLinks" */ '../../generalExtensions/assets/clickableLinks/util'

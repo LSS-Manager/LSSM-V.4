@@ -304,25 +304,18 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
                     if (this.textEditor && this.rulesEditor) {
-                        this.$store
-                            .dispatch('event/createEvent', {
-                                name: 'redesign-edit-alliance-text-submitted',
-                                detail: {
-                                    content:
-                                        this.textEditor.getWysiwygEditorValue(
-                                            false
-                                        ),
-                                    rules: this.rulesEditor.getWysiwygEditorValue(
+                        this.$stores.event.createAndDispatchEvent({
+                            name: 'redesign-edit-alliance-text-submitted',
+                            detail: {
+                                content:
+                                    this.textEditor.getWysiwygEditorValue(
                                         false
                                     ),
-                                },
-                            })
-                            .then(event =>
-                                this.$store.dispatch(
-                                    'event/dispatchEvent',
-                                    event
-                                )
-                            );
+                                rules: this.rulesEditor.getWysiwygEditorValue(
+                                    false
+                                ),
+                            },
+                        });
                     }
                     window.lightboxClose(this.lightbox.creation);
                 });

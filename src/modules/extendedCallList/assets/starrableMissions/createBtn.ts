@@ -15,20 +15,12 @@ const switchBtnState = (
         starred ? 'far' : 'fas'
     );
     if (triggeredInMissionWindow) {
-        (window[PREFIX] as Vue).$store
-            .dispatch('event/createEvent', {
-                name: 'ecl_starrable-missions_toggle',
-                detail: {
-                    missionId: btn.dataset.mission,
-                },
-            })
-            .then(event =>
-                (window[PREFIX] as Vue).$store.dispatch(
-                    'event/dispatchEvent',
-                    event
-                )
-            )
-            .then();
+        (window[PREFIX] as Vue).$stores.event.createAndDispatchEvent({
+            name: 'ecl_starrable-missions_toggle',
+            detail: {
+                missionId: btn.dataset.mission,
+            },
+        });
     }
 };
 

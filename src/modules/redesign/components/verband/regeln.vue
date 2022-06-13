@@ -77,13 +77,11 @@ export default Vue.extend<
         },
     },
     mounted() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const Alliance = this;
-        this.$store.dispatch('event/addListener', {
+        this.$stores.event.addListener({
             name: 'redesign-edit-alliance-text-submitted',
-            listener({ detail: { rules } }: CustomEvent) {
-                if (Alliance.rules.meta.self)
-                    Alliance.$set(Alliance.lightbox.data, 'rules', rules);
+            listener: ({ detail: { rules } }: CustomEvent) => {
+                if (this.rules.meta.self)
+                    this.$set(this.lightbox.data, 'rules', rules);
             },
         });
         this.lightbox.finishLoading('verband/regeln-mounted');

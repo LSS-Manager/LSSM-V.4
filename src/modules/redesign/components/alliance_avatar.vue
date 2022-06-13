@@ -112,16 +112,12 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-alliance-avatar-submitted',
-                            detail: {
-                                img,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    this.$stores.event.createAndDispatchEvent({
+                        name: 'redesign-edit-alliance-avatar-submitted',
+                        detail: {
+                            img,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },
@@ -144,16 +140,12 @@ export default Vue.extend<
                 .then(() => {
                     this.$set(this.lightbox.data, 'image', '');
                     this.lightbox.finishLoading('avatar-deleted');
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-alliance-avatar-submitted',
-                            detail: {
-                                img: '',
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    this.$stores.event.createAndDispatchEvent({
+                        name: 'redesign-edit-alliance-avatar-submitted',
+                        detail: {
+                            img: '',
+                        },
+                    });
                 });
         },
         select() {

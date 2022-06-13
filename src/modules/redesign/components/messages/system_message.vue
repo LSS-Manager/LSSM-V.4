@@ -90,16 +90,12 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
 
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-messages-system_message-delete',
-                            detail: {
-                                id: this.id,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    this.$stores.event.createAndDispatchEvent({
+                        name: 'redesign-messages-system_message-delete',
+                        detail: {
+                            id: this.id,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },

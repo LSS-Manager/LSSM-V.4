@@ -477,24 +477,17 @@ export default async ({
                 'btn-primary'
             );
         }
-        LSSM.$store
-            .dispatch('event/addListener', {
-                name: `extendedCallList_sorted-missions_toggle-missionwindow`,
-                listener({
-                    detail: { sorted, alertNextBtnClass },
-                }: CustomEvent) {
-                    missionsSorted = sorted;
-                    sortedMissionClass = alertNextBtnClass;
-                    let classes: [string, string] = [
-                        'btn-primary',
-                        'btn-success',
-                    ];
-                    if (missionsSorted)
-                        classes = classes.reverse() as [string, string];
-                    alarmSharePostNextBtn.classList.replace(...classes);
-                },
-            })
-            .then();
+        LSSM.$stores.event.addListener({
+            name: `extendedCallList_sorted-missions_toggle-missionwindow`,
+            listener({ detail: { sorted, alertNextBtnClass } }: CustomEvent) {
+                missionsSorted = sorted;
+                sortedMissionClass = alertNextBtnClass;
+                let classes: [string, string] = ['btn-primary', 'btn-success'];
+                if (missionsSorted)
+                    classes = classes.reverse() as [string, string];
+                alarmSharePostNextBtn.classList.replace(...classes);
+            },
+        });
 
         const inputGroupClass = LSSM.$store.getters.nodeAttribute(
             `${MODULE_ID}_edit-msg_input-group`

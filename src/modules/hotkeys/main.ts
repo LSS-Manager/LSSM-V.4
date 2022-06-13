@@ -1,5 +1,3 @@
-import { useConsoleStore } from '@stores/console';
-
 import getCommandName from './assets/getCommandName';
 import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 
@@ -12,8 +10,6 @@ export default (async ({ LSSM, $m, getSetting }) => {
     const isMainWindow = window.location.pathname.length <= 1;
     const isMissionWindow =
         !!window.location.pathname.match(/^\/missions\/\d+\/?/u);
-
-    const consoleStore = useConsoleStore();
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (
@@ -97,7 +93,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
                     !walkedPath.length
                 )
                     return;
-                return consoleStore.error(
+                return LSSM.$stores.console.error(
                     `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
                         '.'
                     )}! Cannot add command ${command} with hotkey »${hotkey}«`
@@ -122,7 +118,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
                 )
             );
         } else {
-            return consoleStore.error(
+            return LSSM.$stores.console.error(
                 `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
             );
         }

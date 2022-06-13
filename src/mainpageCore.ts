@@ -257,21 +257,14 @@ export default async (LSSM: Vue): Promise<void> => {
                                 id: building.id,
                                 feature: 'mainpageCore-buildingMarkerAdd',
                             })
-                            .then(
-                                async () =>
-                                    await LSSM.$store.dispatch(
-                                        'event/dispatchEvent',
-                                        await LSSM.$store.dispatch(
-                                            'event/createEvent',
-                                            {
-                                                name: 'buildingMarkerAdd',
-                                                detail: {
-                                                    marker: buildingMarker,
-                                                    building,
-                                                },
-                                            }
-                                        )
-                                    )
+                            .then(() =>
+                                LSSM.$stores.event.createAndDispatchEvent({
+                                    name: 'buildingMarkerAdd',
+                                    detail: {
+                                        marker: buildingMarker,
+                                        building,
+                                    },
+                                })
                             )
                     );
             }

@@ -33,13 +33,11 @@ export default (async ({ LSSM, getSetting }) => {
             }
         }
     };
-    LSSM.$store
-        .dispatch('event/addListener', {
-            name: 'redesign-finished-loading',
-            listener(e: CustomEvent) {
-                if (e.detail.type === 'profile') addProfileId(true);
-            },
-        })
-        .then();
+    LSSM.$stores.event.addListener({
+        name: 'redesign-finished-loading',
+        listener(e: CustomEvent) {
+            if (e.detail.type === 'profile') addProfileId(true);
+        },
+    });
     if (window.location.pathname.match(/\/profile\/\d+/u)) addProfileId();
 }) as ModuleMainFunction;

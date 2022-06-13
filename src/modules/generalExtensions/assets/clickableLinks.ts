@@ -68,17 +68,15 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         })
         .then();
 
-    LSSM.$store
-        .dispatch('event/addListener', {
-            name: 'redesign-note-saved',
-            listener({ detail: { content, previewId } }: CustomEvent) {
-                const preview = document.querySelector<HTMLPreElement>(
-                    `#${previewId}`
-                );
-                if (!preview) return;
-                preview.innerHTML = content;
-                scopedClickableLinks(preview);
-            },
-        })
-        .then();
+    LSSM.$stores.event.addListener({
+        name: 'redesign-note-saved',
+        listener({ detail: { content, previewId } }: CustomEvent) {
+            const preview = document.querySelector<HTMLPreElement>(
+                `#${previewId}`
+            );
+            if (!preview) return;
+            preview.innerHTML = content;
+            scopedClickableLinks(preview);
+        },
+    });
 };

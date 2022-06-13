@@ -78,16 +78,12 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-alliance-name-submitted',
-                            detail: {
-                                content,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    this.$stores.event.createAndDispatchEvent({
+                        name: 'redesign-edit-alliance-name-submitted',
+                        detail: {
+                            content,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },
