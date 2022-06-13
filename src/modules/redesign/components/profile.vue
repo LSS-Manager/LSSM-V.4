@@ -598,6 +598,7 @@ import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import moment from 'moment';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { InternalBuilding } from 'typings/Building';
@@ -966,14 +967,15 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$stores.event.addListener({
+        const eventStore = useEventStore();
+        eventStore.addListener({
             name: 'redesign-edit-profile-submitted',
             listener: ({ detail: { content } }: CustomEvent) => {
                 if (this.profile.self)
                     this.$set(this.lightbox.data, 'text', content);
             },
         });
-        this.$stores.event.addListener({
+        eventStore.addListener({
             name: 'redesign-edit-avatar-submitted',
             listener: ({ detail: { img } }: CustomEvent) => {
                 if (this.profile.self)

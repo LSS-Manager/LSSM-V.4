@@ -77,6 +77,8 @@
 import Vue from 'vue';
 
 import isEqual from 'lodash/isEqual';
+import { useConsoleStore } from '@stores/console';
+import { useStorageStore } from '@stores/storage';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Modules } from 'typings/Module';
@@ -151,8 +153,8 @@ export default Vue.extend<
             this.$store.commit('setAppstoreChanges', this.changes);
         },
         save() {
-            this.$store
-                .dispatch('storage/set', {
+            useStorageStore()
+                .set({
                     key: 'activeModules',
                     value: [...new Set(this.active)],
                 })
@@ -161,7 +163,7 @@ export default Vue.extend<
                     this.$store.commit('setAppstoreChanges', this.changes);
                     this.$store.commit('setAppstoreReload');
                 })
-                .catch(err => this.$stores.console.error(err));
+                .catch(err => useConsoleStore().error(err));
         },
         reset() {
             Object.keys(this.modules).forEach(module => {

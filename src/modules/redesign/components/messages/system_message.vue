@@ -26,6 +26,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
+import { useEventStore } from '@stores/event';
 
 type Component = RedesignComponent<
     'message',
@@ -90,7 +91,7 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
 
-                    this.$stores.event.createAndDispatchEvent({
+                    useEventStore().createAndDispatchEvent({
                         name: 'redesign-messages-system_message-delete',
                         detail: {
                             id: this.id,

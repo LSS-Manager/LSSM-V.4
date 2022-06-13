@@ -21,6 +21,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { DefaultData } from 'vue/types/options';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
@@ -78,7 +80,7 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$stores.event.createAndDispatchEvent({
+                    useEventStore().createAndDispatchEvent({
                         name: 'redesign-edit-alliance-name-submitted',
                         detail: {
                             content,

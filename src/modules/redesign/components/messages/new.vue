@@ -237,12 +237,12 @@ export default Vue.extend<
     mounted() {
         this.lightbox.finishLoading('message-new-mounted');
 
-        this.$store
-            .dispatch('storage/get', {
+        this.$stores.storage
+            .get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],
             })
-            .then((activeModules: string[]) => {
+            .then(activeModules => {
                 this.messageTemplates.enabled =
                     activeModules.includes('messageTemplates');
                 if (!this.messageTemplates.enabled) return;

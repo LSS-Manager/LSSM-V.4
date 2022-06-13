@@ -296,6 +296,7 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useStorageStore } from '@stores/storage';
 
 import loadingIndicatorStorageKey from '../../build/plugins/LoadingProgressPluginStorageKey';
 
@@ -395,6 +396,7 @@ export default Vue.extend<
             changes: false,
             tab: 0,
             exportData: '',
+            storageStore: useStorageStore(),
         };
     },
     computed: {
@@ -620,7 +622,7 @@ export default Vue.extend<
             return false;
         },
         getExportData() {
-            this.$store.dispatch('storage/getAllItems').then(storage => {
+            this.storageStore.getAllItems().then(storage => {
                 this.exportData = `data:application/json;charset=utf-8,${encodeURIComponent(
                     JSON.stringify({
                         safeFileVersion: 1,
@@ -659,7 +661,7 @@ export default Vue.extend<
                     result.activeModules &&
                     Array.isArray(result.activeModules)
                 ) {
-                    await this.$store.dispatch('storage/set', {
+                    await this.storageStore.set({
                         key: 'activeModules',
                         value: result.activeModules,
                     });
@@ -668,8 +670,8 @@ export default Vue.extend<
                 resultEntries.forEach(([module, value], index) => {
                     if (['activeModules', 'safeFileVersion'].includes(module))
                         return;
-                    this.$store
-                        .dispatch('storage/set', {
+                    this.storageStore
+                        .set({
                             key: `settings_${module}`,
                             value: {
                                 ...value,

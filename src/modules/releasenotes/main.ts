@@ -100,12 +100,11 @@ export default async (LSSM: Vue): Promise<void> => {
                 class: 'releasenotes-modal',
             },
             {
-                'before-close': async function () {
-                    await LSSM.$store.dispatch('storage/set', {
+                'before-close': () =>
+                    LSSM.$stores.storage.set({
                         key: LAST_VERSION_STORAGE_KEY,
                         value: notes[0][0],
-                    });
-                },
+                    }),
             }
         );
 
@@ -113,8 +112,8 @@ export default async (LSSM: Vue): Promise<void> => {
         .dispatch('addMenuItem', $m('name').toString())
         .then(element => element.addEventListener('click', () => openNotes()));
 
-    LSSM.$store
-        .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
+    LSSM.$stores.storage
+        .get<string>({ key: LAST_VERSION_STORAGE_KEY, defaultValue: '4.0.0' })
         .then(
             key =>
                 semverLt(

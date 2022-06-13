@@ -5,7 +5,6 @@ import broadcast from './store/broadcast';
 import config from './config';
 import notifications from './store/notifications';
 import settings from './store/settings';
-import storage from './store/storage';
 
 import type { InternalBuilding } from 'typings/Building';
 import type { InternalVehicle } from 'typings/Vehicle';
@@ -37,7 +36,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
 
     return new Vuex.Store<RootState>({
         modules: {
-            storage,
             settings,
             api,
             notifications,

@@ -2,8 +2,6 @@ import UAParser from 'ua-parser-js';
 
 import config from '../../config';
 
-import type { StorageSet } from 'typings/store/storage/Actions';
-
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 const HIDE_BROWSER_NOTE_KEY = 'last_browsersupport_note';
 
@@ -15,10 +13,10 @@ export default (
         LSSM.$t(`modules.telemetry.${key}`, args);
 
     const checkBrowser = (browser: UAParser.IBrowser, browserMajor: number) =>
-        LSSM.$store
-            .dispatch('storage/get', {
+        LSSM.$stores.storage
+            .get<string>({
                 key: HIDE_BROWSER_NOTE_KEY,
-                defaultValue: false,
+                defaultValue: '',
             })
             .then(storageValue => {
                 const browserName = browser.name?.toLowerCase() ?? '';
@@ -73,11 +71,11 @@ export default (
                             {
                                 title: $m('browsersupport.close'),
                                 handler() {
-                                    LSSM.$store
-                                        .dispatch('storage/set', {
+                                    LSSM.$stores.storage
+                                        .set({
                                             key: HIDE_BROWSER_NOTE_KEY,
                                             value: browserName,
-                                        } as StorageSet)
+                                        })
                                         .then(() => LSSM.$modal.hide('dialog'));
                                 },
                             },
@@ -101,11 +99,11 @@ export default (
                             {
                                 title: $m('browsersupport.close'),
                                 handler() {
-                                    LSSM.$store
-                                        .dispatch('storage/set', {
+                                    LSSM.$stores.storage
+                                        .set({
                                             key: HIDE_BROWSER_NOTE_KEY,
-                                            value: `${browserName} ${browserMajor}`,
-                                        } as StorageSet)
+                                            value: browserName,
+                                        })
                                         .then(() => LSSM.$modal.hide('dialog'));
                                 },
                             },
@@ -155,8 +153,9 @@ export default (
                                     ? 'mapkit'
                                     : 'osm',
                             buildings: LSSM.$store.state.api.buildings.length,
-                            modules: await LSSM.$store.dispatch('storage/get', {
+                            modules: await LSSM.$stores.storage.get<string[]>({
                                 key: 'activeModules',
+                                defaultValue: [],
                             }),
                         },
                         flag: config.games[LSSM.$i18n.locale].flag,
@@ -186,8 +185,8 @@ export default (
                 browser.version?.split('.')[0] || '-1'
             );
 
-            LSSM.$store
-                .dispatch('storage/get', {
+            LSSM.$stores.storage
+                .get<boolean>({
                     key: NOTE_STORAGE_KEY,
                     defaultValue: false,
                 })
@@ -204,11 +203,11 @@ export default (
                                     title: $m('info.decline'),
                                     handler() {
                                         // First we store that we confirmed the telemetry dialog
-                                        LSSM.$store
-                                            .dispatch('storage/set', {
+                                        LSSM.$stores.storage
+                                            .set({
                                                 key: NOTE_STORAGE_KEY,
                                                 value: true,
-                                            } as StorageSet)
+                                            })
                                             .then(() => {
                                                 LSSM.$modal.hide('dialog');
                                                 checkBrowser(
@@ -231,11 +230,11 @@ export default (
                                     title: $m('info.close'),
                                     handler() {
                                         // First we store that we confirmed the telemetry dialog
-                                        LSSM.$store
-                                            .dispatch('storage/set', {
+                                        LSSM.$stores.storage
+                                            .set({
                                                 key: NOTE_STORAGE_KEY,
                                                 value: true,
-                                            } as StorageSet)
+                                            })
                                             .then(() =>
                                                 sendStats(
                                                     browser,

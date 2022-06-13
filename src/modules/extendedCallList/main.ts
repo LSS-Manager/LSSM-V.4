@@ -131,13 +131,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                           $m
                       )
                     : null;
-            const activeModules: string[] = await LSSM.$store.dispatch(
-                'storage/get',
-                {
-                    key: 'activeModules',
-                    defaultValue: [],
-                }
-            );
+            const activeModules = await LSSM.$stores.storage.get<string[]>({
+                key: 'activeModules',
+                defaultValue: [],
+            });
             const enableSAP: boolean =
                 activeModules.includes('shareAlliancePost') &&
                 (await LSSM.$store.dispatch('settings/getSetting', {

@@ -84,6 +84,8 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useEventStore } from '@stores/event';
+import { useConsoleStore } from '@stores/console';
 
 import type {
     RedesignLightbox,
@@ -292,6 +294,8 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            consoleStore: useConsoleStore(),
+            eventStore: useEventStore(),
             windows,
         };
     },
@@ -513,7 +517,7 @@ export default Vue.extend<
                                 } catch (e) {
                                     if (e instanceof Error) {
                                         this.errors.push(e);
-                                        this.$stores.console.error(e);
+                                        this.consoleStore.error(e);
                                     }
                                 }
                             }
@@ -571,7 +575,7 @@ export default Vue.extend<
         },
         finishLoading(text) {
             this.loading = false;
-            this.$stores.event.createAndDispatchEvent({
+            this.eventStore.createAndDispatchEvent({
                 name: 'redesign-finished-loading',
                 detail: {
                     extra: text,

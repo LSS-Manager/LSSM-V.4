@@ -26,6 +26,7 @@
 import Vue from 'vue';
 
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -38,6 +39,7 @@ type Component = RedesignComponent<
         image: string;
         imageFile: File | null;
         input: HTMLInputElement;
+        eventStore: ReturnType<typeof useEventStore>;
     },
     {
         submit(): void;
@@ -62,6 +64,7 @@ export default Vue.extend<
             image: '',
             imageFile: null,
             input,
+            eventStore: useEventStore(),
         };
     },
     methods: {
@@ -112,7 +115,7 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$stores.event.createAndDispatchEvent({
+                    this.eventStore.createAndDispatchEvent({
                         name: 'redesign-edit-alliance-avatar-submitted',
                         detail: {
                             img,
@@ -140,7 +143,7 @@ export default Vue.extend<
                 .then(() => {
                     this.$set(this.lightbox.data, 'image', '');
                     this.lightbox.finishLoading('avatar-deleted');
-                    this.$stores.event.createAndDispatchEvent({
+                    this.eventStore.createAndDispatchEvent({
                         name: 'redesign-edit-alliance-avatar-submitted',
                         detail: {
                             img: '',

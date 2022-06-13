@@ -20,6 +20,7 @@ import Vue from 'vue';
 
 import type { DefaultData } from 'vue/types/options';
 import type { RedesignComponent } from 'typings/modules/Redesign';
+import { useEventStore } from '@stores/event';
 
 type Component = RedesignComponent<
     'profile',
@@ -77,7 +78,7 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$stores.event.createAndDispatchEvent({
+                    useEventStore().createAndDispatchEvent({
                         name: 'redesign-edit-profile-submitted',
                         detail: {
                             content,

@@ -1,5 +1,4 @@
 import type { InternalVehicle } from 'typings/Vehicle';
-import type { StorageSet } from 'typings/store/storage/Actions';
 import type { $m, $mc } from 'typings/Module';
 
 const isLightColor = (color: `#${string}`): boolean => {
@@ -126,11 +125,11 @@ export default (
                     {
                         title: $m('tailoredTabs.vehicleMissing.close'),
                         handler() {
-                            LSSM.$store
-                                .dispatch('storage/set', {
+                            LSSM.$stores.storage
+                                .set({
                                     key: NOT_IN_TABS_ALERTED,
                                     value: vehiclesNotInTabs,
-                                } as StorageSet)
+                                })
                                 .then(() => LSSM.$modal.hide('dialog'));
                         },
                     },
@@ -139,11 +138,8 @@ export default (
         };
 
         warningBtnWrapper?.addEventListener('click', showAlert);
-        LSSM.$store
-            .dispatch('storage/get', {
-                key: NOT_IN_TABS_ALERTED,
-                defaultValue: [],
-            })
+        LSSM.$stores.storage
+            .get<string[]>({ key: NOT_IN_TABS_ALERTED, defaultValue: [] })
             .then(
                 async alerted =>
                     !(await import('lodash/isEqual')).default(

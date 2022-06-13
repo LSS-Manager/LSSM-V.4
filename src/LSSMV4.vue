@@ -81,7 +81,8 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$store
+        // TODO re-enable this after migrating settings store to pinia
+        /*this.$store
             .dispatch('settings/getModule', 'global')
             .then(({ iconBg, iconBgAsNavBg }) => {
                 if (iconBgAsNavBg) {
@@ -93,7 +94,7 @@ export default Vue.extend<
                         },
                     });
                 }
-            });
+            });*/
 
         // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
         const modalsContainer =

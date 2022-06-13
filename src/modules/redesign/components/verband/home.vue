@@ -107,6 +107,7 @@ import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import { useEventStore } from '@stores/event';
 
 type Component = RedesignSubComponent<
     'home',
@@ -256,21 +257,22 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$stores.event.addListener({
+        const eventStore = useEventStore();
+        eventStore.addListener({
             name: 'redesign-edit-alliance-text-submitted',
             listener: ({ detail: { content } }: CustomEvent) => {
                 if (this.home.meta.self)
                     this.$set(this.lightbox.data, 'text', content);
             },
         });
-        this.$stores.event.addListener({
+        eventStore.addListener({
             name: 'redesign-edit-alliance-avatar-submitted',
             listener: ({ detail: { img } }: CustomEvent) => {
                 if (this.home.meta.self)
                     this.$set(this.lightbox.data, 'image', img);
             },
         });
-        this.$stores.event.addListener({
+        eventStore.addListener({
             name: 'redesign-edit-alliance-name-submitted',
             listener: ({ detail: { content } }: CustomEvent) => {
                 if (this.home.meta.self)

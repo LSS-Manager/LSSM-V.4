@@ -7,9 +7,10 @@ import Notifications from 'vue-notification';
 import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
 import { useConsoleStore } from '@stores/console';
+import { useEventStore } from '@stores/event';
+import { useStorageStore } from '@stores/storage';
 import VueJSModal from 'vue-js-modal';
 import { createPinia, PiniaVuePlugin } from 'pinia';
-import { useEventStore } from '@stores/event';
 
 import config from './config';
 import i18n from './i18n';
@@ -122,6 +123,7 @@ LSSM-Team`,
     LSSM.$stores = {
         console: useConsoleStore(),
         event: useEventStore(),
+        storage: useStorageStore(),
     };
 
     window[PREFIX] = LSSM;
@@ -227,14 +229,14 @@ LSSM-Team`,
         }
     })();
 
-    LSSM.$store
-        .dispatch('storage/get', {
+    LSSM.$stores.storage
+        .get<string[]>({
             key: 'activeModules',
             defaultValue: [],
         })
-        .then((activeModules: string[]) => {
+        .then(activeModules => {
             if (!Array.isArray(activeModules)) {
-                return LSSM.$store.dispatch('storage/set', {
+                return LSSM.$stores.storage.set({
                     key: 'activeModules',
                     value: [],
                 });
@@ -297,6 +299,7 @@ LSSM-Team`,
                                     await LSSM.$store.dispatch(
                                         'settings/register',
                                         {
+                                            LSSM,
                                             moduleId,
                                             settings: await (
                                                 (

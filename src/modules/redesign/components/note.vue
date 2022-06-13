@@ -29,6 +29,7 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -101,7 +102,7 @@ export default Vue.extend<
                     feature: 'redesign-note',
                 })
                 .then(() =>
-                    this.$stores.event.createAndDispatchEvent({
+                    useEventStore().createAndDispatchEvent({
                         name: 'redesign-note-saved',
                         detail: {
                             content: this.noteText,

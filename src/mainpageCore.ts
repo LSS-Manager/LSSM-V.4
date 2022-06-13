@@ -9,13 +9,6 @@ import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 import type { Color, Hidden, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
-    window.console.info(
-        `Running %cLSSM%c in Version %c${VERSION}%c`,
-        'font-weight: bold;',
-        'font-weight: normal;',
-        'font-style: italic;'
-    );
-
     require('./natives/betterFooterLinks');
 
     const indicatorWrapper = document.createElement('li') as HTMLLIElement;

@@ -59,82 +59,76 @@ export default {
             commit('setSettingsReload');
         },
         register(
-            { commit, dispatch }: SettingsActionStoreParams,
+            { commit }: SettingsActionStoreParams,
             { moduleId, settings }: SettingsRegister
         ) {
             return new Promise<void>(resolve =>
-                dispatch(
-                    'storage/get',
-                    {
+                (window[PREFIX] as Vue).$stores.storage
+                    .get<Setting | false>({
                         key: `settings_${moduleId}`,
-                        defaultValue: {},
-                    },
-                    {
-                        root: true,
-                    }
-                ).then((storage: Setting) => {
-                    if (storage) {
-                        Object.entries(storage).forEach(([key, value]) => {
-                            if (settings.hasOwnProperty(key)) {
-                                const setting = settings[key];
-                                if (
-                                    setting.type === 'appendable-list' &&
-                                    Array.isArray(value)
-                                ) {
-                                    settings[key].value = {
-                                        value,
-                                        enabled: !setting.disableable,
-                                    };
+                        defaultValue: false,
+                    })
+                    .then(storage => {
+                        if (storage) {
+                            Object.entries(storage).forEach(([key, value]) => {
+                                if (settings.hasOwnProperty(key)) {
+                                    const setting = settings[key];
+                                    if (
+                                        setting.type === 'appendable-list' &&
+                                        Array.isArray(value)
+                                    ) {
+                                        settings[key].value = {
+                                            value,
+                                            enabled: !setting.disableable,
+                                        };
+                                    }
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-ignore
+                                    else {
+                                        settings[key].value = value;
+                                    }
                                 }
-                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                // @ts-ignore
-                                else {
-                                    settings[key].value = value;
-                                }
+                            });
+                        }
+                        Object.values(settings).forEach(setting => {
+                            if (setting.type === 'appendable-list') {
+                                setting.value = setting.value ?? {
+                                    value: (setting as AppendableList).default,
+                                    enabled: !(setting as AppendableList)
+                                        .disableable,
+                                };
+                            } else {
+                                setting.value =
+                                    setting.value ??
+                                    (setting as Setting).default;
                             }
                         });
-                    }
-                    Object.values(settings).forEach(setting => {
-                        if (setting.type === 'appendable-list') {
-                            setting.value = setting.value ?? {
-                                value: (setting as AppendableList).default,
-                                enabled: !(setting as AppendableList)
-                                    .disableable,
-                            };
-                        } else {
-                            setting.value =
-                                setting.value ?? (setting as Setting).default;
-                        }
-                    });
-                    commit('register', { moduleId, settings });
-                    resolve();
-                })
+                        commit('register', { moduleId, settings });
+                        resolve();
+                    })
             );
         },
-        getModule(
-            { dispatch, state }: SettingsActionStoreParams,
-            moduleId: string
-        ) {
+        getModule({ state }: SettingsActionStoreParams, moduleId: string) {
             return new Promise(resolve => {
-                dispatch(
-                    'storage/get',
-                    { key: `settings_${moduleId}`, defaultValue: {} },
-                    {
-                        root: true,
-                    }
-                ).then(storage =>
-                    resolve({
-                        ...Object.fromEntries(
-                            Object.entries(state.settings[moduleId] ?? {}).map(
-                                ([key, { value, default: def }]) => [
+                (window[PREFIX] as Vue).$stores.storage
+                    // eslint-disable-next-line @typescript-eslint/ban-types
+                    .get<Setting | {}>({
+                        key: `settings_${moduleId}`,
+                        defaultValue: {},
+                    })
+                    .then(storage =>
+                        resolve({
+                            ...Object.fromEntries(
+                                Object.entries(
+                                    state.settings[moduleId] ?? {}
+                                ).map(([key, { value, default: def }]) => [
                                     key,
                                     value ?? def,
-                                ]
-                            )
-                        ),
-                        ...storage,
-                    })
-                );
+                                ])
+                            ),
+                            ...storage,
+                        })
+                    );
             });
         },
         setSetting(
@@ -144,19 +138,15 @@ export default {
             commit('modifyValue', { moduleId, settingId, value });
             return new Promise(resolve =>
                 dispatch('getModule', moduleId).then(module => {
-                    dispatch(
-                        'storage/set',
-                        {
+                    (window[PREFIX] as Vue).$stores.storage
+                        .set({
                             key: `settings_${moduleId}`,
                             value: {
                                 ...module,
                                 [settingId]: value,
                             },
-                        },
-                        {
-                            root: true,
-                        }
-                    ).then(resolve);
+                        })
+                        .then(resolve);
                 })
             );
         },

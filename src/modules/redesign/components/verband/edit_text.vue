@@ -143,6 +143,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 import type { SCEditor } from 'typings/SCEditor/SCEditor';
 
@@ -304,7 +306,7 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
                     if (this.textEditor && this.rulesEditor) {
-                        this.$stores.event.createAndDispatchEvent({
+                        useEventStore().createAndDispatchEvent({
                             name: 'redesign-edit-alliance-text-submitted',
                             detail: {
                                 content:

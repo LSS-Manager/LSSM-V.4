@@ -17,6 +17,7 @@
 import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
@@ -77,7 +78,7 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$stores.event.addListener({
+        useEventStore().addListener({
             name: 'redesign-edit-alliance-text-submitted',
             listener: ({ detail: { rules } }: CustomEvent) => {
                 if (this.rules.meta.self)

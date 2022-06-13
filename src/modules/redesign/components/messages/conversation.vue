@@ -477,12 +477,12 @@ export default Vue.extend<
         this.loadedPages.last = this.page;
         this.lightbox.finishLoading('conversation-mounted');
 
-        this.$store
-            .dispatch('storage/get', {
+        this.$stores.storage
+            .get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],
             })
-            .then((activeModules: string[]) => {
+            .then(activeModules => {
                 this.messageTemplates.enabled =
                     activeModules.includes('messageTemplates');
                 if (!this.messageTemplates.enabled) return;

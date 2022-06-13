@@ -6,6 +6,7 @@ import type { ModuleSettings, Settings } from '../../Setting';
 export type SettingsActionStoreParams = ActionContext<SettingsState, RootState>;
 
 export interface SettingsRegister {
+    LSSM: Vue;
     moduleId: string;
     settings: Settings;
 }
