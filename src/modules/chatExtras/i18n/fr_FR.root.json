@@ -19,12 +19,12 @@
             "title": "Design léger de l'historique du chat"
         },
         "selfHighlight": {
-            "description": "highlights your username in the chat with a custom color",
-            "title": "custom color in chat"
+            "description": "mettre en évidence votre nom d'utilisateur dans le chat avec une couleur personnalisée.",
+            "title": "Couleur personnalisée dans le chat"
         },
         "selfHighlightColor": {
-            "description": "choose here, which color your username should be highlighted in",
-            "title": "custom color in chat: color"
+            "description": "Choisissez la couleur dans laquelle votre nom d'utilisateur doit être mis en évidence.",
+            "title": "Couleur personnalisée dans le chat: couleur"
         }
     }
 }
