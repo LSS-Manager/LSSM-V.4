@@ -145,7 +145,7 @@
 import Vue from 'vue';
 
 import { Chart } from 'highcharts-vue';
-import { useSettingsStore } from 'stores/settings';
+import { useSettingsStore } from '@stores/settings';
 
 import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
 import type {

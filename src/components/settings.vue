@@ -371,9 +371,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        const settings = cloneDeep(
-            this.$store.state.settings.settings
-        ) as ModuleSettings;
+        const settingsStore = useSettingsStore();
+        const settings = cloneDeep(settingsStore.settings) as ModuleSettings;
         Object.entries(settings).forEach(([module, sets]) => {
             settings[module] = Object.fromEntries(
                 Object.entries(sets).filter(([, { type }]) => type !== 'hidden')
@@ -398,7 +397,7 @@ export default Vue.extend<
             tab: 0,
             exportData: '',
             storageStore: useStorageStore(),
-            settingsStore: useSettingsStore(),
+            settingsStore,
         };
     },
     computed: {
@@ -497,7 +496,7 @@ export default Vue.extend<
                 }
             }
             await this.settingsStore.saveSettings(this.settings);
-            this.settings = cloneDeep(this.$store.state.settings.settings);
+            this.settings = cloneDeep(this.settingsStore.settings);
             this.startSettings = cloneDeep(this.settings);
             this.update();
             this.getExportData();

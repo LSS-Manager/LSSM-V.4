@@ -320,7 +320,7 @@ export default Vue.extend<
                 'modules.settings.closeWarning.text'
             ).toString();
             const unloadListener = (event: BeforeUnloadEvent) => {
-                if (!this.$store.state.settings.changes) return;
+                if (!this.settingsStore.changes) return;
                 event.preventDefault();
                 event.returnValue = closeWarningText;
                 return closeWarningText;
@@ -338,9 +338,9 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function (event: { cancel(): void }) {
-                        if (!LSSM.$store.state.settings.changes) {
-                            if (LSSM.$store.state.settings.reload) {
+                    'before-close': (event: { cancel(): void }) => {
+                        if (!this.settingsStore.changes) {
+                            if (this.settingsStore.reload) {
                                 event.cancel();
                                 return window.location.reload(true);
                             }

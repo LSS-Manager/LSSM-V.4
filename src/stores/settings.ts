@@ -17,7 +17,7 @@ export const useSettingsStore = defineStore('settings', {
             reload: false,
         },
     getters: {
-        storageKey: () => (moduleId: string) => `setting_${moduleId}`,
+        storageKey: () => (moduleId: string) => `settings_${moduleId}`,
     },
     actions: {
         setChangesStatus(changes: boolean) {

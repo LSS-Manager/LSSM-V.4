@@ -13,11 +13,9 @@ export const useStorageStore = defineStore('storage', {
     state: () => ({}),
     actions: {
         get<ValueType = unknown>({ key, defaultValue }: StorageGet<ValueType>) {
-            return new Promise<ValueType>(resolve =>
-                localforage
-                    .getItem<ValueType>(key)
-                    .then(value => resolve(value ?? defaultValue))
-            );
+            return localforage
+                .getItem<ValueType>(key)
+                .then(value => value ?? defaultValue);
         },
         set<ValueType>({ key, value }: StorageSet<ValueType>) {
             if (typeof key === 'undefined' || typeof value === 'undefined') {
