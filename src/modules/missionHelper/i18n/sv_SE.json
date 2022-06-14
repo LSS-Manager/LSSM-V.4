@@ -17,7 +17,6 @@
     },
     "prerequisites": {
         "brush_extension": "Skogsexpansion | Skogsexpansion",
-        "federalpolice_stations": "Federal Police Station | Federal Police Stations",
         "fire_aviation_count": "Brandflygsstation",
         "fire_stations": "Brandstation | Brandstationer",
         "fire_support_count": "Brandstöds utbyggnad | Brandstöds utbyggnader",
@@ -26,6 +25,11 @@
         "police_helicopter_stations": "Polisflyg | Polisflyg",
         "police_stations": "Polisstation | Polisstationer",
         "rescue_stations": "Ambulansstation | Ambulansstationer",
+        "bike_police": "cykelpolisutbyggnad",
+        "traffic_police": "trafikpolis utbyggnad",
+        "detention_unit_count": "polisens transportenhet",
+        "bomb_disposal_count": "bombskyddsutbyggnad",
+        "police_service_group_leader": "yttrebefäl, utbyggnad",
         "title": "Krav för generering av uppdrag | Krav för generering av uppdrag"
     },
     "prisoners": {
@@ -48,6 +52,10 @@
             "ambulances": "Ambulans | Ambulanser",
             "battalion_chief_vehicles": "Brandbefäl",
             "boats": "Båt | Båtar",
+            "traffic_car": "trafikpolis",
+            "detention_unit": "häktesbuss",
+            "fbi_bomb": "NBS",
+            "police_service_group_leader": "YB",
             "brush_truck": "Skogbrandbil",
             "diver_car": "Dykbil | Dykbilar",
             "fire_aviation": "brandflygsenhet",
@@ -66,13 +74,13 @@
             "platform_trucks": "Stegbil | Stegbilar",
             "police_cars": "Radiobil | Radiobilar",
             "police_helicopters": "Polishelikopter | Polishelikoptrar",
-            "police_horse": "Ridande Polis",
+            "police_horse": "polishästar",
             "pump": "Motorspruta",
             "sheriff": "Polisfordon",
             "swat_armored_vehicle": "Bepansrat insatsfordon",
             "swat_suv": "Insatsfordon",
-            "traffic_car": "Polisbil | Polisbilar",
-            "water_tankers": "Tankbil | Tankbilar"
+            "water_tankers": "Tankbil | Tankbilar",
+            "bike_police": "cykelpolis"
         },
         "multifunctionals": {
             "allow_rw_instead_of_lf": {

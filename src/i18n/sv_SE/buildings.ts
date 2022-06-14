@@ -242,6 +242,36 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Trafikpolisutbyggnad',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
+            {
+                caption: 'Cykelpolisutbyggnad',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
+            {
+                caption: 'Bombskyddsutbyggnad',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
+            {
+                caption: 'Yttrebefäl',
+                credits: -1,
+                coins: 25,
+                duration: '7 dagar',
+            },
+            {
+                caption: 'Polisens transportenhet',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
         ],
         levelcost: ['1. 10.000', '2. 50 000', '3.-14. 100.000'],
         maxBuildings: '1.700 Polisstation',
@@ -255,7 +285,7 @@ export default {
         special: '',
     },
     7: {
-        caption: 'Larmcentral',
+        caption: 'Svarpunkt',
         color: '#24c3ae',
         coins: 0,
         credits: 0,
@@ -426,6 +456,36 @@ export default {
                 duration: '7 dagar',
                 newCells: 1,
                 cannotDisable: true,
+            },
+            {
+                caption: 'Trafikpolisutbyggnad',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
+            {
+                caption: 'Cykelpolisutbyggnad',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
+            {
+                caption: 'Bombskyddsutbyggnad',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
+            },
+            {
+                caption: 'Yttrebefäl',
+                credits: -1,
+                coins: 25,
+                duration: '7 dagar',
+            },
+            {
+                caption: 'Polisens transportenhet',
+                credits: 50_000,
+                coins: 15,
+                duration: '5 dagar',
             },
         ],
         levelcost: [
