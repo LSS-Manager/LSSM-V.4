@@ -48,6 +48,8 @@
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { mapState } from 'pinia';
+import { useNotificationStore } from '@stores/notifications';
 import { useSettingsStore } from '@stores/settings';
 
 import type { DefaultMethods, DefaultProps } from 'vue/types/options';
@@ -68,9 +70,9 @@ export default Vue.extend<
         };
     },
     computed: {
-        notificationGroups() {
-            return this.$store.state.notifications.groups;
-        },
+        ...mapState(useNotificationStore, {
+            notificationGroups: 'groups',
+        }),
     },
     methods: {
         getHandler(props, $event) {

@@ -1,9 +1,8 @@
 import toggle from './toggle';
 import createBtn, { type CollapsableButton } from './createBtn';
 
-import type { ModuleMainFunction } from 'typings/Module';
-import type { $m } from 'typings/Module';
 import type { ButtonGroupCallback } from '../utils/buttonGroup';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export type AddCollapsableButton = (
     mission: ButtonGroupCallback,

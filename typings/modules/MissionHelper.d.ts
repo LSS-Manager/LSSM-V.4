@@ -1,7 +1,6 @@
-import type { $m, ModuleMainFunction } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Mission } from 'typings/Mission';
-import type VueI18n from 'vue-i18n';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export type VehicleRequirements = Record<
     string,

@@ -1,7 +1,7 @@
+import type { useSettingsStore } from '@stores/settings';
 import type VueI18n from 'vue-i18n';
 import type { Building, BuildingCategory } from 'typings/Building';
 import type { Vehicle, VehicleCategory } from 'typings/Vehicle';
-import { useSettingsStore } from '@stores/settings';
 
 export interface ChartSummary {
     buildingsId: string;

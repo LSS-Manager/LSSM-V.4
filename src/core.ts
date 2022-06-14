@@ -8,6 +8,7 @@ import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
+import { useNotificationStore } from '@stores/notifications';
 import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 import VueJSModal from 'vue-js-modal';
@@ -124,6 +125,7 @@ LSSM-Team`,
     LSSM.$stores = {
         console: useConsoleStore(),
         event: useEventStore(),
+        notifications: useNotificationStore(),
         settings: useSettingsStore(),
         storage: useStorageStore(),
     };

@@ -78,7 +78,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 }`;
                 if (isWhispered) {
                     events['allianceChatWhisper'].forEach(async alert =>
-                        LSSM.$store.dispatch('notifications/sendNotification', {
+                        LSSM.$stores.notifications.sendNotification({
                             group: alert.position,
                             type: alert.alertStyle,
                             title: `🔇 ${title}`,
@@ -104,7 +104,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                     );
                 } else if (isMentioned) {
                     events['allianceChatMention'].forEach(async alert =>
-                        LSSM.$store.dispatch('notifications/sendNotification', {
+                        LSSM.$stores.notifications.sendNotification({
                             group: alert.position,
                             type: alert.alertStyle,
                             title: `ℹ️ ${title}`,
@@ -130,7 +130,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                     );
                 } else {
                     events['allianceChat']?.forEach(async alert =>
-                        LSSM.$store.dispatch('notifications/sendNotification', {
+                        LSSM.$stores.notifications.sendNotification({
                             group: alert.position,
                             type: alert.alertStyle,
                             title,
@@ -204,24 +204,21 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         (siwa_error && !message.success)
                     ) {
                         events[mode].forEach(alert =>
-                            LSSM.$store.dispatch(
-                                'notifications/sendNotification',
-                                {
-                                    group: alert.position,
-                                    type: alert.alertStyle,
-                                    title: $m(`events.${mode}`).toString(),
-                                    text: window.I18n.t(`javascript.${mode}`, {
-                                        caption: message.caption,
-                                        credits: message.credits,
-                                    }),
-                                    icon: `/images/clock_${
-                                        message.success ? 'gruen' : 'rot'
-                                    }.png`,
-                                    duration: alert.duration,
-                                    ingame: alert.ingame,
-                                    desktop: alert.desktop,
-                                }
-                            )
+                            LSSM.$stores.notifications.sendNotification({
+                                group: alert.position,
+                                type: alert.alertStyle,
+                                title: $m(`events.${mode}`).toString(),
+                                text: window.I18n.t(`javascript.${mode}`, {
+                                    caption: message.caption,
+                                    credits: message.credits,
+                                }),
+                                icon: `/images/clock_${
+                                    message.success ? 'gruen' : 'rot'
+                                }.png`,
+                                duration: alert.duration,
+                                ingame: alert.ingame,
+                                desktop: alert.desktop,
+                            })
                         );
                     }
                 }
@@ -263,41 +260,33 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         : () => window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
-                            LSSM.$store.dispatch(
-                                'notifications/sendNotification',
-                                {
-                                    group: alert.position,
-                                    type: alert.alertStyle,
-                                    title,
-                                    text:
-                                        message.additionalText ||
-                                        message.fms_text,
-                                    icon,
-                                    duration: alert.duration,
-                                    ingame: alert.ingame,
-                                    desktop: alert.desktop,
-                                    clickHandler,
-                                }
-                            )
+                            LSSM.$stores.notifications.sendNotification({
+                                group: alert.position,
+                                type: alert.alertStyle,
+                                title,
+                                text:
+                                    message.additionalText || message.fms_text,
+                                icon,
+                                duration: alert.duration,
+                                ingame: alert.ingame,
+                                desktop: alert.desktop,
+                                clickHandler,
+                            })
                         );
                     } else if (fmsAll) {
                         events['vehicle_fms'].forEach(alert =>
-                            LSSM.$store.dispatch(
-                                'notifications/sendNotification',
-                                {
-                                    group: alert.position,
-                                    type: alert.alertStyle,
-                                    title,
-                                    text:
-                                        message.additionalText ||
-                                        message.fms_text,
-                                    icon,
-                                    duration: alert.duration,
-                                    ingame: alert.ingame,
-                                    desktop: alert.desktop,
-                                    clickHandler,
-                                }
-                            )
+                            LSSM.$stores.notifications.sendNotification({
+                                group: alert.position,
+                                type: alert.alertStyle,
+                                title,
+                                text:
+                                    message.additionalText || message.fms_text,
+                                icon,
+                                duration: alert.duration,
+                                ingame: alert.ingame,
+                                desktop: alert.desktop,
+                                clickHandler,
+                            })
                         );
                     }
                 }
@@ -319,11 +308,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 );
                 if (newAmount <= prevAmount) return;
                 events['dm'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: $mc('messages.dm.title', newAmount - prevAmount),
-                        text: $mc('messages.dm.body', newAmount),
+                        title: $mc(
+                            'messages.dm.title',
+                            newAmount - prevAmount
+                        ).toString(),
+                        text: $mc('messages.dm.body', newAmount).toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -351,11 +343,11 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             callback(hasNew: boolean) {
                 if (!hasNew) return;
                 events['ingame_news'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: $m('messages.ingame_news.title'),
-                        text: $m('messages.ingame_news.body'),
+                        title: $m('messages.ingame_news.title').toString(),
+                        text: $m('messages.ingame_news.body').toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -389,17 +381,17 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 );
                 if (newAmount <= prevAmount) return;
                 events['allianceCandidature'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
                         title: $mc(
                             'messages.allianceCandidature.title',
                             newAmount - prevAmount
-                        ),
+                        ).toString(),
                         text: $mc(
                             'messages.allianceCandidature.body',
                             newAmount
-                        ),
+                        ).toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -427,11 +419,11 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             callback(hasNew: boolean) {
                 if (!hasNew) return;
                 events['allianceMessage'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: $m('messages.allianceMessage.title'),
-                        text: $m('messages.allianceMessage.body'),
+                        title: $m('messages.allianceMessage.title').toString(),
+                        text: $m('messages.allianceMessage.body').toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -459,11 +451,11 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             callback(hasNew: boolean) {
                 if (!hasNew) return;
                 events['allianceNews'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: $m('messages.allianceNews.title'),
-                        text: $m('messages.allianceNews.body'),
+                        title: $m('messages.allianceNews.title').toString(),
+                        text: $m('messages.allianceNews.body').toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -491,11 +483,11 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             callback(hasNew: boolean) {
                 if (!hasNew) return;
                 events['allianceForum'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: $m('messages.allianceForum.title'),
-                        text: $m('messages.allianceForum.body'),
+                        title: $m('messages.allianceForum.title').toString(),
+                        text: $m('messages.allianceForum.body').toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -530,11 +522,11 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 )
                     return;
                 events['tasks_update'].forEach(async alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
+                    LSSM.$stores.notifications.sendNotification({
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: $m('messages.tasksUpdate.title'),
-                        text: $m('messages.tasksUpdate.body'),
+                        title: $m('messages.tasksUpdate.title').toString(),
+                        text: $m('messages.tasksUpdate.body').toString(),
                         icon: (
                             await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -598,22 +590,19 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission) {
                         events['mission_new']?.forEach(alert =>
-                            LSSM.$store.dispatch(
-                                'notifications/sendNotification',
-                                {
-                                    group: alert.position,
-                                    type: alert.alertStyle,
-                                    title: processedCaption,
-                                    text: address,
-                                    icon,
-                                    duration: alert.duration,
-                                    ingame: alert.ingame,
-                                    desktop: alert.desktop,
-                                    clickHandler() {
-                                        window.lightboxOpen(`/missions/${id}`);
-                                    },
-                                }
-                            )
+                            LSSM.$stores.notifications.sendNotification({
+                                group: alert.position,
+                                type: alert.alertStyle,
+                                title: processedCaption,
+                                text: address,
+                                icon,
+                                duration: alert.duration,
+                                ingame: alert.ingame,
+                                desktop: alert.desktop,
+                                clickHandler() {
+                                    window.lightboxOpen(`/missions/${id}`);
+                                },
+                            })
                         );
                     } else if (missionElement) {
                         events[
@@ -621,29 +610,26 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                                 isAllianceMission ? '_alliance' : ''
                             }`
                         ]?.forEach(alert =>
-                            LSSM.$store.dispatch(
-                                'notifications/sendNotification',
-                                {
-                                    group: alert.position,
-                                    type: alert.alertStyle,
-                                    title: processedCaption,
-                                    text: $m(
-                                        `messages.mission_getred${
-                                            isAllianceMission ? '_alliance' : ''
-                                        }.body`,
-                                        {
-                                            address,
-                                        }
-                                    ),
-                                    icon,
-                                    duration: alert.duration,
-                                    ingame: alert.ingame,
-                                    desktop: alert.desktop,
-                                    clickHandler() {
-                                        window.lightboxOpen(`/missions/${id}`);
-                                    },
-                                }
-                            )
+                            LSSM.$stores.notifications.sendNotification({
+                                group: alert.position,
+                                type: alert.alertStyle,
+                                title: processedCaption,
+                                text: $m(
+                                    `messages.mission_getred${
+                                        isAllianceMission ? '_alliance' : ''
+                                    }.body`,
+                                    {
+                                        address,
+                                    }
+                                ).toString(),
+                                icon,
+                                duration: alert.duration,
+                                ingame: alert.ingame,
+                                desktop: alert.desktop,
+                                clickHandler() {
+                                    window.lightboxOpen(`/missions/${id}`);
+                                },
+                            })
                         );
                     }
                 }
@@ -653,7 +639,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                     !missionElement
                 ) {
                     events['mission_new_largescale']?.forEach(alert =>
-                        LSSM.$store.dispatch('notifications/sendNotification', {
+                        LSSM.$stores.notifications.sendNotification({
                             group: alert.position,
                             type: alert.alertStyle,
                             title: processedCaption,
@@ -669,7 +655,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                     );
                 } else if (isAllianceMission && !missionElement) {
                     events['mission_share']?.forEach(alert =>
-                        LSSM.$store.dispatch('notifications/sendNotification', {
+                        LSSM.$stores.notifications.sendNotification({
                             group: alert.position,
                             type: alert.alertStyle,
                             title: processedCaption,

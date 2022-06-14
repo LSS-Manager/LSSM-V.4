@@ -1,7 +1,7 @@
 import createBtn, { type StarrableButton } from './createBtn';
 
-import type { ModuleMainFunction } from 'typings/Module';
 import type { ButtonGroupCallback } from '../utils/buttonGroup';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export type AddStarrableButton = (
     mission: ButtonGroupCallback,
