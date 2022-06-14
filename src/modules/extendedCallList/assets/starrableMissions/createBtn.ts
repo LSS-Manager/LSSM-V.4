@@ -49,10 +49,15 @@ export default (
     btn.append(icon);
 
     const send = (triggeredInMissionWindow = false) =>
-        LSSM.$store
-            .dispatch('broadcast/send_custom_message', {
+        LSSM.$stores.broadcast
+            .sendCustomMessage<{
+                missionId: string;
+                starredMissionBtnClass: string;
+                triggeredInMissionWindow: boolean;
+                switchBtnState: string;
+            }>({
                 name: 'starredMissions_update',
-                handler(msg: CustomBroadcastMessage) {
+                handler(msg) {
                     document
                         .querySelectorAll<HTMLButtonElement>(
                             `button.${msg.data.starredMissionBtnClass}[data-mission="${msg.data.missionId}"]`

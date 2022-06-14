@@ -67,44 +67,49 @@ export default (
 
     btn.append(icon);
 
-    const send = () => {
-        const handler = function (msg: CustomBroadcastMessage) {
-            document
-                .querySelectorAll<HTMLButtonElement>(
-                    `#missions-panel-body button.${
-                        msg.data.collapsableMissionBtnClass
-                    }${
-                        msg.data.missionId !== '-1'
-                            ? `[data-mission="${msg.data.missionId}"]`
-                            : `.${
-                                  (msg.data.btnClassList as string)
-                                      .split(' ')
-                                      .includes(msg.data.BTN_ACTIVE as string)
-                                      ? msg.data.BTN_ACTIVE
-                                      : msg.data.BTN_INACTIVE
-                              }`
-                    }`
-                )
-                .forEach(btn =>
-                    // eslint-disable-next-line no-eval
-                    eval(`${msg.data.switchBtnState}`)(btn)
-                );
-        };
-        LSSM.$store
-            .dispatch('broadcast/send_custom_message', {
-                name: 'collapsableMissions_update',
-                handler,
-                data: {
-                    missionId,
-                    collapsableMissionBtnClass,
-                    btnClassList: btn.getAttribute('string') ?? '',
-                    BTN_ACTIVE,
-                    BTN_INACTIVE,
-                    switchBtnState: switchBtnState.toString(),
-                },
-            })
-            .then();
-    };
+    const send = () =>
+        LSSM.$stores.broadcast.sendCustomMessage<{
+            missionId: string;
+            collapsableMissionBtnClass: string;
+            btnClassList: string;
+            BTN_ACTIVE: string;
+            BTN_INACTIVE: string;
+            switchBtnState: string;
+        }>({
+            name: 'collapsableMissions_update',
+            handler(msg) {
+                document
+                    .querySelectorAll<HTMLButtonElement>(
+                        `#missions-panel-body button.${
+                            msg.data.collapsableMissionBtnClass
+                        }${
+                            msg.data.missionId !== '-1'
+                                ? `[data-mission="${msg.data.missionId}"]`
+                                : `.${
+                                      (msg.data.btnClassList as string)
+                                          .split(' ')
+                                          .includes(
+                                              msg.data.BTN_ACTIVE as string
+                                          )
+                                          ? msg.data.BTN_ACTIVE
+                                          : msg.data.BTN_INACTIVE
+                                  }`
+                        }`
+                    )
+                    .forEach(btn =>
+                        // eslint-disable-next-line no-eval
+                        eval(`${msg.data.switchBtnState}`)(btn)
+                    );
+            },
+            data: {
+                missionId,
+                collapsableMissionBtnClass,
+                btnClassList: btn.getAttribute('string') ?? '',
+                BTN_ACTIVE,
+                BTN_INACTIVE,
+                switchBtnState: switchBtnState.toString(),
+            },
+        });
 
     const store = async () => {
         if (missionId === '-1') {

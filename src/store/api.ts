@@ -2,13 +2,12 @@ import type Vue from 'vue';
 
 import { useConsoleStore } from '@stores/console';
 
-import type { ActionStoreParams } from 'typings/store/Actions';
 import type { APIActionStoreParams } from 'typings/store/api/Actions';
 import type { Mission } from 'typings/Mission';
 import type { RootState } from 'typings/store/RootState';
 import type { Vehicle } from 'typings/Vehicle';
 import type { VehicleRadioMessage } from 'typings/Ingame';
-import type { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
+import type { ActionTree, GetterTree, Module } from 'vuex';
 import type {
     APIState,
     StorageAPIKey,
@@ -76,26 +75,21 @@ const get_from_parent = <API extends StorageAPIKey>(
     return get_from_storage(key, window.parent);
 };
 const get_from_broadcast = async <API extends StorageAPIKey>(
-    key: API,
-    dispatch: ActionStoreParams['dispatch']
+    key: API
 ): Promise<StorageGetterReturn<API>> => {
     return new Promise(resolve =>
-        dispatch(
-            'broadcast/request_state',
-            {
-                statePath: `api.${key}`,
-            },
-            { root: true }
-        ).then((results: StorageGetterReturn<API>[]) => {
-            results.sort((a, b) =>
-                a.lastUpdate < b.lastUpdate
-                    ? -1
-                    : a.lastUpdate > b.lastUpdate
-                    ? 1
-                    : 0
-            );
-            resolve(results[0]);
-        })
+        (window[PREFIX] as Vue).$stores.broadcast
+            .requestAPI(key)
+            .then(results => {
+                results.sort((a, b) =>
+                    a.lastUpdate < b.lastUpdate
+                        ? -1
+                        : a.lastUpdate > b.lastUpdate
+                        ? 1
+                        : 0
+                );
+                resolve(results[0]);
+            })
     );
 };
 const get_api_values = async <API extends StorageAPIKey>(
@@ -124,7 +118,7 @@ const get_api_values = async <API extends StorageAPIKey>(
         !stored.value ||
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
     )
-        stored = (await get_from_broadcast<API>(key, dispatch)) ?? stored;
+        stored = (await get_from_broadcast<API>(key)) ?? stored;
     if (
         !state.currentlyUpdating.includes(key) &&
         (!stored.value ||
@@ -150,7 +144,7 @@ const get_api_values = async <API extends StorageAPIKey>(
 const set_api_storage = <API extends StorageAPIKey>(
     key: API,
     { value, lastUpdate }: StorageGetterReturn<API>,
-    { commit, dispatch }: Pick<APIActionStoreParams, 'commit' | 'dispatch'>,
+    { commit }: Pick<APIActionStoreParams, 'commit' | 'dispatch'>,
     commitFromRoot = false
 ) => {
     const disabled: string[] = JSON.parse(
@@ -170,14 +164,17 @@ const set_api_storage = <API extends StorageAPIKey>(
                 })
             );
         }
-        dispatch(
-            'broadcast/broadcast',
-            {
-                mutationPath: `api/${MUTATION_SETTERS[key]}`,
-                payload: { value, lastUpdate },
-            },
-            { root: true }
-        ).then();
+        (window[PREFIX] as Vue).$stores.broadcast
+            .apiBroadcast(
+                key,
+                {
+                    value,
+                    lastUpdate,
+                    user_id: window.user_id,
+                },
+                MUTATION_SETTERS[key]
+            )
+            .then();
         if (key === 'vehicles') {
             updateVehicleStates(
                 value as StorageGetterReturn<'vehicles'>['value'],

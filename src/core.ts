@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
+import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
 import { useNotificationStore } from '@stores/notifications';
@@ -123,6 +124,7 @@ LSSM-Team`,
     }
 
     LSSM.$stores = {
+        broadcast: useBroadcastStore(),
         console: useConsoleStore(),
         event: useEventStore(),
         notifications: useNotificationStore(),

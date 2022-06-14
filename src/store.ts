@@ -1,7 +1,6 @@
 import Vuex from 'vuex';
 
 import api from './store/api';
-import broadcast from './store/broadcast';
 import config from './config';
 
 import type { InternalBuilding } from 'typings/Building';
@@ -35,7 +34,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
     return new Vuex.Store<RootState>({
         modules: {
             api,
-            broadcast,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
