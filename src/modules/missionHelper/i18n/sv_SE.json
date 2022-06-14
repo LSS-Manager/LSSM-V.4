@@ -16,21 +16,21 @@
         "title": "Patienter | {n} Patient | {n} Patienter"
     },
     "prerequisites": {
+        "bike_police": "cykelpolisutbyggnad",
+        "bomb_disposal_count": "bombskyddsutbyggnad",
         "brush_extension": "Skogsexpansion | Skogsexpansion",
+        "detention_unit_count": "polisens transportenhet",
         "fire_aviation_count": "Brandflygsstation",
         "fire_stations": "Brandstation | Brandstationer",
         "fire_support_count": "Brandstöds utbyggnad | Brandstöds utbyggnader",
         "max_police_stations": "Maximala polisstationer",
         "max_rescue_stations": "Maximala ambulansstationer",
         "police_helicopter_stations": "Polisflyg | Polisflyg",
+        "police_service_group_leader": "yttrebefäl, utbyggnad",
         "police_stations": "Polisstation | Polisstationer",
         "rescue_stations": "Ambulansstation | Ambulansstationer",
-        "bike_police": "cykelpolisutbyggnad",
-        "traffic_police": "trafikpolis utbyggnad",
-        "detention_unit_count": "polisens transportenhet",
-        "bomb_disposal_count": "bombskyddsutbyggnad",
-        "police_service_group_leader": "yttrebefäl, utbyggnad",
-        "title": "Krav för generering av uppdrag | Krav för generering av uppdrag"
+        "title": "Krav för generering av uppdrag | Krav för generering av uppdrag",
+        "traffic_police": "trafikpolis utbyggnad"
     },
     "prisoners": {
         "max_possible_prisoners": "Maximalt antal fångar",
@@ -51,13 +51,12 @@
         "captions": {
             "ambulances": "Ambulans | Ambulanser",
             "battalion_chief_vehicles": "Brandbefäl",
+            "bike_police": "cykelpolis",
             "boats": "Båt | Båtar",
-            "traffic_car": "trafikpolis",
-            "detention_unit": "häktesbuss",
-            "fbi_bomb": "NBS",
-            "police_service_group_leader": "YB",
             "brush_truck": "Skogbrandbil",
+            "detention_unit": "häktesbuss",
             "diver_car": "Dykbil | Dykbilar",
+            "fbi_bomb": "NBS",
             "fire_aviation": "brandflygsenhet",
             "firetrucks": "Släckbil | Släckbilar",
             "foam": "Skumenheter",
@@ -75,12 +74,13 @@
             "police_cars": "Radiobil | Radiobilar",
             "police_helicopters": "Polishelikopter | Polishelikoptrar",
             "police_horse": "polishästar",
+            "police_service_group_leader": "YB",
             "pump": "Motorspruta",
             "sheriff": "Polisfordon",
             "swat_armored_vehicle": "Bepansrat insatsfordon",
             "swat_suv": "Insatsfordon",
-            "water_tankers": "Tankbil | Tankbilar",
-            "bike_police": "cykelpolis"
+            "traffic_car": "trafikpolis",
+            "water_tankers": "Tankbil | Tankbilar"
         },
         "multifunctionals": {
             "allow_rw_instead_of_lf": {
