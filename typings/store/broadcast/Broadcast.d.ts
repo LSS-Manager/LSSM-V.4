@@ -1,6 +1,7 @@
 import type {
+    APIGetter,
+    EnsuredAPIGetter,
     StorageAPIKey,
-    StorageGetterReturn,
 } from 'typings/store/api/State';
 
 interface BroadcastMessage<
@@ -36,7 +37,7 @@ type APIRequestBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
 
 interface APIResponseData<API extends StorageAPIKey> {
     api: API;
-    value: StorageGetterReturn<API>;
+    value: APIGetter<API>;
 }
 type APIResponseBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
     'api_response',
@@ -45,8 +46,7 @@ type APIResponseBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
 
 interface APIBroadcastData<API extends StorageAPIKey> {
     api: API;
-    mutation: string;
-    value: StorageGetterReturn<API>;
+    value: EnsuredAPIGetter<API>;
 }
 type APIBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
     'api_broadcast',

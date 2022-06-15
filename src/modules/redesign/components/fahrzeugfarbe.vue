@@ -107,8 +107,8 @@ export default Vue.extend<
                 'authenticity_token',
                 this.fahrzeugfarbe.authenticity_token
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/update${this.urlSearchParam}`,
                     init: {
                         credentials: 'include',
@@ -135,8 +135,8 @@ export default Vue.extend<
                 });
         },
         resetColor() {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/destroy${this.urlSearchParam}`,
                     init: {
                         credentials: 'include',

@@ -17,9 +17,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const buildingTypes: Record<number, InternalBuilding> =
         LSSM.$store.getters.$tBuildings;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `${MODULE_ID}-settings`,
-    });
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}-settings`);
     const userBuildings = LSSM.$store.state.api.buildings as Building[];
     const userBuildingIds: string[] = [];
     const userBuildingLabels: string[] = [];

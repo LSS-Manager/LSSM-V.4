@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
+import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
@@ -89,12 +90,12 @@ unfortunately your language <code>${LSSM.$store.state.lang}</code> is not yet su
 V.4 is too big for LSSM-Team to maintain all translations, so we need to rely on volunteer translators. You can find information on this at:
 <ul>
     <li style='list-style: unset !important;'>
-        <a href='${LSSM.$store.state.server}docs/en_US/faq' target='_blank'>
+        <a href='${SERVER}docs/en_US/faq' target='_blank'>
             FAQ
         </a>
     </li>
     <li style='list-style: unset !important;'>
-        <a href='${LSSM.$store.state.server}docs/en_US/contributing' target='_blank'>
+        <a href='${SERVER}docs/en_US/contributing' target='_blank'>
             Contribution guide
         </a>
     </li>
@@ -124,6 +125,7 @@ LSSM-Team`,
     }
 
     LSSM.$stores = {
+        api: useAPIStore(),
         broadcast: useBroadcastStore(),
         console: useConsoleStore(),
         event: useEventStore(),
@@ -162,10 +164,6 @@ LSSM-Team`,
         });
     });
 
-    await LSSM.$store.dispatch(
-        'api/setVehicleStates',
-        'core-initialVehicleStates'
-    );
     for (const moduleId of LSSM.$store.state.coreModules) {
         try {
             LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
@@ -211,7 +209,7 @@ LSSM-Team`,
             return new Promise<void>(resolve => {
                 const userscriptLink =
                     MODE === 'stable'
-                        ? `${config.server}lssm-v4.user.js`
+                        ? `${SERVER}lssm-v4.user.js`
                         : `https://github.com/${config.github.repo}/raw/dev/static/lssm-v4.user.js`;
                 LSSM.$modal.show('dialog', {
                     title: LSSM.$t('updateUserscript.title'),

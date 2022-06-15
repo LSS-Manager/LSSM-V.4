@@ -158,8 +158,8 @@ export default Vue.extend<
             url.searchParams.append('message[recipients]', this.receiver.value);
             url.searchParams.append('message[subject]', this.subject.value);
             url.searchParams.append('message[body]', this.content.value);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages`,
                     init: {
                         credentials: 'include',
@@ -170,7 +170,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/messages/new`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -243,7 +243,7 @@ export default Vue.extend<
     mounted() {
         this.lightbox.finishLoading('message-new-mounted');
 
-        this.$stores.storage
+        this.lightbox.storageStore
             .get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],

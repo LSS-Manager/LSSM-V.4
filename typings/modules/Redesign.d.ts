@@ -41,9 +41,13 @@ import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/ver
 // workaround comment to allow custom group for parser imports
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { useAPIStore } from '@stores/api';
+import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
+import type { useNotificationStore } from '@stores/notifications';
 import type { useSettingsStore } from '@stores/settings';
+import type { useStorageStore } from '@stores/storage';
 import type VueI18n from 'vue-i18n';
 import type { $m, $mc } from 'typings/Module';
 import type {
@@ -115,9 +119,13 @@ interface Data<T extends RedesignKey | '' | 'default'> {
         enabled: boolean;
         pictures: boolean;
     };
+    apiStore: ReturnType<typeof useAPIStore>;
+    broadcastStore: ReturnType<typeof useBroadcastStore>;
     consoleStore: ReturnType<typeof useConsoleStore>;
     eventStore: ReturnType<typeof useEventStore>;
+    notificationsStore: ReturnType<typeof useNotificationStore>;
     settingsStore: ReturnType<typeof useSettingsStore>;
+    storageStore: ReturnType<typeof useStorageStore>;
     windows: Record<
         Exclude<
             RedesignKey,

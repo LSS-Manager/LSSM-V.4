@@ -116,30 +116,21 @@ export default (
         browser: UAParser.IBrowser,
         browserMajor: number
     ) => {
-        await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-            feature: 'telemetry-sendStats',
-        });
-        LSSM.$store.commit(
-            'api/setKey',
-            await LSSM.$store
-                .dispatch('api/request', {
-                    url: `/profile/external_secret_key/${window.user_id}`,
-                    feature: `telemetry-getExternalKey`,
-                })
-                .then(res => res.json())
-                .then(({ code }) => code)
-        );
+        await LSSM.$stores.api._setSecretKey();
+        const buildingsAmount = await LSSM.$stores.api
+            .getBuildings('telemetry')
+            .then(({ value: buildings }) => buildings.length);
 
-        LSSM.$store
-            .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}telemetry.php?uid=${LSSM.$store.state.lang}-${window.user_id}`,
+        LSSM.$stores.api
+            .request({
+                url: `${SERVER}telemetry.php?uid=${LSSM.$store.state.lang}-${window.user_id}`,
                 init: {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: LSSM.$store.state.api.key,
+                        id: LSSM.$stores.api.secretKey,
                         uid: window.user_id,
                         game: LSSM.$store.state.lang,
                         police: LSSM.$store.state.policechief,
@@ -152,7 +143,7 @@ export default (
                                 typeof window.mapkit !== 'undefined'
                                     ? 'mapkit'
                                     : 'osm',
-                            buildings: LSSM.$store.state.api.buildings.length,
+                            buildings: buildingsAmount,
                             modules: await LSSM.$stores.storage.get<string[]>({
                                 key: 'activeModules',
                                 defaultValue: [],
@@ -166,7 +157,7 @@ export default (
                             ) ?? '4.0.0',
                     }),
                 },
-                feature: `telemetry-sendStats`,
+                feature: 'telemetry',
             })
             .then(res => res.json())
             .catch(() => {
@@ -174,9 +165,9 @@ export default (
             });
     };
 
-    LSSM.$store
-        .dispatch('api/fetchCreditsInfo', 'telemetry')
-        .then(async ({ user_directplay_registered }) => {
+    LSSM.$stores.api
+        .getCredits('telemetry')
+        .then(async ({ value: { user_directplay_registered } }) => {
             if (user_directplay_registered) return;
 
             const ua = new UAParser(window.navigator.userAgent);

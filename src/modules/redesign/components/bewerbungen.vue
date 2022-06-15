@@ -140,8 +140,8 @@ export default Vue.extend<
     },
     methods: {
         accept(id, username) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/bewerbungen/annehmen/${id}`,
                     init: {
                         credentials: 'include',
@@ -151,7 +151,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/verband/bewerbungen`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
@@ -171,8 +171,8 @@ export default Vue.extend<
                 });
         },
         decline(id, username) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/bewerbungen/ablehnen/${id}`,
                     init: {
                         credentials: 'include',
@@ -182,7 +182,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/verband/bewerbungen`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
@@ -211,8 +211,8 @@ export default Vue.extend<
                             window.location.origin
                         ).toString();
                         return new Promise<void>(resolve =>
-                            this.$store
-                                .dispatch('api/request', {
+                            this.lightbox.apiStore
+                                .request({
                                     url,
                                     feature: `redesign-bewerbungen-load-credits`,
                                 })

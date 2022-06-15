@@ -4,7 +4,6 @@ import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginSt
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
-import type { Building } from 'typings/Building';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 import type { Color, Hidden, Toggle } from 'typings/Setting';
 
@@ -176,15 +175,11 @@ export default async (LSSM: Vue): Promise<void> => {
                 icon.classList.add('fas', 'fa-expand-arrows-alt');
                 control.append(icon);
                 control.style.setProperty('cursor', 'pointer');
-                LSSM.$store
-                    .dispatch('api/registerSettings', {
-                        feature: 'mainpage-core_map-expand',
-                    })
-                    .then(() =>
+                LSSM.$stores.api
+                    .getSettings('mainPage-core_map-expand')
+                    .then(({ value: { design_mode } }) =>
                         control.addEventListener('click', () => {
-                            window.mapExpand(
-                                LSSM.$store.state.api.settings.design_mode >= 3
-                            );
+                            window.mapExpand(design_mode >= 3);
                         })
                     );
                 document
@@ -213,25 +208,18 @@ export default async (LSSM: Vue): Promise<void> => {
                 radioMessage.type === 'vehicle_fms' &&
                 radioMessage.user_id === window.user_id
             )
-                LSSM.$store.commit('api/setVehicleState', radioMessage);
+                LSSM.$stores.api.radioMessage(radioMessage);
         },
     });
 
-    await LSSM.$store.dispatch('api/initialUpdate', {
-        type: 'buildings',
-        feature: 'mainpageCore-initial_update',
-    });
-
-    await LSSM.$store.dispatch('api/getMissions', {
-        force: true,
-        feature: 'mainpageCore-initial_update',
-    });
+    await LSSM.$stores.api.getBuildings('mainPage-core_initial-update');
+    await LSSM.$stores.api.getMissions('mainPage-core_initial-update');
 
     await LSSM.$store.dispatch('hook', {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
             if (buildingMarker.user_id !== window.user_id) return;
-            const buildings = LSSM.$store.state.api.buildings as Building[];
+            const buildings = LSSM.$stores.api.buildings;
             const building = buildings.find(
                 ({ id }) => id === buildingMarker.id
             );
@@ -239,17 +227,17 @@ export default async (LSSM: Vue): Promise<void> => {
                 !building ||
                 building.caption !== he.decode(buildingMarker.name)
             ) {
-                LSSM.$store
-                    .dispatch('api/fetchBuilding', {
-                        id: buildingMarker.id,
-                        feature: 'mainpageCore-buildingMarkerAdd',
-                    })
+                LSSM.$stores.api
+                    .getBuilding(
+                        buildingMarker.id,
+                        'mainPage-core_buildingMarkerAdd'
+                    )
                     .then(building =>
-                        LSSM.$store
-                            .dispatch('api/fetchVehiclesAtBuilding', {
-                                id: building.id,
-                                feature: 'mainpageCore-buildingMarkerAdd',
-                            })
+                        LSSM.$stores.api
+                            .getVehiclesAtBuilding(
+                                building.id,
+                                'mainPage-core_buildingMarkerAdd'
+                            )
                             .then(() =>
                                 LSSM.$stores.event.createAndDispatchEvent({
                                     name: 'buildingMarkerAdd',

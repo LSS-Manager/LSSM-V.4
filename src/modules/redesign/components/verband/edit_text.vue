@@ -243,8 +243,8 @@ export default Vue.extend<
             const webhook =
                 (this.$refs.webhook as HTMLInputElement | null)?.value ?? '';
             url.searchParams.append('discord_webhook', webhook);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/veband/text/speichern`,
                     init: {
                         credentials: 'include',

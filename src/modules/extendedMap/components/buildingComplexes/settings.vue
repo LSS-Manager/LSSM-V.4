@@ -155,6 +155,7 @@ import Vue from 'vue';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
+import { useAPIStore } from '@stores/api';
 
 import type { $m } from 'typings/Module';
 import type { Complex } from '../../assets/buildingComplexes';
@@ -178,6 +179,7 @@ export default Vue.extend<
         buildingTabs: boolean;
         iconBase64s: string[];
         excludedCustomIcons: string[];
+        apiStore: ReturnType<typeof useAPIStore>;
     },
     { save(): void; dissolveHandler(): void },
     {
@@ -216,12 +218,9 @@ export default Vue.extend<
             ),
     },
     data() {
-        const userBuildings = this.$store.getters[
-            'api/buildingsById'
-        ] as Record<number, Building>;
-        const allianceBuildings = this.$store.getters[
-            'api/allianceBuildingsById'
-        ] as Record<number, Building>;
+        const apiStore = useAPIStore();
+        const userBuildings = apiStore.buildingsById;
+        const allianceBuildings = apiStore.allianceBuildingsById;
         const buildingTypes: Record<number, InternalBuilding> =
             this.$store.getters.$tBuildings;
 
@@ -241,6 +240,7 @@ export default Vue.extend<
             buildingTabs: true,
             iconBase64s: [],
             excludedCustomIcons: [],
+            apiStore,
         };
     },
     computed: {
@@ -443,9 +443,8 @@ export default Vue.extend<
         },
     },
     async beforeMount() {
-        await this.$store.dispatch('api/registerBuildingsUsage', {
-            feature: `buildingComplexes`,
-        });
+        await this.apiStore.getAllianceBuildings('buildingComplexes');
+        await this.apiStore.getBuildings('buildingComplexes');
     },
     mounted() {
         this.name = this.complex.name;

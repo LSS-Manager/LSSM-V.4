@@ -3,9 +3,7 @@ import counter from './counter.vue';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: 'statusCounter-initial',
-    });
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
     const settings = await LSSM.$stores.settings.getModule(MODULE_ID);
     const wrapper = document.createElement('span');
     document

@@ -1,4 +1,3 @@
-import type { Building } from 'typings/Building';
 import type { $m, $mc, ModuleMainFunction } from 'typings/Module';
 import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 import type { LayerGroup, Marker } from 'leaflet';
@@ -38,18 +37,10 @@ export default async (
 ) => {
     if (!window.map) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `buildingComplexes`,
-    });
-    await LSSM.$store.dispatch('api/registerAllianceBuildingsUsage', {
-        feature: `buildingComplexes`,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `buildingComplexes`,
-    });
-    await LSSM.$store.dispatch('api/registerAllianceinfoUsage', {
-        feature: `buildingComplexes`,
-    });
+    await LSSM.$stores.api.getAllianceBuildings('buildingComplexes');
+    await LSSM.$stores.api.getAllianceInfo('buildingComplexes');
+    await LSSM.$stores.api.getBuildings('buildingComplexes');
+    await LSSM.$stores.api.getVehicles('buildingComplexes');
 
     const save = () =>
         setSetting('buildingComplexes', {
@@ -69,8 +60,7 @@ export default async (
     updateBuildingListHideStyle();
     document.head.append(buildingListHideStyle);
 
-    const userBuildings: Record<number, Building> =
-        LSSM.$store.getters['api/buildingsById'];
+    const userBuildings = LSSM.$stores.api.buildingsById;
 
     const complexesLayer = window.L.layerGroup().addTo(window.map);
     const complexMarkers: Marker[] = [];

@@ -142,8 +142,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
             const url = `/coins/list?page=${this.startPage}`;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-coins-list-load-prev-${this.startPage}`,
                 })
@@ -178,8 +178,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
             const url = `/coins/list?page=${this.endPage}`;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-coins-list-load-next-${this.endPage}`,
                 })

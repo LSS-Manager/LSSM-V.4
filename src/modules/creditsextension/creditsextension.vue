@@ -142,7 +142,7 @@
                     {{ toplistPosition.toLocaleString() }}
                 </a>
             </li>
-            <template v-if="$store.state.api.credits.credits_alliance_active">
+            <template v-if="creditsAPI.credits_alliance_active">
                 <li class="divider"></li>
                 <li>
                     <a href="/verband/kasse" class="lightbox-open">
@@ -150,14 +150,14 @@
                         <ul class="no-style-list">
                             <li>
                                 {{
-                                    $store.state.api.credits.credits_alliance_current.toLocaleString()
+                                    creditsAPI.credits_alliance_current.toLocaleString()
                                 }}
                                 {{ $t('credits') }}
                                 {{ $m('allianceFunds.currently') }}
                             </li>
                             <li>
                                 {{
-                                    $store.state.api.credits.credits_alliance_total.toLocaleString()
+                                    creditsAPI.credits_alliance_total.toLocaleString()
                                 }}
                                 {{ $t('credits') }}
                                 {{ $m('allianceFunds.total') }}
@@ -182,6 +182,7 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 import { faListUl } from '@fortawesome/free-solid-svg-icons/faListUl';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons/faPiggyBank';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
+import { useAPIStore } from '@stores/api';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';
@@ -204,6 +205,13 @@ export default Vue.extend<
         coinsInNav: boolean;
         showToplistPosition: boolean;
         saleActive: boolean;
+        creditsAPI: {
+            credits_user_total: number;
+            user_toplist_position: number;
+            credits_alliance_active: boolean;
+            credits_alliance_current: number;
+            credits_alliance_total: number;
+        };
     },
     {
         $m(
@@ -258,6 +266,13 @@ export default Vue.extend<
             coinsInNav: false,
             showToplistPosition: false,
             saleActive: false,
+            creditsAPI: {
+                credits_user_total: 0,
+                user_toplist_position: 0,
+                credits_alliance_active: false,
+                credits_alliance_current: 0,
+                credits_alliance_total: 0,
+            },
         };
     },
     props: {
@@ -292,7 +307,7 @@ export default Vue.extend<
             return this.coins.toLocaleString();
         },
         totalCredits() {
-            return this.$store.state.api.credits.credits_user_total;
+            return this.creditsAPI.credits_user_total;
         },
         nextRankCredits() {
             return (
@@ -308,7 +323,7 @@ export default Vue.extend<
             return this.nextRankCredits - this.totalCredits;
         },
         toplistPosition() {
-            return this.$store.state.api.credits.user_toplist_position ?? 0;
+            return this.creditsAPI.user_toplist_position;
         },
         toplistSite() {
             return `/toplist?page=${Math.ceil(this.toplistPosition / 20)}`;
@@ -344,18 +359,25 @@ export default Vue.extend<
         )?.src;
         if (coinsIcon) this.coinsIcon = coinsIcon;
 
-        this.$store
-            .dispatch('api/fetchCreditsInfo', this.MODULE_ID)
-            .then(() =>
-                window.setInterval(
-                    () =>
-                        this.$store.dispatch(
-                            'api/fetchCreditsInfo',
-                            this.MODULE_ID
-                        ),
-                    5 * 60 * 1000
-                )
-            );
+        useAPIStore().autoUpdateCredits(
+            this.MODULE_ID,
+            ({
+                value: {
+                    credits_user_total,
+                    user_toplist_position,
+                    credits_alliance_active,
+                    credits_alliance_current,
+                    credits_alliance_total,
+                },
+            }) =>
+                this.$set(this, 'creditsAPI', {
+                    credits_user_total,
+                    user_toplist_position,
+                    credits_alliance_active,
+                    credits_alliance_current,
+                    credits_alliance_total,
+                })
+        );
 
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)

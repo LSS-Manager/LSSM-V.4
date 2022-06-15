@@ -468,6 +468,7 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useAPIStore } from '@stores/api';
 
 import type { Mission } from 'typings/Mission';
 import type {
@@ -507,6 +508,7 @@ export default Vue.extend<
             missionId: parseInt(
                 window.location.pathname.match(/\d+\/?/u)?.[0] || '0'
             ),
+            apiStore: useAPIStore(),
             settings: {
                 title: false,
                 id: false,
@@ -635,10 +637,7 @@ export default Vue.extend<
         async reloadSpecs(force = false) {
             this.isReloading = true;
 
-            await this.$store.dispatch('api/getMissions', {
-                force,
-                feature: 'missionHelper-getMission',
-            });
+            await this.apiStore.getMissions('missionHelper-getMission', force);
 
             const missionHelpBtn =
                 document.querySelector<HTMLAnchorElement>('#mission_help');
@@ -654,8 +653,7 @@ export default Vue.extend<
             this.isReloading = false;
         },
         async getMission(id) {
-            const missionsById: Record<string, Mission> =
-                this.$store.getters['api/missionsById'];
+            const missionsById = this.apiStore.missions;
             const mission: Mission | undefined = missionsById[id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {
@@ -694,21 +692,21 @@ export default Vue.extend<
             }
             return mission;
         },
-        loadSetting(id, base, base_string = '') {
+        async loadSetting(id, base, base_string = '') {
             if (typeof base[id] === 'object' && !Array.isArray(base[id])) {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                Object.keys(base[id]).forEach(sid =>
-                    this.loadSetting(
+                for (const sid of Object.keys(base[id])) {
+                    await this.loadSetting(
                         sid,
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         base[id],
                         `${base_string ? `${base_string}.` : ''}${id}`
-                    )
-                );
+                    );
+                }
             } else {
-                this.getSetting(
+                await this.getSetting(
                     `${base_string ? `${base_string}.` : ''}${id}`,
                     base[id]
                 ).then(setting => {
@@ -1097,7 +1095,7 @@ export default Vue.extend<
         this.getSetting('minified', false).then(
             minified => (this.minified = minified)
         );
-        this.getSetting<MissionHelper['drag']>('overlay', {
+        this.getSetting<MissionHelper['drag']>('drag', {
             active: false,
             top: 60,
             right: window.innerWidth * 0.03,
@@ -1107,11 +1105,10 @@ export default Vue.extend<
             },
         }).then(drag => (this.drag = drag));
     },
-    mounted() {
-        Object.keys(this.settings).forEach(id =>
-            this.loadSetting(id, this.settings)
-        );
-        this.reloadSpecs();
+    async mounted() {
+        for (const id of Object.keys(this.settings))
+            await this.loadSetting(id, this.settings);
+        await this.reloadSpecs();
     },
 });
 </script>

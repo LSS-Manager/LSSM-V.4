@@ -108,6 +108,7 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { useAPIStore } from '@stores/api';
 
 import type { InternalVehicle } from 'typings/Vehicle';
 import type {
@@ -137,6 +138,7 @@ export default Vue.extend<
     data() {
         const internalVehicleTypes: Record<number, InternalVehicle> =
             this.$store.getters.$tVehicles;
+        const apiStore = useAPIStore();
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(internalVehicleTypes).map(
@@ -144,7 +146,7 @@ export default Vue.extend<
                 )
             ),
             vehiclesWithBuildings: [],
-            buildings: this.$store.state.api.buildings,
+            buildings: apiStore.buildings,
             search: '',
             sort: 'caption',
             sortDir: 'asc',
@@ -154,6 +156,7 @@ export default Vue.extend<
                 'dashboard-vehiclelist-resolvable-link'
             ),
             resolving: null,
+            apiStore,
         } as VehicleList;
     },
     props: {
@@ -199,8 +202,8 @@ export default Vue.extend<
         toggleFMS(vehicle) {
             if (![2, 6].includes(vehicle.fms_real)) return;
             const target = vehicle.fms_real === 2 ? 6 : 2;
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/vehicles/${vehicle.id}/set_fms/${target}`,
                     feature: `dashboard-vehicleList-setfms`,
                 })
@@ -218,8 +221,8 @@ export default Vue.extend<
             if (this.resolving) return;
             this.resolving = window.setTimeout(
                 () =>
-                    this.$store
-                        .dispatch('api/request', {
+                    this.apiStore
+                        .request({
                             url: `/${type}s/${id}`,
                             feature: 'dashboard-vehiclelist-resolve-title',
                         })

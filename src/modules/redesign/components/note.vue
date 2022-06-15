@@ -85,8 +85,8 @@ export default Vue.extend<
                 this.note.authenticity_token
             );
             url.searchParams.append('note[message]', this.noteText);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/note`,
                     init: {
                         credentials: 'include',
@@ -94,7 +94,10 @@ export default Vue.extend<
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: new URL(`/note`, window.location.origin),
+                        referrer: new URL(
+                            `/note`,
+                            window.location.origin
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',

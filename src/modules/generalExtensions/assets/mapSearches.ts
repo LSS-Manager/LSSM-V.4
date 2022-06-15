@@ -79,7 +79,7 @@ export default (
 
                         LSSM.$store
                             .dispatch('api/request', {
-                                url: url.toString(),
+                                url,
                                 feature: 'mapsearch',
                             })
                             .then(res => res.json())

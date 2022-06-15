@@ -83,8 +83,8 @@ export default Vue.extend<
                 this.imageFile.name
             );
             formData.append('commit', 'save');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/avatar/upload`,
                     init: {
                         credentials: 'include',
@@ -96,7 +96,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `verband/avatar`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: formData,
                         method: 'POST',
                         mode: 'cors',
@@ -126,15 +126,15 @@ export default Vue.extend<
         },
         deleteAvatar() {
             this.$set(this.lightbox, 'loading', true);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/avatar/delete`,
                     init: {
                         credentials: 'include',
                         referrer: new URL(
                             `verband/avatar`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },

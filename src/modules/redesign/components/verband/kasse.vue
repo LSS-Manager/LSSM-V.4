@@ -261,8 +261,8 @@ export default Vue.extend<
         toggle() {
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `${url.toString()}/umschalten`,
                     feature: `redesign-verband-kasse-toggle`,
                 })
@@ -289,8 +289,8 @@ export default Vue.extend<
         },
         changeRate(rate) {
             this.$set(this.lightbox, 'loading', true);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/kasse/rate/${rate}`,
                     feature: `redesign-verband-kasse-rate`,
                 })
@@ -304,9 +304,9 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', type);
-            this.$store
-                .dispatch('api/request', {
-                    url: url.toString(),
+            this.lightbox.apiStore
+                .request({
+                    url,
                     feature: `redesign-verband-kasse-earnings-type`,
                 })
                 .then((res: Response) => res.text())
@@ -343,9 +343,9 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', this.kasse.earnings.type);
-            this.$store
-                .dispatch('api/request', {
-                    url: url.toString(),
+            this.lightbox.apiStore
+                .request({
+                    url,
                     feature: `redesign-verband-kasse-earnings-today`,
                 })
                 .then((res: Response) => res.text())
@@ -386,9 +386,9 @@ export default Vue.extend<
                 'scroll',
                 (this.kasse.earnings.scroll - 1).toString()
             );
-            this.$store
-                .dispatch('api/request', {
-                    url: url.toString(),
+            this.lightbox.apiStore
+                .request({
+                    url,
                     feature: `redesign-verband-kasse-earnings-prev`,
                 })
                 .then((res: Response) => res.text())
@@ -429,9 +429,9 @@ export default Vue.extend<
                 'scroll',
                 (this.kasse.earnings.scroll + 1).toString()
             );
-            this.$store
-                .dispatch('api/request', {
-                    url: url.toString(),
+            this.lightbox.apiStore
+                .request({
+                    url,
                     feature: `redesign-verband-kasse-earnings-next`,
                 })
                 .then((res: Response) => res.text())
@@ -471,9 +471,9 @@ export default Vue.extend<
                 'page',
                 (this.kasse.spendings.page + 1).toString()
             );
-            this.$store
-                .dispatch('api/request', {
-                    url: url.toString(),
+            this.lightbox.apiStore
+                .request({
+                    url,
                     feature: `redesign-verband-kasse-more-spendings`,
                 })
                 .then((res: Response) => res.text())

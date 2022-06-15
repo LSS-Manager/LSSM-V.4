@@ -56,8 +56,8 @@ export default Vue.extend<
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             formData.append('alliance[caption]', content);
             formData.append('commit', 'save');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/alliances/${this.alliance.meta.id}`,
                     init: {
                         credentials: 'include',

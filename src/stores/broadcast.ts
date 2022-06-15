@@ -10,8 +10,9 @@ import type {
     NameRequestBroadcastMessage,
 } from 'typings/store/broadcast/Broadcast';
 import type {
+    APIGetter,
+    EnsuredAPIGetter,
     StorageAPIKey,
-    StorageGetterReturn,
 } from 'typings/store/api/State';
 
 const STORAGE_NAME_KEY = `${PREFIX}_windowName`;
@@ -31,8 +32,8 @@ leader_elector
 channel.addEventListener('message', msg => {
     if (msg.receiver !== getWindowName() && msg.receiver !== '*') return;
     if (msg.type === 'api_broadcast') {
-        (window[PREFIX] as Vue).$store.commit(
-            `api/${msg.data.mutation}`,
+        (window[PREFIX] as Vue).$stores.api._setAPI(
+            msg.data.api,
             msg.data.value
         );
     } else if (msg.type === 'api_request') {
@@ -101,14 +102,12 @@ export const useBroadcastStore = defineStore('broadcast', {
     actions: {
         apiBroadcast<API extends StorageAPIKey>(
             api: API,
-            value: StorageGetterReturn<API>,
-            mutation: string
+            value: EnsuredAPIGetter<API>
         ) {
             return sendRequest<APIBroadcastMessage<API>>('api_broadcast', {
                 api,
-                mutation,
                 value,
-            });
+            }).then(() => value);
         },
         sendCustomMessage<Data>({
             name,
@@ -133,8 +132,8 @@ export const useBroadcastStore = defineStore('broadcast', {
             });
         },
         requestAPI<API extends StorageAPIKey>(api: API) {
-            return new Promise<StorageGetterReturn<API>[]>(resolve => {
-                const collected_values: StorageGetterReturn<API>[] = [];
+            return new Promise<APIGetter<API>[]>(resolve => {
+                const collected_values: APIGetter<API>[] = [];
                 const receiver_handler = (msg: GenericBroadcastMessageType) =>
                     msg.receiver === getWindowName() &&
                     msg.type === 'api_response' &&

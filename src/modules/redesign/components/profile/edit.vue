@@ -52,8 +52,8 @@ export default Vue.extend<
             const content =
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             url.searchParams.append('profile[content]', content);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/profile`,
                     init: {
                         credentials: 'include',
@@ -63,7 +63,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `profile/edit`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',

@@ -62,8 +62,8 @@ export default Vue.extend<
                 this.message.authenticity_token
             );
             url.searchParams.append('_method', 'post');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages/system_message/${this.id}/remove`,
                     init: {
                         credentials: 'include',
@@ -74,7 +74,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/messages/system_message/${this.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',

@@ -813,8 +813,9 @@ import Vue from 'vue';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
 
-import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { $m, $mc } from 'typings/Module';
@@ -954,6 +955,7 @@ export default Vue.extend<
             };
         };
         tempDisableAllExtensionButtons: boolean;
+        apiStore: ReturnType<typeof useAPIStore>;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
@@ -1083,18 +1085,15 @@ export default Vue.extend<
                 },
             },
             tempDisableAllExtensionButtons: false,
+            apiStore: useAPIStore(),
         };
     },
     computed: {
-        buildings() {
-            return this.$store.getters['api/buildingsById'];
-        },
-        allianceBuildings() {
-            return this.$store.getters['api/allianceBuildingsById'];
-        },
-        vehiclesByBuilding() {
-            return this.$store.getters['api/vehiclesByBuilding'];
-        },
+        ...mapState(useAPIStore, {
+            buildings: 'buildingsById',
+            allianceBuildings: 'allianceBuildingsById',
+            vehiclesByBuilding: 'vehiclesByBuilding',
+        }),
         attributedBuildings() {
             const smallBuildings = this.$t(
                 'small_buildings'
@@ -1535,7 +1534,7 @@ export default Vue.extend<
                                 maxExtensionsFunctionResults[buildingTypeId][
                                     index
                                 ] ??= extensionType.maxExtensionsFunction(
-                                    this.$store.getters['api/buildingsByType']
+                                    this.apiStore.buildingsByType
                                 );
                             }
 
@@ -1610,10 +1609,8 @@ export default Vue.extend<
                                           coins: extensionType.coins,
                                           enoughCredits:
                                               (alliance
-                                                  ? (
-                                                        this.$store.state.api
-                                                            .allianceinfo as AllianceInfo
-                                                    ).credits_current
+                                                  ? this.apiStore.allianceinfo
+                                                        .credits_current
                                                   : this.$store.state
                                                         .credits) >=
                                               extensionType.credits,
@@ -1912,9 +1909,9 @@ export default Vue.extend<
             ];
         },
         userHasAllianceFinanceRights() {
-            const allianceUserRoleFlags = (
-                this.$store.state.api.allianceinfo as AllianceInfo
-            ).users.find(({ id }) => id === window.user_id)?.role_flags;
+            const allianceUserRoleFlags = this.apiStore.allianceinfo.users.find(
+                ({ id }) => id === window.user_id
+            )?.role_flags;
             return !!(
                 allianceUserRoleFlags?.admin || allianceUserRoleFlags?.finance
             );
@@ -1976,19 +1973,12 @@ export default Vue.extend<
             if (![2, 6].includes(vehicle.fms_real)) return;
             const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
             const feature = 'buildingComplex-setFMS';
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
                     feature,
                 })
-                .then(() => {
-                    this.$store
-                        .dispatch('api/fetchVehicle', {
-                            id: vehicle.id,
-                            feature,
-                        })
-                        .then();
-                });
+                .then(() => this.apiStore.getVehicle(vehicle.id, feature));
         },
         setSortBuildingsTable(sort) {
             const s = sort;
@@ -2034,8 +2024,8 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-build-extension';
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
                     init: {
                         headers: {
@@ -2047,31 +2037,19 @@ export default Vue.extend<
                     },
                     feature,
                 })
+                .then(
+                    () =>
+                        this.apiStore[
+                            allianceBuilding
+                                ? 'getAllianceBuilding'
+                                : 'getBuilding'
+                        ]
+                )
                 .then(() => {
-                    this.$store
-                        .dispatch(
-                            `api/${
-                                allianceBuilding
-                                    ? 'fetchAllianceBuilding'
-                                    : 'fetchBuilding'
-                            }`,
-                            {
-                                id: buildingId,
-                                feature,
-                            }
-                        )
-                        .then(() => {
-                            this.tempDisableAllExtensionButtons = false;
-                            if (method === 'credits') {
-                                window.creditsUpdate(
-                                    this.$store.state.credits - price
-                                );
-                            } else {
-                                window.coinsUpdate(
-                                    this.$store.state.coins - price
-                                );
-                            }
-                        });
+                    this.tempDisableAllExtensionButtons = false;
+                    if (method === 'credits')
+                        window.creditsUpdate(this.$store.state.credits - price);
+                    else window.coinsUpdate(this.$store.state.coins - price);
                 });
         },
         toggleExtension(buildingId, extensionType) {
@@ -2085,8 +2063,8 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-toggle-extension';
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
                     init: {
                         headers: {
@@ -2098,15 +2076,9 @@ export default Vue.extend<
                     },
                     feature,
                 })
+                .then(() => this.apiStore.getBuilding(buildingId, feature))
                 .then(() => {
-                    this.$store
-                        .dispatch('api/fetchBuilding', {
-                            id: buildingId,
-                            feature,
-                        })
-                        .then(() => {
-                            this.tempDisableAllExtensionButtons = false;
-                        });
+                    this.tempDisableAllExtensionButtons = false;
                 });
         },
         updateExtensionsFilterNames(names) {

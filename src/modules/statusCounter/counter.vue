@@ -36,6 +36,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
+
 import type { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
@@ -57,20 +60,20 @@ export default Vue.extend<
         };
     },
     computed: {
-        vehicles() {
-            return this.$store.state.api.vehicles.length;
-        },
-        vehicle_states() {
-            return Object.fromEntries(
-                Object.entries(this.fmsReal2Show).map(([real, show]) => [
-                    show,
-                    {
-                        real,
-                        amount: this.$store.state.api.vehicleStates[show] ?? 0,
-                    },
-                ])
-            );
-        },
+        ...mapState(useAPIStore, {
+            vehicles: store => store.vehicles.length,
+            vehicle_states(store) {
+                return Object.fromEntries(
+                    Object.entries(this.fmsReal2Show).map(([real, show]) => [
+                        show,
+                        {
+                            real,
+                            amount: store.vehicleStates[show] ?? 0,
+                        },
+                    ])
+                );
+            },
+        }),
     },
     props: {
         settings: {

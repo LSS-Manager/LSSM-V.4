@@ -271,8 +271,8 @@ export default Vue.extend<
                 window.location.origin
             );
             url.searchParams.set('page', newPage.toString());
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-conversation-load-${mode}-${newPage}`,
                 })
@@ -331,8 +331,8 @@ export default Vue.extend<
                 this.conversation.id.toString()
             );
             url.searchParams.append('message[body]', this.response);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages`,
                     init: {
                         credentials: 'include',
@@ -343,7 +343,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/messages/${this.conversation.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -382,8 +382,8 @@ export default Vue.extend<
                 'conversations[]',
                 this.conversation.id.toString()
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages/trash`,
                     init: {
                         credentials: 'include',
@@ -391,7 +391,10 @@ export default Vue.extend<
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: new URL(`/messages`, window.location.origin),
+                        referrer: new URL(
+                            `/messages`,
+                            window.location.origin
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -483,7 +486,7 @@ export default Vue.extend<
         this.loadedPages.last = this.page;
         this.lightbox.finishLoading('conversation-mounted');
 
-        this.$stores.storage
+        this.lightbox.storageStore
             .get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],

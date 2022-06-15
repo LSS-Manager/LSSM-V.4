@@ -84,9 +84,13 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useAPIStore } from '@stores/api';
+import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
+import { useNotificationStore } from '@stores/notifications';
 import { useSettingsStore } from '@stores/settings';
+import { useStorageStore } from '@stores/storage';
 
 import type {
     RedesignLightbox,
@@ -295,9 +299,13 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            apiStore: useAPIStore(),
+            broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),
             eventStore: useEventStore(),
+            notificationsStore: useNotificationStore(),
             settingsStore: useSettingsStore(),
+            storageStore: useStorageStore(),
             windows,
         };
     },
@@ -378,8 +386,8 @@ export default Vue.extend<
 
                 let redirected = false;
 
-                this.$store
-                    .dispatch('api/request', {
+                this.apiStore
+                    .request({
                         url,
                         feature: `redesign-${type}`,
                     })
@@ -607,24 +615,12 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.$store
-            .dispatch('api/getMissions', {
-                force: false,
-                feature: 'redesign-lightbox-mount',
-            })
-            .then();
-        [
-            'vehicles',
-            'buildings',
-            'allianceinfo',
-            'settings',
-            'credits',
-        ].forEach(type =>
-            this.$store.dispatch('api/initialUpdate', {
-                type,
-                feature: 'redesign-lightbox-mount',
-            })
-        );
+        const mountFeature = 'redesign-lightbox-mount';
+        this.apiStore.getAllianceInfo(mountFeature).then();
+        this.apiStore.getBuildings(mountFeature).then();
+        this.apiStore.getCredits(mountFeature).then();
+        this.apiStore.getMissions(mountFeature).then();
+        this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {
         this.$store.commit('useFontAwesome');

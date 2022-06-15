@@ -1,6 +1,5 @@
 import Vuex from 'vuex';
 
-import api from './store/api';
 import config from './config';
 
 import type { InternalBuilding } from 'typings/Building';
@@ -22,7 +21,6 @@ import type {
 import type {
     ActionTree,
     GetterTree,
-    ModuleTree,
     MutationTree,
     Store,
     StoreOptions,
@@ -32,9 +30,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
 
     return new Vuex.Store<RootState>({
-        modules: {
-            api,
-        } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
             version: VERSION,
@@ -43,7 +38,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             discord: `https://discord.gg/${config.discord.invite}`,
             github: `https://github.com/${config.github.repo}`,
             games: config.games,
-            server: config.server,
+            server: SERVER,
             fontAwesomeIconSearch: config.fontAwesomeIconSearch,
             hooks: {},
             mapkit: typeof window.mapkit !== 'undefined',
@@ -99,7 +94,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             useFontAwesome(state: RootState) {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
-                fa.src = `${state.server}static/fontawesome_free_6.1.1_all.min.js?uid=${state.lang}-${window.user_id}`;
+                fa.src = `${SERVER}static/fontawesome_free_6.1.1_all.min.js?uid=${state.lang}-${window.user_id}`;
                 fa.crossOrigin = 'anonymous';
                 document.head.append(fa);
                 state.fontAwesome.inserted = true;
@@ -127,9 +122,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
             updateCredits(state: RootState, value: number) {
                 const old = state.credits;
                 state.credits = value;
+                if (!(window[PREFIX] as Vue).$stores.api.credits) return;
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                this.state.api.credits.credits_user_current = value;
+                (
+                    window[PREFIX] as Vue
+                ).$stores.api.credits.credits_user_current = value;
                 const diff = value - old;
                 window.dispatchEvent(
                     new CustomEvent(`${PREFIX}_credits_update`, {
@@ -139,10 +137,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 if (diff > 0) {
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    this.state.api.credits.credits_user_total =
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        this.state.api.credits.credits_user_total + diff;
+                    (
+                        window[PREFIX] as Vue
+                    ).$stores.api.credits.credits_user_total += diff;
                 }
             },
             updateCoins(state: RootState, value: number) {
@@ -162,8 +159,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     }
                     return res;
                 },
-            wiki: (state: RootState): string =>
-                `${config.server}docs/${state.lang}/`,
+            wiki: (state: RootState): string => `${SERVER}docs/${state.lang}/`,
             moduleWiki:
                 (_, getters: GetterTree<RootState, RootState>) =>
                 (moduleId: keyof Modules): string =>
@@ -275,7 +271,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
-                script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
+                script.src = `${SERVER}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
                 document.body.append(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {

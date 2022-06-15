@@ -142,8 +142,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
             const url = `/credits?page=${this.startPage}`;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-credits-index-load-prev-${this.startPage}`,
                 })
@@ -180,8 +180,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
             const url = `/credits?page=${this.endPage}`;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-credits-index-load-next-${this.endPage}`,
                 })

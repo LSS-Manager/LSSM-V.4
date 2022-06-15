@@ -7,7 +7,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
-    await LSSM.$store.dispatch('api/registerSettings', { feature: MODULE_ID });
+    await LSSM.$stores.api.getSettings(MODULE_ID);
 
     const style = await (async () => {
         const predef = await getSetting<string>('predefined_style');
@@ -38,8 +38,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     );
 
     const modifyMarkers = () =>
-        LSSM.$store
-            .dispatch('api/request', {
+        LSSM.$stores.api
+            .request({
                 url: '/mission_positions',
                 feature: MODULE_ID,
             })

@@ -29,6 +29,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useAPIStore } from '@stores/api';
+
 import lssmLogo from '../img/lssm.png';
 
 import type { DefaultMethods } from 'vue/types/options';
@@ -116,8 +118,8 @@ export default Vue.extend<
         if (storageFileSizes) {
             this.fileSizes = JSON.parse(storageFileSizes);
         } else {
-            this.$store
-                .dispatch('api/request', {
+            useAPIStore()
+                .request({
                     url: `${this.$store.state.server}static/fileSizes.json?uid=${this.$store.state.lang}-${window.user_id}`,
                     feature: 'loading-indicator',
                 })

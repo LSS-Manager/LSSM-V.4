@@ -610,7 +610,7 @@ import type { PlotGaugeOptions } from 'highcharts';
 import type { ProfileWindow } from '../parsers/profile';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 import type { TranslateResult } from 'vue-i18n';
-import type { AllianceInfo, User } from 'typings/api/AllianceInfo';
+import type { User } from 'typings/api/AllianceInfo';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -737,8 +737,8 @@ export default Vue.extend<
                 'authenticity_token',
                 this.profile.authenticity_token
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/allianceIgnore/${this.profile.id}/${
                         this.profile.alliance_ignored ? 'destroy' : 'add'
                     }`,
@@ -750,7 +750,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `profile/${this.profile.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -985,11 +985,9 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
-        this.$store
-            .dispatch('api/registerAllianceinfoUsage', {
-                feature: 'redesign-profile',
-            })
-            .then((allianceinfo: AllianceInfo) => {
+        this.lightbox.apiStore
+            .getAllianceInfo('redesign-profile')
+            .then(({ value: allianceinfo }) => {
                 this.allianceUser = allianceinfo.users.find(
                     ({ id }) => id === this.profile.id
                 );
