@@ -116,6 +116,7 @@ export default (
             '../components/arrSearch/arrSearchDropdown.vue'
         ).then(({ default: arrSearchDropdown }) =>
             new LSSM.$vue({
+                pinia: LSSM.$pinia,
                 store: LSSM.$store,
                 i18n: LSSM.$i18n,
                 render: h =>

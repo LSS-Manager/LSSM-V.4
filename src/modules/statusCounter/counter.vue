@@ -1,7 +1,7 @@
 <template>
     <div class="statuscounter-wrapper">
         <span
-            v-for="({ real, amount }, show) in vehicle_states"
+            v-for="({ real, amount }, show) in vehicleStateAmounts"
             :key="show"
             class="building_list_fms"
             :class="{
@@ -46,7 +46,8 @@ export default Vue.extend<
     DefaultMethods<Vue>,
     {
         vehicles: number;
-        vehicle_states: Record<string, { real: string; amount: number }>;
+        vehicleStates: Record<number, number>;
+        vehicleStateAmounts: Record<string, { real: string; amount: number }>;
     },
     { settings: Record<string, boolean> & { percentRounding: number } }
 >({
@@ -62,18 +63,19 @@ export default Vue.extend<
     computed: {
         ...mapState(useAPIStore, {
             vehicles: store => store.vehicles.length,
-            vehicle_states(store) {
-                return Object.fromEntries(
-                    Object.entries(this.fmsReal2Show).map(([real, show]) => [
-                        show,
-                        {
-                            real,
-                            amount: store.vehicleStates[show] ?? 0,
-                        },
-                    ])
-                );
-            },
+            vehicleStates: 'vehicleStates',
         }),
+        vehicleStateAmounts() {
+            return Object.fromEntries(
+                Object.entries(this.fmsReal2Show).map(([real, show]) => [
+                    show,
+                    {
+                        real,
+                        amount: this.vehicleStates[show] ?? 0,
+                    },
+                ])
+            );
+        },
     },
     props: {
         settings: {

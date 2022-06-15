@@ -126,6 +126,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
             });
 
             new LSSM.$vue({
+                pinia: LSSM.$pinia,
                 store: LSSM.$store,
                 i18n: LSSM.$i18n,
                 render: h =>

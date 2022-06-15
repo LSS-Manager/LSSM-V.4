@@ -62,6 +62,7 @@ export default async (
         LinkPreviewMethods,
         LinkPreviewComputed
     >({
+        pinia: LSSM.$pinia,
         store: LSSM.$store,
         i18n: LSSM.$i18n,
         render: h =>

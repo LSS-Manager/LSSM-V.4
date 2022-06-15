@@ -84,9 +84,9 @@ export const useAPIStore = defineStore('api', {
         vehiclesByBuilding: (state): Record<number, Vehicle[]> => {
             const buildings: Record<number, Vehicle[]> = {};
             state.vehicles.forEach(vehicle => {
-                if (!buildings.hasOwnProperty(vehicle.id))
-                    buildings[vehicle.id] = [];
-                buildings[vehicle.id].push(vehicle);
+                if (!buildings.hasOwnProperty(vehicle.building_id))
+                    buildings[vehicle.building_id] = [];
+                buildings[vehicle.building_id].push(vehicle);
             });
             return buildings;
         },
@@ -367,7 +367,10 @@ export const useAPIStore = defineStore('api', {
             return this.request({
                 url: `${SERVER}missions/${window.I18n.locale}.json`,
                 feature,
-            }).then(res => res.json() as Promise<Record<string, Mission>>);
+            })
+                .then(res => res.json() as Promise<Record<string, Mission>>)
+                .then(missions => (this.missions = missions))
+                .then(missions => missions);
         },
         getMissionsArray(feature: string): Promise<Mission[]> {
             return this.getMissions(feature).then(missions =>

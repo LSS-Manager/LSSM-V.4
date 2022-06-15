@@ -95,6 +95,7 @@ export default async (LSSM: Vue): Promise<void> => {
         })
         .then(() => {
             new LSSM.$vue({
+                pinia: LSSM.$pinia,
                 store: LSSM.$store,
                 i18n: LSSM.$i18n,
                 render: h => h(LSSMMenu),
@@ -119,6 +120,7 @@ export default async (LSSM: Vue): Promise<void> => {
                                     document.createElement('div');
                                 document.body.append(anniversaryWrapper);
                                 new LSSM.$vue({
+                                    pinia: LSSM.$pinia,
                                     store: LSSM.$store,
                                     i18n: LSSM.$i18n,
                                     render: h => h(anniversary),

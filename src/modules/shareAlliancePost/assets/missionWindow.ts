@@ -503,7 +503,7 @@ export default async ({
                     shareMission(LSSM, missionId)
                         .then(
                             () =>
-                                new Promise<void>(resolve => {
+                                new Promise<Response | void>(resolve => {
                                     if (sendMessage) {
                                         sendReply(
                                             LSSM,

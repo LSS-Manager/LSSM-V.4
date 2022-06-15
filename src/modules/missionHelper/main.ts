@@ -16,6 +16,7 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     missionForm?.before(clear);
 
     new LSSM.$vue({
+        pinia: LSSM.$pinia,
         store: LSSM.$store,
         i18n: LSSM.$i18n,
         render: h =>

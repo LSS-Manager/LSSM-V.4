@@ -11,6 +11,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
     const clear = document.querySelector('.clear');
     if (clear) {
         new LSSM.$vue({
+            pinia: LSSM.$pinia,
             store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>
@@ -28,6 +29,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
     );
     if (ownTable) {
         new LSSM.$vue({
+            pinia: LSSM.$pinia,
             store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>
@@ -45,6 +47,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
             )
             ?.remove();
         new LSSM.$vue({
+            pinia: LSSM.$pinia,
             store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>

@@ -146,6 +146,7 @@ LSSM-Team`,
             const wrapper = document.createElement('div');
             document.body.append(wrapper);
             new LSSM.$vue({
+                pinia: LSSM.$pinia,
                 store: LSSM.$store,
                 i18n: LSSM.$i18n,
                 render: h => h(LoadingIndicator),
