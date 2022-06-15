@@ -1,5 +1,5 @@
-import type { useAPIStore } from '@stores/api';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { useAPIStore } from '@stores/api';
 import type VueI18n from 'vue-i18n';
 import type { Building, InternalBuilding } from 'typings/Building';
 

@@ -1,8 +1,6 @@
 import 'leaflet.heat';
 
-import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
-import type { Vehicle } from 'typings/Vehicle';
 import type { LatLng, Map } from 'leaflet';
 import type {
     Settings,

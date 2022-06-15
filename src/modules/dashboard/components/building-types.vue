@@ -92,7 +92,6 @@ import buildingList from './building-list.vue';
 
 import type { DefaultProps } from 'vue/types/options';
 import type {
-    Building,
     BuildingCategory,
     Extension,
     InternalBuilding,

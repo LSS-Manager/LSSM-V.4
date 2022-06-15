@@ -136,6 +136,8 @@ LSSM-Team`,
 
     window[PREFIX] = LSSM;
 
+    LSSM.$stores.api._initAPIsFromBroadcast().then();
+
     if (
         !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
         localStorage.getItem(loadingIndicatorStorageKey) === 'true'

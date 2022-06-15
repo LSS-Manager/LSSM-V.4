@@ -1,6 +1,5 @@
 import type { Building } from 'typings/Building';
 import type { LatLng } from 'leaflet';
-import type { Mission } from 'typings/Mission';
 import type { $m, ModuleMainFunction } from 'typings/Module';
 import type {
     MissionMarkerAdd,

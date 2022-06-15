@@ -14,7 +14,6 @@ import {
     shareMission,
 } from './util';
 
-import type { Mission } from 'typings/Mission';
 import type { ModuleMainFunction } from 'typings/Module';
 import type VueI18n from 'vue-i18n';
 

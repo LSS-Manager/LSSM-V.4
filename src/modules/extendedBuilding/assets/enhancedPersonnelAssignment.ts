@@ -1,7 +1,7 @@
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type { Schooling } from 'typings/Schooling';
 import type { $m, ModuleMainFunction } from 'typings/Module';
-import type { Building, InternalBuilding } from 'typings/Building';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,

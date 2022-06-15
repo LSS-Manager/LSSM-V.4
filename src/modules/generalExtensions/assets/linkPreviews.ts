@@ -1,9 +1,7 @@
 import linkPreview from '../components/linkPreview.vue';
 
-import type { Building } from 'typings/Building';
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { DefaultProps } from 'vue/types/options';
-import type { Vehicle } from 'typings/Vehicle';
 import type {
     LinkPreview,
     LinkPreviewComputed,

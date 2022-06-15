@@ -31,5 +31,5 @@ export interface APIState extends StorageAPIs {
     autoUpdates: StorageAPIKey[];
     currentlyUpdating: StorageAPIKey[];
     secretKey: string | null;
-    lastUpdates: Partial<Record<StorageAPIKey, number>>;
+    lastUpdates: Partial<Record<StorageAPIKey | 'missions', number>>;
 }

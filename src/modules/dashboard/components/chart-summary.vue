@@ -80,22 +80,18 @@ import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
-import { useSettingsStore } from '@stores/settings';
-import { useAPIStore } from '@stores/api';
 import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
+import { useSettingsStore } from '@stores/settings';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { TranslateResult } from 'vue-i18n';
-import type {
-    Building,
-    BuildingCategory,
-    InternalBuilding,
-} from '../../../../typings/Building';
+import type { BuildingCategory, InternalBuilding } from 'typings/Building';
 import type {
     ChartSummary,
     ChartSummaryComputed,
     ChartSummaryMethods,
-} from '../../../../typings/modules/Dashboard/ChartSummary';
+} from 'typings/modules/Dashboard/ChartSummary';
 // to seperate types
 // eslint-disable-next-line no-duplicate-imports
 import type {
@@ -104,10 +100,7 @@ import type {
     PointOptionsObject,
     SeriesSunburstOptions,
 } from 'highcharts';
-import type {
-    InternalVehicle,
-    VehicleCategory,
-} from '../../../../typings/Vehicle';
+import type { InternalVehicle, VehicleCategory } from 'typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);

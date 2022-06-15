@@ -1,5 +1,5 @@
 import type { $m } from 'typings/Module';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { InternalVehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,

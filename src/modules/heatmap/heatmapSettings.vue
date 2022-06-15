@@ -157,7 +157,7 @@ import { useAPIStore } from '@stores/api';
 import type { $m } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type {
     Mode,
     Settings,

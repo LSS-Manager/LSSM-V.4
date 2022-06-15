@@ -341,8 +341,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { useSettingsStore } from '@stores/settings';
 import { useAPIStore } from '@stores/api';
+import { useSettingsStore } from '@stores/settings';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';

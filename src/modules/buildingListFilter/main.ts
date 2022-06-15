@@ -1,4 +1,3 @@
-import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 interface FilterBtn extends HTMLButtonElement {

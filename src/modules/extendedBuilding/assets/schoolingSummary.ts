@@ -1,14 +1,14 @@
 import SchoolingSummary from '../components/schoolingSummary.vue';
 
 import type { $m } from 'typings/Module';
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type { Schooling } from 'typings/Schooling';
-import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     EachSchooling,
     SchoolingSummaryObject,
     Schooling as SchoolingSummarySchooling,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     await LSSM.$stores.api.getBuildings(`${MODULE_ID}-schoolingSummary`);

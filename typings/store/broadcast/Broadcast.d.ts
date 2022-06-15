@@ -1,8 +1,5 @@
-import type {
-    APIGetter,
-    EnsuredAPIGetter,
-    StorageAPIKey,
-} from 'typings/store/api/State';
+import type { Mission } from 'typings/Mission';
+import type { EnsuredAPIGetter, StorageAPIKey } from 'typings/store/api/State';
 
 interface BroadcastMessage<
     Type extends
@@ -11,6 +8,9 @@ interface BroadcastMessage<
         | 'api_response'
         | 'custom'
         | 'generic'
+        | 'mission_api_broadcast'
+        | 'mission_api_request'
+        | 'mission_api_response'
         | 'name_request'
         | 'name_response' = 'generic',
     Data extends
@@ -37,7 +37,7 @@ type APIRequestBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
 
 interface APIResponseData<API extends StorageAPIKey> {
     api: API;
-    value: APIGetter<API>;
+    value: EnsuredAPIGetter<API>;
 }
 type APIResponseBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
     'api_response',
@@ -53,6 +53,25 @@ type APIBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
     APIBroadcastData<API>
 >;
 
+type MissionAPIBroadcastMessage = BroadcastMessage<
+    'mission_api_broadcast',
+    Record<string, Mission>
+>;
+
+type MissionAPIRequestBroadcastMessage = BroadcastMessage<
+    'mission_api_request',
+    null
+>;
+
+interface MissionAPIResponseData {
+    missions: Record<string, Mission>;
+    lastUpdate: number;
+}
+type MissionAPIResponseBroadcastMessage = BroadcastMessage<
+    'mission_api_response',
+    MissionAPIResponseData
+>;
+
 type NameRequestBroadcastMessage = BroadcastMessage<'name_request', null>;
 type NameResponseBroadcastMessage = BroadcastMessage<'name_response', string>;
 
@@ -66,5 +85,8 @@ type GenericBroadcastMessageType =
     | APIRequestBroadcastMessage<StorageAPIKey>
     | APIResponseBroadcastMessage<StorageAPIKey>
     | CustomBroadcastMessage<unknown>
+    | MissionAPIBroadcastMessage
+    | MissionAPIRequestBroadcastMessage
+    | MissionAPIResponseBroadcastMessage
     | NameRequestBroadcastMessage
     | NameResponseBroadcastMessage;

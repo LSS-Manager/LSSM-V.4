@@ -4,7 +4,6 @@ import { defineStore } from 'pinia';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 
-import type { Building, BuildingCategory } from 'typings/Building';
 import type { Mission } from 'typings/Mission';
 import type { RadioMessage } from 'typings/Ingame';
 import type { Vehicle } from 'typings/Vehicle';
@@ -14,6 +13,7 @@ import type {
     EnsuredAPIGetter,
     StorageAPIKey,
 } from 'typings/store/api/State';
+import type { Building, BuildingCategory } from 'typings/Building';
 
 const API_MIN_UPDATE = 5 * 60 * 1000; // 5 Minutes
 
@@ -157,7 +157,53 @@ export const useAPIStore = defineStore('api', {
             this.lastUpdates[api] = lastUpdate;
         },
         _initAPIsFromBroadcast() {
-            // TODO: Init API: Get all APIs from Broadcast. To be called once in core
+            const broadcastStore = useBroadcastStore();
+            const collectAPI = <API extends StorageAPIKey>(api: API) =>
+                broadcastStore
+                    .requestAPI<API>(api)
+                    .then(
+                        collectedValues =>
+                            collectedValues.sort(
+                                (a, b) => a.lastUpdate - b.lastUpdate
+                            )[0]
+                    );
+            return Promise.all(
+                (
+                    [
+                        'alliance_buildings',
+                        'allianceinfo',
+                        'buildings',
+                        'credits',
+                        'settings',
+                        'vehicles',
+                    ] as StorageAPIKey[]
+                ).map(<API extends StorageAPIKey>(api: API) =>
+                    collectAPI<API>(api).then(latest => {
+                        if (
+                            latest &&
+                            latest.lastUpdate > (this.lastUpdates[api] ?? 0)
+                        )
+                            this._setAPI(api, latest);
+                    })
+                )
+            )
+                .then(() => broadcastStore.requestMissionsAPI())
+                .then(
+                    collectedMissions =>
+                        collectedMissions.sort(
+                            (a, b) => a.lastUpdate - b.lastUpdate
+                        )[0]
+                )
+                .then(latestMission => {
+                    if (
+                        latestMission &&
+                        latestMission.lastUpdate >
+                            (this.lastUpdates.missions ?? 0)
+                    ) {
+                        this.missions = latestMission.missions;
+                        this.lastUpdates.missions = latestMission.lastUpdate;
+                    }
+                });
         },
         _getAPI<API extends StorageAPIKey>(
             api: API,
@@ -369,8 +415,14 @@ export const useAPIStore = defineStore('api', {
                 feature,
             })
                 .then(res => res.json() as Promise<Record<string, Mission>>)
-                .then(missions => (this.missions = missions))
-                .then(missions => missions);
+                .then(missions =>
+                    useBroadcastStore().missionsApiBroadcast(missions)
+                )
+                .then(missions => {
+                    this.missions = missions;
+                    this.lastUpdates.missions = Date.now();
+                    return missions;
+                });
         },
         getMissionsArray(feature: string): Promise<Mission[]> {
             return this.getMissions(feature).then(missions =>

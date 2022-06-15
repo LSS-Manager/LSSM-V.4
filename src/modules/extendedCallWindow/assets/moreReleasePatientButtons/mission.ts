@@ -1,5 +1,3 @@
-import type { AllianceInfo } from 'typings/api/AllianceInfo';
-
 export default (LSSM: Vue, releaseText: string) => {
     if (!document.querySelector<HTMLDivElement>('.mission_patient')) return;
 

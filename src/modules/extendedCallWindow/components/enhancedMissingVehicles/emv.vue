@@ -128,8 +128,8 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
-import { useSettingsStore } from '@stores/settings';
 import { useAPIStore } from '@stores/api';
+import { useSettingsStore } from '@stores/settings';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
