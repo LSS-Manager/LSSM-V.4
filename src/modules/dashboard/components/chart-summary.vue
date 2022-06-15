@@ -81,6 +81,8 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
 import { useSettingsStore } from '@stores/settings';
+import { useAPIStore } from '@stores/api';
+import { mapState } from 'pinia';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { TranslateResult } from 'vue-i18n';
@@ -126,6 +128,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-dashboard-chart-summary',
     data() {
+        const apiStore = useAPIStore();
         const internalBuildingTypes: Record<number, InternalBuilding> =
             this.$store.getters.$tBuildings;
         const internalVehicleTypes: Record<number, InternalVehicle> =
@@ -135,7 +138,7 @@ export default Vue.extend<
                 'chart-summary-buildings',
                 true
             ),
-            buildings: this.$store.getters['api/buildingsByCategory'],
+            buildings: apiStore.buildingsByCategory,
             buildingCategories: this.$t(
                 'buildingCategories'
             ) as unknown as Record<string, BuildingCategory>,
@@ -153,7 +156,7 @@ export default Vue.extend<
                 'chart-summary-vehicles',
                 true
             ),
-            vehicles: this.$store.getters['api/vehiclesByType'],
+            vehicles: apiStore.vehiclesByType,
             vehicleCategories: this.$t(
                 'vehicleCategories'
             ) as unknown as Record<string, VehicleCategory>,
@@ -167,17 +170,18 @@ export default Vue.extend<
                     ([index, { color }]) => [index, color]
                 )
             ),
-            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            vehiclesByBuilding: apiStore.vehiclesByBuilding,
             buildingsAsColumn: false,
             settingsStore: useSettingsStore(),
         } as ChartSummary;
     },
     computed: {
-        personalCount() {
-            return (this.$store.state.api.buildings as Building[])
-                .map(b => b.personal_count)
-                .reduce((a, b) => a + b, 0);
-        },
+        ...mapState(useAPIStore, {
+            personalCount: store =>
+                store.buildings
+                    .map(b => b.personal_count)
+                    .reduce((a, b) => a + b, 0),
+        }),
     },
     mounted() {
         if (this.$store.state.darkmode)

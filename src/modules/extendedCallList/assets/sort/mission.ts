@@ -55,9 +55,9 @@ export default async (
     toggleWrapper.style.setProperty('display', 'inline-block');
 
     if (found) {
-        await LSSM.$store.dispatch('api/registerSettings', {
-            feature: `${MODULE_ID}_sort-missions_mission-window`,
-        });
+        await LSSM.$stores.api.getSettings(
+            `${MODULE_ID}_sort-missions_mission-window`
+        );
 
         const alarm = (publish = false) => {
             const url = new URL(
@@ -83,8 +83,8 @@ export default async (
                 ?.forEach(vehicle =>
                     url.searchParams.append('vehicle_ids[]', vehicle.value)
                 );
-            return LSSM.$store
-                .dispatch('api/request', {
+            return LSSM.$stores.api
+                .request({
                     url: url.pathname,
                     feature: `${MODULE_ID}_sort-missions_alarm`,
                     init: {
@@ -94,7 +94,7 @@ export default async (
                         referrer: new URL(
                             `/missions/${missionId}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -131,8 +131,8 @@ export default async (
                             }`
                         );
                     } else if (
-                        LSSM.$store.state.api.settings
-                            .mission_alarmed_successfull_close_window
+                        LSSM.$stores.api.settings
+                            ?.mission_alarmed_successfull_close_window
                     ) {
                         window.location.replace('/missions/close');
                     } else {

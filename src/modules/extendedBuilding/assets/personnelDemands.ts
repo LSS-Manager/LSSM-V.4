@@ -20,21 +20,18 @@ export default (
     let sumMinPersonnelS6 = 0;
     let sumMaxPersonnelS6 = 0;
 
-    LSSM.$store
-        .dispatch('api/fetchVehiclesAtBuilding', {
-            id: buildingId,
-            feature: `${MODULE_ID}-personnelDemands`,
-        })
-        .then((vehicles: Vehicle[]) => {
-            vehicles.forEach(v => {
-                const type = vehicleTypes[v.vehicle_type];
+    LSSM.$stores.api
+        .getVehiclesAtBuilding(buildingId, `${MODULE_ID}-personnelDemands`)
+        .then(vehicles => {
+            vehicles.forEach(vehicle => {
+                const type = vehicleTypes[vehicle.vehicle_type];
                 sumMinPersonnel += type.minPersonnel;
                 sumMaxPersonnel +=
-                    v.max_personnel_override ?? type.maxPersonnel;
-                if (v.fms_real !== 6) {
+                    vehicle.max_personnel_override ?? type.maxPersonnel;
+                if (vehicle.fms_real !== 6) {
                     sumMinPersonnelS6 += type.minPersonnel;
                     sumMaxPersonnelS6 +=
-                        v.max_personnel_override ?? type.maxPersonnel;
+                        vehicle.max_personnel_override ?? type.maxPersonnel;
                 }
             });
 

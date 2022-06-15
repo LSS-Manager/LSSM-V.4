@@ -30,8 +30,7 @@ export default async (
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
 
-    const missionsById: Record<string, Mission> =
-        LSSM.$store.getters['api/missionsById'];
+    const missionsById = LSSM.$stores.api.missions;
     const acceptedMissionTypes = Object.entries(missionsById)
         .filter(([, { average_credits }]) =>
             minCredits ? average_credits && average_credits >= minCredits : true
@@ -116,8 +115,8 @@ export default async (
             mission.btnGroup.append(btn);
             btn.addEventListener('click', () => {
                 btn.disabled = true;
-                LSSM.$store
-                    .dispatch('api/request', {
+                LSSM.$stores.api
+                    .request({
                         url: `/missions/${mission.id}/alliance`,
                         feature: 'ecl-share-missions',
                     })

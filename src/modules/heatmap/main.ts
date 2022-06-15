@@ -22,13 +22,8 @@ export default <ModuleMainFunction>(async ({
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
         return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'heatmap',
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: 'heatmap',
-    });
-
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
     LSSM.$store.commit('useFontAwesome');
 
     const getModuleSettings = () =>
@@ -78,7 +73,7 @@ export default <ModuleMainFunction>(async ({
     };
 
     const setData = (heatLayer: HeatLayer) => {
-        const buildings = LSSM.$store.state.api.buildings as Building[];
+        const buildings = LSSM.$stores.api.buildings;
         const buildingsById = Object.fromEntries(
             buildings.map(({ id, latitude, longitude }) => [
                 id,
@@ -109,7 +104,7 @@ export default <ModuleMainFunction>(async ({
             const vehicleTypes = vehicleSettings.includes.map(
                 ({ value }) => value
             );
-            (LSSM.$store.state.api.vehicles as Vehicle[]).forEach(
+            LSSM.$stores.api.vehicles.forEach(
                 ({ building_id, vehicle_type, vehicle_type_caption = '' }) => {
                     if (
                         !(

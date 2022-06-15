@@ -24,10 +24,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
 
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchBuilding', {
-            id: buildingId,
-            feature: `${MODULE_ID}-main`,
-        });
+        await LSSM.$stores.api.getBuilding(buildingId, `${MODULE_ID}-main`);
 
         if (
             (BUILDING_MODE === 'dispatch' || BUILDING_MODE === 'building') &&

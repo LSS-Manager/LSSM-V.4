@@ -16,9 +16,7 @@ export default <ModuleMainFunction>(async ({
     );
     if (!selectGroup) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'buildingListFilter-initial',
-    });
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
     LSSM.$store.commit('useFontAwesome');
 
     const extraBtnsGroup = document.createElement('div');
@@ -149,8 +147,7 @@ export default <ModuleMainFunction>(async ({
         selectGroup.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
 
-        const buildingsByType: Record<number, Building[]> =
-            LSSM.$store.getters['api/buildingsByType'];
+        const buildingsByType = LSSM.$stores.api.buildingsByType;
         Object.entries(smallBuildings).forEach(([big, small]) =>
             document
                 .querySelectorAll<HTMLLIElement>(

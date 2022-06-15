@@ -36,10 +36,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `${MODULE_ID}_settings`,
-    });
-    (LSSM.$store.state.api.vehicles as Vehicle[])
+    (await LSSM.$stores.api.getVehicles(`${MODULE_ID}_settings`)).value
         .filter(v => v.vehicle_type_caption)
         .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
             const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;

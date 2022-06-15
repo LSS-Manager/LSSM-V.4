@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 
-import type { Building } from 'typings/Building';
+import type { Building, BuildingCategory } from 'typings/Building';
 import type { Mission } from 'typings/Mission';
 import type { RadioMessage } from 'typings/Ingame';
 import type { Vehicle } from 'typings/Vehicle';
@@ -46,6 +46,10 @@ export const useAPIStore = defineStore('api', {
             );
             return states;
         },
+        vehiclesById: (state): Record<number, Vehicle> =>
+            Object.fromEntries(
+                state.vehicles.map(vehicle => [vehicle.id, vehicle])
+            ),
         vehiclesByTarget: (
             state
         ): {
@@ -67,6 +71,15 @@ export const useAPIStore = defineStore('api', {
                 targets[vehicle.target_type][vehicle.target_id].push(vehicle);
             });
             return targets;
+        },
+        vehiclesByType: (state): Record<number, Vehicle[]> => {
+            const types: Record<number, Vehicle[]> = {};
+            state.vehicles.forEach(vehicle => {
+                if (!types.hasOwnProperty(vehicle.vehicle_type))
+                    types[vehicle.vehicle_type] = [];
+                types[vehicle.vehicle_type].push(vehicle);
+            });
+            return types;
         },
         vehiclesByBuilding: (state): Record<number, Vehicle[]> => {
             const buildings: Record<number, Vehicle[]> = {};
@@ -102,12 +115,28 @@ export const useAPIStore = defineStore('api', {
             ),
         buildingsByType: (state): Record<number, Building[]> => {
             const types: Record<number, Building[]> = {};
-            state.buildings.forEach(b => {
-                if (!types.hasOwnProperty(b.building_type))
-                    types[b.building_type] = [];
-                types[b.building_type].push(b);
+            state.buildings.forEach(building => {
+                if (!types.hasOwnProperty(building.building_type))
+                    types[building.building_type] = [];
+                types[building.building_type].push(building);
             });
             return types;
+        },
+        buildingsByCategory() {
+            const LSSM = window[PREFIX] as Vue;
+            const categories = LSSM.$t(
+                'buildingCategories'
+            ) as unknown as Record<string, BuildingCategory>;
+            const buildingsByCategory = {} as Record<string, Building[]>;
+            Object.entries(categories).forEach(
+                ([category, { buildings }]) =>
+                    (buildingsByCategory[category] = [
+                        ...Object.values(buildings).flatMap(
+                            type => this.buildingsByType[type]
+                        ),
+                    ].filter(v => !!v))
+            );
+            return buildingsByCategory;
         },
         missionsArray: (state): Mission[] => Object.values(state.missions),
     },

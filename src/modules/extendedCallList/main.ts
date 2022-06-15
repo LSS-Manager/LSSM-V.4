@@ -281,12 +281,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         import(
             /* webpackChunkName: "modules/extendedCallList/utils/progressPrepend" */ './assets/utils/progressPrepend'
         ).then(async ({ default: progressPrepend }) => {
-            if (averageCredits) {
-                await LSSM.$store.dispatch('api/getMissions', {
-                    force: false,
-                    feature: 'ecl-averageCredits',
-                });
-            }
+            if (averageCredits)
+                await LSSM.$stores.api.getMissions('ecl-averageCredits');
 
             const { addAverageCredits, updateAverageCredits } = (
                 await import(

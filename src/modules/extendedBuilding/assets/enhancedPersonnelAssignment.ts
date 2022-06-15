@@ -10,12 +10,12 @@ export default async (
     setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
-    });
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
-    });
+    await LSSM.$stores.api.getBuildings(
+        `${MODULE_ID}-enhancedPersonnelAssignment`
+    );
+    await LSSM.$stores.api.getVehicles(
+        `${MODULE_ID}-enhancedPersonnelAssignment`
+    );
 
     const personnel = Array.from(
         document.querySelectorAll<HTMLTableRowElement>(
@@ -28,11 +28,11 @@ export default async (
     );
 
     const vehicle =
-        LSSM.$store.getters['api/vehicle'](vehicleId) ??
-        ((await LSSM.$store.dispatch('api/fetchVehicle', {
-            id: vehicleId,
-            feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
-        })) as Vehicle);
+        LSSM.$stores.api.vehiclesById[vehicleId] ??
+        (await LSSM.$stores.api.getVehicle(
+            vehicleId,
+            `${MODULE_ID}-enhancedPersonnelAssignment`
+        ));
     const vehicleTypes: Record<number, InternalVehicle> =
         LSSM.$store.getters.$tVehicles;
 
@@ -41,9 +41,8 @@ export default async (
     const buildingType = (
         LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
     )[
-        (LSSM.$store.state.api.buildings as Building[]).find(
-            ({ id }) => id === vehicle.building_id
-        )?.building_type ?? -1
+        LSSM.$stores.api.buildings.find(({ id }) => id === vehicle.building_id)
+            ?.building_type ?? -1
     ];
 
     const schools =

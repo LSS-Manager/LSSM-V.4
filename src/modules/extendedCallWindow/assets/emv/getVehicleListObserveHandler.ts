@@ -120,9 +120,8 @@ export default (
                 checkbox.getAttribute('tractive_random') === '0' &&
                 tractiveVehicleID !== '0'
             ) {
-                const tractive = LSSM.$store.getters['api/vehicle'](
-                    parseInt(tractiveVehicleID)
-                );
+                const tractive =
+                    LSSM.$stores.api.vehiclesById[parseInt(tractiveVehicleID)];
                 const tractiveType = tractive.vehicle_type;
                 if (tractive) {
                     if (!selectedVehicles.hasOwnProperty(tractiveType))
@@ -195,9 +194,8 @@ export default (
                                   vehicleIds
                                       .map(
                                           id =>
-                                              LSSM.$store.getters[
-                                                  'api/vehicle'
-                                              ](id)?.max_personnel_override ??
+                                              LSSM.$stores.api.vehiclesById[id]
+                                                  ?.max_personnel_override ??
                                               type.maxPersonnel
                                       )
                                       .reduce((a, b) => a + b, 0),

@@ -50,8 +50,7 @@ export default (
         Record<string, { order: number; el: HTMLDivElement }>
     > = {};
 
-    const missionsById: Record<string, Mission> =
-        LSSM.$store.getters['api/missionsById'];
+    const missionsById = LSSM.$stores.api.missions;
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
         Object.values(missionsById)
             .sort(({ name: nameA }, { name: nameB }) =>
@@ -65,69 +64,48 @@ export default (
     const vehicleBuildings: Building[] = [];
     const vehicleBuildingLatLngs: LatLng[] = [];
 
-    LSSM.$store
-        .dispatch('api/registerBuildingsUsage', {
-            feature: 'ecl-sort-missions',
-        })
-        .then(() => {
-            dispatchCenters.splice(
-                0,
-                dispatchCenters.length,
-                ...Object.values(
-                    LSSM.$t('dispatchCenterBuildings') as unknown as Record<
-                        number,
-                        number
-                    >
-                )
-                    .flatMap(
-                        type =>
-                            (
-                                LSSM.$store.getters[
-                                    'api/buildingsByType'
-                                ] as Record<number, Building[]>
-                            )[type]
-                    )
-                    .filter(b => !!b)
-            );
-            dispatchCenterLatLngs.splice(
-                0,
-                dispatchCenterLatLngs.length,
-                ...dispatchCenters.map(
-                    ({ latitude, longitude }) =>
-                        new window.L.LatLng(latitude, longitude)
-                )
-            );
+    LSSM.$stores.api.getBuildings('ecl-sort-missions').then(() => {
+        dispatchCenters.splice(
+            0,
+            dispatchCenters.length,
+            ...Object.values(
+                LSSM.$t('dispatchCenterBuildings') as unknown as Record<
+                    number,
+                    number
+                >
+            )
+                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .filter(b => !!b)
+        );
+        dispatchCenterLatLngs.splice(
+            0,
+            dispatchCenterLatLngs.length,
+            ...dispatchCenters.map(
+                ({ latitude, longitude }) =>
+                    new window.L.LatLng(latitude, longitude)
+            )
+        );
 
-            vehicleBuildings.splice(
-                0,
-                vehicleBuildings.length,
-                ...Object.values(
-                    LSSM.$t('vehicleBuildings') as unknown as Record<
-                        number,
-                        number
-                    >
-                )
-                    .flatMap(
-                        type =>
-                            (
-                                LSSM.$store.getters[
-                                    'api/buildingsByType'
-                                ] as Record<number, Building[]>
-                            )[type]
-                    )
-                    .filter(b => !!b)
-            );
-            vehicleBuildingLatLngs.splice(
-                0,
-                vehicleBuildingLatLngs.length,
-                ...vehicleBuildings.map(
-                    ({ latitude, longitude }) =>
-                        new window.L.LatLng(latitude, longitude)
-                )
-            );
-            if (sort === 'distance_dispatch' || sort === 'remaining_patients')
-                resetOrder();
-        });
+        vehicleBuildings.splice(
+            0,
+            vehicleBuildings.length,
+            ...Object.values(
+                LSSM.$t('vehicleBuildings') as unknown as Record<number, number>
+            )
+                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .filter(b => !!b)
+        );
+        vehicleBuildingLatLngs.splice(
+            0,
+            vehicleBuildingLatLngs.length,
+            ...vehicleBuildings.map(
+                ({ latitude, longitude }) =>
+                    new window.L.LatLng(latitude, longitude)
+            )
+        );
+        if (sort === 'distance_dispatch' || sort === 'remaining_patients')
+            resetOrder();
+    });
 
     const reverseClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}-missionlist-order-desc`

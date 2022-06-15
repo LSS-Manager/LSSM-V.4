@@ -86,6 +86,7 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
+import { useAPIStore } from '@stores/api';
 
 import buildingList from './building-list.vue';
 
@@ -117,6 +118,7 @@ export default Vue.extend<
             ),
     },
     data() {
+        const apiStore = useAPIStore();
         const buildingTypes: Record<number, InternalBuilding> =
             this.$store.getters.$tBuildings;
         const categories = this.$t('buildingCategories') as unknown as Record<
@@ -129,9 +131,7 @@ export default Vue.extend<
                 color,
             ])
         ) as Record<string, string>;
-        const buildingsByType = this.$store.getters[
-            'api/buildingsByType'
-        ] as Record<number, Building[]>;
+        const buildingsByType = apiStore.buildingsByType;
         const groups = {} as BuildingTypes['groups'];
         Object.entries(categories).forEach(
             ([category, { buildings, color }]) => {
@@ -242,8 +242,7 @@ export default Vue.extend<
                                             buildingTypes[
                                                 buildingType
                                             ].maxBuildingsFunction?.(
-                                                this.$store.state.api.buildings
-                                                    .length
+                                                this.apiStore.buildings.length
                                             ) ?? '–',
                                         buildings: buildingsOfType,
                                     },
@@ -315,6 +314,7 @@ export default Vue.extend<
             categoryColors,
             groups,
             faBuilding,
+            apiStore,
         };
     },
     computed: {

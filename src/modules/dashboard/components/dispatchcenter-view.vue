@@ -342,6 +342,7 @@
 import Vue from 'vue';
 
 import { useSettingsStore } from '@stores/settings';
+import { useAPIStore } from '@stores/api';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
@@ -388,13 +389,14 @@ export default Vue.extend<
             ),
     },
     data() {
+        const apiStore = useAPIStore();
         const buildingTypes: Record<number, InternalBuilding> =
             this.$store.getters.$tBuildings;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );
         return {
-            buildings: this.$store.state.api.buildings,
+            buildings: apiStore.buildings,
             selectedBuilding: null,
             boards: [],
             buildingLimit: 50,
@@ -403,7 +405,7 @@ export default Vue.extend<
             newBoardTitle: '',
             buildingTypes,
             currentBoard: 0,
-            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            vehiclesByBuilding: apiStore.vehiclesByBuilding,
             vehicleBuildings: Object.values(this.$t('vehicleBuildings'))
                 .map(type => ({
                     type,
@@ -412,7 +414,7 @@ export default Vue.extend<
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-            dispatchBuildings: (this.$store.state.api.buildings as Building[])
+            dispatchBuildings: apiStore.buildings
                 .filter(building =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
@@ -420,6 +422,7 @@ export default Vue.extend<
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
             settingsStore: useSettingsStore(),
+            apiStore,
         } as DispatchcenterView;
     },
     computed: {

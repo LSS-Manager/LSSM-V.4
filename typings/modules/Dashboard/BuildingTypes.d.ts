@@ -1,3 +1,4 @@
+import type { useAPIStore } from '@stores/api';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';
 import type { Building, InternalBuilding } from 'typings/Building';
@@ -13,6 +14,7 @@ export interface BuildingTypes {
     categoryColors: Record<string, string>;
     groups: Record<string, Category>;
     faBuilding: IconDefinition;
+    apiStore: ReturnType<typeof useAPIStore>;
 }
 
 export interface Category {

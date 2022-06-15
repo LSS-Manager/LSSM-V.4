@@ -16,20 +16,13 @@ export default async (LSSM: Vue) => {
 
     if (!accordion) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'eb-sbf',
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: 'eb-sbf',
-    });
+    await LSSM.$stores.api.getBuildings('eb-sbf');
+    await LSSM.$stores.api.getVehicles('eb-sbf');
 
     const buildings: BuildingInfos[] = [];
 
-    const buildingsById: Record<number, Building> =
-        LSSM.$store.getters['api/buildingsById'];
-
-    const vehiclesByBuilding: Record<number, Vehicle[]> =
-        LSSM.$store.getters['api/vehiclesByBuilding'];
+    const buildingsById = LSSM.$stores.api.buildingsById;
+    const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
 
     const buildingTypes: Record<number, InternalBuilding> =
         LSSM.$store.getters.$tBuildings;

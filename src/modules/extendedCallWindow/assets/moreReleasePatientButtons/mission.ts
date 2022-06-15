@@ -24,12 +24,12 @@ export default (LSSM: Vue, releaseText: string) => {
             btnGroup.append(vehicle, releaseBtn);
         });
 
-    LSSM.$store
-        .dispatch('api/registerAllianceinfoUsage', { feature: 'ecw-mrpb' })
-        .then(() => {
-            const roleFlags = (
-                LSSM.$store.state.api.allianceinfo as AllianceInfo
-            ).users.find(({ id }) => id === window.user_id)?.role_flags;
+    LSSM.$stores.api
+        .getAllianceInfo('ecw-mrpb')
+        .then(({ value: allianceInfo }) => {
+            const roleFlags = allianceInfo.users.find(
+                ({ id }) => id === window.user_id
+            )?.role_flags;
             const hasTransportRights =
                 roleFlags &&
                 (roleFlags.admin ||

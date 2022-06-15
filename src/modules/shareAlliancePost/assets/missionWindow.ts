@@ -30,7 +30,7 @@ export default async ({
     getSetting,
     $m,
 }: Parameters<ModuleMainFunction>[0]) => {
-    await LSSM.$store.dispatch('api/getMissions', { feature: MODULE_ID });
+    await LSSM.$stores.api.getMissions(MODULE_ID);
 
     LSSM.$store.commit('useFontAwesome');
 
@@ -71,9 +71,7 @@ export default async ({
 
     const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
 
-    const mission = (
-        LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
-    )[missionType];
+    const mission = LSSM.$stores.api.missions[missionType];
 
     const averageCredits = mission?.average_credits?.toLocaleString() ?? '–';
     const patients = document

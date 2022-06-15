@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
+import { useAPIStore } from '@stores/api';
 
 import type {
     APIBroadcastMessage,
@@ -32,24 +33,23 @@ leader_elector
 channel.addEventListener('message', msg => {
     if (msg.receiver !== getWindowName() && msg.receiver !== '*') return;
     if (msg.type === 'api_broadcast') {
-        (window[PREFIX] as Vue).$stores.api._setAPI(
-            msg.data.api,
-            msg.data.value
-        );
+        useAPIStore()._setAPI(msg.data.api, msg.data.value);
     } else if (msg.type === 'api_request') {
-        channel
-            .postMessage({
-                type: 'api_response',
-                sender: getWindowName(),
-                receiver: msg.sender,
-                data: {
+        const apiStore = useAPIStore();
+        const apiValue = apiStore[msg.data.api];
+        if (apiValue) {
+            sendRequest<APIResponseBroadcastMessage<StorageAPIKey>>(
+                'api_response',
+                {
                     api: msg.data.api,
-                    value: (window[PREFIX] as Vue).$store.state.api[
-                        msg.data.api
-                    ],
+                    value: {
+                        value: apiValue,
+                        lastUpdate: apiStore.lastUpdates[msg.data.api] ?? 0,
+                    },
                 },
-            })
-            .then();
+                msg.sender
+            ).then();
+        }
     } else if (msg.type === 'custom') {
         // TODO: find a better solution than eval
         // eslint-disable-next-line no-eval

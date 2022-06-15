@@ -11,8 +11,7 @@ export default (
     addAverageCredits(mission: ProgressPrependCallback): number;
     updateAverageCredits(mission: MissionUpdateCallback): void;
 } => {
-    const missionsById: Record<string, Mission> =
-        LSSM.$store.getters['api/missionsById'];
+    const missionsById = LSSM.$stores.api.missions;
 
     const wrapperClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}_average-credits_wrapper`

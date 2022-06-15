@@ -5,14 +5,8 @@ import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async ({ LSSM, MODULE_ID }) => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        autoUpdate: true,
-        feature: MODULE_ID,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        autoUpdate: true,
-        feature: MODULE_ID,
-    });
+    await LSSM.$stores.api.autoUpdateBuildings(MODULE_ID);
+    await LSSM.$stores.api.autoUpdateVehicles(MODULE_ID);
 
     const vehicleTypes: Record<number, InternalVehicle> =
         LSSM.$store.getters.$tVehicles;
@@ -33,8 +27,8 @@ export default (async ({ LSSM, MODULE_ID }) => {
     let buildings: Building[];
 
     const updateBuildings = () => {
-        vehiclesByBuilding = LSSM.$store.getters['api/vehiclesByBuilding'];
-        ({ buildings } = LSSM.$store.state.api);
+        vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
+        buildings = LSSM.$stores.api.buildings;
     };
 
     updateBuildings();
@@ -173,9 +167,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
             )
                 return;
             const { id, fms, fms_real } = radioMessage;
-            const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
-                v => v.id === id
-            ) as Vehicle;
+            const vehicle = LSSM.$stores.api.vehicles.find(v => v.id === id);
             if (!vehicle) return;
             updateBuildings();
             const v = vehiclesByBuilding[vehicle.building_id].find(

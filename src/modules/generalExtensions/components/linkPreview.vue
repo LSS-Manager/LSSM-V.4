@@ -136,6 +136,8 @@ import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkbo
 import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
 
 import type { InternalBuilding } from 'typings/Building';
 import type { InternalVehicle } from 'typings/Vehicle';
@@ -202,12 +204,10 @@ export default Vue.extend<
         parent() {
             return this.$el.parentElement;
         },
-        buildings() {
-            return this.$store.state.api.buildings;
-        },
-        vehicles() {
-            return this.$store.getters['api/vehiclesByBuilding'];
-        },
+        ...mapState(useAPIStore, {
+            buildings: 'buildings',
+            vehicles: 'vehiclesByBuilding',
+        }),
         buildingVehicles() {
             return (
                 cloneDeep(this.vehicles[this.id])?.sort((a, b) =>

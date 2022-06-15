@@ -77,8 +77,8 @@ export default (
                         url.searchParams.set('limit', '1');
                         url.searchParams.set('q', input.value);
 
-                        LSSM.$store
-                            .dispatch('api/request', {
+                        LSSM.$stores.api
+                            .request({
                                 url,
                                 feature: 'mapsearch',
                             })

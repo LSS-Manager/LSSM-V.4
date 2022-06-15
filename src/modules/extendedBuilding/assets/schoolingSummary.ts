@@ -11,9 +11,7 @@ import type {
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `${MODULE_ID}-schoolingSummary`,
-    });
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}-schoolingSummary`);
     const dataList =
         document.querySelector<HTMLDataListElement>('dl:last-of-type');
 
@@ -77,9 +75,8 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     const buildingType = (
         LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
     )[
-        (LSSM.$store.state.api.buildings as Building[]).find(
-            ({ id }) => id === buildingId
-        )?.building_type ?? -1
+        LSSM.$stores.api.buildings.find(({ id }) => id === buildingId)
+            ?.building_type ?? -1
     ];
 
     const schools =
@@ -101,14 +98,11 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         ])
     );
 
-    LSSM.$store
-        .dispatch('api/fetchVehiclesAtBuilding', {
-            id: buildingId,
-            feature: `${MODULE_ID}-schoolingSummary`,
-        })
-        .then((vehicles: Vehicle[]) => {
-            vehicles.forEach(v => {
-                const type = vehicleTypes[v.vehicle_type];
+    LSSM.$stores.api
+        .getVehiclesAtBuilding(buildingId, `${MODULE_ID}-schoolingSummary`)
+        .then(vehicles => {
+            vehicles.forEach(vehicle => {
+                const type = vehicleTypes[vehicle.vehicle_type];
                 schools.forEach(school => {
                     const vehicleSchoolings = type.schooling?.[school] ?? {};
                     Object.entries(vehicleSchoolings).forEach(
@@ -123,7 +117,9 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
                             summaryEach[staffListSchooling].min +=
                                 (all ? null : min) ?? type.minPersonnel;
                             summaryEach[staffListSchooling].max +=
-                                v.max_personnel_override ?? type.maxPersonnel;
+                                vehicle.max_personnel_override ??
+                                vehicle.max_personnel_override ??
+                                type.maxPersonnel;
                         }
                     );
                 });

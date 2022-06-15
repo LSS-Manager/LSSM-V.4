@@ -15,14 +15,8 @@ export default async (
     previews: string[],
     MODULE_ID: string
 ): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        autoUpdate: true,
-        feature: `${MODULE_ID}-linkPreviews`,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        autoUpdate: true,
-        feature: `${MODULE_ID}-linkPreviews`,
-    });
+    await LSSM.$stores.api.autoUpdateBuildings(`${MODULE_ID}-linkPreviews`);
+    await LSSM.$stores.api.autoUpdateVehicles(`${MODULE_ID}-linkPreviews`);
 
     const previewLinkClass =
         LSSM.$store.getters.nodeAttribute('is-previewLink');
@@ -101,18 +95,14 @@ export default async (
         LinkPreviewInstance.setMousePosition(e.clientX, e.clientY);
         // Building
         if (type === 'buildings') {
-            const building = (
-                LSSM.$store.state.api.buildings as Building[]
-            ).find(b => b.id === id);
+            const building = LSSM.$stores.api.buildingsById[id];
             if (!building) return;
             const icon = buildingIcons[building.building_type] || 'building';
             LinkPreviewInstance.setBuilding(building, icon);
         }
         // Vehicle
         else if (type === 'vehicles') {
-            const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
-                b => b.id === id
-            );
+            const vehicle = LSSM.$stores.api.vehiclesById[id];
             if (!vehicle) return;
             LinkPreviewInstance.setVehicle(vehicle);
         }

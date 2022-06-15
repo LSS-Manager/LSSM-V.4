@@ -129,6 +129,7 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { useSettingsStore } from '@stores/settings';
+import { useAPIStore } from '@stores/api';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
@@ -350,9 +351,7 @@ export default Vue.extend<
         this.getSetting('emvMaxStaff').then(
             calcMaxStaff => (this.calcMaxStaff = calcMaxStaff)
         );
-        this.$store
-            .dispatch('api/registerVehiclesUsage', { feature: 'emv' })
-            .then();
+        useAPIStore().getVehicles('emv');
     },
     mounted() {
         const observeHandler = vehicleListObserveHandler(

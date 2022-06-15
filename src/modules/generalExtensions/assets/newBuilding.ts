@@ -115,8 +115,8 @@ export default async (
                         url.searchParams.append(name, value);
                     }
                 );
-                LSSM.$store
-                    .dispatch('api/request', {
+                LSSM.$stores.api
+                    .request({
                         url: '/buildings',
                         init: {
                             credentials: 'include',

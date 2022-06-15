@@ -108,6 +108,8 @@ import Vue from 'vue';
 import { Chart } from 'highcharts-vue';
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
 
 import vehicleList from './vehicle-list.vue';
 
@@ -182,29 +184,28 @@ export default Vue.extend<
         } as VehicleTypes;
     },
     computed: {
-        vehicleTypes() {
-            const vbt = this.$store.getters['api/vehiclesByType'] as Record<
-                string,
-                Vehicle[]
-            >;
-            const types = {} as TypeList;
-            Object.keys(vbt).forEach(type => {
-                const fms = {} as Record<string, Vehicle[]>;
-                Object.values(this.statuses).forEach(
-                    status => (fms[`s${status}`] = [])
-                );
-                Object.values(vbt[type]).forEach(vehicle => {
-                    fms[`s${vehicle.fms_show}`].push(vehicle);
+        ...mapState(useAPIStore, {
+            vehicleTypes(store) {
+                const vbt = store.vehiclesByType;
+                const types = {} as TypeList;
+                Object.keys(vbt).forEach(type => {
+                    const fms = {} as Record<string, Vehicle[]>;
+                    Object.values(this.statuses).forEach(
+                        status => (fms[`s${status}`] = [])
+                    );
+                    Object.values(vbt[type]).forEach(vehicle => {
+                        fms[`s${vehicle.fms_show}`].push(vehicle);
+                    });
+                    types[`t${type}`] = {
+                        title: this.vehicleTypeNames[parseInt(type)],
+                        fms,
+                        sum: vbt[type].length,
+                        vehicles: vbt[type],
+                    };
                 });
-                types[`t${type}`] = {
-                    title: this.vehicleTypeNames[parseInt(type)],
-                    fms,
-                    sum: vbt[type].length,
-                    vehicles: vbt[type],
-                };
-            });
-            return types;
-        },
+                return types;
+            },
+        }),
         vehicleTypesFiltered() {
             const { vehicleTypes, search } = this;
             const filtered = {} as TypeList;

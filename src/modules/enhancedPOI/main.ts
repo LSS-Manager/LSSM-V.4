@@ -151,7 +151,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     };
     refresh_shown_pois();
     const paddingLeftPOI = [3, 4].includes(
-        LSSM.$store.state.api.settings.design_mode
+        LSSM.$stores.api.settings?.design_mode ?? 0
     )
         ? '25px'
         : '1ch';
