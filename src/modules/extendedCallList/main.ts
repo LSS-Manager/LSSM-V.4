@@ -24,13 +24,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const starrableMissions = await getSetting('starrableMissions');
     let starredMissions = (await getSetting<string[]>('starredMissions')) ?? [];
 
-    const starredMissionBtnClass = LSSM.$store.getters.nodeAttribute(
+    const starredMissionBtnClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_starrable-missions_btn`
     );
-    const starredMissionPanelClass = LSSM.$store.getters.nodeAttribute(
+    const starredMissionPanelClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_starrable-missions-starred`
     );
-    const sortBtnId = LSSM.$store.getters.nodeAttribute(
+    const sortBtnId = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_missionlist-sorting_selection-list-btn`
     );
 
@@ -72,8 +72,6 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
 
     if (starrableMissions || collapsableMissions || shareMissions) {
         (async () => {
-            LSSM.$store.commit('useFontAwesome');
-
             starredMissions = starredMissions.filter(
                 missionId =>
                     !!document.querySelector<HTMLDivElement>(
@@ -108,7 +106,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             const allMissionsCollapsed =
                 (await getSetting<boolean>('allMissionsCollapsed')) ?? false;
             await setSetting('collapsedMissions', collapsedMissions);
-            const collapsedMissionBtnClass = LSSM.$store.getters.nodeAttribute(
+            const collapsedMissionBtnClass = LSSM.$stores.root.nodeAttribute(
                 `${MODULE_ID}_collapsable-missions_btn`
             );
             const addCollapsableBtn: AddCollapsableButton | null =

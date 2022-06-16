@@ -4,7 +4,7 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
     if (sticky) {
         const clearfix = document.createElement('div');
         clearfix.style.width = '100%';
-        clearfix.id = LSSM.$store.getters.nodeAttribute(
+        clearfix.id = LSSM.$stores.root.nodeAttribute(
             'ecw-sticky_header-heightdiv',
             true
         );

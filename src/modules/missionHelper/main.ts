@@ -17,7 +17,6 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
 
     new LSSM.$vue({
         pinia: LSSM.$pinia,
-        store: LSSM.$store,
         i18n: LSSM.$i18n,
         render: h =>
             h(missionHelper, { props: { $m, $mc, getSetting, setSetting } }),

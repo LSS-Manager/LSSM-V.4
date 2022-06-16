@@ -19,7 +19,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
     )
         return;
 
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.$stores.root.locale);
 
     const generationBtn = document.createElement('button');
     generationBtn.classList.add('btn', 'btn-default', 'pull-right');
@@ -109,7 +109,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                             text: 'LSSM Status Report',
                             alignment: 'left',
                             margin: 10,
-                            link: `https://lss-manager.de/docs/${LSSM.$store.state.lang}`,
+                            link: `https://lss-manager.de/docs/${LSSM.$stores.root.locale}`,
                         },
                         {
                             width: '*',
@@ -372,7 +372,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                         },
                         {
                             width: '*',
-                            text: config.games[LSSM.$store.state.lang].name,
+                            text: config.games[LSSM.$stores.root.locale].name,
                             alignment: 'center',
                             margin: 10,
                             link: window.location.origin,

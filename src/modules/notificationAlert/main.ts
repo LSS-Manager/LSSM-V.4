@@ -43,7 +43,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
         'allianceChatWhisper',
     ].filter(ce => events.hasOwnProperty(ce));
     if (chatEvents.length) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'allianceChat',
             callback({
                 message,
@@ -182,7 +182,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
             defaultValue: true,
         });
 
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'radioMessage',
             async callback(message: RadioMessage) {
                 if (message.user_id !== window.user_id) return;
@@ -296,7 +296,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Private direct messages
     if (events['dm']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'messageUnreadUpdate',
             post: false,
             callback(amount: string) {
@@ -337,7 +337,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Ingame news (Blog, Facebook)
     if (events['ingame_news']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'newsNew',
             post: false,
             callback(hasNew: boolean) {
@@ -366,7 +366,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Alliance Cadidature
     if (events['allianceCandidature']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'allianceCandidatureCount',
             post: false,
             callback(amount: string) {
@@ -413,7 +413,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Alliance messages
     if (events['allianceMessage']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'allianceMessageNew',
             post: false,
             callback(hasNew: boolean) {
@@ -445,7 +445,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Alliance news
     if (events['allianceNews']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'allianceNewsNew',
             post: false,
             callback(hasNew: boolean) {
@@ -477,7 +477,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Alliance Forum
     if (events['allianceForum']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'allianceForumNew',
             post: false,
             callback(hasNew: boolean) {
@@ -509,7 +509,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
 
     // Tasks
     if (events['tasks_update']) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'tasksUpdate',
             post: false,
             callback(amount: number, newTasks: boolean) {
@@ -558,7 +558,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
         // 'mission_siwa_warning_alliance',
     ].filter(ce => events.hasOwnProperty(ce));
     if (missionEvents.length) {
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'missionMarkerAdd',
             post: false,
             callback(mission: MissionMarkerAdd) {

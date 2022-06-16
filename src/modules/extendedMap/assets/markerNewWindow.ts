@@ -2,15 +2,12 @@ import type { LeafletMouseEvent } from 'leaflet';
 import type { BuildingMarker, MissionMarker } from 'typings/Ingame';
 
 export default (LSSM: Vue) => {
-    const callback = <MarkerType extends BuildingMarker | MissionMarker>(
-        ...markers: MarkerType[]
-    ) =>
+    const callback = (...markers: (BuildingMarker | MissionMarker)[]) =>
         markers.forEach(marker => {
+            const isBuildingMarker = 'building_id' in marker;
             const url = new URL(
-                `/${'building_id' in marker ? 'buildings' : 'missions'}/${
-                    'building_id' in marker
-                        ? marker.building_id
-                        : marker.mission_id
+                `/${isBuildingMarker ? 'buildings' : 'missions'}/${
+                    isBuildingMarker ? marker.building_id : marker.mission_id
                 }`,
                 window.location.origin
             );
@@ -33,17 +30,15 @@ export default (LSSM: Vue) => {
             }
         });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'building_markers.push',
-            callback,
-        })
-        .then(() => callback(...window.building_markers));
+    LSSM.$stores.root.hook({
+        event: 'building_markers.push',
+        callback,
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'mission_markers.push',
-            callback,
-        })
-        .then(() => callback(...window.mission_markers));
+    LSSM.$stores.root.hook({
+        event: 'mission_markers.push',
+        callback,
+    });
+
+    callback(...window.building_markers, ...window.mission_markers);
 };

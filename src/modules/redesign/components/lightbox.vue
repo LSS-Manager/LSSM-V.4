@@ -623,7 +623,6 @@ export default Vue.extend<
         this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {
-        this.$store.commit('useFontAwesome');
         this.settingsStore
             .getModule<{ clickableLinks: boolean; showImg: boolean }>(
                 'generalExtensions'

@@ -9,18 +9,16 @@ export default (async ({ LSSM, MODULE_ID }) => {
     await LSSM.$stores.api.autoUpdateVehicles(MODULE_ID);
 
     const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+        LSSM.$stores.root.$tVehicles;
 
-    await LSSM.$store.dispatch('addStyle', {
-        selectorText: `.${LSSM.$store.getters.nodeAttribute(
+    await LSSM.$stores.root.addStyle({
+        selectorText: `.${LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}-vehiclelist`
         )} td`,
         style: {
             padding: '0.1rem',
         },
     });
-
-    LSSM.$store.commit('useFontAwesome');
 
     let vehiclesByBuilding: Record<number, Vehicle[]>;
 
@@ -86,7 +84,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
                 }
-                data += `<table class="${LSSM.$store.getters.nodeAttribute(
+                data += `<table class="${LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}-vehiclelist`
                 )}">`;
                 vehicles.forEach(vehicle => {
@@ -150,7 +148,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         },
     });
 
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook({
         event: 'building_maps_draw',
         callback({ id }: { id: number }) {
             updateBuildings();
@@ -158,7 +156,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         },
     });
 
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook({
         event: 'radioMessage',
         callback(radioMessage: RadioMessage) {
             if (

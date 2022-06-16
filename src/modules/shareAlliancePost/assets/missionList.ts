@@ -51,7 +51,7 @@ export default (
     btn.classList.add('dropdown-toggle');
     btn.dataset.toggle = 'dropdown';
 
-    const dropdownClass = LSSM.$store.getters.nodeAttribute('sap-ecl-dropdown');
+    const dropdownClass = LSSM.$stores.root.nodeAttribute('sap-ecl-dropdown');
 
     btn.parentElement?.querySelector(`.${dropdownClass}`)?.remove();
 
@@ -158,10 +158,10 @@ export default (
         return message;
     };
 
-    const editBtnClass = LSSM.$store.getters.nodeAttribute(
+    const editBtnClass = LSSM.$stores.root.nodeAttribute(
         'sap-ecl-edit_msg-btn'
     );
-    const inputGroupClass = LSSM.$store.getters.nodeAttribute(
+    const inputGroupClass = LSSM.$stores.root.nodeAttribute(
         'sap-ecl-edit_msg-input_group'
     );
 

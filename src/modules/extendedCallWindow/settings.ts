@@ -1,7 +1,6 @@
 import aipreview from './components/alarmIcons/preview.vue';
 import mkpreview from './components/missionKeywords/preview.vue';
 
-import type { InternalVehicle } from 'typings/Vehicle';
 import type { $m, ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
@@ -27,8 +26,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const vehicles = LSSM.$stores.root.$tVehicles;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {
@@ -264,7 +262,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             ],
             defaultItem: {
                 name: '',
-                color: LSSM.$store.state.darkmode ? '#505050' : '#fff',
+                color: LSSM.$stores.root.isDarkMode ? '#505050' : '#fff',
                 vehicleTypes: [],
             },
             orderable: true,

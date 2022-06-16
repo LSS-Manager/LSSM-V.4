@@ -16,8 +16,7 @@ export default async (
     await LSSM.$stores.api.autoUpdateBuildings(`${MODULE_ID}-linkPreviews`);
     await LSSM.$stores.api.autoUpdateVehicles(`${MODULE_ID}-linkPreviews`);
 
-    const previewLinkClass =
-        LSSM.$store.getters.nodeAttribute('is-previewLink');
+    const previewLinkClass = LSSM.$stores.root.nodeAttribute('is-previewLink');
     const attrSelectors = previews.map(
         p => `a[href^="/${p}/"]:not(.${previewLinkClass})`
     );
@@ -28,13 +27,11 @@ export default async (
 
     if (!links.length) return;
 
-    LSSM.$store.commit('useFontAwesome');
-
-    const infoBoxClass = LSSM.$store.getters.nodeAttribute(
+    const infoBoxClass = LSSM.$stores.root.nodeAttribute(
         'link-preview-infobox'
     );
 
-    await LSSM.$store.dispatch('addStyle', {
+    LSSM.$stores.root.addStyle({
         selectorText: `.${infoBoxClass}`,
         style: {
             'position': 'fixed',
@@ -61,7 +58,6 @@ export default async (
         LinkPreviewComputed
     >({
         pinia: LSSM.$pinia,
-        store: LSSM.$store,
         i18n: LSSM.$i18n,
         render: h =>
             h(linkPreview, {

@@ -42,7 +42,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         return;
 
     if (!stagingMode) {
-        await LSSM.$store.dispatch('addStyle', {
+        LSSM.$stores.root.addStyle({
             selectorText: '.vehicle_prisoner_select a.btn-danger',
             style: {
                 'pointer-events': 'none',

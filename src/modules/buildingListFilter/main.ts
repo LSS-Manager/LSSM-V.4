@@ -16,17 +16,13 @@ export default <ModuleMainFunction>(async ({
     if (!selectGroup) return;
 
     await LSSM.$stores.api.getBuildings(MODULE_ID);
-    LSSM.$store.commit('useFontAwesome');
 
     const extraBtnsGroup = document.createElement('div');
     extraBtnsGroup.classList.add('btn-group');
     extraBtnsGroup.style.setProperty('flex-shrink', '0');
 
     const wrapper = document.createElement('div');
-    wrapper.id = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}-wrapper`,
-        true
-    );
+    wrapper.id = LSSM.$stores.root.nodeAttribute(`${MODULE_ID}-wrapper`, true);
     wrapper.style.setProperty('display', 'flex');
     wrapper.style.setProperty('margin-bottom', '1rem');
     wrapper.style.setProperty('justify-content', 'space-between');
@@ -46,24 +42,22 @@ export default <ModuleMainFunction>(async ({
     const fixedWhiteSpace = document.createElement('div');
 
     if (fixedFilters) {
-        LSSM.$store
-            .dispatch('addStyles', [
-                {
-                    selectorText: `#${wrapper.id}`,
-                    style: {
-                        'position': 'absolute',
-                        'width': 'calc(100% - 4 * 15px)',
-                        'z-index': 10,
-                    },
+        LSSM.$stores.root.addStyles([
+            {
+                selectorText: `#${wrapper.id}`,
+                style: {
+                    'position': 'absolute',
+                    'width': 'calc(100% - 4 * 15px)',
+                    'z-index': 10,
                 },
-                {
-                    selectorText: `body.bigMap #${wrapper.id}`,
-                    style: {
-                        width: 'calc(100% - 2 * 5px)',
-                    },
+            },
+            {
+                selectorText: `body.bigMap #${wrapper.id}`,
+                style: {
+                    width: 'calc(100% - 2 * 5px)',
                 },
-            ])
-            .then();
+            },
+        ]);
         fixedWhiteSpace.style.setProperty('margin-bottom', '1rem');
         wrapper.after(fixedWhiteSpace);
     }
@@ -237,43 +231,39 @@ export default <ModuleMainFunction>(async ({
         };
 
         if (!updateBuildingsArrayHookAttached) {
-            LSSM.$store
-                .dispatch('hook', {
-                    event: 'buildingMarkerBulkContentCacheDraw',
-                    callback() {
-                        updateBuildingsArray();
-                        btns.forEach(([btn], index) => index && btn.reload?.());
-                    },
-                })
-                .then();
+            LSSM.$stores.root.hook({
+                event: 'buildingMarkerBulkContentCacheDraw',
+                callback() {
+                    updateBuildingsArray();
+                    btns.forEach(([btn], index) => index && btn.reload?.());
+                },
+            });
             updateBuildingsArrayHookAttached = true;
         }
 
         updateBuildingsArray();
 
-        const searchHideClass = LSSM.$store.getters.nodeAttribute(
+        const searchHideClass = LSSM.$stores.root.nodeAttribute(
             'blf-search-not-matching'
         );
-        const reversedListClass = LSSM.$store.getters.nodeAttribute(
+        const reversedListClass = LSSM.$stores.root.nodeAttribute(
             'blf-reversed-buildinglist'
         );
 
-        LSSM.$store
-            .dispatch('addStyles', [
-                {
-                    selectorText: `.${searchHideClass}`,
-                    style: {
-                        display: 'none !important',
-                    },
+        LSSM.$stores.root.addStyles([
+            {
+                selectorText: `.${searchHideClass}`,
+                style: {
+                    display: 'none !important',
                 },
-                {
-                    selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
-                    style: {
-                        transform: 'rotate(180deg)',
-                    },
+            },
+            {
+                selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
+                style: {
+                    transform: 'rotate(180deg)',
                 },
-            ])
-            .then();
+            },
+        ]);
 
         const sortBtn = document.createElement('button');
         sortBtn.classList.add('btn', 'btn-xs', 'btn-default');

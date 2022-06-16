@@ -1,7 +1,7 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (({ LSSM }) => {
-    LSSM.$store.dispatch('addMenuItem', 'LSSMAQL Console').then(element =>
+    LSSM.$stores.root.addMenuItem('LSSMAQL Console').then(element =>
         element.addEventListener('click', () =>
             LSSM.$modal.show(
                 () =>

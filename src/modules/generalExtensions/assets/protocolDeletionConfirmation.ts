@@ -27,7 +27,7 @@ export default async (
     const callback = () => {
         const toggleInput = document.createElement('input');
         toggleInput.type = 'checkbox';
-        toggleInput.id = LSSM.$store.getters.nodeAttribute(
+        toggleInput.id = LSSM.$stores.root.nodeAttribute(
             'ga-pdc-single-toggle'
         );
         toggleInput.checked = singleState;
@@ -124,7 +124,7 @@ export default async (
     };
     callback();
 
-    await LSSM.$store.dispatch('observeAsyncTab', {
+    LSSM.$stores.root.observeAsyncTab({
         tabSelector: '#tab_protocol',
         callback,
     });

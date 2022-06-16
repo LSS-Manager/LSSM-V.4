@@ -1,5 +1,4 @@
 import type { $m } from 'typings/Module';
-import type { InternalVehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
@@ -33,8 +32,7 @@ export default async (
             ),
         } as Record<string, boolean>;
 
-        const internalVehicleTypes: Record<number, InternalVehicle> =
-            LSSM.$store.getters.$tVehicles;
+        const internalVehicleTypes = LSSM.$stores.root.$tVehicles;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 
@@ -49,10 +47,8 @@ export default async (
             );
         }
 
-        if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
-
         if (fmsSwitch) {
-            await LSSM.$store.dispatch('addStyle', {
+            LSSM.$stores.root.addStyle({
                 selectorText: '.building_list_fms_2, .building_list_fms_6',
                 style: {
                     cursor: 'pointer',
@@ -249,11 +245,11 @@ export default async (
         BUILDING_MODE === 'dispatch' &&
         window.location.hash !== '#tab_vehicle'
     ) {
-        await LSSM.$store.dispatch('observeAsyncTab', {
+        await LSSM.$stores.api.getVehicles(`${MODULE_ID}-enhanceVehicleList`);
+        LSSM.$stores.root.observeAsyncTab({
             tabSelector: '#tab_vehicle',
             callback,
         });
-        await LSSM.$stores.api.getVehicles(`${MODULE_ID}-enhanceVehicleList`);
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);

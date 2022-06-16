@@ -1,8 +1,6 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
-    LSSM.$store.commit('useFontAwesome');
-
     import(
         /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
     ).then(({ default: inputMaxLen }) => inputMaxLen(LSSM));
@@ -42,7 +40,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const ownMapMarkers = await getSetting<boolean>('ownMapMarkers');
     if (
         window.location.pathname === '/' &&
-        !LSSM.$store.state.mapkit &&
+        !LSSM.$stores.root.mapkit &&
         (mapUndo || ownMapMarkers)
     ) {
         import(

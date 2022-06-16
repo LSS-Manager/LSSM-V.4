@@ -1,4 +1,3 @@
-import type { InternalBuilding } from 'typings/Building';
 import type { ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
@@ -14,8 +13,7 @@ import type {
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
 
-    const buildingTypes: Record<number, InternalBuilding> =
-        LSSM.$store.getters.$tBuildings;
+    const buildingTypes = LSSM.$stores.root.$tBuildings;
 
     await LSSM.$stores.api.getBuildings(`${MODULE_ID}-settings`);
     const userBuildings = LSSM.$stores.api.buildings;

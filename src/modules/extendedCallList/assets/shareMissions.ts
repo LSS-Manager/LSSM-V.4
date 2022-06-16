@@ -21,7 +21,7 @@ export default async (
         .map(type => `#mission_list${type ? `_${type}` : ''}`)
         .join(',');
 
-    const shareBtnClass = LSSM.$store.getters.nodeAttribute(
+    const shareBtnClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-share-mission-btn`
     );
 

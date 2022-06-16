@@ -14,7 +14,7 @@ export default (async ({ LSSM, getSetting }) => {
             `h1${redesign ? '.redesign-profile-title' : ''}`
         );
         if (h1) {
-            const smallId = LSSM.$store.getters.nodeAttribute(
+            const smallId = LSSM.$stores.root.nodeAttribute(
                 'userid-profile',
                 true
             );

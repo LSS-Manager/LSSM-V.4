@@ -64,7 +64,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
 
     await modifyMarkers();
 
-    await LSSM.$store.dispatch('hook', {
+    await LSSM.$stores.root.hook({
         event: 'map_pois_service.leafletMissionPositionMarkerAdd',
         callback({ caption, id }: POI) {
             const poi = window.map_pois_service
@@ -94,13 +94,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     };
 
     const poiHighlightedClass =
-        LSSM.$store.getters.nodeAttribute('poi-highlighted');
-    const poiSettingsWrapperId = LSSM.$store.getters.nodeAttribute(
+        LSSM.$stores.root.nodeAttribute('poi-highlighted');
+    const poiSettingsWrapperId = LSSM.$stores.root.nodeAttribute(
         'poi-settings',
         true
     );
 
-    await LSSM.$store.dispatch('addStyles', [
+    LSSM.$stores.root.addStyles([
         {
             selectorText: `#map .poi`,
             style: {
@@ -139,7 +139,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         const selector = shown_types
             .map(poi => `#map .poi[caption="${poi}"]`)
             .join(',');
-        const extraStyleId = LSSM.$store.getters.nodeAttribute(
+        const extraStyleId = LSSM.$stores.root.nodeAttribute(
             'poi-hider-style',
             true
         );

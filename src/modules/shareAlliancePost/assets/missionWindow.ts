@@ -31,8 +31,6 @@ export default async ({
 }: Parameters<ModuleMainFunction>[0]) => {
     await LSSM.$stores.api.getMissions(MODULE_ID);
 
-    LSSM.$store.commit('useFontAwesome');
-
     const messages = (
         await getSetting<{ value: Message[]; enabled: boolean }>('messages')
     ).value;
@@ -41,10 +39,10 @@ export default async ({
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
     const missionId = window.location.pathname.split('/')[2];
-    const dropdownClass = LSSM.$store.getters.nodeAttribute(
+    const dropdownClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-dropdown`
     );
-    const editBtnClass = LSSM.$store.getters.nodeAttribute(
+    const editBtnClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-edit_msg`
     );
 
@@ -60,10 +58,10 @@ export default async ({
                 }${key}`,
                 args
             );
-    LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+    LSSM.$i18n.mergeLocaleMessage(LSSM.$stores.root.locale, {
         modules: {
             extendedCallWindow: await import(
-                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$store.state.lang}.js`
+                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$stores.root.locale}.js`
             ),
         },
     });
@@ -102,17 +100,15 @@ export default async ({
     const cityWithoutZip = removeZipFromCity(city);
 
     let beginAtDate = '–';
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionCountdown',
-            callback(beginInSeconds: number) {
-                beginAtDate =
-                    beginInSeconds <= 0
-                        ? '–'
-                        : dateToTime(addHoursToNow(beginInSeconds / 60 / 60));
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionCountdown',
+        callback(beginInSeconds: number) {
+            beginAtDate =
+                beginInSeconds <= 0
+                    ? '–'
+                    : dateToTime(addHoursToNow(beginInSeconds / 60 / 60));
+        },
+    });
 
     let longestDrive = '–';
 
@@ -411,7 +407,7 @@ export default async ({
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
-        alarmSharePostGroup.id = LSSM.$store.getters.nodeAttribute(
+        alarmSharePostGroup.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_alarm-share-post`,
             true
         );
@@ -427,7 +423,7 @@ export default async ({
 
         const alarmSharePostNextGroup = document.createElement('div');
         alarmSharePostNextGroup.classList.add('btn-group', 'dropup');
-        alarmSharePostNextGroup.id = LSSM.$store.getters.nodeAttribute(
+        alarmSharePostNextGroup.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_alarm-share-post-next`,
             true
         );
@@ -458,12 +454,12 @@ export default async ({
 
         btnGroup.append(alarmSharePostGroup, alarmSharePostNextGroup);
 
-        let sortedMissionClass = LSSM.$store.getters.nodeAttribute(
+        let sortedMissionClass = LSSM.$stores.root.nodeAttribute(
             'extendedCallList_sort-missions_next_sorted'
         );
         let missionsSorted =
             document.querySelector<HTMLInputElement>(
-                `#${LSSM.$store.getters.nodeAttribute(
+                `#${LSSM.$stores.root.nodeAttribute(
                     'extendedCallList_sort_toggle-mission-buttons-mode',
                     true
                 )}`
@@ -486,7 +482,7 @@ export default async ({
             },
         });
 
-        const inputGroupClass = LSSM.$store.getters.nodeAttribute(
+        const inputGroupClass = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_edit-msg_input-group`
         );
 

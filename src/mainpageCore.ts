@@ -15,37 +15,34 @@ export default async (LSSM: Vue): Promise<void> => {
         .querySelector('.navbar-default .navbar-right')
         ?.appendChild(indicatorWrapper);
 
-    LSSM.$store.commit(
-        'updateCredits',
+    LSSM.$stores.root.updateCredits(
         LSSM.$utils.getNumberFromText(
             document
                 .querySelector<HTMLSpanElement>('.credits-value')
                 ?.textContent?.trim() ?? '-1'
         )
     );
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook<[number]>({
         event: 'creditsUpdate',
-        callback(credits: number) {
-            if (credits !== LSSM.$store.state.credits)
-                LSSM.$store.commit('updateCredits', credits);
+        callback(credits) {
+            if (credits !== LSSM.$stores.root.credits)
+                LSSM.$stores.root.updateCredits(credits);
         },
     });
-    LSSM.$store.commit(
-        'updateCoins',
+    LSSM.$stores.root.updateCoins(
         LSSM.$utils.getNumberFromText(
             document
                 .querySelector<HTMLSpanElement>('.coins-value')
                 ?.textContent?.trim() ?? '-1'
         )
     );
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook<[number]>({
         event: 'coinsUpdate',
-        callback(coins: number) {
-            if (coins !== LSSM.$store.state.coins)
-                LSSM.$store.commit('updateCoins', coins);
+        callback(coins) {
+            if (coins !== LSSM.$stores.root.coins)
+                LSSM.$stores.root.updateCoins(coins);
         },
     });
-
     LSSM.$stores.settings
         .registerModule({
             moduleId: 'global',
@@ -60,7 +57,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 },
                 iconBg: <Color>{
                     type: 'color',
-                    default: LSSM.$store.state.policechief
+                    default: LSSM.$stores.root.isPoliceChief
                         ? '#004997'
                         : '#C9302C',
                 },
@@ -70,15 +67,15 @@ export default async (LSSM: Vue): Promise<void> => {
                 },
                 osmDarkTooltip: <Toggle>{
                     type: 'toggle',
-                    default: LSSM.$store.state.darkmode,
+                    default: LSSM.$stores.root.isDarkMode,
                     noMapkit: true,
-                    disabled: () => !LSSM.$store.state.darkmode,
+                    disabled: () => !LSSM.$stores.root.isDarkMode,
                 },
                 osmDarkControls: <Toggle>{
                     type: 'toggle',
-                    default: LSSM.$store.state.darkmode,
+                    default: LSSM.$stores.root.isDarkMode,
                     noMapkit: true,
-                    disabled: () => !LSSM.$store.state.darkmode,
+                    disabled: () => !LSSM.$stores.root.isDarkMode,
                 },
                 v3MenuAsSubmenu: <Toggle>{
                     type: 'toggle',
@@ -96,7 +93,6 @@ export default async (LSSM: Vue): Promise<void> => {
         .then(() => {
             new LSSM.$vue({
                 pinia: LSSM.$pinia,
-                store: LSSM.$store,
                 i18n: LSSM.$i18n,
                 render: h => h(LSSMMenu),
             }).$mount(indicatorWrapper);
@@ -121,7 +117,6 @@ export default async (LSSM: Vue): Promise<void> => {
                                 document.body.append(anniversaryWrapper);
                                 new LSSM.$vue({
                                     pinia: LSSM.$pinia,
-                                    store: LSSM.$store,
                                     i18n: LSSM.$i18n,
                                     render: h => h(anniversary),
                                 }).$mount(anniversaryWrapper);
@@ -169,10 +164,9 @@ export default async (LSSM: Vue): Promise<void> => {
         });
 
     if (!window.location.search.includes('mapview=true') && !window.mapkit) {
-        LSSM.$store
-            .dispatch('addOSMControl', { position: 'top-left' })
+        LSSM.$stores.root
+            .addOSMControl({ position: 'top-left' })
             .then((control: HTMLAnchorElement) => {
-                LSSM.$store.commit('useFontAwesome');
                 const icon = document.createElement('i');
                 icon.classList.add('fas', 'fa-expand-arrows-alt');
                 control.append(icon);
@@ -202,7 +196,7 @@ export default async (LSSM: Vue): Promise<void> => {
     ).then(module => module.default(LSSM));
     // TODO: Load core modules: [support] ← Will be done in a more efficient way than polling
 
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook({
         event: 'radioMessage',
         post: false,
         callback(radioMessage: RadioMessage) {
@@ -217,7 +211,7 @@ export default async (LSSM: Vue): Promise<void> => {
     await LSSM.$stores.api.getBuildings('mainPage-core_initial-update');
     await LSSM.$stores.api.getMissions('mainPage-core_initial-update');
 
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook({
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
             if (buildingMarker.user_id !== window.user_id) return;

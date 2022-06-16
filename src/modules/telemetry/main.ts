@@ -63,7 +63,7 @@ export default (
                         text:
                             $m('browsersupport.not.text', {
                                 name: browser.name,
-                                wiki: LSSM.$store.getters.wiki,
+                                wiki: LSSM.$stores.root.wiki,
                                 wikiAnchor: $m('browsersupport.faqAnchor'),
                             }) + table,
                         options: {},
@@ -91,7 +91,7 @@ export default (
                                 supported: browserSupport.supported,
                                 current: browserMajor,
                                 download: browserSupport.download,
-                                wiki: LSSM.$store.getters.wiki,
+                                wiki: LSSM.$stores.root.wiki,
                                 wikiAnchor: $m('browsersupport.faqAnchor'),
                             }) + table,
                         options: {},
@@ -123,7 +123,7 @@ export default (
 
         LSSM.$stores.api
             .request({
-                url: `${SERVER}telemetry.php?uid=${LSSM.$store.state.lang}-${window.user_id}`,
+                url: LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
                 init: {
                     method: 'POST',
                     headers: {
@@ -132,10 +132,10 @@ export default (
                     body: JSON.stringify({
                         id: LSSM.$stores.api.secretKey,
                         uid: window.user_id,
-                        game: LSSM.$store.state.lang,
-                        police: LSSM.$store.state.policechief,
+                        game: LSSM.$stores.root.locale,
+                        police: LSSM.$stores.root.isPoliceChief,
                         name: window.username,
-                        version: LSSM.$store.state.version,
+                        version: VERSION,
                         data: {
                             browser: `${browser.name} ${browserMajor}`,
                             premium: window.user_premium,
@@ -186,7 +186,7 @@ export default (
                         LSSM.$modal.show('dialog', {
                             title: $m('info.title'),
                             text: $m('info.text', {
-                                wiki: LSSM.$store.getters.wiki,
+                                wiki: LSSM.$stores.root.wiki,
                             }),
                             options: {},
                             buttons: [

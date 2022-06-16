@@ -8,22 +8,20 @@ export default async (
     setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     MODULE_ID: string
 ): Promise<void> => {
-    LSSM.$store.commit('useFontAwesome');
-
-    const historyBtnId = LSSM.$store.getters.nodeAttribute(
+    const historyBtnId = LSSM.$stores.root.nodeAttribute(
         'map-history-btn',
         true
     );
-    const historyListId = LSSM.$store.getters.nodeAttribute(
+    const historyListId = LSSM.$stores.root.nodeAttribute(
         'map-history-list',
         true
     );
-    const pinBtnId = LSSM.$store.getters.nodeAttribute(
+    const pinBtnId = LSSM.$stores.root.nodeAttribute(
         'map-history-pin-btn',
         true
     );
 
-    await LSSM.$store.dispatch('addStyles', [
+    await LSSM.$stores.root.addStyles([
         {
             selectorText: `#${historyListId}`,
             style: {
@@ -70,7 +68,7 @@ export default async (
         zoom: number;
     }[];
 
-    const historyBtn = await LSSM.$store.dispatch('addOSMControl', {
+    const historyBtn = await LSSM.$stores.root.addOSMControl({
         position: 'top-left',
     });
     historyBtn.id = historyBtnId;
@@ -250,7 +248,7 @@ export default async (
     });
 
     if (mapUndo) {
-        await LSSM.$store.dispatch('proxy', {
+        await LSSM.$stores.root.proxyMethod({
             post: false,
             name: 'map.setView',
             trap: 'apply',

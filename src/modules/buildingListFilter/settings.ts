@@ -1,6 +1,5 @@
 import preview from './components/preview.vue';
 
-import type { InternalBuilding } from 'typings/Building';
 import type { ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
@@ -30,12 +29,12 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
 
     const buildingCaptions = [$m('lssmComplex')] as string[];
     const buildingIds = [Number.MIN_SAFE_INTEGER.toString()] as string[];
-    Object.entries(
-        LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
-    ).forEach(([id, { caption }]) => {
-        buildingCaptions.push(caption);
-        buildingIds.push(id);
-    });
+    Object.entries(LSSM.$stores.root.$tBuildings).forEach(
+        ([id, { caption }]) => {
+            buildingCaptions.push(caption);
+            buildingIds.push(id);
+        }
+    );
 
     return {
         fixedFilters: <Toggle>{

@@ -1,3 +1,5 @@
+import { useRootStore } from '@stores/index';
+
 import type { ModuleSettingFunction } from 'typings/Module';
 import type { Hidden, MultiSelect, Select, Toggle } from 'typings/Setting';
 
@@ -13,7 +15,7 @@ export default ((MODULE_ID, LSSM, $m) => {
         noVehicleRequirements.push(key);
         noVehicleRequirementLabels.push(text);
     });
-    const locale = LSSM.$store.state.lang;
+    const locale = useRootStore().locale;
     return {
         'title': <Toggle>{
             type: 'toggle',

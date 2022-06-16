@@ -1,6 +1,3 @@
-import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle } from 'typings/Vehicle';
-
 interface BuildingInfos {
     el: HTMLDivElement;
     id: number;
@@ -24,10 +21,8 @@ export default async (LSSM: Vue) => {
     const buildingsById = LSSM.$stores.api.buildingsById;
     const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
 
-    const buildingTypes: Record<number, InternalBuilding> =
-        LSSM.$store.getters.$tBuildings;
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const buildingTypes = LSSM.$stores.root.$tBuildings;
+    const vehicleTypes = LSSM.$stores.root.$tVehicles;
 
     accordion.querySelectorAll<HTMLDivElement>('.panel').forEach(panel => {
         const heading = panel.querySelector<HTMLDivElement>('.panel-heading');

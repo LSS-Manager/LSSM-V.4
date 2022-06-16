@@ -1,9 +1,4 @@
-import type { ActionContext } from 'vuex';
-import type { RootState } from '../RootState';
-import type { SettingsState } from './State';
 import type { ModuleSettings, RegisterSettings } from '../../Setting';
-
-export type SettingsActionStoreParams = ActionContext<SettingsState, RootState>;
 
 export interface SettingsRegister {
     moduleId: string;

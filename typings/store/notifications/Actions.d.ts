@@ -1,11 +1,4 @@
-import type { ActionContext } from 'vuex';
-import type { RootState } from '../RootState';
 import type { NotificationsState, NotificationType } from './State';
-
-export type NotificationsActionStoreParams = ActionContext<
-    NotificationsState,
-    RootState
->;
 
 export interface NotificationsSend {
     group?: NotificationsState['groups'][0];

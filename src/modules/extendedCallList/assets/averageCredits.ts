@@ -13,7 +13,7 @@ export default (
 } => {
     const missionsById = LSSM.$stores.api.missions;
 
-    const wrapperClass = LSSM.$store.getters.nodeAttribute(
+    const wrapperClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_average-credits_wrapper`
     );
 
@@ -42,7 +42,7 @@ export default (
 
             const span = document.createElement('span');
             span.classList.add('label');
-            if (!LSSM.$store.state.darkmode)
+            if (!LSSM.$stores.root.isDarkMode)
                 span.style.setProperty('color', 'black');
 
             const missionSpecs: Mission | undefined = missionsById[missionType];

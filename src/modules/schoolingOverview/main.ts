@@ -12,7 +12,6 @@ export default <ModuleMainFunction>(({ LSSM }) => {
     if (clear) {
         new LSSM.$vue({
             pinia: LSSM.$pinia,
-            store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>
                 h(schoolingOverview, {
@@ -30,7 +29,6 @@ export default <ModuleMainFunction>(({ LSSM }) => {
     if (ownTable) {
         new LSSM.$vue({
             pinia: LSSM.$pinia,
-            store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>
                 h(ownSchoolingTabs, { props: { tabs: ownSchoolings.tabs } }),
@@ -48,7 +46,6 @@ export default <ModuleMainFunction>(({ LSSM }) => {
             ?.remove();
         new LSSM.$vue({
             pinia: LSSM.$pinia,
-            store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>
                 h(openSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),

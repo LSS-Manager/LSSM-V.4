@@ -19,7 +19,7 @@ export default async (
 
     const credits_types: CreditsTypes = (
         await import(
-            /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../i18n/${LSSM.$store.state.lang}.ts`
+            /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../i18n/${LSSM.$stores.root.locale}.ts`
         )
     ).default.categories;
     const creditsTypes: CreditsTypes = Object.fromEntries([

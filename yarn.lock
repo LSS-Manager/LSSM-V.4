@@ -8756,7 +8756,6 @@ __metadata:
     vue-select: ^3.18.3
     vue-slim-tabs: ^0.4.0
     vue-template-compiler: ^2.6.14
-    vuex: ^3.6.2
     webpack: ^5.73.0
   languageName: unknown
   linkType: soft
@@ -10420,15 +10419,6 @@ __metadata:
   bin:
     vuepress: bin/vuepress.js
   checksum: 051d0757eff7d1b124359f779e3e4a91c0930571d900c794374d5f58b138d96ec2db5e4d508c87b4f2661f066b8633decd402a5a2f835eb8624cba4137dffa41
-  languageName: node
-  linkType: hard
-
-"vuex@npm:^3.6.2":
-  version: 3.6.2
-  resolution: "vuex@npm:3.6.2"
-  peerDependencies:
-    vue: ^2.0.0
-  checksum: 37915741ba9557024ea42579e2c8d81847ec699d07d8ea3aa673929f26fceba8c59e7e1e6a875fd3962e50018bc30f782f5ace34d83307ef228ad46a4df343da
   languageName: node
   linkType: hard
 

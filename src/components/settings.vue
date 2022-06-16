@@ -698,7 +698,6 @@ export default Vue.extend<
     },
     mounted() {
         this.getExportData();
-        this.$store.commit('useFontAwesome');
         (window[PREFIX] as Vue).$settings = this;
     },
 });

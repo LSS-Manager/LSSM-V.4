@@ -11,7 +11,6 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
         ?.append(wrapper);
     new LSSM.$vue({
         pinia: LSSM.$pinia,
-        store: LSSM.$store,
         i18n: LSSM.$i18n,
         render: h => h(counter, { props: { settings } }),
     }).$mount(wrapper);

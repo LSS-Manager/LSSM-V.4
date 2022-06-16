@@ -22,7 +22,6 @@ export default <ModuleMainFunction>(async ({
 
     await LSSM.$stores.api.getBuildings(MODULE_ID);
     await LSSM.$stores.api.getVehicles(MODULE_ID);
-    LSSM.$store.commit('useFontAwesome');
 
     const getModuleSettings = () =>
         LSSM.$stores.settings.getModule<Settings>(MODULE_ID);
@@ -161,14 +160,13 @@ export default <ModuleMainFunction>(async ({
             heatLayer.setOptions(getLayerOptions(map));
         });
 
-        LSSM.$store
-            .dispatch('addOSMControl', {
+        LSSM.$stores.root
+            .addOSMControl({
                 mapId: map.getContainer().id,
                 position: settings.position ?? 'bottom-left',
             })
-            .then((control: HTMLAnchorElement) => {
-                control.id =
-                    LSSM.$store.getters.nodeAttribute('heatmap-control');
+            .then(control => {
+                control.id = LSSM.$stores.root.nodeAttribute('heatmap-control');
 
                 const icon = document.createElement('i');
                 icon.classList.add('fas', 'fa-layer-group');
@@ -208,7 +206,7 @@ export default <ModuleMainFunction>(async ({
                         control.classList.toggle('open');
                 });
 
-                LSSM.$store.dispatch('addStyles', [
+                LSSM.$stores.root.addStyles([
                     {
                         selectorText: `#${control.id}`,
                         style: {

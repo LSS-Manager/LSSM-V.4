@@ -7,8 +7,6 @@ export default async (
     $m: $m,
     MODULE_ID: string
 ): Promise<void> => {
-    LSSM.$store.commit('useFontAwesome');
-
     const path = window.location.pathname.split('/').filter(s => !!s);
     const buildingId = parseInt(path[path.length - 1]);
     const allBuildings = LSSM.$stores.api.buildings;
@@ -157,7 +155,7 @@ export default async (
     };
     callback();
 
-    await LSSM.$store.dispatch('observeAsyncTab', {
+    await LSSM.$stores.root.observeAsyncTab({
         tabSelector: '#tab_buildings',
         callback,
     });

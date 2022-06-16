@@ -132,7 +132,7 @@ export default (
         thead.append(theadRow);
 
         const tbody = document.createElement('tbody');
-        if (!LSSM.$store.state.darkmode)
+        if (!LSSM.$stores.root.isDarkMode)
             tbody.style.setProperty('color', 'black');
         Object.entries(total[list]).forEach(([row, total]) => {
             const trow = document.createElement('tr');

@@ -7,9 +7,9 @@ export default <ModuleMainFunction>(async ({
     getSetting,
     setSetting,
 }) => {
-    const className = LSSM.$store.getters.nodeAttribute('clock');
+    const className = LSSM.$stores.root.nodeAttribute('clock');
 
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.$stores.root.locale);
 
     const createClock = async (location: string) => {
         const clock = document.createElement('a');

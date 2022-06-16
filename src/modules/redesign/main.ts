@@ -57,61 +57,54 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
             '^/messages/system_message/\\d+/?$': 'messages/system_message',
         }),
     };
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'lightboxOpen',
-            abortOnFalse: true,
-            callback(href: string) {
-                const creation = new Date().toISOString();
-                const size =
-                    96 -
-                    2 *
-                        document.querySelectorAll<HTMLDivElement>(
-                            '#modals-container > .vm--container'
-                        ).length;
-                LSSM.$modal.show(
-                    () =>
-                        import(
-                            /* webpackChunkName: "modules/redesign/lightbox" */ `./components/lightbox.vue`
-                        ),
-                    {
-                        url: href,
-                        $m: (key: string, args?: Record<string, unknown>) =>
-                            LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
-                        $mc: (
-                            key: string,
-                            amount: number,
-                            args?: Record<string, unknown>
-                        ) =>
-                            LSSM.$tc(
-                                `modules.${MODULE_ID}.${key}`,
-                                amount,
-                                args
-                            ),
-                        routeChecks,
-                        creation,
-                        size,
+    LSSM.$stores.root.hook({
+        event: 'lightboxOpen',
+        abortOnFalse: true,
+        callback(href: string) {
+            const creation = new Date().toISOString();
+            const size =
+                96 -
+                2 *
+                    document.querySelectorAll<HTMLDivElement>(
+                        '#modals-container > .vm--container'
+                    ).length;
+            LSSM.$modal.show(
+                () =>
+                    import(
+                        /* webpackChunkName: "modules/redesign/lightbox" */ `./components/lightbox.vue`
+                    ),
+                {
+                    url: href,
+                    $m: (key: string, args?: Record<string, unknown>) =>
+                        LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
+                    $mc: (
+                        key: string,
+                        amount: number,
+                        args?: Record<string, unknown>
+                    ) => LSSM.$tc(`modules.${MODULE_ID}.${key}`, amount, args),
+                    routeChecks,
+                    creation,
+                    size,
+                },
+                {
+                    name: `redesign-lightbox-${creation}`,
+                    height: `${size}%`,
+                    width: `${size}%`,
+                },
+                {
+                    closed() {
+                        window.lightboxClose(creation);
                     },
-                    {
-                        name: `redesign-lightbox-${creation}`,
-                        height: `${size}%`,
-                        width: `${size}%`,
-                    },
-                    {
-                        closed() {
-                            window.lightboxClose(creation);
-                        },
-                    }
-                );
-                return false;
-            },
-        })
-        .then();
+                }
+            );
+            return false;
+        },
+    });
 
     const findIframes = (doc: Document | null): HTMLIFrameElement[] => {
         const frames = Array.from(
             doc?.querySelectorAll<HTMLIFrameElement>(
-                `[name="${LSSM.$store.getters.nodeAttribute(
+                `[name="${LSSM.$stores.root.nodeAttribute(
                     'redesign-lightbox-iframe'
                 )}"]`
             ) ?? []
@@ -138,7 +131,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
             if (
                 !/^\/missions\/\d+\/?$/u.test(contentDocument.location.pathname)
             ) {
-                const containerClass = LSSM.$store.getters.nodeAttribute(
+                const containerClass = LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}-lightbox-iframe-container-full-height`
                 );
                 container.classList.add(containerClass);
@@ -164,29 +157,25 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         return false;
     };
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'lightboxAdjust',
-            abortOnFalse: true,
-            callback: lightboxAdjust,
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'lightboxAdjust',
+        abortOnFalse: true,
+        callback: lightboxAdjust,
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'lightboxClose',
-            callback(creation?: string) {
-                if (creation) {
-                    LSSM.$modal.hide(`redesign-lightbox-${creation}`);
-                } else {
-                    // $modal.hideAll actually exists but typedefs don't know…
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    LSSM.$modal.hideAll();
-                }
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'lightboxClose',
+        callback(creation?: string) {
+            if (creation) {
+                LSSM.$modal.hide(`redesign-lightbox-${creation}`);
+            } else {
+                // $modal.hideAll actually exists but typedefs don't know…
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                LSSM.$modal.hideAll();
+            }
+        },
+    });
 
     if (window.parent === window && window.location.pathname !== '/') {
         const type = Object.entries(routeChecks).find(([regex]) =>
@@ -206,7 +195,6 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
             ).then(lightbox => {
                 new LSSM.$vue({
                     pinia: LSSM.$pinia,
-                    store: LSSM.$store,
                     i18n: LSSM.$i18n,
                     render: h =>
                         h(lightbox.default, {

@@ -1,6 +1,5 @@
 import type { $m } from 'typings/Module';
 import type { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
-import type { InternalVehicle } from 'typings/Vehicle';
 
 type Requirements = EnhancedMissingVehiclesProps['missingRequirements'];
 
@@ -19,8 +18,7 @@ export default (
     );
     const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
 
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const vehicleTypes = LSSM.$stores.root.$tVehicles;
 
     if (!vehicleList || !occupiedList) return;
 

@@ -37,7 +37,7 @@ export default async (
     );
     if (!navHeader) return;
 
-    const flashStorageKey = LSSM.$store.getters.nodeAttribute(
+    const flashStorageKey = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_sort_mission-flash-msg`
     );
 
@@ -143,7 +143,7 @@ export default async (
 
         const toggleInput = document.createElement('input');
         toggleInput.type = 'checkbox';
-        toggleInput.id = LSSM.$store.getters.nodeAttribute(
+        toggleInput.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_sort_toggle-mission-buttons-mode`,
             true
         );
@@ -162,7 +162,7 @@ export default async (
         const isLastMission =
             missionListPosition === order[missionList].length - 1;
 
-        const alertNextBtnClass = LSSM.$store.getters.nodeAttribute(
+        const alertNextBtnClass = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
         );
         const alertNextBtns: [HTMLAnchorElement, HTMLAnchorElement][] =
@@ -202,7 +202,7 @@ export default async (
             newBtn.classList.add(
                 'hidden',
                 ...btn.classList,
-                LSSM.$store.getters.nodeAttribute(
+                LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['prev']}`
                 )
             );
@@ -238,7 +238,7 @@ export default async (
             newBtn.classList.add(
                 'hidden',
                 ...btn.classList,
-                LSSM.$store.getters.nodeAttribute(
+                LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['next']}`
                 )
             );
@@ -273,7 +273,7 @@ export default async (
                     'hidden',
                     isLastMission ? 'btn-default' : 'btn-primary',
                     ...btn.classList,
-                    LSSM.$store.getters.nodeAttribute(
+                    LSSM.$stores.root.nodeAttribute(
                         `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_share_next']}`
                     )
                 );

@@ -1,5 +1,4 @@
 import type { $m } from 'typings/Module';
-import type { InternalVehicle } from 'typings/Vehicle';
 
 export default (
     LSSM: Vue,
@@ -11,8 +10,7 @@ export default (
 
     if (!dataList) return;
 
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const vehicleTypes = LSSM.$stores.root.$tVehicles;
 
     let sumMinPersonnel = 0;
     let sumMaxPersonnel = 0;

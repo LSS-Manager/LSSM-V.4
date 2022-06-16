@@ -11,7 +11,7 @@ export default (
         if (!(map && document.querySelector<HTMLDivElement>(`#${id}`))) return;
 
         let form = document.createElement('form');
-        form.id = LSSM.$store.getters.nodeAttribute(
+        form.id = LSSM.$stores.root.nodeAttribute(
             'map_adress_search_form',
             true
         );
@@ -21,7 +21,7 @@ export default (
         const input = document.createElement('input');
         input.type = 'text';
         input.classList.add('form-controls');
-        input.id = LSSM.$store.getters.nodeAttribute('map_adress_search', true);
+        input.id = LSSM.$stores.root.nodeAttribute('map_adress_search', true);
         input.placeholder = placeholder;
         formGroup.append(input);
         form.append(formGroup);
@@ -39,9 +39,9 @@ export default (
                 ) ?? form;
         }
 
-        LSSM.$store
-            .dispatch('addOSMControl', { position, mapId: id })
-            .then((control: HTMLAnchorElement) => {
+        LSSM.$stores.root
+            .addOSMControl({ position, mapId: id })
+            .then(control => {
                 const clearfix = document.createElement('div');
                 clearfix.classList.add('clearfix');
                 control.after(clearfix);

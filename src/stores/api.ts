@@ -408,6 +408,7 @@ export const useAPIStore = defineStore('api', {
             feature: string,
             force = false
         ): Promise<Record<string, Mission>> {
+            // TODO Localstorage cache
             if (Object.keys(this.missions).length && !force)
                 return new Promise(resolve => resolve(this.missions));
             return this.request({

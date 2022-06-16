@@ -1,8 +1,6 @@
 import SchoolingSummary from '../components/schoolingSummary.vue';
 
 import type { $m } from 'typings/Module';
-import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle } from 'typings/Vehicle';
 import type { Schooling } from 'typings/Schooling';
 import type {
     EachSchooling,
@@ -69,15 +67,13 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const vehicleTypes = LSSM.$stores.root.$tVehicles;
 
-    const buildingType = (
-        LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
-    )[
-        LSSM.$stores.api.buildings.find(({ id }) => id === buildingId)
-            ?.building_type ?? -1
-    ];
+    const buildingType =
+        LSSM.$stores.root.$tBuildings[
+            LSSM.$stores.api.buildings.find(({ id }) => id === buildingId)
+                ?.building_type ?? -1
+        ];
 
     const schools =
         'schoolingTypes' in buildingType ? buildingType.schoolingTypes : null;
@@ -127,7 +123,6 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
 
             new LSSM.$vue({
                 pinia: LSSM.$pinia,
-                store: LSSM.$store,
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(SchoolingSummary, {

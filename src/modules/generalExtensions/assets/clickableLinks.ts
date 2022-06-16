@@ -41,32 +41,30 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         true
     );
 
-    LSSM.$store
-        .dispatch('premodifyParams', {
-            event: 'allianceChat',
-            callback(e: AllianceChatMessage) {
-                const links = e.message.match(urlRegex) || [];
-                const texts = e.message.split(urlRegex);
-                e.message = '';
-                texts.forEach(text => {
-                    if (text) e.message += text;
-                    const link = links.shift();
-                    if (link) {
-                        e.message += `<a href="${link}" ${
-                            new URL(link, window.location.origin).origin ===
-                            window.location.origin
-                                ? 'class="lightbox-open"'
-                                : 'target="_blank"'
-                        }>${
-                            showImg
-                                ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
-                                : link
-                        }</a>`;
-                    }
-                });
-            },
-        })
-        .then();
+    LSSM.$stores.root.preModifyParams({
+        event: 'allianceChat',
+        callback(e: AllianceChatMessage) {
+            const links = e.message.match(urlRegex) || [];
+            const texts = e.message.split(urlRegex);
+            e.message = '';
+            texts.forEach(text => {
+                if (text) e.message += text;
+                const link = links.shift();
+                if (link) {
+                    e.message += `<a href="${link}" ${
+                        new URL(link, window.location.origin).origin ===
+                        window.location.origin
+                            ? 'class="lightbox-open"'
+                            : 'target="_blank"'
+                    }>${
+                        showImg
+                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                            : link
+                    }</a>`;
+                }
+            });
+        },
+    });
 
     LSSM.$stores.event.addListener({
         name: 'redesign-note-saved',
