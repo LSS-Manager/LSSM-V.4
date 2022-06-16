@@ -6038,15 +6038,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-loader@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "html-loader@npm:3.1.0"
+"html-loader@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "html-loader@npm:3.1.2"
   dependencies:
     html-minifier-terser: ^6.0.2
     parse5: ^6.0.1
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 4c383d103c10465964924f31eeb2876df941df6515b52a7be517eb01d59ff8f5ae344a3ca428469029c999c73f5ae5dac3431701886ca16617a670a0991bd3a2
+  checksum: 75d665f118315056f24e248a6f0b6f6a3dbaec34593b9216af507d36eb24ca54cb8d80667a87ffc6a02b6b51c62423d59b4f64d827a745ac2e199d0c2b7c5c19
   languageName: node
   linkType: hard
 
@@ -8711,7 +8711,7 @@ __metadata:
     he: ^1.2.0
     highcharts: ^10.1.0
     highcharts-vue: ^1.4.0
-    html-loader: ^3.1.0
+    html-loader: ^3.1.2
     leaflet.heat: ^0.2.0
     localforage: ^1.10.0
     lodash: ^4.17.21
