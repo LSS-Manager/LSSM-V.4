@@ -9,7 +9,8 @@ export default async (
 ): Promise<void> => {
     const path = window.location.pathname.split('/').filter(s => !!s);
     const buildingId = parseInt(path[path.length - 1]);
-    const allBuildings = LSSM.$stores.api.buildings;
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}_fdc`);
+
     const callback = () => {
         const buildingIds = BUILDING_MODE === 'dispatch' ? [] : [buildingId];
         Array.from(
@@ -37,7 +38,7 @@ export default async (
             type => buildings.push(...(buildingsByType[type] ?? []))
         );
         buildingIds.forEach(buildingID => {
-            const building = allBuildings.find(({ id }) => id === buildingID);
+            const building = LSSM.$stores.api.buildingsById[buildingID];
             if (!building) return;
             const dispatchBtn = (
                 BUILDING_MODE !== 'dispatch'

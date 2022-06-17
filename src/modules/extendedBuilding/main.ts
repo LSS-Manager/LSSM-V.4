@@ -79,6 +79,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         }
 
         if (await getSetting('buildingsLeftRight')) {
+            await LSSM.$stores.api.getBuildings(`${MODULE_ID}_blr`);
             import(
                 /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
             ).then(({ default: buildingsLeftRight }) =>

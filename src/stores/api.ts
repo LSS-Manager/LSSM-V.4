@@ -150,10 +150,27 @@ export const useAPIStore = defineStore('api', {
                 .then(res => res.json())
                 .then(({ code }) => (this.secretKey = code));
         },
+        _awaitUpdateQueue<API extends StorageAPIKey>(api: API): Promise<void> {
+            return new Promise<void>(resolve => {
+                const interval = window.setInterval(() => {
+                    if (this.currentlyUpdating.includes(api)) return;
+                    this.currentlyUpdating.push(api);
+                    window.clearInterval(interval);
+                    resolve();
+                }, 50);
+            });
+        },
+        _removeAPIFromQueue<API extends StorageAPIKey>(api: API) {
+            const updateIndex = this.currentlyUpdating.findIndex(
+                update => update === api
+            );
+            if (updateIndex >= 0) this.currentlyUpdating.splice(updateIndex, 1);
+        },
         _setAPI<API extends StorageAPIKey>(
             api: API,
             { value, lastUpdate }: EnsuredAPIGetter<API>
         ): void {
+            this._removeAPIFromQueue(api);
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
         },
@@ -210,36 +227,42 @@ export const useAPIStore = defineStore('api', {
             api: API,
             feature: string
         ): Promise<EnsuredAPIGetter<API>> {
-            const stateValue = this._stateValue(api);
-            if (
-                stateValue.value &&
-                stateValue.lastUpdate > Date.now() - API_MIN_UPDATE
-            ) {
-                return new Promise(resolve =>
-                    resolve(stateValue as EnsuredAPIGetter<API>)
-                );
-            }
-            return this.request({
-                url: `/api/${api}`,
-                feature: `apiStore/getAPI(${feature})`,
-            })
-                .then(
-                    res => res.json() as Promise<EnsuredAPIGetter<API>['value']>
-                )
-                .then(
-                    apiResult =>
-                        <EnsuredAPIGetter<API>>{
-                            value: apiResult,
-                            lastUpdate: Date.now(),
-                        }
-                )
-                .then(apiGetterResult => {
-                    this._setAPI(api, apiGetterResult);
-                    return useBroadcastStore().apiBroadcast(
-                        api,
-                        apiGetterResult
+            return this._awaitUpdateQueue(api).then(() => {
+                const stateValue = this._stateValue(api);
+                if (
+                    stateValue.value &&
+                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE
+                ) {
+                    this._removeAPIFromQueue(api);
+                    return new Promise(resolve =>
+                        resolve(stateValue as EnsuredAPIGetter<API>)
                     );
-                });
+                }
+                return this.request({
+                    url: `/api/${api}`,
+                    feature: `apiStore/getAPI(${feature})`,
+                })
+                    .then(
+                        res =>
+                            res.json() as Promise<
+                                EnsuredAPIGetter<API>['value']
+                            >
+                    )
+                    .then(
+                        apiResult =>
+                            <EnsuredAPIGetter<API>>{
+                                value: apiResult,
+                                lastUpdate: Date.now(),
+                            }
+                    )
+                    .then(apiGetterResult => {
+                        this._setAPI(api, apiGetterResult);
+                        return useBroadcastStore().apiBroadcast(
+                            api,
+                            apiGetterResult
+                        );
+                    });
+            });
         },
         _autoUpdate<API extends StorageAPIKey>(
             updateFunction: (feature: string) => Promise<EnsuredAPIGetter<API>>,
