@@ -386,11 +386,19 @@ export default Vue.extend<
             startSettings: cloneDeep(settings),
             modulesSorted: [
                 'global',
-                ...useModulesStore().appModuleIds.filter(
-                    module =>
-                        settings.hasOwnProperty(module) &&
-                        Object.keys(settings[module]).length
-                ),
+                ...useModulesStore()
+                    .appModuleIds.filter(
+                        module =>
+                            settings.hasOwnProperty(module) &&
+                            Object.keys(settings[module]).length
+                    )
+                    .sort((a, b) =>
+                        this.$t(`modules.${a}.name`)
+                            .toString()
+                            .localeCompare(
+                                this.$t(`modules.${b}.name`).toString()
+                            )
+                    ),
             ],
             wideGrids: ['appendable-list'],
             settingsBeforeDescription: ['toggle'],
