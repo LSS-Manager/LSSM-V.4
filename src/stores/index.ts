@@ -44,7 +44,14 @@ export const useRootStore = defineStore('root', {
             parameters?: Record<string, string>
         ) => string {
             return (path, appendUserId = false, parameters = {}) => {
-                const url = new URL(path, SERVER);
+                const basePath = new URL(SERVER).pathname;
+                const url = new URL(
+                    `${basePath}${path.replace(SERVER, '')}`.replace(
+                        /\/+/gu,
+                        '/'
+                    ),
+                    SERVER
+                );
                 if (appendUserId) {
                     url.searchParams.set(
                         'uid',
