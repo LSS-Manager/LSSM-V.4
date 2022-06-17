@@ -31,6 +31,8 @@ export default async (
                 'list-style': 'none',
                 'padding': '1ch',
                 'transform': 'rotate(180deg)',
+                'position': 'absolute',
+                'z-index': 1,
             },
         },
         {
