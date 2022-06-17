@@ -377,11 +377,6 @@
         "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
         "version": "2.1.1"
     },
-    "vuex": {
-        "icon": "https://vuejs.org/images/logo.png",
-        "url": "https://github.com/vuejs/vuex#readme",
-        "version": "3.6.2"
-    },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
