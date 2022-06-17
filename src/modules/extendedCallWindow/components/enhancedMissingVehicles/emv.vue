@@ -356,7 +356,7 @@ export default Vue.extend<
     },
     mounted() {
         const observeHandler = vehicleListObserveHandler(
-            this,
+            window[PREFIX] as Vue,
             this.missingRequirements,
             this.requirements,
             (requirement, value) => this.$set(requirement, 'selected', value),
