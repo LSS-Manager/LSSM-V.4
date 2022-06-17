@@ -95,7 +95,7 @@
             </label>
         </h1>
         <tabs
-            :class="$store.getters.nodeAttribute('settings-tabs')"
+            :class="rootStore.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
             :default-index="tab"
             :on-select="(_, i) => (this.tab = i)"
@@ -136,9 +136,9 @@
                                     'globalSettings'
                                 ),
                                 {
-                                    wiki: $store.getters.wiki,
+                                    wiki: rootStore,
                                     fontAwesomeIconSearch:
-                                        $store.state.fontAwesomeIconSearch,
+                                        rootStore.fontAwesomeIconSearch,
                                 }
                             )
                         "
@@ -296,6 +296,10 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useModulesStore } from '@stores/modules';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+import { useStorageStore } from '@stores/storage';
 
 import loadingIndicatorStorageKey from '../../build/plugins/LoadingProgressPluginStorageKey';
 
@@ -369,9 +373,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        const settings = cloneDeep(
-            this.$store.state.settings.settings
-        ) as ModuleSettings;
+        const settingsStore = useSettingsStore();
+        const settings = cloneDeep(settingsStore.settings) as ModuleSettings;
         Object.entries(settings).forEach(([module, sets]) => {
             settings[module] = Object.fromEntries(
                 Object.entries(sets).filter(([, { type }]) => type !== 'hidden')
@@ -383,7 +386,7 @@ export default Vue.extend<
             startSettings: cloneDeep(settings),
             modulesSorted: [
                 'global',
-                ...(this.$store.getters.modulesSorted as string[]).filter(
+                ...useModulesStore().appModuleIds.filter(
                     module =>
                         settings.hasOwnProperty(module) &&
                         Object.keys(settings[module]).length
@@ -395,6 +398,9 @@ export default Vue.extend<
             changes: false,
             tab: 0,
             exportData: '',
+            storageStore: useStorageStore(),
+            settingsStore,
+            rootStore: useRootStore(),
         };
     },
     computed: {
@@ -470,7 +476,7 @@ export default Vue.extend<
                             )
                     )
                 );
-            this.$store.commit('settings/setSettingsChanges', this.changes);
+            this.settingsStore.setChangesStatus(this.changes);
         },
         updateAppendableList(state, moduleId, settingId) {
             (
@@ -485,17 +491,15 @@ export default Vue.extend<
                 for (const [settingId, { current }] of Object.entries(
                     settings
                 )) {
-                    await this.$store.dispatch('settings/setSetting', {
+                    await this.settingsStore.setSetting({
                         moduleId,
                         settingId,
                         value: current,
                     });
                 }
             }
-            await this.$store.dispatch('settings/saveSettings', {
-                settings: this.settings,
-            });
-            this.settings = cloneDeep(this.$store.state.settings.settings);
+            await this.settingsStore.saveSettings(this.settings);
+            this.settings = cloneDeep(this.settingsStore.settings);
             this.startSettings = cloneDeep(this.settings);
             this.update();
             this.getExportData();
@@ -585,8 +589,8 @@ export default Vue.extend<
         },
         disabled(moduleId, settingId) {
             if (
-                this.settings[moduleId][settingId].noMapkit &&
-                this.$store.state.mapkit
+                (this.settings[moduleId][settingId].noMapkit ?? false) &&
+                this.rootStore.mapkit
             )
                 return true;
             let dependence = this.settings[moduleId][settingId].dependsOn;
@@ -620,7 +624,7 @@ export default Vue.extend<
             return false;
         },
         getExportData() {
-            this.$store.dispatch('storage/getAllItems').then(storage => {
+            this.storageStore.getAllItems().then(storage => {
                 this.exportData = `data:application/json;charset=utf-8,${encodeURIComponent(
                     JSON.stringify({
                         safeFileVersion: 1,
@@ -659,7 +663,7 @@ export default Vue.extend<
                     result.activeModules &&
                     Array.isArray(result.activeModules)
                 ) {
-                    await this.$store.dispatch('storage/set', {
+                    await this.storageStore.set({
                         key: 'activeModules',
                         value: result.activeModules,
                     });
@@ -668,8 +672,8 @@ export default Vue.extend<
                 resultEntries.forEach(([module, value], index) => {
                     if (['activeModules', 'safeFileVersion'].includes(module))
                         return;
-                    this.$store
-                        .dispatch('storage/set', {
+                    this.storageStore
+                        .set({
                             key: `settings_${module}`,
                             value: {
                                 ...value,
@@ -697,7 +701,6 @@ export default Vue.extend<
     },
     mounted() {
         this.getExportData();
-        this.$store.commit('useFontAwesome');
         (window[PREFIX] as Vue).$settings = this;
     },
 });

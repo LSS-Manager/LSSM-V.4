@@ -18,12 +18,12 @@ export default <Scope<Empty, ['sorted'], [], true>>{
         validatorFunction() {
             this.LSSM = window[PREFIX] as Vue;
             this.moduleId = 'extendedCallList';
-            this.toggleId = this.LSSM.$store.getters.nodeAttribute(
+            this.toggleId = this.LSSM.$stores.root.nodeAttribute(
                 `${this.moduleId}_sort_toggle-mission-buttons-mode`,
                 true
             );
             this.nodeAttr = attr =>
-                this.LSSM.$store.getters.nodeAttribute(
+                this.LSSM.$stores.root.nodeAttribute(
                     `${this.moduleId}_sort-missions_${attr}`
                 );
             return true;

@@ -14,7 +14,7 @@ export default (async ({ LSSM, getSetting }) => {
             `h1${redesign ? '.redesign-profile-title' : ''}`
         );
         if (h1) {
-            const smallId = LSSM.$store.getters.nodeAttribute(
+            const smallId = LSSM.$stores.root.nodeAttribute(
                 'userid-profile',
                 true
             );
@@ -33,13 +33,11 @@ export default (async ({ LSSM, getSetting }) => {
             }
         }
     };
-    LSSM.$store
-        .dispatch('event/addListener', {
-            name: 'redesign-finished-loading',
-            listener(e: CustomEvent) {
-                if (e.detail.type === 'profile') addProfileId(true);
-            },
-        })
-        .then();
+    LSSM.$stores.event.addListener({
+        name: 'redesign-finished-loading',
+        listener(e: CustomEvent) {
+            if (e.detail.type === 'profile') addProfileId(true);
+        },
+    });
     if (window.location.pathname.match(/\/profile\/\d+/u)) addProfileId();
 }) as ModuleMainFunction;

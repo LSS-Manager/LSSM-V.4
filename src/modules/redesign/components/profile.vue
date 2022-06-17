@@ -598,6 +598,7 @@ import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import moment from 'moment';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { InternalBuilding } from 'typings/Building';
@@ -609,7 +610,7 @@ import type { PlotGaugeOptions } from 'highcharts';
 import type { ProfileWindow } from '../parsers/profile';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 import type { TranslateResult } from 'vue-i18n';
-import type { AllianceInfo, User } from 'typings/api/AllianceInfo';
+import type { User } from 'typings/api/AllianceInfo';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -684,9 +685,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
-        const buildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
+        moment.locale(this.lightbox.rootStore.locale);
+        const buildingTypes = this.lightbox.rootStore.$tBuildings;
         return {
             moment,
             he,
@@ -699,7 +699,7 @@ export default Vue.extend<
             faUserSlash,
             faLock,
             faUnlock,
-            awardsChartId: this.$store.getters.nodeAttribute(
+            awardsChartId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
@@ -736,8 +736,8 @@ export default Vue.extend<
                 'authenticity_token',
                 this.profile.authenticity_token
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/allianceIgnore/${this.profile.id}/${
                         this.profile.alliance_ignored ? 'destroy' : 'add'
                     }`,
@@ -749,7 +749,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `profile/${this.profile.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -813,11 +813,7 @@ export default Vue.extend<
     computed: {
         rank() {
             const ranks = this.$t(
-                `ranks.${
-                    this.$store.state.policechief
-                        ? 'policechief'
-                        : 'missionchief'
-                }`
+                `ranks.${this.lightbox.rootStore.gameFlavour}`
             ) as Record<number, string>;
             return (
                 Object.entries(ranks)
@@ -966,36 +962,33 @@ export default Vue.extend<
         },
     },
     mounted() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const Profile = this;
-        this.$store.dispatch('event/addListener', {
+        const eventStore = useEventStore();
+        eventStore.addListener({
             name: 'redesign-edit-profile-submitted',
-            listener({ detail: { content } }: CustomEvent) {
-                if (Profile.profile.self)
-                    Profile.$set(Profile.lightbox.data, 'text', content);
+            listener: ({ detail: { content } }: CustomEvent) => {
+                if (this.profile.self)
+                    this.$set(this.lightbox.data, 'text', content);
             },
         });
-        this.$store.dispatch('event/addListener', {
+        eventStore.addListener({
             name: 'redesign-edit-avatar-submitted',
-            listener({ detail: { img } }: CustomEvent) {
-                if (Profile.profile.self)
-                    Profile.$set(Profile.lightbox.data, 'image', img);
+            listener: ({ detail: { img } }: CustomEvent) => {
+                if (this.profile.self)
+                    this.$set(this.lightbox.data, 'image', img);
             },
         });
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
-        this.$store
-            .dispatch('api/registerAllianceinfoUsage', {
-                feature: 'redesign-profile',
-            })
-            .then((allianceinfo: AllianceInfo) => {
+        this.lightbox.apiStore
+            .getAllianceInfo('redesign-profile')
+            .then(({ value: allianceinfo }) => {
                 this.allianceUser = allianceinfo.users.find(
                     ({ id }) => id === this.profile.id
                 );
             });
         this.maxAwards = parseInt(this.lightbox.$sm('awards.max').toString());
-        if (this.$store.state.darkmode)
+        if (this.lightbox.rootStore.isDarkMode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {

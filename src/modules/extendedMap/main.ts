@@ -5,6 +5,7 @@ export default <ModuleMainFunction>(async ({
     MODULE_ID,
     LSSM,
     getSetting,
+    setSetting,
     $m,
     $mc,
 }) => {
@@ -47,6 +48,7 @@ export default <ModuleMainFunction>(async ({
                 MODULE_ID,
                 LSSM,
                 buildingComplexesSettings,
+                setSetting,
                 $m,
                 $mc
             )

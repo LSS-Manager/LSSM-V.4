@@ -14,7 +14,6 @@ import {
     shareMission,
 } from './util';
 
-import type { Mission } from 'typings/Mission';
 import type { ModuleMainFunction } from 'typings/Module';
 import type VueI18n from 'vue-i18n';
 
@@ -30,9 +29,7 @@ export default async ({
     getSetting,
     $m,
 }: Parameters<ModuleMainFunction>[0]) => {
-    await LSSM.$store.dispatch('api/getMissions', { feature: MODULE_ID });
-
-    LSSM.$store.commit('useFontAwesome');
+    await LSSM.$stores.api.getMissions(MODULE_ID);
 
     const messages = (
         await getSetting<{ value: Message[]; enabled: boolean }>('messages')
@@ -42,10 +39,10 @@ export default async ({
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
     const missionId = window.location.pathname.split('/')[2];
-    const dropdownClass = LSSM.$store.getters.nodeAttribute(
+    const dropdownClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-dropdown`
     );
-    const editBtnClass = LSSM.$store.getters.nodeAttribute(
+    const editBtnClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-edit_msg`
     );
 
@@ -61,19 +58,17 @@ export default async ({
                 }${key}`,
                 args
             );
-    LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+    LSSM.$i18n.mergeLocaleMessage(LSSM.$stores.root.locale, {
         modules: {
             extendedCallWindow: await import(
-                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$store.state.lang}.js`
+                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$stores.root.locale}.js`
             ),
         },
     });
 
     const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
 
-    const mission = (
-        LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
-    )[missionType];
+    const mission = LSSM.$stores.api.missions[missionType];
 
     const averageCredits = mission?.average_credits?.toLocaleString() ?? '–';
     const patients = document
@@ -105,17 +100,15 @@ export default async ({
     const cityWithoutZip = removeZipFromCity(city);
 
     let beginAtDate = '–';
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionCountdown',
-            callback(beginInSeconds: number) {
-                beginAtDate =
-                    beginInSeconds <= 0
-                        ? '–'
-                        : dateToTime(addHoursToNow(beginInSeconds / 60 / 60));
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionCountdown',
+        callback(beginInSeconds: number) {
+            beginAtDate =
+                beginInSeconds <= 0
+                    ? '–'
+                    : dateToTime(addHoursToNow(beginInSeconds / 60 / 60));
+        },
+    });
 
     let longestDrive = '–';
 
@@ -414,7 +407,7 @@ export default async ({
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
-        alarmSharePostGroup.id = LSSM.$store.getters.nodeAttribute(
+        alarmSharePostGroup.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_alarm-share-post`,
             true
         );
@@ -430,7 +423,7 @@ export default async ({
 
         const alarmSharePostNextGroup = document.createElement('div');
         alarmSharePostNextGroup.classList.add('btn-group', 'dropup');
-        alarmSharePostNextGroup.id = LSSM.$store.getters.nodeAttribute(
+        alarmSharePostNextGroup.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_alarm-share-post-next`,
             true
         );
@@ -461,12 +454,12 @@ export default async ({
 
         btnGroup.append(alarmSharePostGroup, alarmSharePostNextGroup);
 
-        let sortedMissionClass = LSSM.$store.getters.nodeAttribute(
+        let sortedMissionClass = LSSM.$stores.root.nodeAttribute(
             'extendedCallList_sort-missions_next_sorted'
         );
         let missionsSorted =
             document.querySelector<HTMLInputElement>(
-                `#${LSSM.$store.getters.nodeAttribute(
+                `#${LSSM.$stores.root.nodeAttribute(
                     'extendedCallList_sort_toggle-mission-buttons-mode',
                     true
                 )}`
@@ -477,26 +470,19 @@ export default async ({
                 'btn-primary'
             );
         }
-        LSSM.$store
-            .dispatch('event/addListener', {
-                name: `extendedCallList_sorted-missions_toggle-missionwindow`,
-                listener({
-                    detail: { sorted, alertNextBtnClass },
-                }: CustomEvent) {
-                    missionsSorted = sorted;
-                    sortedMissionClass = alertNextBtnClass;
-                    let classes: [string, string] = [
-                        'btn-primary',
-                        'btn-success',
-                    ];
-                    if (missionsSorted)
-                        classes = classes.reverse() as [string, string];
-                    alarmSharePostNextBtn.classList.replace(...classes);
-                },
-            })
-            .then();
+        LSSM.$stores.event.addListener({
+            name: `extendedCallList_sorted-missions_toggle-missionwindow`,
+            listener({ detail: { sorted, alertNextBtnClass } }: CustomEvent) {
+                missionsSorted = sorted;
+                sortedMissionClass = alertNextBtnClass;
+                let classes: [string, string] = ['btn-primary', 'btn-success'];
+                if (missionsSorted)
+                    classes = classes.reverse() as [string, string];
+                alarmSharePostNextBtn.classList.replace(...classes);
+            },
+        });
 
-        const inputGroupClass = LSSM.$store.getters.nodeAttribute(
+        const inputGroupClass = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_edit-msg_input-group`
         );
 
@@ -512,7 +498,7 @@ export default async ({
                     shareMission(LSSM, missionId)
                         .then(
                             () =>
-                                new Promise<void>(resolve => {
+                                new Promise<Response | void>(resolve => {
                                     if (sendMessage) {
                                         sendReply(
                                             LSSM,

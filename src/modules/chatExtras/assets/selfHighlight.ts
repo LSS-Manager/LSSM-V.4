@@ -26,23 +26,21 @@ export default (LSSM: Vue, color: string) => {
 
     const labelSelector = `#chat_panel_body a.label[href="/profile/${window.user_id}"]`;
 
-    LSSM.$store
-        .dispatch('addStyles', [
-            {
-                selectorText: labelSelector,
-                style: {
-                    'background-color': color,
-                    'color': isBrightColor ? '#333' : '#fff',
-                },
+    LSSM.$stores.root.addStyles([
+        {
+            selectorText: labelSelector,
+            style: {
+                'background-color': color,
+                'color': isBrightColor ? '#333' : '#fff',
             },
-            {
-                selectorText: `${labelSelector}:hover`,
-                style: {
-                    'background-color': `rgb(${hoverColor.r}, ${hoverColor.g}, ${hoverColor.b})`,
-                },
+        },
+        {
+            selectorText: `${labelSelector}:hover`,
+            style: {
+                'background-color': `rgb(${hoverColor.r}, ${hoverColor.g}, ${hoverColor.b})`,
             },
-        ])
-        .then();
+        },
+    ]);
 
     const colorizeOwn = () =>
         document
@@ -51,12 +49,11 @@ export default (LSSM: Vue, color: string) => {
             )
             .forEach(link => link.classList.add('label'));
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'allianceChat',
-            callback() {
-                colorizeOwn();
-            },
-        })
-        .then(colorizeOwn);
+    LSSM.$stores.root.hook({
+        event: 'allianceChat',
+        callback() {
+            colorizeOwn();
+        },
+    });
+    colorizeOwn();
 };

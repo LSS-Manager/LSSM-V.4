@@ -42,6 +42,7 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+import { useAPIStore } from '@stores/api';
 
 import parser from './assets/parser';
 import tokenizer from './assets/tokenizer';
@@ -52,6 +53,7 @@ import type {
     LSSMAQL,
     LSSMAQLComputed,
     LSSMAQLMethods,
+    LSSMAQLVue,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
 
 const comparison = (
@@ -84,7 +86,7 @@ const comparison = (
 const parse_filter = (
     filter: Condition['left'] | Condition['right'],
     tree: ObjectTree,
-    vm: Vue
+    vm: LSSMAQLVue
 ) => {
     const [side] = filter;
     const oneside =
@@ -115,11 +117,14 @@ const parse_filter = (
         }
         const baseAttr = sideObject.shift();
         if (!baseAttr) return;
-        let newObject = vm.$store.state.api[baseAttr];
+        let newObject =
+            vm.apiStore[baseAttr as 'allianceinfo' | 'buildings' | 'vehicles'];
         sideObject.forEach(attr => {
             if (Array.isArray(newObject) && typeof attr !== 'number') {
                 newObject = (newObject as never[]).map(e => e[attr]);
             } else {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 newObject = (newObject as Record<string, unknown>)[attr] as
                     | never[]
                     | Record<string, unknown>
@@ -127,21 +132,25 @@ const parse_filter = (
                     | string;
             }
         });
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         sideObject = newObject;
     }
     return sideObject;
 };
 
-const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
+const resolve_object = (tree: QueryTree, vm: LSSMAQLVue): unknown => {
     if (!tree) return null;
     if (tree.type === 'object') {
         let object =
-            vm.$store.state.api[
-                tree.base as 'allianceinfo' | 'buildings' | 'vehicles'
-            ];
+            vm.apiStore[tree.base as 'allianceinfo' | 'buildings' | 'vehicles'];
         tree.attributes.forEach(attr => {
             if (Array.isArray(object) && typeof attr !== 'number')
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 object = object.map(e => e[attr]);
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             else object = object[attr];
         });
         if (Array.isArray(object) && tree.filter.length) {
@@ -149,6 +158,8 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
             const leftObject = parse_filter(filter.left, tree, vm);
             const rightObject = parse_filter(filter.right, tree, vm);
 
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             object = object.filter((_, index) => {
                 const leftParam = Array.isArray(leftObject)
                     ? (leftObject as never[])[index]
@@ -184,11 +195,13 @@ export default Vue.extend<
             ),
     },
     data() {
+        const apiStore = useAPIStore();
         return {
             faTerminal,
             query: '',
             token_list: [],
             querytree: null,
+            apiStore,
         } as LSSMAQL;
     },
     computed: {
@@ -216,19 +229,10 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.$store.dispatch('api/registerAllianceinfoUsage', {
-            feature: 'lssmaql-beforeMount',
-        });
-        this.$store.dispatch('api/registerBuildingsUsage', {
-            feature: 'lssmaql-beforeMount',
-        });
-        this.$store.dispatch('api/registerVehiclesUsage', {
-            feature: 'lssmaql-beforeMount',
-        });
-        this.$store.dispatch('api/getMissions', {
-            force: false,
-            feature: 'lssmaql-beforeMount',
-        });
+        this.apiStore.getAllianceInfo('lssmaql-beforeMount');
+        this.apiStore.getBuildings('lssmaql-beforeMount');
+        this.apiStore.getVehicles('lssmaql-beforeMount');
+        this.apiStore.getMissions('lssmaql-beforeMount');
     },
 });
 </script>

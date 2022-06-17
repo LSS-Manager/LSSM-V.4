@@ -1,6 +1,6 @@
 import toggle from './toggle';
 
-import type { $m } from 'typings/Module';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export interface CollapsableButton extends HTMLButtonElement {
     switch?(): Promise<void>;
@@ -42,6 +42,8 @@ export default (
     collapsableMissionBtnClass: string,
     collapsedClass: string,
     collapsedBarContentClass: string,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): CollapsableButton => {
     const btn: CollapsableButton = document.createElement('button');
@@ -65,73 +67,62 @@ export default (
 
     btn.append(icon);
 
-    const send = () => {
-        const handler = function (msg: CustomBroadcastMessage) {
-            document
-                .querySelectorAll<HTMLButtonElement>(
-                    `#missions-panel-body button.${
-                        msg.data.collapsableMissionBtnClass
-                    }${
-                        msg.data.missionId !== '-1'
-                            ? `[data-mission="${msg.data.missionId}"]`
-                            : `.${
-                                  (msg.data.btnClassList as string)
-                                      .split(' ')
-                                      .includes(msg.data.BTN_ACTIVE as string)
-                                      ? msg.data.BTN_ACTIVE
-                                      : msg.data.BTN_INACTIVE
-                              }`
-                    }`
-                )
-                .forEach(btn =>
-                    // eslint-disable-next-line no-eval
-                    eval(`${msg.data.switchBtnState}`)(btn)
-                );
-        };
-        LSSM.$store
-            .dispatch('broadcast/send_custom_message', {
-                name: 'collapsableMissions_update',
-                handler,
-                data: {
-                    missionId,
-                    collapsableMissionBtnClass,
-                    btnClassList: btn.getAttribute('string') ?? '',
-                    BTN_ACTIVE,
-                    BTN_INACTIVE,
-                    switchBtnState: switchBtnState.toString(),
-                },
-            })
-            .then();
-    };
+    const send = () =>
+        LSSM.$stores.broadcast.sendCustomMessage<{
+            missionId: string;
+            collapsableMissionBtnClass: string;
+            btnClassList: string;
+            BTN_ACTIVE: string;
+            BTN_INACTIVE: string;
+            switchBtnState: string;
+        }>({
+            name: 'collapsableMissions_update',
+            handler(msg) {
+                document
+                    .querySelectorAll<HTMLButtonElement>(
+                        `#missions-panel-body button.${
+                            msg.data.collapsableMissionBtnClass
+                        }${
+                            msg.data.missionId !== '-1'
+                                ? `[data-mission="${msg.data.missionId}"]`
+                                : `.${
+                                      (msg.data.btnClassList as string)
+                                          .split(' ')
+                                          .includes(
+                                              msg.data.BTN_ACTIVE as string
+                                          )
+                                          ? msg.data.BTN_ACTIVE
+                                          : msg.data.BTN_INACTIVE
+                                  }`
+                        }`
+                    )
+                    .forEach(btn =>
+                        // eslint-disable-next-line no-eval
+                        eval(`${msg.data.switchBtnState}`)(btn)
+                    );
+            },
+            data: {
+                missionId,
+                collapsableMissionBtnClass,
+                btnClassList: btn.getAttribute('string') ?? '',
+                BTN_ACTIVE,
+                BTN_INACTIVE,
+                switchBtnState: switchBtnState.toString(),
+            },
+        });
 
     const store = async () => {
         if (missionId === '-1') {
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'collapsedMissions',
-                value: [],
-            });
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'allMissionsCollapsed',
-                value: !btn.classList.contains(BTN_ACTIVE),
-            });
+            await setSetting('collapsedMissions', []);
+            await setSetting(
+                'allMissionsCollapsed',
+                !btn.classList.contains(BTN_ACTIVE)
+            );
             return;
         }
 
-        const missions: string[] = await LSSM.$store.dispatch(
-            'settings/getSetting',
-            {
-                moduleId: MODULE_ID,
-                settingId: 'collapsedMissions',
-                defaultValue: [],
-            }
-        );
-        const allCollapsed = await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'allMissionsCollapsed',
-            defaultValue: false,
-        });
+        const missions = await getSetting<string[]>('collapsedMissions', []);
+        const allCollapsed = await getSetting('allMissionsCollapsed', false);
 
         if (btn.classList.contains(allCollapsed ? BTN_INACTIVE : BTN_ACTIVE)) {
             missions.splice(
@@ -142,11 +133,7 @@ export default (
             missions.push(missionId);
         }
 
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'collapsedMissions',
-            value: missions,
-        });
+        await setSetting('collapsedMissions', missions);
     };
 
     btn.switch = async () => {

@@ -56,6 +56,7 @@ entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
+        SERVER: JSON.stringify(config.server),
         MODE: mode === 'production' ? '"stable"' : '"beta"',
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(

@@ -162,7 +162,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         const collapsedTasks: number[] = JSON.parse(
             localStorage.getItem(collapsedLocalStorageKey) || '[]'
         );
@@ -176,7 +176,7 @@ export default Vue.extend<
     },
     methods: {
         getTaskId(id, extra) {
-            return this.$store.getters.nodeAttribute(
+            return this.lightbox.rootStore.nodeAttribute(
                 `redesign-tasks-${id}-${extra}`
             );
         },
@@ -207,8 +207,8 @@ export default Vue.extend<
         },
         claimReward(id) {
             this.$set(this.lightbox, 'loading', true);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/tasks/claim_reward?task_progress_id=${id}`,
                     init: {
                         credentials: 'include',
@@ -218,7 +218,7 @@ export default Vue.extend<
                         referrer: new URL(
                             'tasks/index',
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: `authenticity_token=${encodeURIComponent(
                             this.tasks.authenticity_token
                         )}`,
@@ -263,8 +263,8 @@ export default Vue.extend<
 
             const claimAll = () => {
                 this.$set(this.lightbox, 'loading', true);
-                this.$store
-                    .dispatch('api/request', {
+                this.lightbox.apiStore
+                    .request({
                         url: `/tasks/claim_all_rewards`,
                         init: {
                             credentials: 'include',
@@ -275,7 +275,7 @@ export default Vue.extend<
                             referrer: new URL(
                                 'tasks/index',
                                 window.location.origin
-                            ),
+                            ).toString(),
                             body: `authenticity_token=${encodeURIComponent(
                                 this.tasks.authenticity_token
                             )}`,

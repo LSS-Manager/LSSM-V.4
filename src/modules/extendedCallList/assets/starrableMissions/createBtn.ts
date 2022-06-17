@@ -1,3 +1,5 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
 export interface StarrableButton extends HTMLButtonElement {
     switch?(triggeredInMissionWindow?: boolean): Promise<void>;
 }
@@ -15,20 +17,12 @@ const switchBtnState = (
         starred ? 'far' : 'fas'
     );
     if (triggeredInMissionWindow) {
-        (window[PREFIX] as Vue).$store
-            .dispatch('event/createEvent', {
-                name: 'ecl_starrable-missions_toggle',
-                detail: {
-                    missionId: btn.dataset.mission,
-                },
-            })
-            .then(event =>
-                (window[PREFIX] as Vue).$store.dispatch(
-                    'event/dispatchEvent',
-                    event
-                )
-            )
-            .then();
+        (window[PREFIX] as Vue).$stores.event.createAndDispatchEvent({
+            name: 'ecl_starrable-missions_toggle',
+            detail: {
+                missionId: btn.dataset.mission,
+            },
+        });
     }
 };
 
@@ -37,7 +31,9 @@ export default (
     MODULE_ID: string,
     missionId: string,
     isStarred: boolean,
-    starredMissionBtnClass: string
+    starredMissionBtnClass: string,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): StarrableButton => {
     const btn: StarrableButton = document.createElement('button');
 
@@ -53,10 +49,15 @@ export default (
     btn.append(icon);
 
     const send = (triggeredInMissionWindow = false) =>
-        LSSM.$store
-            .dispatch('broadcast/send_custom_message', {
+        LSSM.$stores.broadcast
+            .sendCustomMessage<{
+                missionId: string;
+                starredMissionBtnClass: string;
+                triggeredInMissionWindow: boolean;
+                switchBtnState: string;
+            }>({
                 name: 'starredMissions_update',
-                handler(msg: CustomBroadcastMessage) {
+                handler(msg) {
                     document
                         .querySelectorAll<HTMLButtonElement>(
                             `button.${msg.data.starredMissionBtnClass}[data-mission="${msg.data.missionId}"]`
@@ -79,14 +80,7 @@ export default (
             .then();
 
     const store = async () => {
-        const missions: string[] = await LSSM.$store.dispatch(
-            'settings/getSetting',
-            {
-                moduleId: MODULE_ID,
-                settingId: 'starredMissions',
-                defaultValue: [],
-            }
-        );
+        const missions = await getSetting<string[]>('starredMissions', []);
         if (btn.classList.contains('btn-warning')) {
             missions.splice(
                 missions.findIndex(mission => mission === missionId),
@@ -95,11 +89,7 @@ export default (
         } else {
             missions.push(missionId);
         }
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'starredMissions',
-            value: missions,
-        });
+        await setSetting('starredMissions', missions);
     };
 
     btn.switch = async (triggeredInMissionWindow = false) => {

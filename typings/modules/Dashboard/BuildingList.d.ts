@@ -1,4 +1,5 @@
 import type { Building } from 'typings/Building';
+import type { useAPIStore } from '@stores/api';
 import type VueI18n from 'vue-i18n';
 
 interface buildingWithExtension extends Building {
@@ -12,6 +13,7 @@ export interface BuildingList {
     search: string;
     sort: string;
     sortDir: string;
+    apiStore: ReturnType<typeof useAPIStore>;
 }
 
 export interface BuildingListMethods {

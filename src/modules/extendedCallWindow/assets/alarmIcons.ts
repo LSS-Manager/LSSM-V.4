@@ -6,8 +6,6 @@ export default (
         vehicleTypes: (number | string)[];
     }[]
 ): void => {
-    LSSM.$store.commit('useFontAwesome');
-
     const alarmBtn =
         document.querySelector<HTMLAnchorElement>('#mission_alarm_btn');
     const vehicleList = document.querySelector<HTMLTableElement>(
@@ -53,16 +51,12 @@ export default (
 
     calcIcons();
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'aaoClickHandler',
-            callback: calcIcons,
-        })
-        .then();
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'vehicleGroupClickHandler',
-            callback: calcIcons,
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'aaoClickHandler',
+        callback: calcIcons,
+    });
+    LSSM.$stores.root.hook({
+        event: 'vehicleGroupClickHandler',
+        callback: calcIcons,
+    });
 };

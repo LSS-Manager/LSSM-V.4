@@ -1,8 +1,11 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
 export default async (
     LSSM: Vue,
     saveLastBuildingType: boolean,
     saveLastDispatchCenter: boolean,
-    getSetting: <returnType>(settingId: string) => Promise<returnType>,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     MODULE_ID: string
 ): Promise<void> => {
     let isBuildingMenu = false;
@@ -64,11 +67,10 @@ export default async (
                     buildingTypeSelect.dispatchEvent(new Event('change'));
 
                     buildingTypeSelect.addEventListener('change', () => {
-                        LSSM.$store.dispatch('settings/setSetting', {
-                            moduleId: MODULE_ID,
-                            settingId: 'lastSavedBuildingType',
-                            value: buildingTypeSelect.value,
-                        });
+                        setSetting(
+                            'lastSavedBuildingType',
+                            buildingTypeSelect.value
+                        );
                         lastBuildingType = buildingTypeSelect.value;
                     });
                 }
@@ -83,11 +85,10 @@ export default async (
                     dispatchCenterSelect.dispatchEvent(new Event('change'));
 
                     dispatchCenterSelect.addEventListener('change', () => {
-                        LSSM.$store.dispatch('settings/setSetting', {
-                            moduleId: MODULE_ID,
-                            settingId: 'lastSavedDispatchCenter',
-                            value: dispatchCenterSelect.value,
-                        });
+                        setSetting(
+                            'lastSavedDispatchCenter',
+                            dispatchCenterSelect.value
+                        );
                         lastDispatchCenter = dispatchCenterSelect.value;
                     });
                 }
@@ -114,8 +115,8 @@ export default async (
                         url.searchParams.append(name, value);
                     }
                 );
-                LSSM.$store
-                    .dispatch('api/request', {
+                LSSM.$stores.api
+                    .request({
                         url: '/buildings',
                         init: {
                             credentials: 'include',

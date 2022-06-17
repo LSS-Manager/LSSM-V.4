@@ -7,11 +7,9 @@ export default async (
     $m: $m,
     MODULE_ID: string
 ): Promise<void> => {
-    LSSM.$store.commit('useFontAwesome');
-
     const path = window.location.pathname.split('/').filter(s => !!s);
     const buildingId = parseInt(path[path.length - 1]);
-    const allBuildings = LSSM.$store.state.api.buildings as Building[];
+    const allBuildings = LSSM.$stores.api.buildings;
     const callback = () => {
         const buildingIds = BUILDING_MODE === 'dispatch' ? [] : [buildingId];
         Array.from(
@@ -34,9 +32,7 @@ export default async (
         const buildings = [
             { caption: $m('fastDispatchChooser.noDispatch'), id: 0 },
         ] as Building[];
-        const buildingsByType = LSSM.$store.getters[
-            'api/buildingsByType'
-        ] as Record<number, Building[]>;
+        const buildingsByType = LSSM.$stores.api.buildingsByType;
         (Object.values(LSSM.$t('dispatchCenterBuildings')) as number[]).forEach(
             type => buildings.push(...(buildingsByType[type] ?? []))
         );
@@ -132,8 +128,8 @@ export default async (
                     setBtn.style.marginLeft = '1ch';
                     setBtn.addEventListener('click', e => {
                         e.preventDefault();
-                        LSSM.$store
-                            .dispatch('api/request', {
+                        LSSM.$stores.api
+                            .request({
                                 url: `/buildings/${buildingID}/leitstelle-set/${building.id}`,
                                 feature: `${MODULE_ID}-fastDispatchChooser`,
                             })
@@ -159,7 +155,7 @@ export default async (
     };
     callback();
 
-    await LSSM.$store.dispatch('observeAsyncTab', {
+    LSSM.$stores.root.observeAsyncTab({
         tabSelector: '#tab_buildings',
         callback,
     });

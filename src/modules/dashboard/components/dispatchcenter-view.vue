@@ -9,7 +9,7 @@
             >
                 <grid-board
                     :id="
-                        $store.getters.nodeAttribute(
+                        rootStore.nodeAttribute(
                             'dispatchcenter-view_board',
                             true
                         )
@@ -86,7 +86,7 @@
                             <div class="panel-body">
                                 <grid-board
                                     :id="
-                                        $store.getters.nodeAttribute(
+                                        rootStore.nodeAttribute(
                                             `dispatchcenter-view_board-${column.building}`,
                                             true
                                         )
@@ -131,7 +131,7 @@
                             :minHeight="3"
                             :maxHeight="3"
                             :id="
-                                $store.getters.nodeAttribute(
+                                rootStore.nodeAttribute(
                                     'dispatchcenter-view_board-selection',
                                     true
                                 )
@@ -250,7 +250,7 @@
                     }"
                     :table-attrs="{
                         class: 'table table-striped',
-                        id: $store.getters.nodeAttribute(
+                        id: rootStore.nodeAttribute(
                             'dispatchcenter-view_manage',
                             true
                         ),
@@ -341,9 +341,13 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+
+import type { Building } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
-import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     DispatchcenterView,
     DispatchcenterViewComputed,
@@ -386,13 +390,14 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
+        const apiStore = useAPIStore();
+        const rootStore = useRootStore();
+        const buildingTypes = rootStore.$tBuildings;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );
         return {
-            buildings: this.$store.state.api.buildings,
+            buildings: apiStore.buildings,
             selectedBuilding: null,
             boards: [],
             buildingLimit: 50,
@@ -401,7 +406,7 @@ export default Vue.extend<
             newBoardTitle: '',
             buildingTypes,
             currentBoard: 0,
-            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            vehiclesByBuilding: apiStore.vehiclesByBuilding,
             vehicleBuildings: Object.values(this.$t('vehicleBuildings'))
                 .map(type => ({
                     type,
@@ -410,13 +415,16 @@ export default Vue.extend<
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-            dispatchBuildings: (this.$store.state.api.buildings as Building[])
+            dispatchBuildings: apiStore.buildings
                 .filter(building =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
+            settingsStore: useSettingsStore(),
+            apiStore,
+            rootStore,
         } as DispatchcenterView;
     },
     computed: {
@@ -456,7 +464,7 @@ export default Vue.extend<
                             )) ||
                         (this.board.dispatchBuildings.length &&
                             !this.board.dispatchBuildings.includes(
-                                building.leitstelle_building_id
+                                building.leitstelle_building_id ?? -1
                             ))
                     )
                         return false;
@@ -699,7 +707,7 @@ export default Vue.extend<
             this.saveBoards();
         },
         saveBoards() {
-            this.$store.dispatch('settings/setSetting', {
+            this.settingsStore.setSetting({
                 moduleId: 'dashboard',
                 settingId: 'dispatchcenter-view',
                 value: { boards: this.boards },
@@ -720,8 +728,12 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$store
-            .dispatch('settings/getModule', 'dashboard')
+        this.settingsStore
+            .getModule<{
+                'dispatchcenter-view'?: {
+                    boards: DispatchcenterView['boards'];
+                };
+            }>('dashboard')
             .then(async settings => {
                 this.$set(
                     this,

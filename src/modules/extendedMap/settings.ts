@@ -9,18 +9,14 @@ import type {
     Text,
     Toggle,
 } from 'typings/Setting';
-import type { Building, InternalBuilding } from 'typings/Building';
 
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
 
-    const buildingTypes: Record<number, InternalBuilding> =
-        LSSM.$store.getters.$tBuildings;
+    const buildingTypes = LSSM.$stores.root.$tBuildings;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `${MODULE_ID}-settings`,
-    });
-    const userBuildings = LSSM.$store.state.api.buildings as Building[];
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}-settings`);
+    const userBuildings = LSSM.$stores.api.buildings;
     const userBuildingIds: string[] = [];
     const userBuildingLabels: string[] = [];
 

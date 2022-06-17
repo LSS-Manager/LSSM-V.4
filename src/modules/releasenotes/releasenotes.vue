@@ -64,6 +64,7 @@ import Vue from 'vue';
 import coerce from 'semver/functions/coerce';
 import moment from 'moment';
 import semverLt from 'semver/functions/lt';
+import { useRootStore } from '@stores/index';
 
 import lssmLogo from '../../img/lssm.png';
 
@@ -123,12 +124,13 @@ export default Vue.extend<
         },
     },
     mounted() {
-        moment.locale(this.$store.state.lang);
+        const rootStore = useRootStore();
+        moment.locale(rootStore.locale);
         document
             .querySelector<HTMLDivElement>('.releasenotes-modal .vm--modal')
             ?.style.setProperty(
                 'background-image',
-                `url("${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}")`
+                `url("${rootStore.lssmUrl(lssmLogo, true)}")`
             );
     },
 });

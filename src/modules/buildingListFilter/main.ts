@@ -1,30 +1,28 @@
-import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 interface FilterBtn extends HTMLButtonElement {
     reload?(): void;
 }
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    MODULE_ID,
+    getSetting,
+    setSetting,
+}) => {
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
     if (!selectGroup) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'buildingListFilter-initial',
-    });
-    LSSM.$store.commit('useFontAwesome');
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
 
     const extraBtnsGroup = document.createElement('div');
     extraBtnsGroup.classList.add('btn-group');
     extraBtnsGroup.style.setProperty('flex-shrink', '0');
 
     const wrapper = document.createElement('div');
-    wrapper.id = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}-wrapper`,
-        true
-    );
+    wrapper.id = LSSM.$stores.root.nodeAttribute(`${MODULE_ID}-wrapper`, true);
     wrapper.style.setProperty('display', 'flex');
     wrapper.style.setProperty('margin-bottom', '1rem');
     wrapper.style.setProperty('justify-content', 'space-between');
@@ -44,24 +42,22 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     const fixedWhiteSpace = document.createElement('div');
 
     if (fixedFilters) {
-        LSSM.$store
-            .dispatch('addStyles', [
-                {
-                    selectorText: `#${wrapper.id}`,
-                    style: {
-                        'position': 'absolute',
-                        'width': 'calc(100% - 4 * 15px)',
-                        'z-index': 10,
-                    },
+        LSSM.$stores.root.addStyles([
+            {
+                selectorText: `#${wrapper.id}`,
+                style: {
+                    'position': 'absolute',
+                    'width': 'calc(100% - 4 * 15px)',
+                    'z-index': 10,
                 },
-                {
-                    selectorText: `body.bigMap #${wrapper.id}`,
-                    style: {
-                        width: 'calc(100% - 2 * 5px)',
-                    },
+            },
+            {
+                selectorText: `body.bigMap #${wrapper.id}`,
+                style: {
+                    width: 'calc(100% - 2 * 5px)',
                 },
-            ])
-            .then();
+            },
+        ]);
         fixedWhiteSpace.style.setProperty('margin-bottom', '1rem');
         wrapper.after(fixedWhiteSpace);
     }
@@ -127,11 +123,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     };
 
     const updateSettings = () =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'filters',
-            value: { value: filters.slice(1), enabled: true },
-        });
+        setSetting('filters', { value: filters.slice(1), enabled: true });
 
     const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
@@ -148,8 +140,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         selectGroup.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
 
-        const buildingsByType: Record<number, Building[]> =
-            LSSM.$store.getters['api/buildingsByType'];
+        const buildingsByType = LSSM.$stores.api.buildingsByType;
         Object.entries(smallBuildings).forEach(([big, small]) =>
             document
                 .querySelectorAll<HTMLLIElement>(
@@ -240,43 +231,39 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         };
 
         if (!updateBuildingsArrayHookAttached) {
-            LSSM.$store
-                .dispatch('hook', {
-                    event: 'buildingMarkerBulkContentCacheDraw',
-                    callback() {
-                        updateBuildingsArray();
-                        btns.forEach(([btn], index) => index && btn.reload?.());
-                    },
-                })
-                .then();
+            LSSM.$stores.root.hook({
+                event: 'buildingMarkerBulkContentCacheDraw',
+                callback() {
+                    updateBuildingsArray();
+                    btns.forEach(([btn], index) => index && btn.reload?.());
+                },
+            });
             updateBuildingsArrayHookAttached = true;
         }
 
         updateBuildingsArray();
 
-        const searchHideClass = LSSM.$store.getters.nodeAttribute(
+        const searchHideClass = LSSM.$stores.root.nodeAttribute(
             'blf-search-not-matching'
         );
-        const reversedListClass = LSSM.$store.getters.nodeAttribute(
+        const reversedListClass = LSSM.$stores.root.nodeAttribute(
             'blf-reversed-buildinglist'
         );
 
-        LSSM.$store
-            .dispatch('addStyles', [
-                {
-                    selectorText: `.${searchHideClass}`,
-                    style: {
-                        display: 'none !important',
-                    },
+        LSSM.$stores.root.addStyles([
+            {
+                selectorText: `.${searchHideClass}`,
+                style: {
+                    display: 'none !important',
                 },
-                {
-                    selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
-                    style: {
-                        transform: 'rotate(180deg)',
-                    },
+            },
+            {
+                selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
+                style: {
+                    transform: 'rotate(180deg)',
                 },
-            ])
-            .then();
+            },
+        ]);
 
         const sortBtn = document.createElement('button');
         sortBtn.classList.add('btn', 'btn-xs', 'btn-default');
@@ -292,13 +279,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             const state = buildingList.classList.toggle(reversedListClass);
             if (state) icon.setAttribute('data-icon', 'arrow-up-a-z');
             else icon.setAttribute('data-icon', 'arrow-down-z-a');
-            LSSM.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
-                    settingId: 'sortDesc',
-                    value: state,
-                })
-                .then();
+            setSetting('sortDesc', state);
         });
 
         if (await getSetting('sortDesc')) sortBtn.click();

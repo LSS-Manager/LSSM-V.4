@@ -143,6 +143,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 import type { SCEditor } from 'typings/SCEditor/SCEditor';
 
@@ -173,28 +175,28 @@ export default Vue.extend<
     name: 'lssmv4-redesign-verband-edit-text',
     data() {
         return {
-            textId: this.$store.getters.nodeAttribute(
+            textId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-verband-edit-text',
                 true
             ),
-            rulesId: this.$store.getters.nodeAttribute(
+            rulesId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-verband-edit-rules',
                 true
             ),
-            headerId: this.$store.getters.nodeAttribute(
+            headerId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-verband-edit-header',
                 true
             ),
-            webhookId: this.$store.getters.nodeAttribute(
+            webhookId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-verband-edit-webhook',
                 true
             ),
             automaticMessage: {
-                subjectId: this.$store.getters.nodeAttribute(
+                subjectId: this.lightbox.rootStore.nodeAttribute(
                     'redesign-verband-edit-automatic_message-subject',
                     true
                 ),
-                contentId: this.$store.getters.nodeAttribute(
+                contentId: this.lightbox.rootStore.nodeAttribute(
                     'redesign-verband-edit-automatic_message-content',
                     true
                 ),
@@ -241,8 +243,8 @@ export default Vue.extend<
             const webhook =
                 (this.$refs.webhook as HTMLInputElement | null)?.value ?? '';
             url.searchParams.append('discord_webhook', webhook);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/veband/text/speichern`,
                     init: {
                         credentials: 'include',
@@ -304,25 +306,18 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
                     if (this.textEditor && this.rulesEditor) {
-                        this.$store
-                            .dispatch('event/createEvent', {
-                                name: 'redesign-edit-alliance-text-submitted',
-                                detail: {
-                                    content:
-                                        this.textEditor.getWysiwygEditorValue(
-                                            false
-                                        ),
-                                    rules: this.rulesEditor.getWysiwygEditorValue(
+                        useEventStore().createAndDispatchEvent({
+                            name: 'redesign-edit-alliance-text-submitted',
+                            detail: {
+                                content:
+                                    this.textEditor.getWysiwygEditorValue(
                                         false
                                     ),
-                                },
-                            })
-                            .then(event =>
-                                this.$store.dispatch(
-                                    'event/dispatchEvent',
-                                    event
-                                )
-                            );
+                                rules: this.rulesEditor.getWysiwygEditorValue(
+                                    false
+                                ),
+                            },
+                        });
                     }
                     window.lightboxClose(this.lightbox.creation);
                 });

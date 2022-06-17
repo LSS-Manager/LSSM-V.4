@@ -10,9 +10,7 @@ export default (
     hide0CurrentPatients: boolean,
     currentPatientsInTooltips: boolean
 ) => {
-    LSSM.$store.commit('useFontAwesome');
-
-    const patientHolderClass: string = LSSM.$store.getters.nodeAttribute(
+    const patientHolderClass: string = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-current_patients`
     );
 
@@ -89,41 +87,35 @@ export default (
         )
         .forEach(panel => setPatients(panel));
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
-                );
-                if (panel) setPatients(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionMarkerAdd',
+        callback(marker: MissionMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.id}`
+            );
+            if (panel) setPatients(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'patientMarkerAdd',
-            post: true,
-            callback(marker: PatientMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.mission_id}`
-                );
-                if (panel) setPatients(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'patientMarkerAdd',
+        post: true,
+        callback(marker: PatientMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.mission_id}`
+            );
+            if (panel) setPatients(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'patientMarkerAddCombined',
-            post: true,
-            callback(marker: PatientMarkerAddCombined) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.mission_id}`
-                );
-                if (panel) setPatients(panel, marker.count);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'patientMarkerAddCombined',
+        post: true,
+        callback(marker: PatientMarkerAddCombined) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.mission_id}`
+            );
+            if (panel) setPatients(panel, marker.count);
+        },
+    });
 };

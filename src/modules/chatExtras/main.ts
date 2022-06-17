@@ -34,7 +34,7 @@ export default (async ({ LSSM, getSetting }) => {
                 if (location.pathname.includes('alliance_chats'))
                     addLightChatDesign(false, '');
 
-                LSSM.$store.dispatch('event/addListener', {
+                LSSM.$stores.event.addListener({
                     name: 'redesign-finished-loading',
                     listener(e: CustomEvent) {
                         if (e.detail.type === 'chat') {

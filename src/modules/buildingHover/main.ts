@@ -5,20 +5,14 @@ import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async ({ LSSM, MODULE_ID }) => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        autoUpdate: true,
-        feature: MODULE_ID,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        autoUpdate: true,
-        feature: MODULE_ID,
-    });
+    await LSSM.$stores.api.autoUpdateBuildings(MODULE_ID);
+    await LSSM.$stores.api.autoUpdateVehicles(MODULE_ID);
 
     const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+        LSSM.$stores.root.$tVehicles;
 
-    await LSSM.$store.dispatch('addStyle', {
-        selectorText: `.${LSSM.$store.getters.nodeAttribute(
+    await LSSM.$stores.root.addStyle({
+        selectorText: `.${LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}-vehiclelist`
         )} td`,
         style: {
@@ -26,15 +20,13 @@ export default (async ({ LSSM, MODULE_ID }) => {
         },
     });
 
-    LSSM.$store.commit('useFontAwesome');
-
     let vehiclesByBuilding: Record<number, Vehicle[]>;
 
     let buildings: Building[];
 
     const updateBuildings = () => {
-        vehiclesByBuilding = LSSM.$store.getters['api/vehiclesByBuilding'];
-        ({ buildings } = LSSM.$store.state.api);
+        vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
+        buildings = LSSM.$stores.api.buildings;
     };
 
     updateBuildings();
@@ -92,7 +84,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
                 }
-                data += `<table class="${LSSM.$store.getters.nodeAttribute(
+                data += `<table class="${LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}-vehiclelist`
                 )}">`;
                 vehicles.forEach(vehicle => {
@@ -141,7 +133,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         setTooltip(marker);
     });
 
-    await LSSM.$store.dispatch('event/addListener', {
+    LSSM.$stores.event.addListener({
         name: 'buildingMarkerAdd',
         listener({
             detail: { building },
@@ -156,7 +148,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         },
     });
 
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook({
         event: 'building_maps_draw',
         callback({ id }: { id: number }) {
             updateBuildings();
@@ -164,7 +156,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
         },
     });
 
-    await LSSM.$store.dispatch('hook', {
+    LSSM.$stores.root.hook({
         event: 'radioMessage',
         callback(radioMessage: RadioMessage) {
             if (
@@ -173,9 +165,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
             )
                 return;
             const { id, fms, fms_real } = radioMessage;
-            const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
-                v => v.id === id
-            ) as Vehicle;
+            const vehicle = LSSM.$stores.api.vehicles.find(v => v.id === id);
             if (!vehicle) return;
             updateBuildings();
             const v = vehiclesByBuilding[vehicle.building_id].find(

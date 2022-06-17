@@ -128,6 +128,9 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
@@ -162,7 +165,7 @@ export default Vue.extend<
             faExpandAlt,
             faTable,
             faParagraph,
-            id: this.$store.getters.nodeAttribute('missing_text', true),
+            id: useRootStore().nodeAttribute('missing_text', true),
             missingRequirementsSearch: '',
             sort: 'vehicle',
             sortDir: 'asc',
@@ -254,32 +257,33 @@ export default Vue.extend<
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
             this.sort = s;
         },
+        getSetting(settingId) {
+            return useSettingsStore().getSetting({
+                moduleId: 'extendedCallWindow',
+                settingId,
+            });
+        },
+        setSetting(settingId, value) {
+            return useSettingsStore().setSetting({
+                moduleId: 'extendedCallWindow',
+                settingId,
+                value,
+            });
+        },
         toggleOverlay() {
-            this.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: 'extendedCallWindow',
-                    settingId: `overlay`,
-                    value: !this.overlay,
-                })
-                .then(() => (this.overlay = !this.overlay));
+            this.setSetting('overlay', !this.overlay).then(
+                () => (this.overlay = !this.overlay)
+            );
         },
         toggleMinified() {
-            this.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: 'extendedCallWindow',
-                    settingId: `minified`,
-                    value: !this.minified,
-                })
-                .then(() => (this.minified = !this.minified));
+            this.setSetting('minified', !this.minified).then(
+                () => (this.minified = !this.minified)
+            );
         },
         toggleTextMode() {
-            this.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: 'extendedCallWindow',
-                    settingId: `textMode`,
-                    value: !this.textMode,
-                })
-                .then(() => (this.textMode = !this.textMode));
+            this.setSetting('textMode', !this.textMode).then(
+                () => (this.textMode = !this.textMode)
+            );
         },
         dragStart(e) {
             const current = { x: e.clientX, y: e.clientY };
@@ -301,11 +305,7 @@ export default Vue.extend<
             this.drag.active = false;
             if (this.drag.top < 0) this.drag.top = 0;
             if (this.drag.left < 0) this.drag.left = 0;
-            await this.$store.dispatch('settings/setSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: `drag`,
-                value: this.drag,
-            });
+            await this.setSetting('drag', this.drag);
             document.body.classList.remove('lssm-is-dragging');
             document.removeEventListener('mouseup', this.dragEnd);
             document.removeEventListener('mousemove', this.dragging);
@@ -318,81 +318,41 @@ export default Vue.extend<
             this.drag.left = Math.max(current.x + this.drag.offset.x, 0);
         },
         toggleRight() {
-            this.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: 'extendedCallWindow',
-                    settingId: `pushRight`,
-                    value: !this.pushedRight,
-                })
-                .then(() => {
-                    this.pushedRight = !this.pushedRight;
-                    if (!this.pushedRight) {
-                        document
-                            .querySelector<HTMLDivElement>(
-                                '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
-                            )
-                            ?.after(this.$el);
-                    } else {
-                        document
-                            .querySelector<HTMLFormElement>('#mission-form')
-                            ?.prepend(this.$el);
-                    }
-                });
+            this.setSetting('pushRight', !this.pushedRight).then(() => {
+                this.pushedRight = !this.pushedRight;
+                if (!this.pushedRight) {
+                    document
+                        .querySelector<HTMLDivElement>(
+                            '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
+                        )
+                        ?.after(this.$el);
+                } else {
+                    document
+                        .querySelector<HTMLFormElement>('#mission-form')
+                        ?.prepend(this.$el);
+                }
+            });
         },
     },
     beforeMount() {
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'overlay',
-                defaultValue: false,
-            })
-            .then(overlay => (this.overlay = overlay));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'minified',
-                defaultValue: false,
-            })
-            .then(minified => (this.minified = minified));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'textMode',
-                defaultValue: false,
-            })
-            .then(textMode => (this.textMode = textMode));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'pushRight',
-                defaultValue: false,
-            })
-            .then(pushedRight => (this.pushedRight = pushedRight));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'drag',
-                defaultValue: false,
-            })
-            .then(drag => (this.drag = drag));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'hoverTip',
-                defaultValue: false,
-            })
-            .then(hoverTip => (this.hoverTip = hoverTip));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'extendedCallWindow',
-                settingId: 'emvMaxStaff',
-                defaultValue: false,
-            })
-            .then(calcMaxStaff => (this.calcMaxStaff = calcMaxStaff));
-        this.$store
-            .dispatch('api/registerVehiclesUsage', { feature: 'emv' })
-            .then();
+        this.getSetting('overlay').then(overlay => (this.overlay = overlay));
+        this.getSetting('overlay').then(minified => (this.minified = minified));
+        this.getSetting('textMode').then(
+            textMode => (this.textMode = textMode)
+        );
+        this.getSetting('pushRight').then(
+            pushedRight => (this.pushedRight = pushedRight)
+        );
+        this.getSetting<EnhancedMissingVehicles['drag']>('drag').then(
+            drag => (this.drag = drag)
+        );
+        this.getSetting('hoverTip').then(
+            hoverTip => (this.hoverTip = hoverTip)
+        );
+        this.getSetting('emvMaxStaff').then(
+            calcMaxStaff => (this.calcMaxStaff = calcMaxStaff)
+        );
+        useAPIStore().getVehicles('emv');
     },
     mounted() {
         const observeHandler = vehicleListObserveHandler(

@@ -8,30 +8,28 @@ import type { Vehicle } from '../../Vehicle';
 export interface StorageAPIs {
     buildings: Building[];
     vehicles: Vehicle[];
-    missions: Mission[];
     alliance_buildings: Building[];
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    allianceinfo: AllianceInfo | {};
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    settings: Settings | {};
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    credits: CreditsInfo | {};
+    allianceinfo: AllianceInfo | null;
+    settings: Settings | null;
+    credits: CreditsInfo | null;
 }
 
 export type StorageAPIKey = keyof StorageAPIs;
 
-export interface StorageGetterReturn<T extends StorageAPIKey> {
+export interface APIGetter<T extends StorageAPIKey> {
     value: StorageAPIs[T] | null;
     lastUpdate: number;
-    user_id: number;
+}
+
+export interface EnsuredAPIGetter<API extends StorageAPIKey> {
+    value: Exclude<StorageAPIs[API], null>;
+    lastUpdate: number;
 }
 
 export interface APIState extends StorageAPIs {
-    vehicleStates: Record<number, number>;
+    missions: Record<string, Mission>;
     autoUpdates: StorageAPIKey[];
     currentlyUpdating: StorageAPIKey[];
-    key: string | null;
-    lastUpdates: {
-        [key in StorageAPIKey]?: number;
-    };
+    secretKey: string | null;
+    lastUpdates: Partial<Record<StorageAPIKey | 'missions', number>>;
 }
