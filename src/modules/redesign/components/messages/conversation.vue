@@ -237,7 +237,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-redesign-messages-conversation',
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         return {
             faPaperPlane,
             faTrashCan,

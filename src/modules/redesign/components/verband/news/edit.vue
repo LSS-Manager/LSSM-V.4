@@ -67,11 +67,11 @@ export default Vue.extend<
     name: 'lssmv4-redesign-verband-news-edit',
     data() {
         return {
-            captionId: this.$store.getters.nodeAttribute(
+            captionId: this.lightbox.rootStore.nodeAttribute(
                 'verband-news-edit-caption',
                 true
             ),
-            contentId: this.$store.getters.nodeAttribute(
+            contentId: this.lightbox.rootStore.nodeAttribute(
                 'verband-news-edit-content',
                 true
             ),

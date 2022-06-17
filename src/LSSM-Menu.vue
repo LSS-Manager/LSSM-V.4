@@ -56,13 +56,13 @@
                 :class="{ hidden: !menuItems.length }"
             ></li>
             <li role="presentation">
-                <a :href="discord" target="_blank">Discord</a>
+                <a :href="rootStore.discordUrl" target="_blank">Discord</a>
             </li>
             <li role="presentation">
-                <a class="lightbox-open" :href="wiki">Wiki</a>
+                <a class="lightbox-open" :href="rootStore.wiki">Wiki</a>
             </li>
             <li role="presentation">
-                <a :href="$store.state.github" target="_blank">GitHub</a>
+                <a :href="rootStore.githubUrl" target="_blank">GitHub</a>
             </li>
             <!-- <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
@@ -97,8 +97,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { mapState } from 'vuex';
+import { mapState } from 'pinia';
 import svgToMiniDataURI from 'mini-svg-data-uri';
+import { useModulesStore } from '@stores/modules';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
 import lssmLogo from './img/lssm.png';
@@ -189,17 +191,14 @@ export default Vue.extend<
     name: 'lssm-menu',
     components: {},
     data() {
+        const rootStore = useRootStore();
         return {
-            id: this.$store.getters.nodeAttribute('indicator', true),
-            menuId: this.$store.getters.nodeAttribute('indicator_menu', true),
-            iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
+            id: rootStore.nodeAttribute('indicator', true),
+            menuId: rootStore.nodeAttribute('indicator_menu', true),
+            iconBg: rootStore.isPoliceChief ? '#004997' : '#C9302C',
             iconBgAsNavBg: false,
             labelInMenu: false,
-            lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
-            discord: this.$store.state.discord,
-            wiki: this.$store.getters.wiki,
-            version: this.$store.state.version,
-            mode: this.$store.state.mode,
+            lssmLogo: rootStore.lssmUrl(lssmLogo, true),
             navbg: {
                 svg: document.createElementNS(
                     'http://www.w3.org/2000/svg',
@@ -209,15 +208,22 @@ export default Vue.extend<
                 navbar: null,
                 aborted: false,
             },
-            versionWrapperId: this.$store.getters.nodeAttribute(
+            versionWrapperId: rootStore.nodeAttribute(
                 'menu_version-wrapper',
                 true
             ),
             settingsStore: useSettingsStore(),
+            rootStore: useRootStore(),
         };
     },
     computed: {
-        ...mapState(['menuItems']),
+        ...mapState(useRootStore, ['menuItems']),
+        mode() {
+            return MODE;
+        },
+        version() {
+            return VERSION;
+        },
     },
     directives: {
         child: {
@@ -233,8 +239,9 @@ export default Vue.extend<
             const closeWarningText = this.$t(
                 'modules.appstore.closeWarning.text'
             ).toString();
+            const modulesStore = useModulesStore();
             const unloadListener = (event: BeforeUnloadEvent) => {
-                if (!this.$store.state.appstore.changes) return;
+                if (!modulesStore.appstore.changes) return;
                 event.preventDefault();
                 event.returnValue = closeWarningText;
                 return closeWarningText;
@@ -253,8 +260,8 @@ export default Vue.extend<
                 },
                 {
                     'before-close': function (event: { cancel(): void }) {
-                        if (!LSSM.$store.state.appstore.changes) {
-                            if (LSSM.$store.state.appstore.reload) {
+                        if (!modulesStore.appstore.changes) {
+                            if (modulesStore.appstore.reload) {
                                 event.cancel();
                                 return window.location.reload(true);
                             }
@@ -416,7 +423,7 @@ export default Vue.extend<
         },
         storeIconBg() {
             if (this.iconBgAsNavBg) {
-                this.$store.dispatch('addStyle', {
+                this.rootStore.addStyle({
                     selectorText:
                         '.navbar-default, .navbar-default .dropdown-menu',
                     style: {
@@ -425,7 +432,7 @@ export default Vue.extend<
                 });
                 this.setNavbarBG(
                     this.iconBg?.toString() ??
-                        (this.$store.state.policechief ? '#004997' : '#C9302C')
+                        (this.rootStore.isPoliceChief ? '#004997' : '#C9302C')
                 );
             }
             this.settingsStore.setSetting({
@@ -455,7 +462,7 @@ export default Vue.extend<
             );
         },
         resetIconBg() {
-            this.iconBg = this.$store.state.policechief ? '#004997' : '#C9302C';
+            this.iconBg = this.rootStore.isPoliceChief ? '#004997' : '#C9302C';
             this.storeIconBg();
         },
     },

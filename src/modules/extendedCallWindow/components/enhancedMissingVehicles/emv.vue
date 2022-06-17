@@ -129,6 +129,7 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
@@ -164,7 +165,7 @@ export default Vue.extend<
             faExpandAlt,
             faTable,
             faParagraph,
-            id: this.$store.getters.nodeAttribute('missing_text', true),
+            id: useRootStore().nodeAttribute('missing_text', true),
             missingRequirementsSearch: '',
             sort: 'vehicle',
             sortDir: 'asc',

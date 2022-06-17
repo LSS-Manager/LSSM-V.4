@@ -279,7 +279,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
 
         return {
             moment,
@@ -425,7 +425,7 @@ export default Vue.extend<
                                       b =>
                                           (this.selectedDispatchCenter ===
                                               '0' ||
-                                              b.leitstelle_building_id.toString() ===
+                                              b.leitstelle_building_id?.toString() ===
                                                   this
                                                       .selectedDispatchCenter) &&
                                           req

@@ -95,7 +95,7 @@
             </label>
         </h1>
         <tabs
-            :class="$store.getters.nodeAttribute('settings-tabs')"
+            :class="rootStore.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
             :default-index="tab"
             :on-select="(_, i) => (this.tab = i)"
@@ -136,9 +136,9 @@
                                     'globalSettings'
                                 ),
                                 {
-                                    wiki: $store.getters.wiki,
+                                    wiki: rootStore,
                                     fontAwesomeIconSearch:
-                                        $store.state.fontAwesomeIconSearch,
+                                        rootStore.fontAwesomeIconSearch,
                                 }
                             )
                         "
@@ -296,6 +296,8 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useModulesStore } from '@stores/modules';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 
@@ -384,7 +386,7 @@ export default Vue.extend<
             startSettings: cloneDeep(settings),
             modulesSorted: [
                 'global',
-                ...(this.$store.getters.modulesSorted as string[]).filter(
+                ...useModulesStore().appModuleIds.filter(
                     module =>
                         settings.hasOwnProperty(module) &&
                         Object.keys(settings[module]).length
@@ -398,6 +400,7 @@ export default Vue.extend<
             exportData: '',
             storageStore: useStorageStore(),
             settingsStore,
+            rootStore: useRootStore(),
         };
     },
     computed: {
@@ -586,8 +589,8 @@ export default Vue.extend<
         },
         disabled(moduleId, settingId) {
             if (
-                this.settings[moduleId][settingId].noMapkit &&
-                this.$store.state.mapkit
+                (this.settings[moduleId][settingId].noMapkit ?? false) &&
+                this.rootStore.mapkit
             )
                 return true;
             let dependence = this.settings[moduleId][settingId].dependsOn;

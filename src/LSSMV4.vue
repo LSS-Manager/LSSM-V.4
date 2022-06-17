@@ -50,6 +50,7 @@ import Vue from 'vue';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { mapState } from 'pinia';
 import { useNotificationStore } from '@stores/notifications';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
 import type { DefaultMethods, DefaultProps } from 'vue/types/options';
@@ -65,7 +66,7 @@ export default Vue.extend<
     components: {},
     data() {
         return {
-            id: this.$store.getters.nodeAttribute('app', true),
+            id: useRootStore().nodeAttribute('app', true),
             faTimes,
         };
     },
@@ -88,7 +89,7 @@ export default Vue.extend<
             .getModule('global')
             .then(({ iconBg, iconBgAsNavBg }) => {
                 if (iconBgAsNavBg) {
-                    this.$store.dispatch('addStyle', {
+                    useRootStore().addStyle({
                         selectorText:
                             '.navbar-default, .navbar-default .dropdown-menu',
                         style: {

@@ -469,6 +469,7 @@ import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import type { Mission } from 'typings/Mission';
 import type {
@@ -496,7 +497,7 @@ export default Vue.extend<
             faExpandAlt,
             faSuperscript,
             faSubscript,
-            id: this.$store.getters.nodeAttribute('missionHelper', true),
+            id: useRootStore().nodeAttribute('missionHelper', true),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,

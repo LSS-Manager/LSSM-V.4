@@ -9,7 +9,7 @@
             >
                 <grid-board
                     :id="
-                        $store.getters.nodeAttribute(
+                        rootStore.nodeAttribute(
                             'dispatchcenter-view_board',
                             true
                         )
@@ -86,7 +86,7 @@
                             <div class="panel-body">
                                 <grid-board
                                     :id="
-                                        $store.getters.nodeAttribute(
+                                        rootStore.nodeAttribute(
                                             `dispatchcenter-view_board-${column.building}`,
                                             true
                                         )
@@ -131,7 +131,7 @@
                             :minHeight="3"
                             :maxHeight="3"
                             :id="
-                                $store.getters.nodeAttribute(
+                                rootStore.nodeAttribute(
                                     'dispatchcenter-view_board-selection',
                                     true
                                 )
@@ -250,7 +250,7 @@
                     }"
                     :table-attrs="{
                         class: 'table table-striped',
-                        id: $store.getters.nodeAttribute(
+                        id: rootStore.nodeAttribute(
                             'dispatchcenter-view_manage',
                             true
                         ),
@@ -342,11 +342,12 @@
 import Vue from 'vue';
 
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
+import type { Building } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
-import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     DispatchcenterView,
     DispatchcenterViewComputed,
@@ -390,8 +391,8 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
-        const buildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
+        const rootStore = useRootStore();
+        const buildingTypes = rootStore.$tBuildings;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );
@@ -423,6 +424,7 @@ export default Vue.extend<
                 ),
             settingsStore: useSettingsStore(),
             apiStore,
+            rootStore,
         } as DispatchcenterView;
     },
     computed: {

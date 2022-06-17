@@ -162,7 +162,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         const collapsedTasks: number[] = JSON.parse(
             localStorage.getItem(collapsedLocalStorageKey) || '[]'
         );
@@ -176,7 +176,7 @@ export default Vue.extend<
     },
     methods: {
         getTaskId(id, extra) {
-            return this.$store.getters.nodeAttribute(
+            return this.lightbox.rootStore.nodeAttribute(
                 `redesign-tasks-${id}-${extra}`
             );
         },

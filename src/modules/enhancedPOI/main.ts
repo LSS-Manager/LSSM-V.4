@@ -64,7 +64,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
 
     await modifyMarkers();
 
-    await LSSM.$stores.root.hook({
+    LSSM.$stores.root.hook({
         event: 'map_pois_service.leafletMissionPositionMarkerAdd',
         callback({ caption, id }: POI) {
             const poi = window.map_pois_service

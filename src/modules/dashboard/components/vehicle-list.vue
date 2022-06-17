@@ -109,14 +109,14 @@ import Vue from 'vue';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
-import type { InternalVehicle } from 'typings/Vehicle';
 import type {
     VehicleList,
     VehicleListComputed,
     VehicleListMethods,
     VehicleListProps,
-} from '../../../../typings/modules/Dashboard/VehicleList';
+} from 'typings/modules/Dashboard/VehicleList';
 
 export default Vue.extend<
     VehicleList,
@@ -136,8 +136,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        const internalVehicleTypes: Record<number, InternalVehicle> =
-            this.$store.getters.$tVehicles;
+        const rootStore = useRootStore();
+        const internalVehicleTypes = rootStore.$tVehicles;
         const apiStore = useAPIStore();
         return {
             vehicleTypeNames: Object.fromEntries(
@@ -152,7 +152,7 @@ export default Vue.extend<
             sortDir: 'asc',
             faPencilAlt,
             faUsers,
-            resolveLinkClass: this.$store.getters.nodeAttribute(
+            resolveLinkClass: rootStore.nodeAttribute(
                 'dashboard-vehiclelist-resolvable-link'
             ),
             resolving: null,

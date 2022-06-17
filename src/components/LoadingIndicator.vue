@@ -30,6 +30,7 @@
 import Vue from 'vue';
 
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import lssmLogo from '../img/lssm.png';
 
@@ -46,6 +47,7 @@ export default Vue.extend<
         imageHeight: number;
         lssmLogo: string;
         pageHasBottomNavbar: boolean;
+        rootStore: ReturnType<typeof useRootStore>;
     },
     DefaultMethods<Vue>,
     {
@@ -60,6 +62,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-loading-indicator',
     data() {
+        const rootStore = useRootStore();
         return {
             total: [],
             finished: [],
@@ -68,10 +71,11 @@ export default Vue.extend<
             strokeWidth: 3,
             padding: 15,
             imageHeight: 22,
-            lssmLogo: `${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}`,
+            lssmLogo: rootStore.lssmUrl(lssmLogo, true),
             pageHasBottomNavbar: !!document.querySelector(
                 '.navbar.navbar-fixed-bottom:not(#navbar-mobile-footer)'
             ),
+            rootStore,
         };
     },
     computed: {
@@ -120,7 +124,7 @@ export default Vue.extend<
         } else {
             useAPIStore()
                 .request({
-                    url: `${this.$store.state.server}static/fileSizes.json?uid=${this.$store.state.lang}-${window.user_id}`,
+                    url: this.rootStore.lssmUrl('/static/fileSizes.json', true),
                     feature: 'loading-indicator',
                 })
                 .then(res => res.json())

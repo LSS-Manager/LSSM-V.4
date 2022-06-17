@@ -16,6 +16,7 @@ import type {
 import type { Building, BuildingCategory } from 'typings/Building';
 
 const API_MIN_UPDATE = 5 * 60 * 1000; // 5 Minutes
+const MISSIONS_STORAGE_KEY = `${PREFIX}_missionSpecsStorage`;
 
 export const useAPIStore = defineStore('api', {
     state: () =>
@@ -241,7 +242,6 @@ export const useAPIStore = defineStore('api', {
                 });
         },
         _autoUpdate<API extends StorageAPIKey>(
-            api: API,
             updateFunction: (feature: string) => Promise<EnsuredAPIGetter<API>>,
             feature: string,
             callback: (api: EnsuredAPIGetter<API>) => void,
@@ -294,8 +294,11 @@ export const useAPIStore = defineStore('api', {
                     if (buildingIndex < 0) {
                         this.alliance_buildings.push(fetchedBuilding);
                     } else {
-                        this.alliance_buildings[buildingIndex] =
-                            fetchedBuilding;
+                        // workaround for reactivity
+                        const buildings = this.alliance_buildings;
+                        buildings[buildingIndex] = fetchedBuilding;
+                        this.alliance_buildings = [];
+                        this.alliance_buildings = buildings;
                     }
                     return useBroadcastStore()
                         .apiBroadcast('alliance_buildings', {
@@ -318,8 +321,7 @@ export const useAPIStore = defineStore('api', {
             ) => void = () => void null,
             updateInterval: number = API_MIN_UPDATE
         ) {
-            return this._autoUpdate(
-                'alliance_buildings',
+            return this._autoUpdate<'alliance_buildings'>(
                 this.getAllianceBuildings,
                 feature,
                 callback,
@@ -338,7 +340,6 @@ export const useAPIStore = defineStore('api', {
             updateInterval: number = API_MIN_UPDATE
         ) {
             return this._autoUpdate(
-                'allianceinfo',
                 this.getAllianceInfo,
                 feature,
                 callback,
@@ -360,8 +361,15 @@ export const useAPIStore = defineStore('api', {
                     const buildingIndex = this.buildings.findIndex(
                         ({ id }) => id === buildingId
                     );
-                    if (buildingIndex < 0) this.buildings.push(fetchedBuilding);
-                    else this.buildings[buildingIndex] = fetchedBuilding;
+                    if (buildingIndex < 0) {
+                        this.buildings.push(fetchedBuilding);
+                    } else {
+                        // workaround for reactivity
+                        const buildings = this.buildings;
+                        buildings[buildingIndex] = fetchedBuilding;
+                        this.buildings = [];
+                        this.buildings = buildings;
+                    }
                     return useBroadcastStore()
                         .apiBroadcast('buildings', {
                             value: this.buildings,
@@ -380,7 +388,6 @@ export const useAPIStore = defineStore('api', {
             updateInterval: number = API_MIN_UPDATE
         ) {
             return this._autoUpdate(
-                'buildings',
                 this.getBuildings,
                 feature,
                 callback,
@@ -397,7 +404,6 @@ export const useAPIStore = defineStore('api', {
             updateInterval: number = API_MIN_UPDATE
         ) {
             return this._autoUpdate(
-                'credits',
                 this.getCredits,
                 feature,
                 callback,
@@ -408,9 +414,17 @@ export const useAPIStore = defineStore('api', {
             feature: string,
             force = false
         ): Promise<Record<string, Mission>> {
-            // TODO Localstorage cache
             if (Object.keys(this.missions).length && !force)
                 return new Promise(resolve => resolve(this.missions));
+            if (!force) {
+                const missions: Record<string, Mission> = JSON.parse(
+                    localStorage.getItem(MISSIONS_STORAGE_KEY) ?? '{}'
+                );
+                if (Object.keys(missions).length) {
+                    this.missions = missions;
+                    return new Promise(resolve => resolve(this.missions));
+                }
+            }
             return this.request({
                 url: `${SERVER}missions/${window.I18n.locale}.json`,
                 feature,
@@ -422,6 +436,10 @@ export const useAPIStore = defineStore('api', {
                 .then(missions => {
                     this.missions = missions;
                     this.lastUpdates.missions = Date.now();
+                    localStorage.setItem(
+                        MISSIONS_STORAGE_KEY,
+                        JSON.stringify(missions)
+                    );
                     return missions;
                 });
         },
@@ -440,7 +458,6 @@ export const useAPIStore = defineStore('api', {
             updateInterval: number = API_MIN_UPDATE
         ) {
             return this._autoUpdate(
-                'settings',
                 this.getSettings,
                 feature,
                 callback,
@@ -458,8 +475,15 @@ export const useAPIStore = defineStore('api', {
                         const vehicleIndex = this.vehicles.findIndex(
                             ({ id }) => id === vehicle.id
                         );
-                        if (vehicleIndex < 0) this.vehicles.push(vehicle);
-                        else this.vehicles[vehicleIndex] = vehicle;
+                        if (vehicleIndex < 0) {
+                            this.vehicles.push(vehicle);
+                        } else {
+                            // workaround for reactivity
+                            const vehicles = this.vehicles;
+                            vehicles[vehicleIndex] = vehicle;
+                            this.vehicles = [];
+                            this.vehicles = vehicles;
+                        }
                     });
                     return useBroadcastStore()
                         .apiBroadcast('vehicles', {
@@ -484,8 +508,15 @@ export const useAPIStore = defineStore('api', {
                     const vehicleIndex = this.vehicles.findIndex(
                         ({ id }) => id === vehicleId
                     );
-                    if (vehicleIndex < 0) this.vehicles.push(fetchedVehicle);
-                    else this.vehicles[vehicleIndex] = fetchedVehicle;
+                    if (vehicleIndex < 0) {
+                        this.vehicles.push(fetchedVehicle);
+                    } else {
+                        // workaround for reactivity
+                        const vehicles = this.vehicles;
+                        vehicles[vehicleIndex] = fetchedVehicle;
+                        this.vehicles = [];
+                        this.vehicles = vehicles;
+                    }
                     return useBroadcastStore()
                         .apiBroadcast('vehicles', {
                             value: this.vehicles,
@@ -504,7 +535,6 @@ export const useAPIStore = defineStore('api', {
             updateInterval: number = API_MIN_UPDATE
         ) {
             return this._autoUpdate(
-                'vehicles',
                 this.getVehicles,
                 feature,
                 callback,

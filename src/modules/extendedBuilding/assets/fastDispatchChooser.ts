@@ -155,7 +155,7 @@ export default async (
     };
     callback();
 
-    await LSSM.$stores.root.observeAsyncTab({
+    LSSM.$stores.root.observeAsyncTab({
         tabSelector: '#tab_buildings',
         callback,
     });

@@ -37,7 +37,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import type { InternalVehicle } from 'typings/Vehicle';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
@@ -69,12 +68,9 @@ export default Vue.extend<
         vehicleTypeCaption() {
             return (
                 this.fahrzeugfarbe.customVehicleType ??
-                (
-                    this.$store.getters.$tVehicles as Record<
-                        number,
-                        InternalVehicle
-                    >
-                )[this.fahrzeugfarbe.vehicleType].caption
+                this.lightbox.rootStore.$tVehicles[
+                    this.fahrzeugfarbe.vehicleType
+                ].caption
             );
         },
         hasColor() {

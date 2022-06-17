@@ -1,4 +1,5 @@
 import type { useAPIStore } from '@stores/api';
+import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 import type { Vehicle } from 'typings/Vehicle';
 import type VueI18n from 'vue-i18n';
@@ -57,6 +58,7 @@ export interface DispatchcenterView {
     dispatchBuildings: Building[];
     settingsStore: ReturnType<typeof useSettingsStore>;
     apiStore: ReturnType<typeof useAPIStore>;
+    rootStore: ReturnType<typeof useRootStore>;
 }
 
 export interface DispatchcenterViewComputed {

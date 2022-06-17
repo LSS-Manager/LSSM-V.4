@@ -1,5 +1,6 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Modules } from '../Module';
+import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 import type { useStorageStore } from '@stores/storage';
 import type VueI18n from 'vue-i18n';
@@ -18,6 +19,7 @@ export interface SettingsData {
     exportData: string;
     storageStore: ReturnType<typeof useStorageStore>;
     settingsStore: ReturnType<typeof useSettingsStore>;
+    rootStore: ReturnType<typeof useRootStore>;
 }
 
 export interface SettingsMethods {

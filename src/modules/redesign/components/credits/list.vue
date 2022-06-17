@@ -109,7 +109,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         return {
             moment,
             search: '',

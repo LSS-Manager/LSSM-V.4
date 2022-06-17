@@ -685,9 +685,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
-        const buildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
+        moment.locale(this.lightbox.rootStore.locale);
+        const buildingTypes = this.lightbox.rootStore.$tBuildings;
         return {
             moment,
             he,
@@ -700,7 +699,7 @@ export default Vue.extend<
             faUserSlash,
             faLock,
             faUnlock,
-            awardsChartId: this.$store.getters.nodeAttribute(
+            awardsChartId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
@@ -814,11 +813,7 @@ export default Vue.extend<
     computed: {
         rank() {
             const ranks = this.$t(
-                `ranks.${
-                    this.$store.state.policechief
-                        ? 'policechief'
-                        : 'missionchief'
-                }`
+                `ranks.${this.lightbox.rootStore.gameFlavour}`
             ) as Record<number, string>;
             return (
                 Object.entries(ranks)
@@ -993,7 +988,7 @@ export default Vue.extend<
                 );
             });
         this.maxAwards = parseInt(this.lightbox.$sm('awards.max').toString());
-        if (this.$store.state.darkmode)
+        if (this.lightbox.rootStore.isDarkMode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {

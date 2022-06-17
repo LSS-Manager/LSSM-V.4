@@ -1875,10 +1875,10 @@ export default Vue.extend<
                             );
                             if (next_vehicle < 0) {
                                 import(
-                                    `../i18n/${this.$store.state.lang}/vehicle/nextfms.json`
+                                    `../i18n/${this.lightbox.rootStore.locale}/vehicle/nextfms.json`
                                 ).then(t => {
                                     this.$i18n.mergeLocaleMessage(
-                                        this.$store.state.lang,
+                                        this.lightbox.rootStore.locale,
                                         {
                                             modules: {
                                                 redesign: {

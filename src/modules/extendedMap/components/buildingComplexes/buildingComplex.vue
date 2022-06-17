@@ -815,6 +815,7 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -956,6 +957,7 @@ export default Vue.extend<
         };
         tempDisableAllExtensionButtons: boolean;
         apiStore: ReturnType<typeof useAPIStore>;
+        rootStore: ReturnType<typeof useRootStore>;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
@@ -1050,17 +1052,12 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
         return {
             faCircleInfo,
             faPencilAlt,
-            buildingTypes: this.$store.getters.$tBuildings as Record<
-                number,
-                InternalBuilding
-            >,
-            vehicleTypes: this.$store.getters.$tVehicles as Record<
-                number,
-                InternalVehicle
-            >,
+            buildingTypes: rootStore.$tBuildings,
+            vehicleTypes: rootStore.$tVehicles,
             currentBuildingId: 0,
             buildingsTable: {
                 search: '',
@@ -1086,6 +1083,7 @@ export default Vue.extend<
             },
             tempDisableAllExtensionButtons: false,
             apiStore: useAPIStore(),
+            rootStore,
         };
     },
     computed: {
@@ -1610,12 +1608,11 @@ export default Vue.extend<
                                           enoughCredits:
                                               (alliance
                                                   ? this.apiStore.allianceinfo
-                                                        .credits_current
-                                                  : this.$store.state
-                                                        .credits) >=
+                                                        ?.credits_current ?? 0
+                                                  : this.rootStore.credits) >=
                                               extensionType.credits,
                                           enoughCoins:
-                                              this.$store.state.coins >=
+                                              this.rootStore.coins >=
                                               extensionType.coins,
                                       }),
                             };
@@ -1909,9 +1906,10 @@ export default Vue.extend<
             ];
         },
         userHasAllianceFinanceRights() {
-            const allianceUserRoleFlags = this.apiStore.allianceinfo.users.find(
-                ({ id }) => id === window.user_id
-            )?.role_flags;
+            const allianceUserRoleFlags =
+                this.apiStore.allianceinfo?.users.find(
+                    ({ id }) => id === window.user_id
+                )?.role_flags;
             return !!(
                 allianceUserRoleFlags?.admin || allianceUserRoleFlags?.finance
             );
@@ -2037,19 +2035,16 @@ export default Vue.extend<
                     },
                     feature,
                 })
-                .then(
-                    () =>
-                        this.apiStore[
-                            allianceBuilding
-                                ? 'getAllianceBuilding'
-                                : 'getBuilding'
-                        ]
+                .then(() =>
+                    this.apiStore[
+                        allianceBuilding ? 'getAllianceBuilding' : 'getBuilding'
+                    ](buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
                     if (method === 'credits')
-                        window.creditsUpdate(this.$store.state.credits - price);
-                    else window.coinsUpdate(this.$store.state.coins - price);
+                        window.creditsUpdate(this.rootStore.credits - price);
+                    else window.coinsUpdate(this.rootStore.coins - price);
                 });
         },
         toggleExtension(buildingId, extensionType) {

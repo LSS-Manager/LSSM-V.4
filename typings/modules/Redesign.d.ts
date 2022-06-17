@@ -45,7 +45,9 @@ import type { useAPIStore } from '@stores/api';
 import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
+import type { useModulesStore } from '@stores/modules';
 import type { useNotificationStore } from '@stores/notifications';
+import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 import type { useStorageStore } from '@stores/storage';
 import type VueI18n from 'vue-i18n';
@@ -123,7 +125,9 @@ interface Data<T extends RedesignKey | '' | 'default'> {
     broadcastStore: ReturnType<typeof useBroadcastStore>;
     consoleStore: ReturnType<typeof useConsoleStore>;
     eventStore: ReturnType<typeof useEventStore>;
+    modulesStore: ReturnType<typeof useModulesStore>;
     notificationsStore: ReturnType<typeof useNotificationStore>;
+    rootStore: ReturnType<typeof useRootStore>;
     settingsStore: ReturnType<typeof useSettingsStore>;
     storageStore: ReturnType<typeof useStorageStore>;
     windows: Record<
@@ -195,20 +199,21 @@ export interface RedesignLightbox<
     };
 }
 
-interface ParserParam {
+interface ParserParam<Type extends RedesignKey = RedesignKey> {
     doc: Document;
     href?: string;
     getIdFromEl?(el: HTMLAnchorElement | null): number;
-    LSSM: Vue;
+    LSSM: RedesignLightboxVue<Type>;
     $m: $m;
     $sm: $m;
     $mc: $mc;
     $smc: $mc;
 }
 
-export type RedesignParser<Window extends RedesignWindow = RedesignWindow> = (
-    data: ParserParam
-) => Promise<Window> | Window;
+export type RedesignParser<
+    Window extends RedesignWindow = RedesignWindow,
+    Type extends RedesignKey = RedesignKey
+> = (data: ParserParam<Type>) => Promise<Window> | Window;
 
 export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
     Vue,

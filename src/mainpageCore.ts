@@ -209,7 +209,7 @@ export default async (LSSM: Vue): Promise<void> => {
     });
 
     await LSSM.$stores.api.getBuildings('mainPage-core_initial-update');
-    await LSSM.$stores.api.getMissions('mainPage-core_initial-update');
+    await LSSM.$stores.api.getMissions('mainPage-core_initial-update', true);
 
     LSSM.$stores.root.hook({
         event: 'buildingMarkerAdd',

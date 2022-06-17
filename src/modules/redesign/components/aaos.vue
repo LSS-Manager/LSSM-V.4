@@ -16,7 +16,7 @@
                 class="btn btn-default btn-xs"
                 lightbox-open
                 href="https://www.youtube.com/embed/SQw3ChM7X70"
-                v-if="$store.state.lang === 'de_DE'"
+                v-if="lightbox.rootStore.locale === 'de_DE'"
             >
                 Erklärungsvideo
             </a>

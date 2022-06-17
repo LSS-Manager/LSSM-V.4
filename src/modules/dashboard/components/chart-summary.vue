@@ -82,11 +82,13 @@ import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
 import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
+import type { BuildingCategory } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
 import type { TranslateResult } from 'vue-i18n';
-import type { BuildingCategory, InternalBuilding } from 'typings/Building';
+import type { VehicleCategory } from 'typings/Vehicle';
 import type {
     ChartSummary,
     ChartSummaryComputed,
@@ -100,7 +102,6 @@ import type {
     PointOptionsObject,
     SeriesSunburstOptions,
 } from 'highcharts';
-import type { InternalVehicle, VehicleCategory } from 'typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);
@@ -122,12 +123,11 @@ export default Vue.extend<
     name: 'lssmv4-dashboard-chart-summary',
     data() {
         const apiStore = useAPIStore();
-        const internalBuildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
-        const internalVehicleTypes: Record<number, InternalVehicle> =
-            this.$store.getters.$tVehicles;
+        const rootStore = useRootStore();
+        const internalBuildingTypes = rootStore.$tBuildings;
+        const internalVehicleTypes = rootStore.$tVehicles;
         return {
-            buildingsId: this.$store.getters.nodeAttribute(
+            buildingsId: rootStore.nodeAttribute(
                 'chart-summary-buildings',
                 true
             ),
@@ -145,10 +145,7 @@ export default Vue.extend<
                     ([index, { color }]) => [index, color]
                 )
             ),
-            vehiclesId: this.$store.getters.nodeAttribute(
-                'chart-summary-vehicles',
-                true
-            ),
+            vehiclesId: rootStore.nodeAttribute('chart-summary-vehicles', true),
             vehicles: apiStore.vehiclesByType,
             vehicleCategories: this.$t(
                 'vehicleCategories'
@@ -177,7 +174,7 @@ export default Vue.extend<
         }),
     },
     mounted() {
-        if (this.$store.state.darkmode)
+        if (useRootStore().isDarkMode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {

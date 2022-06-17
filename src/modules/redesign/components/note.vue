@@ -65,11 +65,11 @@ export default Vue.extend<
             faSave,
             noteEdit: false,
             noteText: this.note.note,
-            noteId: this.$store.getters.nodeAttribute(
+            noteId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-note-message',
                 true
             ),
-            previewId: this.$store.getters.nodeAttribute(
+            previewId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-note-message_preview',
                 true
             ),

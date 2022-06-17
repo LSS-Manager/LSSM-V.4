@@ -280,7 +280,7 @@ export default Vue.extend<
         },
     },
     mounted() {
-        if (this.$store.state.modules.messageTemplates.active) {
+        if (this.lightbox.modulesStore.modules.messageTemplates.active) {
             useSettingsStore()
                 .getSetting<{
                     value: ConversationMessageTemplate[];

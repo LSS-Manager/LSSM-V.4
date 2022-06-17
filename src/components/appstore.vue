@@ -33,7 +33,7 @@
                     :active="modules[moduleId].active"
                     @change="toggleModule(moduleId, $event)"
                     :id="
-                        $store.getters.nodeAttribute(
+                        rootStore.nodeAttribute(
                             `appstore-toggle-${moduleId}`,
                             true
                         )
@@ -43,7 +43,7 @@
                     :ref="`moduleSwitch_${moduleId}`"
                 ></toggle-button>
                 <a
-                    :href="$store.getters.moduleWiki(moduleId)"
+                    :href="rootStore.moduleWiki(moduleId)"
                     class="pull-right lightbox-open wiki-btn"
                 >
                     <span class="glyphicon glyphicon-info-sign"></span>
@@ -78,6 +78,8 @@ import Vue from 'vue';
 
 import isEqual from 'lodash/isEqual';
 import { useConsoleStore } from '@stores/console';
+import { useModulesStore } from '@stores/modules';
+import { useRootStore } from '@stores/index';
 import { useStorageStore } from '@stores/storage';
 
 import type { DefaultProps } from 'vue/types/options';
@@ -102,11 +104,13 @@ export default Vue.extend<
             ),
     },
     data() {
-        const modules = this.$store.getters.appModules as Modules;
-        Object.keys(modules).forEach(
+        const moduleStore = useModulesStore();
+        const rootStore = useRootStore();
+        const modules: Modules = {};
+        moduleStore.appModuleIds.forEach(
             moduleId =>
                 (modules[moduleId] = {
-                    ...modules[moduleId],
+                    ...moduleStore.modules[moduleId],
                     description: this.$t(
                         `modules.${moduleId}.description`
                     ).toString(),
@@ -114,11 +118,12 @@ export default Vue.extend<
         );
         return {
             modules,
-            modulesSorted: this.$store.getters.modulesSorted as string[],
             activeStart: Object.keys(modules).filter(
                 m => modules[m].active
             ) as string[],
             moduleSearch: '' as string,
+            moduleStore,
+            rootStore,
         };
     },
     computed: {
@@ -129,6 +134,13 @@ export default Vue.extend<
         },
         changes() {
             return !isEqual(this.active, [...this.activeStart].sort());
+        },
+        modulesSorted() {
+            return Object.keys(this.modules).sort((a, b) =>
+                this.$t(`modules.${a}.name`)
+                    .toString()
+                    .localeCompare(this.$t(`modules.${b}.name`).toString())
+            );
         },
         modulesFiltered() {
             return this.modulesSorted.filter(m =>
@@ -146,11 +158,14 @@ export default Vue.extend<
     },
     methods: {
         hasMapkitConflict(moduleId) {
-            return this.modules[moduleId].noMapkit && this.$store.state.mapkit;
+            return (
+                (this.modules[moduleId].noMapkit ?? false) &&
+                this.rootStore.mapkit
+            );
         },
         toggleModule(moduleId, event) {
             this.$set(this.modules[moduleId], 'active', !!event.value);
-            this.$store.commit('setAppstoreChanges', this.changes);
+            this.moduleStore.appstore.changes = this.changes;
         },
         save() {
             useStorageStore()
@@ -160,8 +175,8 @@ export default Vue.extend<
                 })
                 .then(() => {
                     this.activeStart = [...new Set(this.active)];
-                    this.$store.commit('setAppstoreChanges', this.changes);
-                    this.$store.commit('setAppstoreReload');
+                    this.moduleStore.appstore.changes = this.changes;
+                    this.moduleStore.appstore.reload = true;
                 })
                 .catch(err => useConsoleStore().error(err));
         },
@@ -178,7 +193,7 @@ export default Vue.extend<
                     }[]
                 )[0].toggled = this.activeStart.includes(module);
             });
-            this.$store.commit('setAppstoreChanges', this.changes);
+            this.moduleStore.appstore.changes = this.changes;
         },
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.appstore.${key}`, args),

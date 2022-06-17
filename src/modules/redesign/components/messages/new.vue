@@ -120,7 +120,7 @@ export default Vue.extend<
     name: 'lssmv4-redesign-messages-new',
     data() {
         const id = (id: string) =>
-            this.$store.getters.nodeAttribute(
+            this.lightbox.rootStore.nodeAttribute(
                 `redesign-messages-new_${id}`,
                 true
             );

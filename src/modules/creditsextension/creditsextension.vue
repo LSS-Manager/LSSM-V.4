@@ -182,7 +182,9 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 import { faListUl } from '@fortawesome/free-solid-svg-icons/faListUl';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons/faPiggyBank';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
+import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';
@@ -243,9 +245,10 @@ export default Vue.extend<
     name: 'lssmv4-creditsextension-menu',
     components: {},
     data() {
+        const rootStore = useRootStore();
         return {
-            id: this.$store.getters.nodeAttribute(this.MODULE_ID),
-            menuId: this.$store.getters.nodeAttribute(`${this.MODULE_ID}-menu`),
+            id: rootStore.nodeAttribute(this.MODULE_ID, true),
+            menuId: rootStore.nodeAttribute(`${this.MODULE_ID}-menu`),
             faChartBar,
             faDollarSign,
             faListUl,
@@ -256,11 +259,7 @@ export default Vue.extend<
             highlighted: false,
             highlightedConsistend: false,
             ranks: this.$t(
-                `ranks.${
-                    this.$store.state.policechief
-                        ? 'policechief'
-                        : 'missionchief'
-                }`
+                `ranks.${rootStore.gameFlavour}`
             ) as unknown as Record<string, string>,
             creditsInNav: false,
             coinsInNav: false,
@@ -294,14 +293,9 @@ export default Vue.extend<
         },
     },
     computed: {
-        credits() {
-            return this.$store.state.credits;
-        },
+        ...mapState(useRootStore, ['credits', 'coins']),
         creditsLocalized() {
             return this.credits.toLocaleString();
-        },
-        coins() {
-            return this.$store.state.coins;
         },
         coinsLocalized() {
             return this.coins.toLocaleString();
@@ -350,6 +344,8 @@ export default Vue.extend<
         },
     },
     beforeMount() {
+        const rootStore = useRootStore();
+
         const creditsIcon = document.querySelector<HTMLImageElement>(
             '#navigation_top > img.navbar-icon'
         )?.src;
@@ -406,33 +402,32 @@ export default Vue.extend<
 
         if (this.showSales) {
             (async () => {
-                // eslint-disable-next-line @typescript-eslint/no-this-alias
-                const ce = this;
-                await this.$store.dispatch('hook', {
+                rootStore.hook({
                     event: 'coinsUpdate',
-                    callback() {
-                        ce.$set(
-                            ce,
+                    callback: () => {
+                        this.$set(
+                            this,
                             'saleActive',
                             window.sale_count_down > Date.now()
                         );
                     },
                 });
-                await this.$store.dispatch('hook', {
+                rootStore.hook({
                     event: 'updateSaleCountDown',
-                    callback() {
+                    callback: () => {
                         if (
-                            ce.$refs.sale_countdown &&
-                            ce.$refs.sale_countdown_clone &&
-                            ce.$refs.sale_countdown instanceof HTMLElement &&
-                            ce.$refs.sale_countdown_clone instanceof HTMLElement
+                            this.$refs.sale_countdown &&
+                            this.$refs.sale_countdown_clone &&
+                            this.$refs.sale_countdown instanceof HTMLElement &&
+                            this.$refs.sale_countdown_clone instanceof
+                                HTMLElement
                         ) {
-                            ce.$refs.sale_countdown_clone.textContent =
-                                ce.$refs.sale_countdown.textContent ?? '';
+                            this.$refs.sale_countdown_clone.textContent =
+                                this.$refs.sale_countdown.textContent ?? '';
                         }
                     },
                 });
-                window.coinsUpdate(this.$store.state.coins);
+                window.coinsUpdate(rootStore.coins);
             })().then();
         }
     },

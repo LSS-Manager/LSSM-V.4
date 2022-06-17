@@ -21,7 +21,7 @@ export default async (
         true
     );
 
-    await LSSM.$stores.root.addStyles([
+    LSSM.$stores.root.addStyles([
         {
             selectorText: `#${historyListId}`,
             style: {
@@ -248,7 +248,7 @@ export default async (
     });
 
     if (mapUndo) {
-        await LSSM.$stores.root.proxyMethod({
+        LSSM.$stores.root.proxyMethod({
             post: false,
             name: 'map.setView',
             trap: 'apply',

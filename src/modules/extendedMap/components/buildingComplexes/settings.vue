@@ -156,6 +156,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
 import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import type { $m } from 'typings/Module';
 import type { Complex } from '../../assets/buildingComplexes';
@@ -221,8 +222,7 @@ export default Vue.extend<
         const apiStore = useAPIStore();
         const userBuildings = apiStore.buildingsById;
         const allianceBuildings = apiStore.allianceBuildingsById;
-        const buildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
+        const buildingTypes = useRootStore().$tBuildings;
 
         return {
             faSave,

@@ -32,6 +32,7 @@ export const useRootStore = defineStore('root', {
         mapkit: (): boolean => typeof window.mapkit !== 'undefined',
         discordUrl: (): string => `https://discord.gg/${config.discord.invite}`,
         githubUrl: (): string => `https://github.com/${config.github.repo}`,
+        fontAwesomeIconSearch: (): string => config.fontAwesomeIconSearch,
         gameFlavour: (): GameFlavour => window.gameFlavour,
         isPoliceChief(): boolean {
             return this.gameFlavour === 'policechief';
@@ -58,6 +59,9 @@ export const useRootStore = defineStore('root', {
         },
         wiki(): string {
             return this.lssmUrl(`/docs/${this.locale}`);
+        },
+        moduleWiki(): (moduleId: string) => string {
+            return moduleId => `${this.wiki}/modules/${moduleId}/`;
         },
         nodeAttribute:
             (): ((attr: string, id?: boolean) => string) =>
@@ -114,7 +118,8 @@ export const useRootStore = defineStore('root', {
             abortOnFalse = false,
         }: Hook<Arguments>) {
             const eventStore = useEventStore();
-            const internalEventName = `hook_${event}_${
+            const internalEventNamePrefix = `hook_${event}`;
+            const internalEventName = `${internalEventNamePrefix}_${
                 post ? 'after' : 'before'
             }`;
             if (!this.hooks.hasOwnProperty(event)) {
@@ -132,21 +137,19 @@ export const useRootStore = defineStore('root', {
                 this.hooks[event] = eventParentObject[eventName];
                 eventParentObject[eventName] = (...args: Arguments) => {
                     if (!abortOnFalse) {
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${event}_before`, {
-                                detail: args,
-                            })
-                        );
+                        eventStore.createAndDispatchEvent({
+                            name: `${internalEventNamePrefix}_before`,
+                            detail: args,
+                        });
                     } else if (!callback(...args)) {
                         return;
                     }
 
                     const result = this.hooks[event](...args);
-                    document.dispatchEvent(
-                        new CustomEvent(`${PREFIX}_${event}_after`, {
-                            detail: args,
-                        })
-                    );
+                    eventStore.createAndDispatchEvent({
+                        name: `${internalEventNamePrefix}_after`,
+                        detail: args,
+                    });
                     return result;
                 };
             }

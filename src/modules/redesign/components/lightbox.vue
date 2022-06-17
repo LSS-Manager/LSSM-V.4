@@ -57,8 +57,8 @@
             v-show="!type || type === 'default'"
             ref="iframe"
             src="about:blank"
-            :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
-            :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
+            :id="rootStore.nodeAttribute('redesign-lightbox-iframe')"
+            :name="rootStore.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
         <div
             id="redesign-loader"
@@ -88,7 +88,9 @@ import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
+import { useModulesStore } from '@stores/modules';
 import { useNotificationStore } from '@stores/notifications';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 
@@ -283,9 +285,10 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
         return {
             faSyncAlt,
-            clipboardIconId: this.$store.getters.nodeAttribute(
+            clipboardIconId: rootStore.nodeAttribute(
                 'redesign-clipboard-icon',
                 true
             ),
@@ -303,7 +306,9 @@ export default Vue.extend<
             broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),
             eventStore: useEventStore(),
+            modulesStore: useModulesStore(),
             notificationsStore: useNotificationStore(),
+            rootStore,
             settingsStore: useSettingsStore(),
             storageStore: useStorageStore(),
             windows,
@@ -412,12 +417,12 @@ export default Vue.extend<
                         const types = type.split('/');
                         const addLocas = async (typePath: string) =>
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         redesign: {
                                             [typePath]: await import(
-                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${typePath}.json`
+                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.rootStore.locale}/${typePath}.json`
                                             ),
                                         },
                                     },
@@ -434,12 +439,12 @@ export default Vue.extend<
                         if (type === 'coins/list') await addLocas('credits');
                         if (type === 'credits/daily') {
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         dailyCreditsSummary: (
                                             await import(
-                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.$store.state.lang}.ts`
+                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.rootStore.locale}.ts`
                                             )
                                         ).default,
                                     },
@@ -449,11 +454,11 @@ export default Vue.extend<
                         if (type === 'schoolings') {
                             await addLocas('verband');
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         schoolingOverview: await import(
-                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.$store.state.lang}.json`
+                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.rootStore.locale}.json`
                                         ),
                                     },
                                 }
