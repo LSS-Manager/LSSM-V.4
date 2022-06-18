@@ -126,7 +126,7 @@ module.exports = {
             [/^Velivol[io] Antincendio?$/u]: [34, 35],
             [/^DOS$/u]: [31],
             [/^DTS$/u]: [27],
-            [/^Pattuglia Forestale$/u]: [40],
+            [/^Pattugli[ae] Forestal[ei]$/u]: [40],
             [/^Pattuglia della Stradale$/u]: [38, 39],
             [/^Idrante Antisommossa$/u]: [41],
         },
