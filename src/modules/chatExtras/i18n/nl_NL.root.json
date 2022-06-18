@@ -24,7 +24,14 @@
         },
         "selfHighlightColor": {
             "description": "Kies hier welke kleur je wilt voor je eigen gebruikersnaam",
-            "title": "Aangepaste kleur in chat: kleur"
+            "title": "Aangepaste kleur in chat: achtergrondkleur"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Do you want to use a custom text color?",
+            "title": "custom color in chat: custom text color"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "custom color in chat: custom text color"
         }
     }
 }

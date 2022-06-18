@@ -24,7 +24,14 @@
         },
         "selfHighlightColor": {
             "description": "choose here, which color your username should be highlighted in",
-            "title": "custom color in chat: color"
+            "title": "custom color in chat: background color"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Do you want to use a custom text color?",
+            "title": "custom color in chat: custom text color"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "custom color in chat: custom text color"
         }
     }
 }

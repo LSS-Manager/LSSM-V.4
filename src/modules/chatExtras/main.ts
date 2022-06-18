@@ -56,7 +56,11 @@ export default (async ({ LSSM, getSetting }) => {
             ).then(async ({ default: selfHighlight }) =>
                 selfHighlight(
                     LSSM,
-                    await getSetting<string>('selfHighlightColor')
+                    await getSetting<string>('selfHighlightColor'),
+                    await getSetting<boolean>('selfHighlightCustomTextColor'),
+                    await getSetting<string>(
+                        'selfHighlightCustomTextColorColor'
+                    )
                 )
             );
         }

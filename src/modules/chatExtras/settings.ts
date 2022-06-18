@@ -28,4 +28,14 @@ export default (() => ({
         default: '#5cb85c',
         dependsOn: '.selfHighlight',
     },
+    selfHighlightCustomTextColor: <Toggle>{
+        type: 'toggle',
+        default: false,
+        dependsOn: '.selfHighlight',
+    },
+    selfHighlightCustomTextColorColor: <Color>{
+        type: 'color',
+        default: '#0e9a26',
+        dependsOn: '.selfHighlightCustomTextColor',
+    },
 })) as ModuleSettingFunction;
