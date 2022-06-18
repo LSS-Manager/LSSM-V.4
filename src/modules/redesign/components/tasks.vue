@@ -240,7 +240,7 @@ export default Vue.extend<
                                 window.location.origin
                             ).toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,
@@ -297,7 +297,7 @@ export default Vue.extend<
                                     window.location.origin
                                 ).toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,
