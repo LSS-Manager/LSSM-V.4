@@ -24,7 +24,14 @@
         },
         "selfHighlightColor": {
             "description": "Wybierz tutaj, jakim kolorem ma być podświetlona twoja nazwa użytkownika",
-            "title": "Niestandardowy kolor na czacie: kolor"
+            "title": "Niestandardowy kolor na czacie: kolor tła"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Czy chcesz użyć niestandardowego koloru tekstu?",
+            "title": "Niestandardowy kolor na czacie: kolor tekstu"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "Niestandardowy kolor na czacie: kolor tekstu"
         }
     }
 }

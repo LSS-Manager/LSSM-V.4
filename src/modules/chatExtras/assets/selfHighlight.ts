@@ -1,4 +1,9 @@
-export default (LSSM: Vue, color: string) => {
+export default (
+    LSSM: Vue,
+    color: string,
+    customColor: boolean,
+    customColorColor: string
+) => {
     const { r, g, b } = (() => {
         let normalizedHex = color.slice(1);
         if (normalizedHex.length < 5)
@@ -31,7 +36,11 @@ export default (LSSM: Vue, color: string) => {
             selectorText: labelSelector,
             style: {
                 'background-color': color,
-                'color': isBrightColor ? '#333' : '#fff',
+                'color': customColor
+                    ? customColorColor
+                    : isBrightColor
+                    ? '#333'
+                    : '#fff',
             },
         },
         {

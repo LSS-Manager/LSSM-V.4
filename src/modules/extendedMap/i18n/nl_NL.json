@@ -29,18 +29,18 @@
                 "title": "gekoppelde gebouwen"
             },
             "classrooms": {
-                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "subtitle": "{total} in totaal, daarvan {unavailable} in aanbouw en {free} vrij",
                 "table": {
-                    "countdown": "time left",
-                    "free": "Free Places",
-                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "countdown": "tijd over",
+                    "free": "Vrije plaatsen",
+                    "freeClassrooms": "1 vrij klaslokaal|{n} vrije klaslokalen",
                     "running": {
-                        "false": "No",
-                        "title": "running?",
-                        "true": "Yes"
+                        "false": "Nee",
+                        "title": "loopt?",
+                        "true": "Ja"
                     },
-                    "start": "start new training course",
-                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                    "start": "start nieuwe opleiding",
+                    "unavailable": "1 klaslokaal in aanbouw|{n} klaslokalen in aanbouw"
                 },
                 "title": "Klaslokalen"
             },

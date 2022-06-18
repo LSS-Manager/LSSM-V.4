@@ -24,7 +24,14 @@
         },
         "selfHighlightColor": {
             "description": "Choisissez la couleur dans laquelle votre nom d'utilisateur doit être mis en évidence.",
-            "title": "Couleur personnalisée dans le chat: couleur"
+            "title": "Couleur personnalisée dans le chat: couleur de fond"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Do you want to use a custom text color?",
+            "title": "custom color in chat: custom text color"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "custom color in chat: custom text color"
         }
     }
 }
