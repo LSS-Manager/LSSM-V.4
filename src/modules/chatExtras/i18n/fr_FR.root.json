@@ -27,11 +27,11 @@
             "title": "Couleur personnalisée dans le chat: couleur de fond"
         },
         "selfHighlightCustomTextColor": {
-            "description": "Do you want to use a custom text color?",
-            "title": "custom color in chat: custom text color"
+            "description": "Voulez-vous utiliser une couleur de texte personnalisée?",
+            "title": "couleur personnalisée dans le chat : couleur de texte"
         },
         "selfHighlightCustomTextColorColor": {
-            "title": "custom color in chat: custom text color"
+            "title": "couleur personnalisée dans le chat : couleur de texte"
         }
     }
 }
