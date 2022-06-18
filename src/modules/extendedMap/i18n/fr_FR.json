@@ -32,7 +32,7 @@
                 "subtitle": "{total} au total, dont {unavailable} en construction et {free} disponible",
                 "table": {
                     "countdown": "temps restant",
-                    "free": "Place libre|Places libre",
+                    "free": "Places libre",
                     "freeClassrooms": "1 salle de cours libre|{n} salles de cours libres",
                     "running": {
                         "false": "Non",
