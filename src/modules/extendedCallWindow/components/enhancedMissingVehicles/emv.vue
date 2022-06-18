@@ -336,7 +336,9 @@ export default Vue.extend<
     },
     beforeMount() {
         this.getSetting('overlay').then(overlay => (this.overlay = overlay));
-        this.getSetting('overlay').then(minified => (this.minified = minified));
+        this.getSetting('minified').then(
+            minified => (this.minified = minified)
+        );
         this.getSetting('textMode').then(
             textMode => (this.textMode = textMode)
         );
@@ -395,7 +397,7 @@ export default Vue.extend<
         margin-top: 14px
 
     &.overlay
-        z-index: 2
+        z-index: 3
         position: fixed
         top: 3%
         left: 3%
@@ -410,6 +412,7 @@ export default Vue.extend<
     &.minified
         max-height: 1rem
         min-width: auto
+        overflow: hidden
 
         > div
             display: none
