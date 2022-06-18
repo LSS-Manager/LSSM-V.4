@@ -15,16 +15,16 @@
             "title": "Toont the chatgeschiedenis knop boven de chat"
         },
         "lightDesignChatHistory": {
-            "description": "A light design of the chat-history",
-            "title": "Chat-history light design"
+            "description": "Een aangepaste versie van de chatgeschiedenis die het wat compacter maakt",
+            "title": "Chatgeschiedenis compact design"
         },
         "selfHighlight": {
-            "description": "highlights your username in the chat with a custom color",
-            "title": "custom color in chat"
+            "description": "Geeft je eigen gebruikersnaam in de chat weer met een aangepaste kleur",
+            "title": "Aangepaste kleur in chat"
         },
         "selfHighlightColor": {
-            "description": "choose here, which color your username should be highlighted in",
-            "title": "custom color in chat: color"
+            "description": "Kies hier welke kleur je wilt voor je eigen gebruikersnaam",
+            "title": "Aangepaste kleur in chat: kleur"
         }
     }
 }
