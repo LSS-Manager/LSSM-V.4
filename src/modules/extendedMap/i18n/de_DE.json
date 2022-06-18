@@ -29,6 +29,19 @@
                 "title": "angehängte Gebäude"
             },
             "classrooms": {
+                "subtitle": "insgesamt {total}, davon {unavailable} im Bau und {free} frei",
+                "table": {
+                    "countdown": "fertig in",
+                    "free": "Freie Plätze",
+                    "freeClassrooms": "1 freies Klassenzimmer|{n} Freie Klassenzimmer",
+                    "running": {
+                        "false": "Nein",
+                        "title": "Läuft?",
+                        "true": "Ja"
+                    },
+                    "start": "Neuen Lehrgang starten",
+                    "unavailable": "{n} Klassenzimmer im Bau"
+                },
                 "title": "Klassenzimmer"
             },
             "extensions": {

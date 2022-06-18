@@ -16,7 +16,18 @@
         </h1>
         <tabs :onSelect="selectTab">
             <tab :title="$m('overview.title')">
-                <tabs>
+                <tabs
+                    :on-select="
+                        () =>
+                            $nextTick(() =>
+                                schoolingBuildings.forEach(({ schoolings }) =>
+                                    schoolings.forEach(schooling =>
+                                        schooling.initCountdown()
+                                    )
+                                )
+                            )
+                    "
+                >
                     <!-- List of attached buildings -->
                     <tab :title="$m('overview.buildings.title')">
                         <div
@@ -788,7 +799,154 @@
                         :title="$m('overview.classrooms.title')"
                         v-if="hasClassroomBuildings"
                     >
-                        Classrooms and schoolings coming soon
+                        <h2 class="indented-title">
+                            {{ $m('overview.classrooms.title') }}
+                            <br />
+                            <small>
+                                {{
+                                    $m(
+                                        'overview.classrooms.subtitle',
+                                        classroomStats
+                                    )
+                                }}
+                            </small>
+                        </h2>
+                        <div class="classrooms-table">
+                            <div
+                                class="panel panel-default"
+                                v-for="building in schoolingBuildings"
+                                :key="building.id"
+                            >
+                                <div class="panel-heading">
+                                    <span
+                                        class="pull-right label label-default"
+                                    >
+                                        {{
+                                            buildingTypes[building.type].caption
+                                        }}
+                                    </span>
+                                    <img
+                                        loading="lazy"
+                                        :src="building.icon"
+                                        :alt="building.name"
+                                    />
+                                    <a
+                                        class="lightbox-open"
+                                        :href="`/buildings/${building.id}`"
+                                    >
+                                        {{ building.name }}
+                                    </a>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>
+                                                    {{
+                                                        $m(
+                                                            'overview.classrooms.table.running.title'
+                                                        )
+                                                    }}
+                                                </th>
+                                                <th>
+                                                    {{
+                                                        $m(
+                                                            'overview.classrooms.table.free'
+                                                        )
+                                                    }}
+                                                </th>
+                                                <th>
+                                                    {{
+                                                        $m(
+                                                            'overview.classrooms.table.countdown'
+                                                        )
+                                                    }}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr
+                                                v-for="schooling in building.schoolings"
+                                                :key="schooling.id"
+                                            >
+                                                <td>
+                                                    <a
+                                                        class="btn btn-success lightbox-open"
+                                                        :href="`/schoolings/${schooling.id}`"
+                                                    >
+                                                        {{
+                                                            schooling.education_title
+                                                        }}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="label"
+                                                        :class="{
+                                                            'label-success':
+                                                                schooling.running,
+                                                            'label-warning':
+                                                                !schooling.running,
+                                                        }"
+                                                    >
+                                                        {{
+                                                            $m(
+                                                                `overview.classrooms.table.running.${schooling.running}`
+                                                            )
+                                                        }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    {{ schooling.open_spaces }}
+                                                </td>
+                                                <td
+                                                    :id="schooling.countdownId"
+                                                ></td>
+                                            </tr>
+                                            <tr v-if="building.freeClassrooms">
+                                                <td colspan="4">
+                                                    {{
+                                                        $mc(
+                                                            'overview.classrooms.table.freeClassrooms',
+                                                            building.freeClassrooms
+                                                        )
+                                                    }}
+                                                    <a
+                                                        class="lightbox-open btn btn-success pull-right"
+                                                        :href="`/buildings/${building.id}`"
+                                                    >
+                                                        {{
+                                                            $m(
+                                                                'overview.classrooms.table.start'
+                                                            )
+                                                        }}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                v-if="
+                                                    building.classRoomsUnavailable
+                                                "
+                                            >
+                                                <td colspan="4">
+                                                    <span
+                                                        class="label label-default"
+                                                    >
+                                                        {{
+                                                            $mc(
+                                                                'overview.classrooms.table.unavailable',
+                                                                building.classRoomsUnavailable
+                                                            )
+                                                        }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </tab>
                 </tabs>
             </tab>
@@ -819,6 +977,7 @@ import { useRootStore } from '@stores/index';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Schooling } from 'typings/api/Schoolings';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
@@ -828,41 +987,97 @@ import type {
 } from 'typings/Building';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
-type AttributedBuildingBeds =
-    | { hasBeds: false }
-    | { hasBeds: true; beds: number };
-type AttributedBuildingCells =
-    | { hasCells: false }
-    | { hasCells: true; cells: number; cellsUnavailable: number };
-type AttributedBuildingClassrooms =
-    | {
-          hasClassrooms: true;
-          classrooms: number;
-          classRoomsUnavailable: number;
-      }
-    | { hasClassrooms: false };
-type AttributedBuildingLevel =
-    | { hasLevel: false }
-    | { hasLevel: true; level: number };
-type AttributedBuildingStaff =
-    | {
-          hasStaff: true;
-          staff: number;
-          staffTarget?: number;
-          hiring_automatic: boolean;
-          hiring_phase: number;
-      }
-    | { hasStaff: false };
-type AttributedBuildingVehicles =
-    | { hasVehicles: false }
-    | { hasVehicles: true; vehicles: Vehicle[]; maxVehicles: number };
+type Maybe = boolean | unknown;
 
-type AttributedBuilding = AttributedBuildingBeds &
-    AttributedBuildingCells &
-    AttributedBuildingClassrooms &
-    AttributedBuildingLevel &
-    AttributedBuildingStaff &
-    AttributedBuildingVehicles & {
+type HasInterface<HasAttribute extends string> = Record<HasAttribute, true>;
+type HasNotInterface<HasAttribute extends string> = Record<HasAttribute, false>;
+type MaybeInterface<
+    HasInterface,
+    HasNotInterface,
+    Has extends Maybe = unknown
+> = Has extends true
+    ? HasInterface
+    : Has extends false
+    ? HasNotInterface
+    : HasInterface | HasNotInterface;
+
+type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & { beds: number };
+type AttributedBuildingHasNoBeds = HasNotInterface<'hasBeds'>;
+type AttributedBuildingBeds<HasBeds extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasBeds,
+    AttributedBuildingHasNoBeds,
+    HasBeds
+>;
+
+type AttributedBuildingHasCells = HasInterface<'hasCells'> & {
+    cells: number;
+    cellsUnavailable: number;
+};
+type AttributedBuildingHasNoCells = HasNotInterface<'hasCells'>;
+type AttributedBuildingCells<HasCells extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasCells,
+    AttributedBuildingHasNoCells,
+    HasCells
+>;
+
+type AttributedBuildingHasClassrooms = HasInterface<'hasClassrooms'> & {
+    classrooms: number;
+    classRoomsUnavailable: number;
+};
+type AttributedBuildingHasNoClassrooms = HasNotInterface<'hasClassrooms'>;
+type AttributedBuildingClassrooms<HasClassrooms extends Maybe = unknown> =
+    MaybeInterface<
+        AttributedBuildingHasClassrooms,
+        AttributedBuildingHasNoClassrooms,
+        HasClassrooms
+    >;
+
+type AttributedBuildingHasLevel = HasInterface<'hasLevel'> & { level: number };
+type AttributedBuildingHasNoLevel = HasNotInterface<'hasLevel'>;
+type AttributedBuildingLevel<HasLevel extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasLevel,
+    AttributedBuildingHasNoLevel,
+    HasLevel
+>;
+
+type AttributedBuildingHasStaff = HasInterface<'hasStaff'> & {
+    staff: number;
+    staffTarget?: number;
+    hiring_automatic: boolean;
+    hiring_phase: number;
+};
+type AttributedBuildingHasNoStaff = HasNotInterface<'hasStaff'>;
+type AttributedBuildingStaff<HasStaff extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasStaff,
+    AttributedBuildingHasNoStaff,
+    HasStaff
+>;
+
+type AttributedBuildingHasVehicles = HasInterface<'hasVehicles'> & {
+    vehicles: Vehicle[];
+    maxVehicles: number;
+};
+type AttributedBuildingHasNoVehicles = HasNotInterface<'hasVehicles'>;
+type AttributedBuildingVehicles<HasVehicles extends Maybe = unknown> =
+    MaybeInterface<
+        AttributedBuildingHasVehicles,
+        AttributedBuildingHasNoVehicles,
+        HasVehicles
+    >;
+
+type AttributedBuilding<
+    HasBeds extends Maybe = unknown,
+    HasCells extends Maybe = unknown,
+    HasClassrooms extends Maybe = unknown,
+    HasLevel extends Maybe = unknown,
+    HasStaff extends Maybe = unknown,
+    HasVehicles extends Maybe = unknown
+> = AttributedBuildingBeds<HasBeds> &
+    AttributedBuildingCells<HasCells> &
+    AttributedBuildingClassrooms<HasClassrooms> &
+    AttributedBuildingLevel<HasLevel> &
+    AttributedBuildingStaff<HasStaff> &
+    AttributedBuildingVehicles<HasVehicles> & {
         alliance: boolean;
         id: number;
         type: number;
@@ -872,6 +1087,8 @@ type AttributedBuilding = AttributedBuildingBeds &
         extensions: Extension[];
         leitstelle: number | null;
     };
+
+type ClassroomBuilding = AttributedBuilding<unknown, unknown, true>;
 
 interface AttributedVehicle {
     id: number;
@@ -903,6 +1120,15 @@ type AttributedExtension = {
           enoughCoins: boolean;
       } & ({ canBuy: false; requirements: string[] } | { canBuy: true }))
 );
+
+type SchoolingBuilding = ClassroomBuilding & {
+    schoolings: (Schooling & {
+        countdownId: string;
+        initCountdown(): void;
+    })[];
+    classroomsAvailable: number;
+    freeClassrooms: number;
+};
 
 type BuildingSortAttribute =
     | 'beds'
@@ -985,6 +1211,7 @@ export default Vue.extend<
         buildings: Record<number, Building>;
         allianceBuildings: Record<number, Building>;
         vehiclesByBuilding: Record<number, Vehicle[]>;
+        allSchoolings: Schooling[];
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
         sortedBuildingIdsByName: number[];
@@ -993,7 +1220,7 @@ export default Vue.extend<
         hasLevelBuildings: boolean;
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
-        classroomBuildings: AttributedBuilding[];
+        classroomBuildings: ClassroomBuilding[];
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
@@ -1023,6 +1250,13 @@ export default Vue.extend<
             value: ExtensionStateFilters | '*';
         }[];
         userHasAllianceFinanceRights: boolean;
+        schoolings: Schooling[];
+        schoolingBuildings: SchoolingBuilding[];
+        classroomStats: {
+            total: number;
+            unavailable: number;
+            free: number;
+        };
     },
     {
         complexIndex: number;
@@ -1091,6 +1325,7 @@ export default Vue.extend<
             buildings: 'buildingsById',
             allianceBuildings: 'allianceBuildingsById',
             vehiclesByBuilding: 'vehiclesByBuilding',
+            allSchoolings: store => store.schoolings.result,
         }),
         attributedBuildings() {
             const smallBuildings = this.$t(
@@ -1364,7 +1599,8 @@ export default Vue.extend<
         },
         classroomBuildings() {
             return this.attributedBuildings.filter(
-                ({ hasClassrooms }) => hasClassrooms
+                (building): building is ClassroomBuilding =>
+                    building.hasClassrooms
             );
         },
         hasClassroomBuildings() {
@@ -1914,6 +2150,57 @@ export default Vue.extend<
                 allianceUserRoleFlags?.admin || allianceUserRoleFlags?.finance
             );
         },
+        schoolings() {
+            return this.allSchoolings.filter(({ building_id }) =>
+                this.complex.buildings.includes(building_id.toString())
+            );
+        },
+        schoolingBuildings() {
+            return this.classroomBuildings.map(building => {
+                const classroomsAvailable =
+                    building.classrooms - building.classRoomsUnavailable;
+                const schoolings = this.schoolings
+                    .filter(({ building_id }) => building_id === building.id)
+                    .map(schooling => {
+                        const countdownId = this.rootStore.nodeAttribute(
+                            `buildingComplex-schoolings-countdown-${schooling.id}`,
+                            true
+                        );
+                        return {
+                            ...schooling,
+                            countdownId,
+                            initCountdown: () =>
+                                this.$utils.countdown(
+                                    countdownId,
+                                    Math.floor(
+                                        (new Date(
+                                            schooling.finish_time
+                                        ).getTime() -
+                                            Date.now()) /
+                                            1000
+                                    )
+                                ),
+                        };
+                    });
+                return {
+                    ...building,
+                    schoolings,
+                    classroomsAvailable,
+                    freeClassrooms: classroomsAvailable - schoolings.length,
+                };
+            });
+        },
+        classroomStats() {
+            const stats = { total: 0, unavailable: 0, free: 0 };
+            this.schoolingBuildings.forEach(
+                ({ classrooms, classRoomsUnavailable, freeClassrooms }) => {
+                    stats.total += classrooms;
+                    stats.unavailable += classRoomsUnavailable;
+                    stats.free += freeClassrooms;
+                }
+            );
+            return stats;
+        },
     },
     methods: {
         selectTab(event, index) {
@@ -2240,4 +2527,9 @@ export default Vue.extend<
     .close
         opacity: 1
         color: white
+
+.classrooms-table
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
+    grid-gap: 1em
 </style>

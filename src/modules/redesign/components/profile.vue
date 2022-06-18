@@ -513,6 +513,7 @@
                                                     :alt="building.name"
                                                 />
                                                 <a
+                                                    class="lightbox-open"
                                                     :href="`/buildings/${building.id}`"
                                                 >
                                                     {{

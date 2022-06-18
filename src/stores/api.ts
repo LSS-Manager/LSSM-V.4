@@ -27,6 +27,9 @@ export const useAPIStore = defineStore('api', {
             allianceinfo: null,
             settings: null,
             credits: null,
+            schoolings: {
+                result: [],
+            },
             missions: {},
             autoUpdates: [],
             currentlyUpdating: [],
@@ -173,6 +176,9 @@ export const useAPIStore = defineStore('api', {
             this._removeAPIFromQueue(api);
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
+            // reactivity workaround for schoolings
+            if (api === 'schoolings')
+                this.schoolings.result = this.schoolings.result.slice(0);
         },
         _initAPIsFromBroadcast() {
             const broadcastStore = useBroadcastStore();
@@ -192,6 +198,7 @@ export const useAPIStore = defineStore('api', {
                         'allianceinfo',
                         'buildings',
                         'credits',
+                        'schoolings',
                         'settings',
                         'vehicles',
                     ] as StorageAPIKey[]
@@ -469,6 +476,24 @@ export const useAPIStore = defineStore('api', {
         getMissionsArray(feature: string): Promise<Mission[]> {
             return this.getMissions(feature).then(missions =>
                 Object.values(missions)
+            );
+        },
+        getSchoolings(
+            feature: string
+        ): Promise<EnsuredAPIGetter<'schoolings'>> {
+            return this._getAPI('schoolings', feature);
+        },
+        autoUpdateSchoolings(
+            feature: string,
+            callback: (api: EnsuredAPIGetter<'schoolings'>) => void = () =>
+                void null,
+            updateInterval: number = API_MIN_UPDATE
+        ) {
+            return this._autoUpdate(
+                this.getSchoolings,
+                feature,
+                callback,
+                updateInterval
             );
         },
         getSettings(feature: string): Promise<EnsuredAPIGetter<'settings'>> {
