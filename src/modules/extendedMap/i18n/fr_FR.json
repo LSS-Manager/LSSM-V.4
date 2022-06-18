@@ -29,20 +29,20 @@
                 "title": "Bâtiments rattachés"
             },
             "classrooms": {
-                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "subtitle": "{total} au total, dont {unavailable} en construction et {free} disponible",
                 "table": {
-                    "countdown": "time left",
-                    "free": "Free Places",
-                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "countdown": "temps restant",
+                    "free": "Places libre",
+                    "freeClassrooms": "1 salle de cours libre|{n} salles de cours libres",
                     "running": {
-                        "false": "No",
-                        "title": "running?",
-                        "true": "Yes"
+                        "false": "Non",
+                        "title": "En cours?",
+                        "true": "Oui"
                     },
-                    "start": "start new training course",
-                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                    "start": "Commencer une nouvelle formation",
+                    "unavailable": "1 salle de cours en construction|{n} salles de cours en construction"
                 },
-                "title": "Salles de formation"
+                "title": "Salles de cours"
             },
             "extensions": {
                 "abort": "Annuler",
