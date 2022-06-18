@@ -29,18 +29,18 @@
                 "title": "wybrane budynki"
             },
             "classrooms": {
-                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
                 "table": {
-                    "countdown": "time left",
-                    "free": "Free Places",
-                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "countdown": "Pozostały czas",
+                    "free": "Wolne miejsca",
+                    "freeClassrooms": "1 wolna sala|{n} wolne sale",
                     "running": {
-                        "false": "No",
-                        "title": "running?",
-                        "true": "Yes"
+                        "false": "Nie",
+                        "title": "W trakcie?",
+                        "true": "Tak"
                     },
-                    "start": "start new training course",
-                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                    "start": "Rozpocznij nowy kurs",
+                    "unavailable": "1 sala w budowie|{n} sale w budowie"
                 },
                 "title": "Sale"
             },
