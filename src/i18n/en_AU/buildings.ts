@@ -24,7 +24,7 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [5, 23, 24, 25, 26, 27]
+                unlocksVehicleTypes: [5, 23, 24, 25, 26, 27],
             },
             {
                 caption: 'Bushfire Expansion',
@@ -33,7 +33,7 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [28, 29]
+                unlocksVehicleTypes: [28, 29],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
@@ -245,7 +245,7 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [34, 36, 37]
+                unlocksVehicleTypes: [34, 36, 37],
             },
             {
                 caption: "Senior Sergeant's Office",
@@ -255,9 +255,9 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [38],
-                parkingLotReservations: [[38], [38]]
+                parkingLotReservations: [[38], [38]],
             },
-            { 
+            {
                 caption: "Additional Senior Sergeant's Offices",
                 credits: 150_000,
                 coins: 20,
@@ -411,7 +411,7 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [28, 29]
+                unlocksVehicleTypes: [28, 29],
             },
         ],
         levelcost: [
@@ -459,7 +459,7 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [34, 36, 37]
+                unlocksVehicleTypes: [34, 36, 37],
             },
             {
                 caption: "Senior Sergeant's Office",
@@ -468,7 +468,7 @@ export default {
                 duration: '7 Days',
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [38],
-                parkingLotReservations: [[38], [38]]
+                parkingLotReservations: [[38], [38]],
             },
         ],
         levelcost: [
