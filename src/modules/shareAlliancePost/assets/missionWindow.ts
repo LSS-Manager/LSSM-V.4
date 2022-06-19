@@ -455,7 +455,7 @@ export default async ({
         btnGroup.append(alarmSharePostGroup, alarmSharePostNextGroup);
 
         let sortedMissionClass = LSSM.$stores.root.nodeAttribute(
-            'extendedCallList_sort-missions_next_sorted'
+            'extendedCallList_sort-missions_alert_next_sorted'
         );
         let missionsSorted =
             document.querySelector<HTMLInputElement>(
