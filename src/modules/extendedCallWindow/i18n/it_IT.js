@@ -97,9 +97,10 @@ module.exports = {
         selected: 'Selezionato',
         water: "l. d'acqua",
         foam: 'l. schiuma',
-        staffPrefix: ['Servono altri'],
+        staffPrefix: ['Servono altri', 'Serve ancora', 'Sono richiesti altri', 'È richiesto'],
         staff: {
-            [/^vigili del fuoco$/u]: [0, 9, 3, 1, 37, 11, 2, 6, 5, 12, 10],
+            [/^vigil[ie] del fuoco$/u]: [0, 9, 3, 1, 37, 11, 2, 6, 5, 12, 10],
+            [/^(altro )?agent[ie] di polizia$/u]: [7, 16, 14, 17, 38, 39, 15, 22, 13],
         },
         vehiclesByRequirement: {
             [/^APS\/ABP$/u]: [0, 9],
