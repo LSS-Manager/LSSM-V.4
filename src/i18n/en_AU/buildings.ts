@@ -255,7 +255,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [38],
-                parkingLotReservations [[38], [38]]
+                parkingLotReservations: [[38], [38]]
             },
             { 
                 caption: "Additional Senior Sergeant's Offices",
@@ -468,7 +468,7 @@ export default {
                 duration: '7 Days',
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [38],
-                parkingLotReservations [[38], [38]],
+                parkingLotReservations: [[38], [38]]
             },
         ],
         levelcost: [
