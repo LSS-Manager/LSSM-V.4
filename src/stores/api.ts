@@ -250,7 +250,9 @@ export const useAPIStore = defineStore('api', {
                 const stateValue = this._stateValue(api);
                 if (
                     stateValue.value &&
-                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE
+                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE &&
+                    // these are to be updated with each request
+                    !(['schoolings'] as StorageAPIKey[]).includes(api)
                 ) {
                     this._removeAPIFromQueue(api);
                     return new Promise(resolve =>

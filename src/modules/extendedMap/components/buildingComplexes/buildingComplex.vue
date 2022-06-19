@@ -16,18 +16,7 @@
         </h1>
         <tabs :onSelect="selectTab">
             <tab :title="$m('overview.title')">
-                <tabs
-                    :on-select="
-                        () =>
-                            $nextTick(() =>
-                                schoolingBuildings.forEach(({ schoolings }) =>
-                                    schoolings.forEach(schooling =>
-                                        schooling.initCountdown()
-                                    )
-                                )
-                            )
-                    "
-                >
+                <tabs :on-select="selectOverviewTab">
                     <!-- List of attached buildings -->
                     <tab :title="$m('overview.buildings.title')">
                         <div
@@ -1187,6 +1176,7 @@ export default Vue.extend<
     },
     {
         selectTab(event: MouseEvent, index: number): void;
+        selectOverviewTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
         toggleVehicleFMS(vehicle: AttributedVehicle): void;
@@ -1225,6 +1215,12 @@ export default Vue.extend<
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
         hasAllianceAndPrivateBuildings: boolean;
+        overviewTabs: {
+            buildings: 0;
+            vehicles: number;
+            extensions: number;
+            classrooms: number;
+        };
         buildingTypeAmounts: [string, number][];
         vehicles: AttributedVehicle[];
         filteredVehicles: AttributedVehicle[];
@@ -1621,6 +1617,16 @@ export default Vue.extend<
                 this.complex.buildings.length &&
                 this.complex.allianceBuildings.length
             );
+        },
+        overviewTabs() {
+            const vehiclesTab = this.hasVehicleBuildings ? 1 : 0;
+            const extensionsTab = vehiclesTab + 1;
+            return {
+                buildings: 0,
+                vehicles: vehiclesTab || -1,
+                extensions: extensionsTab,
+                classrooms: this.hasClassroomBuildings ? extensionsTab + 1 : -1,
+            };
         },
         buildingTypeAmounts() {
             const types: Record<string, number> = {};
@@ -2209,6 +2215,29 @@ export default Vue.extend<
                 'currentBuildingId',
                 this.sortedBuildingIdsByName[index - 1]
             );
+            if (!index) this.selectOverviewTab(event, 0);
+        },
+        selectOverviewTab(event, index) {
+            switch (index) {
+                case this.overviewTabs.classrooms:
+                    this.apiStore
+                        .getSchoolings('buildingComplex')
+                        .then(() => this.$nextTick())
+                        .then(() =>
+                            this.schoolingBuildings.forEach(({ schoolings }) =>
+                                schoolings.forEach(schooling =>
+                                    schooling.initCountdown()
+                                )
+                            )
+                        );
+                    break;
+                case this.overviewTabs.buildings:
+                case this.overviewTabs.extensions:
+                    this.apiStore.getBuildings('buildingComplex');
+                    break;
+                case this.overviewTabs.vehicles:
+                    this.apiStore.getBuildings('buildingComplex');
+            }
         },
         updateIframe(event) {
             const iframe = event.target;
@@ -2445,6 +2474,7 @@ export default Vue.extend<
     },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
+        this.apiStore.getBuildings('buildingComplex');
     },
 });
 </script>
