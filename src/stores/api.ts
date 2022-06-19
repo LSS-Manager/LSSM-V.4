@@ -35,6 +35,7 @@ export const useAPIStore = defineStore('api', {
             currentlyUpdating: [],
             secretKey: null,
             lastUpdates: {},
+            initialBroadcastUpdateFinished: false,
         },
     getters: {
         _stateValue:
@@ -153,13 +154,22 @@ export const useAPIStore = defineStore('api', {
                 .then(res => res.json())
                 .then(({ code }) => (this.secretKey = code));
         },
+        _awaitInitialBroadcast(): Promise<void> {
+            return new Promise<void>(resolve => {
+                const interval = window.setInterval(() => {
+                    if (!this.initialBroadcastUpdateFinished) return;
+                    window.clearInterval(interval);
+                    resolve();
+                }, 50);
+            });
+        },
         _awaitUpdateQueue<API extends StorageAPIKey>(api: API): Promise<void> {
             return new Promise<void>(resolve => {
                 const interval = window.setInterval(() => {
                     if (this.currentlyUpdating.includes(api)) return;
                     this.currentlyUpdating.push(api);
                     window.clearInterval(interval);
-                    resolve();
+                    resolve(this._awaitInitialBroadcast());
                 }, 50);
             });
         },
@@ -181,6 +191,7 @@ export const useAPIStore = defineStore('api', {
                 this.schoolings.result = this.schoolings.result.slice(0);
         },
         _initAPIsFromBroadcast() {
+            this.initialBroadcastUpdateFinished = false;
             const broadcastStore = useBroadcastStore();
             const collectAPI = <API extends StorageAPIKey>(api: API) =>
                 broadcastStore
@@ -228,7 +239,8 @@ export const useAPIStore = defineStore('api', {
                         this.missions = latestMission.missions;
                         this.lastUpdates.missions = latestMission.lastUpdate;
                     }
-                });
+                })
+                .then(() => (this.initialBroadcastUpdateFinished = true));
         },
         _getAPI<API extends StorageAPIKey>(
             api: API,
@@ -307,10 +319,13 @@ export const useAPIStore = defineStore('api', {
             buildingId: number,
             feature: string
         ): Promise<Building> {
-            return this.request({
-                url: `/api/alliance_buildings/${buildingId}`,
-                feature: `apiStore/getAllianceBuilding(${feature})`,
-            })
+            return this._awaitInitialBroadcast()
+                .then(() =>
+                    this.request({
+                        url: `/api/alliance_buildings/${buildingId}`,
+                        feature: `apiStore/getAllianceBuilding(${feature})`,
+                    })
+                )
                 .then(res => res.json() as Promise<Building>)
                 .then(fetchedBuilding => {
                     if (!Object.keys(fetchedBuilding).length) {
@@ -377,10 +392,13 @@ export const useAPIStore = defineStore('api', {
             );
         },
         getBuilding(buildingId: number, feature: string): Promise<Building> {
-            return this.request({
-                url: `/api/buildings/${buildingId}`,
-                feature: `apiStore/getBuilding(${feature})`,
-            })
+            return this._awaitInitialBroadcast()
+                .then(() =>
+                    this.request({
+                        url: `/api/buildings/${buildingId}`,
+                        feature: `apiStore/getBuilding(${feature})`,
+                    })
+                )
                 .then(res => res.json() as Promise<Building>)
                 .then(fetchedBuilding => {
                     if (!Object.keys(fetchedBuilding).length) {
@@ -455,10 +473,13 @@ export const useAPIStore = defineStore('api', {
                     return new Promise(resolve => resolve(this.missions));
                 }
             }
-            return this.request({
-                url: `${SERVER}missions/${window.I18n.locale}.json`,
-                feature,
-            })
+            return this._awaitInitialBroadcast()
+                .then(() =>
+                    this.request({
+                        url: `${SERVER}missions/${window.I18n.locale}.json`,
+                        feature,
+                    })
+                )
                 .then(res => res.json() as Promise<Record<string, Mission>>)
                 .then(missions =>
                     useBroadcastStore().missionsApiBroadcast(missions)
@@ -513,10 +534,13 @@ export const useAPIStore = defineStore('api', {
             );
         },
         getVehiclesAtBuilding(buildingId: number, feature: string) {
-            return this.request({
-                url: `/api/buildings/${buildingId}/vehicles`,
-                feature: `apiStore/getVehiclesAtBuilding(${feature})`,
-            })
+            return this._awaitInitialBroadcast()
+                .then(() =>
+                    this.request({
+                        url: `/api/buildings/${buildingId}/vehicles`,
+                        feature: `apiStore/getVehiclesAtBuilding(${feature})`,
+                    })
+                )
                 .then(res => res.json() as Promise<Vehicle[]>)
                 .then(fetchedVehicles => {
                     fetchedVehicles.forEach(vehicle => {
@@ -542,10 +566,13 @@ export const useAPIStore = defineStore('api', {
                 });
         },
         getVehicle(vehicleId: number, feature: string): Promise<Vehicle> {
-            return this.request({
-                url: `/api/vehicles/${vehicleId}`,
-                feature: `apiStore/getVehicle(${feature})`,
-            })
+            return this._awaitInitialBroadcast()
+                .then(() =>
+                    this.request({
+                        url: `/api/vehicles/${vehicleId}`,
+                        feature: `apiStore/getVehicle(${feature})`,
+                    })
+                )
                 .then(res => res.json() as Promise<Vehicle>)
                 .then(fetchedVehicle => {
                     if (!Object.keys(fetchedVehicle).length) {

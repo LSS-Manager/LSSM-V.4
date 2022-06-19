@@ -34,4 +34,5 @@ export interface APIState extends StorageAPIs {
     currentlyUpdating: StorageAPIKey[];
     secretKey: string | null;
     lastUpdates: Partial<Record<StorageAPIKey | 'missions', number>>;
+    initialBroadcastUpdateFinished: boolean;
 }
