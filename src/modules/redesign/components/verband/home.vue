@@ -178,7 +178,7 @@ export default Vue.extend<
                                         referrer: new URL(
                                             `/verband`,
                                             window.location.origin
-                                        ),
+                                        ).toString(),
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',

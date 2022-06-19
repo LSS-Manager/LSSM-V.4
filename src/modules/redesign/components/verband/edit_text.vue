@@ -255,7 +255,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `alliances/veband/text/edit`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -275,7 +275,7 @@ export default Vue.extend<
                                         ),
                                         href: url.toString(),
                                         getIdFromEl: this.lightbox.getIdFromEl,
-                                        LSSM: this,
+                                        LSSM: this.lightbox,
                                         $m: this.lightbox.$m,
                                         $sm: this.lightbox.$sm,
                                         $mc: this.lightbox.$mc,

@@ -155,7 +155,7 @@ export default Vue.extend<
                                 html,
                                 'text/html'
                             ),
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,
@@ -193,7 +193,7 @@ export default Vue.extend<
                                 html,
                                 'text/html'
                             ),
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,

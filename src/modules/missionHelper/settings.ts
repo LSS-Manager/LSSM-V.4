@@ -65,6 +65,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             'fr_FR',
             'es_ES',
             'en_GB',
+            'it_IT',
         ].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{

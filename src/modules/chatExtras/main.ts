@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, getSetting }) => {
@@ -38,9 +40,11 @@ export default (async ({ LSSM, getSetting }) => {
                     name: 'redesign-finished-loading',
                     listener(e: CustomEvent) {
                         if (e.detail.type === 'chat') {
-                            addLightChatDesign(
-                                location.pathname === '/',
-                                e.detail.modalName
+                            (window[PREFIX] as Vue).$nextTick(() =>
+                                addLightChatDesign(
+                                    location.pathname === '/',
+                                    e.detail.modalName
+                                )
                             );
                         }
                     },

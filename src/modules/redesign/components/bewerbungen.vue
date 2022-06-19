@@ -234,7 +234,7 @@ export default Vue.extend<
                                                     getIdFromEl:
                                                         this.lightbox
                                                             .getIdFromEl,
-                                                    LSSM: this,
+                                                    LSSM: this.lightbox,
                                                     $m: this.lightbox.$m,
                                                     $sm: this.lightbox.$sm,
                                                     $mc: this.lightbox.$mc,
