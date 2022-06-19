@@ -1148,6 +1148,7 @@ export default Vue.extend<
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
+        currentOverviewTab: number;
         buildingsTable: {
             search: string;
             sort: BuildingSortAttribute;
@@ -1196,6 +1197,7 @@ export default Vue.extend<
         updateExtensionsFilterStates(
             states: (ExtensionStateFilters | '*')[]
         ): void;
+        initSchoolingCountdowns(): void;
     },
     {
         buildings: Record<number, Building>;
@@ -1289,6 +1291,7 @@ export default Vue.extend<
             buildingTypes: rootStore.$tBuildings,
             vehicleTypes: rootStore.$tVehicles,
             currentBuildingId: 0,
+            currentOverviewTab: 0,
             buildingsTable: {
                 search: '',
                 sort: 'name',
@@ -2218,18 +2221,13 @@ export default Vue.extend<
             if (!index) this.selectOverviewTab(event, 0);
         },
         selectOverviewTab(event, index) {
+            this.currentOverviewTab = index;
             switch (index) {
                 case this.overviewTabs.classrooms:
                     this.apiStore
                         .getSchoolings('buildingComplex')
                         .then(() => this.$nextTick())
-                        .then(() =>
-                            this.schoolingBuildings.forEach(({ schoolings }) =>
-                                schoolings.forEach(schooling =>
-                                    schooling.initCountdown()
-                                )
-                            )
-                        );
+                        .then(() => this.initSchoolingCountdowns());
                     break;
                 case this.overviewTabs.buildings:
                 case this.overviewTabs.extensions:
@@ -2433,6 +2431,13 @@ export default Vue.extend<
                     states.filter(removeAllElement);
             }
         },
+        initSchoolingCountdowns() {
+            if (this.currentOverviewTab !== this.overviewTabs.classrooms)
+                return;
+            this.schoolingBuildings.forEach(({ schoolings }) =>
+                schoolings.forEach(schooling => schooling.initCountdown())
+            );
+        },
     },
     props: {
         complexIndex: {
@@ -2475,6 +2480,9 @@ export default Vue.extend<
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
         this.apiStore.getBuildings('buildingComplex');
+        this.apiStore.$subscribe(() =>
+            this.$nextTick().then(() => this.initSchoolingCountdowns())
+        );
     },
 });
 </script>

@@ -194,6 +194,10 @@ LSSM-Team`,
         import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
             core => core.default(LSSM)
         );
+    } else if (
+        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+    ) {
+        LSSM.$stores.api.getSchoolings('core-update-schoolings').then();
     }
 
     // show a dialog if userscript is out of date
