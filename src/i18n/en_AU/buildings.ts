@@ -25,8 +25,6 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [5, 23, 24, 25, 26, 27]
-
-
             },
             {
                 caption: 'Bushfire Expansion',
@@ -36,7 +34,6 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [28, 29]
-
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
