@@ -2190,7 +2190,12 @@ export default Vue.extend<
                                     )
                                 ),
                         };
-                    });
+                    })
+                    .sort(
+                        (a, b) =>
+                            new Date(a.finish_time).getTime() -
+                            new Date(b.finish_time).getTime()
+                    );
                 return {
                     ...building,
                     schoolings,
