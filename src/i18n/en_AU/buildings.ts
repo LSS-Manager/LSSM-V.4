@@ -18,7 +18,7 @@ export default {
         credits: 100_000,
         extensions: [
             {
-                caption: 'Ambulance extensionunlocksVehicleTypes:',
+                caption: 'Ambulance extension',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Days',
