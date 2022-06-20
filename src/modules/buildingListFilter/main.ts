@@ -89,6 +89,16 @@ export default <ModuleMainFunction>(async ({
 
     let btns: [FilterBtn, number[]][] = [];
 
+    const filterHideClass = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-filter-hidden`
+    );
+    const searchHideClass = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-search-not-matching`
+    );
+    const reversedListClass = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-reversed-buildinglist`
+    );
+
     const applyFilter = (buildings: number[], show: boolean) =>
         buildings.length &&
         document
@@ -102,7 +112,7 @@ export default <ModuleMainFunction>(async ({
             )
             .forEach(b => {
                 b.classList.add('category_selected');
-                b.style.setProperty('display', show ? 'block' : 'none');
+                b.classList[show ? 'remove' : 'add'](filterHideClass);
             });
 
     const enable = (btn: FilterBtn, buildings: number[], index: number) => {
@@ -137,6 +147,8 @@ export default <ModuleMainFunction>(async ({
     >;
 
     let updateBuildingsArrayHookAttached = false;
+
+    let styleAdded = false;
 
     const updateFilters = async () => {
         selectGroup = document.querySelector<HTMLDivElement>(
@@ -249,27 +261,29 @@ export default <ModuleMainFunction>(async ({
 
         updateBuildingsArray();
 
-        const searchHideClass = LSSM.$stores.root.nodeAttribute(
-            'blf-search-not-matching'
-        );
-        const reversedListClass = LSSM.$stores.root.nodeAttribute(
-            'blf-reversed-buildinglist'
-        );
-
-        LSSM.$stores.root.addStyles([
-            {
-                selectorText: `.${searchHideClass}`,
-                style: {
-                    display: 'none !important',
+        if (!styleAdded) {
+            LSSM.$stores.root.addStyles([
+                {
+                    selectorText: `.${searchHideClass}`,
+                    style: {
+                        display: 'none !important',
+                    },
                 },
-            },
-            {
-                selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
-                style: {
-                    transform: 'rotate(180deg)',
+                {
+                    selectorText: `.${filterHideClass}`,
+                    style: {
+                        display: 'none !important',
+                    },
                 },
-            },
-        ]);
+                {
+                    selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
+                    style: {
+                        transform: 'rotate(180deg)',
+                    },
+                },
+            ]);
+            styleAdded = true;
+        }
 
         const sortBtn = document.createElement('button');
         sortBtn.classList.add('btn', 'btn-xs', 'btn-default');
