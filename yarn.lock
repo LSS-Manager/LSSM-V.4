@@ -8747,7 +8747,7 @@ __metadata:
     ua-parser-js: ^1.0.2
     url-loader: ^4.1.1
     vue: ^2.6.14
-    vue-i18n: ^8.27.1
+    vue-i18n: ^8.27.2
     vue-js-modal: ^2.0.1
     vue-js-toggle-button: ^1.3.3
     vue-loader: ^15.9.8
@@ -10234,10 +10234,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^8.27.1":
-  version: 8.27.1
-  resolution: "vue-i18n@npm:8.27.1"
-  checksum: ee712fcdd503d73d63c9de82bb7315962205b3cd4339c414e9183c5a7b760ce465d2e0bf285aaa3617e8edd37b5004904881b7c406492bde41762865228ce920
+"vue-i18n@npm:^8.27.2":
+  version: 8.27.2
+  resolution: "vue-i18n@npm:8.27.2"
+  checksum: 1a84ec3253b1c5a0b7742d31636ac46ac1c900968f20df859e80b6fbf4545d5e86ac37cfac0e3c5fc056b5c8600cb6f5cec9d455646250677996bc1df8e6a8d2
   languageName: node
   linkType: hard
 
