@@ -246,6 +246,12 @@ export default <ModuleMainFunction>(async ({
                         ?.textContent?.toLowerCase() ?? '',
                 ])
             );
+            buildings.forEach(building =>
+                building[0].classList.remove(
+                    'building-filtered-by-type',
+                    'building-filtered-by-search'
+                )
+            );
         };
 
         if (!updateBuildingsArrayHookAttached) {
