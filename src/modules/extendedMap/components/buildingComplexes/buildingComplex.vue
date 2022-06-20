@@ -951,6 +951,8 @@
                     />
                 </tab>
             </template>
+
+            <!-- dispatch center protocol filtered by attached buildings -->
         </tabs>
     </lightbox>
 </template>
