@@ -237,7 +237,7 @@ export default Vue.extend<
                                             buildingTypes[
                                                 buildingType
                                             ].maxBuildingsFunction?.(
-                                                this.apiStore.buildings.length
+                                                apiStore.buildings.length
                                             ) ?? '–',
                                         buildings: buildingsOfType,
                                     },
