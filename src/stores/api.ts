@@ -242,6 +242,39 @@ export const useAPIStore = defineStore('api', {
                 })
                 .then(() => (this.initialBroadcastUpdateFinished = true));
         },
+        _prepareAPIDataForState<API extends StorageAPIKey>(
+            api: API,
+            data: EnsuredAPIGetter<API>['value']
+        ): EnsuredAPIGetter<API> {
+            if (api === 'buildings') {
+                const smallBuildings = (window[PREFIX] as Vue).$t(
+                    'small_buildings'
+                ) as unknown as Record<number, number>;
+                // TODO: Find a way that typescript likes...
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                return <EnsuredAPIGetter<'buildings'>>{
+                    value: (data as EnsuredAPIGetter<'buildings'>['value']).map(
+                        building =>
+                            building.small_building
+                                ? {
+                                      ...building,
+                                      building_type:
+                                          smallBuildings[
+                                              building.building_type
+                                          ],
+                                  }
+                                : building
+                    ),
+                    lastUpdate: Date.now(),
+                };
+            }
+
+            return {
+                value: data,
+                lastUpdate: Date.now(),
+            };
+        },
         _getAPI<API extends StorageAPIKey>(
             api: API,
             feature: string
@@ -269,12 +302,8 @@ export const useAPIStore = defineStore('api', {
                                 EnsuredAPIGetter<API>['value']
                             >
                     )
-                    .then(
-                        apiResult =>
-                            <EnsuredAPIGetter<API>>{
-                                value: apiResult,
-                                lastUpdate: Date.now(),
-                            }
+                    .then(apiResult =>
+                        this._prepareAPIDataForState(api, apiResult)
                     )
                     .then(apiGetterResult => {
                         this._setAPI(api, apiGetterResult);
