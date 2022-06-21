@@ -144,6 +144,10 @@ LSSM-Team`,
 
     LSSM.$stores.api._initAPIsFromBroadcast().then();
 
+    import('./natives/checkboxMultiSelect').then(({ default: multiSelect }) =>
+        multiSelect(LSSM)
+    );
+
     if (
         !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
         localStorage.getItem(loadingIndicatorStorageKey) === 'true'
