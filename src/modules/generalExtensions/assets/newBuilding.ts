@@ -211,6 +211,9 @@ export default async (
                             );
                             coinsBtn.classList.add('disabled');
                         });
+                    })
+                    .finally(() => {
+                        btn.setAttribute('type', 'submit');
                         checkFormValidity(form);
                     });
             });
