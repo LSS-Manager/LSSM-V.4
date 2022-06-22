@@ -134,7 +134,10 @@ export default async (
                 return;
             constructBuildingListElement(complex, index);
         });
-        if (window.buildingMarkerBulkContentCache.length)
+        if (
+            window.buildingMarkerBulkContentCache.length &&
+            document.querySelector<HTMLDivElement>('#building_list')
+        )
             window.buildingMarkerBulkContentCacheDraw();
     };
 
