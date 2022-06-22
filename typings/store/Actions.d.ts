@@ -6,7 +6,7 @@ export interface Hook<Arguments extends unknown[]> {
 }
 
 export interface ProxyParams {
-    post: boolean;
+    post?: boolean;
     name: string;
     trap: keyof ProxyHandler<never>;
     callback(...args: unknown[]): unknown | void;

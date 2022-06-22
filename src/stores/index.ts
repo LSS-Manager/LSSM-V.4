@@ -191,10 +191,21 @@ export const useRootStore = defineStore('root', {
             });
         },
         preModifyParams({ event, callback = undefined }: premodifyParams) {
-            const originalEvent = window[event];
+            const split = event.split('.');
+            const trueProp = split.pop();
+            const trueBase = split.reduce(
+                (previousValue, currentValue) =>
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    (previousValue || window)[currentValue],
+                window
+            ) as unknown;
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            window[event] = (...args) => {
+            const originalEvent = trueBase[trueProp];
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            trueBase[trueProp] = (...args) => {
                 callback?.(...args);
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
