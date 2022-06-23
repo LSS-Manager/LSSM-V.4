@@ -298,7 +298,7 @@
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/TypeStrong/ts-loader",
-        "version": "9.3.0"
+        "version": "9.3.1"
     },
     "ts-node": {
         "icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
