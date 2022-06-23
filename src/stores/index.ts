@@ -65,7 +65,7 @@ export const useRootStore = defineStore('root', {
             };
         },
         wiki(): string {
-            return this.lssmUrl(`/docs/${this.locale}`);
+            return `${config.docs}${this.locale}`;
         },
         moduleWiki(): (moduleId: string) => string {
             return moduleId => `${this.wiki}/modules/${moduleId}/`;
