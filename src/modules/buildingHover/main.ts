@@ -1,15 +1,14 @@
 import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { PointTuple } from 'leaflet';
+import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async ({ LSSM, MODULE_ID }) => {
     await LSSM.$stores.api.autoUpdateBuildings(MODULE_ID);
     await LSSM.$stores.api.autoUpdateVehicles(MODULE_ID);
 
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     await LSSM.$stores.root.addStyle({
         selectorText: `.${LSSM.$stores.root.nodeAttribute(
@@ -58,7 +57,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
         if (building) {
             if (
-                Object.values(LSSM.$t('vehicleBuildings')).includes(
+                LSSM.$stores.translations.vehicleBuildings.includes(
                     building.building_type
                 )
             ) {
@@ -76,7 +75,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     )
                     .reduce((a, b) => a + b, 0)}`;
                 if (
-                    Object.values(LSSM.$t('cellBuildings')).includes(
+                    LSSM.$stores.translations.cellBuildings.includes(
                         building.building_type
                     )
                 ) {
@@ -102,7 +101,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                 });
                 data += `</table>`;
             } else if (
-                Object.values(LSSM.$t('bedBuildings')).includes(
+                LSSM.$stores.translations.bedBuildings.includes(
                     building.building_type
                 )
             ) {
@@ -110,7 +109,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     building.level + 10
                 }`;
             } else if (
-                Object.values(LSSM.$t('schoolBuildings')).includes(
+                LSSM.$stores.translations.classroomBuildings.includes(
                     building.building_type
                 )
             ) {

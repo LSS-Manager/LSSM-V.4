@@ -121,7 +121,7 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { Building } from 'typings/Building';
 import type {
@@ -185,9 +185,8 @@ export default Vue.extend<
             },
         ] as Building[];
         const buildingsByType = apiStore.buildingsByType;
-        const dispatchCenterBuildings = Object.values(
-            this.$t('dispatchCenterBuildings')
-        ) as number[];
+        const dispatchCenterBuildings =
+            useTranslationStore().dispatchCenterBuildings;
         dispatchCenterBuildings.forEach(type =>
             dispatchBuildings.push(...(buildingsByType[type] ?? []))
         );
@@ -202,7 +201,7 @@ export default Vue.extend<
         );
         return {
             buildingTypeNames: Object.fromEntries(
-                Object.entries(useRootStore().$tBuildings).map(
+                Object.entries(useTranslationStore().buildings).map(
                     ([index, { caption }]) => [index, caption]
                 )
             ),

@@ -50,6 +50,7 @@ import type { useNotificationStore } from '@stores/notifications';
 import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 import type { useStorageStore } from '@stores/storage';
+import type { useTranslationStore } from '@stores/translationUtilities';
 import type VueI18n from 'vue-i18n';
 import type { $m, $mc } from 'typings/Module';
 import type {
@@ -130,6 +131,7 @@ interface Data<T extends RedesignKey | '' | 'default'> {
     rootStore: ReturnType<typeof useRootStore>;
     settingsStore: ReturnType<typeof useSettingsStore>;
     storageStore: ReturnType<typeof useStorageStore>;
+    translationStore: ReturnType<typeof useTranslationStore>;
     windows: Record<
         Exclude<
             RedesignKey,

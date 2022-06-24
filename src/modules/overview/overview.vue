@@ -282,6 +282,7 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Schooling } from 'typings/Schooling';
@@ -316,11 +317,12 @@ export default Vue.extend<
     },
     data() {
         const rootStore = useRootStore();
+        const translationStore = useTranslationStore();
         const locale = rootStore.locale;
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = rootStore.$tVehicles;
+        const vehicleTypes = translationStore.vehicles;
         const resolvedVehicleCategories = {} as Record<
             string,
             ResolvedVehicleCategory
@@ -370,7 +372,7 @@ export default Vue.extend<
             this.$t('buildingCategories') as unknown
         ) as Record<string, BuildingCategory | ResolvedBuildingCategory>;
         const buildingTypes = Object.fromEntries(
-            Object.entries(cloneDeep(rootStore.$tBuildings)).map(
+            Object.entries(cloneDeep(translationStore.buildings)).map(
                 ([index, building]) => {
                     const extensions = Object.values(building.extensions);
                     const minifiedExtensions =

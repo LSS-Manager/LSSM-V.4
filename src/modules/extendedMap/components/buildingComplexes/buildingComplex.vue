@@ -937,6 +937,154 @@
                             </div>
                         </div>
                     </tab>
+
+                    <!-- dispatch center protocol filtered by attached buildings -->
+                    <tab :title="$m('overview.protocol.title')">
+                        <enhanced-table
+                            :table-attrs="{ class: 'table table-striped' }"
+                            :head="{
+                                time: {
+                                    title: $m(
+                                        'overview.protocol.table.head.time'
+                                    ),
+                                },
+                                label: {
+                                    title: $m(
+                                        'overview.protocol.table.head.label'
+                                    ),
+                                },
+                                title: {
+                                    title: $m(
+                                        'overview.protocol.table.head.name'
+                                    ),
+                                },
+                                building: {
+                                    title: $m(
+                                        'overview.protocol.table.head.building'
+                                    ),
+                                },
+                                staff: {
+                                    title: $m(
+                                        'overview.protocol.table.head.staff'
+                                    ),
+                                },
+                                actions: {
+                                    title: '',
+                                    noSort: true,
+                                },
+                            }"
+                            :search="protocolTable.search"
+                            @search="s => (protocolTable.search = s)"
+                            :sort="protocolTable.sort"
+                            :sort-dir="protocolTable.sortDir"
+                            @sort="setSortProtocolTable"
+                        >
+                            <template v-slot:head>
+                                <h2 class="overview-heading indented-title">
+                                    {{ $m('overview.protocol.title') }}
+                                    <span
+                                        v-show="protocolUpdating"
+                                        class="protocol-update-info"
+                                    >
+                                        ({{ $m('overview.protocol.updating') }})
+                                    </span>
+                                    <br />
+                                    <small>
+                                        {{
+                                            $mc(
+                                                'overview.protocol.subtitle',
+                                                protocol.length,
+                                                {
+                                                    n: protocol.length.toLocaleString(),
+                                                }
+                                            )
+                                        }}
+                                    </small>
+                                </h2>
+                                <button
+                                    class="btn btn-sm btn-danger"
+                                    :disabled="
+                                        protocolDeletions.length ||
+                                        !protocol.length
+                                    "
+                                    @click="deleteAllProtocolEntries"
+                                >
+                                    <font-awesome-icon
+                                        :icon="faTrash"
+                                    ></font-awesome-icon>
+                                </button>
+                            </template>
+                            <tr
+                                v-for="protocolEntry in sortedProtocol"
+                                :key="protocolEntry.id"
+                            >
+                                <td>{{ protocolEntry.time.text }}</td>
+                                <td>
+                                    <label
+                                        v-if="protocolEntry.label"
+                                        :class="`label label-${protocolEntry.label.color}`"
+                                    >
+                                        {{ protocolEntry.label.text }}
+                                    </label>
+                                </td>
+                                <td>{{ protocolEntry.text }}</td>
+                                <td>
+                                    <a
+                                        :href="`/buildings/${protocolEntry.building.id}`"
+                                        class="lightbox-open"
+                                    >
+                                        {{ protocolEntry.building.name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <template
+                                        v-for="(
+                                            staff, building
+                                        ) in protocolEntry.staff"
+                                    >
+                                        <a
+                                            class="lightbox-open"
+                                            :href="`/buildings/${building}`"
+                                            :key="`${protocolEntry.id}_${building}`"
+                                        >
+                                            {{ buildings[building].caption }}
+                                        </a>
+                                        <ul
+                                            :key="`${protocolEntry.id}_${building}_li`"
+                                            class="protocol-staff-list"
+                                        >
+                                            <li
+                                                v-for="(name, index) in staff"
+                                                :key="index"
+                                            >
+                                                {{ name }}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </td>
+                                <td>
+                                    <button
+                                        class="btn btn-xs btn-danger"
+                                        :disabled="
+                                            protocolDeletions.includes(
+                                                protocolEntry.id
+                                            )
+                                        "
+                                        @click="
+                                            deleteProtocolEntry(
+                                                protocolEntry.id,
+                                                protocolEntry.dispatchId
+                                            )
+                                        "
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faTrash"
+                                        ></font-awesome-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </enhanced-table>
+                    </tab>
                 </tabs>
             </tab>
             <template v-if="complex.buildingTabs">
@@ -951,8 +1099,6 @@
                     />
                 </tab>
             </template>
-
-            <!-- dispatch center protocol filtered by attached buildings -->
         </tabs>
     </lightbox>
 </template>
@@ -962,9 +1108,12 @@ import Vue from 'vue';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
+import moment from 'moment';
 import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -1143,10 +1292,29 @@ type ExtensionStateFilters =
     | 'enabled'
     | 'underConstruction';
 
+interface ProtocolEntry {
+    id: number;
+    dispatchId: number;
+    time: {
+        timestamp: number;
+        text: string;
+    };
+    label?: {
+        color: string;
+        text: string;
+    };
+    text: string;
+    building: { id: number; name: string };
+    staff: Record<number, string[]>;
+}
+
+type ProtocolSortAttribute = 'building' | 'label' | 'staff' | 'time' | 'title';
+
 export default Vue.extend<
     {
         faCircleInfo: IconDefinition;
         faPencilAlt: IconDefinition;
+        faTrash: IconDefinition;
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
@@ -1174,8 +1342,19 @@ export default Vue.extend<
             };
         };
         tempDisableAllExtensionButtons: boolean;
+        protocol: ProtocolEntry[];
+        protocolUpdating: boolean;
+        protocolDeletions: number[];
+        protocolDeletionTimeout: number | null;
+        protocolTable: {
+            search: string;
+            sort: ProtocolSortAttribute;
+            sortDir: 'asc' | 'desc';
+        };
         apiStore: ReturnType<typeof useAPIStore>;
         rootStore: ReturnType<typeof useRootStore>;
+        translationStore: ReturnType<typeof useTranslationStore>;
+        moment: typeof moment;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
@@ -1186,6 +1365,7 @@ export default Vue.extend<
         setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
         setSortExtensionsTable(sort: ExtensionSortAttribute): void;
+        setSortProtocolTable(sort: ProtocolSortAttribute): void;
         buyExtension(
             buildingId: number,
             extensionType: number,
@@ -1200,6 +1380,9 @@ export default Vue.extend<
             states: (ExtensionStateFilters | '*')[]
         ): void;
         initSchoolingCountdowns(): void;
+        updateProtocol(): void;
+        deleteProtocolEntry(id: number, dispatchCenter: number): void;
+        deleteAllProtocolEntries(): void;
     },
     {
         buildings: Record<number, Building>;
@@ -1224,6 +1407,7 @@ export default Vue.extend<
             vehicles: number;
             extensions: number;
             classrooms: number;
+            protocol: number;
         };
         buildingTypeAmounts: [string, number][];
         vehicles: AttributedVehicle[];
@@ -1257,6 +1441,8 @@ export default Vue.extend<
             unavailable: number;
             free: number;
         };
+        filteredProtocol: ProtocolEntry[];
+        sortedProtocol: ProtocolEntry[];
     },
     {
         complexIndex: number;
@@ -1286,12 +1472,13 @@ export default Vue.extend<
             ),
     },
     data() {
-        const rootStore = useRootStore();
+        const translationStore = useTranslationStore();
         return {
             faCircleInfo,
             faPencilAlt,
-            buildingTypes: rootStore.$tBuildings,
-            vehicleTypes: rootStore.$tVehicles,
+            faTrash,
+            buildingTypes: translationStore.buildings,
+            vehicleTypes: translationStore.vehicles,
             currentBuildingId: 0,
             currentOverviewTab: 0,
             buildingsTable: {
@@ -1317,8 +1504,19 @@ export default Vue.extend<
                 },
             },
             tempDisableAllExtensionButtons: false,
+            protocol: [],
+            protocolUpdating: false,
+            protocolDeletions: [],
+            protocolDeletionTimeout: null,
+            protocolTable: {
+                search: '',
+                sort: 'time',
+                sortDir: 'asc',
+            },
             apiStore: useAPIStore(),
-            rootStore,
+            rootStore: useRootStore(),
+            translationStore,
+            moment,
         };
     },
     computed: {
@@ -1626,11 +1824,17 @@ export default Vue.extend<
         overviewTabs() {
             const vehiclesTab = this.hasVehicleBuildings ? 1 : 0;
             const extensionsTab = vehiclesTab + 1;
+            const classroomTab = this.hasClassroomBuildings
+                ? extensionsTab + 1
+                : -1;
+            const protocolTab =
+                classroomTab > 0 ? classroomTab + 1 : extensionsTab + 1;
             return {
                 buildings: 0,
                 vehicles: vehiclesTab || -1,
                 extensions: extensionsTab,
-                classrooms: this.hasClassroomBuildings ? extensionsTab + 1 : -1,
+                classrooms: classroomTab,
+                protocol: protocolTab,
             };
         },
         buildingTypeAmounts() {
@@ -2217,6 +2421,55 @@ export default Vue.extend<
             );
             return stats;
         },
+        filteredProtocol() {
+            return this.protocolTable.search
+                ? this.protocol.filter(entry =>
+                      JSON.stringify(Object.values(entry))
+                          .toLowerCase()
+                          .includes(this.protocolTable.search.toLowerCase())
+                  )
+                : this.protocol;
+        },
+        sortedProtocol() {
+            return [...this.filteredProtocol].sort((entryA, entryB) => {
+                // Workaround for TypeScript <3
+                const getSortValue = (entry: ProtocolEntry) => {
+                    switch (this.protocolTable.sort) {
+                        case 'building':
+                            return entry.building.name;
+                        case 'label':
+                            return `${entry.label?.color}-${entry.label?.text}`;
+                        case 'staff':
+                            return Object.values(entry.staff)
+                                .map(s => s.length)
+                                .reduce((a, b) => a + b, 0);
+                        case 'time':
+                            return entry.time.timestamp;
+                        case 'title':
+                            return entry.text;
+                    }
+                };
+                const attributeA = getSortValue(entryA);
+                const attributeB = getSortValue(entryB);
+
+                let result = 0;
+
+                if (
+                    typeof attributeA === 'number' &&
+                    typeof attributeB === 'number'
+                )
+                    result = attributeA - attributeB;
+                else if (
+                    typeof attributeA === 'string' &&
+                    typeof attributeB === 'string'
+                )
+                    result = attributeA.localeCompare(attributeB);
+
+                if (this.protocolTable.sortDir === 'desc') result *= -1;
+
+                return result;
+            });
+        },
     },
     methods: {
         selectTab(event, index) {
@@ -2242,6 +2495,10 @@ export default Vue.extend<
                     break;
                 case this.overviewTabs.vehicles:
                     this.apiStore.getBuildings('buildingComplex');
+                    break;
+                case this.overviewTabs.protocol:
+                    this.updateProtocol();
+                    break;
             }
         },
         updateIframe(event) {
@@ -2325,6 +2582,15 @@ export default Vue.extend<
                     ? 'desc'
                     : 'asc';
             this.extensionsTable.sort = s;
+        },
+        setSortProtocolTable(sort) {
+            const s = sort;
+            this.protocolTable.sortDir =
+                s === this.protocolTable.sort &&
+                this.protocolTable.sortDir === 'asc'
+                    ? 'desc'
+                    : 'asc';
+            this.protocolTable.sort = s;
         },
         buyExtension(
             buildingId,
@@ -2445,6 +2711,152 @@ export default Vue.extend<
                 schoolings.forEach(schooling => schooling.initCountdown())
             );
         },
+        updateProtocol() {
+            const dispatchCenterTypes =
+                this.translationStore.dispatchCenterBuildings;
+            const dispatchCenterBuilding = this.apiStore.buildings.find(
+                ({ building_type }) =>
+                    dispatchCenterTypes.includes(building_type)
+            );
+            if (!dispatchCenterBuilding) return;
+            if (this.protocolDeletionTimeout)
+                window.clearTimeout(this.protocolDeletionTimeout);
+            this.protocolDeletionTimeout = window.setTimeout(() => {
+                this.protocolUpdating = true;
+                this.apiStore
+                    .request({
+                        url: `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
+                        feature: 'buildingComplex',
+                    })
+                    .then(res => res.text())
+                    .then(html => {
+                        const protocolDocument =
+                            new DOMParser().parseFromString(html, 'text/html');
+                        const attachedBuildingsSelector = this.complex.buildings
+                            .map(
+                                buildingId =>
+                                    `a[href="/buildings/${buildingId}"]`
+                            )
+                            .join(', ');
+                        const protocolEntries: ProtocolEntry[] = [];
+                        protocolDocument
+                            .querySelectorAll<HTMLTableRowElement>(
+                                '#protocol_table tbody tr'
+                            )
+                            .forEach(row => {
+                                if (
+                                    !row.querySelector(
+                                        attachedBuildingsSelector
+                                    )
+                                )
+                                    return;
+                                const label =
+                                    row.querySelector<HTMLSpanElement>(
+                                        'td:nth-child(2) .label'
+                                    );
+                                const buildingEl =
+                                    row.querySelector<HTMLAnchorElement>(
+                                        'td:nth-child(4) a'
+                                    );
+                                const staff: Record<number, string[]> = {};
+                                row.querySelectorAll<HTMLLIElement>(
+                                    'td:nth-child(5) ul li'
+                                ).forEach(staffLi => {
+                                    const name = Array.from(staffLi.childNodes)
+                                        .filter(
+                                            node =>
+                                                node.nodeType === Node.TEXT_NODE
+                                        )
+                                        .map(node =>
+                                            node.textContent
+                                                ?.trim()
+                                                .replace(/^-|\.$/gu, '')
+                                                .trim()
+                                        )
+                                        .join(' ');
+                                    const buildingId = parseInt(
+                                        staffLi
+                                            .querySelector<HTMLAnchorElement>(
+                                                'a'
+                                            )
+                                            ?.href.match(/\d+$/u)?.[0] ?? '-1'
+                                    );
+                                    if (!staff.hasOwnProperty(buildingId))
+                                        staff[buildingId] = [];
+                                    staff[buildingId].push(name);
+                                });
+                                protocolEntries.push({
+                                    id: parseInt(
+                                        row.id.match(/\d+$/u)?.[0] ?? '-1'
+                                    ),
+                                    dispatchId: dispatchCenterBuilding.id,
+                                    time: {
+                                        timestamp: new Date(
+                                            row.dataset.logTime ?? -1
+                                        ).getTime(),
+                                        text: this.moment(
+                                            row.dataset.logTime ?? -1
+                                        ).format('ddd, DD.MM LT'),
+                                    },
+                                    label: label
+                                        ? {
+                                              color:
+                                                  label.classList
+                                                      .toString()
+                                                      .match(
+                                                          /danger|default|info|link|success|warning/u
+                                                      )?.[0]
+                                                      .toString() ?? 'default',
+                                              text:
+                                                  label.textContent?.trim() ??
+                                                  '',
+                                          }
+                                        : undefined,
+                                    text:
+                                        row.children[2].textContent?.trim() ??
+                                        '',
+                                    building: {
+                                        id: parseInt(
+                                            buildingEl?.href.match(
+                                                /\d+$/u
+                                            )?.[0] ?? '-1'
+                                        ),
+                                        name:
+                                            buildingEl?.textContent?.trim() ??
+                                            '',
+                                    },
+                                    staff,
+                                });
+                            });
+                        this.protocol = protocolEntries;
+                        this.protocolUpdating = false;
+                    });
+            }, 100);
+        },
+        deleteProtocolEntry(id, dispatchId) {
+            this.protocolDeletions.push(id);
+            this.apiStore
+                .request({
+                    url: `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
+                    feature: 'buildingComplex',
+                })
+                .then(() => {
+                    this.protocol.splice(
+                        this.protocol.findIndex(p => p.id === id),
+                        1
+                    );
+                    this.updateProtocol();
+                    this.protocolDeletions.splice(
+                        this.protocolDeletions.findIndex(p => p === id),
+                        1
+                    );
+                });
+        },
+        deleteAllProtocolEntries() {
+            this.protocol.forEach(({ id, dispatchId }) =>
+                this.deleteProtocolEntry(id, dispatchId)
+            );
+        },
     },
     props: {
         complexIndex: {
@@ -2484,9 +2896,12 @@ export default Vue.extend<
             required: true,
         },
     },
+    beforeMount() {
+        this.moment.locale(useRootStore().locale);
+        this.apiStore.getBuildings('buildingComplex');
+    },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
-        this.apiStore.getBuildings('buildingComplex');
         this.apiStore.$subscribe(() =>
             this.$nextTick().then(() => this.initSchoolingCountdowns())
         );
@@ -2577,4 +2992,12 @@ export default Vue.extend<
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
     grid-gap: 1em
+
+.protocol-update-info
+    font-size: small
+
+.protocol-staff-list
+    &,
+    & li
+        list-style: none
 </style>

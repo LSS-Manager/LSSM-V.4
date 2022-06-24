@@ -110,7 +110,7 @@ import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
 import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import vehicleList from './vehicle-list.vue';
 
@@ -159,7 +159,7 @@ export default Vue.extend<
                 titleAttr: string;
             }
         >;
-        const internalVehicleTypes = useRootStore().$tVehicles;
+        const internalVehicleTypes = useTranslationStore().vehicles;
         Object.values(statuses).forEach(
             status =>
                 (statusHeads[`s${status}`] = {

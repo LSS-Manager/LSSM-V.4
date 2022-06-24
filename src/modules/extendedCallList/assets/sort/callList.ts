@@ -65,12 +65,7 @@ export default (
         dispatchCenters.splice(
             0,
             dispatchCenters.length,
-            ...Object.values(
-                LSSM.$t('dispatchCenterBuildings') as unknown as Record<
-                    number,
-                    number
-                >
-            )
+            ...LSSM.$stores.translations.dispatchCenterBuildings
                 .flatMap(type => LSSM.$stores.api.buildingsByType[type])
                 .filter(b => !!b)
         );
@@ -86,9 +81,7 @@ export default (
         vehicleBuildings.splice(
             0,
             vehicleBuildings.length,
-            ...Object.values(
-                LSSM.$t('vehicleBuildings') as unknown as Record<number, number>
-            )
+            ...LSSM.$stores.translations.vehicleBuildings
                 .flatMap(type => LSSM.$stores.api.buildingsByType[type])
                 .filter(b => !!b)
         );

@@ -81,6 +81,20 @@
                 "title": "Uitbreidingen",
                 "underConstruction": "in aanbout"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Overzicht",
             "vehicles": {
                 "imageInfo": "Let op: Momenteel alleen de standaard voertuig iconen of de iconen van een afbeeldingsverzameling kunnen worden weergegeven. Iconen ingesteld op een individueel voertuig of gebouw kunnen helaas nog niet worden herkend.",

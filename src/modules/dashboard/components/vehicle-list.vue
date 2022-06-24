@@ -110,6 +110,7 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type {
     VehicleList,
@@ -136,8 +137,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        const rootStore = useRootStore();
-        const internalVehicleTypes = rootStore.$tVehicles;
+        const internalVehicleTypes = useTranslationStore().vehicles;
         const apiStore = useAPIStore();
         return {
             vehicleTypeNames: Object.fromEntries(
@@ -152,7 +152,7 @@ export default Vue.extend<
             sortDir: 'asc',
             faPencilAlt,
             faUsers,
-            resolveLinkClass: rootStore.nodeAttribute(
+            resolveLinkClass: useRootStore().nodeAttribute(
                 'dashboard-vehiclelist-resolvable-link'
             ),
             resolving: null,

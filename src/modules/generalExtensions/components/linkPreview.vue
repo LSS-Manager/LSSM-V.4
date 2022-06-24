@@ -138,7 +138,7 @@ import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type {
     LinkPreview,
@@ -155,6 +155,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-linkPreview',
     data() {
+        const translationStore = useTranslationStore();
         return {
             faParking,
             faCar,
@@ -171,18 +172,12 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: useRootStore().$tVehicles,
-            vehicleBuildings: Object.values(
-                this.$t('vehicleBuildings')
-            ) as number[],
-            cellBuildings: Object.values(this.$t('cellBuildings')) as number[],
-            cellExtensions: Object.values(
-                this.$t('cellExtensions')
-            ) as string[],
-            bedBuildings: Object.values(this.$t('bedBuildings')) as number[],
-            schoolBuildings: Object.values(
-                this.$t('schoolBuildings')
-            ) as number[],
+            vehicleTypes: translationStore.vehicles,
+            vehicleBuildings: translationStore.vehicleBuildings,
+            cellBuildings: translationStore.cellBuildings,
+            cellExtensions: translationStore.cellExtensions,
+            bedBuildings: translationStore.bedBuildings,
+            schoolBuildings: translationStore.classroomBuildings,
             building: null,
             vehicle: null,
         } as LinkPreview;
@@ -260,7 +255,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                useRootStore().$tBuildings[building.building_type].caption
+                useTranslationStore().buildings[building.building_type].caption
             );
         },
         setVehicle(vehicle) {

@@ -32,7 +32,7 @@ export default async (
             ),
         } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$stores.root.$tVehicles;
+        const internalVehicleTypes = LSSM.$stores.translations.vehicles;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 

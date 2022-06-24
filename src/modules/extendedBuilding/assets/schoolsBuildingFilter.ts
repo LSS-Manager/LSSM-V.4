@@ -21,8 +21,8 @@ export default async (LSSM: Vue) => {
     const buildingsById = LSSM.$stores.api.buildingsById;
     const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
 
-    const buildingTypes = LSSM.$stores.root.$tBuildings;
-    const vehicleTypes = LSSM.$stores.root.$tVehicles;
+    const buildingTypes = LSSM.$stores.translations.buildings;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     accordion.querySelectorAll<HTMLDivElement>('.panel').forEach(panel => {
         const heading = panel.querySelector<HTMLDivElement>('.panel-heading');

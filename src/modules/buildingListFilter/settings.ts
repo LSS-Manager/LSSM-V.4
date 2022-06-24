@@ -29,7 +29,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
 
     const buildingCaptions = [$m('lssmComplex')] as string[];
     const buildingIds = [Number.MIN_SAFE_INTEGER.toString()] as string[];
-    Object.entries(LSSM.$stores.root.$tBuildings).forEach(
+    Object.entries(LSSM.$stores.translations.buildings).forEach(
         ([id, { caption }]) => {
             buildingCaptions.push(caption);
             buildingIds.push(id);

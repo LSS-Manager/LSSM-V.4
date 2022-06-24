@@ -93,6 +93,7 @@ import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type {
     RedesignLightbox,
@@ -311,6 +312,7 @@ export default Vue.extend<
             rootStore,
             settingsStore: useSettingsStore(),
             storageStore: useStorageStore(),
+            translationStore: useTranslationStore(),
             windows,
         };
     },
