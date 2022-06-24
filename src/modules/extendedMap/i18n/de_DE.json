@@ -81,6 +81,20 @@
                 "title": "Ausbauten",
                 "underConstruction": "im Bau"
             },
+            "protocol": {
+                "subtitle": "keine relevanten Einträge | 1 relevanter Eintrag | {n} relevante Einträge",
+                "table": {
+                    "head": {
+                        "building": "Gebäude",
+                        "label": "Kategorie",
+                        "name": "Name",
+                        "staff": "Personal",
+                        "time": "Zeitpunkt"
+                    }
+                },
+                "title": "Protokoll",
+                "updating": "Aktualisieren..."
+            },
             "title": "Übersicht",
             "vehicles": {
                 "imageInfo": "Temporärer Hinweis: Aktuell werden nur Standardgrafiken bzw. die Grafiken des ausgewählten Grafiksets angezeigt. In Fahrzeugen und Wachen eingestellte Grafiken und Grafiksets können wir aktuell leider noch nicht erkennen.",

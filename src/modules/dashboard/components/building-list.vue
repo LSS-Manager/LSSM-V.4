@@ -121,7 +121,7 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { Building } from 'typings/Building';
 import type {
@@ -202,7 +202,7 @@ export default Vue.extend<
         );
         return {
             buildingTypeNames: Object.fromEntries(
-                Object.entries(useRootStore().$tBuildings).map(
+                Object.entries(useTranslationStore().buildings).map(
                     ([index, { caption }]) => [index, caption]
                 )
             ),

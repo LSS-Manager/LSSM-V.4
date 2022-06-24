@@ -84,6 +84,7 @@ import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { BuildingCategory } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
@@ -94,7 +95,7 @@ import type {
     ChartSummaryComputed,
     ChartSummaryMethods,
 } from 'typings/modules/Dashboard/ChartSummary';
-// to seperate types
+// to separate types
 // eslint-disable-next-line no-duplicate-imports
 import type {
     DrilldownOptions,
@@ -124,8 +125,9 @@ export default Vue.extend<
     data() {
         const apiStore = useAPIStore();
         const rootStore = useRootStore();
-        const internalBuildingTypes = rootStore.$tBuildings;
-        const internalVehicleTypes = rootStore.$tVehicles;
+        const translationStore = useTranslationStore();
+        const internalBuildingTypes = translationStore.buildings;
+        const internalVehicleTypes = translationStore.vehicles;
         return {
             buildingsId: rootStore.nodeAttribute(
                 'chart-summary-buildings',

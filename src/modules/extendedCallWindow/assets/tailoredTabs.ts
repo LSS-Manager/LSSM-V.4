@@ -64,7 +64,7 @@ export default (
         '#vehicle_list_step .tab-content'
     );
 
-    const vehicleTypes = LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     const vehiclesInTabs = [
         ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),

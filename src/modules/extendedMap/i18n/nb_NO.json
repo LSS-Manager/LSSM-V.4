@@ -81,6 +81,20 @@
                 "title": "Extensions",
                 "underConstruction": "under construction"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Overview",
             "vehicles": {
                 "imageInfo": "Note: Currently only standard vehicle icons or those of the set graphic pack can be shown. Icons set on a vehicle or station individually cannot be recognized yet unfortunately.",

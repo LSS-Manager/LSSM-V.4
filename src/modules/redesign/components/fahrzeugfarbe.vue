@@ -68,7 +68,7 @@ export default Vue.extend<
         vehicleTypeCaption() {
             return (
                 this.fahrzeugfarbe.customVehicleType ??
-                this.lightbox.rootStore.$tVehicles[
+                this.lightbox.translationStore.vehicles[
                     this.fahrzeugfarbe.vehicleType
                 ].caption
             );

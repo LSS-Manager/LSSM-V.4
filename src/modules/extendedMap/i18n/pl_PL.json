@@ -81,6 +81,20 @@
                 "title": "Rozszerzenia",
                 "underConstruction": "w budowie"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Przegląd",
             "vehicles": {
                 "imageInfo": "Notatka: Obecnie można wyświetlać tylko standardowe ikony pojazdów lub ikony zestawu graficznego. Ikony ustawione indywidualnie na pojeździe lub stacji nie są jeszcze rozpoznawane.",

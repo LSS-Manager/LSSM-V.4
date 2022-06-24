@@ -81,6 +81,20 @@
                 "title": "Extensions",
                 "underConstruction": "En construction"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Aperçu",
             "vehicles": {
                 "imageInfo": "Remarque : actuellement, seules les icônes standard des véhicules ou ceux du pack graphique peuvent être affichés. Les icônes définies sur un véhicule ou une station de manière individuelle ne peuvent malheureusement pas encore être reconnues.",

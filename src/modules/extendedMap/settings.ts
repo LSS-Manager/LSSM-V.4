@@ -13,7 +13,7 @@ import type {
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
 
-    const buildingTypes = LSSM.$stores.root.$tBuildings;
+    const buildingTypes = LSSM.$stores.translations.buildings;
 
     await LSSM.$stores.api.getBuildings(`${MODULE_ID}-settings`);
     const userBuildings = LSSM.$stores.api.buildings;

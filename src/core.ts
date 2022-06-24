@@ -15,6 +15,7 @@ import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
+import { useTranslationStore } from '@stores/translationUtilities';
 import VueJSModal from 'vue-js-modal';
 import { createPinia, PiniaVuePlugin } from 'pinia';
 
@@ -126,6 +127,8 @@ LSSM-Team`,
         return;
     }
 
+    window[PREFIX] = LSSM;
+
     LSSM.$stores = {
         root: rootStore,
         api: useAPIStore(),
@@ -136,11 +139,10 @@ LSSM-Team`,
         notifications: useNotificationStore(),
         settings: useSettingsStore(),
         storage: useStorageStore(),
+        translations: useTranslationStore(),
     };
 
     const locale = LSSM.$stores.root.locale;
-
-    window[PREFIX] = LSSM;
 
     LSSM.$stores.api._initAPIsFromBroadcast().then();
 

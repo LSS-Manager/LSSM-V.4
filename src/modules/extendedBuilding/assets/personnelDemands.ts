@@ -10,7 +10,7 @@ export default (
 
     if (!dataList) return;
 
-    const vehicleTypes = LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     let sumMinPersonnel = 0;
     let sumMaxPersonnel = 0;
