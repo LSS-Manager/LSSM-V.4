@@ -40,9 +40,10 @@
 </template>
 
 <script>
-import Lightbox from '../../components/lightbox.vue';
-import Chat from './components/chat.vue';
 import VSelect from 'vue-select';
+
+import Chat from './components/chat.vue';
+import Lightbox from '../../components/lightbox.vue';
 
 const config = require('../../config');
 
@@ -102,15 +103,14 @@ export default {
                             chat: this.selectedChat,
                             message: this.message,
                             username: window.username,
-                            flag:
-                                config.games[
-                                    this.$store.state.lssm_admin
-                                        ? this.selectedChat.replace(
-                                              /-\d+-[a-z0-9]{40}$/,
-                                              ''
-                                          )
-                                        : window.I18n.locale
-                                ].flag,
+                            flag: config.games[
+                                this.$store.state.lssm_admin
+                                    ? this.selectedChat.replace(
+                                          /-\d+-[\da-z]{40}$/u,
+                                          ''
+                                      )
+                                    : window.I18n.locale
+                            ].flag,
                         }),
                     },
                 })
@@ -162,16 +162,16 @@ export default {
                         },
                         body: JSON.stringify({
                             chat: this.selectedChat,
-                            username: this.chats[this.selectedChat].messages[0]
-                                .author.name,
+                            username:
+                                this.chats[this.selectedChat].messages[0].author
+                                    .name,
                             admin: window.username,
-                            flag:
-                                config.games[
-                                    this.selectedChat.replace(
-                                        /-\d+-[a-z0-9]{40}$/,
-                                        ''
-                                    )
-                                ].flag,
+                            flag: config.games[
+                                this.selectedChat.replace(
+                                    /-\d+-[\da-z]{40}$/u,
+                                    ''
+                                )
+                            ].flag,
                         }),
                     },
                 })
