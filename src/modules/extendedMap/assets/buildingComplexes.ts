@@ -1,5 +1,4 @@
-import type { Building } from 'typings/Building';
-import type { $m, $mc } from 'typings/Module';
+import type { $m, $mc, ModuleMainFunction } from 'typings/Module';
 import type { BuildingMarker, BuildingMarkerAdd } from 'typings/Ingame';
 import type { LayerGroup, Marker } from 'leaflet';
 
@@ -32,32 +31,22 @@ export default async (
     MODULE_ID: string,
     LSSM: Vue,
     complexes: Complex[],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m,
     $mc: $mc
 ) => {
     if (!window.map) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `buildingComplexes`,
-    });
-    await LSSM.$store.dispatch('api/registerAllianceBuildingsUsage', {
-        feature: `buildingComplexes`,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `buildingComplexes`,
-    });
-    await LSSM.$store.dispatch('api/registerAllianceinfoUsage', {
-        feature: `buildingComplexes`,
-    });
+    await LSSM.$stores.api.getAllianceBuildings('buildingComplexes');
+    await LSSM.$stores.api.getAllianceInfo('buildingComplexes');
+    await LSSM.$stores.api.getBuildings('buildingComplexes');
+    await LSSM.$stores.api.getSchoolings('buildingComplexes');
+    await LSSM.$stores.api.getVehicles('buildingComplexes');
 
     const save = () =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'buildingComplexes',
-            value: {
-                enabled: true,
-                value: complexes,
-            },
+        setSetting('buildingComplexes', {
+            enabled: true,
+            value: complexes,
         });
 
     const updateBuildingListHideStyle = () =>
@@ -72,8 +61,7 @@ export default async (
     updateBuildingListHideStyle();
     document.head.append(buildingListHideStyle);
 
-    const userBuildings: Record<number, Building> =
-        LSSM.$store.getters['api/buildingsById'];
+    const userBuildings = LSSM.$stores.api.buildingsById;
 
     const complexesLayer = window.L.layerGroup().addTo(window.map);
     const complexMarkers: Marker[] = [];
@@ -83,7 +71,7 @@ export default async (
     const allAttachedBuildings: string[] = [];
     const allAttachedAllianceBuildings: string[] = [];
 
-    const detailButtonClass = LSSM.$store.getters.nodeAttribute(
+    const detailButtonClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-buildingComplex-buildingList-detailBtn`
     );
     const detailButtonTemplate = document.createElement('a');
@@ -146,7 +134,10 @@ export default async (
                 return;
             constructBuildingListElement(complex, index);
         });
-        if (window.buildingMarkerBulkContentCache.length)
+        if (
+            window.buildingMarkerBulkContentCache.length &&
+            document.querySelector<HTMLDivElement>('#building_list')
+        )
             window.buildingMarkerBulkContentCacheDraw();
     };
 
@@ -166,74 +157,62 @@ export default async (
                 complexMarkers[complexIndex].fireEvent('click');
         });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'toggleVehicleBuilding',
-            post: false,
-            abortOnFalse: true,
-            callback(id: number | string) {
-                return parseInt(id.toString()) >= 0;
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'toggleVehicleBuilding',
+        post: false,
+        abortOnFalse: true,
+        callback(id: number | string) {
+            return parseInt(id.toString()) >= 0;
+        },
+    });
 
     let buildingMarkerBulkContentCacheLSSMCache: string[] = [];
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'buildingMarkerBulkContentCacheDraw',
-            post: false,
-            callback() {
-                buildingMarkerBulkContentCacheLSSMCache =
-                    window.buildingMarkerBulkContentCache
-                        .map(
-                            html =>
-                                html.match(
-                                    /(?<=building_list_caption_)-\d+/u
-                                )?.[0]
-                        )
-                        .filter(
-                            <S>(value: S | undefined): value is S => !!value
-                        );
-            },
-        })
-        .then();
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'buildingMarkerBulkContentCacheDraw',
-            callback() {
-                constructMissingBuildingElements();
-                // sort the buildings list
-                const getName = (element: HTMLElement) =>
-                    element
-                        .querySelector<HTMLAnchorElement>('.map_position_mover')
-                        ?.textContent?.trim() ?? '';
-                buildingMarkerBulkContentCacheLSSMCache.forEach(complexId => {
-                    const element = document.querySelector<HTMLDivElement>(
-                        `#building_list_caption_${complexId}`
-                    )?.parentElement;
-                    if (!element) return;
-                    const name = getName(element);
-                    Array.from(
-                        document.querySelectorAll<HTMLLIElement>(
-                            '#building_list > .building_list_li'
-                        )
+    LSSM.$stores.root.hook({
+        event: 'buildingMarkerBulkContentCacheDraw',
+        post: false,
+        callback() {
+            buildingMarkerBulkContentCacheLSSMCache =
+                window.buildingMarkerBulkContentCache
+                    .map(
+                        html =>
+                            html.match(/(?<=building_list_caption_)-\d+/u)?.[0]
                     )
-                        .find(el => getName(el).localeCompare(name) > 0)
-                        ?.before(element);
-                });
-            },
-        })
-        .then();
+                    .filter(<S>(value: S | undefined): value is S => !!value);
+        },
+    });
+    LSSM.$stores.root.hook({
+        event: 'buildingMarkerBulkContentCacheDraw',
+        callback() {
+            constructMissingBuildingElements();
+            // sort the buildings list
+            const getName = (element: HTMLElement) =>
+                element
+                    .querySelector<HTMLAnchorElement>('.map_position_mover')
+                    ?.textContent?.trim() ?? '';
+            buildingMarkerBulkContentCacheLSSMCache.forEach(complexId => {
+                const element = document.querySelector<HTMLDivElement>(
+                    `#building_list_caption_${complexId}`
+                )?.parentElement;
+                if (!element) return;
+                const name = getName(element);
+                Array.from(
+                    document.querySelectorAll<HTMLLIElement>(
+                        '#building_list > .building_list_li'
+                    )
+                )
+                    .find(el => getName(el).localeCompare(name) > 0)
+                    ?.before(element);
+            });
+        },
+    });
 
-    LSSM.$store
-        .dispatch('addStyle', {
-            selectorText: `#buildings [building_type_id="${COMPLEX_TYPE_ID}"] :is(.hidden_vehicle_list_caption, .building_list_vehicles)`,
-            style: {
-                display: 'none !important',
-            },
-        })
-        .then();
+    LSSM.$stores.root.addStyle({
+        selectorText: `#buildings [building_type_id="${COMPLEX_TYPE_ID}"] :is(.hidden_vehicle_list_caption, .building_list_vehicles)`,
+        style: {
+            display: 'none !important',
+        },
+    });
 
     const showModal = (index: number) => {
         const modalName = `building-complex-${index}`;
@@ -455,26 +434,23 @@ export default async (
     complexes.forEach(iterateComplex);
     window.buildingMarkerBulkContentCacheDraw();
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'building_maps_draw',
-            callback(marker: BuildingMarkerAdd) {
-                if (!allAttachedBuildings.includes(marker.id.toString()))
-                    return;
-                const complexIndex = complexes.findIndex(({ buildings }) =>
-                    buildings.includes(marker.id.toString())
-                );
-                const mapMarker = window.building_markers.find(
-                    ({ building_id }) => marker.id === building_id
-                );
-                if (complexIndex < 0 || !mapMarker) return;
+    LSSM.$stores.root.hook({
+        event: 'building_maps_draw',
+        callback(marker: BuildingMarkerAdd) {
+            if (!allAttachedBuildings.includes(marker.id.toString())) return;
+            const complexIndex = complexes.findIndex(({ buildings }) =>
+                buildings.includes(marker.id.toString())
+            );
+            const mapMarker = window.building_markers.find(
+                ({ building_id }) => marker.id === building_id
+            );
+            if (complexIndex < 0 || !mapMarker) return;
 
-                attachedMarkersList[complexIndex].push(mapMarker);
-                mapMarker.remove();
-                mapMarker.addTo(complexesBuildingsLayers[complexIndex]);
-            },
-        })
-        .then();
+            attachedMarkersList[complexIndex].push(mapMarker);
+            mapMarker.remove();
+            mapMarker.addTo(complexesBuildingsLayers[complexIndex]);
+        },
+    });
 
     const newComplexBtn = document.createElement('a');
     newComplexBtn.classList.add('btn', 'btn-xs', 'btn-default');

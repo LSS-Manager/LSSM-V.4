@@ -86,8 +86,8 @@ export default Vue.extend<
             this.startPage--;
             const url = new URL('/alliance_chats', window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-chatlog-load-prev-${this.startPage}`,
                 })
@@ -101,7 +101,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,
@@ -125,8 +125,8 @@ export default Vue.extend<
             this.endPage++;
             const url = new URL('/alliance_chats', window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-chatlog-load-next-${this.endPage}`,
                 })
@@ -140,7 +140,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,

@@ -16,8 +16,8 @@ export interface CreditsDailyWindow {
     creditsTypes: CreditsTypes;
 }
 
-export default <RedesignParser<CreditsDailyWindow>>(async ({ LSSM, doc }) => {
+export default <RedesignParser<CreditsDailyWindow>>(async ({ doc }) => {
     return {
-        ...(await getEntries(LSSM, doc)),
+        ...(await getEntries(window[PREFIX] as Vue, doc)),
     };
 });

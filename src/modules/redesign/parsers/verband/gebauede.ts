@@ -76,7 +76,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
                         )
                     ).map((extension, index) => {
                         if (!extension.parentElement) return null;
-                        extension.id = LSSM.$store.getters.nodeAttribute(
+                        extension.id = LSSM.rootStore.nodeAttribute(
                             `redesign-parser-gebauede-${id}-${index}`
                         );
                         const extensionID = parseInt(

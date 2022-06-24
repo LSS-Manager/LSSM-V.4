@@ -5,12 +5,15 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { mapState } from 'pinia';
+import { useRootStore } from '@stores/index';
+
 import type {
     MapComputed,
     MapData,
     MapMethods,
     MapProps,
-} from '../../typings/components/LeafletMap';
+} from 'typings/components/LeafletMap';
 
 export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
     name: 'leaflet-map',
@@ -45,9 +48,11 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
         },
     },
     computed: {
-        mapId() {
-            return this.$store.getters.nodeAttribute(`map-${this.id}`, true);
-        },
+        ...mapState(useRootStore, {
+            mapId(store) {
+                return store.nodeAttribute(`map-${this.id.toString()}`, true);
+            },
+        }),
     },
     props: {
         id: {

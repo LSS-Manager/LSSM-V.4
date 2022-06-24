@@ -22,9 +22,8 @@ import type { ThemeData } from './types/ThemeData';
 import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
 
-const BASE = '/v4/docs/';
-const DOCS_URL = new URL(config.server);
-DOCS_URL.pathname = BASE;
+const DOCS_URL = new URL(config.docs);
+const BASE = DOCS_URL.pathname as '/' | `/${string}/`;
 
 const VUEPRESS_PATH = __dirname;
 const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');

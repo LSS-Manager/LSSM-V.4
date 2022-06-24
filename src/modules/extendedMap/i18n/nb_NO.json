@@ -29,6 +29,19 @@
                 "title": "attached buildings"
             },
             "classrooms": {
+                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "table": {
+                    "countdown": "time left",
+                    "free": "Free Places",
+                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "running": {
+                        "false": "No",
+                        "title": "running?",
+                        "true": "Yes"
+                    },
+                    "start": "start new training course",
+                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                },
                 "title": "Classrooms"
             },
             "extensions": {

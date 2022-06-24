@@ -12,7 +12,7 @@
     "@fortawesome/vue-fontawesome": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://github.com/FortAwesome/vue-fontawesome",
-        "version": "2.0.6"
+        "version": "2.0.8"
     },
     "@primer/octicons": {
         "icon": "https://primer.style/octicons/icons/icon-512x512.png",
@@ -47,7 +47,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "17.0.41"
+        "version": "18.0.0"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -62,7 +62,7 @@
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.3.9"
+        "version": "7.3.10"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -98,34 +98,39 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.27.1"
+        "version": "5.29.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.27.1"
+        "version": "5.29.0"
+    },
+    "@vue/composition-api": {
+        "icon": "https://vuejs.org/images/logo.png",
+        "url": "https://github.com/vuejs/composition-api#readme",
+        "version": "1.6.2"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.46"
+        "version": "2.0.0-beta.48"
     },
     "@vuepress/plugin-pwa": {
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.46"
+        "version": "2.0.0-beta.48"
     },
     "@vuepress/plugin-pwa-popup": {
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.46"
+        "version": "2.0.0-beta.48"
     },
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.46"
+        "version": "2.0.0-beta.48"
     },
     "@vuepress/plugin-search": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.46"
+        "version": "2.0.0-beta.48"
     },
     "all-contributors-cli": {
         "icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -158,7 +163,7 @@
     "eslint": {
         "icon": "https://eslint.org/assets/img/favicon.512x512.png",
         "url": "https://eslint.org",
-        "version": "8.17.0"
+        "version": "8.18.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -196,7 +201,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://eslint.vuejs.org",
-        "version": "9.1.0"
+        "version": "9.1.1"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -215,7 +220,7 @@
     "html-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/html-loader",
-        "version": "3.1.0"
+        "version": "3.1.2"
     },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
@@ -248,10 +253,15 @@
         "url": "http://pdfmake.org",
         "version": "0.2.5"
     },
+    "pinia": {
+        "icon": "https://pinia.vuejs.org/logo.svg",
+        "url": "https://github.com/vuejs/pinia#readme",
+        "version": "2.0.14"
+    },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "2.6.2"
+        "version": "2.7.1"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -260,7 +270,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.52.3"
+        "version": "1.53.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -283,12 +293,12 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.14.0"
+        "version": "5.14.1"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/TypeStrong/ts-loader",
-        "version": "9.3.0"
+        "version": "9.3.1"
     },
     "ts-node": {
         "icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
@@ -298,7 +308,7 @@
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
         "url": "https://www.typescriptlang.org/",
-        "version": "4.7.3"
+        "version": "4.7.4"
     },
     "ua-parser-js": {
         "icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -318,7 +328,7 @@
     "vue-i18n": {
         "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
         "url": "https://github.com/kazupon/vue-i18n#readme",
-        "version": "8.27.1"
+        "version": "8.27.2"
     },
     "vue-js-modal": {
         "url": "https://vue-js-modal.yev.io/",
@@ -361,16 +371,11 @@
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.46"
+        "version": "2.0.0-beta.48"
     },
     "vuepress-plugin-clipboard": {
         "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
         "version": "2.1.1"
-    },
-    "vuex": {
-        "icon": "https://vuejs.org/images/logo.png",
-        "url": "https://github.com/vuejs/vuex#readme",
-        "version": "3.6.2"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",

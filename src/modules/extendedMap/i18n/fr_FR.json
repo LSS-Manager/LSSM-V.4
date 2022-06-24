@@ -3,7 +3,7 @@
         "buildingList": {
             "details": "Détails"
         },
-        "new": "Nouveau complexe immobilier LSSM",
+        "new": "Nouveau complexe de bâtiment LSSM",
         "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
             "buildings": {
@@ -29,7 +29,20 @@
                 "title": "Bâtiments rattachés"
             },
             "classrooms": {
-                "title": "Salles de formation"
+                "subtitle": "{total} au total, dont {unavailable} en construction et {free} disponible",
+                "table": {
+                    "countdown": "temps restant",
+                    "free": "Places libre",
+                    "freeClassrooms": "1 salle de cours libre|{n} salles de cours libres",
+                    "running": {
+                        "false": "Non",
+                        "title": "En cours?",
+                        "true": "Oui"
+                    },
+                    "start": "Commencer une nouvelle formation",
+                    "unavailable": "1 salle de cours en construction|{n} salles de cours en construction"
+                },
+                "title": "Salles de cours"
             },
             "extensions": {
                 "abort": "Annuler",
@@ -87,7 +100,7 @@
             "allianceBuildings": "Bâtiments de l'alliance rattachés",
             "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
             "buildings": "Bâtiments rattachés",
-            "buildingsInList": "Show attached buildings in the buildings list?",
+            "buildingsInList": "Afficher les bâtiments rattachés dans la liste des bâtiments ?",
             "dissolve": {
                 "buttons": {
                     "abort": "Annuler",

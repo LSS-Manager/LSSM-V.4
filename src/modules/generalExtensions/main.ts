@@ -1,8 +1,6 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
-    LSSM.$store.commit('useFontAwesome');
-
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     import(
         /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
     ).then(({ default: inputMaxLen }) => inputMaxLen(LSSM));
@@ -42,13 +40,20 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const ownMapMarkers = await getSetting<boolean>('ownMapMarkers');
     if (
         window.location.pathname === '/' &&
-        !LSSM.$store.state.mapkit &&
+        !LSSM.$stores.root.mapkit &&
         (mapUndo || ownMapMarkers)
     ) {
         import(
             /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
         ).then(({ default: mapMarkers }) =>
-            mapMarkers(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID)
+            mapMarkers(
+                LSSM,
+                mapUndo,
+                ownMapMarkers,
+                getSetting,
+                setSetting,
+                MODULE_ID
+            )
         );
     }
     if (
@@ -74,6 +79,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 saveLastBuildingType,
                 saveLastDispatchCenter,
                 getSetting,
+                setSetting,
                 MODULE_ID
             )
         );
@@ -110,7 +116,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 LSSM,
                 t => $m(`protocolDeletionConfirmation.${t}`),
                 await getSetting('deleteSingleProtocolEntry'),
-                MODULE_ID
+                MODULE_ID,
+                setSetting
             )
         );
     }

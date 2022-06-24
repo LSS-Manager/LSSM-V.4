@@ -42,7 +42,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         return;
 
     if (!stagingMode) {
-        await LSSM.$store.dispatch('addStyle', {
+        LSSM.$stores.root.addStyle({
             selectorText: '.vehicle_prisoner_select a.btn-danger',
             style: {
                 'pointer-events': 'none',
@@ -80,7 +80,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         if (await getSetting('enhancedMissingVehicles')) {
             import(
                 /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
-            ).then(({ default: emv }) => emv(LSSM, MODULE_ID, $m));
+            ).then(({ default: emv }) => emv(LSSM, MODULE_ID, getSetting, $m));
         }
         if (await getSetting('patientSummary')) {
             import(

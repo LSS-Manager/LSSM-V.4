@@ -32,7 +32,7 @@ export default (
             '#mission-aao-group .tab-content [id^="aao_category_"]'
         );
 
-        const panelHasResultsClass = LSSM.$store.getters.nodeAttribute(
+        const panelHasResultsClass = LSSM.$stores.root.nodeAttribute(
             'ecw-arr_search-panel_has_results'
         );
 
@@ -116,7 +116,7 @@ export default (
             '../components/arrSearch/arrSearchDropdown.vue'
         ).then(({ default: arrSearchDropdown }) =>
             new LSSM.$vue({
-                store: LSSM.$store,
+                pinia: LSSM.$pinia,
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(arrSearchDropdown, {

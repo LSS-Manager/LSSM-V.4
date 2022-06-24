@@ -145,6 +145,7 @@
 import Vue from 'vue';
 
 import { Chart } from 'highcharts-vue';
+import { useSettingsStore } from '@stores/settings';
 
 import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
 import type {
@@ -330,8 +331,8 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$store
-            .dispatch('settings/getSetting', {
+        useSettingsStore()
+            .getSetting<boolean>({
                 moduleId: 'dailyCreditsSummary',
                 settingId: 'showAverage',
             })

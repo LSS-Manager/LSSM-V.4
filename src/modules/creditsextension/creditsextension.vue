@@ -142,7 +142,7 @@
                     {{ toplistPosition.toLocaleString() }}
                 </a>
             </li>
-            <template v-if="$store.state.api.credits.credits_alliance_active">
+            <template v-if="creditsAPI.credits_alliance_active">
                 <li class="divider"></li>
                 <li>
                     <a href="/verband/kasse" class="lightbox-open">
@@ -150,14 +150,14 @@
                         <ul class="no-style-list">
                             <li>
                                 {{
-                                    $store.state.api.credits.credits_alliance_current.toLocaleString()
+                                    creditsAPI.credits_alliance_current.toLocaleString()
                                 }}
                                 {{ $t('credits') }}
                                 {{ $m('allianceFunds.currently') }}
                             </li>
                             <li>
                                 {{
-                                    $store.state.api.credits.credits_alliance_total.toLocaleString()
+                                    creditsAPI.credits_alliance_total.toLocaleString()
                                 }}
                                 {{ $t('credits') }}
                                 {{ $m('allianceFunds.total') }}
@@ -182,6 +182,9 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 import { faListUl } from '@fortawesome/free-solid-svg-icons/faListUl';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons/faPiggyBank';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';
@@ -204,6 +207,13 @@ export default Vue.extend<
         coinsInNav: boolean;
         showToplistPosition: boolean;
         saleActive: boolean;
+        creditsAPI: {
+            credits_user_total: number;
+            user_toplist_position: number;
+            credits_alliance_active: boolean;
+            credits_alliance_current: number;
+            credits_alliance_total: number;
+        };
     },
     {
         $m(
@@ -235,9 +245,10 @@ export default Vue.extend<
     name: 'lssmv4-creditsextension-menu',
     components: {},
     data() {
+        const rootStore = useRootStore();
         return {
-            id: this.$store.getters.nodeAttribute(this.MODULE_ID),
-            menuId: this.$store.getters.nodeAttribute(`${this.MODULE_ID}-menu`),
+            id: rootStore.nodeAttribute(this.MODULE_ID, true),
+            menuId: rootStore.nodeAttribute(`${this.MODULE_ID}-menu`),
             faChartBar,
             faDollarSign,
             faListUl,
@@ -248,16 +259,19 @@ export default Vue.extend<
             highlighted: false,
             highlightedConsistend: false,
             ranks: this.$t(
-                `ranks.${
-                    this.$store.state.policechief
-                        ? 'policechief'
-                        : 'missionchief'
-                }`
+                `ranks.${rootStore.gameFlavour}`
             ) as unknown as Record<string, string>,
             creditsInNav: false,
             coinsInNav: false,
             showToplistPosition: false,
             saleActive: false,
+            creditsAPI: {
+                credits_user_total: 0,
+                user_toplist_position: 0,
+                credits_alliance_active: false,
+                credits_alliance_current: 0,
+                credits_alliance_total: 0,
+            },
         };
     },
     props: {
@@ -279,20 +293,15 @@ export default Vue.extend<
         },
     },
     computed: {
-        credits() {
-            return this.$store.state.credits;
-        },
+        ...mapState(useRootStore, ['credits', 'coins']),
         creditsLocalized() {
             return this.credits.toLocaleString();
-        },
-        coins() {
-            return this.$store.state.coins;
         },
         coinsLocalized() {
             return this.coins.toLocaleString();
         },
         totalCredits() {
-            return this.$store.state.api.credits.credits_user_total;
+            return this.creditsAPI.credits_user_total;
         },
         nextRankCredits() {
             return (
@@ -308,7 +317,7 @@ export default Vue.extend<
             return this.nextRankCredits - this.totalCredits;
         },
         toplistPosition() {
-            return this.$store.state.api.credits.user_toplist_position ?? 0;
+            return this.creditsAPI.user_toplist_position;
         },
         toplistSite() {
             return `/toplist?page=${Math.ceil(this.toplistPosition / 20)}`;
@@ -335,6 +344,8 @@ export default Vue.extend<
         },
     },
     beforeMount() {
+        const rootStore = useRootStore();
+
         const creditsIcon = document.querySelector<HTMLImageElement>(
             '#navigation_top > img.navbar-icon'
         )?.src;
@@ -344,18 +355,25 @@ export default Vue.extend<
         )?.src;
         if (coinsIcon) this.coinsIcon = coinsIcon;
 
-        this.$store
-            .dispatch('api/fetchCreditsInfo', this.MODULE_ID)
-            .then(() =>
-                window.setInterval(
-                    () =>
-                        this.$store.dispatch(
-                            'api/fetchCreditsInfo',
-                            this.MODULE_ID
-                        ),
-                    5 * 60 * 1000
-                )
-            );
+        useAPIStore().autoUpdateCredits(
+            this.MODULE_ID,
+            ({
+                value: {
+                    credits_user_total,
+                    user_toplist_position,
+                    credits_alliance_active,
+                    credits_alliance_current,
+                    credits_alliance_total,
+                },
+            }) =>
+                this.$set(this, 'creditsAPI', {
+                    credits_user_total,
+                    user_toplist_position,
+                    credits_alliance_active,
+                    credits_alliance_current,
+                    credits_alliance_total,
+                })
+        );
 
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)
@@ -384,33 +402,32 @@ export default Vue.extend<
 
         if (this.showSales) {
             (async () => {
-                // eslint-disable-next-line @typescript-eslint/no-this-alias
-                const ce = this;
-                await this.$store.dispatch('hook', {
+                rootStore.hook({
                     event: 'coinsUpdate',
-                    callback() {
-                        ce.$set(
-                            ce,
+                    callback: () => {
+                        this.$set(
+                            this,
                             'saleActive',
                             window.sale_count_down > Date.now()
                         );
                     },
                 });
-                await this.$store.dispatch('hook', {
+                rootStore.hook({
                     event: 'updateSaleCountDown',
-                    callback() {
+                    callback: () => {
                         if (
-                            ce.$refs.sale_countdown &&
-                            ce.$refs.sale_countdown_clone &&
-                            ce.$refs.sale_countdown instanceof HTMLElement &&
-                            ce.$refs.sale_countdown_clone instanceof HTMLElement
+                            this.$refs.sale_countdown &&
+                            this.$refs.sale_countdown_clone &&
+                            this.$refs.sale_countdown instanceof HTMLElement &&
+                            this.$refs.sale_countdown_clone instanceof
+                                HTMLElement
                         ) {
-                            ce.$refs.sale_countdown_clone.textContent =
-                                ce.$refs.sale_countdown.textContent ?? '';
+                            this.$refs.sale_countdown_clone.textContent =
+                                this.$refs.sale_countdown.textContent ?? '';
                         }
                     },
                 });
-                window.coinsUpdate(this.$store.state.coins);
+                window.coinsUpdate(rootStore.coins);
             })().then();
         }
     },

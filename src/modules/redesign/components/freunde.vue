@@ -160,8 +160,8 @@ export default Vue.extend<
                 this.$refs[`notes_${friend_id}`] as HTMLTextAreaElement[]
             )[0].value;
             url.searchParams.append('friend[comment]', note);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/friends/${friend_id}`,
                     init: {
                         credentials: 'include',
@@ -172,7 +172,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/friends/${friend_id}/edit`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -196,12 +196,15 @@ export default Vue.extend<
                 });
         },
         removeFriend(user_id) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/freunde/entfernen/${user_id}?user=${user_id}`,
                     init: {
                         credentials: 'include',
-                        referrer: new URL(`/freunde`, window.location.origin),
+                        referrer: new URL(
+                            `/freunde`,
+                            window.location.origin
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },

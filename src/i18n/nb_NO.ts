@@ -237,7 +237,7 @@ your LSSM team`,
             maxPersonnel: 6,
             schooling: {
                 Politi: {
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -284,7 +284,7 @@ your LSSM team`,
             maxPersonnel: 4,
             schooling: {
                 Politi: {
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -388,7 +388,7 @@ your LSSM team`,
                     Utrykningspoliti: {
                         all: true,
                     },
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },

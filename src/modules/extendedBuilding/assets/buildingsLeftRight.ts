@@ -1,17 +1,13 @@
-import type { Building } from 'typings/Building';
-
 export default (LSSM: Vue): void => {
     const buildingId = parseInt(
         window.location.pathname.match(/\d+\/?$/u)?.[0] ?? '0'
     );
     if (!buildingId) return;
-    const building = (LSSM.$store.state.api.buildings as Building[]).find(
+    const building = LSSM.$stores.api.buildings.find(
         ({ id }) => id === buildingId
     );
     if (!building) return;
-    const buildingsByType = LSSM.$store.getters[
-        'api/buildingsByType'
-    ] as Record<number, Building[]>;
+    const buildingsByType = LSSM.$stores.api.buildingsByType;
     const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
         number

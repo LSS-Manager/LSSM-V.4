@@ -136,9 +136,10 @@ import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkbo
 import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
-import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle } from 'typings/Vehicle';
 import type {
     LinkPreview,
     LinkPreviewComputed,
@@ -170,10 +171,7 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: this.$store.getters.$tVehicles as Record<
-                number,
-                InternalVehicle
-            >,
+            vehicleTypes: useRootStore().$tVehicles,
             vehicleBuildings: Object.values(
                 this.$t('vehicleBuildings')
             ) as number[],
@@ -202,12 +200,10 @@ export default Vue.extend<
         parent() {
             return this.$el.parentElement;
         },
-        buildings() {
-            return this.$store.state.api.buildings;
-        },
-        vehicles() {
-            return this.$store.getters['api/vehiclesByBuilding'];
-        },
+        ...mapState(useAPIStore, {
+            buildings: 'buildings',
+            vehicles: 'vehiclesByBuilding',
+        }),
         buildingVehicles() {
             return (
                 cloneDeep(this.vehicles[this.id])?.sort((a, b) =>
@@ -264,12 +260,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (
-                    this.$store.getters.$tBuildings as Record<
-                        number,
-                        InternalBuilding
-                    >
-                )[building.building_type].caption
+                useRootStore().$tBuildings[building.building_type].caption
             );
         },
         setVehicle(vehicle) {

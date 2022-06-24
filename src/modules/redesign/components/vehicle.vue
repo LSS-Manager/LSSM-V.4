@@ -1097,6 +1097,8 @@ import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { mapState } from 'pinia';
+import { useAPIStore } from '@stores/api';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -1292,9 +1294,9 @@ export default Vue.extend<
         };
     },
     computed: {
-        participated_missions() {
-            return this.$store.getters['api/participatedMissions'];
-        },
+        ...mapState(useAPIStore, {
+            participated_missions: 'participatedMissions',
+        }),
         mission_head() {
             return {
                 ...(this.missionListSrc === 2 ? { list: { title: '' } } : {}),
@@ -1341,8 +1343,7 @@ export default Vue.extend<
         },
         missionListFiltered() {
             return this.missionList.map(m => {
-                const missionType =
-                    this.$store.getters['api/missionsById'][m.type];
+                const missionType = this.lightbox.apiStore.missions[m.type];
                 const participation = this.participated_missions.includes(m.id);
                 const credits = missionType
                     ? missionType.average_credits || 0
@@ -1687,8 +1688,8 @@ export default Vue.extend<
                 this.vehicle.id.toString()
             );
             url.searchParams.append('vehicle_return', '1');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/missions/${mission}/alarm`,
                     init: {
                         credentials: 'include',
@@ -1698,7 +1699,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `vehicles/${this.vehicle.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -1742,8 +1743,8 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.vehicle.authenticity_token
                             );
-                            LSSM.$store
-                                .dispatch('api/request', {
+                            LSSM.lightbox.apiStore
+                                .request({
                                     url: `/vehicles/${LSSM.vehicle.id}`,
                                     init: {
                                         credentials: 'include',
@@ -1754,7 +1755,7 @@ export default Vue.extend<
                                         referrer: new URL(
                                             `vehicles/${LSSM.vehicle.id}`,
                                             window.location.origin
-                                        ),
+                                        ).toString(),
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
@@ -1775,8 +1776,8 @@ export default Vue.extend<
             });
         },
         backalarm() {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/vehicles/${this.vehicle.id}/backalarm`,
                     feature: `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`,
                 })
@@ -1789,8 +1790,8 @@ export default Vue.extend<
                 );
         },
         backalarmFollowUp(missionId) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
                     feature: `redesign-vehicle-backalarm-only_mission`,
                 })
@@ -1803,8 +1804,8 @@ export default Vue.extend<
                 });
         },
         backalarmCurrent() {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
                     feature: `redesign-vehicle-backalarm-next_mission`,
                 })
@@ -1819,8 +1820,8 @@ export default Vue.extend<
         switch_state() {
             if (![2, 6].includes(this.vehicle.fms)) return;
             const target = this.vehicle.fms === 2 ? 6 : 2;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/vehicles/${this.vehicle.id}/set_fms/${target}`,
                     feature: `redesign-vehicle-setfms`,
                 })
@@ -1836,8 +1837,8 @@ export default Vue.extend<
             this.setSetting(filter, value).then();
         },
         fms(url) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-vehicle-fms`,
                 })
@@ -1865,7 +1866,7 @@ export default Vue.extend<
                                     ),
                                     href: url,
                                     getIdFromEl: this.lightbox.getIdFromEl,
-                                    LSSM: this,
+                                    LSSM: this.lightbox,
                                     $m: this.lightbox.$m,
                                     $sm: this.lightbox.$sm,
                                     $mc: this.lightbox.$mc,
@@ -1874,10 +1875,10 @@ export default Vue.extend<
                             );
                             if (next_vehicle < 0) {
                                 import(
-                                    `../i18n/${this.$store.state.lang}/vehicle/nextfms.json`
+                                    `../i18n/${this.lightbox.rootStore.locale}/vehicle/nextfms.json`
                                 ).then(t => {
                                     this.$i18n.mergeLocaleMessage(
-                                        this.$store.state.lang,
+                                        this.lightbox.rootStore.locale,
                                         {
                                             modules: {
                                                 redesign: {
@@ -1928,8 +1929,8 @@ export default Vue.extend<
                     'authenticity_token',
                     this.vehicle.authenticity_token
                 );
-                this.$store
-                    .dispatch('api/request', {
+                this.lightbox.apiStore
+                    .request({
                         url: `${url.pathname}?vehicle_id=${this.vehicle.id}`,
                         init: {
                             credentials: 'include',
@@ -1940,7 +1941,7 @@ export default Vue.extend<
                             referrer: new URL(
                                 `vehicles/${this.vehicle.id}`,
                                 window.location.origin
-                            ),
+                            ).toString(),
                             body: url.searchParams.toString(),
                             method: 'POST',
                             mode: 'cors',
@@ -1994,8 +1995,8 @@ export default Vue.extend<
                 `/vehicles/${this.vehicle.id}?load_all=true`,
                 window.location.origin
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-vehicle-load_all_hospitals`,
                 })
@@ -2009,7 +2010,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,

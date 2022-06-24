@@ -29,6 +29,19 @@
                 "title": "wybrane budynki"
             },
             "classrooms": {
+                "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
+                "table": {
+                    "countdown": "Pozostały czas",
+                    "free": "Wolne miejsca",
+                    "freeClassrooms": "1 wolna sala|{n} wolne sale",
+                    "running": {
+                        "false": "Nie",
+                        "title": "W trakcie?",
+                        "true": "Tak"
+                    },
+                    "start": "Rozpocznij nowy kurs",
+                    "unavailable": "1 sala w budowie|{n} sale w budowie"
+                },
                 "title": "Sale"
             },
             "extensions": {

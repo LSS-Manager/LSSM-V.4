@@ -205,7 +205,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { mapState } from 'pinia';
 import moment from 'moment';
+import { useAPIStore } from '@stores/api';
 
 import type { Building } from 'typings/Building';
 import type { Mission } from 'typings/Mission';
@@ -277,7 +279,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
 
         return {
             moment,
@@ -308,9 +310,7 @@ export default Vue.extend<
         },
     },
     computed: {
-        buildings() {
-            return this.$store.getters['api/buildingsByType'];
-        },
+        ...mapState(useAPIStore, { buildings: 'buildingsByType' }),
         dispatchCenters() {
             return Object.values(this.$t('dispatchCenterBuildings'))
                 .flatMap(type => this.buildings[type])
@@ -376,106 +376,98 @@ export default Vue.extend<
             return dispatches;
         },
         missions() {
-            return (this.$store.state.api.missions as Mission[]).map(
-                mission => {
-                    const prerequisites = Object.fromEntries(
-                        Object.entries(mission.prerequisites ?? {}).filter(
-                            ([req, amount]) =>
-                                typeof amount === 'number' &&
-                                ![
-                                    'main_building',
-                                    'main_building_extensions',
-                                ].includes(req)
-                        )
-                    ) as unknown as Record<string, number>;
-                    return {
-                        ...mission,
-                        prerequisites,
-                        main_building_extensions:
-                            mission.prerequisites.main_building_extensions,
-                        main_building: mission.prerequisites.main_building,
-                        unfullfilled_prerequisites: (
-                            [
-                                ...Object.entries(prerequisites),
-                                ...(mission.prerequisites
-                                    .main_building_extensions
-                                    ? [
-                                          [
-                                              Object.values(
-                                                  mission.prerequisites
-                                                      .main_building_extensions ??
-                                                      {}
+            return this.lightbox.apiStore.missionsArray.map(mission => {
+                const prerequisites = Object.fromEntries(
+                    Object.entries(mission.prerequisites ?? {}).filter(
+                        ([req, amount]) =>
+                            typeof amount === 'number' &&
+                            ![
+                                'main_building',
+                                'main_building_extensions',
+                            ].includes(req)
+                    )
+                ) as unknown as Record<string, number>;
+                return {
+                    ...mission,
+                    prerequisites,
+                    main_building_extensions:
+                        mission.prerequisites.main_building_extensions,
+                    main_building: mission.prerequisites.main_building,
+                    unfullfilled_prerequisites: (
+                        [
+                            ...Object.entries(prerequisites),
+                            ...(mission.prerequisites.main_building_extensions
+                                ? [
+                                      [
+                                          Object.values(
+                                              mission.prerequisites
+                                                  .main_building_extensions ??
+                                                  {}
+                                          )
+                                              .map(
+                                                  extension =>
+                                                      `${mission.prerequisites.main_building}.${extension}`
                                               )
-                                                  .map(
-                                                      extension =>
-                                                          `${mission.prerequisites.main_building}.${extension}`
-                                                  )
-                                                  .join(','),
-                                              1,
-                                          ],
-                                      ]
-                                    : []),
-                            ] as [string, number][]
-                        )
-                            .map<
-                                [
-                                    string,
-                                    Record<'diff' | 'have' | 'need', number>
-                                ]
-                            >(([req, amount]) => {
-                                const have = req.match(/\d+\.\d+/u)
-                                    ? this.buildings[
-                                          mission.prerequisites.main_building
-                                      ]?.find(
-                                          b =>
-                                              (this.selectedDispatchCenter ===
-                                                  '0' ||
-                                                  b.leitstelle_building_id.toString() ===
-                                                      this
-                                                          .selectedDispatchCenter) &&
-                                              req
-                                                  .split(',')
-                                                  .every(
-                                                      ex =>
-                                                          b.extensions.find(
-                                                              e =>
-                                                                  e.type_id ===
-                                                                  parseInt(
-                                                                      ex.split(
-                                                                          '.'
-                                                                      )[1]
-                                                                  )
-                                                          )?.enabled
-                                                  )
-                                      )
-                                        ? 1
-                                        : 0
-                                    : this.prerequisites[
-                                          this.selectedDispatchCenter
-                                      ][req.replace(/^max_/u, '')] ?? 0;
-                                return [
-                                    req,
-                                    {
-                                        have,
-                                        need: amount,
-                                        diff: amount - have,
-                                    },
-                                ];
-                            })
-                            .filter(([req, { diff }]) =>
-                                req.startsWith('max_') ? diff < 0 : diff > 0
-                            ),
-                        date_not_fitting: !!(
-                            mission.additional.date_start &&
-                            mission.additional.date_end &&
-                            (new Date() <
-                                new Date(mission.additional.date_start) ||
-                                new Date() >
-                                    new Date(mission.additional.date_end))
+                                              .join(','),
+                                          1,
+                                      ],
+                                  ]
+                                : []),
+                        ] as [string, number][]
+                    )
+                        .map<
+                            [string, Record<'diff' | 'have' | 'need', number>]
+                        >(([req, amount]) => {
+                            const have = req.match(/\d+\.\d+/u)
+                                ? this.buildings[
+                                      mission.prerequisites.main_building
+                                  ]?.find(
+                                      b =>
+                                          (this.selectedDispatchCenter ===
+                                              '0' ||
+                                              b.leitstelle_building_id?.toString() ===
+                                                  this
+                                                      .selectedDispatchCenter) &&
+                                          req
+                                              .split(',')
+                                              .every(
+                                                  ex =>
+                                                      b.extensions.find(
+                                                          e =>
+                                                              e.type_id ===
+                                                              parseInt(
+                                                                  ex.split(
+                                                                      '.'
+                                                                  )[1]
+                                                              )
+                                                      )?.enabled
+                                              )
+                                  )
+                                    ? 1
+                                    : 0
+                                : this.prerequisites[
+                                      this.selectedDispatchCenter
+                                  ][req.replace(/^max_/u, '')] ?? 0;
+                            return [
+                                req,
+                                {
+                                    have,
+                                    need: amount,
+                                    diff: amount - have,
+                                },
+                            ];
+                        })
+                        .filter(([req, { diff }]) =>
+                            req.startsWith('max_') ? diff < 0 : diff > 0
                         ),
-                    };
-                }
-            );
+                    date_not_fitting: !!(
+                        mission.additional.date_start &&
+                        mission.additional.date_end &&
+                        (new Date() < new Date(mission.additional.date_start) ||
+                            new Date() > new Date(mission.additional.date_end))
+                    ),
+                };
+            });
         },
         missionsFiltered() {
             return this.search.trim().length

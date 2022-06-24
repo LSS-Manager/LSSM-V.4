@@ -29,6 +29,7 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -64,11 +65,11 @@ export default Vue.extend<
             faSave,
             noteEdit: false,
             noteText: this.note.note,
-            noteId: this.$store.getters.nodeAttribute(
+            noteId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-note-message',
                 true
             ),
-            previewId: this.$store.getters.nodeAttribute(
+            previewId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-note-message_preview',
                 true
             ),
@@ -84,8 +85,8 @@ export default Vue.extend<
                 this.note.authenticity_token
             );
             url.searchParams.append('note[message]', this.noteText);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/note`,
                     init: {
                         credentials: 'include',
@@ -93,7 +94,10 @@ export default Vue.extend<
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: new URL(`/note`, window.location.origin),
+                        referrer: new URL(
+                            `/note`,
+                            window.location.origin
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -101,17 +105,13 @@ export default Vue.extend<
                     feature: 'redesign-note',
                 })
                 .then(() =>
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-note-saved',
-                            detail: {
-                                content: this.noteText,
-                                previewId: this.previewId,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        )
+                    useEventStore().createAndDispatchEvent({
+                        name: 'redesign-note-saved',
+                        detail: {
+                            content: this.noteText,
+                            previewId: this.previewId,
+                        },
+                    })
                 );
         },
         toggleEdit() {

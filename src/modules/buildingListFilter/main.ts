@@ -1,20 +1,27 @@
-import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 interface FilterBtn extends HTMLButtonElement {
     reload?(): void;
 }
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    MODULE_ID,
+    getSetting,
+    setSetting,
+}) => {
     let selectGroup = document.querySelector<HTMLDivElement>(
         '#btn-group-building-select'
     );
     if (!selectGroup) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'buildingListFilter-initial',
-    });
-    LSSM.$store.commit('useFontAwesome');
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+
+    document
+        .querySelector<HTMLInputElement>(
+            '#building_panel_heading .search-station-input'
+        )
+        ?.style.setProperty('display', 'none');
 
     document
         .querySelector<HTMLInputElement>(
@@ -27,10 +34,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     extraBtnsGroup.style.setProperty('flex-shrink', '0');
 
     const wrapper = document.createElement('div');
-    wrapper.id = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}-wrapper`,
-        true
-    );
+    wrapper.id = LSSM.$stores.root.nodeAttribute(`${MODULE_ID}-wrapper`, true);
     wrapper.style.setProperty('display', 'flex');
     wrapper.style.setProperty('margin-bottom', '1rem');
     wrapper.style.setProperty('justify-content', 'space-between');
@@ -50,16 +54,22 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     const fixedWhiteSpace = document.createElement('div');
 
     if (fixedFilters) {
-        LSSM.$store
-            .dispatch('addStyle', {
+        LSSM.$stores.root.addStyles([
+            {
                 selectorText: `#${wrapper.id}`,
                 style: {
                     'position': 'absolute',
                     'width': 'calc(100% - 4 * 15px)',
                     'z-index': 10,
                 },
-            })
-            .then();
+            },
+            {
+                selectorText: `body.bigMap #${wrapper.id}`,
+                style: {
+                    width: 'calc(100% - 2 * 5px)',
+                },
+            },
+        ]);
         fixedWhiteSpace.style.setProperty('margin-bottom', '1rem');
         wrapper.after(fixedWhiteSpace);
     }
@@ -85,6 +95,16 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
     let btns: [FilterBtn, number[]][] = [];
 
+    const filterHideClass = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-filter-hidden`
+    );
+    const searchHideClass = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-search-not-matching`
+    );
+    const reversedListClass = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-reversed-buildinglist`
+    );
+
     const applyFilter = (buildings: number[], show: boolean) =>
         buildings.length &&
         document
@@ -98,7 +118,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             )
             .forEach(b => {
                 b.classList.add('category_selected');
-                b.style.setProperty('display', show ? 'block' : 'none');
+                b.classList[show ? 'remove' : 'add'](filterHideClass);
             });
 
     const enable = (btn: FilterBtn, buildings: number[], index: number) => {
@@ -125,11 +145,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     };
 
     const updateSettings = () =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'filters',
-            value: { value: filters.slice(1), enabled: true },
-        });
+        setSetting('filters', { value: filters.slice(1), enabled: true });
 
     const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
@@ -137,6 +153,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     >;
 
     let updateBuildingsArrayHookAttached = false;
+
+    let styleAdded = false;
 
     const updateFilters = async () => {
         selectGroup = document.querySelector<HTMLDivElement>(
@@ -146,8 +164,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         selectGroup.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
 
-        const buildingsByType: Record<number, Building[]> =
-            LSSM.$store.getters['api/buildingsByType'];
+        const buildingsByType = LSSM.$stores.api.buildingsByType;
         Object.entries(smallBuildings).forEach(([big, small]) =>
             document
                 .querySelectorAll<HTMLLIElement>(
@@ -235,33 +252,37 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                         ?.textContent?.toLowerCase() ?? '',
                 ])
             );
+            buildings.forEach(building =>
+                building[0].classList.remove(
+                    'building-filtered-by-type',
+                    'building-filtered-by-search'
+                )
+            );
         };
 
         if (!updateBuildingsArrayHookAttached) {
-            LSSM.$store
-                .dispatch('hook', {
-                    event: 'buildingMarkerBulkContentCacheDraw',
-                    callback() {
-                        btns.forEach(([btn], index) => index && btn.reload?.());
-                    },
-                })
-                .then();
+            LSSM.$stores.root.hook({
+                event: 'buildingMarkerBulkContentCacheDraw',
+                callback() {
+                    updateBuildingsArray();
+                    btns.forEach(([btn], index) => index && btn.reload?.());
+                },
+            });
             updateBuildingsArrayHookAttached = true;
         }
 
         updateBuildingsArray();
 
-        const searchHideClass = LSSM.$store.getters.nodeAttribute(
-            'blf-search-not-matching'
-        );
-        const reversedListClass = LSSM.$store.getters.nodeAttribute(
-            'blf-reversed-buildinglist'
-        );
-
-        LSSM.$store
-            .dispatch('addStyles', [
+        if (!styleAdded) {
+            LSSM.$stores.root.addStyles([
                 {
                     selectorText: `.${searchHideClass}`,
+                    style: {
+                        display: 'none !important',
+                    },
+                },
+                {
+                    selectorText: `.${filterHideClass}`,
                     style: {
                         display: 'none !important',
                     },
@@ -272,8 +293,9 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                         transform: 'rotate(180deg)',
                     },
                 },
-            ])
-            .then();
+            ]);
+            styleAdded = true;
+        }
 
         const sortBtn = document.createElement('button');
         sortBtn.classList.add('btn', 'btn-xs', 'btn-default');
@@ -289,13 +311,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             const state = buildingList.classList.toggle(reversedListClass);
             if (state) icon.setAttribute('data-icon', 'arrow-up-a-z');
             else icon.setAttribute('data-icon', 'arrow-down-z-a');
-            LSSM.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
-                    settingId: 'sortDesc',
-                    value: state,
-                })
-                .then();
+            setSetting('sortDesc', state);
         });
 
         if (await getSetting('sortDesc')) sortBtn.click();
