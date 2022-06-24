@@ -208,7 +208,6 @@ import Vue from 'vue';
 import { mapState } from 'pinia';
 import moment from 'moment';
 import { useAPIStore } from '@stores/api';
-import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { Building } from 'typings/Building';
 import type { Mission } from 'typings/Mission';
