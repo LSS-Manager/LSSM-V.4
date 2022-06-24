@@ -393,10 +393,10 @@ export default Vue.extend<
     data() {
         const apiStore = useAPIStore();
         const rootStore = useRootStore();
-        const buildingTypes = useTranslationStore().buildings;
-        const dispatchCenterBuildings = Object.values(
-            this.$t('dispatchCenterBuildings')
-        );
+        const translationStore = useTranslationStore();
+        const buildingTypes = translationStore.buildings;
+        const dispatchCenterBuildings =
+            translationStore.dispatchCenterBuildings;
         return {
             buildings: apiStore.buildings,
             selectedBuilding: null,
@@ -408,7 +408,7 @@ export default Vue.extend<
             buildingTypes,
             currentBoard: 0,
             vehiclesByBuilding: apiStore.vehiclesByBuilding,
-            vehicleBuildings: Object.values(this.$t('vehicleBuildings'))
+            vehicleBuildings: translationStore.vehicleBuildings
                 .map(type => ({
                     type,
                     caption: buildingTypes[type].caption,
@@ -426,6 +426,7 @@ export default Vue.extend<
             settingsStore: useSettingsStore(),
             apiStore,
             rootStore,
+            translationStore,
         } as DispatchcenterView;
     },
     computed: {
@@ -453,9 +454,7 @@ export default Vue.extend<
         },
         buildingListFiltered() {
             if (!this.board) return [];
-            const vehicleBuildingTypes = Object.values(
-                this.$t('vehicleBuildings')
-            );
+            const vehicleBuildingTypes = this.translationStore.vehicleBuildings;
             return Object.values(this.buildings)
                 .filter(building => {
                     if (

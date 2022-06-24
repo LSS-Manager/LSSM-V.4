@@ -1729,27 +1729,6 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [
-        0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21, 22, 23,
-    ],
-    cellBuildings: [6, 19],
-    cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
-        '19_0',
-        '19_1',
-    ],
-    bedBuildings: [4],
-    schoolBuildings: [1, 3, 8, 10],
-    dispatchCenterBuildings: [7],
     schoolings: {
         Feuerwehr: [
             {

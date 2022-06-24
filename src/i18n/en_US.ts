@@ -1086,23 +1086,6 @@ If several requests fail in a short time, this could be due to server problems. 
         3: 16,
         5: 15,
     },
-    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 22],
-    cellBuildings: [5],
-    cellExtensions: [
-        '5_0',
-        '5_1',
-        '5_2',
-        '5_3',
-        '5_4',
-        '5_5',
-        '5_6',
-        '5_7',
-        '5_8',
-        '5_9',
-    ],
-    bedBuildings: [2, 14],
-    schoolBuildings: [4, 7, 19],
-    dispatchCenterBuildings: [1],
     schoolings: {
         'Fire Station': [
             {

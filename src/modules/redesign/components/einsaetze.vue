@@ -208,6 +208,7 @@ import Vue from 'vue';
 import { mapState } from 'pinia';
 import moment from 'moment';
 import { useAPIStore } from '@stores/api';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { Building } from 'typings/Building';
 import type { Mission } from 'typings/Mission';
@@ -312,7 +313,7 @@ export default Vue.extend<
     computed: {
         ...mapState(useAPIStore, { buildings: 'buildingsByType' }),
         dispatchCenters() {
-            return Object.values(this.$t('dispatchCenterBuildings'))
+            return this.lightbox.translationStore.dispatchCenterBuildings
                 .flatMap(type => this.buildings[type])
                 .filter(d => d?.generate_own_missions);
         },

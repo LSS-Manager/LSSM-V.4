@@ -34,5 +34,31 @@ export const useTranslationStore = defineStore('translationUtilities', {
                 )
                 .map(([id]) => parseInt(id.toString()));
         },
+        cellBuildings(): number[] {
+            return Object.entries(this.buildings)
+                .filter(([, building]) => 'startCells' in building)
+                .map(([id]) => parseInt(id.toString()));
+        },
+        bedBuildings(): number[] {
+            return Object.entries(this.buildings)
+                .filter(([, building]) => 'startBeds' in building)
+                .map(([id]) => parseInt(id.toString()));
+        },
+        cellExtensions(): string[] {
+            return this.cellBuildings.flatMap(building =>
+                this.buildings[building].extensions
+                    .map((extension, index) =>
+                        extension && 'newCells' in extension
+                            ? `${building}_${index}`
+                            : ''
+                    )
+                    .filter(e => !!e)
+            );
+        },
+        classroomBuildings(): number[] {
+            return Object.entries(this.buildings)
+                .filter(([, building]) => 'startClassrooms' in building)
+                .map(([id]) => parseInt(id.toString()));
+        },
     },
 });

@@ -57,7 +57,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
         if (building) {
             if (
-                Object.values(LSSM.$t('vehicleBuildings')).includes(
+                LSSM.$stores.translations.vehicleBuildings.includes(
                     building.building_type
                 )
             ) {
@@ -75,7 +75,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     )
                     .reduce((a, b) => a + b, 0)}`;
                 if (
-                    Object.values(LSSM.$t('cellBuildings')).includes(
+                    LSSM.$stores.translations.cellBuildings.includes(
                         building.building_type
                     )
                 ) {
@@ -101,7 +101,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                 });
                 data += `</table>`;
             } else if (
-                Object.values(LSSM.$t('bedBuildings')).includes(
+                LSSM.$stores.translations.bedBuildings.includes(
                     building.building_type
                 )
             ) {
@@ -109,7 +109,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     building.level + 10
                 }`;
             } else if (
-                Object.values(LSSM.$t('schoolBuildings')).includes(
+                LSSM.$stores.translations.classroomBuildings.includes(
                     building.building_type
                 )
             ) {
