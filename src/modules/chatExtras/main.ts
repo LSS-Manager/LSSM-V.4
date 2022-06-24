@@ -16,14 +16,31 @@ export default (async ({ LSSM, getSetting }) => {
                 );
             }
         });
-    }
 
-    if (location.pathname === '/') {
         getSetting('cloneHistoryBtnToHeader').then(clone => {
             if (clone) {
                 import(
                     /* webpackChunkName: "modules/chatExtras/cloneHistoryBtnToHeader" */ './assets/cloneHistoryBtnToHeader'
                 ).then(({ default: cloner }) => cloner());
+            }
+        });
+
+        getSetting('selfHighlight').then(selfHighlight => {
+            if (selfHighlight) {
+                import(
+                    /* webpackChunkName: "modules/chatExtras/selfHighlight" */ './assets/selfHighlight'
+                ).then(async ({ default: selfHighlight }) =>
+                    selfHighlight(
+                        LSSM,
+                        await getSetting<string>('selfHighlightColor'),
+                        await getSetting<boolean>(
+                            'selfHighlightCustomTextColor'
+                        ),
+                        await getSetting<string>(
+                            'selfHighlightCustomTextColorColor'
+                        )
+                    )
+                );
             }
         });
     }
@@ -50,23 +67,6 @@ export default (async ({ LSSM, getSetting }) => {
                     },
                 });
             });
-        }
-    });
-
-    getSetting('selfHighlight').then(selfHighlight => {
-        if (selfHighlight) {
-            import(
-                /* webpackChunkName: "modules/chatExtras/selfHighlight" */ './assets/selfHighlight'
-            ).then(async ({ default: selfHighlight }) =>
-                selfHighlight(
-                    LSSM,
-                    await getSetting<string>('selfHighlightColor'),
-                    await getSetting<boolean>('selfHighlightCustomTextColor'),
-                    await getSetting<string>(
-                        'selfHighlightCustomTextColorColor'
-                    )
-                )
-            );
         }
     });
 }) as ModuleMainFunction;
