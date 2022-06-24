@@ -185,9 +185,8 @@ export default Vue.extend<
             },
         ] as Building[];
         const buildingsByType = apiStore.buildingsByType;
-        const dispatchCenterBuildings = Object.values(
-            this.$t('dispatchCenterBuildings')
-        ) as number[];
+        const dispatchCenterBuildings =
+            useTranslationStore().dispatchCenterBuildings;
         dispatchCenterBuildings.forEach(type =>
             dispatchBuildings.push(...(buildingsByType[type] ?? []))
         );

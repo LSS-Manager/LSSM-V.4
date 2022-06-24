@@ -1014,17 +1014,6 @@ If several requests fail in a short time, this could be due to server problems. 
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 22, 25, 26],
-    cellBuildings: [6, 19, 26],
-    cellExtensions: [
-        ...new Array(10).fill('0').map((_, index) => `6_${index}`),
-        '19_1',
-        '19_2',
-        ...new Array(40).fill('0').map((_, index) => `26_${index}`),
-    ],
-    bedBuildings: [4, 21],
-    schoolBuildings: [1, 3, 8],
-    dispatchCenterBuildings: [7],
     schoolings: {
         'Fire Station': [
             {

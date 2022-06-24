@@ -34,8 +34,8 @@ export default async (
             { caption: $m('fastDispatchChooser.noDispatch'), id: 0 },
         ] as Building[];
         const buildingsByType = LSSM.$stores.api.buildingsByType;
-        (Object.values(LSSM.$t('dispatchCenterBuildings')) as number[]).forEach(
-            type => buildings.push(...(buildingsByType[type] ?? []))
+        LSSM.$stores.translations.dispatchCenterBuildings.forEach(type =>
+            buildings.push(...(buildingsByType[type] ?? []))
         );
         buildingIds.forEach(buildingID => {
             const building = LSSM.$stores.api.buildingsById[buildingID];

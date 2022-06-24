@@ -155,6 +155,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-linkPreview',
     data() {
+        const translationStore = useTranslationStore();
         return {
             faParking,
             faCar,
@@ -171,18 +172,12 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: useTranslationStore().vehicles,
-            vehicleBuildings: Object.values(
-                this.$t('vehicleBuildings')
-            ) as number[],
-            cellBuildings: Object.values(this.$t('cellBuildings')) as number[],
-            cellExtensions: Object.values(
-                this.$t('cellExtensions')
-            ) as string[],
-            bedBuildings: Object.values(this.$t('bedBuildings')) as number[],
-            schoolBuildings: Object.values(
-                this.$t('schoolBuildings')
-            ) as number[],
+            vehicleTypes: translationStore.vehicles,
+            vehicleBuildings: translationStore.vehicleBuildings,
+            cellBuildings: translationStore.cellBuildings,
+            cellExtensions: translationStore.cellExtensions,
+            bedBuildings: translationStore.bedBuildings,
+            schoolBuildings: translationStore.classroomBuildings,
             building: null,
             vehicle: null,
         } as LinkPreview;

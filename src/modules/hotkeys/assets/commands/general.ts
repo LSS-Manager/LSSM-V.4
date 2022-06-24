@@ -90,7 +90,7 @@ export default <
     async protocol() {
         const LSSM = window[PREFIX] as Vue;
         await LSSM.$stores.api.getBuildings('hotkeys-*.protocol');
-        const lstBuildings = Object.values(LSSM.$t('dispatchCenterBuildings'));
+        const lstBuildings = LSSM.$stores.translations.dispatchCenterBuildings;
         const id = LSSM.$stores.api.buildings.find(({ building_type }) =>
             lstBuildings.includes(building_type)
         )?.id;
