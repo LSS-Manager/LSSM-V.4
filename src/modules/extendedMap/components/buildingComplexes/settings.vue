@@ -156,7 +156,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { $m } from 'typings/Module';
 import type { Complex } from '../../assets/buildingComplexes';
@@ -222,7 +222,7 @@ export default Vue.extend<
         const apiStore = useAPIStore();
         const userBuildings = apiStore.buildingsById;
         const allianceBuildings = apiStore.allianceBuildingsById;
-        const buildingTypes = useRootStore().$tBuildings;
+        const buildingTypes = useTranslationStore().buildings;
 
         return {
             faSave,

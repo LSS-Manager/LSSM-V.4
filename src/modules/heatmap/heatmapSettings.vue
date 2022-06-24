@@ -154,6 +154,7 @@ import Vue from 'vue';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { $m } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
@@ -243,7 +244,7 @@ export default Vue.extend<
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
-            vehicleTypes: rootStore.$tVehicles,
+            vehicleTypes: useTranslationStore().vehicles,
             dropdownStyle,
         };
     },
@@ -295,7 +296,7 @@ export default Vue.extend<
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
                 const removeNull = <S>(value: S | null): value is S => !!value;
-                return Object.entries(useRootStore().$tBuildings)
+                return Object.entries(useTranslationStore().buildings)
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },
                         ...extensions

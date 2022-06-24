@@ -67,10 +67,10 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes = LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     const buildingType =
-        LSSM.$stores.root.$tBuildings[
+        LSSM.$stores.translations.buildings[
             LSSM.$stores.api.buildings.find(({ id }) => id === buildingId)
                 ?.building_type ?? -1
         ];

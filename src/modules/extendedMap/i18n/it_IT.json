@@ -81,6 +81,20 @@
                 "title": "Estensioni",
                 "underConstruction": "In costruzione"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Panoramica",
             "vehicles": {
                 "imageInfo": "Attenzione: al momento, solo le icone standard dei veicoli e/o delle stazioni possono essere visualizzate. Ci dispiace, ma le icone dei veicoli o delle stazioni impostate individualmente non potranno essere riconosciute per ora.",

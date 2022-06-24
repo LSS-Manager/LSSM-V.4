@@ -87,7 +87,7 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import buildingList from './building-list.vue';
 
@@ -115,7 +115,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
-        const buildingTypes = useRootStore().$tBuildings;
+        const buildingTypes = useTranslationStore().buildings;
         const categories = this.$t('buildingCategories') as unknown as Record<
             string,
             BuildingCategory

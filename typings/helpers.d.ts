@@ -13,6 +13,7 @@ import type { useNotificationStore } from '@stores/notifications';
 import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 import type { useStorageStore } from '@stores/storage';
+import type { useTranslationStore } from '@stores/translationUtilities';
 import type VueI18n from 'vue-i18n';
 import type {
     AppstoreComputed,
@@ -142,6 +143,7 @@ declare module 'vue/types/vue' {
             notifications: ReturnType<typeof useNotificationStore>;
             settings: ReturnType<typeof useSettingsStore>;
             storage: ReturnType<typeof useStorageStore>;
+            translations: ReturnType<typeof useTranslationStore>;
         };
         $vue: VueConstructor;
         modal: {

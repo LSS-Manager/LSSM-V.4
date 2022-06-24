@@ -1,15 +1,14 @@
 import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { PointTuple } from 'leaflet';
+import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async ({ LSSM, MODULE_ID }) => {
     await LSSM.$stores.api.autoUpdateBuildings(MODULE_ID);
     await LSSM.$stores.api.autoUpdateVehicles(MODULE_ID);
 
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     await LSSM.$stores.root.addStyle({
         selectorText: `.${LSSM.$stores.root.nodeAttribute(

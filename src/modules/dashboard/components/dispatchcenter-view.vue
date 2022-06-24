@@ -344,6 +344,7 @@ import Vue from 'vue';
 import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { Building } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
@@ -392,7 +393,7 @@ export default Vue.extend<
     data() {
         const apiStore = useAPIStore();
         const rootStore = useRootStore();
-        const buildingTypes = rootStore.$tBuildings;
+        const buildingTypes = useTranslationStore().buildings;
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );

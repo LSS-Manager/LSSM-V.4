@@ -687,7 +687,7 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.lightbox.rootStore.locale);
-        const buildingTypes = this.lightbox.rootStore.$tBuildings;
+        const buildingTypes = this.lightbox.translationStore.buildings;
         return {
             moment,
             he,

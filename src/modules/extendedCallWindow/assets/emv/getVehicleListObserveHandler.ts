@@ -18,7 +18,7 @@ export default (
     );
     const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
 
-    const vehicleTypes = LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     if (!vehicleList || !occupiedList) return;
 

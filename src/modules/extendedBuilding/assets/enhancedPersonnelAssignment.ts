@@ -31,12 +31,12 @@ export default async (
             vehicleId,
             `${MODULE_ID}-enhancedPersonnelAssignment`
         ));
-    const vehicleTypes = LSSM.$stores.root.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     if (vehicleId < 0 || !vehicle) return;
 
     const buildingType =
-        LSSM.$stores.root.$tBuildings[
+        LSSM.$stores.translations.buildings[
             LSSM.$stores.api.buildings.find(
                 ({ id }) => id === vehicle.building_id
             )?.building_type ?? -1

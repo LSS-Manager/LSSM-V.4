@@ -5,8 +5,6 @@ import { useEventStore } from '@stores/event';
 
 import config from '../config';
 
-import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle } from 'typings/Vehicle';
 import type { RootState } from 'typings/store/RootState';
 import type {
     addStyle,
@@ -82,16 +80,6 @@ export const useRootStore = defineStore('root', {
                 }
                 return res;
             },
-        $tBuildings: (): Record<number, InternalBuilding> =>
-            (window[PREFIX] as Vue).$t('buildings') as unknown as Record<
-                number,
-                InternalBuilding
-            >,
-        $tVehicles: (): Record<number, InternalVehicle> =>
-            (window[PREFIX] as Vue).$t('vehicles') as unknown as Record<
-                number,
-                InternalVehicle
-            >,
     },
     actions: {
         updateCredits(credits: number) {
