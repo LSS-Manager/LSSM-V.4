@@ -23,6 +23,12 @@ export default <ModuleMainFunction>(async ({
         )
         ?.style.setProperty('display', 'none');
 
+    document
+        .querySelector<HTMLInputElement>(
+            '#building_panel_heading .search-station-input'
+        )
+        ?.style.setProperty('display', 'none');
+
     const extraBtnsGroup = document.createElement('div');
     extraBtnsGroup.classList.add('btn-group');
     extraBtnsGroup.style.setProperty('flex-shrink', '0');
