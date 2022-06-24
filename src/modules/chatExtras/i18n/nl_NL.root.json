@@ -27,11 +27,11 @@
             "title": "Aangepaste kleur in chat: achtergrondkleur"
         },
         "selfHighlightCustomTextColor": {
-            "description": "Do you want to use a custom text color?",
-            "title": "custom color in chat: custom text color"
+            "description": "Wil je een aangepaste tekstkleur gebruiken?",
+            "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
         },
         "selfHighlightCustomTextColorColor": {
-            "title": "custom color in chat: custom text color"
+            "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
         }
     }
 }
