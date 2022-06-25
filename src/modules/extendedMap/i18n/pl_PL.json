@@ -26,7 +26,7 @@
                         "vehicles": "Pojazdy"
                     }
                 },
-                "title": "wybrane budynki"
+                "title": "Wybrane budynki"
             },
             "classrooms": {
                 "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
