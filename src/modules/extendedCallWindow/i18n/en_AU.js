@@ -32,7 +32,7 @@ module.exports = {
             hlf_only: 'Rescue Pumper',
             elw: 'Support Vehicle',
             elw2: 'Mobile Command Vehicle',
-            dlk: 'Turntable Ladders',
+            dlk: 'Ladder Platform Trucks',
             rtw: 'Ambulance',
             rw: 'Rescue',
             gwa: 'BASU',
