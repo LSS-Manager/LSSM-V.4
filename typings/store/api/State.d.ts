@@ -34,5 +34,16 @@ export interface APIState extends StorageAPIs {
     currentlyUpdating: StorageAPIKey[];
     secretKey: string | null;
     lastUpdates: Partial<Record<StorageAPIKey | 'missions', number>>;
+    debounce: {
+        vehicles: {
+            timeout: number | null;
+            updates: {
+                vehicleId: number;
+                caption: string;
+                fms_show: number;
+                fms_real: number;
+            }[];
+        };
+    };
     initialBroadcastUpdateFinished: boolean;
 }
