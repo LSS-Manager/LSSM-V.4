@@ -1,12 +1,13 @@
 {
     "name": "Rozszerzone okno wezwania",
+    "description": "Dodaje parę przydatnych funkcji do okna wezwań.",
     "settings": {
         "alarmIcons": {
-            "description": "Pokazuje odpowienie ikony w przycisku \"Wyślij\" w zależności od dokonanego wyboru. Ikony możesz wybierać spośród <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkich darmowych ikon z Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ją.",
+            "description": "Pokazuje odpowienie ikony w przycisku \"Wyślij\" w zależności od dokonanego wyboru. Ikony możesz wybierać spośród wszystkich darmowych ikon z <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ją.",
             "icon": "Ikona",
             "preview": "Podgląd",
             "style": "Typ ikony",
-            "title": "Ikony wezwań",
+            "title": "Ikony pojazdów",
             "vehicles": "Typ pojazdu"
         },
         "alarmTime": {
@@ -153,7 +154,7 @@
             "color": "Kolor",
             "description": "Dostosuj zakładki w liście pojazdów. Zakładki \"Wszystko\" i \"Dalsze działania\" są wyświatlanie niezaleźnie.",
             "name": "Nazwa",
-            "title": "Niestandardowe  kategorie.",
+            "title": "Niestandardowe  kategorie",
             "vehicles": "Pojazdy"
         },
         "vehicleCounter": {
