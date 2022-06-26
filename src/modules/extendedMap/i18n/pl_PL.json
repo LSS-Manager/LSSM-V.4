@@ -46,7 +46,7 @@
             },
             "extensions": {
                 "abort": "Anuluj",
-                "allianceFunds": "opłać z funduszy sojuszu",
+                "allianceFunds": "Opłać z funduszy sojuszu",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -112,9 +112,9 @@
         "settings": {
             "abort": "Anuluj",
             "allianceBuildings": "Dołączone budynki sojuszu",
-            "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
+            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
-            "buildingsInList": "Pokazać wybrane budynki na liście?",
+            "buildingsInList": "Pokaż wybrane budynki na liście",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",
@@ -124,7 +124,7 @@
                 "title": "Usuń kompleks"
             },
             "icon": "Ikona",
-            "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami, a ikonami dołączonych budynków",
             "location": "Lokacja",
             "name": "Nazwa",
             "save": "Zapisz",
