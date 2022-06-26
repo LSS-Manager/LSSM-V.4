@@ -1,16 +1,16 @@
 {
-    "name": "Rozszerzone okno wezwań",
+    "name": "Rozszerzone okno wezwania",
     "settings": {
         "alarmIcons": {
-            "description": "Pozostaw ikony w przycisku „Alarm” Pokaż, w zależności od dokonanego wyboru. Możesz wybierać spośród <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkich darmowych ikon z Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ikonę.",
+            "description": "Pokazuje odpowienie ikony w przycisku \"Wyślij\" w zależności od dokonanego wyboru. Ikony możesz wybierać spośród <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkich darmowych ikon z Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ją.",
             "icon": "Ikona",
             "preview": "Podgląd",
-            "style": "typ ikony",
-            "title": "ikony wezwań",
-            "vehicles": "typ pojazdu"
+            "style": "Typ ikony",
+            "title": "Ikony wezwań",
+            "vehicles": "Typ pojazdu"
         },
         "alarmTime": {
-            "description": "Pokazuje obok przycisku Wezwania, ile czasu zajmuje dojazd.",
+            "description": "Pokazuje obok przycisku \"Wyślij\", ile czasu zajmuje dojazd.",
             "title": "Najdłuższy czas dojazdu"
         },
         "arrClickHighlight": {
@@ -18,7 +18,7 @@
             "title": "Podświetl kliknięte ZR"
         },
         "arrClickHighlightColor": {
-            "description": "Ustaw kolor obramowania dla ZR.",
+            "description": "Ustaw kolor obramowania dla klikniętych ZR.",
             "title": "Kolor podświetlenia"
         },
         "arrClickHighlightWidth": {
@@ -26,51 +26,51 @@
             "title": "Szerokość podświetlenia"
         },
         "arrCounter": {
-            "description": "Zlica ile razy kliknęto daną ZR.",
+            "description": "Pokazuje ile razy kliknęto daną ZR.",
             "title": "Licznik ZR"
         },
         "arrCounterAsBadge": {
             "description": "Pokazuje licznik ZR jako małą plakietkę na każdym ZR",
-            "title": "Licznik ZR jako odznaka"
+            "title": "Licznik ZR jako plakietka"
         },
         "arrCounterResetSelection": {
-            "description": "Dodaje przycisk w prawym dolnym rogu, aby zresetować poprzedni wybór pojazdu. Uwaga: resetuje również licznik ZR i granice, jeśli są aktywne!",
-            "title": "Zresetuj wybór pojazdu"
+            "description": "Dodaje przycisk w prawym dolnym rogu, który umożliwia resetowanie wyboru pojazdów.",
+            "title": "Przycisk resetu wyboru pojazdów"
         },
         "arrMatchHighlight": {
             "description": "Ustawia szary filtr na wszystkie ZR, które nie zawierają słowa nazwy misji.",
             "title": "Wyszarzenie nieodpowiednich ZR"
         },
         "arrSearch": {
-            "description": "Pokazuje pasek wyszukiwania nad ZR, który umożliwia filtrowanie Twoich ZR.",
+            "description": "Pokazuje pasek wyszukiwania nad ZR, który działa lepiej niż wbudowany. ",
             "title": "Wyszukiwanie ZR"
         },
         "arrSearchAutoFocus": {
-            "description": "Automatycznieaktywuje wyszukiwanie ZR, dzięki czemu możesz zacząć pisać bez wcześniejszego klikania pola wyszukiwania.",
+            "description": "Zastępnuje kliknięcie wyszukiwarki, dzięki czemu nie musisz na nią klikać przed wyszukiwaniem.",
             "title": "Wyszukiwanie ZR: autofocus"
         },
         "arrSearchCloseDropdownOnSelect": {
-            "description": "zamyka menu po wybraniu ZR.",
-            "title": "zamknij menu po wybraniu"
+            "description": "Zamyka menu po wybraniu ZR.",
+            "title": "Zamknij menu po wybraniu"
         },
         "arrSearchDissolveCategories": {
             "description": "Pokazuje wszystkie kategorie jednocześnie podczas wyszukiwania.",
-            "title": "Wyszukiwanie ZR: Pokaż wszystkie kategorie"
+            "title": "Pokaż wszystkie kategorie"
         },
         "arrSearchDropdown": {
-            "description": "Całkowicie ukrywa ZR i zamiast tego wyświetla listę rozwijaną z możliwością wyszukiwania.",
-            "title": "Wyszukiwanie ZR jako menu rozwijane"
+            "description": "Całkowicie ukrywa ZR i zamiast tego wyświetla listę rozwijaną.",
+            "title": "Wyszukiwanie ZR jako rozwijana lista"
         },
         "arrSpecs": {
-            "description": "Pokazuje przechowywane żądania w ZR, jeśli na chwilę zatrzymasz mysz nad ZR",
+            "description": "Pokazuje jakie pojazdy zostaną wybrane gdy na chwilę zatrzymasz kursor nad ZR",
             "title": "Pokaż szczegóły ZR"
         },
         "arrTime": {
-            "description": "Pokazuje, jaki byłby najdłuższy czas dojazdu po wybraniu danego ZR, jeśli zatrzymasz się na krótko myszką nad ZR.",
+            "description": "Pokazuje, jaki byłby najdłuższy czas dojazdu po wybraniu danego ZR gdy na chwilę zatrzymasz kursor nad ZR.",
             "title": "Najdłuższy czas dojazdu"
         },
         "centerMap": {
-            "description": "Umożliwia wyśrodkowanie mapy w głównym oknie na miejscu użytkowania za naciśnięciem jednego przycisku.",
+            "description": "Umożliwia wyśrodkowanie mapy w głównym oknie względem danej misji po naciśnięciem jednego przycisku.",
             "title": "Centrowanie mapy"
         },
         "collapsablePatients": {
@@ -82,36 +82,36 @@
             "title": "Minimalizuj pacjentów: minimalna ilość"
         },
         "emvMaxStaff": {
-            "description": "'Ulepszone brakujące pojazdy' oblicza z maksymalną liczbą presonelu w samochodzie, kiedy trzeba obliczyć, ilu pracowników jest wybranych, gdy x liczba pracowników jest potrzebna na miejscu",
+            "description": "\Tabela oblicza liczbę presonelu wybranego na misję z maksymalną liczbą przypisanego personelu.",
             "title": "Maksymalna liczba personelu"
         },
         "enhancedMissingVehicles": {
-            "description": "Przekształca wyświetlanie dodatkowo wymaganych pojazdów w wyraźniejszą tabelę.",
-            "title": "Ulepszone brakujące pojazdy"
+            "description": "Przekształca dodatkowo wymagane pojazdy w wyraźniejszą tabelę.",
+            "title": "Tabela brakujących pojazdów"
         },
         "generationDate": {
             "description": "Pokazuje obok adresu, kiedy misja została wygenerowana.",
             "title": "Czas utworzenia"
         },
         "hideVehicleList": {
-            "description": "Zwykle ukrywa listę, a następnie otwiera ją, po naciśnięciu przycisku.",
+            "description": "Ukrywa listę pojazdów, a następnie otwiera ją, po naciśnięciu przycisku.",
             "title": "Ukrywanie listy pojazdów"
         },
         "hoverTip": {
-            "description": "Podpowiedzi dla przycisków \"Ulepszone brakujące pojazdy\".",
+            "description": "Podpowiedzi dla przycisków w tabeli.",
             "title": "Podpowiedzi"
         },
         "loadMoreVehiclesInHeader": {
-            "description": "Wyświetla przycisk \"Przeładuj pojazdy\", jeśli jest dostępny, w pasku nagłówka.",
-            "title": "Przeładuj pojazdy w nagłówku"
+            "description": "Wyświetla przycisk \"Ograniczenie wyświetlania pojazdów! Brakuje ładunku!\", jeśli jest dostępny, w pasku nagłówka.",
+            "title": "Wszystkie pojazdy w nagłówku"
         },
         "missionKeywords": {
             "allMissions": "Wszystkie misje",
             "autotextcolor": "Automatyczny kolor tekstu",
-            "color": "kolor tła",
-            "description": "Uzyskaj własne słowo kluczowe wyświetlane obok nazwy misji",
-            "keyword": "słowo kluczowe",
-            "missions": "misje",
+            "color": "Kolor tła",
+            "description": "Dodaj własne słowo kluczowe wyświetlane obok nazwy misji",
+            "keyword": "Słowo kluczowe",
+            "missions": "Misje",
             "prepend": "Pokaż przed nazwą misji",
             "preview": "Podgląd",
             "textcolor": "Kolor tekstu",
@@ -122,8 +122,8 @@
             "title": "Więcej przycisków do zwalniania pacjentów"
         },
         "patientSummary": {
-            "description": "Pokazuje obok liczby pacjentów, jakiego sprzętu ratunkowego potrzebują.",
-            "title": "Podsumowanie pacjenta"
+            "description": "Pokazuje obok liczby pacjentów jakiego sprzętu ratunkowego brakuje.",
+            "title": "Podsumowanie pacjentów"
         },
         "playerCounter": {
             "description": "Wyświetla na górze listy personelu, ilu graczy wysłało pojazd na tę misję. Kliknij, aby otworzyć tabelę ze szczegółami.",
@@ -134,7 +134,7 @@
             "title": "Licznik Graczy: Kolor"
         },
         "redBorder": {
-            "description": "Przedstawia czas generowania na czerwono, jeśli zakład wygaśnie następnej nocy.",
+            "description": "Wyświetla czerwoną ramkę wokół czasu generowania misji, gdy misja anuluje się w ciągu najbliższych 24h.",
             "title": "Czerwona ramka"
         },
         "remainingPatientTime": {
@@ -142,23 +142,23 @@
             "title": "Pozostały czas dla pacjentów"
         },
         "stagingAreaSelectedCounter": {
-            "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków wezwania",
+            "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków \"Wyślij"\",
             "title": "Licznik pojazdów w MKSiś"
         },
         "stickyHeader": {
-            "description": "Zawsze pokazuje górny pasek w oknie wstawiania, nawet gdy przewijasz w dół.",
+            "description": "Zawsze pokazuje górny pasek w oknie wezwania, nawet gdy przewijasz w dół.",
             "title": "Zawsze pokazuj pasek nagłówka"
         },
         "tailoredTabs": {
             "color": "Kolor",
-            "description": "Dostosuj zakładki w oknie wstawiania tutaj. \"Wszystkie\" i \"Kontynuacja\" będą zawsze widoczne",
-            "name": "nazwa",
-            "title": "kategorie pojazdów",
-            "vehicles": "typy pojazdów"
+            "description": "Dostosuj zakładki w liście pojazdów. Zakładki \"Wszystko\" i \"Dalsze działania\" są wyświatlanie niezaleźnie.",
+            "name": "Nazwa",
+            "title": "Niestandardowe  kategorie.",
+            "vehicles": "Pojazdy"
         },
         "vehicleCounter": {
-            "description": "Wyświetla na górze listy personelu, ile pojazdów zostało wysłanych do tej misji. Kliknij, aby otworzyć tabelę ze szczegółami.",
-            "title": "licznik pojazdów"
+            "description": "Wyświetla pod paskiem postępu misjo podsumowanie pojazdów. Kliknij, aby otworzyć tabelę ze szczegółami.",
+            "title": "Licznik pojazdów"
         },
         "vehicleCounterColor": {
             "danger": "Czerwony",
@@ -171,11 +171,11 @@
             "warning": "Pomarańczowy"
         },
         "vehicleTypeInList": {
-            "description": "Wyświetla typ pojazdu na liście dostępnych jednostek.",
+            "description": "Wyświetla typ pojazdu na liście.",
             "title": "Pokaż typ pojazdu"
         },
         "yellowBorder": {
-            "description": "Obramowuje czas generowania na żółto, jeśli użycie jest starsze niż podana liczba godzin. Jeśli liczba wynosi 0, nie jest rysowana żadna granica.",
+            "description": "Obramowuje czas generowania na żółto, jeśli misja jest starsza, niż podana liczba godzin. Jeśli liczba wynosi 0, nie jest rysowana żadna granica.",
             "title": "Żółta ramka"
         }
     },
