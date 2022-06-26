@@ -126,11 +126,11 @@
             "title": "Podsumowanie pacjentów"
         },
         "playerCounter": {
-            "description": "Wyświetla na górze listy personelu, ilu graczy wysłało pojazd na tę misję. Kliknij, aby otworzyć tabelę ze szczegółami.",
+            "description": "Wyświetla pod paskiem postępu misji podsumowanie graczy. Kliknij, aby otworzyć tabelę ze szczegółami.",
             "title": "Licznik Graczy"
         },
         "playerCounterColor": {
-            "description": "Wybierz kolor etykiety licznika graczy.",
+            "description": "Wybierz kolor licznika graczy.",
             "title": "Licznik Graczy: Kolor"
         },
         "redBorder": {
@@ -157,13 +157,13 @@
             "vehicles": "Pojazdy"
         },
         "vehicleCounter": {
-            "description": "Wyświetla pod paskiem postępu misjo podsumowanie pojazdów. Kliknij, aby otworzyć tabelę ze szczegółami.",
+            "description": "Wyświetla pod paskiem postępu misji podsumowanie pojazdów. Kliknij, aby otworzyć tabelę ze szczegółami.",
             "title": "Licznik pojazdów"
         },
         "vehicleCounterColor": {
             "danger": "Czerwony",
             "default": "Szary",
-            "description": "Wybierz kolor etykiety licznika pojazdu.",
+            "description": "Wybierz kolor licznika pojazdów.",
             "info": "Jasny niebieski",
             "primary": "Ciemny niebieski",
             "success": "Zielony",
@@ -171,8 +171,8 @@
             "warning": "Pomarańczowy"
         },
         "vehicleTypeInList": {
-            "description": "Wyświetla typ pojazdu na liście.",
-            "title": "Pokaż typ pojazdu"
+            "description": "Wyświetla typy pojazdów na liście.",
+            "title": "Pokaż typy pojazdów"
         },
         "yellowBorder": {
             "description": "Obramowuje czas generowania na żółto, jeśli misja jest starsza, niż podana liczba godzin. Jeśli liczba wynosi 0, nie jest rysowana żadna granica.",
