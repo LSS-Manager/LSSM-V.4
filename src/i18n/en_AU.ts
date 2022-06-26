@@ -677,7 +677,7 @@ If several requests fail in a short time, this could be due to server problems. 
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        'Fire Vehicles': {
             vehicles: {
                 'Fire Trucks': [0, 1, 12, 13, 19, 30],
                 'Bush-Fire Units': [28, 29, 31, 32, 33],
@@ -685,7 +685,7 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        'Ambulance Vehicles': {
             vehicles: {
                 'Ambulances': [5],
                 'Intensive Care Vehicles': [9, 24, 25],
@@ -919,6 +919,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Campsite',
         'Cliff',
         'Sawmill',
+        'Mine',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
