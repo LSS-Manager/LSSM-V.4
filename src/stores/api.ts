@@ -35,6 +35,12 @@ export const defineAPIStore = defineStore('api', {
             currentlyUpdating: [],
             secretKey: null,
             lastUpdates: {},
+            debounce: {
+                vehicles: {
+                    timeout: null,
+                    updates: [],
+                },
+            },
             initialBroadcastUpdateFinished: false,
         },
     getters: {
@@ -331,20 +337,35 @@ export const defineAPIStore = defineStore('api', {
         },
         radioMessage(radioMessage: RadioMessage) {
             if (radioMessage.type !== 'vehicle_fms') return;
-            const vehicle = this.vehicles.find(
-                ({ id }) => id === radioMessage.id
-            );
-            if (vehicle) {
-                vehicle.caption = radioMessage.caption;
-                vehicle.fms_show = radioMessage.fms;
-                vehicle.fms_real = radioMessage.fms_real;
+            this.debounce.vehicles.updates.push({
+                vehicleId: radioMessage.id,
+                caption: radioMessage.caption,
+                fms_show: radioMessage.fms,
+                fms_real: radioMessage.fms_real,
+            });
+            if (this.debounce.vehicles.timeout)
+                window.clearTimeout(this.debounce.vehicles.timeout);
+            this.debounce.vehicles.timeout = window.setTimeout(() => {
+                this.debounce.vehicles.updates.forEach(
+                    ({ vehicleId, caption, fms_show, fms_real }) => {
+                        const vehicle = this.vehicles.find(
+                            ({ id }) => id === vehicleId
+                        );
+                        if (vehicle) {
+                            vehicle.caption = caption;
+                            vehicle.fms_show = fms_show;
+                            vehicle.fms_real = fms_real;
+                        }
+                    }
+                );
+                this.debounce.vehicles.updates = [];
                 useBroadcastStore()
                     .apiBroadcast('vehicles', {
                         value: this.vehicles,
                         lastUpdate: this.lastUpdates.vehicles ?? 0,
                     })
                     .then();
-            }
+            }, 100);
         },
         getAllianceBuilding(
             buildingId: number,
