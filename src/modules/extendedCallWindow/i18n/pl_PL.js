@@ -118,6 +118,9 @@ module.exports = {
                 8, 14, 15, 16, 17, 18, 30, 65, 66, 67, 68, 69, 70, 71, 72, 73,
                 74, 75, 76, 77, 78, 79, 80,
             ],
+            [/^Szkolenie Personalne OPP$/u]: [
+                65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+            ],
         },
         vehiclePreprocessor: {
             [/Brakuje (\d+ Radiowoz(u|ów) WRD)/u]: '$1',
