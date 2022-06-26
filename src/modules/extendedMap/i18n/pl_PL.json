@@ -82,7 +82,7 @@
         "settings": {
             "abort": "Anuluj",
             "allianceBuildings": "Dołączone budynki sojuszu",
-            "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
+            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
             "dissolve": {
                 "buttons": {
@@ -93,7 +93,7 @@
                 "title": "Usuń kompleks"
             },
             "icon": "Ikona",
-            "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami, a ikonami dołączonych budynków",
             "location": "Lokacja",
             "name": "Nazwa",
             "save": "Zapisz",
