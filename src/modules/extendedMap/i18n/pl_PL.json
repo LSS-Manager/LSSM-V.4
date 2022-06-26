@@ -46,7 +46,7 @@
             },
             "extensions": {
                 "abort": "Anuluj",
-                "allianceFunds": "opłać z funduszy sojuszu",
+                "allianceFunds": "Opłać z funduszy sojuszu",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -114,7 +114,7 @@
             "allianceBuildings": "Dołączone budynki sojuszu",
             "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
-            "buildingsInList": "Pokazać wybrane budynki na liście?",
+            "buildingsInList": "Pokaż wybrane budynki na liście",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",
