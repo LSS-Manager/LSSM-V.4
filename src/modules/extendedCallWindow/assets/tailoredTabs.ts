@@ -1,5 +1,3 @@
-import type { InternalVehicle } from 'typings/Vehicle';
-import type { StorageSet } from 'typings/store/storage/Actions';
 import type { $m, $mc } from 'typings/Module';
 
 const isLightColor = (color: `#${string}`): boolean => {
@@ -66,8 +64,7 @@ export default (
         '#vehicle_list_step .tab-content'
     );
 
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     const vehiclesInTabs = [
         ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),
@@ -86,20 +83,18 @@ export default (
             'fa-exclamation-triangle',
             'text-warning'
         );
-        warningBtn.id = LSSM.$store.getters.nodeAttribute('ecw-tt-missingbtn');
+        warningBtn.id = LSSM.$stores.root.nodeAttribute('ecw-tt-missingbtn');
         warningBtnWrapper.append(warningBtn);
 
         document
             .querySelector<HTMLDivElement>('#dispatch_buttons')
             ?.parentElement?.before(warningBtnWrapper);
-        LSSM.$store
-            .dispatch('addStyle', {
-                selectorText: `#${warningBtn.id}`,
-                style: {
-                    cursor: 'pointer',
-                },
-            })
-            .then();
+        LSSM.$stores.root.addStyle({
+            selectorText: `#${warningBtn.id}`,
+            style: {
+                cursor: 'pointer',
+            },
+        });
 
         const showAlert = () => {
             LSSM.$modal.show('dialog', {
@@ -126,11 +121,11 @@ export default (
                     {
                         title: $m('tailoredTabs.vehicleMissing.close'),
                         handler() {
-                            LSSM.$store
-                                .dispatch('storage/set', {
+                            LSSM.$stores.storage
+                                .set({
                                     key: NOT_IN_TABS_ALERTED,
                                     value: vehiclesNotInTabs,
-                                } as StorageSet)
+                                })
                                 .then(() => LSSM.$modal.hide('dialog'));
                         },
                     },
@@ -139,11 +134,8 @@ export default (
         };
 
         warningBtnWrapper?.addEventListener('click', showAlert);
-        LSSM.$store
-            .dispatch('storage/get', {
-                key: NOT_IN_TABS_ALERTED,
-                defaultValue: [],
-            })
+        LSSM.$stores.storage
+            .get<string[]>({ key: NOT_IN_TABS_ALERTED, defaultValue: [] })
             .then(
                 async alerted =>
                     !(await import('lodash/isEqual')).default(
@@ -227,7 +219,7 @@ export default (
     const idByName: Record<string, string> = {};
     tabs.forEach(({ name, vehicleTypes, color }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
-        const tabId = LSSM.$store.getters.nodeAttribute(
+        const tabId = LSSM.$stores.root.nodeAttribute(
             `tailoredtabs-${name}`,
             true
         );
@@ -241,7 +233,7 @@ export default (
         tabSelector.append(tabLink);
         occupiedTab.before(tabSelector);
 
-        if (color !== (LSSM.$store.state.darkmode ? '#505050' : '#fff')) {
+        if (color !== (LSSM.$stores.root.isDarkMode ? '#505050' : '#fff')) {
             tabLink.style.setProperty('background-color', color);
             tabLink.style.setProperty(
                 'color',

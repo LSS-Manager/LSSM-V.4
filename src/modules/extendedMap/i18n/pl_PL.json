@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Szczegóły"
+        },
         "new": "Nowy kompleks LSSM",
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
@@ -23,9 +26,22 @@
                         "vehicles": "Pojazdy"
                     }
                 },
-                "title": "wybrane budynki"
+                "title": "Wybrane budynki"
             },
             "classrooms": {
+                "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
+                "table": {
+                    "countdown": "Pozostały czas",
+                    "free": "Wolne miejsca",
+                    "freeClassrooms": "1 wolna sala|{n} wolne sale",
+                    "running": {
+                        "false": "Nie",
+                        "title": "W trakcie?",
+                        "true": "Tak"
+                    },
+                    "start": "Rozpocznij nowy kurs",
+                    "unavailable": "1 sala w budowie|{n} sale w budowie"
+                },
                 "title": "Sale"
             },
             "extensions": {
@@ -65,6 +81,20 @@
                 "title": "Rozszerzenia",
                 "underConstruction": "w budowie"
             },
+            "protocol": {
+                "subtitle": "Brak odpowiednich wpisów | 1 odpowiedni wpis | {n} odpowiednich wpisów",
+                "table": {
+                    "head": {
+                        "building": "Budynki",
+                        "label": "Kategoria",
+                        "name": "Nazwa",
+                        "staff": "Personel",
+                        "time": "Czas"
+                    }
+                },
+                "title": "Protokół",
+                "updating": "Aktualizacja..."
+            },
             "title": "Przegląd",
             "vehicles": {
                 "imageInfo": "Notatka: Obecnie można wyświetlać tylko standardowe ikony pojazdów lub ikony zestawu graficznego. Ikony ustawione indywidualnie na pojeździe lub stacji nie są jeszcze rozpoznawane.",
@@ -84,6 +114,7 @@
             "allianceBuildings": "Dołączone budynki sojuszu",
             "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
+            "buildingsInList": "Pokazać wybrane budynki na liście?",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",

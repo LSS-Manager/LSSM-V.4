@@ -97,6 +97,14 @@
                 </label>
             </div>
 
+            <!-- show buildings in the buildings list -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" v-model="buildingsInList" />
+                    {{ $m('buildingsInList') }}
+                </label>
+            </div>
+
             <!-- show tabs in complex view -->
             <div class="checkbox">
                 <label>
@@ -116,14 +124,27 @@
             </div>
 
             <hr />
-            <!-- Delete the complex -->
-            <a
-                class="btn btn-danger btn-sm pull-right"
-                @click="dissolveHandler"
-            >
-                <font-awesome-icon :icon="faTrashCan" />
-                {{ $m('dissolve.title') }}
-            </a>
+            <span class="btn-group pull-right">
+                <button
+                    class="btn btn-success btn-sm"
+                    :disabled="!canSave"
+                    @click="save"
+                >
+                    <font-awesome-icon :icon="faSave" />
+                    {{ $m('save') }}
+                </button>
+                <button class="btn btn-warning btn-sm" @click="close">
+                    {{ $m('abort') }}
+                </button>
+                <!-- Delete the complex -->
+                <button
+                    class="btn btn-danger btn-sm pull-right"
+                    @click="dissolveHandler"
+                >
+                    <font-awesome-icon :icon="faTrashCan" />
+                    {{ $m('dissolve.title') }}
+                </button>
+            </span>
         </form>
     </lightbox>
 </template>
@@ -134,6 +155,8 @@ import Vue from 'vue';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
+import { useAPIStore } from '@stores/api';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { $m } from 'typings/Module';
 import type { Complex } from '../../assets/buildingComplexes';
@@ -153,9 +176,11 @@ export default Vue.extend<
         buildingTypes: Record<number, InternalBuilding>;
         location: [number, number];
         showMarkers: boolean;
+        buildingsInList: boolean;
         buildingTabs: boolean;
         iconBase64s: string[];
         excludedCustomIcons: string[];
+        apiStore: ReturnType<typeof useAPIStore>;
     },
     { save(): void; dissolveHandler(): void },
     {
@@ -194,14 +219,10 @@ export default Vue.extend<
             ),
     },
     data() {
-        const userBuildings = this.$store.getters[
-            'api/buildingsById'
-        ] as Record<number, Building>;
-        const allianceBuildings = this.$store.getters[
-            'api/allianceBuildingsById'
-        ] as Record<number, Building>;
-        const buildingTypes: Record<number, InternalBuilding> =
-            this.$store.getters.$tBuildings;
+        const apiStore = useAPIStore();
+        const userBuildings = apiStore.buildingsById;
+        const allianceBuildings = apiStore.allianceBuildingsById;
+        const buildingTypes = useTranslationStore().buildings;
 
         return {
             faSave,
@@ -215,9 +236,11 @@ export default Vue.extend<
             buildingTypes,
             location: [0, 0],
             showMarkers: false,
+            buildingsInList: false,
             buildingTabs: true,
             iconBase64s: [],
             excludedCustomIcons: [],
+            apiStore,
         };
     },
     computed: {
@@ -237,6 +260,7 @@ export default Vue.extend<
                 this.location[0] !== this.complex.position[0] ||
                 this.location[1] !== this.complex.position[1] ||
                 this.showMarkers !== this.complex.showMarkers ||
+                this.buildingsInList !== this.complex.buildingsInList ||
                 this.buildingTabs !== this.complex.buildingTabs
             );
         },
@@ -283,7 +307,10 @@ export default Vue.extend<
                 );
         },
         customIcons() {
-            return this.assignedBuildings
+            return [
+                ...this.assignedBuildings,
+                ...this.assignedAllianceBuildings,
+            ]
                 .map(b => b.custom_icon_url ?? '')
                 .filter(Boolean);
         },
@@ -352,6 +379,7 @@ export default Vue.extend<
                 ),
                 position: this.location,
                 showMarkers: this.showMarkers,
+                buildingsInList: this.buildingsInList,
                 buildingTabs: this.buildingTabs,
             });
             this.close();
@@ -415,9 +443,8 @@ export default Vue.extend<
         },
     },
     async beforeMount() {
-        await this.$store.dispatch('api/registerBuildingsUsage', {
-            feature: `buildingComplexes`,
-        });
+        await this.apiStore.getAllianceBuildings('buildingComplexes');
+        await this.apiStore.getBuildings('buildingComplexes');
     },
     mounted() {
         this.name = this.complex.name;
@@ -434,6 +461,7 @@ export default Vue.extend<
             .filter(removeUndefined);
         this.location = this.complex.position;
         this.showMarkers = this.complex.showMarkers;
+        this.buildingsInList = this.complex.buildingsInList;
         this.buildingTabs = this.complex.buildingTabs;
 
         this.customIcons.forEach(icon => {

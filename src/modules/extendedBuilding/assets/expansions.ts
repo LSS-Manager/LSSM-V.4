@@ -16,7 +16,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     existingDl.before(dlWrapper);
     dlWrapper.append(existingDl);
     const expansionWrapper = document.createElement('table');
-    expansionWrapper.id = LSSM.$store.getters.nodeAttribute(
+    expansionWrapper.id = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-expansions-table`,
         true
     );
@@ -52,7 +52,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         string,
         [HTMLSpanElement, string]
     >;
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.$stores.root.locale);
     expansionRows.forEach(expansion => {
         const name =
             expansion.firstElementChild?.querySelector('b')?.textContent;
@@ -109,18 +109,16 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         name.style.paddingRight = '1em';
         row.insertCell().append(...labels);
     });
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'updateTimer',
-            callback(
-                ...[{ $timer, endTime }]: Parameters<typeof window.updateTimer>
-            ) {
-                const [label, calendarString] =
-                    expansionIndexByEndTime[$timer.data('end-time')];
-                label.textContent = `${window.formatTime(
-                    Math.round((endTime.getTime() - Date.now()) / 1000)
-                )} (${calendarString})`;
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'updateTimer',
+        callback(
+            ...[{ $timer, endTime }]: Parameters<typeof window.updateTimer>
+        ) {
+            const [label, calendarString] =
+                expansionIndexByEndTime[$timer.data('end-time')];
+            label.textContent = `${window.formatTime(
+                Math.round((endTime.getTime() - Date.now()) / 1000)
+            )} (${calendarString})`;
+        },
+    });
 };

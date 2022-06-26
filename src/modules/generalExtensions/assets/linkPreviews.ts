@@ -1,9 +1,7 @@
 import linkPreview from '../components/linkPreview.vue';
 
-import type { Building } from 'typings/Building';
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { DefaultProps } from 'vue/types/options';
-import type { Vehicle } from 'typings/Vehicle';
 import type {
     LinkPreview,
     LinkPreviewComputed,
@@ -15,17 +13,10 @@ export default async (
     previews: string[],
     MODULE_ID: string
 ): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        autoUpdate: true,
-        feature: `${MODULE_ID}-linkPreviews`,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        autoUpdate: true,
-        feature: `${MODULE_ID}-linkPreviews`,
-    });
+    await LSSM.$stores.api.autoUpdateBuildings(`${MODULE_ID}-linkPreviews`);
+    await LSSM.$stores.api.autoUpdateVehicles(`${MODULE_ID}-linkPreviews`);
 
-    const previewLinkClass =
-        LSSM.$store.getters.nodeAttribute('is-previewLink');
+    const previewLinkClass = LSSM.$stores.root.nodeAttribute('is-previewLink');
     const attrSelectors = previews.map(
         p => `a[href^="/${p}/"]:not(.${previewLinkClass})`
     );
@@ -36,13 +27,11 @@ export default async (
 
     if (!links.length) return;
 
-    LSSM.$store.commit('useFontAwesome');
-
-    const infoBoxClass = LSSM.$store.getters.nodeAttribute(
+    const infoBoxClass = LSSM.$stores.root.nodeAttribute(
         'link-preview-infobox'
     );
 
-    await LSSM.$store.dispatch('addStyle', {
+    LSSM.$stores.root.addStyle({
         selectorText: `.${infoBoxClass}`,
         style: {
             'position': 'fixed',
@@ -68,7 +57,7 @@ export default async (
         LinkPreviewMethods,
         LinkPreviewComputed
     >({
-        store: LSSM.$store,
+        pinia: LSSM.$pinia,
         i18n: LSSM.$i18n,
         render: h =>
             h(linkPreview, {
@@ -101,18 +90,14 @@ export default async (
         LinkPreviewInstance.setMousePosition(e.clientX, e.clientY);
         // Building
         if (type === 'buildings') {
-            const building = (
-                LSSM.$store.state.api.buildings as Building[]
-            ).find(b => b.id === id);
+            const building = LSSM.$stores.api.buildingsById[id];
             if (!building) return;
             const icon = buildingIcons[building.building_type] || 'building';
             LinkPreviewInstance.setBuilding(building, icon);
         }
         // Vehicle
         else if (type === 'vehicles') {
-            const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
-                b => b.id === id
-            );
+            const vehicle = LSSM.$stores.api.vehiclesById[id];
             if (!vehicle) return;
             LinkPreviewInstance.setVehicle(vehicle);
         }

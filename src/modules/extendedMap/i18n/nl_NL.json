@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Details"
+        },
         "new": "Nieuw LSSM gebouwencomplex",
         "openInLightbox": "Open gebouw in Lightbox",
         "overview": {
@@ -11,7 +14,7 @@
                 },
                 "inConstruction": "waarvan {n} in aanbouw",
                 "table": {
-                    "alliance": "Alliance",
+                    "alliance": "Team",
                     "head": {
                         "beds": "Bedden",
                         "cells": "Cellen",
@@ -26,11 +29,24 @@
                 "title": "gekoppelde gebouwen"
             },
             "classrooms": {
+                "subtitle": "{total} in totaal, daarvan {unavailable} in aanbouw en {free} vrij",
+                "table": {
+                    "countdown": "tijd over",
+                    "free": "Vrije plaatsen",
+                    "freeClassrooms": "1 vrij klaslokaal|{n} vrije klaslokalen",
+                    "running": {
+                        "false": "Nee",
+                        "title": "loopt?",
+                        "true": "Ja"
+                    },
+                    "start": "start nieuwe opleiding",
+                    "unavailable": "1 klaslokaal in aanbouw|{n} klaslokalen in aanbouw"
+                },
                 "title": "Klaslokalen"
             },
             "extensions": {
                 "abort": "Annuleren",
-                "allianceFunds": "payed with alliance funds",
+                "allianceFunds": "wordt betaald met de teamkas",
                 "disable": "Niet beschikbaar maken",
                 "disabled": "Voltooid en niet beschikbaar",
                 "enable": "Beschikbaar maken",
@@ -65,6 +81,20 @@
                 "title": "Uitbreidingen",
                 "underConstruction": "in aanbout"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Overzicht",
             "vehicles": {
                 "imageInfo": "Let op: Momenteel alleen de standaard voertuig iconen of de iconen van een afbeeldingsverzameling kunnen worden weergegeven. Iconen ingesteld op een individueel voertuig of gebouw kunnen helaas nog niet worden herkend.",
@@ -81,9 +111,10 @@
         },
         "settings": {
             "abort": "Annuleren",
-            "allianceBuildings": "attached alliance buildings",
+            "allianceBuildings": "gekoppelde teamgebouwen",
             "buildingTabs": "Toon tabs voor gekoppelde gebouwen?",
             "buildings": "gekoppelde gebouwen",
+            "buildingsInList": "Toon gekoppelde gebouwen in de gebouwenlijst?",
             "dissolve": {
                 "buttons": {
                     "abort": "Annuleren",

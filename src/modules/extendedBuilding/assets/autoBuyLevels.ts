@@ -3,10 +3,10 @@ export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
         window.location.pathname.match(/(?<=buildings\/)\d+/u)?.[0] ?? '-1'
     );
     if (buildingId < 0) return;
-    const building = await LSSM.$store.dispatch('api/fetchBuilding', {
-        id: buildingId,
-        feature: `${MODULE_ID}-autoBuyLevels`,
-    });
+    const building = await LSSM.$stores.api.getBuilding(
+        buildingId,
+        `${MODULE_ID}-autoBuyLevels`
+    );
     // eslint-disable-next-line no-console
     console.log(building);
 };

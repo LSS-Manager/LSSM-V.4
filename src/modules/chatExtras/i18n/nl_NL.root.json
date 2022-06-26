@@ -13,6 +13,25 @@
         "cloneHistoryBtnToHeader": {
             "description": "Toont de knop voor de chatgeschiedenis boven de chat, zodat je niet naar beneden hoeft te scrollen.",
             "title": "Toont the chatgeschiedenis knop boven de chat"
+        },
+        "lightDesignChatHistory": {
+            "description": "Een aangepaste versie van de chatgeschiedenis die het wat compacter maakt",
+            "title": "Chatgeschiedenis compact design"
+        },
+        "selfHighlight": {
+            "description": "Geeft je eigen gebruikersnaam in de chat weer met een aangepaste kleur",
+            "title": "Aangepaste kleur in chat"
+        },
+        "selfHighlightColor": {
+            "description": "Kies hier welke kleur je wilt voor je eigen gebruikersnaam",
+            "title": "Aangepaste kleur in chat: achtergrondkleur"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Wil je een aangepaste tekstkleur gebruiken?",
+            "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
         }
     }
 }

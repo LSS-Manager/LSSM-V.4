@@ -18,6 +18,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { DefaultData } from 'vue/types/options';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
@@ -50,8 +52,8 @@ export default Vue.extend<
             const content =
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             url.searchParams.append('profile[content]', content);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/profile`,
                     init: {
                         credentials: 'include',
@@ -61,7 +63,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `profile/edit`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -77,16 +79,12 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-profile-submitted',
-                            detail: {
-                                content,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    useEventStore().createAndDispatchEvent({
+                        name: 'redesign-edit-profile-submitted',
+                        detail: {
+                            content,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },

@@ -16,8 +16,8 @@
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-
-import lssmLogo from '../img/lssm_logo';
+import { useSettingsStore } from '@stores/settings';
+import { useRootStore } from '@stores/index';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type {
@@ -63,7 +63,7 @@ export default Vue.extend<
             else balloon.classList.add('modal-carrier');
             balloon.classList.add('balloon');
             const image = document.createElement('img');
-            image.src = lssmLogo.toString();
+            image.src = useRootStore().lssmLogoUrl;
             balloon.append(image);
             balloonContainer.append(balloon);
             const margins = [random(200), 0, 0, random(50)];
@@ -96,7 +96,7 @@ export default Vue.extend<
         if (modal) {
             const modalFall = () => {
                 modal.classList.add('falling');
-                this.$store.dispatch('settings/setSetting', {
+                useSettingsStore().setSetting({
                     moduleId: 'global',
                     settingId: 'anniversary1Clicked',
                     value: true,

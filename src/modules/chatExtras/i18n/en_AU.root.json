@@ -13,6 +13,25 @@
         "cloneHistoryBtnToHeader": {
             "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
             "title": "Show Chat-History in Header"
+        },
+        "lightDesignChatHistory": {
+            "description": "A light design of the chat-history",
+            "title": "Chat-history light design"
+        },
+        "selfHighlight": {
+            "description": "highlights your username in the chat with a custom color",
+            "title": "custom color in chat"
+        },
+        "selfHighlightColor": {
+            "description": "choose here, which color your username should be highlighted in",
+            "title": "custom color in chat: background color"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Do you want to use a custom text color?",
+            "title": "custom color in chat: custom text color"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "custom color in chat: custom text color"
         }
     }
 }

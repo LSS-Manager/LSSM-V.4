@@ -1,10 +1,11 @@
-import type { $m } from 'typings/Module';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export default async (
     LSSM: Vue,
     $sm: $m,
     initialSingleState: boolean,
-    MODULE_ID: string
+    MODULE_ID: string,
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): Promise<void> => {
     let singleState = initialSingleState;
 
@@ -16,7 +17,7 @@ export default async (
             `#protocol_entry_${btn.getAttribute('protocol_id')}`
         );
         if (!row) return;
-        await LSSM.$store.dispatch('api/request', {
+        await LSSM.$stores.api.request({
             url: link,
             feature: `${MODULE_ID}-protocolDeletionConfirmation`,
         });
@@ -26,17 +27,13 @@ export default async (
     const callback = () => {
         const toggleInput = document.createElement('input');
         toggleInput.type = 'checkbox';
-        toggleInput.id = LSSM.$store.getters.nodeAttribute(
+        toggleInput.id = LSSM.$stores.root.nodeAttribute(
             'ga-pdc-single-toggle'
         );
         toggleInput.checked = singleState;
         toggleInput.addEventListener('change', () => {
             singleState = toggleInput.checked;
-            LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'deleteSingleProtocolEntry',
-                value: singleState,
-            });
+            setSetting('deleteSingleProtocolEntry', singleState);
         });
         const toggleSpan = document.createElement('span');
         toggleSpan.classList.add('pull-right');
@@ -127,7 +124,7 @@ export default async (
     };
     callback();
 
-    await LSSM.$store.dispatch('observeAsyncTab', {
+    LSSM.$stores.root.observeAsyncTab({
         tabSelector: '#tab_protocol',
         callback,
     });

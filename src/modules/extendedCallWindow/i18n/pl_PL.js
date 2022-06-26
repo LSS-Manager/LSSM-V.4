@@ -114,7 +114,13 @@ module.exports = {
                 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
                 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64,
             ],
-            [/^policjantów$/u]: [8, 14, 15, 16, 17, 18, 30],
+            [/^policjantów$/u]: [
+                8, 14, 15, 16, 17, 18, 30, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+                74, 75, 76, 77, 78, 79, 80,
+            ],
+            [/^Szkolenie Personalne OPP$/u]: [
+                65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+            ],
         },
         vehiclePreprocessor: {
             [/Brakuje (\d+ Radiowoz(u|ów) WRD)/u]: '$1',
@@ -124,7 +130,7 @@ module.exports = {
             [/^– Rchem$/u]: [41, 7, 49, 50],
             [/^[Aa]mbulans(e|\(-ów\)|e\(-ów\))?$/u]: [5, 31, 68],
             [/^[Aa]mbulans(e|ów)? OPP$/u]: [68],
-            [/^[Aa]mbulans(e|\(-ów\)|e\(-ów\))? P$/u]: [5, 31, 68],
+            [/^[Aa]mbulans(e|\(-ów\)|e\(-ów\)|ów)? P$/u]: [5, 31, 68],
             [/^armat(ek|k[ai]) wodn(a|e|ych)$/u]: [69],
             [/^cystern(a|\(-y\)) z wodą?$/u]: [47, 6, 61, 64],
             [/^Dźwigi? SP$/u]: [25, 37],
@@ -136,7 +142,7 @@ module.exports = {
             [/^[Rr]adiow(oz([uy]|ów)|óz) APRD$/u]: [75],
             [/^[Rr]adiow(oz([uy]|ów)|óz) OPP$/u]: [65, 66, 67],
             [/^[Rr]adiow(oz([uy]|ów)|óz) straży miejskiej$/u]: [71, 72],
-            [/^[Rr]adiow(oz([uy]|ów)|óz) WRD$/u]: [30, 73, 74],
+            [/^[Rr]adiow(oz([uy]|ów)|óz) WRD$/u]: [30, 73, 74, 75],
             [/^Ruchom(e|ych) Stanowisk[ao]? Dowodzenia$/u]: [78],
             [/^samoch(ód|ody\(-ów\)) pożarnicz(y|e\(-ych\))?$/u]: [
                 0, 1, 29, 55, 56, 38, 12, 39, 44, 48, 63,
@@ -153,7 +159,7 @@ module.exports = {
             [/^Samoch(ód|odów) WOPR$/u]: [19],
             [/^Samoch(ód|odów) SLRw$/u]: [24],
             [/^SLOp lub SLRr$/u]: [3, 28],
-            [/^specjalistyczn(e|y(ch)?)? sprzęt(ów|y)? OPP$/u]: [],
+            [/^specjalistyczn(e|y(ch)?)? sprzęt(ów|y)? OPP$/u]: [67],
             [/^SPGaz$/u]: [10, 42, 52],
             [/^sprzęty? przeciwpowodziow[ey]$/u]: [46, 51, 63],
             [/^wymagan(a|e|ych) więźniar(ek|k[ai])$/u]: [79, 80],

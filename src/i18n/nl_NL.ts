@@ -1215,25 +1215,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         0: 17,
         5: 18,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17, 18],
-    cellBuildings: [5, 18],
-    cellExtensions: [
-        '5_0',
-        '5_1',
-        '5_2',
-        '5_3',
-        '5_4',
-        '5_5',
-        '5_6',
-        '5_7',
-        '5_8',
-        '5_9',
-        '18_0',
-        '18_1',
-    ],
-    bedBuildings: [2],
-    schoolBuildings: [4, 7, 8],
-    dispatchCenterBuildings: [1],
     schoolings: {
         Brandweer: [
             {

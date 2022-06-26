@@ -41,7 +41,8 @@ Um auch die Postleitzahl wegzulassen, verwende <variable variable="cityWithoutZi
 
 ### Längste Anfahrt
 
-<variable variable="longestDrive"/> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren. **Wichtig**: Diese Variable ist in Rückmeldungen aus der Einsatzliste heraus natürlich nicht verfügbar!
+<variable variable="longestDrive"/> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren.
+<b>Wichtig</b>: Diese Variable ist in Rückmeldungen aus der Einsatzliste heraus natürlich nicht verfügbar!
 
 ### Datum
 

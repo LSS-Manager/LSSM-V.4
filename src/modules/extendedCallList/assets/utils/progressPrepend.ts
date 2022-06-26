@@ -17,7 +17,7 @@ export default (
     callback: (mission: ProgressPrependCallback) => void,
     onUpdate: (mission: MissionUpdateCallback) => void
 ): void => {
-    const progressBarClass = LSSM.$store.getters.nodeAttribute(
+    const progressBarClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_progress-bar`
     );
 
@@ -42,24 +42,20 @@ export default (
         )
         .forEach(updateProgressBar);
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const mission = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
-                );
-                if (mission) {
-                    if (!mission.querySelector(`.${progressBarClass}`))
-                        updateProgressBar(mission);
-                    onUpdate({
-                        missionPanel: mission,
-                        id: parseInt(
-                            mission.getAttribute('mission_id') ?? '-1'
-                        ),
-                    });
-                }
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionMarkerAdd',
+        callback(marker: MissionMarkerAdd) {
+            const mission = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.id}`
+            );
+            if (mission) {
+                if (!mission.querySelector(`.${progressBarClass}`))
+                    updateProgressBar(mission);
+                onUpdate({
+                    missionPanel: mission,
+                    id: parseInt(mission.getAttribute('mission_id') ?? '-1'),
+                });
+            }
+        },
+    });
 };

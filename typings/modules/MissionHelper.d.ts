@@ -1,6 +1,7 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Mission } from 'typings/Mission';
-import type VueI18n from 'vue-i18n';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { useAPIStore } from '@stores/api';
 
 export type VehicleRequirements = Record<
     string,
@@ -34,6 +35,7 @@ export interface MissionHelper {
     missionId: number;
     overlay: boolean | undefined;
     minified: boolean | undefined;
+    apiStore: ReturnType<typeof useAPIStore>;
     settings: {
         title: boolean;
         id: boolean;
@@ -101,12 +103,6 @@ export interface MissionHelperComputed {
     specialRequirements: { badge: string[]; nonbadge: string[] };
 }
 export interface MissionHelperMethods {
-    $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
-    $mc(
-        key: string,
-        amount: number,
-        args?: Record<string, unknown>
-    ): VueI18n.TranslateResult;
     reloadSpecs(force?: boolean): void;
     getMission(id: string): Promise<Mission | undefined>;
     loadSetting(
@@ -125,4 +121,11 @@ export interface MissionHelperMethods {
     ): VehicleRequirements;
     getMaxVehicles(currentSpecs: MissionHelper['missionSpecs']): void;
     toggleMaximum(): void;
+}
+
+export interface MissionHelperProps {
+    $m: Parameters<ModuleMainFunction>[0]['$m'];
+    $mc: Parameters<ModuleMainFunction>[0]['$mc'];
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'];
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'];
 }

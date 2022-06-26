@@ -14,7 +14,6 @@ import type {
     Text,
     Toggle,
 } from 'typings/Setting';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
@@ -27,8 +26,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const vehicles = LSSM.$stores.translations.vehicles;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {
@@ -36,10 +34,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `${MODULE_ID}_settings`,
-    });
-    (LSSM.$store.state.api.vehicles as Vehicle[])
+    (await LSSM.$stores.api.getVehicles(`${MODULE_ID}_settings`)).value
         .filter(v => v.vehicle_type_caption)
         .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
             const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;
@@ -267,7 +262,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             ],
             defaultItem: {
                 name: '',
-                color: LSSM.$store.state.darkmode ? '#505050' : '#fff',
+                color: LSSM.$stores.root.isDarkMode ? '#505050' : '#fff',
                 vehicleTypes: [],
             },
             orderable: true,

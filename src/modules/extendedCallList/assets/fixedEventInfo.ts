@@ -3,32 +3,36 @@ export default (LSSM: Vue) => {
     if (!eventInfo) return;
 
     const whitespace = document.createElement('div');
-    whitespace.id = LSSM.$store.getters.nodeAttribute(
+    whitespace.id = LSSM.$stores.root.nodeAttribute(
         'ecl-fixed_event_info-whitespace'
     );
     whitespace.style.setProperty('height', getComputedStyle(eventInfo).height);
     eventInfo.after(whitespace);
 
-    LSSM.$store
-        .dispatch('addStyle', {
+    LSSM.$stores.root.addStyles([
+        {
             selectorText: `#eventInfo`,
             style: {
                 'position': 'absolute',
                 'width': 'calc(100% - 2 * (15px + 1px) - 18px)',
                 'z-index': 10,
             },
-        })
-        .then();
-
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'eventAnnounce',
-            callback() {
-                whitespace.style.setProperty(
-                    'height',
-                    getComputedStyle(eventInfo).height
-                );
+        },
+        {
+            selectorText: `body.bigMap #eventInfo`,
+            style: {
+                width: 'calc(100% - 2 * 5px)',
             },
-        })
-        .then();
+        },
+    ]);
+
+    LSSM.$stores.root.hook({
+        event: 'eventAnnounce',
+        callback() {
+            whitespace.style.setProperty(
+                'height',
+                getComputedStyle(eventInfo).height
+            );
+        },
+    });
 };

@@ -1,5 +1,3 @@
-import type { Mission } from 'typings/Mission';
-
 export default async (
     LSSM: Vue,
     settings: {
@@ -19,9 +17,7 @@ export default async (
 
     if (missionType === '-1') return;
 
-    const mission = (
-        LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
-    )[missionType];
+    const mission = LSSM.$stores.api.missions[missionType];
 
     const addLabel = (
         text: string,

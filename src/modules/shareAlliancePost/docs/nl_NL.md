@@ -36,7 +36,8 @@ Om ook de postcode weg te laten, kan je <variable variable="cityWithoutZip"/> ge
 
 ### Langste aanrijdtijd
 
-<variable variable="longestDrive"/> voegt in wat momenteel de langste aanrijdtijd is. **Belangrijk**: Deze variable werkt niet in de meldingenlijst!
+<variable variable="longestDrive"/> voegt in wat momenteel de langste aanrijdtijd is.
+<b>Belangrijk</b>: Deze variable werkt niet in de meldingenlijst!
 
 ### Datum
 

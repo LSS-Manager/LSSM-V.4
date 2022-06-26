@@ -36,7 +36,8 @@ To also omit postcode/zipcode, simply use <variable variable="cityWithoutZip"/>.
 
 ### Longest drive
 
-<variable variable="longestDrive"/> is replaced by how long it takes till all selected vehicles are at scene. **Important**: This Variable is of course not available when sharing in the mission list!
+<variable variable="longestDrive"/> is replaced by how long it takes till all selected vehicles are at scene.
+<b>Important</b>: This Variable is of course not available when sharing in the mission list!
 
 ### Date
 

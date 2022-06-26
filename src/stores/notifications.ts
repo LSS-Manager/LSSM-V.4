@@ -1,55 +1,53 @@
-import lssm_logo from '../img/lssm_logo';
+import type Vue from 'vue';
 
+import { defineStore } from 'pinia';
+import { useRootStore } from '@stores/index';
+
+import type { NotificationsSend } from 'typings/store/notifications/Actions';
 import type { NotificationsState } from 'typings/store/notifications/State';
-import type { RootState } from 'typings/store/RootState';
-import type { ActionTree, Module, MutationTree } from 'vuex';
-import type {
-    NotificationsActionStoreParams,
-    NotificationsSend,
-} from 'typings/store/notifications/Actions';
 
-export default {
-    namespaced: true,
-    state: {
-        groups: [],
-        permission: Notification.permission,
-    },
-    mutations: {
-        addGroup(
-            state: NotificationsState,
-            group: NotificationsState['groups'][0]
-        ) {
-            if (!state.groups.includes(group)) state.groups.push(group);
+export const defineNotificationStore = defineStore('notifications', {
+    state: () =>
+        <NotificationsState>{
+            groups: [],
+            permission: Notification.permission,
         },
-        setPermission(
-            state: NotificationsState,
-            permission: NotificationsState['permission']
-        ) {
-            state.permission = permission;
-        },
-    } as MutationTree<NotificationsState>,
     actions: {
-        async getPermission({
-            state,
-            dispatch,
-            commit,
-        }: NotificationsActionStoreParams) {
-            if (state.permission === 'default') {
-                await dispatch('sendNotification', {
+        _addGroup(group: NotificationsState['groups'][0]) {
+            if (!this.groups.includes(group)) this.groups.push(group);
+        },
+        async getPermission() {
+            const lssmLogo = useRootStore().lssmLogoUrl;
+            if (this.permission === 'granted') return;
+            if (this.permission === 'denied') {
+                return this.sendNotification({
+                    type: 'danger',
+                    title: (window[PREFIX] as Vue)
+                        .$t('modules.notificationAlert.noPermission.title')
+                        .toString(),
+                    text: (window[PREFIX] as Vue)
+                        .$t('modules.notificationAlert.noPermission.text')
+                        .toString(),
+                    icon: lssmLogo,
+                    duration: -1,
+                    desktop: false,
+                });
+            } else {
+                return this.sendNotification({
                     title: (window[PREFIX] as Vue)
                         .$t('modules.notificationAlert.permission.title')
                         .toString(),
                     text: (window[PREFIX] as Vue)
                         .$t('modules.notificationAlert.permission.text')
                         .toString(),
-                    icon: lssm_logo.toString(),
+                    icon: lssmLogo,
                     duration: -1,
                     desktop: false,
-                    async clickHandler({ close }: { close(): void }) {
+                    clickHandler: async ({ close }: { close(): void }) => {
                         const perm = await Notification.requestPermission();
-                        commit('setPermission', perm);
+                        this.permission = perm;
                         if (perm === 'granted') {
-                            await dispatch('sendNotification', {
+                            await this.sendNotification({
                                 title: (window[PREFIX] as Vue)
                                     .$t(
                                         'modules.notificationAlert.desktopTest.title'
@@ -60,44 +58,28 @@ export default {
                                         'modules.notificationAlert.desktopTest.text'
                                     )
                                     .toString(),
-                                icon: lssm_logo.toString(),
+                                icon: lssmLogo,
                             });
                         }
                         close();
                     },
                 });
-            } else if (state.permission === 'denied') {
-                await dispatch('sendNotification', {
-                    type: 'danger',
-                    title: (window[PREFIX] as Vue)
-                        .$t('modules.notificationAlert.noPermission.title')
-                        .toString(),
-                    text: (window[PREFIX] as Vue)
-                        .$t('modules.notificationAlert.noPermission.text')
-                        .toString(),
-                    icon: lssm_logo.toString(),
-                    duration: -1,
-                    desktop: false,
-                });
             }
         },
-        async sendNotification(
-            { state, dispatch, commit }: NotificationsActionStoreParams,
-            {
-                group,
-                type,
-                title,
-                text,
-                icon,
-                duration = 8000,
-                speed = 300,
-                data = {},
-                clean = false,
-                ingame = true,
-                desktop = true,
-                clickHandler,
-            }: NotificationsSend
-        ) {
+        async sendNotification({
+            group = 'bottom_right',
+            type = 'info',
+            title,
+            text,
+            icon = '',
+            duration = 8000,
+            speed = 300,
+            data = {},
+            clean = false,
+            ingame = true,
+            desktop = true,
+            clickHandler = () => void null,
+        }: NotificationsSend) {
             let computedGroup = group;
             let computedType = type;
             if (
@@ -105,8 +87,8 @@ export default {
                 !computedGroup.match(/^(bottom|top)[ _](center|left|right)$/u)
             )
                 computedGroup = 'bottom right';
-            if (!state.groups.includes(computedGroup))
-                commit('addGroup', computedGroup);
+            if (!this.groups.includes(computedGroup))
+                this._addGroup(computedGroup);
             if (
                 !computedType ||
                 !computedType.match(
@@ -129,18 +111,19 @@ export default {
                 });
             }
             if (desktop) {
+                const lssmLogo = useRootStore().lssmLogoUrl;
                 const titleElement = document.createElement('div');
                 titleElement.innerHTML = title;
                 const newTitle = titleElement.textContent || '';
                 const body = document.createElement('body');
                 body.innerHTML = text;
                 const desktopText = body.textContent || '';
-                await dispatch('getPermission');
+                await this.getPermission();
                 const notification = new Notification(newTitle, {
-                    badge: icon || lssm_logo.toString(),
+                    badge: icon || lssmLogo,
                     body: desktopText,
                     data,
-                    icon: icon || lssm_logo.toString(),
+                    icon: icon || lssmLogo,
                     requireInteraction: duration <= 0,
                 });
                 if (clickHandler) {
@@ -152,5 +135,11 @@ export default {
                     window.setTimeout(() => notification.close(), duration);
             }
         },
-    } as ActionTree<NotificationsState, RootState>,
-} as Module<NotificationsState, RootState>;
+    },
+});
+
+export const useNotificationStore: () => ReturnType<
+    typeof defineNotificationStore
+> = () =>
+    (window[PREFIX] as Vue)?.$stores?.notifications ??
+    defineNotificationStore();

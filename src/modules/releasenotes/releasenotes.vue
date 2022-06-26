@@ -20,16 +20,16 @@
             </h2>
             <div v-for="note in notes" :key="note[0]" class="note">
                 <h4>
-                    <b
-                        ><a
-                            class="lightbox-open"
+                    <b>
+                        <a
                             target="_blank"
                             :href="`https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v${
                                 semverLt(note[0], coerce('4.3.3')) ? '.' : ''
                             }${note[0]}`"
-                            >{{ note[0] }}</a
-                        ></b
-                    >
+                        >
+                            {{ note[0] }}
+                        </a>
+                    </b>
                     <sup
                         class="badge beta_label"
                         v-if="
@@ -64,8 +64,7 @@ import Vue from 'vue';
 import coerce from 'semver/functions/coerce';
 import moment from 'moment';
 import semverLt from 'semver/functions/lt';
-
-import lssmLogo from '../../img/lssm.png';
+import { useRootStore } from '@stores/index';
 
 import type { DefaultMethods } from 'vue/types/options';
 import type { SemVer } from 'semver';
@@ -123,12 +122,13 @@ export default Vue.extend<
         },
     },
     mounted() {
-        moment.locale(this.$store.state.lang);
+        const rootStore = useRootStore();
+        moment.locale(rootStore.locale);
         document
             .querySelector<HTMLDivElement>('.releasenotes-modal .vm--modal')
             ?.style.setProperty(
                 'background-image',
-                `url("${lssmLogo}?uid=${this.$store.state.lang}-${window.user_id}")`
+                `url("${rootStore.lssmLogoUrl}")`
             );
     },
 });

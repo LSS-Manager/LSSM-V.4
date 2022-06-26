@@ -167,8 +167,8 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-toplist-load-prev-${this.startPage}`,
                 })
@@ -182,7 +182,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,
@@ -209,8 +209,8 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-toplist-load-next-${this.endPage}`,
                 })
@@ -224,7 +224,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,

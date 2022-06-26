@@ -12,9 +12,9 @@
   "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
   "packageRules": [
     {
-      "description": "Disable updating vue on main repo",
+      "description": "Disable updating vue on main repo. Updates require vue 3",
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["^vue(-i18n|-loader|x)?$"],
+      "matchPackageNames": ["vue", "vue-i18n", "vue-loader", "@fortawesome/vue-fontawesome"],
       "matchPaths": ["+(package.json)"],
       "enabled": false
     },

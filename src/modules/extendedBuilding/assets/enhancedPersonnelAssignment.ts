@@ -1,20 +1,19 @@
-import type { $m } from 'typings/Module';
 import type { Schooling } from 'typings/Schooling';
-import type { Building, InternalBuilding } from 'typings/Building';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export default async (
     LSSM: Vue,
     MODULE_ID: string,
-    getSetting: (key: string) => Promise<boolean>,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
-    });
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
-    });
+    await LSSM.$stores.api.getBuildings(
+        `${MODULE_ID}-enhancedPersonnelAssignment`
+    );
+    await LSSM.$stores.api.getVehicles(
+        `${MODULE_ID}-enhancedPersonnelAssignment`
+    );
 
     const personnel = Array.from(
         document.querySelectorAll<HTMLTableRowElement>(
@@ -27,23 +26,21 @@ export default async (
     );
 
     const vehicle =
-        LSSM.$store.getters['api/vehicle'](vehicleId) ??
-        ((await LSSM.$store.dispatch('api/fetchVehicle', {
-            id: vehicleId,
-            feature: `${MODULE_ID}-enhancedPersonnelAssignment`,
-        })) as Vehicle);
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+        LSSM.$stores.api.vehiclesById[vehicleId] ??
+        (await LSSM.$stores.api.getVehicle(
+            vehicleId,
+            `${MODULE_ID}-enhancedPersonnelAssignment`
+        ));
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     if (vehicleId < 0 || !vehicle) return;
 
-    const buildingType = (
-        LSSM.$store.getters.$tBuildings as Record<number, InternalBuilding>
-    )[
-        (LSSM.$store.state.api.buildings as Building[]).find(
-            ({ id }) => id === vehicle.building_id
-        )?.building_type ?? -1
-    ];
+    const buildingType =
+        LSSM.$stores.translations.buildings[
+            LSSM.$stores.api.buildings.find(
+                ({ id }) => id === vehicle.building_id
+            )?.building_type ?? -1
+        ];
 
     const schools =
         'schoolingTypes' in buildingType ? buildingType.schoolingTypes : null;
@@ -92,7 +89,7 @@ export default async (
     }
     const nonFittingRows = personnel.filter(row => !fittingRows.includes(row));
 
-    const toggleId = LSSM.$store.getters.nodeAttribute(
+    const toggleId = LSSM.$stores.root.nodeAttribute(
         'toggle-fitting-personnel',
         true
     );
@@ -126,11 +123,10 @@ export default async (
     toggleFittingInput.addEventListener('change', () => {
         const mode = toggleFittingInput.checked ? 'add' : 'remove';
         nonFittingRows.forEach(row => row.classList[mode]('hidden'));
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'enhancedPersonnelAssignmentCheckbox',
-            value: toggleFittingInput.checked,
-        });
+        setSetting(
+            'enhancedPersonnelAssignmentCheckbox',
+            toggleFittingInput.checked
+        );
     });
 
     document

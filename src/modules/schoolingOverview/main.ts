@@ -11,7 +11,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
     const clear = document.querySelector('.clear');
     if (clear) {
         new LSSM.$vue({
-            store: LSSM.$store,
+            pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
                 h(schoolingOverview, {
@@ -28,7 +28,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
     );
     if (ownTable) {
         new LSSM.$vue({
-            store: LSSM.$store,
+            pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
                 h(ownSchoolingTabs, { props: { tabs: ownSchoolings.tabs } }),
@@ -45,7 +45,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
             )
             ?.remove();
         new LSSM.$vue({
-            store: LSSM.$store,
+            pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
                 h(openSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),

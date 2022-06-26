@@ -54,6 +54,7 @@
         }
     ],
     "description": "Anpassa filtrena för byggnadslistan!",
+    "lssmComplex": "LSSM building complex",
     "name": "Anpassningsbara byggnadslistor",
     "settings": {
         "buildings": "Byggnadslista",

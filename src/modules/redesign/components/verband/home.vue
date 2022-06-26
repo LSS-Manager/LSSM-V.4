@@ -104,6 +104,7 @@ import Vue from 'vue';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
@@ -165,8 +166,8 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.home.authenticity_token
                             );
-                            LSSM.$store
-                                .dispatch('api/request', {
+                            LSSM.lightbox.apiStore
+                                .request({
                                     url: `/verband/verlassen`,
                                     init: {
                                         credentials: 'include',
@@ -177,7 +178,7 @@ export default Vue.extend<
                                         referrer: new URL(
                                             `/verband`,
                                             window.location.origin
-                                        ),
+                                        ).toString(),
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
@@ -198,8 +199,8 @@ export default Vue.extend<
             });
         },
         apply() {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/bewerben/${this.home.meta.id}`,
                     feature: `redesign-alliance-leave`,
                 })
@@ -209,8 +210,8 @@ export default Vue.extend<
                 });
         },
         unapply() {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/bewerben/${this.home.meta.id}/zurueckziehen`,
                     feature: `redesign-alliance-leave`,
                 })
@@ -256,27 +257,26 @@ export default Vue.extend<
         },
     },
     mounted() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const Alliance = this;
-        this.$store.dispatch('event/addListener', {
+        const eventStore = useEventStore();
+        eventStore.addListener({
             name: 'redesign-edit-alliance-text-submitted',
-            listener({ detail: { content } }: CustomEvent) {
-                if (Alliance.home.meta.self)
-                    Alliance.$set(Alliance.lightbox.data, 'text', content);
+            listener: ({ detail: { content } }: CustomEvent) => {
+                if (this.home.meta.self)
+                    this.$set(this.lightbox.data, 'text', content);
             },
         });
-        this.$store.dispatch('event/addListener', {
+        eventStore.addListener({
             name: 'redesign-edit-alliance-avatar-submitted',
-            listener({ detail: { img } }: CustomEvent) {
-                if (Alliance.home.meta.self)
-                    Alliance.$set(Alliance.lightbox.data, 'image', img);
+            listener: ({ detail: { img } }: CustomEvent) => {
+                if (this.home.meta.self)
+                    this.$set(this.lightbox.data, 'image', img);
             },
         });
-        this.$store.dispatch('event/addListener', {
+        eventStore.addListener({
             name: 'redesign-edit-alliance-name-submitted',
-            listener({ detail: { content } }: CustomEvent) {
-                if (Alliance.home.meta.self)
-                    Alliance.$set(Alliance.lightbox.data.meta, 'name', content);
+            listener: ({ detail: { content } }: CustomEvent) => {
+                if (this.home.meta.self)
+                    this.$set(this.lightbox.data.meta, 'name', content);
             },
         });
         this.lightbox.finishLoading('verband/home-mounted');

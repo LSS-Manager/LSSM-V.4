@@ -13,6 +13,25 @@
         "cloneHistoryBtnToHeader": {
             "description": "Pokazuje przycisk historii czatu w nagłówku, dzięki czemu nie musisz przewijać czatu, aby uzyskać do niego dostęp.",
             "title": "Pokaż historię czatu w nagłówku"
+        },
+        "lightDesignChatHistory": {
+            "description": "Prosty projekt historii czatu",
+            "title": "Prosty projekt historii czatu"
+        },
+        "selfHighlight": {
+            "description": "Podświetla twoją nazwę użytkownika na czacie niestandardowym kolorem",
+            "title": "Niestandardowy kolor na czacie"
+        },
+        "selfHighlightColor": {
+            "description": "Wybierz tutaj, jakim kolorem ma być podświetlona twoja nazwa użytkownika",
+            "title": "Niestandardowy kolor na czacie: kolor tła"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Czy chcesz użyć niestandardowego koloru tekstu?",
+            "title": "Niestandardowy kolor na czacie: kolor tekstu"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "Niestandardowy kolor na czacie: kolor tekstu"
         }
     }
 }

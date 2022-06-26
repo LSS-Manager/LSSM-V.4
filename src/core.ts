@@ -6,31 +6,29 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import semverLt from 'semver/functions/lt';
 import ToggleButton from 'vue-js-toggle-button';
+import { useAPIStore } from '@stores/api';
+import { useBroadcastStore } from '@stores/broadcast';
+import { useConsoleStore } from '@stores/console';
+import { useEventStore } from '@stores/event';
+import { useModulesStore } from '@stores/modules';
+import { useNotificationStore } from '@stores/notifications';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+import { useStorageStore } from '@stores/storage';
+import { useTranslationStore } from '@stores/translationUtilities';
 import VueJSModal from 'vue-js-modal';
+import { createPinia, PiniaVuePlugin } from 'pinia';
 
 import config from './config';
 import i18n from './i18n';
 import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMV4 from './LSSMV4.vue';
-import store from './store';
 import utils from './utils';
 
-import type {
-    ModuleMainFunction,
-    Modules,
-    ModuleSettingFunction,
-} from 'typings/Module';
+import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
-
-// a 20% chance for april fool
-if (
-    new Date().getMonth() === 3 &&
-    new Date().getDate() === 1 &&
-    Math.random() < 0.2
-)
-    require('./natives/cursors');
 
 Vue.config.productionTip = false;
 
@@ -51,6 +49,7 @@ Vue.use(VueJSModal, {
 Vue.use(ToggleButton);
 Vue.use(Tabs);
 Vue.use(Notifications);
+Vue.use(PiniaVuePlugin);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 utils(Vue);
@@ -60,8 +59,10 @@ utils(Vue);
 
     let couldNotLoadI18n = false;
 
+    const pinia = createPinia();
+
     const LSSM = new Vue({
-        store: store(Vue),
+        pinia,
         i18n: await i18n(Vue).catch(() => {
             couldNotLoadI18n = true;
             return undefined;
@@ -69,26 +70,32 @@ utils(Vue);
         render: h => h(LSSMV4),
     }).$mount(appContainer);
 
+    const rootStore = useRootStore();
+
     if (couldNotLoadI18n) {
         if (window.location.pathname === '/') {
             LSSM.$modal.show('dialog', {
                 title: 'LSSM V.4: Language not supported',
                 text: `Thank you for using LSSM V.4!<br>
-unfortunately your language <code>${LSSM.$store.state.lang}</code> is not yet supported. Why? The translations simply don't exist.<br>
+unfortunately your language <code>${
+                    rootStore.locale
+                }</code> is not yet supported. Why? The translations simply don't exist.<br>
 V.4 is too big for LSSM-Team to maintain all translations, so we need to rely on volunteer translators. You can find information on this at:
 <ul>
     <li style='list-style: unset !important;'>
-        <a href='${LSSM.$store.state.server}docs/en_US/faq' target='_blank'>
+        <a href='${rootStore.lssmUrl('/docs/en_US/faq')}' target='_blank'>
             FAQ
         </a>
     </li>
     <li style='list-style: unset !important;'>
-        <a href='${LSSM.$store.state.server}docs/en_US/contributing' target='_blank'>
+        <a href='${rootStore.lssmUrl(
+            '/docs/en_US/contributing'
+        )}' target='_blank'>
             Contribution guide
         </a>
     </li>
     <li style='list-style: unset !important;'>
-        <a href='${LSSM.$store.state.discord}' target='_blank'>
+        <a href='${rootStore.discordUrl}' target='_blank'>
             LSSM Discord Server
         </a>
     </li>
@@ -114,6 +121,27 @@ LSSM-Team`,
 
     window[PREFIX] = LSSM;
 
+    LSSM.$stores = {
+        root: rootStore,
+        api: useAPIStore(),
+        broadcast: useBroadcastStore(),
+        console: useConsoleStore(),
+        event: useEventStore(),
+        modules: useModulesStore(),
+        notifications: useNotificationStore(),
+        settings: useSettingsStore(),
+        storage: useStorageStore(),
+        translations: useTranslationStore(),
+    };
+
+    const locale = LSSM.$stores.root.locale;
+
+    LSSM.$stores.api._initAPIsFromBroadcast().then();
+
+    import('./natives/checkboxMultiSelect').then(({ default: multiSelect }) =>
+        multiSelect(LSSM)
+    );
+
     if (
         !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
         localStorage.getItem(loadingIndicatorStorageKey) === 'true'
@@ -124,7 +152,7 @@ LSSM-Team`,
             const wrapper = document.createElement('div');
             document.body.append(wrapper);
             new LSSM.$vue({
-                store: LSSM.$store,
+                pinia: LSSM.$pinia,
                 i18n: LSSM.$i18n,
                 render: h => h(LoadingIndicator),
             }).$mount(wrapper);
@@ -142,19 +170,15 @@ LSSM-Team`,
         });
     });
 
-    await LSSM.$store.dispatch(
-        'api/setVehicleStates',
-        'core-initialVehicleStates'
-    );
-    for (const moduleId of LSSM.$store.state.coreModules) {
+    for (const moduleId of LSSM.$stores.modules.coreModuleIds) {
         try {
-            LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+            LSSM.$i18n.mergeLocaleMessage(locale, {
                 modules: {
                     [moduleId]: (
                         await import(
                             /* webpackChunkName: "modules/i18n/[request]" */
                             /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
-                            `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+                            `./modules/${moduleId}/i18n/${locale}.root`
                         )
                     ).default,
                 },
@@ -168,13 +192,14 @@ LSSM-Team`,
         import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
             core => core.default(LSSM)
         );
+    } else if (
+        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+    ) {
+        LSSM.$stores.api.getSchoolings('core-update-schoolings').then();
     }
 
     // show a dialog if userscript is out of date
     await (async () => {
-        // this feature was introduced during this version
-        if (VERSION.startsWith('4.5.9')) return;
-
         const userscript_latest_update = coerce(
             config.userscript_latest_update
         );
@@ -191,8 +216,8 @@ LSSM-Team`,
             return new Promise<void>(resolve => {
                 const userscriptLink =
                     MODE === 'stable'
-                        ? `${config.server}lssm-v4.user.js`
-                        : `https://github.com/${config.github.repo}/raw/dev/static/lssm-v4.user.js`;
+                        ? `${SERVER}lssm-v4.user.js`
+                        : `${rootStore.githubUrl}/raw/dev/static/lssm-v4.user.js`;
                 LSSM.$modal.show('dialog', {
                     title: LSSM.$t('updateUserscript.title'),
                     text: LSSM.$t('updateUserscript.text', {
@@ -215,27 +240,36 @@ LSSM-Team`,
         }
     })();
 
-    LSSM.$store
-        .dispatch('storage/get', {
+    const fa = document.createElement('script');
+    fa.src = LSSM.$stores.root.lssmUrl(
+        '/static/fontawesome_free_6.1.1_all.min.js',
+        true
+    );
+    fa.crossOrigin = 'anonymous';
+    document.head.append(fa);
+
+    LSSM.$stores.storage
+        .get<string[]>({
             key: 'activeModules',
             defaultValue: [],
         })
-        .then((activeModules: string[]) => {
+        .then(activeModules => {
             if (!Array.isArray(activeModules)) {
-                return LSSM.$store.dispatch('storage/set', {
+                return LSSM.$stores.storage.set({
                     key: 'activeModules',
                     value: [],
                 });
             }
             let filteredActiveModules = activeModules.filter(module =>
-                LSSM.$store.state.modules.hasOwnProperty(module)
+                LSSM.$stores.modules.modules.hasOwnProperty(module)
             );
-            if (LSSM.$store.state.mapkit) {
+            if (LSSM.$stores.root.mapkit) {
                 filteredActiveModules = filteredActiveModules.filter(
-                    module => !LSSM.$store.state.modules[module].noMapkit
+                    module =>
+                        !LSSM.$stores.modules.noMapkitModuleIds.includes(module)
                 );
             }
-            Object.entries(LSSM.$store.state.modules as Modules)
+            Object.entries(LSSM.$stores.modules.modules)
                 .filter(
                     ([, { location }]) =>
                         window.location.pathname === '/' ||
@@ -245,26 +279,23 @@ LSSM-Team`,
                     import(
                         /* webpackChunkName: "modules/i18n/[request]" */
                         /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
-                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+                        `./modules/${moduleId}/i18n/${locale}.root`
                     )
                         .then(({ default: i18n }) =>
-                            LSSM.$i18n.mergeLocaleMessage(
-                                LSSM.$store.state.lang,
-                                {
-                                    modules: {
-                                        [moduleId]: i18n,
-                                    },
-                                }
-                            )
+                            LSSM.$i18n.mergeLocaleMessage(locale, {
+                                modules: {
+                                    [moduleId]: i18n,
+                                },
+                            })
                         )
                         .catch(() =>
-                            LSSM.$store?.dispatch('console/warn', [
-                                `[core] root translation ${moduleId}/${LSSM.$store.state.lang}.root could not be imported. The file is probably nonexistent`,
-                            ])
+                            LSSM.$stores.console.warn(
+                                `[core] root translation »${moduleId}/${locale}.root« could not be imported. The file is probably nonexistent`
+                            )
                         )
                         .finally(async () => {
                             if (filteredActiveModules.includes(moduleId)) {
-                                LSSM.$store.commit('setModuleActive', moduleId);
+                                LSSM.$stores.modules.setActive(moduleId);
                                 const $m = (
                                     key: string,
                                     args?: Record<string, unknown>
@@ -282,23 +313,19 @@ LSSM-Team`,
                                     );
 
                                 if (settings) {
-                                    await LSSM.$store.dispatch(
-                                        'settings/register',
-                                        {
-                                            moduleId,
-                                            settings: await (
-                                                (
-                                                    await import(
-                                                        /* webpackChunkName: "modules/settings/[request]" */
-                                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                                        /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                                        `./modules/${moduleId}/settings`
-                                                    )
+                                    await LSSM.$stores.settings.registerModule({
+                                        moduleId,
+                                        settings: await (
+                                            (
+                                                await import(
+                                                    /* webpackChunkName: "modules/settings/[request]" */
+                                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                                    `./modules/${moduleId}/settings`
                                                 )
-                                                    .default as ModuleSettingFunction
-                                            )(moduleId, LSSM, $m),
-                                        }
-                                    );
+                                            ).default as ModuleSettingFunction
+                                        )(moduleId, LSSM, $m),
+                                    });
                                 }
 
                                 if (window.location.pathname.match(location)) {
@@ -313,11 +340,11 @@ LSSM-Team`,
                                         /* webpackChunkName: "modules/i18n/[request]" */
                                         /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
                                         /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
+                                        `./modules/${moduleId}/i18n/${locale}`
                                     )
                                         .then(({ default: i18n }) =>
                                             LSSM.$i18n.mergeLocaleMessage(
-                                                LSSM.$store.state.lang,
+                                                locale,
                                                 {
                                                     modules: {
                                                         [moduleId]: i18n,
@@ -346,12 +373,22 @@ LSSM-Team`,
                                                         settingId,
                                                         defaultValue
                                                     ) =>
-                                                        LSSM.$store.dispatch(
-                                                            'settings/getSetting',
+                                                        LSSM.$stores.settings.getSetting(
                                                             {
                                                                 moduleId,
                                                                 settingId,
                                                                 defaultValue,
+                                                            }
+                                                        ),
+                                                    setSetting: (
+                                                        settingId,
+                                                        value
+                                                    ) =>
+                                                        LSSM.$stores.settings.setSetting(
+                                                            {
+                                                                moduleId,
+                                                                settingId,
+                                                                value,
                                                             }
                                                         ),
                                                 })

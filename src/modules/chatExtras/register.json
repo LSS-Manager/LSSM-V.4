@@ -1,5 +1,5 @@
 {
     "github": 34,
-    "location": "^/?$",
+    "location": "^(/alliance_chats)?/?$",
     "settings": true
 }

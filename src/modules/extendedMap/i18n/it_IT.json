@@ -1,5 +1,8 @@
 {
     "buildingComplexes": {
+        "buildingList": {
+            "details": "Dettagli"
+        },
         "new": "New LSSM building complex",
         "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
@@ -26,6 +29,19 @@
                 "title": "Edifici collegati"
             },
             "classrooms": {
+                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "table": {
+                    "countdown": "time left",
+                    "free": "Free Places",
+                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "running": {
+                        "false": "No",
+                        "title": "running?",
+                        "true": "Yes"
+                    },
+                    "start": "start new training course",
+                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                },
                 "title": "Classi"
             },
             "extensions": {
@@ -65,6 +81,20 @@
                 "title": "Estensioni",
                 "underConstruction": "In costruzione"
             },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
             "title": "Panoramica",
             "vehicles": {
                 "imageInfo": "Attenzione: al momento, solo le icone standard dei veicoli e/o delle stazioni possono essere visualizzate. Ci dispiace, ma le icone dei veicoli o delle stazioni impostate individualmente non potranno essere riconosciute per ora.",
@@ -84,6 +114,7 @@
             "allianceBuildings": "attached alliance buildings",
             "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
+            "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
                 "buttons": {
                     "abort": "Annulla",

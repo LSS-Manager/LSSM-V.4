@@ -27,9 +27,13 @@ export default async (LSSM: Vue): Promise<void> => {
     const currentVersion = coerce(VERSION) ?? '4.0.0';
 
     const notes: [string, Releasenote][] = Object.entries(
-        (await LSSM.$store
-            .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json?v=${VERSION}&uid=${LSSM.$store.state.lang}-${window.user_id}`,
+        (await LSSM.$stores.api
+            .request({
+                url: LSSM.$stores.root.lssmUrl(
+                    `/releasenotes/${LSSM.$stores.root.locale}.json`,
+                    true,
+                    { v: VERSION }
+                ),
                 init: {
                     method: 'GET',
                 },
@@ -38,9 +42,10 @@ export default async (LSSM: Vue): Promise<void> => {
             .then(res => res.json())) as Releasenotes
     )
         .filter(
-            ([version]) =>
-                MODE === 'beta' ||
-                semverLte(coerce(version) ?? '4.0.0', currentVersion)
+            ([version, { content }]) =>
+                content &&
+                (MODE === 'beta' ||
+                    semverLte(coerce(version) ?? '4.0.0', currentVersion))
         )
         .sort((a, b) =>
             semverRcompare(coerce(a[0]) ?? '0', coerce(b[0]) ?? '0')
@@ -99,21 +104,20 @@ export default async (LSSM: Vue): Promise<void> => {
                 class: 'releasenotes-modal',
             },
             {
-                'before-close': async function () {
-                    await LSSM.$store.dispatch('storage/set', {
+                'before-close': () =>
+                    LSSM.$stores.storage.set({
                         key: LAST_VERSION_STORAGE_KEY,
                         value: notes[0][0],
-                    });
-                },
+                    }),
             }
         );
 
-    LSSM.$store
-        .dispatch('addMenuItem', $m('name').toString())
+    LSSM.$stores.root
+        .addMenuItem($m('name').toString())
         .then(element => element.addEventListener('click', () => openNotes()));
 
-    LSSM.$store
-        .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
+    LSSM.$stores.storage
+        .get<string>({ key: LAST_VERSION_STORAGE_KEY, defaultValue: '4.0.0' })
         .then(
             key =>
                 semverLt(

@@ -25,6 +25,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useRootStore } from '@stores/index';
+
 import type { DefaultComputed } from 'vue/types/options';
 import type { Map as LMap, Marker } from 'leaflet';
 
@@ -91,22 +93,18 @@ export default Vue.extend<
 
             const mapId = map.getContainer().id;
 
-            const clearfix: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'top-right',
-                    mapId,
-                }
-            );
+            const rootStore = useRootStore();
+
+            const clearfix = await rootStore.addOSMControl({
+                position: 'top-right',
+                mapId,
+            });
             clearfix.classList.add('clearfix');
 
-            const save: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'top-right',
-                    mapId,
-                }
-            );
+            const save = await rootStore.addOSMControl({
+                position: 'top-right',
+                mapId,
+            });
             save.classList.add('btn', 'btn-success');
             save.style.setProperty('display', 'flex');
             save.style.setProperty('justify-content', 'center');
@@ -126,13 +124,10 @@ export default Vue.extend<
             saveIcon.classList.add('fas', 'fa-save');
             save.append(saveIcon);
 
-            const abort: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'top-right',
-                    mapId,
-                }
-            );
+            const abort = await rootStore.addOSMControl({
+                position: 'top-right',
+                mapId,
+            });
             abort.classList.add('btn', 'btn-danger');
             abort.style.setProperty('display', 'flex');
             abort.style.setProperty('justify-content', 'center');
@@ -145,13 +140,10 @@ export default Vue.extend<
             abortIcon.classList.add('fas', 'fa-times');
             abort.append(abortIcon);
 
-            const sync: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'bottom-left',
-                    mapId,
-                }
-            );
+            const sync = await rootStore.addOSMControl({
+                position: 'bottom-left',
+                mapId,
+            });
             sync.classList.add('btn', 'btn-default', 'btn-xs');
             sync.style.setProperty('width', 'auto');
             sync.style.setProperty('height', 'auto');

@@ -1,9 +1,7 @@
 import moment from 'moment';
 
 export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
-    moment.locale(LSSM.$store.state.lang);
-
-    LSSM.$store.commit('useFontAwesome');
+    moment.locale(LSSM.$stores.root.locale);
 
     const generationDate = moment(
         document

@@ -16,7 +16,7 @@
         </h1>
         <tabs :onSelect="selectTab">
             <tab :title="$m('overview.title')">
-                <tabs>
+                <tabs :on-select="selectOverviewTab">
                     <!-- List of attached buildings -->
                     <tab :title="$m('overview.buildings.title')">
                         <div
@@ -128,7 +128,7 @@
                                 <h2 class="overview-heading indented-title">
                                     {{ $m('overview.buildings.title') }}:
                                     {{
-                                        complex.buildings.length.toLocaleString()
+                                        attributedBuildings.length.toLocaleString()
                                     }}
                                     <small
                                         class="summary-icon"
@@ -788,7 +788,302 @@
                         :title="$m('overview.classrooms.title')"
                         v-if="hasClassroomBuildings"
                     >
-                        Classrooms and schoolings coming soon
+                        <h2 class="indented-title">
+                            {{ $m('overview.classrooms.title') }}
+                            <br />
+                            <small>
+                                {{
+                                    $m(
+                                        'overview.classrooms.subtitle',
+                                        classroomStats
+                                    )
+                                }}
+                            </small>
+                        </h2>
+                        <div class="classrooms-table">
+                            <div
+                                class="panel panel-default"
+                                v-for="building in schoolingBuildings"
+                                :key="building.id"
+                            >
+                                <div class="panel-heading">
+                                    <span
+                                        class="pull-right label label-default"
+                                    >
+                                        {{
+                                            buildingTypes[building.type].caption
+                                        }}
+                                    </span>
+                                    <img
+                                        loading="lazy"
+                                        :src="building.icon"
+                                        :alt="building.name"
+                                    />
+                                    <a
+                                        class="lightbox-open"
+                                        :href="`/buildings/${building.id}`"
+                                    >
+                                        {{ building.name }}
+                                    </a>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>
+                                                    {{
+                                                        $m(
+                                                            'overview.classrooms.table.running.title'
+                                                        )
+                                                    }}
+                                                </th>
+                                                <th>
+                                                    {{
+                                                        $m(
+                                                            'overview.classrooms.table.free'
+                                                        )
+                                                    }}
+                                                </th>
+                                                <th>
+                                                    {{
+                                                        $m(
+                                                            'overview.classrooms.table.countdown'
+                                                        )
+                                                    }}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr
+                                                v-for="schooling in building.schoolings"
+                                                :key="schooling.id"
+                                            >
+                                                <td>
+                                                    <a
+                                                        class="btn btn-success lightbox-open"
+                                                        :href="`/schoolings/${schooling.id}`"
+                                                    >
+                                                        {{
+                                                            schooling.education_title
+                                                        }}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="label"
+                                                        :class="{
+                                                            'label-success':
+                                                                schooling.running,
+                                                            'label-warning':
+                                                                !schooling.running,
+                                                        }"
+                                                    >
+                                                        {{
+                                                            $m(
+                                                                `overview.classrooms.table.running.${schooling.running}`
+                                                            )
+                                                        }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    {{ schooling.open_spaces }}
+                                                </td>
+                                                <td
+                                                    :id="schooling.countdownId"
+                                                ></td>
+                                            </tr>
+                                            <tr v-if="building.freeClassrooms">
+                                                <td colspan="4">
+                                                    {{
+                                                        $mc(
+                                                            'overview.classrooms.table.freeClassrooms',
+                                                            building.freeClassrooms
+                                                        )
+                                                    }}
+                                                    <a
+                                                        class="lightbox-open btn btn-success pull-right"
+                                                        :href="`/buildings/${building.id}`"
+                                                    >
+                                                        {{
+                                                            $m(
+                                                                'overview.classrooms.table.start'
+                                                            )
+                                                        }}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                v-if="
+                                                    building.classRoomsUnavailable
+                                                "
+                                            >
+                                                <td colspan="4">
+                                                    <span
+                                                        class="label label-default"
+                                                    >
+                                                        {{
+                                                            $mc(
+                                                                'overview.classrooms.table.unavailable',
+                                                                building.classRoomsUnavailable
+                                                            )
+                                                        }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+
+                    <!-- dispatch center protocol filtered by attached buildings -->
+                    <tab :title="$m('overview.protocol.title')">
+                        <enhanced-table
+                            :table-attrs="{ class: 'table table-striped' }"
+                            :head="{
+                                time: {
+                                    title: $m(
+                                        'overview.protocol.table.head.time'
+                                    ),
+                                },
+                                label: {
+                                    title: $m(
+                                        'overview.protocol.table.head.label'
+                                    ),
+                                },
+                                title: {
+                                    title: $m(
+                                        'overview.protocol.table.head.name'
+                                    ),
+                                },
+                                building: {
+                                    title: $m(
+                                        'overview.protocol.table.head.building'
+                                    ),
+                                },
+                                staff: {
+                                    title: $m(
+                                        'overview.protocol.table.head.staff'
+                                    ),
+                                },
+                                actions: {
+                                    title: '',
+                                    noSort: true,
+                                },
+                            }"
+                            :search="protocolTable.search"
+                            @search="s => (protocolTable.search = s)"
+                            :sort="protocolTable.sort"
+                            :sort-dir="protocolTable.sortDir"
+                            @sort="setSortProtocolTable"
+                        >
+                            <template v-slot:head>
+                                <h2 class="overview-heading indented-title">
+                                    {{ $m('overview.protocol.title') }}
+                                    <span
+                                        v-show="protocolUpdating"
+                                        class="protocol-update-info"
+                                    >
+                                        ({{ $m('overview.protocol.updating') }})
+                                    </span>
+                                    <br />
+                                    <small>
+                                        {{
+                                            $mc(
+                                                'overview.protocol.subtitle',
+                                                protocol.length,
+                                                {
+                                                    n: protocol.length.toLocaleString(),
+                                                }
+                                            )
+                                        }}
+                                    </small>
+                                </h2>
+                                <button
+                                    class="btn btn-sm btn-danger"
+                                    :disabled="
+                                        protocolDeletions.length ||
+                                        !protocol.length
+                                    "
+                                    @click="deleteAllProtocolEntries"
+                                >
+                                    <font-awesome-icon
+                                        :icon="faTrash"
+                                    ></font-awesome-icon>
+                                </button>
+                            </template>
+                            <tr
+                                v-for="protocolEntry in sortedProtocol"
+                                :key="protocolEntry.id"
+                            >
+                                <td>{{ protocolEntry.time.text }}</td>
+                                <td>
+                                    <label
+                                        v-if="protocolEntry.label"
+                                        :class="`label label-${protocolEntry.label.color}`"
+                                    >
+                                        {{ protocolEntry.label.text }}
+                                    </label>
+                                </td>
+                                <td>{{ protocolEntry.text }}</td>
+                                <td>
+                                    <a
+                                        :href="`/buildings/${protocolEntry.building.id}`"
+                                        class="lightbox-open"
+                                    >
+                                        {{ protocolEntry.building.name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <template
+                                        v-for="(
+                                            staff, building
+                                        ) in protocolEntry.staff"
+                                    >
+                                        <a
+                                            class="lightbox-open"
+                                            :href="`/buildings/${building}`"
+                                            :key="`${protocolEntry.id}_${building}`"
+                                        >
+                                            {{ buildings[building].caption }}
+                                        </a>
+                                        <ul
+                                            :key="`${protocolEntry.id}_${building}_li`"
+                                            class="protocol-staff-list"
+                                        >
+                                            <li
+                                                v-for="(name, index) in staff"
+                                                :key="index"
+                                            >
+                                                {{ name }}
+                                            </li>
+                                        </ul>
+                                    </template>
+                                </td>
+                                <td>
+                                    <button
+                                        class="btn btn-xs btn-danger"
+                                        :disabled="
+                                            protocolDeletions.includes(
+                                                protocolEntry.id
+                                            )
+                                        "
+                                        @click="
+                                            deleteProtocolEntry(
+                                                protocolEntry.id,
+                                                protocolEntry.dispatchId
+                                            )
+                                        "
+                                    >
+                                        <font-awesome-icon
+                                            :icon="faTrash"
+                                        ></font-awesome-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </enhanced-table>
                     </tab>
                 </tabs>
             </tab>
@@ -813,10 +1108,16 @@ import Vue from 'vue';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { mapState } from 'pinia';
+import moment from 'moment';
+import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
-import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Schooling } from 'typings/api/Schoolings';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
@@ -826,41 +1127,97 @@ import type {
 } from 'typings/Building';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
-type AttributedBuildingBeds =
-    | { hasBeds: false }
-    | { hasBeds: true; beds: number };
-type AttributedBuildingCells =
-    | { hasCells: false }
-    | { hasCells: true; cells: number; cellsUnavailable: number };
-type AttributedBuildingClassrooms =
-    | {
-          hasClassrooms: true;
-          classrooms: number;
-          classRoomsUnavailable: number;
-      }
-    | { hasClassrooms: false };
-type AttributedBuildingLevel =
-    | { hasLevel: false }
-    | { hasLevel: true; level: number };
-type AttributedBuildingStaff =
-    | {
-          hasStaff: true;
-          staff: number;
-          staffTarget?: number;
-          hiring_automatic: boolean;
-          hiring_phase: number;
-      }
-    | { hasStaff: false };
-type AttributedBuildingVehicles =
-    | { hasVehicles: false }
-    | { hasVehicles: true; vehicles: Vehicle[]; maxVehicles: number };
+type Maybe = boolean | unknown;
 
-type AttributedBuilding = AttributedBuildingBeds &
-    AttributedBuildingCells &
-    AttributedBuildingClassrooms &
-    AttributedBuildingLevel &
-    AttributedBuildingStaff &
-    AttributedBuildingVehicles & {
+type HasInterface<HasAttribute extends string> = Record<HasAttribute, true>;
+type HasNotInterface<HasAttribute extends string> = Record<HasAttribute, false>;
+type MaybeInterface<
+    HasInterface,
+    HasNotInterface,
+    Has extends Maybe = unknown
+> = Has extends true
+    ? HasInterface
+    : Has extends false
+    ? HasNotInterface
+    : HasInterface | HasNotInterface;
+
+type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & { beds: number };
+type AttributedBuildingHasNoBeds = HasNotInterface<'hasBeds'>;
+type AttributedBuildingBeds<HasBeds extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasBeds,
+    AttributedBuildingHasNoBeds,
+    HasBeds
+>;
+
+type AttributedBuildingHasCells = HasInterface<'hasCells'> & {
+    cells: number;
+    cellsUnavailable: number;
+};
+type AttributedBuildingHasNoCells = HasNotInterface<'hasCells'>;
+type AttributedBuildingCells<HasCells extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasCells,
+    AttributedBuildingHasNoCells,
+    HasCells
+>;
+
+type AttributedBuildingHasClassrooms = HasInterface<'hasClassrooms'> & {
+    classrooms: number;
+    classRoomsUnavailable: number;
+};
+type AttributedBuildingHasNoClassrooms = HasNotInterface<'hasClassrooms'>;
+type AttributedBuildingClassrooms<HasClassrooms extends Maybe = unknown> =
+    MaybeInterface<
+        AttributedBuildingHasClassrooms,
+        AttributedBuildingHasNoClassrooms,
+        HasClassrooms
+    >;
+
+type AttributedBuildingHasLevel = HasInterface<'hasLevel'> & { level: number };
+type AttributedBuildingHasNoLevel = HasNotInterface<'hasLevel'>;
+type AttributedBuildingLevel<HasLevel extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasLevel,
+    AttributedBuildingHasNoLevel,
+    HasLevel
+>;
+
+type AttributedBuildingHasStaff = HasInterface<'hasStaff'> & {
+    staff: number;
+    staffTarget?: number;
+    hiring_automatic: boolean;
+    hiring_phase: number;
+};
+type AttributedBuildingHasNoStaff = HasNotInterface<'hasStaff'>;
+type AttributedBuildingStaff<HasStaff extends Maybe = unknown> = MaybeInterface<
+    AttributedBuildingHasStaff,
+    AttributedBuildingHasNoStaff,
+    HasStaff
+>;
+
+type AttributedBuildingHasVehicles = HasInterface<'hasVehicles'> & {
+    vehicles: Vehicle[];
+    maxVehicles: number;
+};
+type AttributedBuildingHasNoVehicles = HasNotInterface<'hasVehicles'>;
+type AttributedBuildingVehicles<HasVehicles extends Maybe = unknown> =
+    MaybeInterface<
+        AttributedBuildingHasVehicles,
+        AttributedBuildingHasNoVehicles,
+        HasVehicles
+    >;
+
+type AttributedBuilding<
+    HasBeds extends Maybe = unknown,
+    HasCells extends Maybe = unknown,
+    HasClassrooms extends Maybe = unknown,
+    HasLevel extends Maybe = unknown,
+    HasStaff extends Maybe = unknown,
+    HasVehicles extends Maybe = unknown
+> = AttributedBuildingBeds<HasBeds> &
+    AttributedBuildingCells<HasCells> &
+    AttributedBuildingClassrooms<HasClassrooms> &
+    AttributedBuildingLevel<HasLevel> &
+    AttributedBuildingStaff<HasStaff> &
+    AttributedBuildingVehicles<HasVehicles> & {
         alliance: boolean;
         id: number;
         type: number;
@@ -870,6 +1227,8 @@ type AttributedBuilding = AttributedBuildingBeds &
         extensions: Extension[];
         leitstelle: number | null;
     };
+
+type ClassroomBuilding = AttributedBuilding<unknown, unknown, true>;
 
 interface AttributedVehicle {
     id: number;
@@ -902,6 +1261,15 @@ type AttributedExtension = {
       } & ({ canBuy: false; requirements: string[] } | { canBuy: true }))
 );
 
+type SchoolingBuilding = ClassroomBuilding & {
+    schoolings: (Schooling & {
+        countdownId: string;
+        initCountdown(): void;
+    })[];
+    classroomsAvailable: number;
+    freeClassrooms: number;
+};
+
 type BuildingSortAttribute =
     | 'beds'
     | 'cells'
@@ -924,13 +1292,33 @@ type ExtensionStateFilters =
     | 'enabled'
     | 'underConstruction';
 
+interface ProtocolEntry {
+    id: number;
+    dispatchId: number;
+    time: {
+        timestamp: number;
+        text: string;
+    };
+    label?: {
+        color: string;
+        text: string;
+    };
+    text: string;
+    building: { id: number; name: string };
+    staff: Record<number, string[]>;
+}
+
+type ProtocolSortAttribute = 'building' | 'label' | 'staff' | 'time' | 'title';
+
 export default Vue.extend<
     {
         faCircleInfo: IconDefinition;
         faPencilAlt: IconDefinition;
+        faTrash: IconDefinition;
         buildingTypes: Record<number, InternalBuilding>;
         vehicleTypes: Record<number, InternalVehicle>;
         currentBuildingId: number;
+        currentOverviewTab: number;
         buildingsTable: {
             search: string;
             sort: BuildingSortAttribute;
@@ -954,15 +1342,30 @@ export default Vue.extend<
             };
         };
         tempDisableAllExtensionButtons: boolean;
+        protocol: ProtocolEntry[];
+        protocolUpdating: boolean;
+        protocolDeletions: number[];
+        protocolDeletionTimeout: number | null;
+        protocolTable: {
+            search: string;
+            sort: ProtocolSortAttribute;
+            sortDir: 'asc' | 'desc';
+        };
+        apiStore: ReturnType<typeof useAPIStore>;
+        rootStore: ReturnType<typeof useRootStore>;
+        translationStore: ReturnType<typeof useTranslationStore>;
+        moment: typeof moment;
     },
     {
         selectTab(event: MouseEvent, index: number): void;
+        selectOverviewTab(event: MouseEvent, index: number): void;
         updateIframe(event: Event): void;
         openSettings(): void;
         toggleVehicleFMS(vehicle: AttributedVehicle): void;
         setSortBuildingsTable(sort: BuildingSortAttribute): void;
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
         setSortExtensionsTable(sort: ExtensionSortAttribute): void;
+        setSortProtocolTable(sort: ProtocolSortAttribute): void;
         buyExtension(
             buildingId: number,
             extensionType: number,
@@ -976,11 +1379,16 @@ export default Vue.extend<
         updateExtensionsFilterStates(
             states: (ExtensionStateFilters | '*')[]
         ): void;
+        initSchoolingCountdowns(): void;
+        updateProtocol(): void;
+        deleteProtocolEntry(id: number, dispatchCenter: number): void;
+        deleteAllProtocolEntries(): void;
     },
     {
         buildings: Record<number, Building>;
         allianceBuildings: Record<number, Building>;
         vehiclesByBuilding: Record<number, Vehicle[]>;
+        allSchoolings: Schooling[];
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
         sortedBuildingIdsByName: number[];
@@ -989,11 +1397,18 @@ export default Vue.extend<
         hasLevelBuildings: boolean;
         hasStaffBuildings: boolean;
         hasBedBuildings: boolean;
-        classroomBuildings: AttributedBuilding[];
+        classroomBuildings: ClassroomBuilding[];
         hasClassroomBuildings: boolean;
         hasCellBuildings: boolean;
         hasVehicleBuildings: boolean;
         hasAllianceAndPrivateBuildings: boolean;
+        overviewTabs: {
+            buildings: 0;
+            vehicles: number;
+            extensions: number;
+            classrooms: number;
+            protocol: number;
+        };
         buildingTypeAmounts: [string, number][];
         vehicles: AttributedVehicle[];
         filteredVehicles: AttributedVehicle[];
@@ -1019,6 +1434,15 @@ export default Vue.extend<
             value: ExtensionStateFilters | '*';
         }[];
         userHasAllianceFinanceRights: boolean;
+        schoolings: Schooling[];
+        schoolingBuildings: SchoolingBuilding[];
+        classroomStats: {
+            total: number;
+            unavailable: number;
+            free: number;
+        };
+        filteredProtocol: ProtocolEntry[];
+        sortedProtocol: ProtocolEntry[];
     },
     {
         complexIndex: number;
@@ -1048,18 +1472,15 @@ export default Vue.extend<
             ),
     },
     data() {
+        const translationStore = useTranslationStore();
         return {
             faCircleInfo,
             faPencilAlt,
-            buildingTypes: this.$store.getters.$tBuildings as Record<
-                number,
-                InternalBuilding
-            >,
-            vehicleTypes: this.$store.getters.$tVehicles as Record<
-                number,
-                InternalVehicle
-            >,
+            faTrash,
+            buildingTypes: translationStore.buildings,
+            vehicleTypes: translationStore.vehicles,
             currentBuildingId: 0,
+            currentOverviewTab: 0,
             buildingsTable: {
                 search: '',
                 sort: 'name',
@@ -1083,18 +1504,28 @@ export default Vue.extend<
                 },
             },
             tempDisableAllExtensionButtons: false,
+            protocol: [],
+            protocolUpdating: false,
+            protocolDeletions: [],
+            protocolDeletionTimeout: null,
+            protocolTable: {
+                search: '',
+                sort: 'time',
+                sortDir: 'asc',
+            },
+            apiStore: useAPIStore(),
+            rootStore: useRootStore(),
+            translationStore,
+            moment,
         };
     },
     computed: {
-        buildings() {
-            return this.$store.getters['api/buildingsById'];
-        },
-        allianceBuildings() {
-            return this.$store.getters['api/allianceBuildingsById'];
-        },
-        vehiclesByBuilding() {
-            return this.$store.getters['api/vehiclesByBuilding'];
-        },
+        ...mapState(defineAPIStore, {
+            buildings: 'buildingsById',
+            allianceBuildings: 'allianceBuildingsById',
+            vehiclesByBuilding: 'vehiclesByBuilding',
+            allSchoolings: store => store.schoolings.result,
+        }),
         attributedBuildings() {
             const smallBuildings = this.$t(
                 'small_buildings'
@@ -1367,7 +1798,8 @@ export default Vue.extend<
         },
         classroomBuildings() {
             return this.attributedBuildings.filter(
-                ({ hasClassrooms }) => hasClassrooms
+                (building): building is ClassroomBuilding =>
+                    building.hasClassrooms
             );
         },
         hasClassroomBuildings() {
@@ -1388,6 +1820,22 @@ export default Vue.extend<
                 this.complex.buildings.length &&
                 this.complex.allianceBuildings.length
             );
+        },
+        overviewTabs() {
+            const vehiclesTab = this.hasVehicleBuildings ? 1 : 0;
+            const extensionsTab = vehiclesTab + 1;
+            const classroomTab = this.hasClassroomBuildings
+                ? extensionsTab + 1
+                : -1;
+            const protocolTab =
+                classroomTab > 0 ? classroomTab + 1 : extensionsTab + 1;
+            return {
+                buildings: 0,
+                vehicles: vehiclesTab || -1,
+                extensions: extensionsTab,
+                classrooms: classroomTab,
+                protocol: protocolTab,
+            };
         },
         buildingTypeAmounts() {
             const types: Record<string, number> = {};
@@ -1535,7 +1983,7 @@ export default Vue.extend<
                                 maxExtensionsFunctionResults[buildingTypeId][
                                     index
                                 ] ??= extensionType.maxExtensionsFunction(
-                                    this.$store.getters['api/buildingsByType']
+                                    this.apiStore.buildingsByType
                                 );
                             }
 
@@ -1610,15 +2058,12 @@ export default Vue.extend<
                                           coins: extensionType.coins,
                                           enoughCredits:
                                               (alliance
-                                                  ? (
-                                                        this.$store.state.api
-                                                            .allianceinfo as AllianceInfo
-                                                    ).credits_current
-                                                  : this.$store.state
-                                                        .credits) >=
+                                                  ? this.apiStore.allianceinfo
+                                                        ?.credits_current ?? 0
+                                                  : this.rootStore.credits) >=
                                               extensionType.credits,
                                           enoughCoins:
-                                              this.$store.state.coins >=
+                                              this.rootStore.coins >=
                                               extensionType.coins,
                                       }),
                             };
@@ -1912,12 +2357,118 @@ export default Vue.extend<
             ];
         },
         userHasAllianceFinanceRights() {
-            const allianceUserRoleFlags = (
-                this.$store.state.api.allianceinfo as AllianceInfo
-            ).users.find(({ id }) => id === window.user_id)?.role_flags;
+            const allianceUserRoleFlags =
+                this.apiStore.allianceinfo?.users.find(
+                    ({ id }) => id === window.user_id
+                )?.role_flags;
             return !!(
                 allianceUserRoleFlags?.admin || allianceUserRoleFlags?.finance
             );
+        },
+        schoolings() {
+            return this.allSchoolings.filter(({ building_id }) =>
+                this.complex.buildings.includes(building_id.toString())
+            );
+        },
+        schoolingBuildings() {
+            return this.classroomBuildings.map(building => {
+                const classroomsAvailable =
+                    building.classrooms - building.classRoomsUnavailable;
+                const schoolings = this.schoolings
+                    .filter(({ building_id }) => building_id === building.id)
+                    .map(schooling => {
+                        const countdownId = this.rootStore.nodeAttribute(
+                            `buildingComplex-schoolings-countdown-${schooling.id}`,
+                            true
+                        );
+                        return {
+                            ...schooling,
+                            countdownId,
+                            initCountdown: () =>
+                                this.$utils.countdown(
+                                    countdownId,
+                                    Math.floor(
+                                        (new Date(
+                                            schooling.finish_time
+                                        ).getTime() -
+                                            Date.now()) /
+                                            1000
+                                    )
+                                ),
+                        };
+                    })
+                    .sort(
+                        (a, b) =>
+                            new Date(a.finish_time).getTime() -
+                            new Date(b.finish_time).getTime()
+                    );
+                return {
+                    ...building,
+                    schoolings,
+                    classroomsAvailable,
+                    freeClassrooms: classroomsAvailable - schoolings.length,
+                };
+            });
+        },
+        classroomStats() {
+            const stats = { total: 0, unavailable: 0, free: 0 };
+            this.schoolingBuildings.forEach(
+                ({ classrooms, classRoomsUnavailable, freeClassrooms }) => {
+                    stats.total += classrooms;
+                    stats.unavailable += classRoomsUnavailable;
+                    stats.free += freeClassrooms;
+                }
+            );
+            return stats;
+        },
+        filteredProtocol() {
+            return this.protocolTable.search
+                ? this.protocol.filter(entry =>
+                      JSON.stringify(Object.values(entry))
+                          .toLowerCase()
+                          .includes(this.protocolTable.search.toLowerCase())
+                  )
+                : this.protocol;
+        },
+        sortedProtocol() {
+            return [...this.filteredProtocol].sort((entryA, entryB) => {
+                // Workaround for TypeScript <3
+                const getSortValue = (entry: ProtocolEntry) => {
+                    switch (this.protocolTable.sort) {
+                        case 'building':
+                            return entry.building.name;
+                        case 'label':
+                            return `${entry.label?.color}-${entry.label?.text}`;
+                        case 'staff':
+                            return Object.values(entry.staff)
+                                .map(s => s.length)
+                                .reduce((a, b) => a + b, 0);
+                        case 'time':
+                            return entry.time.timestamp;
+                        case 'title':
+                            return entry.text;
+                    }
+                };
+                const attributeA = getSortValue(entryA);
+                const attributeB = getSortValue(entryB);
+
+                let result = 0;
+
+                if (
+                    typeof attributeA === 'number' &&
+                    typeof attributeB === 'number'
+                )
+                    result = attributeA - attributeB;
+                else if (
+                    typeof attributeA === 'string' &&
+                    typeof attributeB === 'string'
+                )
+                    result = attributeA.localeCompare(attributeB);
+
+                if (this.protocolTable.sortDir === 'desc') result *= -1;
+
+                return result;
+            });
         },
     },
     methods: {
@@ -1927,6 +2478,28 @@ export default Vue.extend<
                 'currentBuildingId',
                 this.sortedBuildingIdsByName[index - 1]
             );
+            if (!index) this.selectOverviewTab(event, 0);
+        },
+        selectOverviewTab(event, index) {
+            this.currentOverviewTab = index;
+            switch (index) {
+                case this.overviewTabs.classrooms:
+                    this.apiStore
+                        .getSchoolings('buildingComplex')
+                        .then(() => this.$nextTick())
+                        .then(() => this.initSchoolingCountdowns());
+                    break;
+                case this.overviewTabs.buildings:
+                case this.overviewTabs.extensions:
+                    this.apiStore.getBuildings('buildingComplex');
+                    break;
+                case this.overviewTabs.vehicles:
+                    this.apiStore.getBuildings('buildingComplex');
+                    break;
+                case this.overviewTabs.protocol:
+                    this.updateProtocol();
+                    break;
+            }
         },
         updateIframe(event) {
             const iframe = event.target;
@@ -1976,19 +2549,12 @@ export default Vue.extend<
             if (![2, 6].includes(vehicle.fms_real)) return;
             const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
             const feature = 'buildingComplex-setFMS';
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
                     feature,
                 })
-                .then(() => {
-                    this.$store
-                        .dispatch('api/fetchVehicle', {
-                            id: vehicle.id,
-                            feature,
-                        })
-                        .then();
-                });
+                .then(() => this.apiStore.getVehicle(vehicle.id, feature));
         },
         setSortBuildingsTable(sort) {
             const s = sort;
@@ -2017,6 +2583,15 @@ export default Vue.extend<
                     : 'asc';
             this.extensionsTable.sort = s;
         },
+        setSortProtocolTable(sort) {
+            const s = sort;
+            this.protocolTable.sortDir =
+                s === this.protocolTable.sort &&
+                this.protocolTable.sortDir === 'asc'
+                    ? 'desc'
+                    : 'asc';
+            this.protocolTable.sort = s;
+        },
         buyExtension(
             buildingId,
             extensionType,
@@ -2034,8 +2609,8 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-build-extension';
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
                     init: {
                         headers: {
@@ -2047,31 +2622,16 @@ export default Vue.extend<
                     },
                     feature,
                 })
+                .then(() =>
+                    this.apiStore[
+                        allianceBuilding ? 'getAllianceBuilding' : 'getBuilding'
+                    ](buildingId, feature)
+                )
                 .then(() => {
-                    this.$store
-                        .dispatch(
-                            `api/${
-                                allianceBuilding
-                                    ? 'fetchAllianceBuilding'
-                                    : 'fetchBuilding'
-                            }`,
-                            {
-                                id: buildingId,
-                                feature,
-                            }
-                        )
-                        .then(() => {
-                            this.tempDisableAllExtensionButtons = false;
-                            if (method === 'credits') {
-                                window.creditsUpdate(
-                                    this.$store.state.credits - price
-                                );
-                            } else {
-                                window.coinsUpdate(
-                                    this.$store.state.coins - price
-                                );
-                            }
-                        });
+                    this.tempDisableAllExtensionButtons = false;
+                    if (method === 'credits')
+                        window.creditsUpdate(this.rootStore.credits - price);
+                    else window.coinsUpdate(this.rootStore.coins - price);
                 });
         },
         toggleExtension(buildingId, extensionType) {
@@ -2085,8 +2645,8 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-toggle-extension';
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
                     init: {
                         headers: {
@@ -2098,15 +2658,9 @@ export default Vue.extend<
                     },
                     feature,
                 })
+                .then(() => this.apiStore.getBuilding(buildingId, feature))
                 .then(() => {
-                    this.$store
-                        .dispatch('api/fetchBuilding', {
-                            id: buildingId,
-                            feature,
-                        })
-                        .then(() => {
-                            this.tempDisableAllExtensionButtons = false;
-                        });
+                    this.tempDisableAllExtensionButtons = false;
                 });
         },
         updateExtensionsFilterNames(names) {
@@ -2150,6 +2704,159 @@ export default Vue.extend<
                     states.filter(removeAllElement);
             }
         },
+        initSchoolingCountdowns() {
+            if (this.currentOverviewTab !== this.overviewTabs.classrooms)
+                return;
+            this.schoolingBuildings.forEach(({ schoolings }) =>
+                schoolings.forEach(schooling => schooling.initCountdown())
+            );
+        },
+        updateProtocol() {
+            const dispatchCenterTypes =
+                this.translationStore.dispatchCenterBuildings;
+            const dispatchCenterBuilding = this.apiStore.buildings.find(
+                ({ building_type }) =>
+                    dispatchCenterTypes.includes(building_type)
+            );
+            if (!dispatchCenterBuilding) return;
+            if (this.protocolDeletionTimeout)
+                window.clearTimeout(this.protocolDeletionTimeout);
+            this.protocolDeletionTimeout = window.setTimeout(() => {
+                this.protocolUpdating = true;
+                this.apiStore
+                    .request({
+                        url: `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
+                        feature: 'buildingComplex',
+                    })
+                    .then(res => res.text())
+                    .then(html => {
+                        const protocolDocument =
+                            new DOMParser().parseFromString(html, 'text/html');
+                        const attachedBuildingsSelector = this.complex.buildings
+                            .map(
+                                buildingId =>
+                                    `a[href="/buildings/${buildingId}"]`
+                            )
+                            .join(', ');
+                        const protocolEntries: ProtocolEntry[] = [];
+                        protocolDocument
+                            .querySelectorAll<HTMLTableRowElement>(
+                                '#protocol_table tbody tr'
+                            )
+                            .forEach(row => {
+                                if (
+                                    !row.querySelector(
+                                        attachedBuildingsSelector
+                                    )
+                                )
+                                    return;
+                                const label =
+                                    row.querySelector<HTMLSpanElement>(
+                                        'td:nth-child(2) .label'
+                                    );
+                                const buildingEl =
+                                    row.querySelector<HTMLAnchorElement>(
+                                        'td:nth-child(4) a'
+                                    );
+                                const staff: Record<number, string[]> = {};
+                                row.querySelectorAll<HTMLLIElement>(
+                                    'td:nth-child(5) ul li'
+                                ).forEach(staffLi => {
+                                    const name = Array.from(staffLi.childNodes)
+                                        .filter(
+                                            node =>
+                                                node.nodeType === Node.TEXT_NODE
+                                        )
+                                        .map(node =>
+                                            node.textContent
+                                                ?.trim()
+                                                .replace(/^-|\.$/gu, '')
+                                                .trim()
+                                        )
+                                        .join(' ');
+                                    const buildingId = parseInt(
+                                        staffLi
+                                            .querySelector<HTMLAnchorElement>(
+                                                'a'
+                                            )
+                                            ?.href.match(/\d+$/u)?.[0] ?? '-1'
+                                    );
+                                    if (!staff.hasOwnProperty(buildingId))
+                                        staff[buildingId] = [];
+                                    staff[buildingId].push(name);
+                                });
+                                protocolEntries.push({
+                                    id: parseInt(
+                                        row.id.match(/\d+$/u)?.[0] ?? '-1'
+                                    ),
+                                    dispatchId: dispatchCenterBuilding.id,
+                                    time: {
+                                        timestamp: new Date(
+                                            row.dataset.logTime ?? -1
+                                        ).getTime(),
+                                        text: this.moment(
+                                            row.dataset.logTime ?? -1
+                                        ).format('ddd, DD.MM LT'),
+                                    },
+                                    label: label
+                                        ? {
+                                              color:
+                                                  label.classList
+                                                      .toString()
+                                                      .match(
+                                                          /danger|default|info|link|success|warning/u
+                                                      )?.[0]
+                                                      .toString() ?? 'default',
+                                              text:
+                                                  label.textContent?.trim() ??
+                                                  '',
+                                          }
+                                        : undefined,
+                                    text:
+                                        row.children[2].textContent?.trim() ??
+                                        '',
+                                    building: {
+                                        id: parseInt(
+                                            buildingEl?.href.match(
+                                                /\d+$/u
+                                            )?.[0] ?? '-1'
+                                        ),
+                                        name:
+                                            buildingEl?.textContent?.trim() ??
+                                            '',
+                                    },
+                                    staff,
+                                });
+                            });
+                        this.protocol = protocolEntries;
+                        this.protocolUpdating = false;
+                    });
+            }, 100);
+        },
+        deleteProtocolEntry(id, dispatchId) {
+            this.protocolDeletions.push(id);
+            this.apiStore
+                .request({
+                    url: `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
+                    feature: 'buildingComplex',
+                })
+                .then(() => {
+                    this.protocol.splice(
+                        this.protocol.findIndex(p => p.id === id),
+                        1
+                    );
+                    this.updateProtocol();
+                    this.protocolDeletions.splice(
+                        this.protocolDeletions.findIndex(p => p === id),
+                        1
+                    );
+                });
+        },
+        deleteAllProtocolEntries() {
+            this.protocol.forEach(({ id, dispatchId }) =>
+                this.deleteProtocolEntry(id, dispatchId)
+            );
+        },
     },
     props: {
         complexIndex: {
@@ -2189,8 +2896,15 @@ export default Vue.extend<
             required: true,
         },
     },
+    beforeMount() {
+        this.moment.locale(useRootStore().locale);
+        this.apiStore.getBuildings('buildingComplex');
+    },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
+        this.apiStore.$subscribe(() =>
+            this.$nextTick().then(() => this.initSchoolingCountdowns())
+        );
     },
 });
 </script>
@@ -2262,12 +2976,28 @@ export default Vue.extend<
     top: calc(2% + 1rem)
     right: calc(2% + 1rem)
     z-index: 1
+    max-height: calc(96% - 2rem)
+    overflow: auto
 
     > ul
         padding-left: 0
         list-style: none
+        margin-right: 1em
 
     .close
         opacity: 1
         color: white
+
+.classrooms-table
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
+    grid-gap: 1em
+
+.protocol-update-info
+    font-size: small
+
+.protocol-staff-list
+    &,
+    & li
+        list-style: none
 </style>
