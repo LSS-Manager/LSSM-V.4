@@ -82,17 +82,17 @@
                 "underConstruction": "in aanbout"
             },
             "protocol": {
-                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "subtitle": "geen relevante acties | 1 relevante actie | {n} relevante acties",
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "label": "Category",
-                        "name": "Name",
-                        "staff": "Staff",
-                        "time": "Timestamp"
+                        "building": "Gebouw",
+                        "label": "Categorie",
+                        "name": "Naam",
+                        "staff": "Personeel",
+                        "time": "Tijdstip"
                     }
                 },
-                "title": "Protocol",
+                "title": "Afrondingsgeschiedenis",
                 "updating": "Updating..."
             },
             "title": "Overzicht",
