@@ -677,32 +677,30 @@ If several requests fail in a short time, this could be due to server problems. 
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        'Fire Vehicles': {
             vehicles: {
-                'Fire trucks': [0, 1, 19],
-                'Bushfire': [28, 29, 30, 31, 32, 33],
-                'WaterTanker': [6],
-                'Special vehicles': [2, 3, 4, 7, 10, 11, 12, 13],
+                'Fire Trucks': [0, 1, 12, 13, 19, 30],
+                'Bush-Fire Units': [28, 29, 31, 32, 33],
+                'Special Vehicles': [2, 3, 4, 6, 7, 10, 11],
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        'Ambulance Vehicles': {
             vehicles: {
                 'Ambulances': [5],
-                'Air Ambulance': [9],
-                'Other Rescue Vehicles': [23, 24, 25, 26, 27],
+                'Intensive Care Vehicles': [9, 24, 25],
+                'Other Ambulance Vehicles': [23, 26, 27],
             },
             color: '#ffa500',
         },
         'Police Vehicles': {
             vehicles: {
-                'Police Car': [8],
+                'Police Cars': [8, 17],
                 'TOG': [15, 18],
-                'Police Motorcycle': [17],
-                'Police helicopter': [14],
+                'Police Helicopter': [14],
                 'K-9 Unit': [16],
                 'Mounted': [22],
-                'RIOT': [34, 35, 36],
+                'RIOT Units': [34, 35, 36],
                 'Senior Sergeant': [37],
             },
             color: '#00ac00',
@@ -921,6 +919,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Campsite',
         'Cliff',
         'Sawmill',
+        'Mine',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
