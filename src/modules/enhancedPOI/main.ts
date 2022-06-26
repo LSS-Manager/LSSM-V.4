@@ -189,7 +189,6 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                 );
 
                 poiTypeSelect.value = lastSavedPOIType;
-                poiTypeSelect.dispatchEvent(new Event('change'));
 
                 poiTypeSelect.addEventListener('change', () => {
                     colorMarkers(
@@ -199,6 +198,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                     setSetting('lastSavedPOIType', poiTypeSelect.value);
                     lastSavedPOIType = poiTypeSelect.value;
                 });
+
+                poiTypeSelect.dispatchEvent(new Event('change'));
             }
             const settingsWrapper = document.createElement('div');
             settingsWrapper.style.paddingLeft = paddingLeftPOI;
