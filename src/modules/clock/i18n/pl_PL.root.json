@@ -7,7 +7,7 @@
             "title": "Pokaż zegar na pasku nawigacyjnym"
         },
         "displayOverlay": {
-            "description": "Zegar można przesuwać i powinien znajdować się przed wszystkimi innymi elementami",
+            "description": "Zegar można przesuwać i powinien znajdować się przed wszystkimi innymi elementami.",
             "title": "Pokaż zegar jako nakładkę"
         },
         "navFormat": {
