@@ -679,23 +679,23 @@ If several requests fail in a short time, this could be due to server problems. 
     vehicleCategories: {
         'Firefighters': {
             vehicles: {
-                'Fire trucks': [0, 1, 12, 13, 19, 30],
-                'Bushfire': [28, 29, 31, 32, 33],
-                'Special vehicles': [2, 3, 4, 6, 7, 10, 11],
+                'Fire Trucks': [0, 1, 12, 13, 19, 30],
+                'Bush-Fire Units': [28, 29, 31, 32, 33],
+                'Special Vehicles': [2, 3, 4, 6, 7, 10, 11],
             },
             color: '#ff2d2d',
         },
         'Rescue Vehicles': {
             vehicles: {
                 'Ambulances': [5],
-                'Intensive Care': [9, 24, 25],
-                'Other Rescue Vehicles': [23, 26, 27],
+                'Intensive Care Vehicles': [9, 24, 25],
+                'Other Ambulance Vehicles': [23, 26, 27],
             },
             color: '#ffa500',
         },
         'Police Vehicles': {
             vehicles: {
-                'Police Car': [8, 17],
+                'Police Cars': [8, 17],
                 'TOG': [15, 18],
                 'Police Helicopter': [14],
                 'K-9 Unit': [16],
