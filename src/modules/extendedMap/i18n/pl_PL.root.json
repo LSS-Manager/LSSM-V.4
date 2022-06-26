@@ -21,7 +21,6 @@
         },
         "centerMapStaticLocation": {
             "description": "Umożliwia wybranie punktu, wzklędem którego będzie centrowana mapa.",
-            
             "title": "Statyczny środek mapy: Pozycja"
         },
         "centerMapType": {
