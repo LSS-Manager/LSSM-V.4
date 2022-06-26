@@ -100,8 +100,8 @@ import Vue from 'vue';
 import { mapState } from 'pinia';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 import { useModulesStore } from '@stores/modules';
-import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
+import { defineRootStore, useRootStore } from '@stores/index';
 
 import lssmLogo from './img/lssm.png';
 
@@ -217,7 +217,7 @@ export default Vue.extend<
         };
     },
     computed: {
-        ...mapState(useRootStore, ['menuItems']),
+        ...mapState(defineRootStore, ['menuItems']),
         mode() {
             return MODE;
         },

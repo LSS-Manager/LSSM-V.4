@@ -18,7 +18,7 @@ import type { Building, BuildingCategory } from 'typings/Building';
 const API_MIN_UPDATE = 5 * 60 * 1000; // 5 Minutes
 const MISSIONS_STORAGE_KEY = `${PREFIX}_missionSpecsStorage`;
 
-export const useAPIStore = defineStore('api', {
+export const defineAPIStore = defineStore('api', {
     state: () =>
         <APIState>{
             buildings: [],
@@ -831,3 +831,6 @@ export const useAPIStore = defineStore('api', {
         },
     },
 });
+
+export const useAPIStore: () => ReturnType<typeof defineAPIStore> = () =>
+    (window[PREFIX] as Vue)?.$stores?.api ?? defineAPIStore();

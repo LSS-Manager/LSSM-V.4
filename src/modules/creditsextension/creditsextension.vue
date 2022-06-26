@@ -184,7 +184,7 @@ import { faPiggyBank } from '@fortawesome/free-solid-svg-icons/faPiggyBank';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
-import { useRootStore } from '@stores/index';
+import { defineRootStore, useRootStore } from '@stores/index';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';
@@ -293,7 +293,7 @@ export default Vue.extend<
         },
     },
     computed: {
-        ...mapState(useRootStore, ['credits', 'coins']),
+        ...mapState(defineRootStore, ['credits', 'coins']),
         creditsLocalized() {
             return this.credits.toLocaleString();
         },

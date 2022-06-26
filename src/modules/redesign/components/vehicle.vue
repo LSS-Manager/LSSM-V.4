@@ -1088,6 +1088,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { defineAPIStore } from '@stores/api';
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
@@ -1098,7 +1099,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
-import { useAPIStore } from '@stores/api';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -1294,7 +1294,7 @@ export default Vue.extend<
         };
     },
     computed: {
-        ...mapState(useAPIStore, {
+        ...mapState(defineAPIStore, {
             participated_missions: 'participatedMissions',
         }),
         mission_head() {

@@ -1,10 +1,12 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 
 import config from '../config';
 
 import type { Modules } from 'typings/Module';
 
-export const useModulesStore = defineStore('modules', {
+export const defineModulesStore = defineStore('modules', {
     state: () => ({
         modules: MODULE_REGISTER_FILES as Modules,
         appstore: {
@@ -38,3 +40,7 @@ export const useModulesStore = defineStore('modules', {
         },
     },
 });
+
+export const useModulesStore: () => ReturnType<
+    typeof defineModulesStore
+> = () => (window[PREFIX] as Vue)?.$stores?.modules ?? defineModulesStore();

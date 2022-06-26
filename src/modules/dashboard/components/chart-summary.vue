@@ -81,10 +81,10 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
 import { mapState } from 'pinia';
-import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import type { BuildingCategory } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
@@ -168,7 +168,7 @@ export default Vue.extend<
         } as ChartSummary;
     },
     computed: {
-        ...mapState(useAPIStore, {
+        ...mapState(defineAPIStore, {
             personalCount: store =>
                 store.buildings
                     .map(b => b.personal_count)

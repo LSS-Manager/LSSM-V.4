@@ -130,6 +130,7 @@
 import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
+import { defineAPIStore } from '@stores/api';
 import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
 import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
 import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
@@ -137,7 +138,6 @@ import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
-import { useAPIStore } from '@stores/api';
 import { useTranslationStore } from '@stores/translationUtilities';
 
 import type {
@@ -195,7 +195,7 @@ export default Vue.extend<
         parent() {
             return this.$el.parentElement;
         },
-        ...mapState(useAPIStore, {
+        ...mapState(defineAPIStore, {
             buildings: 'buildings',
             vehicles: 'vehiclesByBuilding',
         }),
