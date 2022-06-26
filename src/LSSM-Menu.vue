@@ -103,8 +103,6 @@ import { useModulesStore } from '@stores/modules';
 import { useSettingsStore } from '@stores/settings';
 import { defineRootStore, useRootStore } from '@stores/index';
 
-import lssmLogo from './img/lssm.png';
-
 import type { DefaultProps } from 'vue/types/options';
 import type {
     lssmMenuComputed,
@@ -198,7 +196,7 @@ export default Vue.extend<
             iconBg: rootStore.isPoliceChief ? '#004997' : '#C9302C',
             iconBgAsNavBg: false,
             labelInMenu: false,
-            lssmLogo: rootStore.lssmUrl(lssmLogo, true),
+            lssmLogo: rootStore.lssmLogoUrl,
             navbg: {
                 svg: document.createElementNS(
                     'http://www.w3.org/2000/svg',
