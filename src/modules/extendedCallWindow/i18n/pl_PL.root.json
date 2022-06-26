@@ -82,7 +82,7 @@
             "title": "Minimalizuj pacjentów: minimalna ilość"
         },
         "emvMaxStaff": {
-            "description": "\Tabela oblicza liczbę presonelu wybranego na misję z maksymalną liczbą przypisanego personelu.",
+            "description": "Tabela oblicza liczbę presonelu wybranego na misję z maksymalną liczbą przypisanego personelu.",
             "title": "Maksymalna liczba personelu"
         },
         "enhancedMissingVehicles": {
