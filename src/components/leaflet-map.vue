@@ -5,8 +5,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { defineRootStore } from '@stores/index';
 import { mapState } from 'pinia';
-import { useRootStore } from '@stores/index';
 
 import type {
     MapComputed,
@@ -48,7 +48,7 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
         },
     },
     computed: {
-        ...mapState(useRootStore, {
+        ...mapState(defineRootStore, {
             mapId(store) {
                 return store.nodeAttribute(`map-${this.id.toString()}`, true);
             },

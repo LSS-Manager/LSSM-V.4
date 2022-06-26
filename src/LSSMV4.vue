@@ -47,9 +47,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { defineNotificationStore } from '@stores/notifications';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { mapState } from 'pinia';
-import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
@@ -71,7 +71,7 @@ export default Vue.extend<
         };
     },
     computed: {
-        ...mapState(useNotificationStore, {
+        ...mapState(defineNotificationStore, {
             notificationGroups: 'groups',
         }),
     },

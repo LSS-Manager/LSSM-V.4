@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 import { useStorageStore } from '@stores/storage';
 
@@ -9,7 +11,7 @@ import type {
     SettingsSet,
 } from 'typings/store/settings/Actions';
 
-export const useSettingsStore = defineStore('settings', {
+const settingsStore = defineStore('settings', {
     state: () =>
         <SettingsState>{
             settings: {},
@@ -149,3 +151,6 @@ export const useSettingsStore = defineStore('settings', {
         },
     },
 });
+
+export const useSettingsStore: () => ReturnType<typeof settingsStore> = () =>
+    (window[PREFIX] as Vue)?.$stores?.settings ?? settingsStore();

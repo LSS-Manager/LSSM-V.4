@@ -1111,9 +1111,9 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
 import moment from 'moment';
-import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -1520,7 +1520,7 @@ export default Vue.extend<
         };
     },
     computed: {
-        ...mapState(useAPIStore, {
+        ...mapState(defineAPIStore, {
             buildings: 'buildingsById',
             allianceBuildings: 'allianceBuildingsById',
             vehiclesByBuilding: 'vehiclesByBuilding',

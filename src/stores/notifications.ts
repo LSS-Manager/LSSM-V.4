@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 
 import lssm_logo from '../img/lssm_logo';
@@ -5,7 +7,7 @@ import lssm_logo from '../img/lssm_logo';
 import type { NotificationsSend } from 'typings/store/notifications/Actions';
 import type { NotificationsState } from 'typings/store/notifications/State';
 
-export const useNotificationStore = defineStore('notifications', {
+export const defineNotificationStore = defineStore('notifications', {
     state: () =>
         <NotificationsState>{
             groups: [],
@@ -134,3 +136,9 @@ export const useNotificationStore = defineStore('notifications', {
         },
     },
 });
+
+export const useNotificationStore: () => ReturnType<
+    typeof defineNotificationStore
+> = () =>
+    (window[PREFIX] as Vue)?.$stores?.notifications ??
+    defineNotificationStore();

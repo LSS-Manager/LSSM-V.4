@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 import localforage from 'localforage';
 import { useConsoleStore } from '@stores/console';
@@ -9,7 +11,7 @@ localforage.config({
     storeName: `${PREFIX}Storage`,
 });
 
-export const useStorageStore = defineStore('storage', {
+const storageStore = defineStore('storage', {
     state: () => ({}),
     actions: {
         get<ValueType = unknown>({ key, defaultValue }: StorageGet<ValueType>) {
@@ -40,3 +42,6 @@ export const useStorageStore = defineStore('storage', {
         },
     },
 });
+
+export const useStorageStore: () => ReturnType<typeof storageStore> = () =>
+    (window[PREFIX] as Vue)?.$stores?.storage ?? storageStore();

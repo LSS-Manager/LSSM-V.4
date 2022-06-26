@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 import { useAPIStore } from '@stores/api';
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
@@ -114,7 +116,7 @@ if (getWindowName() !== 'leader') {
     });
 }
 
-export const useBroadcastStore = defineStore('broadcast', {
+export const defineBroadcastStore = defineStore('broadcast', {
     state: () => ({}),
     actions: {
         apiBroadcast<API extends StorageAPIKey>(
@@ -202,3 +204,7 @@ export const useBroadcastStore = defineStore('broadcast', {
         },
     },
 });
+
+export const useBroadcastStore: () => ReturnType<
+    typeof defineBroadcastStore
+> = () => (window[PREFIX] as Vue)?.$stores?.broadcast ?? defineBroadcastStore();

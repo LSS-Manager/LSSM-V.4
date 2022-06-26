@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 
 interface ComplexMessage {
@@ -16,7 +18,7 @@ const isComplexMessage = (
     message: MessageParameter
 ): message is ComplexMessage => message.hasOwnProperty('messages');
 
-export const useConsoleStore = defineStore('console', {
+export const defineConsoleStore = defineStore('console', {
     state: () => ({}),
     getters: {
         prefixed: () => (messages: unknown[]) =>
@@ -65,3 +67,7 @@ export const useConsoleStore = defineStore('console', {
         },
     },
 });
+
+export const useConsoleStore: () => ReturnType<
+    typeof defineConsoleStore
+> = () => (window[PREFIX] as Vue)?.$stores?.console ?? defineConsoleStore();

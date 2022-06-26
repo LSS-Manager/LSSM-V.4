@@ -1,8 +1,10 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 
 import type { AddListener, CreateEvent } from 'typings/store/event/Actions';
 
-export const useEventStore = defineStore('event', {
+export const defineEventStore = defineStore('event', {
     state: () => ({}),
     getters: {
         eventName: () => (name: string) =>
@@ -29,3 +31,6 @@ export const useEventStore = defineStore('event', {
         },
     },
 });
+
+export const useEventStore: () => ReturnType<typeof defineEventStore> = () =>
+    (window[PREFIX] as Vue)?.$stores?.event ?? defineEventStore();

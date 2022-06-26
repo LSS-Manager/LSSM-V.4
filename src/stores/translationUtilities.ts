@@ -5,7 +5,7 @@ import { defineStore } from 'pinia';
 import type { InternalBuilding } from 'typings/Building';
 import type { InternalVehicle } from 'typings/Vehicle';
 
-export const useTranslationStore = defineStore('translationUtilities', {
+const translationStore = defineStore('translationUtilities', {
     state: () => ({
         LSSM: window[PREFIX] as Vue,
     }),
@@ -62,3 +62,7 @@ export const useTranslationStore = defineStore('translationUtilities', {
         },
     },
 });
+
+export const useTranslationStore: () => ReturnType<
+    typeof translationStore
+> = () => (window[PREFIX] as Vue)?.$stores?.translations ?? translationStore();

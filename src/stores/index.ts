@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import { defineStore } from 'pinia';
 import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
@@ -15,7 +17,7 @@ import type {
 } from 'typings/store/Actions';
 import type { GameFlavour, LSSMEvent } from 'typings/helpers';
 
-export const useRootStore = defineStore('root', {
+export const defineRootStore = defineStore('root', {
     state: () =>
         <RootState>{
             credits: 0,
@@ -274,3 +276,6 @@ export const useRootStore = defineStore('root', {
         },
     },
 });
+
+export const useRootStore: () => ReturnType<typeof defineRootStore> = () =>
+    (window[PREFIX] as Vue)?.$stores?.root ?? defineRootStore();
