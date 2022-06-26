@@ -14,7 +14,7 @@
             "white": "Biały"
         },
         "shown_types": {
-            "description": "Określ tutaj, które typy punktów POI mają być wyświetlane. Możesz również zmienić to ustawienie bezpośrednio w menu \"Ustaw UM\"-Zmień menu.",
+            "description": "Określ tutaj, które typy punktów POI mają być wyświetlane. Możesz również zmienić to ustawienie bezpośrednio w menu \"Ustaw UM\".",
             "title": "Wyświetlane typy UM"
         }
     }
