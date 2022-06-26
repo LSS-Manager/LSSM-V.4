@@ -142,7 +142,7 @@
             "title": "Pozostały czas dla pacjentów"
         },
         "stagingAreaSelectedCounter": {
-            "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków \"Wyślij"\",
+            "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków \"Wyślij\"",
             "title": "Licznik pojazdów w MKSiś"
         },
         "stickyHeader": {
