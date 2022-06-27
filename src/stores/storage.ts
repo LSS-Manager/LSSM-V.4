@@ -37,7 +37,9 @@ const storageStore = defineStore('storage', {
         getAllItems() {
             const fullStorage: Record<string, unknown> = {};
             return localforage
-                .iterate((value, key) => (fullStorage[key] = value))
+                .iterate((value, key) => {
+                    fullStorage[key] = value;
+                })
                 .then(() => fullStorage);
         },
     },

@@ -16,8 +16,8 @@
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { useSettingsStore } from '@stores/settings';
 import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type {
