@@ -49,8 +49,8 @@
             "title": "Skoki mapy"
         },
         "notePreview": {
-            "description": "Linki w notatkach można kliknąć, wyświetlając podgląd notatek.",
-            "title": "Notatki"
+            "description": "Linki w notatkach stają się klikalne.",
+            "title": "Linki w notatkach"
         },
         "ownMapMarkers": {
             "description": "Zapisz własne lokalizacje na mapie, aby uzyskać do nich dostęp jednym kliknięciem!",
@@ -65,8 +65,8 @@
             "title": "Pamiętaj CPR"
         },
         "showImg": {
-            "description": "Spróbuj wygenerować podgląd obrazu. Działa tylko w połączeniu z opcją \"Spraw, aby linki były klikalne\"!",
-            "title": "Aktywacja podglądu obrazu"
+            "description": "Próbuje wygenerować podgląd obrazu. Działa tylko w połączeniu z opcją \"Spraw, aby linki były klikalne\"!",
+            "title": "Aktywacja podglądu obrazów"
         }
     }
 }
