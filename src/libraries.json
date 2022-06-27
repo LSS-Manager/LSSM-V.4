@@ -107,7 +107,7 @@
     "@vue/composition-api": {
         "icon": "https://vuejs.org/images/logo.png",
         "url": "https://github.com/vuejs/composition-api#readme",
-        "version": "1.6.2"
+        "version": "1.6.3"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -275,7 +275,7 @@
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "13.0.0"
+        "version": "13.0.1"
     },
     "semver": {
         "version": "7.3.7"

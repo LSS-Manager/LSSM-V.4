@@ -1,5 +1,5 @@
 {
-    "version": "4.5.13+20220626.1026",
+    "version": "4.5.13+20220627.0641",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
@@ -16,7 +16,7 @@
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
         "@fortawesome/free-solid-svg-icons": "^6.1.1",
         "@fortawesome/vue-fontawesome": "^2.0.8",
-        "@vue/composition-api": "^1.6.2",
+        "@vue/composition-api": "^1.6.3",
         "axios": "^0.27.2",
         "broadcast-channel": "^4.13.0",
         "he": "^1.2.0",
@@ -78,7 +78,7 @@
         "moment-timezone": "^0.5.34",
         "prettier": "^2.7.1",
         "sass": "^1.53.0",
-        "sass-loader": "^13.0.0",
+        "sass-loader": "^13.0.1",
         "string-replace-loader": "^3.1.0",
         "terser": "^5.14.1",
         "ts-loader": "^9.3.1",
