@@ -5,7 +5,6 @@ import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
-import type { Color, Hidden, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
     require('./natives/betterFooterLinks');
