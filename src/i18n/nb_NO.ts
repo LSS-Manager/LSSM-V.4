@@ -103,6 +103,11 @@ your LSSM team`,
                 'Bytt farge på hele navigasjonsbaren i fargen til LSSM bakgrunnen!',
             title: 'Navigasjonsbar farge',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {

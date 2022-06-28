@@ -25,6 +25,7 @@ import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginSt
 import LSSMV4 from './LSSMV4.vue';
 import utils from './utils';
 
+import type { Color, Hidden, Toggle } from 'typings/Setting';
 import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
@@ -133,6 +134,144 @@ LSSM-Team`,
         storage: useStorageStore(),
         translations: useTranslationStore(),
     };
+
+    LSSM.$stores.settings
+        .registerModule({
+            moduleId: 'global',
+            settings: {
+                labelInMenu: <Toggle>{
+                    type: 'toggle',
+                    default: false,
+                },
+                allowTelemetry: <Toggle>{
+                    type: 'toggle',
+                    default: true,
+                },
+                iconBg: <Color>{
+                    type: 'color',
+                    default: LSSM.$stores.root.isPoliceChief
+                        ? '#004997'
+                        : '#C9302C',
+                },
+                iconBgAsNavBg: <Toggle>{
+                    type: 'toggle',
+                    default: false,
+                },
+                osmDarkTooltip: <Toggle>{
+                    type: 'toggle',
+                    default: LSSM.$stores.root.isDarkMode,
+                    noMapkit: true,
+                    disabled: () => !LSSM.$stores.root.isDarkMode,
+                },
+                osmDarkControls: <Toggle>{
+                    type: 'toggle',
+                    default: LSSM.$stores.root.isDarkMode,
+                    noMapkit: true,
+                    disabled: () => !LSSM.$stores.root.isDarkMode,
+                },
+                v3MenuAsSubmenu: <Toggle>{
+                    type: 'toggle',
+                    default: false,
+                },
+                anniversary1Clicked: <Hidden>{
+                    type: 'hidden',
+                },
+                loadingIndicator: <Toggle>{
+                    type: 'toggle',
+                    default: true,
+                },
+                debugMode: <Toggle>{
+                    type: 'toggle',
+                    default: false,
+                },
+            },
+        })
+        .then(() =>
+            LSSM.$stores.settings.getSetting({
+                moduleId: 'global',
+                settingId: 'debugMode',
+                defaultValue: false,
+            })
+        )
+        .then(debugMode => {
+            if (!debugMode) return;
+            let actionCounter = 0;
+
+            const debugMsg = (
+                actionId: number,
+                status: 'error' | 'start' | 'success' | 'waiting',
+                store: string,
+                name: string,
+                startTime: number,
+                args: unknown
+            ) => {
+                const duration = Date.now() - startTime;
+                const warning = duration > 1000;
+                let durationString = '';
+                if (status !== 'start') durationString = ` (${duration}ms)`;
+                LSSM.$stores.console.debug({
+                    messages: [
+                        `${
+                            warning ? '⚠️ ' : ''
+                        }$stores: action ${actionId}[${status}]: ${store}/${name}${durationString}`,
+                        args,
+                    ],
+                });
+            };
+
+            Object.values(LSSM.$stores).forEach(store => {
+                if (['console', 'event'].includes(store.$id)) return;
+                store.$onAction(({ name, args, after, onError }) => {
+                    const startTime = Date.now();
+                    const actionId = actionCounter++;
+                    debugMsg(
+                        actionId,
+                        'start',
+                        store.$id,
+                        name,
+                        startTime,
+                        args
+                    );
+
+                    const warnInterval = window.setInterval(
+                        () =>
+                            debugMsg(
+                                actionId,
+                                'waiting',
+                                store.$id,
+                                name,
+                                startTime,
+                                args
+                            ),
+                        1000
+                    );
+
+                    after(result => {
+                        debugMsg(
+                            actionId,
+                            'success',
+                            store.$id,
+                            name,
+                            startTime,
+                            result
+                        );
+                        window.clearInterval(warnInterval);
+                    });
+
+                    onError(error => {
+                        debugMsg(
+                            actionId,
+                            'error',
+                            store.$id,
+                            name,
+                            startTime,
+                            error
+                        );
+                        window.clearInterval(warnInterval);
+                    });
+                });
+            });
+        });
 
     const locale = LSSM.$stores.root.locale;
 

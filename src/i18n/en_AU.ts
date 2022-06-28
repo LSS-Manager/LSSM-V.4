@@ -148,6 +148,11 @@ If several requests fail in a short time, this could be due to server problems. 
             description:
                 'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {
