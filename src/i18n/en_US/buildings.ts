@@ -759,8 +759,7 @@ export default {
         levelcost: [],
         maxBuildings: '',
         maxLevel: 21,
-        special:
-            '',
+        special: '',
         startPersonnel: 2,
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
@@ -856,8 +855,7 @@ export default {
         levelcost: [],
         maxBuildings: '',
         maxLevel: 0,
-        special:
-            '',
+        special: '',
         startPersonnel: 2,
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
