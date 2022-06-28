@@ -98,6 +98,11 @@ your LSSM team`,
                 'barva celé navigační lišty v barvě pozadí  ikony LSSM',
             title: 'Zbarvení navigační lišty',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {
