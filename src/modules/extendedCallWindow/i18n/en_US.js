@@ -145,6 +145,13 @@ module.exports = {
             [/^EMS Mobile Command$/u]: [60],
             [/^Fire Investigation(s)? Unit(s)?$/u]: [62, 63],
             [/^Foam Tender(s)?$/u]: [64, 65],
+            [/^Lifeguard Truck(s)?$/u]: [66],
+            [/^Lifeguard Rescue(s)?$/u]: [67],
+            [/^Lifeguard Supervisor(s)?$/u]: [68],
+            [/^Small Coastal Boat(s)?$/u]: [69],
+            [/^Large Coastal Boat(s)?$/u]: [70],
+            [/^Coastal Helicopter(s)?$/u]: [71],
+            [/^Coastal Guard Plane(s)?$/u]: [72],
         },
     },
     tailoredTabs: {
