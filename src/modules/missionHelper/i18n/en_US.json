@@ -19,10 +19,10 @@
         "atf_count": "ATF Expansion | ATF Expansions",
         "brush_extension": "Forestry Expansion | Forestry Expansions",
         "coastal_command": "Lifeguard Supervisor",
-        "coastal_rescue": "Lifeguard",
-        "coastal_rescue_count": "Coastal Rescue Stations",
         "coastal_helicopter_count": "Helicopter Hangar | Helicopter Hangars",
         "coastal_plane_count": "Plane Hangar | Plane Hangars",
+        "coastal_rescue": "Lifeguard",
+        "coastal_rescue_count": "Coastal Rescue Stations",
         "dea_count": "DEA Expansion | DEA Expansions",
         "federalpolice_stations": "Federal Police Station | Federal Police Stations",
         "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
@@ -86,7 +86,6 @@
             "foam": "Foam Tender | Foam Tenders",
             "game_warden": "Warden Truck | Warden Trucks",
             "gw_wasserrettung": "Lifeguard Trucks",
-            "water_rescue": "Lifeguard Trucks",
             "hazmat_vehicles": "HazMat Vehicle | HazMat Vehicles",
             "heavy_rescue_vehicles": "Heavy Rescue Vehicle | Heavy Rescues Vehicles",
             "helicopter": "HEMS",
@@ -103,6 +102,7 @@
             "sheriff": "Sheriff | Sheriffs",
             "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
             "swat_suv": "SWAT SUV | SWAT SUVs",
+            "water_rescue": "Lifeguard Trucks",
             "water_tankers": "Water Tanker | Water Tankers"
         },
         "multifunctionals": {
