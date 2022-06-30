@@ -85,7 +85,7 @@
             "firetrucks": "Fire Engine | Fire Engines",
             "foam": "Foam Tender | Foam Tenders",
             "game_warden": "Warden Truck | Warden Trucks",
-            "gw_wasserrettung": "Lifeguard Trucks",
+            "gw_wasserrettung": "Lifeguard Truck | Lifeguard Trucks",
             "hazmat_vehicles": "HazMat Vehicle | HazMat Vehicles",
             "heavy_rescue_vehicles": "Heavy Rescue Vehicle | Heavy Rescues Vehicles",
             "helicopter": "HEMS",
@@ -102,7 +102,7 @@
             "sheriff": "Sheriff | Sheriffs",
             "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
             "swat_suv": "SWAT SUV | SWAT SUVs",
-            "water_rescue": "Lifeguard Trucks",
+            "water_rescue": "Lifeguard Truck | Lifeguard Trucks",
             "water_tankers": "Water Tanker | Water Tankers"
         },
         "multifunctionals": {
