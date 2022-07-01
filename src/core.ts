@@ -222,7 +222,11 @@ LSSM-Team`,
                         `${
                             warning ? '⚠️ ' : ''
                         }$stores: action ${actionId}[${status}]: ${store}/${name}${durationString}`,
-                        args,
+                        store === 'api' &&
+                        name === '_setSecretKey' &&
+                        status === 'success'
+                            ? '***'
+                            : args,
                     ],
                 });
             };
