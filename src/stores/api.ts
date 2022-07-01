@@ -188,13 +188,14 @@ export const defineAPIStore = defineStore('api', {
         _setAPI<API extends StorageAPIKey>(
             api: API,
             { value, lastUpdate }: EnsuredAPIGetter<API>
-        ): void {
+        ): EnsuredAPIGetter<API> & { api: API } {
             this._removeAPIFromQueue(api);
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
             // reactivity workaround for schoolings
             if (api === 'schoolings')
                 this.schoolings.result = this.schoolings.result.slice(0);
+            return { api, value, lastUpdate };
         },
         _initAPIsFromBroadcast() {
             this.initialBroadcastUpdateFinished = false;
