@@ -121,6 +121,11 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Questa impostazione rende scuri i tooltip sulla mappa se hai abilitato la modalità scura',
             title: 'Tooltips scuri sulla mappa',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {

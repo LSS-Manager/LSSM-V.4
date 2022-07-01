@@ -149,6 +149,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             description:
                 "Déplace le menu du LSSM V3 vers le menu du V4 pour gagner de l'espace dans la barre de navigation.",
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {

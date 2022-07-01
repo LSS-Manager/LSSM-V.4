@@ -148,6 +148,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             description:
                 'Verplaatst het menu van LSSM V3 van de menubalk naar een knop in het menu van V4.',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {

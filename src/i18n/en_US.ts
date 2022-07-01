@@ -148,6 +148,11 @@ If several requests fail in a short time, this could be due to server problems. 
             description:
                 'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {
@@ -1022,6 +1027,112 @@ If several requests fail in a short time, this could be due to server problems. 
             special:
                 'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
         },
+        66: {
+            caption: 'Lifeguard Truck',
+            color: '#882222',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [23],
+            special: '',
+        },
+        67: {
+            caption: 'Lifeguard Rescue',
+            color: '#882222',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [23],
+            schooling: {
+                'Water Rescue School': {
+                    'Lifeguard Training': {
+                        all: true,
+                    },
+                },
+            },
+            special: '',
+        },
+        68: {
+            caption: 'Lifeguard Supervisor',
+            color: '#882222',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [23],
+            schooling: {
+                'Water Rescue School': {
+                    'Lifeguard Supervisor': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
+        },
+        69: {
+            caption: 'Small Coastal Boat',
+            color: '#882222',
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            possibleBuildings: [23],
+            special: '',
+        },
+        70: {
+            caption: 'Large Coastal Boat',
+            color: '#882222',
+            coins: 25,
+            credits: 75_000,
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            possibleBuildings: [23],
+            schooling: {
+                'Water Rescue School': {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
+            special: '',
+        },
+        71: {
+            caption: 'Coastal Helicopter',
+            color: '#882222',
+            coins: 30,
+            credits: 300_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [25],
+            schooling: {
+                'Water Rescue School': {
+                    'Coastal Air Rescue Operations': {
+                        all: true,
+                    },
+                },
+            },
+            special: '',
+        },
+        72: {
+            caption: 'Coastal Guard Plane',
+            color: '#882222',
+            coins: 30,
+            credits: 500_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [25],
+            schooling: {
+                'Water Rescue School': {
+                    'Coastal Air Rescue Operations': {
+                        all: true,
+                    },
+                },
+            },
+            special: '',
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -1036,8 +1147,12 @@ If several requests fail in a short time, this could be due to server problems. 
             buildings: [5, 7, 8, 15, 18],
             color: '#00ac00',
         },
+        'Lifeguard Stations': {
+            buildings: [23, 25],
+            color: '#00ac00',
+        },
         'Other': {
-            buildings: [1, 2, 9, 14, 20, 21],
+            buildings: [1, 2, 9, 14, 20, 21, 24],
             color: '#02a18c',
         },
     },
@@ -1079,6 +1194,14 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Sheriff': [47],
             },
             color: '#00ac00',
+        },
+        'Lifeguard Vehicles': {
+            vehicles: {
+                'Cars': [66, 67, 68],
+                'Boats': [69, 70],
+                'Helicopter and Planes': [71, 72],
+            },
+            color: '#58b658',
         },
     },
     small_buildings: {
@@ -1228,6 +1351,33 @@ If several requests fail in a short time, this could be due to server problems. 
                 staffList: "Truck Driver's License",
             },
         ],
+        'Water Rescue School': [
+            {
+                caption: 'Coastal Air Rescue Operations',
+                duration: '5 Days',
+                staffList: 'Coastal Air Rescue Operations',
+            },
+            {
+                caption: 'Lifeguard Supervisor',
+                duration: '5 Days',
+                staffList: 'Lifeguard Supervisor',
+            },
+            {
+                caption: 'Lifeguard Training',
+                duration: '5 Days',
+                staffList: 'Lifeguard Training',
+            },
+            {
+                caption: 'TACLET',
+                duration: '3 Days',
+                staffList: 'TACLET',
+            },
+            {
+                caption: 'Ocean Navigation',
+                duration: '5 Days',
+                staffList: 'Ocean Navigation',
+            },
+        ],
     },
     amount: 'Quantity',
     search: 'Search',
@@ -1354,6 +1504,8 @@ If several requests fail in a short time, this could be due to server problems. 
         'Coast Line',
         'Construction site',
         'Ranch',
+        'Beach',
+        'Oil Rig',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

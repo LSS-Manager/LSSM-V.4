@@ -150,6 +150,11 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
             description:
                 'Verschiebt das Menü des LSSM V3 in das Menü der V4 um Platz in der Navigationsleiste zu sparen.',
         },
+        debugMode: {
+            title: 'Debug-Modus',
+            description:
+                'Ein kleiner Debug-Modus, der hilfreiche Hinweise in der Browserkonsole ausgibt. Das Aktivieren wird nur empfohlen, wenn durch das LSSM-Team darum bittet, da die Konsole viele Nachrichten enthalten wird.',
+        },
     },
     vehicles: {
         0: {
