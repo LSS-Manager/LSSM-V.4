@@ -347,19 +347,24 @@ export const defineAPIStore = defineStore('api', {
             if (this.debounce.vehicles.timeout)
                 window.clearTimeout(this.debounce.vehicles.timeout);
             this.debounce.vehicles.timeout = window.setTimeout(() => {
-                this.debounce.vehicles.updates.forEach(
-                    ({ vehicleId, caption, fms_show, fms_real }) => {
-                        const vehicle = this.vehicles.find(
+                const vehicles = this.vehicles;
+                const updatedIds: number[] = [];
+                let vehicle = this.debounce.vehicles.updates.pop();
+                while (vehicle) {
+                    const { vehicleId, caption, fms_show, fms_real } = vehicle;
+                    if (!updatedIds.includes(vehicleId)) {
+                        const index = vehicles.findIndex(
                             ({ id }) => id === vehicleId
                         );
-                        if (vehicle) {
-                            vehicle.caption = caption;
-                            vehicle.fms_show = fms_show;
-                            vehicle.fms_real = fms_real;
+                        updatedIds.push(vehicleId);
+                        if (index >= 0) {
+                            vehicles[index].caption = caption;
+                            vehicles[index].fms_show = fms_show;
+                            vehicles[index].fms_real = fms_real;
                         }
                     }
-                );
-                this.debounce.vehicles.updates = [];
+                    vehicle = this.debounce.vehicles.updates.pop();
+                }
                 useBroadcastStore()
                     .apiBroadcast('vehicles', {
                         value: this.vehicles,
