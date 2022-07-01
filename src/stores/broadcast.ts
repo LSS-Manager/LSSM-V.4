@@ -19,6 +19,7 @@ import type {
 } from 'typings/store/broadcast/Broadcast';
 import type { EnsuredAPIGetter, StorageAPIKey } from 'typings/store/api/State';
 
+const BROADCAST_GETTER_WAITING_TIME = 500;
 const STORAGE_NAME_KEY = `${PREFIX}_windowName`;
 sessionStorage.removeItem(STORAGE_NAME_KEY);
 
@@ -112,7 +113,7 @@ if (getWindowName() !== 'leader') {
                     ) + 1
                 }`
             );
-        }, 1000);
+        }, BROADCAST_GETTER_WAITING_TIME);
     });
 }
 
@@ -170,7 +171,7 @@ export const defineBroadcastStore = defineStore('broadcast', {
                             receiver_handler
                         );
                         resolve(collected_values);
-                    }, 1000);
+                    }, BROADCAST_GETTER_WAITING_TIME);
                 });
             });
         },
@@ -198,7 +199,7 @@ export const defineBroadcastStore = defineStore('broadcast', {
                             receiver_handler
                         );
                         resolve(collected_values);
-                    }, 1000);
+                    }, BROADCAST_GETTER_WAITING_TIME);
                 });
             });
         },
