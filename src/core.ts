@@ -211,23 +211,27 @@ LSSM-Team`,
                 store: string,
                 name: string,
                 startTime: number,
-                args: unknown
+                args: unknown[] | unknown
             ) => {
                 const duration = Date.now() - startTime;
                 const warning = duration > 1000;
                 let durationString = '';
                 if (status !== 'start') durationString = ` (${duration}ms)`;
+                const messages: unknown[] = [
+                    `${
+                        warning ? '⚠️ ' : ''
+                    }$stores: action ${actionId}[${status}]: ${store}/${name}${durationString}`,
+                ];
+                if (
+                    store === 'api' &&
+                    name === '_setSecretKey' &&
+                    status === 'success'
+                )
+                    messages.push('***');
+                else if (Array.isArray(args)) messages.push(...args);
+                else messages.push(args);
                 LSSM.$stores.console.debug({
-                    messages: [
-                        `${
-                            warning ? '⚠️ ' : ''
-                        }$stores: action ${actionId}[${status}]: ${store}/${name}${durationString}`,
-                        store === 'api' &&
-                        name === '_setSecretKey' &&
-                        status === 'success'
-                            ? '***'
-                            : args,
-                    ],
+                    messages,
                 });
             };
 
