@@ -169,13 +169,13 @@ export const defineAPIStore = defineStore('api', {
                 }, 50);
             });
         },
-        _awaitUpdateQueue<API extends StorageAPIKey>(api: API): Promise<void> {
-            return new Promise<void>(resolve => {
+        _awaitUpdateQueue<API extends StorageAPIKey>(api: API): Promise<API> {
+            return new Promise<API>(resolve => {
                 const interval = window.setInterval(() => {
                     if (this.currentlyUpdating.includes(api)) return;
                     this.currentlyUpdating.push(api);
                     window.clearInterval(interval);
-                    resolve(this._awaitInitialBroadcast());
+                    this._awaitInitialBroadcast().then(() => resolve(api));
                 }, 50);
             });
         },
