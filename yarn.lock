@@ -8818,7 +8818,7 @@ __metadata:
     vue-i18n: ^8.27.2
     vue-js-modal: ^2.0.1
     vue-js-toggle-button: ^1.3.3
-    vue-loader: ^15.9.8
+    vue-loader: ^15.10.0
     vue-notification: ^1.3.20
     vue-responsive-dash: ^0.5.0
     vue-select: ^3.18.3
@@ -10370,9 +10370,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-loader@npm:^15.9.8":
-  version: 15.9.8
-  resolution: "vue-loader@npm:15.9.8"
+"vue-loader@npm:^15.10.0":
+  version: 15.10.0
+  resolution: "vue-loader@npm:15.10.0"
   dependencies:
     "@vue/component-compiler-utils": ^3.1.0
     hash-sum: ^1.0.2
@@ -10387,7 +10387,7 @@ __metadata:
       optional: true
     vue-template-compiler:
       optional: true
-  checksum: ca4c99b2617b207eb96925b889669f8bfecb6e82d22ed59220b324b6caaccc38bf3bc1d7961353155ab19ec71b791e887e8a06109ec719e8a791a2b00a2420bc
+  checksum: 1bf6c9ffeafc00aa8fccdfe68fd258bc168feb99379d97e08280d2a49481c16effb805dc03c95b00eff0d428c7c5ce12942cf58d84d9c75e85acd001195ddb57
   languageName: node
   linkType: hard
 
