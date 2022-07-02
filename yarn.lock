@@ -6056,7 +6056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"he@npm:^1.1.0, he@npm:^1.2.0":
+"he@npm:^1.2.0":
   version: 1.2.0
   resolution: "he@npm:1.2.0"
   bin:
@@ -8823,7 +8823,7 @@ __metadata:
     vue-responsive-dash: ^0.5.0
     vue-select: ^3.18.3
     vue-slim-tabs: ^0.4.0
-    vue-template-compiler: ^2.6.14
+    vue-template-compiler: ^2.7.0
     webpack: ^5.73.0
   languageName: unknown
   linkType: soft
@@ -10452,13 +10452,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-template-compiler@npm:^2.6.14":
-  version: 2.6.14
-  resolution: "vue-template-compiler@npm:2.6.14"
+"vue-template-compiler@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "vue-template-compiler@npm:2.7.0"
   dependencies:
     de-indent: ^1.0.2
-    he: ^1.1.0
-  checksum: 0d03f804ac97e26629c78219929596cfd98f522e1f13b16dd42f13e3fff09b85fb8252ef3486e9d62ca7993f576386f587e760df0506230fa87141fdac8275ea
+    he: ^1.2.0
+  checksum: ea49051f6a7aac9828563d920bf8700d18c2e9e8e8b49ede6a6a2153949ce32c43c044c499a08196e064ad81a471e69ac7d9132895e9e943bc92c59b8e74fcab
   languageName: node
   linkType: hard
 
