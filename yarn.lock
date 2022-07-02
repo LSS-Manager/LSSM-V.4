@@ -5009,9 +5009,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "eslint-import-resolver-typescript@npm:3.1.2"
+"eslint-import-resolver-typescript@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "eslint-import-resolver-typescript@npm:3.1.4"
   dependencies:
     debug: ^4.3.4
     enhanced-resolve: ^5.10.0
@@ -5023,7 +5023,7 @@ __metadata:
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
-  checksum: 932a3f1b29e868a5f7d91aed008a284670efbcb6e13dfb5fc168222e797a4ed8b93c6b00b21b724f720ef465f50ce4644884201cb3bb57c752deff6955d3beb9
+  checksum: 89580b0dc524d1543cd2d2d9f9da4d400d1c4e8fb3358a5656d30c5d55d9693153e8e01a6b1a35a8f9a4ed6012159771f651c59d2330c7d52284007ae13aadfe
   languageName: node
   linkType: hard
 
@@ -8782,7 +8782,7 @@ __metadata:
     eslint: ^8.19.0
     eslint-config-prettier: ^8.5.0
     eslint-formatter-table: ^7.32.1
-    eslint-import-resolver-typescript: ^3.1.2
+    eslint-import-resolver-typescript: ^3.1.4
     eslint-plugin-compat: ^4.0.2
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
