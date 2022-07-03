@@ -1052,8 +1052,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         68: {
             caption: 'Lifeguard Supervisor',
@@ -1081,8 +1080,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 2,
             maxPersonnel: 6,
             possibleBuildings: [23],
-            special:
-                '',
+            special: '',
         },
         70: {
             caption: 'Large Coastal Boat',
@@ -1099,8 +1097,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         71: {
             caption: 'Coastal Helicopter',
@@ -1117,8 +1114,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         72: {
             caption: 'Coastal Guard Plane',
@@ -1135,8 +1131,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
     },
     buildingCategories: {
@@ -1204,7 +1199,7 @@ If several requests fail in a short time, this could be due to server problems. 
             vehicles: {
                 'Cars': [66, 67, 68],
                 'Boats': [69, 70],
-                'Helicopter and Planes': [71,72],
+                'Helicopter and Planes': [71, 72],
             },
             color: '#58b658',
         },
@@ -1378,9 +1373,9 @@ If several requests fail in a short time, this could be due to server problems. 
                 staffList: 'TACLET',
             },
             {
-                caption: "Ocean Navigation",
+                caption: 'Ocean Navigation',
                 duration: '5 Days',
-                staffList: "Ocean Navigation",
+                staffList: 'Ocean Navigation',
             },
         ],
     },
