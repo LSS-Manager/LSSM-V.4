@@ -152,7 +152,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         debugMode: {
             title: 'Debug-Mode',
             description:
-                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+                'Un petit mode de débogage qui affiche des conseils utiles dans la console du navigateur. Son activation n'est recommandée que si elle est demandée par l'équipe LSSM, car la console contiendra de nombreux messages.',
         },
     },
     vehicles: {
