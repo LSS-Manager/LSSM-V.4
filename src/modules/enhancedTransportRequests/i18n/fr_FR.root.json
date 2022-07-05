@@ -3,7 +3,7 @@
     "name": "Amélioration des demandes de transports",
     "settings": {
         "autoClickSuccessBtns": {
-            "description": "Après avoir terminé une demande de transport, des boutons tels que "Demande suivante" et "Retour à la mission" sont cliqués automatiquement..",
+            "description": "Après avoir terminé une demande de transport, des boutons tels que \"Demande suivante\" et \"Retour à la mission\" sont cliqués automatiquement..",
             "title": "Passer à la demande de transport suivante"
         },
         "autoOpenTransportRequest": {
