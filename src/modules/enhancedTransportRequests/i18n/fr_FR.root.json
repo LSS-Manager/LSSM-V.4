@@ -1,14 +1,14 @@
 {
-    "description": "Improves the experience of transport requests by some cool features",
-    "name": "Improved transport requests",
+    "description": "Améliore l'expérience des demandes de transport grâce à des fonctionnalités intéressantes.",
+    "name": "Amélioration des demandes de transports",
     "settings": {
         "autoClickSuccessBtns": {
-            "description": "After finishing a transport request, buttons such as \"Next request\" and \"Back to mission\" are clicked automatically.",
-            "title": "jump to next transport request"
+            "description": "Après avoir terminé une demande de transport, des boutons tels que \"Demande suivante\" et \"Retour à la mission\" sont cliqués automatiquement..",
+            "title": "Passer à la demande de transport suivante"
         },
         "autoOpenTransportRequest": {
-            "description": "Automatically opens the first transport request in a mission window",
-            "title": "open first transport request"
+            "description": "Ouverture automatique de la première demande de transport dans la fenêtre de la mission",
+            "title": "ouvrir la première demande de transport"
         }
     }
 }

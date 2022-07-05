@@ -82,18 +82,18 @@
                 "underConstruction": "En construction"
             },
             "protocol": {
-                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "subtitle": "pas d'entrée correspondante | 1 entrée correspondante | {n} entrées correspondantes",
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "label": "Category",
-                        "name": "Name",
-                        "staff": "Staff",
-                        "time": "Timestamp"
+                        "building": "Bâtiment",
+                        "label": "Catégorie",
+                        "name": "Nom",
+                        "staff": "Personnel",
+                        "time": "Temps"
                     }
                 },
-                "title": "Protocol",
-                "updating": "Updating..."
+                "title": "Journal",
+                "updating": "Mise à jour..."
             },
             "title": "Aperçu",
             "vehicles": {
