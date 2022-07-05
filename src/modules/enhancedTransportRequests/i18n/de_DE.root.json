@@ -5,6 +5,10 @@
         "autoClickSuccessBtns": {
             "description": "Nach dem Bearbeiten eines Sprechwunsches werden Knöpfe wie \"Nächster Sprechwunsch\" und \"Zurück zum Einsatz\" automatisch angeklickt",
             "title": "automatisch zum nächsten Sprechwunsch"
+        },
+        "autoOpenTransportRequest": {
+            "description": "Öffnet den ersten Sprechwunsch im Einsatzfenster automatisch",
+            "title": "ersten Sprechwunsch öffnen"
         }
     }
 }
