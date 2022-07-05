@@ -6,4 +6,8 @@ export default <ModuleSettingFunction>(() => ({
         type: 'toggle',
         default: true,
     },
+    autoOpenTransportRequest: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
 }));
