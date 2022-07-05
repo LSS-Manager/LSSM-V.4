@@ -378,7 +378,18 @@ export default {
                     newCells: 1,
                     cannotDisable: true,
                 },
-                1
+                9
+            ),
+            ...multiplyExtension(
+                {
+                    caption: 'Fler celler',
+                    credits: 50_000,
+                    coins: 5,
+                    duration: '7 dagar',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                10
             ),
         ],
         levelcost: [],

@@ -477,6 +477,17 @@ export default {
                 },
                 9
             ),
+            ...multiplyExtension(
+                {
+                    caption: 'Additional cell',
+                    credits: 50_000,
+                    coins: 5,
+                    duration: '7 Dni',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                10
+            ),
         ],
         levelcost: [],
         maxBuildings: 'Bez limitu',
