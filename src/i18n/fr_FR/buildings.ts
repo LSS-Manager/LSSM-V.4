@@ -428,7 +428,7 @@ export default {
                     cannotDisable: true,
                     requiredExtensions: [0],
                 },
-                9
+                19
             ),
         ],
         levelcost: [],
