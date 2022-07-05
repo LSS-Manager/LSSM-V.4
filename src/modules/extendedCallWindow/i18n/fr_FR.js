@@ -158,4 +158,7 @@ module.exports = {
         'vehicles': 'Véhicules',
         'players': 'Joueurs',
     },
+    releasePatient: {
+        release: 'Libérer le patient (Pas de récompenses)',
+    },
 };

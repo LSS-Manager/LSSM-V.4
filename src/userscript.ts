@@ -1,5 +1,9 @@
+import 'tampermonkey';
+
 declare let host: string;
 declare let user_id: string | undefined;
+declare let I18n: unknown & { locale: string };
+declare let prefix: string;
 
 const loadLSSM = () => {
     const script = document.createElement('script');
@@ -9,6 +13,9 @@ const loadLSSM = () => {
     }-${user_id}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
+
+    unsafeWindow[`${prefix}-GM_Info`] = JSON.parse(JSON.stringify(GM_info));
+
     document.body.append(script);
 };
 
@@ -23,16 +30,16 @@ if (
 ) {
     if (
         window !== window.parent &&
-        window.parent.hasOwnProperty('lssmv4-redesign-lightbox')
+        window.parent.hasOwnProperty(`${prefix}-redesign-lightbox`)
     ) {
-        const redesignTriggerEvent = 'lssmv4-redesign-iframe-trigger-lssm-load';
+        const redesignTriggerEvent = `${prefix}-redesign-iframe-trigger-lssm-load`;
         window.parent.addEventListener(redesignTriggerEvent, loadLSSM);
         window.addEventListener('pagehide', () =>
             window.parent.removeEventListener(redesignTriggerEvent, loadLSSM)
         );
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        window.parent['lssmv4-redesign-lightbox'].src = new URL(
+        window.parent[`${prefix}-redesign-lightbox`].src = new URL(
             window.location.href
         ).toString();
     } else {

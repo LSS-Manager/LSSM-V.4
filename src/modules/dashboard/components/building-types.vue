@@ -86,16 +86,13 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
+import { useAPIStore } from '@stores/api';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import buildingList from './building-list.vue';
 
 import type { DefaultProps } from 'vue/types/options';
-import type {
-    Building,
-    BuildingCategory,
-    Extension,
-    InternalBuilding,
-} from 'typings/Building';
+import type { BuildingCategory, Extension } from 'typings/Building';
 import type {
     BuildingTypes,
     BuildingTypesComputed,
@@ -117,10 +114,8 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = this.$t('buildings') as Record<
-            number,
-            InternalBuilding
-        >;
+        const apiStore = useAPIStore();
+        const buildingTypes = useTranslationStore().buildings;
         const categories = this.$t('buildingCategories') as unknown as Record<
             string,
             BuildingCategory
@@ -131,9 +126,7 @@ export default Vue.extend<
                 color,
             ])
         ) as Record<string, string>;
-        const buildingsByType = this.$store.getters[
-            'api/buildingsByType'
-        ] as Record<number, Building[]>;
+        const buildingsByType = apiStore.buildingsByType;
         const groups = {} as BuildingTypes['groups'];
         Object.entries(categories).forEach(
             ([category, { buildings, color }]) => {
@@ -141,6 +134,9 @@ export default Vue.extend<
                     color,
                     rows: Object.fromEntries(
                         Object.values(buildings).flatMap(buildingType => {
+                            const removeNull = <S>(
+                                value: S | null
+                            ): value is S => !!value;
                             const buildingsOfType =
                                 buildingsByType[buildingType];
                             const extensionsOfType = {} as Record<
@@ -156,7 +152,7 @@ export default Vue.extend<
                                     Object.values(
                                         buildingTypes[buildingType].extensions
                                     )
-                                        .filter(e => !!e)
+                                        .filter(removeNull)
                                         .map(({ caption }) => caption)
                                 ),
                             ].forEach(caption => {
@@ -227,7 +223,7 @@ export default Vue.extend<
                                                     buildingTypes[buildingType]
                                                         .extensions
                                                 )
-                                                    .filter(e => !!e)
+                                                    .filter(removeNull)
                                                     .map(e => e.caption)
                                             ),
                                         ].length,
@@ -241,8 +237,7 @@ export default Vue.extend<
                                             buildingTypes[
                                                 buildingType
                                             ].maxBuildingsFunction?.(
-                                                this.$store.state.api.buildings
-                                                    .length
+                                                apiStore.buildings.length
                                             ) ?? '–',
                                         buildings: buildingsOfType,
                                     },
@@ -250,7 +245,7 @@ export default Vue.extend<
                                 ...Object.values(
                                     buildingTypes[buildingType].extensions
                                 )
-                                    .filter(e => !!e)
+                                    .filter(removeNull)
                                     .map(
                                         ({
                                             caption,
@@ -314,6 +309,7 @@ export default Vue.extend<
             categoryColors,
             groups,
             faBuilding,
+            apiStore,
         };
     },
     computed: {

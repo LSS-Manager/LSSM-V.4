@@ -1,20 +1,33 @@
-# LSS-Manager V.4 
+# LSS-Manager V.4
 
+<!--
 ## Builds & Checks
 ### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_MasterBuild&guest=1)
 ### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_DevBuild&guest=1)
+-->
 
-![](./docs/.vuepress/public/img/lssm.png)
+<div style='display: flex; flex-flow: row;'>
+<p style='width: 100%'>
+    <b>LSS-Manager V.4</b> (LSSM) is an Userscript for <a href="https://www.leitstellenspiel.de/" target="_blank">Leitstellenspiel.de</a>, <a href="https://www.missionchief.com/" target="_blank">Missionchief</a>, <a href="https://www.meldkamerspel.com/" target="_blank">Meldkamerspel.com</a> and its other language versions.
+    <br>
+    LSSM adds many cool features to the game that give you an enhanced gaming experience and more fun when planning, building and dispatching.
+    <br>
+    This script is available free of charge and fully conforms to the terms and conditions of the game.
+</p>
+<img src="./docs/.vuepress/public/img/lssm.png" alt="LSS-Manager: A Userscript for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions" style='width: 50%;'>
+</div>
 
 *[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][1]
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0) ][1]*
 
-**It is forbidden to use code of the LSS-Manager to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
+**It is forbidden to use LSS-Manager or its code to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
 
+<div style='text-align: center;'>
 <a href="https://discord.gg/RcTNjpB" target="_blank" align="center"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
 <a href="https://github.com/LSS-Manager/LSSM-V.4" target="_blank" align="center"><img src="https://github-readme-stats.vercel.app/api/pin?username=LSS-Manager&repo=LSSM-V.4&theme=vue-dark&show_owner=true" alt=""></a>
+</div>
 
-[LSSM-Server-Status](https://status.lss-manager.de/)
+<!-- [LSSM-Server-Status](https://status.lss-manager.de/) -->
 
 [All Game-Server-Monitors](https://stats.uptimerobot.com/OEKDJSpmvK)
 
@@ -126,9 +139,9 @@ L'utilisation de ce script se fait à vos propres risques. Nous ne sommes pas re
 
 We have adopted the [Contributor Convenant](https://www.contributor-covenant.org/).
 
-### [Contributing Guide](CONTRIBUTING.md)
+### [Contribution Guide](CONTRIBUTING.md)
 
-See our [contributing guide](CONTRIBUTING.md) for help regarding contributions.
+See our [contributing guide](https://proxy.lss-manager.de/v4/docs/en_US/contributing) for help regarding contributions.
 
 ### Contributors
 

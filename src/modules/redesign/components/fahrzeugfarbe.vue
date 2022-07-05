@@ -37,7 +37,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import type { InternalVehicle } from 'typings/Vehicle';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
@@ -69,7 +68,7 @@ export default Vue.extend<
         vehicleTypeCaption() {
             return (
                 this.fahrzeugfarbe.customVehicleType ??
-                (this.$t('vehicles') as Record<number, InternalVehicle>)[
+                this.lightbox.translationStore.vehicles[
                     this.fahrzeugfarbe.vehicleType
                 ].caption
             );
@@ -104,8 +103,8 @@ export default Vue.extend<
                 'authenticity_token',
                 this.fahrzeugfarbe.authenticity_token
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/update${this.urlSearchParam}`,
                     init: {
                         credentials: 'include',
@@ -132,8 +131,8 @@ export default Vue.extend<
                 });
         },
         resetColor() {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/destroy${this.urlSearchParam}`,
                     init: {
                         credentials: 'include',

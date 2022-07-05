@@ -1,5 +1,4 @@
 import type { $m } from 'typings/Module';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
@@ -33,10 +32,7 @@ export default async (
             ),
         } as Record<string, boolean>;
 
-        const internalVehicleTypes = LSSM.$t('vehicles') as Record<
-            number,
-            InternalVehicle
-        >;
+        const internalVehicleTypes = LSSM.$stores.translations.vehicles;
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 
@@ -51,10 +47,8 @@ export default async (
             );
         }
 
-        if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
-
         if (fmsSwitch) {
-            await LSSM.$store.dispatch('addStyle', {
+            LSSM.$stores.root.addStyle({
                 selectorText: '.building_list_fms_2, .building_list_fms_6',
                 style: {
                     cursor: 'pointer',
@@ -99,9 +93,9 @@ export default async (
 
             if (!vehicleId || !linkWrapper) return;
 
-            const storedVehicle = (
-                LSSM.$store.state.api.vehicles as Vehicle[]
-            ).find(v => v.id === vehicleId);
+            const storedVehicle = LSSM.$stores.api.vehicles.find(
+                v => v.id === vehicleId
+            );
 
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
@@ -116,8 +110,8 @@ export default async (
                     )
                         ? 6
                         : 2;
-                    LSSM.$store
-                        .dispatch('api/request', {
+                    LSSM.$stores.api
+                        .request({
                             url: `/vehicles/${vehicleId}/set_fms/${nextFms}`,
                             feature: `${MODULE_ID}-enhanceVehicleList-fmsSwitch`,
                         })
@@ -193,8 +187,8 @@ export default async (
                     (async () => {
                         let currentPersonnel = 0;
                         if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
-                            currentPersonnel = await LSSM.$store
-                                .dispatch('api/request', {
+                            currentPersonnel = await LSSM.$stores.api
+                                .request({
                                     url: `/vehicles/${vehicleId}`,
                                     feature: `${MODULE_ID}-enhanceVehicleList-personnel`,
                                 })
@@ -251,20 +245,18 @@ export default async (
         BUILDING_MODE === 'dispatch' &&
         window.location.hash !== '#tab_vehicle'
     ) {
-        await LSSM.$store.dispatch('observeAsyncTab', {
+        await LSSM.$stores.api.getVehicles(`${MODULE_ID}-enhanceVehicleList`);
+        LSSM.$stores.root.observeAsyncTab({
             tabSelector: '#tab_vehicle',
             callback,
-        });
-        await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-            feature: `${MODULE_ID}-enhanceVehicleList`,
         });
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', {
-            id: buildingId,
-            feature: `${MODULE_ID}-enhanceVehicleList`,
-        });
+        await LSSM.$stores.api.getVehiclesAtBuilding(
+            buildingId,
+            `${MODULE_ID}-enhanceVehicleList`
+        );
         await callback();
     }
 };

@@ -3,17 +3,16 @@ import type { Building } from 'typings/Building';
 
 export default async (
     LSSM: Vue,
-    BUILDING_MODE: 'building' | 'dispatch',
+    BUILDING_MODE: 'building' | 'dispatch' | 'schooling',
     $m: $m,
     MODULE_ID: string
 ): Promise<void> => {
-    LSSM.$store.commit('useFontAwesome');
-
     const path = window.location.pathname.split('/').filter(s => !!s);
     const buildingId = parseInt(path[path.length - 1]);
-    const allBuildings = LSSM.$store.state.api.buildings as Building[];
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}_fdc`);
+
     const callback = () => {
-        const buildingIds = BUILDING_MODE === 'building' ? [buildingId] : [];
+        const buildingIds = BUILDING_MODE === 'dispatch' ? [] : [buildingId];
         Array.from(
             document.querySelectorAll<HTMLTableRowElement>(
                 '#tab_buildings #building_table tbody tr'
@@ -34,17 +33,15 @@ export default async (
         const buildings = [
             { caption: $m('fastDispatchChooser.noDispatch'), id: 0 },
         ] as Building[];
-        const buildingsByType = LSSM.$store.getters[
-            'api/buildingsByType'
-        ] as Record<number, Building[]>;
-        (Object.values(LSSM.$t('dispatchCenterBuildings')) as number[]).forEach(
-            type => buildings.push(...(buildingsByType[type] ?? []))
+        const buildingsByType = LSSM.$stores.api.buildingsByType;
+        LSSM.$stores.translations.dispatchCenterBuildings.forEach(type =>
+            buildings.push(...(buildingsByType[type] ?? []))
         );
         buildingIds.forEach(buildingID => {
-            const building = allBuildings.find(({ id }) => id === buildingID);
+            const building = LSSM.$stores.api.buildingsById[buildingID];
             if (!building) return;
             const dispatchBtn = (
-                BUILDING_MODE === 'building'
+                BUILDING_MODE !== 'dispatch'
                     ? document.querySelector(
                           `#building-navigation-container a${
                               building.leitstelle_building_id
@@ -132,8 +129,8 @@ export default async (
                     setBtn.style.marginLeft = '1ch';
                     setBtn.addEventListener('click', e => {
                         e.preventDefault();
-                        LSSM.$store
-                            .dispatch('api/request', {
+                        LSSM.$stores.api
+                            .request({
                                 url: `/buildings/${buildingID}/leitstelle-set/${building.id}`,
                                 feature: `${MODULE_ID}-fastDispatchChooser`,
                             })
@@ -159,7 +156,7 @@ export default async (
     };
     callback();
 
-    await LSSM.$store.dispatch('observeAsyncTab', {
+    LSSM.$stores.root.observeAsyncTab({
         tabSelector: '#tab_buildings',
         callback,
     });

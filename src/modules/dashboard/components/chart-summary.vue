@@ -80,20 +80,22 @@ import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
+import { mapState } from 'pinia';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+import { useTranslationStore } from '@stores/translationUtilities';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
+import type { BuildingCategory } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
 import type { TranslateResult } from 'vue-i18n';
-import type {
-    Building,
-    BuildingCategory,
-    InternalBuilding,
-} from '../../../../typings/Building';
+import type { VehicleCategory } from 'typings/Vehicle';
 import type {
     ChartSummary,
     ChartSummaryComputed,
     ChartSummaryMethods,
-} from '../../../../typings/modules/Dashboard/ChartSummary';
-// to seperate types
+} from 'typings/modules/Dashboard/ChartSummary';
+// to separate types
 // eslint-disable-next-line no-duplicate-imports
 import type {
     DrilldownOptions,
@@ -101,10 +103,6 @@ import type {
     PointOptionsObject,
     SeriesSunburstOptions,
 } from 'highcharts';
-import type {
-    InternalVehicle,
-    VehicleCategory,
-} from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);
@@ -125,66 +123,71 @@ export default Vue.extend<
 >({
     name: 'lssmv4-dashboard-chart-summary',
     data() {
+        const apiStore = useAPIStore();
+        const rootStore = useRootStore();
+        const translationStore = useTranslationStore();
+        const internalBuildingTypes = translationStore.buildings;
+        const internalVehicleTypes = translationStore.vehicles;
         return {
-            buildingsId: this.$store.getters.nodeAttribute(
+            buildingsId: rootStore.nodeAttribute(
                 'chart-summary-buildings',
                 true
             ),
-            buildings: this.$store.getters['api/buildingsByCategory'],
+            buildings: apiStore.buildingsByCategory,
             buildingCategories: this.$t(
                 'buildingCategories'
             ) as unknown as Record<string, BuildingCategory>,
             buildingTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalBuildingTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             buildingTypeColors: Object.fromEntries(
-                Object.entries(
-                    this.$t('buildings') as Record<number, InternalBuilding>
-                ).map(([index, { color }]) => [index, color])
+                Object.entries(internalBuildingTypes).map(
+                    ([index, { color }]) => [index, color]
+                )
             ),
-            vehiclesId: this.$store.getters.nodeAttribute(
-                'chart-summary-vehicles',
-                true
-            ),
-            vehicles: this.$store.getters['api/vehiclesByType'],
+            vehiclesId: rootStore.nodeAttribute('chart-summary-vehicles', true),
+            vehicles: apiStore.vehiclesByType,
             vehicleCategories: this.$t(
                 'vehicleCategories'
             ) as unknown as Record<string, VehicleCategory>,
             vehicleTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             vehicleTypeColors: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
-                ).map(([index, { color }]) => [index, color])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { color }]) => [index, color]
+                )
             ),
-            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            vehiclesByBuilding: apiStore.vehiclesByBuilding,
             buildingsAsColumn: false,
+            settingsStore: useSettingsStore(),
         } as ChartSummary;
     },
     computed: {
-        personalCount() {
-            return (this.$store.state.api.buildings as Building[])
-                .map(b => b.personal_count)
-                .reduce((a, b) => a + b, 0);
-        },
+        ...mapState(defineAPIStore, {
+            personalCount: store =>
+                store.buildings
+                    .map(b => b.personal_count)
+                    .reduce((a, b) => a + b, 0),
+        }),
     },
     mounted() {
-        if (this.$store.state.darkmode)
+        if (useRootStore().isDarkMode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
                 ...(this.$t('highcharts') as Record<string, TranslateResult>),
             },
         });
-        this.$store
-            .dispatch('settings/getSetting', {
+        this.settingsStore
+            .getSetting<boolean>({
                 moduleId: 'dashboard',
                 settingId: 'buildings_column_chart',
+                defaultValue: false,
             })
             .then(column => {
                 this.buildingsAsColumn = column ?? false;
@@ -303,7 +306,7 @@ export default Vue.extend<
             return this.$m(`chart-summaries.${key}`, args);
         },
         changeBuildingChart() {
-            this.$store.dispatch('settings/setSetting', {
+            this.settingsStore.setSetting({
                 moduleId: 'dashboard',
                 settingId: 'buildings_column_chart',
                 value: this.buildingsAsColumn,

@@ -141,10 +141,10 @@ const isModule = computed(
     () => pageData.value.path.split('/')[2] === 'modules'
 );
 const moduleId = computed(() =>
-    isModule ? pageData.value.path.split('/')[3] : ''
+    isModule.value ? pageData.value.path.split('/')[3] : ''
 );
 const moduleRegistration = computed(() =>
-    isModule
+    isModule.value
         ? themeData.value.variables.modules[moduleId.value].registration
         : null
 );
@@ -160,7 +160,7 @@ const additionalBlockquote = computed(
             moduleRegistration.value.dev)
 );
 const moduleI18n = computed(() =>
-    isModule
+    isModule.value
         ? themeData.value.variables.modules[moduleId.value].translations[
               lang.value
           ]
@@ -183,7 +183,9 @@ const emptyMessageContent = computed(() =>
 );
 
 const docsAvailable = computed(() =>
-    isModule ? themeData.value.variables.modules[moduleId.value].docs : null
+    isModule.value
+        ? themeData.value.variables.modules[moduleId.value].docs
+        : null
 );
 </script>
 

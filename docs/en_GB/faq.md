@@ -9,22 +9,8 @@ sidebarDepth: 3
 ### What does LSS Manager cost?
 LSS-Manager is a free offer - we do not intend to change this.
 
-:::warning donations
-There are a few nice users who would like to donate money to us. But: The LSS-Manager is and remains free of charge. Also we will not accept any donations for this project.
-
-This has several reasons:
-
-* This project is developed on a voluntary basis in the spare time of the participating developers
-* A subscription variant, similar to the Premium in the game would put too much pressure on us personally to continue programming beyond our desire.
-* For legal reasons we cannot accept donations:
-    * If we would found a company for LSS Manager so that we could receive donations, this would have no future, because a company without expenses cannot be a company.
-    * If we would run the servers, which are currently running LSS Manager, through a company, they would immediately eat up the income.
-
-Therefore, besides the idea of voluntariness, it makes no sense for us to take money for the LSS-Manager.
-:::
-
 ### How can I contribute to LSS Manager?
-The "normal" user can [report bugs][error] or [make suggestions][suggestions].
+The end user can [report bugs][error] or [make suggestions][suggestions]. For translations, please refer to our [contribution guide][contributing].
 
 We are currently designing a style guide for developers, so that they too can easily add their own plugins to LSSM. We also tried to keep our code structure clear and understandable. However, adding a plugin does not in any way imply joining the team.
 
@@ -60,3 +46,4 @@ Currently we do not offer this, but an implementation of this feature is planned
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
+[contributing]: contributing.md

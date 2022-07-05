@@ -130,15 +130,16 @@
 import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
+import { defineAPIStore } from '@stores/api';
 import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
 import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
 import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
 import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { mapState } from 'pinia';
+import { useTranslationStore } from '@stores/translationUtilities';
 
-import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle } from 'typings/Vehicle';
 import type {
     LinkPreview,
     LinkPreviewComputed,
@@ -154,6 +155,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-linkPreview',
     data() {
+        const translationStore = useTranslationStore();
         return {
             faParking,
             faCar,
@@ -170,21 +172,12 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: this.$t('vehicles') as unknown as Record<
-                number,
-                InternalVehicle
-            >,
-            vehicleBuildings: Object.values(
-                this.$t('vehicleBuildings')
-            ) as number[],
-            cellBuildings: Object.values(this.$t('cellBuildings')) as number[],
-            cellExtensions: Object.values(
-                this.$t('cellExtensions')
-            ) as string[],
-            bedBuildings: Object.values(this.$t('bedBuildings')) as number[],
-            schoolBuildings: Object.values(
-                this.$t('schoolBuildings')
-            ) as number[],
+            vehicleTypes: translationStore.vehicles,
+            vehicleBuildings: translationStore.vehicleBuildings,
+            cellBuildings: translationStore.cellBuildings,
+            cellExtensions: translationStore.cellExtensions,
+            bedBuildings: translationStore.bedBuildings,
+            schoolBuildings: translationStore.classroomBuildings,
             building: null,
             vehicle: null,
         } as LinkPreview;
@@ -202,12 +195,10 @@ export default Vue.extend<
         parent() {
             return this.$el.parentElement;
         },
-        buildings() {
-            return this.$store.state.api.buildings;
-        },
-        vehicles() {
-            return this.$store.getters['api/vehiclesByBuilding'];
-        },
+        ...mapState(defineAPIStore, {
+            buildings: 'buildings',
+            vehicles: 'vehiclesByBuilding',
+        }),
         buildingVehicles() {
             return (
                 cloneDeep(this.vehicles[this.id])?.sort((a, b) =>
@@ -264,9 +255,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                (this.$t('buildings') as Record<number, InternalBuilding>)[
-                    building.building_type
-                ].caption
+                useTranslationStore().buildings[building.building_type].caption
             );
         },
         setVehicle(vehicle) {

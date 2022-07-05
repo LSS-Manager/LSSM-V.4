@@ -1,5 +1,5 @@
 {
-    "description": "Ulepsz mapę dzięki kilku fajnym funkcjom.",
+    "description": "Ulepsz mapę dzięki kilku przydatnym funkcjom.",
     "name": "Ulepszona mapa",
     "positions": {
         "bottomleft": "Na dole po lewej 🡧",
@@ -8,15 +8,23 @@
         "topright": "Na górze po prawej 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Dołączone budynki",
+            "description": "Aktualizacja projektu, która umożliwia łączenie wielu budynków w jeden na mapie. Graficznie działa identycznie jak kompleksy w grze. W każdym kompleksie dostępnych jest więcej ustawień.",
+            "name": "Nazwa",
+            "position": "Lokacja",
+            "title": "Kompleksy budynków"
+        },
         "centerMap": {
-            "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
+            "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry.",
             "title": "Centrowanie mapy"
         },
         "centerMapStaticLocation": {
+            "description": "Umożliwia wybranie punktu, wzklędem którego będzie centrowana mapa.",
             "title": "Statyczny środek mapy: Pozycja"
         },
         "centerMapType": {
-            "description": "Wybierz, czy chcesz centrować statycznie, czy dynamicznie [dynamiczny nie jest jeszcze dostępny]",
+            "description": "Wybierz, czy chcesz centrować statycznie, czy dynamicznie. [obecnie dostępny jest tylko statyczny]",
             "dynamic": "Dynamiczny",
             "static": "Statyczny",
             "title": "Centrowanie mapy: Tryb"
@@ -26,16 +34,16 @@
             "zoom": "Ustawienia mapy"
         },
         "mapScale": {
-            "description": "Pokazuje skalę mapy i aktualny poziom powiększenia",
+            "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"
         },
         "mapScalePosition": {
-            "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy",
+            "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy.",
             "title": "Pozycja skali mapy"
         },
         "markerNewWindow": {
             "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
-            "title": "Otwórz znaczniki w nowej karcie"
+            "title": "Otwórz w nowej karcie"
         }
     }
 }

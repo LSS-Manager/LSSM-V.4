@@ -1,18 +1,38 @@
 {
-    "description": "Rozszerza czat o kilka fajnych funkcji",
-    "name": "Rozszerzony czat",
+    "description": "Ulepsza czat o kilka fajnych funkcji",
+    "name": "Ulepszony czat",
     "settings": {
         "chatTime": {
-            "description": "Dostosowuje sygnaturę czasową do ustawionego formatu!",
+            "description": "Dostosowuje sygnaturę czasową do ustawionego formatu.",
             "title": "Własny format sygnatury czasowej"
         },
         "chatTimeFormat": {
             "description": "Tutaj możesz wybrać żądany format. Pomoc znajdziesz <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">tutaj!</a>.",
-            "title": "Format daty i godziny"
+            "title": "Format sygnatury czasowej"
         },
         "cloneHistoryBtnToHeader": {
             "description": "Pokazuje przycisk historii czatu w nagłówku, dzięki czemu nie musisz przewijać czatu, aby uzyskać do niego dostęp.",
             "title": "Pokaż historię czatu w nagłówku"
+        },
+        "lightDesignChatHistory": {
+            "description": "Prosty projekt historii czatu",
+            "title": "Prosty projekt historii czatu"
+        },
+        "selfHighlight": {
+            "description": "Podświetla twoją nazwę użytkownika na czacie niestandardowym kolorem",
+            "title": "Niestandardowy kolor na czacie"
+        },
+        "selfHighlightColor": {
+            "description": "Wybierz tutaj, jakim kolorem ma być podświetlone tło twojej nazwy użytkownika.",
+            "title": "Kolor tła"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Podświetla tekst twojej nazwy użytkownika na czacie niestandardowym kolorem",
+            "title": "Kolor tekstu"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "description": "Wybierz tutaj, jakim kolorem ma być podświetlone tekst twojej nazwy użytkownika.",
+            "title": "Wybierz kolor"
         }
     }
 }

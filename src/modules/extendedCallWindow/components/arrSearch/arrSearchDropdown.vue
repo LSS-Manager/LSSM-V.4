@@ -28,6 +28,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useRootStore } from '@stores/index';
+
 import type { $m } from 'typings/Module';
 import type { DefaultComputed } from 'vue/types/options';
 import type { VueSelectProps } from 'vue-select';
@@ -97,7 +99,7 @@ export default Vue.extend<
             )
         );
         return {
-            id: this.$store.getters.nodeAttribute('ecw-arr_search-dropdown'),
+            id: useRootStore().nodeAttribute('ecw-arr_search-dropdown'),
             arrs,
             Deselect: {
                 render: createElement => createElement(),
@@ -139,54 +141,46 @@ export default Vue.extend<
             }
         };
 
-        this.$store
-            .dispatch('hook', {
-                event: 'aaoClickHandler',
-                post: true,
-                callback: updateARR,
-            })
-            .then();
+        const rootStore = useRootStore();
 
-        this.$store
-            .dispatch('hook', {
-                event: 'vehicleGroupClickHandler',
-                post: true,
-                callback: updateARR,
-            })
-            .then();
+        rootStore.hook({
+            event: 'aaoClickHandler',
+            post: true,
+            callback: updateARR,
+        });
 
-        this.$store
-            .dispatch('hook', {
-                event: 'aao_available',
-                post: true,
-                callback(id: number) {
-                    const arr = document.querySelector<HTMLAnchorElement>(
-                        `#mission-aao-group #aao_${id}`
-                    );
-                    if (arr) updateARR(arr);
-                },
-            })
-            .then();
+        rootStore.hook({
+            event: 'vehicleGroupClickHandler',
+            post: true,
+            callback: updateARR,
+        });
 
-        this.$store
-            .dispatch('hook', {
-                event: 'vehicle_group_available',
-                post: true,
-                callback(id: number) {
-                    const arr = document.querySelector<HTMLAnchorElement>(
-                        `#mission-aao-group #vehicle_group_${id}`
-                    );
-                    if (arr) updateARR(arr);
-                },
-            })
-            .then();
+        rootStore.hook({
+            event: 'aao_available',
+            post: true,
+            callback(id: number) {
+                const arr = document.querySelector<HTMLAnchorElement>(
+                    `#mission-aao-group #aao_${id}`
+                );
+                if (arr) updateARR(arr);
+            },
+        });
 
-        this.$store
-            .dispatch('hook', {
-                event: 'vehicleSelectionReset',
-                callback: () => this.$set(this, 'clickedARRs', []),
-            })
-            .then();
+        rootStore.hook({
+            event: 'vehicle_group_available',
+            post: true,
+            callback(id: number) {
+                const arr = document.querySelector<HTMLAnchorElement>(
+                    `#mission-aao-group #vehicle_group_${id}`
+                );
+                if (arr) updateARR(arr);
+            },
+        });
+
+        rootStore.hook({
+            event: 'vehicleSelectionReset',
+            callback: () => this.$set(this, 'clickedARRs', []),
+        });
 
         const hideStyle = document.createElement('style');
         hideStyle.textContent = `#mission-aao-group > *:not(#${this.id}) {

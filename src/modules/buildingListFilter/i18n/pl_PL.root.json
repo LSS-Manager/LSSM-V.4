@@ -20,8 +20,10 @@
         {
             "ids": [
                 6,
+                11,
                 13,
-                19
+                19,
+                23
             ],
             "name": "Policja"
         },
@@ -47,22 +49,27 @@
         }
     ],
     "description": "Dostosuj filtry listy budynków!",
+    "lssmComplex": "Kompleksy budynków LSSM",
     "name": "Konfigurowalna lista budynków",
     "settings": {
         "buildings": "Rodzaje budynków",
         "contentType": {
             "labels": [
-                "Text",
-                "Icon"
+                "Tekst",
+                "Ikona"
             ],
             "title": "Tekst czy ikona?"
         },
         "filters": {
-            "description": "Pozostaw ikony w przycisku „Alarm” Pokaż, w zależności od dokonanego wyboru. Możesz wybrać między <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">wszystkie darmowe ikony od Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ikonę.",
+            "description": "Stwórz własne kategorie budynków wyświetlane na liście budynków. Możesz wybrać spośród darmowych ikon od <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">Font-Awesome</a>. Wystarczy podać nazwę ikony. Podgląd na żywo pokaże Ci ją.",
             "title": "Filtr listy budynków"
         },
-        "icon_style": "Icon-Type",
-        "preview": "Preview",
-        "title": "Tytuł (lub ikona)"
+        "fixedFilters": {
+            "description": "Pokazuje filtry nawet podczas przewijania listy budynków.",
+            "title": "Zawsze pokazuj filtry"
+        },
+        "icon_style": "Styl ilony",
+        "preview": "Podgląd",
+        "title": "Tytuł lub nazwa ikony"
     }
 }

@@ -34,7 +34,42 @@
                 191,
                 192,
                 193,
-                194,
+                194
+            ],
+            "🌹": [
+                298,
+                299,
+                300,
+                301,
+                302,
+                303,
+                304,
+                305,
+                306
+            ],
+            "🌿": [
+                431,
+                432,
+                433,
+                434,
+                435,
+                436,
+                437,
+                438,
+                439
+            ],
+            "🍂": [
+                373,
+                374,
+                375,
+                376,
+                377,
+                378,
+                379,
+                380,
+                381
+            ],
+            "🎂": [
                 243,
                 244,
                 245,
@@ -52,17 +87,6 @@
                 257,
                 258,
                 259
-            ],
-            "🌹": [
-                298,
-                299,
-                300,
-                301,
-                302,
-                303,
-                304,
-                305,
-                306
             ],
             "🎃": [
                 229,
@@ -83,6 +107,25 @@
                 79,
                 80,
                 81
+            ],
+            "🎉": [
+                409,
+                410,
+                411,
+                412,
+                413,
+                414,
+                415,
+                416,
+                417,
+                418
+            ],
+            "🔥": [
+                404,
+                405,
+                406,
+                407,
+                408
             ],
             "🥅": [
                 335,
@@ -149,6 +192,10 @@
             "description": "Réduisez la taille des missions individuelles (ou toutes) dans la liste des missions.",
             "title": "Réduire les missions"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Affiche un bouton permettant de réduire toutes les missions en une seule fois.",
+            "title": "Réduire toutes les missions en une seule fois"
+        },
         "currentPatients": {
             "description": "Indique le nombre actuel de patients pour chaque mission",
             "title": "Patients actuels"
@@ -157,15 +204,31 @@
             "description": "Affiche le nombre actuel de patients également dans les infobulles de la carte.",
             "title": "Patients actuels dans les infobulles"
         },
+        "currentPrisoners": {
+            "description": "Indique le nombre actuel de prisonniers pour chaque mission",
+            "title": "Prisonniers actuels"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Affiche le nombre actuel de prisonniers également dans les infobulles de la carte.",
+            "title": "Prisonniers actuels dans les infobulles"
+        },
         "eventMissions": {
             "description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
             "missions": "Missions",
             "text": "Texte",
             "title": "Marquer les missions saisonnières"
         },
+        "fixedEventInfo": {
+            "description": "Affiche les informations sur un événement en cours de manière permanente, quelle que soit la position que vous avez atteinte dans la liste des missions.",
+            "title": "Toujours afficher les informations de l'événement"
+        },
         "hide0CurrentPatients": {
-            "description": "Masque le nombre de patients s'il n'y en a pas sur place",
+            "description": "Masquer le nombre de patients s'il n'y en a pas sur place",
             "title": "Masquer 0 patient"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Masquer le nombre de prisonniers s'il n'y en a pas sur place",
+            "title": "Masquer 0 Prisonniers"
         },
         "remainingPatientTime": {
             "description": "Indique pour le patient le temps qu'il lui reste avant d'être entièrement traité.",
@@ -233,7 +296,8 @@
             "distance_dispatch": "Distance jusqu'au prochain centre de traitement des appels",
             "distance_station": "Distance jusqu'à la prochaine station",
             "id": "Age",
-            "remaining_patients": "Patients actuels"
+            "remaining_patients": "Patients actuels",
+            "remaining_prisoners": "Prisonniers actuels"
         }
     }
 }

@@ -8,6 +8,13 @@
         "topright": "Rechtsboven 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Gekoppelde gebouwen",
+            "description": "Een Design-update dat er voor zorgt dat je meerdere gebouwen als 1 kan weergeven op de kaart.Meer instellingen zijn beschikbaar in het gebouwencomplex.",
+            "name": "Naam",
+            "position": "Locatie",
+            "title": "Gebouwcomplexen"
+        },
         "centerMap": {
             "description": "Centreert de kaart dynamisch of statisch als het spel opstart",
             "title": "Centreer kaart"

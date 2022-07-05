@@ -1,70 +1,92 @@
-interface BroadcastMessage {
-    type:
+import type { Mission } from 'typings/Mission';
+import type { EnsuredAPIGetter, StorageAPIKey } from 'typings/store/api/State';
+
+interface BroadcastMessage<
+    Type extends
+        | 'api_broadcast'
+        | 'api_request'
+        | 'api_response'
         | 'custom'
-        | 'var_request'
-        | 'var_response'
-        | 'vuex_broadcast'
-        | 'vuex_request'
-        | 'vuex_response';
+        | 'generic'
+        | 'mission_api_broadcast'
+        | 'mission_api_request'
+        | 'mission_api_response'
+        | 'name_request'
+        | 'name_response' = 'generic',
+    Data extends
+        | APIBroadcastData<StorageAPIKey>
+        | APIRequestData<StorageAPIKey>
+        | APIResponseData<StorageAPIKey>
+        | string
+        | unknown
+        | null = unknown
+> {
+    type: Type;
     sender: string;
     receiver: string;
-    data: unknown;
+    data: Data;
 }
 
-interface VarRequestBroadcastMessage extends BroadcastMessage {
-    type: 'var_request';
-    data: {
-        variablePath: string;
-    };
+interface APIRequestData<API extends StorageAPIKey> {
+    api: API;
 }
+type APIRequestBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
+    'api_request',
+    APIRequestData<API>
+>;
 
-interface VarResponseBroadcastMessage<returnType = unknown>
-    extends BroadcastMessage {
-    type: 'var_response';
-    data: {
-        variablePath: string;
-        value: returnType;
-    };
+interface APIResponseData<API extends StorageAPIKey> {
+    api: API;
+    value: EnsuredAPIGetter<API>;
 }
+type APIResponseBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
+    'api_response',
+    APIResponseData<API>
+>;
 
-interface VuexRequestBroadcastMessage extends BroadcastMessage {
-    type: 'vuex_request';
-    data: {
-        statePath: string;
-    };
+interface APIBroadcastData<API extends StorageAPIKey> {
+    api: API;
+    value: EnsuredAPIGetter<API>;
 }
+type APIBroadcastMessage<API extends StorageAPIKey> = BroadcastMessage<
+    'api_broadcast',
+    APIBroadcastData<API>
+>;
 
-interface VuexResponseBroadcastMessage extends BroadcastMessage {
-    type: 'vuex_response';
-    data: {
-        statePath: string;
-        value: unknown;
-    };
+type MissionAPIBroadcastMessage = BroadcastMessage<
+    'mission_api_broadcast',
+    Record<string, Mission>
+>;
+
+type MissionAPIRequestBroadcastMessage = BroadcastMessage<
+    'mission_api_request',
+    null
+>;
+
+interface MissionAPIResponseData {
+    missions: Record<string, Mission>;
+    lastUpdate: number;
 }
+type MissionAPIResponseBroadcastMessage = BroadcastMessage<
+    'mission_api_response',
+    MissionAPIResponseData
+>;
 
-interface VuexBroadcastMessage extends BroadcastMessage {
-    type: 'vuex_broadcast';
-    data: {
-        mutationPath: string;
-        payload: unknown;
-    };
-}
+type NameRequestBroadcastMessage = BroadcastMessage<'name_request', null>;
+type NameResponseBroadcastMessage = BroadcastMessage<'name_response', string>;
 
-interface CustomBroadcastMessage extends BroadcastMessage {
-    type: 'custom';
+type CustomBroadcastMessage<Data> = BroadcastMessage<'custom', Data> & {
     name: string;
     handler: string;
-    data: Record<string, unknown>;
-}
+};
 
-type BroadcastRequestMessageType =
-    | VarRequestBroadcastMessage
-    | VuexRequestBroadcastMessage;
-
-type BroadcastMessageType =
-    | CustomBroadcastMessage
-    | VarRequestBroadcastMessage
-    | VarResponseBroadcastMessage
-    | VuexBroadcastMessage
-    | VuexRequestBroadcastMessage
-    | VuexResponseBroadcastMessage;
+type GenericBroadcastMessageType =
+    | APIBroadcastMessage<StorageAPIKey>
+    | APIRequestBroadcastMessage<StorageAPIKey>
+    | APIResponseBroadcastMessage<StorageAPIKey>
+    | CustomBroadcastMessage<unknown>
+    | MissionAPIBroadcastMessage
+    | MissionAPIRequestBroadcastMessage
+    | MissionAPIResponseBroadcastMessage
+    | NameRequestBroadcastMessage
+    | NameResponseBroadcastMessage;

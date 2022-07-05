@@ -1,0 +1,135 @@
+{
+    "buildingComplexes": {
+        "buildingList": {
+            "details": "Détails"
+        },
+        "new": "Nouveau complexe de bâtiment LSSM",
+        "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "Automatique",
+                    "no": "Non",
+                    "phase": "1 Jour | {n} Jours"
+                },
+                "inConstruction": "{n} en construction",
+                "table": {
+                    "alliance": "Alliance",
+                    "head": {
+                        "beds": "Lits",
+                        "cells": "Cellules",
+                        "classrooms": "Salles de formation",
+                        "hiring": "Phase de recrutement",
+                        "level": "Niveau",
+                        "name": "Nom",
+                        "staff": "Personnel (cible du personnel)",
+                        "vehicles": "Véhicules"
+                    }
+                },
+                "title": "Bâtiments rattachés"
+            },
+            "classrooms": {
+                "subtitle": "{total} au total, dont {unavailable} en construction et {free} disponible",
+                "table": {
+                    "countdown": "temps restant",
+                    "free": "Places libre",
+                    "freeClassrooms": "1 salle de cours libre|{n} salles de cours libres",
+                    "running": {
+                        "false": "Non",
+                        "title": "En cours?",
+                        "true": "Oui"
+                    },
+                    "start": "Commencer une nouvelle formation",
+                    "unavailable": "1 salle de cours en construction|{n} salles de cours en construction"
+                },
+                "title": "Salles de cours"
+            },
+            "extensions": {
+                "abort": "Annuler",
+                "allianceFunds": "payé avec les fonds de l'alliance",
+                "disable": "Pas encore prêt",
+                "disabled": "Pas encore prêt",
+                "enable": "Prêt et paré",
+                "enabled": "Prêt et paré",
+                "filter": {
+                    "all": "Tout",
+                    "buildings": "Bâtiments",
+                    "canBuy": "Peut être acheté",
+                    "canToggle": "Peut être (dés)activer",
+                    "cannotBuy": "Ne peut pas être acheté",
+                    "cannotToggle": "Ne peut pas être (dés)activer",
+                    "disabled": "Pas encore prêt",
+                    "enabled": "Prêt et paré",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "En construction"
+                },
+                "limit": "Vous ne pouvez pas acheter plus de {n} de ces extensions actuellement !",
+                "missingRequirements": "Les exigences suivantes ne sont pas respectées:",
+                "summary": {
+                    "available": "{n} prêt à être construit",
+                    "built": "{n} construit",
+                    "inConstruction": "{n} en construction",
+                    "total": "{n} possible en tout"
+                },
+                "table": {
+                    "head": {
+                        "building": "Bâtiments",
+                        "name": "Nom"
+                    }
+                },
+                "title": "Extensions",
+                "underConstruction": "En construction"
+            },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
+            "title": "Aperçu",
+            "vehicles": {
+                "imageInfo": "Remarque : actuellement, seules les icônes standard des véhicules ou ceux du pack graphique peuvent être affichés. Les icônes définies sur un véhicule ou une station de manière individuelle ne peuvent malheureusement pas encore être reconnues.",
+                "table": {
+                    "head": {
+                        "building": "Bâtiments",
+                        "fms": "Status",
+                        "name": "Nom",
+                        "staff": "Personnel (assigné / max)"
+                    }
+                },
+                "title": "Véhicules"
+            }
+        },
+        "settings": {
+            "abort": "Annuler",
+            "allianceBuildings": "Bâtiments de l'alliance rattachés",
+            "buildingTabs": "Afficher les onglets pour les bâtiments rattachés ?",
+            "buildings": "Bâtiments rattachés",
+            "buildingsInList": "Afficher les bâtiments rattachés dans la liste des bâtiments ?",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Annuler",
+                    "continue": "Supprimer"
+                },
+                "text": "Voulez-vous supprimer le complexe de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
+                "title": "Supprimer le complexe"
+            },
+            "icon": "Icon",
+            "iconHelp": "Choisir entre les icônes standard et les icônes des bâtiments rattachés",
+            "location": "Emplacement",
+            "name": "Nom",
+            "save": "Sauvegader",
+            "showMarkers": "Afficher les bâtiments rattachés sur la carte ?",
+            "title": "Modifier le complexe"
+        }
+    }
+}

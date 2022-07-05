@@ -1,10 +1,35 @@
-// import { InternalBuilding } from 'typings/Building';
 import type { ModuleSettingFunction } from 'typings/Module';
-import type { Location, Select, Toggle } from 'typings/Setting';
+import type {
+    AppendableList,
+    AppendableListSetting,
+    Hidden,
+    Location,
+    MultiSelect,
+    Select,
+    Text,
+    Toggle,
+} from 'typings/Setting';
 
-export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
+export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
-    // const buildings = LSSM.$t('buildings') as Record<number, InternalBuilding>;
+
+    const buildingTypes = LSSM.$stores.translations.buildings;
+
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}-settings`);
+    const userBuildings = LSSM.$stores.api.buildings;
+    const userBuildingIds: string[] = [];
+    const userBuildingLabels: string[] = [];
+
+    userBuildings
+        .map(({ id, caption, building_type }) => [
+            id.toString(),
+            `[${buildingTypes[building_type].caption}] ${caption}`,
+        ])
+        .sort(([, labelA], [, labelB]) => labelA.localeCompare(labelB))
+        .forEach(([id, label]) => {
+            userBuildingIds.push(id);
+            userBuildingLabels.push(label);
+        });
 
     // const dynamics = [
     //     ...Object.entries(buildings).map(([type, { caption }]) => [
@@ -63,5 +88,82 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         //     ],
         //     default: [],
         // },
+        buildingComplexes: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+            type: 'appendable-list',
+            default: [],
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'name',
+                    title: $m('settings.buildingComplexes.name'),
+                    size: 2,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<MultiSelect>>{
+                    name: 'buildings',
+                    title: $m('settings.buildingComplexes.buildings'),
+                    size: 0,
+                    unique: true,
+                    setting: {
+                        type: 'multiSelect',
+                        values: userBuildingIds,
+                        labels: userBuildingLabels,
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'allianceBuildings',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+                <AppendableListSetting<Location>>{
+                    name: 'position',
+                    title: $m('settings.buildingComplexes.position'),
+                    size: 2,
+                    setting: {
+                        type: 'location',
+                        default: [0, 0],
+                        zoom: false,
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'icon',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'showMarkers',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'buildingsInList',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+                <AppendableListSetting<Hidden>>{
+                    name: 'buildingTabs',
+                    setting: {
+                        type: 'hidden',
+                    },
+                },
+            ],
+            defaultItem: {
+                name: '',
+                buildings: [],
+                allianceBuildings: [],
+                position: [0, 0],
+                icon: '/images/building_complex.png',
+                showMarkers: false,
+                buildingsInList: false,
+                buildingTabs: true,
+            },
+            orderable: false,
+            disableable: false,
+        },
     };
 });

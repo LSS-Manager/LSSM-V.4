@@ -1,37 +1,30 @@
 import 'leaflet.heat';
 
-import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
-import type { Vehicle } from 'typings/Vehicle';
 import type { LatLng, Map } from 'leaflet';
-import type { Settings, UpdateSettings } from './heatmapSettings.vue';
+import type {
+    Settings,
+    UpdateSettings,
+} from 'typings/modules/heatmap/Settings';
 
 interface HeatLayer {
     setLatLngs(points: LatLng[]): void;
 }
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    MODULE_ID,
+    $m,
+    setSetting,
+}) => {
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
         return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'heatmap',
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: 'heatmap',
-    });
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
 
-    LSSM.$store.commit('useFontAwesome');
-
-    const setSetting = <T>(settingId: string, value: T): Promise<void> =>
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-            value,
-        });
-
-    const getModuleSettings = (): Promise<Settings> =>
-        LSSM.$store.dispatch('settings/getModule', MODULE_ID);
+    const getModuleSettings = () =>
+        LSSM.$stores.settings.getModule<Settings>(MODULE_ID);
 
     const pxPerMeter = (map: Map) => {
         const CenterOfMap = map.getSize().y / 2;
@@ -77,7 +70,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
     };
 
     const setData = (heatLayer: HeatLayer) => {
-        const buildings = LSSM.$store.state.api.buildings as Building[];
+        const buildings = LSSM.$stores.api.buildings;
         const buildingsById = Object.fromEntries(
             buildings.map(({ id, latitude, longitude }) => [
                 id,
@@ -108,7 +101,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
             const vehicleTypes = vehicleSettings.includes.map(
                 ({ value }) => value
             );
-            (LSSM.$store.state.api.vehicles as Vehicle[]).forEach(
+            LSSM.$stores.api.vehicles.forEach(
                 ({ building_id, vehicle_type, vehicle_type_caption = '' }) => {
                     if (
                         !(
@@ -167,14 +160,13 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
             heatLayer.setOptions(getLayerOptions(map));
         });
 
-        LSSM.$store
-            .dispatch('addOSMControl', {
+        LSSM.$stores.root
+            .addOSMControl({
                 mapId: map.getContainer().id,
                 position: settings.position ?? 'bottom-left',
             })
-            .then((control: HTMLAnchorElement) => {
-                control.id =
-                    LSSM.$store.getters.nodeAttribute('heatmap-control');
+            .then(control => {
+                control.id = LSSM.$stores.root.nodeAttribute('heatmap-control');
 
                 const icon = document.createElement('i');
                 icon.classList.add('fas', 'fa-layer-group');
@@ -214,7 +206,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
                         control.classList.toggle('open');
                 });
 
-                LSSM.$store.dispatch('addStyles', [
+                LSSM.$stores.root.addStyles([
                     {
                         selectorText: `#${control.id}`,
                         style: {

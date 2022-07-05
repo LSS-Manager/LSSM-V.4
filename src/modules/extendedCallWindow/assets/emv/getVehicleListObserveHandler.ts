@@ -1,6 +1,5 @@
 import type { $m } from 'typings/Module';
 import type { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
-import type { InternalVehicle } from 'typings/Vehicle';
 
 type Requirements = EnhancedMissingVehiclesProps['missingRequirements'];
 
@@ -19,7 +18,7 @@ export default (
     );
     const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
 
-    const vehicleTypes = LSSM.$t('vehicles') as Record<number, InternalVehicle>;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     if (!vehicleList || !occupiedList) return;
 
@@ -119,9 +118,8 @@ export default (
                 checkbox.getAttribute('tractive_random') === '0' &&
                 tractiveVehicleID !== '0'
             ) {
-                const tractive = LSSM.$store.getters['api/vehicle'](
-                    parseInt(tractiveVehicleID)
-                );
+                const tractive =
+                    LSSM.$stores.api.vehiclesById[parseInt(tractiveVehicleID)];
                 const tractiveType = tractive.vehicle_type;
                 if (tractive) {
                     if (!selectedVehicles.hasOwnProperty(tractiveType))
@@ -194,9 +192,8 @@ export default (
                                   vehicleIds
                                       .map(
                                           id =>
-                                              LSSM.$store.getters[
-                                                  'api/vehicle'
-                                              ](id)?.max_personnel_override ??
+                                              LSSM.$stores.api.vehiclesById[id]
+                                                  ?.max_personnel_override ??
                                               type.maxPersonnel
                                       )
                                       .reduce((a, b) => a + b, 0),

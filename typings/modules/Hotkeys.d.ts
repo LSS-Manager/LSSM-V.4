@@ -9,14 +9,15 @@ export type Scope<
     Commands extends string[] = [],
     Root extends boolean = false
 > = Id<
-    Partial<{ [scope in Scopes[number]]: Scope<This> }> & Root extends false
-        ? {
-              validatorFunction(this: This): boolean;
-          }
-        : Empty & {
-              [command in Commands[number]]: (
-                  this: This,
-                  ...args: Parameters<CallbackFunction>
-              ) => ReturnType<CallbackFunction>;
-          }
+    Partial<{ [scope in Scopes[number]]: Scope<This> }> &
+        (Root extends false
+            ? {
+                  validatorFunction(this: This): boolean;
+              }
+            : Empty) & {
+            [command in Commands[number]]: (
+                this: This,
+                ...args: Parameters<CallbackFunction>
+            ) => ReturnType<CallbackFunction>;
+        }
 >;

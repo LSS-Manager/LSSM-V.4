@@ -1,4 +1,5 @@
 import type { Building } from 'typings/Building';
+import type { useAPIStore } from '@stores/api';
 import type { Vehicle } from 'typings/Vehicle';
 import type VueI18n from 'vue-i18n';
 
@@ -11,14 +12,15 @@ export interface VehicleList {
     vehiclesWithBuildings: VehicleWithBuilding[];
     buildings: Building[];
     search: string;
-    sort: string;
+    sort: keyof VehicleWithBuilding;
     sortDir: string;
     resolveLinkClass: string;
     resolving: number | null;
+    apiStore: ReturnType<typeof useAPIStore>;
 }
 
 export interface VehicleListMethods {
-    setSort(type: string): void;
+    setSort(type: keyof VehicleWithBuilding): void;
     toggleFMS(vehicle: Vehicle): void;
     $m(key: string, args?: Record<string, unknown>): VueI18n.TranslateResult;
     startResolve(type: 'building' | 'mission', id: number): void;
@@ -27,8 +29,8 @@ export interface VehicleListMethods {
 }
 
 export interface VehicleListComputed {
-    vehiclesFiltered: Vehicle[];
-    vehiclesSorted: Vehicle[];
+    vehiclesFiltered: VehicleWithBuilding[];
+    vehiclesSorted: VehicleWithBuilding[];
 }
 
 export interface VehicleListProps {

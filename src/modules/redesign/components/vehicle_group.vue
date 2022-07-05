@@ -93,15 +93,15 @@ export default Vue.extend<
     data() {
         return {
             faTrash,
-            captionId: this.$store.getters.nodeAttribute(
+            captionId: this.lightbox.rootStore.nodeAttribute(
                 'vehicle_group-edit-caption',
                 true
             ),
-            colorId: this.$store.getters.nodeAttribute(
+            colorId: this.lightbox.rootStore.nodeAttribute(
                 'vehicle_group-edit-color',
                 true
             ),
-            columnId: this.$store.getters.nodeAttribute(
+            columnId: this.lightbox.rootStore.nodeAttribute(
                 'vehicle_group-edit-column',
                 true
             ),

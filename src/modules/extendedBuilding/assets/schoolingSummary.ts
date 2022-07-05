@@ -2,17 +2,14 @@ import SchoolingSummary from '../components/schoolingSummary.vue';
 
 import type { $m } from 'typings/Module';
 import type { Schooling } from 'typings/Schooling';
-import type { Building, InternalBuilding } from 'typings/Building';
 import type {
     EachSchooling,
     SchoolingSummaryObject,
+    Schooling as SchoolingSummarySchooling,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: `${MODULE_ID}-schoolingSummary`,
-    });
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}-schoolingSummary`);
     const dataList =
         document.querySelector<HTMLDataListElement>('dl:last-of-type');
 
@@ -33,7 +30,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     dataData.append(overviewWrapper);
     dataList.append(dataTitle, dataData);
 
-    const summaryAll = {} as SchoolingSummaryObject;
+    const summaryAll = {} as SchoolingSummaryObject<SchoolingSummarySchooling>;
     const summaryEach = {} as SchoolingSummaryObject<EachSchooling>;
 
     personnel.forEach(p => {
@@ -70,16 +67,16 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
-        number,
-        InternalVehicle
-    >;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
-    const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[
-        (LSSM.$store.state.api.buildings as Building[]).find(
-            ({ id }) => id === buildingId
-        )?.building_type ?? -1
-    ]?.schoolingTypes;
+    const buildingType =
+        LSSM.$stores.translations.buildings[
+            LSSM.$stores.api.buildings.find(({ id }) => id === buildingId)
+                ?.building_type ?? -1
+        ];
+
+    const schools =
+        'schoolingTypes' in buildingType ? buildingType.schoolingTypes : null;
 
     if (!schools) return;
 
@@ -97,14 +94,11 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         ])
     );
 
-    LSSM.$store
-        .dispatch('api/fetchVehiclesAtBuilding', {
-            id: buildingId,
-            feature: `${MODULE_ID}-schoolingSummary`,
-        })
-        .then((vehicles: Vehicle[]) => {
-            vehicles.forEach(v => {
-                const type = vehicleTypes[v.vehicle_type];
+    LSSM.$stores.api
+        .getVehiclesAtBuilding(buildingId, `${MODULE_ID}-schoolingSummary`)
+        .then(vehicles => {
+            vehicles.forEach(vehicle => {
+                const type = vehicleTypes[vehicle.vehicle_type];
                 schools.forEach(school => {
                     const vehicleSchoolings = type.schooling?.[school] ?? {};
                     Object.entries(vehicleSchoolings).forEach(
@@ -119,14 +113,16 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
                             summaryEach[staffListSchooling].min +=
                                 (all ? null : min) ?? type.minPersonnel;
                             summaryEach[staffListSchooling].max +=
-                                v.max_personnel_override ?? type.maxPersonnel;
+                                vehicle.max_personnel_override ??
+                                vehicle.max_personnel_override ??
+                                type.maxPersonnel;
                         }
                     );
                 });
             });
 
             new LSSM.$vue({
-                store: LSSM.$store,
+                pinia: LSSM.$pinia,
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(SchoolingSummary, {

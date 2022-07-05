@@ -172,8 +172,7 @@ export default async ({
                             `#mission_${missionId}`
                         );
                     if (!missionElement) return;
-                    const missionsById: Record<string, Mission> =
-                        LSSM.$store.getters['api/missionsById'];
+                    const missionsById = LSSM.$stores.api.missions;
                     replyInProgress = true;
                     sendReply(
                         LSSM,

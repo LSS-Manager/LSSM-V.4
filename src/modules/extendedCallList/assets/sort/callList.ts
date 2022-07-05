@@ -1,7 +1,6 @@
-import type { $m } from 'typings/Module';
 import type { Building } from 'typings/Building';
 import type { LatLng } from 'leaflet';
-import type { Mission } from 'typings/Mission';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
@@ -15,7 +14,8 @@ export type Sort =
     | 'distance_dispatch'
     | 'distance_station'
     | 'id'
-    | 'remaining_patients';
+    | 'remaining_patients'
+    | 'remaining_prisoners';
 
 export default (
     LSSM: Vue,
@@ -25,15 +25,15 @@ export default (
     buttonColor: string,
     sortBtnId: string,
     starredMissionPanelClass: string,
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ) => {
-    LSSM.$store.commit('useFontAwesome');
-
     const sorts: Sort[] = [
         'default',
         'id',
         'credits',
         'remaining_patients',
+        'remaining_prisoners',
         'alphabet',
         'distance_dispatch',
         'distance_station',
@@ -47,8 +47,7 @@ export default (
         Record<string, { order: number; el: HTMLDivElement }>
     > = {};
 
-    const missionsById: Record<string, Mission> =
-        LSSM.$store.getters['api/missionsById'];
+    const missionsById = LSSM.$stores.api.missions;
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
         Object.values(missionsById)
             .sort(({ name: nameA }, { name: nameB }) =>
@@ -62,71 +61,43 @@ export default (
     const vehicleBuildings: Building[] = [];
     const vehicleBuildingLatLngs: LatLng[] = [];
 
-    LSSM.$store
-        .dispatch('api/registerBuildingsUsage', {
-            feature: 'ecl-sort-missions',
-        })
-        .then(() => {
-            dispatchCenters.splice(
-                0,
-                dispatchCenters.length,
-                ...Object.values(
-                    LSSM.$t('dispatchCenterBuildings') as unknown as Record<
-                        number,
-                        number
-                    >
-                )
-                    .flatMap(
-                        type =>
-                            (
-                                LSSM.$store.getters[
-                                    'api/buildingsByType'
-                                ] as Record<number, Building[]>
-                            )[type]
-                    )
-                    .filter(b => !!b)
-            );
-            dispatchCenterLatLngs.splice(
-                0,
-                dispatchCenterLatLngs.length,
-                ...dispatchCenters.map(
-                    ({ latitude, longitude }) =>
-                        new window.L.LatLng(latitude, longitude)
-                )
-            );
+    LSSM.$stores.api.getBuildings('ecl-sort-missions').then(() => {
+        dispatchCenters.splice(
+            0,
+            dispatchCenters.length,
+            ...LSSM.$stores.translations.dispatchCenterBuildings
+                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .filter(b => !!b)
+        );
+        dispatchCenterLatLngs.splice(
+            0,
+            dispatchCenterLatLngs.length,
+            ...dispatchCenters.map(
+                ({ latitude, longitude }) =>
+                    new window.L.LatLng(latitude, longitude)
+            )
+        );
 
-            vehicleBuildings.splice(
-                0,
-                vehicleBuildings.length,
-                ...Object.values(
-                    LSSM.$t('vehicleBuildings') as unknown as Record<
-                        number,
-                        number
-                    >
-                )
-                    .flatMap(
-                        type =>
-                            (
-                                LSSM.$store.getters[
-                                    'api/buildingsByType'
-                                ] as Record<number, Building[]>
-                            )[type]
-                    )
-                    .filter(b => !!b)
-            );
-            vehicleBuildingLatLngs.splice(
-                0,
-                vehicleBuildingLatLngs.length,
-                ...vehicleBuildings.map(
-                    ({ latitude, longitude }) =>
-                        new window.L.LatLng(latitude, longitude)
-                )
-            );
-            if (sort === 'distance_dispatch' || sort === 'remaining_patients')
-                resetOrder();
-        });
+        vehicleBuildings.splice(
+            0,
+            vehicleBuildings.length,
+            ...LSSM.$stores.translations.vehicleBuildings
+                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .filter(b => !!b)
+        );
+        vehicleBuildingLatLngs.splice(
+            0,
+            vehicleBuildingLatLngs.length,
+            ...vehicleBuildings.map(
+                ({ latitude, longitude }) =>
+                    new window.L.LatLng(latitude, longitude)
+            )
+        );
+        if (sort === 'distance_dispatch' || sort === 'remaining_patients')
+            resetOrder();
+    });
 
-    const reverseClass = LSSM.$store.getters.nodeAttribute(
+    const reverseClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-missionlist-order-desc`
     );
 
@@ -168,6 +139,7 @@ export default (
         distance_station = 'building',
         id = 'clock-rotate-left',
         remaining_patients = 'user-injured',
+        remaining_prisoners = 'handcuffs',
     }
 
     enum faDirectionIcon {
@@ -185,13 +157,13 @@ export default (
     );
     sortBtn.dataset.toggle = 'dropdown';
     const sortIcon = document.createElement('i');
-    sortIcon.id = LSSM.$store.getters.nodeAttribute(
+    sortIcon.id = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-missionlist-sortingType-type`,
         true
     );
     sortIcon.classList.add('fas', `fa-${faSortIcon[sortingType]}`);
     const directionIcon = document.createElement('i');
-    directionIcon.id = LSSM.$store.getters.nodeAttribute(
+    directionIcon.id = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-missionlist-sortingType-direction`,
         true
     );
@@ -204,7 +176,7 @@ export default (
     sortBtn.append(sortIcon, directionIcon, caret);
 
     const sortSelectionList = document.createElement('ul');
-    sortSelectionList.id = LSSM.$store.getters.nodeAttribute(
+    sortSelectionList.id = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-missionlist-sorting-selection-list`,
         true
     );
@@ -261,62 +233,52 @@ export default (
         document
             .querySelector<SVGElement>(`#${directionIcon.id}`)
             ?.setAttribute('data-icon', faDirectionIcon[sortDirection]);
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'sortMissionsType',
-            value: sortingType,
-        });
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'sortMissionsDirection',
-            value: sortDirection,
-        });
+        await setSetting('sortMissionsType', sortingType);
+        await setSetting('sortMissionsDirection', sortDirection);
         if (updateOrderListTimeout) window.clearTimeout(updateOrderListTimeout);
         updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
         resetOrder();
     });
 
-    LSSM.$store
-        .dispatch('addStyles', [
-            {
-                selectorText: `#${panelBodyId} > #mission_list, #${panelBodyId} > [id^="mission_list_"]`,
-                style: {
-                    'display': 'flex',
-                    'flex-flow': 'column',
-                },
+    LSSM.$stores.root.addStyles([
+        {
+            selectorText: `#${panelBodyId} > #mission_list, #${panelBodyId} > [id^="mission_list_"]`,
+            style: {
+                'display': 'flex',
+                'flex-flow': 'column',
             },
-            {
-                selectorText: `#${panelBodyId}.${reverseClass} > #mission_list, #${panelBodyId}.${reverseClass} > [id^="mission_list_"]`,
-                style: {
-                    'flex-flow': 'column-reverse',
-                },
+        },
+        {
+            selectorText: `#${panelBodyId}.${reverseClass} > #mission_list, #${panelBodyId}.${reverseClass} > [id^="mission_list_"]`,
+            style: {
+                'flex-flow': 'column-reverse',
             },
-            {
-                selectorText: `#${panelBodyId} .${starredMissionPanelClass}`,
-                style: {
-                    order: `-${maxCSSInteger} !important`,
-                },
+        },
+        {
+            selectorText: `#${panelBodyId} .${starredMissionPanelClass}`,
+            style: {
+                order: `-${maxCSSInteger} !important`,
             },
-            {
-                selectorText: `#${panelBodyId}.${reverseClass} .${starredMissionPanelClass}`,
-                style: {
-                    order: `${maxCSSInteger} !important`,
-                },
+        },
+        {
+            selectorText: `#${panelBodyId}.${reverseClass} .${starredMissionPanelClass}`,
+            style: {
+                order: `${maxCSSInteger} !important`,
             },
-            {
-                selectorText: `#${sortIcon.id}`,
-                style: {
-                    'margin-right': '0.2em',
-                },
+        },
+        {
+            selectorText: `#${sortIcon.id}`,
+            style: {
+                'margin-right': '0.2em',
             },
-            {
-                selectorText: `#${sortIcon.id}[data-icon="face-rolling-eyes"], #${sortSelectionList.id} [data-icon="face-rolling-eyes"]`,
-                style: {
-                    display: 'none',
-                },
+        },
+        {
+            selectorText: `#${sortIcon.id}[data-icon="face-rolling-eyes"], #${sortSelectionList.id} [data-icon="face-rolling-eyes"]`,
+            style: {
+                display: 'none',
             },
-        ])
-        .then();
+        },
+    ]);
 
     const getLatLngFromMission = (mission: HTMLDivElement) =>
         new window.L.LatLng(
@@ -333,7 +295,7 @@ export default (
         credits: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
             if (missionType === '-1' || missionType === 'null')
-                return maxCSSInteger.toString();
+                return (maxCSSInteger - 1).toString();
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex && overlayIndex !== 'null')
@@ -372,6 +334,16 @@ export default (
                     .toString();
             }
             return '0';
+        },
+        remaining_prisoners: mission => {
+            return (
+                mission
+                    .querySelector(
+                        '.mission_prisoners[id^="mission_prisoners_"]'
+                    )
+                    ?.querySelectorAll('.small[id^="prisoner_"]')
+                    .length.toString() ?? '0'
+            );
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
@@ -493,82 +465,70 @@ export default (
         .querySelector<HTMLDivElement>('#btn-group-mission-select')
         ?.append(sortBtn, sortSelectionList);
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
-                );
-                if (panel) setMissionOrder(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionMarkerAdd',
+        callback(marker: MissionMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.id}`
+            );
+            if (panel) setMissionOrder(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionDelete',
-            callback(missionId: number) {
-                Object.keys(missionOrderValuesById).forEach(
-                    list => delete missionOrderValuesById[list][missionId]
-                );
-                updateOrderList();
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionDelete',
+        callback(missionId: number) {
+            Object.keys(missionOrderValuesById).forEach(
+                list => delete missionOrderValuesById[list][missionId]
+            );
+            updateOrderList();
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'patientMarkerAdd',
-            post: true,
-            callback(marker: PatientMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.mission_id}`
-                );
-                if (panel) setMissionOrder(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'patientMarkerAdd',
+        post: true,
+        callback(marker: PatientMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.mission_id}`
+            );
+            if (panel) setMissionOrder(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'patientMarkerAddCombined',
-            post: true,
-            callback(marker: PatientMarkerAddCombined) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.mission_id}`
-                );
-                if (panel) setMissionOrder(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'patientMarkerAddCombined',
+        post: true,
+        callback(marker: PatientMarkerAddCombined) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.mission_id}`
+            );
+            if (panel) setMissionOrder(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'patientDelete',
-            callback(patientId: number) {
-                const missionId = window.patient_timers.find(
-                    ({ patient_id }) => patient_id === patientId
-                )?.params.mission_id;
-                if (!missionId) return;
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${missionId}`
-                );
-                if (panel) setMissionOrder(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'patientDelete',
+        callback(patientId: number) {
+            const missionId = window.patient_timers.find(
+                ({ patient_id }) => patient_id === patientId
+            )?.params.mission_id;
+            if (!missionId) return;
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${missionId}`
+            );
+            if (panel) setMissionOrder(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionSelectionActive',
-            callback(toggleBtn: JQuery<HTMLAnchorElement>) {
-                document
-                    .querySelector<HTMLDivElement>(
-                        `#${toggleBtn.attr('classShow')}`
-                    )
-                    ?.style.setProperty('display', 'flex');
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionSelectionActive',
+        callback(toggleBtn: JQuery<HTMLAnchorElement>) {
+            document
+                .querySelector<HTMLDivElement>(
+                    `#${toggleBtn.attr('classShow')}`
+                )
+                ?.style.setProperty('display', 'flex');
+        },
+    });
 };

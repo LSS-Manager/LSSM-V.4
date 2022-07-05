@@ -281,6 +281,8 @@
 import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
+import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Schooling } from 'typings/Schooling';
@@ -290,15 +292,11 @@ import type {
     ResolvedBuildingCategory,
 } from 'typings/Building';
 import type {
-    InternalVehicle,
-    ResolvedVehicleCategory,
-    VehicleCategory,
-} from '../../../typings/Vehicle';
-import type {
     Overview,
     OverviewComputed,
     OverviewMethods,
-} from '../../../typings/modules/Overview';
+} from 'typings/modules/Overview';
+import type { ResolvedVehicleCategory, VehicleCategory } from 'typings/Vehicle';
 
 export default Vue.extend<
     Overview,
@@ -318,13 +316,13 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
+        const translationStore = useTranslationStore();
+        const locale = rootStore.locale;
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = this.$t('vehicles') as Record<
-            number,
-            InternalVehicle
-        >;
+        const vehicleTypes = translationStore.vehicles;
         const resolvedVehicleCategories = {} as Record<
             string,
             ResolvedVehicleCategory
@@ -374,49 +372,48 @@ export default Vue.extend<
             this.$t('buildingCategories') as unknown
         ) as Record<string, BuildingCategory | ResolvedBuildingCategory>;
         const buildingTypes = Object.fromEntries(
-            Object.entries(
-                cloneDeep(
-                    this.$t('buildings') as Record<number, InternalBuilding>
-                )
-            ).map(([index, building]) => {
-                const extensions = Object.values(building.extensions);
-                const minifiedExtensions = [] as InternalBuilding['extensions'];
-                const multipleExtensions = {} as Record<string, number>;
-                extensions.forEach(extension => {
-                    if (!extension) return;
-                    const e = minifiedExtensions.find(
-                        e => extension.caption === e.caption
-                    );
-                    if (e) {
-                        if (!multipleExtensions.hasOwnProperty(e.caption))
-                            multipleExtensions[e.caption] = 1;
-                        multipleExtensions[e.caption]++;
-                    } else {
-                        minifiedExtensions.push(extension);
-                    }
-                });
-                Object.entries(multipleExtensions).forEach(
-                    ([caption, amount]) => {
+            Object.entries(cloneDeep(translationStore.buildings)).map(
+                ([index, building]) => {
+                    const extensions = Object.values(building.extensions);
+                    const minifiedExtensions =
+                        [] as InternalBuilding['extensions'];
+                    const multipleExtensions = {} as Record<string, number>;
+                    extensions.forEach(extension => {
+                        if (!extension) return;
                         const e = minifiedExtensions.find(
-                            e => e.caption === caption
+                            e => extension.caption === e?.caption
                         );
                         if (e) {
-                            e.caption = this.$tc(
-                                `modules.overview.extensionTitle`,
-                                amount,
-                                { caption }
-                            );
+                            if (!multipleExtensions.hasOwnProperty(e.caption))
+                                multipleExtensions[e.caption] = 1;
+                            multipleExtensions[e.caption]++;
+                        } else {
+                            minifiedExtensions.push(extension);
                         }
-                    }
-                );
-                return [
-                    index,
-                    {
-                        ...building,
-                        extensions: minifiedExtensions,
-                    },
-                ];
-            })
+                    });
+                    Object.entries(multipleExtensions).forEach(
+                        ([caption, amount]) => {
+                            const e = minifiedExtensions.find(
+                                e => e?.caption === caption
+                            );
+                            if (e) {
+                                e.caption = this.$tc(
+                                    `modules.overview.extensionTitle`,
+                                    amount,
+                                    { caption }
+                                );
+                            }
+                        }
+                    );
+                    return [
+                        index,
+                        {
+                            ...building,
+                            extensions: minifiedExtensions,
+                        },
+                    ];
+                }
+            )
         );
         Object.entries(buildingCategories).forEach(
             ([category, { buildings }]) =>
@@ -454,14 +451,14 @@ export default Vue.extend<
                         'en_AU',
                         'fr_FR',
                         'es_ES',
-                    ].includes(this.$store.state.lang)
+                    ].includes(locale)
                         ? {
                               wtank: {
                                   title: this.$m('titles.vehicles.wtank'),
                               },
                           }
                         : null),
-                    ...(['de_DE'].includes(this.$store.state.lang)
+                    ...(['de_DE'].includes(locale)
                         ? {
                               pumpcap: {
                                   title: this.$m('titles.vehicles.pumpcap'),
@@ -476,7 +473,7 @@ export default Vue.extend<
                         'en_US',
                         'nl_NL',
                         'sv_SE',
-                    ].includes(this.$store.state.lang)
+                    ].includes(locale)
                         ? {
                               ftank: {
                                   title: this.$m('titles.vehicles.ftank'),

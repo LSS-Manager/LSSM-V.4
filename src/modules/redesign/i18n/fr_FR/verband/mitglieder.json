@@ -1,7 +1,7 @@
 {
     "amount": "{n} joueur filtré | {n} joueurs filtrés",
-    "credits": "total des crédits obtenus",
-    "discount": "réduction",
+    "credits": "Crédits obtenus",
+    "discount": "Remise",
     "edit_caption": {
         "save": "Enregistrer"
     },
@@ -9,7 +9,7 @@
         "next": "Page suivante",
         "prev": "Page précédente"
     },
-    "name": "Joueur",
+    "name": "Nom",
     "online": {
         "subtitle": "Seuls les membres en ligne sont affichés !",
         "titles": {
@@ -25,32 +25,32 @@
         }
     },
     "rights": {
-        "admin": "Administrateur d’alliance",
+        "admin": "Administrateur de l’alliance",
         "aufsichtsrat": "Journal de modération",
-        "coadmin": "Coadministrateur d’alliance",
-        "edit": "Droits d'édition",
-        "finance": "Finances de l'Alliance",
+        "coadmin": "Coadministrateur de l’alliance",
+        "edit": "Modifier les droits",
+        "finance": "Trésorier de l’alliance",
         "hide": "Fermer",
         "kick": {
-            "btn": "Kick"
+            "btn": "Expulser"
         },
         "kickModal": {
             "btnCancel": "Annuler",
-            "btnConfirm": "Kick",
-            "text": "Voulez-vous vraiment virer le joueur **{user}** de l'Alliance ?",
-            "title": "Kick?"
+            "btnConfirm": "Expluser",
+            "text": "Voulez-vous vraiment exclure le joueur **{user}** de l'Alliance ?",
+            "title": "Exclusion"
         },
         "schooling": "Formateur de l’alliance",
-        "set": "Ajouter le role {rôle}",
-        "sprechwunsch_admin": "Demande de transport - administrateur",
-        "staff": "Staff de l'Alliance",
-        "unset": "Retirer le role {rôle}"
+        "set": "Attribuer le rôle {role}",
+        "sprechwunsch_admin": "Gérer les transports",
+        "staff": "Staff de l’alliance",
+        "unset": "Retirer le rôle {role}"
     },
-    "roles": "Role(s)",
+    "roles": "Rôle(s)",
     "search_global": "Recherche globale",
-    "search_local": "rechercher les joueurs ",
+    "search_local": "Rechercher dans la page",
     "search_subtitle": "Afficher {n} joueurs de {startPage} à {endPage} de {totalPages} pages",
     "subtitle": "Afficher {n} joueurs de {startPage} ({firstCredits}) à {endPage} ({lastCredits}) de {totalPages} pages",
-    "tax": "taux d'impôt",
+    "tax": "Taux",
     "title": "Membres"
 }

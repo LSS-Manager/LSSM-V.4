@@ -107,7 +107,7 @@ export function shareMission(
     missionId: number | string,
     isCallList = false
 ) {
-    return LSSM.$store.dispatch('api/request', {
+    return LSSM.$stores.api.request({
         url: `/missions/${missionId}/alliance`,
         feature: `'sap-${isCallList ? 'ecl-' : ''}share-missions'`,
     });
@@ -129,7 +129,7 @@ export function sendReply(
 
     url.searchParams.append('mission_reply[content]', message);
     url.searchParams.append('mission_reply[mission_id]', missionId.toString());
-    return LSSM.$store.dispatch('api/request', {
+    return LSSM.$stores.api.request({
         url: '/mission_replies',
         feature: `sap${isCallList ? '-ecl' : ''}_reply`,
         init: {

@@ -18,8 +18,19 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         vehicleTypes: string[];
     }[];
 
+    if (window.location.pathname.match(/^\/vehicles\/\d+\/?$/u)) {
+        if (await getSetting('moreReleasePatientButtons')) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/moreReleasePatientButtons/vehicle" */ './assets/moreReleasePatientButtons/vehicle'
+            ).then(({ default: moreReleasePatientButtons }) =>
+                moreReleasePatientButtons()
+            );
+        }
+        return;
+    }
+
     if (
-        !window.location.pathname.match(/^\/(buildings|missions)\/\d+$\/?/u) ||
+        !window.location.pathname.match(/^\/(buildings|missions)\/\d+\/?$/u) ||
         document.querySelector<HTMLDivElement>('.missionNotFound')
     )
         return;
@@ -31,13 +42,24 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         return;
 
     if (!stagingMode) {
-        await LSSM.$store.dispatch('addStyle', {
+        LSSM.$stores.root.addStyle({
             selectorText: '.vehicle_prisoner_select a.btn-danger',
             style: {
                 'pointer-events': 'none',
                 'opacity': '0.65',
             },
         });
+
+        if (await getSetting('moreReleasePatientButtons')) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/moreReleasePatientButtons/mission" */ './assets/moreReleasePatientButtons/mission'
+            ).then(({ default: moreReleasePatientButtons }) =>
+                moreReleasePatientButtons(
+                    LSSM,
+                    $m('releasePatient.release').toString()
+                )
+            );
+        }
 
         if (await getSetting('vehicleTypeInList')) {
             import(
@@ -58,7 +80,7 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
         if (await getSetting('enhancedMissingVehicles')) {
             import(
                 /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
-            ).then(({ default: emv }) => emv(LSSM, MODULE_ID, $m));
+            ).then(({ default: emv }) => emv(LSSM, MODULE_ID, getSetting, $m));
         }
         if (await getSetting('patientSummary')) {
             import(

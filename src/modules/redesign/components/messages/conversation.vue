@@ -177,6 +177,7 @@ import Vue from 'vue';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import moment from 'moment';
+import { useSettingsStore } from '@stores/settings';
 
 import type { ConversationMessageTemplate } from '../../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -199,6 +200,7 @@ type Component = RedesignComponent<
             enabled: boolean;
             templates: ConversationMessageTemplate[];
         };
+        settingsStore: ReturnType<typeof useSettingsStore>;
     },
     {
         loadPage(mode: 'next' | 'prev'): void;
@@ -235,7 +237,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-redesign-messages-conversation',
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         return {
             faPaperPlane,
             faTrashCan,
@@ -250,6 +252,7 @@ export default Vue.extend<
                 enabled: false,
                 templates: [],
             },
+            settingsStore: useSettingsStore(),
         };
     },
     methods: {
@@ -268,8 +271,8 @@ export default Vue.extend<
                 window.location.origin
             );
             url.searchParams.set('page', newPage.toString());
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-conversation-load-${mode}-${newPage}`,
                 })
@@ -284,7 +287,7 @@ export default Vue.extend<
                                 ),
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,
@@ -328,8 +331,8 @@ export default Vue.extend<
                 this.conversation.id.toString()
             );
             url.searchParams.append('message[body]', this.response);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages`,
                     init: {
                         credentials: 'include',
@@ -340,7 +343,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/messages/${this.conversation.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -379,8 +382,8 @@ export default Vue.extend<
                 'conversations[]',
                 this.conversation.id.toString()
             );
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages/trash`,
                     init: {
                         credentials: 'include',
@@ -388,7 +391,10 @@ export default Vue.extend<
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: new URL(`/messages`, window.location.origin),
+                        referrer: new URL(
+                            `/messages`,
+                            window.location.origin
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -410,10 +416,13 @@ export default Vue.extend<
                 ).then(async ({ default: fillDropdown }) =>
                     fillDropdown(
                         (
-                            await this.$store.dispatch('settings/getSetting', {
+                            await this.settingsStore.getSetting<{
+                                value: ConversationMessageTemplate[];
+                                enabled: boolean;
+                            }>({
                                 moduleId: 'messageTemplates',
                                 settingId: 'templates',
-                                defaultValue: [],
+                                defaultValue: { value: [], enabled: true },
                             })
                         ).value,
                         dropdown,
@@ -477,12 +486,12 @@ export default Vue.extend<
         this.loadedPages.last = this.page;
         this.lightbox.finishLoading('conversation-mounted');
 
-        this.$store
-            .dispatch('storage/get', {
+        this.lightbox.storageStore
+            .get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],
             })
-            .then((activeModules: string[]) => {
+            .then(activeModules => {
                 this.messageTemplates.enabled =
                     activeModules.includes('messageTemplates');
                 if (!this.messageTemplates.enabled) return;
@@ -492,29 +501,27 @@ export default Vue.extend<
                     ) ?? '-1'
                 );
                 if (preselected < 0) return;
-                this.$store
-                    .dispatch('settings/getSetting', {
+                this.settingsStore
+                    .getSetting<{
+                        value: ConversationMessageTemplate[];
+                        enabled: boolean;
+                    }>({
                         moduleId: 'messageTemplates',
                         settingId: 'templates',
-                        defaultValue: [],
+                        defaultValue: { value: [], enabled: true },
                     })
-                    .then(
-                        ({
-                            value: templates,
-                        }: {
-                            value: ConversationMessageTemplate[];
-                        }) =>
-                            import(
-                                /*webpackChunkName: "modules/messageTemplates/conversations/modifyMessage"*/ '../../../messageTemplates/assets/conversations/modifyMessage'
-                            ).then(
-                                async ({ default: modifyMessage }) =>
-                                    (this.response = modifyMessage(
-                                        templates[preselected].template,
-                                        {
-                                            username: this.other?.name,
-                                        }
-                                    ))
-                            )
+                    .then(({ value: templates }) =>
+                        import(
+                            /*webpackChunkName: "modules/messageTemplates/conversations/modifyMessage"*/ '../../../messageTemplates/assets/conversations/modifyMessage'
+                        ).then(
+                            async ({ default: modifyMessage }) =>
+                                (this.response = modifyMessage(
+                                    templates[preselected].template,
+                                    {
+                                        username: this.other?.name,
+                                    }
+                                ))
+                        )
                     );
             });
     },

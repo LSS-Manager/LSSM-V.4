@@ -468,13 +468,15 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
-import type { DefaultProps } from 'vue/types/options';
 import type { Mission } from 'typings/Mission';
 import type {
     MissionHelper,
     MissionHelperComputed,
     MissionHelperMethods,
+    MissionHelperProps,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
 
@@ -482,7 +484,7 @@ export default Vue.extend<
     MissionHelper,
     MissionHelperMethods,
     MissionHelperComputed,
-    DefaultProps
+    MissionHelperProps
 >({
     name: 'lssmv4-missionHelper',
     data() {
@@ -495,7 +497,7 @@ export default Vue.extend<
             faExpandAlt,
             faSuperscript,
             faSubscript,
-            id: this.$store.getters.nodeAttribute('missionHelper', true),
+            id: useRootStore().nodeAttribute('missionHelper', true),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
@@ -507,6 +509,7 @@ export default Vue.extend<
             missionId: parseInt(
                 window.location.pathname.match(/\d+\/?/u)?.[0] || '0'
             ),
+            apiStore: useAPIStore(),
             settings: {
                 title: false,
                 id: false,
@@ -632,19 +635,10 @@ export default Vue.extend<
         },
     },
     methods: {
-        $m(key, args) {
-            return this.$t(`modules.missionHelper.${key}`, args);
-        },
-        $mc(key, amount, args) {
-            return this.$tc(`modules.missionHelper.${key}`, amount, args);
-        },
         async reloadSpecs(force = false) {
             this.isReloading = true;
 
-            await this.$store.dispatch('api/getMissions', {
-                force,
-                feature: 'missionHelper-getMission',
-            });
+            await this.apiStore.getMissions('missionHelper-getMission', force);
 
             const missionHelpBtn =
                 document.querySelector<HTMLAnchorElement>('#mission_help');
@@ -660,8 +654,7 @@ export default Vue.extend<
             this.isReloading = false;
         },
         async getMission(id) {
-            const missionsById: Record<string, Mission> =
-                this.$store.getters['api/missionsById'];
+            const missionsById = this.apiStore.missions;
             const mission: Mission | undefined = missionsById[id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {
@@ -700,50 +693,37 @@ export default Vue.extend<
             }
             return mission;
         },
-        loadSetting(id, base, base_string = '') {
+        async loadSetting(id, base, base_string = '') {
             if (typeof base[id] === 'object' && !Array.isArray(base[id])) {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                Object.keys(base[id]).forEach(sid =>
-                    this.loadSetting(
+                for (const sid of Object.keys(base[id])) {
+                    await this.loadSetting(
                         sid,
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         base[id],
                         `${base_string ? `${base_string}.` : ''}${id}`
-                    )
-                );
+                    );
+                }
             } else {
-                this.$store
-                    .dispatch('settings/getSetting', {
-                        moduleId: 'missionHelper',
-                        settingId: `${
-                            base_string ? `${base_string}.` : ''
-                        }${id}`,
-                        defaultValue: base[id],
-                    })
-                    .then(setting => {
-                        this.$set(base, id, setting);
-                    });
+                await this.getSetting(
+                    `${base_string ? `${base_string}.` : ''}${id}`,
+                    base[id]
+                ).then(setting => {
+                    this.$set(base, id, setting);
+                });
             }
         },
         toggleOverlay() {
-            this.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: 'missionHelper',
-                    settingId: `overlay`,
-                    value: !this.overlay,
-                })
-                .then(() => (this.overlay = !this.overlay));
+            this.setSetting('overlay', !this.overlay).then(
+                () => (this.overlay = !this.overlay)
+            );
         },
         toggleMinified() {
-            this.$store
-                .dispatch('settings/setSetting', {
-                    moduleId: 'missionHelper',
-                    settingId: `minified`,
-                    value: !this.minified,
-                })
-                .then(() => (this.minified = !this.minified));
+            this.setSetting('minified', !this.minified).then(
+                () => (this.minified = !this.minified)
+            );
         },
         dragStart(e) {
             const current = { x: e.clientX, y: e.clientY };
@@ -765,11 +745,7 @@ export default Vue.extend<
             this.drag.active = false;
             if (this.drag.top < 0) this.drag.top = 0;
             if (this.drag.right < 0) this.drag.right = 0;
-            await this.$store.dispatch('settings/setSetting', {
-                moduleId: 'missionHelper',
-                settingId: `drag`,
-                value: this.drag,
-            });
+            await this.setSetting('drag', this.drag);
             document.body.classList.remove('lssm-is-dragging');
             document.removeEventListener('mouseup', this.dragEnd);
             document.removeEventListener('mousemove', this.dragging);
@@ -1095,34 +1071,45 @@ export default Vue.extend<
             }
         },
     },
-    beforeMount() {
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'missionHelper',
-                settingId: 'overlay',
-                defaultValue: false,
-            })
-            .then(overlay => (this.overlay = overlay));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'missionHelper',
-                settingId: 'minified',
-                defaultValue: false,
-            })
-            .then(minified => (this.minified = minified));
-        this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'missionHelper',
-                settingId: 'drag',
-                defaultValue: false,
-            })
-            .then(drag => (this.drag = drag));
+    props: {
+        $m: {
+            type: Function,
+            required: true,
+        },
+        $mc: {
+            type: Function,
+            required: true,
+        },
+        getSetting: {
+            type: Function,
+            required: true,
+        },
+        setSetting: {
+            type: Function,
+            required: true,
+        },
     },
-    mounted() {
-        Object.keys(this.settings).forEach(id =>
-            this.loadSetting(id, this.settings)
+    beforeMount() {
+        this.getSetting('overlay', false).then(
+            overlay => (this.overlay = overlay)
         );
-        this.reloadSpecs();
+        this.getSetting('minified', false).then(
+            minified => (this.minified = minified)
+        );
+        this.getSetting<MissionHelper['drag']>('drag', {
+            active: false,
+            top: 60,
+            right: window.innerWidth * 0.03,
+            offset: {
+                x: 0,
+                y: 0,
+            },
+        }).then(drag => (this.drag = drag));
+    },
+    async mounted() {
+        for (const id of Object.keys(this.settings))
+            await this.loadSetting(id, this.settings);
+        await this.reloadSpecs();
     },
 });
 </script>
@@ -1148,7 +1135,7 @@ export default Vue.extend<
 .alert
 
     &.overlay
-        z-index: 2
+        z-index: 4
         position: fixed
         top: 3%
         right: 3%

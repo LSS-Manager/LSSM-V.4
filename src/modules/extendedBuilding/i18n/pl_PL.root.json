@@ -1,49 +1,53 @@
 {
     "description": "Dodaje przydatne funkcje do budynków.",
-    "name": "Rozszerzony widok budynku",
+    "name": "Ulepszone budynki",
     "settings": {
         "buildingsLeftRight": {
-            "description": "Pokazuje w budynkach, ile innych budynków tego samego typu w danym kierunku.",
+            "description": "Pokazuje w budynkach, ile jest następnych/poprzednich budynków tego samego typu.",
             "title": "Liczba budynków tego samego typu"
         },
         "enhanceVehicleList": {
-            "description": "Rozszerza listę pojazdów o przydatne funkcje - niektóre z nich można regulować.",
-            "title": "Rozszerz listę pojazdów"
+            "description": "Ulepsza listę pojazdów w oknie budynku.",
+            "title": "Ulepsz listę pojazdów"
         },
         "enhancedPersonnelAssignment": {
-            "description": "Daje możliwość ukrycia personelu bez odpowiedniego przeszkolenia.",
+            "description": "Daje możliwość ukrycia personelu bez odpowiedniego przeszkolenia. [Obecnie nie działa prawidłowo/Bedziemy nad tym pracować]",
             "title": "Lepsza alokacja personelu"
         },
         "expansions": {
-            "description": "Pokazuje rozszerzenia budynku bez konieczności wcześniejszego naciskania karty rozszerzeń.",
+            "description": "Pokazuje rozszerzenia budynku w jego menu głównym.",
             "title": "Pokaż rozszerzenia bezpośrednio"
         },
         "fastDispatchChooser": {
-            "description": "Pozwala wybrać bezpośrednio w budynku, do którego centrum sterowania jest przypisane, bez konieczności wcześniejszego uzyskiwania dostępu do ustawień.",
-            "title": "Szybki wybór centrum sterowania"
+            "description": "Pozwala wybrać bezpośrednio w budynku, do którego CPR jest przypisane - bez wchodzenia do ustawień.",
+            "title": "Szybki wybór CPR"
         },
         "fmsSwitch": {
-            "description": "Umożliwia przełączanie się między stanem 2 i 6, klikając stan.",
-            "title": "Szybka zmiana statusu 2 <=> 6 switch"
+            "description": "Umożliwia zmiane stanu pojazdu z \"dostępny [2]\" na \"niedostępny[6]\" klikając jego stan na liście pojazdów w budynku.",
+            "title": "Szybka zmiana statusu"
         },
         "personnelAssignmentBtn": {
-            "description": "Wstawia obok przycisku 'Edytuj ', aby dodać przycisk do przydziału personelu. - Jeszcze nie działa w centrach kontroli!",
+            "description": "Wstawia przycisk przycisk do przydzielania załogi na liście pojazdów.",
             "title": "Przycisk przydziału personelu"
         },
         "personnelDemands": {
-            "description": "Pokazuje, ile personelu jest wymagane przy minimalnym i maksymalnym obłożeniu pojazdu.",
+            "description": "Pokazuje minimalną i maksymalną ilość osób wymaganych na posterunku.",
             "title": "Wymagania dotyczące personelu"
         },
         "schoolingSummary": {
-            "description": "Pokazuje w przeglądzie personelu budynku, ile osób przeszło które szkolenie (a).",
+            "description": "Pokazuje ile osób przeszło dane szkolenie na liści pracowników.",
             "title": "Podsumowanie personelu"
+        },
+        "schoolsBuildingFilter": {
+            "description": "Dodaje dwie listy oraz wyszukiwarkę w oknie kursu, która ułatwia nam wybranie odpowiedniego personelu.",
+            "title": "Filtr personelu na kurs"
         },
         "upgradeConfirmation": {
             "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
-            "title": "Ulepsz budynek"
+            "title": "Ulepszanie budynku"
         },
         "vehicleTypes": {
-            "description": "Pokazuje typ pojazdu (i jeśli jest dostępna, własną klasę pojazdu) w oddzielnej kolumnie",
+            "description": "Pokazuje typ pojazdu i jeśli jest dostępna, własną klasę pojazdu w oddzielnej kolumnie",
             "title": "Typ pojazdu"
         },
         "vehicleTypesOnlyOwn": {
@@ -56,7 +60,7 @@
         },
         "vehiclesPersonnelColorized": {
             "description": "Podświetla liczbę przydzielonych załóg na czerwono, jeśli jest mniejsza niż maksymalna możliwa, a na zielono, gdy maksymalna liczba zostanie osiągnięta.",
-            "title": "Kod koloru dla przydzielonej załogi"
+            "title": "Poprawna ilość przypisanych osób"
         },
         "vehiclesPersonnelCurrent": {
             "description": "Pokazuje, ile osób aktualnie siedzi w pojeździe.",

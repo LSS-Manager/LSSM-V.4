@@ -8,7 +8,7 @@
                     ref="searchField"
                     class="search_input_field"
                     :value="search"
-                    @input="$emit('search', $refs.searchField.value)"
+                    @input="$emit('search', $refs.searchField.value.trim())"
                     :placeholder="
                         searchPlaceholder ? searchPlaceholder : $t('search')
                     "
@@ -75,7 +75,7 @@ import type {
     EnhancedTableData,
     EnhancedTableMethods,
     EnhancedTableProps,
-} from '../../typings/components/Enhanced-Table';
+} from 'typings/components/Enhanced-Table';
 
 export default Vue.extend<
     EnhancedTableData,

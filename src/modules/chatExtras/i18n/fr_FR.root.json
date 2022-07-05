@@ -4,7 +4,7 @@
     "settings": {
         "chatTime": {
             "description": "Modifie l'horodatage. Vous pouvez adapter le format toi-même.",
-            "title": "Adapter l'horodatage dans le chat"
+            "title": "Modifier l'horodatage dans le chat"
         },
         "chatTimeFormat": {
             "description": "Ici, vous pouvez définir le format de ton choix. vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">ici</a>.",
@@ -13,6 +13,25 @@
         "cloneHistoryBtnToHeader": {
             "description": "Afficher le bouton pour l'historique du salon dans l'en-tête afin que vous n'ayez pas à faire défiler le chat pour y accéder.",
             "title": "Afficher le bouton l'historique du salon dans l'en-tête."
+        },
+        "lightDesignChatHistory": {
+            "description": "Un design allégé pour l'historique du chat",
+            "title": "Design léger de l'historique du chat"
+        },
+        "selfHighlight": {
+            "description": "mettre en évidence votre nom d'utilisateur dans le chat avec une couleur personnalisée.",
+            "title": "Couleur personnalisée dans le chat"
+        },
+        "selfHighlightColor": {
+            "description": "Choisissez la couleur dans laquelle votre nom d'utilisateur doit être mis en évidence.",
+            "title": "Couleur personnalisée dans le chat: couleur de fond"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Voulez-vous utiliser une couleur de texte personnalisée?",
+            "title": "couleur personnalisée dans le chat : couleur de texte"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "couleur personnalisée dans le chat : couleur de texte"
         }
     }
 }

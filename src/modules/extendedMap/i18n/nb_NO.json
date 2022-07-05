@@ -1,0 +1,135 @@
+{
+    "buildingComplexes": {
+        "buildingList": {
+            "details": "Info"
+        },
+        "new": "New LSSM building complex",
+        "openInLightbox": "Open building in Lightbox",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "automatically",
+                    "no": "None",
+                    "phase": "1 Day | {n} Days"
+                },
+                "inConstruction": "thereof {n} under construction",
+                "table": {
+                    "alliance": "Alliance",
+                    "head": {
+                        "beds": "Beds",
+                        "cells": "Cells",
+                        "classrooms": "Classrooms",
+                        "hiring": "Hiring Phase",
+                        "level": "Level",
+                        "name": "Name",
+                        "staff": "Staff (Staff target)",
+                        "vehicles": "Vehicles"
+                    }
+                },
+                "title": "attached buildings"
+            },
+            "classrooms": {
+                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "table": {
+                    "countdown": "time left",
+                    "free": "Free Places",
+                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "running": {
+                        "false": "No",
+                        "title": "running?",
+                        "true": "Yes"
+                    },
+                    "start": "start new training course",
+                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                },
+                "title": "Classrooms"
+            },
+            "extensions": {
+                "abort": "Abort",
+                "allianceFunds": "payed with alliance funds",
+                "disable": "disable",
+                "disabled": "Finished & disabled",
+                "enable": "enable",
+                "enabled": "Finished & enabled",
+                "filter": {
+                    "all": "All",
+                    "buildings": "Buildings",
+                    "canBuy": "can buy",
+                    "canToggle": "can enable/disable",
+                    "cannotBuy": "cannot buy",
+                    "cannotToggle": "cannot enable/disable",
+                    "disabled": "finished & disabled",
+                    "enabled": "finished & enabled",
+                    "extensions": "Extensions",
+                    "states": "Status",
+                    "underConstruction": "under construction"
+                },
+                "limit": "You cannot buy more than {n} of this extensions currently!",
+                "missingRequirements": "Following requirements are not met:",
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} built",
+                    "inConstruction": "{n} under construction",
+                    "total": "{n} possible in total"
+                },
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "name": "Name"
+                    }
+                },
+                "title": "Extensions",
+                "underConstruction": "under construction"
+            },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
+            "title": "Overview",
+            "vehicles": {
+                "imageInfo": "Note: Currently only standard vehicle icons or those of the set graphic pack can be shown. Icons set on a vehicle or station individually cannot be recognized yet unfortunately.",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "fms": "Status",
+                        "name": "Name",
+                        "staff": "Staff (assigned / max)"
+                    }
+                },
+                "title": "Vehicles"
+            }
+        },
+        "settings": {
+            "abort": "Abort",
+            "allianceBuildings": "attached alliance buildings",
+            "buildingTabs": "Show tabs for attached buildings?",
+            "buildings": "attached buildings",
+            "buildingsInList": "Show attached buildings in the buildings list?",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Abort",
+                    "continue": "Dissolve"
+                },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Dissolve complex"
+            },
+            "icon": "Icon",
+            "iconHelp": "Select between standard icons and icons of attached buildings",
+            "location": "Location",
+            "name": "Name",
+            "save": "Save",
+            "showMarkers": "Show attached buildings on map?",
+            "title": "Edit complex"
+        }
+    }
+}

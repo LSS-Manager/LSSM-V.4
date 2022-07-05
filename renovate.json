@@ -1,0 +1,74 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "labels": ["dependencies"],
+  "assignees": ["Suchty112"],
+  "baseBranches": ["dev"],
+  "commitMessagePrefix": "⬆️",
+  "commitMessageTopic": "`{{depName}}`",
+  "dependencyDashboard": true,
+  "dependencyDashboardFooter": "PRs will be created on weekdays before 3am (CEST) for any dependencies except engines.\nEngine (node, npm, yarn) updates will be created on first day of month.",
+  "dependencyDashboardHeader": "# ℹ️ Renovate Dependency-Dashboard ℹ\nScheduled and currently open dependency updates are listed here\n",
+  "dependencyDashboardLabels": ["dependencies"],
+  "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
+  "packageRules": [
+    {
+      "description": "Disable updating vue on main repo. Updates require vue 3",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["vue", "vue-i18n", "vue-loader", "vue-template-compiler", "@fortawesome/vue-fontawesome"],
+      "matchPaths": ["+(package.json)"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@types/"],
+      "groupName": "types",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@fortawesome/"],
+      "groupName": "fontawesome",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@typescript-eslint"],
+      "groupName": "typescript-eslint",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePrefixes": ["@vuepress"],
+      "matchPackageNames": ["vuepress"],
+      "groupName": "vuepress",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["npm", "yarn", "node"],
+      "groupName": "engines",
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump",
+      "extends": ["schedule:monthly"]
+    },
+    {
+      "matchManagers": ["npm"],
+      "separateMajorMinor": false,
+      "lockFileMaintenance": { "enabled": true },
+      "rangeStrategy": "bump"
+    }
+  ],
+  "rangeStrategy": "bump",
+  "reviewers": ["Suchty112"],
+  "schedule": ["before 3am every weekday"],
+  "timezone": "Europe/Berlin"
+}

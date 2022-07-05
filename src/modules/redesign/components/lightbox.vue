@@ -1,6 +1,6 @@
 <template>
     <lightbox
-        :name="`redesign-lightbox-${creation}`"
+        :name="modalName"
         :full-height="!type"
         no-title-hide
         :no-modal="noModal"
@@ -57,8 +57,8 @@
             v-show="!type || type === 'default'"
             ref="iframe"
             src="about:blank"
-            :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
-            :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
+            :id="rootStore.nodeAttribute('redesign-lightbox-iframe')"
+            :name="rootStore.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
         <div
             id="redesign-loader"
@@ -84,6 +84,16 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useAPIStore } from '@stores/api';
+import { useBroadcastStore } from '@stores/broadcast';
+import { useConsoleStore } from '@stores/console';
+import { useEventStore } from '@stores/event';
+import { useModulesStore } from '@stores/modules';
+import { useNotificationStore } from '@stores/notifications';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+import { useStorageStore } from '@stores/storage';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type {
     RedesignLightbox,
@@ -276,9 +286,10 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
         return {
             faSyncAlt,
-            clipboardIconId: this.$store.getters.nodeAttribute(
+            clipboardIconId: rootStore.nodeAttribute(
                 'redesign-clipboard-icon',
                 true
             ),
@@ -292,6 +303,16 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            apiStore: useAPIStore(),
+            broadcastStore: useBroadcastStore(),
+            consoleStore: useConsoleStore(),
+            eventStore: useEventStore(),
+            modulesStore: useModulesStore(),
+            notificationsStore: useNotificationStore(),
+            rootStore,
+            settingsStore: useSettingsStore(),
+            storageStore: useStorageStore(),
+            translationStore: useTranslationStore(),
             windows,
         };
     },
@@ -372,8 +393,8 @@ export default Vue.extend<
 
                 let redirected = false;
 
-                this.$store
-                    .dispatch('api/request', {
+                this.apiStore
+                    .request({
                         url,
                         feature: `redesign-${type}`,
                     })
@@ -398,12 +419,12 @@ export default Vue.extend<
                         const types = type.split('/');
                         const addLocas = async (typePath: string) =>
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         redesign: {
                                             [typePath]: await import(
-                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${typePath}.json`
+                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.rootStore.locale}/${typePath}.json`
                                             ),
                                         },
                                     },
@@ -420,12 +441,12 @@ export default Vue.extend<
                         if (type === 'coins/list') await addLocas('credits');
                         if (type === 'credits/daily') {
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         dailyCreditsSummary: (
                                             await import(
-                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.$store.state.lang}.ts`
+                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.rootStore.locale}.ts`
                                             )
                                         ).default,
                                     },
@@ -435,11 +456,11 @@ export default Vue.extend<
                         if (type === 'schoolings') {
                             await addLocas('verband');
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         schoolingOverview: await import(
-                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.$store.state.lang}.json`
+                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.rootStore.locale}.json`
                                         ),
                                     },
                                 }
@@ -511,13 +532,18 @@ export default Vue.extend<
                                         'height'
                                     );
                                 } catch (e) {
-                                    if (e instanceof Error) this.errors.push(e);
-                                    this.$store.dispatch('console/error', [e]);
+                                    if (e instanceof Error) {
+                                        this.errors.push(e);
+                                        this.consoleStore.error(e);
+                                    }
                                 }
                             }
                         );
                     });
             },
+        },
+        modalName() {
+            return `redesign-lightbox-${this.creation}`;
         },
     },
     methods: {
@@ -528,34 +554,31 @@ export default Vue.extend<
             return this.$mc(`${this.type}.${key}`, amount, args);
         },
         getSetting() {
-            return <T>(setting: string, defaultValue: T): Promise<T> =>
-                new Promise(resolve =>
-                    this.$store
-                        .dispatch('settings/getSetting', {
-                            moduleId: 'redesign',
-                            settingId: this.type,
-                        })
-                        .then(settings =>
-                            resolve(settings[setting] ?? defaultValue)
-                        )
-                );
-        },
-        setSetting() {
-            return <T>(settingId: string, value: T): Promise<void> =>
-                this.$store
-                    .dispatch('settings/getSetting', {
+            return <S extends string, T>(
+                setting: S,
+                defaultValue: T
+            ): Promise<T> =>
+                this.settingsStore
+                    .getSetting<Record<S, T>>({
                         moduleId: 'redesign',
                         settingId: this.type,
                     })
-                    .then(settings =>
-                        this.$store
-                            .dispatch('settings/setSetting', {
-                                moduleId: 'redesign',
-                                settingId: this.type,
-                                value: { ...settings, [settingId]: value },
-                            })
-                            .then()
-                    );
+                    .then(settings => settings[setting] ?? defaultValue);
+        },
+        setSetting() {
+            return <S extends string, T>(settingId: S, value: T) =>
+                this.settingsStore
+                    .getSetting<Record<S, T>>({
+                        moduleId: 'redesign',
+                        settingId: this.type,
+                    })
+                    .then(settings => {
+                        this.settingsStore.setSetting({
+                            moduleId: 'redesign',
+                            settingId: this.type,
+                            value: { ...settings, [settingId]: value },
+                        });
+                    });
         },
         getIdFromEl(el) {
             return parseInt(
@@ -566,18 +589,15 @@ export default Vue.extend<
         },
         finishLoading(text) {
             this.loading = false;
-            this.$store
-                .dispatch('event/createEvent', {
-                    name: 'redesign-finished-loading',
-                    detail: {
-                        extra: text,
-                        type: this.type,
-                        data: this.data,
-                    },
-                })
-                .then(event =>
-                    this.$store.dispatch('event/dispatchEvent', event)
-                );
+            this.eventStore.createAndDispatchEvent({
+                name: 'redesign-finished-loading',
+                detail: {
+                    extra: text,
+                    type: this.type,
+                    data: this.data,
+                    modalName: this.modalName,
+                },
+            });
             if (this.clickableLinks.enabled) {
                 import(
                     /* webpackChunkName: "utils/clickableLinks" */ '../../generalExtensions/assets/clickableLinks/util'
@@ -602,29 +622,18 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.$store
-            .dispatch('api/getMissions', {
-                force: false,
-                feature: 'redesign-lightbox-mount',
-            })
-            .then();
-        [
-            'vehicles',
-            'buildings',
-            'allianceinfo',
-            'settings',
-            'credits',
-        ].forEach(type =>
-            this.$store.dispatch('api/initialUpdate', {
-                type,
-                feature: 'redesign-lightbox-mount',
-            })
-        );
+        const mountFeature = 'redesign-lightbox-mount';
+        this.apiStore.getAllianceInfo(mountFeature).then();
+        this.apiStore.getBuildings(mountFeature).then();
+        this.apiStore.getCredits(mountFeature).then();
+        this.apiStore.getMissions(mountFeature).then();
+        this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {
-        this.$store.commit('useFontAwesome');
-        this.$store
-            .dispatch('settings/getModule', 'generalExtensions')
+        this.settingsStore
+            .getModule<{ clickableLinks: boolean; showImg: boolean }>(
+                'generalExtensions'
+            )
             .then(({ clickableLinks, showImg }) => {
                 this.clickableLinks.enabled = clickableLinks;
                 this.clickableLinks.pictures = showImg;

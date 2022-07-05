@@ -1,8 +1,13 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
 export interface StarrableButton extends HTMLButtonElement {
-    switch?(): Promise<void>;
+    switch?(triggeredInMissionWindow?: boolean): Promise<void>;
 }
 
-const switchBtnState = (btn: HTMLButtonElement) => {
+const switchBtnState = (
+    btn: HTMLButtonElement,
+    triggeredInMissionWindow = false
+) => {
     const starred = btn.classList.contains('btn-warning');
     const btnClassReplace: [string, string] = ['btn-default', 'btn-warning'];
     if (starred) btnClassReplace.reverse();
@@ -11,6 +16,14 @@ const switchBtnState = (btn: HTMLButtonElement) => {
         'data-prefix',
         starred ? 'far' : 'fas'
     );
+    if (triggeredInMissionWindow) {
+        (window[PREFIX] as Vue).$stores.event.createAndDispatchEvent({
+            name: 'ecl_starrable-missions_toggle',
+            detail: {
+                missionId: btn.dataset.mission,
+            },
+        });
+    }
 };
 
 export default (
@@ -18,7 +31,9 @@ export default (
     MODULE_ID: string,
     missionId: string,
     isStarred: boolean,
-    starredMissionBtnClass: string
+    starredMissionBtnClass: string,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): StarrableButton => {
     const btn: StarrableButton = document.createElement('button');
 
@@ -33,35 +48,39 @@ export default (
     icon.classList.add(`fa${isStarred ? 's' : 'r'}`, 'fa-star');
     btn.append(icon);
 
-    const send = () =>
-        LSSM.$store
-            .dispatch('broadcast/send_custom_message', {
+    const send = (triggeredInMissionWindow = false) =>
+        LSSM.$stores.broadcast
+            .sendCustomMessage<{
+                missionId: string;
+                starredMissionBtnClass: string;
+                triggeredInMissionWindow: boolean;
+                switchBtnState: string;
+            }>({
                 name: 'starredMissions_update',
-                handler(msg: CustomBroadcastMessage) {
+                handler(msg) {
                     document
                         .querySelectorAll<HTMLButtonElement>(
                             `button.${msg.data.starredMissionBtnClass}[data-mission="${msg.data.missionId}"]`
                         )
-                        // eslint-disable-next-line no-eval
-                        .forEach(eval(`${msg.data.switchBtnState}`));
+                        .forEach(btn =>
+                            // eslint-disable-next-line no-eval
+                            eval(`${msg.data.switchBtnState}`)(
+                                btn,
+                                msg.data.triggeredInMissionWindow
+                            )
+                        );
                 },
                 data: {
                     missionId,
                     starredMissionBtnClass,
+                    triggeredInMissionWindow,
                     switchBtnState: switchBtnState.toString(),
                 },
             })
             .then();
 
     const store = async () => {
-        const missions: string[] = await LSSM.$store.dispatch(
-            'settings/getSetting',
-            {
-                moduleId: MODULE_ID,
-                settingId: 'starredMissions',
-                defaultValue: [],
-            }
-        );
+        const missions = await getSetting<string[]>('starredMissions', []);
         if (btn.classList.contains('btn-warning')) {
             missions.splice(
                 missions.findIndex(mission => mission === missionId),
@@ -70,17 +89,13 @@ export default (
         } else {
             missions.push(missionId);
         }
-        await LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'starredMissions',
-            value: missions,
-        });
+        await setSetting('starredMissions', missions);
     };
 
-    btn.switch = async () => {
+    btn.switch = async (triggeredInMissionWindow = false) => {
         await store();
-        await send();
-        switchBtnState(btn);
+        await send(triggeredInMissionWindow);
+        switchBtnState(btn, triggeredInMissionWindow);
     };
 
     return btn;

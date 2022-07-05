@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import pluginClipboard from 'vuepress-plugin-clipboard';
 import pluginRegisterComponents from '@vuepress/plugin-register-components';
 import pluginSearch from '@vuepress/plugin-search';
 import { pwaPlugin } from '@vuepress/plugin-pwa';
@@ -21,9 +22,8 @@ import type { ThemeData } from './types/ThemeData';
 import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
 
-const BASE = '/v4/docs/';
-const DOCS_URL = new URL(config.server);
-DOCS_URL.pathname = BASE;
+const DOCS_URL = new URL(config.docs);
+const BASE = DOCS_URL.pathname as '/' | `/${string}/`;
 
 const VUEPRESS_PATH = __dirname;
 const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
@@ -135,7 +135,15 @@ LANGS.forEach(lang => {
 const statsComponentsPath = path.join(DOCS_COMPONENTS_PATH, '.temp', 'stats');
 fs.mkdirSync(statsComponentsPath, { recursive: true });
 const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
-run('generate/projectStats', ROOT_PATH, VUEPRESS_PATH, clocStatsPath);
+const commitStatsPath = path.join(statsComponentsPath, 'commits.vue');
+run(
+    'generate/projectStats',
+    `https://github.com/${config.github.repo}`,
+    ROOT_PATH,
+    VUEPRESS_PATH,
+    clocStatsPath,
+    commitStatsPath
+);
 
 run(
     'generate/manifest',
@@ -290,8 +298,7 @@ export default defineUserConfig({
 
     // plugins
     plugins: [
-        // disabled as not working with current vuepress version
-        // ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
+        pluginClipboard({ align: 'top', staticIcon: true }),
         pluginSearch({ locales: localeConfigs.searchConfigs }),
         pluginRegisterComponents({
             components: {
@@ -346,6 +353,7 @@ export default defineUserConfig({
                     'variable-code.vue'
                 ),
                 'stats-cloc': clocStatsPath,
+                'stats-commits': commitStatsPath,
             },
         }),
         pwaPlugin({}),

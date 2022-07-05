@@ -38,6 +38,10 @@
             "description": "Shows in the staff overview of a building how many people have which training(s).",
             "title": "Personnel summary"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
         "upgradeConfirmation": {
             "description": "Asks if you really want to upgrade your building.",
             "title": "Upgrade Building"

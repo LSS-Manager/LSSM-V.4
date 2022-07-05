@@ -6,8 +6,6 @@ export default (LSSM: Vue, $m: $m): void => {
     );
     if (!patientIcon) return;
 
-    LSSM.$store.commit('useFontAwesome');
-
     const requirements = {} as Record<string, number>;
     Array.from(document.querySelectorAll('.mission_patient .alert-danger'))
         .flatMap(alert =>

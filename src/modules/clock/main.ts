@@ -2,10 +2,14 @@ import moment from 'moment';
 
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, getSetting }) => {
-    const className = LSSM.$store.getters.nodeAttribute('clock');
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    getSetting,
+    setSetting,
+}) => {
+    const className = LSSM.$stores.root.nodeAttribute('clock');
 
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.$stores.root.locale);
 
     const createClock = async (location: string) => {
         const clock = document.createElement('a');
@@ -27,11 +31,10 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         clock.style.background = 'black';
         clock.style.color = 'white';
 
-        const { x, y } = await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'overlayPosition',
-            defaultValue: { x: '0px', y: '0px' },
-        });
+        const { x, y } = await getSetting<{ x: string; y: string }>(
+            'overlayPosition',
+            { x: '0px', y: '0px' }
+        );
         clock.style.top = y;
         clock.style.left = x;
 
@@ -50,13 +53,9 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
             const bounds = clock.getBoundingClientRect();
             clock.style.top = `${drag.screenY - bounds.height * 2.6}px`;
             clock.style.left = `${drag.screenX}px`;
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'overlayPosition',
-                value: {
-                    x: clock.style.left,
-                    y: clock.style.top,
-                },
+            await setSetting('overlayPosition', {
+                x: clock.style.left,
+                y: clock.style.top,
             });
         });
         document.body.append(clock);
@@ -70,4 +69,4 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
             );
         });
     }, 1000);
-}) as ModuleMainFunction;
+});

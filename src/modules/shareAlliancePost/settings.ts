@@ -7,7 +7,7 @@ import type {
 } from 'typings/Setting';
 
 export default (async (MODULE_ID, LSSM, $m) => {
-    const activeModules: string[] = await LSSM.$store.dispatch('storage/get', {
+    const activeModules = await LSSM.$stores.storage.get<string[]>({
         key: 'activeModules',
         defaultValue: [],
     });

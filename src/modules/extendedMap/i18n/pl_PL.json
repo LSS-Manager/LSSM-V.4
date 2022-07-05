@@ -1,0 +1,135 @@
+{
+    "buildingComplexes": {
+        "buildingList": {
+            "details": "Szczegóły"
+        },
+        "new": "Nowy kompleks LSSM",
+        "openInLightbox": "Otwórz budynek w oknie",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "Automatycznie",
+                    "no": "Brak",
+                    "phase": "1 Dzień | {n} Dni"
+                },
+                "inConstruction": "z tego {n} w budowie",
+                "table": {
+                    "alliance": "Sojusz",
+                    "head": {
+                        "beds": "Łóżka",
+                        "cells": "Cele",
+                        "classrooms": "Sale wykładowe",
+                        "hiring": "Faza rekrutacji",
+                        "level": "Poziom",
+                        "name": "Nazwa",
+                        "staff": "Personel (Personel docelowy)",
+                        "vehicles": "Pojazdy"
+                    }
+                },
+                "title": "Wybrane budynki"
+            },
+            "classrooms": {
+                "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
+                "table": {
+                    "countdown": "Pozostały czas",
+                    "free": "Wolne miejsca",
+                    "freeClassrooms": "1 wolna sala|{n} wolne sale",
+                    "running": {
+                        "false": "Nie",
+                        "title": "W trakcie?",
+                        "true": "Tak"
+                    },
+                    "start": "Rozpocznij nowy kurs",
+                    "unavailable": "1 sala w budowie|{n} sale w budowie"
+                },
+                "title": "Sale"
+            },
+            "extensions": {
+                "abort": "Anuluj",
+                "allianceFunds": "Opłać z funduszy sojuszu",
+                "disable": "Wyłącz",
+                "disabled": "Ukończone i wyłączone",
+                "enable": "Włącz",
+                "enabled": "Ukończone i włączone",
+                "filter": {
+                    "all": "Wszystko",
+                    "buildings": "Budynki",
+                    "canBuy": "można kupić",
+                    "canToggle": "Można włączyć/wyłączyć",
+                    "cannotBuy": "Nie można kupić",
+                    "cannotToggle": "Nie można włączyć/wyłączyć",
+                    "disabled": "Skończony i wyłączony",
+                    "enabled": "Skończony i włączony",
+                    "extensions": "Rozbudowy",
+                    "states": "Status",
+                    "underConstruction": "W budowie"
+                },
+                "limit": "Obecnie nie możesz kupić więcej niż {n} z tych rozszerzeń!",
+                "missingRequirements": "Następujące wymagania nie są spełnione:",
+                "summary": {
+                    "available": "{n} gotowych do zbudowania",
+                    "built": "{n} zbudowanych",
+                    "inConstruction": "{n} w budowie",
+                    "total": "{n} możliwych w sumie"
+                },
+                "table": {
+                    "head": {
+                        "building": "Budynki",
+                        "name": "Nazwa"
+                    }
+                },
+                "title": "Rozszerzenia",
+                "underConstruction": "w budowie"
+            },
+            "protocol": {
+                "subtitle": "Brak odpowiednich wpisów | 1 odpowiedni wpis | {n} odpowiednich wpisów",
+                "table": {
+                    "head": {
+                        "building": "Budynki",
+                        "label": "Kategoria",
+                        "name": "Nazwa",
+                        "staff": "Personel",
+                        "time": "Czas"
+                    }
+                },
+                "title": "Protokół",
+                "updating": "Aktualizacja..."
+            },
+            "title": "Przegląd",
+            "vehicles": {
+                "imageInfo": "Notatka: Obecnie można wyświetlać tylko standardowe ikony pojazdów lub ikony zestawu graficznego. Ikony ustawione indywidualnie na pojeździe lub stacji nie są jeszcze rozpoznawane.",
+                "table": {
+                    "head": {
+                        "building": "Budynek",
+                        "fms": "Status",
+                        "name": "Nazwa",
+                        "staff": "Personel (przydzielony / maksymalny)"
+                    }
+                },
+                "title": "Pojazdy"
+            }
+        },
+        "settings": {
+            "abort": "Anuluj",
+            "allianceBuildings": "Dołączone budynki sojuszu",
+            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
+            "buildings": "Wybrane budynki",
+            "buildingsInList": "Pokaż wybrane budynki na liście",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Anuluj",
+                    "continue": "Usuń"
+                },
+                "text": "Czy chcesz usunąć ten kompleks budynków? Wszystkie dołączone budynki zostaną ponownie wyświetlone na mapie, jak poprzednio.",
+                "title": "Usuń kompleks"
+            },
+            "icon": "Ikona",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami, a ikonami dołączonych budynków",
+            "location": "Lokacja",
+            "name": "Nazwa",
+            "save": "Zapisz",
+            "showMarkers": "Wyświetl wybrane budynki na mapie",
+            "title": "Edytuj kompleks"
+        }
+    }
+}

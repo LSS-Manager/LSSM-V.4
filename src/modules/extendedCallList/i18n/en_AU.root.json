@@ -132,6 +132,10 @@
             "description": "Collapse individual (or all) missions to reduce their size in mission list.",
             "title": "Collapse missions"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Shows current amount of patients for each mission",
             "title": "Current Patients"
@@ -140,15 +144,31 @@
             "description": "Shows current amount of patients also in the tooltips on the map.",
             "title": "Current Patients in Tooltips"
         },
+        "currentPrisoners": {
+            "description": "Shows current amount of prisoners for each mission",
+            "title": "Current Prisoners"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Shows current amount of prisoners also in the tooltips on the map.",
+            "title": "Current Prisoners in Tooltips"
+        },
         "eventMissions": {
             "description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
             "missions": "Missions",
             "text": "Text",
             "title": "Mark seasonal missions"
         },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
+        },
         "hide0CurrentPatients": {
             "description": "Hides amount of patients if there are no patients at scene",
             "title": "Hide 0 Patients"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Hides amount of prisoners if there are no prisoners at scene",
+            "title": "Hide 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Shows for patients how much time remains until they are fully treated",
@@ -216,7 +236,8 @@
             "distance_dispatch": "Distance to next dispatch center",
             "distance_station": "Distance to next station",
             "id": "Age",
-            "remaining_patients": "Current patients"
+            "remaining_patients": "Current patients",
+            "remaining_prisoners": "Current prisoners"
         }
     }
 }

@@ -38,6 +38,10 @@
             "description": "Affiche dans l'en-tête de la vue bâtiment combien d'employés sont formés et pour quelles formations.",
             "title": "Sommaire des employés"
         },
+        "schoolsBuildingFilter": {
+            "description": "Des filtres utiles pour raccourcir la liste des bâtiments dans la fenêtre des formations",
+            "title": "Filtre pour la sélection des formations"
+        },
         "upgradeConfirmation": {
             "description": "Demande si vous voulez vraiment améliorer votre bâtiment.",
             "title": "Modernisation du bâtiment"

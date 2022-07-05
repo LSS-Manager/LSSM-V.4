@@ -8,6 +8,13 @@
         "topright": "En haut à droite 🡥"
     },
     "settings": {
+        "buildingComplexes": {
+            "buildings": "Bâtiments rattachés",
+            "description": "Une mise à jour du design, qui permet de fusionner plusieurs bâtiments en un seul sur la carte. D'autres paramètres sont disponibles dans chaque complexe.",
+            "name": "Nom",
+            "position": "Emplacement",
+            "title": "Complexes de bâtiments"
+        },
         "centerMap": {
             "description": "Centrer la carte dynamiquement ou sur une vue statique à l'ouverture du jeu",
             "title": "Carte centrale"

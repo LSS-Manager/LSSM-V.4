@@ -1,0 +1,135 @@
+{
+    "buildingComplexes": {
+        "buildingList": {
+            "details": "Dettagli"
+        },
+        "new": "New LSSM building complex",
+        "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "Automaticamente",
+                    "no": "Nessuno",
+                    "phase": "1 Giorno | {n} Giorni"
+                },
+                "inConstruction": "delle quali {n} in costruzione",
+                "table": {
+                    "alliance": "Alliance",
+                    "head": {
+                        "beds": "Letti",
+                        "cells": "Celle",
+                        "classrooms": "Classi",
+                        "hiring": "Fase di reclutamento",
+                        "level": "Livello",
+                        "name": "Nome",
+                        "staff": "Personale (Personale desiderato)",
+                        "vehicles": "Veicoli"
+                    }
+                },
+                "title": "Edifici collegati"
+            },
+            "classrooms": {
+                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "table": {
+                    "countdown": "time left",
+                    "free": "Free Places",
+                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "running": {
+                        "false": "No",
+                        "title": "running?",
+                        "true": "Yes"
+                    },
+                    "start": "start new training course",
+                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                },
+                "title": "Classi"
+            },
+            "extensions": {
+                "abort": "Annulla",
+                "allianceFunds": "payed with alliance funds",
+                "disable": "Disabilita",
+                "disabled": "Completata ma disabilitata",
+                "enable": "Abilita",
+                "enabled": "Completata ed in funzione",
+                "filter": {
+                    "all": "Tutto",
+                    "buildings": "Edifici",
+                    "canBuy": "Disponibili",
+                    "canToggle": "Si può abilitare/disabilitare",
+                    "cannotBuy": "Non disponibili",
+                    "cannotToggle": "Non si può abilitare/disabilitare",
+                    "disabled": "Completata ma disabilitata",
+                    "enabled": "Completata ed in funzione",
+                    "extensions": "Estensioni",
+                    "states": "Status",
+                    "underConstruction": "In costruzione"
+                },
+                "limit": "Non puoi comprare più di {n} estensioni di questo tipo al momento!",
+                "missingRequirements": "I seguenti requisiti non sono stati soddisfatti:",
+                "summary": {
+                    "available": "{n} possono essere costruite",
+                    "built": "{n} costruite",
+                    "inConstruction": "{n} in costruzione",
+                    "total": "{n} possibili in totale"
+                },
+                "table": {
+                    "head": {
+                        "building": "Edificio",
+                        "name": "Nome"
+                    }
+                },
+                "title": "Estensioni",
+                "underConstruction": "In costruzione"
+            },
+            "protocol": {
+                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "table": {
+                    "head": {
+                        "building": "Building",
+                        "label": "Category",
+                        "name": "Name",
+                        "staff": "Staff",
+                        "time": "Timestamp"
+                    }
+                },
+                "title": "Protocol",
+                "updating": "Updating..."
+            },
+            "title": "Panoramica",
+            "vehicles": {
+                "imageInfo": "Attenzione: al momento, solo le icone standard dei veicoli e/o delle stazioni possono essere visualizzate. Ci dispiace, ma le icone dei veicoli o delle stazioni impostate individualmente non potranno essere riconosciute per ora.",
+                "table": {
+                    "head": {
+                        "building": "Edificio",
+                        "fms": "Status",
+                        "name": "Nome",
+                        "staff": "Personale (assegnato / massimo)"
+                    }
+                },
+                "title": "Veicoli"
+            }
+        },
+        "settings": {
+            "abort": "Annulla",
+            "allianceBuildings": "attached alliance buildings",
+            "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
+            "buildings": "Edifici collegati",
+            "buildingsInList": "Show attached buildings in the buildings list?",
+            "dissolve": {
+                "buttons": {
+                    "abort": "Annulla",
+                    "continue": "Elimina"
+                },
+                "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",
+                "title": "Elimina Complesso di Edifici"
+            },
+            "icon": "Icona",
+            "iconHelp": "Seleziona tra icone di default e le icone degli edifici collegati",
+            "location": "Posizione",
+            "name": "Nome",
+            "save": "Salva",
+            "showMarkers": "Mostra nella mappa gli edifici collegati",
+            "title": "Modifica complesso edilizio"
+        }
+    }
+}

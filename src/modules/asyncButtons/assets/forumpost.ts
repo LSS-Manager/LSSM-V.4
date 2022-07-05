@@ -43,8 +43,8 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                     .querySelector('meta[name="csrf-token"]')
                                     ?.getAttribute('content') || ''
                             );
-                            await LSSM.$store
-                                .dispatch('api/request', {
+                            await LSSM.$stores.api
+                                .request({
                                     url: btn.href,
                                     init: {
                                         method: 'POST',

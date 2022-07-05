@@ -100,4 +100,7 @@ module.exports = {
         show: 'Mostrar lista de vehículos',
         hide: 'Ocultar lista de vehículos',
     },
+    releasePatient: {
+        release: 'Release patient (No reward)',
+    },
 };

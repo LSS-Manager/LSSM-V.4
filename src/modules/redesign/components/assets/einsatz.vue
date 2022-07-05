@@ -1,0 +1,54 @@
+<template>
+    <div>
+        <h1>title #{{ type }}</h1>
+        <div class="alert alert-danger" v-if="!mission">
+            Aiaiai, da konnt ich doch tatsächlich keinen Einsatz des Typs
+            {{ type }} aufspüren. Da muss ich vielleicht mal einen Rettungshund
+            losschicken?
+        </div>
+        <pre>{{ mission }}</pre>
+    </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+import { useAPIStore } from '@stores/api';
+
+import type { Mission } from 'typings/Mission';
+import type { DefaultData, DefaultMethods } from 'vue/types/options';
+
+export default Vue.extend<
+    DefaultData<Vue>,
+    DefaultMethods<Vue>,
+    {
+        mission: Mission | undefined;
+    },
+    {
+        type: number;
+        missionId: number;
+    }
+>({
+    name: 'lssmv4-redesign-einsatz-component',
+    computed: {
+        mission() {
+            return useAPIStore().missionsArray.find(
+                ({ id }) => id === this.type.toString()
+            );
+        },
+    },
+    props: {
+        type: {
+            type: Number,
+            required: true,
+        },
+        missionId: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+    },
+});
+</script>
+
+<style scoped></style>

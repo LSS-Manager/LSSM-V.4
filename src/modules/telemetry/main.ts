@@ -2,8 +2,6 @@ import UAParser from 'ua-parser-js';
 
 import config from '../../config';
 
-import type { StorageSet } from 'typings/store/storage/Actions';
-
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 const HIDE_BROWSER_NOTE_KEY = 'last_browsersupport_note';
 
@@ -15,10 +13,10 @@ export default (
         LSSM.$t(`modules.telemetry.${key}`, args);
 
     const checkBrowser = (browser: UAParser.IBrowser, browserMajor: number) =>
-        LSSM.$store
-            .dispatch('storage/get', {
+        LSSM.$stores.storage
+            .get<string>({
                 key: HIDE_BROWSER_NOTE_KEY,
-                defaultValue: false,
+                defaultValue: '',
             })
             .then(storageValue => {
                 const browserName = browser.name?.toLowerCase() ?? '';
@@ -65,7 +63,7 @@ export default (
                         text:
                             $m('browsersupport.not.text', {
                                 name: browser.name,
-                                wiki: LSSM.$store.getters.wiki,
+                                wiki: LSSM.$stores.root.wiki,
                                 wikiAnchor: $m('browsersupport.faqAnchor'),
                             }) + table,
                         options: {},
@@ -73,11 +71,11 @@ export default (
                             {
                                 title: $m('browsersupport.close'),
                                 handler() {
-                                    LSSM.$store
-                                        .dispatch('storage/set', {
+                                    LSSM.$stores.storage
+                                        .set({
                                             key: HIDE_BROWSER_NOTE_KEY,
                                             value: browserName,
-                                        } as StorageSet)
+                                        })
                                         .then(() => LSSM.$modal.hide('dialog'));
                                 },
                             },
@@ -93,7 +91,7 @@ export default (
                                 supported: browserSupport.supported,
                                 current: browserMajor,
                                 download: browserSupport.download,
-                                wiki: LSSM.$store.getters.wiki,
+                                wiki: LSSM.$stores.root.wiki,
                                 wikiAnchor: $m('browsersupport.faqAnchor'),
                             }) + table,
                         options: {},
@@ -101,11 +99,11 @@ export default (
                             {
                                 title: $m('browsersupport.close'),
                                 handler() {
-                                    LSSM.$store
-                                        .dispatch('storage/set', {
+                                    LSSM.$stores.storage
+                                        .set({
                                             key: HIDE_BROWSER_NOTE_KEY,
-                                            value: `${browserName} ${browserMajor}`,
-                                        } as StorageSet)
+                                            value: browserName,
+                                        })
                                         .then(() => LSSM.$modal.hide('dialog'));
                                 },
                             },
@@ -118,35 +116,26 @@ export default (
         browser: UAParser.IBrowser,
         browserMajor: number
     ) => {
-        await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-            feature: 'telemetry-sendStats',
-        });
-        LSSM.$store.commit(
-            'api/setKey',
-            await LSSM.$store
-                .dispatch('api/request', {
-                    url: `/profile/external_secret_key/${window.user_id}`,
-                    feature: `telemetry-getExternalKey`,
-                })
-                .then(res => res.json())
-                .then(({ code }) => code)
-        );
+        await LSSM.$stores.api._setSecretKey();
+        const buildingsAmount = await LSSM.$stores.api
+            .getBuildings('telemetry')
+            .then(({ value: buildings }) => buildings.length);
 
-        LSSM.$store
-            .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}telemetry.php?uid=${LSSM.$store.state.lang}-${window.user_id}`,
+        LSSM.$stores.api
+            .request({
+                url: LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
                 init: {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: LSSM.$store.state.api.key,
+                        id: LSSM.$stores.api.secretKey,
                         uid: window.user_id,
-                        game: LSSM.$store.state.lang,
-                        police: LSSM.$store.state.policechief,
+                        game: LSSM.$stores.root.locale,
+                        police: LSSM.$stores.root.isPoliceChief,
                         name: window.username,
-                        version: LSSM.$store.state.version,
+                        version: VERSION,
                         data: {
                             browser: `${browser.name} ${browserMajor}`,
                             premium: window.user_premium,
@@ -154,15 +143,21 @@ export default (
                                 typeof window.mapkit !== 'undefined'
                                     ? 'mapkit'
                                     : 'osm',
-                            buildings: LSSM.$store.state.api.buildings.length,
-                            modules: await LSSM.$store.dispatch('storage/get', {
+                            buildings: buildingsAmount,
+                            modules: await LSSM.$stores.storage.get<string[]>({
                                 key: 'activeModules',
+                                defaultValue: [],
                             }),
                         },
                         flag: config.games[LSSM.$i18n.locale].flag,
+                        userscript_version:
+                            window['lssmv4-GM_Info']?.script.version.replace(
+                                /-.*$/u,
+                                ''
+                            ) ?? '4.0.0',
                     }),
                 },
-                feature: `telemetry-sendStats`,
+                feature: 'telemetry',
             })
             .then(res => res.json())
             .catch(() => {
@@ -170,9 +165,9 @@ export default (
             });
     };
 
-    LSSM.$store
-        .dispatch('api/fetchCreditsInfo', 'telemetry')
-        .then(async ({ user_directplay_registered }) => {
+    LSSM.$stores.api
+        .getCredits('telemetry')
+        .then(async ({ value: { user_directplay_registered } }) => {
             if (user_directplay_registered) return;
 
             const ua = new UAParser(window.navigator.userAgent);
@@ -181,8 +176,8 @@ export default (
                 browser.version?.split('.')[0] || '-1'
             );
 
-            LSSM.$store
-                .dispatch('storage/get', {
+            LSSM.$stores.storage
+                .get<boolean>({
                     key: NOTE_STORAGE_KEY,
                     defaultValue: false,
                 })
@@ -191,7 +186,7 @@ export default (
                         LSSM.$modal.show('dialog', {
                             title: $m('info.title'),
                             text: $m('info.text', {
-                                wiki: LSSM.$store.getters.wiki,
+                                wiki: LSSM.$stores.root.wiki,
                             }),
                             options: {},
                             buttons: [
@@ -199,11 +194,11 @@ export default (
                                     title: $m('info.decline'),
                                     handler() {
                                         // First we store that we confirmed the telemetry dialog
-                                        LSSM.$store
-                                            .dispatch('storage/set', {
+                                        LSSM.$stores.storage
+                                            .set({
                                                 key: NOTE_STORAGE_KEY,
                                                 value: true,
-                                            } as StorageSet)
+                                            })
                                             .then(() => {
                                                 LSSM.$modal.hide('dialog');
                                                 checkBrowser(
@@ -212,25 +207,22 @@ export default (
                                                 );
                                             });
                                         // Now we store if we allowed telemetry
-                                        LSSM.$store.dispatch(
-                                            'settings/setSetting',
-                                            {
-                                                moduleId: 'global',
-                                                settingId: 'allowTelemetry',
-                                                value: false,
-                                            }
-                                        );
+                                        LSSM.$stores.settings.setSetting({
+                                            moduleId: 'global',
+                                            settingId: 'allowTelemetry',
+                                            value: false,
+                                        });
                                     },
                                 },
                                 {
                                     title: $m('info.close'),
                                     handler() {
                                         // First we store that we confirmed the telemetry dialog
-                                        LSSM.$store
-                                            .dispatch('storage/set', {
+                                        LSSM.$stores.storage
+                                            .set({
                                                 key: NOTE_STORAGE_KEY,
                                                 value: true,
-                                            } as StorageSet)
+                                            })
                                             .then(() =>
                                                 sendStats(
                                                     browser,
@@ -244,14 +236,11 @@ export default (
                                                 })
                                             );
                                         // Now we store if we allowed telemetry
-                                        LSSM.$store.dispatch(
-                                            'settings/setSetting',
-                                            {
-                                                moduleId: 'global',
-                                                settingId: 'allowTelemetry',
-                                                value: true,
-                                            }
-                                        );
+                                        LSSM.$stores.settings.setSetting({
+                                            moduleId: 'global',
+                                            settingId: 'allowTelemetry',
+                                            value: true,
+                                        });
                                     },
                                 },
                             ],

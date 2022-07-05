@@ -82,6 +82,10 @@
             "description": "Contraiga misiones individuales (o todas) para reducir su tamaño en la lista de misiones.",
             "title": "Contraer misiones"
         },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
+        },
         "currentPatients": {
             "description": "Muestra la cantidad actual de pacientes de cada misión",
             "title": "Pacientes actuales"
@@ -90,15 +94,31 @@
             "description": "Muestra la cantidad actual de pacientes en la información sobre herramientas en el mapa.",
             "title": "Pacientes actuales en la información sobre herramientas"
         },
+        "currentPrisoners": {
+            "description": "Muestra la cantidad de presos de cada misión",
+            "title": "Presos actuales"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Muestra la cantidad actual de presos en la información sobre herramientas en el mapa.",
+            "title": "Presos actuales en la información sobre herramientas"
+        },
         "eventMissions": {
             "description": "Marca las misiones de temporada. Opcionalmente, puedes personalizarlo todo y marcar también las misiones no estacionales.",
             "missions": "Misiones",
             "text": "Texto",
             "title": "Marcar las misiones estacionales"
         },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
+        },
         "hide0CurrentPatients": {
             "description": "Oculta la cantidad de pacientes si no hay pacientes en la misión",
             "title": "Ocultar 0 pacientes"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Olculta la cantidad de presos si no hay presos en la misión",
+            "title": "Ocultar 0 Prisoners"
         },
         "remainingPatientTime": {
             "description": "Muestra a los pacientes cuánto tiempo queda para que estén completamente tratados",
@@ -135,7 +155,7 @@
             "title": "Comparte misiones: Créditos minimos"
         },
         "shareMissionsTypes": {
-            "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "alliance": "Misiones de Alianza (only for Share-Alliance-Post)",
             "description": "Configure para cuál de las llamadas desea habilitar el botón de compartir.",
             "own": "Llamadas de emergencia",
             "sicherheitswache": "Misiones planeadas",
@@ -165,8 +185,9 @@
             "default": "Sin clasificar",
             "distance_dispatch": "Distancia a la próxima centralita",
             "distance_station": "Distancia a la siguiente estación",
-            "id": "Edad",
-            "remaining_patients": "Pacientes actuales"
+            "id": "Tiempo de la misión",
+            "remaining_patients": "Pacientes actuales",
+            "remaining_prisoners": "Presos actuales"
         }
     }
 }

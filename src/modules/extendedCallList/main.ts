@@ -10,7 +10,7 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const sortMissions = await getSetting('sortMissions');
 
     if (window.location.pathname.match(/^\/vehicles\/\d+\/?/u)) {
@@ -24,13 +24,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const starrableMissions = await getSetting('starrableMissions');
     let starredMissions = (await getSetting<string[]>('starredMissions')) ?? [];
 
-    const starredMissionBtnClass = LSSM.$store.getters.nodeAttribute(
+    const starredMissionBtnClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_starrable-missions_btn`
     );
-    const starredMissionPanelClass = LSSM.$store.getters.nodeAttribute(
+    const starredMissionPanelClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_starrable-missions-starred`
     );
-    const sortBtnId = LSSM.$store.getters.nodeAttribute(
+    const sortBtnId = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_missionlist-sorting_selection-list-btn`
     );
 
@@ -43,7 +43,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                     LSSM,
                     MODULE_ID,
                     starredMissions,
-                    starredMissionBtnClass
+                    starredMissionBtnClass,
+                    getSetting,
+                    setSetting
                 )
             );
         }
@@ -57,7 +59,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                     $m,
                     (await getSetting<Sort>('sortMissionsType')) ?? 'default',
                     (await getSetting('sortMissionsInMissionwindowChecked')) ??
-                        true
+                        true,
+                    setSetting
                 )
             );
         }
@@ -69,19 +72,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
 
     if (starrableMissions || collapsableMissions || shareMissions) {
         (async () => {
-            LSSM.$store.commit('useFontAwesome');
-
             starredMissions = starredMissions.filter(
                 missionId =>
                     !!document.querySelector<HTMLDivElement>(
                         `#mission_${missionId}`
                     )
             );
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'starredMissions',
-                value: starredMissions,
-            });
+            await setSetting('starredMissions', starredMissions);
             const addStarrableBtn: AddStarrableButton | null = starrableMissions
                 ? (
                       await import(
@@ -92,7 +89,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                       MODULE_ID,
                       starredMissions,
                       starredMissionBtnClass,
-                      starredMissionPanelClass
+                      starredMissionPanelClass,
+                      getSetting,
+                      setSetting
                   )
                 : null;
 
@@ -106,12 +105,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             );
             const allMissionsCollapsed =
                 (await getSetting<boolean>('allMissionsCollapsed')) ?? false;
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'collapsedMissions',
-                value: collapsedMissions,
-            });
-            const collapsedMissionBtnClass = LSSM.$store.getters.nodeAttribute(
+            await setSetting('collapsedMissions', collapsedMissions);
+            const collapsedMissionBtnClass = LSSM.$stores.root.nodeAttribute(
                 `${MODULE_ID}_collapsable-missions_btn`
             );
             const addCollapsableBtn: AddCollapsableButton | null =
@@ -127,33 +122,36 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                           allMissionsCollapsed,
                           collapsedMissionBtnClass,
                           sortBtnId,
+                          await getSetting('collapsableMissionsAllBtn'),
+                          getSetting,
+                          setSetting,
                           $m
                       )
                     : null;
-            const activeModules: string[] = await LSSM.$store.dispatch(
-                'storage/get',
-                {
-                    key: 'activeModules',
-                    defaultValue: [],
-                }
-            );
-            const enableSAP: boolean =
+            const activeModules = await LSSM.$stores.storage.get<string[]>({
+                key: 'activeModules',
+                defaultValue: [],
+            });
+            const enableSAP =
                 activeModules.includes('shareAlliancePost') &&
-                (await LSSM.$store.dispatch('settings/getSetting', {
+                (await LSSM.$stores.settings.getSetting<boolean>({
                     moduleId: 'shareAlliancePost',
                     settingId: 'enableCallList',
                 }));
-            const sapMessages: Message[] = enableSAP
+            const sapMessages = enableSAP
                 ? (
-                      await LSSM.$store.dispatch('settings/getSetting', {
+                      await LSSM.$stores.settings.getSetting<{
+                          value: Message[];
+                          enabled: boolean;
+                      }>({
                           moduleId: 'shareAlliancePost',
                           settingId: 'messages',
                       })
                   ).value
                 : [];
-            const SAPStay: boolean =
+            const SAPStay =
                 activeModules.includes('shareAlliancePost') &&
-                (await LSSM.$store.dispatch('settings/getSetting', {
+                (await LSSM.$stores.settings.getSetting<boolean>({
                     moduleId: 'shareAlliancePost',
                     settingId: 'stayInCallList',
                 }));
@@ -214,6 +212,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 await getSetting<string>('sortMissionsButtonColor'),
                 sortBtnId,
                 starredMissionPanelClass,
+                setSetting,
                 $m
             )
         );
@@ -228,6 +227,19 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
                 MODULE_ID,
                 await getSetting('hide0CurrentPatients'),
                 await getSetting('currentPatientsInTooltips')
+            )
+        );
+    }
+
+    if (await getSetting('currentPrisoners')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallList/currentPrisoners" */ './assets/currentPrisoners'
+        ).then(async ({ default: currentPatients }) =>
+            currentPatients(
+                LSSM,
+                MODULE_ID,
+                await getSetting('hide0CurrentPrisoners'),
+                await getSetting('currentPrisonersInTooltips')
             )
         );
     }
@@ -256,17 +268,19 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         );
     }
 
+    if (await getSetting('fixedEventInfo')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallList/fixedEventInfo" */ './assets/fixedEventInfo'
+        ).then(({ default: fixedEventInfo }) => fixedEventInfo(LSSM));
+    }
+
     const averageCredits = await getSetting('averageCredits');
     if (averageCredits) {
         import(
             /* webpackChunkName: "modules/extendedCallList/utils/progressPrepend" */ './assets/utils/progressPrepend'
         ).then(async ({ default: progressPrepend }) => {
-            if (averageCredits) {
-                await LSSM.$store.dispatch('api/getMissions', {
-                    force: false,
-                    feature: 'ecl-averageCredits',
-                });
-            }
+            if (averageCredits)
+                await LSSM.$stores.api.getMissions('ecl-averageCredits');
 
             const { addAverageCredits, updateAverageCredits } = (
                 await import(

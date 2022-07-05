@@ -1,6 +1,7 @@
 import createBtn, { type StarrableButton } from './createBtn';
 
 import type { ButtonGroupCallback } from '../utils/buttonGroup';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export type AddStarrableButton = (
     mission: ButtonGroupCallback,
@@ -12,7 +13,9 @@ export default (
     MODULE_ID: string,
     missions: string[],
     starredMissionBtnClass: string,
-    starredMissionPanelClass: string
+    starredMissionPanelClass: string,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): AddStarrableButton => {
     const buttons: StarrableButton[] = [];
 
@@ -58,6 +61,17 @@ export default (
             move(btn, id);
         });
 
+    LSSM.$stores.event.addListener({
+        name: 'ecl_starrable-missions_toggle',
+        listener(e: CustomEvent) {
+            const missionId = e.detail.missionId.toString();
+            const btn = buttons.find(
+                ({ dataset: { mission } }) => mission === missionId
+            );
+            if (btn) move(btn, missionId);
+        },
+    });
+
     return (mission, starredMissionBtnClass) => {
         const starred = missions.includes(mission.id.toString());
         const btn = createBtn(
@@ -65,7 +79,9 @@ export default (
             MODULE_ID,
             mission.id.toString(),
             starred,
-            starredMissionBtnClass
+            starredMissionBtnClass,
+            getSetting,
+            setSetting
         );
         mission.btnGroup.append(btn);
         buttons.push(btn);

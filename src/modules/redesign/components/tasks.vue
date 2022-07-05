@@ -32,7 +32,7 @@
                 :title="title"
             >
                 <tabs>
-                    <tab :title="`[${lightbox.$sm('all')}]`">
+                    <tab :title="`[${lightbox.$sm('all')}]`" class="task-board">
                         <lssmv4-redesign-task
                             v-for="task in category.all"
                             :key="task.id"
@@ -51,6 +51,7 @@
                         v-for="(group, countdown) in category.times"
                         :key="`${title}_${countdown}`"
                         :title="countdown"
+                        class="task-board"
                     >
                         <lssmv4-redesign-task
                             v-for="task in group"
@@ -69,6 +70,7 @@
                     <tab
                         v-if="category.collection.length"
                         :title="lightbox.$sm('collectionTasks.title')"
+                        class="task-board"
                     >
                         <lssmv4-redesign-task
                             v-for="task in category.collection"
@@ -160,7 +162,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         const collapsedTasks: number[] = JSON.parse(
             localStorage.getItem(collapsedLocalStorageKey) || '[]'
         );
@@ -174,7 +176,7 @@ export default Vue.extend<
     },
     methods: {
         getTaskId(id, extra) {
-            return this.$store.getters.nodeAttribute(
+            return this.lightbox.rootStore.nodeAttribute(
                 `redesign-tasks-${id}-${extra}`
             );
         },
@@ -205,8 +207,8 @@ export default Vue.extend<
         },
         claimReward(id) {
             this.$set(this.lightbox, 'loading', true);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/tasks/claim_reward?task_progress_id=${id}`,
                     init: {
                         credentials: 'include',
@@ -216,7 +218,7 @@ export default Vue.extend<
                         referrer: new URL(
                             'tasks/index',
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: `authenticity_token=${encodeURIComponent(
                             this.tasks.authenticity_token
                         )}`,
@@ -238,7 +240,7 @@ export default Vue.extend<
                                 window.location.origin
                             ).toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,
@@ -261,8 +263,8 @@ export default Vue.extend<
 
             const claimAll = () => {
                 this.$set(this.lightbox, 'loading', true);
-                this.$store
-                    .dispatch('api/request', {
+                this.lightbox.apiStore
+                    .request({
                         url: `/tasks/claim_all_rewards`,
                         init: {
                             credentials: 'include',
@@ -273,7 +275,7 @@ export default Vue.extend<
                             referrer: new URL(
                                 'tasks/index',
                                 window.location.origin
-                            ),
+                            ).toString(),
                             body: `authenticity_token=${encodeURIComponent(
                                 this.tasks.authenticity_token
                             )}`,
@@ -295,7 +297,7 @@ export default Vue.extend<
                                     window.location.origin
                                 ).toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,
@@ -464,3 +466,9 @@ export default Vue.extend<
     },
 });
 </script>
+
+<style scoped lang="sass">
+.task-board
+    display: flex
+    flex-flow: wrap
+</style>

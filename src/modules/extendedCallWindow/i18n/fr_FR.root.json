@@ -117,6 +117,10 @@
             "textcolor": "Couleur du texte",
             "title": "Mots-clefs de mission"
         },
+        "moreReleasePatientButtons": {
+            "description": "Affiche un bouton de libération du patient en haut dans la fenêtre du véhicule. A côté de chaque bouton de transport dans la fenêtre de la mission.",
+            "title": "Ajouter un bouton pour libérer les patients"
+        },
         "patientSummary": {
             "description": "Affiche à côté du nombre de victimes les besoins en véhicules d'assistance.",
             "title": "Aperçu des victimes"

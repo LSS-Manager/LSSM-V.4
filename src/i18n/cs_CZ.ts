@@ -1,5 +1,3 @@
-// import { Building } from 'typings/Building';
-
 const modules = {
     appstore: {
         save: 'Uložit',
@@ -47,6 +45,20 @@ const modules = {
 
 export default {
     modules,
+    updateUserscript: {
+        title: 'Userscript out of date',
+        text: `Dear LSSM-User,<br>
+unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of the LSSM V.4.<br>
+You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
+Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
+If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
+Sometimes, LSSM is installed multiple times after an update. In this case, please delete the script that does not have version 4.5.10 (in Tampermonkey).<br>
+We're sorry for any caused issue if updates did not work correctly.
+<br>
+Kind regards,<br>
+your LSSM team`,
+        close: 'Ok',
+    },
     error: {
         title: 'LSS Manager: Error',
         msg: 'Pokud k této chybě dochází často, prosím kontaktujte tým LSSM!',
@@ -85,6 +97,11 @@ export default {
             description:
                 'barva celé navigační lišty v barvě pozadí  ikony LSSM',
             title: 'Zbarvení navigační lišty',
+        },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
         },
     },
     vehicles: {
@@ -386,389 +403,6 @@ export default {
             maxPersonnel: 3,
         },
     },
-    buildings: {
-        0: {
-            caption: 'Fire station',
-            color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Ambulance extension',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Airport extension',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Water rescue expansion',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '6.000 together with small fire stations',
-            maxLevel: 39,
-            special:
-                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
-            startPersonnel: 10,
-            startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Fire academy',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        2: {
-            caption: 'Ambulance station',
-            color: '#ffa500',
-            coins: 35,
-            credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 39,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['ALS Ambulance'],
-        },
-        3: {
-            caption: 'ems academy',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        4: {
-            caption: 'Hospital',
-            color: '#bbe944',
-            coins: 25,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'General Internal',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'General Surgeon',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Gynecology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Urology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Traumatology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Neurology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Neurosurgery',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cardiology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cardiac Surgery',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
-            maxBuildings: 'No limit',
-            maxLevel: 20,
-            special:
-                'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        5: {
-            caption: 'Helicopter station',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'see specials',
-            maxLevel: 0,
-            special:
-                'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        6: {
-            caption: 'Police station',
-            color: '#007700',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                ...new Array(10).fill({
-                    caption: 'Prison cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.700 together with small police stations',
-            maxLevel: 39,
-            special:
-                'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
-            startPersonnel: 2,
-            startVehicles: ['Patrol car'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        7: {
-            caption: 'Dispatch Center',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'All 25 buildings one control center',
-            maxLevel: 0,
-            special: 'The control center is the administrative center.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        8: {
-            caption: 'Police academy',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        13: {
-            caption: 'Police Aviation',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
-            maxBuildings: 'see specials',
-            maxLevel: 1,
-            special:
-                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 3,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        14: {
-            caption: 'Staging area',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 4,
-            maxLevel: 0,
-            special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 4,
-        },
-        15: {
-            caption: 'Vodní záchranná služba ČČK/Waterrescue',
-            color: '#ffa500',
-            coins: 35,
-            credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 39,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['x'],
-        },
-        16: {
-            caption: 'Prison Cells',
-            coins: 'x',
-            credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Prison Cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-            }),
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        18: {
-            caption: 'Fire station (Small station) ',
-            color: '#aa1111',
-            coins: 25,
-            credits: 50_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: '6.000 together with fire stations',
-            maxLevel: 5,
-            special:
-                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
-            startPersonnel: 10,
-            startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        19: {
-            caption: 'Police station (Small station)',
-            color: '#116611',
-            coins: 25,
-            credits: 50_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: '1.700 mit Polizeiwachen zusammen',
-            maxLevel: 4,
-            special:
-                'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
-            startPersonnel: 2,
-            startVehicles: ['Patrol Car'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        20: {
-            caption: 'Ambulance station (Small station)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: 'No limit',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['ALS Ambulance'],
-        },
-        21: {
-            caption: 'Pyrotechnická služba PČR',
-            color: '#663300',
-            coins: 50,
-            credits: 5_000_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-20. 100.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 20,
-            special: '',
-            startPersonnel: 10,
-            startVehicles: ['FBI Unit'],
-        },
-        22: {
-            caption: 'Školící středisko VZS ČČK',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-    },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 4, 11, 13, 17],
@@ -828,23 +462,6 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
-    cellBuildings: [5],
-    cellExtensions: [
-        '5_0',
-        '5_1',
-        '5_2',
-        '5_3',
-        '5_4',
-        '5_5',
-        '5_6',
-        '5_7',
-        '5_8',
-        '5_9',
-    ],
-    bedBuildings: [2, 14],
-    schoolBuildings: [4, 7],
-    dispatchCenterBuildings: [1],
     schoolings: {
         'Fire Station': [
             {
@@ -990,6 +607,7 @@ export default {
         'Farma',
         'Kancelářská budova',
         'Plovárna',
+        'Křížení železnic',
         'Divadlo',
         'Zábavní park',
         'Řeka',
@@ -1034,7 +652,7 @@ export default {
         'Motorest',
         'Panelový dům',
         'Prolézačky',
-        'Plnírna plyn',
+        'Plnírna plynu',
         'Pole',
         'Bioplynová stanice',
         'Elektrorozvodna',

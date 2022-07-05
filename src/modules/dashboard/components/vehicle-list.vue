@@ -108,14 +108,16 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
-import type { InternalVehicle } from 'typings/Vehicle';
 import type {
     VehicleList,
     VehicleListComputed,
     VehicleListMethods,
     VehicleListProps,
-} from '../../../../typings/modules/Dashboard/VehicleList';
+} from 'typings/modules/Dashboard/VehicleList';
 
 export default Vue.extend<
     VehicleList,
@@ -135,23 +137,26 @@ export default Vue.extend<
             ),
     },
     data() {
+        const internalVehicleTypes = useTranslationStore().vehicles;
+        const apiStore = useAPIStore();
         return {
             vehicleTypeNames: Object.fromEntries(
-                Object.entries(
-                    this.$t('vehicles') as Record<number, InternalVehicle>
-                ).map(([index, { caption }]) => [index, caption])
+                Object.entries(internalVehicleTypes).map(
+                    ([index, { caption }]) => [index, caption]
+                )
             ),
             vehiclesWithBuildings: [],
-            buildings: this.$store.state.api.buildings,
+            buildings: apiStore.buildings,
             search: '',
             sort: 'caption',
             sortDir: 'asc',
             faPencilAlt,
             faUsers,
-            resolveLinkClass: this.$store.getters.nodeAttribute(
+            resolveLinkClass: useRootStore().nodeAttribute(
                 'dashboard-vehiclelist-resolvable-link'
             ),
             resolving: null,
+            apiStore,
         } as VehicleList;
     },
     props: {
@@ -197,8 +202,8 @@ export default Vue.extend<
         toggleFMS(vehicle) {
             if (![2, 6].includes(vehicle.fms_real)) return;
             const target = vehicle.fms_real === 2 ? 6 : 2;
-            this.$store
-                .dispatch('api/request', {
+            this.apiStore
+                .request({
                     url: `/vehicles/${vehicle.id}/set_fms/${target}`,
                     feature: `dashboard-vehicleList-setfms`,
                 })
@@ -216,8 +221,8 @@ export default Vue.extend<
             if (this.resolving) return;
             this.resolving = window.setTimeout(
                 () =>
-                    this.$store
-                        .dispatch('api/request', {
+                    this.apiStore
+                        .request({
                             url: `/${type}s/${id}`,
                             feature: 'dashboard-vehiclelist-resolve-title',
                         })

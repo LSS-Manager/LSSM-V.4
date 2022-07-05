@@ -66,6 +66,8 @@ module.exports = {
             swat_suv: 'UOPI Suv',
             k9: 'Unità cinofila antidroga',
             commerce_police: 'Volante Finanza',
+            any_traffic_car:
+                'Pattuglia Polizia Stradale e Moto Polizia Stradale',
             gkw: 'Utility Truck',
             boot: 'Barca',
             fwk: 'AG',
@@ -95,6 +97,18 @@ module.exports = {
         selected: 'Selezionato',
         water: "l. d'acqua",
         foam: 'l. schiuma',
+        staffPrefix: [
+            'Servono altri',
+            'Serve ancora',
+            'Sono richiesti altri',
+            'È richiesto',
+        ],
+        staff: {
+            [/^vigil[ei] del fuoco$/u]: [0, 9, 3, 1, 37, 11, 2, 6, 5, 12, 10],
+            [/^(altro )?agent[ei] di polizia$/u]: [
+                7, 16, 14, 17, 38, 39, 15, 22, 13,
+            ],
+        },
         vehiclesByRequirement: {
             [/^APS\/ABP$/u]: [0, 9],
             [/^Autogrù$/u]: [12],
@@ -109,17 +123,20 @@ module.exports = {
             [/^Volanti?$/u]: [7, 16, 15, 21],
             [/^Furgon[ei] artificieri$/u]: [22],
             [/^Elicotter[io] della polizia?$/u]: [13],
-            [/^Unità antisommossa$/u]: [14],
+            [/^(Unità|furgona) antisommossa$/u]: [14],
             [/^Unità cinofila antidroga$/u]: [15],
             [/^UOPI SUV$/u]: [17],
             [/^Volante [Ff]inanza?$/u]: [21],
             [/^Camion Tecnico NSSA?$/u]: [23],
             [/^Pickup SAF?$/u]: [24],
             [/^Barc(a|he)$/u]: [25],
-            [/^Mezz[io] AIB?$/u]: [0, 9, 28, 29, 30, 31, 32, 33],
+            [/^Mezz[io] AIB?$/u]: [0, 9, 28, 29, 30],
             [/^Velivol[io] Antincendio?$/u]: [34, 35],
             [/^DOS$/u]: [31],
             [/^DTS$/u]: [27],
+            [/^Pattugli[ae] Forestal[ei]$/u]: [40],
+            [/^Pattuglia della Stradale$/u]: [38, 39],
+            [/^Idrante Antisommossa$/u]: [41],
         },
     },
     tailoredTabs: {
@@ -132,8 +149,27 @@ module.exports = {
             close: 'Chiudere Nota fino al cambiamento',
         },
     },
+    patientCollapse: {
+        combis: 'Combinazioni',
+        amount: 'Quantità',
+        summary: {
+            total: 'Pazienti',
+            treated: 'In cura',
+        },
+    },
     hideVehicleList: {
         show: 'Mostra lista veicoli',
         hide: 'Nascondi lista veicoli',
+    },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'in arrivo',
+        'atScene': 'sulla scena',
+        'total': 'Totale',
+        'vehicles': 'Veicoli',
+        'players': 'Giocatori',
+    },
+    releasePatient: {
+        release: 'Annulla trasporto (Nessuna ricompensa)',
     },
 };

@@ -70,6 +70,23 @@ export default (
                             )
                         )
                         .map(file => `${langPath}${file}`),
+                    ...(fs.existsSync(
+                        path.posix.join(DOCS_PATH, lang, `contributing.md`)
+                    )
+                        ? [
+                              {
+                                  text: $t(lang, 'contributing').toString(),
+                                  collapsible: true,
+                                  children: [
+                                      `/${lang}/contributing`,
+                                      `/${lang}/contributing/introduction`,
+                                      `/${lang}/contributing/committing`,
+                                      `/${lang}/contributing/prs`,
+                                      `/${lang}/contributing/translations`,
+                                  ],
+                              },
+                          ]
+                        : []),
                     {
                         text: `${$t(lang, 'apps')} 📦`,
                         collapsible: true,
