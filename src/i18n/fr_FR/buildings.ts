@@ -428,7 +428,19 @@ export default {
                     cannotDisable: true,
                     requiredExtensions: [0],
                 },
-                19
+                9
+            ),
+            ...multiplyExtension(
+                {
+                    caption: 'Plus de cellules',
+                    credits: 50_000,
+                    coins: 5,
+                    duration: '7 jours',
+                    newCells: 1,
+                    cannotDisable: true,
+                    requiredExtensions: [0],
+                },
+                10
             ),
         ],
         levelcost: [],
