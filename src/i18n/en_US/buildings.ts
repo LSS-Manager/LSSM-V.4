@@ -760,7 +760,7 @@ export default {
         maxBuildings: '',
         maxLevel: 21,
         special: '',
-        startPersonnel: 2,
+        startPersonnel: 5,
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
         startParkingLots: 1,
