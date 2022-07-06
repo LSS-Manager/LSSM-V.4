@@ -176,7 +176,7 @@
         "version": "7.32.1"
     },
     "eslint-import-resolver-typescript": {
-        "version": "3.2.1"
+        "version": "3.2.4"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
