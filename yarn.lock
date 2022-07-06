@@ -6109,10 +6109,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "highcharts@npm:10.1.0"
-  checksum: 62b5e5ce33b93d31f18a1dc3192defa77aa12b19ee1809723bb4e206385e0ae7dbe31f2e4f8c4dc683c87550a9dcdd5ee760f3862845bfd2ca271ca0b54f4dd1
+"highcharts@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "highcharts@npm:10.2.0"
+  checksum: b9e16b9fc40b7e7af37936741398b3fd591256a1968462cb2b7d77163ebfd6b1ceb6deb1a55ee27f336277c78e8820f317d14e8f76f288784eabaf8121e14d2a
   languageName: node
   linkType: hard
 
@@ -8824,7 +8824,7 @@ __metadata:
     eslint-plugin-unicorn: ^43.0.0
     eslint-plugin-vue: ^9.2.0
     he: ^1.2.0
-    highcharts: ^10.1.0
+    highcharts: ^10.2.0
     highcharts-vue: ^1.4.0
     html-loader: ^3.1.2
     leaflet.heat: ^0.2.0
