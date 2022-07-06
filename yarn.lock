@@ -15,7 +15,7 @@ __metadata:
     "@vuepress/plugin-pwa-popup": ^2.0.0-beta.48
     "@vuepress/plugin-register-components": ^2.0.0-beta.48
     "@vuepress/plugin-search": ^2.0.0-beta.48
-    cloc: ^2.9.0
+    cloc: ^2.10.0
     moment: ^2.29.3
     showdown: ^2.1.0
     vue: ^3.2.37
@@ -3896,12 +3896,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cloc@npm:^2.9.0":
-  version: 2.9.0
-  resolution: "cloc@npm:2.9.0"
+"cloc@npm:^2.10.0":
+  version: 2.10.0
+  resolution: "cloc@npm:2.10.0"
   bin:
     cloc: lib/cloc
-  checksum: a52935eb98356c528079da479b0ce9940ec5537904313e92af0396f7044ad2884cbf58c34ff72b6991720ac12737d8b1754b01aa36d6c70dc07c18e1aa72e406
+  checksum: edccb7bfc2a3c7a540ee8847afe2e1930c645cc142fc6e4f69659bd1a4b3ea13067670db0f22427f7d2a2f51cb723dca37390ea4b1a6afba55ed4e72b868f7ce
   languageName: node
   linkType: hard
 
