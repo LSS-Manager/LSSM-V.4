@@ -1979,10 +1979,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.0.1":
-  version: 18.0.1
-  resolution: "@types/node@npm:18.0.1"
-  checksum: be14b251c54cc2b4ca78ac6eadf2fe5e831e487f2e17848f21d576295945b538271dcc674d0bba582b3f8d95b84f6826e99b6ba4710c76f165a8bdd4d4f0618e
+"@types/node@npm:^18.0.2":
+  version: 18.0.2
+  resolution: "@types/node@npm:18.0.2"
+  checksum: de09ee91960f29776807ca8ce4b4dfb6d5c2e8f334c2a8e059cca48b8b84d416146137d655b9013eb0888fe07d7b7a4c07a3b7188929af7c282afcb3c58bac1a
   languageName: node
   linkType: hard
 
@@ -8767,7 +8767,7 @@ __metadata:
     "@types/jquery": ^3.5.14
     "@types/leaflet": ^1.7.11
     "@types/lodash": ^4.14.182
-    "@types/node": ^18.0.1
+    "@types/node": ^18.0.2
     "@types/pdfmake": ^0.1.21
     "@types/qrcode": ^1.4.2
     "@types/semver": ^7.3.10
