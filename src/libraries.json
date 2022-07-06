@@ -151,7 +151,7 @@
     },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
-        "version": "2.9.0"
+        "version": "2.10.0"
     },
     "copy-dir": {
         "url": "https://github.com/pillys/copy-dir",
