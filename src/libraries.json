@@ -203,7 +203,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.1.1"
+        "version": "9.2.0"
     },
     "he": {
         "url": "https://mths.be/he",
