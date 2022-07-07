@@ -26,7 +26,7 @@
         "localforage": "^1.10.0",
         "lodash": "^4.17.21",
         "mini-svg-data-uri": "^1.4.4",
-        "moment": "^2.29.3",
+        "moment": "^2.29.4",
         "pdfmake": "^0.2.5",
         "pinia": "^2.0.14",
         "qrcode": "^1.5.0",
