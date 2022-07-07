@@ -21,6 +21,7 @@
         "fire_support_count": "Schuimblusuitbreiding | Schuimblusuitbreidingen",
         "max_police_stations": "Politiebureau maximaal | Politiebureaus maximaal",
         "police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
+        "police_horse": "Bereden Brigade (paarden)",
         "police_stations": "Politiebureau | Politiebureaus",
         "prisoner_transport_count": "Arrestantenvervoeruitbreiding | Arrestantenvervoeruitbreidingen",
         "rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
@@ -75,6 +76,7 @@
             "platform_trucks": "Redvoertuig | Redvoertuigen",
             "police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
             "police_helicopters": "Politiehelikopter | Politiehelikopters",
+            "police_horse": "Bereden Brigade (paarden)",
             "spokesman": "Voorlichter | Voorlichters",
             "water_rescue": "Strandvoertuig | Strandvoertuigen",
             "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
