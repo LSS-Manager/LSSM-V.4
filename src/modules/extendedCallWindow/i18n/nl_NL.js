@@ -68,6 +68,7 @@ module.exports = {
             ovd_p: 'Officier van Dienst - Politie',
             lebefkw: 'ME Commandovoertuig',
             grukw: 'ME Flexbus',
+            police_horse: 'VW-BB of BB-A',
             spokesman: 'Voorlichters',
             at_c: 'AT-Commandant',
             at_o: 'AT-Operator',
@@ -107,6 +108,7 @@ module.exports = {
             51: [26],
             61: [26],
             69: [26],
+            74: [75],
         },
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/u]: [

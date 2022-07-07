@@ -1157,6 +1157,51 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             icon: 'trailer',
             possibleBuildings: [0, 17],
         },
+        73: {
+            caption: 'Vrachtwagen – Bereden Brigade',
+            color: '#00005c',
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            credits: 35_000,
+            coins: 15,
+            schooling: {
+                Politie: {
+                    'Bereden Brigade': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            possibleBuildings: [11],
+        },
+        74: {
+            caption: 'Bereden Brigade Aanhanger',
+            color: '#00005c',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 15_000,
+            coins: 15,
+            schooling: {
+                Politie: {
+                    'Bereden Brigade': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            special: 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DAT-NH). Benodigd 1 persoon met een speciale opleiding in het trekkende voertuig (Bereden Brigade)',
+            possibleBuildings: [11],
+        },
+        75: {
+            caption: 'Dienstauto terreinvaardig - Noodhulp',
+            color: '#00005c',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 10_000,
+            coins: 10,
+            icon: 'shuttle-van',
+            possibleBuildings: [11],
+        },
     },
     buildingCategories: {
         Brandweer: {
@@ -1211,6 +1256,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Arrestatieteam': [53, 54, 55],
                 'Arrestantenvervoer': [58],
                 'Biketeam': [60],
+                'Paarden': [73, 74, 75],
             },
             color: '#00ac00',
         },
@@ -1308,6 +1354,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 caption: 'ME - Aanhoudingseenheid',
                 duration: '5 Dagen',
                 staffList: 'AE-er',
+            },
+            {
+                caption: 'Bereden Brigade',
+                duration: '4 Dagen',
+                staffList: 'Bereden Brigade',
             },
         ],
         Ambulance: [
