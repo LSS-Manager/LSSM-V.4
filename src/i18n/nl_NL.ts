@@ -1189,7 +1189,8 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 },
             },
             icon: 'shuttle-van',
-            special: 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DAT-NH). Benodigd 1 persoon met een speciale opleiding in het trekkende voertuig (Bereden Brigade)',
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DAT-NH). Benodigd 1 persoon met een speciale opleiding in het trekkende voertuig (Bereden Brigade)',
             possibleBuildings: [11],
         },
         75: {
