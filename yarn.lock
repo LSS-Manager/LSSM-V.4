@@ -2002,13 +2002,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pdfmake@npm:^0.1.21":
-  version: 0.1.21
-  resolution: "@types/pdfmake@npm:0.1.21"
+"@types/pdfmake@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@types/pdfmake@npm:0.2.0"
   dependencies:
     "@types/node": "*"
     "@types/pdfkit": "*"
-  checksum: bb3652876c4171e6a909269d7094449798d4ee636474048afb52a2ab4b9eb72098af7eb88dcec7e0160556a78ad1712e18c1c9ea615451dfa438d32dfad69875
+  checksum: 0da7f462d119400961ad5e3818430068e540d4515271ece6f8cceee5fb77de4607810815fae7c7ae6e6b4f3eb8a29d32cce6f12bc3acb7647ebf50c936ace60e
   languageName: node
   linkType: hard
 
@@ -8802,7 +8802,7 @@ __metadata:
     "@types/leaflet": ^1.7.11
     "@types/lodash": ^4.14.182
     "@types/node": ^18.0.3
-    "@types/pdfmake": ^0.1.21
+    "@types/pdfmake": ^0.2.0
     "@types/qrcode": ^1.4.2
     "@types/semver": ^7.3.10
     "@types/showdown": ^2.0.0
