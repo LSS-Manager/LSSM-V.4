@@ -35,7 +35,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     });
 
     (await LSSM.$stores.api.getVehicles(`${MODULE_ID}_settings`)).value
-        .filter(v => v.vehicle_type_caption)
+        .filter(v => v.vehicle_type_caption && vehicles[v.vehicle_type])
         .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
             const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;
             if (!vehicle_type_caption || vehicleCaptions.includes(caption))
