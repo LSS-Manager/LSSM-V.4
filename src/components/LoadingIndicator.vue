@@ -32,8 +32,6 @@ import Vue from 'vue';
 import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 
-import lssmLogo from '../img/lssm.png';
-
 import type { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
@@ -71,7 +69,7 @@ export default Vue.extend<
             strokeWidth: 3,
             padding: 15,
             imageHeight: 22,
-            lssmLogo: rootStore.lssmUrl(lssmLogo, true),
+            lssmLogo: rootStore.lssmLogoUrl,
             pageHasBottomNavbar: !!document.querySelector(
                 '.navbar.navbar-fixed-bottom:not(#navbar-mobile-footer)'
             ),

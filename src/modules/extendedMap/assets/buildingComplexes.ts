@@ -166,6 +166,39 @@ export default async (
         },
     });
 
+    const newComplexBtn = document.createElement('a');
+    newComplexBtn.id = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}_building-complexes_new-complex`
+    );
+    newComplexBtn.classList.add('btn', 'btn-xs', 'btn-default');
+    newComplexBtn.textContent = $m('buildingComplexes.new').toString();
+
+    newComplexBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const newComplexIndex = complexes.length;
+        const center = window.map.getCenter();
+        const newComplex: Complex = {
+            name: `#${newComplexIndex}`,
+            buildings: [],
+            allianceBuildings: [],
+            position: [center.lat, center.lng],
+            icon: '/images/building_complex.png',
+            buildingTabs: true,
+            buildingsInList: false,
+            showMarkers: false,
+        };
+        complexes.push(newComplex);
+
+        save().then(() => {
+            iterateComplex(newComplex, newComplexIndex).fireEvent('click');
+            window.buildingMarkerBulkContentCacheDraw();
+        });
+    });
+
+    document
+        .querySelector<HTMLDivElement>('#building_panel_heading .btn-group')
+        ?.append(newComplexBtn);
+
     let buildingMarkerBulkContentCacheLSSMCache: string[] = [];
 
     LSSM.$stores.root.hook({
@@ -179,6 +212,17 @@ export default async (
                             html.match(/(?<=building_list_caption_)-\d+/u)?.[0]
                     )
                     .filter(<S>(value: S | undefined): value is S => !!value);
+            if (
+                !document.querySelector<HTMLAnchorElement>(
+                    `#${newComplexBtn.id}`
+                )
+            ) {
+                document
+                    .querySelector<HTMLDivElement>(
+                        '#building_panel_heading .btn-group'
+                    )
+                    ?.append(newComplexBtn);
+            }
         },
     });
     LSSM.$stores.root.hook({
@@ -451,34 +495,4 @@ export default async (
             mapMarker.addTo(complexesBuildingsLayers[complexIndex]);
         },
     });
-
-    const newComplexBtn = document.createElement('a');
-    newComplexBtn.classList.add('btn', 'btn-xs', 'btn-default');
-    newComplexBtn.textContent = $m('buildingComplexes.new').toString();
-
-    newComplexBtn.addEventListener('click', e => {
-        e.preventDefault();
-        const newComplexIndex = complexes.length;
-        const center = window.map.getCenter();
-        const newComplex: Complex = {
-            name: `#${newComplexIndex}`,
-            buildings: [],
-            allianceBuildings: [],
-            position: [center.lat, center.lng],
-            icon: '/images/building_complex.png',
-            buildingTabs: true,
-            buildingsInList: false,
-            showMarkers: false,
-        };
-        complexes.push(newComplex);
-
-        save().then(() => {
-            iterateComplex(newComplex, newComplexIndex).fireEvent('click');
-            window.buildingMarkerBulkContentCacheDraw();
-        });
-    });
-
-    document
-        .querySelector<HTMLDivElement>('#building_panel_heading .btn-group')
-        ?.append(newComplexBtn);
 };

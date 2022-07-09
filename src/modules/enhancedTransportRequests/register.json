@@ -1,0 +1,4 @@
+{
+    "location": "^/(vehicles/\\d+/(patient|gefangener)|missions)/\\d+/?$",
+    "settings": true
+}

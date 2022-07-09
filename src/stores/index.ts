@@ -6,6 +6,7 @@ import { useBroadcastStore } from '@stores/broadcast';
 import { useEventStore } from '@stores/event';
 
 import config from '../config';
+import lssmLogo from '../img/lssm.png';
 
 import type { RootState } from 'typings/store/RootState';
 import type {
@@ -63,6 +64,9 @@ export const defineRootStore = defineStore('root', {
                 );
                 return url.toString();
             };
+        },
+        lssmLogoUrl(): string {
+            return this.lssmUrl(lssmLogo, true);
         },
         wiki(): string {
             return `${config.docs}${this.locale}`;

@@ -47,12 +47,12 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.0.0"
+        "version": "18.0.3"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-        "version": "0.1.21"
+        "version": "0.2.0"
     },
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -97,17 +97,17 @@
         "version": "1.17.0"
     },
     "@typescript-eslint/eslint-plugin": {
-        "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.29.0"
+        "icon": "https://typescript-eslint.io/img/typescript.svg",
+        "version": "5.30.5"
     },
     "@typescript-eslint/parser": {
-        "icon": "https://avatars.githubusercontent.com/u/46634674",
-        "version": "5.29.0"
+        "icon": "https://typescript-eslint.io/img/typescript.svg",
+        "version": "5.30.5"
     },
     "@vue/composition-api": {
-        "icon": "https://vuejs.org/images/logo.png",
+        "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/composition-api#readme",
-        "version": "1.6.2"
+        "version": "1.7.0"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -115,10 +115,12 @@
         "version": "2.0.0-beta.48"
     },
     "@vuepress/plugin-pwa": {
+        "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
         "version": "2.0.0-beta.48"
     },
     "@vuepress/plugin-pwa-popup": {
+        "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
         "version": "2.0.0-beta.48"
     },
@@ -133,12 +135,12 @@
         "version": "2.0.0-beta.48"
     },
     "all-contributors-cli": {
-        "icon": "https://avatars3.githubusercontent.com/u/46843839",
+        "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
         "version": "6.20.0"
     },
     "axios": {
-        "icon": "https://avatars.githubusercontent.com/u/32372333",
+        "icon": "https://axios-http.com/assets/favicon.ico",
         "url": "https://axios-http.com",
         "version": "0.27.2"
     },
@@ -149,7 +151,7 @@
     },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
-        "version": "2.9.0"
+        "version": "2.10.0"
     },
     "copy-dir": {
         "url": "https://github.com/pillys/copy-dir",
@@ -161,20 +163,20 @@
         "version": "6.7.1"
     },
     "eslint": {
-        "icon": "https://eslint.org/assets/img/favicon.512x512.png",
+        "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.18.0"
+        "version": "8.19.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
         "version": "8.5.0"
     },
     "eslint-formatter-table": {
-        "icon": "https://eslint.org/assets/img/favicon.512x512.png",
+        "icon": "https://eslint.org/icon-512.png",
         "version": "7.32.1"
     },
     "eslint-import-resolver-typescript": {
-        "version": "2.7.1"
+        "version": "3.2.4"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
@@ -187,7 +189,7 @@
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-        "version": "4.0.0"
+        "version": "4.2.1"
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
@@ -196,24 +198,24 @@
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",
         "url": "https://github.com/sindresorhus/eslint-plugin-unicorn",
-        "version": "42.0.0"
+        "version": "43.0.1"
     },
     "eslint-plugin-vue": {
-        "icon": "https://vuejs.org/images/logo.png",
+        "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.1.1"
+        "version": "9.2.0"
     },
     "he": {
         "url": "https://mths.be/he",
         "version": "1.2.0"
     },
     "highcharts": {
-        "icon": "https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2021/05/19085042/favicon-1.ico",
+        "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "10.1.0"
+        "version": "10.2.0"
     },
     "highcharts-vue": {
-        "icon": "https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2021/05/19085042/favicon-1.ico",
+        "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "https://github.com/highcharts/highcharts-vue#readme",
         "version": "1.4.0"
     },
@@ -242,7 +244,7 @@
     "moment": {
         "icon": "https://momentjs.com/static/img/moment-favicon.png",
         "url": "https://momentjs.com",
-        "version": "2.29.3"
+        "version": "2.29.4"
     },
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
@@ -275,7 +277,7 @@
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "13.0.0"
+        "version": "13.0.2"
     },
     "semver": {
         "version": "7.3.7"
@@ -301,9 +303,9 @@
         "version": "9.3.1"
     },
     "ts-node": {
-        "icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
+        "icon": "https://typestrong.org/ts-node/img/logo-icon.svg",
         "url": "https://typestrong.org/ts-node",
-        "version": "10.8.1"
+        "version": "10.8.2"
     },
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
@@ -311,7 +313,7 @@
         "version": "4.7.4"
     },
     "ua-parser-js": {
-        "icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
+        "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
         "url": "https://github.com/faisalman/ua-parser-js",
         "version": "1.0.2"
     },
@@ -321,7 +323,7 @@
         "version": "4.1.1"
     },
     "vue": {
-        "icon": "https://vuejs.org/images/logo.png",
+        "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue#readme",
         "version": "2.6.14"
     },
@@ -339,9 +341,9 @@
         "version": "1.3.3"
     },
     "vue-loader": {
-        "icon": "https://vuejs.org/images/logo.png",
+        "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue-loader",
-        "version": "15.9.8"
+        "version": "15.10.0"
     },
     "vue-notification": {
         "version": "1.3.20"
@@ -359,12 +361,12 @@
         "version": "0.4.0"
     },
     "vue-template-compiler": {
-        "icon": "https://vuejs.org/images/logo.png",
+        "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
         "version": "2.6.14"
     },
     "vue3": {
-        "icon": "https://vuejs.org/images/logo.png",
+        "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
         "version": "3.2.37"
     },
@@ -374,6 +376,7 @@
         "version": "2.0.0-beta.48"
     },
     "vuepress-plugin-clipboard": {
+        "icon": "https://www.qbenben.com/images/icons/android-chrome-512x512.png",
         "url": "https://www.qbenben.com/docs/play/vuepress-plugin-clipboard",
         "version": "2.1.1"
     },

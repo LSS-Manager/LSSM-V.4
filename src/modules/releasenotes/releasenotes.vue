@@ -66,8 +66,6 @@ import moment from 'moment';
 import semverLt from 'semver/functions/lt';
 import { useRootStore } from '@stores/index';
 
-import lssmLogo from '../../img/lssm.png';
-
 import type { DefaultMethods } from 'vue/types/options';
 import type { SemVer } from 'semver';
 import type {
@@ -130,7 +128,7 @@ export default Vue.extend<
             .querySelector<HTMLDivElement>('.releasenotes-modal .vm--modal')
             ?.style.setProperty(
                 'background-image',
-                `url("${rootStore.lssmUrl(lssmLogo, true)}")`
+                `url("${rootStore.lssmLogoUrl}")`
             );
     },
 });

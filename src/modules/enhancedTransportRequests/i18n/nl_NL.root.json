@@ -1,0 +1,14 @@
+{
+    "description": "Verbeterd de ervaring van de spraakaanvragen met een aantal coole functies",
+    "name": "Verbeterde spraakaanvragen",
+    "settings": {
+        "autoClickSuccessBtns": {
+            "description": "Na het voltooien van een spraakaanvraag, knoppen zoals \"Volgende spraakaanvraag\" en \"Terug naar melding\" worden automatisch aangeklikt.",
+            "title": "Ga naar volgende spraakaanvraag"
+        },
+        "autoOpenTransportRequest": {
+            "description": "Opent automatisch de eerste spraakaanvraag in een meldingsscherm",
+            "title": "Open eerste spraakaanvraag"
+        }
+    }
+}

@@ -14,7 +14,7 @@
     {
       "description": "Disable updating vue on main repo. Updates require vue 3",
       "matchManagers": ["npm"],
-      "matchPackageNames": ["vue", "vue-i18n", "vue-loader", "@fortawesome/vue-fontawesome"],
+      "matchPackageNames": ["vue", "vue-i18n", "vue-loader", "vue-template-compiler", "@fortawesome/vue-fontawesome"],
       "matchPaths": ["+(package.json)"],
       "enabled": false
     },

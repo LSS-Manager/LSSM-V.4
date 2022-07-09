@@ -26,7 +26,7 @@
                         "vehicles": "Pojazdy"
                     }
                 },
-                "title": "wybrane budynki"
+                "title": "Wybrane budynki"
             },
             "classrooms": {
                 "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
@@ -46,7 +46,7 @@
             },
             "extensions": {
                 "abort": "Anuluj",
-                "allianceFunds": "opłać z funduszy sojuszu",
+                "allianceFunds": "Opłać z funduszy sojuszu",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -82,18 +82,18 @@
                 "underConstruction": "w budowie"
             },
             "protocol": {
-                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "subtitle": "Brak odpowiednich wpisów | 1 odpowiedni wpis | {n} odpowiednich wpisów",
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "label": "Category",
-                        "name": "Name",
-                        "staff": "Staff",
-                        "time": "Timestamp"
+                        "building": "Budynki",
+                        "label": "Kategoria",
+                        "name": "Nazwa",
+                        "staff": "Personel",
+                        "time": "Czas"
                     }
                 },
-                "title": "Protocol",
-                "updating": "Updating..."
+                "title": "Protokół",
+                "updating": "Aktualizacja..."
             },
             "title": "Przegląd",
             "vehicles": {
@@ -112,9 +112,9 @@
         "settings": {
             "abort": "Anuluj",
             "allianceBuildings": "Dołączone budynki sojuszu",
-            "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
+            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
-            "buildingsInList": "Pokazać wybrane budynki na liście?",
+            "buildingsInList": "Pokaż wybrane budynki na liście",
             "dissolve": {
                 "buttons": {
                     "abort": "Anuluj",
@@ -124,7 +124,7 @@
                 "title": "Usuń kompleks"
             },
             "icon": "Ikona",
-            "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami, a ikonami dołączonych budynków",
             "location": "Lokacja",
             "name": "Nazwa",
             "save": "Zapisz",

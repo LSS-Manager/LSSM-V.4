@@ -1,0 +1,14 @@
+{
+    "description": "Verbessert das Erlebnis beim Bearbeiten von Sprechwünschen durch nützliche Features",
+    "name": "Verbesserte Sprechwünsche",
+    "settings": {
+        "autoClickSuccessBtns": {
+            "description": "Nach dem Bearbeiten eines Sprechwunsches werden Knöpfe wie \"Nächster Sprechwunsch\" und \"Zurück zum Einsatz\" automatisch angeklickt",
+            "title": "automatisch zum nächsten Sprechwunsch"
+        },
+        "autoOpenTransportRequest": {
+            "description": "Öffnet den ersten Sprechwunsch im Einsatzfenster automatisch",
+            "title": "ersten Sprechwunsch öffnen"
+        }
+    }
+}

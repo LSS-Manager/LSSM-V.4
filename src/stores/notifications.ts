@@ -1,8 +1,7 @@
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
-
-import lssm_logo from '../img/lssm_logo';
+import { useRootStore } from '@stores/index';
 
 import type { NotificationsSend } from 'typings/store/notifications/Actions';
 import type { NotificationsState } from 'typings/store/notifications/State';
@@ -18,6 +17,7 @@ export const defineNotificationStore = defineStore('notifications', {
             if (!this.groups.includes(group)) this.groups.push(group);
         },
         async getPermission() {
+            const lssmLogo = useRootStore().lssmLogoUrl;
             if (this.permission === 'granted') return;
             if (this.permission === 'denied') {
                 return this.sendNotification({
@@ -28,7 +28,7 @@ export const defineNotificationStore = defineStore('notifications', {
                     text: (window[PREFIX] as Vue)
                         .$t('modules.notificationAlert.noPermission.text')
                         .toString(),
-                    icon: lssm_logo.toString(),
+                    icon: lssmLogo,
                     duration: -1,
                     desktop: false,
                 });
@@ -40,7 +40,7 @@ export const defineNotificationStore = defineStore('notifications', {
                     text: (window[PREFIX] as Vue)
                         .$t('modules.notificationAlert.permission.text')
                         .toString(),
-                    icon: lssm_logo.toString(),
+                    icon: lssmLogo,
                     duration: -1,
                     desktop: false,
                     clickHandler: async ({ close }: { close(): void }) => {
@@ -58,7 +58,7 @@ export const defineNotificationStore = defineStore('notifications', {
                                         'modules.notificationAlert.desktopTest.text'
                                     )
                                     .toString(),
-                                icon: lssm_logo.toString(),
+                                icon: lssmLogo,
                             });
                         }
                         close();
@@ -111,6 +111,7 @@ export const defineNotificationStore = defineStore('notifications', {
                 });
             }
             if (desktop) {
+                const lssmLogo = useRootStore().lssmLogoUrl;
                 const titleElement = document.createElement('div');
                 titleElement.innerHTML = title;
                 const newTitle = titleElement.textContent || '';
@@ -119,10 +120,10 @@ export const defineNotificationStore = defineStore('notifications', {
                 const desktopText = body.textContent || '';
                 await this.getPermission();
                 const notification = new Notification(newTitle, {
-                    badge: icon || lssm_logo.toString(),
+                    badge: icon || lssmLogo,
                     body: desktopText,
                     data,
-                    icon: icon || lssm_logo.toString(),
+                    icon: icon || lssmLogo,
                     requireInteraction: duration <= 0,
                 });
                 if (clickHandler) {

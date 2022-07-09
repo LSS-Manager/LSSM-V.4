@@ -3,17 +3,17 @@
     "name": "Szablony wiadomości",
     "settings": {
         "chatTemplates": {
-            "description": "Wiadomości na czacie sojuszu",
+            "description": "Szablony wiadomości na czat sojuszu. Dla szablonów dostępne są zmienne. Proszę spojrzeć na nasze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
             "name": "Nazwa",
             "text": "Wiadomość",
-            "title": "Wiadomości czatu"
+            "title": "Czat sojuszu"
         },
         "templates": {
-            "description": "Dla szablonów dostępne są zmienne. Proszę spojrzeć na nasze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "description": "Szablony wiadomości typu Mail. Dla szablonów dostępne są zmienne. Proszę spojrzeć na nasze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
             "name": "Nazwa",
-            "subject": "Podmiot",
-            "template": "Szablon (zmienne (zobacz wiki): {{username}}, {{today[+n]}})",
-            "title": "Szablony"
+            "subject": "Tytuł",
+            "template": "Wiadomość",
+            "title": "Skrzynka pocztowa"
         }
     }
 }
