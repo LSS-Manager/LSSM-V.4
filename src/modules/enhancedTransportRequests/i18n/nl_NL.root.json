@@ -1,14 +1,14 @@
 {
-    "description": "Improves the experience of transport requests by some cool features",
-    "name": "Improved transport requests",
+    "description": "Verbeterd de ervaring van de spraakaanvragen met een aantal coole functies",
+    "name": "Verbeterde spraakaanvragen",
     "settings": {
         "autoClickSuccessBtns": {
-            "description": "After finishing a transport request, buttons such as \"Next request\" and \"Back to mission\" are clicked automatically.",
-            "title": "jump to next transport request"
+            "description": "Na het voltooien van een spraakaanvraag, knoppen zoals \"Volgende spraakaanvraag\" en \"Terug naar melding\" worden automatisch aangeklikt.",
+            "title": "Ga naar volgende spraakaanvraag"
         },
         "autoOpenTransportRequest": {
-            "description": "Automatically opens the first transport request in a mission window",
-            "title": "open first transport request"
+            "description": "Opent automatisch de eerste spraakaanvraag in een meldingsscherm",
+            "title": "Open eerste spraakaanvraag"
         }
     }
 }
