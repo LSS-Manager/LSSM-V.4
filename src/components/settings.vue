@@ -136,7 +136,7 @@
                                     'globalSettings'
                                 ),
                                 {
-                                    wiki: rootStore,
+                                    wiki: `${rootStore.wiki}/`,
                                     fontAwesomeIconSearch:
                                         rootStore.fontAwesomeIconSearch,
                                 }
