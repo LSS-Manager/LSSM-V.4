@@ -166,14 +166,13 @@
                 "v3Name": "Demande de transport sur la carte"
             },
             "DoctorRadioCall": {
-                "annotation": "Pas disponible sur la version FR.",
-                "v3Name": "Demandes supplémentaires par FMS"
+                "v3Name": "Demande HEMS à la radio"
             },
             "Eventsmission": {
                 "v3Name": "Événements marqués"
             },
             "FMS5InMap": {
-                "v3Name": "Demande HEMS à la radio"
+                "v3Name": "Demande de transport sur la carte"
             },
             "Layout01": {
                 "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
@@ -209,6 +208,10 @@
             "WachenHoverStati": {
                 "v3Name": "État de la station"
             },
+            "WachenplanungOnMap": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "Wachenplanung auf der Karte"
+            },
             "aaoZaehler": {
                 "v3Name": "Alarme-Régulation-Compteur d'alarmes"
             },
@@ -230,6 +233,14 @@
             },
             "extendedBuilding": {
                 "v3Name": "Vue agrandie du bâtiment"
+            },
+            "fms7Target": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "fms7Target"
+            },
+            "geoBorders": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "geoBorders"
             },
             "heatmap": {
                 "v3Name": "LS-Heatmap"
@@ -261,6 +272,9 @@
             "searchMissions": {
                 "v3Name": "Recherche par mission"
             },
+            "showBackAlarmAbove": {
+                "v3Name": "Afficher l'alarme de retour ci- dessus"
+            },
             "showChatButtonAbove": {
                 "v3Name": "Afficher le bouton chat ci-dessus"
             },
@@ -275,6 +289,10 @@
             },
             "sumDailyMissions": {
                 "v3Name": "Somme des statistiques quotidiennes"
+            },
+            "tailoredTabs": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "tailoredTabs"
             },
             "verbandsverwaltung": {
                 "v3Name": "Administration"

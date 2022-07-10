@@ -211,6 +211,10 @@
             "WachenHoverStati": {
                 "v3Name": "Wachen Status"
             },
+            "WachenplanungOnMap": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "Wachenplanung auf der Karte"
+            },
             "aaoZaehler": {
                 "v3Name": "AAO-Klick-Zähler"
             },
@@ -232,6 +236,14 @@
             },
             "extendedBuilding": {
                 "v3Name": "Erweiterte Gebäudeansicht"
+            },
+            "fms7Target": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "FMS 7 Zielort Anzeige"
+            },
+            "geoBorders": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "Kreis- & Landesgrenzen"
             },
             "heatmap": {
                 "v3Name": "LS-Heatmap"
@@ -263,6 +275,9 @@
             "searchMissions": {
                 "v3Name": "Einsätze suchen"
             },
+            "showBackAlarmAbove": {
+                "v3Name": "show Back Alarm Above"
+            },
             "showChatButtonAbove": {
                 "v3Name": "show Chatbutton Above"
             },
@@ -277,6 +292,10 @@
             },
             "sumDailyMissions": {
                 "v3Name": "Summe für die tägliche Zusammenfassung"
+            },
+            "tailoredTabs": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "Maßgeschneiderte Tabs"
             },
             "verbandsverwaltung": {
                 "v3Name": "Verbandsverwaltung"

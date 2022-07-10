@@ -93,6 +93,10 @@
         },
         "sumDailyMissions": {
             "module": "dailyCreditsSummary"
+        },
+        "tailoredTabs": {
+            "module": "extendedCallWindow",
+            "setting": "tailoredTabs"
         }
     },
     "v3only": [
@@ -104,7 +108,11 @@
         "Layout03",
         "Layout04",
         "RenameFZ",
+        "WachenplanungOnMap",
+        "fms7Target",
+        "geoBorders",
         "saveVGE",
+        "showBackAlarmAbove",
         "searchMissions",
         "verbandsverwaltung"
     ],
