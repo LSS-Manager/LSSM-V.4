@@ -88,6 +88,9 @@
         "statusCount": {
             "module": "statusCounter"
         },
+        "statusDispatching": {
+            "module": "enhancedTransportRequests"
+        },
         "sumDailyMissions": {
             "module": "dailyCreditsSummary"
         }
@@ -103,7 +106,6 @@
         "RenameFZ",
         "saveVGE",
         "searchMissions",
-        "statusDispatching",
         "verbandsverwaltung"
     ],
     "v4only": [
