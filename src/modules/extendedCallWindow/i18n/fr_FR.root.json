@@ -50,12 +50,12 @@
             "title": "RAI-Recherche: autofocus"
         },
         "arrSearchCloseDropdownOnSelect": {
-            "description": "ferme la liste déroulante après avoir sélectionné une RAI.",
+            "description": "Ferme la liste déroulante après avoir sélectionné une RAI.",
             "title": "Fermer la liste déroulante après la sélection"
         },
         "arrSearchCompactResults": {
-            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
-            "title": "ARR-Search: Compact results"
+            "description": "Les colonnes sont supprimer et tous les RAI d'une catégorie sont présentés sur une seule ligne..",
+            "title": "RAI-Recherche: Résultats compacts"
         },
         "arrSearchDissolveCategories": {
             "description": "Affiche toutes les catégories à la fois, lors de la recherche.",
