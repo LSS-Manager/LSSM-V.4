@@ -53,6 +53,10 @@
             "description": "closes dropdown after selecting an ARR.",
             "title": "close dropdown after select"
         },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
         "arrSearchDissolveCategories": {
             "description": "Shows all categories at once, when searching.",
             "title": "ARR-Search: Show all categories"

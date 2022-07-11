@@ -53,6 +53,10 @@
             "description": "Chiude la tendina dopo aver selezionato un AAR.",
             "title": "Chiudi la tendina dopo la selezione"
         },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
         "arrSearchDissolveCategories": {
             "description": "Mostra tutte le categorie insieme, quando si usa la barra di ricerca.",
             "title": "Cerca ARR: Mostra tutte le categorie"

@@ -53,6 +53,10 @@
             "description": "Schließt die Dropdown der AAO-Suche nach dem Auswählen einer AAO.",
             "title": "Dropdown nach Auswahl schließen"
         },
+        "arrSearchCompactResults": {
+            "description": "Spalten werden im Suchergebnis aufgelöst und alle AAOs einer Kategorie in einer einzelnen Reihe dargestellt.",
+            "title": "AAO-Suche: Kompakte Anzeige"
+        },
         "arrSearchDissolveCategories": {
             "description": "Zeigt alle Kategorien untereinander an, wenn nach einem Begriff gesucht wird",
             "title": "AAO-Suche: Alle Kategorien anzeigen"

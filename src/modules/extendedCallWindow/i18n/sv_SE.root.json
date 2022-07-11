@@ -41,6 +41,10 @@
             "description": "Ställer in ett grått filter över alla ARR som inte innehåller ett ord med uppdragsnamnet.",
             "title": "Gråa ut olämpliga ARR's"
         },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
         "arrSpecs": {
             "description": "Visar de sparade förfrågningarna i ARR, om du stannar kort med musen över en ARR",
             "title": "Visa ARR-detaljer"

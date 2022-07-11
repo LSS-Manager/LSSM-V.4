@@ -54,6 +54,10 @@
             "description": "Zamyka menu po wybraniu ZR.",
             "title": "Zamknij menu po wybraniu"
         },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
         "arrSearchDissolveCategories": {
             "description": "Pokazuje wszystkie kategorie jednocześnie podczas wyszukiwania.",
             "title": "Pokaż wszystkie kategorie"

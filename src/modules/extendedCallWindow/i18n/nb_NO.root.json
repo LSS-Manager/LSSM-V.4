@@ -37,6 +37,10 @@
             "description": "Sets a gray filter over all AARs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable AARs"
         },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
         "arrSpecs": {
             "description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR",
             "title": " Show AAR details"
