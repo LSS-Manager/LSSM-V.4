@@ -15,11 +15,11 @@
             "title": "Najdłuższy czas dojazdu"
         },
         "arrCategoryColors": {
-            "bgColor": "Background color",
-            "category": "Name of the category",
-            "color": "Text color",
-            "description": "Colorize your ARR Categories.",
-            "title": "colorized ARR-Categories"
+            "bgColor": "Kolor tła",
+            "category": "Nazwa kategorii",
+            "color": "Kolor tekstu",
+            "description": "Pokoloruj swoje kategorie ZR.",
+            "title": "Kolorowe kategorie ZR"
         },
         "arrClickHighlight": {
             "description": "Rysuje ramkę wokół już klikniętych ZR.",
