@@ -158,6 +158,7 @@
                                 ? settings[moduleId][settingId].value.enabled
                                 : false
                         "
+                        :setting-type="setting.type"
                         @toggleEnabled="
                             updateAppendableList($event, moduleId, settingId)
                         "
