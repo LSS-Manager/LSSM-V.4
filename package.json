@@ -28,7 +28,7 @@
         "mini-svg-data-uri": "^1.4.4",
         "moment": "^2.29.4",
         "pdfmake": "^0.2.5",
-        "pinia": "^2.0.14",
+        "pinia": "^2.0.15",
         "qrcode": "^1.5.0",
         "semver": "^7.3.7",
         "showdown": "^2.1.0",
