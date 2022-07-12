@@ -13,6 +13,13 @@
             "description": "Mostra accanto al pulsante d'allarme quanto tempo ci impiega ad arrivare il veicolo più distante.",
             "title": "Tempo di viaggio più lungo"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Disegna una cornice intorno alle AAR già cliccate.",
             "title": "Evidenzia le AAR cliccate"

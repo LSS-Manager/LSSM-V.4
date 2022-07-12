@@ -1,5 +1,5 @@
 {
     "github": 9,
-    "location": "^/(buildings|missions|vehicles)/\\d+/?$",
+    "location": "^/((buildings|missions|vehicles)/\\d+|aao_categorys)/?$",
     "settings": true
 }

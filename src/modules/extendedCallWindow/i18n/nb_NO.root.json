@@ -13,6 +13,13 @@
             "description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
             "title": "Longest journey time"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Draws a frame around already clicked AARs.",
             "title": "Highlight clicked AARs"

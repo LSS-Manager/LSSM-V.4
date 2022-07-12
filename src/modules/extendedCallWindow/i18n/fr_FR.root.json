@@ -13,6 +13,13 @@
             "description": "Affiche à côté du bouton \"Déployer\" le temps de trajet le plus long des véhicules sélectionnés.",
             "title": "Temps de trajet le plus long"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Encadre les régulations déjà séléctionnées.",
             "title": "Bordure de régulations"

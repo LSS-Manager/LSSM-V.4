@@ -14,6 +14,13 @@
             "description": "Geeft naast de alarmeer-knop aan hoe lang het voertuig met de langste aanrijdtijd onderweg is.",
             "title": "Langste aanrijdtijd"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Geeft een kader om de aangeklikte inzetvoorstellen.",
             "title": "Aangeklikte inzetvoorstellen markeren"

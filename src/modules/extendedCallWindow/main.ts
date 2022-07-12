@@ -1,8 +1,14 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
 interface AppendableListSetting<valueType> {
-    value: valueType;
+    value: valueType[];
     enabled: boolean;
+}
+
+export interface ARRCategoryColorSetting {
+    categoryName: string;
+    bgColor: string;
+    color: string;
 }
 
 export default <ModuleMainFunction>(async ({
@@ -11,6 +17,7 @@ export default <ModuleMainFunction>(async ({
     $m,
     $mc,
     getSetting,
+    setSetting,
 }) => {
     const isVehicleWindow =
         !!window.location.pathname.match(/^\/vehicles\/\d+\/?$/u);
@@ -19,6 +26,8 @@ export default <ModuleMainFunction>(async ({
     const isBuildingWindow = !!window.location.pathname.match(
         /^\/buildings\/\d+\/?$/u
     );
+    const isARRCategoriesWindow =
+        !!window.location.pathname.match(/^\/aao_categorys\/?$/u);
 
     if (isVehicleWindow) {
         if (await getSetting('moreReleasePatientButtons')) {
@@ -29,6 +38,18 @@ export default <ModuleMainFunction>(async ({
             );
         }
         return;
+    }
+
+    if (isARRCategoriesWindow) {
+        getSetting<AppendableListSetting<ARRCategoryColorSetting>>(
+            'arrCategoryColors'
+        ).then(({ value: colors }) =>
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/arrCategoryColors/categoryWindow" */ './assets/arrCategoryColors/categoryWindow'
+            ).then(({ default: categoryWindow }) =>
+                categoryWindow(LSSM, colors, setSetting)
+            )
+        );
     }
 
     if (
@@ -54,13 +75,11 @@ export default <ModuleMainFunction>(async ({
 
     // Tailored Tabs
     const tailoredTabSettings = await getSetting<
-        AppendableListSetting<
-            {
-                name: string;
-                vehicleTypes: (number | string)[];
-                color: `#${string}`;
-            }[]
-        >
+        AppendableListSetting<{
+            name: string;
+            vehicleTypes: (number | string)[];
+            color: `#${string}`;
+        }>
     >('tailoredTabs');
     tailoredTabSettings.value = tailoredTabSettings.value.map(
         ({ name, vehicleTypes, color }) => ({
@@ -89,6 +108,17 @@ export default <ModuleMainFunction>(async ({
             )
         );
     }
+
+    // ARR Colors
+    getSetting<AppendableListSetting<ARRCategoryColorSetting>>(
+        'arrCategoryColors'
+    ).then(({ value: colors }) => {
+        if (colors.length) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/arrCategoryColors/missionWindow" */ './assets/arrCategoryColors/missionWindow'
+            ).then(({ default: missionWindow }) => missionWindow(colors));
+        }
+    });
 
     if (isBuildingWindow) {
         if (await getSetting<boolean>('stagingAreaSelectedCounter')) {
@@ -170,16 +200,14 @@ export default <ModuleMainFunction>(async ({
     }
 
     const missionKeywordsSettings = await getSetting<
-        AppendableListSetting<
-            {
-                keyword: string;
-                color: string;
-                autotextcolor: boolean;
-                textcolor: string;
-                prefix: boolean;
-                missions: number[];
-            }[]
-        >
+        AppendableListSetting<{
+            keyword: string;
+            color: string;
+            autotextcolor: boolean;
+            textcolor: string;
+            prefix: boolean;
+            missions: number[];
+        }>
     >('missionKeywords');
 
     if (missionKeywordsSettings.value.length) {
@@ -202,13 +230,11 @@ export default <ModuleMainFunction>(async ({
     }
 
     const alarmIconsSettings = await getSetting<
-        AppendableListSetting<
-            {
-                icon: string;
-                type: 'fab' | 'far' | 'fas';
-                vehicleTypes: (number | string)[];
-            }[]
-        >
+        AppendableListSetting<{
+            icon: string;
+            type: 'fab' | 'far' | 'fas';
+            vehicleTypes: (number | string)[];
+        }>
     >('alarmIcons');
     if (alarmIconsSettings.value.length) {
         import(

@@ -397,6 +397,43 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             orderable: true,
             disableable: false,
         },
+        arrCategoryColors: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+            type: 'appendable-list',
+            default: [],
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'categoryName',
+                    title: $m('settings.arrCategoryColors.category'),
+                    size: 3,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'bgColor',
+                    title: $m('settings.arrCategoryColors.bgColor'),
+                    size: 3,
+                    setting: {
+                        type: 'color',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'color',
+                    title: $m('settings.arrCategoryColors.color'),
+                    size: 3,
+                    setting: {
+                        type: 'color',
+                    },
+                },
+            ],
+            defaultItem: {
+                categoryName: '',
+                bgColor: LSSM.$stores.root.isDarkMode ? '#505050' : '#ffffff',
+                color: LSSM.$stores.root.isDarkMode ? '#ffffff' : '#337ab7',
+            },
+            orderable: false,
+            disableable: false,
+        },
         overlay: <Hidden>{
             type: 'hidden',
             default: false,

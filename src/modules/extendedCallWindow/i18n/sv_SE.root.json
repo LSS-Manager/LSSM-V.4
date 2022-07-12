@@ -13,6 +13,13 @@
             "description": "Visar bredvid alarmknappen hur lång tid fordonet med den längsta restiden tar.",
             "title": "Längsta restid"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Ritar en ram runt redan klickade ARR.",
             "title": "Markera klickade ARR"

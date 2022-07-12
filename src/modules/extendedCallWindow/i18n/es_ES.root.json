@@ -13,6 +13,13 @@
             "description": "Muestra junto al botón de alarma cuánto tarda el vehículo con el mayor tiempo de viaje.",
             "title": "Mayor tiempo de viaje"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Dibuja un borde alrededor de los ARR en los que ya se hizo click.",
             "title": "Resaltar ARR en los que se hizo click"

@@ -13,6 +13,13 @@
             "description": "Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.",
             "title": "Längste Anfahrtszeit"
         },
+        "arrCategoryColors": {
+            "bgColor": "Hintergrundfarbe",
+            "category": "Name der Kategorie",
+            "color": "Textfarbe",
+            "description": "Färbe hier deine AAO-Kategorien beliebig ein.",
+            "title": "gefärbte AAO-Kategorien"
+        },
         "arrClickHighlight": {
             "description": "Zeichnet einen Rahmen um bereits angeklickte AAOs.",
             "title": "Angeklickte AAOs hervorheben"

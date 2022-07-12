@@ -14,6 +14,13 @@
             "description": "Pokazuje obok przycisku \"Wyślij\", ile czasu zajmuje dojazd.",
             "title": "Najdłuższy czas dojazdu"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Rysuje ramkę wokół już klikniętych ZR.",
             "title": "Podświetl kliknięte ZR"

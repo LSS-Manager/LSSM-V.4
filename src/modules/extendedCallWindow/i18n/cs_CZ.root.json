@@ -13,6 +13,13 @@
             "description": "Zobrazí vedle tlačítka PNV jak dlouho pojede nejvzdálenější vozidlo k zásahu.",
             "title": "Doba příjezdu vozidel"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Vykreslí rámeček okolo zakliklých pravidel nouzových výjezdů.",
             "title": "Zvýraznění zakliklých PNV"
