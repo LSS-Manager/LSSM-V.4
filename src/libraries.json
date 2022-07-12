@@ -222,7 +222,7 @@
     "html-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/html-loader",
-        "version": "3.1.2"
+        "version": "4.1.0"
     },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
