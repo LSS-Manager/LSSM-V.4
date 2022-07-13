@@ -258,7 +258,7 @@
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
-        "version": "2.0.15"
+        "version": "2.0.16"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
