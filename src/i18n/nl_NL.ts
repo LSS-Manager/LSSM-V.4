@@ -1158,7 +1158,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             possibleBuildings: [0, 17],
         },
         73: {
-            caption: 'Vrachtwagen – Bereden Brigade',
+            caption: 'Vrachtwagen - Bereden Brigade',
             color: '#00005c',
             minPersonnel: 1,
             maxPersonnel: 4,
