@@ -111,7 +111,7 @@ module.exports = {
             74: [75],
         },
         staff: {
-            [/^Bereden Brigade eenhe(id|den) \(paard(en)?\)$/u]: [73],
+            [/^Bereden Brigade eenhe(den|id) \(paard(en)?\)$/u]: [73],
         },
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/u]: [
