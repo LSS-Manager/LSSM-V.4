@@ -134,7 +134,7 @@ module.exports = {
             [/^Crashtender(s)?$/u]: [41, 42, 43],
             [/^AFO\/OSC('s)?$/u]: [44],
             [/^Voorlichter(s)?$/u]: [56],
-            [/^Noodhulpeenhe(den|id)$/u]: [22, 25, 46, 47, 48, 59, 60],
+            [/^Noodhulpeenhe(den|id)$/u]: [22, 25, 46, 47, 48, 59, 60, 75],
             [/^Officier(en)? van Dienst - Politie$/u]: [35],
             [/^Politiehelikopter$/u]: [28],
             [/^Hondengeleider(s)?$/u]: [47, 48],
