@@ -1503,6 +1503,8 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         'Tunnel',
         'Vuurwerkopslag',
         'Gasverdeelstation',
+        'Windmolenpark',
+        'Pretpark',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],
