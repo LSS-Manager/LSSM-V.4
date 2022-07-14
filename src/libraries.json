@@ -305,7 +305,7 @@
     "ts-node": {
         "icon": "https://typestrong.org/ts-node/img/logo-icon.svg",
         "url": "https://typestrong.org/ts-node",
-        "version": "10.8.2"
+        "version": "10.9.1"
     },
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
