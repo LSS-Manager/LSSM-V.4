@@ -104,7 +104,8 @@ interface Custom<
         ComponentData,
         ComponentMethods,
         ComponentComputed,
-        ComponentProps & { value: Data }
+        ComponentProps & { value: Data },
+        Vue
     >;
 }
 
@@ -127,7 +128,7 @@ interface AppendableListSetting<Type extends SettingType = SettingType> {
 export interface PreviewElement
     extends Omit<AppendableListSetting, 'name' | 'setting'> {
     type: 'preview';
-    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
+    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown, Vue>;
 }
 
 export interface AppendableList extends SettingTemplate {

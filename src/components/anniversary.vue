@@ -159,7 +159,7 @@ $modal-top: 10vh
     overflow: hidden
     pointer-events: none
 
-    ::v-deep .balloon
+    :deep(.balloon)
         width: $balloon-width
         height: $balloon-height
         border-radius: 75% 75% 70% 70%
@@ -261,7 +261,7 @@ $modal-top: 10vh
         .anniversary-modal-close
             cursor: pointer
 
-        ::v-deep ul li
+        :deep(ul li)
             text-indent: -1em
 
 @keyframes float

@@ -181,14 +181,16 @@ declare module 'vue/types/vue' {
             AppstoreData,
             AppstoreMethods,
             AppstoreComputed,
-            DefaultProps
+            DefaultProps,
+            Vue
         >;
         $settings: CombinedVueInstance<
             Vue,
             SettingsData,
             SettingsMethods,
             SettingsComputed,
-            DefaultProps
+            DefaultProps,
+            Vue
         >;
         $m(
             key: string,
