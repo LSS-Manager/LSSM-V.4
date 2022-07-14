@@ -11,7 +11,7 @@ mode="$1"
 "$dir"/lint_fix.sh || exit 1
 "$dir"/tsc.sh || exit 1
 
-ts-node "$dir"/../prebuild/index.ts "$mode"
+ts-node "$dir"/../prebuild/index.ts "$mode" || exit 1
 
 end_time=$(date +%s%N)
 echo "$script_name": $(((end_time - start_time) / 1000000))ms
