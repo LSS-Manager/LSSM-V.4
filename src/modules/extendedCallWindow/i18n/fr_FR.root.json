@@ -14,11 +14,11 @@
             "title": "Temps de trajet le plus long"
         },
         "arrCategoryColors": {
-            "bgColor": "Background color",
-            "category": "Name of the category",
-            "color": "Text color",
-            "description": "Colorize your ARR Categories.",
-            "title": "colorized ARR-Categories"
+            "bgColor": "Couleur d'arrière-plan",
+            "category": "Nom de la catégorie",
+            "color": "Couleur du texte",
+            "description": "Coloriez vos catégories RAI.",
+            "title": "Catégories RAI colorées"
         },
         "arrClickHighlight": {
             "description": "Encadre les régulations déjà séléctionnées.",
