@@ -607,7 +607,7 @@ export default Vue.extend<
             background-color: rgba(0, 0, 0, 0.3)
             outline: none
 
-        :deep(li)
+        ::v-deep li
             position: relative
 
             .dropdown-submenu

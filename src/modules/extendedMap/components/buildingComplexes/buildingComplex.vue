@@ -2915,7 +2915,7 @@ export default Vue.extend<
     display: flex
     flex-flow: column
 
-    :deep(.vue-tabs)
+    ::v-deep .vue-tabs
         height: 100%
         display: flex
         flex-flow: column

@@ -482,7 +482,7 @@ export default Vue.extend<
 
 <style scoped lang="sass">
 form
-    :deep(.v-select)
+    ::v-deep .v-select
         .vs__selected
             img
                 height: 1.4em

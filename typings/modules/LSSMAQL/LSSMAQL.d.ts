@@ -36,6 +36,5 @@ export type LSSMAQLVue = CombinedVueInstance<
     LSSMAQL,
     LSSMAQLMethods,
     LSSMAQLComputed,
-    DefaultProps,
-    Vue
+    DefaultProps
 >;

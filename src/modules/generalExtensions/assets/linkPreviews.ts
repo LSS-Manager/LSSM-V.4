@@ -70,8 +70,7 @@ export default async (
         LinkPreview,
         LinkPreviewMethods,
         LinkPreviewComputed,
-        DefaultProps,
-        Vue
+        DefaultProps
     >;
 
     if (!LinkPreviewInstance) return;

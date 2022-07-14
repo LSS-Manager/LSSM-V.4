@@ -364,7 +364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.16.4, @babel/parser@npm:^7.18.4, @babel/parser@npm:^7.18.6, @babel/parser@npm:^7.18.8":
+"@babel/parser@npm:^7.16.4, @babel/parser@npm:^7.18.6, @babel/parser@npm:^7.18.8":
   version: 7.18.8
   resolution: "@babel/parser@npm:7.18.8"
   bin:
@@ -2411,17 +2411,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-sfc@npm:2.7.5":
-  version: 2.7.5
-  resolution: "@vue/compiler-sfc@npm:2.7.5"
-  dependencies:
-    "@babel/parser": ^7.18.4
-    postcss: ^8.4.14
-    source-map: ^0.6.1
-  checksum: 81608274dd12b5794f8e5d8a083837feb0da0b4dec490e5c7ab44475b91ae21415ee686b9b6691d81eab7d28baad140fabede6c2aea46d11505ae562207c71ed
-  languageName: node
-  linkType: hard
-
 "@vue/compiler-sfc@npm:3.2.37":
   version: 3.2.37
   resolution: "@vue/compiler-sfc@npm:3.2.37"
@@ -4313,13 +4302,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "csstype@npm:3.1.0"
-  checksum: 644e986cefab86525f0b674a06889cfdbb1f117e5b7d1ce0fc55b0423ecc58807a1ea42ecc75c4f18999d14fc42d1d255f84662a45003a52bb5840e977eb2ffd
-  languageName: node
-  linkType: hard
-
 "d@npm:1, d@npm:^1.0.1":
   version: 1.0.1
   resolution: "d@npm:1.0.1"
@@ -6184,7 +6166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"he@npm:^1.2.0":
+"he@npm:^1.1.0, he@npm:^1.2.0":
   version: 1.2.0
   resolution: "he@npm:1.2.0"
   bin:
@@ -8944,7 +8926,7 @@ __metadata:
     typescript: ^4.7.4
     ua-parser-js: ^1.0.2
     url-loader: ^4.1.1
-    vue: ^2.7.5
+    vue: ^2.6.14
     vue-i18n: ^8.27.2
     vue-js-modal: ^2.0.1
     vue-js-toggle-button: ^1.3.3
@@ -8953,7 +8935,7 @@ __metadata:
     vue-responsive-dash: ^0.5.0
     vue-select: ^3.18.3
     vue-slim-tabs: ^0.4.0
-    vue-template-compiler: ^2.7.5
+    vue-template-compiler: ^2.6.14
     webpack: ^5.73.0
   languageName: unknown
   linkType: soft
@@ -10575,13 +10557,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-template-compiler@npm:^2.7.5":
-  version: 2.7.5
-  resolution: "vue-template-compiler@npm:2.7.5"
+"vue-template-compiler@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "vue-template-compiler@npm:2.6.14"
   dependencies:
     de-indent: ^1.0.2
-    he: ^1.2.0
-  checksum: 9f13e05fbe1634c2ed7de870bec5325838ba05040d14b2dcdf31a7b00640ab9c9140cab3f2036223ec8f099d40e741031f6faa427872a89dc2b07f5f6fd511ee
+    he: ^1.1.0
+  checksum: 0d03f804ac97e26629c78219929596cfd98f522e1f13b16dd42f13e3fff09b85fb8252ef3486e9d62ca7993f576386f587e760df0506230fa87141fdac8275ea
   languageName: node
   linkType: hard
 
@@ -10592,13 +10574,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^2.0.0, vue@npm:^2.7.5":
-  version: 2.7.5
-  resolution: "vue@npm:2.7.5"
-  dependencies:
-    "@vue/compiler-sfc": 2.7.5
-    csstype: ^3.1.0
-  checksum: 2daa69afec7adae125b678e945b59d2fa51e8775a41ff452a5db0020367774ecd697855092b30f15eeb5fde51660596ea21d5805a2e9c5db151fc076f80178d7
+"vue@npm:^2.0.0, vue@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "vue@npm:2.6.14"
+  checksum: 23524a1bdca094d62cb3491a46317eed75184b5d61d28fa846ea5d2b241c1cc7084fc67ee259d47a50a6d0bbc33ecaceb7bb52bff81312fe7da07263f3419942
   languageName: node
   linkType: hard
 

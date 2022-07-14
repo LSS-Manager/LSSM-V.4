@@ -235,7 +235,7 @@ export default Vue.extend<
         &:not(:first-child)
             padding-left: 0.5em
 
-    :deep(table)
+    ::v-deep table
         margin-bottom: 0
 </style>
 <style lang="sass">
