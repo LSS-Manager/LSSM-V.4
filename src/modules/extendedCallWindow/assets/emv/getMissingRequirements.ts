@@ -31,23 +31,29 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown as Record<string, number[]> | string;
+    ) as unknown as
+        | { texts: Record<number, string>; vehicles: Record<number, number> }[]
+        | string;
     const staffGroupTranslation = $m(
         'enhancedMissingVehicles.staff'
-    ) as unknown as Record<string, number[]> | string;
+    ) as unknown as
+        | { texts: Record<number, string>; vehicles: Record<number, number> }[]
+        | string;
     const vehicleGroups =
         typeof vehicleGroupTranslation === 'string'
-            ? {}
-            : vehicleGroupTranslation;
+            ? []
+            : Object.values(vehicleGroupTranslation);
     const staffGroups =
-        typeof staffGroupTranslation === 'string' ? {} : staffGroupTranslation;
+        typeof staffGroupTranslation === 'string'
+            ? []
+            : Object.values(staffGroupTranslation);
 
-    const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*';
-    const groupsRegex = Object.keys({
-        ...vehicleGroups,
-        ...staffGroups,
-    })
-        .map(r => r.replace(/^\/\^|\$\/[ADJUgimux]*$/gu, ''))
+    const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*x?';
+    const groupsRegex = [
+        ...vehicleGroups.flatMap(({ texts }) => Object.values(texts)),
+        ...staffGroups.flatMap(({ texts }) => Object.values(texts)),
+    ]
+        .map(r => LSSM.$utils.escapeRegex(r))
         .join('|');
     const innerRegex = `${LSSM.$utils.escapeRegex(
         water
@@ -62,7 +68,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
     const missingRequirementMatches =
         missingRequirementsText.match(requirementRegex);
     const staffPrefix = $m('enhancedMissingVehicles.staffPrefix') as unknown as
-        | Record<number, RegExp>
+        | Record<number, string>
         | string;
     const extras = missingRequirementsText
         .replace(requirementRegex, '')
@@ -72,7 +78,9 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
             new RegExp(
                 Object.values(
                     typeof staffPrefix === 'string' ? {} : staffPrefix
-                ).join('|'),
+                )
+                    .map(p => LSSM.$utils.escapeRegex(p))
+                    .join('|'),
                 'g'
             ),
             ''
@@ -94,10 +102,8 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                 requirement.match(isColonMode ? /\d+$/u : /^\d+/u)?.[0] || '0'
             ),
             vehicle,
-            selected: Object.keys(staffGroups).some(group =>
-                vehicle.match(
-                    new RegExp(group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, ''))
-                )
+            selected: Object.values(staffGroups).some(({ texts }) =>
+                Object.values(texts).includes(vehicle)
             )
                 ? { min: 0, max: 0 }
                 : 0,
@@ -137,26 +143,19 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                     0
                 );
             } else {
-                const vehicleGroupRequirement = Object.keys(vehicleGroups).find(
-                    group =>
-                        requirement.vehicle.match(
-                            new RegExp(
-                                group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, '')
-                            )
-                        )
+                const vehicleGroupRequirement = vehicleGroups.findIndex(
+                    ({ texts }) =>
+                        Object.values(texts).includes(requirement.vehicle)
                 );
 
-                const staffGroupRequirement = Object.keys(staffGroups).find(
-                    group =>
-                        requirement.vehicle.match(
-                            new RegExp(
-                                group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, '')
-                            )
-                        )
+                const staffGroupRequirement = staffGroups.findIndex(
+                    ({ texts }) =>
+                        Object.values(texts).includes(requirement.vehicle)
                 );
-                if (staffGroupRequirement) {
+
+                if (staffGroupRequirement >= 0) {
                     const vehicleTypes: number[] = Object.values(
-                        staffGroups[staffGroupRequirement]
+                        staffGroups[staffGroupRequirement].vehicles
                     );
                     let drivingStaff = 0;
                     drivingTable
@@ -177,12 +176,12 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                         });
                     requirement.driving = drivingStaff;
                 } else {
-                    if (!vehicleGroupRequirement) {
+                    if (vehicleGroupRequirement < 0) {
                         requirement.vehicle = '';
                         return;
                     }
                     requirement.driving = Object.values(
-                        vehicleGroups[vehicleGroupRequirement]
+                        vehicleGroups[vehicleGroupRequirement].vehicles
                     )
                         .map(
                             vehicleType =>

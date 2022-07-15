@@ -61,7 +61,7 @@ export default async ({
     LSSM.$i18n.mergeLocaleMessage(LSSM.$stores.root.locale, {
         modules: {
             extendedCallWindow: await import(
-                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$stores.root.locale}.js`
+                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$stores.root.locale}.json`
             ),
         },
     });
