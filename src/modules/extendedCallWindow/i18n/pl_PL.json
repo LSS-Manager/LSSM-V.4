@@ -1,0 +1,356 @@
+{
+    "arrCounter": {
+        "reset": "Resetuj {text}",
+        "resetTexts": {
+            "counter": "liczniki",
+            "counter_highlight": "liczniki i granice",
+            "counter_highlight_selection": "liczniki, granice i wybór pojazdów",
+            "counter_selection": "liczniki i wybór pojazdów",
+            "highlight": "granice",
+            "highlight_selection": "granice i wybór pojazdów",
+            "reset": "Resetuj {text}",
+            "selection": "wybór pojazdów"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "any_traffic_car": "Pojazd WRD",
+            "automatic_text_color": "Automatyczny kolor tekstu",
+            "boot": "Łodzie (ogólne)",
+            "building_ids": "Posterunki",
+            "caption": "* Nazwa",
+            "category_id": "Kategoria",
+            "color": "Kolor",
+            "column_number": "Numer kolumny",
+            "detention_unit": "Więźniarka",
+            "dlk": "SH lub SD",
+            "elw": "SLOp lub SLRr",
+            "elw2": "Samochód dowodzenia i łączności",
+            "fire": "Samochody pożarnicze",
+            "flood_equipment": "Sprzęt przeciwpowodziowy",
+            "fly_car_any": "Pomoc medyczna",
+            "foam": "Samochód z zbiornikiem na pianę",
+            "foam_amount": "Litry piany gaśniczej",
+            "fustw": "Pojazd OPI",
+            "fustw_or_police_motorcycle": "Radiowóz OPI lub Quad Policyjny",
+            "fwk": "Dźwig SP",
+            "gw_taucher": "Samochód SLRw",
+            "gw_wasserrettung": "Rozbudowa ratownictwa wodnego",
+            "gwa": "SPGaz",
+            "gwgefahrgut": "Ratownictwo chemiczne",
+            "gwhoehenrettung": "SRWys",
+            "gwl2wasser": "Cysterna z wodą",
+            "hlf_only": "GBARt",
+            "hose_trucks": "Pojazd z wężami",
+            "hotkey": "Skrót",
+            "k9": "Jednostka z psami",
+            "ktw": "Ambulans T",
+            "ktw_or_rtw": "Ambulans P, S lub T",
+            "municipal_police": "Straż miejska",
+            "mzb": "Łódź wielozadaniowa",
+            "police_motorcycle": "Quad Policyjny",
+            "polizeihubschrauber": "Helikopter Policyjny",
+            "reset": "Wyczyść poprzedni wybór w oknie wezwania.",
+            "riot_police": "Radiowóz OPP",
+            "rth_only": "Śmigłowiec",
+            "rtw": "Ambulans P lub S",
+            "rw": "Samochód Ratownictwa Technicznego",
+            "swat": "SPKP",
+            "swat_armored_vehicle": "Opanerzony Pojazd SPKP",
+            "swat_suv": "SUV SPKP",
+            "text_color": "Kolor tekstu",
+            "wasser_amount": "Litry wody"
+        },
+        "headers": {
+            "attribute": "Nazwa",
+            "free": "Wolne",
+            "max": "Maks",
+            "set": "Usawienie",
+            "status": "Status"
+        },
+        "reset": "Wybór pojazdu jest resetowany przed!",
+        "titles": {
+            "attribute": "Kombinacja opisana w tym wierszu",
+            "free": "Tak często ta kombinacja jest dostępna",
+            "max": "Możesz wybrać ten ZR, dopóki ta kombinacja nie będzie już dostępna",
+            "set": "Tak często ta kombinacja jest wybierana po naciśnięciu ZR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "W drodze",
+        "foam": "litrów piany gaśniczej",
+        "missing": "Brakujący na misji",
+        "selected": "Wybrane",
+        "staff": [
+            { "texts": ["policjanci SPKP"], "vehicles": [15, 18] },
+            {
+                "texts": ["strażaków"],
+                "vehicles": [
+                    0, 1, 2, 3, 4, 6, 7, 10, 11, 12, 13, 25, 27, 28, 29, 35, 36,
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+                    52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64
+                ]
+            },
+            {
+                "texts": ["policjantów"],
+                "vehicles": [
+                    8, 14, 15, 16, 17, 18, 30, 65, 66, 67, 68, 69, 70, 71, 72,
+                    73, 74, 75, 76, 77, 78, 79, 80
+                ]
+            },
+            {
+                "texts": ["Szkolenie Personalne OPP"],
+                "vehicles": [
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+                    80
+                ]
+            }
+        ],
+        "staffPrefix": ["Potrzeba jeszcze"],
+        "tip": {
+            "dragging": "Przeciągnij okno",
+            "minified": "Minimalizuj",
+            "overlay": "Nakładka",
+            "pushLeft": "Pokaż w domyślnym miejscu",
+            "pushRight": "Pokaż nad listą pojazdów",
+            "reload": "Odśwież",
+            "textMode": "Tryb tekstowy wł/wył"
+        },
+        "total": "Wciąż potrzebne",
+        "towingVehicles": {
+            "48": [0, 1, 3, 4, 10, 28, 29],
+            "49": [0, 1, 3, 4, 7, 28, 29],
+            "50": [0, 1, 3, 4, 7, 28, 29],
+            "51": [0, 1, 3, 4, 28, 29],
+            "52": [0, 1, 3, 4, 10, 28, 29],
+            "53": [0, 1, 3, 4, 28, 29, 35],
+            "54": [0, 1, 3, 4, 19, 20, 24, 28, 29],
+            "60": [0, 1, 3, 4, 28, 29, 58, 59],
+            "62": [0, 1, 3, 4, 29, 28, 58, 59],
+            "63": [0, 1, 3, 4, 29, 28, 58, 59]
+        },
+        "vehicle": "Typ pojazdu",
+        "vehiclePreprocessor": { "Brakuje (\\d+ Radiowoz(u|ów) WRD)": "$1" },
+        "vehiclesByRequirement": [
+            { "texts": ["– SH lub SD"], "vehicles": [2, 13] },
+            { "texts": ["– Rchem"], "vehicles": [41, 7, 49, 50] },
+            {
+                "texts": [
+                    "Ambulans",
+                    "Ambulanse",
+                    "Ambulans(-ów)",
+                    "Ambulanse(-ów)"
+                ],
+                "vehicles": [5, 31, 68]
+            },
+            {
+                "texts": ["Ambulans OPP", "Ambulanse OPP", "Ambulansów OPP"],
+                "vehicles": [68]
+            },
+            {
+                "texts": [
+                    "Ambulans P",
+                    "Ambulanse P",
+                    "Ambulans(-ów) P",
+                    "Ambulanse(-ów) P",
+                    "Ambulansów P"
+                ],
+                "vehicles": [5, 31, 68]
+            },
+            {
+                "texts": [
+                    "armatek wodnych",
+                    "armatka wodna",
+                    "armatki wodne",
+                    "armatka wodna",
+                    "armatki wodne"
+                ],
+                "vehicles": [69]
+            },
+            {
+                "texts": ["cysterna z wodą", "cystern(-y) z wodą"],
+                "vehicles": [47, 6, 61, 64]
+            },
+            { "texts": ["Dźwig SP", "Dźwigi SP"], "vehicles": [25, 37] },
+            {
+                "texts": ["Helikopter Policyjny", "Helikopterów Policyjnych"],
+                "vehicles": [14]
+            },
+            { "texts": ["Jednostek K-9", "Jednostka K-9"], "vehicles": [16] },
+            {
+                "texts": ["łódź", "łodzi(-e)"],
+                "vehicles": [21, 22, 23, 26, 54]
+            },
+            { "texts": ["pojazdów SPKP"], "vehicles": [15, 18] },
+            { "texts": ["radiowóz OPI"], "vehicles": [8, 17, 65, 66, 76, 77] },
+            {
+                "texts": [
+                    "Radiowozu APRD",
+                    "Radiowozy APRD",
+                    "Radiowozów APRD",
+                    "Radiowóz APRD"
+                ],
+                "vehicles": [75]
+            },
+            {
+                "texts": [
+                    "Radiowozu OPP",
+                    "Radiowozy OPP",
+                    "Radiowozów OPP",
+                    "Radiowóz OPP"
+                ],
+                "vehicles": [65, 66, 67]
+            },
+            {
+                "texts": [
+                    "Radiowozu straży miejskiej",
+                    "Radiowozy straży miejskiej",
+                    "Radiowozów straży miejskiej",
+                    "Radiowóz straży miejskiej"
+                ],
+                "vehicles": [71, 72]
+            },
+            {
+                "texts": [
+                    "Radiowozu WRD",
+                    "Radiowozy WRD",
+                    "Radiowozów WRD",
+                    "Radiowóz WRD"
+                ],
+                "vehicles": [30, 73, 74, 75]
+            },
+            {
+                "texts": [
+                    "Ruchome Stanowisk Dowodzenia",
+                    "Ruchome Stanowiska Dowodzenia",
+                    "Ruchome Stanowisko Dowodzenia",
+                    "Ruchomych Stanowisk Dowodzenia",
+                    "Ruchomych Stanowiska Dowodzenia",
+                    "Ruchomych Stanowisko Dowodzenia"
+                ],
+                "vehicles": [78]
+            },
+            {
+                "texts": [
+                    "samochód pożarnicz",
+                    "samochód pożarniczy",
+                    "samochód pożarnicze(-ych)",
+                    "samochody(-ów) pożarnicz",
+                    "samochody(-ów) pożarniczy",
+                    "samochody(-ów) pożarnicze(-ych)"
+                ],
+                "vehicles": [0, 1, 29, 55, 56, 38, 12, 39, 44, 48, 63]
+            },
+            {
+                "texts": [
+                    "Samochód Ratownictwa Technicznego",
+                    "Samochodów Ratownictwa Technicznego"
+                ],
+                "vehicles": [4, 38, 12, 39, 37, 40]
+            },
+            {
+                "texts": [
+                    "samochód dowodzenia i łączności",
+                    "samochody(-ów) dowodzenia i łączności?"
+                ],
+                "vehicles": [43, 11]
+            },
+            {
+                "texts": [
+                    "Samochód Ratownictwa wysokościowego",
+                    "Samochodów Ratownictwa wysokościowego"
+                ],
+                "vehicles": [27]
+            },
+            {
+                "texts": [
+                    "Samochód wężowe",
+                    "Samochody wężowe",
+                    "Samochodów wężowe",
+                    "Samochód wężowy",
+                    "Samochody wężowy",
+                    "Samochodów wężowy",
+                    "Samochód wężowych",
+                    "Samochody wężowych",
+                    "Samochodów wężowych"
+                ],
+                "vehicles": [61, 62, 64]
+            },
+            {
+                "texts": [
+                    "Samochód ze zbiornikiem na pianę",
+                    "Samochody ze zbiornikiem na pianę",
+                    "Samochodów ze zbiornikiem na pianę"
+                ],
+                "vehicles": [55, 56, 57, 58, 59, 44, 60]
+            },
+            { "texts": ["Samochód WOPR", "Samochodów WOPR"], "vehicles": [19] },
+            { "texts": ["Samochód SLRw", "Samochodów SLRw"], "vehicles": [24] },
+            { "texts": ["SLOp lub SLRr"], "vehicles": [3, 28] },
+            {
+                "texts": [
+                    "specjalistyczne sprzęty OPP",
+                    "specjalistyczny sprzęty OPP",
+                    "specjalistycznych sprzęty OPP",
+                    "specjalistyczne sprzętów OPP",
+                    "specjalistyczny sprzętów OPP",
+                    "specjalistycznych sprzętów OPP"
+                ],
+                "vehicles": [67]
+            },
+            { "texts": ["SPGaz"], "vehicles": [10, 42, 52] },
+            {
+                "texts": [
+                    "sprzęt przeciwpowodziowe",
+                    "sprzęt przeciwpowodziowy",
+                    "sprzęty przeciwpowodziowe",
+                    "sprzęty przeciwpowodziowy"
+                ],
+                "vehicles": [46, 51, 63]
+            },
+            {
+                "texts": [
+                    "wymagana więźniarek",
+                    "wymagane więźniarek",
+                    "wymaganych więźniarek",
+                    "wymagana więźniarka",
+                    "wymagane więźniarka",
+                    "wymaganych więźniarka",
+                    "wymagana więźniarki",
+                    "wymagane więźniarki",
+                    "wymaganych więźniarki"
+                ],
+                "vehicles": [79, 80]
+            }
+        ],
+        "water": "litrów wody"
+    },
+    "hideVehicleList": {
+        "hide": "Ukryj listę pojazdów",
+        "show": "Pokaż listę pojazdów"
+    },
+    "patientCollapse": {
+        "amount": "Ilość",
+        "combis": "Kombinacje",
+        "summary": { "total": "Pacjęci", "treated": "Leczeni" }
+    },
+    "releasePatient": { "release": "Zwolnij pacjenta (Bez nagrody)" },
+    "tailoredTabs": {
+        "allTab": "Wysztko",
+        "occupiedTab": "Dalsze działania",
+        "vehicleMissing": {
+            "close": "Ukryj notkę do zmiany",
+            "hide": "Ukryj notkę",
+            "text": "Następujący tym pojazdów jest wyświtlany tylko w zakładce \"Wszystko\":",
+            "title": "Jeden pojazd nie jest wyświatlany w żadnej zakładce | Kilka pojazdów nie jest wyświatlanych w żadnej zakładce"
+        }
+    },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "Na miejscu",
+        "driving": "W drodze",
+        "players": "Gracze",
+        "total": "Łącznie",
+        "vehicles": "Pojazdy"
+    }
+}

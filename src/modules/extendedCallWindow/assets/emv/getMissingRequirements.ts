@@ -16,10 +16,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
         Object.entries(vehiclePreprocessor).forEach(
             ([reg, replace]) =>
                 (missingRequirementsText = missingRequirementsText.replace(
-                    new RegExp(
-                        reg.replace(/^\/(\^)?|(\$)?\/[ADJUgimux]*$/gu, ''),
-                        'gu'
-                    ),
+                    new RegExp(reg, 'gu'),
                     replace
                 ))
         );
@@ -63,7 +60,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const requirementRegex = new RegExp(
         `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
-        'g'
+        'gi'
     );
     const missingRequirementMatches =
         missingRequirementsText.match(requirementRegex);

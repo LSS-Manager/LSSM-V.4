@@ -209,7 +209,6 @@
                 "vehicles": [75]
             },
             { "texts": ["FuStW"], "vehicles": [32, 95, 103] },
-            { "texts": ["FuStW"], "vehicles": [32, 95, 103] },
             {
                 "texts": ["Funkstreifenwagen (Dienstgruppenleitung)"],
                 "vehicles": [103]

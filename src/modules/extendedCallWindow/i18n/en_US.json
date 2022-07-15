@@ -1,0 +1,281 @@
+{
+    "arrCounter": {
+        "reset": "{text} reset",
+        "resetTexts": {
+            "counter": "ARR-Counter",
+            "counter_highlight": "ARR counter / border",
+            "counter_highlight_selection": "ARR counter / border and vehicle selection",
+            "counter_selection": "ARR counter and vehicle selection",
+            "highlight": "ARR border",
+            "highlight_selection": "ARR border and vehicle selection",
+            "selection": "Vehicle selection"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "air_tanker": "Air tanker",
+            "arff": "ARFF",
+            "boot": "Boats (General)",
+            "brush_truck": "Wildland fire engine",
+            "brush_truck_1": "Type 3 engine",
+            "brush_truck_2": "Type 5 engine",
+            "brush_truck_3": "Type 7 engine",
+            "brush_truck_4": "Type 4 engine",
+            "brush_truck_5": "Type 6 engine",
+            "brush_vehicle": "Wildland fire vehicle",
+            "crew_carrier": "Crew Carrier",
+            "dlk": "Platform trucks",
+            "dozer_trailer": "Dozer Trailer",
+            "elw": "Battalion Chief unit",
+            "elw2": "Mobile Command Vehicle",
+            "fbi_bomb_tech": "FBI Bomb Tech",
+            "fbi_drone": "FBI Surveillance Drone",
+            "fbi_investigation_unit": "FBI Investigation Unit",
+            "fbi_mobile_command": "FBI Mobile Command",
+            "fbi_unit": "FBI Unit",
+            "fire": "Firetrucks",
+            "fire_aviation": "Fire aviation",
+            "fire_investigation": "Fire Investigation Unit",
+            "fireboat": "Large Fireboat",
+            "fly_car": "Fly-Car",
+            "fustw": "Patrol Car",
+            "fustw_or_police_motorcycle": "Patrol car or Police Motorcycle",
+            "gkw": "Utility Truck",
+            "grtw": "Mass Casualty Unit",
+            "gwa": "Mobile Air Unit",
+            "gwgefahrgut": "HazMat",
+            "gwl2wasser": "Water Tanker",
+            "heavy_air_tanker": "Heavy air tanker",
+            "hems": "HEMS",
+            "k9": "k-9 Unit",
+            "kdow_orgl": "EMS Chief",
+            "ktw": "BLS Ambulance",
+            "police_motorcycle": "Police Motorcycle",
+            "polizeihubschrauber": "Police helicopter",
+            "rescueboat": "Large Rescue Boat",
+            "rtw": "ALS Ambulance",
+            "rw": "Heavy rescue vehicle",
+            "sheriff_unit": "Sheriff Unit",
+            "swat": "SWAT",
+            "swat_armored_vehicle": "SWAT Armoured Vehicle",
+            "swat_suv": "SWAT SUV",
+            "wasser_amount": "Gallons of water",
+            "water_drop_helicopter": "Water drop helicopter"
+        },
+        "headers": {
+            "attribute": "Name",
+            "free": "Free",
+            "max": "Max",
+            "set": "Set",
+            "status": "Status"
+        },
+        "reset": "The vehicle selection is reset before!",
+        "titles": {
+            "attribute": "The combination described in this line",
+            "free": "So often this combination is available",
+            "max": "You can select this ARR until this combination is no longer available",
+            "set": "So often this combination is selected when you press the ARR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "En-route",
+        "foam": "gal. foam",
+        "missing": "Missing on mission",
+        "selected": "Selected",
+        "staff": [{ "texts": ["SWAT Personnel"], "vehicles": [16, 26] }],
+        "staffPrefix": ["We need"],
+        "tip": {
+            "dragging": "drag window",
+            "minified": "collapse",
+            "overlay": "overlay",
+            "pushLeft": "show this box at original position",
+            "pushRight": "show this box above vehicle list",
+            "reload": "reload",
+            "textMode": "textmode on/off"
+        },
+        "total": "Still needed",
+        "towingVehicles": { "22": [8], "40": [41], "57": [41] },
+        "vehicle": "Vehicle type",
+        "vehiclesByRequirement": [
+            {
+                "texts": ["firetruck", "firetrucks"],
+                "vehicles": [0, 1, 13, 18, 30, 33, 48]
+            },
+            {
+                "texts": ["platform truck", "platform trucks"],
+                "vehicles": [2, 13]
+            },
+            {
+                "texts": ["Battalion chief unit", "Battalion chief units"],
+                "vehicles": [3, 12]
+            },
+            {
+                "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
+                "vehicles": [4, 8, 18, 21, 28, 61]
+            },
+            { "texts": ["Mobile Air"], "vehicles": [6] },
+            {
+                "texts": ["Water Tanker", "Water Tankers"],
+                "vehicles": [7, 33, 64]
+            },
+            {
+                "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
+                "vehicles": [12]
+            },
+            { "texts": ["HazMat"], "vehicles": [9, 50] },
+            {
+                "texts": ["Ambulance", "Ambulances"],
+                "vehicles": [5, 27, 48, 49, 50, 61]
+            },
+            {
+                "texts": ["Patrol car", "Patrol cars"],
+                "vehicles": [10, 26, 19, 47, 49, 56, 62]
+            },
+            { "texts": ["HEMS"], "vehicles": [11] },
+            {
+                "texts": ["Policehelicopter", "Policehelicopters"],
+                "vehicles": [14]
+            },
+            { "texts": ["SWAT"], "vehicles": [16, 26] },
+            { "texts": ["ARFF"], "vehicles": [17] },
+            { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [19] },
+            {
+                "texts": ["Large fire boat", "Large fire boats"],
+                "vehicles": [24]
+            },
+            {
+                "texts": ["Large rescue boat", "Large rescue boats"],
+                "vehicles": [25]
+            },
+            { "texts": ["Light Boat", "Light Boats"], "vehicles": [21, 22] },
+            {
+                "texts": ["Wildland fire vehicle", "Wildland fire vehicles"],
+                "vehicles": [30, 31, 32, 35, 36, 37, 38, 39, 40]
+            },
+            {
+                "texts": [
+                    "Airborne firefighting vehicle",
+                    "Airborne firefighting vehicles"
+                ],
+                "vehicles": [35, 36, 37]
+            },
+            { "texts": ["FBI Unit", "FBI Units"], "vehicles": [42, 43] },
+            {
+                "texts": [
+                    "FBI Investigation wagon",
+                    "FBI Investigation wagons"
+                ],
+                "vehicles": [43]
+            },
+            {
+                "texts": [
+                    "FBI Investigation wagon or Surveillance Drone",
+                    "FBI Investigation wagons or Surveillance Drones"
+                ],
+                "vehicles": [43, 46]
+            },
+            {
+                "texts": [
+                    "FBI Mobile Command Center",
+                    "FBI Mobile Command Centers"
+                ],
+                "vehicles": [44]
+            },
+            {
+                "texts": [
+                    "FBI Bomb Technician Vehicle",
+                    "FBI Bomb Technician Vehicles"
+                ],
+                "vehicles": [45]
+            },
+            {
+                "texts": ["FBI Surveillance Drone", "FBI Surveillance Drones"],
+                "vehicles": [46]
+            },
+            { "texts": ["Sheriff", "Sheriffs"], "vehicles": [47] },
+            { "texts": ["Patrol Boat", "Patrol Boats"], "vehicles": [55] },
+            { "texts": ["ATF Unit", "ATF Units"], "vehicles": [53] },
+            {
+                "texts": ["ATF Lab Vehicle", "ATF Lab Vehicles"],
+                "vehicles": [54]
+            },
+            { "texts": ["DEA Unit", "DEA Units"], "vehicles": [51] },
+            { "texts": ["DEA Clan Lab", "DEA Clan Labs"], "vehicles": [52] },
+            {
+                "texts": [
+                    "Warden Truck",
+                    "Warden Trucks",
+                    "Warden's Truck",
+                    "Warden's Trucks"
+                ],
+                "vehicles": [56]
+            },
+            { "texts": ["EMS Mobile Command"], "vehicles": [60] },
+            {
+                "texts": [
+                    "Fire Investigation Unit",
+                    "Fire Investigation Units"
+                ],
+                "vehicles": [62, 63]
+            },
+            { "texts": ["Foam Tender", "Foam Tenders"], "vehicles": [64, 65] },
+            {
+                "texts": ["Lifeguard Truck", "Lifeguard Trucks"],
+                "vehicles": [66]
+            },
+            {
+                "texts": ["Lifeguard Rescue", "Lifeguard Rescues"],
+                "vehicles": [67]
+            },
+            {
+                "texts": ["Lifeguard Supervisor", "Lifeguard Supervisors"],
+                "vehicles": [68]
+            },
+            {
+                "texts": ["Small Coastal Boat", "Small Coastal Boats"],
+                "vehicles": [69]
+            },
+            {
+                "texts": ["Large Coastal Boat", "Large Coastal Boats"],
+                "vehicles": [70]
+            },
+            {
+                "texts": ["Coastal Helicopter", "Coastal Helicopters"],
+                "vehicles": [71]
+            },
+            {
+                "texts": ["Coastal Guard Plane", "Coastal Guard Planes"],
+                "vehicles": [72]
+            }
+        ],
+        "water": "gal. water"
+    },
+    "hideVehicleList": {
+        "hide": "Hide vehicle list",
+        "show": "Show vehicle list"
+    },
+    "patientCollapse": {
+        "amount": "Amount",
+        "combis": "Combinations",
+        "summary": { "total": "patients", "treated": "being treated" }
+    },
+    "releasePatient": { "release": "Release patient (No reward)" },
+    "tailoredTabs": {
+        "allTab": "All",
+        "occupiedTab": "Follow-up",
+        "vehicleMissing": {
+            "close": "Close Note till change",
+            "hide": "Hide Note",
+            "text": "The following vehicle types are only present in the \"All\" tab:",
+            "title": "One vehicle is not present in any tab | Several vehicles are not present in any tab"
+        }
+    },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "at Scene",
+        "driving": "en Route",
+        "players": "Players",
+        "total": "Total",
+        "vehicles": "Vehicles"
+    }
+}
