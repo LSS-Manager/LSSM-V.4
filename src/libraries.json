@@ -55,6 +55,7 @@
         "version": "0.2.0"
     },
     "@types/prettier": {
+        "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/prettier",
         "version": "2.6.3"
     },
