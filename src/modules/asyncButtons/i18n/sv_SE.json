@@ -7,10 +7,7 @@
             "title": "Släpper du ut?"
         }
     },
-    "buildings": {
-        "active": "Aktiv",
-        "nonactive": "Inaktiv"
-    },
+    "buildings": { "active": "Aktiv", "nonactive": "Inaktiv" },
     "deleteARR": {
         "deleteModal": {
             "btnCancel": "Avbryt",

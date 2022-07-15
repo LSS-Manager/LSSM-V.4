@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>Deze teammelding heeft aandacht nodig!"
         },
-        "radioMessage": {
-            "title": "{vehicle} heeft status {status}!"
-        },
+        "radioMessage": { "title": "{vehicle} heeft status {status}!" },
         "tasksUpdate": {
             "body": "Je hebt een taak voltooid. Haal snel je beloning op!",
             "title": "Taak voltooid"

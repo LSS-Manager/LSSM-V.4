@@ -2,10 +2,7 @@
     "approach": "Approach",
     "backalarm": "Backalarm",
     "backalarmNext": "approach directly",
-    "cells": {
-        "cell": "Building",
-        "free": "Free cells"
-    },
+    "cells": { "cell": "Building", "free": "Free cells" },
     "color": "Adjust color",
     "current_mission": "Current mission",
     "delete": {
@@ -27,9 +24,7 @@
         },
         "hospitals": {
             "beds": "Minimum free beds",
-            "department": {
-                "title": "Department: {department}"
-            },
+            "department": { "title": "Department: {department}" },
             "distance": "Maximum Distance",
             "each": "Show x buildings of each",
             "tax": "Maximum tax"
@@ -37,9 +32,7 @@
         "missions": {
             "credits": "Minimum Credits",
             "distance": "Maximum Distance",
-            "participation": {
-                "title": "Participating"
-            },
+            "participation": { "title": "Participating" },
             "progress": "Progress max %",
             "status": {
                 "green": "green",
@@ -48,16 +41,10 @@
                 "yellow": "yellow"
             }
         },
-        "wlf": {
-            "distance": "Maximum Distance",
-            "same": "Same Building"
-        }
+        "wlf": { "distance": "Maximum Distance", "same": "Same Building" }
     },
     "fms": "FMS",
-    "fms_switch": {
-        "is_s2": "set S6",
-        "is_s6": "set S2"
-    },
+    "fms_switch": { "is_s2": "set S6", "is_s6": "set S2" },
     "foam_amount": "Foam amount",
     "followup_missions": "Follow-up mission | Follow-up missions",
     "hospitals": {
@@ -101,11 +88,7 @@
     },
     "release_patient": "Discharge patient",
     "release_prisoner": "Release prisoners",
-    "staff": {
-        "name": "Name",
-        "schooling": "Training",
-        "title": "Staff"
-    },
+    "staff": { "name": "Name", "schooling": "Training", "title": "Staff" },
     "station": "Building",
     "stats": "Statistics",
     "tabs": {

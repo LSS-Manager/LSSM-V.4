@@ -1,48 +1,10 @@
 {
     "default": [
-        {
-            "ids": [
-                0,
-                15,
-                18,
-                24
-            ],
-            "name": "Vigili del Fuoco"
-        },
-        {
-            "ids": [
-                2,
-                4,
-                5,
-                20,
-                22
-            ],
-            "name": "Soccorso"
-        },
-        {
-            "ids": [
-                6,
-                13,
-                16,
-                19,
-                21
-            ],
-            "name": "Polizia"
-        },
-        {
-            "ids": [
-                1,
-                3,
-                8
-            ],
-            "name": "Accademia"
-        },
-        {
-            "ids": [
-                7
-            ],
-            "name": "Centrale Operativa"
-        }
+        { "ids": [0, 15, 18, 24], "name": "Vigili del Fuoco" },
+        { "ids": [2, 4, 5, 20, 22], "name": "Soccorso" },
+        { "ids": [6, 13, 16, 19, 21], "name": "Polizia" },
+        { "ids": [1, 3, 8], "name": "Accademia" },
+        { "ids": [7], "name": "Centrale Operativa" }
     ],
     "description": "Personalizza i filtri della lista edifici!",
     "lssmComplex": "LSSM building complex",
@@ -50,10 +12,7 @@
     "settings": {
         "buildings": "Tipi di Edifici",
         "contentType": {
-            "labels": [
-                "Testo",
-                "Icona"
-            ],
+            "labels": ["Testo", "Icona"],
             "title": "Testo o Icona?"
         },
         "filters": {

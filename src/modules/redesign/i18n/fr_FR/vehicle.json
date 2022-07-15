@@ -2,10 +2,7 @@
     "approach": "Transférer",
     "backalarm": "Rappeler",
     "backalarmNext": "Envoyer directement",
-    "cells": {
-        "cell": "Poste",
-        "free": "Cellules libres"
-    },
+    "cells": { "cell": "Poste", "free": "Cellules libres" },
     "color": "Changer la couleur",
     "current_mission": "Mission actuelle",
     "delete": {
@@ -27,9 +24,7 @@
         },
         "hospitals": {
             "beds": "Minimum de lits libres",
-            "department": {
-                "title": "Service : {department}"
-            },
+            "department": { "title": "Service : {department}" },
             "distance": "Distance maximum",
             "each": "Montrer x bâtiments de chaque",
             "tax": "Taxe maximum"
@@ -37,9 +32,7 @@
         "missions": {
             "credits": "Crédits minimums",
             "distance": "Distance maximum",
-            "participation": {
-                "title": "Déjà présent"
-            },
+            "participation": { "title": "Déjà présent" },
             "progress": "Avancement max",
             "status": {
                 "green": "Vert",
@@ -48,10 +41,7 @@
                 "yellow": "Jaune"
             }
         },
-        "wlf": {
-            "distance": "Distance maximum",
-            "same": "Même bâtiment"
-        }
+        "wlf": { "distance": "Distance maximum", "same": "Même bâtiment" }
     },
     "fms": "Radio",
     "fms_switch": {
@@ -101,11 +91,7 @@
     },
     "release_patient": "Décharger le patient",
     "release_prisoner": "Libérer les prisonniers",
-    "staff": {
-        "name": "Nom",
-        "schooling": "Formation",
-        "title": "Personnel "
-    },
+    "staff": { "name": "Nom", "schooling": "Formation", "title": "Personnel " },
     "station": "Poste",
     "stats": "Statistiques",
     "tabs": {

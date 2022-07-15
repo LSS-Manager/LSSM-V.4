@@ -5,13 +5,8 @@
         "total": "Totaal",
         "updateNote": "Wordt elke 5 minuten geüpdatet."
     },
-    "coins": {
-        "list": "Coins overzicht"
-    },
-    "credits": {
-        "daily": "Dagelijkse samenvatting",
-        "overview": "Overzicht"
-    },
+    "coins": { "list": "Coins overzicht" },
+    "credits": { "daily": "Dagelijkse samenvatting", "overview": "Overzicht" },
     "description": "Tooont nuttige informatie over credits in een dropdown menu.",
     "name": "Credits uitbreiding",
     "nextRank": "Volgende rang",

@@ -9,9 +9,7 @@
     "downloadXLS": "Als XLS document downloaden",
     "drillUpText": "Terug",
     "exitFullscreen": "Sluit de volledige toepassingsmodus af",
-    "exportData": {
-        "categoryHeader": "Categorie"
-    },
+    "exportData": { "categoryHeader": "Categorie" },
     "loading": "Laden…",
     "printChart": "afdrukken",
     "viewData": "Tabel tonen",

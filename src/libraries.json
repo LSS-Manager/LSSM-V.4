@@ -175,9 +175,7 @@
         "icon": "https://eslint.org/icon-512.png",
         "version": "7.32.1"
     },
-    "eslint-import-resolver-typescript": {
-        "version": "3.2.5"
-    },
+    "eslint-import-resolver-typescript": { "version": "3.2.5" },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
         "version": "4.0.2"
@@ -205,10 +203,7 @@
         "url": "https://eslint.vuejs.org",
         "version": "9.2.0"
     },
-    "he": {
-        "url": "https://mths.be/he",
-        "version": "1.2.0"
-    },
+    "he": { "url": "https://mths.be/he", "version": "1.2.0" },
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
@@ -251,10 +246,7 @@
         "url": "http://momentjs.com/timezone/",
         "version": "0.5.34"
     },
-    "pdfmake": {
-        "url": "http://pdfmake.org",
-        "version": "0.2.5"
-    },
+    "pdfmake": { "url": "http://pdfmake.org", "version": "0.2.5" },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
@@ -279,9 +271,7 @@
         "url": "https://github.com/webpack-contrib/sass-loader",
         "version": "13.0.2"
     },
-    "semver": {
-        "version": "7.3.7"
-    },
+    "semver": { "version": "7.3.7" },
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
         "url": "http://showdownjs.com/",
@@ -345,17 +335,12 @@
         "url": "https://github.com/vuejs/vue-loader",
         "version": "15.10.0"
     },
-    "vue-notification": {
-        "version": "1.3.20"
-    },
+    "vue-notification": { "version": "1.3.20" },
     "vue-responsive-dash": {
         "url": "https://vue-responsive-dash.netlify.com",
         "version": "0.5.0"
     },
-    "vue-select": {
-        "url": "https://vue-select.org",
-        "version": "3.18.3"
-    },
+    "vue-select": { "url": "https://vue-select.org", "version": "3.18.3" },
     "vue-slim-tabs": {
         "url": "https://vue-slim-tabs.egoist.sh/",
         "version": "0.4.0"

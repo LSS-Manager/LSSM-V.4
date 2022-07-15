@@ -2,10 +2,7 @@
     "alliance": "Alliance",
     "amount": "{n} filtered alliance | {n} filtered alliances",
     "credits": "Earned Credits",
-    "load": {
-        "next": "Load next page",
-        "prev": "Load previous page"
-    },
+    "load": { "next": "Load next page", "prev": "Load previous page" },
     "members": "Member count",
     "name": "Alliance",
     "search_global": "Global Search",

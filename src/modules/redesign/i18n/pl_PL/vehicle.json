@@ -2,10 +2,7 @@
     "approach": "Wyślij",
     "backalarm": "Anuluj",
     "backalarmNext": "Wyślij bezpośrednio na te misję",
-    "cells": {
-        "cell": "Budynki",
-        "free": "Wolne jednostki"
-    },
+    "cells": { "cell": "Budynki", "free": "Wolne jednostki" },
     "color": "Dostosuj kolor",
     "current_mission": "Aktualna misja",
     "delete": {
@@ -27,9 +24,7 @@
         },
         "hospitals": {
             "beds": "Minimalna ilość wolnych łóżek",
-            "department": {
-                "title": "Department: {department}"
-            },
+            "department": { "title": "Department: {department}" },
             "distance": "Maksymalna odległość",
             "each": "Pokaż x budynków",
             "tax": "Maksymalny podatek"
@@ -37,9 +32,7 @@
         "missions": {
             "credits": "Minimalne kredyty",
             "distance": "Maksymalna odległość",
-            "participation": {
-                "title": "Pojazdy na miejscu"
-            },
+            "participation": { "title": "Pojazdy na miejscu" },
             "progress": "Maks. postęp %",
             "status": {
                 "blue": "[1]Dostępne",
@@ -49,16 +42,10 @@
                 "yellow": "[3]Reagowanie"
             }
         },
-        "wlf": {
-            "distance": "Maksymalna odległość",
-            "same": "Te same budynki"
-        }
+        "wlf": { "distance": "Maksymalna odległość", "same": "Te same budynki" }
     },
     "fms": "Stan",
-    "fms_switch": {
-        "is_s2": "Niedostępny",
-        "is_s6": "Dostępny"
-    },
+    "fms_switch": { "is_s2": "Niedostępny", "is_s6": "Dostępny" },
     "foam_amount": "Ilość piany",
     "followup_missions": "Misja następująca | Misje uzupełniające",
     "hospitals": {
@@ -102,11 +89,7 @@
     },
     "release_patient": "Anuluj transport",
     "release_prisoner": "Zwolnij więźniów",
-    "staff": {
-        "name": "Nazwa",
-        "schooling": "Szkolenie",
-        "title": "Załoga"
-    },
+    "staff": { "name": "Nazwa", "schooling": "Szkolenie", "title": "Załoga" },
     "station": "Budynek",
     "stats": "Statystyki",
     "tabs": {

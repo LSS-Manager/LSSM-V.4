@@ -28,15 +28,11 @@
             "body": "W grze pojawiły się nowe funkcje! Zajrzyj na Facebooka, aby zobaczyć, jakie są dzisiejsze aktualizacje!",
             "title": "Nowości w grze"
         },
-        "mission_getred": {
-            "body": "{address}<br>Ta misja wymaga uwagi!"
-        },
+        "mission_getred": { "body": "{address}<br>Ta misja wymaga uwagi!" },
         "mission_getred_alliance": {
             "body": "{address}<br>Ta misja sojuszu wymaga uwagi!"
         },
-        "radioMessage": {
-            "title": "{vehicle} zgłosił status {status}!"
-        },
+        "radioMessage": { "title": "{vehicle} zgłosił status {status}!" },
         "tasksUpdate": {
             "body": "Zakończyłeś zadanie. Szybko odbierz nagrodę!",
             "title": "Ukończono zadanie"

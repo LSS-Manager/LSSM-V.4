@@ -2,10 +2,7 @@
     "alliance": "Team",
     "amount": "{n} gefilterde speler | {n} gefilterde spelers",
     "credits": "Totaalverdiende Credits",
-    "load": {
-        "next": "Volgende pagina laden",
-        "prev": "Vorige pagina laden"
-    },
+    "load": { "next": "Volgende pagina laden", "prev": "Vorige pagina laden" },
     "name": "Speler",
     "search_global": "Alles zoeken",
     "search_local": "Zoeken in geladen spelers",

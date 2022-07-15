@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>This alliancemission needs attention!"
         },
-        "radioMessage": {
-            "title": "{vehicle} reports status {status}!"
-        },
+        "radioMessage": { "title": "{vehicle} reports status {status}!" },
         "tasksUpdate": {
             "body": "You have finished a task. Collect your reward quickly!",
             "title": "Finished a task"

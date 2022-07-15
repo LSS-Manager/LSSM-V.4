@@ -45,9 +45,7 @@
     },
     "settings": {
         "alertStyle": "Aviseringar i spelet",
-        "alerts": {
-            "title": "Ställ in aviseringar"
-        },
+        "alerts": { "title": "Ställ in aviseringar" },
         "desktop": "Skicka skrivbordsavisering",
         "duration": "Visningslängd",
         "eventTypes": "Events",

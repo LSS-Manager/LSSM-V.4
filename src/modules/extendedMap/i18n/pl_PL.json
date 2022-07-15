@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Szczegóły"
-        },
+        "buildingList": { "details": "Szczegóły" },
         "new": "Nowy kompleks LSSM",
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
@@ -72,12 +70,7 @@
                     "inConstruction": "{n} w budowie",
                     "total": "{n} możliwych w sumie"
                 },
-                "table": {
-                    "head": {
-                        "building": "Budynki",
-                        "name": "Nazwa"
-                    }
-                },
+                "table": { "head": { "building": "Budynki", "name": "Nazwa" } },
                 "title": "Rozszerzenia",
                 "underConstruction": "w budowie"
             },
@@ -116,10 +109,7 @@
             "buildings": "Wybrane budynki",
             "buildingsInList": "Pokaż wybrane budynki na liście",
             "dissolve": {
-                "buttons": {
-                    "abort": "Anuluj",
-                    "continue": "Usuń"
-                },
+                "buttons": { "abort": "Anuluj", "continue": "Usuń" },
                 "text": "Czy chcesz usunąć ten kompleks budynków? Wszystkie dołączone budynki zostaną ponownie wyświetlone na mapie, jak poprzednio.",
                 "title": "Usuń kompleks"
             },

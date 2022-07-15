@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Details"
-        },
+        "buildingList": { "details": "Details" },
         "new": "Neuer LSSM-Gebäudekomplex",
         "openInLightbox": "Gebäude in Lightbox öffnen",
         "overview": {
@@ -72,12 +70,7 @@
                     "inConstruction": "{n} im Bau",
                     "total": "insgesamt {n} möglich"
                 },
-                "table": {
-                    "head": {
-                        "building": "Gebäude",
-                        "name": "Name"
-                    }
-                },
+                "table": { "head": { "building": "Gebäude", "name": "Name" } },
                 "title": "Ausbauten",
                 "underConstruction": "im Bau"
             },
@@ -116,10 +109,7 @@
             "buildings": "angehängte Gebäude",
             "buildingsInList": "Angehängte Gebäude in der Gebäudeliste anzeigen?",
             "dissolve": {
-                "buttons": {
-                    "abort": "Abbrechen",
-                    "continue": "Auflösen"
-                },
+                "buttons": { "abort": "Abbrechen", "continue": "Auflösen" },
                 "text": "Möchtest du diesen Gebäudekomplex auflösen? Alle angehängten Gebäude werden wieder wie vorher auf der Karte angezeigt werden.",
                 "title": "Gebäudekomplex auflösen"
             },

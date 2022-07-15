@@ -1,8 +1,6 @@
 {
     "404": {
-        "general": {
-            "home": "Naar de startpagina"
-        },
+        "general": { "home": "Naar de startpagina" },
         "modules": {
             "content": "Beste gebruiker,\n\nBedankt voor je intresse in de wiki pagina van {{module}}! Helaas bestaat er nog geen pagina voor deze pagina voor jouw taal {{lang}}. Indien je wilt helpen door deze pagina toe te voegen, voel je vrij om deze pagina toe te voegen op {{github}}! We adviseren om een kijkje te nemen bij de andere talen voor voorbeelden {{docs_dir}}.",
             "languages": "Deze module heeft al een Wiki pagina in de volgende talen:",
@@ -67,10 +65,7 @@
             }
         },
         "variables": {
-            "ampm": {
-                "A": "AM / PM",
-                "a": "am / pm"
-            },
+            "ampm": { "A": "AM / PM", "a": "am / pm" },
             "dom": {
                 "D": "Dag in maand",
                 "DD": "Dag in maand (met nullen)",
@@ -94,10 +89,7 @@
                 "h": "Uur (12h)",
                 "hh": "Uur (12h, met nullen)"
             },
-            "minute": {
-                "m": "Minuut",
-                "mm": "Minuut (met nullen)"
-            },
+            "minute": { "m": "Minuut", "mm": "Minuut (met nullen)" },
             "month": {
                 "M": "Actuele maand (Getal)",
                 "MM": "Actuele maand (Getal met nullen)",
@@ -122,10 +114,7 @@
                 "Q": "Actueel kwartaal",
                 "Qo": "Actueel kwartaal (met punt)"
             },
-            "second": {
-                "s": "Seconde",
-                "ss": "Seconde (met nullen)"
-            },
+            "second": { "s": "Seconde", "ss": "Seconde (met nullen)" },
             "week": {
                 "w": "Kalenderweek",
                 "wo": "Kalenderweek (met punt)",
@@ -137,15 +126,9 @@
             }
         }
     },
-    "pwa": {
-        "button": "Ververs",
-        "message": "Nieuwe content is beschikbaar."
-    },
+    "pwa": { "button": "Ververs", "message": "Nieuwe content is beschikbaar." },
     "readme": {
-        "serverStatus": {
-            "game": "Spel status",
-            "lssm": "LSSM server status"
-        }
+        "serverStatus": { "game": "Spel status", "lssm": "LSSM server status" }
     },
     "search": "Zoek in Wiki",
     "tables": {

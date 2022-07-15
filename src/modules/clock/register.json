@@ -1,5 +1,1 @@
-{
-    "github": 28,
-    "location": "^/?$",
-    "settings": true
-}
+{ "github": 28, "location": "^/?$", "settings": true }

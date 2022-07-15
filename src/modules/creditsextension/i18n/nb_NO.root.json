@@ -5,13 +5,8 @@
         "total": "total",
         "updateNote": "Opptateres hvert 5 minutt."
     },
-    "coins": {
-        "list": "Protokoll"
-    },
-    "credits": {
-        "daily": "Daglig tjening",
-        "overview": "Oversikt"
-    },
+    "coins": { "list": "Protokoll" },
+    "credits": { "daily": "Daglig tjening", "overview": "Oversikt" },
     "description": "Viser nyttig informasjon om studiepoeng i en rullegardinmeny i hovednavigasjonslinjen.",
     "name": "Utvidelse av studiepoeng",
     "nextRank": "Nester Rang",

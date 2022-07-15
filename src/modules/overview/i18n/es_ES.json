@@ -1,9 +1,6 @@
 {
     "extensionTitle": "{caption} (hasta {n} veces)",
-    "schoolings": {
-        "all": "all",
-        "min": "min. {n}x"
-    },
+    "schoolings": { "all": "all", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Edificios",
         "schoolings": "Cursos",

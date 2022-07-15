@@ -1,4 +1,1 @@
-{
-    "location": "^/?$",
-    "settings": true
-}
+{ "location": "^/?$", "settings": true }

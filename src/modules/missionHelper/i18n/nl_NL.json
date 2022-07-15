@@ -106,9 +106,7 @@
                 "firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
             }
         },
-        "patient_additionals": {
-            "3": "Officier van Dienst - Geneeskunde"
-        },
+        "patient_additionals": { "3": "Officier van Dienst - Geneeskunde" },
         "title": "Voertuigen"
     }
 }

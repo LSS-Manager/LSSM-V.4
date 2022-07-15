@@ -2101,6 +2101,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prettier@npm:^2.6.3":
+  version: 2.6.3
+  resolution: "@types/prettier@npm:2.6.3"
+  checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
+  languageName: node
+  linkType: hard
+
 "@types/qrcode@npm:^1.4.2":
   version: 1.4.2
   resolution: "@types/qrcode@npm:1.4.2"
@@ -8874,6 +8881,7 @@ __metadata:
     "@types/lodash": ^4.14.182
     "@types/node": ^18.0.4
     "@types/pdfmake": ^0.2.0
+    "@types/prettier": ^2.6.3
     "@types/qrcode": ^1.4.2
     "@types/semver": ^7.3.10
     "@types/showdown": ^2.0.0

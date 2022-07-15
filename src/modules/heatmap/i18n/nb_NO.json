@@ -1,10 +1,7 @@
 {
     "buildings": "Byggninger",
     "enable": "På",
-    "includes": {
-        "buildings": "Bygnings type",
-        "vehicles": "Bil type"
-    },
+    "includes": { "buildings": "Bygnings type", "vehicles": "Bil type" },
     "intensity": "intensity boost",
     "livePreview": "Live-Preview (auto-save)",
     "radius": "radius",

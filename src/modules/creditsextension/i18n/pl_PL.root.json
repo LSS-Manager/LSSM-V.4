@@ -5,13 +5,8 @@
         "total": "-zdobyte kredyty",
         "updateNote": "Aktualizacja co 5 minut."
     },
-    "coins": {
-        "list": "Protokół"
-    },
-    "credits": {
-        "daily": "Podsumowanie dnia",
-        "overview": "Przegląd"
-    },
+    "coins": { "list": "Protokół" },
+    "credits": { "daily": "Podsumowanie dnia", "overview": "Przegląd" },
     "description": "Wyświetla przydatne informacje o kredytach w menu rozwijanym w głównym pasku nawigacyjnym.",
     "name": "Rozszerzenie kredytów",
     "nextRank": "Następna stopień",

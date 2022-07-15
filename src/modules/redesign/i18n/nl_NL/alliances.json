@@ -2,10 +2,7 @@
     "alliance": "Team",
     "amount": "{n} gefiltert team | {n} gefilterde teams",
     "credits": "Totaal verdiende credits",
-    "load": {
-        "next": "Volgende pagina laden",
-        "prev": "Vorige pagina laden"
-    },
+    "load": { "next": "Volgende pagina laden", "prev": "Vorige pagina laden" },
     "members": "Aantal leden",
     "name": "Team",
     "search_global": "Alles doorzoeken",

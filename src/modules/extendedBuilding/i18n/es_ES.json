@@ -2,12 +2,8 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Ocultar personal sin información adecuada"
     },
-    "expansions": {
-        "notBuild": "Aún no construido"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Sin centralita"
-    },
+    "expansions": { "notBuild": "Aún no construido" },
+    "fastDispatchChooser": { "noDispatch": "Sin centralita" },
     "personnelDemands": {
         "additional": "Los valores entre paréntesis excluyen los vehículos en el estado 6.",
         "demand": "Personal requerido"

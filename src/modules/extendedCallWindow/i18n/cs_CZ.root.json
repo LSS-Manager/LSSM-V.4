@@ -141,61 +141,14 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Hasičské cisterny",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    13,
-                    18
-                ]
-            },
+            { "name": "Hasičské cisterny", "vehicleTypes": [0, 1, 13, 18] },
             {
                 "name": "Ostatní hasičská technika",
-                "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    8,
-                    9,
-                    12,
-                    17,
-                    21
-                ]
+                "vehicleTypes": [2, 3, 4, 6, 7, 8, 9, 12, 17, 21]
             },
-            {
-                "name": "Sanitky",
-                "vehicleTypes": [
-                    5,
-                    11,
-                    15,
-                    20,
-                    25,
-                    26,
-                    27
-                ]
-            },
-            {
-                "name": "Policie",
-                "vehicleTypes": [
-                    10,
-                    14,
-                    16,
-                    19,
-                    23
-                ]
-            },
-            {
-                "name": "Water",
-                "vehicleTypes": [
-                    21,
-                    22,
-                    24,
-                    25
-                ]
-            }
+            { "name": "Sanitky", "vehicleTypes": [5, 11, 15, 20, 25, 26, 27] },
+            { "name": "Policie", "vehicleTypes": [10, 14, 16, 19, 23] },
+            { "name": "Water", "vehicleTypes": [21, 22, 24, 25] }
         ]
     }
 }

@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Navn",
         "current": "Number (aktive)",
-        "fastDispatchChooser": {
-            "noDispatch": "Ingen kontrollsenter"
-        },
+        "fastDispatchChooser": { "noDispatch": "Ingen kontrollsenter" },
         "type": "Type",
         "unavailable": "Under konstruksjon"
     },
@@ -63,16 +61,7 @@
     },
     "vehicle-types": {
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Totalt",
         "title": "Alle {type} | All {type} med status {n} | All {type} med status {n}",
         "type": "Enhetstype",

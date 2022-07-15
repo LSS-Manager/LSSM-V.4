@@ -23,55 +23,21 @@
     },
     "no_dispatchcenter": "No Dispatchcenter",
     "prerequisite_calculations": {
-        "arff_count": [
-            "0.1"
-        ],
-        "atf_count": [
-            "18.1"
-        ],
-        "brush_extension": [
-            "0.3"
-        ],
-        "dea_count": [
-            "18.0"
-        ],
-        "federalpolice_stations": [
-            18
-        ],
-        "fire_aviation_count": [
-            17
-        ],
-        "fire_boat_docks": [
-            11
-        ],
-        "fire_stations": [
-            0,
-            13
-        ],
-        "game_warden_count": [
-            "5.11"
-        ],
-        "police_helicopter_stations": [
-            "8.level"
-        ],
-        "police_stations": [
-            5,
-            15
-        ],
-        "rescue_boat_docks": [
-            12
-        ],
-        "rescue_stations": [
-            3,
-            16,
-            "0.0"
-        ],
-        "wasserrettung": [
-            "0.2"
-        ],
-        "water_police_count": [
-            "5.10"
-        ]
+        "arff_count": ["0.1"],
+        "atf_count": ["18.1"],
+        "brush_extension": ["0.3"],
+        "dea_count": ["18.0"],
+        "federalpolice_stations": [18],
+        "fire_aviation_count": [17],
+        "fire_boat_docks": [11],
+        "fire_stations": [0, 13],
+        "game_warden_count": ["5.11"],
+        "police_helicopter_stations": ["8.level"],
+        "police_stations": [5, 15],
+        "rescue_boat_docks": [12],
+        "rescue_stations": [3, 16, "0.0"],
+        "wasserrettung": ["0.2"],
+        "water_police_count": ["5.10"]
     },
     "prerequisites_long": {
         "arff_count": "Active expansion of the airport extension",

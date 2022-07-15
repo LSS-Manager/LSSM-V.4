@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address} <br> Detta alliansuppdraget behöver uppmärksamhet!"
         },
-        "radioMessage": {
-            "title": "{vehicle} rapporterar status {status}!"
-        }
+        "radioMessage": { "title": "{vehicle} rapporterar status {status}!" }
     },
     "noPermission": {
         "text": "Din webbläsare är inställd så att spelet inte har behörighet att skicka skrivbordsaviseringar. Om du fortfarande vill få dessa meddelanden måste du först återställa detta i webbläsarinställningarna!",

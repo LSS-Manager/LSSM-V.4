@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Details"
-        },
+        "buildingList": { "details": "Details" },
         "new": "Nieuw LSSM gebouwencomplex",
         "openInLightbox": "Open gebouw in Lightbox",
         "overview": {
@@ -72,12 +70,7 @@
                     "inConstruction": "{n} in aanbouw",
                     "total": "{n} mogelijk totaal"
                 },
-                "table": {
-                    "head": {
-                        "building": "Gebouw",
-                        "name": "Naam"
-                    }
-                },
+                "table": { "head": { "building": "Gebouw", "name": "Naam" } },
                 "title": "Uitbreidingen",
                 "underConstruction": "in aanbout"
             },
@@ -116,10 +109,7 @@
             "buildings": "gekoppelde gebouwen",
             "buildingsInList": "Toon gekoppelde gebouwen in de gebouwenlijst?",
             "dissolve": {
-                "buttons": {
-                    "abort": "Annuleren",
-                    "continue": "Verwijderen"
-                },
+                "buttons": { "abort": "Annuleren", "continue": "Verwijderen" },
                 "text": "Wil je dit gebouwencomplex verwijderen? Alle gekoppelde gebouwen zullen weer op de kaart worden getoond, zoals daarvoor.",
                 "title": "Verwijder complex"
             },

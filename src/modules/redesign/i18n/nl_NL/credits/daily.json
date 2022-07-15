@@ -2,10 +2,7 @@
     "amount": "Aantal",
     "description": "Beschrijving",
     "filter": {
-        "total": {
-            "max": "Max. totaal",
-            "min": "Min. totaal"
-        },
+        "total": { "max": "Max. totaal", "min": "Min. totaal" },
         "type": {
             "all_types": "Alle types weergeven",
             "amount": "{n} gefilterde actie | {n} gefilterde acties",

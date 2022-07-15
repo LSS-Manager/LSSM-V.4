@@ -23,25 +23,11 @@
     },
     "no_dispatchcenter": "No Dispatchcenter",
     "prerequisite_calculations": {
-        "fire_stations": [
-            0,
-            18
-        ],
-        "police_helicopter_stations": [
-            "13.level"
-        ],
-        "police_stations": [
-            6,
-            19
-        ],
-        "rescue_stations": [
-            2,
-            20,
-            "0.0"
-        ],
-        "wasserrettung": [
-            15
-        ]
+        "fire_stations": [0, 18],
+        "police_helicopter_stations": ["13.level"],
+        "police_stations": [6, 19],
+        "rescue_stations": [2, 20, "0.0"],
+        "wasserrettung": [15]
     },
     "prerequisites_long": {
         "brush_extension": "Bushfire Expansion | Bushfire Expansions",

@@ -2,13 +2,8 @@
     "amount": "{n} gefilterter Spieler | {n} gefilterte Spieler",
     "credits": "Gesamtverdiente Credits",
     "discount": "Rabatt",
-    "edit_caption": {
-        "save": "Speichern"
-    },
-    "load": {
-        "next": "nächste Seite laden",
-        "prev": "vorherige Seite laden"
-    },
+    "edit_caption": { "save": "Speichern" },
+    "load": { "next": "nächste Seite laden", "prev": "vorherige Seite laden" },
     "name": "Spieler",
     "online": {
         "subtitle": "Es werden nur online Mitglieder angezeigt!",
@@ -31,9 +26,7 @@
         "edit": "Rechte bearbeiten",
         "finance": "Finanzminister",
         "hide": "Schließen",
-        "kick": {
-            "btn": "Rauswerfen"
-        },
+        "kick": { "btn": "Rauswerfen" },
         "kickModal": {
             "btnCancel": "Abbrechen",
             "btnConfirm": "Rauswerfen",

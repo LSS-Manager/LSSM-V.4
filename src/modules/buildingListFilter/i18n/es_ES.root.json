@@ -1,43 +1,10 @@
 {
     "default": [
-        {
-            "ids": [
-                0,
-                18
-            ],
-            "name": "Bomberos"
-        },
-        {
-            "ids": [
-                2,
-                4,
-                5,
-                20
-            ],
-            "name": "Rescate"
-        },
-        {
-            "ids": [
-                6,
-                13,
-                19
-            ],
-            "name": "Policía"
-        },
-        {
-            "ids": [
-                1,
-                3,
-                8
-            ],
-            "name": "Academias"
-        },
-        {
-            "ids": [
-                7
-            ],
-            "name": "Centralita"
-        }
+        { "ids": [0, 18], "name": "Bomberos" },
+        { "ids": [2, 4, 5, 20], "name": "Rescate" },
+        { "ids": [6, 13, 19], "name": "Policía" },
+        { "ids": [1, 3, 8], "name": "Academias" },
+        { "ids": [7], "name": "Centralita" }
     ],
     "description": "¡Personaliza los filtros de la lista de edificios!",
     "lssmComplex": "LSSM building complex",
@@ -45,10 +12,7 @@
     "settings": {
         "buildings": "Tipos de Edificios",
         "contentType": {
-            "labels": [
-                "Text",
-                "Icon"
-            ],
+            "labels": ["Text", "Icon"],
             "title": "¿Texto o icono?"
         },
         "filters": {
