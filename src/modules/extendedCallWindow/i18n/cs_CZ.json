@@ -1,0 +1,265 @@
+{
+    "arrCounter": {
+        "reset": "{text} reset",
+        "resetTexts": {
+            "counter": "ARR-Counter",
+            "counter_highlight": "ARR counter / border",
+            "counter_highlight_selection": "ARR counter / border and vehicle selection",
+            "counter_selection": "ARR counter and vehicle selection",
+            "highlight": "ARR border",
+            "highlight_selection": "ARR border and vehicle selection",
+            "selection": "Vehicle selection"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "air_tanker": "Air tanker",
+            "arff": "ARFF",
+            "boot": "Boats (General)",
+            "brush_truck": "Wildland fire engine",
+            "brush_truck_1": "Type 3 engine",
+            "brush_truck_2": "Type 5 engine",
+            "brush_truck_3": "Type 7 engine",
+            "brush_truck_4": "Type 4 engine",
+            "brush_truck_5": "Type 6 engine",
+            "brush_vehicle": "Wildland fire vehicle",
+            "crew_carrier": "Crew Carrier",
+            "dlk": "Platform trucks",
+            "dozer_trailer": "Dozer Trailer",
+            "elw": "Battalion Chief unit",
+            "elw2": "Mobile Command Vehicle",
+            "fbi_bomb_tech": "FBI Bomb Tech",
+            "fbi_drone": "FBI Surveillance Drone",
+            "fbi_investigation_unit": "FBI Investigation Unit",
+            "fbi_mobile_command": "FBI Mobile Command",
+            "fbi_unit": "FBI Unit",
+            "fire": "Firetrucks",
+            "fire_aviation": "Fire aviation",
+            "fireboat": "Large Fireboat",
+            "fly_car": "Fly-Car",
+            "fustw": "Patrol Car",
+            "fustw_or_police_motorcycle": "Patrol car or Police Motorcycle",
+            "gkw": "Utility Truck",
+            "grtw": "Mass Casualty Unit",
+            "gwa": "Mobile Air Unit",
+            "gwgefahrgut": "HazMat",
+            "gwl2wasser": "Water Tanker",
+            "heavy_aur_tanker": "Heavy air tanker",
+            "hems": "HEMS",
+            "k9": "k-9 Unit",
+            "kdow_orgl": "inspektor provozu",
+            "ktw": "BLS Ambulance",
+            "police_motorcycle": "Police Motorcycle",
+            "polizeihubschrauber": "Police helicopter",
+            "rescueboat": "Large Rescue Boat",
+            "rtw": "ALS Ambulance",
+            "rw": "Heavy rescue vehicle",
+            "sheriff_unit": "Sheriff Unit",
+            "swat": "SWAT",
+            "swat_armored_vehicle": "SWAT Armoured Vehicle",
+            "swat_suv": "SWAT SUV",
+            "wasser_amount": "Gallons of water",
+            "water_drop_helicopter": "Water drop helicopter"
+        },
+        "headers": {
+            "attribute": "Name",
+            "free": "Free",
+            "max": "Max",
+            "set": "Set",
+            "status": "Status"
+        },
+        "reset": "The vehicle selection is reset before!",
+        "titles": {
+            "attribute": "The combination described in this line",
+            "free": "So often this combination is available",
+            "max": "You can select this ARR until this combination is no longer available",
+            "set": "So often this combination is selected when you press the ARR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "Na cestě",
+        "missing": "Chybí na zásahu",
+        "selected": "Vybrané",
+        "total": "Potřeba doposlat",
+        "vehicle": "Typ vozidla",
+        "vehiclesByRequirement": [
+            { "texts": ["CAS"], "vehicles": [0, 1] },
+            { "texts": ["AP nebo AZ"], "vehicles": [2, 10] },
+            { "texts": ["VEA"], "vehicles": [3, 17] },
+            {
+                "texts": [
+                    "Technický automobil",
+                    "Technických automobil",
+                    "Technicke automobil",
+                    "technický automobil",
+                    "technických automobil",
+                    "technicke automobil",
+                    "Technický automobil",
+                    "Technický automobily",
+                    "Technických automobily",
+                    "Technicke automobily",
+                    "technický automobily",
+                    "technických automobily",
+                    "technicke automobily",
+                    "Technický automobilů",
+                    "Technických automobilů",
+                    "Technicke automobilů",
+                    "technický automobilů",
+                    "technických automobilů",
+                    "technicke automobilů"
+                ],
+                "vehicles": [4]
+            },
+            {
+                "texts": [
+                    "Protiplynový automobil",
+                    "Protiplynových automobil",
+                    "Protiplynove automobil",
+                    "Protiplynový automobily",
+                    "Protiplynových automobily",
+                    "Protiplynove automobily",
+                    "Protiplynový automobilů",
+                    "Protiplynových automobilů",
+                    "Protiplynove automobilů"
+                ],
+                "vehicles": [16]
+            },
+            {
+                "texts": [
+                    "Mobilní operační střediska",
+                    "Mobilní operační středisko"
+                ],
+                "vehicles": [17]
+            },
+            {
+                "texts": ["Vozidel pro práci s nebezpečnými látkami"],
+                "vehicles": [7]
+            },
+            { "texts": ["KHA"], "vehicles": [6] },
+            { "texts": ["Sanitka"], "vehicles": [5] },
+            { "texts": ["Vrtulník LZS"], "vehicles": [9] },
+            { "texts": ["Hlídkový vůz", "hlídkový vůz"], "vehicles": [8, 14] },
+            {
+                "texts": [
+                    "Policejní vrtulník",
+                    "Policejní vrtulníků",
+                    "Policejních vrtulník",
+                    "Policejních vrtulníků"
+                ],
+                "vehicles": [11]
+            },
+            { "texts": ["URNA"], "vehicles": [12, 15] },
+            {
+                "texts": ["Kynolog Policie", "Kynologové Policie"],
+                "vehicles": [13]
+            },
+            {
+                "texts": [
+                    "Vozidla vyšetřovatelů DN",
+                    "Vozidlo vyšetřovatelů DN"
+                ],
+                "vehicles": [18]
+            },
+            {
+                "texts": [
+                    "Vozidel pyrotechika PČR",
+                    "Vozidel pyrotechiků PČR",
+                    "Vozidlo pyrotechika PČR",
+                    "Vozidlo pyrotechiků PČR"
+                ],
+                "vehicles": [19]
+            },
+            {
+                "texts": ["Přívěs se člunem", "Přívěsy se člunem"],
+                "vehicles": [20, 21]
+            },
+            {
+                "texts": [
+                    "Potápěčský automobil",
+                    "Potápěčských automobil",
+                    "Potápěčske automobil",
+                    "Potápěčský automobily",
+                    "Potápěčských automobily",
+                    "Potápěčske automobily",
+                    "Potápěčský automobilů",
+                    "Potápěčských automobilů",
+                    "Potápěčske automobilů"
+                ],
+                "vehicles": [22]
+            },
+            {
+                "texts": [
+                    "SUV VZS ČČK nebo Dodávek VZS ČČK",
+                    "SUV VZS ČČK nebo Dodávka VZS ČČK",
+                    "SUV VZS ČČK nebo Dodávky VZS ČČK"
+                ],
+                "vehicles": [23, 24]
+            },
+            {
+                "texts": [
+                    "Inspektor provozu",
+                    "Inspektoři provozu",
+                    "Inspektorů provozu"
+                ],
+                "vehicles": [26]
+            },
+            { "texts": ["VYA nebo AJ"], "vehicles": [28, 29] },
+            {
+                "texts": [
+                    "Dopravní automobily",
+                    "Dopravní automobilů",
+                    "Dopravních automobily",
+                    "Dopravních automobilyů"
+                ],
+                "vehicles": [30]
+            },
+            {
+                "texts": [
+                    "Rychl(é|ý(ch)?) zásahov(é|ý(ch)?) automobil[yů]?",
+                    "Rychlý zásahové automobil",
+                    "Rychlých zásahové automobil",
+                    "Rychle zásahové automobil",
+                    "Rychlý zásahové automobily",
+                    "Rychlých zásahové automobily",
+                    "Rychle zásahové automobily",
+                    "Rychlý zásahové automobilů",
+                    "Rychlých zásahové automobilů",
+                    "Rychle zásahové automobilů",
+                    "Rychlý zásahový automobil",
+                    "Rychlých zásahový automobil",
+                    "Rychle zásahový automobil",
+                    "Rychlý zásahový automobily",
+                    "Rychlých zásahový automobily",
+                    "Rychle zásahový automobily",
+                    "Rychlý zásahový automobilů",
+                    "Rychlých zásahový automobilů",
+                    "Rychle zásahový automobilů",
+                    "Rychlý zásahových automobil",
+                    "Rychlých zásahových automobil",
+                    "Rychle zásahových automobil",
+                    "Rychlý zásahových automobily",
+                    "Rychlých zásahových automobily",
+                    "Rychle zásahových automobily",
+                    "Rychlý zásahových automobilů",
+                    "Rychlých zásahových automobilů",
+                    "Rychle zásahových automobilů"
+                ],
+                "vehicles": [31]
+            }
+        ]
+    },
+    "hideVehicleList": {
+        "hide": "Skrýt seznam vozidel",
+        "show": "Zobrazit seznam vozidel"
+    },
+    "releasePatient": { "release": "Release patient (No reward)" },
+    "tailoredTabs": { "allTab": "Vše", "occupiedTab": "Další mise" },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "Na místě",
+        "driving": "Na cestě",
+        "players": "Hráči",
+        "total": "Celkem",
+        "vehicles": "Vozidla"
+    }
+}

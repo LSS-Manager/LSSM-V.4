@@ -22,15 +22,17 @@ export default (
 
     if (!vehicleList || !occupiedList) return;
 
-    type GroupTranslation = Record<string, Record<number, number>>;
+    type GroupTranslation = Record<
+        number,
+        { texts: Record<number, string>; vehicles: Record<number, number> }
+    >;
 
     const getRequirementsByIDs = (translations: GroupTranslation) => {
         const requirements: Record<number, Requirements> = {};
 
-        Object.entries(translations).forEach(([reg, vehicles]) => {
-            const regex = new RegExp(reg.replace(/^\/|\/[ADJUgimux]*$/gu, ''));
+        Object.values(translations).forEach(({ texts, vehicles }) => {
             const requirement = missingRequirements.find(({ vehicle }) =>
-                vehicle.match(regex)
+                Object.values(texts).includes(vehicle)
             );
             if (requirement) {
                 Object.values(vehicles).forEach(vehicle => {
