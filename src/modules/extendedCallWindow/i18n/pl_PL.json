@@ -106,7 +106,7 @@
                 ]
             }
         ],
-        "staffPrefix": ["Potrzeba jeszcze"],
+        "staffPrefix": ["Potrzeba jeszcze", "Wymagany personel::"],
         "tip": {
             "dragging": "Przeciągnij okno",
             "minified": "Minimalizuj",
@@ -289,6 +289,9 @@
             { "texts": ["SLOp lub SLRr"], "vehicles": [3, 28] },
             {
                 "texts": [
+                    "specjalistyczne sprzęt OPP",
+                    "specjalistyczny sprzęt OPP",
+                    "specjalistycznych sprzęt OPP",
                     "specjalistyczne sprzęty OPP",
                     "specjalistyczny sprzęty OPP",
                     "specjalistycznych sprzęty OPP",

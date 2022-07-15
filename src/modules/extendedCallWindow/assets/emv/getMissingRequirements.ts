@@ -69,7 +69,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
         | string;
     const extras = missingRequirementsText
         .replace(requirementRegex, '')
-        .replace(/^\./u, '')
+        .replace(/^[.:]/u, '')
         .trim()
         .replace(
             new RegExp(
@@ -92,7 +92,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
         const isColonMode = !!requirement.match(/^.*:\s*\d+$/u);
         const vehicle = requirement
             .trim()
-            .replace(isColonMode ? /:\s*\d+$/u : /^\d+/u, '')
+            .replace(isColonMode ? /:\s*\d+$/u : /^\d+x?/u, '')
             .trim();
         return {
             missing: parseInt(
