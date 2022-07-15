@@ -14,5 +14,9 @@
         "latest": 102,
         "supported": 96
     },
-    "opera": { "download": "https://opera.com", "latest": 86, "supported": 80 }
+    "opera": {
+        "download": "https://opera.com",
+        "latest": 86,
+        "supported": 80
+    }
 }
