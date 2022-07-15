@@ -142,12 +142,16 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
             } else {
                 const vehicleGroupRequirement = vehicleGroups.findIndex(
                     ({ texts }) =>
-                        Object.values(texts).includes(requirement.vehicle)
+                        Object.values(texts)
+                            .map(t => t.toLowerCase())
+                            .includes(requirement.vehicle.toLowerCase())
                 );
 
                 const staffGroupRequirement = staffGroups.findIndex(
                     ({ texts }) =>
-                        Object.values(texts).includes(requirement.vehicle)
+                        Object.values(texts)
+                            .map(t => t.toLowerCase())
+                            .includes(requirement.vehicle.toLowerCase())
                 );
 
                 if (staffGroupRequirement >= 0) {
