@@ -6,30 +6,15 @@
         "esModuleInterop": true,
         "importHelpers": true,
         "jsx": "preserve",
-        "lib": [
-            "esnext",
-            "dom",
-            "dom.iterable",
-            "scripthost",
-            "es5"
-        ],
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost", "es5"],
         "module": "CommonJS",
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "sourceMap": true,
         "strict": true,
         "target": "ES2017",
-        "types": [
-            "webpack-env",
-            "node",
-            "lodash",
-            "vue"
-        ]
+        "types": ["webpack-env", "node", "lodash", "vue"]
     },
-    "exclude": [
-        "node_modules"
-    ],
-    "include": [
-        "**/*.ts"
-    ]
+    "exclude": ["node_modules"],
+    "include": ["**/*.ts"]
 }

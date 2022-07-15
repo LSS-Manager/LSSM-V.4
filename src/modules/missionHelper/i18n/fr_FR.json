@@ -35,9 +35,7 @@
         "max_possible_prisoners": "Prisonniers max.",
         "title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
     },
-    "requirements": {
-        "water_needed": "Demande d'eau (litres)"
-    },
+    "requirements": { "water_needed": "Demande d'eau (litres)" },
     "tip": {
         "dragging": "glisser la fenêtre",
         "maxState": "exigences maximales on/off",
@@ -100,9 +98,7 @@
                 "firetrucks": "Fourgon d’incendie ou VSR | Fourgons d’incendie ou VSR"
             }
         },
-        "patient_additionals": {
-            "8": "PC DSM"
-        },
+        "patient_additionals": { "8": "PC DSM" },
         "title": "Véhicules"
     }
 }

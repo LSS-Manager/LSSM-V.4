@@ -88,9 +88,7 @@
                 "firetrucks": "Camión BUP o Vehículo FUV o Vehículo de rescate | Camiones BUP o Vehículos FUV o Vehículos de rescates"
             }
         },
-        "patient_additionals": {
-            "8": "Unidad logística de AMV"
-        },
+        "patient_additionals": { "8": "Unidad logística de AMV" },
         "title": "Vehículos"
     }
 }

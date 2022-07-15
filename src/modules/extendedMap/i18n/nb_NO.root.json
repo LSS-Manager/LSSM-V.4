@@ -19,9 +19,7 @@
             "description": "Sentrer kartet dynamisk eller til en statisk visning når du åpner spillet",
             "title": "Sentrer kart"
         },
-        "centerMapStaticLocation": {
-            "title": "Senter kart statisk: Posisjon"
-        },
+        "centerMapStaticLocation": { "title": "Senter kart statisk: Posisjon" },
         "centerMapType": {
             "description": "Velg om du vil ha statisk eller dynamisk sentrering [dynamisk er ennå ikke tilgjengelig]",
             "dynamic": "dynamisk",

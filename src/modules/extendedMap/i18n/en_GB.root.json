@@ -19,9 +19,7 @@
             "description": "Center the map dynamically or to a static view when opening the game",
             "title": "Center map"
         },
-        "centerMapStaticLocation": {
-            "title": "Center map static: Position"
-        },
+        "centerMapStaticLocation": { "title": "Center map static: Position" },
         "centerMapType": {
             "description": "Select whether you want static or dynamic centering [dynamic is not yet available]",
             "dynamic": "dynamic",

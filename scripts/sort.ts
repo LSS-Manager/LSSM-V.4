@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import path from 'path';
 
+import prettier from 'prettier';
+
 import sortJSON from './utils/sortJSON';
 import tsconfig from '../tsconfig.json';
 
@@ -48,14 +50,25 @@ try {
             const sortArray = false;
             fs.writeFileSync(
                 file,
-                JSON.stringify(
-                    sortJSON(
-                        JSON.parse(fs.readFileSync(file).toString()),
-                        sortArray
-                    ),
-                    null,
-                    4
-                )
+                prettier
+                    .format(
+                        JSON.stringify(
+                            sortJSON(
+                                JSON.parse(fs.readFileSync(file).toString()),
+                                sortArray
+                            )
+                        ),
+                        {
+                            arrowParens: 'avoid',
+                            endOfLine: 'lf',
+                            parser: 'json',
+                            quoteProps: 'consistent',
+                            singleQuote: true,
+                            tabWidth: 4,
+                            trailingComma: 'es5',
+                        }
+                    )
+                    .trimEnd()
             );
             fileCounter++;
         })

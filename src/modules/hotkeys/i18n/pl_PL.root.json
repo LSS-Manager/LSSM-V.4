@@ -36,15 +36,9 @@
             "title": "Ogólne"
         },
         "main": {
-            "chat": {
-                "focus": "skup się na polu wiadomości",
-                "title": "Czat"
-            },
+            "chat": { "focus": "skup się na polu wiadomości", "title": "Czat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Otwórz / Zamknij"
-                },
+                "menu": { "title": "Menu", "toggle": "Otwórz / Zamknij" },
                 "title": "LSSM"
             },
             "map": {

@@ -36,15 +36,9 @@
             "title": "General"
         },
         "main": {
-            "chat": {
-                "focus": "focus input field",
-                "title": "Chat"
-            },
+            "chat": { "focus": "focus input field", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Open / Close"
-                },
+                "menu": { "title": "Menu", "toggle": "Open / Close" },
                 "title": "LSSM"
             },
             "map": {
@@ -55,10 +49,7 @@
                 "title": "Map"
             },
             "missionlist": {
-                "search": {
-                    "focus": "focus input field",
-                    "title": "Search"
-                },
+                "search": { "focus": "focus input field", "title": "Search" },
                 "title": "Mission list"
             },
             "title": "Main window"

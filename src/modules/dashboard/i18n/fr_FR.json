@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Nom",
         "current": "Nombre (actif)",
-        "fastDispatchChooser": {
-            "noDispatch": "Sans CTA"
-        },
+        "fastDispatchChooser": { "noDispatch": "Sans CTA" },
         "type": "Type",
         "unavailable": "En construction"
     },
@@ -66,16 +64,7 @@
     "vehicle-types": {
         "chart": "Résumé des statuts",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Total",
         "title": "Tout {type} | Tout {type} en status {n} | Tout {type} en status {n}",
         "type": "Type de véhicule",

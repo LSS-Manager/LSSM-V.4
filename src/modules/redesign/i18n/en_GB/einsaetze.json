@@ -23,28 +23,12 @@
     },
     "no_dispatchcenter": "No Dispatchcenter",
     "prerequisite_calculations": {
-        "fire_stations": [
-            0,
-            18
-        ],
-        "hazard_response_ems_count": [
-            25
-        ],
-        "police_helicopter_stations": [
-            "13.level"
-        ],
-        "police_stations": [
-            6,
-            19
-        ],
-        "rescue_helicopter_station": [
-            "5.level"
-        ],
-        "rescue_stations": [
-            2,
-            20,
-            "0.0"
-        ]
+        "fire_stations": [0, 18],
+        "hazard_response_ems_count": [25],
+        "police_helicopter_stations": ["13.level"],
+        "police_stations": [6, 19],
+        "rescue_helicopter_station": ["5.level"],
+        "rescue_stations": [2, 20, "0.0"]
     },
     "prerequisites_long": {
         "fire_stations": "Fire Station | Fire Stations",

@@ -1158,7 +1158,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             possibleBuildings: [0, 17],
         },
         73: {
-            caption: 'Vrachtwagen – Bereden Brigade',
+            caption: 'Vrachtwagen - Bereden Brigade',
             color: '#00005c',
             minPersonnel: 1,
             maxPersonnel: 4,
@@ -1503,6 +1503,8 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         'Tunnel',
         'Vuurwerkopslag',
         'Gasverdeelstation',
+        'Windmolenpark',
+        'Pretpark',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],

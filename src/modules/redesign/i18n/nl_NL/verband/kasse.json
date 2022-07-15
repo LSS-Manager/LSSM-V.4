@@ -16,10 +16,7 @@
         "title": "Uitgaven",
         "user": "Speler"
     },
-    "summary": {
-        "rate": "Donatiepercentage aan het team",
-        "title": "Teamkas"
-    },
+    "summary": { "rate": "Donatiepercentage aan het team", "title": "Teamkas" },
     "toggle": {
         "disable": "Teamkas deactiveren",
         "enable": "Teamkas activeren"

@@ -8,9 +8,7 @@
         "expand": "Roztáhnout tuto misi"
     },
     "description": "Rozšíří seznam misí o několik užitečných věcí!",
-    "eventMissions": {
-        "default": {}
-    },
+    "eventMissions": { "default": {} },
     "name": "Rozšíření výpisu misí",
     "settings": {
         "averageCredits": {

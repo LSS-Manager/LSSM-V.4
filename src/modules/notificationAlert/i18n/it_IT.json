@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>Questa missione dell'alleanza necessita di attenzione!"
         },
-        "radioMessage": {
-            "title": "{vehicle} segnala lo stato {status}!"
-        }
+        "radioMessage": { "title": "{vehicle} segnala lo stato {status}!" }
     },
     "noPermission": {
         "text": "Il tuo browser è impostato in maniera tale che il gioco non ha permessi per mandare notifiche desktop. Se vuoi ancora ricevere queste notifiche, devi prima resettare questo nelle impostazioni del tuo browser!",

@@ -5,13 +5,8 @@
         "total": "Totale",
         "updateNote": "Aggiornato ogni 5 minuti."
     },
-    "coins": {
-        "list": "Protocol"
-    },
-    "credits": {
-        "daily": "Riepilogo giornaliero",
-        "overview": "Panoramica"
-    },
+    "coins": { "list": "Protocol" },
+    "credits": { "daily": "Riepilogo giornaliero", "overview": "Panoramica" },
     "description": "Mostra delle informazioni utili sui crediti in un menù a tendina nella barra principale.",
     "name": "Espansione dei Crediti",
     "nextRank": "Prossimo grado",

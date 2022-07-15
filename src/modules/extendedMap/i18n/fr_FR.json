@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Détails"
-        },
+        "buildingList": { "details": "Détails" },
         "new": "Nouveau complexe de bâtiment LSSM",
         "openInLightbox": "Ouvrir le bâtiment dans la fenêtre d'aperçu",
         "overview": {
@@ -72,12 +70,7 @@
                     "inConstruction": "{n} en construction",
                     "total": "{n} possible en tout"
                 },
-                "table": {
-                    "head": {
-                        "building": "Bâtiments",
-                        "name": "Nom"
-                    }
-                },
+                "table": { "head": { "building": "Bâtiments", "name": "Nom" } },
                 "title": "Extensions",
                 "underConstruction": "En construction"
             },
@@ -116,10 +109,7 @@
             "buildings": "Bâtiments rattachés",
             "buildingsInList": "Afficher les bâtiments rattachés dans la liste des bâtiments ?",
             "dissolve": {
-                "buttons": {
-                    "abort": "Annuler",
-                    "continue": "Supprimer"
-                },
+                "buttons": { "abort": "Annuler", "continue": "Supprimer" },
                 "text": "Voulez-vous supprimer le complexe de bâtiments ? Tous les bâtiments rattachés seront à nouveau affichés sur la carte comme avant.",
                 "title": "Supprimer le complexe"
             },

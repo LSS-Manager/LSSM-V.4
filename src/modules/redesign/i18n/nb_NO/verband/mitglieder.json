@@ -2,13 +2,8 @@
     "amount": "{n} filtrerte spillere | {n} filtrerte spillere",
     "credits": "totale kreditter inntjent",
     "discount": "avslag",
-    "edit_caption": {
-        "save": "lagre"
-    },
-    "last": {
-        "next": "neste side",
-        "prev": "forrige side"
-    },
+    "edit_caption": { "save": "lagre" },
+    "last": { "next": "neste side", "prev": "forrige side" },
     "name": "spiller",
     "på nett": {
         "subtitle": "Kun påloggede spillere vises",
@@ -31,9 +26,7 @@
         "edit": "Redigeringsrettigheter",
         "finance": "Alliansens økonomi",
         "hide": "Lukk",
-        "kick": {
-            "btn": "Kick"
-        },
+        "kick": { "btn": "Kick" },
         "kickModal": {
             "btnCancel": "Avbryt",
             "btnConfirm": "Spark",

@@ -36,15 +36,9 @@
             "title": "Algemeen"
         },
         "main": {
-            "chat": {
-                "focus": "focus invoerveld",
-                "title": "Chat"
-            },
+            "chat": { "focus": "focus invoerveld", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Open / Sluiten"
-                },
+                "menu": { "title": "Menu", "toggle": "Open / Sluiten" },
                 "title": "LSSM"
             },
             "map": {
@@ -55,10 +49,7 @@
                 "title": "Kaart"
             },
             "missionlist": {
-                "search": {
-                    "focus": "focus invoerveld",
-                    "title": "Zoekveld"
-                },
+                "search": { "focus": "focus invoerveld", "title": "Zoekveld" },
                 "title": "Meldingenlijst"
             },
             "title": "Hoofdscherm"

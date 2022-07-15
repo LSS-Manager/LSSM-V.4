@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Namn",
         "current": "Nummer (aktiv)",
-        "fastDispatchChooser": {
-            "noDispatch": "Ingen larmcentral"
-        },
+        "fastDispatchChooser": { "noDispatch": "Ingen larmcentral" },
         "type": "Typ",
         "unavailable": "Under uppbyggnad"
     },
@@ -66,16 +64,7 @@
     "vehicle-types": {
         "chart": "Status sammanställning",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Totalt",
         "title": "Alla {type} | Alla {type} i status {n} | Alla {type} i status {n}",
         "type": "Vehicle type",

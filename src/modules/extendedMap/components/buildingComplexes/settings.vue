@@ -80,10 +80,17 @@
                     append-to-body
                 >
                     <template v-slot:selected-option="option">
-                        <img :src="option.label" alt="icon" />
+                        <img
+                            :src="option.label"
+                            :alt="`icon: ${option.label}`"
+                        />
                     </template>
                     <template v-slot:option="option">
-                        <img :src="option.label" alt="icon" loading="lazy" />
+                        <img
+                            :src="option.label"
+                            :alt="`icon: ${option.label}`"
+                            loading="lazy"
+                        />
                     </template>
                 </v-select>
                 <p class="help-block">{{ $m('iconHelp') }}</p>
@@ -122,30 +129,30 @@
                     v-model="location"
                 />
             </div>
-
-            <hr />
-            <span class="btn-group pull-right">
-                <button
-                    class="btn btn-success btn-sm"
-                    :disabled="!canSave"
-                    @click="save"
-                >
-                    <font-awesome-icon :icon="faSave" />
-                    {{ $m('save') }}
-                </button>
-                <button class="btn btn-warning btn-sm" @click="close">
-                    {{ $m('abort') }}
-                </button>
-                <!-- Delete the complex -->
-                <button
-                    class="btn btn-danger btn-sm pull-right"
-                    @click="dissolveHandler"
-                >
-                    <font-awesome-icon :icon="faTrashCan" />
-                    {{ $m('dissolve.title') }}
-                </button>
-            </span>
         </form>
+
+        <hr />
+        <span class="btn-group pull-right">
+            <button
+                class="btn btn-success btn-sm"
+                :disabled="!canSave"
+                @click="save"
+            >
+                <font-awesome-icon :icon="faSave" />
+                {{ $m('save') }}
+            </button>
+            <button class="btn btn-warning btn-sm" @click="close">
+                {{ $m('abort') }}
+            </button>
+            <!-- Delete the complex -->
+            <button
+                class="btn btn-danger btn-sm pull-right"
+                @click="dissolveHandler"
+            >
+                <font-awesome-icon :icon="faTrashCan" />
+                {{ $m('dissolve.title') }}
+            </button>
+        </span>
     </lightbox>
 </template>
 
@@ -359,6 +366,12 @@ export default Vue.extend<
                         '/images/building_thw_school_other.png',
                         '/images/building_wasserwacht_other.png',
                         '/images/building_water_rescue_school_other.png',
+                        '/images/spec_police_station_game_warden_other.png',
+                        '/images/spec_police_station_game_warden_pc.png',
+                        '/images/spec_police_station_water_police_other.png',
+                        '/images/spec_police_station_water_police_pc.png',
+                        '/images/spec_police_station_riot_police_other.png',
+                        '/images/spec_police_station_riot_police_pc.png',
                     ].flatMap(icon => [icon, icon.replace(/_other/u, '')]),
                     ...this.customIcons.filter(
                         icon => !this.excludedCustomIcons.includes(icon)

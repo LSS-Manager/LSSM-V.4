@@ -1,8 +1,6 @@
 {
     "description": "Utlarming, Dela ett uppdrag med en insidentrapport till alliansen.",
-    "lsam": {
-        "help": "Variables are replaced same way as in missions list."
-    },
+    "lsam": { "help": "Variables are replaced same way as in missions list." },
     "name": "Dela-Alliansen-Utlarmning",
     "noMessage": "Utan insidentrapport",
     "settings": {

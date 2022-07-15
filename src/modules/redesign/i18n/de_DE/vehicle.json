@@ -2,10 +2,7 @@
     "approach": "Anfahren",
     "backalarm": "Rückalarmieren",
     "backalarmNext": "direkt Anfahren",
-    "cells": {
-        "cell": "Gebäude",
-        "free": "Freie Zellen"
-    },
+    "cells": { "cell": "Gebäude", "free": "Freie Zellen" },
     "color": "Farbe anpassen",
     "current_mission": "Aktueller Einsatz",
     "delete": {
@@ -27,9 +24,7 @@
         },
         "hospitals": {
             "beds": "mindestens freie Betten",
-            "department": {
-                "title": "Fachabteilung: {department}"
-            },
+            "department": { "title": "Fachabteilung: {department}" },
             "distance": "Maximale Entfernung",
             "each": "Jeweils nur x Krankenhäuser zeigen",
             "tax": "Maximale Verbandsabgabe"
@@ -37,9 +32,7 @@
         "missions": {
             "credits": "Minimaler Verdienst",
             "distance": "Maximale Entfernung",
-            "participation": {
-                "title": "Anwesend"
-            },
+            "participation": { "title": "Anwesend" },
             "progress": "Abgearbeitet zu max %",
             "status": {
                 "green": "grün",
@@ -48,16 +41,10 @@
                 "yellow": "gelb"
             }
         },
-        "wlf": {
-            "distance": "Maximale Entfernung",
-            "same": "Selbes Gebäude"
-        }
+        "wlf": { "distance": "Maximale Entfernung", "same": "Selbes Gebäude" }
     },
     "fms": "FMS",
-    "fms_switch": {
-        "is_s2": "S6 setzen",
-        "is_s6": "S2 setzen"
-    },
+    "fms_switch": { "is_s2": "S6 setzen", "is_s6": "S2 setzen" },
     "foam_amount": "Schaummenge",
     "followup_missions": "Folgeeinsatz | Folgeeinsätze",
     "hospitals": {
@@ -102,11 +89,7 @@
     },
     "release_patient": "Patienten entlassen",
     "release_prisoner": "Gefangene entlassen",
-    "staff": {
-        "name": "Name",
-        "schooling": "Ausbildung",
-        "title": "Personal"
-    },
+    "staff": { "name": "Name", "schooling": "Ausbildung", "title": "Personal" },
     "station": "Wache",
     "stats": "Statistiken",
     "tabs": {

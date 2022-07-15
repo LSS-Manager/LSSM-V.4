@@ -1,8 +1,6 @@
 {
     "404": {
-        "general": {
-            "home": "Retour à la page d'accueil"
-        },
+        "general": { "home": "Retour à la page d'accueil" },
         "modules": {
             "content": "Cher utilisateur,\n\nmerci de l'intérêt que vous portez à la page Wiki du module {{module}} ! Malheureusement, nous n'avons pas créer le contenu pour votre langue {{lang}}. Si vous souhaitez contribuer à notre wiki, n'hésitez pas à créer cette page sur {{github}} ! Nous vous suggérons de consulter les fichiers des autres langues pour des exemples dans le {{docs_dir}}.",
             "languages": "Ce module a déjà une page Wiki dans les langues suivantes :",
@@ -10,11 +8,7 @@
         }
     },
     "apps": "Apps",
-    "containers": {
-        "danger": "Danger",
-        "tip": "Tip",
-        "warning": "Attention"
-    },
+    "containers": { "danger": "Danger", "tip": "Tip", "warning": "Attention" },
     "contributing": "Contribution",
     "description": "Le Wiki pour LSS-Manager V.4",
     "footer": {
@@ -66,10 +60,7 @@
             }
         },
         "variables": {
-            "ampm": {
-                "A": "AM / PM",
-                "a": "am / pm"
-            },
+            "ampm": { "A": "AM / PM", "a": "am / pm" },
             "dom": {
                 "D": "Jour du mois",
                 "DD": "Jour du mois (avec des zéros initiaux)",
@@ -130,10 +121,7 @@
                 "wo": "Semaine de l'année (ordinal)",
                 "ww": "Semaine de l'année (avec des zéros initiaux)"
             },
-            "year": {
-                "YY": "Année (2 chiffre)",
-                "YYYY": "Année (4 chiffre)"
-            }
+            "year": { "YY": "Année (2 chiffre)", "YYYY": "Année (4 chiffre)" }
         }
     },
     "pwa": {
@@ -155,25 +143,15 @@
     },
     "v3": {
         "modules": {
-            "AaoSearch": {
-                "v3Name": "Recherche AAO"
-            },
-            "Clock": {
-                "v3Name": "Horloge"
-            },
+            "AaoSearch": { "v3Name": "Recherche AAO" },
+            "Clock": { "v3Name": "Horloge" },
             "DestinationFilter": {
                 "annotation": "Celui-ci est déjà intégré dans la Refonte pour les véhicules, mais il est également prévu de l'intégrer dans la V4 en tant que module.",
                 "v3Name": "Demande de transport sur la carte"
             },
-            "DoctorRadioCall": {
-                "v3Name": "Demande HEMS à la radio"
-            },
-            "Eventsmission": {
-                "v3Name": "Événements marqués"
-            },
-            "FMS5InMap": {
-                "v3Name": "Demande de transport sur la carte"
-            },
+            "DoctorRadioCall": { "v3Name": "Demande HEMS à la radio" },
+            "Eventsmission": { "v3Name": "Événements marqués" },
+            "FMS5InMap": { "v3Name": "Demande de transport sur la carte" },
             "Layout01": {
                 "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
                 "v3Name": "Layout 01"
@@ -190,50 +168,26 @@
                 "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
                 "v3Name": "Layout 04"
             },
-            "MissionOut": {
-                "v3Name": "MissionOut"
-            },
-            "Notification_Alert": {
-                "v3Name": "Alerte de notification"
-            },
-            "Redesign01": {
-                "v3Name": "Redesign 01"
-            },
-            "RenameFZ": {
-                "v3Name": "Renommer le véhicule"
-            },
-            "ShareAlliancePost": {
-                "v3Name": "Alerter, Partager & Poster"
-            },
-            "WachenHoverStati": {
-                "v3Name": "État de la station"
-            },
+            "MissionOut": { "v3Name": "MissionOut" },
+            "Notification_Alert": { "v3Name": "Alerte de notification" },
+            "Redesign01": { "v3Name": "Redesign 01" },
+            "RenameFZ": { "v3Name": "Renommer le véhicule" },
+            "ShareAlliancePost": { "v3Name": "Alerter, Partager & Poster" },
+            "WachenHoverStati": { "v3Name": "État de la station" },
             "WachenplanungOnMap": {
                 "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
                 "v3Name": "Wachenplanung auf der Karte"
             },
-            "aaoZaehler": {
-                "v3Name": "Alarme-Régulation-Compteur d'alarmes"
-            },
-            "allianceMissionlistShare": {
-                "v3Name": "Part de la mission"
-            },
+            "aaoZaehler": { "v3Name": "Alarme-Régulation-Compteur d'alarmes" },
+            "allianceMissionlistShare": { "v3Name": "Part de la mission" },
             "centermap": {
                 "annotation": "Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra.",
                 "v3Name": "Plan du centre"
             },
-            "creditserweiterung": {
-                "v3Name": "L'expansion du crédit"
-            },
-            "dashboard": {
-                "v3Name": "Dashboard"
-            },
-            "displayUserId": {
-                "v3Name": "User-ID"
-            },
-            "extendedBuilding": {
-                "v3Name": "Vue agrandie du bâtiment"
-            },
+            "creditserweiterung": { "v3Name": "L'expansion du crédit" },
+            "dashboard": { "v3Name": "Dashboard" },
+            "displayUserId": { "v3Name": "User-ID" },
+            "extendedBuilding": { "v3Name": "Vue agrandie du bâtiment" },
             "fms7Target": {
                 "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
                 "v3Name": "fms7Target"
@@ -242,36 +196,16 @@
                 "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
                 "v3Name": "geoBorders"
             },
-            "heatmap": {
-                "v3Name": "LS-Heatmap"
-            },
-            "iconFilter": {
-                "v3Name": "Filtre de construction d'icônes"
-            },
-            "keyboardAlert": {
-                "v3Name": "Contrôle de l'affichage des appels"
-            },
-            "missionDate": {
-                "v3Name": "Date de la mission"
-            },
-            "missionHelper": {
-                "v3Name": "Aide à la mission"
-            },
-            "missionKeyword": {
-                "v3Name": "Mots-clés de la mission"
-            },
-            "overview": {
-                "v3Name": "Survol"
-            },
-            "releaseNotes": {
-                "v3Name": "Release Notes"
-            },
-            "saveVGE": {
-                "v3Name": "Enregistrer les appels d'alliance créés"
-            },
-            "searchMissions": {
-                "v3Name": "Recherche par mission"
-            },
+            "heatmap": { "v3Name": "LS-Heatmap" },
+            "iconFilter": { "v3Name": "Filtre de construction d'icônes" },
+            "keyboardAlert": { "v3Name": "Contrôle de l'affichage des appels" },
+            "missionDate": { "v3Name": "Date de la mission" },
+            "missionHelper": { "v3Name": "Aide à la mission" },
+            "missionKeyword": { "v3Name": "Mots-clés de la mission" },
+            "overview": { "v3Name": "Survol" },
+            "releaseNotes": { "v3Name": "Release Notes" },
+            "saveVGE": { "v3Name": "Enregistrer les appels d'alliance créés" },
+            "searchMissions": { "v3Name": "Recherche par mission" },
             "showBackAlarmAbove": {
                 "v3Name": "Afficher l'alarme de retour ci- dessus"
             },
@@ -281,9 +215,7 @@
             "showNotTransportButtonAbove": {
                 "v3Name": "Afficher l'alarme de retour ci-dessus"
             },
-            "statusCount": {
-                "v3Name": "Compteur de statuts"
-            },
+            "statusCount": { "v3Name": "Compteur de statuts" },
             "statusDispatching": {
                 "v3Name": "Demandes de transport améliorée"
             },
@@ -294,9 +226,7 @@
                 "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
                 "v3Name": "tailoredTabs"
             },
-            "verbandsverwaltung": {
-                "v3Name": "Administration"
-            }
+            "verbandsverwaltung": { "v3Name": "Administration" }
         },
         "tables": {
             "annotations": "Remarques",

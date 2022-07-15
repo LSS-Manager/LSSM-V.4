@@ -29,10 +29,7 @@
             "static": "Statyczny",
             "title": "Centrowanie mapy: Tryb"
         },
-        "locationSelect": {
-            "sync": "Centruj",
-            "zoom": "Ustawienia mapy"
-        },
+        "locationSelect": { "sync": "Centruj", "zoom": "Ustawienia mapy" },
         "mapScale": {
             "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"

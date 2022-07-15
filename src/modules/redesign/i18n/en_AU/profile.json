@@ -14,9 +14,7 @@
         "title": "Awards",
         "title_amounts": "{sum} from {max} Awards"
     },
-    "buildings": {
-        "amount": "{n} Buildings"
-    },
+    "buildings": { "amount": "{n} Buildings" },
     "buttons": {
         "alliance_ignore": {
             "add": "Forbid Alliance Application",
@@ -28,10 +26,7 @@
             "unban": "Unban from alliance chat"
         },
         "edit": "Edit profile",
-        "friend": {
-            "do": "Add as Friend",
-            "undo": "Remove from your friends"
-        },
+        "friend": { "do": "Add as Friend", "undo": "Remove from your friends" },
         "gift": "Send Gift",
         "ignore": {
             "do": "Ignore the Player",

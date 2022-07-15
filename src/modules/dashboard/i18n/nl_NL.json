@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Naam",
         "current": "Aantal (actief)",
-        "fastDispatchChooser": {
-            "noDispatch": "Geen meldkamer"
-        },
+        "fastDispatchChooser": { "noDispatch": "Geen meldkamer" },
         "type": "Type",
         "unavailable": "In ontwikkeling"
     },
@@ -66,16 +64,7 @@
     "vehicle-types": {
         "chart": "Status overzicht",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Totaal",
         "title": "Alle {type} | Alle {type} met status {n} | Alle {type} met status {n}",
         "type": "Voertuig type",

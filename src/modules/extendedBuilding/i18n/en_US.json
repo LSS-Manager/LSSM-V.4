@@ -2,12 +2,8 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Hide personnel without suitable training"
     },
-    "expansions": {
-        "notBuild": "Not built yet"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "No control center"
-    },
+    "expansions": { "notBuild": "Not built yet" },
+    "fastDispatchChooser": { "noDispatch": "No control center" },
     "personnelDemands": {
         "additional": "Values in brackets exclude vehicles in Status 6.",
         "demand": "Required personnel"

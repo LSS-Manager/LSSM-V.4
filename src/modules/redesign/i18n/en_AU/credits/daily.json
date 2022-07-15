@@ -2,10 +2,7 @@
     "amount": "Amount",
     "description": "Description",
     "filter": {
-        "total": {
-            "max": "Max. Total credits",
-            "min": "Min. Total credits"
-        },
+        "total": { "max": "Max. Total credits", "min": "Min. Total credits" },
         "type": {
             "all_types": "Show all types",
             "amount": "{n} filtered entry | {n} filtered entries",

@@ -8,10 +8,7 @@
         "no_types": "Ne pas afficher les types",
         "type": "types d'entrées affichées"
     },
-    "load": {
-        "next": "Page suivante",
-        "prev": "Page précédente"
-    },
+    "load": { "next": "Page suivante", "prev": "Page précédente" },
     "search_local": "Recherche dans les entrées chargées",
     "subtitle": "Afficher {n} Entrées de la pages {startPage} ({firstDate}) à {endPage} ({lastDate}) au total {totalPages} pages",
     "time": "temps",

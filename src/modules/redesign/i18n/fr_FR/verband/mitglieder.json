@@ -2,13 +2,8 @@
     "amount": "{n} joueur filtré | {n} joueurs filtrés",
     "credits": "Crédits obtenus",
     "discount": "Remise",
-    "edit_caption": {
-        "save": "Enregistrer"
-    },
-    "load": {
-        "next": "Page suivante",
-        "prev": "Page précédente"
-    },
+    "edit_caption": { "save": "Enregistrer" },
+    "load": { "next": "Page suivante", "prev": "Page précédente" },
     "name": "Nom",
     "online": {
         "subtitle": "Seuls les membres en ligne sont affichés !",
@@ -31,9 +26,7 @@
         "edit": "Modifier les droits",
         "finance": "Trésorier de l’alliance",
         "hide": "Fermer",
-        "kick": {
-            "btn": "Expulser"
-        },
+        "kick": { "btn": "Expulser" },
         "kickModal": {
             "btnCancel": "Annuler",
             "btnConfirm": "Expluser",

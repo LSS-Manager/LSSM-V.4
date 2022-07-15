@@ -5,13 +5,8 @@
         "total": "celkem",
         "updateNote": "Aktualizace každých 5 minut."
     },
-    "coins": {
-        "list": "Přehled"
-    },
-    "credits": {
-        "daily": "Shrnutí dne",
-        "overview": "Přehled"
-    },
+    "coins": { "list": "Přehled" },
+    "credits": { "daily": "Shrnutí dne", "overview": "Přehled" },
     "description": "Zobrazí užitečné informace o kreditech v rozbalovacím menu v navigační liště.",
     "name": "Rozšířený přehled kreditů",
     "nextRank": "Další hodnost",

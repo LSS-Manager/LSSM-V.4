@@ -2,10 +2,7 @@
     "alliance": "Alliance",
     "amount": "{n} filtered player | {n} Filtered players",
     "credits": "Total credits earned",
-    "load": {
-        "next": "Load next page",
-        "prev": "Load previous page"
-    },
+    "load": { "next": "Load next page", "prev": "Load previous page" },
     "name": "Players",
     "search_global": "Globale Suche",
     "search_local": "Search in loaded players",

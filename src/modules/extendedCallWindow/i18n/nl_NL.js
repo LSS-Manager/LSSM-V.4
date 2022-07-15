@@ -110,6 +110,9 @@ module.exports = {
             69: [26],
             74: [75],
         },
+        staff: {
+            [/^Bereden Brigade eenhe(den|id) \(paard(en)?\)$/u]: [73],
+        },
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/u]: [
                 0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62,
@@ -131,7 +134,7 @@ module.exports = {
             [/^Crashtender(s)?$/u]: [41, 42, 43],
             [/^AFO\/OSC('s)?$/u]: [44],
             [/^Voorlichter(s)?$/u]: [56],
-            [/^Noodhulpeenhe(den|id)$/u]: [22, 25, 46, 47, 48, 59, 60],
+            [/^Noodhulpeenhe(den|id)$/u]: [22, 25, 46, 47, 48, 59, 60, 75],
             [/^Officier(en)? van Dienst - Politie$/u]: [35],
             [/^Politiehelikopter$/u]: [28],
             [/^Hondengeleider(s)?$/u]: [47, 48],

@@ -2,12 +2,8 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Ukryj personel bez odpowiedniego przeszkolenia"
     },
-    "expansions": {
-        "notBuild": "Jeszcze nie zbudowano"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Brak CPR"
-    },
+    "expansions": { "notBuild": "Jeszcze nie zbudowano" },
+    "fastDispatchChooser": { "noDispatch": "Brak CPR" },
     "personnelDemands": {
         "additional": "Wartości w nawiasach wykluczają pojazdy o statusie 6.",
         "demand": "Wymagany personel"

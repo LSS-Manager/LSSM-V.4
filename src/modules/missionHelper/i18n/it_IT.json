@@ -97,9 +97,7 @@
                 "firetrucks": "Firetruck or Heavy Rescue or Rescue Engine | Firetrucks or Heavy Rescue or Rescue Engine"
             }
         },
-        "patient_additionals": {
-            "14": "DTS"
-        },
+        "patient_additionals": { "14": "DTS" },
         "title": "Veicoli"
     }
 }

@@ -1,10 +1,7 @@
 {
     "approach": "Seleziona",
     "backalarm": "Torna alla base",
-    "cells": {
-        "cell": "Edificio",
-        "free": "Celle libere"
-    },
+    "cells": { "cell": "Edificio", "free": "Celle libere" },
     "color": "Modifica colore",
     "current_mission": "Missione attuale",
     "delete": {
@@ -26,9 +23,7 @@
         },
         "hospitals": {
             "beds": "Minimi letti liberi",
-            "department": {
-                "title": "Dipartimento: {department}"
-            },
+            "department": { "title": "Dipartimento: {department}" },
             "distance": "Distanza Massima",
             "each": "Mostra x per ogni edificio",
             "tax": "Tassa massima"
@@ -36,9 +31,7 @@
         "missions": {
             "credits": "Crediti Minimi",
             "distance": "Distanza Massima",
-            "participation": {
-                "title": "Partecipazione"
-            },
+            "participation": { "title": "Partecipazione" },
             "progress": "Progresso max. %",
             "status": {
                 "green": "Verde",
@@ -47,10 +40,7 @@
                 "yellow": "Giallo"
             }
         },
-        "wlf": {
-            "distance": "Distanza Massima",
-            "same": "Stesso Edificio"
-        }
+        "wlf": { "distance": "Distanza Massima", "same": "Stesso Edificio" }
     },
     "fms": "FMS",
     "fms_switch": {
@@ -100,11 +90,7 @@
     },
     "release_patient": "Dimetti paziente",
     "release_prisoner": "Rilascia prigioniero",
-    "staff": {
-        "name": "Nome",
-        "schooling": "Addestramento",
-        "title": "Staff"
-    },
+    "staff": { "name": "Nome", "schooling": "Addestramento", "title": "Staff" },
     "station": "Edificio",
     "stats": "Statistiche",
     "tabs": {

@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Dettagli"
-        },
+        "buildingList": { "details": "Dettagli" },
         "new": "New LSSM building complex",
         "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
@@ -72,12 +70,7 @@
                     "inConstruction": "{n} in costruzione",
                     "total": "{n} possibili in totale"
                 },
-                "table": {
-                    "head": {
-                        "building": "Edificio",
-                        "name": "Nome"
-                    }
-                },
+                "table": { "head": { "building": "Edificio", "name": "Nome" } },
                 "title": "Estensioni",
                 "underConstruction": "In costruzione"
             },
@@ -116,10 +109,7 @@
             "buildings": "Edifici collegati",
             "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
-                "buttons": {
-                    "abort": "Annulla",
-                    "continue": "Elimina"
-                },
+                "buttons": { "abort": "Annulla", "continue": "Elimina" },
                 "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",
                 "title": "Elimina Complesso di Edifici"
             },

@@ -14,9 +14,7 @@
         "title": "Medaljer",
         "title_amounts": "{sum} av {max} medaljer"
     },
-    "buildings": {
-        "amount": "{n} Byggninger"
-    },
+    "buildings": { "amount": "{n} Byggninger" },
     "buttons": {
         "alliance_ignore": {
             "add": "Forby alliansesøknad",

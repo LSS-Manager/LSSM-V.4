@@ -121,83 +121,26 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Brandbil",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    12
-                ]
-            },
+            { "name": "Brandbil", "vehicleTypes": [0, 1, 12] },
             {
                 "name": "Övriga Brandbilar",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    10,
-                    11,
-                    19,
-                    21,
-                    22,
-                    24,
-                    25,
-                    26,
-                    27,
-                    29,
-                    35,
-                    36,
-                    37,
-                    38
+                    2, 3, 4, 6, 7, 10, 11, 19, 21, 22, 24, 25, 26, 27, 29, 35,
+                    36, 37, 38
                 ]
             },
             {
                 "name": "Ambulans",
-                "vehicleTypes": [
-                    5,
-                    9,
-                    28,
-                    30,
-                    31,
-                    32,
-                    33,
-                    34
-                ]
+                "vehicleTypes": [5, 9, 28, 30, 31, 32, 33, 34]
             },
             {
                 "name": "Polis",
                 "vehicleTypes": [
-                    8,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    24,
-                    39,
-                    40,
-                    41,
-                    42,
-                    43,
-                    44
+                    8, 13, 14, 15, 16, 17, 24, 39, 40, 41, 42, 43, 44
                 ]
             },
-            {
-                "name": "Brandfordon-Vatten",
-                "vehicleTypes": [
-                    18,
-                    20
-                ]
-            },
-            {
-                "name": "Insatsstyrka",
-                "vehicleTypes": [
-                    14,
-                    17
-                ]
-            }
+            { "name": "Brandfordon-Vatten", "vehicleTypes": [18, 20] },
+            { "name": "Insatsstyrka", "vehicleTypes": [14, 17] }
         ]
     }
 }

@@ -6,32 +6,16 @@
         "esModuleInterop": true,
         "importHelpers": true,
         "jsx": "preserve",
-        "lib": [
-            "esnext",
-            "dom",
-            "dom.iterable",
-            "scripthost",
-            "es6"
-        ],
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost", "es6"],
         "module": "CommonJS",
         "moduleResolution": "node",
-        "paths": {
-            "typings/*": [
-                "../typings/*"
-            ]
-        },
+        "paths": { "typings/*": ["../typings/*"] },
         "resolveJsonModule": true,
         "sourceMap": true,
         "strict": true,
         "target": "ES2017",
-        "types": [
-            "node"
-        ]
+        "types": ["node"]
     },
-    "exclude": [
-        "node_modules"
-    ],
-    "include": [
-        "**/*.ts"
-    ]
+    "exclude": ["node_modules"],
+    "include": ["**/*.ts"]
 }

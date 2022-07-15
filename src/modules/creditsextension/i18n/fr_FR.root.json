@@ -5,13 +5,8 @@
         "total": "total",
         "updateNote": "Actualisé toutes les 5 minutes."
     },
-    "coins": {
-        "list": "Journal"
-    },
-    "credits": {
-        "daily": "Résumé du jour",
-        "overview": "Aperçu"
-    },
+    "coins": { "list": "Journal" },
+    "credits": { "daily": "Résumé du jour", "overview": "Aperçu" },
     "description": "Affiche des informations utiles sur les pièces et les crédits dans la barre de navigation sous forme de menu déroulant.",
     "name": "Extension des crédits",
     "nextRank": "Rang Suivant:",
