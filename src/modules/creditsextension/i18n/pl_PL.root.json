@@ -9,7 +9,7 @@
     "credits": { "daily": "Podsumowanie dnia", "overview": "Przegląd" },
     "description": "Wyświetla przydatne informacje o kredytach w menu rozwijanym w głównym pasku nawigacyjnym.",
     "name": "Rozszerzene kredyty",
-    "nextRank": "Kolejny awans:",
+    "nextRank": "Kolejny awans",
     "nextRankMissing": " - wciąż potrzebne!",
     "settings": {
         "alerts": {
@@ -38,6 +38,6 @@
             "title": "Ranking w rozszerzeniu kredytów"
         }
     },
-    "toplistPositionName": "Pozycja w rankungu:",
-    "totalEarnedCredits": "Suma zdobytych kredytów:"
+    "toplistPositionName": "Pozycja w rankungu",
+    "totalEarnedCredits": "Suma zdobytych kredytów"
 }
