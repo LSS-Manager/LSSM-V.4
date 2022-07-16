@@ -1,7 +1,13 @@
 import type { $m } from 'typings/Module';
+import type { GroupTranslation } from './getVehicleListObserveHandler';
 import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
-export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
+export default (
+    LSSM: Vue,
+    missingDialogContent: string,
+    missionType: string,
+    $m: $m
+) => {
     let missingRequirementsText = missingDialogContent
         ?.trim()
         .replace(/(^[^:]*:)|(\.$)/gu, '')
@@ -28,14 +34,10 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown as
-        | { texts: Record<number, string>; vehicles: Record<number, number> }[]
-        | string;
+    ) as unknown as GroupTranslation | string;
     const staffGroupTranslation = $m(
         'enhancedMissingVehicles.staff'
-    ) as unknown as
-        | { texts: Record<number, string>; vehicles: Record<number, number> }[]
-        | string;
+    ) as unknown as GroupTranslation | string;
     const vehicleGroups =
         typeof vehicleGroupTranslation === 'string'
             ? []
@@ -158,6 +160,17 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                     const vehicleTypes: number[] = Object.values(
                         staffGroups[staffGroupRequirement].vehicles
                     );
+                    Object.entries(
+                        staffGroups[staffGroupRequirement]
+                            .conditionalVehicles ?? {}
+                    ).forEach(([condition, vehicles]) => {
+                        if (
+                            LSSM.$stores.api.missions[missionType].additional[
+                                condition
+                            ]
+                        )
+                            vehicleTypes.push(...Object.values(vehicles));
+                    });
                     let drivingStaff = 0;
                     drivingTable
                         .querySelectorAll<HTMLTableRowElement>('tbody tr')
@@ -181,9 +194,21 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                         requirement.vehicle = '';
                         return;
                     }
-                    requirement.driving = Object.values(
+                    const vehicleTypes: number[] = Object.values(
                         vehicleGroups[vehicleGroupRequirement].vehicles
-                    )
+                    );
+                    Object.entries(
+                        vehicleGroups[vehicleGroupRequirement]
+                            .conditionalVehicles ?? {}
+                    ).forEach(([condition, vehicles]) => {
+                        if (
+                            LSSM.$stores.api.missions[missionType].additional[
+                                condition
+                            ]
+                        )
+                            vehicleTypes.push(...Object.values(vehicles));
+                    });
+                    requirement.driving = vehicleTypes
                         .map(
                             vehicleType =>
                                 (

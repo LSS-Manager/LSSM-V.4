@@ -154,6 +154,7 @@ export default async ({
                 missingRequirements = missingRequirementsFn(
                     LSSM,
                     remainingVehicles,
+                    missionType,
                     emv$m(false)
                 );
             }
@@ -164,6 +165,7 @@ export default async ({
                         LSSM,
                         missingRequirements.missingRequirements,
                         missingRequirements.missingRequirements,
+                        missionType,
                         (requirement, value) => {
                             const req =
                                 missingRequirements?.missingRequirements.find(
@@ -222,6 +224,7 @@ export default async ({
                 missingRequirements = missingRequirementsFn(
                     LSSM,
                     remainingVehicles,
+                    missionType,
                     emv$m(false)
                 );
             }

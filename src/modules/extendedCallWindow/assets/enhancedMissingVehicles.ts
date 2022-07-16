@@ -15,7 +15,12 @@ export default (
     import(
         /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles/getMissingRequirements"*/ './emv/getMissingRequirements'
     ).then(({ default: getReqs }) => {
-        const props = getReqs(LSSM, missingDialog.textContent ?? '', $m);
+        const props = getReqs(
+            LSSM,
+            missingDialog.textContent ?? '',
+            LSSM.$utils.getMissionTypeInMissionWindow(),
+            $m
+        );
         if (!props) return;
         getSetting('pushRight', false).then(pushedRight => {
             if (pushedRight) {

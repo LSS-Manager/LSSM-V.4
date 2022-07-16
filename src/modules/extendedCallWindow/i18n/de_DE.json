@@ -228,6 +228,9 @@
             { "texts": ["GruKw"], "vehicles": [50] },
             { "texts": ["LKW Kipper (LKW K 9)"], "vehicles": [42] },
             {
+                "conditionalVehicles": {
+                    "allow_rw_instead_of_lf": [4, 39, 47]
+                },
                 "texts": ["Löschfahrzeug (LF)", "Löschfahrzeuge (LF)"],
                 "vehicles": [
                     0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6, 7,

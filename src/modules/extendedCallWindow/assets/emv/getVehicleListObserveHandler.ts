@@ -1,12 +1,27 @@
 import type { $m } from 'typings/Module';
 import type { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { Mission } from 'typings/Mission';
 
 type Requirements = EnhancedMissingVehiclesProps['missingRequirements'];
+
+// VueI18n returns lists as objects...
+export type GroupTranslation = Record<
+    number,
+    {
+        texts: Record<number, string>;
+        vehicles: Record<number, number>;
+        conditionalVehicles?: Record<
+            keyof Mission['additional'],
+            Record<number, number>
+        >;
+    }
+>;
 
 export default (
     LSSM: Vue,
     missingRequirements: Requirements,
     requirements: Requirements,
+    missionType: string,
     setSelected: (
         requirement: Requirements[0],
         value: number | { min: number; max: number }
@@ -22,26 +37,33 @@ export default (
 
     if (!vehicleList || !occupiedList) return;
 
-    type GroupTranslation = Record<
-        number,
-        { texts: Record<number, string>; vehicles: Record<number, number> }
-    >;
-
     const getRequirementsByIDs = (translations: GroupTranslation) => {
         const requirements: Record<number, Requirements> = {};
 
-        Object.values(translations).forEach(({ texts, vehicles }) => {
-            const requirement = missingRequirements.find(({ vehicle }) =>
-                Object.values(texts).includes(vehicle)
-            );
-            if (requirement) {
-                Object.values(vehicles).forEach(vehicle => {
-                    if (!requirements.hasOwnProperty(vehicle))
-                        requirements[vehicle] = [];
-                    requirements[vehicle].push(requirement);
-                });
+        Object.values(translations).forEach(
+            ({ texts, vehicles, conditionalVehicles }) => {
+                const requirement = missingRequirements.find(({ vehicle }) =>
+                    Object.values(texts).includes(vehicle)
+                );
+                if (requirement) {
+                    const vehicleTypes = Object.values(vehicles);
+                    Object.entries(conditionalVehicles ?? {}).forEach(
+                        ([condition, vehicles]) => {
+                            if (
+                                LSSM.$stores.api.missions[missionType]
+                                    .additional[condition]
+                            )
+                                vehicleTypes.push(...Object.values(vehicles));
+                        }
+                    );
+                    vehicleTypes.forEach(vehicle => {
+                        if (!requirements.hasOwnProperty(vehicle))
+                            requirements[vehicle] = [];
+                        requirements[vehicle].push(requirement);
+                    });
+                }
             }
-        });
+        );
         return requirements;
     };
 
