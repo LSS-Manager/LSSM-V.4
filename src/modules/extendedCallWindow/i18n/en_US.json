@@ -212,6 +212,9 @@
             },
             { "texts": ["EMS Mobile Command"], "vehicles": [60] },
             {
+                "conditionalVehicles": {
+                    "allow_drone_instead_of_investigation": [46]
+                },
                 "texts": [
                     "Fire Investigation Unit",
                     "Fire Investigation Units"
