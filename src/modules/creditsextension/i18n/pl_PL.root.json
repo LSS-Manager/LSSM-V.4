@@ -5,7 +5,7 @@
         "total": "- ogółem zdobyte",
         "updateNote": "Aktualizacja co 5 minut."
     },
-    "coins": { "list": "Protokół" },
+    "coins": { "list": "Protokół monet" },
     "credits": { "daily": "Podsumowanie dnia", "overview": "Przegląd" },
     "description": "Wyświetla przydatne informacje o kredytach w menu rozwijanym w głównym pasku nawigacyjnym.",
     "name": "Rozszerzene kredyty",
