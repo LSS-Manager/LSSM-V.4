@@ -1,28 +1,28 @@
 {
     "allianceFunds": {
-        "currently": "-obecne fundusze",
+        "currently": "- obecne fundusze",
         "title": "Fundusze sojuszu",
-        "total": "-zdobyte kredyty",
+        "total": "- ogółem zdobyte",
         "updateNote": "Aktualizacja co 5 minut."
     },
-    "coins": { "list": "Protokół" },
+    "coins": { "list": "Protokół monet" },
     "credits": { "daily": "Podsumowanie dnia", "overview": "Przegląd" },
     "description": "Wyświetla przydatne informacje o kredytach w menu rozwijanym w głównym pasku nawigacyjnym.",
-    "name": "Rozszerzenie kredytów",
-    "nextRank": "Następna stopień",
-    "nextRankMissing": "pozostałe",
+    "name": "Rozszerzene kredyty",
+    "nextRank": "Kolejny awans:",
+    "nextRankMissing": " - wciąż potrzebne!",
     "settings": {
         "alerts": {
             "credits": "",
-            "description": "Jak tylko osiągniesz jedną z ustalonych ilości kredytów, rozszerzenie kredytów będzie podświetlone na zielono, dopóki go nie klikniesz.",
+            "description": "Jak tylko osiągniesz jeden z ustalonych celów, kredyty zostaną podświetlone na zielono, dopóki ich nie klikniesz.",
             "title": "Cele"
         },
         "coinsInNavbar": {
-            "description": "Pokazuje aktualne monety na pasku nawigacyjnym zamiast uroczej skarbonki.",
+            "description": "Pokazuje liość monet na pasku nawigacyjnym zamiast uroczej skarbonki.",
             "title": "Monety zamiast skarbonki"
         },
         "creditsInNavbar": {
-            "description": "Pokazuje aktualne kredyty w pasku nawigacyjnym zamiast uroczej skarbonki.",
+            "description": "Pokazuje liość kredytów w pasku nawigacyjnym zamiast uroczej skarbonki.",
             "title": "Kredyty zamiast skarbonki"
         },
         "highlightSales": {
@@ -34,10 +34,10 @@
             "title": "Pokaż wyprzedaż"
         },
         "showToplistPosition": {
-            "description": "Pokazuje aktualną pozycję na topie w rozszerzeniu kredytów.",
-            "title": "Toplista w rozszerzeniu kredytów"
+            "description": "Pokazuje aktualną pozycję w rankungu w zakłdace kredytów.",
+            "title": "Ranking w rozszerzeniu kredytów"
         }
     },
-    "toplistPositionName": "Pozycja w Topliście",
-    "totalEarnedCredits": "Suma zdobytych kredytów"
+    "toplistPositionName": "Pozycja w rankungu:",
+    "totalEarnedCredits": "Suma zdobytych kredytów:"
 }
