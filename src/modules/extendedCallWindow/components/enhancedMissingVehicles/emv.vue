@@ -361,6 +361,7 @@ export default Vue.extend<
             window[PREFIX] as Vue,
             this.missingRequirements,
             this.requirements,
+            this.$utils.getMissionTypeInMissionWindow(),
             (requirement, value) => this.$set(requirement, 'selected', value),
             this.$m
         );
