@@ -43,7 +43,9 @@ export default (
         Object.values(translations).forEach(
             ({ texts, vehicles, conditionalVehicles }) => {
                 const requirement = missingRequirements.find(({ vehicle }) =>
-                    Object.values(texts).includes(vehicle)
+                    Object.values(texts)
+                        .map(t => t.toLowerCase())
+                        .includes(vehicle.toLowerCase())
                 );
                 if (requirement) {
                     const vehicleTypes = Object.values(vehicles);
