@@ -220,7 +220,7 @@
             { "texts": ["GW-Höhenrettung"], "vehicles": [33] },
             { "texts": ["GW-Messtechnik"], "vehicles": [12] },
             { "texts": ["GW-San"], "vehicles": [60] },
-            { "texts": ["GW-Taucher$"], "vehicles": [63, 69] },
+            { "texts": ["GW-Taucher"], "vehicles": [63, 69] },
             { "texts": ["GW-Werkfeuerwehr"], "vehicles": [83] },
             { "texts": ["GW-Öl"], "vehicles": [10, 49] },
             { "texts": ["GefKw"], "vehicles": [52] },
