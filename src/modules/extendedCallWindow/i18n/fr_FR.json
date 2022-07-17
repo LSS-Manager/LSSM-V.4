@@ -76,7 +76,10 @@
                 "vehicles": [0, 1, 12, 13, 15, 32, 33, 34]
             }
         ],
-        "staffPrefix": ["Nous avons( encore)? besoin de"],
+        "staffPrefix": [
+            "Nous avons besoin de",
+            "Nous avons encore besoin de"
+        ],
         "tip": {
             "dragging": "glisser la fenêtre",
             "minified": "replier",
