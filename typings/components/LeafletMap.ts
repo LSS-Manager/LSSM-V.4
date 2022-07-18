@@ -29,5 +29,6 @@ export type MapVue = CombinedVueInstance<
     MapData,
     MapMethods,
     MapComputed,
-    MapProps
+    MapProps,
+    unknown
 >;

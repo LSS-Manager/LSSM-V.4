@@ -70,7 +70,8 @@ export default async (
         LinkPreview,
         LinkPreviewMethods,
         LinkPreviewComputed,
-        DefaultProps
+        DefaultProps,
+        unknown
     >;
 
     if (!LinkPreviewInstance) return;

@@ -179,13 +179,13 @@ export default Vue.extend<
         .beta_label
             background-color: #f0ad4e
 
-        ::v-deep ul li
+        :deep(ul li)
             list-style: disc !important
 
         body.dark &
             background-color: rgba(0, 0, 0, 0.3)
 
-            &::v-deep a
+            &:v-deep(a)
                 color: #6dd5f4
 
         body:not(.dark) &

@@ -222,7 +222,8 @@ export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
     RedesignLightbox<Type>['Data'],
     RedesignLightbox<Type>['Methods'],
     RedesignLightbox<Type>['Computed'],
-    RedesignLightbox<Type>['Props']
+    RedesignLightbox<Type>['Props'],
+    unknown
 >;
 
 export interface RedesignComponent<
