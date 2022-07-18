@@ -359,7 +359,7 @@
     },
     "vue-select": {
         "url": "https://vue-select.org",
-        "version": "3.18.3"
+        "version": "3.20.0"
     },
     "vue-slim-tabs": {
         "url": "https://vue-slim-tabs.egoist.sh/",
