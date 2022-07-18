@@ -8948,7 +8948,7 @@ __metadata:
     vue-loader: ^15.10.0
     vue-notification: ^1.3.20
     vue-responsive-dash: ^0.5.0
-    vue-select: ^3.18.3
+    vue-select: ^3.20.0
     vue-slim-tabs: ^0.4.0
     vue-template-compiler: ^2.6.14
     webpack: ^5.73.0
@@ -10546,12 +10546,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-select@npm:^3.18.3":
-  version: 3.18.3
-  resolution: "vue-select@npm:3.18.3"
+"vue-select@npm:^3.20.0":
+  version: 3.20.0
+  resolution: "vue-select@npm:3.20.0"
   peerDependencies:
     vue: 2.x
-  checksum: 3dd04bd24023c1717e5fdd19467a49e4feb8cfcf724ec61948367ee5637b4e2068122e7fd19f1586c5dd4908d351d4d7bb45e485097d1d525e742bb085eb8749
+  checksum: a76787bf0475310ed34ad3575fb72b65475e43bf074fbf4c2408d79d06064b33301deef5a12bf1e842921ef24685a73928a50991e43eca3b80ed3d98bd555109
   languageName: node
   linkType: hard
 
