@@ -86,7 +86,7 @@
     "@types/vue-select": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-        "version": "3.16.0"
+        "version": "3.16.1"
     },
     "@types/webpack": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -330,7 +330,7 @@
     "vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue#readme",
-        "version": "2.6.14"
+        "version": "2.7.7"
     },
     "vue-i18n": {
         "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -368,7 +368,7 @@
     "vue-template-compiler": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
-        "version": "2.6.14"
+        "version": "2.7.7"
     },
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
