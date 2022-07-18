@@ -89,6 +89,7 @@
                         <img
                             :src="option.label"
                             :alt="`icon: ${option.label}`"
+                            @error="erroredIcons.push(option.label)"
                             loading="lazy"
                         />
                     </template>
@@ -187,6 +188,7 @@ export default Vue.extend<
         buildingTabs: boolean;
         iconBase64s: string[];
         excludedCustomIcons: string[];
+        erroredIcons: string[];
         apiStore: ReturnType<typeof useAPIStore>;
     },
     { save(): void; dissolveHandler(): void },
@@ -247,6 +249,7 @@ export default Vue.extend<
             buildingTabs: true,
             iconBase64s: [],
             excludedCustomIcons: [],
+            erroredIcons: [],
             apiStore,
         };
     },
@@ -322,64 +325,70 @@ export default Vue.extend<
                 .filter(Boolean);
         },
         icons() {
+            const getAlternativeIcons = (icons: string[]) =>
+                icons.flatMap(icon => [
+                    icon,
+                    window.flavourAssetOverrides.policechief.find(
+                        ({ from }) => from === icon
+                    )?.to ?? icon,
+                    icon.replace(/\.png$/u, '_other.png'),
+                ]);
+
             return [
                 ...new Set([
-                    ...[
-                        '/images/building_bereitschaftspolizei_other.png',
-                        '/images/policechief_building_bereitschaftspolizei.png',
-                        '/images/building_bereitstellungsraum_other.png',
-                        '/images/building_bomb_disposal_other.png',
-                        '/images/policechief_building_bomb_disposal.png',
-                        '/images/building_clinic_other.png',
-                        '/images/building_commerce_police_other.png',
-                        '/images/policechief_building_commerce_police.png',
-                        '/images/building_complex_other.png',
-                        '/images/building_federal_police_other.png',
-                        '/images/building_fire_aviation_station_other.png',
-                        '/images/building_fire_boat_dock_other.png',
-                        '/images/building_fire_marshall_other.png',
-                        '/images/building_fire_other.png',
-                        '/images/building_fireschool_other.png',
-                        '/images/building_hazard_response_ems_other.png',
-                        '/images/building_helipad_other.png',
-                        '/images/building_helipad_polizei.png',
-                        '/images/policechief_building_helipad_polizei.png',
-                        '/images/building_home_response_location_other.png',
-                        '/images/building_hospital_other.png',
-                        '/images/building_leitstelle_other.png',
-                        '/images/building_municipal_police_other.png',
-                        '/images/policechief_building_municipal_police.png',
-                        '/images/building_police_depot_other.png',
-                        '/images/policechief_building_police_depot.png',
-                        '/images/building_police_horse_other.png',
-                        '/images/policechief_building_police_horse.png',
-                        '/images/building_polizeischule_other.png',
-                        '/images/policechief_building_polizeischule.png',
-                        '/images/building_polizeisondereinheiten_other.png',
-                        '/images/policechief_building_polizeisondereinheiten.png',
-                        '/images/building_polizeiwache_other.png',
-                        '/images/policechief_building_polizeiwache.png',
-                        '/images/building_rescue_boat_dock_other.png',
-                        '/images/building_rescue_dog_unit_other.png',
-                        '/images/building_rettungsschule_other.png',
-                        '/images/building_rettungswache_other.png',
-                        '/images/building_seg_other.png',
-                        '/images/building_thw_other.png',
-                        '/images/building_thw_school_other.png',
-                        '/images/building_wasserwacht_other.png',
-                        '/images/building_water_rescue_school_other.png',
-                        '/images/spec_police_station_game_warden_other.png',
-                        '/images/spec_police_station_game_warden_pc.png',
-                        '/images/spec_police_station_water_police_other.png',
-                        '/images/spec_police_station_water_police_pc.png',
-                        '/images/spec_police_station_riot_police_other.png',
-                        '/images/spec_police_station_riot_police_pc.png',
-                    ].flatMap(icon => [icon, icon.replace(/_other/u, '')]),
+                    ...getAlternativeIcons(
+                        [
+                            'bereitschaftspolizei',
+                            'bereitstellungsraum',
+                            'bomb_disposal',
+                            'clinic',
+                            'commerce_police',
+                            'complex',
+                            'federal_police',
+                            'fire_aviation_station',
+                            'fire_boat_dock',
+                            'fire_marshall',
+                            'fire',
+                            'fireschool',
+                            'hazard_response_ems',
+                            'helipad',
+                            'helipad_polizei',
+                            'home_response_location',
+                            'hospital',
+                            'leitstelle',
+                            'municipal_police',
+                            'police_depot',
+                            'police_horse',
+                            'polizeischule',
+                            'polizeisondereinheiten',
+                            'polizeiwache',
+                            'rescue_boat_dock',
+                            'rescue_dog_unit',
+                            'rettungsschule',
+                            'rettungswache',
+                            'seg',
+                            'thw',
+                            'thw_school',
+                            'wasserwacht',
+                            'water_rescue_school',
+                        ]
+                            .sort()
+                            .map(icon => `/images/building_${icon}.png`)
+                    ),
+                    ...getAlternativeIcons(
+                        [
+                            'spec_police_station_game_warden',
+                            'spec_police_station_water_police',
+                            'spec_police_station_riot_police',
+                        ]
+                            .sort()
+                            .map(icon => `/images/${icon}.png`)
+                    ),
                     ...this.customIcons.filter(
                         icon => !this.excludedCustomIcons.includes(icon)
                     ),
                 ]),
-            ].sort();
+            ].filter(icon => !this.erroredIcons.includes(icon));
         },
     },
     methods: {
@@ -509,4 +518,8 @@ form
 #vslssmv4-complex-settings-alliance_buildings__listbox
     &.vs__dropdown-menu
         z-index: 6000
+
+#vslssmv4-complex-settings-icon__listbox.vs__dropdown-menu
+        display: flex
+        flex-flow: wrap
 </style>
