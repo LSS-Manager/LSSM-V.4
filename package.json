@@ -18,7 +18,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.8",
         "@vue/composition-api": "^1.7.0",
         "axios": "^0.27.2",
-        "broadcast-channel": "^4.13.0",
+        "broadcast-channel": "^4.14.0",
         "he": "^1.2.0",
         "highcharts": "^10.2.0",
         "highcharts-vue": "^1.4.0",
