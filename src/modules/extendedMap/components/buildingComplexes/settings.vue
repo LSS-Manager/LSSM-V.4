@@ -351,6 +351,8 @@ export default Vue.extend<
                         '/images/policechief_building_municipal_police.png',
                         '/images/building_police_depot_other.png',
                         '/images/policechief_building_police_depot.png',
+                        '/images/building_police_horse_other.png',
+                        '/images/policechief_building_police_horse.png',
                         '/images/building_polizeischule_other.png',
                         '/images/policechief_building_polizeischule.png',
                         '/images/building_polizeisondereinheiten_other.png',
