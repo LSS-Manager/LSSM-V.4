@@ -45,6 +45,7 @@
                     multiple
                     clearable
                     append-to-body
+                    @open="adjustDropdownPosition"
                 ></v-select>
             </div>
 
@@ -64,6 +65,7 @@
                     multiple
                     clearable
                     append-to-body
+                    @open="adjustDropdownPosition"
                 ></v-select>
             </div>
 
@@ -78,6 +80,7 @@
                     :options="icons"
                     :clearable="false"
                     append-to-body
+                    @open="adjustDropdownPosition"
                 >
                     <template v-slot:selected-option="option">
                         <img
@@ -191,7 +194,7 @@ export default Vue.extend<
         erroredIcons: string[];
         apiStore: ReturnType<typeof useAPIStore>;
     },
-    { save(): void; dissolveHandler(): void },
+    { save(): void; dissolveHandler(): void; adjustDropdownPosition(): void },
     {
         canSave: boolean;
         assignedBuildings: Building[];
@@ -431,6 +434,21 @@ export default Vue.extend<
                 ],
             });
         },
+        adjustDropdownPosition() {
+            this.$nextTick().then(() => {
+                const dropdown = document.querySelector<HTMLUListElement>(
+                    'body > :where(#vslssmv4-complex-settings-icon__listbox, #vslssmv4-complex-settings-buildings__listbox, #vslssmv4-complex-settings-alliance_buildings__listbox).vs__dropdown-menu'
+                );
+
+                if (!dropdown) return;
+                dropdown.style.setProperty(
+                    'top',
+                    `min(${dropdown.style.getPropertyValue(
+                        'top'
+                    )}, calc(98vh - 350px))`
+                );
+            });
+        },
     },
     props: {
         modalName: {
@@ -518,6 +536,7 @@ form
 #vslssmv4-complex-settings-alliance_buildings__listbox
     &.vs__dropdown-menu
         z-index: 6000
+        position: fixed
 
 #vslssmv4-complex-settings-icon__listbox.vs__dropdown-menu
         display: flex
