@@ -86,12 +86,14 @@
                         <img
                             :src="option.label"
                             :alt="`icon: ${option.label}`"
+                            :title="`icon: ${option.label}`"
                         />
                     </template>
                     <template v-slot:option="option">
                         <img
                             :src="option.label"
                             :alt="`icon: ${option.label}`"
+                            :title="`icon: ${option.label}`"
                             @error="erroredIcons.push(option.label)"
                             loading="lazy"
                         />
