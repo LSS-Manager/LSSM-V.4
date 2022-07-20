@@ -1450,6 +1450,7 @@ export default Vue.extend<
         complex: Complex;
         allAttachedBuildings: string[];
         allAttachedAllianceBuildings: string[];
+        complexLocations: { icon: string; location: [number, number] }[];
         $m: $m;
         $mc: $mc;
         dissolve(): Promise<void>;
@@ -2532,6 +2533,7 @@ export default Vue.extend<
                                     building
                                 )
                         ),
+                    complexLocations: this.complexLocations,
                     $m: <$m>((key, args) => this.$m(`settings.${key}`, args)),
                     close: () => this.$modal.hide(settingsModalName),
                     dissolve: this.dissolve,
@@ -2876,6 +2878,10 @@ export default Vue.extend<
             required: true,
         },
         allAttachedAllianceBuildings: {
+            type: Array,
+            required: true,
+        },
+        complexLocations: {
             type: Array,
             required: true,
         },

@@ -70,6 +70,8 @@ export default async (
 
     const allAttachedBuildings: string[] = [];
     const allAttachedAllianceBuildings: string[] = [];
+    const allComplexLocations: { icon: string; location: [number, number] }[] =
+        [];
 
     const detailButtonClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-buildingComplex-buildingList-detailBtn`
@@ -275,6 +277,7 @@ export default async (
                 complex: complexes[index],
                 allAttachedBuildings,
                 allAttachedAllianceBuildings,
+                complexLocations: allComplexLocations,
                 $m: <$m>((key, args) => $m(`buildingComplexes.${key}`, args)),
                 $mc: <$mc>(
                     ((key, amount, args) =>
@@ -306,6 +309,10 @@ export default async (
                     const oldIcon = complexes[index].icon;
 
                     complexes[index] = updatedComplex;
+                    allComplexLocations[index] = {
+                        icon: updatedComplex.icon,
+                        location: updatedComplex.position,
+                    };
 
                     if (updatedComplex.icon !== oldIcon)
                         window.iconMapGenerate(updatedComplex.icon, marker);
@@ -450,6 +457,7 @@ export default async (
 
         allAttachedBuildings.push(...buildings);
         allAttachedAllianceBuildings.push(...allianceBuildings);
+        allComplexLocations.push({ icon, location: position });
 
         const attachedBuildingsLayer = window.L.layerGroup();
         complexesBuildingsLayers.push(attachedBuildingsLayer);

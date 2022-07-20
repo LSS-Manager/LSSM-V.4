@@ -132,6 +132,7 @@
                 <settings-location
                     name="location"
                     :placeholder="$m('location')"
+                    :markers="complexLocations"
                     v-model="location"
                 />
             </div>
@@ -211,6 +212,7 @@ export default Vue.extend<
         complex: Complex;
         allOtherAttachedBuildings: string[];
         allOtherAttachedAllianceBuildings: string[];
+        complexLocations: { icon: string; location: [number, number] }[];
         $m: $m;
         close(): void;
         dissolve(): Promise<void>;
@@ -466,6 +468,10 @@ export default Vue.extend<
             required: true,
         },
         allOtherAttachedAllianceBuildings: {
+            type: Array,
+            required: true,
+        },
+        complexLocations: {
             type: Array,
             required: true,
         },

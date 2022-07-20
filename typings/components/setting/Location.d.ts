@@ -14,6 +14,7 @@ export interface LocationProps {
     value: number[];
     zoom: boolean;
     disabled: boolean;
+    markers: { icon: string; location: [number, number] }[];
 }
 
 export interface LocationComputed {
