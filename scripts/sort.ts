@@ -13,6 +13,11 @@ fs.writeFileSync(
     JSON.stringify(sortJSON(tsconfig, true), null, 4)
 );
 
+const excluded = [
+    path.join(ROOT_PATH, 'src', 'libraries.json'),
+    path.join(ROOT_PATH, 'src', 'utils', 'browsers.json'),
+];
+
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
     if (/node_modules/u.test(folder)) return [];
@@ -22,7 +27,10 @@ const getJsons = (folder: string): string[] => {
         else if (
             item.isFile() &&
             item.name.endsWith('.json') &&
-            item.name !== 'package.json'
+            !(
+                item.name === 'package.json' ||
+                excluded.includes(path.join(folder, item.name))
+            )
         )
             jsons.push(`${folder}/${item.name}`);
     });
