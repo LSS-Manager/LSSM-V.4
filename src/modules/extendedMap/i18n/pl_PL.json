@@ -13,12 +13,12 @@
                 "inConstruction": "z tego {n} w budowie",
                 "share": {
                     "beds": {
-                        "share": "Share beds with alliance",
-                        "unShare": "Don't share beds with alliance"
+                        "share": "Dziel się tym szpitalem z sojuszem",
+                        "unShare": "Nie dziel się tym szpitalem z sojuszem"
                     },
                     "cells": {
-                        "share": "Share prison cells with alliance",
-                        "unShare": "Don't share prison cells with alliance"
+                        "share": "Dziel się celami z sojuszem",
+                        "unShare": "Nie dziel się celami z sojuszem"
                     }
                 },
                 "table": {
