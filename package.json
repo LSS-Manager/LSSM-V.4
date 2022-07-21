@@ -1,5 +1,5 @@
 {
-    "version": "4.5.14+20220721.1631",
+    "version": "4.5.14+20220721.1723",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
@@ -73,6 +73,7 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-regexp": "^1.7.0",
+        "eslint-plugin-tsdoc": "^0.2.16",
         "eslint-plugin-unicorn": "^43.0.2",
         "eslint-plugin-vue": "^9.2.0",
         "html-loader": "^4.1.0",
