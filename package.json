@@ -1,5 +1,5 @@
 {
-    "version": "4.5.14+20220721.1723",
+    "version": "4.5.14+20220721.2147",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
