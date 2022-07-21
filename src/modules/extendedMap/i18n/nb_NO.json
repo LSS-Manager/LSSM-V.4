@@ -11,6 +11,16 @@
                     "phase": "1 Day | {n} Days"
                 },
                 "inConstruction": "thereof {n} under construction",
+                "share": {
+                    "beds": {
+                        "share": "Share beds with alliance",
+                        "unShare": "Don't share beds with alliance"
+                    },
+                    "cells": {
+                        "share": "Share prison cells with alliance",
+                        "unShare": "Don't share prison cells with alliance"
+                    }
+                },
                 "table": {
                     "alliance": "Alliance",
                     "head": {

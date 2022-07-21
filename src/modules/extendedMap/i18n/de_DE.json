@@ -11,6 +11,16 @@
                     "phase": "1 Tag | {n} Tage"
                 },
                 "inConstruction": "davon {n} im Bau",
+                "share": {
+                    "beds": {
+                        "share": "Betten im Verband freigeben",
+                        "unShare": "Betten nicht im Verband freigeben"
+                    },
+                    "cells": {
+                        "share": "Zellen im Verband freigeben",
+                        "unShare": "Zellen nicht im Verband freigeben"
+                    }
+                },
                 "table": {
                     "alliance": "Verband",
                     "head": {

@@ -208,6 +208,74 @@
                                 <td v-if="hasBedBuildings">
                                     <template v-if="building.hasBeds">
                                         {{ building.beds }}
+
+                                        <template
+                                            v-if="
+                                                !building.alliance ||
+                                                userHasAllianceFinanceRights
+                                            "
+                                        >
+                                            <button
+                                                class="btn btn-xs btn-default in-cell-toggle-btn"
+                                                @click="toggleInCellOptions"
+                                            >
+                                                <font-awesome-icon
+                                                    :icon="faGears"
+                                                ></font-awesome-icon>
+                                            </button>
+                                            <div class="hidden">
+                                                <button
+                                                    v-if="!building.alliance"
+                                                    class="btn btn-sm"
+                                                    :class="`btn-${
+                                                        building.is_alliance_shared
+                                                            ? 'danger'
+                                                            : 'success'
+                                                    }`"
+                                                    @click="
+                                                        toggleAllianceShare(
+                                                            building.id
+                                                        )
+                                                    "
+                                                >
+                                                    {{
+                                                        $m(
+                                                            `overview.buildings.share.beds.${
+                                                                building.is_alliance_shared
+                                                                    ? 'unShare'
+                                                                    : 'share'
+                                                            }`
+                                                        )
+                                                    }}
+                                                </button>
+                                                <div
+                                                    v-if="
+                                                        building.is_alliance_shared
+                                                    "
+                                                    class="btn-group"
+                                                >
+                                                    <a
+                                                        class="btn btn-xs"
+                                                        :class="`btn-${
+                                                            (n - 1) * 10 ===
+                                                            building.alliance_share_credits_percentage
+                                                                ? 'success'
+                                                                : 'default'
+                                                        }`"
+                                                        v-for="n in 6"
+                                                        :key="n"
+                                                        @click="
+                                                            setAllianceTax(
+                                                                building.id,
+                                                                n - 1
+                                                            )
+                                                        "
+                                                    >
+                                                        {{ (n - 1) * 10 }}%
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </template>
                                 </td>
                                 <td v-if="hasClassroomBuildings">
@@ -239,6 +307,74 @@
                                                     building.cellsUnavailable
                                                 )
                                             }})
+                                        </template>
+
+                                        <template
+                                            v-if="
+                                                !building.alliance ||
+                                                userHasAllianceFinanceRights
+                                            "
+                                        >
+                                            <button
+                                                class="btn btn-xs btn-default in-cell-toggle-btn"
+                                                @click="toggleInCellOptions"
+                                            >
+                                                <font-awesome-icon
+                                                    :icon="faGears"
+                                                ></font-awesome-icon>
+                                            </button>
+                                            <div class="hidden">
+                                                <button
+                                                    v-if="!building.alliance"
+                                                    class="btn btn-sm"
+                                                    :class="`btn-${
+                                                        building.is_alliance_shared
+                                                            ? 'danger'
+                                                            : 'success'
+                                                    }`"
+                                                    @click="
+                                                        toggleAllianceShare(
+                                                            building.id
+                                                        )
+                                                    "
+                                                >
+                                                    {{
+                                                        $m(
+                                                            `overview.buildings.share.cells.${
+                                                                building.is_alliance_shared
+                                                                    ? 'unShare'
+                                                                    : 'share'
+                                                            }`
+                                                        )
+                                                    }}
+                                                </button>
+                                                <div
+                                                    v-if="
+                                                        building.is_alliance_shared
+                                                    "
+                                                    class="btn-group"
+                                                >
+                                                    <a
+                                                        class="btn btn-xs"
+                                                        :class="`btn-${
+                                                            (n - 1) * 10 ===
+                                                            building.alliance_share_credits_percentage
+                                                                ? 'success'
+                                                                : 'default'
+                                                        }`"
+                                                        v-for="n in 6"
+                                                        :key="n"
+                                                        @click="
+                                                            setAllianceTax(
+                                                                building.id,
+                                                                n - 1
+                                                            )
+                                                        "
+                                                    >
+                                                        {{ (n - 1) * 10 }}%
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </template>
                                     </template>
                                 </td>
@@ -1107,6 +1243,7 @@
 import Vue from 'vue';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
+import { faGears } from '@fortawesome/free-solid-svg-icons/faGears';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
@@ -1141,7 +1278,11 @@ type MaybeInterface<
     ? HasNotInterface
     : HasInterface | HasNotInterface;
 
-type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & { beds: number };
+type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & {
+    beds: number;
+    is_alliance_shared: boolean;
+    alliance_share_credits_percentage: 0 | 10 | 20 | 30 | 40 | 50;
+};
 type AttributedBuildingHasNoBeds = HasNotInterface<'hasBeds'>;
 type AttributedBuildingBeds<HasBeds extends Maybe = unknown> = MaybeInterface<
     AttributedBuildingHasBeds,
@@ -1152,6 +1293,8 @@ type AttributedBuildingBeds<HasBeds extends Maybe = unknown> = MaybeInterface<
 type AttributedBuildingHasCells = HasInterface<'hasCells'> & {
     cells: number;
     cellsUnavailable: number;
+    is_alliance_shared: boolean;
+    alliance_share_credits_percentage: 0 | 10 | 20 | 30 | 40 | 50;
 };
 type AttributedBuildingHasNoCells = HasNotInterface<'hasCells'>;
 type AttributedBuildingCells<HasCells extends Maybe = unknown> = MaybeInterface<
@@ -1313,6 +1456,7 @@ type ProtocolSortAttribute = 'building' | 'label' | 'staff' | 'time' | 'title';
 export default Vue.extend<
     {
         faCircleInfo: IconDefinition;
+        faGears: IconDefinition;
         faPencilAlt: IconDefinition;
         faTrash: IconDefinition;
         buildingTypes: Record<number, InternalBuilding>;
@@ -1383,6 +1527,9 @@ export default Vue.extend<
         updateProtocol(): void;
         deleteProtocolEntry(id: number, dispatchCenter: number): void;
         deleteAllProtocolEntries(): void;
+        toggleInCellOptions($event: MouseEvent): void;
+        toggleAllianceShare(buildingId: number): void;
+        setAllianceTax(buildingId: number, tax: number): void;
     },
     {
         buildings: Record<number, Building>;
@@ -1476,6 +1623,7 @@ export default Vue.extend<
         const translationStore = useTranslationStore();
         return {
             faCircleInfo,
+            faGears,
             faPencilAlt,
             faTrash,
             buildingTypes: translationStore.buildings,
@@ -1582,6 +1730,11 @@ export default Vue.extend<
                             ? {
                                   hasBeds: true,
                                   beds: buildingType.startBeds + building.level,
+                                  is_alliance_shared:
+                                      building.is_alliance_shared ?? false,
+                                  alliance_share_credits_percentage:
+                                      building.alliance_share_credits_percentage ??
+                                      0,
                               }
                             : { hasBeds: false };
 
@@ -1611,6 +1764,11 @@ export default Vue.extend<
                             ? {
                                   hasCells: true,
                                   ...cellExtensions,
+                                  is_alliance_shared:
+                                      building.is_alliance_shared ?? false,
+                                  alliance_share_credits_percentage:
+                                      building.alliance_share_credits_percentage ??
+                                      0,
                               }
                             : { hasCells: false };
 
@@ -2858,6 +3016,38 @@ export default Vue.extend<
             this.protocol.forEach(({ id, dispatchId }) =>
                 this.deleteProtocolEntry(id, dispatchId)
             );
+        },
+        toggleInCellOptions($event) {
+            const target = $event.target;
+            if (
+                !(target instanceof HTMLElement) &&
+                !(target instanceof SVGElement)
+            )
+                return;
+            target
+                .closest<HTMLButtonElement>('.in-cell-toggle-btn')
+                ?.parentElement?.querySelector<HTMLDivElement>(
+                    '.in-cell-toggle-btn + div'
+                )
+                ?.classList.toggle('hidden');
+        },
+        toggleAllianceShare(buildingId) {
+            const feature = 'buildingComplex-toggle-alliance-share';
+            this.apiStore
+                .request({
+                    url: `/buildings/${buildingId}/alliance`,
+                    feature,
+                })
+                .then(() => this.apiStore.getBuilding(buildingId, feature));
+        },
+        setAllianceTax(buildingId, tax) {
+            const feature = 'buildingComplex-toggle-alliance-set-tax';
+            this.apiStore
+                .request({
+                    url: `/buildings/${buildingId}/alliance_costs/${tax}`,
+                    feature,
+                })
+                .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
     },
     props: {

@@ -22,6 +22,8 @@ export interface Building {
     hiring_phase: 0 | 1 | 2 | 3;
     hiring_automatic: boolean;
     custom_icon_url?: string;
+    is_alliance_shared?: boolean;
+    alliance_share_credits_percentage?: 0 | 10 | 20 | 30 | 40 | 50;
 }
 
 export interface BuildingCategory {
