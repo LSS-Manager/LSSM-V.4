@@ -381,7 +381,7 @@
         "version": "2.0.0-beta.49"
     },
     "vuepress-plugin-clipboard": {
-        "icon": "https://www.qbenben.com/images/icons/android-chrome-512x512.png",
+        "icon": "https://vuepress.qbb.sh/hero.png",
         "url": "https://vuepress.qbb.sh/clipboard",
         "version": "2.1.3"
     },
