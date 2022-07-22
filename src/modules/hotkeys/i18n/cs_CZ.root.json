@@ -49,7 +49,10 @@
                 "title": "Mapa"
             },
             "missionlist": {
-                "search": { "focus": "zakliknout hledací pole", "title": "Hledat" },
+                "search": {
+                    "focus": "zakliknout hledací pole",
+                    "title": "Hledat"
+                },
                 "title": "Seznam misí"
             },
             "title": "Hlavní okno"
