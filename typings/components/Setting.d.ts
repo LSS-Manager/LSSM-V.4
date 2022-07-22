@@ -9,4 +9,5 @@ export interface SettingProps {
     wide: boolean;
     appendableListDisableable: boolean;
     appendableListEnabled: boolean;
+    settingType: string;
 }

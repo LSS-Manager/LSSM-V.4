@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Dettagli"
-        },
+        "buildingList": { "details": "Dettagli" },
         "new": "New LSSM building complex",
         "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
@@ -13,6 +11,16 @@
                     "phase": "1 Giorno | {n} Giorni"
                 },
                 "inConstruction": "delle quali {n} in costruzione",
+                "share": {
+                    "beds": {
+                        "share": "Share beds with alliance",
+                        "unShare": "Don't share beds with alliance"
+                    },
+                    "cells": {
+                        "share": "Share prison cells with alliance",
+                        "unShare": "Don't share prison cells with alliance"
+                    }
+                },
                 "table": {
                     "alliance": "Alliance",
                     "head": {
@@ -72,12 +80,7 @@
                     "inConstruction": "{n} in costruzione",
                     "total": "{n} possibili in totale"
                 },
-                "table": {
-                    "head": {
-                        "building": "Edificio",
-                        "name": "Nome"
-                    }
-                },
+                "table": { "head": { "building": "Edificio", "name": "Nome" } },
                 "title": "Estensioni",
                 "underConstruction": "In costruzione"
             },
@@ -116,10 +119,7 @@
             "buildings": "Edifici collegati",
             "buildingsInList": "Show attached buildings in the buildings list?",
             "dissolve": {
-                "buttons": {
-                    "abort": "Annulla",
-                    "continue": "Elimina"
-                },
+                "buttons": { "abort": "Annulla", "continue": "Elimina" },
                 "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",
                 "title": "Elimina Complesso di Edifici"
             },

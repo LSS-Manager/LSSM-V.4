@@ -14,9 +14,7 @@
         "title": "Awards",
         "title_amounts": "{sum} van {max} awards"
     },
-    "buildings": {
-        "amount": "{n} gebouwen"
-    },
+    "buildings": { "amount": "{n} gebouwen" },
     "buttons": {
         "alliance_ignore": {
             "add": "Aanmelden bij team verbieden",

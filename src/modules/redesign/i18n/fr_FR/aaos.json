@@ -1,8 +1,5 @@
 {
-    "add": {
-        "arr": "Nouveau RAI",
-        "group": "Nouveau groupe"
-    },
+    "add": { "arr": "Nouveau RAI", "group": "Nouveau groupe" },
     "categories": "Edition des catégories RAI",
     "delete": {
         "all": {

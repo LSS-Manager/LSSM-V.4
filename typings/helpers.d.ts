@@ -82,6 +82,10 @@ declare global {
         vehicle_graphics: ([string, string, 'false' | 'true'] | null)[]; // it seems to be sexy to stringify booleans according to the game...
         buildingMarkerBulkContentCache: string[];
         gameFlavour: GameFlavour;
+        flavourAssetOverrides: Record<
+            GameFlavour,
+            { from: string; to: string }[]
+        >;
         mission_count_max: number;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
@@ -181,14 +185,16 @@ declare module 'vue/types/vue' {
             AppstoreData,
             AppstoreMethods,
             AppstoreComputed,
-            DefaultProps
+            DefaultProps,
+            unknown
         >;
         $settings: CombinedVueInstance<
             Vue,
             SettingsData,
             SettingsMethods,
             SettingsComputed,
-            DefaultProps
+            DefaultProps,
+            unknown
         >;
         $m(
             key: string,

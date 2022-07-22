@@ -61,7 +61,7 @@ export default async ({
     LSSM.$i18n.mergeLocaleMessage(LSSM.$stores.root.locale, {
         modules: {
             extendedCallWindow: await import(
-                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$stores.root.locale}.js`
+                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../../extendedCallWindow/i18n/${LSSM.$stores.root.locale}.json`
             ),
         },
     });
@@ -154,6 +154,7 @@ export default async ({
                 missingRequirements = missingRequirementsFn(
                     LSSM,
                     remainingVehicles,
+                    missionType,
                     emv$m(false)
                 );
             }
@@ -164,6 +165,7 @@ export default async ({
                         LSSM,
                         missingRequirements.missingRequirements,
                         missingRequirements.missingRequirements,
+                        missionType,
                         (requirement, value) => {
                             const req =
                                 missingRequirements?.missingRequirements.find(
@@ -222,6 +224,7 @@ export default async ({
                 missingRequirements = missingRequirementsFn(
                     LSSM,
                     remainingVehicles,
+                    missionType,
                     emv$m(false)
                 );
             }

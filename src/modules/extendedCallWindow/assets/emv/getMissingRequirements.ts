@@ -1,7 +1,13 @@
 import type { $m } from 'typings/Module';
+import type { GroupTranslation } from './getVehicleListObserveHandler';
 import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
-export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
+export default (
+    LSSM: Vue,
+    missingDialogContent: string,
+    missionType: string,
+    $m: $m
+) => {
     let missingRequirementsText = missingDialogContent
         ?.trim()
         .replace(/(^[^:]*:)|(\.$)/gu, '')
@@ -16,10 +22,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
         Object.entries(vehiclePreprocessor).forEach(
             ([reg, replace]) =>
                 (missingRequirementsText = missingRequirementsText.replace(
-                    new RegExp(
-                        reg.replace(/^\/(\^)?|(\$)?\/[ADJUgimux]*$/gu, ''),
-                        'gu'
-                    ),
+                    new RegExp(reg, 'gu'),
                     replace
                 ))
         );
@@ -31,23 +34,25 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown as Record<string, number[]> | string;
+    ) as unknown as GroupTranslation | string;
     const staffGroupTranslation = $m(
         'enhancedMissingVehicles.staff'
-    ) as unknown as Record<string, number[]> | string;
+    ) as unknown as GroupTranslation | string;
     const vehicleGroups =
         typeof vehicleGroupTranslation === 'string'
-            ? {}
-            : vehicleGroupTranslation;
+            ? []
+            : Object.values(vehicleGroupTranslation);
     const staffGroups =
-        typeof staffGroupTranslation === 'string' ? {} : staffGroupTranslation;
+        typeof staffGroupTranslation === 'string'
+            ? []
+            : Object.values(staffGroupTranslation);
 
-    const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*';
-    const groupsRegex = Object.keys({
-        ...vehicleGroups,
-        ...staffGroups,
-    })
-        .map(r => r.replace(/^\/\^|\$\/[ADJUgimux]*$/gu, ''))
+    const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*x?';
+    const groupsRegex = [
+        ...vehicleGroups.flatMap(({ texts }) => Object.values(texts)),
+        ...staffGroups.flatMap(({ texts }) => Object.values(texts)),
+    ]
+        .map(r => LSSM.$utils.escapeRegex(r))
         .join('|');
     const innerRegex = `${LSSM.$utils.escapeRegex(
         water
@@ -57,22 +62,24 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
 
     const requirementRegex = new RegExp(
         `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
-        'g'
+        'gi'
     );
     const missingRequirementMatches =
         missingRequirementsText.match(requirementRegex);
     const staffPrefix = $m('enhancedMissingVehicles.staffPrefix') as unknown as
-        | Record<number, RegExp>
+        | Record<number, string>
         | string;
     const extras = missingRequirementsText
         .replace(requirementRegex, '')
-        .replace(/^\./u, '')
+        .replace(/^[.:]/u, '')
         .trim()
         .replace(
             new RegExp(
                 Object.values(
                     typeof staffPrefix === 'string' ? {} : staffPrefix
-                ).join('|'),
+                )
+                    .map(p => LSSM.$utils.escapeRegex(p))
+                    .join('|'),
                 'g'
             ),
             ''
@@ -87,17 +94,15 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
         const isColonMode = !!requirement.match(/^.*:\s*\d+$/u);
         const vehicle = requirement
             .trim()
-            .replace(isColonMode ? /:\s*\d+$/u : /^\d+/u, '')
+            .replace(isColonMode ? /:\s*\d+$/u : /^\d+x?/u, '')
             .trim();
         return {
             missing: parseInt(
                 requirement.match(isColonMode ? /\d+$/u : /^\d+/u)?.[0] || '0'
             ),
             vehicle,
-            selected: Object.keys(staffGroups).some(group =>
-                vehicle.match(
-                    new RegExp(group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, ''))
-                )
+            selected: Object.values(staffGroups).some(({ texts }) =>
+                Object.values(texts).includes(vehicle)
             )
                 ? { min: 0, max: 0 }
                 : 0,
@@ -137,27 +142,35 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                     0
                 );
             } else {
-                const vehicleGroupRequirement = Object.keys(vehicleGroups).find(
-                    group =>
-                        requirement.vehicle.match(
-                            new RegExp(
-                                group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, '')
-                            )
-                        )
+                const vehicleGroupRequirement = vehicleGroups.findIndex(
+                    ({ texts }) =>
+                        Object.values(texts)
+                            .map(t => t.toLowerCase())
+                            .includes(requirement.vehicle.toLowerCase())
                 );
 
-                const staffGroupRequirement = Object.keys(staffGroups).find(
-                    group =>
-                        requirement.vehicle.match(
-                            new RegExp(
-                                group.replace(/(^\/)|(\/[ADJUgimux]*$)/gu, '')
-                            )
-                        )
+                const staffGroupRequirement = staffGroups.findIndex(
+                    ({ texts }) =>
+                        Object.values(texts)
+                            .map(t => t.toLowerCase())
+                            .includes(requirement.vehicle.toLowerCase())
                 );
-                if (staffGroupRequirement) {
+
+                if (staffGroupRequirement >= 0) {
                     const vehicleTypes: number[] = Object.values(
-                        staffGroups[staffGroupRequirement]
+                        staffGroups[staffGroupRequirement].vehicles
                     );
+                    Object.entries(
+                        staffGroups[staffGroupRequirement]
+                            .conditionalVehicles ?? {}
+                    ).forEach(([condition, vehicles]) => {
+                        if (
+                            LSSM.$stores.api.missions[missionType].additional[
+                                condition
+                            ]
+                        )
+                            vehicleTypes.push(...Object.values(vehicles));
+                    });
                     let drivingStaff = 0;
                     drivingTable
                         .querySelectorAll<HTMLTableRowElement>('tbody tr')
@@ -177,13 +190,25 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                         });
                     requirement.driving = drivingStaff;
                 } else {
-                    if (!vehicleGroupRequirement) {
+                    if (vehicleGroupRequirement < 0) {
                         requirement.vehicle = '';
                         return;
                     }
-                    requirement.driving = Object.values(
+                    const vehicleTypes: number[] = Object.values(
+                        vehicleGroups[vehicleGroupRequirement].vehicles
+                    );
+                    Object.entries(
                         vehicleGroups[vehicleGroupRequirement]
-                    )
+                            .conditionalVehicles ?? {}
+                    ).forEach(([condition, vehicles]) => {
+                        if (
+                            LSSM.$stores.api.missions[missionType].additional[
+                                condition
+                            ]
+                        )
+                            vehicleTypes.push(...Object.values(vehicles));
+                    });
+                    requirement.driving = vehicleTypes
                         .map(
                             vehicleType =>
                                 (

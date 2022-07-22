@@ -13,6 +13,13 @@
             "description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
             "title": "Longest journey time"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Draws a frame around already clicked AARs.",
             "title": "Highlight clicked AARs"
@@ -36,6 +43,10 @@
         "arrMatchHighlight": {
             "description": "Sets a gray filter over all AARs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable AARs"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR",
@@ -103,71 +114,22 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Brannbil",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    7,
-                    18,
-                    21
-                ]
-            },
+            { "name": "Brannbil", "vehicleTypes": [0, 1, 7, 18, 21] },
             {
                 "name": "Andre brannbiler",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    16,
-                    17,
-                    29,
-                    33,
-                    34,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39
+                    2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39
                 ]
             },
             {
                 "name": "Ambulanse",
-                "vehicleTypes": [
-                    5,
-                    9,
-                    24,
-                    25,
-                    26,
-                    27,
-                    28,
-                    30,
-                    31,
-                    32
-                ]
+                "vehicleTypes": [5, 9, 24, 25, 26, 27, 28, 30, 31, 32]
             },
             {
                 "name": "Politi",
-                "vehicleTypes": [
-                    8,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    22,
-                    23
-                ]
+                "vehicleTypes": [8, 11, 12, 13, 14, 15, 22, 23]
             },
-            {
-                "name": "Vann",
-                "vehicleTypes": [
-                    19,
-                    20
-                ]
-            }
+            { "name": "Vann", "vehicleTypes": [19, 20] }
         ]
     }
 }

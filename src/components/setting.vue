@@ -1,5 +1,19 @@
 <template>
-    <div :class="{ disabled, hidden, wide }" class="setting">
+    <div
+        :class="{ disabled, hidden, wide, collapsed }"
+        class="setting"
+        :data-setting-type="settingType"
+    >
+        <button
+            v-if="settingType === 'appendable-list'"
+            class="btn btn-xs btn-collapse pull-right"
+            :class="collapsed ? 'btn-danger' : 'btn-success'"
+            @click="() => (collapsed = !collapsed)"
+        >
+            <font-awesome-icon
+                :icon="collapsed ? faExpandAlt : faCompressAlt"
+            ></font-awesome-icon>
+        </button>
         <h4>
             <b>{{ title }}</b>
             &nbsp;
@@ -11,6 +25,7 @@
         </h4>
         <slot v-if="beforeDescription"></slot>
         <span
+            class="description"
             v-if="
                 description &&
                 description !==
@@ -25,20 +40,25 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { SettingProps } from 'typings/components/Setting';
-import type {
-    DefaultComputed,
-    DefaultData,
-    DefaultMethods,
-} from 'vue/types/options';
+import type { DefaultComputed, DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
-    DefaultData<Vue>,
+    {
+        collapsed: boolean;
+        faCompressAlt: IconDefinition;
+        faExpandAlt: IconDefinition;
+    },
     DefaultMethods<Vue>,
     DefaultComputed,
     SettingProps
 >({
     name: 'lssmv4-setting',
+    data: () => ({ collapsed: true, faCompressAlt, faExpandAlt }),
     props: {
         moduleId: {
             type: String,
@@ -85,6 +105,10 @@ export default Vue.extend<
             type: Boolean,
             required: false,
         },
+        settingType: {
+            type: String,
+            required: true,
+        },
     },
     computed: {
         appendableListEnabledUpdate: {
@@ -113,4 +137,7 @@ export default Vue.extend<
 
     &:not(.disabled):hover
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+
+    &.collapsed[data-setting-type="appendable-list"] > :not(.description):not(h4):not(.btn-collapse)
+      display: none
 </style>

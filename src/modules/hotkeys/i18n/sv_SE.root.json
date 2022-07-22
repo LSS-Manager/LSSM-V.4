@@ -41,10 +41,7 @@
                 "title": "Chat"
             },
             "lssm": {
-                "menu": {
-                    "title": "Meny",
-                    "toggle": "visa / Stäng"
-                },
+                "menu": { "title": "Meny", "toggle": "visa / Stäng" },
                 "title": "LSSM"
             },
             "map": {

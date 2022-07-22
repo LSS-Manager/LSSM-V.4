@@ -14,6 +14,13 @@
             "description": "Pokazuje obok przycisku \"Wyślij\", ile czasu zajmuje dojazd.",
             "title": "Najdłuższy czas dojazdu"
         },
+        "arrCategoryColors": {
+            "bgColor": "Kolor tła",
+            "category": "Nazwa kategorii",
+            "color": "Kolor tekstu",
+            "description": "Pokoloruj swoje kategorie ZR.",
+            "title": "Kolorowe kategorie ZR"
+        },
         "arrClickHighlight": {
             "description": "Rysuje ramkę wokół już klikniętych ZR.",
             "title": "Podświetl kliknięte ZR"
@@ -53,6 +60,10 @@
         "arrSearchCloseDropdownOnSelect": {
             "description": "Zamyka menu po wybraniu ZR.",
             "title": "Zamknij menu po wybraniu"
+        },
+        "arrSearchCompactResults": {
+            "description": "Kolumny są usuwane, a wszystkie ZR z kategorii są wyświetlane w jednym wierszu.",
+            "title": "Wyszukiwanie ZR: Kompaktowe wyniki"
         },
         "arrSearchDissolveCategories": {
             "description": "Pokazuje wszystkie kategorie jednocześnie podczas wyszukiwania.",
@@ -184,96 +195,26 @@
         "defaultTabs": [
             {
                 "name": "Samochód Pożarniczy ",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    16,
-                    17,
-                    37,
-                    38
-                ]
+                "vehicleTypes": [0, 1, 16, 17, 37, 38]
             },
             {
                 "name": "Inny sprzęt pożarniczy",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    14,
-                    15,
-                    18,
-                    23,
-                    26,
-                    35,
-                    36,
-                    39,
-                    40,
-                    41,
-                    42,
-                    43,
-                    44,
-                    45,
-                    46,
-                    47,
-                    48,
-                    49,
-                    50
+                    2, 3, 4, 6, 7, 14, 15, 18, 23, 26, 35, 36, 39, 40, 41, 42,
+                    43, 44, 45, 46, 47, 48, 49, 50
                 ]
             },
             {
                 "name": "Ambulans",
                 "vehicleTypes": [
-                    5,
-                    9,
-                    10,
-                    19,
-                    20,
-                    21,
-                    22,
-                    27,
-                    28,
-                    29,
-                    30,
-                    31,
-                    32,
-                    33,
-                    34
+                    5, 9, 10, 19, 20, 21, 22, 27, 28, 29, 30, 31, 32, 33, 34
                 ]
             },
             {
                 "name": "Policja",
                 "vehicleTypes": [
-                    8,
-                    11,
-                    12,
-                    13,
-                    19,
-                    24,
-                    25,
-                    51,
-                    52,
-                    53,
-                    54,
-                    55,
-                    56,
-                    65,
-                    66,
-                    67,
-                    68,
-                    69,
-                    70,
-                    71,
-                    72,
-                    73,
-                    74,
-                    75,
-                    76,
-                    77,
-                    78,
-                    79,
-                    80
+                    8, 11, 12, 13, 19, 24, 25, 51, 52, 53, 54, 55, 56, 65, 66,
+                    67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80
                 ]
             }
         ]

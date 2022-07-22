@@ -2,9 +2,7 @@
     "description": "Forenkler innstillingen av interessepunkter gjennom små, nyttige funksjoner",
     "name": "Forbedret POI",
     "settings": {
-        "custom_style": {
-            "title": "Egendefinert stil for fremheving"
-        },
+        "custom_style": { "title": "Egendefinert stil for fremheving" },
         "predefined_style": {
             "brown": "Brun",
             "custom": "Manuell",

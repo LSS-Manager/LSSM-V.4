@@ -1,4 +1,3 @@
-import { execSync } from 'child_process';
 import fs from 'fs';
 
 import Terser from 'terser';
@@ -7,8 +6,6 @@ import config from '../src/config';
 import packageJson from '../package.json';
 
 const script = packageJson.userscript;
-
-execSync('tsc src/userscript.ts');
 
 export default async (): Promise<void> =>
     fs.writeFileSync(

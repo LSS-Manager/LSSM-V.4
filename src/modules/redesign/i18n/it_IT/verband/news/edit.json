@@ -3,8 +3,5 @@
     "public": "Pubblico (sarà visibile a tutti i giocatori del gioco)",
     "save": "Salva",
     "text": "Contenuto",
-    "title": {
-        "edit": "Notizia alleanza modificata",
-        "new": "Crea una news"
-    }
+    "title": { "edit": "Notizia alleanza modificata", "new": "Crea una news" }
 }

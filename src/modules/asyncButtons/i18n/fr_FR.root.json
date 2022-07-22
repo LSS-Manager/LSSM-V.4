@@ -29,9 +29,7 @@
         "missionPrisoners": {
             "title": "Prisonniers dans la fenêtre des missions"
         },
-        "missionReply": {
-            "title": "Transports dans une mission"
-        },
+        "missionReply": { "title": "Transports dans une mission" },
         "switchExtensionState": {
             "description": "Empêche le rechargement lorsque vous activez ou désactivez une extension.",
             "title": "(Dés)activer les extensions"

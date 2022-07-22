@@ -2,10 +2,7 @@
     "amount": "Anzahl",
     "description": "Beschreibung",
     "filter": {
-        "total": {
-            "max": "Max. Gesamtcredits",
-            "min": "Min. Gesamtcredits"
-        },
+        "total": { "max": "Max. Gesamtcredits", "min": "Min. Gesamtcredits" },
         "type": {
             "all_types": "Alle Typen anzeigen",
             "amount": "{n} gefilterter Eintrag | {n} gefilterte Einträge",

@@ -95,9 +95,7 @@
                 "reduce_from": "firetrucks"
             }
         },
-        "patient_additionals": {
-            "8": "Ledningsfordon, ambulans"
-        },
+        "patient_additionals": { "8": "Ledningsfordon, ambulans" },
         "title": "Nödvändiga fordon"
     }
 }

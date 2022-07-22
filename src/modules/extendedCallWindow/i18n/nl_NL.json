@@ -1,0 +1,270 @@
+{
+    "arrCounter": {
+        "reset": "{text} terugzetten",
+        "resetTexts": {
+            "counter": "Inzetvoorstelteller",
+            "counter_highlight": "Inzetvoorstelteller / -omranding",
+            "counter_highlight_selection": "Inzetvoorstelteller / -omranding en voertuigselectie",
+            "counter_selection": "Inzetvoorstelteller en voertuigselectie",
+            "highlight": "Inzetvoorstelomranding",
+            "highlight_selection": "Inzetvoorstelomranding en voertuigselectie",
+            "selection": "Voertuigselectie"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "ab_atemschutz_only": "Adembeschermingshaakarmbak",
+            "abl2wasser_only": "Watertransportsysteem-haakarmbak",
+            "ambulance_or_rapid_responder": "Ambulance of Rapid Responder",
+            "arff": "Crashtender",
+            "at_c": "AT-Commandant",
+            "at_m": "AT-Materiaalwagen",
+            "at_o": "AT-Operator",
+            "bike_police": "DB-Bike",
+            "boot": "WOA of BA-RB",
+            "dlk": "Redvoertuig",
+            "elw": "Officier van Dienst Brandweer",
+            "elw2": "Hoofdofficier van Dienst - Brandweer",
+            "elw3": "Commandovoertuig of haakarmbak",
+            "elw_airport": "Airport Fire Officer / On Scene Commander",
+            "fire": "Tankautospuit",
+            "fly_car": "Rapid Responder",
+            "fly_car_any": "OVDG-RR of Rapid Responder",
+            "foam": "Schuimblusvoertuig",
+            "foam_amount": "SVM (in Liters)",
+            "fustw": "Politie Noodhulp",
+            "fustw_or_police_motorcycle": "Politie Noodhulp of Dienstmotor Noodhulp",
+            "gefkw": "DB-AV",
+            "grukw": "ME Flexbus",
+            "gw_taucher": "Waterongevallenvoertuig",
+            "gw_wasserrettung": "Strandvoertuig (DAT-RB of KHV)",
+            "gwa": "Adembeschermingsvoertuig of haakarmbak",
+            "gwgefahrgut": "Adviseur Gevaarlijke Stoffen",
+            "gwl2wasser": "Slangenwagen / Watertankwagen of Watertransportsysteem-haakarmbak",
+            "gwl2wasser_only": "Alleen Slangenwagen / Watertankwagen",
+            "gwmesstechnik": "Dienstbus Verkenningseenheid Brandweer",
+            "hondengeleider": "Hondengeleider",
+            "kdow_orgl": "Officier van Dienst Geneeskunde",
+            "kdow_orgl_any": "OVD-G of OVDG-RR",
+            "ktw": "Zorgambulance",
+            "lebefkw": "ME Commandovoertuig",
+            "mtw": "Dienstauto / Dienstbus brandweer",
+            "nef": "MMT-Auto of Lifeliner",
+            "nef_only": "MMT-Auto",
+            "ovd_p": "Officier van Dienst - Politie",
+            "police_car_3": "NH-O",
+            "police_horse": "VW-BB of BB-A",
+            "police_motorcycle": "Dienstmotor Noodhulp",
+            "polizeihubschrauber": "Politiehelikopter",
+            "pump": "Motorspuitaanhangwagen",
+            "rth_only": "Lifeliner",
+            "rtw": "Ambulance",
+            "rw": "HV of TS-HV",
+            "rw_only": "Hulpverleningsvoertuig",
+            "spokesman": "Voorlichters",
+            "wasser_amount": "Water (in Liters)"
+        },
+        "headers": {
+            "attribute": "Naam",
+            "free": "Vrij",
+            "max": "Max",
+            "set": "Aantal",
+            "status": "Status"
+        },
+        "reset": "De voertuigselectie zal vooraf worden gereset!",
+        "titles": {
+            "attribute": "Het voertuigtype dat geselecteerd wordt",
+            "free": "Zo vaak is dit voertuigtype beschikbaar",
+            "max": "Zo vaak kan je dit inzetvoorstel selecteren, totdat dit voertuigtype niet meer beschikbaar is",
+            "set": "Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "Aanrijdend",
+        "foam": "L. SVM",
+        "missing": "Missende voertuigen",
+        "selected": "Geselecteerd",
+        "staff": [
+            {
+                "texts": [
+                    "Bereden Brigade eenheid (paard)",
+                    "Bereden Brigade eenheden (paarden)"
+                ],
+                "vehicles": [73]
+            }
+        ],
+        "tip": {
+            "dragging": "Verplaats venster",
+            "minified": "Inklappen",
+            "overlay": "Overlay",
+            "pushLeft": "Toon deze box op de originele plek",
+            "pushRight": "Toon deze box boven de voertuigenlijst",
+            "reload": "Herladen",
+            "textMode": "Tekstmodus aan/uit"
+        },
+        "total": "Nog nodig",
+        "towingVehicles": {
+            "27": [26],
+            "29": [26],
+            "32": [26],
+            "45": [26],
+            "51": [26],
+            "61": [26],
+            "69": [26],
+            "74": [75]
+        },
+        "vehicle": "Voertuigtype",
+        "vehiclesByRequirement": [
+            {
+                "texts": ["Tankautospuit", "Tankautospuiten"],
+                "vehicles": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62]
+            },
+            { "texts": ["Redvoertuig", "Redvoertuigen"], "vehicles": [2, 18] },
+            {
+                "texts": [
+                    "Officier van Dienst - Brandweer",
+                    "Officieren van Dienst - Brandweer"
+                ],
+                "vehicles": [3, 19]
+            },
+            {
+                "texts": ["Hulpverleningsvoertuig", "Hulpverleningsvoertuigen"],
+                "vehicles": [4, 51, 62]
+            },
+            { "texts": ["AB"], "vehicles": [5, 27] },
+            {
+                "texts": [
+                    "Slangenwagen, watertankwagen of gelijkwaardige haakarmbak"
+                ],
+                "vehicles": [10, 29, 34, 45, 61]
+            },
+            {
+                "texts": [
+                    "Hoofd Officier van Dienst",
+                    "Hoofd Officieren van Dienst"
+                ],
+                "vehicles": [19]
+            },
+            {
+                "texts": ["Commandowagen", "Commandowagens"],
+                "vehicles": [31, 32]
+            },
+            {
+                "texts": ["Verkenningseenheden", "Verkenningseenheid"],
+                "vehicles": [11]
+            },
+            {
+                "texts": [
+                    "Adviseur Gevaarlijke Stoffen",
+                    "Adviseurs Gevaarlijke Stoffen"
+                ],
+                "vehicles": [24]
+            },
+            {
+                "texts": [
+                    "Waterongevallenvoertuig / Oppervlaktereddingsteam",
+                    "Waterongevallenvoertuigen / Oppervlaktereddingsteams"
+                ],
+                "vehicles": [33, 49, 50]
+            },
+            { "texts": ["WOA", "WOA of BA-RB"], "vehicles": [36, 67] },
+            {
+                "texts": ["Crashtender", "Crashtenders"],
+                "vehicles": [41, 42, 43]
+            },
+            { "texts": ["AFO/OSC", "AFO/OSC's"], "vehicles": [44] },
+            { "texts": ["Voorlichter", "Voorlichters"], "vehicles": [56] },
+            {
+                "texts": ["Noodhulpeenheden", "Noodhulpeenheid"],
+                "vehicles": [22, 25, 46, 47, 48, 59, 60, 75]
+            },
+            {
+                "texts": [
+                    "Officier van Dienst - Politie",
+                    "Officieren van Dienst - Politie"
+                ],
+                "vehicles": [35]
+            },
+            { "texts": ["Politiehelikopter"], "vehicles": [28] },
+            {
+                "texts": ["Hondengeleider", "Hondengeleiders"],
+                "vehicles": [47, 48]
+            },
+            {
+                "texts": ["ME Commandovoertuig", "ME Commandovoertuigen"],
+                "vehicles": [39]
+            },
+            { "texts": ["ME Flexbus", "ME Flexbussen"], "vehicles": [40] },
+            { "texts": ["AT Commandant", "AT Commandanten"], "vehicles": [53] },
+            {
+                "texts": ["AT Materiaalwagen", "AT Materiaalwagens"],
+                "vehicles": [55]
+            },
+            { "texts": ["AT Operator", "AT Operators"], "vehicles": [54] },
+            {
+                "texts": ["Ambulance", "Ambulances"],
+                "vehicles": [16, 52, 57, 63]
+            },
+            { "texts": ["Biketeam", "Biketeams"], "vehicles": [60] },
+            {
+                "texts": ["Aanhoudingseenheden", "Aanhoudingseenheid"],
+                "vehicles": [64]
+            },
+            {
+                "texts": [
+                    "Dienstbus Arrestantenvervoer",
+                    "Dienstbussen Arrestantenvervoer"
+                ],
+                "vehicles": [58]
+            },
+            { "texts": ["Arrestanten zullen vervoerd worden"], "vehicles": [] },
+            {
+                "texts": [
+                    "Strandvoertuig",
+                    "Strandvoertuigen",
+                    "strandvoertuig",
+                    "strandvoertuigen"
+                ],
+                "vehicles": [65, 66]
+            },
+            {
+                "texts": ["schuimblusvoertuig", "schuimblusvoertuigen"],
+                "vehicles": [41, 42, 43, 68, 69, 70]
+            },
+            {
+                "texts": ["Pompvoertuig", "Pompvoertuigen"],
+                "vehicles": [71, 72]
+            }
+        ],
+        "water": "L. water"
+    },
+    "hideVehicleList": {
+        "hide": "Verberg voertuigenlijst",
+        "show": "Toon voertuigenlijst"
+    },
+    "patientCollapse": {
+        "amount": "Aantal",
+        "combis": "Combinaties",
+        "summary": { "total": "patiënten", "treated": "worden behandeld" }
+    },
+    "patientSummary": { "oncePerMission": ["OvD-G"] },
+    "releasePatient": { "release": "Ontsla patiënt (Geen beloning)" },
+    "tailoredTabs": {
+        "allTab": "Alles",
+        "occupiedTab": "Dooralarmeren",
+        "vehicleMissing": {
+            "close": "Sluit Meldingen tot wijziging",
+            "hide": "Verberg Melding",
+            "text": "De volgende voertuigtypes zijn alleen aanwezig op het tabblad `Alles`:",
+            "title": "Eén voertuig is op geen enkel tabblad aanwezig | Meerdere voertuigen zijn op geen enkel tabblad aanwezig"
+        }
+    },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "Aanwezig",
+        "driving": "Aanrijdend",
+        "players": "Spelers",
+        "total": "Totaal",
+        "vehicles": "Voertuigen"
+    }
+}

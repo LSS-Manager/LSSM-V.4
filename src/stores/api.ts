@@ -61,28 +61,30 @@ export const defineAPIStore = defineStore('api', {
             Object.fromEntries(
                 state.vehicles.map(vehicle => [vehicle.id, vehicle])
             ),
-        vehiclesByTarget: (
-            state
-        ): {
-            mission: Record<number, Vehicle[]>;
-            building: Record<number, Vehicle[]>;
-        } => {
-            const targets: {
+        vehiclesByTarget:
+            state =>
+            (): {
                 mission: Record<number, Vehicle[]>;
                 building: Record<number, Vehicle[]>;
-            } = { mission: {}, building: {} };
-            state.vehicles.forEach(vehicle => {
-                if (!vehicle.target_type || !vehicle.target_id) return;
-                if (
-                    !targets[vehicle.target_type].hasOwnProperty(
-                        vehicle.target_id
+            } => {
+                const targets: {
+                    mission: Record<number, Vehicle[]>;
+                    building: Record<number, Vehicle[]>;
+                } = { mission: {}, building: {} };
+                state.vehicles.forEach(vehicle => {
+                    if (!vehicle.target_type || !vehicle.target_id) return;
+                    if (
+                        !targets[vehicle.target_type].hasOwnProperty(
+                            vehicle.target_id
+                        )
                     )
-                )
-                    targets[vehicle.target_type][vehicle.target_id] = [];
-                targets[vehicle.target_type][vehicle.target_id].push(vehicle);
-            });
-            return targets;
-        },
+                        targets[vehicle.target_type][vehicle.target_id] = [];
+                    targets[vehicle.target_type][vehicle.target_id].push(
+                        vehicle
+                    );
+                });
+                return targets;
+            },
         vehiclesByType: (state): Record<number, Vehicle[]> => {
             const types: Record<number, Vehicle[]> = {};
             state.vehicles.forEach(vehicle => {
@@ -104,11 +106,13 @@ export const defineAPIStore = defineStore('api', {
         participatedMissions(state): number[] {
             return Array.from(
                 new Set([
-                    ...Object.keys(this.vehiclesByTarget.mission).map(key =>
-                        parseInt(key)
-                    ),
                     ...state.vehicles
-                        .map(({ queued_mission_id }) => queued_mission_id)
+                        .flatMap(
+                            ({ queued_mission_id, target_type, target_id }) => [
+                                target_type === 'mission' ? target_id : null,
+                                queued_mission_id,
+                            ]
+                        )
                         .filter(<S>(id: S | null): id is S => !!id),
                 ])
             );

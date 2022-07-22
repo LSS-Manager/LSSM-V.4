@@ -5,13 +5,8 @@
         "total": "Total",
         "updateNote": "Se actualiza cada 5 minutos."
     },
-    "coins": {
-        "list": "Protocolo"
-    },
-    "credits": {
-        "daily": "Resumen diario",
-        "overview": "Resumen"
-    },
+    "coins": { "list": "Protocolo" },
+    "credits": { "daily": "Resumen diario", "overview": "Resumen" },
     "description": "Muestra información útil sobre los créditos en un menú desplegable en la barra de navegación principal.",
     "name": "Expansión de créditos",
     "nextRank": "Siguiente rango",

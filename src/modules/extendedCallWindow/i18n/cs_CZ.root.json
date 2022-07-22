@@ -13,6 +13,13 @@
             "description": "Zobrazí vedle tlačítka PNV jak dlouho pojede nejvzdálenější vozidlo k zásahu.",
             "title": "Doba příjezdu vozidel"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Vykreslí rámeček okolo zakliklých pravidel nouzových výjezdů.",
             "title": "Zvýraznění zakliklých PNV"
@@ -40,6 +47,10 @@
         "arrMatchHighlight": {
             "description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable ARRs"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
@@ -130,61 +141,14 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Hasičské cisterny",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    13,
-                    18
-                ]
-            },
+            { "name": "Hasičské cisterny", "vehicleTypes": [0, 1, 13, 18] },
             {
                 "name": "Ostatní hasičská technika",
-                "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    8,
-                    9,
-                    12,
-                    17,
-                    21
-                ]
+                "vehicleTypes": [2, 3, 4, 6, 7, 8, 9, 12, 17, 21]
             },
-            {
-                "name": "Sanitky",
-                "vehicleTypes": [
-                    5,
-                    11,
-                    15,
-                    20,
-                    25,
-                    26,
-                    27
-                ]
-            },
-            {
-                "name": "Policie",
-                "vehicleTypes": [
-                    10,
-                    14,
-                    16,
-                    19,
-                    23
-                ]
-            },
-            {
-                "name": "Water",
-                "vehicleTypes": [
-                    21,
-                    22,
-                    24,
-                    25
-                ]
-            }
+            { "name": "Sanitky", "vehicleTypes": [5, 11, 15, 20, 25, 26, 27] },
+            { "name": "Policie", "vehicleTypes": [10, 14, 16, 19, 23] },
+            { "name": "Water", "vehicleTypes": [21, 22, 24, 25] }
         ]
     }
 }

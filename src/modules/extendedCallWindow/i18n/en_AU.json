@@ -1,0 +1,189 @@
+{
+    "arrCounter": {
+        "reset": "{text} reset",
+        "resetTexts": {
+            "counter": "ARR-Counter",
+            "counter_highlight": "ARR counter / border",
+            "counter_highlight_selection": "ARR counter / border and vehicle selection",
+            "counter_selection": "ARR counter and vehicle selection",
+            "highlight": "ARR border",
+            "highlight_selection": "ARR border and vehicle selection",
+            "selection": "Vehicle selection"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "air_tanker": "Bomber",
+            "brush_truck": "Brush Truck",
+            "brush_vehicle": "Brush Truck",
+            "dlk": "Ladder Platform Trucks",
+            "elw": "Support Vehicle",
+            "elw2": "Mobile Command Vehicle",
+            "fire": "Pumper or Light Tanker or Tanker",
+            "fire_aviation": "Fire Aviation",
+            "fustw": "Patrol Car",
+            "fustw_or_police_motorcycle": "Police car or Police Motorcycle",
+            "gw_wasserrettung": "SES Vehicle",
+            "gwa": "BASU",
+            "gwgefahrgut": "HAZMAT Unit",
+            "gwl2wasser": "Bulk Water Tanker",
+            "heavy_air_tanker": "Large Air tanker",
+            "hlf_only": "Rescue Pumper",
+            "k9": "K-9 Unit",
+            "mzb": "Rescue Boat",
+            "police_horse": "Mounted Police",
+            "police_motorcycle": "Police Motorcycle",
+            "polizeihubschrauber": "Police helicopter",
+            "rth_only": "Air Ambulance",
+            "rtw": "Ambulance",
+            "rw": "Rescue",
+            "swat": "TOG",
+            "swat_armored": "TOG Armoured Vehicle",
+            "swat_suv": "TOG SUV",
+            "wasser_amount": "Litres of water",
+            "water_drop_helicopter": "Fire Helicopter"
+        },
+        "headers": {
+            "attribute": "Name",
+            "free": "Free",
+            "max": "Max",
+            "set": "Set",
+            "status": "Status"
+        },
+        "reset": "The vehicle selection is reset before!",
+        "titles": {
+            "attribute": "The combination described in this line",
+            "free": "So often this combination is available",
+            "max": "You can select this ARR until this combination is no longer available",
+            "set": "So often this combination is selected when you press the ARR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "En-route",
+        "missing": "Missing on mission",
+        "selected": "Selected",
+        "staff": [{ "texts": ["TOG Personnel"], "vehicles": [15, 18] }],
+        "staffPrefix": ["We need"],
+        "tip": {
+            "dragging": "drag window",
+            "minified": "collapse",
+            "overlay": "overlay",
+            "pushLeft": "show this box at original position",
+            "pushRight": "show this box above vehicle list",
+            "reload": "reload",
+            "textMode": "textmode on/off"
+        },
+        "total": "Still needed",
+        "towingVehicles": { "21": [20], "22": [8] },
+        "vehicle": "Vehicle type",
+        "vehiclesByRequirement": [
+            {
+                "texts": ["Fire engine", "Fire engines"],
+                "vehicles": [0, 1, 12, 13, 19, 30]
+            },
+            {
+                "texts": ["Ladder Platform Truck", "Ladder Platform Trucks"],
+                "vehicles": [2, 13]
+            },
+            {
+                "texts": ["Support Vehicle", "Support Vehicles"],
+                "vehicles": [3, 11]
+            },
+            {
+                "texts": ["Major Rescue Vehicle", "Major Rescue Vehicles"],
+                "vehicles": [4, 12, 26]
+            },
+            { "texts": ["BASU"], "vehicles": [10] },
+            {
+                "texts": ["Bulk Water Tanker", "Bulk Water Tankers"],
+                "vehicles": [6, 30]
+            },
+            {
+                "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
+                "vehicles": [11]
+            },
+            { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7] },
+            { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
+            {
+                "texts": ["Police car", "Police cars"],
+                "vehicles": [8, 16, 17, 37]
+            },
+            { "texts": ["HEMS"], "vehicles": [9] },
+            {
+                "texts": ["Police Helicopter", "Police Helicopters"],
+                "vehicles": [14]
+            },
+            { "texts": ["TOG Vehicles"], "vehicles": [15, 18] },
+            { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [16] },
+            { "texts": ["Mounted Police"], "vehicles": [22] },
+            { "texts": ["SES"], "vehicles": [20] },
+            {
+                "texts": ["Brush Truck", "Brush Trucks"],
+                "vehicles": [1, 18, 28, 29]
+            },
+            {
+                "texts": [
+                    "Airborne firefighting vehicle",
+                    "Airborne firefighting vehicles"
+                ],
+                "vehicles": [31, 32, 33]
+            },
+            { "texts": ["Boat", "Boats"], "vehicles": [21] },
+            {
+                "texts": ["Paramedic Supervisor", "Paramedic Supervisors"],
+                "vehicles": [23]
+            },
+            {
+                "texts": ["Senior Sergeant", "Senior Sergeants"],
+                "vehicles": [37]
+            },
+            {
+                "texts": [
+                    "Riot Police Group Vehicle",
+                    "Riot Police Group Vehicles"
+                ],
+                "vehicles": [15, 18, 35]
+            },
+            {
+                "texts": ["Riot Police SUV", "Riot Police SUVs"],
+                "vehicles": [15, 18, 34]
+            },
+            {
+                "texts": [
+                    "Riot Police Equipment Vehicle",
+                    "Riot Police Equipment Vehicles"
+                ],
+                "vehicles": [36]
+            }
+        ],
+        "water": "l. water"
+    },
+    "hideVehicleList": {
+        "hide": "Hide vehicle list",
+        "show": "Show vehicle list"
+    },
+    "patientCollapse": {
+        "amount": "Amount",
+        "combis": "Combinations",
+        "summary": { "total": "patients", "treated": "being treated" }
+    },
+    "releasePatient": { "release": "Release patient (No reward)" },
+    "tailoredTabs": {
+        "allTab": "All",
+        "occupiedTab": "Follow-up",
+        "vehicleMissing": {
+            "close": "Close Note till change",
+            "hide": "Hide Note",
+            "text": "The following vehicle types are only present in the \"All\" tab:",
+            "title": "One vehicle is not present in any tab | Several vehicles are not present in any tab"
+        }
+    },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "at Scene",
+        "driving": "en Route",
+        "players": "Players",
+        "total": "Total",
+        "vehicles": "Vehicles"
+    }
+}

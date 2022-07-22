@@ -14,9 +14,7 @@
         "title": "Premi",
         "title_amounts": "{sum} da {max} Premi"
     },
-    "buildings": {
-        "amount": "{n} Edifici"
-    },
+    "buildings": { "amount": "{n} Edifici" },
     "buttons": {
         "alliance_ignore": {
             "add": "Nega Applicazione Alleanza",

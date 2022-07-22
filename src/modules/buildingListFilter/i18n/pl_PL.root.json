@@ -1,52 +1,11 @@
 {
     "default": [
-        {
-            "ids": [
-                0,
-                18
-            ],
-            "name": "Straż Pożarna"
-        },
-        {
-            "ids": [
-                2,
-                4,
-                5,
-                20,
-                21
-            ],
-            "name": "Ratownictwo"
-        },
-        {
-            "ids": [
-                6,
-                11,
-                13,
-                19,
-                23
-            ],
-            "name": "Policja"
-        },
-        {
-            "ids": [
-                1,
-                3,
-                8
-            ],
-            "name": "Szkoła"
-        },
-        {
-            "ids": [
-                15
-            ],
-            "name": "WOPR"
-        },
-        {
-            "ids": [
-                7
-            ],
-            "name": "CPR"
-        }
+        { "ids": [0, 18], "name": "Straż Pożarna" },
+        { "ids": [2, 4, 5, 20, 21], "name": "Ratownictwo" },
+        { "ids": [6, 11, 13, 19, 23], "name": "Policja" },
+        { "ids": [1, 3, 8], "name": "Szkoła" },
+        { "ids": [15], "name": "WOPR" },
+        { "ids": [7], "name": "CPR" }
     ],
     "description": "Dostosuj filtry listy budynków!",
     "lssmComplex": "Kompleksy budynków LSSM",
@@ -54,10 +13,7 @@
     "settings": {
         "buildings": "Rodzaje budynków",
         "contentType": {
-            "labels": [
-                "Tekst",
-                "Ikona"
-            ],
+            "labels": ["Tekst", "Ikona"],
             "title": "Tekst czy ikona?"
         },
         "filters": {

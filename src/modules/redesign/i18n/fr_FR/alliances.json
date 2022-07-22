@@ -2,10 +2,7 @@
     "alliance": "Alliance",
     "amount": "{n} alliance filtrée | {n} alliances filtrées",
     "credits": "Crédits gagnés",
-    "load": {
-        "next": "Page suivante",
-        "prev": "Page précédente"
-    },
+    "load": { "next": "Page suivante", "prev": "Page précédente" },
     "members": "Nombre de membres",
     "name": "Alliance",
     "search_global": "Recherche globale",

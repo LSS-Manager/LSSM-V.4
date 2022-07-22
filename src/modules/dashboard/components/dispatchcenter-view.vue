@@ -771,10 +771,10 @@ export default Vue.extend<
 		width: 100%
 		margin-right: 1rem
 
-		::v-deep .vs__dropdown-toggle
+		:deep(.vs__dropdown-toggle)
 			padding: 0 0 6.4px 0
 
-		::v-deep .vs-pagination
+		:deep(.vs-pagination)
 			display: flex
 
 			.btn
@@ -794,7 +794,7 @@ export default Vue.extend<
 		position: absolute
 		right: 1rem
 
-	::v-deep [id$="-resizeBottomRight"]
+	:deep([id$="-resizeBottomRight"])
 		cursor: nwse-resize !important
 		width: 1em !important
 		height: unset !important

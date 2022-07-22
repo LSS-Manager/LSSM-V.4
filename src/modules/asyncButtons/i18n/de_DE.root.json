@@ -26,12 +26,8 @@
             "description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest",
             "title": "Rechte von Verbandsmitgliedern"
         },
-        "missionPrisoners": {
-            "title": "Gefangene im Einsatzfenster"
-        },
-        "missionReply": {
-            "title": "Rückmeldungen im Einsatz"
-        },
+        "missionPrisoners": { "title": "Gefangene im Einsatzfenster" },
+        "missionReply": { "title": "Rückmeldungen im Einsatz" },
         "switchExtensionState": {
             "description": "Verhindert ein Neuladen, wenn du eine Erweiterung aktivierst oder deaktivierst.",
             "title": "(De-)aktivieren von Erweiterungen"

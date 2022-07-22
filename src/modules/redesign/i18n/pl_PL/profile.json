@@ -14,9 +14,7 @@
         "title": "Nagrody",
         "title_amounts": "{sum} z {max} nagród"
     },
-    "buildings": {
-        "amount": "{n} budynek | {n} budynków"
-    },
+    "buildings": { "amount": "{n} budynek | {n} budynków" },
     "buttons": {
         "alliance_ignore": {
             "add": "Zakaz składania wniosku o sojusz",
@@ -28,10 +26,7 @@
             "unban": "Odblokuj na czacie sojuszu"
         },
         "edit": "Edytuj profil",
-        "friend": {
-            "do": "Dodaj znajomego",
-            "undo": "Usuń ze znajomych"
-        },
+        "friend": { "do": "Dodaj znajomego", "undo": "Usuń ze znajomych" },
         "gift": "Wyślij prezent",
         "ignore": {
             "do": "Ignoruj tego gracza",

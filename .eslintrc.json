@@ -9,6 +9,7 @@
         "compat",
         "import",
         "prettier",
+        "tsdoc",
         "unicorn",
         "regexp",
         "vue"

@@ -16,10 +16,7 @@
         "title": "Ausgaben",
         "user": "Spieler"
     },
-    "summary": {
-        "rate": "Abgaberate",
-        "title": "Verbandskasse"
-    },
+    "summary": { "rate": "Abgaberate", "title": "Verbandskasse" },
     "toggle": {
         "disable": "Verbandskasse deaktivieren",
         "enable": "Verbandskasse aktivieren"

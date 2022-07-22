@@ -2,9 +2,7 @@
     "description": "Facilita la configuración de PIs a través de funciones pequeñas y útiles",
     "name": "PI mejorado",
     "settings": {
-        "custom_style": {
-            "title": "Estilo personalizado para resaltar"
-        },
+        "custom_style": { "title": "Estilo personalizado para resaltar" },
         "predefined_style": {
             "brown": "Marrón",
             "custom": "Manual",

@@ -2,10 +2,7 @@
     "approach": "Aanrijden",
     "backalarm": "Terugroepen",
     "backalarmNext": "Direct rijden",
-    "cells": {
-        "cell": "Gebouw",
-        "free": "Vrije cellen"
-    },
+    "cells": { "cell": "Gebouw", "free": "Vrije cellen" },
     "color": "Kleur aanpassen",
     "current_mission": "Huidige inzet",
     "delete": {
@@ -27,9 +24,7 @@
         },
         "hospitals": {
             "beds": "Minimale vrije bedden",
-            "department": {
-                "title": "Specialisatie: {department}"
-            },
+            "department": { "title": "Specialisatie: {department}" },
             "distance": "Maximale afstand",
             "each": "Alleen eerste x ziekenhuizen weergeven",
             "tax": "Maximale afdracht"
@@ -37,9 +32,7 @@
         "missions": {
             "credits": "Minimale opbrengst",
             "distance": "Maximale afstand",
-            "participation": {
-                "title": "Aanwezig"
-            },
+            "participation": { "title": "Aanwezig" },
             "progress": "Afgerond tot max %",
             "status": {
                 "green": "groen",
@@ -48,10 +41,7 @@
                 "yellow": "geel"
             }
         },
-        "wlf": {
-            "distance": "Maximale afstand",
-            "same": "Zelfde gebouw"
-        }
+        "wlf": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }
     },
     "fms": "Status",
     "fms_switch": {
@@ -102,11 +92,7 @@
     },
     "release_patient": "Patiënt ontslaan",
     "release_prisoner": "Gevangene vrijlaten",
-    "staff": {
-        "name": "Naam",
-        "schooling": "Opleiding",
-        "title": "Personeel"
-    },
+    "staff": { "name": "Naam", "schooling": "Opleiding", "title": "Personeel" },
     "station": "Post",
     "stats": "Statistieken",
     "tabs": {

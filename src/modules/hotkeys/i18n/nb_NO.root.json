@@ -36,15 +36,9 @@
             "title": "Generell"
         },
         "main": {
-            "chat": {
-                "focus": "fokus på input feltet",
-                "title": "Chat"
-            },
+            "chat": { "focus": "fokus på input feltet", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Meny",
-                    "toggle": "Åpne lukke"
-                },
+                "menu": { "title": "Meny", "toggle": "Åpne lukke" },
                 "title": "LSS Manager"
             },
             "map": {
@@ -55,10 +49,7 @@
                 "title": "Kart"
             },
             "missionlist": {
-                "search": {
-                    "focus": "fokus på input feltet",
-                    "title": "Søk"
-                },
+                "search": { "focus": "fokus på input feltet", "title": "Søk" },
                 "title": "Oppdragsliste"
             },
             "title": "Hovedvindu"

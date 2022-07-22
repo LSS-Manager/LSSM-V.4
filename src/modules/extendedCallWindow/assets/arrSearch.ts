@@ -5,6 +5,7 @@ export default (
     autoFocus: boolean,
     dropdown: boolean,
     dissolveCategories: boolean,
+    compactResults: boolean,
     closeDropdownOnSelect: boolean,
     $sm: $m
 ) => {
@@ -87,6 +88,24 @@ export default (
                         content: attr(data-category-title);
                         font-weight: bold;
                     }`;
+            }
+            if (compactResults) {
+                hideStyle.textContent += `
+                    #mission-aao-group .row {
+                        padding-left: 15px;
+                    }
+                    #mission-aao-group .row .col-sm-2 {
+                        width: unset;
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                    #mission-aao-group .row .pull-right, #aao_without_category {
+                        float: none !important;
+                    }
+                    #mission-aao-group .row br {
+                        display: none;
+                    }
+                `;
             }
         });
 

@@ -2,9 +2,7 @@
     "description": "Ułatwia ustawianie miejsc UM dzięki małym, przydatnym funkcjom",
     "name": "Ulepszone UM",
     "settings": {
-        "custom_style": {
-            "title": "Niestandardowy styl do podkreślania"
-        },
+        "custom_style": { "title": "Niestandardowy styl do podkreślania" },
         "predefined_style": {
             "brown": "Brązowy",
             "custom": "Ręcznie",

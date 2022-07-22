@@ -149,9 +149,9 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Przenosi menu LSSM V3 do menu V4, aby zaoszczędzić trochę miejsca na pasku nawigacyjnym.',
         },
         debugMode: {
-            title: 'Debug-Mode',
+            title: 'Tryb debugowania',
             description:
-                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+                'Mały tryb debugowania, który wyświetla pomocne wskazówki w konsoli przeglądarki. Włączenie tej opcji jest zalecane tylko na żądanie zespołu LSSM, ponieważ konsola będzie zawierać wiele wiadomości.',
         },
     },
     vehicles: {

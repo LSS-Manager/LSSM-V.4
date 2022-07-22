@@ -1,14 +1,14 @@
 {
-    "description": "Improves the experience of transport requests by some cool features",
-    "name": "Improved transport requests",
+    "description": "Přidává úpravy pro zlepšení zpracování převozů",
+    "name": "Vylepšení žádostí o převoz",
     "settings": {
         "autoClickSuccessBtns": {
-            "description": "After finishing a transport request, buttons such as \"Next request\" and \"Back to mission\" are clicked automatically.",
-            "title": "jump to next transport request"
+            "description": "Po dokončení žádosti o převoz se automaticky otevře další žádost či se vrátí zpět na misi.",
+            "title": "skočit na další žádost k převozu"
         },
         "autoOpenTransportRequest": {
-            "description": "Automatically opens the first transport request in a mission window",
-            "title": "open first transport request"
+            "description": "Automaticky otevře první žádost o převoz v okně dané mise.",
+            "title": "otevřít první žádost o převoz"
         }
     }
 }

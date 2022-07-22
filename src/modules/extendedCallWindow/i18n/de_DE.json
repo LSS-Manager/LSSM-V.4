@@ -1,0 +1,320 @@
+{
+    "arrCounter": {
+        "reset": "{text} zurücksetzen",
+        "resetTexts": {
+            "counter": "AAO-Zähler",
+            "counter_highlight": "AAO-Zähler / -Umrandung",
+            "counter_highlight_selection": "AAO-Zähler / -Umrandung und Fahrzeugauswahl",
+            "counter_selection": "AAO-Zähler und Fahrzeugauswahl",
+            "highlight": "AAO-Umrandung",
+            "highlight_selection": "AAO-Umrandung und Fahrzeugauswahl",
+            "selection": "Fahrzeugauswahl"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "ab_atemschutz_only": "AB-Atemschutz",
+            "ab_einsatzleitung_only": "AB-Einsatzleitung",
+            "ab_gefahrgut_only": "AB-Gefahrgut",
+            "ab_oel_only": "AB-Öl",
+            "ab_ruest": "AB Rüst",
+            "ab_ruest_rw": "AB Rüst oder Rüstwagen oder HLF",
+            "abl2wasser_only": "AB-Schlauch",
+            "arff": "Flugfeldlöschfahrzeug",
+            "boot": "Boote (Allgemein)",
+            "dekon_p": "Dekon-P oder AB-Dekon-P",
+            "dlk": "Drehleitern",
+            "dlk_or_tm50": "DLK oder TM 50",
+            "elw": "Einsatzleitfahrzeuge 1",
+            "elw1_or_elw2": "ELW 1, ELW 2 oder AB-Einsatzleitung",
+            "elw2": "Einsatzleitfahrzeuge 2",
+            "elw2_or_ab_elw": "ELW 2 oder AB-Einsatzleitung",
+            "fire": "Löschfahrzeuge oder Tanklöschfahrzeuge",
+            "fukw": "FüKw (Führungskraftwagen)",
+            "fustw": "Funkstreifenwagen",
+            "fustw_or_police_motorcycle": "Funkstreifenwagen oder Polizeimotorrad",
+            "fwk": "Feuerwehrkran",
+            "gefkw": "GefKw (Gefangenenkraftwagen)",
+            "gkw": "Gerätekraftwagen (GKW)",
+            "grtw": "GRTW",
+            "grtw0": "GRTW (7 Patienten - ohne Notarzt)",
+            "grtw1": "GRTW (3 Patienten - inkl. Notarzt)",
+            "grukw": "GruKw (Gruppenkraftwagen)",
+            "gw_atemschutz_only": "GW-A",
+            "gw_gefahrgut_only": "GW-Gefahrgut",
+            "gw_oel_only": "GW-Öl",
+            "gw_san": "GW-San",
+            "gw_taucher": "GW-Taucher",
+            "gw_wasserrettung": "GW-Wasserrettung",
+            "gw_werkfeuerwehr": "GW-Werkfeuerwehr",
+            "gwa": "GW-A oder AB-Atemschutz",
+            "gwgefahrgut": "GW-Gefahrgut oder AB-Gefahrgut",
+            "gwhoehenrettung": "GW-Höhenrettung",
+            "gwl2wasser": "Schlauchwagen oder AB-Schlauch",
+            "gwl2wasser_only": "Schlauchwagen",
+            "gwmesstechnik": "GW-Messtechnik",
+            "gwoel": "GW-Öl oder AB-Öl",
+            "helicopter_bucket": "Außenlastbehälter (allgemein)",
+            "hlf_only": "HLF",
+            "hlf_or_rw_and_lf": "HLF oder RW und LF",
+            "k9": "DHuFüKw",
+            "kdow_lna": "KdoW-LNA",
+            "kdow_orgl": "KdoW-OrgL",
+            "ktw": "Krankentransportwagen",
+            "ktw_b": "KTW Typ B",
+            "ktw_or_rtw": "KTW oder RTW",
+            "lebefkw": "Leichter Befehlskraftwagen (leBefKw)",
+            "lf_only": "Löschfahrzeuge",
+            "mek_mtf": "MEK - MTF",
+            "mek_zf": "MEK - ZF",
+            "mtw": "MTW",
+            "mzb": "Mehrzweckboot",
+            "naw": "NAW",
+            "naw_or_critical_transport": "NAW oder ITW",
+            "naw_or_rtw_and_nef": "NAW oder NEF+RTW",
+            "naw_or_rtw_and_nef_or_rth": "NAW oder NEF/RTH+RTW",
+            "nef": "Notarzteinsatzfahrzeug oder Rettungshubschrauber",
+            "nef_only": "Notarzteinsatzfahrzeug",
+            "only_ab_dekon_p": "AB-Dekon-P",
+            "only_dekon_p": "Dekon-P",
+            "police_car_or_service_group_leader": "FuStW oder FuStW (DGL)",
+            "police_motorcycle": "Polizeimotorrad",
+            "polizeihubschrauber": "Polizeihubschrauber",
+            "pump": "Schmutzwasserpumpen",
+            "rescue_dogs": "Anhänger Hundetransport oder Rettungshundefahrzeug",
+            "rescue_dogs_seg": "Rettungshundefahrzeug",
+            "rescue_dogs_thw": "Anhänger Hundetransport",
+            "rettungstreppe": "Rettungstreppe",
+            "rth_only": "Rettungshubschrauber",
+            "rtw": "Rettungswagen",
+            "rw": "Rüstwagen oder HLF",
+            "rw_only": "Rüstwagen",
+            "seg_elw": "ELW 1 (SEG)",
+            "sek_mtf": "SEK - MTF",
+            "sek_zf": "SEK - ZF",
+            "thw_anh_mzab": "Anh MzAB",
+            "thw_anh_mzb": "Anh MzB",
+            "thw_anh_schlb": "Anh SchlB",
+            "thw_brmg_r": "Radlader groß (BRmG R)",
+            "thw_dle": "Anhänger Drucklufterzeugung (Anh DLE)",
+            "thw_lkw": "Lastkraftwagen-Kipper 9 t (LKW K 9)",
+            "thw_lkw_7_lkr_19_tm": "LKW 7 Lkr 19 tm",
+            "thw_mlw5": "Mannschaftslastwagen Typ V (MLW 5)",
+            "thw_mtw": "Mannschaftstransportwagen Technischer Zug (MTW-TZ - THW)",
+            "thw_mzkw": "Mehrzweckkraftwagen (MzKW)",
+            "thw_tauchkraftwagen": "Tauchkraftwagen",
+            "thw_tauchkraftwagen_or_gw_taucher": "Tauchkraftwagen oder GW-Taucher",
+            "tlf_only": "Tanklöschfahrzeuge",
+            "tm50": "TM 50",
+            "turboloescher": "Turbolöscher",
+            "ulf": "ULF mit Löscharm",
+            "wasser_amount": "Liter Wasser",
+            "wasser_amount_tlf": "Liter Wasser - Nur TLF",
+            "wasserwerfer": "Wasserwerfer",
+            "water_damage_pump": "Feuerlöschpumpen"
+        },
+        "headers": {
+            "attribute": "Name",
+            "free": "Frei",
+            "max": "max. mgl.",
+            "set": "Menge",
+            "status": "Status"
+        },
+        "reset": "Die Fahrzeugauswahl wird vorher zurückgesetzt!",
+        "titles": {
+            "attribute": "Die Kombination, die in dieser Zeile beschrieben wird",
+            "free": "So oft ist diese Kombination verfügbar",
+            "max": "So oft kannst du diese AAO auswählen, bis diese Kombination nicht mehr verfügbar ist",
+            "set": "So oft wird diese Kombination ausgewählt, wenn du auf die AAO drückst"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "Auf Anfahrt",
+        "missing": "Am Einsatzort fehlend",
+        "pump": "l/min Pumpenleistung",
+        "selected": "Ausgewählt",
+        "staff": [
+            {
+                "texts": ["Feuerwehrmann", "Feuerwehrleute"],
+                "vehicles": [
+                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+                    17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30, 33, 34, 36,
+                    37, 46, 53, 57, 75, 76, 83, 84, 85, 86, 87, 88, 89, 90
+                ]
+            },
+            {
+                "texts": ["Polizisten"],
+                "vehicles": [
+                    32, 35, 50, 51, 52, 61, 79, 80, 81, 82, 94, 95, 98, 103
+                ]
+            }
+        ],
+        "staffPrefix": ["Wir benötigen noch min."],
+        "tip": {
+            "dragging": "Feld verschieben",
+            "minified": "Ein/Ausklappen",
+            "overlay": "Overlay",
+            "pushLeft": "Anzeige an originaler Position anzeigen",
+            "pushRight": "Anzeige in der rechten Hälfte (über der Fahrzeugliste) anzeigen",
+            "reload": "Reload",
+            "textMode": "Textmodus (de-)aktivieren"
+        },
+        "total": "Noch benötigt",
+        "towingVehicles": {
+            "43": [42],
+            "47": [46],
+            "48": [46],
+            "49": [46],
+            "54": [46],
+            "62": [46],
+            "66": [65],
+            "67": [65],
+            "68": [65],
+            "71": [46],
+            "77": [46],
+            "78": [46],
+            "92": [93],
+            "96": [61]
+        },
+        "vehicle": "Fahrzeugtyp",
+        "vehiclesByRequirement": [
+            { "texts": ["Anhänger Drucklufterzeugung"], "vehicles": [44] },
+            {
+                "texts": ["Außenlastbehälter", "Außenlastbehälter (allgemein)"],
+                "vehicles": [96]
+            },
+            { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
+            { "texts": ["DHuFüKw"], "vehicles": [94] },
+            { "texts": ["Dekon-P"], "vehicles": [53, 54] },
+            {
+                "texts": ["Drehleiter (DLK 23)", "Drehleitern (DLK 23)"],
+                "vehicles": [2, 85]
+            },
+            { "texts": ["ELW 1 (SEG)"], "vehicles": [59] },
+            { "texts": ["ELW 1"], "vehicles": [3, 34, 78] },
+            { "texts": ["ELW 2"], "vehicles": [34, 78] },
+            {
+                "texts": ["Fahrzeug des THW (MzKW oder GKW)"],
+                "vehicles": [39, 41]
+            },
+            {
+                "texts": ["Feuerlöschpumpe", "Feuerlöschpumpen"],
+                "vehicles": [
+                    0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6, 7,
+                    8, 87, 88, 89, 9, 90, 101, 102
+                ]
+            },
+            {
+                "conditionalVehicles": {
+                    "allow_arff_instead_of_lf": [
+                        0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6,
+                        7, 8, 87, 88, 89, 9, 90
+                    ]
+                },
+                "texts": ["Flugfeldlöschfahrzeug", "Flugfeldlöschfahrzeuge"],
+                "vehicles": [75]
+            },
+            { "texts": ["FuStW"], "vehicles": [32, 95, 103] },
+            {
+                "texts": ["Funkstreifenwagen (Dienstgruppenleitung)"],
+                "vehicles": [103]
+            },
+            { "texts": ["FwK"], "vehicles": [57] },
+            { "texts": ["FüKw"], "vehicles": [51] },
+            { "texts": ["GW-Atemschutz"], "vehicles": [5, 48] },
+            { "texts": ["GW-Gefahrgut"], "vehicles": [27, 77] },
+            { "texts": ["GW-Höhenrettung"], "vehicles": [33] },
+            { "texts": ["GW-Messtechnik"], "vehicles": [12] },
+            { "texts": ["GW-San"], "vehicles": [60] },
+            { "texts": ["GW-Taucher"], "vehicles": [63, 69] },
+            { "texts": ["GW-Werkfeuerwehr"], "vehicles": [83] },
+            { "texts": ["GW-Öl"], "vehicles": [10, 49] },
+            { "texts": ["GefKw"], "vehicles": [52] },
+            { "texts": ["Gerätekraftwagen (GKW)"], "vehicles": [39] },
+            { "texts": ["GruKw"], "vehicles": [50] },
+            { "texts": ["LKW Kipper (LKW K 9)"], "vehicles": [42] },
+            {
+                "conditionalVehicles": {
+                    "allow_rw_instead_of_lf": [4, 39, 47]
+                },
+                "texts": ["Löschfahrzeug (LF)", "Löschfahrzeuge (LF)"],
+                "vehicles": [
+                    0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6, 7,
+                    8, 87, 88, 89, 9, 90
+                ]
+            },
+            {
+                "texts": ["MEK-Fahrzeug", "MEK-Fahrzeuge"],
+                "vehicles": [81, 82]
+            },
+            { "texts": ["Polizeihubschrauber"], "vehicles": [61] },
+            {
+                "texts": ["RTW oder KTW oder KTW-B"],
+                "vehicles": [28, 38, 58, 74, 97]
+            },
+            { "texts": ["RTW"], "vehicles": [28, 74, 97] },
+            { "texts": ["Radlader (BRmG R)"], "vehicles": [43] },
+            { "texts": ["Rettungshundestaffel/n"], "vehicles": [91, 92] },
+            {
+                "texts": ["Rettungstreppe", "Rettungstreppen"],
+                "vehicles": [76]
+            },
+            {
+                "texts": ["Rüstwagen oder HLF"],
+                "vehicles": [4, 30, 39, 47, 90]
+            },
+            {
+                "texts": ["SEK-Fahrzeug", "SEK-Fahrzeuge"],
+                "vehicles": [79, 80]
+            },
+            {
+                "texts": [
+                    "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)"
+                ],
+                "vehicles": [11, 13, 14, 15, 16, 62, 101, 102]
+            },
+            {
+                "texts": ["Schmutzwasserpumpe", "Schmutzwasserpumpen"],
+                "vehicles": [101, 102]
+            },
+            { "texts": ["THW-Einsatzleitung (MTW TZ)"], "vehicles": [40] },
+            { "texts": ["THW-Mehrzweckkraftwagen (MzKW)"], "vehicles": [41] },
+            { "texts": ["Teleskopmast", "Teleskopmasten"], "vehicles": [85] },
+            { "texts": ["Turbolöscher"], "vehicles": [86] },
+            { "texts": ["ULF mit Löscharm"], "vehicles": [84] },
+            { "texts": ["Wasserwerfer"], "vehicles": [72] },
+            { "texts": ["Zivilstreifenwagen"], "vehicles": [98] },
+            { "texts": ["leBefKw"], "vehicles": [35] }
+        ],
+        "water": "l. Wasser"
+    },
+    "hideVehicleList": {
+        "hide": "Fahrzeugliste verstecken",
+        "show": "Fahrzeugliste zeigen"
+    },
+    "patientCollapse": {
+        "amount": "Anzahl",
+        "combis": "Kombinationen",
+        "summary": { "total": "Patienten", "treated": "in Behandlung" }
+    },
+    "patientSummary": { "oncePerMission": ["LNA", "OrgL"] },
+    "releasePatient": { "release": "Patient entlassen (Keine Vergütung)" },
+    "tailoredTabs": {
+        "allTab": "Alle",
+        "occupiedTab": "Weiteralarmieren",
+        "vehicleMissing": {
+            "close": "Hinweis für diese Konfiguration schließen",
+            "hide": "Hinweis ausblenden",
+            "text": "Folgende Fahrzeugtypen werden nur im \"Alle\" Tab angezeigt:",
+            "title": "Ein Fahrzeug ist in keinem Tab vorhanden | Mehrere Fahrzeuge sind in keinem Tab vorhanden"
+        }
+    },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "vor Ort",
+        "driving": "auf Anfahrt",
+        "players": "Spieler",
+        "total": "Gesamt",
+        "vehicles": "Fahrzeuge"
+    }
+}

@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import path from 'path';
 
+import prettier from 'prettier';
+
 import sortJSON from './utils/sortJSON';
 import tsconfig from '../tsconfig.json';
 
@@ -11,6 +13,11 @@ fs.writeFileSync(
     JSON.stringify(sortJSON(tsconfig, true), null, 4)
 );
 
+const excluded = [
+    path.join(ROOT_PATH, 'src', 'libraries.json'),
+    path.join(ROOT_PATH, 'src', 'utils', 'browsers.json'),
+];
+
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
     if (/node_modules/u.test(folder)) return [];
@@ -20,7 +27,10 @@ const getJsons = (folder: string): string[] => {
         else if (
             item.isFile() &&
             item.name.endsWith('.json') &&
-            item.name !== 'package.json'
+            !(
+                item.name === 'package.json' ||
+                excluded.includes(path.join(folder, item.name))
+            )
         )
             jsons.push(`${folder}/${item.name}`);
     });
@@ -48,14 +58,25 @@ try {
             const sortArray = false;
             fs.writeFileSync(
                 file,
-                JSON.stringify(
-                    sortJSON(
-                        JSON.parse(fs.readFileSync(file).toString()),
-                        sortArray
-                    ),
-                    null,
-                    4
-                )
+                prettier
+                    .format(
+                        JSON.stringify(
+                            sortJSON(
+                                JSON.parse(fs.readFileSync(file).toString()),
+                                sortArray
+                            )
+                        ),
+                        {
+                            arrowParens: 'avoid',
+                            endOfLine: 'lf',
+                            parser: 'json',
+                            quoteProps: 'consistent',
+                            singleQuote: true,
+                            tabWidth: 4,
+                            trailingComma: 'es5',
+                        }
+                    )
+                    .trimEnd()
             );
             fileCounter++;
         })
