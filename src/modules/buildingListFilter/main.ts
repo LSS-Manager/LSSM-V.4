@@ -33,16 +33,6 @@ export default <ModuleMainFunction>(async ({
     wrapper.style.setProperty('display', 'flex');
     wrapper.style.setProperty('margin-bottom', '1rem');
     wrapper.style.setProperty('justify-content', 'space-between');
-    selectGroup.before(wrapper);
-    wrapper.append(selectGroup, extraBtnsGroup);
-
-    let breakElement: HTMLElement | null;
-    while (
-        (breakElement = document.querySelector<HTMLElement>(
-            `#${wrapper.id} + br`
-        ))
-    )
-        breakElement.remove();
 
     const fixedFilters = await getSetting('fixedFilters');
 
@@ -68,6 +58,27 @@ export default <ModuleMainFunction>(async ({
         fixedWhiteSpace.style.setProperty('margin-bottom', '1rem');
         wrapper.after(fixedWhiteSpace);
     }
+
+    const insertIntoDocument = () => {
+        if (!selectGroup) return;
+
+        wrapper.innerHTML = '';
+        selectGroup.innerHTML = '';
+        extraBtnsGroup.innerHTML = '';
+
+        selectGroup.before(wrapper);
+        wrapper.append(selectGroup, extraBtnsGroup);
+
+        let breakElement: HTMLElement | null;
+        while (
+            (breakElement = document.querySelector<HTMLElement>(
+                `#${wrapper.id} + br`
+            ))
+        )
+            breakElement.remove();
+
+        if (fixedFilters) wrapper.after(fixedWhiteSpace);
+    };
 
     interface Filter {
         contentType: 'icon' | 'text';
@@ -149,7 +160,26 @@ export default <ModuleMainFunction>(async ({
 
     let updateBuildingsArrayHookAttached = false;
 
-    let styleAdded = false;
+    LSSM.$stores.root.addStyles([
+        {
+            selectorText: `.${searchHideClass}`,
+            style: {
+                display: 'none !important',
+            },
+        },
+        {
+            selectorText: `.${filterHideClass}`,
+            style: {
+                display: 'none !important',
+            },
+        },
+        {
+            selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
+            style: {
+                transform: 'rotate(180deg)',
+            },
+        },
+    ]);
 
     const updateFilters = async () => {
         selectGroup = document.querySelector<HTMLDivElement>(
@@ -158,6 +188,8 @@ export default <ModuleMainFunction>(async ({
         if (!selectGroup) return;
         selectGroup.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
+
+        insertIntoDocument();
 
         const buildingsByType = LSSM.$stores.api.buildingsByType;
         Object.entries(smallBuildings).forEach(([big, small]) =>
@@ -182,6 +214,7 @@ export default <ModuleMainFunction>(async ({
                 })
         );
 
+        btns.splice(0);
         filters.forEach(
             ({ contentType, title, icon_style, buildings, state }, index) => {
                 const btn: FilterBtn = document.createElement('button');
@@ -268,30 +301,6 @@ export default <ModuleMainFunction>(async ({
 
         updateBuildingsArray();
 
-        if (!styleAdded) {
-            LSSM.$stores.root.addStyles([
-                {
-                    selectorText: `.${searchHideClass}`,
-                    style: {
-                        display: 'none !important',
-                    },
-                },
-                {
-                    selectorText: `.${filterHideClass}`,
-                    style: {
-                        display: 'none !important',
-                    },
-                },
-                {
-                    selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
-                    style: {
-                        transform: 'rotate(180deg)',
-                    },
-                },
-            ]);
-            styleAdded = true;
-        }
-
         const sortBtn = document.createElement('button');
         sortBtn.classList.add('btn', 'btn-xs', 'btn-default');
         sortBtn.style.setProperty('margin-top', '-4px');
@@ -366,6 +375,7 @@ export default <ModuleMainFunction>(async ({
         } else {
             selectGroup.style.setProperty('width', '100%');
         }
+
         extraBtnsGroup.append(searchBtn, search, sortBtn);
         window.buildingsVehicleLoadVisible();
     };
