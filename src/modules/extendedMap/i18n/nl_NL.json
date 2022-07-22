@@ -13,12 +13,12 @@
                 "inConstruction": "waarvan {n} in aanbouw",
                 "share": {
                     "beds": {
-                        "share": "Share beds with alliance",
-                        "unShare": "Don't share beds with alliance"
+                        "share": "Deel bedden met het team",
+                        "unShare": "Deel bedden niet met het team"
                     },
                     "cells": {
-                        "share": "Share prison cells with alliance",
-                        "unShare": "Don't share prison cells with alliance"
+                        "share": "Deel cellen met het team",
+                        "unShare": "Deel cellen niet met het team"
                     }
                 },
                 "table": {

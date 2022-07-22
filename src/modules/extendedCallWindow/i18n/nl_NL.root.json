@@ -15,11 +15,11 @@
             "title": "Langste aanrijdtijd"
         },
         "arrCategoryColors": {
-            "bgColor": "Background color",
-            "category": "Name of the category",
-            "color": "Text color",
-            "description": "Colorize your ARR Categories.",
-            "title": "colorized ARR-Categories"
+            "bgColor": "Achtergrondkleur",
+            "category": "Naam van de categorie",
+            "color": "Tekstkleur",
+            "description": "Kleur je inzetvoorstellencategorieën.",
+            "title": "Gekleurde inzetvoorstellencategorieën"
         },
         "arrClickHighlight": {
             "description": "Geeft een kader om de aangeklikte inzetvoorstellen.",
@@ -62,8 +62,8 @@
             "title": "sluit dropdown na selectie"
         },
         "arrSearchCompactResults": {
-            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
-            "title": "ARR-Search: Compact results"
+            "description": "Kolommen worden genegeerd en alle inzetvoorstellen van een categorie worden getoond in een enkele rij.",
+            "title": "Inzetvoorstellen zoeken: Compacte resultaten"
         },
         "arrSearchDissolveCategories": {
             "description": "Toon alle categoriën tegelijk bij het zoeken in de inzetvoorstellen.",
