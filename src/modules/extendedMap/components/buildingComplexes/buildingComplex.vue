@@ -455,7 +455,13 @@
                         </div>
                         <small>{{ $m('overview.vehicles.imageInfo') }}</small>
                         <enhanced-table
-                            :table-attrs="{ class: 'table table-striped' }"
+                            :table-attrs="{
+                                class: 'table table-striped',
+                                id: rootStore.nodeAttribute(
+                                    'buildingComplex-vehicle-table',
+                                    true
+                                ),
+                            }"
                             :head="{
                                 icon: {
                                     title: '',
