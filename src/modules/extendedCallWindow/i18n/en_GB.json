@@ -62,6 +62,31 @@
         "selected": "Selected",
         "staff": [
             {
+                "texts": ["Armed Response Personnel"],
+                "vehicles": [13, 25, 52, 56]
+            },
+            {
+                "texts": ["more firefighter", "more firefighters"],
+                "vehicles": [
+                    0, 1, 2, 3, 4, 6, 7, 14, 15, 16, 17, 18, 23, 26, 35, 36, 37,
+                    38, 39, 40
+                ]
+            }
+        ],
+        "staffPrefix": ["We need"],
+        "tip": {
+            "dragging": "drag window",
+            "minified": "collapse",
+            "overlay": "overlay",
+            "pushLeft": "show this box at original position",
+            "pushRight": "show this box above vehicle list",
+            "reload": "reload",
+            "textMode": "textmode on/off"
+        },
+        "total": "Still needed",
+        "vehicle": "Vehicle type",
+        "vehiclesByRequirement": [
+            {
                 "texts": ["Fire engine", "Fire engines"],
                 "vehicles": [0, 1, 16, 17, 26, 37, 38, 47]
             },
@@ -154,19 +179,7 @@
             },
             { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
             { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] }
-        ],
-        "staffPrefix": ["We need"],
-        "tip": {
-            "dragging": "drag window",
-            "minified": "collapse",
-            "overlay": "overlay",
-            "pushLeft": "show this box at original position",
-            "pushRight": "show this box above vehicle list",
-            "reload": "reload",
-            "textMode": "textmode on/off"
-        },
-        "total": "Still needed",
-        "vehicle": "Vehicle type"
+        ]
     },
     "hideVehicleList": {
         "hide": "Hide vehicle list",
