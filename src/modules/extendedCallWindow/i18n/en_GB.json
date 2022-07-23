@@ -62,47 +62,98 @@
         "selected": "Selected",
         "staff": [
             {
-                "texts": ["Fire engine(s)?"],
+                "texts": ["Fire engine", "Fire engines"],
                 "vehicles": [0, 1, 16, 17, 26, 37, 38, 47]
             },
-            { "texts": ["Aerial Appliance Trucks?"], "vehicles": [2, 17] },
-            { "texts": ["Fire Officer(s)?"], "vehicles": [3, 15, 44] },
             {
-                "texts": ["Rescue Support Unit(s)? or Rescue Pump(s)?"],
+                "texts": ["Aerial Appliance Truck", "Aerial Appliance Trucks"],
+                "vehicles": [2, 17]
+            },
+            {
+                "texts": ["Fire Officer", "Fire Officers"],
+                "vehicles": [3, 15, 44]
+            },
+            {
+                "texts": [
+                    "Rescue Support Unit or Rescue Pump",
+                    "Rescue Support Units or Rescue Pumps"
+                ],
                 "vehicles": [4, 16, 38, 43]
             },
-            { "texts": ["BASU(s)?"], "vehicles": [14, 39, 46, 49] },
-            { "texts": ["Water Carrier(s)?"], "vehicles": [6, 26, 36, 41, 50] },
+            { "texts": ["BASU", "BASUs"], "vehicles": [14, 39, 46, 49] },
             {
-                "texts": ["ICCU or Ambulance Control Unit(s)?"],
+                "texts": ["Water Carrier", "Water Carriers"],
+                "vehicles": [6, 26, 36, 41, 50]
+            },
+            {
+                "texts": [
+                    "ICCU or Ambulance Control Unit",
+                    "ICCU or Ambulance Control Units"
+                ],
                 "vehicles": [15, 31, 44]
             },
             {
-                "texts": ["HazMat Unit(s)? or CBRN Vehicle(s)?"],
+                "texts": [
+                    "HazMat Unit or CBRN Vehicle",
+                    "HazMat Units or CBRN Vehicles"
+                ],
                 "vehicles": [7, 32, 39, 48, 49]
             },
-            { "texts": ["Ambulance(s)?"], "vehicles": [5] },
+            { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
             {
-                "texts": ["Police car(s)?"],
+                "texts": ["Police car", "Police cars"],
                 "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56]
             },
             { "texts": ["HEMS"], "vehicles": [9] },
-            { "texts": ["Policehelicopter(s)?"], "vehicles": [11] },
+            {
+                "texts": ["Policehelicopter", "Policehelicopters"],
+                "vehicles": [11]
+            },
             { "texts": ["Armed Response"], "vehicles": [13, 25, 52, 56] },
             {
-                "texts": ["Dog Support Units? \\(DSUs?\\)"],
+                "texts": [
+                    "Dog Support Units (DSU)",
+                    "Dog Support Units (DSUs)"
+                ],
                 "vehicles": [12, 53]
             },
-            { "texts": ["Operational Team Leader(s)?"], "vehicles": [20, 31] },
-            { "texts": ["Traffic Car(s)?"], "vehicles": [24, 25] },
-            { "texts": ["ATV Carrier(s)?"], "vehicles": [30] },
-            { "texts": ["Primary Response Vehicle(s)?"], "vehicles": [27] },
-            { "texts": ["Secondary Response Vehicle(s)?"], "vehicles": [28] },
-            { "texts": ["Welfare Vehicle(s)?"], "vehicles": [29, 39, 45, 49] },
-            { "texts": ["Ambulance Officer(s)?"], "vehicles": [34] },
-            { "texts": ["Foam Unit(s)?"], "vehicles": [35, 36, 37, 38, 42] },
-            { "texts": ["Mass Casualty Equipment?"], "vehicles": [33] },
-            { "texts": ["Mounted Unit(s)?"], "vehicles": [55] }
+            {
+                "texts": [
+                    "Operational Team Leader",
+                    "Operational Team Leaders"
+                ],
+                "vehicles": [20, 31]
+            },
+            { "texts": ["Traffic Car", "Traffic Cars"], "vehicles": [24, 25] },
+            { "texts": ["ATV Carrier", "ATV Carriers"], "vehicles": [30] },
+            {
+                "texts": [
+                    "Primary Response Vehicle",
+                    "Primary Response Vehicles"
+                ],
+                "vehicles": [27]
+            },
+            {
+                "texts": [
+                    "Secondary Response Vehicle",
+                    "Secondary Response Vehicles"
+                ],
+                "vehicles": [28]
+            },
+            {
+                "texts": ["Welfare Vehicle", "Welfare Vehicles"],
+                "vehicles": [29, 39, 45, 49]
+            },
+            {
+                "texts": ["Ambulance Officer", "Ambulance Officers"],
+                "vehicles": [34]
+            },
+            {
+                "texts": ["Foam Unit", "Foam Units"],
+                "vehicles": [35, 36, 37, 38, 42]
+            },
+            { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
+            { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] }
         ],
         "staffPrefix": ["We need"],
         "tip": {
