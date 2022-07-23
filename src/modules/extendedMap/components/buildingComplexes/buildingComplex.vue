@@ -1248,6 +1248,7 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
 import moment from 'moment';
+import { useEventStore } from '@stores/event';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 import { defineAPIStore, useAPIStore } from '@stores/api';
@@ -2641,24 +2642,34 @@ export default Vue.extend<
         },
         selectOverviewTab(event, index) {
             this.currentOverviewTab = index;
-            switch (index) {
-                case this.overviewTabs.classrooms:
-                    this.apiStore
-                        .getSchoolings('buildingComplex')
-                        .then(() => this.$nextTick())
-                        .then(() => this.initSchoolingCountdowns());
-                    break;
-                case this.overviewTabs.buildings:
-                case this.overviewTabs.extensions:
-                    this.apiStore.getBuildings('buildingComplex');
-                    break;
-                case this.overviewTabs.vehicles:
-                    this.apiStore.getBuildings('buildingComplex');
-                    break;
-                case this.overviewTabs.protocol:
-                    this.updateProtocol();
-                    break;
-            }
+            (async () => {
+                switch (index) {
+                    case this.overviewTabs.classrooms:
+                        return this.apiStore
+                            .getSchoolings('buildingComplex')
+                            .then(() => this.$nextTick())
+                            .then(() => this.initSchoolingCountdowns());
+                    case this.overviewTabs.buildings:
+                    case this.overviewTabs.extensions:
+                        return this.apiStore.getBuildings('buildingComplex');
+                    case this.overviewTabs.vehicles:
+                        return this.apiStore.getBuildings('buildingComplex');
+                    case this.overviewTabs.protocol:
+                        return this.updateProtocol();
+                }
+            })()
+                .then(() => this.$nextTick())
+                .then(() => {
+                    const tab = Object.entries(this.overviewTabs).find(
+                        ([, i]) => i === index
+                    )?.[0];
+                    if (tab) {
+                        useEventStore().createAndDispatchEvent({
+                            name: 'buildingComplex-opened-overview-tab',
+                            detail: tab,
+                        });
+                    }
+                });
         },
         updateIframe(event) {
             const iframe = event.target;
@@ -3101,6 +3112,7 @@ export default Vue.extend<
         this.apiStore.$subscribe(() =>
             this.$nextTick().then(() => this.initSchoolingCountdowns())
         );
+        this.selectOverviewTab(new MouseEvent('click'), 0);
     },
 });
 </script>
