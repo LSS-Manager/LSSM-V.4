@@ -45,7 +45,7 @@ const modules = {
             text: 'Olet tehnyt muutoksia asetuksissa joita ei ole vielä tallennettu. Palauta, hylkää tai tallenna ne sulkeaksesi asetukset.',
             abort: 'Peruuta',
             saveAndExit: 'Tallenna ja poistu',
-            exit: 'Poistu tallentamatt',
+            exit: 'Poistu tallentamatta',
         },
         changeList: {
             true: 'On',
