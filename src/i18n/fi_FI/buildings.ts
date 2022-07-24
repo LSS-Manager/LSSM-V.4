@@ -13,7 +13,7 @@ const multiplyExtension = (
 export default {
     0: {
         caption: 'Paloasema',
-        color: '#ff0000',
+        color: '#FF0000',
         credits: 100000,
         coins: 30,
         extensions: [
@@ -49,7 +49,7 @@ export default {
     },
     1: {
         caption: 'Pelastajaoppilaitos',
-        color: '#ff0000',
+        color: '#d9ae6f',
         credits: 500000,
         coins: 50,
         extensions: multiplyExtension(
@@ -72,7 +72,7 @@ export default {
     },
     2: {
         caption: 'Ambulanssiasema',
-        color: '#ff0000',
+        color: '#ffff00',
         credits: 200000,
         coins: 35,
         extensions: [],
@@ -87,7 +87,7 @@ export default {
     },
     3: {
         caption: 'Ammattikorkeakoulu',
-        color: '#ff0000',
+        color: '#d9ae6f',
         credits: 500000,
         coins: 50,
         extensions: multiplyExtension(
@@ -193,7 +193,7 @@ export default {
     },
     5: {
         caption: 'Lääkintähelikopteriasema',
-        color: '#ff0000',
+        color: '#ffff00',
         credits: 1000000,
         coins: 50,
         extensions: [],
@@ -212,7 +212,7 @@ export default {
     },
     6: {
         caption: 'Poliisiasema',
-        color: '#ff0000',
+        color: '#06377b',
         credits: 100000,
         coins: 35,
         extensions: [
@@ -260,7 +260,7 @@ export default {
     },
     8: {
         caption: 'Poliisiammattikorkeakoulu',
-        color: '#ff0000',
+        color: '#d9ae6f',
         credits: 500000,
         coins: 50,
         extensions: multiplyExtension(
@@ -283,7 +283,7 @@ export default {
     },
     13: {
         caption: 'Poliisihelikopteritukikohta',
-        color: '#ff0000',
+        color: '#06377b',
         credits: 1000000,
         coins: 50,
         extensions: [],
@@ -302,7 +302,7 @@ export default {
     },
     14: {
         caption: 'Kokoontumispaikka',
-        color: '#ff0000',
+        color: '#FFFFFF',
         credits: 0,
         coins: 0,
         extensions: [],
@@ -314,7 +314,7 @@ export default {
     },
     18: {
         caption: 'Paloasema (pieni)',
-        color: '#ff0000',
+        color: '#FF0000',
         credits: 50000,
         coins: 25,
         extensions: [
@@ -350,7 +350,7 @@ export default {
     },
     19: {
         caption: 'Poliisiasema (pieni asema)',
-        color: '#ff0000',
+        color: '#06377b',
         credits: 50000,
         coins: 25,
         extensions: [
@@ -381,7 +381,7 @@ export default {
     },
     20: {
         caption: 'Ambulanssiasema (pieni asema)',
-        color: '#ff0000',
+        color: '#ffff00',
         credits: 100000,
         coins:25,
         extensions: [],
