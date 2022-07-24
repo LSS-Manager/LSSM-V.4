@@ -1698,6 +1698,7 @@ export default Vue.extend<
                     const building = isAllianceBuilding
                         ? this.allianceBuildings[intId]
                         : this.buildings[intId];
+                    if (!building) return null;
                     const buildingType =
                         this.buildingTypes[building.building_type];
 
@@ -1872,7 +1873,7 @@ export default Vue.extend<
                         ...vehicles,
                     };
                 })
-                .filter(Boolean);
+                .filter(<S>(value: S | null): value is S => !!value);
         },
         sortedBuildingsByName() {
             const buildings = this.attributedBuildings;
