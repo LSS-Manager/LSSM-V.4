@@ -516,7 +516,7 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
             vehicles: {
                 Ambulanssit: [5, 22, 23],
                 Muu: [19, 20, 21, 24],
-                Helikopteri: [9),
+                Helikopteri: [9],
             },
             color: '#ffff00',
         },
