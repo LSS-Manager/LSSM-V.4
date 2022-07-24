@@ -20,6 +20,9 @@ actions:
   - text: 🇪🇸
     link: /es_ES/
     type: secondary
+  - text: 🇫🇮
+    link: /fi_FI/
+    type: secondary
   - text: 🇫🇷
     link: /fr_FR/
     type: secondary
