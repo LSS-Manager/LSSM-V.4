@@ -5,7 +5,7 @@
     "generated_by": "Luonut",
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
-        "helicopter": "Helikopteripyynnön mahdollisuus	",
+        "helicopter": "Helikopteripyynnön mahdollisuus",
         "patient_allow_first_responder_chance": "Ensivasteyksikkö voi hoitaa potilaan kokonaan",
         "patient_at_end_of_mission": "Potilas ilmestyy paikalle vasta tehtävän lopussa",
         "patient_transport": "Todennäköisyys, että potilasta joudutaan kuljettamaan",
@@ -53,13 +53,13 @@
         "heavy_rescue_vehicles": {
             "additional_text": "siellä vähintään {n} raskas pelastusauto",
             "reduce_from": "firetrucks"
-        },
+        }},
         "optional_alternatives": {
               "allow_rw_instead_of_lf": "paloauto tai raskas pelastusauto | paloautoa tai raskasta pelastusautoa",
               "allow_dlk_instead_of_lf": "paloauto tai nostolava-auto | paloautoa tai nostolava-autoa",
               "allow_ktw_instead_of_rtw": "ambulanssi tai perustason ambulanssi | ambulanssia tai perustason ambulanssia"
         },
-        "patient_additionals": {},
+        "patient_additionals": { "5": "ensihoidon kenttäjohtaja" },
         "title": "Ajoneuvot"
     }
 }
