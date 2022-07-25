@@ -77,7 +77,7 @@
                 "title": "Paloauton voi korvata nostolava-autolla"
             },
             "allow_ktw_instead_of_rtw": {
-                "description": "Näyttää, Hoitotason ambulanssin voi korvata perustason ambulanssilla.",
+                "description": "Näyttää, kun hoitotason ambulanssin voi korvata perustason ambulanssilla.",
                 "title": "Hoitotason ambulanssin voi korvata perustason ambulanssilla"
             }
         },
