@@ -1,0 +1,10 @@
+{
+    "description": "Tiivistää päivittäisen katsauksen luokkiin, jotta saat nopean yleiskuvan siitä, mistä olet saanut rahaa.",
+    "name": "Krediittien yhteenveto",
+    "settings": {
+        "showAverage": {
+            "description": "Näyttää kunkin luokan keskimääräiset krediitit.",
+            "title": "näytä keskiarvo"
+        }
+    }
+}
