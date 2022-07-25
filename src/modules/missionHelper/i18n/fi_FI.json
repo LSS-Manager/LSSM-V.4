@@ -51,7 +51,7 @@
             "reduce_from": "mobile_command_vehicles"
         },
         "heavy_rescue_vehicles": {
-            "additional_text": "siellä vähintään {n} raskas pelastusauto",
+            "additional_text": "sisältää vähintään {n} pelastusauton",
             "reduce_from": "firetrucks"
         }},
         "optional_alternatives": {
