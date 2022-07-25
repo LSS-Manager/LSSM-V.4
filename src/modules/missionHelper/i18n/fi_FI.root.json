@@ -42,7 +42,20 @@
             "description": "Määritä, mitkä erityisvaatimukset näytetään, jos niitä on olemassa kyseistä tehtävää varten.",
             "title": "Erityisvaatimukset"
         },
-        "optionalAlternatives": {},
+        "optionalAlternatives": {
+            "allow_rw_instead_of_lf": {
+        "description": "Näyttää, jos paloauton voi korvata raskaalla pelastusautolla.",
+                "title": "Paloauton voi korvata raskaalla pelastusautolla"
+            },
+            "allow_dlk_instead_of_lf": {
+                "description": "Näyttää, paloauton voi korvata nostolava-autolla.",
+                "title": "Paloauton voi korvata nostolava-autolla"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "description": "Näyttää, Hoitotason ambulanssin voi korvata perustason ambulanssilla.",
+                "title": "Hoitotason ambulanssin voi korvata perustason ambulanssilla"
+            }
+        },
         "patients": {
             "content": {
                 "description": "Näyttää tietoja mahdollisista potilaista.",
