@@ -1,7 +1,19 @@
 {
     "description": "Saa kaikki tärkeät tiedot tehtävästä tehtäväikkunassa.",
     "name": "Missionhelper",
-    "noVehicleRequirements": {},
+    "noVehicleRequirements": {
+        "water_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Water: {n} L."
+        },
+        "foam_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Foam: {n} L."
+        }
+    },
+
     "settings": {
         "chances": {
             "100": {
@@ -41,6 +53,10 @@
             "battalion_chief_vehicles": {
                 "description": "Vähentää johtokeskusautojen määrän johtoautoista ja piilottaa johtoautot, jos niiden määrä laskee alle 0:n.",
                 "title": "Johtokeskusauto johtoautosta"
+            }
+            "heavy_rescue_vehicles": {
+                "description": "Jotain tekee sammutusautoille, pelastusautoille ja raskaille pelastusautoille. Tarkoitettu täys pelastusauto pelaajille (En minä vittu tiedä mitä tämä tekee!)",
+                "title": ""
             }
         },
         "hide_battalion_chief_vehicles": {
