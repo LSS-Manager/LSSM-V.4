@@ -5304,7 +5304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:^9.2.0":
+"eslint-plugin-vue@npm:^9.3.0":
   version: 9.3.0
   resolution: "eslint-plugin-vue@npm:9.3.0"
   dependencies:
@@ -8988,7 +8988,7 @@ __metadata:
     eslint-plugin-regexp: ^1.7.0
     eslint-plugin-tsdoc: ^0.2.16
     eslint-plugin-unicorn: ^43.0.2
-    eslint-plugin-vue: ^9.2.0
+    eslint-plugin-vue: ^9.3.0
     he: ^1.2.0
     highcharts: ^10.2.0
     highcharts-vue: ^1.4.0
