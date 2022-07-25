@@ -37,14 +37,23 @@
             "description": "Näyttää tehtävän ID:n otsikon vieressä.",
             "title": "Tehtävä ID"
         },
-        "multifunctionals": {},
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "description": "Vähentää johtokeskusautojen määrän johtoautoista ja piilottaa johtoautot, jos niiden määrä laskee alle 0:n.",
+                "title": "Johtokeskusauto johtoautosta"
+            }
+        },
+        "hide_battalion_chief_vehicles": {
+            "description": "Piilottaa johtoautot kokonaan ja näyttää vain johtokeskusautot.",
+            "title": "Pilottaa johtoautot"
+        },
         "noVehicleRequirements": {
             "description": "Määritä, mitkä erityisvaatimukset näytetään, jos niitä on olemassa kyseistä tehtävää varten.",
             "title": "Erityisvaatimukset"
         },
         "optionalAlternatives": {
             "allow_rw_instead_of_lf": {
-        "description": "Näyttää, jos paloauton voi korvata raskaalla pelastusautolla.",
+                "description": "Näyttää, jos paloauton voi korvata raskaalla pelastusautolla.",
                 "title": "Paloauton voi korvata raskaalla pelastusautolla"
             },
             "allow_dlk_instead_of_lf": {
