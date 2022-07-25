@@ -163,7 +163,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(locale === 'en_US'
+        ...(['en_US', 'fi_FI'].includes(locale)
             ? {
                   'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
                       type: 'toggle',
@@ -183,9 +183,15 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT', 'fr_FR', 'nb_NO'].includes(
-            locale
-        )
+        ...([
+            'de_DE',
+            'en_US',
+            'nl_NL',
+            'it_IT',
+            'fr_FR',
+            'nb_NO',
+            'fi_FI',
+        ].includes(locale)
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
                       type: 'toggle',
