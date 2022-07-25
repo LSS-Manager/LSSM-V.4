@@ -105,7 +105,7 @@
                 "title": "Ajoneuvo vaatimukset"
             },
             "patient_additionals": {
-                "description": "Jos tehtävällä on yli viisi (5) potilasta ensihoidon kenttäjohtaja listataan automaattisesti ajoneuvo vaatimus listan alkuun."
+                "description": "Jos tehtävällä on yli viisi (5) potilasta ensihoidon kenttäjohtaja listataan automaattisesti ajoneuvo vaatimus listan alkuun.",
                 "title": "Maininta ensihoidon kenttäjohtajasta"
             },
             "sort": {
