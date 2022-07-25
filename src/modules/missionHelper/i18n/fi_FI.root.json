@@ -5,12 +5,12 @@
         "water_needed": {
             "badge": true,
             "in": "requirements",
-            "text": "Water: {n} L."
+            "text": "{n} l vettä."
         },
         "foam_needed": {
             "badge": true,
             "in": "requirements",
-            "text": "Foam: {n} L."
+            "text": "{n} l vaahtoa."
         }
     },
 
