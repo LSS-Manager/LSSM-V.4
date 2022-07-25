@@ -11,8 +11,8 @@
             "title": "vankisellejen tai sairaalasänkyjen hinnan muokkaaminen"
         },
         "deleteARR": {
-            "description": "Prevents reloading when you delete an ARR entry",
-            "title": "Delete ARR entries"
+            "description": "Estää lataamisen uudelleen, kun poistat hälytysjärjetyn",
+            "title": "Poista hälytysjärjestelyt"
         },
         "deleteForumPost": {
             "description": "Estää uudelleenlatauksen, kun poistat foorumiviestin.",
