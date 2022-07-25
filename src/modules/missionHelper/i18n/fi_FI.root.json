@@ -53,10 +53,10 @@
             "battalion_chief_vehicles": {
                 "description": "Vähentää johtokeskusautojen määrän johtoautoista ja piilottaa johtoautot, jos niiden määrä laskee alle 0:n.",
                 "title": "Johtokeskusauto johtoautosta"
-            }
+            },
             "heavy_rescue_vehicles": {
                 "description": "Jotain tekee sammutusautoille, pelastusautoille ja raskaille pelastusautoille. Tarkoitettu täys pelastusauto pelaajille (En minä vittu tiedä mitä tämä tekee!)",
-                "title": ""
+                "title": "Pelastusauto korvaa"
             }
         },
         "hide_battalion_chief_vehicles": {
