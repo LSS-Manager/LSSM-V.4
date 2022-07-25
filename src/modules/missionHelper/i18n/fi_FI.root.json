@@ -42,8 +42,7 @@
             "description": "Määritä, mitkä erityisvaatimukset näytetään, jos niitä on olemassa kyseistä tehtävää varten.",
             "title": "Erityisvaatimukset"
         },
-        "optionalAlternatives": {}
-        },
+        "optionalAlternatives": {},
         "patients": {
             "content": {
                 "description": "Näyttää tietoja mahdollisista potilaista.",
