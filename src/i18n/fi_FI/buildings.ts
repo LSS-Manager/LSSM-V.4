@@ -14,7 +14,7 @@ export default {
     0: {
         caption: 'Paloasema',
         color: '#FF0000',
-        credits: 100000,
+        credits: 100_000,
         coins: 30,
         extensions: [
             {
@@ -41,16 +41,21 @@ export default {
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: '6000 yhdessä pienten paloasemien kanssa',
         maxLevel: 24,
-        special: 'Paloasemien hinta 25. paloaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
+        special:
+            'Paloasemien hinta 25. paloaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
         startPersonnel: 10,
         startParkingLots: 1,
-        startVehicles: ['Sammutusauto', 'Kevyt sammutusauto', '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta "Kapteeni" alkaen )' ],
+        startVehicles: [
+            'Sammutusauto',
+            'Kevyt sammutusauto',
+            '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta "Kapteeni" alkaen )',
+        ],
         schoolingTypes: [],
     },
     1: {
         caption: 'Pelastajaoppilaitos',
         color: '#d9ae6f',
-        credits: 500000,
+        credits: 500_000,
         coins: 50,
         extensions: multiplyExtension(
             index => ({
@@ -73,7 +78,7 @@ export default {
     2: {
         caption: 'Ambulanssiasema',
         color: '#ffff00',
-        credits: 200000,
+        credits: 200_000,
         coins: 35,
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
@@ -88,7 +93,7 @@ export default {
     3: {
         caption: 'Ammattikorkeakoulu',
         color: '#d9ae6f',
-        credits: 500000,
+        credits: 500_000,
         coins: 50,
         extensions: multiplyExtension(
             index => ({
@@ -111,7 +116,7 @@ export default {
     4: {
         caption: 'Sairaala',
         color: '#ff0000',
-        credits: 200000,
+        credits: 200_000,
         coins: 35,
         extensions: [
             {
@@ -194,7 +199,7 @@ export default {
     5: {
         caption: 'Lääkintähelikopteriasema',
         color: '#ffff00',
-        credits: 1000000,
+        credits: 1_000_000,
         coins: 50,
         extensions: [],
         levelcost: ['1000000'],
@@ -213,7 +218,7 @@ export default {
     6: {
         caption: 'Poliisiasema',
         color: '#06377b',
-        credits: 100000,
+        credits: 100_000,
         coins: 35,
         extensions: [
             {
@@ -234,11 +239,13 @@ export default {
                     cannotDisable: true,
                 },
                 9
-            ),],
+            ),
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Ei rajoitusta',
         maxLevel: 14,
-        special: 'Poliisiasemien hinta 25. poliisiaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
+        special:
+            'Poliisiasemien hinta 25. poliisiaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
@@ -261,7 +268,7 @@ export default {
     8: {
         caption: 'Poliisiammattikorkeakoulu',
         color: '#d9ae6f',
-        credits: 500000,
+        credits: 500_000,
         coins: 50,
         extensions: multiplyExtension(
             index => ({
@@ -284,7 +291,7 @@ export default {
     13: {
         caption: 'Poliisihelikopteritukikohta',
         color: '#06377b',
-        credits: 1000000,
+        credits: 1_000_000,
         coins: 50,
         extensions: [],
         levelcost: ['1000000'],
@@ -315,7 +322,7 @@ export default {
     18: {
         caption: 'Paloasema (pieni)',
         color: '#FF0000',
-        credits: 50000,
+        credits: 50_000,
         coins: 25,
         extensions: [
             {
@@ -342,16 +349,21 @@ export default {
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: '6000 yhdessä paloasemien kanssa',
         maxLevel: 5,
-        special: 'Voi rakentaa vain yhden laajennuksen. Paloasemien hinta 25. paloaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
+        special:
+            'Voi rakentaa vain yhden laajennuksen. Paloasemien hinta 25. paloaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
         startPersonnel: 10,
         startParkingLots: 1,
-        startVehicles: ['Sammutusauto', 'Kevyt sammutusauto', '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta'],
+        startVehicles: [
+            'Sammutusauto',
+            'Kevyt sammutusauto',
+            '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta',
+        ],
         schoolingTypes: [],
     },
     19: {
         caption: 'Poliisiasema (pieni asema)',
         color: '#06377b',
-        credits: 50000,
+        credits: 50_000,
         coins: 25,
         extensions: [
             {
@@ -362,18 +374,20 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
-                {
-                    caption: 'Lisäselli',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 päivää',
-                    newCells: 1,
-                    cannotDisable: true,
-            },],
+            {
+                caption: 'Lisäselli',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 päivää',
+                newCells: 1,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
         maxLevel: 5,
-        special: 'Poliisiasemien hinta 25. poliisiaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
+        special:
+            'Poliisiasemien hinta 25. poliisiaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
@@ -382,8 +396,8 @@ export default {
     20: {
         caption: 'Ambulanssiasema (pieni asema)',
         color: '#ffff00',
-        credits: 100000,
-        coins:25,
+        credits: 100_000,
+        coins: 25,
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',

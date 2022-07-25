@@ -29,35 +29,36 @@
     },
     "vehicles": {
         "captions": {
-              "ambulances": "ambulanssi | ambulanssit",
-              "battalion_chief_vehicles": "johtoauto | johtoautot",
-              "firetrucks": "paloauto | paloautot",
-              "hazmat_vehicles": "kemikaalitorjunta-auto | kemikaalitorjunta-autot",
-              "heavy_rescue_vehicles": "raskas pelastusauto | raskasta pelastusautoa",
-              "hose": "letkuajoneuvo | letkuajoneuvot",
-              "k9": "koirapartioauto | koirapartioautoja",
-              "kdow_orgl": "ensihoidon kenttäjohtaja | ensihoidon kenttäjohtajat",
-              "mobile_air_vehicles": "paineilmahuoltoauto | paineilmahuoltoautot",
-              "mobile_command_vehicles": "johtokeskusauto | johtokeskusautot",
-              "platform_trucks": "nostolava-auto | nostolava-autot",
-              "police_cars": "partioauto | partioautot",
-              "police_helicopters": "poliisihelikopteri | poliisihelikopterit",
-              "pump": "säiliöauto | säiliöautot",
-              "water_tankers": "säiliöauto | säiliöautot"
+            "ambulances": "ambulanssi | ambulanssit",
+            "battalion_chief_vehicles": "johtoauto | johtoautot",
+            "firetrucks": "paloauto | paloautot",
+            "hazmat_vehicles": "kemikaalitorjunta-auto | kemikaalitorjunta-autot",
+            "heavy_rescue_vehicles": "raskas pelastusauto | raskasta pelastusautoa",
+            "hose": "letkuajoneuvo | letkuajoneuvot",
+            "k9": "koirapartioauto | koirapartioautoja",
+            "kdow_orgl": "ensihoidon kenttäjohtaja | ensihoidon kenttäjohtajat",
+            "mobile_air_vehicles": "paineilmahuoltoauto | paineilmahuoltoautot",
+            "mobile_command_vehicles": "johtokeskusauto | johtokeskusautot",
+            "platform_trucks": "nostolava-auto | nostolava-autot",
+            "police_cars": "partioauto | partioautot",
+            "police_helicopters": "poliisihelikopteri | poliisihelikopterit",
+            "pump": "säiliöauto | säiliöautot",
+            "water_tankers": "säiliöauto | säiliöautot"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
-            "additional_text": "",
-            "reduce_from": "mobile_command_vehicles"
+                "additional_text": "",
+                "reduce_from": "mobile_command_vehicles"
+            },
+            "heavy_rescue_vehicles": {
+                "additional_text": "sisältää vähintään {n} pelastusauton",
+                "reduce_from": "firetrucks"
+            }
         },
-        "heavy_rescue_vehicles": {
-            "additional_text": "sisältää vähintään {n} pelastusauton",
-            "reduce_from": "firetrucks"
-        }},
         "optional_alternatives": {
-              "allow_rw_instead_of_lf": "paloauto tai raskas pelastusauto | paloautoa tai raskasta pelastusautoa",
-              "allow_dlk_instead_of_lf": "paloauto tai nostolava-auto | paloautoa tai nostolava-autoa",
-              "allow_ktw_instead_of_rtw": "ambulanssi tai perustason ambulanssi | ambulanssia tai perustason ambulanssia"
+            "allow_dlk_instead_of_lf": "paloauto tai nostolava-auto | paloautoa tai nostolava-autoa",
+            "allow_ktw_instead_of_rtw": "ambulanssi tai perustason ambulanssi | ambulanssia tai perustason ambulanssia",
+            "allow_rw_instead_of_lf": "paloauto tai raskas pelastusauto | paloautoa tai raskasta pelastusautoa"
         },
         "patient_additionals": { "5": "ensihoidon kenttäjohtaja" },
         "title": "Ajoneuvot"

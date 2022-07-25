@@ -2,18 +2,17 @@
     "description": "Saa kaikki tärkeät tiedot tehtävästä tehtäväikkunassa.",
     "name": "Missionhelper",
     "noVehicleRequirements": {
-        "water_needed": {
-            "badge": true,
-            "in": "requirements",
-            "text": "{n} l vettä."
-        },
         "foam_needed": {
             "badge": true,
             "in": "requirements",
             "text": "{n} l vaahtoa."
+        },
+        "water_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "{n} l vettä."
         }
     },
-
     "settings": {
         "chances": {
             "100": {
@@ -41,6 +40,10 @@
             "description": "Näyttää, mikä rakennustyyppi loi tämän.",
             "title": "Luonut (Rakennustyyppi)"
         },
+        "hide_battalion_chief_vehicles": {
+            "description": "Piilottaa johtoautot kokonaan ja näyttää vain johtokeskusautot.",
+            "title": "Pilottaa johtoautot"
+        },
         "hoverTip": {
             "description": "Tooltipsit esimerkiksi kelluva ikkuna nappia varten.",
             "title": "Tooltips"
@@ -59,19 +62,11 @@
                 "title": "Pelastusauto korvaa"
             }
         },
-        "hide_battalion_chief_vehicles": {
-            "description": "Piilottaa johtoautot kokonaan ja näyttää vain johtokeskusautot.",
-            "title": "Pilottaa johtoautot"
-        },
         "noVehicleRequirements": {
             "description": "Määritä, mitkä erityisvaatimukset näytetään, jos niitä on olemassa kyseistä tehtävää varten.",
             "title": "Erityisvaatimukset"
         },
         "optionalAlternatives": {
-            "allow_rw_instead_of_lf": {
-                "description": "Näyttää, jos paloauton voi korvata raskaalla pelastusautolla.",
-                "title": "Paloauton voi korvata raskaalla pelastusautolla"
-            },
             "allow_dlk_instead_of_lf": {
                 "description": "Näyttää, paloauton voi korvata nostolava-autolla.",
                 "title": "Paloauton voi korvata nostolava-autolla"
@@ -79,6 +74,10 @@
             "allow_ktw_instead_of_rtw": {
                 "description": "Näyttää, kun hoitotason ambulanssin voi korvata perustason ambulanssilla.",
                 "title": "Hoitotason ambulanssin voi korvata perustason ambulanssilla"
+            },
+            "allow_rw_instead_of_lf": {
+                "description": "Näyttää, jos paloauton voi korvata raskaalla pelastusautolla.",
+                "title": "Paloauton voi korvata raskaalla pelastusautolla"
             }
         },
         "patients": {
