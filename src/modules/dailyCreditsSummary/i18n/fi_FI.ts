@@ -24,17 +24,17 @@ export default {
             textColor: 'white',
         },
         buyVehicle: {
-            regex: /Vehicle bought/u,
+            regex: /Ajoneuvo ostettu/u,
             backgroundColor: '#007fff',
             textColor: 'white',
         },
         dailyLogin: {
-            regex: /Daily login reward/u,
+            regex: /Päivittäisen kirjautumisen palkinto/u,
             backgroundColor: '#8db600',
             textColor: 'black',
         },
         buildings: {
-            regex: /(Building constructed|Building demolished without refund|Refund Building$)/u,
+            regex: /(Asema rakennettu|Building demolished without refund|Palauta rahat rakennuksesta$)/u,
             title: 'Rakennettu/purettu rakennus',
             backgroundColor: '#ed872d',
             textColor: 'black',
@@ -52,7 +52,7 @@ export default {
             textColor: 'white',
         },
         patients: {
-            regex: /Potilas (kuljetus|hoito)/u,
+            regex: /Potilaan hoito/u,
             title: 'Potilaat',
             backgroundColor: '#fff600',
             textColor: 'black',
