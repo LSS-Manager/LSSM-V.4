@@ -103,11 +103,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.30.7"
+        "version": "5.31.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.30.7"
+        "version": "5.31.0"
     },
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
