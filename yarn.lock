@@ -2510,7 +2510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/devtools-api@npm:^6.1.4, @vue/devtools-api@npm:^6.2.0":
+"@vue/devtools-api@npm:^6.1.4, @vue/devtools-api@npm:^6.2.0, @vue/devtools-api@npm:^6.2.1":
   version: 6.2.1
   resolution: "@vue/devtools-api@npm:6.2.1"
   checksum: 34765af0be9b0cc7e3def73b2792b1514e3c348852c5a7503fe07d013f0e907af6c27c0a32c0637dd748caf37c075af8e53ca3220433e0bd34b6f3405f358272
@@ -8295,11 +8295,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:^2.0.16":
-  version: 2.0.16
-  resolution: "pinia@npm:2.0.16"
+"pinia@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "pinia@npm:2.0.17"
   dependencies:
-    "@vue/devtools-api": ^6.1.4
+    "@vue/devtools-api": ^6.2.1
     vue-demi: "*"
   peerDependencies:
     "@vue/composition-api": ^1.4.0
@@ -8310,7 +8310,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 226aaf57a8809848ec7f679999578308ad70b8939de6163af3ff62e91c2606a274fd8ab626af8071654d76316ff260fe3fc42a9725218bdbcd4b46b1a26e90d5
+  checksum: d308c6358570242b6c8126d990d756a224d1a77dfa375db5069da7f1c350372bf4e07feb4efce0d924dfc1b39f39d533234cdecf3594c4a2876de30477f6f978
   languageName: node
   linkType: hard
 
@@ -9000,7 +9000,7 @@ __metadata:
     moment: ^2.29.4
     moment-timezone: ^0.5.34
     pdfmake: ^0.2.5
-    pinia: ^2.0.16
+    pinia: ^2.0.17
     prettier: ^2.7.1
     qrcode: ^1.5.1
     sass: ^1.54.0
