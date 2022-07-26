@@ -18,7 +18,7 @@ export default {
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%missions%( \\(Palohälytysjärjestelmä\\))? - [pP]eruutettu$',
+            regex: '^%missions%( \\(Palohälytysjärjestelmä\\))? – [pP]eruutettu$',
             title: 'Peruutetut tehtävät',
             backgroundColor: '#7C7978',
             textColor: 'white',
@@ -46,7 +46,7 @@ export default {
             textColor: 'white',
         },
         task: {
-            regex: /Suoritettu tehtävä («.*?»|".*?")/u,
+            regex: /(«.*?»|".*?"|.*?) suoritettu$/u,
             title: 'Suoritettu tehtävä',
             backgroundColor: '#bb3385',
             textColor: 'white',
