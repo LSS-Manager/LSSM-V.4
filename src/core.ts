@@ -389,7 +389,7 @@ LSSM-Team`,
 
     const fa = document.createElement('script');
     fa.src = LSSM.$stores.root.lssmUrl(
-        '/static/fontawesome_free_6.1.1_all.min.js',
+        '/static/fontawesome_free_6.1.2_all.min.js',
         true
     );
     fa.crossOrigin = 'anonymous';
