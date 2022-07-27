@@ -3,7 +3,7 @@ import type { ModuleMainFunction } from 'typings/Module';
 export default <ModuleMainFunction>(({ getSetting }) => {
     if (
         window.location.pathname.match(
-            /^\/vehicles\/\d+\/(gefangener|patient)\/\d+\/?$/u
+            /^\/vehicles\/\d+(\/(gefangener|patient)\/\d+)?\/?$/u
         )
     ) {
         getSetting('autoClickSuccessBtns').then(autoClickSuccessBtns => {
