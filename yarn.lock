@@ -5245,7 +5245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:^1.7.0":
+"eslint-plugin-regexp@npm:^1.8.0":
   version: 1.8.0
   resolution: "eslint-plugin-regexp@npm:1.8.0"
   dependencies:
@@ -8978,7 +8978,7 @@ __metadata:
     eslint-plugin-compat: ^4.0.2
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-regexp: ^1.7.0
+    eslint-plugin-regexp: ^1.8.0
     eslint-plugin-tsdoc: ^0.2.16
     eslint-plugin-unicorn: ^43.0.2
     eslint-plugin-vue: ^9.3.0
