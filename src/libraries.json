@@ -167,6 +167,11 @@
         "url": "https://github.com/webpack-contrib/css-loader",
         "version": "6.7.1"
     },
+    "emoji-toolkit": {
+        "icon": "https://avatars.githubusercontent.com/u/6843823",
+        "url": "https://www.joypixels.com",
+        "version": "6.6.0"
+    },
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
