@@ -813,10 +813,18 @@
                                                     )
                                                 }}
                                             </span>
+                                            <span class="label label-default">
+                                                <span
+                                                    :id="extension.countdownId"
+                                                ></span>
+                                                ({{
+                                                    extension.availableAtReadable
+                                                }})
+                                            </span>
                                             &nbsp;
-                                            <!-- Disabled until we know which one can be aborted (and finished early)
                                             <button
                                                 class="btn btn-default btn-xs"
+                                                v-if="extension.canBeAborted"
                                                 disabled
                                             >
                                                 {{
@@ -825,7 +833,6 @@
                                                     )
                                                 }}
                                             </button>
-                                            -->
                                         </template>
                                     </template>
                                     <template
@@ -1401,7 +1408,6 @@ type AttributedExtension = {
     name: string;
     type: number;
 } & (
-    | { bought: true; available: boolean; enabled: boolean; canToggle: boolean }
     | ({
           duration: string;
           credits: number;
@@ -1409,6 +1415,17 @@ type AttributedExtension = {
           enoughCredits: boolean;
           enoughCoins: boolean;
       } & ({ canBuy: false; requirements: string[] } | { canBuy: true }))
+    | ({ bought: true; enabled: boolean; canToggle: boolean } & (
+          | {
+                available: false;
+                availableAt: string;
+                availableAtReadable: string;
+                canBeAborted: boolean;
+                countdownId: string;
+                initCountdown(): void;
+            }
+          | { available: true }
+      ))
 );
 
 type SchoolingBuilding = ClassroomBuilding & {
@@ -1517,6 +1534,7 @@ export default Vue.extend<
         setSortVehiclesTable(sort: keyof AttributedVehicle): void;
         setSortExtensionsTable(sort: ExtensionSortAttribute): void;
         setSortProtocolTable(sort: ProtocolSortAttribute): void;
+        initExtensionCountdowns(): void;
         buyExtension(
             buildingId: number,
             extensionType: number,
@@ -2137,6 +2155,14 @@ export default Vue.extend<
                     const removeNull = <S>(value: S | null): value is S =>
                         !!value;
 
+                    const availableAtSorted = extensions
+                        .map(extension =>
+                            !extension.available ? extension.available_at : null
+                        )
+                        .filter(removeNull)
+                        .sort()
+                        .reverse();
+
                     return buildingType.extensions
                         .filter(removeNull)
                         .map((extensionType, index) => {
@@ -2177,6 +2203,20 @@ export default Vue.extend<
                                 canBuyByAmount ??
                                 true;
 
+                            const available =
+                                boughtExtension?.available ?? false;
+                            const availableAt =
+                                boughtExtension && !boughtExtension.available
+                                    ? boughtExtension.available_at
+                                    : '';
+                            const canBeAborted =
+                                availableAt === availableAtSorted[0];
+
+                            const countdownId = this.rootStore.nodeAttribute(
+                                `buildingComplexes-extensions-${buildingId}-${index}-countdown`,
+                                true
+                            );
+
                             return {
                                 allianceBuilding: alliance,
                                 buildingId,
@@ -2186,7 +2226,30 @@ export default Vue.extend<
                                 ...(boughtExtension
                                     ? {
                                           bought: true,
-                                          available: boughtExtension.available,
+                                          ...(available
+                                              ? { available }
+                                              : {
+                                                    available,
+                                                    availableAt,
+                                                    availableAtReadable:
+                                                        this.moment(
+                                                            availableAt
+                                                        ).calendar(),
+                                                    canBeAborted,
+                                                    countdownId,
+                                                    initCountdown: () =>
+                                                        this.$utils.countdown(
+                                                            countdownId,
+                                                            Math.floor(
+                                                                (new Date(
+                                                                    availableAt
+                                                                ).getTime() -
+                                                                    Date.now()) /
+                                                                    1000
+                                                            ),
+                                                            true
+                                                        ),
+                                                }),
                                           enabled: boughtExtension.enabled,
                                           canToggle:
                                               !extensionType.cannotDisable,
@@ -2378,10 +2441,11 @@ export default Vue.extend<
             ): number => {
                 const min = Number.MIN_SAFE_INTEGER / 2;
                 if ('bought' in extension) {
-                    if (!extension.available) return min + 4;
+                    if (!extension.available)
+                        return -new Date(extension.availableAt).getTime();
                     const toggleBonus = extension.canToggle ? 0 : 1;
-                    if (extension.enabled) return min + toggleBonus;
-                    return min + 2 + toggleBonus;
+                    if (extension.enabled) return min - toggleBonus;
+                    return min - 2 - toggleBonus;
                 }
                 return extension.credits;
             };
@@ -2657,8 +2721,12 @@ export default Vue.extend<
                             .then(() => this.$nextTick())
                             .then(() => this.initSchoolingCountdowns());
                     case this.overviewTabs.buildings:
-                    case this.overviewTabs.extensions:
                         return this.apiStore.getBuildings('buildingComplex');
+                    case this.overviewTabs.extensions:
+                        return this.apiStore
+                            .getBuildings('buildingComplex')
+                            .then(() => this.$nextTick())
+                            .then(() => this.initExtensionCountdowns());
                     case this.overviewTabs.vehicles:
                         return this.apiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.protocol:
@@ -2769,6 +2837,16 @@ export default Vue.extend<
                     ? 'desc'
                     : 'asc';
             this.protocolTable.sort = s;
+        },
+        initExtensionCountdowns() {
+            if (this.currentOverviewTab !== this.overviewTabs.extensions)
+                return;
+            this.filteredExtensions.forEach(
+                extension =>
+                    'bought' in extension &&
+                    !extension.available &&
+                    extension.initCountdown()
+            );
         },
         buyExtension(
             buildingId,
@@ -2881,6 +2959,7 @@ export default Vue.extend<
                 this.extensionsTable.filters.states =
                     states.filter(removeAllElement);
             }
+            this.$nextTick().then(this.initExtensionCountdowns);
         },
         initSchoolingCountdowns() {
             if (this.currentOverviewTab !== this.overviewTabs.classrooms)
