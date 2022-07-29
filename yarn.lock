@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: ".vuepress-548500@workspace:docs/.vuepress"
   dependencies:
-    "@primer/octicons": ^17.3.0
+    "@primer/octicons": ^17.4.0
     "@vuepress/client": ^2.0.0-beta.49
     "@vuepress/plugin-pwa": ^2.0.0-beta.49
     "@vuepress/plugin-pwa-popup": ^2.0.0-beta.49
@@ -1735,12 +1735,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:^17.3.0":
-  version: 17.3.0
-  resolution: "@primer/octicons@npm:17.3.0"
+"@primer/octicons@npm:^17.4.0":
+  version: 17.4.0
+  resolution: "@primer/octicons@npm:17.4.0"
   dependencies:
     object-assign: ^4.1.1
-  checksum: b706621400151c64cdfa87d910c477c15fa1b639d78f4fd6eee857f7f90c571cc03600fafc0b0c7ed90e4f7ebb65b8d0117b392dc68f7ce0cc7b89e709cea0e3
+  checksum: 972f122bfae65b1d86d70967c0d468bff96bee2827cd976acb326da584d749ba89b3e0dd07f431751b91681324798f1cb07d0e616ebd616125fff3736d90c66c
   languageName: node
   linkType: hard
 
