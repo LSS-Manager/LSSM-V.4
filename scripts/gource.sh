@@ -1,9 +1,10 @@
 # This script uses Gource (https://gource.io/) to show a visualisation of the project progress
 
-# TODO: Save it as a video file
+video_target="$1"
 
-# set visualisation duration to 5 minutes
-visualisation_duration_seconds=$(( 60 * 5 ))
+# set visualisation duration
+visualisation_duration_seconds=$(( 60 * 5 )) # 5min
+# visualisation_duration_seconds=$(( 10 )) #  10s
 
 # find script directory & get filename of captions file
 dir="$(dirname -- "$( readlink -f -- "$0"; )";)";
@@ -41,7 +42,19 @@ echo "$first_commit_timestamp"'|('"$(date --date='@'"$first_commit_timestamp" +%
 git log --reverse --no-walk --tags --date="format:%x" --pretty="%at|(%ad) %(describe:tags)" --since=1605913464 | grep -E "v\.?4(\.[0-9]+){2}$" | sed -r 's/v\.?4\./Release: v4./g' >> "$captions_filename"
 
 # show visualisation with gource
-gource -f --key --title "LSS-Manager V.4" --seconds-per-day $seconds_per_day --caption-file "$captions_filename"
+gource_options=(
+    -f
+    --key
+    --title "LSS-Manager V.4"
+    --seconds-per-day "$seconds_per_day"
+    --caption-file "$captions_filename"
+)
+
+if [ ${#video_target} = 0 ]; then
+    gource "${gource_options[@]}"
+else
+    gource "${gource_options[@]}" -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 "$video_target"
+fi
 
 # delete the captions file as we don't need it anymore
 rm "$captions_filename"
