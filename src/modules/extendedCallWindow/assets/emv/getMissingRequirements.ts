@@ -165,7 +165,7 @@ export default (
                             .conditionalVehicles ?? {}
                     ).forEach(([condition, vehicles]) => {
                         if (
-                            LSSM.$stores.api.missions[missionType].additional[
+                            LSSM.$stores.api.missions[missionType]?.additional[
                                 condition
                             ]
                         )
@@ -202,7 +202,7 @@ export default (
                             .conditionalVehicles ?? {}
                     ).forEach(([condition, vehicles]) => {
                         if (
-                            LSSM.$stores.api.missions[missionType].additional[
+                            LSSM.$stores.api.missions[missionType]?.additional[
                                 condition
                             ]
                         )

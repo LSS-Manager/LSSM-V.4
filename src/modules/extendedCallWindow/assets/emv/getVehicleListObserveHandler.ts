@@ -53,7 +53,7 @@ export default (
                         ([condition, vehicles]) => {
                             if (
                                 LSSM.$stores.api.missions[missionType]
-                                    .additional[condition]
+                                    ?.additional[condition]
                             )
                                 vehicleTypes.push(...Object.values(vehicles));
                         }
