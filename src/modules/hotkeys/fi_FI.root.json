@@ -1,0 +1,78 @@
+{
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "Avaa hakemukset",
+                "buildings": "Avaa liittouman rakennukset sivu",
+                "forum": "Avaa keskustelupalsta",
+                "funds": "Avaa liittouman varat sivu",
+                "logfiles": "Avaa liittouman logit",
+                "members": "Avaa Jäsenet-sivu",
+                "messages": "Avaa viestit",
+                "onlineMembers": "Avaa jäsenet-lista (Näyttää vain paikalla olevat jäsenet)",
+                "open": "Avaa liittouma ikkunan",
+                "schoolings": "Avaa Kurssit-ikkunan",
+                "title": "Liittouma"
+            },
+            "credits": {
+                "daily": "Avaa Päivittäinen kirjautuminen sivun",
+                "open": "Avaa krediitti logit",
+                "overview": "Avaa yleiskatsauksen 7 viimeisestä päivästä",
+                "title": "Krediitit"
+            },
+            "help": "Avaa tämän ohjeen",
+            "profile": {
+                "awards": "Avaa Palkinnot-sivun",
+                "level": "Avaa Arvo-sivun",
+                "notes": "Avaa Muistiinpanot-sivun",
+                "open": "Avaa oman profiilin",
+                "title": "Profiili"
+            },
+            "protocol": "Open Log in Dispatch Center",
+            "tasks": {
+                "open": "Avaa Urakat ja tapahtumat",
+                "title": "Urakat ja tapahtumat"
+            },
+            "title": "Yleinen"
+        },
+        "main": {
+            "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },
+            "lssm": {
+                "menu": { "title": "Valikko", "toggle": "Auki / Kiinni" },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "Valitsee hakukentän",
+                    "title": "Sijaintihaku"
+                },
+                "title": "Kartta"
+            },
+            "missionlist": {
+                "search": { "focus": "Valitsee hakukentän", "title": "Haku" },
+                "title": "Tehtävälista"
+            },
+            "title": "Pääikkuna"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Lähetä ja seuraava",
+                "alert_share_next": "Lähetä valitut yksiköt, jaa tehtavä liittoutumasi kanssa ja jatka seuraavaan tehtävään.",
+                "next": "Seuraava tehtävä",
+                "prev": "Edellinen tehtävä",
+                "title": "Lajitellut tehtävät"
+            },
+            "title": "Hälytysikkuna"
+        }
+    },
+    "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",
+    "name": "Pikanäppäimet",
+    "settings": {
+        "command": "Toiminta",
+        "hotkey": "Pikanäppäimet",
+        "hotkeys": {
+            "description": "Aseta omat pikanäppäimet tietyille toiminnoille täällä. Kategorian \"Yleinen\" toiminnot ovat käytettävissä kaikkialla pelissä. Painamalla F1-näppäintä voit nähdä yleiskatsauksen pikanäppäimistä, jotka olet avannut milloin tahansa.",
+            "title": "Pikanäppäimet"
+        }
+    }
+}
