@@ -1,0 +1,38 @@
+{
+    "extensionTitle": "{caption} (kertaa {n})",
+    "schoolings": { "all": "kaikki", "min": "min. {n}x" },
+    "tabs": {
+        "buildings": "Rakennukset",
+        "schoolings": "Kurssit",
+        "vehicles": "Ajoneuvot"
+    },
+    "titles": {
+        "buildings": {
+            "caption": "Rakennustyyppi",
+            "cost": "Hinta",
+            "extensions": "Laajennukset",
+            "levelcost": "Laajennusten hinta",
+            "maxBuildings": "Max määrä",
+            "maxLevel": "suurin laajennustaso",
+            "special": "Muuta",
+            "startPersonnel": "Aloitus työntekijä määrä",
+            "startVehicles": "Mahdollinen aloitusajoneuvo"
+        },
+        "schoolings": {
+            "caption": "Kurssin nimi",
+            "duration": "Kurssin kesto",
+            "required_for": "Vaaditaan",
+            "staffList": "Koulutus"
+        },
+        "vehicles": {
+            "caption": "Ajoneuvo tyyppi",
+            "cost": "Hinta",
+            "maxPersonnel": "henkilöitä enintään",
+            "minPersonnel": "henkilöitä vähintään",
+            "schooling": "Koulutus",
+            "special": "Muuta",
+            "wtank": "Vesi"
+            "ftank": "Vaahto"
+        }
+    }
+}
