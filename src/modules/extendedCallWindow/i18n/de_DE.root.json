@@ -13,6 +13,13 @@
             "description": "Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.",
             "title": "Längste Anfahrtszeit"
         },
+        "arrCategoryColors": {
+            "bgColor": "Hintergrundfarbe",
+            "category": "Name der Kategorie",
+            "color": "Textfarbe",
+            "description": "Färbe hier deine AAO-Kategorien beliebig ein.",
+            "title": "gefärbte AAO-Kategorien"
+        },
         "arrClickHighlight": {
             "description": "Zeichnet einen Rahmen um bereits angeklickte AAOs.",
             "title": "Angeklickte AAOs hervorheben"
@@ -52,6 +59,10 @@
         "arrSearchCloseDropdownOnSelect": {
             "description": "Schließt die Dropdown der AAO-Suche nach dem Auswählen einer AAO.",
             "title": "Dropdown nach Auswahl schließen"
+        },
+        "arrSearchCompactResults": {
+            "description": "Spalten werden im Suchergebnis aufgelöst und alle AAOs einer Kategorie in einer einzelnen Reihe dargestellt.",
+            "title": "AAO-Suche: Kompakte Anzeige"
         },
         "arrSearchDissolveCategories": {
             "description": "Zeigt alle Kategorien untereinander an, wenn nach einem Begriff gesucht wird",
@@ -184,141 +195,37 @@
             {
                 "name": "LF",
                 "vehicleTypes": [
-                    0,
-                    1,
-                    6,
-                    7,
-                    8,
-                    9,
-                    17,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22,
-                    23,
-                    24,
-                    25,
-                    26,
-                    30,
-                    37,
-                    87,
-                    88,
-                    89,
-                    90
+                    0, 1, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+                    30, 37, 87, 88, 89, 90
                 ]
             },
             {
                 "name": "FW Andere",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    5,
-                    10,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16,
-                    27,
-                    33,
-                    34,
-                    36,
-                    46,
-                    47,
-                    48,
-                    49,
-                    53,
-                    54,
-                    57,
-                    62,
-                    71,
-                    75,
-                    76,
-                    77,
-                    78,
-                    83,
-                    84,
-                    85,
+                    2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 27, 33, 34, 36, 46,
+                    47, 48, 49, 53, 54, 57, 62, 71, 75, 76, 77, 78, 83, 84, 85,
                     86
                 ]
             },
             {
                 "name": "Rettung",
                 "vehicleTypes": [
-                    28,
-                    29,
-                    31,
-                    38,
-                    55,
-                    56,
-                    58,
-                    59,
-                    60,
-                    73,
-                    74,
-                    91,
-                    97
+                    28, 29, 31, 38, 55, 56, 58, 59, 60, 73, 74, 91, 97
                 ]
             },
-            {
-                "name": "Polizei",
-                "vehicleTypes": [
-                    32,
-                    61,
-                    95,
-                    96,
-                    98,
-                    103
-                ]
-            },
+            { "name": "Polizei", "vehicleTypes": [32, 61, 95, 96, 98, 103] },
             {
                 "name": "Bereitschaftspolizei",
-                "vehicleTypes": [
-                    35,
-                    50,
-                    51,
-                    52,
-                    72,
-                    79,
-                    80,
-                    81,
-                    82
-                ]
+                "vehicleTypes": [35, 50, 51, 52, 72, 79, 80, 81, 82]
             },
             {
                 "name": "THW",
                 "vehicleTypes": [
-                    39,
-                    40,
-                    41,
-                    42,
-                    43,
-                    44,
-                    45,
-                    65,
-                    66,
-                    67,
-                    68,
-                    69,
-                    92,
-                    93,
-                    99,
-                    100,
-                    101,
-                    102
+                    39, 40, 41, 42, 43, 44, 45, 65, 66, 67, 68, 69, 92, 93, 99,
+                    100, 101, 102
                 ]
             },
-            {
-                "name": "Wasser",
-                "vehicleTypes": [
-                    63,
-                    64,
-                    70
-                ]
-            }
+            { "name": "Wasser", "vehicleTypes": [63, 64, 70] }
         ]
     }
 }

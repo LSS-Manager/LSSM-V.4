@@ -1,4 +1,3 @@
-import type { Mission } from 'typings/Mission';
 import type { VueConstructor } from 'vue/types/vue';
 
 export default (Vue: VueConstructor): void => {
@@ -35,10 +34,9 @@ export default (Vue: VueConstructor): void => {
             return missionType;
         },
         async getMissionOptions(LSSM: Vue, MODULE_ID: string, reason: string) {
-            const missions = (await LSSM.$store.dispatch('api/getMissions', {
-                force: false,
-                feature: `${MODULE_ID}-${reason}`,
-            })) as Mission[];
+            const missions = await LSSM.$stores.api.getMissionsArray(
+                `${MODULE_ID}-${reason}`
+            );
             const missionIds = [] as string[];
             const missionNames = [] as string[];
             const idLengths = { id: 0, variant: 0 };

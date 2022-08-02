@@ -45,9 +45,7 @@
     },
     "settings": {
         "alertStyle": "Type de notification en jeu",
-        "alerts": {
-            "title": "Définir les notifications"
-        },
+        "alerts": { "title": "Définir les notifications" },
         "desktop": "Envoyer les notifications sur le bureau",
         "duration": "Durée d'affichage",
         "eventTypes": "Évènements",

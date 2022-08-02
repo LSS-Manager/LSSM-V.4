@@ -36,15 +36,9 @@
             "title": "General"
         },
         "main": {
-            "chat": {
-                "focus": "Campo de entrada de enfoque",
-                "title": "Chat"
-            },
+            "chat": { "focus": "Campo de entrada de enfoque", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Abrir / Cerrar"
-                },
+                "menu": { "title": "Menu", "toggle": "Abrir / Cerrar" },
                 "title": "LSSM"
             },
             "map": {

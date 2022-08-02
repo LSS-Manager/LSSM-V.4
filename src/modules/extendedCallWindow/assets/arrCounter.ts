@@ -15,11 +15,11 @@ export default async (
     const resetSelection = await getSetting('arrCounterResetSelection');
     const counterBadge = await getSetting('arrCounterAsBadge');
 
-    const counterClass = LSSM.$store.getters.nodeAttribute('arr-counter');
-    const highlightClass = LSSM.$store.getters.nodeAttribute('arr-clicked');
+    const counterClass = LSSM.$stores.root.nodeAttribute('arr-counter');
+    const highlightClass = LSSM.$stores.root.nodeAttribute('arr-clicked');
 
     if (counter || highlight) {
-        await LSSM.$store.dispatch('addStyles', [
+        LSSM.$stores.root.addStyles([
             ...(counterBadge
                 ? [
                       {
@@ -123,13 +123,13 @@ export default async (
             if (highlight) arr.classList.add(highlightClass);
         };
 
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'aaoClickHandler',
             post: false,
             callback: clickHandler,
         });
 
-        await LSSM.$store.dispatch('hook', {
+        LSSM.$stores.root.hook({
             event: 'vehicleGroupClickHandler',
             post: false,
             callback: clickHandler,

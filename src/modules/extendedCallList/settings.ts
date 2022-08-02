@@ -30,7 +30,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         missions: number[];
     }[];
 
-    const locale = LSSM.$store.state.lang;
+    const locale = LSSM.$stores.root.locale;
 
     const bootsTrapColors = [
         'success',

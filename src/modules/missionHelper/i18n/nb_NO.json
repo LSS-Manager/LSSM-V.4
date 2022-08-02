@@ -85,9 +85,7 @@
                 "firetrucks": "Mannskapsbil eller Tungredningsbil eller Redningsbil | Mannskapsbil eller Tungredningsbil eller Redningsbil"
             }
         },
-        "patient_additionals": {
-            "10": "Innsatslederbil helse"
-        },
+        "patient_additionals": { "10": "Innsatslederbil helse" },
         "title": "Nødvendige kjøretøy"
     }
 }

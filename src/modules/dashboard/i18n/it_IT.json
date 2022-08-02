@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Nome",
         "current": "Numero (attivi)",
-        "fastDispatchChooser": {
-            "noDispatch": "Nessun centro di controllo"
-        },
+        "fastDispatchChooser": { "noDispatch": "Nessun centro di controllo" },
         "type": "Tipo",
         "unavailable": "Sotto costruzione"
     },
@@ -65,16 +63,7 @@
     },
     "vehicle-types": {
         "status": "Stato",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Totale",
         "title": "Tutti {type} | Tutti {type} in stato {n} | Tutti {type} in stato {n}",
         "type": "Tipo di veicolo",

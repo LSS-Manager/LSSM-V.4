@@ -1,0 +1,81 @@
+{
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "zobrazit nové žádosti o přijetí",
+                "buildings": "zobrazit přehled aliančních budov",
+                "forum": "zobrazit diskuzi",
+                "funds": "zobrazit alianční prostředky",
+                "logfiles": "zobrazit protokol",
+                "members": "zobrazit členy aliance",
+                "messages": "zobrazit zprávy",
+                "onlineMembers": "zobrazit členy aliance (pouze online)",
+                "open": "zobrazit alianční okno",
+                "schoolings": "zobrazit školící okno",
+                "title": "Aliance"
+            },
+            "credits": {
+                "daily": "zobrazit shrnutí dne",
+                "open": "zobrazit transakce",
+                "overview": "zobrazit přehled za posledních 7 dní",
+                "title": "Kredity"
+            },
+            "help": "Otevřít nápovědu",
+            "profile": {
+                "awards": "zobrazit přehled ocenění",
+                "level": "zobrazit přehled hodností",
+                "notes": "zobrazit poznámky",
+                "open": "zobrazit vlastní profil",
+                "title": "Profil"
+            },
+            "protocol": "zobrazit protokol v operačním středisku",
+            "tasks": {
+                "open": "zobrazit přehled aktuálních úkolů",
+                "title": "Úkoly a události"
+            },
+            "title": "Všeobecné"
+        },
+        "main": {
+            "chat": { "focus": "zakliknout chatové pole", "title": "Chat" },
+            "lssm": {
+                "menu": { "title": "Menu", "toggle": "Otevřít / Zavřít" },
+                "title": "LSSM"
+            },
+            "map": {
+                "search": {
+                    "focus": "zakliknout hledací pole",
+                    "title": "Vyhledat lokalitu"
+                },
+                "title": "Mapa"
+            },
+            "missionlist": {
+                "search": {
+                    "focus": "zakliknout hledací pole",
+                    "title": "Hledat"
+                },
+                "title": "Seznam misí"
+            },
+            "title": "Hlavní okno"
+        },
+        "mission": {
+            "sorted": {
+                "alert_next": "Výjezd a další mise",
+                "alert_share_next": "Výjezd, sdílení a další mise",
+                "next": "další mise",
+                "prev": "předchozí mise",
+                "title": "Seřazené mise"
+            },
+            "title": "Okno mise"
+        }
+    },
+    "description": "Ovládejte hru pomocí klávesových zkratek, které si můžete nastavit.",
+    "name": "Klávesové zkratky",
+    "settings": {
+        "command": "Akce",
+        "hotkey": "Klávesa",
+        "hotkeys": {
+            "description": "Nastavte si vlastní klávesové zkratky pro dostupné akce. Akce z kategorie \"Všeobecné\" jsou dostupné kdekoliv ve hře. Stisknutím klávesy F1 zobrazíte přehled aktuálně nastavených klávesových zkratek.",
+            "title": "Klávesové zkratky"
+        }
+    }
+}

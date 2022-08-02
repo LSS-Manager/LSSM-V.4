@@ -13,7 +13,7 @@ export default {
         },
         mission: {
             regex: '^%missions%( \\(System alarmu przeciwpożarowego\\))?( - Fałszywy alarm)?$',
-            title: 'Własne misje',
+            title: 'Misje Własne',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
@@ -35,13 +35,13 @@ export default {
         },
         buildings: {
             regex: /(Postawiono budynek|Budynek usunięty bez zwrotu|Zwrot budynku$)/u,
-            title: 'Zbudowano budynek/usunięte',
+            title: 'Zbudowane/Usunięte budynki',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
             regex: /(Postawiono posterunek|Zwrot ulepszenia budynku| – Ulepszono budynek (.*?)|– rozszerzona ochrona|Anuluj:)/u,
-            title: 'Zbudowana stacja',
+            title: 'Zbudowane/Usunięte rozbudowy',
             backgroundColor: '#000080',
             textColor: 'white',
         },
@@ -87,7 +87,7 @@ export default {
         },
         fireAlarmSystemCancel: {
             regex: /bezzasadne wezwanie/u,
-            titel: 'Fałszywy alarm',
+            titel: 'Fałszywe alarmy',
             backgroundColor: '#c80815',
             textColor: 'white',
         },

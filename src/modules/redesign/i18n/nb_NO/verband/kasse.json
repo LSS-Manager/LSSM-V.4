@@ -16,10 +16,7 @@
         "title": "Utgifter",
         "user": "Spiller"
     },
-    "summary": {
-        "rate": "Alliansebidragssats",
-        "title": "Alliansekapital"
-    },
+    "summary": { "rate": "Alliansebidragssats", "title": "Alliansekapital" },
     "toggle": {
         "disable": "Deaktiver alliansekapital",
         "enable": "Aktiver alliansemidler"

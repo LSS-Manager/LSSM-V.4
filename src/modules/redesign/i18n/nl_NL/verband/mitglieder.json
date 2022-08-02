@@ -2,13 +2,8 @@
     "amount": "{n} gefilterde speler | {n} gefilterde spelers",
     "credits": "Totaalverdiende credits",
     "discount": "Korting",
-    "edit_caption": {
-        "save": "Opslaan"
-    },
-    "load": {
-        "next": "Volgende pagina laden",
-        "prev": "Vorige pagina laden"
-    },
+    "edit_caption": { "save": "Opslaan" },
+    "load": { "next": "Volgende pagina laden", "prev": "Vorige pagina laden" },
     "name": "Speler",
     "online": {
         "subtitle": "Alleen online teamleden worden getoond!",
@@ -31,9 +26,7 @@
         "edit": "Rechten bewerken",
         "finance": "Penningmeester",
         "hide": "Sluiten",
-        "kick": {
-            "btn": "Speler verwijderen"
-        },
+        "kick": { "btn": "Speler verwijderen" },
         "kickModal": {
             "btnCancel": "Annuleren",
             "btnConfirm": "Verwijderen",

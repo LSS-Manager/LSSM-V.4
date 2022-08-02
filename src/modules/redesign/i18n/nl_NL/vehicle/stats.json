@@ -1,7 +1,4 @@
 {
-    "distance": {
-        "axis": "afstand (km)",
-        "series": "afstand gereden"
-    },
+    "distance": { "axis": "afstand (km)", "series": "afstand gereden" },
     "title": "Voertuig statistieken voor de laatste {n} dagen"
 }

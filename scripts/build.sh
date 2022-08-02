@@ -8,7 +8,7 @@ mode="$1"
 
 echo running a build in mode: "$mode"
 
-ts-node "$dir"/../build/index.ts --esModuleInterop "$mode"
+ts-node "$dir"/../build/index.ts --esModuleInterop "$mode" || exit 1
 git --no-pager diff --color-words
 
 end_time=$(date +%s%N)

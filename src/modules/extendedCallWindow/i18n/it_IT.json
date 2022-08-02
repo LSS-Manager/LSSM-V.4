@@ -1,0 +1,210 @@
+{
+    "arrCounter": {
+        "reset": "{text} reset",
+        "resetTexts": {
+            "counter": "Contatore AAR",
+            "counter_highlight": "Contatore / schema AAR",
+            "counter_highlight_selection": "Contatore AAR / bordo e selezione del veicolo",
+            "counter_selection": "Contatore AAR e selezione del veicolo",
+            "highlight": "Schema AAR",
+            "highlight_selection": "Schema AAR e selezione del veicolo",
+            "selection": "Selezione veicoli"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "any_traffic_car": "Pattuglia Polizia Stradale e Moto Polizia Stradale",
+            "arff": "ARFF",
+            "boot": "Barca",
+            "brush_truck": "Mezzo AIB",
+            "brush_vehicle": "Mezzo AIB",
+            "commerce_police": "Volante Finanza",
+            "crew_carrier": "AF/BUS",
+            "dlk": "Autoscala",
+            "elw": "Funzionario",
+            "elw2": "UCL",
+            "fbi_bomb_tech": "Furgone artificieri",
+            "fire": "Autopompe",
+            "fire_aviation": "Unità Aerea Antincendio",
+            "fireboat": "Grande Fireboat",
+            "fly_car": "Automedica",
+            "fustw": "Auto di pattuglia",
+            "fustw_or_police_motorcycle": "Volante oppure Moto della Polizia",
+            "fwk": "AG",
+            "gkw": "Utility Truck",
+            "grtw": "Unità vittime di massa",
+            "gw_taucher": "Camion Tecnico NSSA",
+            "gw_wasserrettung": "Ritenzione delle acque",
+            "gwa": "Carro Aria",
+            "gwgefahrgut": "N.B.C.R",
+            "gwl2wasser": "Autobotte",
+            "hems": "Elisoccorso",
+            "k9": "Unità cinofila antidroga",
+            "kdow_orgl": "DTS",
+            "ktw": "Ambulanza ordinaria o BLSD",
+            "ktw_or_rtw": "Ambulanza ordinaria o BLSD",
+            "naw": "Ambulanza MSA",
+            "naw_or_rtw_and_nef": "MSA o VLV",
+            "naw_or_rtw_and_nef_or_rth": "MSA o VLV o Elisoccorso",
+            "nef": "Automedica (VLV)",
+            "nef_only": "Automedica (VLV)",
+            "police_motorcycle": "Moto della Polizia",
+            "polizeihubschrauber": "Elicottero della polizia",
+            "rescueboat": "Grande barca di salvataggio",
+            "rth_only": "Elisoccorso",
+            "rtw": "Ambulanza BLSD",
+            "rw": "Polisoccorso",
+            "rw_only": "CA / POLI",
+            "swat": "Unità speciali",
+            "swat_armored_vehicle": "Veicolo Antisommossa",
+            "swat_suv": "UOPI Suv",
+            "wasser_amount": "Litri d'acqua"
+        },
+        "headers": {
+            "attribute": "Nome",
+            "free": "Libero",
+            "max": "Max",
+            "set": "Assegna",
+            "status": "Status"
+        },
+        "reset": "La selezione del veicolo viene ripristinata prima!",
+        "titles": {
+            "attribute": "La combinazione descritta in questa riga",
+            "free": "Così spesso questa combinazione è disponibile",
+            "max": "Puoi selezionare questo AAR fino a quando questa combinazione non sarà più disponibile",
+            "set": "Spesso questa combinazione viene selezionata quando si preme l'AAR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "In avvicinamento",
+        "foam": "l. schiuma",
+        "missing": "Manca sulla missione",
+        "selected": "Selezionato",
+        "staff": [
+            {
+                "texts": ["vigile del fuoco", "vigili del fuoco"],
+                "vehicles": [0, 9, 3, 1, 37, 11, 2, 6, 5, 12, 10]
+            },
+            {
+                "texts": ["agente di polizia", "agenti di polizia"],
+                "vehicles": [7, 16, 14, 17, 38, 39, 15, 22, 13]
+            }
+        ],
+        "staffPrefix": [
+            "Servono altri",
+            "Servono altro",
+            "Serve ancora",
+            "Sono richiesti altri",
+            "Sono richiesti altro",
+            "È richiesto"
+        ],
+        "tip": {
+            "dragging": "Trascinare la finestra",
+            "minified": "Riduci",
+            "overlay": "Sovrapposizione",
+            "pushLeft": "Mostra questa scatola nella posizione originale",
+            "pushRight": "Mostra questa casella sopra la lista dei veicoli",
+            "reload": "Ricarica",
+            "textMode": "Modalità testo on/off"
+        },
+        "total": "Ancora necessario",
+        "vehicle": "Tipo di veicolo",
+        "vehiclesByRequirement": [
+            { "texts": ["APS/ABP"], "vehicles": [0, 9] },
+            { "texts": ["Autogrù"], "vehicles": [12] },
+            { "texts": ["Autoscala", "Autoscale"], "vehicles": [1] },
+            { "texts": ["Funzionari", "Funzionario"], "vehicles": [2, 11] },
+            {
+                "texts": ["Polisoccorso", "Polisoccors"],
+                "vehicles": [3, 9, 12]
+            },
+            { "texts": ["AF/ARIA"], "vehicles": [10] },
+            {
+                "texts": ["Kilolitric", "Kilolitrica", "Kilolitriche"],
+                "vehicles": [5]
+            },
+            { "texts": ["UCL"], "vehicles": [11] },
+            { "texts": ["N.B.C.R."], "vehicles": [6] },
+            {
+                "texts": [
+                    "Ambulanza BLS",
+                    "Ambulanze BLS",
+                    "Ambulanza BLSD",
+                    "Ambulanze BLSD"
+                ],
+                "vehicles": [4, 20]
+            },
+            { "texts": ["Volant", "Volanti"], "vehicles": [7, 16, 15, 21] },
+            {
+                "texts": ["Furgone artificieri", "Furgoni artificieri"],
+                "vehicles": [22]
+            },
+            {
+                "texts": [
+                    "Elicotteri della polizia",
+                    "Elicottero della polizia"
+                ],
+                "vehicles": [13]
+            },
+            {
+                "texts": ["Unità antisommossa", "furgona antisommossa"],
+                "vehicles": [14]
+            },
+            { "texts": ["Unità cinofila antidroga"], "vehicles": [15] },
+            { "texts": ["UOPI SUV"], "vehicles": [17] },
+            {
+                "texts": ["Volante finanza", "Volante Finanza"],
+                "vehicles": [21]
+            },
+            { "texts": ["Camion Tecnico NSSA"], "vehicles": [23] },
+            { "texts": ["Pickup SAF"], "vehicles": [24] },
+            { "texts": ["Barca", "Barche"], "vehicles": [25] },
+            {
+                "texts": ["Mezzi AIB", "Mezzio AIB"],
+                "vehicles": [0, 9, 28, 29, 30]
+            },
+            {
+                "texts": ["Velivoli Antincendi", "Velivolo Antincendio"],
+                "vehicles": [34, 35]
+            },
+            { "texts": ["DOS"], "vehicles": [31] },
+            { "texts": ["DTS"], "vehicles": [27] },
+            {
+                "texts": ["Pattuglia Forestale", "Pattuglio Forestali"],
+                "vehicles": [40]
+            },
+            { "texts": ["Pattuglia della Stradale"], "vehicles": [38, 39] },
+            { "texts": ["Idrante Antisommossa"], "vehicles": [41] }
+        ],
+        "water": "l. d'acqua"
+    },
+    "generationDate": { "inputFormat": "DD. MMMM, HH:mm" },
+    "hideVehicleList": {
+        "hide": "Nascondi lista veicoli",
+        "show": "Mostra lista veicoli"
+    },
+    "patientCollapse": {
+        "amount": "Quantità",
+        "combis": "Combinazioni",
+        "summary": { "total": "Pazienti", "treated": "In cura" }
+    },
+    "releasePatient": { "release": "Annulla trasporto (Nessuna ricompensa)" },
+    "tailoredTabs": {
+        "allTab": "Tutti",
+        "occupiedTab": "Continua missioni",
+        "vehicleMissing": {
+            "close": "Chiudere Nota fino al cambiamento",
+            "hide": "Nascondere la nota",
+            "text": "I seguenti tipi di veicoli sono presenti solo nella scheda \"Tutti\":",
+            "title": "Un veicolo non è presente in nessuna scheda | Diversi veicoli non sono presenti in nessuna scheda"
+        }
+    },
+    "vehiclePlayerCounter": {
+        " ": "",
+        "atScene": "sulla scena",
+        "driving": "in arrivo",
+        "players": "Giocatori",
+        "total": "Totale",
+        "vehicles": "Veicoli"
+    }
+}

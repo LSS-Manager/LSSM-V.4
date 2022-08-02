@@ -5,8 +5,8 @@ Umieszcza przydatne menu na pasku nawigacyjnym zamiast kredytów i monet oraz ma
 ## Kredyty zamiast skarbonki
 Wyświetla aktualne kredyty zamiast skarbonki.
 
-|     **Nieaktywne ** (domyślnie)     |                   **Aktywne**                    |
-| :----------------------------: | :--------------------------------------------: |
+|      **Nieaktywne ** (domyślnie)      |                   **Aktywne**                    |
+|:-------------------------------------:|:------------------------------------------------:|
 | ![świnka skarbonka](./piggy-mode.png) | ![Kredyty zamiast skarbonki](./credits-mode.png) |
 
 ## Toplista w rozszerzeniu kredytów
@@ -17,6 +17,6 @@ Pokazuje Twoją aktualną pozycję na topliście liście. Wartość jest aktuali
 ## Cele
 Za każdym razem, gdy osiągniesz jeden z wyznaczonych celów kredytowych, świnka skarbonka lub saldo kredytów będą podświetlone na zielono, dopóki na nie nie klikniesz:
 
-|                    Świnka skarbonka                    |                     Kredyty                     |
-| :-----------------------------------------------: | :---------------------------------------------: |
+|                   Świnka skarbonka                    |                        Kredyty                        |
+|:-----------------------------------------------------:|:-----------------------------------------------------:|
 | ![Skarbonka-Kredyty docelowe](./alert-piggy-mode.png) | ![Kredyty-Kredyty docelowe](./alert-credits-mode.png) |

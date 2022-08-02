@@ -1,10 +1,7 @@
 {
     "buildings": "Budynki",
     "enable": "włącz",
-    "includes": {
-        "buildings": "typy budynków",
-        "vehicles": "typy pojazdów"
-    },
+    "includes": { "buildings": "typy budynków", "vehicles": "typy pojazdów" },
     "intensity": "zwiększenie intensywności",
     "livePreview": "Podgląd na żywo (automatyczne zapisywanie)",
     "radius": "promień",

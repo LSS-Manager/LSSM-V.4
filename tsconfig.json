@@ -18,6 +18,9 @@
         "moduleResolution": "node",
         "outDir": "typings/dist",
         "paths": {
+            "@stores/*": [
+                "../src/stores/*"
+            ],
             "typings/*": [
                 "../typings/*"
             ]

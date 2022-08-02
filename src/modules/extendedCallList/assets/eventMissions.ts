@@ -12,7 +12,7 @@ export default (
         })
     );
 
-    const wrapperClass = LSSM.$store.getters.nodeAttribute(
+    const wrapperClass = LSSM.$stores.root.nodeAttribute(
         'ecl-eventmission-wrapper'
     );
 
@@ -55,15 +55,13 @@ export default (
         )
         .forEach(panel => checkEvent(panel));
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
-                );
-                if (panel) checkEvent(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionMarkerAdd',
+        callback(marker: MissionMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.id}`
+            );
+            if (panel) checkEvent(panel);
+        },
+    });
 };

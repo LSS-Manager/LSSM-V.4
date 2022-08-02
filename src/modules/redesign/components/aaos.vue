@@ -16,7 +16,7 @@
                 class="btn btn-default btn-xs"
                 lightbox-open
                 href="https://www.youtube.com/embed/SQw3ChM7X70"
-                v-if="$store.state.lang === 'de_DE'"
+                v-if="lightbox.rootStore.locale === 'de_DE'"
             >
                 Erklärungsvideo
             </a>
@@ -231,8 +231,8 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.aaos.authenticity_token
                             );
-                            LSSM.$store
-                                .dispatch('api/request', {
+                            LSSM.lightbox.apiStore
+                                .request({
                                     url: `/${
                                         type === 'arr'
                                             ? 'aaos'
@@ -245,7 +245,7 @@ export default Vue.extend<
                                                 'application/x-www-form-urlencoded',
                                             'Upgrade-Insecure-Requests': '1',
                                         },
-                                        refferer: new URL(
+                                        referrer: new URL(
                                             type === 'arr'
                                                 ? '/aaos'
                                                 : `/vehicle_groups/${id}/edit`,
@@ -255,6 +255,7 @@ export default Vue.extend<
                                         method: 'POST',
                                         mode: 'cors',
                                     },
+                                    feature: 'redesign-aaos-delete',
                                 })
                                 .then(() => {
                                     LSSM.$set(
@@ -288,9 +289,10 @@ export default Vue.extend<
                     {
                         title: this.lightbox.$sm('delete.confirm'),
                         async handler() {
-                            LSSM.$store
-                                .dispatch('api/request', {
+                            LSSM.lightbox.apiStore
+                                .request({
                                     url: '/aao/alle_loeschen',
+                                    feature: 'redesign-aaos-delete-all',
                                 })
                                 .then(() => {
                                     Object.entries(

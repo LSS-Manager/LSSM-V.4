@@ -1,3 +1,5 @@
+import config from '../../../config';
+
 export default (LSSM: Vue): void => {
     const findTitle = (redesign = false): string => {
         const heading = document.querySelector(
@@ -27,7 +29,7 @@ export default (LSSM: Vue): void => {
         window.tellParent(
             `var _a;
         if (((_a = document.getElementById('lightbox_box')) === null || _a === void 0 ? void 0 : _a.style.display) !== 'none') document.title = ${JSON.stringify(
-            title + LSSM.$store.state.games[LSSM.$store.state.lang].name
+            title + config.games[LSSM.$stores.root.locale].name
         )};`
         );
         return title;
@@ -35,22 +37,18 @@ export default (LSSM: Vue): void => {
 
     findTitle();
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'lightboxClose',
-            post: true,
-            callback() {
-                document.title = `${findTitle()}${
-                    LSSM.$store.state.games[LSSM.$store.state.lang].name
-                }`;
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'lightboxClose',
+        post: true,
+        callback() {
+            document.title = `${findTitle()}${
+                config.games[LSSM.$stores.root.locale].name
+            }`;
+        },
+    });
 
-    LSSM.$store
-        .dispatch('event/addListener', {
-            name: 'redesign-finished-loading',
-            listener: () => findTitle(true),
-        })
-        .then();
+    LSSM.$stores.event.addListener({
+        name: 'redesign-finished-loading',
+        listener: () => findTitle(true),
+    });
 };

@@ -1,4 +1,1 @@
-{
-    "location": "^(/messages/(new|\\d+))?/?$",
-    "settings": true
-}
+{ "location": "^(/messages/(new|\\d+))?/?$", "settings": true }

@@ -148,6 +148,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             description:
                 'Verplaatst het menu van LSSM V3 van de menubalk naar een knop in het menu van V4.',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {
@@ -1152,6 +1157,52 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             icon: 'trailer',
             possibleBuildings: [0, 17],
         },
+        73: {
+            caption: 'Vrachtwagen - Bereden Brigade',
+            color: '#00005c',
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            credits: 35_000,
+            coins: 15,
+            schooling: {
+                Politie: {
+                    'Bereden Brigade': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            possibleBuildings: [11],
+        },
+        74: {
+            caption: 'Bereden Brigade Aanhanger',
+            color: '#00005c',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 15_000,
+            coins: 15,
+            schooling: {
+                Politie: {
+                    'Bereden Brigade': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DAT-NH). Benodigd 1 persoon met een speciale opleiding in het trekkende voertuig (Bereden Brigade)',
+            possibleBuildings: [11],
+        },
+        75: {
+            caption: 'Dienstauto terreinvaardig - Noodhulp',
+            color: '#00005c',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 10_000,
+            coins: 10,
+            icon: 'shuttle-van',
+            possibleBuildings: [11],
+        },
     },
     buildingCategories: {
         Brandweer: {
@@ -1206,6 +1257,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Arrestatieteam': [53, 54, 55],
                 'Arrestantenvervoer': [58],
                 'Biketeam': [60],
+                'Paarden': [73, 74, 75],
             },
             color: '#00ac00',
         },
@@ -1215,25 +1267,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         0: 17,
         5: 18,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17, 18],
-    cellBuildings: [5, 18],
-    cellExtensions: [
-        '5_0',
-        '5_1',
-        '5_2',
-        '5_3',
-        '5_4',
-        '5_5',
-        '5_6',
-        '5_7',
-        '5_8',
-        '5_9',
-        '18_0',
-        '18_1',
-    ],
-    bedBuildings: [2],
-    schoolBuildings: [4, 7, 8],
-    dispatchCenterBuildings: [1],
     schoolings: {
         Brandweer: [
             {
@@ -1322,6 +1355,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 caption: 'ME - Aanhoudingseenheid',
                 duration: '5 Dagen',
                 staffList: 'AE-er',
+            },
+            {
+                caption: 'Bereden Brigade',
+                duration: '4 Dagen',
+                staffList: 'Bereden Brigade',
             },
         ],
         Ambulance: [
@@ -1465,6 +1503,8 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         'Tunnel',
         'Vuurwerkopslag',
         'Gasverdeelstation',
+        'Windmolenpark',
+        'Pretpark',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],

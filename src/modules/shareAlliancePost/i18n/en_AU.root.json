@@ -1,8 +1,6 @@
 {
     "description": "Alarm, Share the mission and post an incident note with a single click.",
-    "lsam": {
-        "help": "Variables are replaced same way as in missions list."
-    },
+    "lsam": { "help": "Variables are replaced same way as in missions list." },
     "name": "Share-Alliance-Post",
     "noMessage": "Without incident note",
     "settings": {

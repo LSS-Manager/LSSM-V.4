@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Nazwa",
         "current": "Numer (aktywny)",
-        "fastDispatchChooser": {
-            "noDispatch": "Brak centrum kontroli"
-        },
+        "fastDispatchChooser": { "noDispatch": "Brak centrum kontroli" },
         "type": "Typ",
         "unavailable": "W budowie"
     },
@@ -66,16 +64,7 @@
     "vehicle-types": {
         "chart": "Podsumowanie statusu",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Suma",
         "title": "Wszystkie {type} | Wszystkie {type} w statusie {n} | Wszystkie {type} w statusie {n}",
         "type": "Typ pojazdu",

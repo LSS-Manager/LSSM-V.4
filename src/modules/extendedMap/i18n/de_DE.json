@@ -1,8 +1,6 @@
 {
     "buildingComplexes": {
-        "buildingList": {
-            "details": "Details"
-        },
+        "buildingList": { "details": "Details" },
         "new": "Neuer LSSM-Gebäudekomplex",
         "openInLightbox": "Gebäude in Lightbox öffnen",
         "overview": {
@@ -13,6 +11,16 @@
                     "phase": "1 Tag | {n} Tage"
                 },
                 "inConstruction": "davon {n} im Bau",
+                "share": {
+                    "beds": {
+                        "share": "Betten im Verband freigeben",
+                        "unShare": "Betten nicht im Verband freigeben"
+                    },
+                    "cells": {
+                        "share": "Zellen im Verband freigeben",
+                        "unShare": "Zellen nicht im Verband freigeben"
+                    }
+                },
                 "table": {
                     "alliance": "Verband",
                     "head": {
@@ -29,6 +37,19 @@
                 "title": "angehängte Gebäude"
             },
             "classrooms": {
+                "subtitle": "insgesamt {total}, davon {unavailable} im Bau und {free} frei",
+                "table": {
+                    "countdown": "fertig in",
+                    "free": "Freie Plätze",
+                    "freeClassrooms": "1 freies Klassenzimmer|{n} Freie Klassenzimmer",
+                    "running": {
+                        "false": "Nein",
+                        "title": "Läuft?",
+                        "true": "Ja"
+                    },
+                    "start": "Neuen Lehrgang starten",
+                    "unavailable": "{n} Klassenzimmer im Bau"
+                },
                 "title": "Klassenzimmer"
             },
             "extensions": {
@@ -59,14 +80,23 @@
                     "inConstruction": "{n} im Bau",
                     "total": "insgesamt {n} möglich"
                 },
+                "table": { "head": { "building": "Gebäude", "name": "Name" } },
+                "title": "Ausbauten",
+                "underConstruction": "im Bau"
+            },
+            "protocol": {
+                "subtitle": "keine relevanten Einträge | 1 relevanter Eintrag | {n} relevante Einträge",
                 "table": {
                     "head": {
                         "building": "Gebäude",
-                        "name": "Name"
+                        "label": "Kategorie",
+                        "name": "Name",
+                        "staff": "Personal",
+                        "time": "Zeitpunkt"
                     }
                 },
-                "title": "Ausbauten",
-                "underConstruction": "im Bau"
+                "title": "Protokoll",
+                "updating": "Aktualisieren..."
             },
             "title": "Übersicht",
             "vehicles": {
@@ -89,10 +119,7 @@
             "buildings": "angehängte Gebäude",
             "buildingsInList": "Angehängte Gebäude in der Gebäudeliste anzeigen?",
             "dissolve": {
-                "buttons": {
-                    "abort": "Abbrechen",
-                    "continue": "Auflösen"
-                },
+                "buttons": { "abort": "Abbrechen", "continue": "Auflösen" },
                 "text": "Möchtest du diesen Gebäudekomplex auflösen? Alle angehängten Gebäude werden wieder wie vorher auf der Karte angezeigt werden.",
                 "title": "Gebäudekomplex auflösen"
             },

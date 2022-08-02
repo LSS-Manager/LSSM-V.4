@@ -4,7 +4,16 @@ import type Highcharts from 'highcharts';
 import type L from 'leaflet';
 import type { POI } from './modules/EnhancedPOI';
 import type { sceditor } from './SCEditor';
-import type { Store } from 'vuex';
+import type { useAPIStore } from '@stores/api';
+import type { useBroadcastStore } from '@stores/broadcast';
+import type { useConsoleStore } from '@stores/console';
+import type { useEventStore } from '@stores/event';
+import type { useModulesStore } from '@stores/modules';
+import type { useNotificationStore } from '@stores/notifications';
+import type { useRootStore } from '@stores/index';
+import type { useSettingsStore } from '@stores/settings';
+import type { useStorageStore } from '@stores/storage';
+import type { useTranslationStore } from '@stores/translationUtilities';
 import type VueI18n from 'vue-i18n';
 import type {
     AppstoreComputed,
@@ -24,6 +33,8 @@ import type {
     SettingsData,
     SettingsMethods,
 } from 'typings/components/Settings';
+
+export type GameFlavour = 'missionchief' | 'policechief';
 
 declare global {
     interface Window {
@@ -70,6 +81,12 @@ declare global {
         mission_label: boolean;
         vehicle_graphics: ([string, string, 'false' | 'true'] | null)[]; // it seems to be sexy to stringify booleans according to the game...
         buildingMarkerBulkContentCache: string[];
+        gameFlavour: GameFlavour;
+        flavourAssetOverrides: Record<
+            GameFlavour,
+            { from: string; to: string }[]
+        >;
+        mission_count_max: number;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -120,8 +137,18 @@ declare global {
 
 declare module 'vue/types/vue' {
     interface Vue {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        $store: Store<any>;
+        $stores: {
+            root: ReturnType<typeof useRootStore>;
+            api: ReturnType<typeof useAPIStore>;
+            broadcast: ReturnType<typeof useBroadcastStore>;
+            console: ReturnType<typeof useConsoleStore>;
+            event: ReturnType<typeof useEventStore>;
+            modules: ReturnType<typeof useModulesStore>;
+            notifications: ReturnType<typeof useNotificationStore>;
+            settings: ReturnType<typeof useSettingsStore>;
+            storage: ReturnType<typeof useStorageStore>;
+            translations: ReturnType<typeof useTranslationStore>;
+        };
         $vue: VueConstructor;
         modal: {
             width: number;
@@ -158,14 +185,16 @@ declare module 'vue/types/vue' {
             AppstoreData,
             AppstoreMethods,
             AppstoreComputed,
-            DefaultProps
+            DefaultProps,
+            unknown
         >;
         $settings: CombinedVueInstance<
             Vue,
             SettingsData,
             SettingsMethods,
             SettingsComputed,
-            DefaultProps
+            DefaultProps,
+            unknown
         >;
         $m(
             key: string,
@@ -174,8 +203,7 @@ declare module 'vue/types/vue' {
     }
 }
 
-export type returnTypeFunction = (...args: unknown[]) => unknown;
-
-export interface LSSMEvent {
-    detail: unknown[];
+export interface LSSMEvent<arguments extends unknown[] = unknown[]>
+    extends Event {
+    detail: arguments;
 }

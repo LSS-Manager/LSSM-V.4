@@ -2,12 +2,8 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Skjul personell uten relevant utdanning"
     },
-    "expansions": {
-        "notBuild": "Ikke bygget ennå"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Ingen nødsentral"
-    },
+    "expansions": { "notBuild": "Ikke bygget ennå" },
+    "fastDispatchChooser": { "noDispatch": "Ingen nødsentral" },
     "personnelDemands": {
         "additional": "Verdier i parentes ekskluderer kjøretøy med status 6.",
         "demand": "Påkrevd personell"

@@ -1,8 +1,5 @@
 {
-    "add": {
-        "arr": "Nieuw inzetvoorstel",
-        "group": "Nieuwe groep"
-    },
+    "add": { "arr": "Nieuw inzetvoorstel", "group": "Nieuwe groep" },
     "categories": "Eigen categorieën beheren",
     "delete": {
         "all": {

@@ -4,7 +4,7 @@ script_name="$(basename "$0")"
 
 echo "$script_name": start
 
-ts-node "$dir"/sort.ts
+ts-node "$dir"/sort.ts || exit 1
 
 end_time=$(date +%s%N)
 echo "$script_name": $(((end_time - start_time) / 1000000))ms

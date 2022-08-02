@@ -129,7 +129,7 @@ export default Vue.extend<
 
 <style scoped lang="sass">
 table
-    ::v-deep & thead tr th:nth-child(2)
+    :deep(& thead tr th:nth-child(2))
         text-align: center
 
     .hotkey-wrapper input

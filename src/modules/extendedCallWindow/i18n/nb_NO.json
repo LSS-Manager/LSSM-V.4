@@ -1,0 +1,90 @@
+{
+    "arrCounter": {
+        "reset": "{text} reset",
+        "resetTexts": {
+            "counter": "AAR-teller",
+            "counter_highlight": "AAR counter / outline",
+            "counter_highlight_selection": "AAR counter / border and vehicle selection",
+            "counter_selection": "AAR counter and vehicle selection",
+            "highlight": "AAR disposisjon",
+            "highlight_selection": "AAR outline and vehicle selection",
+            "selection": "Valg av kjøretøy"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "air_tanker": "Air tanker",
+            "any_traffic_car": "Utrykningspolitibil",
+            "boot": "Båter (generelt)",
+            "brush_truck": "",
+            "brush_vehicle": "",
+            "dlk": "Stigebil",
+            "elw": "Innsatsleder brann",
+            "elw1_or_elw2": "Innsatsleder brann eller innsatsstøttebil",
+            "elw2": "Innsatsstøttebil",
+            "fire": "Brannbil",
+            "fire_aviation": "",
+            "fly_car": "Legebil",
+            "fustw": "Patruljebil",
+            "fustw_or_police_motorcycle": "Patruljebil eller Politimotorsykkel",
+            "gw_taucher": "Dykkerbil",
+            "gwa": "Røykdykkerbil",
+            "gwgefahrgut": "CBRNe-enhet",
+            "gwl2wasser": "Tankbil",
+            "heavy_air_tanker": "Heavy air tanker",
+            "hlf_only": "Redningsbil",
+            "hlf_or_rw_and_lf": "Redningsbil eller Tungredningsbil og Brannbil",
+            "k9": "Hundepatrulje",
+            "kdow_orgl": "Innsatslederbil helse",
+            "mzb": "Lett redningsbåt",
+            "police_motorcycle": "Politimotorsykkel",
+            "polizeihubschrauber": "Politihelikopter",
+            "rth_only": "Luftambulanse",
+            "rtw": "Ambulanse",
+            "rw": "Tungredningsbil",
+            "swat": "Politi med våpentrening",
+            "swat_armored_vehicle": "Pansret kjøretøy",
+            "swat_suv": "Delta kjøretøy",
+            "wasser_amount": "",
+            "water_drop_helicopter": "Water drop helicopter"
+        },
+        "headers": {
+            "attribute": "NAVN",
+            "free": "Ledig",
+            "max": "Maks",
+            "set": "Sett",
+            "status": "Status"
+        },
+        "reset": "Kjøretøyvalget er tilbakestilt før!",
+        "titles": {
+            "attribute": "Kombinasjonen beskrevet i denne linjen",
+            "free": "Så ofte er denne kombinasjonen tilgjengelig",
+            "max": "Du kan velge denne AAR til denne kombinasjonen ikke lenger er tilgjengelig",
+            "set": "Så ofte velges denne kombinasjonen når du trykker på AAR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "Nærmer seg",
+        "missing": "Mangler fra oppdrag",
+        "selected": "Valgt",
+        "total": "Fortsatt behov",
+        "vehicle": "Kjøretøystype",
+        "vehiclesByRequirement": []
+    },
+    "generationDate": { "inputFormat": "MMMM DD., HH:mm" },
+    "hideVehicleList": {
+        "hide": "Skjul kjøretøyliste",
+        "show": "Vis kjøretøyliste"
+    },
+    "releasePatient": { "release": "Release patient (No reward)" },
+    "tailoredTabs": {
+        "allTab": "Alle",
+        "occupiedTab": "Oppfølging",
+        "vehicleMissing": {
+            "close": "Close Note till change",
+            "hide": "Hide Note",
+            "text": "The following vehicle types are only present in the \"All\" tab:",
+            "title": "One vehicle is not present in any tab | Several vehicles are not present in any tab"
+        }
+    }
+}

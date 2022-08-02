@@ -1,0 +1,142 @@
+{
+    "arrCounter": {
+        "reset": "{text} restablecer",
+        "resetTexts": {
+            "counter": "Contador ARR",
+            "counter_highlight": "Contador / borde ARR",
+            "counter_highlight_selection": "Contador / borde ARR y selección de vehículos",
+            "counter_selection": "Contador ARR y selección de vehículos",
+            "highlight": "Borde ARR",
+            "highlight_selection": "Contador ARR y selección de vehículos",
+            "selection": "Selección de vehículos"
+        }
+    },
+    "arrHover": {
+        "arrSpecs": {
+            "dlk": "Camión AE",
+            "elw": "Unidad de Mando y Comunicaciones (UMC)",
+            "elw2": "Unidad de mando móvil",
+            "fire": "Camiones de bomberos",
+            "fly_car": "VIR",
+            "fly_car_any": "VIR / Médico de cabecera",
+            "fustw": "Coche patrulla",
+            "gwa": "Unidad aérea",
+            "gwgefahrgut": "Hazmat (TPP)",
+            "gwl2wasser": "Camión cisterna (BNP)",
+            "hlf_only": "Vehículo de rescate",
+            "k9": "Unidad Canina",
+            "kdow_orgl": "Unidad logística de AMV",
+            "ktw": "Ambulancia SVB",
+            "polizeihubschrauber": "Helicóptero de Policía",
+            "rth_only": "HEMS",
+            "rtw": "UVI móvil",
+            "rw": "Furgones de Útiles Varios (FUV)",
+            "swat_armored_vehicle": "Unidad Antidisturbios",
+            "swat_suv": "Unidad GEO"
+        },
+        "headers": {
+            "attribute": "Nombre",
+            "free": "Gratis",
+            "max": "Máximo",
+            "set": "Set",
+            "status": "Status"
+        },
+        "reset": "¡La selección de vehículos se restablecerá antes!",
+        "titles": {
+            "attribute": "La combinación se describe en esta línea",
+            "free": "Muy a menudo esta combinación está disponible",
+            "max": "Puede seleccionar este ARR hasta que esta combinación ya no esté disponible",
+            "set": "Muy a menudo, esta combinación se selecciona cuando presiona al ARR"
+        }
+    },
+    "enhancedMissingVehicles": {
+        "driving": "En camino",
+        "foam": "l de espuma",
+        "missing": "En la misión falta",
+        "selected": "Seleccionado",
+        "tip": {
+            "dragging": "arrastrar ventana",
+            "minified": "minimizar",
+            "overlay": "cubrir",
+            "pushLeft": "muestra este cuadro en la posición original",
+            "pushRight": "muestra este cuadro encima de la lista de vehículos",
+            "reload": "recargar",
+            "textMode": "modo de texto on/off"
+        },
+        "total": "Necesitas",
+        "vehicle": "Tipo de vehículo",
+        "vehiclesByRequirement": [
+            {
+                "texts": ["camion de bomberos", "camiones de bomberos"],
+                "vehicles": [0, 1, 12]
+            },
+            {
+                "texts": ["camion con plataforma", "camiones con plataforma"],
+                "vehicles": [2]
+            },
+            {
+                "texts": [
+                    "unidad de Mando y Comunicaciones",
+                    "unidades de Mando y Comunicaciones"
+                ],
+                "vehicles": [3, 11]
+            },
+            { "texts": ["Furgones de Útiles Varios"], "vehicles": [4, 12] },
+            { "texts": ["Unidad aérea"], "vehicles": [10] },
+            {
+                "texts": ["camion cisterna", "camiones cisternas"],
+                "vehicles": [6]
+            },
+            {
+                "texts": ["unidad de Mando", "unidades de Mando"],
+                "vehicles": [11]
+            },
+            { "texts": ["Vehículo TPP", "Vehículos TPP"], "vehicles": [7] },
+            { "texts": ["Ambulancia", "Ambulancias"], "vehicles": [5] },
+            {
+                "texts": ["Coche patrulla", "Coches patrullas"],
+                "vehicles": [9, 17]
+            },
+            { "texts": ["HEMS"], "vehicles": [9] },
+            {
+                "texts": ["Helicóptero de policía", "Helicópteros de policía"],
+                "vehicles": [13]
+            },
+            { "texts": ["SWAT"], "vehicles": [14, 15] },
+            {
+                "texts": ["Unidad canina", "Unidades caninas"],
+                "vehicles": [16]
+            },
+            {
+                "texts": [
+                    "vehículo de extinción por espuma",
+                    "vehículos de extinción por espumas"
+                ],
+                "vehicles": [23]
+            },
+            {
+                "texts": [
+                    "bomba accionada por motor",
+                    "bombas accionada por motors"
+                ],
+                "vehicles": [24]
+            }
+        ],
+        "water": "l de agua"
+    },
+    "hideVehicleList": {
+        "hide": "Ocultar lista de vehículos",
+        "show": "Mostrar lista de vehículos"
+    },
+    "releasePatient": { "release": "Release patient (No reward)" },
+    "tailoredTabs": {
+        "allTab": "Todo",
+        "occupiedTab": "Siguiente",
+        "vehicleMissing": {
+            "close": "Cerrar la nota hasta el cambio",
+            "hide": "Ocultar nota",
+            "text": "Los siguientes tipos de vehículos solo están presentes en la pestaña \"Todo\":",
+            "title": "Un vehículo no está presente en ninguna pestaña | Varios vehículos no están presentes en ninguna pestaña"
+        }
+    }
+}

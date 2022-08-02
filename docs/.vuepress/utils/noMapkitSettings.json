@@ -1,7 +1,1 @@
-{
-    "generalExtensions": [
-        "mapUndo",
-        "ownMapMarkers",
-        "mapSearchOnMap"
-    ]
-}
+{ "generalExtensions": ["mapUndo", "ownMapMarkers", "mapSearchOnMap"] }

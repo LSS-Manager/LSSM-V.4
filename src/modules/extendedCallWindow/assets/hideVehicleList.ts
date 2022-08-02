@@ -1,7 +1,7 @@
 import type { $m } from 'typings/Module';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
-    const toggleBtnId = LSSM.$store.getters.nodeAttribute(
+    const toggleBtnId = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-toggle-vehiclelist`,
         true
     );

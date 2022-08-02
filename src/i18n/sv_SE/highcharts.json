@@ -9,9 +9,7 @@
     "downloadXLS": "Ladda ner som XLS-dokument",
     "drillUpText": "Tillbaka",
     "exitFullscreen": "Avsluta helskärmsläge",
-    "exportera data": {
-        "categoryHeader": "Kategori"
-    },
+    "exportera data": { "categoryHeader": "Kategori" },
     "loading": "laddar ...",
     "printChart": "Skriv ut",
     "viewData": "Visa tabell",

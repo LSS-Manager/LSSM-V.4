@@ -1,26 +1,27 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
 export default async (
     LSSM: Vue,
     mapUndo: boolean,
     ownMapMarkers: boolean,
-    getSetting: <returnType>(settingId: string) => Promise<returnType>,
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     MODULE_ID: string
 ): Promise<void> => {
-    LSSM.$store.commit('useFontAwesome');
-
-    const historyBtnId = LSSM.$store.getters.nodeAttribute(
+    const historyBtnId = LSSM.$stores.root.nodeAttribute(
         'map-history-btn',
         true
     );
-    const historyListId = LSSM.$store.getters.nodeAttribute(
+    const historyListId = LSSM.$stores.root.nodeAttribute(
         'map-history-list',
         true
     );
-    const pinBtnId = LSSM.$store.getters.nodeAttribute(
+    const pinBtnId = LSSM.$stores.root.nodeAttribute(
         'map-history-pin-btn',
         true
     );
 
-    await LSSM.$store.dispatch('addStyles', [
+    LSSM.$stores.root.addStyles([
         {
             selectorText: `#${historyListId}`,
             style: {
@@ -30,6 +31,8 @@ export default async (
                 'list-style': 'none',
                 'padding': '1ch',
                 'transform': 'rotate(180deg)',
+                'position': 'absolute',
+                'z-index': 1,
             },
         },
         {
@@ -67,7 +70,7 @@ export default async (
         zoom: number;
     }[];
 
-    const historyBtn = await LSSM.$store.dispatch('addOSMControl', {
+    const historyBtn = await LSSM.$stores.root.addOSMControl({
         position: 'top-left',
     });
     historyBtn.id = historyBtnId;
@@ -88,11 +91,7 @@ export default async (
     pinIcon.classList.add('fas', 'fa-thumbtack');
     pinBtn.addEventListener('click', () => {
         historyList.classList.toggle('pinned');
-        LSSM.$store.dispatch('settings/setSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'mapMarkerPinned',
-            value: historyList.classList.contains('pinned'),
-        });
+        setSetting('mapMarkerPinned', historyList.classList.contains('pinned'));
     });
     pinBtn.append(pinIcon);
 
@@ -151,11 +150,7 @@ export default async (
                     ),
                     1
                 );
-                LSSM.$store.dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
-                    settingId: 'savedOwnMapMarkers',
-                    value: ownMarkers,
-                });
+                setSetting('savedOwnMapMarkers', ownMarkers);
             }
         });
 
@@ -184,11 +179,7 @@ export default async (
             history.push(entry);
             ownMarkers.push(entry);
 
-            LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'savedOwnMapMarkers',
-                value: ownMarkers,
-            });
+            setSetting('savedOwnMapMarkers', ownMarkers);
 
             updateHistoryList();
         });
@@ -206,8 +197,8 @@ export default async (
         const { lat, lng, zoom } = JSON.parse(
             target.getAttribute('data-history') || '{}'
         );
-        LSSM.$store
-            .dispatch('api/request', {
+        LSSM.$stores.api
+            .request({
                 url: `/reverse_address?latitude=${lat}&longitude=${lng}`,
                 feature: `${MODULE_ID}-mapMarkers`,
             })
@@ -259,7 +250,7 @@ export default async (
     });
 
     if (mapUndo) {
-        await LSSM.$store.dispatch('proxy', {
+        LSSM.$stores.root.proxyMethod({
             post: false,
             name: 'map.setView',
             trap: 'apply',

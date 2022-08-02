@@ -13,6 +13,25 @@
         "cloneHistoryBtnToHeader": {
             "description": "Zeigt den Knopf für den Chatverlauf in der Kopfzeile an, so dass du nicht immer den Chat nach unten scrollen musst, um ihn zu drücken.",
             "title": "Chatverlauf-Knopf im Header anzeigen"
+        },
+        "lightDesignChatHistory": {
+            "description": "Ein kompaktes Design des Chatverlaufs",
+            "title": "Chatverlauf: kompaktes Design"
+        },
+        "selfHighlight": {
+            "description": "Hebt eigene Nachrichten im Chat vor, indem dem Nutzernamen eine eigene Farbe gegeben wird.",
+            "title": "eigene Farbe im Chat"
+        },
+        "selfHighlightColor": {
+            "description": "Wähle hier aus, welche Farbe dein Nutzername haben soll",
+            "title": "eigene Farbe im Chat: Hintergrundfarbe"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Möchtest du die Textfarbe lieber selbst anpassen, anstatt die automatisch generierte zu nutzen?",
+            "title": "eigene Farbe im Chat: eigene Textfarbe"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "eigene Farbe im Chat: eigene Textfarbe"
         }
     }
 }

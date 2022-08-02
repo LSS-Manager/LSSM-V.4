@@ -25,9 +25,7 @@
         "missionPrisoners": {
             "title": "Prigionieri nella finestra della missione"
         },
-        "missionReply": {
-            "title": "MissionReplys nella missione"
-        },
+        "missionReply": { "title": "MissionReplys nella missione" },
         "switchExtensionState": {
             "description": "Impedisce il ricaricamento quando si imposta lo stato di un'estensione",
             "title": "(De-)attivare l'estensione"

@@ -14,6 +14,8 @@ then
   # Prepare and push a new commit
   git config user.email "$GIT_MAIL"
   git config user.name "$GIT_USERNAME"
+  # Add new yarn releases, generated after auto-updates
+  git add .yarn/releases/yarn-*.cjs
   git commit -am "📦 Version $PACKAGE_VERSION [tc-push]"
   git push
 fi

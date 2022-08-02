@@ -5,6 +5,7 @@ export default (
     autoFocus: boolean,
     dropdown: boolean,
     dissolveCategories: boolean,
+    compactResults: boolean,
     closeDropdownOnSelect: boolean,
     $sm: $m
 ) => {
@@ -32,7 +33,7 @@ export default (
             '#mission-aao-group .tab-content [id^="aao_category_"]'
         );
 
-        const panelHasResultsClass = LSSM.$store.getters.nodeAttribute(
+        const panelHasResultsClass = LSSM.$stores.root.nodeAttribute(
             'ecw-arr_search-panel_has_results'
         );
 
@@ -88,6 +89,24 @@ export default (
                         font-weight: bold;
                     }`;
             }
+            if (compactResults) {
+                hideStyle.textContent += `
+                    #mission-aao-group .row {
+                        padding-left: 15px;
+                    }
+                    #mission-aao-group .row .col-sm-2 {
+                        width: unset;
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                    #mission-aao-group .row .pull-right, #aao_without_category {
+                        float: none !important;
+                    }
+                    #mission-aao-group .row br {
+                        display: none;
+                    }
+                `;
+            }
         });
 
         if (dissolveCategories) {
@@ -116,7 +135,7 @@ export default (
             '../components/arrSearch/arrSearchDropdown.vue'
         ).then(({ default: arrSearchDropdown }) =>
             new LSSM.$vue({
-                store: LSSM.$store,
+                pinia: LSSM.$pinia,
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(arrSearchDropdown, {

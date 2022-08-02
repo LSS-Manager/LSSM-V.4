@@ -1,8 +1,11 @@
-import type { NotificationsState } from 'typings/store/notifications/State';
+import type {
+    NotificationsState,
+    NotificationType,
+} from 'typings/store/notifications/State';
 
 export interface NotificationSetting {
     events: string[];
-    alertStyle: string;
+    alertStyle: NotificationType;
     duration: number;
     ingame: boolean;
     desktop: boolean;

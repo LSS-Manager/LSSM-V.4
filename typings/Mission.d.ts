@@ -227,4 +227,5 @@ export interface Mission {
     prerequisites: Prerequisites; // What is needed for the mission to be generated?
     overlay_index: number | null;
     base_mission_id: number;
+    additive_overlays: string;
 }

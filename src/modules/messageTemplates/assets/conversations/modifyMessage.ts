@@ -4,7 +4,7 @@ export default (
     message: string,
     replacements: Partial<{ username: string }>
 ): string => {
-    moment.locale((window[PREFIX] as Vue).$store.state.lang);
+    moment.locale((window[PREFIX] as Vue).$stores.root.locale);
     return message
         .replace(
             /\{\{username\}\}/gu,

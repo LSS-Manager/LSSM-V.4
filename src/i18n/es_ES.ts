@@ -103,6 +103,11 @@ your LSSM team`,
                 'Esta configuración oscurece la información sobre herramientas en el mapa si ha habilitado el modo oscuro',
             title: 'Información sobre herramienta oscura en el mapa',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {
@@ -467,23 +472,6 @@ your LSSM team`,
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 18, 19, 20],
-    cellBuildings: [6],
-    cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
-    ],
-    bedBuildings: [4],
-    schoolBuildings: [1, 3, 8],
-    dispatchCenterBuildings: [7],
     schoolings: {
         'Parque de bomberos': [
             {

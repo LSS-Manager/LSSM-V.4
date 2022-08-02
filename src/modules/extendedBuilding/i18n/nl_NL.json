@@ -2,12 +2,8 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Verberg personeel zonder juiste opleiding"
     },
-    "expansions": {
-        "notBuild": "Nog niet gebouwd"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Geen meldkamer"
-    },
+    "expansions": { "notBuild": "Nog niet gebouwd" },
+    "fastDispatchChooser": { "noDispatch": "Geen meldkamer" },
     "personnelDemands": {
         "additional": "Waarden tussen haakjes zijn zonder de voertuigen met status 6.",
         "demand": "Benodigd personeel"

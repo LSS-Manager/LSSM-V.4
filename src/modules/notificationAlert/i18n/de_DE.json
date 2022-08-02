@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>Dieser Verbandseinsatz braucht Aufmerksamkeit!"
         },
-        "radioMessage": {
-            "title": "{vehicle} meldet Status {status}!"
-        },
+        "radioMessage": { "title": "{vehicle} meldet Status {status}!" },
         "tasksUpdate": {
             "body": "Du hast eine Aufgabe abgeschlossen. Hol dir schnell deine Belohnung ab!",
             "title": "Aufgabe abgeschlossen"

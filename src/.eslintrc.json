@@ -1,5 +1,1 @@
-{
-    "rules": {
-        "no-console": "warn"
-    }
-}
+{ "rules": { "no-console": "warn" } }

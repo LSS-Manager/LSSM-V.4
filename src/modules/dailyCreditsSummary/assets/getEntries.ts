@@ -1,7 +1,6 @@
 import type { $m } from 'typings/Module';
 import type { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
 import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
-import type { Mission } from 'typings/Mission';
 
 export default async (
     LSSM: Vue,
@@ -10,10 +9,9 @@ export default async (
     const $m: $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.dailyCreditsSummary.${key}`, args);
 
-    const missions = (await LSSM.$store.dispatch('api/getMissions', {
-        force: false,
-        feature: 'dailyCreditSummary-getMissions',
-    })) as Mission[];
+    const missions = await LSSM.$stores.api.getMissionsArray(
+        'dailyCreditSummary-getMissions'
+    );
 
     const missionsString = missions
         .map(({ name }) => LSSM.$utils.escapeRegex(name))
@@ -21,7 +19,7 @@ export default async (
 
     const credits_types: CreditsTypes = (
         await import(
-            /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../i18n/${LSSM.$store.state.lang}.ts`
+            /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../i18n/${LSSM.$stores.root.locale}.ts`
         )
     ).default.categories;
     const creditsTypes: CreditsTypes = Object.fromEntries([

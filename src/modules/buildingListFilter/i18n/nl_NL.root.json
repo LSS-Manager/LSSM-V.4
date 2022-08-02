@@ -1,78 +1,16 @@
 {
     "default": [
-        {
-            "ids": [
-                0,
-                17
-            ],
-            "name": "Brandweer"
-        },
-        {
-            "ids": [
-                3,
-                13
-            ],
-            "name": "Ambulance"
-        },
-        {
-            "ids": [
-                5,
-                11,
-                18
-            ],
-            "name": "Politie"
-        },
-        {
-            "ids": [
-                16
-            ],
-            "name": "Waterredding"
-        },
-        {
-            "ids": [
-                4,
-                7,
-                8
-            ],
-            "name": "Scholen"
-        },
-        {
-            "ids": [
-                1
-            ],
-            "name": "Meldkamer"
-        },
-        {
-            "ids": [
-                9
-            ],
-            "name": "Politiehelikopter"
-        },
-        {
-            "ids": [
-                6
-            ],
-            "name": "MMT"
-        },
-        {
-            "ids": [
-                2
-            ],
-            "name": "Ziekenhuizen"
-        },
-        {
-            "ids": [
-                10
-            ],
-            "name": "UGS"
-        },
-        {
-            "ids": [
-                14,
-                15
-            ],
-            "name": "Complexen"
-        }
+        { "ids": [0, 17], "name": "Brandweer" },
+        { "ids": [3, 13], "name": "Ambulance" },
+        { "ids": [5, 11, 18], "name": "Politie" },
+        { "ids": [16], "name": "Waterredding" },
+        { "ids": [4, 7, 8], "name": "Scholen" },
+        { "ids": [1], "name": "Meldkamer" },
+        { "ids": [9], "name": "Politiehelikopter" },
+        { "ids": [6], "name": "MMT" },
+        { "ids": [2], "name": "Ziekenhuizen" },
+        { "ids": [10], "name": "UGS" },
+        { "ids": [14, 15], "name": "Complexen" }
     ],
     "description": "Pas de filter van de gebouwenlijst aan!",
     "lssmComplex": "LSSM gebouwencomplex",
@@ -80,10 +18,7 @@
     "settings": {
         "buildings": "Gebouwtypen",
         "contentType": {
-            "labels": [
-                "Tekst",
-                "Afbeelding"
-            ],
+            "labels": ["Tekst", "Afbeelding"],
             "title": "Tekst of afbeelding?"
         },
         "filters": {

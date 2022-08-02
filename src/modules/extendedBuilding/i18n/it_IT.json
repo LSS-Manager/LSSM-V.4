@@ -2,12 +2,8 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Nascondi il personale senza la formazione necessaria"
     },
-    "expansions": {
-        "notBuild": "Non ancora costruito"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Nessun centro di controllo"
-    },
+    "expansions": { "notBuild": "Non ancora costruito" },
+    "fastDispatchChooser": { "noDispatch": "Nessun centro di controllo" },
     "personnelDemands": {
         "additional": "I valori all'interno delle parentesi escludono i veicoli in stato 6.",
         "demand": "Personale richiesto"

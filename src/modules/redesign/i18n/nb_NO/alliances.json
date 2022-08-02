@@ -2,10 +2,7 @@
     "alliance": "Allianse",
     "amount": "{n} filtrert allianse | {n} filtrerte allianser",
     "credits": "Opptjente kreditter",
-    "load": {
-        "next": "Last inn neste side",
-        "prev": "Last inn forrige side"
-    },
+    "load": { "next": "Last inn neste side", "prev": "Last inn forrige side" },
     "members": "Medlemsantallet",
     "name": "Allianse",
     "search_global": "Globalt søk",

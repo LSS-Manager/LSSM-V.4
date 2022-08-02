@@ -664,7 +664,7 @@ export default {
         special:
             'Mit dem Bau einer Bereitschaftspolizei bekommt man automatisch 4 Stellplätze für einen Zug (3 GruKw & 1 leBefKw) geschenkt. Die Wache generiert noch keine Einsätze. Um Einsätze zu erhalten muss man die erste Ausbaustufe bauen.',
         startPersonnel: 0,
-        startParkingLots: 3,
+        startParkingLots: 4,
         startParkingLotReservations: [[35], [50], [50], [50]],
         startVehicles: [],
         schoolingTypes: ['Polizei'],

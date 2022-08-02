@@ -1,9 +1,5 @@
 {
     "description": "Viser den respektive bruker-IDen i profilen og om nødvendig også din egen i navigasjonslinjen",
     "name": "Bruker-ID",
-    "settings": {
-        "navbar": {
-            "title": "Vis egen ID i navigasjonslinjen"
-        }
-    }
+    "settings": { "navbar": { "title": "Vis egen ID i navigasjonslinjen" } }
 }

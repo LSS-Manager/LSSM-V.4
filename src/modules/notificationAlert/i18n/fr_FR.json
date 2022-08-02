@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>Cette mission partagée réclame votre attention"
         },
-        "radioMessage": {
-            "title": "{vehicle} passe en status {status}!"
-        },
+        "radioMessage": { "title": "{vehicle} passe en status {status}!" },
         "tasksUpdate": {
             "body": "Vous avez terminé une tâche. Récupérez rapidement votre récompense !",
             "title": "Finir une tâche"

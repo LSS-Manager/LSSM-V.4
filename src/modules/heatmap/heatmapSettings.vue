@@ -152,11 +152,13 @@
 import Vue from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
+import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { $m } from 'typings/Module';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import type { InternalBuilding } from 'typings/Building';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type {
     Mode,
     Settings,
@@ -207,8 +209,9 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
         const nodeAttribute = (attr: string, id = false) =>
-            this.$store.getters.nodeAttribute(`heatmap-settings-${attr}`, id);
+            rootStore.nodeAttribute(`heatmap-settings-${attr}`, id);
 
         const dropdownStyle = document.createElement('style');
         dropdownStyle.textContent = `.vs__dropdown-menu{z-index: 6000;}`;
@@ -241,10 +244,7 @@ export default Vue.extend<
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
-            vehicleTypes: this.$store.getters.$tVehicles as Record<
-                number,
-                InternalVehicle
-            >,
+            vehicleTypes: useTranslationStore().vehicles,
             dropdownStyle,
         };
     },
@@ -275,8 +275,8 @@ export default Vue.extend<
                             label: caption,
                         })
                     ),
-                    ...(this.$store.state.api.vehicles as Vehicle[])
-                        .filter(v => v.vehicle_type_caption)
+                    ...useAPIStore()
+                        .vehicles.filter(v => v.vehicle_type_caption)
                         .map(({ vehicle_type, vehicle_type_caption = '' }) => ({
                             value: `[${vehicle_type}] ${vehicle_type_caption}`,
                             label: `[${this.vehicleTypes[vehicle_type].caption}] ${vehicle_type_caption}`,
@@ -296,12 +296,7 @@ export default Vue.extend<
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
                 const removeNull = <S>(value: S | null): value is S => !!value;
-                return Object.entries(
-                    this.$store.getters.$tBuildings as Record<
-                        number,
-                        InternalBuilding
-                    >
-                )
+                return Object.entries(useTranslationStore().buildings)
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },
                         ...extensions

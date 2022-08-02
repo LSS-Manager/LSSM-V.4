@@ -26,6 +26,7 @@
 import Vue from 'vue';
 
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -38,6 +39,7 @@ type Component = RedesignComponent<
         image: string;
         imageFile: File | null;
         input: HTMLInputElement;
+        eventStore: ReturnType<typeof useEventStore>;
     },
     {
         submit(): void;
@@ -62,6 +64,7 @@ export default Vue.extend<
             image: '',
             imageFile: null,
             input,
+            eventStore: useEventStore(),
         };
     },
     methods: {
@@ -80,8 +83,8 @@ export default Vue.extend<
                 this.imageFile.name
             );
             formData.append('commit', 'save');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/avatar/upload`,
                     init: {
                         credentials: 'include',
@@ -90,7 +93,10 @@ export default Vue.extend<
                                 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: new URL(`avatar`, window.location.origin),
+                        referrer: new URL(
+                            `avatar`,
+                            window.location.origin
+                        ).toString(),
                         body: formData,
                         method: 'POST',
                         mode: 'cors',
@@ -109,27 +115,26 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-avatar-submitted',
-                            detail: {
-                                img,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    this.eventStore.createAndDispatchEvent({
+                        name: 'redesign-edit-avatar-submitted',
+                        detail: {
+                            img,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },
         deleteAvatar() {
             this.$set(this.lightbox, 'loading', true);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/avatar/delete`,
                     init: {
                         credentials: 'include',
-                        referrer: new URL(`avatar`, window.location.origin),
+                        referrer: new URL(
+                            `avatar`,
+                            window.location.origin
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
@@ -138,16 +143,12 @@ export default Vue.extend<
                 .then(() => {
                     this.$set(this.lightbox.data, 'image', '');
                     this.lightbox.finishLoading('avatar-deleted');
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-avatar-submitted',
-                            detail: {
-                                img: '',
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    this.eventStore.createAndDispatchEvent({
+                        name: 'redesign-edit-avatar-submitted',
+                        detail: {
+                            img: '',
+                        },
+                    });
                 });
         },
         select() {

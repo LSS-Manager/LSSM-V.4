@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>¡Esta misión de alianza necesita atención!"
         },
-        "radioMessage": {
-            "title": "{vehicle} estado {status}!"
-        }
+        "radioMessage": { "title": "{vehicle} estado {status}!" }
     },
     "noPermission": {
         "text": "Su navegador está configurado para que el juego no tenga permiso para enviar notificaciones de escritorio. Si aún desea recibir estas notificaciones, primero debe restablecer esto en la configuración de su navegador.",

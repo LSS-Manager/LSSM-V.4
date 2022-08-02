@@ -60,11 +60,11 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
     getIdFromEl = () => -1,
     LSSM,
 }) => {
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.rootStore.locale);
 
     const protokoll_types: VerbandProtokollWindow['protokoll_types'] = (
         await import(
-            /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../../i18n/${LSSM.$store.state.lang}/verband/protokoll_types`
+            /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../../i18n/${LSSM.rootStore.locale}/verband/protokoll_types`
         )
     ).default;
     const getUser = (

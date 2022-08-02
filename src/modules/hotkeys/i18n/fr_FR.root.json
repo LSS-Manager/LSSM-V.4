@@ -41,10 +41,7 @@
                 "title": "Chat"
             },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Ouvrir / Fermer"
-                },
+                "menu": { "title": "Menu", "toggle": "Ouvrir / Fermer" },
                 "title": "LSSM"
             },
             "map": {

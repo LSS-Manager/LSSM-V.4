@@ -139,10 +139,7 @@
                 "firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
             }
         },
-        "patient_additionals": {
-            "5": "LNA",
-            "10": "OrgL"
-        },
+        "patient_additionals": { "5": "LNA", "10": "OrgL" },
         "title": "Fahrzeuge"
     }
 }

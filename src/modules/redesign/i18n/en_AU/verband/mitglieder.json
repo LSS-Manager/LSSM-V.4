@@ -2,13 +2,8 @@
     "amount": "{n} filtered player | {n} filtered players",
     "credits": "total credits earned",
     "discount": "discount",
-    "edit_caption": {
-        "save": "save"
-    },
-    "load": {
-        "next": "load next page",
-        "prev": "load previous page"
-    },
+    "edit_caption": { "save": "save" },
+    "load": { "next": "load next page", "prev": "load previous page" },
     "name": "player",
     "online": {
         "subtitle": "Only online members are displayed!",
@@ -31,9 +26,7 @@
         "edit": "Edit rights",
         "finance": "Alliance Finances",
         "hide": "Close",
-        "kick": {
-            "btn": "Kick"
-        },
+        "kick": { "btn": "Kick" },
         "kickModal": {
             "btnCancel": "Cancel",
             "btnConfirm": "Kick",

@@ -36,15 +36,9 @@
             "title": "Allgemein"
         },
         "main": {
-            "chat": {
-                "focus": "Eingabefeld fokussieren",
-                "title": "Chat"
-            },
+            "chat": { "focus": "Eingabefeld fokussieren", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menü",
-                    "toggle": "Öffnen / Schließen"
-                },
+                "menu": { "title": "Menü", "toggle": "Öffnen / Schließen" },
                 "title": "LSSM"
             },
             "map": {
