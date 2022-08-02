@@ -1,6 +1,8 @@
 {
     "description": "Hälyytä, jaa tehtävä ja lähetä tapahtumamuistiinpano yhdellä napsautuksella.",
-    "lsam": { "help": "Muuttujat korvataan samalla tavalla kuin tehtäväluettelossa." },
+    "lsam": {
+        "help": "Muuttujat korvataan samalla tavalla kuin tehtäväluettelossa."
+    },
     "name": "Hälyytä, jaa, postaa",
     "noMessage": "Ilman tapahtumamuistiinpanoa",
     "settings": {

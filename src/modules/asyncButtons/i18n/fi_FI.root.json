@@ -23,7 +23,9 @@
             "title": "Liiton jäsenten oikeudet"
         },
         "missionPrisoners": { "title": "Vangit tehtäväikkunassa" },
-        "missionReply": { "title": "vastaaminen chat-viestillä tehtäväikkunoissa" },
+        "missionReply": {
+            "title": "vastaaminen chat-viestillä tehtäväikkunoissa"
+        },
         "switchExtensionState": {
             "description": "Estää uudelleenlatauksen, kun muutat laajennuksen toimintavalmiutta.",
             "title": "Laajennuksen (De-)aktivointi"
