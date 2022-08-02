@@ -77,7 +77,7 @@
             <label :for="ids.RadiusM">
                 {{ $m('radius') }}:
                 <span>
-                    {{ (settings[mode('RadiusM')] / 1000).toLocaleString() }}km
+                    {{ (settings[mode('RadiusM')]).toLocaleString() }}km
                 </span>
             </label>
             <button
