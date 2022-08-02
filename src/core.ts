@@ -387,13 +387,12 @@ LSSM-Team`,
         }
     })();
 
-    const fa = document.createElement('script');
-    fa.src = LSSM.$stores.root.lssmUrl(
-        '/static/fontawesome_free_6.1.1_all.min.js',
-        true
+    import(
+        /* webpackChunkName: "fontawesome" */
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        '@fortawesome/fontawesome-free/js/all.min.js'
     );
-    fa.crossOrigin = 'anonymous';
-    document.head.append(fa);
 
     LSSM.$stores.storage
         .get<string[]>({

@@ -1,13 +1,18 @@
 {
+    "@fortawesome/fontawesome-free": {
+        "icon": "https://avatars.githubusercontent.com/u/1505683",
+        "url": "https://fontawesome.com",
+        "version": "6.1.2"
+    },
     "@fortawesome/fontawesome-svg-core": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
-        "version": "6.1.1"
+        "version": "6.1.2"
     },
     "@fortawesome/free-solid-svg-icons": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
-        "version": "6.1.1"
+        "version": "6.1.2"
     },
     "@fortawesome/vue-fontawesome": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
@@ -17,7 +22,7 @@
     "@primer/octicons": {
         "icon": "https://primer.style/octicons/icons/icon-512x512.png",
         "url": "https://primer.style/octicons",
-        "version": "17.3.0"
+        "version": "17.4.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -47,17 +52,17 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.0.6"
+        "version": "18.6.3"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-        "version": "0.2.0"
+        "version": "0.2.1"
     },
     "@types/prettier": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/prettier",
-        "version": "2.6.3"
+        "version": "2.6.4"
     },
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -103,11 +108,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.30.7"
+        "version": "5.32.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.30.7"
+        "version": "5.32.0"
     },
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
@@ -167,10 +172,15 @@
         "url": "https://github.com/webpack-contrib/css-loader",
         "version": "6.7.1"
     },
+    "emoji-toolkit": {
+        "icon": "https://avatars.githubusercontent.com/u/6843823",
+        "url": "https://www.joypixels.com",
+        "version": "6.6.0"
+    },
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.20.0"
+        "version": "8.21.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -181,7 +191,7 @@
         "version": "7.32.1"
     },
     "eslint-import-resolver-typescript": {
-        "version": "3.3.0"
+        "version": "3.4.0"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
@@ -198,7 +208,7 @@
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
-        "version": "1.7.0"
+        "version": "1.8.0"
     },
     "eslint-plugin-tsdoc": {
         "icon": "https://tsdoc.org/images/tsdoc.svg",
@@ -213,7 +223,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.2.0"
+        "version": "9.3.0"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -268,7 +278,7 @@
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
-        "version": "2.0.16"
+        "version": "2.0.17"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -282,7 +292,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.53.0"
+        "version": "1.54.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -393,6 +403,6 @@
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
-        "version": "5.73.0"
+        "version": "5.74.0"
     }
 }

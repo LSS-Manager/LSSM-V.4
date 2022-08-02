@@ -313,6 +313,17 @@
                 {{ missionSpecs.generated_by }}
                 <br />
             </span>
+            <ul v-if="missionSpecs.additional.personnel_educations">
+                <li
+                    v-for="(amount, req) in missionSpecs.additional
+                        .personnel_educations"
+                    :key="req"
+                    :amount="amount"
+                    :data-amount="amount"
+                >
+                    {{ req }}
+                </li>
+            </ul>
             <ul v-if="specialRequirements.nonbadge.length">
                 <li
                     v-for="req in specialRequirements.nonbadge"
