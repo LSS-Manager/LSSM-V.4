@@ -17,7 +17,7 @@ export default <ModuleMainFunction>(async ({
     $m,
     setSetting,
 }) => {
-    if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
+    if (window.location.pathname !== '/' || window.hasOwnProperty('mapkit'))
         return;
 
     await LSSM.$stores.api.getBuildings(MODULE_ID);
