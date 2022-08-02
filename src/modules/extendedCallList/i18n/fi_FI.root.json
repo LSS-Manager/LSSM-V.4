@@ -1,0 +1,139 @@
+{
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Pienennä kaikki tehtävät",
+            "expand": "Suurennna kaikki tehtävät"
+        },
+        "collapse": "Piennennä tämä tehtävä",
+        "expand": "Suurenna tämä tehtävä"
+    },
+    "description": "Laajentaa tehtäväluetteloa hienoilla ominaisuuksilla!",
+    "eventMissions": {
+        "default": {
+            "🌞": [95, 96, 97, 98, 99, 306, 307, 308],
+            "🌹": [217, 218, 219, 220, 221, 222, 223, 224, 225],
+            "🎃": [157, 158, 159, 160, 161, 162, 163, 164, 165],
+            "🎅": [171, 172, 173, 174, 175, 176, 177, 178],
+            "🚨": [385, 386, 387, 388, 389],
+            "🎈": [412, 413, 414, 415, 416, 417],
+            "🥚": [231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241],
+            "🧨": [
+                184, 185, 186, 187, 189, 190, 191, 192, 193, 194, 195, 196, 197,
+                198, 199, 200, 201, 202, 203, 205]
+        }
+    },
+    "name": "Paranneltu tehtäväluettelo",
+    "settings": {
+        "averageCredits": {
+            "description": "Shows the average earnable credits for each mission in a compact way.",
+            "title": "Näytä keskim. krediitit"
+        },
+        "collapsableMissions": {
+            "description": "Pienennä yksittäisten (tai kaikkien) tehtävien kokoa tehtäväluettelossa.",
+            "title": "Tehtävien pienennys"
+        },
+        "collapsableMissionsAllBtn": {
+            "description": "Näyttää napin, jolla voit pienentää kaikki tehtävät kerralla.",
+            "title": "Pienennä kaikki tehtävät kerralla"
+        },
+        "currentPatients": {
+            "description": "Näyttää potilaiden nykyisen määrän kussakin tehtävässä",
+            "title": "Nykyiset potilaat"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Näyttää nykyiset potilaat tooltipseissä kartalla",
+            "title": "Nykyiset potilaat tooltipseissä"
+        },
+        "currentPrisoners": {
+            "description": "Näyttää vankien nykyisen määrän kussakin tehtävässä.",
+            "title": "Nykyiset vangit"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Näyttää nykyiset potilaat tooltipseissä kartalla",
+            "title": "Nykyiset vangit tooltipseissä"
+        },
+        "eventMissions": {
+            "description": "Merkitsee kausittaiset tehtävät. Voit halutessasi mukauttaa kokonaisuutta ja merkitä myös muita kuin kausiluonteisia tehtäviä.",
+            "missions": "Tehtävät",
+            "text": "Teksti",
+            "title": "Merkitsee kausittaiset tehtävät"
+        },
+        "fixedEventInfo": {
+            "description": "Näyttää käynnissä olevan liittoumatapahtuman tiedot pysyvästi riippumatta siitä, kuinka pitkälle olet scrollannut tehtäväluettelossa.",
+            "title": "Näytä aina liittoumatapahtuman tiedot"
+        },
+        "hide0CurrentPatients": {
+            "description": "Piilottaa potilaiden määrän, jos paikalla ei ole potilaita.",
+            "title": "Piilota 0 potilasta"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Piilottaa vankien määrän, jos paikalla ei ole vankeja.",
+            "title": "Piilota 0 vankia"
+        },
+        "remainingPatientTime": {
+            "description": "Näyttää, kuinka paljon aikaa potilailla on jäljellä, ennen kuin heidät on täysin hoidettu.",
+            "title": "Potilaiden jäljellä oleva aika"
+        },
+        "remainingTime": {
+            "description": "Näyttää tehtävissä, kuinka kauan tehtävä kestää.",
+            "title": "Jäljellä oleva aika"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Näytä jäljellä oleva aika vain vihreissä tehtävissä.",
+            "title": "Jäljellä oleva aika vain vihreissä"
+        },
+        "shareMissions": {
+            "description": "Jaa tehtäviä liittoutuman kanssa suoraan tehtäväluettelosta.",
+            "title": "Jaa tehtävä"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Punainen",
+            "default": "Musta tai valkoinen (riippuu tyylistä)",
+            "description": "Valitse jako-napin taustaväri",
+            "info": "Vaaleansininen",
+            "primary": "Tummansininen",
+            "success": "Vihreä",
+            "title": "Jaa tehtävä: Napin väri",
+            "warning": "Oranssi"
+        },
+        "shareMissionsMinCredits": {
+            "description": "Tehtävän jakamispainike näytetään vain sellaisten tehtävien kohdalla, joiden keskimääräinen palkkio on suurempi kuin tässä asetettu arvo.",
+            "title": "Jaa tehtävä: Vähimmäis krediitti määrä"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Liittoumatehtävät (vain Hälyytä, jaa, postaa)",
+            "description": "Määritä, mille tehtäville haluat ottaa jakonapin käyttöön.",
+            "own": "Omat tehtävät",
+            "sicherheitswache": "Suunnitellut-tapahtumat",
+            "title": "Jaa tehtävä: tehtävä tyypit"
+        },
+        "sortMissions": {
+            "description": "Lajittelee tehtävälistasi!",
+            "title": "Lajittele tehtävät"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Valitse lajittelunapin taustaväri",
+            "title": "Lajittele tehtävät: Napin väri"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Toteuttaa lajittelun tehtäväikkunassa. Vaihtoehtoisesti voit asettaa muokatuille napeille omat pikanäppäimet moduulissamme \"Pikanäppäimet\".",
+            "title": "Lajittele tehtäväikkunassa"
+        },
+        "starrableMissions": {
+            "description": "Merkitse tehtävä niin, että ne näkyvät ylhäällä tehtäväluettelossa. Voit merkitä ne tehtäväikkunassa ja tehtäväluettelossa.",
+            "title": "Merkkaa tehtävä"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Aakkoset",
+            "credits": "Krediitit",
+            "default": "Ei lajittelua",
+            "distance_dispatch": "Etäisyys lähimpään hätäkeskukseen",
+            "distance_station": "Etäisyys lähimmälle asemalle",
+            "id": "Ikä",
+            "remaining_patients": "Nykyiset potilaat",
+            "remaining_prisoners": "Nykyiset vangit"
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "buildingPersonal": {
+        "deleteModal": {
+            "btnCancel": "Peruuta",
+            "btnConfirm": "Potki",
+            "text": "Oletko varma, että haluat potkia tämän henkilön?",
+            "title": "Potki?"
+        }
+    },
+    "buildings": {
+        "active": "Toimintavalmis",
+        "nonactive": "Ei toimintavalmis"
+    },
+    "deleteARR": {
+        "deleteModal": {
+            "btnCancel": "Peruuta",
+            "btnConfirm": "Poista",
+            "text": "Haluatko poistaa tämän hälytysjärjestelyn?",
+            "title": "Poista?"
+        }
+    },
+    "forumPost": {
+        "deleteModal": {
+            "btnCancel": "Peruuta",
+            "btnConfirm": "Poista",
+            "text": "Haluatko poistaa tämän postauksen?",
+            "title": "Poista?"
+        }
+    },
+    "memberlistManageUser": {
+        "hide": "Sulje",
+        "kickModal": {
+            "btnCancel": "Peruuta",
+            "btnConfirm": "Potki",
+            "text": "Haluatko todella potkia tämän pelaajan ulos?",
+            "title": "Potki?"
+        },
+        "set": "aseta",
+        "unset": "poista"
+    },
+    "memberlistRoles": {
+        "admin": "Liittoutuman ylläpitäjä",
+        "aufsichtsrat": "Moderaattorin toimintaloki",
+        "coadmin": "Liittoutuman kouluttaja",
+        "finance": "Liittoutuman raha-asiat",
+        "schooling": "Liittouman kouluttaja",
+        "sprechwunsch_admin": "Kuljetuspyyntö - ylläpitäjä",
+        "staff": "Liittouman henkilöstö"
+    }
+}

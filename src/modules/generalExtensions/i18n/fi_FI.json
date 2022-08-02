@@ -1,0 +1,16 @@
+{
+    "inputMaxLen": "Tässä tekstikentässä on oltava vähintään {min} ja maksimissaan {max} merkkiä!",
+    "protocolDeletionConfirmation": {
+        "all": {
+            "text": "Haluatko todella poistaa protokollan? Tätä ei voi perua!",
+            "title": "Poista protokolla"
+        },
+        "cancel": "Peruuta",
+        "confirm": "Jatka",
+        "single": {
+            "text": "Haluatko todella poistaa tämän yksittäisen merkinnän? Tätä ei voi perua!",
+            "title": "Poista merkintä"
+        },
+        "toggleSingle": "Näytä vahvistus, kun poistat yksittäisiä merkintöjä"
+    }
+}

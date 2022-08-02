@@ -1,0 +1,14 @@
+{
+    "description": "Parantaa kuljetuspyyntöjen käyttökokemusta hienoilla ominaisuuksilla",
+    "name": "Parannetut kuljetuspyynnöt",
+    "settings": {
+        "autoClickSuccessBtns": {
+            "description": "Kun kuljetuspyyntö on valmis, painikkeita \"Seuraava pyyntö\" ja \"Takaisin tehtävään\" napsautetaan automaattisesti.",
+            "title": "Hyppää seuraavaan kuljetuspyyntöön"
+        },
+        "autoOpenTransportRequest": {
+            "description": "Avaa automaattisesti ensimmäisen kuljetuspyynnön tehtäväikkunassa.",
+            "title": "Avaa ensimmäinen kuljetuspyyntö"
+        }
+    }
+}
