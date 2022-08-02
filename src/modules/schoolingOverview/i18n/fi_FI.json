@@ -1,0 +1,15 @@
+{
+    "all": "Kaikki",
+    "amount": "Kurssien määrä",
+    "open": "Avoimet kurssit",
+    "own": "Kurssit missä on omaa henkilöstöä",
+    "schooling": "Kurssi",
+    "seats": "Paikkojen määrä",
+    "titles": {
+        "end": "Aikaa jäljellä",
+        "name": "Kurssi",
+        "owner": "Hätäkeskus",
+        "price": "Hinta",
+        "seats": "Vapaat paikat"
+    }
+}
