@@ -18,6 +18,10 @@
             "description": "Prosty projekt historii czatu",
             "title": "Prosty projekt historii czatu"
         },
+        "mentionIndicator": {
+            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
+            "title": "Mentioning indicator"
+        },
         "selfHighlight": {
             "description": "Podświetla twoją nazwę użytkownika na czacie niestandardowym kolorem",
             "title": "Niestandardowy kolor na czacie"
@@ -33,6 +37,10 @@
         "selfHighlightCustomTextColorColor": {
             "description": "Wybierz tutaj, jakim kolorem ma być podświetlone tekst twojej nazwy użytkownika.",
             "title": "Wybierz kolor"
+        },
+        "whisperIndicator": {
+            "description": "Shows a small lock icon in the chat input when you're currently whispering",
+            "title": "Whisper indicator"
         }
     }
 }

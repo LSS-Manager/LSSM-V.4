@@ -18,6 +18,10 @@
             "description": "Chat-historiaan kevyt muotoilu",
             "title": "Chat-historiaan kevyt muotoilu"
         },
+        "mentionIndicator": {
+            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
+            "title": "Mentioning indicator"
+        },
         "selfHighlight": {
             "description": "Korostaa käyttäjänimeäsi chatissa mukautetulla värillä",
             "title": "Mukautettu väri chatissa"
@@ -32,6 +36,10 @@
         },
         "selfHighlightCustomTextColorColor": {
             "title": "mukautettu väri chatissa: mukautettu tekstin väri"
+        },
+        "whisperIndicator": {
+            "description": "Shows a small lock icon in the chat input when you're currently whispering",
+            "title": "Whisper indicator"
         }
     }
 }

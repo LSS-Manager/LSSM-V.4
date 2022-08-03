@@ -18,6 +18,10 @@
             "description": "A light design of the chat-history",
             "title": "Chat-history light design"
         },
+        "mentionIndicator": {
+            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
+            "title": "Mentioning indicator"
+        },
         "selfHighlight": {
             "description": "highlights your username in the chat with a custom color",
             "title": "custom color in chat"
@@ -32,6 +36,10 @@
         },
         "selfHighlightCustomTextColorColor": {
             "title": "custom color in chat: custom text color"
+        },
+        "whisperIndicator": {
+            "description": "Shows a small lock icon in the chat input when you're currently whispering",
+            "title": "Whisper indicator"
         }
     }
 }
