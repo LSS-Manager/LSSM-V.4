@@ -19,8 +19,8 @@
             "title": "Prosty projekt historii czatu"
         },
         "mentionIndicator": {
-            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
-            "title": "Mentioning indicator"
+            "description": "Pokazuje małą ikonę @ w czacie, gdy masz zamiar o kimś wspomnieć.",
+            "title": "Wskaźnik wzmianki"
         },
         "selfHighlight": {
             "description": "Podświetla twoją nazwę użytkownika na czacie niestandardowym kolorem",
@@ -39,7 +39,7 @@
             "title": "Wybierz kolor"
         },
         "whisperIndicator": {
-            "description": "Shows a small lock icon in the chat input when you're currently whispering",
+            "description": "Pokazuje małą ikonę kłódki w polu tekstowym czatu, gdy piszesz do kogoś wiadomość prywatną.",
             "title": "Whisper indicator"
         }
     }
