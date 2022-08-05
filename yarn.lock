@@ -9041,7 +9041,7 @@ __metadata:
     pinia: ^2.0.17
     prettier: ^2.7.1
     qrcode: ^1.5.1
-    sass: ^1.54.1
+    sass: ^1.54.3
     sass-loader: ^13.0.2
     semver: ^7.3.7
     showdown: ^2.1.0
@@ -9146,7 +9146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.53.0, sass@npm:^1.54.1":
+"sass@npm:^1.53.0":
   version: 1.54.1
   resolution: "sass@npm:1.54.1"
   dependencies:
@@ -9156,6 +9156,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 6ab68b39006db7b015ee710e820c254890a8b503f83516db983896967b965f8114a497615f949a1665634dea11bd9f02c19fc2093d3561515f7c16022c9ab5b5
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.54.3":
+  version: 1.54.3
+  resolution: "sass@npm:1.54.3"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 9b405f602c0dcdad85e7f216cfa5ca9dfe3f7ded7b3928817cfe8dbfde0cd27b70f4cff724e229b233b3f51a06e71d3fcbbd7d3a0ff92b3e40ac57bc05b90b48
   languageName: node
   linkType: hard
 
