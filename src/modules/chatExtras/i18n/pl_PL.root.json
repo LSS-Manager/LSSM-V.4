@@ -40,7 +40,7 @@
         },
         "whisperIndicator": {
             "description": "Pokazuje małą ikonę kłódki w polu tekstowym czatu, gdy piszesz do kogoś wiadomość prywatną.",
-            "title": "Whisper indicator"
+            "title": "Wskaźnik szeptu"
         }
     }
 }
