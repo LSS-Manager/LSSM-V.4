@@ -23,7 +23,8 @@ export default (LSSM: Vue, whisper: boolean, mention: boolean) => {
     atIcon.classList.add('fa-at');
 
     inputGroup.after(lockIcon, atIcon);
-    chatInput.addEventListener('input', () => {
+
+    const updateIcons = () => {
         form.classList.remove('is-whispering', 'is-mentioning');
 
         if (whisper && chatInput.value.startsWith('/w '))
@@ -33,7 +34,11 @@ export default (LSSM: Vue, whisper: boolean, mention: boolean) => {
         else return form.classList.remove('has-feedback');
 
         form.classList.add('has-feedback');
-    });
+    };
+
+    chatInput.addEventListener('input', updateIcons);
+    chatInput.addEventListener('focus', updateIcons);
+    form.addEventListener('submit', updateIcons);
 
     LSSM.$stores.root.addStyles([
         {
