@@ -53,6 +53,14 @@ export default (async ({ LSSM, getSetting }) => {
                 indicator(LSSM, whisperIndicator, mentionIndicator)
             );
         }
+
+        getSetting('userSelection').then(userSelection => {
+            if (userSelection) {
+                import(
+                    /* webpackChunkName: "modules/chatExtras/userSelection" */ './assets/userSelection'
+                ).then(({ default: userSelection }) => userSelection(LSSM));
+            }
+        });
     }
 
     getSetting('lightDesignChatHistory').then(lightChatDesignActive => {
