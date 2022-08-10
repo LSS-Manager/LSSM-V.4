@@ -19,8 +19,8 @@
             "title": "Design léger de l'historique du chat"
         },
         "mentionIndicator": {
-            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
-            "title": "Mentioning indicator"
+            "title": "Indicateur de mention",
+            "description": "Affichage d'une petite icône @ dans la fenêtre de chat lorsque vous êtes sur le point de mentionner quelqu'un."
         },
         "selfHighlight": {
             "description": "mettre en évidence votre nom d'utilisateur dans le chat avec une couleur personnalisée.",
@@ -38,8 +38,8 @@
             "title": "couleur personnalisée dans le chat : couleur de texte"
         },
         "whisperIndicator": {
-            "description": "Shows a small lock icon in the chat input when you're currently whispering",
-            "title": "Whisper indicator"
+            "title": "Indicateur de chuchotements",
+            "description": "Affichage d'une petite icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter."
         }
     }
 }
