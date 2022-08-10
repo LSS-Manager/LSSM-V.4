@@ -4648,9 +4648,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.202":
-  version: 1.4.212
-  resolution: "electron-to-chromium@npm:1.4.212"
-  checksum: 972eb1b46bce2fa7fa19eb70779d27b84b7113daad01718a67cfbd92e2972c09eaf15bbe5e901467399e5e66c74a17a74891c7aeda8118b1ef655d8c1913ee2a
+  version: 1.4.213
+  resolution: "electron-to-chromium@npm:1.4.213"
+  checksum: 63953b2db5f87ef11caad8c57bba69300cc5ab1bf363d5758c48187fe9e414e971e470bfc961540c954a2f966fadccce29bdbfa60f5bd6c4b5499f16404d0846
   languageName: node
   linkType: hard
 
@@ -9146,20 +9146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.53.0":
-  version: 1.54.3
-  resolution: "sass@npm:1.54.3"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-    immutable: ^4.0.0
-    source-map-js: ">=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 9b405f602c0dcdad85e7f216cfa5ca9dfe3f7ded7b3928817cfe8dbfde0cd27b70f4cff724e229b233b3f51a06e71d3fcbbd7d3a0ff92b3e40ac57bc05b90b48
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.54.4":
+"sass@npm:^1.53.0, sass@npm:^1.54.4":
   version: 1.54.4
   resolution: "sass@npm:1.54.4"
   dependencies:
@@ -9878,12 +9865,12 @@ __metadata:
   linkType: hard
 
 "synckit@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "synckit@npm:0.8.1"
+  version: 0.8.2
+  resolution: "synckit@npm:0.8.2"
   dependencies:
     "@pkgr/utils": ^2.3.0
     tslib: ^2.4.0
-  checksum: 36a1b699996f3bb251c8f828364e101cf08b2a20225cb39df9d7c2186380554b8172374babfe10f03f4b52ab8c453c16447c3cbf61108221f2c58c446bf8425a
+  checksum: ec5b94a12dc222efffb99707d5db651a012bcf75001c3c5c774cbab8f569188dcba77b2bb96059f0f05a0e70682ef8ad6ff6a612c704fb8d3d7a7caa40ed7b70
   languageName: node
   linkType: hard
 
