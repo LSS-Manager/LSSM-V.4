@@ -1,3 +1,11 @@
+/**
+ * This feature allows to select users from a suggestion list of alliance members
+ *  when either typing the name to whisper or to mention in the alliance chat.
+ * It also indicates when the user is trying to mention / whisper to an alliance member
+ *  that does not exist in the alliance.
+ *
+ * @param LSSM - The current local LSSM instance.
+ */
 export default (LSSM: Vue) => {
     LSSM.$stores.api.autoUpdateAllianceInfo('ce-user_selection').then();
 
