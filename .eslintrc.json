@@ -8,6 +8,7 @@
         "@typescript-eslint",
         "compat",
         "import",
+        "jsdoc",
         "prettier",
         "tsdoc",
         "unicorn",
@@ -19,6 +20,7 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:compat/recommended",
         "plugin:import/typescript",
+        "plugin:jsdoc/recommended",
         "plugin:regexp/recommended",
         "plugin:vue/essential",
         "prettier"
@@ -38,6 +40,11 @@
         "parser": "@typescript-eslint/parser",
         "ecmaVersion": 2018,
         "sourceType": "module"
+    },
+    "settings": {
+        "jsdoc": {
+            "mode": "typescript"
+        }
     },
     "rules": {
         "@typescript-eslint/array-type": ["error"],
@@ -71,6 +78,16 @@
             "pathGroupsExcludedImportTypes": ["vue"],
             "newlines-between": "always"
         }],
+        "jsdoc/check-syntax": ["error"],
+        "jsdoc/no-types": ["error"],
+        "jsdoc/require-asterisk-prefix": ["error"],
+        "jsdoc/require-description": ["error"],
+        "jsdoc/require-description-complete-sentence": ["error"],
+        // TODO: add a @file JSDoc to all files and then enable this rule
+//        "jsdoc/require-file-overview": ["error"],
+        "jsdoc/require-hyphen-before-param-description": ["error"],
+        "jsdoc/require-param-type": ["off"],
+        "jsdoc/require-returns-type": ["off"],
         "no-constant-binary-expression": "error",
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
@@ -135,6 +152,7 @@
             "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
         }],
         "template-curly-spacing": "error",
+        "tsdoc/syntax": "warn",
         "unicorn/consistent-destructuring": ["error"],
         "unicorn/no-array-push-push": ["error"],
         "unicorn/no-for-loop": ["error"],
