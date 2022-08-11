@@ -8338,9 +8338,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:^2.0.17":
-  version: 2.0.17
-  resolution: "pinia@npm:2.0.17"
+"pinia@npm:^2.0.18":
+  version: 2.0.18
+  resolution: "pinia@npm:2.0.18"
   dependencies:
     "@vue/devtools-api": ^6.2.1
     vue-demi: "*"
@@ -8353,7 +8353,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: d308c6358570242b6c8126d990d756a224d1a77dfa375db5069da7f1c350372bf4e07feb4efce0d924dfc1b39f39d533234cdecf3594c4a2876de30477f6f978
+  checksum: e873667e78b566b8b362c6a3df120e4f07056115c25d3242b15bfbae3a73c19182fe641facf24219332edf7dddca9af2ffedb345256facddbc52df7a0126fa95
   languageName: node
   linkType: hard
 
@@ -9045,7 +9045,7 @@ __metadata:
     moment: ^2.29.4
     moment-timezone: ^0.5.34
     pdfmake: ^0.2.5
-    pinia: ^2.0.17
+    pinia: ^2.0.18
     prettier: ^2.7.1
     qrcode: ^1.5.1
     sass: ^1.54.4
