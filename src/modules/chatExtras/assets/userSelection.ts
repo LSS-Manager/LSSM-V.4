@@ -4,7 +4,10 @@
  * It also indicates when the user is trying to mention / whisper to an alliance member
  *  that does not exist in the alliance.
  *
+ * @file - This is the only method in this file.
  * @param LSSM - The current local LSSM instance.
+ * @alpha - This feature is not live for betas yet!
+ * @beta - This feature is not live for stable users yet!
  */
 export default (LSSM: Vue) => {
     LSSM.$stores.api.autoUpdateAllianceInfo('ce-user_selection').then();

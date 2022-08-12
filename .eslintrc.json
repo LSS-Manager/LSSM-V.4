@@ -79,6 +79,9 @@
             "newlines-between": "always"
         }],
         "jsdoc/check-syntax": ["error"],
+        "jsdoc/check-tag-names": ["error", {
+            "definedTags": ["alpha", "beta"]
+        }],
         "jsdoc/no-types": ["error"],
         "jsdoc/require-asterisk-prefix": ["error"],
         "jsdoc/require-description": ["error"],
