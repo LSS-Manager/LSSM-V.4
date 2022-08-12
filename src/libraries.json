@@ -72,7 +72,7 @@
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.3.11"
+        "version": "7.3.12"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
