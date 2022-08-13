@@ -23,7 +23,7 @@
                 v-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
-                :lightbox="this"
+                :lightbox="lightbox"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
@@ -32,7 +32,7 @@
                 v-else-if="type.startsWith('verband/') || type === 'schoolings'"
                 :data="data"
                 :url="urlProp"
-                :lightbox="this"
+                :lightbox="lightbox"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
@@ -47,7 +47,7 @@
                 v-else-if="windows[type]"
                 :is="windows[type].component"
                 :url="urlProp"
-                :lightbox="this"
+                :lightbox="lightbox"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 v-bind="{ [windows[type].data]: data }"
@@ -95,6 +95,7 @@ import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 import { useTranslationStore } from '@stores/translationUtilities';
 
+import type { RedesignLightboxVue, Redesigns } from 'typings/modules/Redesign';
 import type {
     RedesignLightbox,
     RedesignParser,
@@ -544,6 +545,14 @@ export default Vue.extend<
         },
         modalName() {
             return `redesign-lightbox-${this.creation}`;
+        },
+        lightbox(): typeof this.type extends keyof Redesigns
+            ? RedesignLightboxVue<typeof this.type>
+            : null {
+            if (this.type === '' || this.type === 'default') return null;
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            return this;
         },
     },
     methods: {
