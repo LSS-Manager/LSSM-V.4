@@ -188,7 +188,7 @@ export default {
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'No limit',
-        maxLevel: 20,
+        maxLevel: 30,
         startBeds: 10,
         special:
             'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
