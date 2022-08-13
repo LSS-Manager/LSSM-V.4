@@ -17,12 +17,92 @@ export default (LSSM: Vue) => {
     );
     if (!chatInput) return;
 
+    const amountOfShownUsers = 5;
+
+    const popupClass = LSSM.$stores.root.nodeAttribute('ce-us-popup');
+
+    const choicePopup = document.createElement('div');
+    choicePopup.classList.add('list-group', popupClass);
+
+    LSSM.$stores.root.addStyles([
+        {
+            selectorText: `.${popupClass}`,
+            style: {
+                'width': '100%',
+                'position': 'absolute',
+                'top': '100%',
+                'left': 0,
+                'z-index': 3,
+            },
+        },
+        {
+            selectorText: `.${popupClass} .list-group-item`,
+            style: {
+                'background-color': 'dimgrey',
+                'color': 'white',
+                'cursor': 'pointer',
+            },
+        },
+        {
+            selectorText: `.${popupClass} .list-group-item:hover`,
+            style: {
+                'background-color': 'darkgrey',
+                'color': 'black',
+            },
+        },
+        {
+            selectorText: `.${popupClass} .list-group-item[data-choice=""]`,
+            style: {
+                display: 'none',
+            },
+        },
+        {
+            selectorText: `.${popupClass} .list-group-item[data-choice]::before`,
+            style: {
+                content: 'attr(data-choice)',
+            },
+        },
+    ]);
+    chatInput.parentElement?.append(choicePopup);
+
+    const choiceElements: HTMLAnchorElement[] = [];
+    for (let i = 0; i < amountOfShownUsers; i++) {
+        const choiceElement = document.createElement('a');
+        choiceElement.classList.add('list-group-item');
+        choiceElement.dataset.choice = '';
+        choiceElements.push(choiceElement);
+    }
+    choicePopup.append(...choiceElements);
+
+    choicePopup.addEventListener('click', e => {
+        e.preventDefault();
+
+        const target = e.target;
+        if (!(target instanceof HTMLElement)) return;
+        const choiceElement = target.closest<HTMLAnchorElement>(
+            '.list-group-item[data-choice]'
+        );
+        if (!choiceElement) return;
+        const choice = choiceElement.dataset.choice;
+
+        if (choicePopup.dataset.inputMode === 'whisper') {
+            chatInput.value = chatInput.value.replace(
+                /^\/w [^ ]+( |$)/u,
+                `/w ${choice} `
+            );
+        }
+
+        chatInput.dispatchEvent(new Event('input'));
+        chatInput.focus();
+    });
+
     chatInput.addEventListener('input', () => {
         const users = LSSM.$stores.api.allianceinfo?.users;
         if (!users) return;
 
         // whisper-mode: currently at entering username
         if (chatInput.value.match(/^\/w [^ ]+$/u)) {
+            choicePopup.dataset.inputMode = 'whisper';
             const usernameInput = chatInput.value
                 .replace(/^\/w /u, '')
                 .toLowerCase();
@@ -35,20 +115,25 @@ export default (LSSM: Vue) => {
                     relevance:
                         Number(name.toLowerCase().startsWith(usernameInput)) +
                         Number(online) +
-                        Number(
-                            !!document.querySelector<HTMLAnchorElement>(
-                                `#mission_chat_messages .mission_chat_message_username a[href="/profile/${id}"]`
-                            )
-                        ) *
-                            2,
+                        document.querySelectorAll<HTMLAnchorElement>(
+                            `#mission_chat_messages .mission_chat_message_username a[href="/profile/${id}"]`
+                        ).length,
                 }));
             const filteredUsersSorted = filteredUsers.sort(
                 (a, b) => b.relevance - a.relevance
             );
-            const shownUsers = filteredUsersSorted
-                .slice(0, 5)
-                .map(({ name }) => name);
-            console.log(filteredUsers, filteredUsersSorted, shownUsers);
+
+            for (let i = 0; i < amountOfShownUsers; i++) {
+                if (i >= filteredUsersSorted.length) {
+                    choiceElements[i].dataset.choice = '';
+                } else {
+                    choiceElements[i].dataset.choice =
+                        filteredUsersSorted[i].name;
+                }
+            }
+        } else {
+            choicePopup.dataset.inputMode = '';
+            choiceElements.forEach(el => (el.dataset.choice = ''));
         }
     });
 };
