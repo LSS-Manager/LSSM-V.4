@@ -95,10 +95,11 @@ import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 import { useTranslationStore } from '@stores/translationUtilities';
 
-import type { RedesignLightboxVue, Redesigns } from 'typings/modules/Redesign';
 import type {
     RedesignLightbox,
+    RedesignLightboxVue,
     RedesignParser,
+    Redesigns,
 } from 'typings/modules/Redesign';
 
 const windows: RedesignLightbox['Data']['windows'] = {
