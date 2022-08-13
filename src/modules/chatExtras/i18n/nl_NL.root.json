@@ -19,8 +19,8 @@
             "title": "Chatgeschiedenis compact design"
         },
         "mentionIndicator": {
-            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
-            "title": "Mentioning indicator"
+            "description": "Toon een klein @-icoon in het invoerveld van de chat als je iemand hebt getagd in je bericht.",
+            "title": "Tag indicatie"
         },
         "selfHighlight": {
             "description": "Geeft je eigen gebruikersnaam in de chat weer met een aangepaste kleur",
@@ -38,8 +38,8 @@
             "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
         },
         "whisperIndicator": {
-            "description": "Shows a small lock icon in the chat input when you're currently whispering",
-            "title": "Whisper indicator"
+            "description": "Toont een klein slotje in het invoerveld van de chat als je een privé chat aan het typen bent.",
+            "title": "Privé-chat indicatie"
         }
     }
 }
