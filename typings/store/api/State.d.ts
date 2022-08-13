@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the state of API store.
+ */
+
 import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from '../../Building';
 import type { CreditsInfo } from 'typings/api/Credits';

@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the actions of storage store.
+ */
+
 export interface StorageGet<ValueType = unknown> {
     key: string;
     defaultValue: ValueType;

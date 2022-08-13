@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the actions of settings store.
+ */
+
 import type { ModuleSettings, RegisterSettings } from '../../Setting';
 
 export interface SettingsRegister {
