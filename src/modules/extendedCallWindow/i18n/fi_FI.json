@@ -13,34 +13,34 @@
     },
     "arrHover": {
         "arrSpecs": {
-            "fire": "Paloautot",
-            "elw": "Johtoauto",
             "dlk": "Nostolava-autot",
-            "rtw": "Hoitotason ambulanssi",
+            "elw": "Johtoauto",
+            "elw2": "Johtokeskusauto",
+            "fire": "Paloautot",
             "fly_car": "Ensivasteauto",
-            "kdow_orgl": "Ensihoidon kenttäjohtaja",
             "fly_car_any": "EVA-yksikkö, EVY-yksikkö tai Ensihoidon lääkäri",
-            "ktw": "Perustason ambulanssi",
-            "rw": "Raskas pelastusauto",
-            "gwl2wasser": "Säiliöauto",
-            "gwgefahrgut": "Kemikaalitorjunta",
-            "rth_only": "Lääkärihelikopteri (HEMS)",
+            "foam_amount": "Litraa vaahtoa",
             "fustw": "Partioauto",
-            "police_motorcycle": "Poliisimoottoripyörä",
             "fustw_or_police_motorcycle": "Partioauto tai Poliisimoottoripyörä",
+            "gwa": "Paineilmalaiteyksikkö",
+            "gwgefahrgut": "Kemikaalitorjunta",
+            "gwl2wasser": "Säiliöauto",
+            "hlf_only": "Pelastusauto",
+            "hose_trucks": "Letkuyksikkö",
+            "k9": "Koirayksikkö",
+            "kdow_orgl": "Ensihoidon kenttäjohtaja",
+            "ktw": "Perustason ambulanssi",
+            "police_motorcycle": "Poliisimoottoripyörä",
             "polizeihubschrauber": "Poliisihelikopteri",
+            "pump": "Suurtehopumppu",
+            "rth_only": "Lääkärihelikopteri (HEMS)",
+            "rtw": "Hoitotason ambulanssi",
+            "rw": "Raskas pelastusauto",
             "swat": "VATI",
             "swat_armored_vehicle": "VATI miehistönkuljetusajoneuvo",
             "swat_suv": "VATI-partio",
-            "k9": "Koirayksikkö",
-            "gwa": "Paineilmalaiteyksikkö",
-            "elw2": "Johtokeskusauto",
-            "hlf_only": "Pelastusauto",
-            "hose_trucks": "Letkuyksikkö",
-            "pump": "Suurtehopumppu",
-            "wasser_amount": "Litraa vettä",
-            "foam_amount": "Litraa vaahtoa"
-          },
+            "wasser_amount": "Litraa vettä"
+        },
         "headers": {
             "attribute": "Nimi",
             "free": "Vapaa",
@@ -68,14 +68,12 @@
             {
                 "texts": ["pelastajan", "pelastajaa"],
                 "vehicles": [
-                    0, 1 ,2, 3, 4, 6, 7, 10, 11, 12, 13, 25, 27, 28, 31, 32
+                    0, 1, 2, 3, 4, 6, 7, 10, 11, 12, 13, 25, 27, 28, 31, 32
                 ]
             },
             {
                 "texts": ["poliisin", "poliisia"],
-                "vehicles": [
-                    8, 14, 15, 16, 17, 18
-                ]
+                "vehicles": [8, 14, 15, 16, 17, 18]
             }
         ],
         "staffPrefix": ["Tarvitsemme vielä"],
@@ -91,49 +89,36 @@
         "total": "Vielä tarvitaan",
         "vehicle": "Ajoneuvotyyppi",
         "vehiclesByRequirement": [
-            {
-                "texts": ["partioauto", "partioauto"],
-                "vehicles": [8, 16, 18]
-            },
+            { "texts": ["partioauto", "partioauto"], "vehicles": [8, 16, 18] },
             {
                 "texts": ["Poliisihelikopteri", "Poliisihelikopteria"],
                 "vehicles": [14]
             },
+            { "texts": ["paloauto", "paloautoa"], "vehicles": [0, 1, 12, 13] },
+            { "texts": ["nostolava-auto", "nostolava-auto"], "vehicles": [2] },
             {
-                "texts": ["paloauto", "paloautoa"],
-                "vehicles": [0, 1 ,12, 13]
+                "texts": ["Raskas pelastusauto, ", "Raskas pelastusauto"],
+                "vehicles": [4, 12]
             },
-            {
-                "texts": [
-                    "nostolava-auto", "nostolava-auto"],
-                "vehicles": [2]
-            },
-            { "texts": [
-                  "Raskas pelastusauto, ", "Raskas pelastusauto"],
-                "vehicles": [4, 12] },
             {
                 "texts": ["Paineilmahuoltoauto", "Paineilmahuoltoautot"],
                 "vehicles": [10]
             },
+            { "texts": ["säiliöauto", "säiliöautoa"], "vehicles": [6, 13, 31] },
             {
-                "texts": ["säiliöauto", "säiliöautoa"],
-                "vehicles": [6, 13, 31]
-            },
-            {
-                "texts": ["VATI-partio(ta)", "VATI-partio(ta)"
-                ],
+                "texts": ["VATI-partio(ta)", "VATI-partio(ta)"],
                 "vehicles": [18]
             },
             { "texts": ["johtoauto", "johtoautoa"], "vehicles": [3, 11] },
-            {
-                "texts": ["Koirapartio", "Koirapartiota"],
-                "vehicles": [16]
-            },
+            { "texts": ["Koirapartio", "Koirapartiota"], "vehicles": [16] },
             {
                 "texts": ["johtokeskusauto", "johtokeskusautoa"],
                 "vehicles": [11]
             },
-            { "texts": ["kemikaalitorjunta-auto, kemikaalitorjunta-auto"], "vehicles": [7] },
+            {
+                "texts": ["kemikaalitorjunta-auto, kemikaalitorjunta-auto"],
+                "vehicles": [7]
+            },
             {
                 "texts": [
                     "ensihoidon kenttäjohtaja",
@@ -142,15 +127,16 @@
                 "vehicles": [20]
             },
             {
-                "texts": [
-                    "Letkuajoneuvo",
-                    "Letkuajoneuvoa"
-                ],
+                "texts": ["Letkuajoneuvo", "Letkuajoneuvoa"],
                 "vehicles": [27, 28]
             },
-            { "texts": ["Suurtehopumppu", "Suurtehopumppua"], "vehicles": [26, 28, 30] },
+            {
+                "texts": ["Suurtehopumppu", "Suurtehopumppua"],
+                "vehicles": [26, 28, 30]
+            },
             { "texts": ["Vaahtoyksikkö", "Vaahtoyksikköä"], "vehicles": [25] }
-    ]},
+        ]
+    },
     "hideVehicleList": {
         "hide": "Piilota ajoneuvolista",
         "show": "Näytä ajoneuvolista"

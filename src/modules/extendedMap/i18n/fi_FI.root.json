@@ -19,7 +19,9 @@
             "description": "Keskitä kartta dynaamisesti tai staattiseen näkymään, kun peli avataan.",
             "title": "Keskitetty kartta"
         },
-        "centerMapStaticLocation": { "title": "Keskitetty kartta staattinen: Sijainti" },
+        "centerMapStaticLocation": {
+            "title": "Keskitetty kartta staattinen: Sijainti"
+        },
         "centerMapType": {
             "description": "Valitse, haluatko staattisen vai dynaamisen keskityksen [dynaaminen ei ole vielä käytettävissä].",
             "dynamic": "dynaaminen",
