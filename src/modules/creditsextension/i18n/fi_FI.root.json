@@ -26,8 +26,8 @@
             "title": "Krediitit säästöpossun sijasta"
         },
         "highlightSales": {
-            "description": "Highlights Coins green if a sale is available",
-            "title": "highlight Sales"
+            "description": "Korostaa kolikot vihreänä, jos on alennukset",
+            "title": "Korosta alennuksia"
         },
         "showSales": {
             "description": "Näyttää kolikoiden alennukset, kun ne on saatavilla.",
