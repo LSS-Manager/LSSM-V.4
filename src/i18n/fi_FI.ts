@@ -608,7 +608,7 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
         '',
         '',
         'fire',
-        'shield-alt'.
+        'shield-alt',
         'truck-medical',
     ],
     pois: [
