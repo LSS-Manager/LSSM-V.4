@@ -13,7 +13,6 @@
     },
     "arrHover": {
         "arrSpecs": {
-            {
             "fire": "Paloautot",
             "elw": "Johtoauto",
             "dlk": "Nostolava-autot",
@@ -41,7 +40,7 @@
             "pump": "Suurtehopumppu",
             "wasser_amount": "Litraa vettä",
             "foam_amount": "Litraa vaahtoa"
-          }
+          },
         "headers": {
             "attribute": "Nimi",
             "free": "Vapaa",
@@ -71,8 +70,7 @@
                 "vehicles": [
                     0, 1 ,2, 3, 4, 6, 7, 10, 11, 12, 13, 25, 27, 28, 31, 32
                 ]
-            }
-
+            },
             {
                 "texts": ["poliisin", "poliisia"],
                 "vehicles": [
@@ -152,7 +150,7 @@
             },
             { "texts": ["Suurtehopumppu", "Suurtehopumppua"], "vehicles": [26, 28, 30] },
             { "texts": ["Vaahtoyksikkö", "Vaahtoyksikköä"], "vehicles": [25] }
-    },
+    ]},
     "hideVehicleList": {
         "hide": "Piilota ajoneuvolista",
         "show": "Näytä ajoneuvolista"
