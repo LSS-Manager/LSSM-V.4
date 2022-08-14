@@ -411,7 +411,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 6,
             possibleBuildings: [0, 3, 16],
             special:
-                'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
+                'Then 7 patients can be treated and removed simultaneously in the MCU.You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
         21: {
             caption: 'Heavy Rescue + Light Boat',

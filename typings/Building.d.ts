@@ -1,9 +1,20 @@
-interface Extension {
+/**
+ * @file - Type definitions for in game buildings & internal buildings (translations).
+ */
+
+type Extension = {
     caption: string;
-    available: boolean;
     enabled: boolean;
     type_id: number;
-}
+} & (
+    | {
+          available: false;
+          available_at: string;
+      }
+    | {
+          available: true;
+      }
+);
 
 export interface Building {
     id: number;

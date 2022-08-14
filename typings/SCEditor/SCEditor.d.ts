@@ -1,3 +1,7 @@
+/**
+ * @file - Types for SCEditor {@link https://www.sceditor.com/}, the WYSIWYG Editor used in game.
+ */
+
 import type { Options } from 'typings/SCEditor/Options';
 import type RangeHelper from './RangeHelper';
 

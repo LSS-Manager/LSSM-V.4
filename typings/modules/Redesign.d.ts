@@ -185,6 +185,9 @@ export interface RedesignLightbox<
         copyUrl(): void;
     };
     Computed: {
+        lightbox: Type extends keyof Redesigns
+            ? RedesignLightboxVue<Type>
+            : null;
         loaderOffset: number;
         fullUrl: string;
         src: string;

@@ -43,6 +43,24 @@ export default (async ({ LSSM, getSetting }) => {
                 );
             }
         });
+
+        const whisperIndicator = await getSetting('whisperIndicator');
+        const mentionIndicator = await getSetting('mentionIndicator');
+        if (whisperIndicator || mentionIndicator) {
+            import(
+                /* webpackChunkName: "modules/chatExtras/whisperMentionIndicator" */ './assets/whisperMentionIndicator'
+            ).then(({ default: indicator }) =>
+                indicator(LSSM, whisperIndicator, mentionIndicator)
+            );
+        }
+
+        getSetting('userSelection').then(userSelection => {
+            if (userSelection) {
+                import(
+                    /* webpackChunkName: "modules/chatExtras/userSelection" */ './assets/userSelection'
+                ).then(({ default: userSelection }) => userSelection(LSSM));
+            }
+        });
     }
 
     getSetting('lightDesignChatHistory').then(lightChatDesignActive => {

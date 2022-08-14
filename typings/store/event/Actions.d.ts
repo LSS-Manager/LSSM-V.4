@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the actions of event store.
+ */
+
 export interface CreateEvent {
     name: string;
     detail?: unknown;

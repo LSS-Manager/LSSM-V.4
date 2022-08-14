@@ -1,0 +1,29 @@
+{
+    "description": "Hälyytä, jaa tehtävä ja lähetä tapahtumamuistiinpano yhdellä napsautuksella.",
+    "lsam": {
+        "help": "Muuttujat korvataan samalla tavalla kuin tehtäväluettelossa."
+    },
+    "name": "Hälyytä, jaa, postaa",
+    "noMessage": "Ilman tapahtumamuistiinpanoa",
+    "settings": {
+        "enableCallList": {
+            "description": "Integroi tämä moduuli Paranneltu tehtäväluettelo \"Jaa tehtävä\" kanssa.",
+            "title": "Integrointi tehtävälistaan"
+        },
+        "enableLSAM": {
+            "description": "Ota tämä vaihtoehto käyttöön, kun haluat valita tapahtumamuistiinpanonn luodessasi laajaa liittoutumatehtävää.",
+            "title": "Laaja liittoumatehtävä"
+        },
+        "message": "Tapahtumamuistiinpano",
+        "messages": {
+            "description": "Aseta tapahtumamuistiinpanot tässä. Voit käyttää muuttujia, katso siksi meidän <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a>! Anna jokaiselle vasteelle yksilöllinen nimi, jotta ne voidaan tunnistaa nopeasti hälytysikkunassa.",
+            "title": "Vasteet"
+        },
+        "name": "Nimi",
+        "postInChat": "Lähetä viesti chatissa?",
+        "stayInCallList": {
+            "description": "Kun tämä vaihtoehto on käytössä, voit lähettää tapahtumamuistiinpanon myös jaetuissa tehtävissä.",
+            "title": "Pysy tehtävälistassa"
+        }
+    }
+}

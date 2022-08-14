@@ -1,0 +1,5 @@
+{
+    "description": "Näyttää kyseisen käyttäjätunnuksen profiilissa ja tarvittaessa myös oman käyttäjä-ID:n navigointipalkissa.",
+    "name": "Käyttäjä-ID",
+    "settings": { "navbar": { "title": "Näytä oma ID navigointipalkissa" } }
+}

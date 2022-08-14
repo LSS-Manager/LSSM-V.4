@@ -787,7 +787,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Welfare Unit. Requires Swap Body Parking Space.',
         },

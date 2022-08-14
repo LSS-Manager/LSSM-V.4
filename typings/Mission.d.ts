@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for in game missions.
+ */
+
 interface Additional {
     expansion_missions_ids?: number[];
     expansion_missions_names?: Record<number, string>;

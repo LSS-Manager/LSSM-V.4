@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for settings files for modules.
+ */
+
 import type { ExtendedVue } from 'vue/types/vue';
 import type {
     DefaultComputed,

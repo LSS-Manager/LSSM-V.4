@@ -18,6 +18,10 @@
             "description": "Prosty projekt historii czatu",
             "title": "Prosty projekt historii czatu"
         },
+        "mentionIndicator": {
+            "description": "Pokazuje małą ikonę @ w czacie, gdy masz zamiar o kimś wspomnieć.",
+            "title": "Wskaźnik wzmianki"
+        },
         "selfHighlight": {
             "description": "Podświetla twoją nazwę użytkownika na czacie niestandardowym kolorem",
             "title": "Niestandardowy kolor na czacie"
@@ -33,6 +37,10 @@
         "selfHighlightCustomTextColorColor": {
             "description": "Wybierz tutaj, jakim kolorem ma być podświetlone tekst twojej nazwy użytkownika.",
             "title": "Wybierz kolor"
+        },
+        "whisperIndicator": {
+            "description": "Pokazuje małą ikonę kłódki w polu tekstowym czatu, gdy piszesz do kogoś wiadomość prywatną.",
+            "title": "Wskaźnik szeptu"
         }
     }
 }

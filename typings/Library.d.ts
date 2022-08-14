@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for the libraries JSON.
+ */
+
 export interface Library {
     url?: string;
     version: string;

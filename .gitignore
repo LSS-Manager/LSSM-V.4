@@ -9,6 +9,7 @@ package-lock.json
 /admin/
 /src/userscript.js
 LSSM_V4.zip
+.eslintcache
 
 # docs files
 /docs/*/modules
@@ -23,12 +24,14 @@ LSSM_V4.zip
 webpack.config.js*
 build/**/*.js*
 typings/**/*.js*
-prebuild/**/*.js*
+prebuild/**/*.js
+prebuild/**/*.js.map
 src/config.js*
 src/i18n/*.js
 docs/.vuepress/*.js
 docs/.vuepress/*.js.map
-scripts/**/*.js*
+scripts/**/*.js
+scripts/**/*.js.map
 
 # local env files
 .env.local

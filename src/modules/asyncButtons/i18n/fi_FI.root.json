@@ -1,0 +1,34 @@
+{
+    "description": "Vältä tämän moduulin avulla, että peli ladataan uudelleen, kun painat tiettyjä nappeja.",
+    "name": "Synkronottomat napit",
+    "settings": {
+        "buildingPersonal": {
+            "description": "Estää uudelleenlatauksen, kun potkit työntekijän",
+            "title": "potkit työntekijän"
+        },
+        "buildingTax": {
+            "description": "Estää uudelleenlataamisen, kun muutat omien vankisellejen tai sairaalasänkyjen hintaa liittoutumalle.",
+            "title": "vankisellejen tai sairaalasänkyjen hinnan muokkaaminen"
+        },
+        "deleteARR": {
+            "description": "Estää lataamisen uudelleen, kun poistat hälytysjärjetyn",
+            "title": "Poista hälytysjärjestelyt"
+        },
+        "deleteForumPost": {
+            "description": "Estää uudelleenlatauksen, kun poistat foorumiviestin.",
+            "title": "Poista foorumin viestit"
+        },
+        "memberlistManageUser": {
+            "description": "Estää uudelleenlataamisen, jos liittouman jäsen heittää pois tai muokkaa oikeuksiaan.",
+            "title": "Liiton jäsenten oikeudet"
+        },
+        "missionPrisoners": { "title": "Vangit tehtäväikkunassa" },
+        "missionReply": {
+            "title": "vastaaminen chat-viestillä tehtäväikkunoissa"
+        },
+        "switchExtensionState": {
+            "description": "Estää uudelleenlatauksen, kun muutat laajennuksen toimintavalmiutta.",
+            "title": "Laajennuksen (De-)aktivointi"
+        }
+    }
+}

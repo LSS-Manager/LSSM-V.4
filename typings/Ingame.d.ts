@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions used in the in game application.js.
+ */
+
 import type { Marker } from 'leaflet';
 
 export interface BuildingMarker extends Marker {

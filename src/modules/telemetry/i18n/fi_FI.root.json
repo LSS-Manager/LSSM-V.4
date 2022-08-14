@@ -1,0 +1,27 @@
+{
+    "browsersupport": {
+        "close": "Sulje",
+        "faqAnchor": "in-which-browsers-does-lss-manager-work",
+        "not": {
+            "text": "Hyvä LSS-Managerin käyttäjä,<br>valitettavasti LSSM ei tue <b>{name}</b> virallisesti! Tämä tarkoittaa, että ei ole taattu, että kaikki toiminnot toimivat oikein. Löydät luettelon tukemistamme selaimista osoitteessa <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> ja seuraavassa taulukossa:",
+            "title": "Ei tuettu selain"
+        },
+        "old": {
+            "text": "Näytät käyttävän vanhentunutta selainta! Käytät tällä hetkellä <b>{name} {current}</b>, mutta uusin versio on <b>{name} {latest}</b>! Huomaa, että LSS-Manager voi käyttää tätä selainta vain versiosta lähtien. <b>{supported}</b> supports.<br>This has reasons of security and compatibility. In general, it is recommended to always use an up-to-date browser!<br>You can download the latest version of your browser at <a href='{download}' target='_blank'>here</a> download.<br>A current list of supported browsers can be found in our <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> and in the following table:",
+            "title": "Vanhentunut selain"
+        },
+        "table": {
+            "browser": "Selain",
+            "download": "Lataa",
+            "latest": "uusin versio",
+            "min": "minimi versio"
+        }
+    },
+    "info": {
+        "close": "Älä näytä tätä huomautusta uudelleen",
+        "decline": "Estä keräys",
+        "text": "LSS Manager kerää metatietoja, jotka on kuvattu kohdassa <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Voit aina peruuttaa sopimuksesi myöhemmin.",
+        "title": "Metatietojen keräämistä koskevat tiedot"
+    },
+    "name": "Telemetria"
+}

@@ -1,0 +1,45 @@
+{
+    "description": "Laajentaa chattia hienoilla ominaisuuksilla",
+    "name": "Parannettu chatti",
+    "settings": {
+        "chatTime": {
+            "description": "Säätää aikaleiman asettamaasi muotoon!",
+            "title": "Oma aikaleiman muoto"
+        },
+        "chatTimeFormat": {
+            "description": "Tässä voit valita haluamasi muodon. Löydät apua <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">here</a>.",
+            "title": "Päivämäärän ja kellonajan muoto"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Näyttää chat-historian napin otsikossa, jotta sinun ei tarvitse selata chatissa alaspäin päästäksesi siihen käsiksi.",
+            "title": "Näytä chattihistoria nappi otsikossa"
+        },
+        "lightDesignChatHistory": {
+            "description": "Chat-historiaan kevyt muotoilu",
+            "title": "Chat-historiaan kevyt muotoilu"
+        },
+        "mentionIndicator": {
+            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
+            "title": "Mentioning indicator"
+        },
+        "selfHighlight": {
+            "description": "Korostaa käyttäjänimeäsi chatissa mukautetulla värillä",
+            "title": "Mukautettu väri chatissa"
+        },
+        "selfHighlightColor": {
+            "description": "valitse täältä, millä värillä käyttäjänimesi halutaan korostaa.",
+            "title": "mukautettu väri chatissa: taustaväri"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Haluatko käyttää mukautettua teksti väriä?",
+            "title": "mukautettu väri chatissa: mukautettu tekstin väri"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "title": "mukautettu väri chatissa: mukautettu tekstin väri"
+        },
+        "whisperIndicator": {
+            "description": "Shows a small lock icon in the chat input when you're currently whispering",
+            "title": "Whisper indicator"
+        }
+    }
+}
