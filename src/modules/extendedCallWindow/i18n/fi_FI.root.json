@@ -41,7 +41,7 @@
             "title": "hälytysjärjestelylaskuri merkkinä"
         },
         "arrCounterResetSelection": {
-            "description": "Lisää oikeaan alareunaan painikkeen, jolla voit palauttaa edellisen ajoneuvon valinnan. Huomaa: Se nollaa myös hälytysjärjestely laskurin ja rajat, jos ne on aktivoitu!".",
+            "description": "Lisää oikeaan alareunaan painikkeen, jolla voit palauttaa edellisen ajoneuvon valinnan. Huomaa: Se nollaa myös hälytysjärjestely laskurin ja rajat, jos ne on aktivoitu!.",
             "title": "Ajoneuvon valinnan nollaaminen"
         },
         "arrMatchHighlight": {
@@ -208,7 +208,7 @@
             {
                 "name": "Poliisi",
                 "vehicleTypes": [
-                    8, 14, 15, 16, 17, 18,
+                    8, 14, 15, 16, 17, 18
                 ]
             }
         ]
