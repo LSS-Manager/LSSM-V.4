@@ -100,3 +100,7 @@ Ist deine Navigationsleiste etwas überfüllt?
 Diese Einstellung verschiebt die Ortssuche von der Navigationsleiste auf die Karte. Die Position kannst du per Einstellung wählen. Mit einem Klick auf die Lupe öffnest und schließt du das Eingabefenster.
 
 ![Ortssuche in der Karte](./mapsearch.png)
+
+## AAO-Export als QR-Code
+
+Du willst deine AAO schnell teilen? Mit dieser Einstellung wird direkt unter dem erstellten Export-Link ein QR-Code generiert. Diesen kann man entweder direkt vom Bildschirm abscannen, oder als Grafik runterladen und so immer schnell griffbereit haben.
