@@ -1,13 +1,13 @@
 {
     "chrome": {
         "download": "https://chrome.com",
-        "latest": 103,
-        "supported": 97
+        "latest": 104,
+        "supported": 98
     },
     "edge": {
         "download": "https://microsoft.com/edge",
-        "latest": 103,
-        "supported": 97
+        "latest": 104,
+        "supported": 98
     },
     "firefox": {
         "download": "https://firefox.com",

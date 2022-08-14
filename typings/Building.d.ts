@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for in game buildings & internal buildings (translations).
+ */
+
 type Extension = {
     caption: string;
     enabled: boolean;

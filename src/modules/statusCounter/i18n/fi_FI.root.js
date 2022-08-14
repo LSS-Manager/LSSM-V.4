@@ -5,8 +5,7 @@ module.exports = {
     settings: {
         percentRounding: {
             title: 'Pyöristä prosentit',
-            description:
-                '',
+            description: '',
         },
         percentageInBrackets: {
             title: 'Prosenttiosuudet suluissa',

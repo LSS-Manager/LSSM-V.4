@@ -18,6 +18,10 @@
             "description": "Ein kompaktes Design des Chatverlaufs",
             "title": "Chatverlauf: kompaktes Design"
         },
+        "mentionIndicator": {
+            "description": "Zeigt ein kleines @ in der Chat-Eingabe, wenn du mit deiner Nachricht jemanden erwähnen könntest",
+            "title": "Erwähnungs-Indikator"
+        },
         "selfHighlight": {
             "description": "Hebt eigene Nachrichten im Chat vor, indem dem Nutzernamen eine eigene Farbe gegeben wird.",
             "title": "eigene Farbe im Chat"
@@ -32,6 +36,10 @@
         },
         "selfHighlightCustomTextColorColor": {
             "title": "eigene Farbe im Chat: eigene Textfarbe"
+        },
+        "whisperIndicator": {
+            "description": "Zeigt ein kleines Schloss in der Chat-Eingabe, wenn du gerade flüsterst",
+            "title": "Flüster-Indikator"
         }
     }
 }

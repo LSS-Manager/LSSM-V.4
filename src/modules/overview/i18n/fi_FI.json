@@ -27,12 +27,12 @@
         "vehicles": {
             "caption": "Ajoneuvo tyyppi",
             "cost": "Hinta",
+            "ftank": "Vaahto",
             "maxPersonnel": "henkilöitä enintään",
             "minPersonnel": "henkilöitä vähintään",
             "schooling": "Koulutus",
             "special": "Muuta",
-            "wtank": "Vesi",
-            "ftank": "Vaahto"
+            "wtank": "Vesi"
         }
     }
 }

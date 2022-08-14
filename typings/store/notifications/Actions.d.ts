@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the actions of notification store.
+ */
+
 import type { NotificationsState, NotificationType } from './State';
 
 export interface NotificationsSend {

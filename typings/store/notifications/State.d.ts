@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the state of notification store.
+ */
+
 type NotificationPosition = `${'bottom' | 'top'}${' ' | '_'}${
     | 'center'
     | 'left'

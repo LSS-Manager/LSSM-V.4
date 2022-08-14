@@ -1,3 +1,7 @@
+/**
+ * @file Types for in game schoolings APIs `api/schoolings` and `api/alliance_schoolings`.
+ */
+
 export interface Schooling {
     id: number;
     education_title: string;
