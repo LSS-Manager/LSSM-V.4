@@ -49,6 +49,10 @@
                 "title": "Map"
             },
             "missionlist": {
+                "eclSort": {
+                    "title":"Mission sorting",
+                    "open": "Open selection menu"
+                },
                 "search": { "focus": "focus input field", "title": "Search" },
                 "title": "Mission list"
             },

@@ -49,6 +49,10 @@
                 "title": "Kartta"
             },
             "missionlist": {
+                "eclSort": {
+                    "title":"Mission sorting",
+                    "open": "Open selection menu"
+                },
                 "search": { "focus": "Valitsee hakukentän", "title": "Haku" },
                 "title": "Tehtävälista"
             },

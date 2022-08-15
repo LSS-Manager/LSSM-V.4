@@ -52,6 +52,10 @@
                 "title": "Map"
             },
             "missionlist": {
+                "eclSort": {
+                    "title":"Ouvrir le tri des missions",
+                    "open": "Ouvrir le menu de sélection"
+                },
                 "search": {
                     "focus": "focus sur le champ de saisie",
                     "title": "Recherche"
