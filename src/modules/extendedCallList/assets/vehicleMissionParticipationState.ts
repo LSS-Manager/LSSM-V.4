@@ -1,9 +1,9 @@
 export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `${MODULE_ID}-vehicleMissionParticipitationState`,
-    });
+    await LSSM.$stores.api.getVehicles(
+        `${MODULE_ID}-vehicleMissionParticipitationState`
+    );
 
-    const missions: number[] = LSSM.$store.getters['api/participatedMissions'];
+    const missions = LSSM.$stores.api.participatedMissions;
     document
         .querySelectorAll<HTMLTableRowElement>(
             '#mission_own table thead tr th:nth-child(2), #mission_alliance table  thead tr th:nth-child(2)'

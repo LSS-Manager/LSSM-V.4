@@ -8,10 +8,7 @@
         "no_types": "Alle types verbergen",
         "type": "Weergegeven acties"
     },
-    "load": {
-        "next": "Volgende pagina laden",
-        "prev": "Vorige pagina laden"
-    },
+    "load": { "next": "Volgende pagina laden", "prev": "Vorige pagina laden" },
     "search_local": "In geladen acties zoeken",
     "subtitle": "Toont {n} acties van pagina {startPage} ({firstDate}) tot {endPage} ({lastDate}) van totaal {totalPages} pagina's",
     "time": "Tijdstip",

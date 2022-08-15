@@ -20,10 +20,10 @@ export default (
         taxBtns.forEach(btn => {
             btn.addEventListener('click', async e => {
                 e.preventDefault();
-                taxBtns.forEach(tbtn => tbtn.classList.add('disabled'));
-                await LSSM.$store
-                    .dispatch('api/request', {
-                        url: btn.getAttribute('href'),
+                taxBtns.forEach(taxBtn => taxBtn.classList.add('disabled'));
+                await LSSM.$stores.api
+                    .request({
+                        url: btn.getAttribute('href') ?? '',
                         feature: `${MODULE_ID}-buildings`,
                     })
                     .then(({ status }) => {
@@ -71,9 +71,9 @@ export default (
                         .querySelector('meta[name="csrf-token"]')
                         ?.getAttribute('content') || ''
                 );
-                await LSSM.$store
-                    .dispatch('api/request', {
-                        url: btn.getAttribute('href'),
+                await LSSM.$stores.api
+                    .request({
+                        url: btn.getAttribute('href') ?? '',
                         init: {
                             method: 'POST',
                             body: url.searchParams.toString(),
@@ -85,6 +85,7 @@ export default (
                                 'Upgrade-Insecure-Requests': '1',
                             },
                         },
+                        feature: 'ab-buildings-extensionState',
                     })
                     .then(({ status }) => {
                         if (status === 200) {

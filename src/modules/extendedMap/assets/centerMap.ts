@@ -27,11 +27,9 @@ export default async (
 
     resetIconWrapper.append(mapIcon, syncIcon);
 
-    LSSM.$store
-        .dispatch('addOSMControl', { position: 'top-left' })
-        .then((control: HTMLAnchorElement) => {
-            control.append(resetIconWrapper);
-            control.addEventListener('click', reset);
-            reset();
-        });
+    LSSM.$stores.root.addOSMControl({ position: 'top-left' }).then(control => {
+        control.append(resetIconWrapper);
+        control.addEventListener('click', reset);
+        reset();
+    });
 };

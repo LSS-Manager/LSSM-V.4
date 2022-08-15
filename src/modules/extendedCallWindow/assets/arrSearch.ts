@@ -5,6 +5,7 @@ export default (
     autoFocus: boolean,
     dropdown: boolean,
     dissolveCategories: boolean,
+    compactResults: boolean,
     closeDropdownOnSelect: boolean,
     $sm: $m
 ) => {
@@ -32,8 +33,8 @@ export default (
             '#mission-aao-group .tab-content [id^="aao_category_"]'
         );
 
-        const panelHasResultsClass = LSSM.$store.getters.nodeAttribute(
-            'ecw-arrsearch-panel_has_results'
+        const panelHasResultsClass = LSSM.$stores.root.nodeAttribute(
+            'ecw-arr_search-panel_has_results'
         );
 
         searchField.addEventListener('input', () => {
@@ -46,17 +47,32 @@ export default (
                 hideStyle.remove();
                 styleAdded = false;
             }
+            const searchAttributeSelectors = Array.from(
+                new Set(
+                    [search.toLowerCase(), search.toUpperCase()].map(
+                        s => `[search_attribute*="${s}" i]`
+                    )
+                )
+            );
             panels.forEach(panel =>
                 panel.classList[
                     panel.querySelector(
-                        `.aao_searchable[search_attribute*="${search}"i]`
+                        searchAttributeSelectors
+                            .map(
+                                attributeSelector =>
+                                    `.aao_searchable${attributeSelector}`
+                            )
+                            .join(', ')
                     )
                         ? 'add'
                         : 'remove'
                 ](panelHasResultsClass)
             );
+            const notAttributesSelector = searchAttributeSelectors
+                .map(attributeSelector => `:not(${attributeSelector})`)
+                .join('');
             hideStyle.textContent = `
-                .aao_searchable:not([search_attribute*="${search}"i]), .aao_searchable:not([search_attribute*="${search}"i]) + br {
+                .aao_searchable${notAttributesSelector}, .aao_searchable${notAttributesSelector} + br {
                     display: none;
                 }`;
             if (dissolveCategories) {
@@ -72,6 +88,24 @@ export default (
                         content: attr(data-category-title);
                         font-weight: bold;
                     }`;
+            }
+            if (compactResults) {
+                hideStyle.textContent += `
+                    #mission-aao-group .row {
+                        padding-left: 15px;
+                    }
+                    #mission-aao-group .row .col-sm-2 {
+                        width: unset;
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                    #mission-aao-group .row .pull-right, #aao_without_category {
+                        float: none !important;
+                    }
+                    #mission-aao-group .row br {
+                        display: none;
+                    }
+                `;
             }
         });
 
@@ -101,7 +135,7 @@ export default (
             '../components/arrSearch/arrSearchDropdown.vue'
         ).then(({ default: arrSearchDropdown }) =>
             new LSSM.$vue({
-                store: LSSM.$store,
+                pinia: LSSM.$pinia,
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(arrSearchDropdown, {

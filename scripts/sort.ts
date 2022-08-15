@@ -1,12 +1,22 @@
 import * as fs from 'fs';
+import path from 'path';
 
-import * as tsconfig from '../tsconfig.json';
+import prettier from 'prettier';
+
 import sortJSON from './utils/sortJSON';
+import tsconfig from '../tsconfig.json';
+
+const ROOT_PATH = path.join(__dirname, '..');
 
 fs.writeFileSync(
-    '../tsconfig.json',
-    JSON.stringify(sortJSON(tsconfig, true), null, '\t')
+    path.join(ROOT_PATH, 'tsconfig.json'),
+    JSON.stringify(sortJSON(tsconfig, true), null, 4)
 );
+
+const excluded = [
+    path.join(ROOT_PATH, 'src', 'libraries.json'),
+    path.join(ROOT_PATH, 'src', 'utils', 'browsers.json'),
+];
 
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
@@ -17,49 +27,62 @@ const getJsons = (folder: string): string[] => {
         else if (
             item.isFile() &&
             item.name.endsWith('.json') &&
-            item.name !== 'package.json'
+            !(
+                item.name === 'package.json' ||
+                excluded.includes(path.join(folder, item.name))
+            )
         )
             jsons.push(`${folder}/${item.name}`);
     });
     return jsons;
 };
 
-export default (): string => {
-    let currentFile = '';
-    try {
-        const output = [] as string[];
-        [
-            '.github',
-            'build',
-            'docs',
-            'lssmaql',
-            'prebuild',
-            'scripts',
-            'src',
-            'static',
-            'typings',
-        ].forEach(folder =>
-            getJsons(`./${folder}`).forEach(file => {
-                if (file === './src/utils/emojis.json') return;
-                currentFile = file;
-                const sortArray = false;
-                fs.writeFileSync(
-                    file,
-                    JSON.stringify(
-                        sortJSON(
-                            JSON.parse(fs.readFileSync(file).toString()),
-                            sortArray
+let currentFile = '';
+try {
+    let fileCounter = 0;
+    [
+        '.github',
+        'build',
+        'docs',
+        'lssmaql',
+        'prebuild',
+        'scripts',
+        'src',
+        'static',
+        'typings',
+    ].forEach(folder =>
+        getJsons(path.join(ROOT_PATH, folder)).forEach(file => {
+            if (file === path.join(ROOT_PATH, './src/utils/emojis.json'))
+                return;
+            currentFile = file;
+            const sortArray = false;
+            fs.writeFileSync(
+                file,
+                prettier
+                    .format(
+                        JSON.stringify(
+                            sortJSON(
+                                JSON.parse(fs.readFileSync(file).toString()),
+                                sortArray
+                            )
                         ),
-                        null,
-                        4
+                        {
+                            arrowParens: 'avoid',
+                            endOfLine: 'lf',
+                            parser: 'json',
+                            quoteProps: 'consistent',
+                            singleQuote: true,
+                            tabWidth: 4,
+                            trailingComma: 'es5',
+                        }
                     )
-                );
-                output.push(file);
-            })
-        );
-        return output.map(f => `✨ sorted file "${f}"`).join('\n');
-    } catch (e) {
-        console.error(currentFile, e);
-        process.exit(1);
-    }
-};
+                    .trimEnd()
+            );
+            fileCounter++;
+        })
+    );
+    console.log(`✨ sorted ${fileCounter} JSON files!`);
+} catch (e) {
+    console.error(currentFile, e);
+    process.exit(1);
+}

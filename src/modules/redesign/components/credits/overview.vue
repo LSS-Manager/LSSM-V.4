@@ -103,11 +103,11 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         return {
             moment,
             head: {},
-            chartId: this.$store.getters.nodeAttribute(
+            chartId: this.lightbox.rootStore.nodeAttribute(
                 'redesign-credits-overview-chart',
                 true
             ),
@@ -171,7 +171,7 @@ export default Vue.extend<
         };
     },
     mounted() {
-        if (this.$store.state.darkmode)
+        if (this.lightbox.rootStore.isDarkMode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {

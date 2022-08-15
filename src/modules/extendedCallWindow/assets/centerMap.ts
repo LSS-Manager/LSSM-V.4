@@ -18,9 +18,9 @@ export default (LSSM: Vue): void => {
     centerImg.style.width = '1em';
     icon?.before(centerImg);
     centerImg.addEventListener('click', () =>
-        LSSM.$store.dispatch('broadcast/send_custom_message', {
+        LSSM.$stores.broadcast.sendCustomMessage<{ lat: number; lng: number }>({
             name: 'center_map',
-            handler(msg: CustomBroadcastMessage) {
+            handler(msg) {
                 if (window.location.pathname !== '/') return;
                 const lat = msg.data.lat as number;
                 const lng = msg.data.lng as number;

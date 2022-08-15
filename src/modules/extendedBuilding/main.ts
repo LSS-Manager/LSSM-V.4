@@ -1,13 +1,14 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/u
         ) &&
             !window.location.pathname.match(
                 /^\/vehicles\/\d+\/zuweisung\/?$/u
-            )) ||
+            ) &&
+            !window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) ||
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
@@ -23,10 +24,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
 
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchBuilding', {
-            id: buildingId,
-            feature: `${MODULE_ID}-main`,
-        });
+        await LSSM.$stores.api.getBuilding(buildingId, `${MODULE_ID}-main`);
 
         if (
             (BUILDING_MODE === 'dispatch' || BUILDING_MODE === 'building') &&
@@ -81,6 +79,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         }
 
         if (await getSetting('buildingsLeftRight')) {
+            await LSSM.$stores.api.getBuildings(`${MODULE_ID}_blr`);
             import(
                 /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
             ).then(({ default: buildingsLeftRight }) =>
@@ -121,7 +120,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         import(
             /* webpackChunkName: "modules/extendedBuilding/personalAssignmentButton" */ './assets/personalAssignmentButton'
         ).then(({ default: personalAssignmentButton }) =>
-            personalAssignmentButton(LSSM)
+            personalAssignmentButton()
         );
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/u)
@@ -130,7 +129,21 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
             ).then(({ default: enhancedPersonnelAssignment }) =>
-                enhancedPersonnelAssignment(LSSM, MODULE_ID, getSetting, $m)
+                enhancedPersonnelAssignment(
+                    LSSM,
+                    MODULE_ID,
+                    getSetting,
+                    setSetting,
+                    $m
+                )
+            );
+        }
+    } else if (window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) {
+        if (await getSetting('schoolsBuildingFilter')) {
+            import(
+                /* webpackChunkName: "modules/extendedBuilding/schoolsBuildingFilter" */ './assets/schoolsBuildingFilter'
+            ).then(({ default: schoolsBuildingFilter }) =>
+                schoolsBuildingFilter(LSSM)
             );
         }
     }

@@ -9,9 +9,7 @@
     "downloadXLS": "Télécharger comme document (XLS)",
     "drillUpText": "Retour",
     "exitFullscreen": "Quitter le mode plein écran",
-    "exportData": {
-        "categoryHeader": "Categorie"
-    },
+    "exportData": { "categoryHeader": "Categorie" },
     "loading": "Chargement...",
     "printChart": "Imprimer",
     "viewData": "Afficher la table",

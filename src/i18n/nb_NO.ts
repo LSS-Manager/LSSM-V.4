@@ -103,6 +103,11 @@ your LSSM team`,
                 'Bytt farge på hele navigasjonsbaren i fargen til LSSM bakgrunnen!',
             title: 'Navigasjonsbar farge',
         },
+        debugMode: {
+            title: 'Debug-Mode',
+            description:
+                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+        },
     },
     vehicles: {
         0: {
@@ -237,7 +242,7 @@ your LSSM team`,
             maxPersonnel: 6,
             schooling: {
                 Politi: {
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -284,7 +289,7 @@ your LSSM team`,
             maxPersonnel: 4,
             schooling: {
                 Politi: {
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -388,7 +393,7 @@ your LSSM team`,
                     Utrykningspoliti: {
                         all: true,
                     },
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -630,23 +635,6 @@ your LSSM team`,
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
-    cellBuildings: [6],
-    cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
-    ],
-    bedBuildings: [4, 21],
-    schoolBuildings: [1, 3, 8],
-    dispatchCenterBuildings: [7],
     schoolings: {
         Brannstasjon: [
             {
@@ -754,27 +742,6 @@ your LSSM team`,
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'clinic-medical',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'helicopter',
-        'building',
-        '',
-        'ship',
-        'ship',
-        'fire',
-        'stethoscope',
-        'shield-alt',
-        'clinic-medical',
-        'plane',
-        'shield-alt',
-    ],
     pois: [
         'Park',
         'Innsjø',

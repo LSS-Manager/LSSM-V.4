@@ -21,6 +21,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { DefaultData } from 'vue/types/options';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
@@ -54,8 +56,8 @@ export default Vue.extend<
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             formData.append('alliance[caption]', content);
             formData.append('commit', 'save');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/alliances/${this.alliance.meta.id}`,
                     init: {
                         credentials: 'include',
@@ -78,16 +80,12 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-edit-alliance-name-submitted',
-                            detail: {
-                                content,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    useEventStore().createAndDispatchEvent({
+                        name: 'redesign-edit-alliance-name-submitted',
+                        detail: {
+                            content,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },

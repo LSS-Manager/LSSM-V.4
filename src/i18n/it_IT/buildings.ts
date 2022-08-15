@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -73,6 +73,7 @@ export default {
         schoolingTypes: ['Caserma dei vigili del fuoco'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Scuola dei vigili del fuoco',
@@ -96,6 +97,7 @@ export default {
         special:
             "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Stazione ambulanze',
@@ -122,6 +124,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Ambulanza BLSD'],
         schoolingTypes: ['Soccorso'],
+        icon: 'house-medical',
     },
     3: {
         caption: 'Scuola di formazione emergenza sanitaria (EMS)',
@@ -145,6 +148,7 @@ export default {
         special:
             "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, l'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Ospedale',
@@ -285,6 +289,7 @@ export default {
         special:
             "L'Amministratore finanziario ed l'Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza",
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Base elisoccorso',
@@ -305,6 +310,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'circle-h',
     },
     6: {
         caption: 'Stazione di polizia',
@@ -331,6 +337,27 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Polizia Stradale',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 giorni',
+                cannotDisable: true,
+            },
+            {
+                caption: 'Forestale',
+                credits: 75_000,
+                coins: 15,
+                duration: '5 giorni',
+                cannotDisable: true,
+            },
+            {
+                caption: 'Idrante Antisommossa',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 giorni',
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: '1.700 comprese stazioni di polizia piccole',
@@ -343,6 +370,7 @@ export default {
         maxBuildingsFunction: (): number => 1700,
         startParkingLots: 1,
         startCells: 0,
+        icon: 'building-shield',
     },
     7: {
         caption: 'Centrale operativa',
@@ -357,6 +385,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Accademia della Polizia',
@@ -380,6 +409,7 @@ export default {
         special:
             "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Elibase polizia',
@@ -400,6 +430,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     14: {
         caption: 'Base temporanea',
@@ -414,6 +445,7 @@ export default {
             "Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro ore, dopo di che scadrà, rilasciando tutti i veicoli. Potrai rinnovarla per altre 24 ore prima che scada.",
         isStagingArea: true,
         maxBuildingsFunction: (): number => 1,
+        icon: 'warehouse',
     },
     15: {
         caption: 'Caserma soccorso acquatico VVF',
@@ -429,6 +461,7 @@ export default {
         startVehicles: ['Pickup SAF'],
         schoolingTypes: ['Soccorso'],
         startParkingLots: 1,
+        icon: 'person-swimming',
     },
     16: {
         caption: 'Carcere',
@@ -455,6 +488,17 @@ export default {
                 },
                 9
             ),
+            ...multiplyExtension(
+                {
+                    caption: 'Altra cella',
+                    credits: 50_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                10
+            ),
         ],
         levelcost: [],
         maxBuildings: 'Nessun limite',
@@ -462,6 +506,7 @@ export default {
         special:
             "Questo edificio può essere costruito solo dagli amministratori dell'alleanza",
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Caserma dei vigili del fuoco (piccola)',
@@ -530,6 +575,7 @@ export default {
         schoolingTypes: ['Caserma dei vigili del fuoco'],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Stazione di polizia (piccola)',
@@ -553,6 +599,27 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
+            {
+                caption: 'Polizia Stradale',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 giorni',
+                cannotDisable: true,
+            },
+            {
+                caption: 'Forestale',
+                credits: 75_000,
+                coins: 15,
+                duration: '5 giorni',
+                cannotDisable: true,
+            },
+            {
+                caption: 'Idrante Antisommossa',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 giorni',
+                cannotDisable: true,
+            },
         ],
         levelcost: [
             '1. 10.000',
@@ -569,6 +636,7 @@ export default {
         schoolingTypes: ['Polizia'],
         maxBuildingsFunction: (): number => 1700,
         startParkingLots: 1,
+        icon: 'building-shield',
     },
     20: {
         caption: 'Stazione ambulanze (stazione piccola)',
@@ -600,6 +668,7 @@ export default {
         startVehicles: ['Ambulanza BLSD'],
         schoolingTypes: ['Soccorso'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     21: {
         caption: 'Caserma della Finanza',
@@ -615,6 +684,7 @@ export default {
         schoolingTypes: ['Polizia'],
         startParkingLots: 1,
         special: '',
+        icon: 'circle-dollar-to-slot',
     },
     22: {
         caption: 'Grande complesso',
@@ -630,6 +700,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     23: {
         caption: 'Piccolo complesso',
@@ -645,6 +716,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     24: {
         caption: 'Base Aerea Antincendio',
@@ -660,5 +732,6 @@ export default {
         schoolingTypes: ['Caserma dei vigili del fuoco'],
         startParkingLots: 1,
         special: '',
+        icon: 'plane',
     },
 } as Record<number, InternalBuilding>;

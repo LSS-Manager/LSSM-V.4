@@ -5,13 +5,8 @@
         "total": "totalt",
         "updateNote": "Uppdateras var 5e minut."
     },
-    "coins": {
-        "list": "Protokoll"
-    },
-    "credits": {
-        "daily": "Daglig sammanställning",
-        "overview": "Översikt"
-    },
+    "coins": { "list": "Protokoll" },
+    "credits": { "daily": "Daglig sammanställning", "overview": "Översikt" },
     "description": "Visa användarbar information om tillgångar i menyn under den primära navigeringsmenyn",
     "name": "Credit Expansion",
     "nextRank": "Nästa nivå",

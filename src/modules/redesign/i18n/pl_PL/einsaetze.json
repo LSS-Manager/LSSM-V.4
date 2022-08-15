@@ -23,28 +23,12 @@
     },
     "no_dispatchcenter": "Bez centrum kontroli",
     "prerequisite_calculations": {
-        "Stacja helikopterów": [
-            "5.level"
-        ],
-        "Stację Helikopterów Policji": [
-            "13.level"
-        ],
-        "hazard_response_ems_count": [
-            25
-        ],
-        "posterunek straży pożarnej": [
-            0,
-            18
-        ],
-        "posterunki(-ów) pogotowia ratunkowego": [
-            2,
-            20,
-            "0.0"
-        ],
-        "posterunki(-ów) policji": [
-            6,
-            19
-        ]
+        "Stacja helikopterów": ["5.level"],
+        "Stację Helikopterów Policji": ["13.level"],
+        "hazard_response_ems_count": [25],
+        "posterunek straży pożarnej": [0, 18],
+        "posterunki(-ów) pogotowia ratunkowego": [2, 20, "0.0"],
+        "posterunki(-ów) policji": [6, 19]
     },
     "prerequisites_long": {
         "fire_stations": "Fire Station | Fire Stations",

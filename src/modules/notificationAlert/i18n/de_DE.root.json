@@ -46,9 +46,7 @@
     },
     "settings": {
         "alertStyle": "Ingame-Benachrichtigungs-Typ",
-        "alerts": {
-            "title": "Benachrichtigungen festlegen"
-        },
+        "alerts": { "title": "Benachrichtigungen festlegen" },
         "desktop": "Desktop-Benachrichtigung senden",
         "duration": "Anzeigedauer (Millisekunden, -1 für \"dauerhaft\")",
         "eventTypes": "Events",

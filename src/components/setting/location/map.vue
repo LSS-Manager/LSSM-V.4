@@ -25,6 +25,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useRootStore } from '@stores/index';
+
 import type { DefaultComputed } from 'vue/types/options';
 import type { Map as LMap, Marker } from 'leaflet';
 
@@ -37,6 +39,7 @@ export default Vue.extend<
         title: string;
         location: number[];
         zoom: boolean;
+        markers: { icon: string; location: [number, number] }[];
         save(location: number[]): void;
     }
 >({
@@ -74,6 +77,11 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        markers: {
+            type: Array,
+            required: false,
+            default: () => [],
+        },
         save: {
             type: Function,
             required: true,
@@ -91,22 +99,12 @@ export default Vue.extend<
 
             const mapId = map.getContainer().id;
 
-            const clearfix: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'top-right',
-                    mapId,
-                }
-            );
-            clearfix.classList.add('clearfix');
+            const rootStore = useRootStore();
 
-            const save: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'top-right',
-                    mapId,
-                }
-            );
+            const save = await rootStore.addOSMControl({
+                position: 'top-right',
+                mapId,
+            });
             save.classList.add('btn', 'btn-success');
             save.style.setProperty('display', 'flex');
             save.style.setProperty('justify-content', 'center');
@@ -123,16 +121,13 @@ export default Vue.extend<
                 this.$emit('close');
             });
             const saveIcon = document.createElement('i');
-            saveIcon.classList.add('fas', 'fa-save');
+            saveIcon.classList.add('fa-solid', 'fa-save');
             save.append(saveIcon);
 
-            const abort: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'top-right',
-                    mapId,
-                }
-            );
+            const abort = await rootStore.addOSMControl({
+                position: 'top-right',
+                mapId,
+            });
             abort.classList.add('btn', 'btn-danger');
             abort.style.setProperty('display', 'flex');
             abort.style.setProperty('justify-content', 'center');
@@ -142,16 +137,67 @@ export default Vue.extend<
                 this.$emit('close');
             });
             const abortIcon = document.createElement('i');
-            abortIcon.classList.add('fas', 'fa-times');
+            abortIcon.classList.add('fa-solid', 'fa-times');
             abort.append(abortIcon);
 
-            const sync: HTMLAnchorElement = await this.$store.dispatch(
-                'addOSMControl',
-                {
-                    position: 'bottom-left',
+            if (this.markers?.length) {
+                const markerLayer = window.L.layerGroup().addTo(map);
+
+                this.markers.forEach(({ icon, location }) =>
+                    window.iconMapGenerate(
+                        icon,
+                        window.L.marker(location, {
+                            icon: window.icon_empty,
+                        }).addTo(markerLayer)
+                    )
+                );
+
+                const toggleMarkers = await rootStore.addOSMControl({
+                    position: 'top-right',
                     mapId,
-                }
-            );
+                });
+                const toggleLocationIcon = document.createElement('i');
+                toggleLocationIcon.classList.add(
+                    'fa-solid',
+                    'fa-location-dot',
+                    'fa-fw'
+                );
+                const toggleShowIcon = document.createElement('i');
+                toggleShowIcon.classList.add(
+                    'fa-solid',
+                    'fa-eye',
+                    'fa-fw',
+                    'hidden'
+                );
+                const toggleHideIcon = document.createElement('i');
+                toggleHideIcon.classList.add(
+                    'fa-solid',
+                    'fa-eye-slash',
+                    'fa-fw'
+                );
+                toggleMarkers.append(
+                    toggleLocationIcon,
+                    toggleShowIcon,
+                    toggleHideIcon
+                );
+
+                let markersShown = true;
+
+                toggleMarkers.addEventListener('click', e => {
+                    e.preventDefault();
+                    toggleMarkers
+                        .querySelectorAll<SVGElement>('svg[data-icon^="eye"]')
+                        .forEach(icon => icon.classList.toggle('hidden'));
+                    if (markersShown) markerLayer.removeFrom(map);
+                    else markerLayer.addTo(map);
+                    markersShown = !markersShown;
+                });
+            }
+
+            const sync = await rootStore.addOSMControl({
+                position: 'bottom-left',
+                mapId,
+            });
             sync.classList.add('btn', 'btn-default', 'btn-xs');
             sync.style.setProperty('width', 'auto');
             sync.style.setProperty('height', 'auto');
@@ -171,6 +217,8 @@ export default Vue.extend<
             [this.location[0], this.location[1]],
             {
                 draggable: true,
+                zIndexOffset: 1000,
+                riseOnHover: true,
             }
         );
     },

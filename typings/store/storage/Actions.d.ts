@@ -1,15 +1,13 @@
-import type { ActionContext } from 'vuex';
-import type { RootState } from '../RootState';
-import type { StorageState } from './State';
+/**
+ * @file - Types for the actions of storage store.
+ */
 
-export type StorageActionStoreParams = ActionContext<StorageState, RootState>;
-
-export interface StorageGet {
+export interface StorageGet<ValueType = unknown> {
     key: string;
-    defaultValue: unknown;
+    defaultValue: ValueType;
 }
 
-export interface StorageSet {
+export interface StorageSet<ValueType = unknown> {
     key: string;
-    value: unknown;
+    value: ValueType;
 }

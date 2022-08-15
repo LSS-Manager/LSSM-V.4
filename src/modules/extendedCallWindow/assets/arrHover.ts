@@ -18,13 +18,13 @@ export default (
     >;
 
     const infoBox = document.createElement('div');
-    infoBox.id = LSSM.$store.getters.nodeAttribute(
+    infoBox.id = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-arrHover-infobox`,
         true
     );
     infoBox.classList.add('btn', 'disabled', 'hidden');
 
-    const isGroupClass = LSSM.$store.getters.nodeAttribute(
+    const isGroupClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-arrHover-infobox_is-vehicle_group`
     );
 
@@ -42,7 +42,7 @@ export default (
 
     if (specs) {
         maxAmountNode = document.createElement('span');
-        maxAmountNode.id = LSSM.$store.getters.nodeAttribute(
+        maxAmountNode.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}-arrHover-maxAmount`,
             true
         );
@@ -68,86 +68,84 @@ export default (
             );
         });
         arrSpecs = document.createElement('tbody');
-        const arrSpecsId = LSSM.$store.getters.nodeAttribute(
+        const arrSpecsId = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_arrHover_specslist`,
             true
         );
         arrSpecs.id = arrSpecsId;
         specsTable.append(specsHeader, arrSpecs);
         infoBox.append(specsTable);
-        LSSM.$store
-            .dispatch('addStyles', [
-                {
-                    selectorText: `#${infoBox.id}`,
-                    style: {
-                        'cursor': 'default',
-                        'color': 'black',
-                        'position': 'absolute',
-                        'display': 'block',
-                        'background': 'green',
-                        'z-index': '10',
-                        'opacity': '1',
-                    },
+        LSSM.$stores.root.addStyles([
+            {
+                selectorText: `#${infoBox.id}`,
+                style: {
+                    'cursor': 'default',
+                    'color': 'black',
+                    'position': 'absolute',
+                    'display': 'block',
+                    'background': 'green',
+                    'z-index': '10',
+                    'opacity': '1',
                 },
-                {
-                    selectorText: `#${maxAmountNode.id}::after`,
-                    style: {
-                        content: '"x"',
-                    },
+            },
+            {
+                selectorText: `#${maxAmountNode.id}::after`,
+                style: {
+                    content: '"x"',
                 },
-                {
-                    selectorText: `#${arrSpecsId}`,
-                    style: {
-                        padding: '0',
-                        color: 'black',
-                    },
+            },
+            {
+                selectorText: `#${arrSpecsId}`,
+                style: {
+                    padding: '0',
+                    color: 'black',
                 },
-                {
-                    selectorText: `#${arrSpecsId} tr`,
-                    style: {
-                        'background-color': 'green',
-                        'text-align': 'left',
-                    },
+            },
+            {
+                selectorText: `#${arrSpecsId} tr`,
+                style: {
+                    'background-color': 'green',
+                    'text-align': 'left',
                 },
-                {
-                    selectorText: `#${infoBox.id}.${isGroupClass} table tr td:not(:nth-of-type(2))`,
-                    style: {
-                        'text-align': 'center',
-                    },
+            },
+            {
+                selectorText: `#${infoBox.id}.${isGroupClass} table tr td:not(:nth-of-type(2))`,
+                style: {
+                    'text-align': 'center',
                 },
-                {
-                    selectorText: `#${infoBox.id}.${isGroupClass} table tr td:nth-of-type(4)`,
-                    style: {
-                        display: 'none',
-                    },
+            },
+            {
+                selectorText: `#${infoBox.id}.${isGroupClass} table tr td:nth-of-type(4)`,
+                style: {
+                    display: 'none',
                 },
-                {
-                    selectorText: `#${arrSpecsId} tr:not(.bg-danger):nth-of-type(2n)`,
-                    style: {
-                        'background-color': 'forestgreen',
-                    },
+            },
+            {
+                selectorText: `#${arrSpecsId} tr:not(.bg-danger):nth-of-type(2n)`,
+                style: {
+                    'background-color': 'forestgreen',
                 },
-                {
-                    selectorText: `#${arrSpecsId} tr.bg-danger:nth-of-type(2n+1)`,
-                    style: {
-                        'background-color': '#a94442',
-                    },
+            },
+            {
+                selectorText: `#${arrSpecsId} tr.bg-danger:nth-of-type(2n+1)`,
+                style: {
+                    'background-color': '#a94442',
                 },
-                {
-                    selectorText: `#${arrSpecsId} tr.bg-danger:nth-of-type(2n)`,
-                    style: {
-                        'background-color': '#bb5654',
-                    },
+            },
+            {
+                selectorText: `#${arrSpecsId} tr.bg-danger:nth-of-type(2n)`,
+                style: {
+                    'background-color': '#bb5654',
                 },
-                {
-                    selectorText: `#${arrSpecsId} tr td:not(:last-child):not(:first-child)`,
-                    style: {
-                        'padding-left': '1ch',
-                        'padding-right': '1ch',
-                    },
+            },
+            {
+                selectorText: `#${arrSpecsId} tr td:not(:last-child):not(:first-child)`,
+                style: {
+                    'padding-left': '1ch',
+                    'padding-right': '1ch',
                 },
-            ])
-            .then();
+            },
+        ]);
     }
 
     const check_amount_available = (
@@ -402,21 +400,17 @@ export default (
             maxAmountNode.textContent = (allAvailable ? 1 : 0).toLocaleString();
     };
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'aao_available',
-            callback(id: number) {
-                const arr = document.querySelector<HTMLAnchorElement>(
-                    `#aao_${id}`
-                );
-                if (!arr) return;
-                const buildingIds: number[] = JSON.parse(
-                    arr.getAttribute('building_ids') || '[]'
-                );
-                updateSpecsForArr(buildingIds, arr);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'aao_available',
+        callback(id: number) {
+            const arr = document.querySelector<HTMLAnchorElement>(`#aao_${id}`);
+            if (!arr) return;
+            const buildingIds: number[] = JSON.parse(
+                arr.getAttribute('building_ids') || '[]'
+            );
+            updateSpecsForArr(buildingIds, arr);
+        },
+    });
 
     let currentTimeout = null as number | null;
     let infoBoxHovered = false;

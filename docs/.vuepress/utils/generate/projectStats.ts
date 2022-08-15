@@ -147,18 +147,25 @@ ${Object.entries(absoluteClocStats)
 
 fs.writeFileSync(clocStatsPath, fullClocResult);
 
+const currentBranch = execSync('git branch --show-current').toString().trim();
+execSync(
+    `git fetch origin ${
+        currentBranch === 'master' ? 'dev:dev' : 'master:master'
+    }`
+);
+
 const amountOfCommits = parseInt(
-    execSync('git log --format=oneline | wc -l').toString()
+    execSync('git log dev --format=oneline | wc -l').toString()
 );
 const amountOfCommitsStable = parseInt(
     execSync('git log master --format=oneline | wc -l').toString()
 );
 const firstCommit = execSync(
-    'git log --reverse --format="%h: %s %n %ai" --shortstat | head -4'
+    'git log dev --reverse --format="%h: %s %n %ai" --shortstat | head -4'
 ).toString();
 const firstCommitHash = firstCommit.match(/^[\da-f]{8}(?=:)/u)?.[0] ?? '';
 const latestCommit = execSync(
-    'git log --format="%h: %s %n %ai" --shortstat -1'
+    'git log dev --format="%h: %s %n %ai" --shortstat -1'
 ).toString();
 const latestCommitHash = latestCommit.match(/^[\da-f]{8}(?=:)/u)?.[0] ?? '';
 const latestCommitStable = execSync(
@@ -167,7 +174,7 @@ const latestCommitStable = execSync(
 const latestCommitStableHash =
     latestCommitStable.match(/^[\da-f]{8}(?=:)/u)?.[0] ?? '';
 const changes = execSync(
-    'git log --format="%h" --shortstat | grep -E "^ [0-9]+ files? changed"'
+    'git log dev --format="%h" --shortstat | grep -E "^ [0-9]+ files? changed"'
 )
     .toString()
     .split('\n')

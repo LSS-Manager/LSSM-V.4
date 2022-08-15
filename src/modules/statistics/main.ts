@@ -4,9 +4,7 @@ import moment from 'moment';
 
 import config from '../../config';
 
-import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
-import type { CreditsInfo } from 'typings/api/Credits';
 import type { ModuleMainFunction } from 'typings/Module';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -21,7 +19,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
     )
         return;
 
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.$stores.root.locale);
 
     const generationBtn = document.createElement('button');
     generationBtn.classList.add('btn', 'btn-default', 'pull-right');
@@ -34,22 +32,17 @@ export default (async ({ LSSM, MODULE_ID }) => {
     if (!header) return;
     header.before(generationBtn);
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: MODULE_ID,
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: MODULE_ID,
-    });
-    await LSSM.$store.dispatch('api/registerAllianceinfoUsage', {
-        feature: MODULE_ID,
-    });
-    await LSSM.$store.dispatch('api/fetchCreditsInfo', MODULE_ID);
+    await LSSM.$stores.api.getAllianceInfo(MODULE_ID);
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.api.getCredits(MODULE_ID);
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
 
     const alliance = document.querySelector<HTMLAnchorElement>(
         '.page-header a[href^="/alliances/"]'
     );
 
     generationBtn.addEventListener('click', () => {
+        if (!LSSM.$stores.api.credits || !LSSM.$stores.api.allianceinfo) return;
         const {
             credits_user_current,
             credits_user_total,
@@ -60,12 +53,12 @@ export default (async ({ LSSM, MODULE_ID }) => {
             credits_alliance_active,
             credits_alliance_current,
             credits_alliance_total,
-        }: CreditsInfo = LSSM.$store.state.api.credits;
+        } = LSSM.$stores.api.credits;
         const profileLink = `${window.location.origin}/profile/${user_id}`;
         const toplistPage = Math.ceil(user_toplist_position / 20);
 
         const allianceName = alliance?.innerText;
-        const allianceInfo: AllianceInfo = LSSM.$store.state.api.allianceinfo;
+        const allianceInfo = LSSM.$stores.api.allianceinfo;
         const allianceRoles = {} as Record<string, number>;
         const allianceListPage = alliance
             ? Math.ceil(allianceInfo.rank / 20)
@@ -80,7 +73,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
             );
         }
 
-        const { buildings }: { buildings: Building[] } = LSSM.$store.state.api;
+        const buildings = LSSM.$stores.api.buildings;
         const extremeBuildings = {} as {
             north?: Building;
             south?: Building;
@@ -116,7 +109,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                             text: 'LSSM Status Report',
                             alignment: 'left',
                             margin: 10,
-                            link: `https://lss-manager.de/docs/${LSSM.$store.state.lang}`,
+                            link: `https://lss-manager.de/docs/${LSSM.$stores.root.locale}`,
                         },
                         {
                             width: '*',
@@ -357,10 +350,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     {
                         table: {
                             body: [
-                                [
-                                    'LSS-Manager Version',
-                                    LSSM.$store.state.version,
-                                ],
+                                ['LSS-Manager Version', VERSION],
                                 ['Generiert am', moment().format('LLLL:ss')],
                             ].map(([title, ...content]) => [
                                 { text: `${title}:`, style: 'bold' },
@@ -382,7 +372,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                         },
                         {
                             width: '*',
-                            text: config.games[LSSM.$store.state.lang].name,
+                            text: config.games[LSSM.$stores.root.locale].name,
                             alignment: 'center',
                             margin: 10,
                             link: window.location.origin,

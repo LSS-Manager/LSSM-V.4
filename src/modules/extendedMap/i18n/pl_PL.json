@@ -1,5 +1,7 @@
 {
     "buildingComplexes": {
+        "buildingList": { "details": "Szczegóły" },
+        "new": "Nowy kompleks LSSM",
         "openInLightbox": "Otwórz budynek w oknie",
         "overview": {
             "buildings": {
@@ -9,7 +11,18 @@
                     "phase": "1 Dzień | {n} Dni"
                 },
                 "inConstruction": "z tego {n} w budowie",
+                "share": {
+                    "beds": {
+                        "share": "Dziel się tym szpitalem z sojuszem",
+                        "unShare": "Nie dziel się tym szpitalem z sojuszem"
+                    },
+                    "cells": {
+                        "share": "Dziel się celami z sojuszem",
+                        "unShare": "Nie dziel się celami z sojuszem"
+                    }
+                },
                 "table": {
+                    "alliance": "Sojusz",
                     "head": {
                         "beds": "Łóżka",
                         "cells": "Cele",
@@ -21,13 +34,27 @@
                         "vehicles": "Pojazdy"
                     }
                 },
-                "title": "wybrane budynki"
+                "title": "Wybrane budynki"
             },
             "classrooms": {
+                "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
+                "table": {
+                    "countdown": "Pozostały czas",
+                    "free": "Wolne miejsca",
+                    "freeClassrooms": "1 wolna sala|{n} wolne sale",
+                    "running": {
+                        "false": "Nie",
+                        "title": "W trakcie?",
+                        "true": "Tak"
+                    },
+                    "start": "Rozpocznij nowy kurs",
+                    "unavailable": "1 sala w budowie|{n} sale w budowie"
+                },
                 "title": "Sale"
             },
             "extensions": {
                 "abort": "Anuluj",
+                "allianceFunds": "Opłać z funduszy sojuszu",
                 "disable": "Wyłącz",
                 "disabled": "Ukończone i wyłączone",
                 "enable": "Włącz",
@@ -53,14 +80,23 @@
                     "inConstruction": "{n} w budowie",
                     "total": "{n} możliwych w sumie"
                 },
+                "table": { "head": { "building": "Budynki", "name": "Nazwa" } },
+                "title": "Rozszerzenia",
+                "underConstruction": "w budowie"
+            },
+            "protocol": {
+                "subtitle": "Brak odpowiednich wpisów | 1 odpowiedni wpis | {n} odpowiednich wpisów",
                 "table": {
                     "head": {
                         "building": "Budynki",
-                        "name": "Nazwa"
+                        "label": "Kategoria",
+                        "name": "Nazwa",
+                        "staff": "Personel",
+                        "time": "Czas"
                     }
                 },
-                "title": "Rozszerzenia",
-                "underConstruction": "w budowie"
+                "title": "Protokół",
+                "updating": "Aktualizacja..."
             },
             "title": "Przegląd",
             "vehicles": {
@@ -78,18 +114,17 @@
         },
         "settings": {
             "abort": "Anuluj",
-            "buildingTabs": "Pokazać zakładki dla wybranych budynków?",
+            "allianceBuildings": "Dołączone budynki sojuszu",
+            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
+            "buildingsInList": "Pokaż wybrane budynki na liście",
             "dissolve": {
-                "buttons": {
-                    "abort": "Anuluj",
-                    "continue": "Usuń"
-                },
+                "buttons": { "abort": "Anuluj", "continue": "Usuń" },
                 "text": "Czy chcesz usunąć ten kompleks budynków? Wszystkie dołączone budynki zostaną ponownie wyświetlone na mapie, jak poprzednio.",
                 "title": "Usuń kompleks"
             },
             "icon": "Ikona",
-            "iconHelp": "Wybierz pomiędzy standardowymi ikonami a ikonami dołączonych budynków",
+            "iconHelp": "Wybierz pomiędzy standardowymi ikonami, a ikonami dołączonych budynków",
             "location": "Lokacja",
             "name": "Nazwa",
             "save": "Zapisz",

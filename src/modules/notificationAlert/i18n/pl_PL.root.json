@@ -46,9 +46,7 @@
     },
     "settings": {
         "alertStyle": "Styl powiadomienia w grze",
-        "alerts": {
-            "title": "Ustawienia powiadomień"
-        },
+        "alerts": { "title": "Ustawienia powiadomień" },
         "desktop": "Wyślij powiadomienie na pulpicie",
         "duration": "Czas wyświatlania powiadomienia(s)",
         "eventTypes": "Wydarzenia",

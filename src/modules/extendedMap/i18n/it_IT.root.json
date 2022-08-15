@@ -10,7 +10,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Edifici Collegati",
-            "description": "Una modifica puramente grafica, permette di unire molteplici edifici nella mappa in uno solo.",
+            "description": "Una modifica puramente grafica, permette di unire molteplici edifici nella mappa in uno solo. More settings are available within each complex.",
             "name": "Nome",
             "position": "Posizione",
             "title": "Complessi edilizi"

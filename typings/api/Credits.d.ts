@@ -1,3 +1,7 @@
+/**
+ * @file Types for in game credits API `api/credits`.
+ */
+
 export interface CreditsInfo {
     credits_user_current: number;
     credits_user_total: number;

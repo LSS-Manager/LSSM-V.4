@@ -13,6 +13,13 @@
             "description": "Muestra junto al botón de alarma cuánto tarda el vehículo con el mayor tiempo de viaje.",
             "title": "Mayor tiempo de viaje"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Dibuja un borde alrededor de los ARR en los que ya se hizo click.",
             "title": "Resaltar ARR en los que se hizo click"
@@ -40,6 +47,10 @@
         "arrMatchHighlight": {
             "description": "Establece un filtro gris sobre todos los ARR que no contienen una palabra del nombre de la misión.",
             "title": "Gris ARR no apto"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
         },
         "arrSpecs": {
             "description": "Muestra las solicitudes almacenadas en el ARR, si permanece con el mouse brevemente sobre un ARR",
@@ -122,51 +133,16 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Camiones de bomberos",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    12
-                ]
-            },
+            { "name": "Camiones de bomberos", "vehicleTypes": [0, 1, 12] },
             {
                 "name": "Otros vehículos",
-                "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    10,
-                    11,
-                    23,
-                    24
-                ]
+                "vehicleTypes": [2, 3, 4, 6, 7, 10, 11, 23, 24]
             },
             {
                 "name": "Ambulancia",
-                "vehicleTypes": [
-                    5,
-                    9,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22
-                ]
+                "vehicleTypes": [5, 9, 18, 19, 20, 21, 22]
             },
-            {
-                "name": "Policía",
-                "vehicleTypes": [
-                    8,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17
-                ]
-            }
+            { "name": "Policía", "vehicleTypes": [8, 13, 14, 15, 16, 17] }
         ]
     }
 }

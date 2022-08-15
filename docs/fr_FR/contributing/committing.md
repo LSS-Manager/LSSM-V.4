@@ -23,6 +23,7 @@ Après avoir modifié un fichier, vous devez écrire un message de validation. S
 | mh           | missionHelper                      |                         |
 | sap          | ShareAlliancePost                  |                         |
 | docs         | docs (Pages Principales seulement) |                         |
+| etr          | enhancedTransportRequests          |                         |
 
 ![](../images/contributing/committing/GH_commit_msg.png)
 

@@ -10,37 +10,9 @@
     "description": "Utvider oppdragslisten med noen kule funksjoner!",
     "eventMissions": {
         "default": {
-            "🌞": [
-                141,
-                142,
-                143,
-                144,
-                145
-            ],
-            "🎃": [
-                190,
-                191,
-                192,
-                193,
-                194,
-                195,
-                196,
-                197,
-                198
-            ],
-            "🥚": [
-                100,
-                101,
-                102,
-                103,
-                104,
-                105,
-                106,
-                107,
-                108,
-                109,
-                110
-            ]
+            "🌞": [141, 142, 143, 144, 145],
+            "🎃": [190, 191, 192, 193, 194, 195, 196, 197, 198],
+            "🥚": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110]
         }
     },
     "name": "Utvidet oppdragsliste",
@@ -52,6 +24,10 @@
         "collapsableMissions": {
             "description": "Skjul individuelle (eller alle) oppdrag for å redusere størrelsen på oppdragslisten.",
             "title": "Kollaps oppdrag"
+        },
+        "collapsableMissionsAllBtn": {
+            "description": "Shows a button to collapse all missions at once",
+            "title": "Collapse all missions at once"
         },
         "currentPatients": {
             "description": "Viser gjeldende antall pasienter for hvert oppdrag",
@@ -74,6 +50,10 @@
             "missions": "Oppdrag",
             "text": "Tekst",
             "title": "Merk sesongoppdrag"
+        },
+        "fixedEventInfo": {
+            "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
+            "title": "Always show event info"
         },
         "hide0CurrentPatients": {
             "description": "Skjuler antall pasienter hvis det ikke er noen pasienter på stedet",

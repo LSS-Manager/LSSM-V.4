@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from '../../../typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -121,6 +121,7 @@ export default {
         schoolingTypes: ['Brandweer'],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Meldkamer',
@@ -136,6 +137,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     2: {
         caption: 'Ziekenhuis',
@@ -220,6 +222,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team ziekenhuizen met behulp van de credits van de Teamkas uitbreiden.',
         startBeds: 10,
+        icon: 'hospital',
     },
     3: {
         caption: 'Ambulancestandplaats',
@@ -235,6 +238,7 @@ export default {
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Ambulance'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     4: {
         caption: 'Brandweer academie',
@@ -258,6 +262,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Brandweeracademie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     5: {
         caption: 'Politie opkomstbureau',
@@ -296,6 +301,7 @@ export default {
         maxBuildingsFunction: (): number => 1700,
         startParkingLots: 1,
         startCells: 0,
+        icon: 'building-shield',
     },
     6: {
         caption: 'MMT Standplaats',
@@ -311,6 +317,7 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Ambulance'],
         startParkingLots: 1,
+        icon: 'circle-h',
     },
     7: {
         caption: 'Universiteit Geneeskunde',
@@ -334,6 +341,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Universiteiten geneeskunde met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     8: {
         caption: 'Politie academie',
@@ -357,6 +365,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Politieacademie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     9: {
         caption: 'Politiehelikopter standplaats',
@@ -377,6 +386,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
+        icon: 'helicopter',
     },
     10: {
         caption: 'Uitgangsstelling (UGS)',
@@ -391,6 +401,7 @@ export default {
             'Je kan zo veel voertuigen als je wilt sturen naar een UGS, teamleden kunnen de UGS ook gebruiken om voertuigen. Een UGS blijft 24 uur bestaan, maar je kan het elk moment weer reseten naar 24 uur.',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 1,
+        icon: 'warehouse',
     },
     11: {
         caption: 'Politie Hoofdbureau',
@@ -468,6 +479,23 @@ export default {
                 unlocksVehicleTypes: [40],
                 parkingLotReservations: [[40], [40], [40]],
             },
+            {
+                caption: 'Bereden Brigade',
+                credits: 100_000,
+                coins: 20,
+                duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 6,
+                unlocksVehicleTypes: [73, 74, 75],
+                parkingLotReservations: [
+                    [75],
+                    [75],
+                    [75],
+                    [73, 74],
+                    [73, 74],
+                    [73, 74],
+                ],
+            },
         ],
         levelcost: [],
         maxBuildings: 'Geen limiet',
@@ -478,6 +506,7 @@ export default {
         schoolingTypes: ['Politie'],
         startParkingLots: 1,
         startParkingLotReservations: [[35]],
+        icon: 'shield-halved',
     },
     12: {
         caption: 'Cellencomplex',
@@ -511,6 +540,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team cellencomplex met behulp van de credits van de Teamkas uitbreiden.',
         startCells: 1,
+        icon: 'border-all',
     },
     13: {
         caption: 'Ambulance VWS-post',
@@ -526,6 +556,7 @@ export default {
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Ambulance'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     14: {
         caption: 'Groot gebouwencomplex',
@@ -542,6 +573,7 @@ export default {
         startVehicles: [],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
     15: {
         caption: 'Klein gebouwencomplex',
@@ -558,6 +590,7 @@ export default {
         startVehicles: [],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
     16: {
         caption: 'Waterreddingspost',
@@ -581,6 +614,7 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Brandweer'],
         startParkingLots: 1,
+        icon: 'person-swimming',
     },
     17: {
         caption: 'Brandweer, Kazerne (klein)',
@@ -680,6 +714,7 @@ export default {
         schoolingTypes: ['Brandweer'],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
     18: {
         caption: 'Politie opkomstbureau (klein)',
@@ -720,5 +755,6 @@ export default {
         maxBuildingsFunction: (): number => 1700,
         startParkingLots: 1,
         startCells: 0,
+        icon: 'building-shield',
     },
 } as Record<number, InternalBuilding>;

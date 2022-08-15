@@ -1,4 +1,8 @@
 {
+    "buildings": {
+        "active": "Brak gotowości do działania",
+        "nonactive": "Gotowość do działania"
+    },
     "deleteARR": {
         "deleteModal": {
             "btnCancel": "anuluj",

@@ -6,9 +6,7 @@ export default (
     hide0CurrentPrisoners: boolean,
     currentPrisonersInTooltips: boolean
 ) => {
-    LSSM.$store.commit('useFontAwesome');
-
-    const prisonersHolderClass: string = LSSM.$store.getters.nodeAttribute(
+    const prisonersHolderClass: string = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}-current_prisoners`
     );
 
@@ -72,28 +70,24 @@ export default (
         )
         .forEach(panel => setPrisoners(panel));
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
-                );
-                if (panel) setPrisoners(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'missionMarkerAdd',
+        callback(marker: MissionMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.id}`
+            );
+            if (panel) setPrisoners(panel);
+        },
+    });
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'prisonerMarkerAdd',
-            post: true,
-            callback(marker: PrisonerMarkerAdd) {
-                const panel = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.mission_id}`
-                );
-                if (panel) setPrisoners(panel);
-            },
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'prisonerMarkerAdd',
+        post: true,
+        callback(marker: PrisonerMarkerAdd) {
+            const panel = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.mission_id}`
+            );
+            if (panel) setPrisoners(panel);
+        },
+    });
 };

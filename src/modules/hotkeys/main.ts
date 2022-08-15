@@ -93,11 +93,11 @@ export default (async ({ LSSM, $m, getSetting }) => {
                     !walkedPath.length
                 )
                     return;
-                return LSSM.$store.dispatch('console/error', [
+                return LSSM.$stores.console.error(
                     `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
                         '.'
-                    )}! Cannot add command ${command} with hotkey »${hotkey}«`,
-                ]);
+                    )}! Cannot add command ${command} with hotkey »${hotkey}«`
+                );
             }
             walkedPath.push(scope);
             const result = base[scope as keyof typeof base] as
@@ -118,9 +118,9 @@ export default (async ({ LSSM, $m, getSetting }) => {
                 )
             );
         } else {
-            return LSSM.$store.dispatch('console/error', [
-                `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`,
-            ]);
+            return LSSM.$stores.console.error(
+                `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
+            );
         }
     });
 }) as ModuleMainFunction;

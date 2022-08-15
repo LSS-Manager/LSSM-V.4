@@ -1,8 +1,6 @@
 {
     "description": "Alarm, del oppdraget og legg ut et hendelsesnotat med et enkelt klikk.",
-    "lsam": {
-        "help": "Variables are replaced same way as in missions list."
-    },
+    "lsam": { "help": "Variables are replaced same way as in missions list." },
     "name": "Del-Allianse-Post",
     "noMessage": "Uten hendelsesnotat",
     "settings": {

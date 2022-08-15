@@ -15,7 +15,7 @@ corepack enable
 yarn set version stable
 
 # version output helps when there are debugging needs
-echo "node: $(node -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
+echo "node: $(node -v) – yarn: $(yarn -v) – nvm: $(nvm -v) – git: $(git --version)"
 
 echo "=== main: update browserslist ==="
 npx -y browserslist@latest --update-db

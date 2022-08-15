@@ -1,8 +1,5 @@
 {
-    "add": {
-        "arr": "New ARR",
-        "group": "New Group"
-    },
+    "add": { "arr": "New ARR", "group": "New Group" },
     "categories": "Own AAR Categories edited",
     "delete": {
         "all": {

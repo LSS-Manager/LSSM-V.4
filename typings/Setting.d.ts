@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for settings files for modules.
+ */
+
 import type { ExtendedVue } from 'vue/types/vue';
 import type {
     DefaultComputed,
@@ -104,7 +108,8 @@ interface Custom<
         ComponentData,
         ComponentMethods,
         ComponentComputed,
-        ComponentProps & { value: Data }
+        ComponentProps & { value: Data },
+        unknown
     >;
 }
 
@@ -127,7 +132,7 @@ interface AppendableListSetting<Type extends SettingType = SettingType> {
 export interface PreviewElement
     extends Omit<AppendableListSetting, 'name' | 'setting'> {
     type: 'preview';
-    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
+    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown, unknown>;
 }
 
 export interface AppendableList extends SettingTemplate {

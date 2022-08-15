@@ -11,25 +11,9 @@
             <tab :title="$m('tabs.building-types')">
                 <building-types></building-types>
             </tab>
-            <tab
-                title-slot="dispatchcenter-view-title"
-                :disabled="!$store.state.premium"
-            >
-                <dispatchcenter-view
-                    v-if="$store.state.premium"
-                ></dispatchcenter-view>
-                <div v-else></div>
+            <tab :title="$m('tabs.dispatchcenter-view')">
+                <dispatchcenter-view></dispatchcenter-view>
             </tab>
-            <template slot="dispatchcenter-view-title">
-                {{ $m('tabs.dispatchcenter-view') }}
-                <br />
-                <div
-                    class="alert alert-info premiumNotice"
-                    v-if="!$store.state.premium"
-                >
-                    {{ $t('premiumNotice') }}
-                </div>
-            </template>
         </tabs>
     </lightbox>
 </template>
@@ -37,17 +21,13 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import type { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
-import type {
-    DefaultComputed,
-    DefaultData,
-    DefaultProps,
-} from 'vue/types/options';
+import type { DashboardMethods } from 'typings/modules/Dashboard/Dashboard';
+import type { DefaultData, DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,
     DashboardMethods,
-    DefaultComputed,
+    { premium: boolean },
     DefaultProps
 >({
     name: 'lssmv4-dashboard',
@@ -72,6 +52,11 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "modules/components/lightbox" */ '../../components/lightbox.vue'
             ),
+    },
+    computed: {
+        premium() {
+            return window.user_premium;
+        },
     },
     methods: {
         $m(key, args) {

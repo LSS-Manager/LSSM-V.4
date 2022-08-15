@@ -79,10 +79,27 @@ export default (
         })
     );
 
+    const playerUrlsSorted = Object.keys(total.players).sort((a, b) =>
+        playerNameByUrl[a].localeCompare(playerNameByUrl[b])
+    );
+
     const sum = (object: Record<string, number>): number =>
         Object.values(object).reduce((a, b) => a + b, 0);
     const length = (object: Record<string, unknown>): number =>
         Object.keys(object).length;
+
+    const missionHeader = document.querySelector<HTMLDivElement>(
+        '.mission_header_info'
+    );
+    const headerHeight = missionHeader
+        ? getComputedStyle(missionHeader).height
+        : '0px';
+    const missionFooter = document.querySelector<HTMLElement>(
+        '#container_navbar_alarm'
+    );
+    const footerHeight = missionFooter
+        ? getComputedStyle(missionFooter).height
+        : '0px';
 
     const addField = (list: List) => {
         const amountSpan = document.createElement('span');
@@ -119,7 +136,10 @@ export default (
         table.style.setProperty('z-index', '3');
         table.style.setProperty('right', '0');
         table.style.setProperty('display', 'block');
-        table.style.setProperty('max-height', 'calc(100vh - 100px)');
+        table.style.setProperty(
+            'max-height',
+            `calc(100vh - ${headerHeight} - ${footerHeight})`
+        );
         table.style.setProperty('overflow', 'auto');
         const thead = document.createElement('thead');
         const theadRow = document.createElement('tr');
@@ -132,9 +152,13 @@ export default (
         thead.append(theadRow);
 
         const tbody = document.createElement('tbody');
-        if (!LSSM.$store.state.darkmode)
+        if (!LSSM.$stores.root.isDarkMode)
             tbody.style.setProperty('color', 'black');
-        Object.entries(total[list]).forEach(([row, total]) => {
+        (list === 'vehicles'
+            ? Object.keys(total.vehicles)
+            : playerUrlsSorted
+        ).forEach(row => {
+            const rowTotal = total[list][row];
             const trow = document.createElement('tr');
             const title = document.createElement('th');
             if (list === 'vehicles') {
@@ -157,7 +181,7 @@ export default (
                 results.atScene[list][row] ?? 0
             ).toLocaleString();
             const sum = document.createElement('th');
-            sum.textContent = total.toLocaleString();
+            sum.textContent = rowTotal.toLocaleString();
             trow.append(title, driving, atScene, sum);
             tbody.append(trow);
         });

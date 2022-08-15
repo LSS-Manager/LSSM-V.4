@@ -13,6 +13,13 @@
             "description": "Mostra accanto al pulsante d'allarme quanto tempo ci impiega ad arrivare il veicolo più distante.",
             "title": "Tempo di viaggio più lungo"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Disegna una cornice intorno alle AAR già cliccate.",
             "title": "Evidenzia le AAR cliccate"
@@ -52,6 +59,10 @@
         "arrSearchCloseDropdownOnSelect": {
             "description": "Chiude la tendina dopo aver selezionato un AAR.",
             "title": "Chiudi la tendina dopo la selezione"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
         },
         "arrSearchDissolveCategories": {
             "description": "Mostra tutte le categorie insieme, quando si usa la barra di ricerca.",
@@ -181,63 +192,18 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Autopompa",
-                "vehicleTypes": [
-                    0,
-                    9
-                ]
-            },
+            { "name": "Autopompa", "vehicleTypes": [0, 9] },
             {
                 "name": "Altri apparecchi antincendio",
                 "vehicleTypes": [
-                    1,
-                    2,
-                    3,
-                    5,
-                    6,
-                    10,
-                    11,
-                    12,
-                    23,
-                    24,
-                    25,
-                    26,
-                    28,
-                    29,
-                    30,
-                    31,
-                    32,
-                    33,
-                    34,
-                    35,
-                    37
+                    1, 2, 3, 5, 6, 10, 11, 12, 23, 24, 25, 26, 28, 29, 30, 31,
+                    32, 33, 34, 35, 37
                 ]
             },
-            {
-                "name": "Ambulanza",
-                "vehicleTypes": [
-                    4,
-                    8,
-                    18,
-                    19,
-                    20,
-                    27,
-                    36
-                ]
-            },
+            { "name": "Ambulanza", "vehicleTypes": [4, 8, 18, 19, 20, 27, 36] },
             {
                 "name": "Polizia",
-                "vehicleTypes": [
-                    7,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    21,
-                    22
-                ]
+                "vehicleTypes": [7, 13, 14, 15, 16, 17, 21, 22, 38, 39, 40, 41]
             }
         ]
     }

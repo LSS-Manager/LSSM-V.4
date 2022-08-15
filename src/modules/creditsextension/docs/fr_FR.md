@@ -5,9 +5,9 @@ Elle ajoute un menu utile dans la barre de navigation, à la place des crédits 
 ## Crédits au lieu de tirelire
 Affiche les crédits actuels au lieu d'une tirelire.
 
-|     **inactif** (par défaut)   |                   **actif**                      |
-| :----------------------------: | :----------------------------------------------: |
-| ![tirelire](./piggy-mode.png)    | ![crédits au lieu de tirelire](./credits-mode.png) |
+|   **inactif** (par défaut)    |                     **actif**                      |
+|:-----------------------------:|:--------------------------------------------------:|
+| ![tirelire](./piggy-mode.png) | ![crédits au lieu de tirelire](./credits-mode.png) |
 
 ## Position dans le classement en crédit
 Affiche ta position actuelle dans le classement. La valeur est mise à jour toutes les 5 minutes :
@@ -27,6 +27,6 @@ Surligne les pièces en vert si des soldes est disponible
 ## Objectifs
 Chaque fois que vous avez atteint l'un des objectifs de crédits définis, la tirelire ou le niveau de crédits est mis en évidence en vert jusqu'à ce que vous cliquez dessus la prochaine fois :
 
-|                    Tirelire                        |                     Crédits                     |
-| :------------------------------------------------: | :---------------------------------------------: |
-| ![Objectif crédits tirelire](./alert-piggy-mode.png) |   ![Objectif crédits](./alert-credits-mode.png)   |
+|                       Tirelire                       |                    Crédits                    |
+|:----------------------------------------------------:|:---------------------------------------------:|
+| ![Objectif crédits tirelire](./alert-piggy-mode.png) | ![Objectif crédits](./alert-credits-mode.png) |

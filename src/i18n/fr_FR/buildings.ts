@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -55,6 +55,7 @@ export default {
         schoolingTypes: ['Centre de secours'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Centre de Formation Départemental',
@@ -79,6 +80,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Poste Ambulancier',
@@ -94,6 +96,7 @@ export default {
         startVehicles: ['ASSU'],
         schoolingTypes: ['Secours'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     3: {
         caption: 'École de médecine',
@@ -118,6 +121,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Centre Hospitalier',
@@ -202,6 +206,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent construire et agrandir les hôpitaux grance à la banque de l'alliance",
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: "Station d'hélicoptère",
@@ -221,6 +226,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'circle-h',
     },
     6: {
         caption: 'Poste de police',
@@ -259,6 +265,7 @@ export default {
         startCells: 0,
         maxBuildingsFunction: (): number => 1700,
         special: '',
+        icon: 'building-shield',
     },
     7: {
         caption: 'Centre de Traitement des Appels',
@@ -273,6 +280,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'École de Gendarmerie',
@@ -297,6 +305,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     11: {
         caption: 'Compagnie de CRS',
@@ -369,6 +378,7 @@ export default {
         ],
         schoolingTypes: ['Poste de police'],
         special: '',
+        icon: 'shield-halved',
     },
     13: {
         caption: 'Forces aériennes de la Gendarmerie nationale',
@@ -389,6 +399,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     14: {
         caption: 'Centre de Regroupement des Moyens',
@@ -403,6 +414,7 @@ export default {
             'Vous pouvez construire la zone intermédiaire gratuitement. Celle-ci agit comme une plateforme et vous permet de stationner et déployer temporairement vos unités. Elle disparaît après 24 heures. Veuillez sélectionner la ou les unités que vous souhaitez déployer ici.',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 1,
+        icon: 'warehouse',
     },
     16: {
         caption: 'Prison',
@@ -430,6 +442,18 @@ export default {
                 },
                 9
             ),
+            ...multiplyExtension(
+                {
+                    caption: 'Plus de cellules',
+                    credits: 50_000,
+                    coins: 5,
+                    duration: '7 jours',
+                    newCells: 1,
+                    cannotDisable: true,
+                    requiredExtensions: [0],
+                },
+                10
+            ),
         ],
         levelcost: [],
         maxBuildings: 'Aucune limite',
@@ -437,6 +461,7 @@ export default {
         special:
             "Ce bâtiment ne peut être construit que par le chef des finances ou des administateurs avec les crédits de la banque d'alliance. Les cellules sont disponibles pour tous les membres de l'alliance.",
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Centre de Première Intervention',
@@ -487,6 +512,7 @@ export default {
         schoolingTypes: ['Centre de secours'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Poste de police (petit)',
@@ -528,6 +554,7 @@ export default {
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     20: {
         caption: 'Poste Ambulancier (petit)',
@@ -548,6 +575,7 @@ export default {
         startVehicles: ['ASSU'],
         schoolingTypes: ['Secours'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     21: {
         caption: 'Grand complexe',
@@ -563,6 +591,7 @@ export default {
         startVehicles: [''],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
     22: {
         caption: 'Petit complexe',
@@ -578,5 +607,6 @@ export default {
         startVehicles: [''],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
 } as Record<number, InternalBuilding>;

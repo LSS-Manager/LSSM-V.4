@@ -81,7 +81,7 @@ export default (
         '../components/collapsablePatients/collapsablePatients.vue'
     ).then(({ default: collapsablePatients }) =>
         new LSSM.$vue({
-            store: LSSM.$store,
+            pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
                 h(collapsablePatients, {

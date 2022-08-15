@@ -14,18 +14,16 @@ export default (
     callback: (mission: ButtonGroupCallback) => void,
     onUpdate: (mission: MissionUpdateCallback) => void
 ): void => {
-    const btnGroupClass = LSSM.$store.getters.nodeAttribute(
+    const btnGroupClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_btn-group_pre-alarm`
     );
 
-    LSSM.$store
-        .dispatch('addStyle', {
-            selectorText: `.${btnGroupClass}`,
-            style: {
-                display: 'inline-flex',
-            },
-        })
-        .then();
+    LSSM.$stores.root.addStyle({
+        selectorText: `.${btnGroupClass}`,
+        style: {
+            display: 'inline-flex',
+        },
+    });
 
     const addButtonGroup = (mission: HTMLDivElement): HTMLSpanElement => {
         const btnGroup = document.createElement('span');
@@ -46,27 +44,23 @@ export default (
         )
         .forEach(addButtonGroup);
 
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'missionMarkerAdd',
-            callback(marker: MissionMarkerAdd) {
-                const mission = document.querySelector<HTMLDivElement>(
-                    `#mission_${marker.id}`
+    LSSM.$stores.root.hook({
+        event: 'missionMarkerAdd',
+        callback(marker: MissionMarkerAdd) {
+            const mission = document.querySelector<HTMLDivElement>(
+                `#mission_${marker.id}`
+            );
+            if (mission) {
+                let btnGroup = mission.querySelector<HTMLSpanElement>(
+                    `.${btnGroupClass}`
                 );
-                if (mission) {
-                    let btnGroup = mission.querySelector<HTMLSpanElement>(
-                        `.${btnGroupClass}`
-                    );
-                    if (!btnGroup) btnGroup = addButtonGroup(mission);
-                    onUpdate({
-                        element: mission,
-                        btnGroup,
-                        id: parseInt(
-                            mission.getAttribute('mission_id') ?? '-1'
-                        ),
-                    });
-                }
-            },
-        })
-        .then();
+                if (!btnGroup) btnGroup = addButtonGroup(mission);
+                onUpdate({
+                    element: mission,
+                    btnGroup,
+                    id: parseInt(mission.getAttribute('mission_id') ?? '-1'),
+                });
+            }
+        },
+    });
 };

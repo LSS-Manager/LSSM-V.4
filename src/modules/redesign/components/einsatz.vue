@@ -26,7 +26,7 @@ export default Vue.extend<
     components: {
         EinsatzComponent: () =>
             import(
-                /* webpackChunkName: "modules/redesign/components/einsatz" */ './einsatz-component.vue'
+                /* webpackChunkName: "modules/redesign/components/einsatz" */ './assets/einsatz.vue'
             ),
     },
     computed: {

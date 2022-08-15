@@ -1,3 +1,5 @@
+import { useRootStore } from '@stores/index';
+
 import type { ModuleSettingFunction } from 'typings/Module';
 import type { Hidden, MultiSelect, Select, Toggle } from 'typings/Setting';
 
@@ -13,7 +15,7 @@ export default ((MODULE_ID, LSSM, $m) => {
         noVehicleRequirements.push(key);
         noVehicleRequirementLabels.push(text);
     });
-    const locale = LSSM.$store.state.lang;
+    const locale = useRootStore().locale;
     return {
         'title': <Toggle>{
             type: 'toggle',
@@ -63,6 +65,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             'fr_FR',
             'es_ES',
             'en_GB',
+            'it_IT',
         ].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{
@@ -160,7 +163,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(locale === 'en_US'
+        ...(['en_US', 'fi_FI'].includes(locale)
             ? {
                   'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
                       type: 'toggle',
@@ -180,9 +183,15 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT', 'fr_FR', 'nb_NO'].includes(
-            locale
-        )
+        ...([
+            'de_DE',
+            'en_US',
+            'nl_NL',
+            'it_IT',
+            'fr_FR',
+            'nb_NO',
+            'fi_FI',
+        ].includes(locale)
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
                       type: 'toggle',
@@ -313,7 +322,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: {
                 active: false,
                 top: 60,
-                left: window.innerWidth * 0.03,
+                right: window.innerWidth * 0.03,
                 offset: {
                     x: 0,
                     y: 0,

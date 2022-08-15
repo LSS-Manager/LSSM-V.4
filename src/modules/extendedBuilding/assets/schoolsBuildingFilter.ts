@@ -1,6 +1,3 @@
-import type { Building, InternalBuilding } from 'typings/Building';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
-
 interface BuildingInfos {
     el: HTMLDivElement;
     id: number;
@@ -11,30 +8,21 @@ interface BuildingInfos {
 
 export default async (LSSM: Vue) => {
     const accordion = document.querySelector<HTMLDivElement>(
-        '#schooling #accordion'
+        'form[action$="/education"] #accordion'
     );
 
     if (!accordion) return;
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
-        feature: 'eb-sbf',
-    });
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: 'eb-sbf',
-    });
+    await LSSM.$stores.api.getBuildings('eb-sbf');
+    await LSSM.$stores.api.getVehicles('eb-sbf');
 
     const buildings: BuildingInfos[] = [];
 
-    const buildingsById: Record<number, Building> =
-        LSSM.$store.getters['api/buildingsById'];
+    const buildingsById = LSSM.$stores.api.buildingsById;
+    const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
 
-    const vehiclesByBuilding: Record<number, Vehicle[]> =
-        LSSM.$store.getters['api/vehiclesByBuilding'];
-
-    const buildingTypes: Record<number, InternalBuilding> =
-        LSSM.$store.getters.$tBuildings;
-    const vehicleTypes: Record<number, InternalVehicle> =
-        LSSM.$store.getters.$tVehicles;
+    const buildingTypes = LSSM.$stores.translations.buildings;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     accordion.querySelectorAll<HTMLDivElement>('.panel').forEach(panel => {
         const heading = panel.querySelector<HTMLDivElement>('.panel-heading');
@@ -131,6 +119,7 @@ export default async (LSSM: Vue) => {
             if (show) el.classList.remove('hidden');
             else el.classList.add('hidden');
         });
+        window.schooling_check_educated_counter_visible_check?.();
     };
 
     let nameFilterTimeout: number | null = null;

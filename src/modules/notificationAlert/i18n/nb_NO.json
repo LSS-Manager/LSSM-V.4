@@ -34,9 +34,7 @@
         "mission_getred_alliance": {
             "body": "{address}<br>Denne alliansemisjonen trenger oppmerksomhet!"
         },
-        "radioMessage": {
-            "title": "{vehicle} rapporterer status {status}!"
-        }
+        "radioMessage": { "title": "{vehicle} rapporterer status {status}!" }
     },
     "noPermission": {
         "text": "Nettleseren din er satt opp slik at spillet ikke har tillatelse til å sende skrivebordsvarsler. Hvis du fortsatt ønsker å motta disse varslene, må du først tilbakestille dette i nettleserinnstillingene!",

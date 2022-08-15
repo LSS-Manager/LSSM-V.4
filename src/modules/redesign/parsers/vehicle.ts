@@ -397,7 +397,7 @@ export default <RedesignParser<VehicleWindow>>(({
         own_cells,
         alliance_cells,
         prisoners_releaseable: !!doc.querySelector(
-            'a[href$="/gefangene/entlassen"]'
+            'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
         ),
         has_wlfs: !!wlf_table,
         wlfs: wlf_table

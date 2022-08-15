@@ -1,9 +1,22 @@
-interface Extension {
+/**
+ * @file - Type definitions for in game buildings & internal buildings (translations).
+ */
+
+import type { IconName } from '@fortawesome/free-solid-svg-icons';
+
+type Extension = {
     caption: string;
-    available: boolean;
     enabled: boolean;
     type_id: number;
-}
+} & (
+    | {
+          available: false;
+          available_at: string;
+      }
+    | {
+          available: true;
+      }
+);
 
 export interface Building {
     id: number;
@@ -22,6 +35,8 @@ export interface Building {
     hiring_phase: 0 | 1 | 2 | 3;
     hiring_automatic: boolean;
     custom_icon_url?: string;
+    is_alliance_shared?: boolean;
+    alliance_share_credits_percentage?: 0 | 10 | 20 | 30 | 40 | 50;
 }
 
 export interface BuildingCategory {
@@ -84,6 +99,7 @@ interface BaseBuilding {
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
+    icon: IconName; // There is unfortunately no way to say "names of free icons only"
     requiredRank?: number;
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
 }

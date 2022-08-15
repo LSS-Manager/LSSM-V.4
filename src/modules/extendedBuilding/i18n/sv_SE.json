@@ -2,16 +2,9 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Dölj personal utan lämplig utbildning"
     },
-    "expansions": {
-        "notBuild": "Inte byggt ännu"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Ingen larmcentral"
-    },
-    "personnelDemands": {
-        "additional": "",
-        "demand": "Personal som krävs"
-    },
+    "expansions": { "notBuild": "Inte byggt ännu" },
+    "fastDispatchChooser": { "noDispatch": "Ingen larmcentral" },
+    "personnelDemands": { "additional": "", "demand": "Personal som krävs" },
     "schoolingSummary": {
         "all": "Alla kombinationer",
         "amount": "Antal",

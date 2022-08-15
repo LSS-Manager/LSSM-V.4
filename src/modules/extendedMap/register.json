@@ -1,5 +1,1 @@
-{
-    "location": "^/?$",
-    "noMapkit": true,
-    "settings": true
-}
+{ "location": "^/?$", "noMapkit": true, "settings": true }

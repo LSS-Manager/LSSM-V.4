@@ -109,7 +109,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
+        moment.locale(this.lightbox.rootStore.locale);
         return {
             moment,
             search: '',
@@ -142,8 +142,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
             const url = `/coins/list?page=${this.startPage}`;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-coins-list-load-prev-${this.startPage}`,
                 })
@@ -155,7 +155,7 @@ export default Vue.extend<
                                 html,
                                 'text/html'
                             ),
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,
@@ -178,8 +178,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
             const url = `/coins/list?page=${this.endPage}`;
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-coins-list-load-next-${this.endPage}`,
                 })
@@ -191,7 +191,7 @@ export default Vue.extend<
                                 html,
                                 'text/html'
                             ),
-                            LSSM: this,
+                            LSSM: this.lightbox,
                             $m: this.lightbox.$m,
                             $sm: this.lightbox.$sm,
                             $mc: this.lightbox.$mc,

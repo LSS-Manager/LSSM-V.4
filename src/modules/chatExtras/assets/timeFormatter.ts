@@ -3,7 +3,7 @@ import moment from 'moment';
 import type { AllianceChatMessage } from 'typings/Ingame';
 
 export default (LSSM: Vue, format: string): void => {
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.$stores.root.locale);
 
     document
         .querySelectorAll<HTMLSpanElement>('.mission_chat_message_username')
@@ -14,12 +14,10 @@ export default (LSSM: Vue, format: string): void => {
             if (msg_user_span.firstChild)
                 msg_user_span.firstChild.textContent = `[${timeStampModified}] `;
         });
-    LSSM.$store
-        .dispatch('premodifyParams', {
-            event: 'allianceChat',
-            callback(e: AllianceChatMessage) {
-                e.date = moment(e.iso_timestamp).format(format);
-            },
-        })
-        .then();
+    LSSM.$stores.root.preModifyParams({
+        event: 'allianceChat',
+        callback(e: AllianceChatMessage) {
+            e.date = moment(e.iso_timestamp).format(format);
+        },
+    });
 };

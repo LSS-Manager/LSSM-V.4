@@ -85,6 +85,7 @@
 import Vue from 'vue';
 
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
+import { useSettingsStore } from '@stores/settings';
 
 import type { ConversationMessageTemplate } from '../../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -105,6 +106,7 @@ type Component = RedesignComponent<
             enabled: boolean;
             templates: ConversationMessageTemplate[];
         };
+        settingsStore: ReturnType<typeof useSettingsStore>;
     },
     { sendMessage(): void; fillTemplates(event: MouseEvent): void }
 >;
@@ -118,7 +120,7 @@ export default Vue.extend<
     name: 'lssmv4-redesign-messages-new',
     data() {
         const id = (id: string) =>
-            this.$store.getters.nodeAttribute(
+            this.lightbox.rootStore.nodeAttribute(
                 `redesign-messages-new_${id}`,
                 true
             );
@@ -141,6 +143,7 @@ export default Vue.extend<
                 enabled: false,
                 templates: [],
             },
+            settingsStore: useSettingsStore(),
         };
     },
     methods: {
@@ -155,8 +158,8 @@ export default Vue.extend<
             url.searchParams.append('message[recipients]', this.receiver.value);
             url.searchParams.append('message[subject]', this.subject.value);
             url.searchParams.append('message[body]', this.content.value);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages`,
                     init: {
                         credentials: 'include',
@@ -167,7 +170,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/messages/new`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -189,10 +192,13 @@ export default Vue.extend<
                 ).then(async ({ default: fillDropdown }) =>
                     fillDropdown(
                         (
-                            await this.$store.dispatch('settings/getSetting', {
+                            await this.settingsStore.getSetting<{
+                                value: ConversationMessageTemplate[];
+                                enabled: boolean;
+                            }>({
                                 moduleId: 'messageTemplates',
                                 settingId: 'templates',
-                                defaultValue: [],
+                                defaultValue: { value: [], enabled: true },
                             })
                         ).value,
                         dropdown,
@@ -237,12 +243,12 @@ export default Vue.extend<
     mounted() {
         this.lightbox.finishLoading('message-new-mounted');
 
-        this.$store
-            .dispatch('storage/get', {
+        this.lightbox.storageStore
+            .get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],
             })
-            .then((activeModules: string[]) => {
+            .then(activeModules => {
                 this.messageTemplates.enabled =
                     activeModules.includes('messageTemplates');
                 if (!this.messageTemplates.enabled) return;
@@ -252,11 +258,14 @@ export default Vue.extend<
                     ) ?? '-1'
                 );
                 if (preselected < 0) return;
-                this.$store
-                    .dispatch('settings/getSetting', {
+                this.settingsStore
+                    .getSetting<{
+                        value: ConversationMessageTemplate[];
+                        enabled: boolean;
+                    }>({
                         moduleId: 'messageTemplates',
                         settingId: 'templates',
-                        defaultValue: [],
+                        defaultValue: { value: [], enabled: true },
                     })
                     .then(
                         ({

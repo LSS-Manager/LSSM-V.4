@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -81,6 +81,7 @@ export default {
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Fire academy',
@@ -104,6 +105,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) fire department schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association fire- brigade schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Ambulance station',
@@ -130,6 +132,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        icon: 'house-medical',
     },
     3: {
         caption: 'Rescue (EMS) Academy',
@@ -153,6 +156,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association rescue schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association rescue schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Hospital',
@@ -237,6 +241,7 @@ export default {
         special:
             'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Medical Helicopter station',
@@ -257,6 +262,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'circle-h',
     },
     6: {
         caption: 'Police station',
@@ -315,6 +321,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     7: {
         caption: 'Dispatch Center',
@@ -330,6 +337,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Police training centre',
@@ -353,6 +361,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association police schools with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Police Aviation',
@@ -373,6 +382,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     14: {
         caption: 'Staging area',
@@ -387,6 +397,7 @@ export default {
             'You can station as many of your own vehicles as you like at a staging area, members of the alliance can use the staging area. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 4,
+        icon: 'warehouse',
     },
     16: {
         caption: 'Prison',
@@ -413,6 +424,17 @@ export default {
                 },
                 9
             ),
+            ...multiplyExtension(
+                {
+                    caption: 'Additional cell',
+                    credits: 50_000,
+                    coins: 5,
+                    duration: '7 Days',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                10
+            ),
         ],
         levelcost: [],
         maxBuildings: 'No limit',
@@ -420,6 +442,7 @@ export default {
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
         startCells: 0,
+        icon: 'border-all',
     },
     18: {
         caption: 'Fire station (Small station) ',
@@ -503,6 +526,7 @@ export default {
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Police station (Small station)',
@@ -556,6 +580,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     20: {
         caption: 'Ambulance station (Small station)',
@@ -587,6 +612,7 @@ export default {
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     21: {
         caption: 'Clinic',
@@ -612,6 +638,7 @@ export default {
         startParkingLots: 2,
         startBeds: 5,
         parkingLotsPerLevel: 0,
+        icon: 'staff-snake',
     },
     22: {
         caption: 'Home Response Location',
@@ -628,6 +655,7 @@ export default {
         startVehicles: [''],
         schoolingTypes: ['Rescue', 'Police', 'Fire'],
         startParkingLots: 1,
+        icon: 'house-flag',
     },
     23: {
         caption: 'Large complex',
@@ -643,6 +671,7 @@ export default {
         startVehicles: [''],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
     24: {
         caption: 'Small complex',
@@ -658,6 +687,7 @@ export default {
         startVehicles: [''],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
     25: {
         caption: 'HART Base',
@@ -687,6 +717,7 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Rescue'],
         startParkingLots: 5,
+        icon: 'biohazard',
     },
     26: {
         caption: 'Large Police Depot',
@@ -753,5 +784,6 @@ export default {
         startParkingLots: 10,
         startCells: 0,
         parkingLotsPerLevel: 2,
+        icon: 'city',
     },
 } as Record<number, InternalBuilding>;

@@ -46,9 +46,7 @@
     },
     "settings": {
         "alertStyle": "In-Game Notification Type",
-        "alerts": {
-            "title": "Set notifications"
-        },
+        "alerts": { "title": "Set notifications" },
         "desktop": "Send desktop notification",
         "duration": "Display duration",
         "eventTypes": "Events",
