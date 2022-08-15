@@ -53,8 +53,8 @@
             },
             "missionlist": {
                 "eclSort": {
-                    "title":"Ouvrir le tri des missions",
-                    "open": "Ouvrir le menu de sélection"
+                    "open": "Ouvrir le menu de sélection",
+                    "title": "Ouvrir le tri des missions"
                 },
                 "search": {
                     "focus": "focus sur le champ de saisie",

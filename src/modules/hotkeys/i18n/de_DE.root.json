@@ -49,13 +49,13 @@
                 "title": "Karte"
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Auswahlmenü öffnen",
+                    "title": "Einsatzsortierung"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Suche"
-                },
-                "eclSort": {
-                    "title": "Einsatzsortierung",
-                    "open": "Auswahlmenü öffnen"
                 },
                 "title": "Einsatzliste"
             },

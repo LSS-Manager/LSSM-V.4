@@ -50,8 +50,8 @@
             },
             "missionlist": {
                 "eclSort": {
-                    "title":"Mission sorting",
-                    "open": "Open selection menu"
+                    "open": "Open selection menu",
+                    "title": "Mission sorting"
                 },
                 "search": { "focus": "fokus på input feltet", "title": "Søk" },
                 "title": "Oppdragsliste"
