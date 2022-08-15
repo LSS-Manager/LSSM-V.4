@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -52,6 +52,7 @@ export default {
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Brannskole',
@@ -75,6 +76,7 @@ export default {
         special:
             'Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Ambulansestasjon',
@@ -97,6 +99,7 @@ export default {
         startVehicles: ['Ambulanse'],
         startParkingLots: 1,
         schoolingTypes: ['Redning'],
+        icon: 'house-medical',
     },
     3: {
         caption: 'Helseskole',
@@ -120,6 +123,7 @@ export default {
         special:
             'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Sykehus',
@@ -197,6 +201,7 @@ export default {
         special:
             'Finansministre og admins kan (utvide) alliansesykehus ved hjelp av kreditter fra alliansekassen.',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Helikopterstasjon',
@@ -217,6 +222,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Redning'],
         startParkingLots: 1,
+        icon: 'circle-h',
     },
     6: {
         caption: 'Politistasjon',
@@ -255,6 +261,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Politi'],
+        icon: 'building-shield',
     },
     7: {
         caption: 'Nødetatssenter',
@@ -269,6 +276,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Politiskole',
@@ -292,6 +300,7 @@ export default {
         special:
             'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Politiheliport',
@@ -312,6 +321,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Politi'],
         startParkingLots: 1,
+        icon: 'helicopter',
     },
     14: {
         caption: 'Oppstillingsplass',
@@ -326,6 +336,7 @@ export default {
             'Du kan stasjonere så mange av dine egne kjøretøy som du vil på et oppstillingsområde, medlemmer av alliansen kan bruke oppstillingsplassen. En oppstillingsplass forblir i 24 timer, men du kan når som helst tilbakestille det til 24 timer. Med Premium-konto kan du ha 8 oppstillingsplasser samtidig',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 4,
+        icon: 'warehouse',
     },
     16: {
         caption: 'Fengsel',
@@ -359,6 +370,7 @@ export default {
         special:
             'Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.',
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Brannstasjon (liten)',
@@ -406,6 +418,7 @@ export default {
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Politistasjon (liten)',
@@ -446,6 +459,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Politi'],
+        icon: 'building-shield',
     },
     20: {
         caption: 'Ambulansestasjon (liten)',
@@ -473,6 +487,7 @@ export default {
         startVehicles: ['Ambulanse'],
         startParkingLots: 1,
         schoolingTypes: ['Redning'],
+        icon: 'house-medical',
     },
     21: {
         caption: 'Legevakt',
@@ -497,6 +512,7 @@ export default {
         startParkingLots: 2,
         startBeds: 5,
         parkingLotsPerLevel: 0,
+        icon: 'staff-snake',
     },
     22: {
         caption: 'Stort kompleks',
@@ -512,6 +528,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     23: {
         caption: 'Lite kompleks',
@@ -527,6 +544,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     25: {
         caption: 'Brannheliport',
@@ -547,5 +565,6 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
+        icon: 'helicopter',
     },
 } as Record<number, InternalBuilding>;

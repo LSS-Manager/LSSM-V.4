@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -87,6 +87,7 @@ export default {
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
         schoolingTypes: ['Posterunek straży pożarnej'],
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Szkoła pożarnicza',
@@ -111,6 +112,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Stacja Pogotowia Ratunkowego',
@@ -126,6 +128,7 @@ export default {
         startVehicles: ['Ambulans P'],
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        icon: 'house-medical',
     },
     3: {
         caption: 'Akademia Służb Ratownictwa Medycznego',
@@ -150,6 +153,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Szpital',
@@ -234,6 +238,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szpital z finansów sojuszu.',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Stacja helikopterów',
@@ -254,6 +259,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        icon: 'circle-h',
     },
     6: {
         caption: 'Komenda Policji',
@@ -334,6 +340,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Policja'],
+        icon: 'building-shield',
     },
     7: {
         caption: 'Centrum Powiadamiania Ratunkowego',
@@ -349,6 +356,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Akademia Policyjna',
@@ -373,6 +381,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     11: {
         caption: 'Poligon Oddziału Prewencji Policji',
@@ -401,6 +410,7 @@ export default {
         startParkingLots: 5,
         special: '',
         schoolingTypes: ['Policja'],
+        icon: 'shield-halved',
     },
     13: {
         caption: 'Stacja Helikopterów Policji',
@@ -421,6 +431,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
         schoolingTypes: ['Policja'],
+        icon: 'helicopter',
     },
     14: {
         caption: 'Miejsce koncentracji Sił i Środków',
@@ -435,6 +446,7 @@ export default {
             'Możesz ustawić dowolną liczbę własnych pojazdów w strefie postojowej, także członkowie sojuszu mogą z niego skorzystać. Budynek stoi przez 24 godziny, ale możesz przedłużyć czas o 24 godzin w dowolnym momencie.',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 1,
+        icon: 'warehouse',
     },
     15: {
         caption: 'Stacja WOPR',
@@ -451,6 +463,7 @@ export default {
         startVehicles: ['S.WOPR'],
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        icon: 'person-swimming',
     },
     16: {
         caption: 'Prison',
@@ -495,6 +508,7 @@ export default {
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Remiza',
@@ -560,7 +574,7 @@ export default {
         maxBuildings: '6.000 włącznie z JRG',
         maxLevel: 5,
         special:
-            'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
+            'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
         startPersonnel: 10,
         startVehicles: [
             'Ciężki samochód gaśniczy',
@@ -573,6 +587,7 @@ export default {
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
         schoolingTypes: ['Posterunek straży pożarnej'],
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Posterunek Policji',
@@ -655,6 +670,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Policja'],
+        icon: 'building-shield',
     },
     20: {
         caption: 'Podstacja Pogotowia Ratunkowego',
@@ -675,6 +691,7 @@ export default {
         startVehicles: ['Ambulans P'],
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        icon: 'house-medical',
     },
     21: {
         caption: 'Duży kompleks',
@@ -690,6 +707,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     22: {
         caption: 'Mały kompleks',
@@ -705,6 +723,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     23: {
         caption: 'Stacja Straży Miejskiej',
@@ -720,5 +739,6 @@ export default {
         startVehicles: ['Samochód SM'],
         startParkingLots: 1,
         schoolingTypes: ['Policja'],
+        icon: 'shield-halved',
     },
 } as Record<number, InternalBuilding>;

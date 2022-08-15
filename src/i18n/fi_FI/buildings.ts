@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -51,6 +51,7 @@ export default {
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta "Kapteeni" alkaen )',
         ],
         schoolingTypes: [],
+        icon: 'fire',
     },
     1: {
         caption: 'Pelastajaoppilaitos',
@@ -74,6 +75,7 @@ export default {
         maxLevel: 0,
         special: '',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Ambulanssiasema',
@@ -89,6 +91,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Hoitotason Ambulanssi'],
         schoolingTypes: [],
+        icon: 'truck-medical',
     },
     3: {
         caption: 'Ammattikorkeakoulu',
@@ -112,6 +115,7 @@ export default {
         maxLevel: 0,
         special: '',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Sairaala',
@@ -195,6 +199,7 @@ export default {
         maxLevel: 0,
         special: '',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Lääkintähelikopteriasema',
@@ -214,6 +219,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     6: {
         caption: 'Poliisiasema',
@@ -250,6 +256,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
         schoolingTypes: [],
+        icon: 'shield-halved',
     },
     7: {
         caption: 'Hätäkeskus',
@@ -264,6 +271,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Poliisiammattikorkeakoulu',
@@ -287,6 +295,7 @@ export default {
         maxLevel: 0,
         special: '',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Poliisihelikopteritukikohta',
@@ -306,6 +315,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     14: {
         caption: 'Kokoontumispaikka',
@@ -318,6 +328,7 @@ export default {
         maxLevel: 0,
         special: '',
         isStagingArea: true,
+        icon: 'warehouse',
     },
     18: {
         caption: 'Paloasema (pieni)',
@@ -359,6 +370,7 @@ export default {
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta',
         ],
         schoolingTypes: [],
+        icon: 'fire',
     },
     19: {
         caption: 'Poliisiasema (pieni asema)',
@@ -392,6 +404,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
         schoolingTypes: [],
+        icon: 'shield-halved',
     },
     20: {
         caption: 'Ambulanssiasema (pieni asema)',
@@ -407,5 +420,6 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Hoitotason ambulanssi'],
         schoolingTypes: [],
+        icon: 'truck-medical',
     },
 } as Record<number, InternalBuilding>;

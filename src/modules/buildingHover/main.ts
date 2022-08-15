@@ -30,7 +30,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
     updateBuildings();
 
-    const buildingIcons = LSSM.$t('buildingIcons') as unknown as string[];
+    const buildingIcons = LSSM.$stores.translations.buildingIcons;
 
     const setTooltip = (marker?: BuildingMarker, presetBuilding?: Building) => {
         if (!marker) return;

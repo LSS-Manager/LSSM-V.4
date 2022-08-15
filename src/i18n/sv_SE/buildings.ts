@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -52,6 +52,7 @@ export default {
         schoolingTypes: ['Brandstation'],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Brandskola',
@@ -75,6 +76,7 @@ export default {
         special:
             'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Ambulansstation',
@@ -97,6 +99,7 @@ export default {
         startVehicles: ['Ambulans'],
         schoolingTypes: ['Rädda'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     3: {
         caption: 'Vård- och hälsohögskola',
@@ -120,6 +123,7 @@ export default {
         special:
             'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Sjukhus',
@@ -197,6 +201,7 @@ export default {
         special:
             'Ekonomichefen och administratörerna kan bygga och utöka sjukhusgranserna vid alliansbanken',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Ambulanshelikopterstation',
@@ -216,6 +221,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
+        icon: 'circle-h',
     },
     6: {
         caption: 'Polisstation',
@@ -283,6 +289,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         special: '',
+        icon: 'building-shield',
     },
     7: {
         caption: 'Svarpunkt',
@@ -297,6 +304,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Polishögskola',
@@ -320,6 +328,7 @@ export default {
         special:
             'Finansministrar och administratörer kan (utöka) föreningspolisskolor med hjälp av poäng från föreningens finans. Kursmästare och administratörer kan starta kurser på föreningens polisskolor.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Polisflyg',
@@ -340,6 +349,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
+        icon: 'helicopter',
     },
     14: {
         caption: 'Uppsamlingsområde',
@@ -354,6 +364,7 @@ export default {
             'Du kan bygga mittzonen gratis. Detta fungerar som en plattform och låter dig parkera och tillfälligt distribuera dina enheter. Det försvinner efter 24 timmar. Välj den eller de enheter du vill distribuera här. ',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 1,
+        icon: 'warehouse',
     },
     16: {
         caption: 'Fängelse',
@@ -398,6 +409,7 @@ export default {
         special:
             'Denna byggnad kan endast byggas av CFO eller administratörer med Alliance Bank-credits. Celler är tillgängliga för alla alliansmedlemmar.',
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Brandstation (liten)',
@@ -445,6 +457,7 @@ export default {
         schoolingTypes: ['Brandstation'],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Polisstation (liten)',
@@ -514,6 +527,7 @@ export default {
         schoolingTypes: ['Polis'],
         maxBuildingsFunction: (): number => 1700,
         startParkingLots: 1,
+        icon: 'building-shield',
     },
     20: {
         caption: 'Ambulansstation (liten)',
@@ -541,6 +555,7 @@ export default {
         startVehicles: ['Ambulans'],
         schoolingTypes: ['Räddar'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     21: {
         caption: 'Brandflygsstation',
@@ -556,6 +571,7 @@ export default {
         startVehicles: ['Brandhelikopter'],
         schoolingTypes: ['Brandstation'],
         startParkingLots: 1,
+        icon: 'helicopter',
     },
     22: {
         caption: 'Stort komplex',
@@ -571,6 +587,7 @@ export default {
         startVehicles: [''],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
     23: {
         caption: 'Litet komplex',
@@ -586,5 +603,6 @@ export default {
         startVehicles: [''],
         schoolingTypes: [],
         startParkingLots: 0,
+        icon: 'poo',
     },
 } as Record<number, InternalBuilding>;
