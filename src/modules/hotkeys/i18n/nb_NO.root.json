@@ -49,6 +49,10 @@
                 "title": "Kart"
             },
             "missionlist": {
+                "eclSort": {
+                    "title":"Mission sorting",
+                    "open": "Open selection menu"
+                },
                 "search": { "focus": "fokus på input feltet", "title": "Søk" },
                 "title": "Oppdragsliste"
             },

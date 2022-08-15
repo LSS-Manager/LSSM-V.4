@@ -53,7 +53,10 @@
                     "focus": "Eingabefeld fokussieren",
                     "title": "Suche"
                 },
-                "eclSort": "Öffne Einsätze sortieren",
+                "eclSort": {
+                    "title": "Einsatzsortierung",
+                    "open": "Auswahlmenü öffnen"
+                },
                 "title": "Einsatzliste"
             },
             "title": "Hauptfenster"
