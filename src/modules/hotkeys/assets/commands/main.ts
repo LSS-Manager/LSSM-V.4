@@ -4,7 +4,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
     chat: <Scope<{ chatInput: HTMLInputElement | null }, [], ['focus']>>{
         validatorFunction() {
             this.chatInput = document.querySelector<HTMLInputElement>(
-                '#alliance_chat_message'
+                '#alliance_chat_message',
             );
             return !!this.chatInput;
         },
@@ -20,7 +20,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             validatorFunction() {
                 this.mapSearch =
                     document.querySelector<HTMLInputElement>(
-                        '#map_adress_search'
+                        '#map_adress_search',
                     );
                 return !!this.mapSearch;
             },
@@ -35,11 +35,11 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
         },
         search: <
             Scope<{ missionlistSearch: HTMLInputElement | null }, [], ['focus']>
-        >{
+            >{
             validatorFunction() {
                 this.missionlistSearch =
                     document.querySelector<HTMLInputElement>(
-                        '#search_input_field_missions'
+                        '#search_input_field_missions',
                     );
                 return !!this.missionlistSearch;
             },
@@ -48,16 +48,18 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             },
         },
         eclSort: <
-            Scope<{ eclSortBtn: HTMLButtonElement | null }, [], ['click']>
-        >{
+            Scope<{ eclSortBtn: HTMLButtonElement | null }, [], ['open']>
+            >{
             validatorFunction() {
                 this.eclSortBtn = document.querySelector<HTMLButtonElement>(
-                    '#lssmv4-extendedCallList_missionlist-sorting_selection-list-btn'
+                    '#lssmv4-extendedCallList_missionlist-sorting_selection-list-btn',
                 );
                 return !!this.eclSortBtn;
             },
-            click() {
+            open() {
                 this.eclSortBtn?.click();
+                // @ts-ignore
+                this.eclSortBtn?.firstElementChild.focus();
             },
         },
     },
@@ -66,19 +68,17 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             return !!window[PREFIX];
         },
         menu: <
-            Scope<
-                {
-                    lssmMenuTrigger: HTMLAnchorElement | null;
-                    lssmMenuIsOpened(): boolean;
-                },
+            Scope<{
+                lssmMenuTrigger: HTMLAnchorElement | null;
+                lssmMenuIsOpened(): boolean;
+            },
                 [],
-                ['toggle']
-            >
-        >{
+                ['toggle']>
+            >{
             validatorFunction() {
                 this.lssmMenuTrigger =
                     document.querySelector<HTMLAnchorElement>(
-                        '#lssmv4-indicator_menu'
+                        '#lssmv4-indicator_menu',
                     );
 
                 this.lssmMenuIsOpened = () =>
