@@ -11,17 +11,9 @@
             <tab :title="$m('tabs.building-types')">
                 <building-types></building-types>
             </tab>
-            <tab title-slot="dispatchcenter-view-title" :disabled="!premium">
-                <dispatchcenter-view v-if="premium"></dispatchcenter-view>
-                <div v-else></div>
+            <tab :title="$m('tabs.dispatchcenter-view')">
+                <dispatchcenter-view></dispatchcenter-view>
             </tab>
-            <template slot="dispatchcenter-view-title">
-                {{ $m('tabs.dispatchcenter-view') }}
-                <br />
-                <div class="alert alert-info premiumNotice" v-if="!premium">
-                    {{ $t('premiumNotice') }}
-                </div>
-            </template>
         </tabs>
     </lightbox>
 </template>
