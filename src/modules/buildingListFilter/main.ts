@@ -301,6 +301,16 @@ export default <ModuleMainFunction>(async ({
 
         updateBuildingsArray();
 
+        // dcv = dispatchCenterView
+        const dcvBtn = document.createElement('a');
+        dcvBtn.classList.add('btn', 'btn-xs', 'btn-default', 'lightbox-open');
+        dcvBtn.style.setProperty('margin-top', '-4px');
+        dcvBtn.href = '/leitstellenansicht';
+        const dcvIcon = document.createElement('i');
+        dcvIcon.classList.add('fas', 'fa-table');
+
+        dcvBtn.append(dcvIcon);
+
         const sortBtn = document.createElement('button');
         sortBtn.classList.add('btn', 'btn-xs', 'btn-default');
         sortBtn.style.setProperty('margin-top', '-4px');
@@ -376,7 +386,7 @@ export default <ModuleMainFunction>(async ({
             selectGroup.style.setProperty('width', '100%');
         }
 
-        extraBtnsGroup.append(searchBtn, search, sortBtn);
+        extraBtnsGroup.append(searchBtn, search, sortBtn, dcvBtn);
         window.buildingsVehicleLoadVisible();
     };
 
