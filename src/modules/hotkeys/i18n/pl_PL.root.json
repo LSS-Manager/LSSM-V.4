@@ -50,8 +50,8 @@
             },
             "missionlist": {
                 "eclSort": {
-                    "open": "Open selection menu",
-                    "title": "Mission sorting"
+                    "open": "Otwórz menu wyboru",
+                    "title": "Sortowanie misji"
                 },
                 "search": {
                     "focus": "skup się na polu tekstowym",
