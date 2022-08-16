@@ -1,4 +1,6 @@
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import type { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type { useSettingsStore } from '@stores/settings';
 
 export interface OpenSchooling {
     end: number;
@@ -10,6 +12,8 @@ export interface OpenSchooling {
 }
 
 export interface OpenSchoolingTabs {
+    faCompressAlt: IconDefinition;
+    faExpandAlt: IconDefinition;
     heads: Record<
         string,
         {
@@ -22,6 +26,8 @@ export interface OpenSchoolingTabs {
     sort: 'end' | 'name' | 'owner' | 'price' | 'seats';
     sortDir: string;
     all: string;
+    collapsed: boolean;
+    settingsStore: ReturnType<typeof useSettingsStore>;
 }
 
 export interface OpenSchoolingTabsComputed {
@@ -30,6 +36,7 @@ export interface OpenSchoolingTabsComputed {
 
 export interface OpenSchoolingTabsMethods {
     setSorting(s: OpenSchoolingTabs['sort']): void;
+    toggleCollapse(): void;
 }
 
 export interface OpenSchoolingTabsProps {
