@@ -191,4 +191,4 @@ Auswählbare Alarm-Icons, welche auf dem Alarmieren-Button als extra Symbole ers
 
 Zur besseren Übersicht kann man die Tabs der AAO-Kategorien individuell anpassen. Sowohl für die Hintergrund-, als auch die Schriftfarbe können entweder Standard-, oder benutzerdefinierte Farben ausgewählt werden.
 
-![Färbbare AAO-Kategorien](./Färbbare AAO-Kategorien.png)
+![Färbbare AAO-Kategorien](./Färbbare AAO-Kategorien.PNG)
