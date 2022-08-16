@@ -47,12 +47,12 @@
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.14.182"
+        "version": "4.14.183"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.7.5"
+        "version": "18.7.6"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -67,7 +67,7 @@
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
-        "version": "1.4.2"
+        "version": "1.4.3"
     },
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -104,7 +104,7 @@
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.17.0"
+        "version": "1.18.0"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
