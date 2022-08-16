@@ -2078,10 +2078,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.182":
-  version: 4.14.182
-  resolution: "@types/lodash@npm:4.14.182"
-  checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
+"@types/lodash@npm:^4.14.183":
+  version: 4.14.183
+  resolution: "@types/lodash@npm:4.14.183"
+  checksum: 9c754dc7a2e5f26f9c67e494cffbe5447135a4e30eb2fcbc9da05dd5fa5fbf8579059bcf15014307c1c5d1c6d1b7870860618990d96abee9389d8cb79b3ac93c
   languageName: node
   linkType: hard
 
@@ -2132,10 +2132,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.7.5":
-  version: 18.7.5
-  resolution: "@types/node@npm:18.7.5"
-  checksum: f74426f2c9e81ab00e35ddca8db84efb6eb6c77e6d120bbe84d462073c371fa46e4744bd87773d9f7cf9074cf575df573bb89c3335f38f4ecbef2f03b407f35f
+"@types/node@npm:^18.7.6":
+  version: 18.7.6
+  resolution: "@types/node@npm:18.7.6"
+  checksum: 5122988c325eda8d1f5cbe4494916036aae1758f9d5bb2d8139a800b8bad1540fbb167cd3c759da9a5cb4600cd3507609ac7969747113c1549a3e4320a17b1a9
   languageName: node
   linkType: hard
 
@@ -2172,12 +2172,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qrcode@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "@types/qrcode@npm:1.4.2"
+"@types/qrcode@npm:^1.4.3":
+  version: 1.4.3
+  resolution: "@types/qrcode@npm:1.4.3"
   dependencies:
     "@types/node": "*"
-  checksum: 7ac58687aacc688b83dde43dc349dc42106c6c382b62eb1256e35c6cb7de45e79ef8e917e05b02a81272cd0c1ff21147307244fd57401ba19314851f30636283
+  checksum: 6096893184aaec7cffb4151ed7925f343fa1308d5c0afbaca3b00a7225496db8dc262e61e6604598926165b97f20064279750a543b06debabd65e5d8f6f9f069
   languageName: node
   linkType: hard
 
@@ -2306,10 +2306,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:^1.17.0":
-  version: 1.17.0
-  resolution: "@types/webpack-env@npm:1.17.0"
-  checksum: 9ad4d208c4429c9427191d1f4c92e4c43e530384c17a6bc298acb89003fc47fcde1d8372e50acefa3061e9100e57fd9d616e96def875afd06c0c2afe508f298e
+"@types/webpack-env@npm:^1.18.0":
+  version: 1.18.0
+  resolution: "@types/webpack-env@npm:1.18.0"
+  checksum: ecf4daa31cb37d474ac0ce058d83a3cadeb9881ca8107ae93c2299eaa9954943aae09b43e143c62ccbe4288a14db00c918c9debd707afe17c3998f873eaabc59
   languageName: node
   linkType: hard
 
@@ -9001,11 +9001,11 @@ __metadata:
     "@types/i18n-js": ^3.8.2
     "@types/jquery": ^3.5.14
     "@types/leaflet": ^1.7.11
-    "@types/lodash": ^4.14.182
-    "@types/node": ^18.7.5
+    "@types/lodash": ^4.14.183
+    "@types/node": ^18.7.6
     "@types/pdfmake": ^0.2.1
     "@types/prettier": ^2.7.0
-    "@types/qrcode": ^1.4.2
+    "@types/qrcode": ^1.4.3
     "@types/semver": ^7.3.12
     "@types/showdown": ^2.0.0
     "@types/tampermonkey": ^4.0.5
@@ -9013,7 +9013,7 @@ __metadata:
     "@types/vue-select": ^3.16.1
     "@types/webpack": ^5.28.0
     "@types/webpack-dev-server": ^4.7.2
-    "@types/webpack-env": ^1.17.0
+    "@types/webpack-env": ^1.18.0
     "@typescript-eslint/eslint-plugin": ^5.33.1
     "@typescript-eslint/parser": ^5.33.1
     "@vue/composition-api": ^1.7.0
