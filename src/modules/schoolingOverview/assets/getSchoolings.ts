@@ -21,7 +21,7 @@ export default (
     doc.querySelectorAll('#schooling_own_table tbody tr').forEach(schooling => {
         const btn = schooling.querySelector('a.btn-success') as HTMLLinkElement;
         if (!btn) return;
-        const name = btn.textContent || '';
+        const name = btn.textContent?.trim() || '';
         if (!ownSchoolings.amounts.hasOwnProperty(name))
             ownSchoolings.amounts[name] = 0;
         ownSchoolings.amounts[name]++;
@@ -54,7 +54,7 @@ export default (
     ).forEach(schooling => {
         const btn = schooling.querySelector('a.btn-success') as HTMLLinkElement;
         if (!btn) return;
-        const name = btn.textContent || '';
+        const name = btn.textContent?.trim() || '';
         const category =
             name?.match(/^.*?-/u)?.[0].replace('-', '').trim() || '';
         if (!openSchoolings.amounts.hasOwnProperty(name))
