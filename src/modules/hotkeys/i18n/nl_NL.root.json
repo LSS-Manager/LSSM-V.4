@@ -50,8 +50,8 @@
             },
             "missionlist": {
                 "eclSort": {
-                    "open": "Open selection menu",
-                    "title": "Mission sorting"
+                    "open": "Open selectie menu",
+                    "title": "Meldingen sortering"
                 },
                 "search": { "focus": "focus invoerveld", "title": "Zoekveld" },
                 "title": "Meldingenlijst"
