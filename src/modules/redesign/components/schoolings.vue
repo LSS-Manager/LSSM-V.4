@@ -4,11 +4,9 @@
             :open-schoolings="schoolings.openSchoolings.amounts"
             :own-schoolings="schoolings.ownSchoolings.amounts"
         ></schoolings-overview>
-        <h3>{{ lightbox.$sm('ownSchoolings') }}</h3>
         <own-schooling-tabs
             :tabs="schoolings.ownSchoolings.tabs"
         ></own-schooling-tabs>
-        <h3>{{ lightbox.$sm('openSchoolings') }}</h3>
         <open-schooling-tabs
             :tabs="schoolings.openSchoolings.tabs"
         ></open-schooling-tabs>

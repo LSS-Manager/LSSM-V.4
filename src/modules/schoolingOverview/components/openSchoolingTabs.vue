@@ -1,42 +1,70 @@
 <template>
-    <tabs :on-select="(_, index) => (currentTab = tabTitles[index])">
-        <tab v-for="tab in tabTitles" :key="tab" :title="tab">
-            <enhanced-table
-                :head="heads"
-                :table-attrs="{ class: 'table table-striped' }"
-                @sort="setSorting"
-                :sort="sort"
-                :sort-dir="sortDir"
-                :search="search"
-                @search="s => (search = s)"
-            >
-                <tr
-                    v-for="(schooling, id) in schoolings"
-                    :key="id"
-                    class="schooling_opened_table_searchable"
+    <div>
+        <div
+            id="openschooling-title-wrapper"
+            style="display: flex; margin-bottom: 1rem"
+        >
+            <h3>
+                {{ $t('modules.schoolingOverview.open') }}
+                <button
+                    class="btn btn-xs"
+                    :class="`btn-${collapsed ? 'success' : 'danger'}`"
+                    @click="toggleCollapse"
+                    id="openschooling-collapse-button"
+                    style="margin-left: 1rem"
                 >
-                    <td>
-                        <a
-                            class="btn btn-success"
-                            :href="`/schoolings/${schooling.id}`"
-                        >
-                            {{ schooling.name }}
-                        </a>
-                    </td>
-                    <td>{{ schooling.seats }}</td>
-                    <td>{{ schooling.price }}</td>
-                    <td :id="`education_schooling_${schooling.id}`">
-                        {{ schooling.end }}
-                    </td>
-                    <td v-html="schooling.owner"></td>
-                </tr>
-            </enhanced-table>
-        </tab>
-    </tabs>
+                    <font-awesome-icon
+                        :icon="collapsed ? faExpandAlt : faCompressAlt"
+                    />
+                </button>
+            </h3>
+        </div>
+        <tabs
+            :on-select="(_, index) => (currentTab = tabTitles[index])"
+            :style="collapsed ? { display: 'none' } : {}"
+        >
+            <tab v-for="tab in tabTitles" :key="tab" :title="tab">
+                <enhanced-table
+                    :head="heads"
+                    :table-attrs="{ class: 'table table-striped' }"
+                    @sort="setSorting"
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    :search="search"
+                    @search="s => (search = s)"
+                >
+                    <tr
+                        v-for="(schooling, id) in schoolings"
+                        :key="id"
+                        class="schooling_opened_table_searchable"
+                    >
+                        <td>
+                            <a
+                                class="btn btn-success"
+                                :href="`/schoolings/${schooling.id}`"
+                            >
+                                {{ schooling.name }}
+                            </a>
+                        </td>
+                        <td>{{ schooling.seats }}</td>
+                        <td>{{ schooling.price }}</td>
+                        <td :id="`education_schooling_${schooling.id}`">
+                            {{ schooling.end }}
+                        </td>
+                        <td v-html="schooling.owner"></td>
+                    </tr>
+                </enhanced-table>
+            </tab>
+        </tabs>
+    </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { useSettingsStore } from '@stores/settings';
 
 import type {
     OpenSchoolingTabs,
@@ -76,6 +104,8 @@ export default Vue.extend<
         const all = this.$t('modules.schoolingOverview.all') as string;
         const tabTitles = [all, ...Object.keys(this.$t('schoolings'))];
         return {
+            faCompressAlt,
+            faExpandAlt,
             heads,
             tabTitles,
             currentTab: tabTitles[0],
@@ -83,6 +113,8 @@ export default Vue.extend<
             sort: 'name',
             sortDir: 'asc',
             all,
+            collapsed: false,
+            settingsStore: useSettingsStore(),
         } as OpenSchoolingTabs;
     },
     computed: {
@@ -112,6 +144,22 @@ export default Vue.extend<
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
             this.sort = s;
         },
+        toggleCollapse() {
+            this.collapsed = !this.collapsed;
+            this.settingsStore.setSetting({
+                moduleId: 'schoolingOverview',
+                settingId: 'hide_openschooling',
+                value: this.collapsed,
+            });
+        },
+    },
+    mounted() {
+        this.settingsStore
+            .getSetting<boolean>({
+                moduleId: 'schoolingOverview',
+                settingId: 'hide_openschooling',
+            })
+            .then(collapsed => (this.collapsed = collapsed));
     },
     props: {
         tabs: {
