@@ -4,21 +4,19 @@
             id="openschooling-title-wrapper"
             style="display: flex; margin-bottom: 1rem"
         >
-            <span style="margin-right: 2rem">
+            <h3>
+                {{ $t('modules.schoolingOverview.open') }}
                 <button
-                    class="btn pull-right"
+                    class="btn btn-xs"
                     :class="`btn-${collapsed ? 'success' : 'danger'}`"
                     @click="toggleCollapse"
                     id="openschooling-collapse-button"
-                    style="position: relative; top: 25%"
+                    style="margin-left: 1rem"
                 >
                     <font-awesome-icon
                         :icon="collapsed ? faExpandAlt : faCompressAlt"
                     />
                 </button>
-            </span>
-            <h3>
-                {{ $t('modules.schoolingOverview.open') }}
             </h3>
         </div>
         <tabs

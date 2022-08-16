@@ -1,24 +1,22 @@
 <template>
     <div>
         <div
-            id="openschooling-title-wrapper"
+            id="ownschooling-title-wrapper"
             style="display: flex; margin-bottom: 1rem"
         >
-            <span style="margin-right: 2rem">
+            <h3>
+                {{ $t('modules.schoolingOverview.own') }}
                 <button
-                    class="btn pull-right"
+                    class="btn btn-xs"
                     :class="`btn-${collapsed ? 'success' : 'danger'}`"
                     @click="toggleCollapse"
-                    id="openschooling-collapse-button"
-                    style="position: relative; top: 25%"
+                    id="ownschooling-collapse-button"
+                    style="margin-left: 1rem"
                 >
                     <font-awesome-icon
                         :icon="collapsed ? faExpandAlt : faCompressAlt"
                     />
                 </button>
-            </span>
-            <h3>
-                {{ $t('modules.schoolingOverview.own') }}
             </h3>
         </div>
         <tabs
