@@ -37,6 +37,10 @@
         "selfHighlightCustomTextColorColor": {
             "title": "eigene Farbe im Chat: eigene Textfarbe"
         },
+        "userSelection": {
+            "description": "Zeigt beim Flüstern oder Erwähnen eine Vorschlagsliste mit Verbandsmitgliedern an, mit denen sich diese schnell in das Chateingabefeld einfügen lassen (Tastatursteuerung mit Pfeiltasten & Enter wird unterstützt).",
+            "title": "Nutzer-Auswahl"
+        },
         "whisperIndicator": {
             "description": "Zeigt ein kleines Schloss in der Chat-Eingabe, wenn du gerade flüsterst",
             "title": "Flüster-Indikator"

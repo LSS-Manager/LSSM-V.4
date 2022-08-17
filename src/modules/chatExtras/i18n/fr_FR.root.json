@@ -37,6 +37,10 @@
         "selfHighlightCustomTextColorColor": {
             "title": "couleur personnalisée dans le chat : couleur de texte"
         },
+        "userSelection": {
+            "description": "Displays a suggestion list of alliance members when whispering or mentioning, allowing them to be quickly inserted into the chat input field (keyboard control with arrow keys & enter is supported).",
+            "title": "User Selection"
+        },
         "whisperIndicator": {
             "description": "Affichage d'une petite icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter.",
             "title": "Indicateur de chuchotements"

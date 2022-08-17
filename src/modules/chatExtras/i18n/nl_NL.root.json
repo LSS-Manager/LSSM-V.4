@@ -37,6 +37,10 @@
         "selfHighlightCustomTextColorColor": {
             "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
         },
+        "userSelection": {
+            "description": "Displays a suggestion list of alliance members when whispering or mentioning, allowing them to be quickly inserted into the chat input field (keyboard control with arrow keys & enter is supported).",
+            "title": "User Selection"
+        },
         "whisperIndicator": {
             "description": "Toont een klein slotje in het invoerveld van de chat als je een privé chat aan het typen bent.",
             "title": "Privé-chat indicatie"
