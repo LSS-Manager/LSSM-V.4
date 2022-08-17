@@ -2,8 +2,8 @@ Die Heatmap ist ein Tool, um sich grafisch auf der Karte anzeigen zu lassen, wie
 
 ## Allgemeines
 
-Die Heatmap legt sich als Kreise über die normale Einsatzkarte. Diese gehen von den Gebäuden aus, welche über die ausgewählte Erweiterung oder Fahrzeug verfügen. 
-Das Fenster der Heatmap-Einstellungen 
+Die Heatmap legt sich als Kreise über die normale Einsatzkarte. Diese gehen von den Gebäuden aus, welche über die ausgewählte Erweiterung oder Fahrzeuge verfügen. 
+Das Fenster der Heatmap-Einstellungen lässt sich frei über den Bildschirm verschieben um für dich wichtige Sachen nicht zu verdecken.
 
 ## Heatmap-Icon
 
