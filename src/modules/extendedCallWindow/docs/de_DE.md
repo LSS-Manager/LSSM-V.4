@@ -183,7 +183,7 @@ Du würdest dir gerne eigene Texte hinter oder vor den Einsatznamen schreiben? K
 
 ## Alarm-Icons
 
-Auswählbare Alarm-Icons, welche auf dem Alarmieren-Button als extra Symbole erscheinen, in Abhängigkeit davon, welche Moule aktiviert sind. Es stehen alle kostenlosen Icons von <a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a> zur Verfügung.
+Auswählbare Alarm-Icons, welche auf dem Alarmieren-Button als extra Symbole erscheinen, in Abhängigkeit davon, welche Fahrzeuge aktiviert sind. Es stehen alle kostenlosen Icons von <a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a> zur Verfügung.
 
 ![Alarm-Icon](./alarmbutton.png)
 
