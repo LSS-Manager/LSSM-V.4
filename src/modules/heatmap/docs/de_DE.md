@@ -19,7 +19,7 @@ Mit diesem Häckchen erlaubt man es der Heatmap sich direkt an die erfolgten Kon
 
 ### Konfiguration
 
-Als Erstes kann man zwischen `Gebäude` für Wachen, bz.w Wachenausbauten und `Fahrzeuge` für die einzelenen Einsatzmitteltypen hin und her wechseln.
+Als Erstes kann man zwischen `Gebäude` für Wachen, bzw. Wachenausbauten und `Fahrzeuge` für die einzelenen Einsatzmitteltypen hin und her wechseln.
 Nachfolgend kan man auswählen ob man den Radius der Kreise in Pixeln einstellen will. Bei Nichtaktivierung erfolgt dies in Kilometern. Entscheidet man sich für Pixel, passen sich die Kreise dem Zoomen des Nutzers an. Sie bleiben also im Verhältnis zu der Karte gleich groß, während die Kilometervariante beim Zoomen weiterhin das gleiche Gebiet abdeckt. Hier erscheint der Kreis beim Zoomen also kleiner oder größer auf der Karte.
 
 Mit dem folgenden Regler `Radius` wird die Größe des Kreises aktiv verändert. Der Regler `Intensitätsverstärkung` beeinflusst die Stärke des generiterne Kreises, von durchsichtigen Hellblau bis hin zu deckend Rot.
