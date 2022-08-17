@@ -1,3 +1,7 @@
+/**
+ * @file - Types for SCEditor {@link https://www.sceditor.com/}, the WYSIWYG Editor used in game.
+ */
+
 import type { Command } from './Command';
 import type { DOM } from './DOM';
 import type { Escape } from './Escape';

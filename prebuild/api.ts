@@ -13,7 +13,6 @@ const getTSFile = async (
     sourcePath: string,
     outputPath: string
 ): Promise<Record<number | string, unknown>> => {
-    // execSync(`tsc "${sourcePath}" --target esnext --moduleResolution node`);
     fs.writeFileSync(
         outputPath,
         fs

@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for LSSM modules.
+ */
+
 import type { Games } from './Game';
 import type { RegisterSettings } from './Setting';
 import type VueI18n from 'vue-i18n';

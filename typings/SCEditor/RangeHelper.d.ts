@@ -1,3 +1,7 @@
+/**
+ * @file - Types for SCEditor {@link https://www.sceditor.com/}, the WYSIWYG Editor used in game.
+ */
+
 export default class RangeHelper {
     constructor(win: unknown, d: unknown, sanitize: unknown);
     insertHTML: (html: string, endHTML?: string) => boolean;

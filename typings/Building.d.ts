@@ -1,3 +1,9 @@
+/**
+ * @file - Type definitions for in game buildings & internal buildings (translations).
+ */
+
+import type { IconName } from '@fortawesome/free-solid-svg-icons';
+
 type Extension = {
     caption: string;
     enabled: boolean;
@@ -93,6 +99,7 @@ interface BaseBuilding {
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
+    icon: IconName; // There is unfortunately no way to say "names of free icons only"
     requiredRank?: number;
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
 }

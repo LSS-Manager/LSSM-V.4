@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for the LSSM config file.
+ */
+
 import type { Games } from './Game';
 
 interface Browser {

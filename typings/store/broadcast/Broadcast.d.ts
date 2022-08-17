@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the broadcast store.
+ */
+
 import type { Mission } from 'typings/Mission';
 import type { EnsuredAPIGetter, StorageAPIKey } from 'typings/store/api/State';
 

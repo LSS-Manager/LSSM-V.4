@@ -54,7 +54,7 @@ export default {
         },
         en_US: {
             flag: '🇺🇸',
-            name: 'Missionschief.com',
+            name: 'Missionchief.com',
             shortURL: 'missionchief.com',
             police: 'police',
         },

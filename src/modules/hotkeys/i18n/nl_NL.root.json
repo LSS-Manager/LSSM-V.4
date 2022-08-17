@@ -49,6 +49,10 @@
                 "title": "Kaart"
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selectie menu",
+                    "title": "Meldingen sortering"
+                },
                 "search": { "focus": "focus invoerveld", "title": "Zoekveld" },
                 "title": "Meldingenlijst"
             },

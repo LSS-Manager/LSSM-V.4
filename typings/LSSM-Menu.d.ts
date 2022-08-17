@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for the LSSM-Menu Vue component.
+ */
+
 import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 

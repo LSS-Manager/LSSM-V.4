@@ -2,6 +2,7 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 
+import type { IconName } from '@fortawesome/free-solid-svg-icons';
 import type { InternalBuilding } from 'typings/Building';
 import type { InternalVehicle } from 'typings/Vehicle';
 
@@ -59,6 +60,14 @@ const translationStore = defineStore('translationUtilities', {
             return Object.entries(this.buildings)
                 .filter(([, building]) => 'startClassrooms' in building)
                 .map(([id]) => parseInt(id.toString()));
+        },
+        buildingIcons(): Record<number, IconName> {
+            return Object.fromEntries(
+                Object.entries(this.buildings).map(([id, { icon }]) => [
+                    id,
+                    icon,
+                ])
+            );
         },
     },
 });

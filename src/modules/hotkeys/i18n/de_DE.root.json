@@ -49,6 +49,10 @@
                 "title": "Karte"
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Auswahlmenü öffnen",
+                    "title": "Einsatzsortierung"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Suche"

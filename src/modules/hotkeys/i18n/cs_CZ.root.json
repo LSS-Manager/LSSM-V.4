@@ -49,6 +49,10 @@
                 "title": "Mapa"
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selection menu",
+                    "title": "Mission sorting"
+                },
                 "search": {
                     "focus": "zakliknout hledací pole",
                     "title": "Hledat"

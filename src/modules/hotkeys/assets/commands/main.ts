@@ -29,7 +29,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             },
         },
     },
-    missionlist: <Scope<Empty, ['search']>>{
+    missionlist: <Scope<Empty, ['search', 'eclSort']>>{
         validatorFunction() {
             return !!document.querySelector<HTMLDivElement>('#missions');
         },
@@ -45,6 +45,30 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             },
             focus() {
                 this.missionlistSearch?.focus();
+            },
+        },
+        eclSort: <
+            Scope<
+                {
+                    eclSortBtn: HTMLButtonElement | null;
+                    eclSortList: HTMLLinkElement | null;
+                },
+                [],
+                ['open']
+            >
+        >{
+            validatorFunction() {
+                this.eclSortBtn = document.querySelector<HTMLButtonElement>(
+                    '#lssmv4-extendedCallList_missionlist-sorting_selection-list-btn'
+                );
+                this.eclSortList = document.querySelector(
+                    '#lssmv4-extendedCallList-missionlist-sorting-selection-list > :first-child > a'
+                );
+                return !!this.eclSortBtn;
+            },
+            open() {
+                this.eclSortBtn?.click();
+                this.eclSortList?.focus();
             },
         },
     },

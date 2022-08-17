@@ -46,4 +46,8 @@ export default (() => ({
         type: 'toggle',
         default: false,
     },
+    userSelection: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
 })) as ModuleSettingFunction;
