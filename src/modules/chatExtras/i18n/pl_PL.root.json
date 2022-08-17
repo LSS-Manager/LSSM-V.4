@@ -39,8 +39,8 @@
             "title": "Wybierz kolor"
         },
         "userSelection": {
-            "description": "Displays a suggestion list of alliance members when whispering or mentioning, allowing them to be quickly inserted into the chat input field (keyboard control with arrow keys & enter is supported).",
-            "title": "User Selection"
+            "description": "Wyświetla listę sugestii członków podczas szeptu lub wzmianki, umożliwiając ich szybkie wstawienie do pola wprowadzania na czacie (obsługiwane jest sterowanie klawiaturą za pomocą klawiszy strzałek i enter).",
+            "title": "Wybór gracza"
         },
         "whisperIndicator": {
             "description": "Pokazuje małą ikonę kłódki w polu tekstowym czatu, gdy piszesz do kogoś wiadomość prywatną.",
