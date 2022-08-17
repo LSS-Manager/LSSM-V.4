@@ -235,7 +235,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             'es_ES',
             'cs_CZ',
             'sv_SE',
-            'fi_FI'
+            'fi_FI',
         ].includes(locale)
             ? {
                   'patients.critical_care': <Toggle>{
