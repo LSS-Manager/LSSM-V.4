@@ -6,7 +6,7 @@ echo "$script_name": start
 
 cd "$dir"/../ || exit 1
 
-./docs/.vuepress/node_modules/.bin/vuepress build docs
+./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
 
 mkdir -p ./dist/docs
 rm -rd ./dist/docs/*
