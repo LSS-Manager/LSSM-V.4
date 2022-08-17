@@ -1,4 +1,5 @@
 Ten moduł oferuje różne przydatne funkcje w oknie budynku.
+
 ## Obszerna lista pojazdów
 Ten moduł dodaje dodatkowe informacje do listy pojazdów.
 

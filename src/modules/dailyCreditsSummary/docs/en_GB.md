@@ -11,40 +11,40 @@ If you click on the little `i`, then you will be shown a sortable table:
 This module uses the following categories:
 
 * Alliance missions
-  * All missions that start with `[Alliance]`
+    * All missions that start with `[Alliance]`
 * Own missions
-  * All own missions
-    * Unfortunately, we're unable to recognise large-scale alliance missions that you've created yourself
+    * All own missions
+        * Unfortunately, we're unable to recognise large-scale alliance missions that you've created yourself
 * Vehicles bough
 * Daily login bonus
 * Buildings build / demolished
-  * Buildings built
-  * Buildings demolished
-  * Refund building
-    * If you demolish a building within 24h of construction, you get your money back
+    * Buildings built
+    * Buildings demolished
+    * Refund building
+        * If you demolish a building within 24h of construction, you get your money back
 * Building expanded
-  * Level increased
-  * Expansion from small to large building
-  * Expansion from small to large building canelled
-  * Expansion started
-  * Expansion cancelled
-* Complete Task 
+    * Level increased
+    * Expansion from small to large building
+    * Expansion from small to large building canelled
+    * Expansion started
+    * Expansion cancelled
+* Complete Task
 * Patient
-  * Patient treatment
-  * Patient treatment and transport
-  * Patient treatment and transport with critical care
-  * Patient treatment and transport with HEMS
+    * Patient treatment
+    * Patient treatment and transport
+    * Patient treatment and transport with critical care
+    * Patient treatment and transport with HEMS
 * Hospital
-  * When an alliance member admits a patient to your hospital
+    * When an alliance member admits a patient to your hospital
 * Prisoners
-  * When you transport prisoners
+    * When you transport prisoners
 * Police - Alliance Delivery
-  * When a member of the alliance has brought a prisoner to one of your police stations
+    * When a member of the alliance has brought a prisoner to one of your police stations
 * Course
-  * Training your own personel
-  * Training alliance personel
+    * Training your own personel
+    * Training alliance personel
 * Building complexes
-  * Building attached to a building complex
-  * Building expanded into a building complex
-*  False alarm
-  * if a mission triggered by a fire alarm turns out to be a false alarm 
+    * Building attached to a building complex
+    * Building expanded into a building complex
+* False alarm
+* if a mission triggered by a fire alarm turns out to be a false alarm

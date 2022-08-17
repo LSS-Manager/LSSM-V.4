@@ -28,7 +28,6 @@ Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht ü
 
 ![Hotkey-Übersicht](./overview.png)
 
-
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.
 Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
 Schau vorher bitte im GitHub Issue nach, ob dein Wunsch bereits notiert wurde, um Dopplungen zu vermeiden.
@@ -82,8 +81,8 @@ Diese Hotkeys sind nur im Hauptfenster (dort wo Karte, Einsatzliste, Verbandscha
 ### LSSM
 
 * LSSM-Menü öffnen und schließen
-  * Im geöffneten Zustand kannst du mit den Pfeiltasten `↑` und`↓` durch die Menüeinträge navigieren
-  * Mit der Eingabetaste `Enter` klickst du den ausgewählten Eintrag an
+    * Im geöffneten Zustand kannst du mit den Pfeiltasten `↑` und`↓` durch die Menüeinträge navigieren
+    * Mit der Eingabetaste `Enter` klickst du den ausgewählten Eintrag an
 
 ### Karte
 

@@ -37,7 +37,6 @@ Przegląd budynków zawiera listę typów budynków i ich liczbę. Pokazuje rów
 
 Tak samo jak w przypadku przeglądu pojazdu, przycisk pojawi się po najechaniu na komórkę.
 
-
 ### Wszystkie budynki jednego typu
 ![Wszystkie budynki jednego typu](./buildinglist_type.png)
 

@@ -5,6 +5,7 @@ Für jede Benachrichtigung kannst du folgende Einstellungen treffen:
 
 ## Ingame-Benachrichtigungs-Typ
 Wir bieten vier verschiedene Farben an:
+
 * Fehlermeldung (rot)
 * Info (blau)
 * Bestätigung (grün)

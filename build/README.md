@@ -1,6 +1,7 @@
 To achieve a working build, the following files are required:
 
 **files**:
+
 * `/static/db_access.php` containing following variables having DB-Connection information:
     * `$db_user`
     * `$db_pass`

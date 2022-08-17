@@ -37,7 +37,6 @@ La panoramica dell'edificio elenca i tipi di edificio e quanti. Mostra anche inf
 
 Lo stesso come con la panoramica del veicolo, il pulsante verrà visualizzato quando si passa sopra una cella.
 
-
 ### Tutti gli edifici di un tipo
 ![Tutti gli edifici di un tipo](./buildinglist_type.png)
 

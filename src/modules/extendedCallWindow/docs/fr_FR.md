@@ -158,7 +158,7 @@ Cette option transforme les RAI complète en une seule liste déroulante compact
 
 ![Recherche RAI: liste déroulante: RAI sélectionnées](./arrSearch/dropdown_selected.png)
 
-## Des catégories de véhicules personnalisés.
+## Des catégories de véhicules personnalisés
 
 Waouh, une fonctionnalité géniale ! Avec cette fonctionnalité, il est possible de répartir soi-même les véhicules dans des onglets et de nommer ces onglets. Vous avez une liberté totale ! L'onglet doit-il s'appeler "Police" ou "Groupe d'intervention rapide" ? C'est à vous de décider ! Les chiens de sauvetage doivent-ils faire partie du Police ou faut-il créer un onglet spécifique "Chiens" ? Vous avez le choix.
 
@@ -175,9 +175,9 @@ Vous souhaitez écrire vos propres textes derrière ou devant les noms de missio
 
 ### Variable
 
-<variable variable="type"/> - est remplacé par le MissionTypeID, c'est un numéro qui identifie chaque type de mission dans le jeu, par exemple Feu de poubelle a le 0, Feu de benne à ordures le 1, etc.
+`<doubleBracedText text="type"/>` - est remplacé par le MissionTypeID, c'est un numéro qui identifie chaque type de mission dans le jeu, par exemple Feu de poubelle a le 0, Feu de benne à ordures le 1, etc.
 
-<variable variable="credits"/> - est remplacé par la moyenne des crédits de l'intervention.
+`<doubleBracedText text="credits"/>` - est remplacé par la moyenne des crédits de l'intervention.
 
 ## Icônes d'alarme
 

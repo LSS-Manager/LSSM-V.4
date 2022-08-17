@@ -3,24 +3,31 @@ In molte parti del gioco, premendo un semplice pulsante, il gioco si ricarica. Q
 Abbiamo introdotto questa asincronia in diversi punti:
 
 ## AAO modificato
+
 * Eliminazione AAO
 
 ## Forum
+
 * Eliminazione post nel forum
 
 ## Elenco dei membri dell'Alleanza
+
 * Assegnazione delle procedure dell'alleanza
 
 ## Edificio
+
 * Per le celle e gli ospedali: pagamento delle spese da parte del membro dell'alleanza
 * Licenziamento del personale
 
-### previsto:
+### previsto
+
 * Liberare o non più liberare celle / letti d’ospedale in un'alleanza
 * Esecuzione lavori di estensione
 
 ## Missioni
+
 * Trasporto dei detenuti in partenza
 
-### previsto:
+### previsto
+
 * Inviare una risposta

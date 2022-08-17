@@ -3,7 +3,7 @@ Ten moduł ma na celu ulepszenie listy misji.
 ## Pozostały czas misji
 To ustawienie pokazuje dokładny czas pozostały do zakończenia misji.
 
-### Pozostały czas tylko zielonych misji.
+### Pozostały czas tylko zielonych misji
 W przypadku dezaktywacji to ustawienie pozwala na ustawienie czasu, aby również pokazywał, kiedy misja ma żółty status.
 
 ## Oznacz misje

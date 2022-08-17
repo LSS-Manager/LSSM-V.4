@@ -13,7 +13,7 @@ Ist diese Einstellung deaktiviert (Standardmäßig ist sie aktiviert), werden di
 Warum ist das so?
 > Für jeden Einsatz, der läuft, führt das Spiel sekündlich eine Funktion aus. In dieser Funktion wird unter anderem berechnet, wann der Einsatz aufhört abgearbeitet zu werden. Und das ist eben einmal, wenn der Einsatz fertig ist, oder, wenn noch nicht alles benötigte vor Ort ist und der Einsatz trotzdem schon angefangen wurde.
 > Wir nutzen diese Berechnete "Endzeit" und berechnen dann, wie weit es bis dahin ist und formatieren dies dann schön.
-> Aus diesem Grund ist es möglich, dass die Einsatzdauer auch schon angezeigt wird, wenn der Einsatz noch nicht `grün` ist. 
+> Aus diesem Grund ist es möglich, dass die Einsatzdauer auch schon angezeigt wird, wenn der Einsatz noch nicht `grün` ist.
 
 ## Patientenbehandlungsdauer
 Damit wird bei Patienten in klein angezeigt, wie lange diese brauchen, bis sie vollständig behandelt sind.

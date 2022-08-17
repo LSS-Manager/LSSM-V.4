@@ -27,7 +27,6 @@ Avec la touche `F1`, vous pouvez à tout moment afficher un aperçu rapide des t
 
 ![Aperçu des touches de raccourci](./overview.png)
 
-
 Les actions disponibles jusqu'à présent sont listées ci-dessous.
 N'hésite pas à nous faire part d'autres propositions sur le [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), sur notre <discord/> ou dans le <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a>.
 Vérifie d'abord dans le GitHub Issue si ta demande a déjà été notée, afin d'éviter les doublons.
@@ -81,8 +80,8 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale (l�
 ### LSSM
 
 * Ouvrir et fermer le menu LSSM
-  * A l'état ouvert, vous pouvez naviguer dans les entrées du menu avec les touches fléchées `↑` et `↓`.
-  * Avec la touche Entrée `Enter`, vous cliquez sur l'entrée sélectionnée.
+    * A l'état ouvert, vous pouvez naviguer dans les entrées du menu avec les touches fléchées `↑` et `↓`.
+    * Avec la touche Entrée `Enter`, vous cliquez sur l'entrée sélectionnée.
 
 ### Carte
 

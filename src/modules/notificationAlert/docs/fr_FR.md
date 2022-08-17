@@ -5,6 +5,7 @@ Pour chaque notification, tu peux définir les paramètres suivants :
 
 ## Type de notification ingame
 Nous proposons quatre couleurs différentes :
+
 * Message d'erreur (rouge)
 * Info (bleu)
 * Confirmation (vert)

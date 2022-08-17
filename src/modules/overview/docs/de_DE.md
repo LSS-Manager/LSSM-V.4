@@ -7,6 +7,7 @@ Die Übersicht lässt sich, wenn aktiviert, über das LSSM-Menü unter dem Punkt
 
 ## Fahrzeuge
 Die folgenden Informationen sind in der Fahrzeugübersicht vorhanden:
+
 * Fahrzeugtyp
 * mindest Personal
 * maximal Personal
@@ -19,6 +20,7 @@ Die folgenden Informationen sind in der Fahrzeugübersicht vorhanden:
 
 ## Gebäude
 Alle Gebäude sind in einer gemeinsamen Tabelle gelistet, welche folgende Informationen enthält:
+
 * Gebäudetyp
 * Preis
 * maximale Ausbaustufe
@@ -33,6 +35,7 @@ Alle Gebäude sind in einer gemeinsamen Tabelle gelistet, welche folgende Inform
 
 ## Lehrgänge
 Die Listen möglicher Lehrgänge enthalten folgende Informationen:
+
 * Lehrgangsname
 * Welche Fahrzeuge diese Ausbildung benötigen
 * Wie lange die Ausbildung dauert

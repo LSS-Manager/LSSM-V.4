@@ -14,7 +14,6 @@ Seul le lien direct vers les images fonctionne !
 ## Liens cliquables
 Les liens affichés en texte brut (par ex. dans le chat, le forum, les messages, etc.) sont rendus cliquables. Ils s'ouvrent automatiquement dans un nouvel onglet.
 
-
 ## Aperçu du lien
 Parfois, on aimerait simplement avoir de brèves informations sur un bâtiment ou un utilisateur par exemple, sans avoir à ouvrir directement le lien. Pour cela, il est possible d'activer nos aperçus de liens dans les paramètres :
 
@@ -78,11 +77,11 @@ Il te suffit de taper deux points `:` dans n'importe quel champ de texte et de c
 Avec `←` et `→`, vous pouvez aussi parcourir les propositions et les insérer ensuite avec `Enter`. Ainsi, nous ne te forçons pas à utiliser cette construction bizarre qu'est la souris 😜
 :::
 
-Une caractéristique supplémentaire est le remplacement automatique des raccourcis courants. Par exemple, ` ;)` est remplacé par `😉` dès que vous mettez un espace après.
+Une caractéristique supplémentaire est le remplacement automatique des raccourcis courants. Par exemple, `;)` est remplacé par `😉` dès que vous mettez un espace après.
 
 ## Mémoriser le type de bâtiment
 
-Ainsi, dans le menu "Construire un bâtiment", le type de bâtiment que vous avez utilisé lors de la dernière construction reste sélectionné. Si vous construisez beaucoup de bâtiments d'un même type, cela t'évite de cliquer à chaque fois. 
+Ainsi, dans le menu "Construire un bâtiment", le type de bâtiment que vous avez utilisé lors de la dernière construction reste sélectionné. Si vous construisez beaucoup de bâtiments d'un même type, cela t'évite de cliquer à chaque fois.
 
 ## Mémoriser le centre de contrôle
 
@@ -90,7 +89,7 @@ Fonctionne de la même manière que [Mémoriser le type de bâtiment](#mémorise
 
 ## FMS amélioré 5
 
-Est-ce que cela t'énerve aussi que lors du transfert, la demande de communication ne soit pas terminée lorsque vous cliquez sur "aller en intervention" ? Cette petite extension ajoute justement cela. 
+Est-ce que cela t'énerve aussi que lors du transfert, la demande de communication ne soit pas terminée lorsque vous cliquez sur "aller en intervention" ? Cette petite extension ajoute justement cela.
 
 Les demandes d'appel sont également fermées lorsque l'on clique sur "Allez en mission".
 

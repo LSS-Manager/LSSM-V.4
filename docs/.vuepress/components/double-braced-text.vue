@@ -1,18 +1,18 @@
 <template>
-    <code>{{ codeContent }}</code>
+    {{ codeContent }}
 </template>
 
 <script setup lang="ts">
 import { computed, defineProps, toRefs } from 'vue';
 
 const props = defineProps({
-    variable: {
+    text: {
         type: String,
         required: true,
     },
 });
 
-const { variable } = toRefs(props);
+const { text } = toRefs(props);
 
-const codeContent = computed(() => `{{${variable?.value}}}`);
+const codeContent = computed(() => `{{${text?.value}}}`);
 </script>

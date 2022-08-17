@@ -1,4 +1,4 @@
-This module allows you to adjust and add filters to the filter list. 
+This module allows you to adjust and add filters to the filter list.
 
 You have the ability to add extra filters above the building list. You'll be able to:
 

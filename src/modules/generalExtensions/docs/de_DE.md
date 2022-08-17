@@ -81,7 +81,7 @@ Als zusätzliches Feature werden sog. gängige Shortcuts automatisch ersetzt. Zu
 
 ## Gebäude-Typ merken
 
-Damit bleibt im "Gebäude bauen" Menü der Gebäudetyp ausgewählt, den du beim letzten Bau verwendet hast. Wenn du viele Gebäude eines Typs baust, sparst du dir damit jedes Mal einen Klick. 
+Damit bleibt im "Gebäude bauen" Menü der Gebäudetyp ausgewählt, den du beim letzten Bau verwendet hast. Wenn du viele Gebäude eines Typs baust, sparst du dir damit jedes Mal einen Klick.
 
 ## Leitstelle merken
 
@@ -89,7 +89,7 @@ Funktioniert analog zu [Gebäude-Typ merken](#gebude-typ-merken) nur halt für d
 
 ## Ausbreitung verbesserter FMS 5
 
-Nervt es dich auch das bei Ausbreitungen der Sprechwunsch beim Klick auf "zum Einsatz" nicht beendet wird? Diese kleine Erweiterung fügt genau das ein. 
+Nervt es dich auch das bei Ausbreitungen der Sprechwunsch beim Klick auf "zum Einsatz" nicht beendet wird? Diese kleine Erweiterung fügt genau das ein.
 
 Ausbreitungssprechwünsche werden auch beim Klick auf "zum Einsatz" geschlossen.
 

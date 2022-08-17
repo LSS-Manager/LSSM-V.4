@@ -5,7 +5,7 @@ Umieszcza przydatne menu na pasku nawigacyjnym zamiast kredytów i monet oraz ma
 ## Kredyty zamiast skarbonki
 Wyświetla aktualne kredyty zamiast skarbonki.
 
-|      **Nieaktywne ** (domyślnie)      |                   **Aktywne**                    |
+|      **Nieaktywne** (domyślnie)      |                   **Aktywne**                    |
 |:-------------------------------------:|:------------------------------------------------:|
 | ![świnka skarbonka](./piggy-mode.png) | ![Kredyty zamiast skarbonki](./credits-mode.png) |
 

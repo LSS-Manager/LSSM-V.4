@@ -12,7 +12,7 @@ yarn eslint \
     "$dir"/../src/            \
     "$dir"/../scripts/        \
     "$dir"/../typings/        \
-    --ext .js,.ts,.vue \
+    --ext .js,.ts,.vue,.md \
     -f table \
     --no-error-on-unmatched-pattern \
     --exit-on-fatal-error \

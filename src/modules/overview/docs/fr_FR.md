@@ -7,6 +7,7 @@ L'aperçu, s'il est activé, est accessible via le menu LSSM sous le point "Aper
 
 ## Véhicules
 Les informations suivantes sont disponibles dans l'aperçu des véhicules :
+
 * Type de véhicule
 * Employés minimum
 * Employés maximum
@@ -19,6 +20,7 @@ Les informations suivantes sont disponibles dans l'aperçu des véhicules :
 
 ## Bâtiment
 Tous les bâtiments sont listés dans un tableau commun qui contient les informations suivantes :
+
 * Type de bâtiment
 * Prix
 * Niveau maximum
@@ -33,6 +35,7 @@ Tous les bâtiments sont listés dans un tableau commun qui contient les informa
 
 ## Formation
 Les listes des formations possibles contiennent les informations suivantes :
+
 * Nom de la formation
 * Véhicules nécessaire
 * Temps de formation

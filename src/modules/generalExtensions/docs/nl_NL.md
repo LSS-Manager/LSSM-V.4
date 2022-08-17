@@ -1,4 +1,4 @@
-Voor elk idee een aparte module te maken, hoe klein ook, is mogelijk. Alleen heeft dit over het algemeen geen zin. Daarom bieden we een verzameling functies waar we geen aparte module voor hebben gemaakt. 
+Voor elk idee een aparte module te maken, hoe klein ook, is mogelijk. Alleen heeft dit over het algemeen geen zin. Daarom bieden we een verzameling functies waar we geen aparte module voor hebben gemaakt.
 
 Elk van de volgende functies kan in de instellingen worden ge(de)activeerd. Hieronder vind je een beschrijving van elke functie:
 
@@ -8,7 +8,7 @@ Links die als platte tekst worden weergegeven (bijv. In chat, forum, berichten, 
 ### Activeren van het afbeeldingsvoorbeeld
 *Functioneert alleen in combinatie met `Links aanklikbaar maken`*
 
-Soms wil je gewoon een foto toevoegen aan het forum, in de chat of ergens anders. Hiermee kun je in ieder geval een preview van de afbeelding activeren. Met één klik wordt de afbeelding op een nieuw tabbald geopend. 
+Soms wil je gewoon een foto toevoegen aan het forum, in de chat of ergens anders. Hiermee kun je in ieder geval een preview van de afbeelding activeren. Met één klik wordt de afbeelding op een nieuw tabbald geopend.
 
 :::warning Afbeeldingsvoorbeeld
 Het werkt alleen met een directe link naar afbeeldingen! Daarnaast werkt deze functie nog niet goed in alle browsers.
@@ -37,18 +37,17 @@ Deze functie is nog ontwikkeling, daarom is hier nog geen afbeelding beschikbaar
 Deze functie is nog ontwikkeling, daarom is hier nog geen afbeelding beschikbaar.
 :::
 
-
 ## Bewaar kaart verplaatsingen
 
 :::warning Kaartype "Mapkit"
 Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
 :::
 
-Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gecentreerd wordt. Met deze instellingen worden deze verplaatsingen opgeslagen en zijn terug te vinden onder een kleine knop rechtsboven in de kaart. 
+Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gecentreerd wordt. Met deze instellingen worden deze verplaatsingen opgeslagen en zijn terug te vinden onder een kleine knop rechtsboven in de kaart.
 
 ![Kaart verplaatsings historie](./mapUndo.png)
 
-Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven, maar de kaart springt alleen naar dit adres als op het adres klikt. 
+Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven, maar de kaart springt alleen naar dit adres als op het adres klikt.
 
 ## Bladwijzers voor de kaart
 
@@ -56,12 +55,11 @@ Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergege
 Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
 :::
 
-Sla uw eigen locaties op de kaart op, waarna je ze met een enkele klik weer kan openenen. Zo kan je makkelijk je veel gebruikte locaties bewaren en er naar toe gaan. 
+Sla uw eigen locaties op de kaart op, waarna je ze met een enkele klik weer kan openenen. Zo kan je makkelijk je veel gebruikte locaties bewaren en er naar toe gaan.
 
-Door op de groene `+` te drukken, kan je de huidige locatie opslaan. Door daarna over een opgeslagen locatie te gaan met je muis, krijg je een voorvertoning van de locatie. Door er op te klikken ga je naar die locatie toe. 
+Door op de groene `+` te drukken, kan je de huidige locatie opslaan. Door daarna over een opgeslagen locatie te gaan met je muis, krijg je een voorvertoning van de locatie. Door er op te klikken ga je naar die locatie toe.
 
 ![Bladwijzers voor de kaart](./ownMapMarkers.png)
-
 
 ## Titel van het browsertabblad
 
@@ -78,19 +76,20 @@ Typ een dubbele punt `:` en begin met het typen van de emoji. Een halve seconde 
 ![Emoji-Kiezer](./emojipicker.png)
 
 :::tip Selectie via het toetsenbord
-Middels de `←` en `→` toetsen kan je ook door de suggesties heen bladeren en deze selecteren met `enter`. We dwingen je dus niet om de muis te gebruiken voor de module. 
+Middels de `←` en `→` toetsen kan je ook door de suggesties heen bladeren en deze selecteren met `enter`. We dwingen je dus niet om de muis te gebruiken voor de module.
 :::
 
-Als extra functie worden de algemeen bekende tekencombinaties automatisch vervangen. Bijvoorbeeld `;)` wordt vervangen door `😉` zodra je er een spatie achter plaatst. 
+Als extra functie worden de algemeen bekende tekencombinaties automatisch vervangen. Bijvoorbeeld `;)` wordt vervangen door `😉` zodra je er een spatie achter plaatst.
 
 ## Onthoud het gebouwtype
 Deze functie onthoudt tijdens het bouwen het laatst geselecteerde gebouw. Hierdoor kan je snel door met bouwen van je volgende gebouw.
 
 ## Onthoud meldkamer
-Deze functie onthoudt de geselecteerde meldkamer tijdens het bouwen. Daardoor kan je snel verder met bouwen. 
+Deze functie onthoudt de geselecteerde meldkamer tijdens het bouwen. Daardoor kan je snel verder met bouwen.
 
 ## Zoek locatie op kaarten
-Deze functie zorgt dat je locaties kan zoeken op kaarten op diverse plaatsen in het spel. 
+Deze functie zorgt dat je locaties kan zoeken op kaarten op diverse plaatsen in het spel.
+
 * Geplande inzetten tab in de meldkamer
 * Profiel van teamspelers of je eigen profiel
 * Bij het verplaatsen van gebouwen

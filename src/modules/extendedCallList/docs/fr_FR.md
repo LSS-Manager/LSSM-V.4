@@ -13,7 +13,7 @@ Si ce paramètre est désactivé (il est activé par défaut), les durées sont 
 Pourquoi en est-il ainsi ?
 > Pour chaque mission en cours, le jeu exécute une fonction toutes les secondes. Cette fonction calcule entre autres le moment où la mission cesse d'être traitée. Et c'est justement une fois que la mission est terminée, ou lorsque tout ce qui est nécessaire n'est pas encore sur place et que la mission a quand même déjà commencé.
 > Nous utilisons cette "heure de fin" calculée et calculons ensuite la distance qui nous sépare de cette heure et la mettons en forme.
-> C'est pourquoi il est possible d'afficher la durée de de la mission même si celle-ci n'est pas encore "verte". 
+> C'est pourquoi il est possible d'afficher la durée de de la mission même si celle-ci n'est pas encore "verte".
 
 ## Durée du traitement du patient
 Ceci permet d'afficher en petit le temps nécessaire aux patients pour être complètement traités.
