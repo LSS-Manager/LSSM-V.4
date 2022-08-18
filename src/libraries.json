@@ -204,6 +204,10 @@
     "eslint-plugin-jsdoc": {
         "version": "39.3.6"
     },
+    "eslint-plugin-markdownlint": {
+        "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
+        "version": "0.4.0"
+    },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://github.com/prettier/eslint-plugin-prettier#readme",
