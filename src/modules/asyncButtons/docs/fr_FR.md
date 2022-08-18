@@ -1,4 +1,5 @@
-À de nombreux endroits dans le jeu, le jeu se recharge lorsque l'on appuie sur un simple bouton. Ce module doit empêcher le rechargement - mais uniquement aux endroits où vous le souhaitez.
+À de nombreux endroits dans le jeu, le jeu se recharge lorsque l'on appuie sur un simple bouton.
+Ce module doit empêcher le rechargement - mais uniquement aux endroits où vous le souhaitez.
 
 Nous avons intégré cet asynchronisme à différents endroits :
 

@@ -1,5 +1,6 @@
 Vaak wil je snel overzicht van de status van een gebouw.
-Met deze module krijg je de meest belangrijke informatie voor elke gebouw, die zal worden weergegeven als je op kaart over de post heen gaat.
+Met deze module krijg je de meest belangrijke informatie voor elke gebouw,
+ die zal worden weergegeven als je op kaart over de post heen gaat.
 
 De volgende informatie is beschikbaar:
 

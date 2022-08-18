@@ -348,10 +348,6 @@ export default defineUserConfig({
                     DOCS_COMPONENTS_PATH,
                     'translator-list.vue'
                 ),
-                'double-braced-text': path.join(
-                    DOCS_COMPONENTS_PATH,
-                    'double-braced-text.vue'
-                ),
                 'stats-cloc': clocStatsPath,
                 'stats-commits': commitStatsPath,
             },

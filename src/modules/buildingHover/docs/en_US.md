@@ -1,5 +1,6 @@
 Often you want to have a quick overview of the status of a building.
-With this module you get the most important information about each station, which is shown on the map when you move the mouse over the picture.
+With this module you get the most important information about each station,
+ which is shown on the map when you move the mouse over the picture.
 
 The following information is included:
 

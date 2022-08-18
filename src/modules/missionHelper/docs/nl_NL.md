@@ -1,10 +1,20 @@
 ## Algemeen
-Soms is het handig om van meldingen de benodigdheden meteen te kunnen zien. Deze module maakt een mooi overzicht van alle benodigdheden en de overige gegevens van een melding.
 
-Indien de inzethelper laadt, maar geen gegevens laat zien, kan je ze proberen te herladen door op het herlaad knopje te drukken. ![Herlaad](./missionHelperReload.png)<br>
-Indien je de inzethelper wilt loskoppelen van het meldingenscherm, zodat je die kan verplaatsen, dan druk je op de volgende knop: ![Loskoppelen](./missionHelperLos.png)<br>
-Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is, dan druk je op de volgende knop: ![Inklappen](./missionHelperExpand.png)<br>
-Indien je het maximaal aantal mogelijke benodigdheden wilt zien, dan klik je op de volgende knop: ![Uitbreiding](./missionHelperMax.png)
+Soms is het handig om van meldingen de benodigdheden meteen te kunnen zien.
+Deze module maakt een mooi overzicht van alle benodigdheden en de overige gegevens van een melding.
+
+Indien de inzethelper laadt, maar geen gegevens laat zien,
+kan je ze proberen te herladen door op het herlaad knopje te drukken.
+![Herlaad](./missionHelperReload.png)  
+Indien je de inzethelper wilt loskoppelen van het meldingenscherm,
+zodat je die kan verplaatsen, dan druk je op de volgende knop:
+![Loskoppelen](./missionHelperLos.png)  
+Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is,
+dan druk je op de volgende knop:
+![Inklappen](./missionHelperExpand.png)  
+Indien je het maximaal aantal mogelijke benodigdheden wilt zien,
+dan klik je op de volgende knop:
+![Uitbreiding](./missionHelperMax.png)
 
 ## Mogelijke instellingen
 
@@ -24,14 +34,16 @@ Hieronder zal ik de mogelijkheden opsommen, deze zijn per stuk in en uit te scha
 * Vermeld ook 100% kans op een voertuig
 * OvD-B gemakkelijk beoordelen, haalt de HOvD van de OvD af en verbergt de OvD als die onder 0 zou komen
 * Verberg OvD-B. Deze werkt alleen i.c.m. OvD-B gemakkelijk beoordelen. Deze verbergt OvD altijd en laat alles als HOvD zien.
-* Noodhulp gemakkkelijk beoordelen. Haalt de hondengeleiders van de noodhulpvoertuigen af. De Biketeams zijn helaas nog niet mogelijk. Daar wordt nog een oplossing voor gezocht.
+* Noodhulp gemakkkelijk beoordelen. Haalt de hondengeleiders van de noodhulpvoertuigen af.
+    De Biketeams zijn helaas nog niet mogelijk. Daar wordt nog een oplossing voor gezocht.
 * Geef aan of een hulpverleningsvoertuig kan worden gebruikt in plaats van een tankautospuit
 * Geef aan of een crashtender kan worden gebruikt in plaats van een tankautospuit
 * Geef aan of een zorgambulance kan worden gebruikt in plaats van een ambulance
 * Koptekst patiënten
 * Details over mogelijke patiënten
 * Aantal actuele patiënten
-* Toon de patiënten gegevens alleen als dat nodig is, dus als er geen patiënten meer zijn of als ze pas achteraf komen wordt het verborgen
+* Toon de patiënten gegevens alleen als dat nodig is,
+    dus als er geen patiënten meer zijn of als ze pas achteraf komen wordt het verborgen
 * Koptekst arrestanten
 * Details over mogelijke arrestanten
 * Aantal actuele arrestanten
@@ -44,8 +56,8 @@ Hieronder zal ik de mogelijkheden opsommen, deze zijn per stuk in en uit te scha
 
 ## Voorbeelden
 
- ![Voorbeeld 1](./missionHelper1.png)
+![Voorbeeld 1](./missionHelper1.png)
 
- ![Voorbeeld 2](./missionHelper2.png)
+![Voorbeeld 2](./missionHelper2.png)
 
- ![Voorbeeld 3](./missionHelper3.png)
+![Voorbeeld 3](./missionHelper3.png)

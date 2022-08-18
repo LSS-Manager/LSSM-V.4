@@ -1,4 +1,5 @@
-In molte parti del gioco, premendo un semplice pulsante, il gioco si ricarica. Questo modulo è progettato per fermare il ricaricamento - ma solo nei posti in cui lo vuoi tu.
+In molte parti del gioco, premendo un semplice pulsante, il gioco si ricarica.
+Questo modulo è progettato per fermare il ricaricamento - ma solo nei posti in cui lo vuoi tu.
 
 Abbiamo introdotto questa asincronia in diversi punti:
 

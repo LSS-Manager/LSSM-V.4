@@ -10,17 +10,20 @@ Nelle impostazioni è possibile inserire diversi template:
 
 ### Nome utente
 
-Puoi usare il segnaposto `<doubleBracedText text="username"/>` che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
+Puoi usare il segnaposto `{{username}}` che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
 
 :::tip Perché succede solo ai nuovi messaggi?
-È molto semplice: al momento non abbiamo purtroppo la possibilità di individuare chiaramente il destinatario durante le conversazioni esistenti!
+È molto semplice: al momento non abbiamo purtroppo la possibilità di individuare
+chiaramente il destinatario durante le conversazioni esistenti!
 :::
 
 ### Data
 
-Con `<doubleBracedText text="today"/>` puoi inserire semplicemente la data di oggi.
+Con `{{today}}` puoi inserire semplicemente la data di oggi.
 
-Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo `<doubleBracedText text="today+14"/>`, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. `<doubleBracedText text="today-436"/>`, da inserire oggi 436 giorni fa.
+Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo `{{today+14}}`,
+da inserire oggi tra 14 giorni.
+È la stessa cosa, per esempio. `{{today-436}}`, da inserire oggi 436 giorni fa.
 
 ## Esempi
 

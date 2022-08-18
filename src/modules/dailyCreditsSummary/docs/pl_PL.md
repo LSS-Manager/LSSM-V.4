@@ -1,4 +1,5 @@
-Ten moduł zastępuje `Podsumowanie dzienne` w wersji 3, które zostało pokazane w [podsumowaniu dziennym](https://www.operatorratunkowy.pl/credits) ile zarobiłeś w każdej kategorii (np. transport pacjentów).
+Ten moduł zastępuje `Podsumowanie dzienne` w wersji 3, które zostało pokazane w
+ [podsumowaniu dziennym](https://www.operatorratunkowy.pl/credits) ile zarobiłeś w każdej kategorii (np. transport pacjentów).
 
 Ten moduł został nieco podrasowany dla V4.
 

@@ -1,4 +1,5 @@
-Op sommige momenten is het handig om meldingen te ontvangen van gebeurtenissen in het spel. Met de module notificaties is dat mogelijk!
+Op sommige momenten is het handig om meldingen te ontvangen van gebeurtenissen in het spel.
+Met de module notificaties is dat mogelijk!
 
 Je kan meldingen ontvangen van de volgende gebeurtenissen, deze zijn per stuk in te stellen:
 

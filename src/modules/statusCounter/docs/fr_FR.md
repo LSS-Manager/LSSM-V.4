@@ -1,8 +1,8 @@
 Si vous voulez avoir un aperçu rapide du nombre de véhicules qui se trouvent actuellement dans tel ou tel statut,
- ce module est le top.
+ce module est le top.
 
 Le compteur de statut, déjà connu dans la V3,
- vous indique par radio le nombre de véhicules qui se trouvent actuellement dans chaque statut.
+vous indique par radio le nombre de véhicules qui se trouvent actuellement dans chaque statut.
 Le tout ressemble à ceci :
 
 ![compteur d'état](./statuscounter.png)
@@ -46,5 +46,5 @@ Du moins le compteur ;)
 Cela devient compliqué...
 
 Avec le réglage ci-dessus, le compteur S5 ne clignote pas du tout, avec celui-ci,
- il ne clignote que si au moins un véhicule se trouve dans le statut 5.
+il ne clignote que si au moins un véhicule se trouve dans le statut 5.
 Donc pas si compliqué que ça une fois qu'on a compris :)

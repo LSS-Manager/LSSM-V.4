@@ -1,4 +1,5 @@
-An vielen Stellen im Spiel wird das Spiel neu geladen, wenn man einen einfachen Knopf drückt. Dieses Modul soll das Neuladen unterbinden – aber nur an den Stellen, an denen du das auch willst.
+An vielen Stellen im Spiel wird das Spiel neu geladen, wenn man einen einfachen Knopf drückt.
+Dieses Modul soll das Neuladen unterbinden – aber nur an den Stellen, an denen du das auch willst.
 
 Wir haben an verschiedenen Stellen diese Asynchronität eingebaut:
 

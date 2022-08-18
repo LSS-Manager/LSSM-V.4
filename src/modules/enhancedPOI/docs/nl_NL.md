@@ -1,4 +1,6 @@
-Het plaatsen van POI is voor vele meldingen noodzakelijk om gegenereert te kunnen worden. Indien je niet van POI van andere spelers gebruikt wilt maken of om een andere reden eigen POI wilt plaatsen, kan dit een vervelende bezigheid zijn.
+Het plaatsen van POI is voor vele meldingen noodzakelijk om gegenereert te kunnen worden.
+Indien je niet van POI van andere spelers gebruikt wilt maken of om een andere reden eigen POI wilt plaatsen,
+ kan dit een vervelende bezigheid zijn.
 
 Om het plaatsen makkelijker te maken, bied deze module de volgende vereenvoudigingen:
 

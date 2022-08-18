@@ -1,4 +1,6 @@
-This module replaces the `Total for the daily summary` in V3, which showed in your [daily summary](https://www.missionchief.co.uk/credits/daily) how much you earned for each category (for example transporting patients).
+This module replaces the `Total for the daily summary` in V3, which showed in your
+ [daily summary](https://www.missionchief.co.uk/credits/daily) how much you earned for each category
+ (for example transporting patients).
 
 This module has been spiced up a bit for V4.
 

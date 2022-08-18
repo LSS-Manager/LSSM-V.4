@@ -5,5 +5,6 @@ Denna modul är fortfarande under utveckling, den här beskrivningen kommer att 
 :::
 
 ### Justera tidsformatet i chatten
+
 Denna funktion ändrar tidsformatet i chatten. Du kan själv ställa in tidens format.
 Mer information om inställning av tidsformat finns [här](../..clock.md#konfiguration).

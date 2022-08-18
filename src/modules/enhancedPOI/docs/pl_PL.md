@@ -1,4 +1,6 @@
-Ustawienie punktów UM ma kluczowe znaczenie dla tworzenie się niektórych misji, takich jak `Katastrofa samolotu pasażerskiego`. Jeśli nie chcesz korzystać z punktów UM innych osób, musisz ustawić własne. Ten moduł pozwala na łatwiejsze ustawianie punktów UM.
+Ustawienie punktów UM ma kluczowe znaczenie dla tworzenie się niektórych misji, takich jak `Katastrofa samolotu pasażerskiego`.
+Jeśli nie chcesz korzystać z punktów UM innych osób, musisz ustawić własne.
+Ten moduł pozwala na łatwiejsze ustawianie punktów UM.
 
 * Wszystkie UMM wybranego typu są podświetlone
     * Kolor podświetlenia można zmienić w ustawieniach.
@@ -6,4 +8,4 @@ Ustawienie punktów UM ma kluczowe znaczenie dla tworzenie się niektórych misj
 * Możesz pokazać i ukryć każdy typ UM
     * Można to kontrolować, otwierając menu `Ustaw nowe UM`
 
- ![Przykład](./poi.png)
+![Przykład](./poi.png)

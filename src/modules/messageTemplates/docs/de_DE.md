@@ -1,6 +1,8 @@
 Besonders (Co-)Admins eines Verbands schreiben oft dieselben oder ähnliche Texte an ihre Verbandsmitglieder oder in den Verbands-Chat.
 
-Da dies oft lästig ist, gibt es mit diesem Modul **Nachrichten Templates**, die es vorher nur als [Einzelscript](https://forum.leitstellenspiel.de/index.php?thread/18912-skript-wunsch-autofill-f%C3%BCr-nachrichten/) für private Konversationen gab.
+Da dies oft lästig ist, gibt es mit diesem Modul **Nachrichten Templates**, die es vorher nur als
+[Einzelscript](https://forum.leitstellenspiel.de/index.php?thread/18912-skript-wunsch-autofill-f%C3%BCr-nachrichten/)
+für private Konversationen gab.
 
 ## Verbandschat
 
@@ -18,7 +20,8 @@ In den Einstellungen lassen sich verschiedene Templates anlegen:
 
 #### Nutzername
 
-Dabei kannst du den Platzhalter `<doubleBracedText text="username"/>` verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
+Dabei kannst du den Platzhalter `{{username}}` verwenden,
+dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
 
 :::tip Warum geht das nur bei neuen Nachrichten?
 Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konversationen den Empfänger eindeutig zu bestimmen!
@@ -26,9 +29,11 @@ Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konv
 
 #### Datum
 
-Mittels `<doubleBracedText text="today"/>` kannst du ganz einfach das heutige Datum einfügen.
+Mittels `{{today}}` kannst du ganz einfach das heutige Datum einfügen.
 
-Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür `<doubleBracedText text="today+14"/>`, um heute in  14 Tagen einzufügen. Genauso geht z.B. `<doubleBracedText text="today-436"/>`, um heute vor 436 Tagen einzufügen.
+Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür `{{today+14}}`,
+um heute in 14 Tagen einzufügen.
+Genauso geht z.B. `{{today-436}}`, um heute vor 436 Tagen einzufügen.
 
 ### Beispiele
 

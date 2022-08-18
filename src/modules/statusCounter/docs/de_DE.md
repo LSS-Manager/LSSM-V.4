@@ -1,14 +1,14 @@
 Wenn du einen schnellen Überblick haben willst, wie viele deiner Fahrzeuge gerade in welchen Status sind,
- dann ist dieses Modul ein Must-have.
+dann ist dieses Modul ein Must-have.
 
 Der, aus der V3 bekannte, Status-Zähler zeigt euch über eurem Funk an,
- welcher Anteil an Fahrzeugen sich gerade im jeweiligen Status befindet.
+welcher Anteil an Fahrzeugen sich gerade im jeweiligen Status befindet.
 Das ganze sieht dann so aus:
 
 ![Statuszähler](./statuscounter.png)
 
 Das ganze Modul ist mit zahlreichen Einstellungen versehen,
- damit du dir den Statuszähler so gut wie möglich an deine Bedürfnisse anpassen kannst:
+damit du dir den Statuszähler so gut wie möglich an deine Bedürfnisse anpassen kannst:
 
 ![Statuszähler](./settings.png)
 
@@ -36,7 +36,7 @@ Die Prozentzahl wird gemäß der Einstellung [Prozente runden](#prozente-runden)
 ## Blinken für S5 abschalten
 
 Der Status 5 blinkt immer so schön. Wenn du den Status 5 eingeblendet hast (auch wenn es nur bei Bedarf sein sollte)
- und diese Einstellung aktiv ist, so blinkt er nicht.
+und diese Einstellung aktiv ist, so blinkt er nicht.
 Also gar nicht.
 Niemals wird er blinken!
 Zumindest der Zähler ;)

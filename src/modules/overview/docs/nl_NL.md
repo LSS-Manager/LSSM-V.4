@@ -6,6 +6,7 @@ Het overzicht is, indien geactiveerd, bereikbaar via het LSSM-menu, onder overzi
 ![Openen via LSSM-menu](./Overview_Menu_nl_NL.png)
 
 ## Voertuigen
+
 De volgende informatie is in het voertuigoverzicht beschikbaar:
 
 * Voertuigtype
@@ -18,6 +19,7 @@ De volgende informatie is in het voertuigoverzicht beschikbaar:
 ![Het voertuigoverzicht](./Overview_vehicles_nl_NL.png)
 
 ## Gebouwen
+
 Alle gebouwen zijn in een een tabel opgesomd, welke de volgende informatie bevat:
 
 * Gebouwtype
@@ -33,6 +35,7 @@ Alle gebouwen zijn in een een tabel opgesomd, welke de volgende informatie bevat
 ![Het gebouwenoverzicht](./Overview_buildings_nl_NL.png)
 
 ## Opleidingen
+
 Alle opleidingen zijn in een overzicht geplaatst. De volgende informatie is beschikbaar:
 
 * Opleidingsnaam

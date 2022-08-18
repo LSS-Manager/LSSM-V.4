@@ -1,4 +1,5 @@
-Att placera intressepunkter är nödvändigt för att många meddelanden ska kunna genereras. Om du inte vill använda andra spelares POI eller av någon annan anledning placera din egen IP kan det vara en tråkig aktivitet.
+Att placera intressepunkter är nödvändigt för att många meddelanden ska kunna genereras.
+Om du inte vill använda andra spelares POI eller av någon annan anledning placera din egen IP kan det vara en tråkig aktivitet.
 
 För att göra placeringen enklare erbjuder denna modul följande förenklingar:
 

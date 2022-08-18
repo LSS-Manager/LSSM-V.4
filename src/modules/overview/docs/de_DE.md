@@ -6,6 +6,7 @@ Die Übersicht lässt sich, wenn aktiviert, über das LSSM-Menü unter dem Punkt
 ![Öffnen über das LSSM-Menü](./menu.png)
 
 ## Fahrzeuge
+
 Die folgenden Informationen sind in der Fahrzeugübersicht vorhanden:
 
 * Fahrzeugtyp
@@ -19,6 +20,7 @@ Die folgenden Informationen sind in der Fahrzeugübersicht vorhanden:
 ![Die Fahrzeugübersicht](./fahrzeuge.png)
 
 ## Gebäude
+
 Alle Gebäude sind in einer gemeinsamen Tabelle gelistet, welche folgende Informationen enthält:
 
 * Gebäudetyp
@@ -34,6 +36,7 @@ Alle Gebäude sind in einer gemeinsamen Tabelle gelistet, welche folgende Inform
 ![Die Gebäudeübersicht](./gebaeude.png)
 
 ## Lehrgänge
+
 Die Listen möglicher Lehrgänge enthalten folgende Informationen:
 
 * Lehrgangsname

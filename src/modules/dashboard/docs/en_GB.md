@@ -22,12 +22,15 @@ In the status overview you will see your vehicle type, amount and how many are i
 If you hover over a cell in the table, a button will appear where you can open a more detailed list.
 
 ### All vehicles of one type
+
 ![All vehicles of one type](./vehiclelist.png)
 
 ### All vehicles of one type in a status
+
 ![All vehicles of one type in a status](./vehiclelist_status.png)
 
 ### All vehicles in one status
+
 ![All vehicles in one status](./vehiclelist_status_all.png)
 
 ## Building Overview
@@ -38,7 +41,9 @@ The building overview lists building types and how many. It also shows informati
 The same as with the vehicle overview, the button will appear when you hover over a cell.
 
 ### All buildings of one type
+
 ![All buildings of one type](./buildinglist_type.png)
 
 ### All buildings with a specific extension
+
 ![All buildings with a specific extension](./buildinglist_extension.png)

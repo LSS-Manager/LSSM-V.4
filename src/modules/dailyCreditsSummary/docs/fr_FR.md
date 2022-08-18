@@ -1,4 +1,6 @@
-Ce module remplace le "Total du résumé quotidien" de la V3, qui indiquait dans votre [résumé quotidien] (<https://www.operateur112.fr/credits/daily>) combien vous avez gagné pour chaque catégorie (par exemple le transport de patients).
+Ce module remplace le "Total du résumé quotidien" de la V3, qui indiquait dans votre
+ [résumé quotidien] (<https://www.operateur112.fr/credits/daily>) combien vous avez gagné pour chaque catégorie
+ (par exemple le transport de patients).
 
 Ce module a été un peu pimenté pour la V4.
 
@@ -16,7 +18,7 @@ De plus, un diagramme circulaire est affiché pour les recettes et les dépenses
 
 Au-dessus du tableau, tu trouveras un bouton pour exporter les données.
 
----
+***
 
 Ce module utilise les catégories suivantes :
 
@@ -24,7 +26,8 @@ Ce module utilise les catégories suivantes :
     * Toutes les missions qui commencent par "[Alliance]".
 * Missions personnelles
     * Toutes les missions personnelles
-        * Malheureusement, nous ne sommes pas en mesure de reconnaître les missions d'alliance à grande échelle que vous avez créées vous-même.
+        * Malheureusement,
+          nous ne sommes pas en mesure de reconnaître les missions d'alliance à grande échelle que vous avez créées vous-même.
 * Véhicules achetés
 * Bonus de connexion quotidien
 * Bâtiments construits / démolis

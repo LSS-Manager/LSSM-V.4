@@ -18,7 +18,7 @@ C'est-à-dire tout simplement selon les écoles respectives, donc
 
 Et toujours dans cet ordre.
 Ici aussi, nous avons intégré des possibilités de tri et de recherche afin
- que vous puissiez trouver rapidement le cours qui vous convient.
+que vous puissiez trouver rapidement le cours qui vous convient.
 
 Voici par exemple ce qui se passe pour les formations avec vos propres participants :
 

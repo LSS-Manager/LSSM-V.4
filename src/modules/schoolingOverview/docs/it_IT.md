@@ -16,7 +16,7 @@ Ciò significa semplicemente secondo le rispettive scuole, vale a dire.
 
 E sempre in questo ordine.
 Ancora una volta, abbiamo costruito in opzioni di ordinamento e funzioni di ricerca
- in modo da poter trovare rapidamente il corso giusto.
+in modo da poter trovare rapidamente il corso giusto.
 
 Per esempio, questo è come si presenta per i corsi con i propri partecipanti:
 

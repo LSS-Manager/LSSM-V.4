@@ -191,7 +191,7 @@
             "parser": "eslint-plugin-markdownlint/parser",
             // We will set all non-deprecated markdownlint rules explicitly to avoid unwanted behaviour
             "rules": {
-                // Turn off prettier for markdown files
+                // Turn off prettier for markdown files as we cannot configure it enough
                 "prettier/prettier": ["off"],
                 // Heading levels should only increment by one level at a time
                 "markdownlint/md001": ["error"],
@@ -245,9 +245,11 @@
                     "siblings_only": true
                 }],
                 // Multiple top-level headings in the same document
-                "markdownlint/md025": ["error", {
-                    "level": 2
-                }],
+                // turned off for now as we need to improve headings in docs
+                "markdownlint/md025": ["off"],
+                // "markdownlint/md025": ["error", {
+                //    "level": 2
+                // }],
                 // Trailing punctuation in heading
                 "markdownlint/md026": ["error"],
                 // Multiple spaces after blockquote symbol
@@ -266,7 +268,10 @@
                 "markdownlint/md032": ["error"],
                 // Inline HTML
                 "markdownlint/md033": ["error", {
-                    "allowed_elements": [] // These are Vue elements used in the docs
+                    "allowed_elements": [
+                        "discord",
+                        "a"
+                    ] // These are Vue elements used in the docs
                 }],
                 // Bare URL used
                 "markdownlint/md034": ["error"],
