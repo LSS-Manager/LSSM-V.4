@@ -5,14 +5,20 @@ Diese ermöglichen es dir dann, ohne Maus bestimmte Aktionen durchzuführen.
 Welche Tastenkombinationen verwendet werden sollen, kannst du komplett frei bestimmen.
 
 ::: warning Vorbelegte Kombinationen
+
 <!-- For later: ingame hotkeys @ https://blog.leitstellenspiel.de/tastaturkuerzel-hotkeys/ -->
-Alle Browser haben für eigene Funktionalitäten bereits Hotkeys eingebaut. (z.B. `Strg+S` zum Speichern einer Seite oder `Strg+O` zum Öffnen einer Datei).
+
+Alle Browser haben für eigene Funktionalitäten bereits Hotkeys eingebaut.
+(z.B. `Strg+S` zum Speichern einer Seite oder `Strg+O` zum Öffnen einer Datei).
 Diese Standard-Hotkeys überschreiben wir derzeit **NICHT**!
-Solltest du also eine LSSM-Funktionalität auf `Strg+O` setzen, so wird sich zusätzlich auch der "Datei öffnen" Dialog deines Browsers öffnen.
+Solltest du also eine LSSM-Funktionalität auf `Strg+O` setzen,
+so wird sich zusätzlich auch der "Datei öffnen" Dialog deines Browsers öffnen.
 Grund hierfür ist der Aufbau unserer Hotkey-Erkennung.
 :::
 
-Als Hotkey kannst du entweder einen einzelnen Buchstaben (z.B. `U` oder `P`), eine Tastenkombination (z.B. `Alt+U` oder `Strg+Alt+P`) oder mehrere dieser hintereinander (z.B. `U P`, `Alt+U P` oder `Strg+Alt+U P Alt+U`) setzen.
+Als Hotkey kannst du entweder einen einzelnen Buchstaben (z.B. `U` oder `P`),
+eine Tastenkombination (z.B. `Alt+U` oder `Strg+Alt+P`) oder
+mehrere dieser hintereinander (z.B. `U P`, `Alt+U P` oder `Strg+Alt+U P Alt+U`) setzen.
 Groß- / Kleinschreibung wird übrigens nicht beachtet!
 
 Zum Setzen eines Hotkeys gehst du einfach in die Einstellungen zum Punkt `Hotkeys`.
@@ -28,9 +34,10 @@ Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht ü
 
 ![Hotkey-Übersicht](./overview.png)
 
-
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.
-Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
+Weitere Vorschläge kannst du uns gerne im
+[Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im
+<a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
 Schau vorher bitte im GitHub Issue nach, ob dein Wunsch bereits notiert wurde, um Dopplungen zu vermeiden.
 
 ## Allgemein
@@ -82,8 +89,8 @@ Diese Hotkeys sind nur im Hauptfenster (dort wo Karte, Einsatzliste, Verbandscha
 ### LSSM
 
 * LSSM-Menü öffnen und schließen
-  * Im geöffneten Zustand kannst du mit den Pfeiltasten `↑` und`↓` durch die Menüeinträge navigieren
-  * Mit der Eingabetaste `Enter` klickst du den ausgewählten Eintrag an
+    * Im geöffneten Zustand kannst du mit den Pfeiltasten `↑` und`↓` durch die Menüeinträge navigieren
+    * Mit der Eingabetaste `Enter` klickst du den ausgewählten Eintrag an
 
 ### Karte
 
@@ -96,7 +103,9 @@ Diese Hotkeys sind nur im Hauptfenster (dort wo Karte, Einsatzliste, Verbandscha
 ## Einsatzfenster
 
 ### Einsatzsortierung
-Diese Hotkeys sind für die modifizierten Knöpfe der Einsatzsortierung im Modul [Erweiterte Einsatzliste](../extendedCallList/) da:
+
+Diese Hotkeys sind für die modifizierten Knöpfe der Einsatzsortierung im Modul
+[Erweiterte Einsatzliste](../extendedCallList/) da:
 
 * Alarmieren und weiter
 * Alarmieren, Teilen und weiter

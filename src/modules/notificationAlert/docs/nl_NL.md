@@ -1,6 +1,8 @@
-Op sommige momenten is het handig om meldingen te ontvangen van gebeurtenissen in het spel. Met de module notificaties is dat mogelijk!
+Op sommige momenten is het handig om meldingen te ontvangen van gebeurtenissen in het spel.
+Met de module notificaties is dat mogelijk!
 
-Je kan meldingen ontvangen van de volgende gebeurtenissen, deze zijn per stuk in te stellen: 
+Je kan meldingen ontvangen van de volgende gebeurtenissen, deze zijn per stuk in te stellen:
+
 * Nieuwe aanmelding voor het team
 * Alle chatberichten
 * Alleen chatberichten waarin je bent genoemd
@@ -29,7 +31,8 @@ Je kan meldingen ontvangen van de volgende gebeurtenissen, deze zijn per stuk in
     * Status 9
 
 Daarnaast heb je in de instellingen de volgende opties:
-* Kleur voor de melding 
+
+* Kleur voor de melding
 * Hoe lang de melding moet worden weergegeven
 * Of de melding als in-game notificatie moet worden getoond
 * Of de melding als desktop notificatie moet worden getoond

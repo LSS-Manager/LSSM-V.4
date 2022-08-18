@@ -74,6 +74,7 @@
         "eslint-plugin-compat": "^4.0.2",
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jsdoc": "^39.3.6",
+        "eslint-plugin-markdownlint": "^0.4.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-regexp": "^1.8.0",
         "eslint-plugin-tsdoc": "^0.2.16",
