@@ -46,6 +46,11 @@
                     "focus": "zakliknout hledací pole",
                     "title": "Vyhledat lokalitu"
                 },
+                "zoom": {
+                    "in": "reinzoomen",
+                    "out": "rauszoomen",
+                    "title": "Zoomen"
+                },
                 "title": "Mapa"
             },
             "missionlist": {

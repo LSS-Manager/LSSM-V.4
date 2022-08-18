@@ -49,6 +49,11 @@
                     "focus": "focus sur le champ de saisie",
                     "title": "Recherche de lieu"
                 },
+                "zoom": {
+                    "in": "reinzoomen",
+                    "out": "rauszoomen",
+                    "title": "Zoomen"
+                },
                 "title": "Map"
             },
             "missionlist": {
