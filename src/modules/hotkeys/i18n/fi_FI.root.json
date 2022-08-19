@@ -47,9 +47,9 @@
                     "title": "Sijaintihaku"
                 },
                 "zoom": {
-                    "in": "reinzoomen",
-                    "out": "rauszoomen",
-                    "title": "Zoomen"
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
                 },
                 "title": "Kartta"
             },

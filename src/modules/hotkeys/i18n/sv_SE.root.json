@@ -52,9 +52,9 @@
                 "title": "karta"
             },
             "zoom": {
-                "in": "reinzoomen",
-                "out": "rauszoomen",
-                "title": "Zoomen"
+                "in": "zoom in",
+                "out": "zoom out",
+                "title": "Zoom"
             },
             "missionlist": {
                 "eclSort": {
