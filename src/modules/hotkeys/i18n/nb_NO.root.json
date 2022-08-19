@@ -42,23 +42,19 @@
                 "title": "LSS Manager"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "fokus på input feltet",
                     "title": "Adressesøk"
                 },
-                "zoom": {
-                    "in": "zoom in",
-                    "out": "zoom out",
-                    "title": "Zoom"
-                },
-                "move": {
-                    "up": "up",
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move"
-                },
-                "title": "Kart"
+                "title": "Kart",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
                 "eclSort": {

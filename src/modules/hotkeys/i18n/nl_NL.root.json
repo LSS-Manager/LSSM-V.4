@@ -42,23 +42,19 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "focus invoerveld",
                     "title": "Plaatsen zoeken"
                 },
-                "zoom": {
-                    "in": "zoom in",
-                    "out": "zoom out",
-                    "title": "Zoom"
-                },
-                "move": {
-                    "up": "up",
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move"
-                },
-                "title": "Kaart"
+                "title": "Kaart",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
                 "eclSort": {
