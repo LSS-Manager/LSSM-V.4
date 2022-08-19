@@ -84,6 +84,11 @@
                 "prev": "föregående upptrag",
                 "title": "Sortara uppdrag"
             },
+            "alliance": {
+                "focus":"Focus alliance response window",
+                "toggle":"Toggle 'post in alliance chat'",
+                "title": "Alliance"
+            },
             "title": "Huvud fönster"
         }
     },

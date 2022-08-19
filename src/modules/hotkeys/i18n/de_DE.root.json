@@ -81,6 +81,11 @@
                 "prev": "vorheriger Einsatz",
                 "title": "Einsatzsortierung"
             },
+            "alliance": {
+                "focus":"Fokussiere Rückmeldungsfeld",
+                "toggle":"Wechsle 'Im Verbandschat posten'",
+                "title": "Verband"
+            },
             "title": "Einsatzfenster"
         }
     },

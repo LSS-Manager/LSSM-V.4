@@ -78,6 +78,11 @@
                 "prev": "previous mission",
                 "title": "Sorted missions"
             },
+            "alliance": {
+                "focus":"Focus alliance response window",
+                "toggle":"Toggle 'post in alliance chat'",
+                "title": "Alliance"
+            },
             "title": "Mission window"
         }
     },

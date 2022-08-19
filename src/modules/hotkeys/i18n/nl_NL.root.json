@@ -78,6 +78,11 @@
                 "prev": "vorige melding",
                 "title": "Gesorteerde meldingen"
             },
+            "alliance": {
+                "focus":"Focus alliance response window",
+                "toggle":"Toggle 'post in alliance chat'",
+                "title": "Alliance"
+            },
             "title": "Meldingsscherm"
         }
     },

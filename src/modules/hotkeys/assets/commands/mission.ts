@@ -1,8 +1,10 @@
+import type Vue from 'vue';
+
 import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets/sort/mission';
 
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['sorted'], [], true>>{
+export default <Scope<Empty, ['sorted', 'alliance'], [], true>>{
     sorted: <
         Scope<
             {
@@ -83,6 +85,42 @@ export default <Scope<Empty, ['sorted'], [], true>>{
                     )
                     ?.click();
             }
+        },
+    },
+    alliance: <Scope<Empty, ['focus', 'toggle']>>{
+        validatorFunction() {
+            return !!document.querySelector<HTMLDivElement>('#map');
+        },
+        focus: <
+            Scope<{ responseInputbox: HTMLInputElement | null }, [], ['focus']>
+        >{
+            validatorFunction() {
+                this.responseInputbox =
+                    document.querySelector<HTMLInputElement>(
+                        '#mission_reply_content'
+                    );
+                return !!this.responseInputbox;
+            },
+            focus() {
+                this.responseInputbox?.focus();
+            },
+        },
+        toggle: <
+            Scope<{ responseCheckbox: HTMLInputElement | null }, [], ['focus']>
+        >{
+            validatorFunction() {
+                this.responseCheckbox =
+                    document.querySelector<HTMLInputElement>(
+                        '#mission_reply_content'
+                    );
+                return !!this.responseCheckbox;
+            },
+            focus() {
+                if (this.responseCheckbox) {
+                    this.responseCheckbox.checked =
+                        !this.responseCheckbox.checked;
+                }
+            },
         },
     },
 };
