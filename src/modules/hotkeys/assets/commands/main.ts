@@ -28,7 +28,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
                 this.mapSearch?.focus();
             },
         },
-        zoom: <Scope<{ leaflet: any | null }, [], ['in', 'out']>>{
+        zoom: <Scope<{ leaflet: typeof window.map }, [], ['in', 'out']>>{
             validatorFunction() {
                 this.leaflet = window.map;
                 return !!this.leaflet;
