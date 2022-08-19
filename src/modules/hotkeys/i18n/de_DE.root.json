@@ -46,6 +46,18 @@
                     "focus": "Eingabefeld fokussieren",
                     "title": "Ortssuche"
                 },
+                "zoom": {
+                    "in": "reinzoomen",
+                    "out": "rauszoomen",
+                    "title": "Zoomen"
+                },
+                "move": {
+                    "up": "Hoch",
+                    "down": "runter",
+                    "left": "Links",
+                    "right": "Rechts",
+                    "title": "Bewegen"
+                },
                 "title": "Karte"
             },
             "missionlist": {

@@ -46,6 +46,18 @@
                     "focus": "focus input field",
                     "title": "Location search"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
+                "move": {
+                  "up": "up",
+                  "down": "down",
+                  "left": "left",
+                  "right": "right",
+                  "title": "Move"
+                },
                 "title": "Map"
             },
             "missionlist": {

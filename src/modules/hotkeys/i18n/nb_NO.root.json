@@ -46,6 +46,18 @@
                     "focus": "fokus på input feltet",
                     "title": "Adressesøk"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
+                "move": {
+                    "up": "up",
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move"
+                },
                 "title": "Kart"
             },
             "missionlist": {

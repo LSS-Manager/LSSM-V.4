@@ -46,6 +46,18 @@
                     "focus": "skup się na polu tekstowym",
                     "title": "Wyszukiwanie lokalizacji"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
+                "move": {
+                    "up": "up",
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move"
+                },
                 "title": "Mapa"
             },
             "missionlist": {
