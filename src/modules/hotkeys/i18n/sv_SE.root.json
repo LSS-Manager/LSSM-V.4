@@ -51,6 +51,11 @@
                 },
                 "title": "karta"
             },
+            "zoom": {
+                "in": "zoom in",
+                "out": "zoom out",
+                "title": "Zoom"
+            },
             "missionlist": {
                 "eclSort": {
                     "open": "Open selection menu",

@@ -46,6 +46,11 @@
                     "focus": "Campo de entrada de enfoque",
                     "title": "Búsqueda de ubicación"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
                 "title": "Mapa"
             },
             "missionlist": {

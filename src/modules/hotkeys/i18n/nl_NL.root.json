@@ -46,6 +46,11 @@
                     "focus": "focus invoerveld",
                     "title": "Plaatsen zoeken"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
                 "title": "Kaart"
             },
             "missionlist": {

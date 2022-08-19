@@ -12,6 +12,8 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const commands: string[] = [
         'main.chat.focus',
         'main.map.search.focus',
+        'main.map.zoom.in',
+        'main.map.zoom.out',
         'main.missionlist.search.focus',
         'main.missionlist.eclSort.open',
         'main.lssm.menu.toggle',

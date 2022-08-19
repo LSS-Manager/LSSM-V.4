@@ -46,6 +46,11 @@
                     "focus": "Valitsee hakukentän",
                     "title": "Sijaintihaku"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
                 "title": "Kartta"
             },
             "missionlist": {
