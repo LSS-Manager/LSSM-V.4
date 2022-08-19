@@ -174,7 +174,8 @@
                 "vehicles": [40]
             },
             { "texts": ["Pattuglia della Stradale"], "vehicles": [38, 39] },
-            { "texts": ["Idrante Antisommossa"], "vehicles": [41] }
+            { "texts": ["Idrante Antisommossa"], "vehicles": [41] },
+            { "texts": ["Pattuglia Forestale", "Pattuglie Forestali"], "vehicles": [40] }
         ],
         "water": "l. d'acqua"
     },
