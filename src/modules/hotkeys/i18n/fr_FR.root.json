@@ -54,6 +54,13 @@
                     "out": "zoom out",
                     "title": "Zoom"
                 },
+                "move": {
+                    "up": "up",
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move"
+                },
                 "title": "Map"
             },
             "missionlist": {

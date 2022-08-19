@@ -51,6 +51,13 @@
                     "out": "rauszoomen",
                     "title": "Zoomen"
                 },
+                "move": {
+                    "up": "Hoch",
+                    "down": "runter",
+                    "left": "Links",
+                    "right": "Rechts",
+                    "title": "Bewegen"
+                },
                 "title": "Karte"
             },
             "missionlist": {

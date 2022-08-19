@@ -12,7 +12,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             this.chatInput?.focus();
         },
     },
-    map: <Scope<Empty, ['search', 'zoom']>>{
+    map: <Scope<Empty, ['search', 'zoom', 'move']>>{
         validatorFunction() {
             return !!document.querySelector<HTMLDivElement>('#map');
         },
@@ -38,6 +38,42 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             },
             out() {
                 this.leaflet?.zoomOut();
+            },
+        },
+        move: <
+            Scope<
+                { leaflet: typeof window.map },
+                [],
+                ['up', 'down', 'left', 'right']
+            >
+        >{
+            validatorFunction() {
+                this.leaflet = window.map;
+                return !!this.leaflet;
+            },
+            up() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat + 0.005,
+                    this.leaflet?.getCenter().lng,
+                ]);
+            },
+            down() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat - 0.005,
+                    this.leaflet?.getCenter().lng,
+                ]);
+            },
+            left() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat,
+                    this.leaflet?.getCenter().lng - 0.005,
+                ]);
+            },
+            right() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat,
+                    this.leaflet?.getCenter().lng + 0.005,
+                ]);
             },
         },
     },
