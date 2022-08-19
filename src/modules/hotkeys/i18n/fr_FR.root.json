@@ -45,23 +45,19 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "focus sur le champ de saisie",
                     "title": "Recherche de lieu"
                 },
-                "zoom": {
-                    "in": "zoom in",
-                    "out": "zoom out",
-                    "title": "Zoom"
-                },
-                "move": {
-                    "up": "up",
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move"
-                },
-                "title": "Map"
+                "title": "Map",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
                 "eclSort": {

@@ -42,23 +42,19 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "skup się na polu tekstowym",
                     "title": "Wyszukiwanie lokalizacji"
                 },
-                "zoom": {
-                    "in": "zoom in",
-                    "out": "zoom out",
-                    "title": "Zoom"
-                },
-                "move": {
-                    "up": "up",
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move"
-                },
-                "title": "Mapa"
+                "title": "Mapa",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
                 "eclSort": {
