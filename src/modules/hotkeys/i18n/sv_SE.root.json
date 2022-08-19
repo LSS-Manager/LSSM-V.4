@@ -49,12 +49,12 @@
                     "focus": "välj karfönstrets sökruta",
                     "title": "Platssökning"
                 },
+                "zoom": {
+                    "in": "zoom in",
+                    "out": "zoom out",
+                    "title": "Zoom"
+                },
                 "title": "karta"
-            },
-            "zoom": {
-                "in": "zoom in",
-                "out": "zoom out",
-                "title": "Zoom"
             },
             "missionlist": {
                 "eclSort": {
