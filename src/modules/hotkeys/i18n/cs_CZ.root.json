@@ -43,23 +43,23 @@
             },
             "map": {
                 "move": {
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move",
-                    "up": "up"
+                    "down": "dolu",
+                    "left": "doleva",
+                    "right": "doprava",
+                    "title": "Posunout",
+                    "up": "nahoru"
                 },
                 "search": {
                     "focus": "zakliknout hledací pole",
                     "title": "Vyhledat lokalitu"
                 },
                 "title": "Mapa",
-                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
+                "zoom": { "in": "Přiblížit", "out": "Oddálit", "title": "Přiblížení" }
             },
             "missionlist": {
                 "eclSort": {
-                    "open": "Open selection menu",
-                    "title": "Mission sorting"
+                    "open": "Otevřít výběr řazení",
+                    "title": "Řazení misí"
                 },
                 "search": {
                     "focus": "zakliknout hledací pole",
