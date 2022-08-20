@@ -189,7 +189,9 @@
                     "Rychlých zásahových automobilů",
                     "Rychlé zásahové automobily"
                 ],
-                "vehicles": [31],
+                "vehicles": [31]
+            },
+
             {
                 "texts": [
                     "Dodávky pořádkové jednotky",
@@ -241,7 +243,6 @@
                     "Jízdní policie PČR"
                 ],
                 "vehicles": [38, 39]
-            },
             }
         ]
     },
