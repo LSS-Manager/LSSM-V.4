@@ -88,39 +88,18 @@
             { "texts": ["VEA"], "vehicles": [3, 17] },
             {
                 "texts": [
-                    "Technický automobil",
-                    "Technických automobil",
-                    "Technicke automobil",
                     "technický automobil",
-                    "technických automobil",
-                    "technicke automobil",
-                    "Technický automobil",
-                    "Technický automobily",
-                    "Technických automobily",
-                    "Technicke automobily",
-                    "technický automobily",
-                    "technických automobily",
-                    "technicke automobily",
-                    "Technický automobilů",
+                    "Technické automobily",
                     "Technických automobilů",
-                    "Technicke automobilů",
-                    "technický automobilů",
-                    "technických automobilů",
-                    "technicke automobilů"
+                    "technických automobilů"
                 ],
                 "vehicles": [4]
             },
             {
                 "texts": [
                     "Protiplynový automobil",
-                    "Protiplynových automobil",
-                    "Protiplynove automobil",
-                    "Protiplynový automobily",
-                    "Protiplynových automobily",
-                    "Protiplynove automobily",
-                    "Protiplynový automobilů",
-                    "Protiplynových automobilů",
-                    "Protiplynove automobilů"
+                    "Protiplynové automobily",
+                    "Protiplynových automobilů"
                 ],
                 "vehicles": [16]
             },
@@ -142,8 +121,7 @@
             {
                 "texts": [
                     "Policejní vrtulník",
-                    "Policejní vrtulníků",
-                    "Policejních vrtulník",
+                    "Policejní vrtulníky",
                     "Policejních vrtulníků"
                 ],
                 "vehicles": [11]
@@ -162,10 +140,9 @@
             },
             {
                 "texts": [
-                    "Vozidel pyrotechika PČR",
                     "Vozidel pyrotechiků PČR",
                     "Vozidlo pyrotechika PČR",
-                    "Vozidlo pyrotechiků PČR"
+                    "Vozidla pyrotechika PČR"
                 ],
                 "vehicles": [19]
             },
@@ -176,14 +153,8 @@
             {
                 "texts": [
                     "Potápěčský automobil",
-                    "Potápěčských automobil",
-                    "Potápěčske automobil",
-                    "Potápěčský automobily",
-                    "Potápěčských automobily",
-                    "Potápěčske automobily",
-                    "Potápěčský automobilů",
-                    "Potápěčských automobilů",
-                    "Potápěčske automobilů"
+                    "Potápěčské automobily",
+                    "Potápěčských automobilů"
                 ],
                 "vehicles": [22]
             },
@@ -206,45 +177,71 @@
             { "texts": ["VYA nebo AJ"], "vehicles": [28, 29] },
             {
                 "texts": [
+                    "Dopravní automobil",
                     "Dopravní automobily",
-                    "Dopravní automobilů",
-                    "Dopravních automobily",
-                    "Dopravních automobilyů"
+                    "Dopravních automobilů"
                 ],
                 "vehicles": [30]
             },
             {
                 "texts": [
-                    "Rychl(é|ý(ch)?) zásahov(é|ý(ch)?) automobil[yů]?",
-                    "Rychlý zásahové automobil",
-                    "Rychlých zásahové automobil",
-                    "Rychle zásahové automobil",
-                    "Rychlý zásahové automobily",
-                    "Rychlých zásahové automobily",
-                    "Rychle zásahové automobily",
-                    "Rychlý zásahové automobilů",
-                    "Rychlých zásahové automobilů",
-                    "Rychle zásahové automobilů",
                     "Rychlý zásahový automobil",
-                    "Rychlých zásahový automobil",
-                    "Rychle zásahový automobil",
-                    "Rychlý zásahový automobily",
-                    "Rychlých zásahový automobily",
-                    "Rychle zásahový automobily",
-                    "Rychlý zásahový automobilů",
-                    "Rychlých zásahový automobilů",
-                    "Rychle zásahový automobilů",
-                    "Rychlý zásahových automobil",
-                    "Rychlých zásahových automobil",
-                    "Rychle zásahových automobil",
-                    "Rychlý zásahových automobily",
-                    "Rychlých zásahových automobily",
-                    "Rychle zásahových automobily",
-                    "Rychlý zásahových automobilů",
                     "Rychlých zásahových automobilů",
-                    "Rychle zásahových automobilů"
+                    "Rychlé zásahové automobily"
                 ],
-                "vehicles": [31]
+                "vehicles": [31],
+            {
+                "texts": [
+                    "Dodávky pořádkové jednotky",
+                    "Dodávka pořádkové jednotky"
+                ],
+                "vehicles": [32]
+            },
+            {
+                "texts": [
+                    "Policejní anton",
+                    "Policejní antony"
+                ],
+                "vehicles": [33]
+            },
+            {
+                "texts": [
+                    "Vodní stříkač pořádkové policie",
+                    "Vodní stříkače pořádkové policie",
+                    "Vodních stříkačů pořádkové policie"
+                ],
+                "vehicles": [34]
+            },
+            {
+                "texts": [
+                    "Vozidlo velitele PČR",
+                    "Vozidla velitele PČR",
+                    "Vozidel velitele PČR"
+                ],
+                "vehicles": [35]
+            },
+            {
+                "texts": [
+                    "Monitorovací vozidlo",
+                    "Monitorovací vozidla",
+                    "Monitorovacích vozidlel"
+                ],
+                "vehicles": [36]
+            },
+            {
+                "texts": [
+                    "Technické vozidlo s LRAD",
+                    "Technická vozidla s LRAD",
+                    "Technických vozidel s LRAD"
+                ],
+                "vehicles": [37]
+            },
+            {
+                "texts": [
+                    "Jízdní policie PČR"
+                ],
+                "vehicles": [38, 39]
+            },
             }
         ]
     },
@@ -252,7 +249,7 @@
         "hide": "Skrýt seznam vozidel",
         "show": "Zobrazit seznam vozidel"
     },
-    "releasePatient": { "release": "Release patient (No reward)" },
+    "releasePatient": { "release": "Odjet bez převozu (bez odměny)" },
     "tailoredTabs": { "allTab": "Vše", "occupiedTab": "Další mise" },
     "vehiclePlayerCounter": {
         " ": "",
