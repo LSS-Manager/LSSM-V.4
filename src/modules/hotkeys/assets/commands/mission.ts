@@ -87,40 +87,31 @@ export default <Scope<Empty, ['sorted', 'alliance'], [], true>>{
             }
         },
     },
-    alliance: <Scope<Empty, ['focus', 'toggle']>>{
+    alliance: <
+        Scope<
+            {
+                responseInputbox: HTMLInputElement | null;
+                responseCheckbox: HTMLInputElement | null;
+            },
+            [],
+            ['focus', 'toggle']
+        >
+    >{
         validatorFunction() {
-            return !!document.querySelector<HTMLDivElement>('#map');
+            this.responseInputbox = document.querySelector<HTMLInputElement>(
+                '#mission_reply_content'
+            );
+            this.responseCheckbox = document.querySelector<HTMLInputElement>(
+                '#mission_reply_alliance_chat'
+            );
+            return !!this.responseInputbox && !!this.responseCheckbox;
         },
-        focus: <
-            Scope<{ responseInputbox: HTMLInputElement | null }, [], ['focus']>
-        >{
-            validatorFunction() {
-                this.responseInputbox =
-                    document.querySelector<HTMLInputElement>(
-                        '#mission_reply_content'
-                    );
-                return !!this.responseInputbox;
-            },
-            focus() {
-                this.responseInputbox?.focus();
-            },
+        focus() {
+            if (this.responseCheckbox)
+                this.responseCheckbox.checked = !this.responseCheckbox.checked;
         },
-        toggle: <
-            Scope<{ responseCheckbox: HTMLInputElement | null }, [], ['focus']>
-        >{
-            validatorFunction() {
-                this.responseCheckbox =
-                    document.querySelector<HTMLInputElement>(
-                        '#mission_reply_alliance_chat'
-                    );
-                return !!this.responseCheckbox;
-            },
-            focus() {
-                if (this.responseCheckbox) {
-                    this.responseCheckbox.checked =
-                        !this.responseCheckbox.checked;
-                }
-            },
+        toggle() {
+            this.responseInputbox?.focus();
         },
     },
 };
