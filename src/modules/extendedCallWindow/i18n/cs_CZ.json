@@ -191,7 +191,6 @@
                 ],
                 "vehicles": [31]
             },
-
             {
                 "texts": [
                     "Dodávky pořádkové jednotky",
@@ -200,10 +199,7 @@
                 "vehicles": [32]
             },
             {
-                "texts": [
-                    "Policejní anton",
-                    "Policejní antony"
-                ],
+                "texts": ["Policejní anton", "Policejní antony"],
                 "vehicles": [33]
             },
             {
@@ -238,12 +234,7 @@
                 ],
                 "vehicles": [37]
             },
-            {
-                "texts": [
-                    "Jízdní policie PČR"
-                ],
-                "vehicles": [38, 39]
-            }
+            { "texts": ["Jízdní policie PČR"], "vehicles": [38, 39] }
         ]
     },
     "hideVehicleList": {

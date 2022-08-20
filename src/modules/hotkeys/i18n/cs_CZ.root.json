@@ -54,7 +54,11 @@
                     "title": "Vyhledat lokalitu"
                 },
                 "title": "Mapa",
-                "zoom": { "in": "Přiblížit", "out": "Oddálit", "title": "Přiblížení" }
+                "zoom": {
+                    "in": "Přiblížit",
+                    "out": "Oddálit",
+                    "title": "Přiblížení"
+                }
             },
             "missionlist": {
                 "eclSort": {
