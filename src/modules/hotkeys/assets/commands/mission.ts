@@ -111,7 +111,7 @@ export default <Scope<Empty, ['sorted', 'alliance'], [], true>>{
             validatorFunction() {
                 this.responseCheckbox =
                     document.querySelector<HTMLInputElement>(
-                        '#mission_reply_content'
+                        '#mission_reply_alliance_chat'
                     );
                 return !!this.responseCheckbox;
             },
