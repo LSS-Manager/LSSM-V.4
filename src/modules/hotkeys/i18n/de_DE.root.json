@@ -42,23 +42,23 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "runter",
+                    "left": "Links",
+                    "right": "Rechts",
+                    "title": "Bewegen",
+                    "up": "Hoch"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Ortssuche"
                 },
+                "title": "Karte",
                 "zoom": {
                     "in": "reinzoomen",
                     "out": "rauszoomen",
                     "title": "Zoomen"
-                },
-                "move": {
-                    "up": "Hoch",
-                    "down": "runter",
-                    "left": "Links",
-                    "right": "Rechts",
-                    "title": "Bewegen"
-                },
-                "title": "Karte"
+                }
             },
             "missionlist": {
                 "eclSort": {
