@@ -43,18 +43,22 @@
             },
             "map": {
                 "move": {
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move",
-                    "up": "up"
+                    "up": "góra",
+                    "down": "dół",
+                    "left": "lewo",
+                    "right": "prawo",
+                    "title": "Przesuń"
                 },
                 "search": {
                     "focus": "skup się na polu tekstowym",
                     "title": "Wyszukiwanie lokalizacji"
                 },
                 "title": "Mapa",
-                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
+                "zoom": {
+                    "in": "przybliż",
+                    "out": "oddal",
+                    "title": "Przybliżenie"
+                }
             },
             "missionlist": {
                 "eclSort": {
