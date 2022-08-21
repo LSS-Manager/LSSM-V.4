@@ -164,7 +164,7 @@
                 "vehicles": [0, 9, 28, 29, 30]
             },
             {
-                "texts": ["Velivoli Antincendi", "Velivolo Antincendio"],
+                "texts": ["Velivoli Antincendio", "Velivolo Antincendio"],
                 "vehicles": [34, 35]
             },
             { "texts": ["DOS"], "vehicles": [31] },
