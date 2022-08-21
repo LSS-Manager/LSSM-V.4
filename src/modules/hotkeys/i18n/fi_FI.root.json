@@ -84,7 +84,12 @@
                 "prev": "Edellinen tehtävä",
                 "title": "Lajitellut tehtävät"
             },
-            "title": "Hälytysikkuna"
+            "title": "Hälytysikkuna",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",

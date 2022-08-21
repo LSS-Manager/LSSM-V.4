@@ -90,7 +90,12 @@
                 "prev": "föregående upptrag",
                 "title": "Sortara uppdrag"
             },
-            "title": "Huvud fönster"
+            "title": "Huvud fönster",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Styr spelet med hotkeys som du själv kan definera.",

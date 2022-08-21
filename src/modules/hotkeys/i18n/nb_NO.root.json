@@ -84,7 +84,12 @@
                 "prev": "forrige oppdrag",
                 "title": "Sorterte oppdrag"
             },
-            "title": "Oppdragsvindu"
+            "title": "Oppdragsvindu",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Styr spillet med hurtigtaster som du kan sette selv.",

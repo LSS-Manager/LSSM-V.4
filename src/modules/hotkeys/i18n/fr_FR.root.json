@@ -90,7 +90,12 @@
                 "prev": "mission précédente",
                 "title": "Missions triées"
             },
-            "title": "Fenêtre des missions"
+            "title": "Fenêtre des missions",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",

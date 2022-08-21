@@ -139,4 +139,33 @@ export default <Scope<Empty, ['sorted', 'alliance', 'arr'], [], true>>{
             }
         },
     },
+    vehicleList: <
+        Scope<
+            { vehicleList: HTMLUListElement | null },
+            [],
+            ['next', 'previous']
+        >
+    >{
+        validatorFunction() {
+            this.vehicleList =
+                document.querySelector<HTMLUListElement>('#tabs');
+            return !!this.vehicleList;
+        },
+        next() {
+            const current = this.vehicleList?.querySelector('.active');
+            //Check whether this is the last element
+            if (current?.nextElementSibling != null) {
+                const next = current?.nextElementSibling?.firstChild;
+                (next as HTMLElement).click();
+            }
+        },
+        previous() {
+            const current = this.vehicleList?.querySelector('.active');
+            //Check whether this is the last element
+            if (current?.previousElementSibling != null) {
+                const previous = current?.previousElementSibling?.firstChild;
+                (previous as HTMLElement).click();
+            }
+        },
+    },
 };

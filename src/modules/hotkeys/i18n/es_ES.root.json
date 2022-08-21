@@ -87,7 +87,12 @@
                 "prev": "Misión anterior",
                 "title": "Misiones ordenadas"
             },
-            "title": "Ventana de misiones"
+            "title": "Ventana de misiones",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Controla el juego con teclas de acceso rápido en el teclado que puedes configurar tú mismo.",

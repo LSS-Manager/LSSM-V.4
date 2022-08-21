@@ -91,7 +91,12 @@
                 "prev": "vorheriger Einsatz",
                 "title": "Einsatzsortierung"
             },
-            "title": "Einsatzfenster"
+            "title": "Einsatzfenster",
+            "vehicleList": {
+                "next": "Nächster Tab",
+                "previous": "Vorheriger Tab",
+                "title": "Fahrzeugliste"
+            }
         }
     },
     "description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",

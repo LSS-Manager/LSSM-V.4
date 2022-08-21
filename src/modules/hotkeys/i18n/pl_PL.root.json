@@ -91,7 +91,12 @@
                 "prev": "Poprzednia misja",
                 "title": "Posortowane misje"
             },
-            "title": "Okno misji"
+            "title": "Okno misji",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",

@@ -91,7 +91,12 @@
                 "prev": "předchozí mise",
                 "title": "Seřazené mise"
             },
-            "title": "Okno mise"
+            "title": "Okno mise",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Ovládejte hru pomocí klávesových zkratek, které si můžete nastavit.",

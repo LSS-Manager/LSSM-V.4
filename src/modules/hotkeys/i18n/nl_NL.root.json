@@ -84,7 +84,12 @@
                 "prev": "vorige melding",
                 "title": "Gesorteerde meldingen"
             },
-            "title": "Meldingsscherm"
+            "title": "Meldingsscherm",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",

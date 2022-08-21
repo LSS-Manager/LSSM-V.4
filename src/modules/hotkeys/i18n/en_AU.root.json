@@ -84,7 +84,12 @@
                 "prev": "previous mission",
                 "title": "Sorted missions"
             },
-            "title": "Mission window"
+            "title": "Mission window",
+            "vehicleList": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
