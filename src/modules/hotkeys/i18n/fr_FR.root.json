@@ -73,17 +73,22 @@
             "title": "Fenêtre principale"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Déployer et aller à la mission suivante",
                 "alert_share_next": "Déployer, partager et aller à la mission suivante",
                 "next": "prochaine mission",
                 "prev": "mission précédente",
                 "title": "Missions triées"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Fenêtre des missions"
         }

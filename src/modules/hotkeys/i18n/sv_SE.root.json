@@ -73,17 +73,22 @@
             "title": "Huvudfönster"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Skicka enheter och gå till nästa",
                 "alert_share_next": "Skicka enheter, dela och gå till nästa",
                 "next": "nästa uppdrag",
                 "prev": "föregående upptrag",
                 "title": "Sortara uppdrag"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Huvud fönster"
         }

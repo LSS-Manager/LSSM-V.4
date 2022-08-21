@@ -74,17 +74,22 @@
             "title": "Hauptfenster"
         },
         "mission": {
+            "alliance": {
+                "focus": "Fokussiere Rückmeldungsfeld",
+                "title": "Verband",
+                "toggle": "Wechsle 'Im Verbandschat posten'"
+            },
+            "arr": {
+                "next": "Nächster Tab",
+                "previous": "Vorheriger Tab",
+                "title": "AAO"
+            },
             "sorted": {
                 "alert_next": "Alarmieren und weiter",
                 "alert_share_next": "Alarmieren, Teilen und weiter",
                 "next": "nächster Einsatz",
                 "prev": "vorheriger Einsatz",
                 "title": "Einsatzsortierung"
-            },
-            "alliance": {
-                "focus":"Fokussiere Rückmeldungsfeld",
-                "toggle":"Wechsle 'Im Verbandschat posten'",
-                "title": "Verband"
             },
             "title": "Einsatzfenster"
         }

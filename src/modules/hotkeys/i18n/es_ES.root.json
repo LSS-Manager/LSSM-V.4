@@ -70,17 +70,22 @@
             "title": "Ventana principal"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Alarma e ir a la siguiente misión",
                 "alert_share_next": "Alarma, compartir e ir a la siguiente misión",
                 "next": "Siguiente misión",
                 "prev": "Misión anterior",
                 "title": "Misiones ordenadas"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Ventana de misiones"
         }

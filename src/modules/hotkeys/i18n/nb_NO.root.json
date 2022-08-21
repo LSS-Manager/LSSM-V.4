@@ -67,17 +67,22 @@
             "title": "Hovedvindu"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Utalarmer og gå til neste oppdrag",
                 "alert_share_next": "Utalarmer, del og gå til neste oppdrag",
                 "next": "neste oppdrag",
                 "prev": "forrige oppdrag",
                 "title": "Sorterte oppdrag"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Oppdragsvindu"
         }

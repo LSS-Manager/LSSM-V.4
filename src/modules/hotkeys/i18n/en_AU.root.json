@@ -67,17 +67,22 @@
             "title": "Main window"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Alarm and go to next mission",
                 "alert_share_next": "Alarm, Share and go to next mission",
                 "next": "next mission",
                 "prev": "previous mission",
                 "title": "Sorted missions"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Mission window"
         }

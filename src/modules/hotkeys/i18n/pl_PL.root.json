@@ -43,11 +43,11 @@
             },
             "map": {
                 "move": {
-                    "up": "góra",
                     "down": "dół",
                     "left": "lewo",
                     "right": "prawo",
-                    "title": "Przesuń"
+                    "title": "Przesuń",
+                    "up": "góra"
                 },
                 "search": {
                     "focus": "skup się na polu tekstowym",
@@ -74,17 +74,22 @@
             "title": "Główne okno"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
                 "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
                 "next": "Następna misja",
                 "prev": "Poprzednia misja",
                 "title": "Posortowane misje"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Okno misji"
         }

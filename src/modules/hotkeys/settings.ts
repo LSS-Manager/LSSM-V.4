@@ -46,6 +46,8 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'mission.sorted.alert_share_next',
         'mission.alliance.focus',
         'mission.alliance.toggle',
+        'mission.arr.next',
+        'mission.arr.previous',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)

@@ -124,16 +124,18 @@ export default <Scope<Empty, ['sorted', 'alliance', 'arr'], [], true>>{
         },
         next() {
             const current = this.arrList?.querySelector('.active');
+            //Check whether this is the last element
             if (current?.nextElementSibling != null) {
-                current.classList.remove('active');
-                current.nextElementSibling.classList.add('active');
+                const next = current?.nextElementSibling?.firstChild;
+                (next as HTMLElement).click();
             }
         },
         previous() {
             const current = this.arrList?.querySelector('.active');
-            if (current?.nextElementSibling != null) {
-                current.classList.remove('active');
-                current.nextElementSibling.classList.add('active');
+            //Check whether this is the last element
+            if (current?.previousElementSibling != null) {
+                const previous = current?.previousElementSibling?.firstChild;
+                (previous as HTMLElement).click();
             }
         },
     },

@@ -70,17 +70,22 @@
             "title": "Hlavní okno"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "Arr"
+            },
             "sorted": {
                 "alert_next": "Výjezd a další mise",
                 "alert_share_next": "Výjezd, sdílení a další mise",
                 "next": "další mise",
                 "prev": "předchozí mise",
                 "title": "Seřazené mise"
-            },
-            "alliance": {
-                "focus":"Focus alliance response window",
-                "toggle":"Toggle 'post in alliance chat'",
-                "title": "Alliance"
             },
             "title": "Okno mise"
         }
