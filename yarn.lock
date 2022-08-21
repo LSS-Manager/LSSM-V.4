@@ -2078,10 +2078,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.183":
-  version: 4.14.183
-  resolution: "@types/lodash@npm:4.14.183"
-  checksum: 9c754dc7a2e5f26f9c67e494cffbe5447135a4e30eb2fcbc9da05dd5fa5fbf8579059bcf15014307c1c5d1c6d1b7870860618990d96abee9389d8cb79b3ac93c
+"@types/lodash@npm:^4.14.184":
+  version: 4.14.184
+  resolution: "@types/lodash@npm:4.14.184"
+  checksum: 6d9a4d67f7f9d0ec3fd21174f3dd3d00629dc1227eb469450eace53adbc1f7e2330699c28d0fe093e5f0fef0f0e763098be1f779268857213224af082b62be21
   languageName: node
   linkType: hard
 
@@ -2125,10 +2125,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.7.6":
+"@types/node@npm:*":
   version: 18.7.6
   resolution: "@types/node@npm:18.7.6"
   checksum: 5122988c325eda8d1f5cbe4494916036aae1758f9d5bb2d8139a800b8bad1540fbb167cd3c759da9a5cb4600cd3507609ac7969747113c1549a3e4320a17b1a9
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.7.9":
+  version: 18.7.9
+  resolution: "@types/node@npm:18.7.9"
+  checksum: 691ea1b734c0a39c4fe03c104fed18e0148bda6f2504dd341f84be8153d28e74d8114198d2d064ab7fdd2ece3ee16c60b78eea0101fb004f6e4595a631bc3839
   languageName: node
   linkType: hard
 
@@ -2165,12 +2172,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qrcode@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "@types/qrcode@npm:1.4.3"
+"@types/qrcode@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@types/qrcode@npm:1.5.0"
   dependencies:
     "@types/node": "*"
-  checksum: 6096893184aaec7cffb4151ed7925f343fa1308d5c0afbaca3b00a7225496db8dc262e61e6604598926165b97f20064279750a543b06debabd65e5d8f6f9f069
+  checksum: b0ece3834ca5ba6171132928fd1ef764772dc619b45cb4123461ee05e377ad15553a330d234c69db0d0028c6639a99429e88d99192fbba9c5ee97c23f278c48b
   languageName: node
   linkType: hard
 
@@ -9005,11 +9012,11 @@ __metadata:
     "@types/i18n-js": ^3.8.2
     "@types/jquery": ^3.5.14
     "@types/leaflet": ^1.7.11
-    "@types/lodash": ^4.14.183
-    "@types/node": ^18.7.6
+    "@types/lodash": ^4.14.184
+    "@types/node": ^18.7.9
     "@types/pdfmake": ^0.2.1
     "@types/prettier": ^2.7.0
-    "@types/qrcode": ^1.4.3
+    "@types/qrcode": ^1.5.0
     "@types/semver": ^7.3.12
     "@types/showdown": ^2.0.0
     "@types/tampermonkey": ^4.0.5
