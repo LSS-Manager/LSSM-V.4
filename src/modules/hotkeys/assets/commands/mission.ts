@@ -4,7 +4,7 @@ import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets
 
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['sorted', 'alliance'], [], true>>{
+export default <Scope<Empty, ['sorted', 'alliance', 'arr'], [], true>>{
     sorted: <
         Scope<
             {
@@ -112,6 +112,29 @@ export default <Scope<Empty, ['sorted', 'alliance'], [], true>>{
         },
         toggle() {
             this.responseInputbox?.focus();
+        },
+    },
+    arr: <
+        Scope<{ arrList: HTMLUListElement | null }, [], ['next', 'previous']>
+    >{
+        validatorFunction() {
+            this.arrList =
+                document.querySelector<HTMLUListElement>('#aao-tabs');
+            return !!this.arrList;
+        },
+        next() {
+            const current = this.arrList?.querySelector('.active');
+            if (current?.nextElementSibling != null) {
+                current.classList.remove('active');
+                current.nextElementSibling.classList.add('active');
+            }
+        },
+        previous() {
+            const current = this.arrList?.querySelector('.active');
+            if (current?.nextElementSibling != null) {
+                current.classList.remove('active');
+                current.nextElementSibling.classList.add('active');
+            }
         },
     },
 };
