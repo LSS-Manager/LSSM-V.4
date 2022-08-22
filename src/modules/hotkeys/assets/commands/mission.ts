@@ -4,7 +4,9 @@ import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets
 
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['sorted', 'alliance', 'arr'], [], true>>{
+export default <
+    Scope<Empty, ['sorted', 'alliance', 'arr', 'vehicleList'], [], true>
+>{
     sorted: <
         Scope<
             {
@@ -106,11 +108,11 @@ export default <Scope<Empty, ['sorted', 'alliance', 'arr'], [], true>>{
             );
             return !!this.responseInputbox && !!this.responseCheckbox;
         },
-        focus() {
+        toggle() {
             if (this.responseCheckbox)
                 this.responseCheckbox.checked = !this.responseCheckbox.checked;
         },
-        toggle() {
+        focus() {
             this.responseInputbox?.focus();
         },
     },
