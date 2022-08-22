@@ -128,15 +128,16 @@ export default <
             const current = this.arrList?.querySelector('.active');
             //Check whether this is the last element
             if (current?.nextElementSibling != null) {
-                const next = current?.nextElementSibling?.firstChild;
+                const next = current?.nextElementSibling?.firstElementChild;
                 (next as HTMLElement).click();
             }
         },
         previous() {
             const current = this.arrList?.querySelector('.active');
-            //Check whether this is the last element
+            //Check whether this is the first element
             if (current?.previousElementSibling != null) {
-                const previous = current?.previousElementSibling?.firstChild;
+                const previous =
+                    current?.previousElementSibling?.firstElementChild;
                 (previous as HTMLElement).click();
             }
         },
@@ -157,15 +158,16 @@ export default <
             const current = this.vehicleList?.querySelector('.active');
             //Check whether this is the last element
             if (current?.nextElementSibling != null) {
-                const next = current?.nextElementSibling?.firstChild;
+                const next = current?.nextElementSibling?.firstElementChild;
                 (next as HTMLElement).click();
             }
         },
         previous() {
             const current = this.vehicleList?.querySelector('.active');
-            //Check whether this is the last element
+            //Check whether this is the first element
             if (current?.previousElementSibling != null) {
-                const previous = current?.previousElementSibling?.firstChild;
+                const previous =
+                    current?.previousElementSibling?.firstElementChild;
                 (previous as HTMLElement).click();
             }
         },
