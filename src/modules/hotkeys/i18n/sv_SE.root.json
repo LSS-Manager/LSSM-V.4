@@ -92,6 +92,7 @@
             },
             "title": "Huvud fönster",
             "vehicleList": {
+                "loadMissing": "Load missing vehicles",
                 "next": "next tab",
                 "previous": "previous tab",
                 "title": "vehicle list"

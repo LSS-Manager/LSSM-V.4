@@ -144,15 +144,21 @@ export default <
     },
     vehicleList: <
         Scope<
-            { vehicleList: HTMLUListElement | null },
+            {
+                vehicleList: HTMLUListElement | null;
+                loadMissingBtn: HTMLAnchorElement | null;
+            },
             [],
-            ['next', 'previous']
+            ['next', 'previous', 'loadMissing']
         >
     >{
         validatorFunction() {
             this.vehicleList =
                 document.querySelector<HTMLUListElement>('#tabs');
-            return !!this.vehicleList;
+            this.loadMissingBtn = document.querySelector<HTMLAnchorElement>(
+                '.missing_vehicles_load'
+            );
+            return !!this.vehicleList && !!this.loadMissingBtn;
         },
         next() {
             const current = this.vehicleList?.querySelector('.active');
@@ -170,6 +176,11 @@ export default <
                     current?.previousElementSibling?.firstElementChild;
                 (previous as HTMLElement).click();
             }
+        },
+        loadMissing() {
+            //display:none => no vehicles missing
+            if (this.loadMissingBtn?.style.display != 'none')
+                this.loadMissingBtn?.click();
         },
     },
 };
