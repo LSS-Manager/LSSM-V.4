@@ -80,12 +80,10 @@ export default (
             )
         );
 
-    const requirementsByVehicleID = getRequirementsByIDs(
-        $m('vehiclesByRequirement') as unknown as GroupTranslation
-    );
-    const staffByVehicleID = getRequirementsByIDs(
-        $m('staff') as unknown as GroupTranslation
-    );
+    const vbrTranslation = $m('vehiclesByRequirement') as unknown as (GroupTranslation | string);
+    const requirementsByVehicleID = typeof vbrTranslation === "string" ? {} : getRequirementsByIDs(vbrTranslation);
+    const staffTranslation = $m('staff') as unknown as (GroupTranslation | string);
+    const staffByVehicleID = typeof staffTranslation === "string" ? {} : getRequirementsByIDs(staffTranslation);
 
     const towingVehicles = $m('towingVehicles') as unknown as Record<
         number,
