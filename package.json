@@ -76,7 +76,7 @@
         "eslint-plugin-jsdoc": "^39.3.6",
         "eslint-plugin-markdownlint": "^0.4.0",
         "eslint-plugin-prettier": "^4.2.1",
-        "eslint-plugin-regexp": "^1.8.0",
+        "eslint-plugin-regexp": "^1.9.0",
         "eslint-plugin-tsdoc": "^0.2.16",
         "eslint-plugin-unicorn": "^43.0.2",
         "eslint-plugin-vue": "^9.3.0",
