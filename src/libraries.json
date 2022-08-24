@@ -276,7 +276,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.5.34"
+        "version": "0.5.35"
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
