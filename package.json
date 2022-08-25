@@ -1,5 +1,5 @@
 {
-    "version": "4.6.1+20220824.0935",
+    "version": "4.6.1+20220825.0700",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
@@ -98,7 +98,7 @@
     "engines": {
         "node": "^16.13.2 || ^18.0.0"
     },
-    "packageManager": "yarn@3.2.2",
+    "packageManager": "yarn@3.2.3",
     "workspaces": [
         "./docs/.vuepress/"
     ],
