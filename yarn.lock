@@ -7689,12 +7689,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.35":
-  version: 0.5.35
-  resolution: "moment-timezone@npm:0.5.35"
+"moment-timezone@npm:^0.5.37":
+  version: 0.5.37
+  resolution: "moment-timezone@npm:0.5.37"
   dependencies:
     moment: ">= 2.9.0"
-  checksum: 0f3907282dc9ae3d405fefaccf486dc4222945ff479127fd269e6c4ddc25e526e7ca9e849d6bf941c871bd17e875b256bdb276137a55db9fce4177c792a003df
+  checksum: b3fc24848a396ee3801331a4b5511591df0e22241e59f55200a475603f23a8429f01887294c7a0c005dae25b8e4bef20472fbc875ff20080f26fded066559f1a
   languageName: node
   linkType: hard
 
@@ -9056,7 +9056,7 @@ __metadata:
     lodash: ^4.17.21
     mini-svg-data-uri: ^1.4.4
     moment: ^2.29.4
-    moment-timezone: ^0.5.35
+    moment-timezone: ^0.5.37
     pdfmake: ^0.2.5
     pinia: ^2.0.20
     prettier: ^2.7.1
