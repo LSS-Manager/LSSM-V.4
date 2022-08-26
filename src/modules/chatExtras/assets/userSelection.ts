@@ -210,7 +210,7 @@ export default (LSSM: Vue) => {
                 choiceElements[i].dataset.choice = '';
             else choiceElements[i].dataset.choice = filteredUsersSorted[i].name;
             choiceElements[i].dataset.online =
-                filteredUsersSorted[i].online.toString();
+                Boolean(filteredUsersSorted[i]?.online ?? false).toString();
         }
     };
 
