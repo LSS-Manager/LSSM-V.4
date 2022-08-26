@@ -209,7 +209,8 @@ export default (LSSM: Vue) => {
             if (i >= filteredUsersSorted.length)
                 choiceElements[i].dataset.choice = '';
             else choiceElements[i].dataset.choice = filteredUsersSorted[i].name;
-            choiceElements[i].dataset.online = filteredUsersSorted[i].online.toString();
+            choiceElements[i].dataset.online =
+                filteredUsersSorted[i].online.toString();
         }
     };
 
