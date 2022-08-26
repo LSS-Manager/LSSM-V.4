@@ -52,7 +52,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.7.9"
+        "version": "18.7.13"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -91,7 +91,7 @@
     "@types/vue-select": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-        "version": "3.16.1"
+        "version": "3.16.2"
     },
     "@types/webpack": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -108,11 +108,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.33.1"
+        "version": "5.35.1"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.33.1"
+        "version": "5.35.1"
     },
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
@@ -191,7 +191,7 @@
         "version": "7.32.1"
     },
     "eslint-import-resolver-typescript": {
-        "version": "3.4.2"
+        "version": "3.5.0"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
@@ -215,7 +215,7 @@
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
-        "version": "1.8.0"
+        "version": "1.9.0"
     },
     "eslint-plugin-tsdoc": {
         "icon": "https://tsdoc.org/images/tsdoc.svg",
@@ -230,7 +230,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.3.0"
+        "version": "9.4.0"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -276,7 +276,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.5.34"
+        "version": "0.5.37"
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
@@ -322,7 +322,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.14.2"
+        "version": "5.15.0"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -337,7 +337,7 @@
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
         "url": "https://www.typescriptlang.org/",
-        "version": "4.7.4"
+        "version": "4.8.2"
     },
     "ua-parser-js": {
         "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
@@ -352,7 +352,7 @@
     "vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue#readme",
-        "version": "2.7.8"
+        "version": "2.7.10"
     },
     "vue-i18n": {
         "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -390,7 +390,7 @@
     "vue-template-compiler": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
-        "version": "2.7.8"
+        "version": "2.7.10"
     },
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
