@@ -65,11 +65,21 @@ export default (LSSM: Vue) => {
                 display: 'none',
             },
         },
-        // make the choice element have the username as text content
+        // make the choice element have the username as text content and the offline icon on the left
         {
             selectorText: `.${popupClass} .list-group-item[data-choice]::before`,
             style: {
-                content: 'attr(data-choice)',
+                'content': 'attr(data-choice)',
+                'background-image': 'url("/images/user_gray.png")',
+                'background-repeat': 'no-repeat',
+                'padding-left': '21px',
+            },
+        },
+        // use online icon if user is online
+        {
+            selectorText: `.${popupClass} .list-group-item[data-choice][data-online="true"]::before`,
+            style: {
+                'background-image': 'url("/images/user_green.png")',
             },
         },
     ]);
@@ -183,6 +193,7 @@ export default (LSSM: Vue) => {
             .filter(({ name }) => name.toLowerCase().includes(username))
             .map(({ name, id, online }) => ({
                 name,
+                online,
                 relevance:
                     Number(name.toLowerCase().startsWith(username)) +
                     Number(online) +
@@ -198,6 +209,7 @@ export default (LSSM: Vue) => {
             if (i >= filteredUsersSorted.length)
                 choiceElements[i].dataset.choice = '';
             else choiceElements[i].dataset.choice = filteredUsersSorted[i].name;
+            choiceElements[i].dataset.online = filteredUsersSorted[i].online.toString();
         }
     };
 
