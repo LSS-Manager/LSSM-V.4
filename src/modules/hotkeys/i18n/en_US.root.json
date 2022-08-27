@@ -67,6 +67,16 @@
             "title": "Main window"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Alarm and go to next mission",
                 "alert_share_next": "Alarm, Share and go to next mission",
@@ -74,7 +84,13 @@
                 "prev": "previous mission",
                 "title": "Sorted missions"
             },
-            "title": "Mission window"
+            "title": "Mission window",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Control the game with hotkeys on the keyboard, which you can set yourself.",

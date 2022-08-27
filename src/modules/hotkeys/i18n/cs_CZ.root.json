@@ -74,6 +74,16 @@
             "title": "Hlavní okno"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Výjezd a další mise",
                 "alert_share_next": "Výjezd, sdílení a další mise",
@@ -81,7 +91,13 @@
                 "prev": "předchozí mise",
                 "title": "Seřazené mise"
             },
-            "title": "Okno mise"
+            "title": "Okno mise",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Ovládejte hru pomocí klávesových zkratek, které si můžete nastavit.",

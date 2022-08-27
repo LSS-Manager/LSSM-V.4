@@ -1,8 +1,12 @@
+import type Vue from 'vue';
+
 import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets/sort/mission';
 
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['sorted'], [], true>>{
+export default <
+    Scope<Empty, ['sorted', 'alliance', 'arr', 'vehicleList'], [], true>
+>{
     sorted: <
         Scope<
             {
@@ -83,6 +87,100 @@ export default <Scope<Empty, ['sorted'], [], true>>{
                     )
                     ?.click();
             }
+        },
+    },
+    alliance: <
+        Scope<
+            {
+                responseInputbox: HTMLInputElement | null;
+                responseCheckbox: HTMLInputElement | null;
+            },
+            [],
+            ['focus', 'toggle']
+        >
+    >{
+        validatorFunction() {
+            this.responseInputbox = document.querySelector<HTMLInputElement>(
+                '#mission_reply_content'
+            );
+            this.responseCheckbox = document.querySelector<HTMLInputElement>(
+                '#mission_reply_alliance_chat'
+            );
+            return !!this.responseInputbox && !!this.responseCheckbox;
+        },
+        toggle() {
+            if (this.responseCheckbox)
+                this.responseCheckbox.checked = !this.responseCheckbox.checked;
+        },
+        focus() {
+            this.responseInputbox?.focus();
+        },
+    },
+    arr: <
+        Scope<{ arrList: HTMLUListElement | null }, [], ['next', 'previous']>
+    >{
+        validatorFunction() {
+            this.arrList =
+                document.querySelector<HTMLUListElement>('#aao-tabs');
+            return !!this.arrList;
+        },
+        next() {
+            const current = this.arrList?.querySelector('.active');
+            //Check whether this is the last element
+            if (current?.nextElementSibling != null) {
+                const next = current?.nextElementSibling?.firstElementChild;
+                (next as HTMLElement).click();
+            }
+        },
+        previous() {
+            const current = this.arrList?.querySelector('.active');
+            //Check whether this is the first element
+            if (current?.previousElementSibling != null) {
+                const previous =
+                    current?.previousElementSibling?.firstElementChild;
+                (previous as HTMLElement).click();
+            }
+        },
+    },
+    vehicleList: <
+        Scope<
+            {
+                vehicleList: HTMLUListElement | null;
+                loadMissingBtn: HTMLAnchorElement | null;
+            },
+            [],
+            ['next', 'previous', 'loadMissing']
+        >
+    >{
+        validatorFunction() {
+            this.vehicleList =
+                document.querySelector<HTMLUListElement>('#tabs');
+            return !!this.vehicleList;
+        },
+        next() {
+            const current = this.vehicleList?.querySelector('.active');
+            //Check whether this is the last element
+            if (current?.nextElementSibling != null) {
+                const next = current?.nextElementSibling?.firstElementChild;
+                (next as HTMLElement).click();
+            }
+        },
+        previous() {
+            const current = this.vehicleList?.querySelector('.active');
+            //Check whether this is the first element
+            if (current?.previousElementSibling !== null) {
+                const previous =
+                    current?.previousElementSibling?.firstElementChild;
+                (previous as HTMLElement).click();
+            }
+        },
+        loadMissing() {
+            this.loadMissingBtn = document.querySelector<HTMLAnchorElement>(
+                '.missing_vehicles_load'
+            );
+            //display:none => no vehicles missing
+            if (this.loadMissingBtn?.style.display != 'none')
+                this.loadMissingBtn?.click();
         },
     },
 };

@@ -70,6 +70,16 @@
             "title": "Ventana principal"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Alarma e ir a la siguiente misión",
                 "alert_share_next": "Alarma, compartir e ir a la siguiente misión",
@@ -77,7 +87,13 @@
                 "prev": "Misión anterior",
                 "title": "Misiones ordenadas"
             },
-            "title": "Ventana de misiones"
+            "title": "Ventana de misiones",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Controla el juego con teclas de acceso rápido en el teclado que puedes configurar tú mismo.",

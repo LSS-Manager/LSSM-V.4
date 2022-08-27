@@ -67,6 +67,16 @@
             "title": "Pääikkuna"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Lähetä ja seuraava",
                 "alert_share_next": "Lähetä valitut yksiköt, jaa tehtavä liittoutumasi kanssa ja jatka seuraavaan tehtävään.",
@@ -74,7 +84,13 @@
                 "prev": "Edellinen tehtävä",
                 "title": "Lajitellut tehtävät"
             },
-            "title": "Hälytysikkuna"
+            "title": "Hälytysikkuna",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",
