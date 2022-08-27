@@ -93,7 +93,7 @@
             },
             "title": "Einsatzfenster",
             "vehicleList": {
-                "loadMissing": "Lade fehlende Fahrzeuge",
+                "loadMissing": "Fehlende Fahrzeuge nachladen",
                 "next": "Nächster Tab",
                 "previous": "Vorheriger Tab",
                 "title": "Fahrzeugliste"

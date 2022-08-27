@@ -155,10 +155,7 @@ export default <
         validatorFunction() {
             this.vehicleList =
                 document.querySelector<HTMLUListElement>('#tabs');
-            this.loadMissingBtn = document.querySelector<HTMLAnchorElement>(
-                '.missing_vehicles_load'
-            );
-            return !!this.vehicleList && !!this.loadMissingBtn;
+            return !!this.vehicleList;
         },
         next() {
             const current = this.vehicleList?.querySelector('.active');
@@ -178,6 +175,9 @@ export default <
             }
         },
         loadMissing() {
+            this.loadMissingBtn = document.querySelector<HTMLAnchorElement>(
+                '.missing_vehicles_load'
+            );
             //display:none => no vehicles missing
             if (this.loadMissingBtn?.style.display != 'none')
                 this.loadMissingBtn?.click();
