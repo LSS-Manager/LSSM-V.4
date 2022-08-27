@@ -50,6 +50,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'mission.arr.previous',
         'mission.vehicleList.next',
         'mission.vehicleList.previous',
+        'mission.vehicleList.loadMissing',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)
