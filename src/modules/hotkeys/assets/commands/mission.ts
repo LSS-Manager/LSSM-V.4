@@ -168,7 +168,7 @@ export default <
         previous() {
             const current = this.vehicleList?.querySelector('.active');
             //Check whether this is the first element
-            if (current?.previousElementSibling != null) {
+            if (current?.previousElementSibling !== null) {
                 const previous =
                     current?.previousElementSibling?.firstElementChild;
                 (previous as HTMLElement).click();
