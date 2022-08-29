@@ -136,10 +136,7 @@
             },
             { "texts": ["Armed Response"], "vehicles": [13, 25, 52, 56] },
             {
-                "texts": [
-                    "Dog Support Unit (DSU)",
-                    "Dog Support Units (DSUs)"
-                ],
+                "texts": ["Dog Support Unit (DSU)", "Dog Support Units (DSUs)"],
                 "vehicles": [12, 53]
             },
             {
