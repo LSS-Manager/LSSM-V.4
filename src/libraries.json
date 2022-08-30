@@ -239,7 +239,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "10.2.0"
+        "version": "10.2.1"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
