@@ -2619,7 +2619,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/shared@npm:3.2.38":
+"@vue/shared@npm:3.2.38, @vue/shared@npm:^3.2.37":
   version: 3.2.38
   resolution: "@vue/shared@npm:3.2.38"
   checksum: c1aa5ec1320fff7431297c594cb976908b5ff240a16384930b4b16dc2a0d663aa09706337dee6910db260c5bb24fb31359006637d01de98009247a68acde5eae
@@ -3948,9 +3948,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001304, caniuse-lite@npm:^1.0.30001370, caniuse-lite@npm:^1.0.30001373":
-  version: 1.0.30001385
-  resolution: "caniuse-lite@npm:1.0.30001385"
-  checksum: fc526aa2a8070f7b77e7128567cb7e599ae7b1a172bef965f60345b7a327daa5029e984b42819e5c0a6de4282c9e932f58978cf36f58cc381d5128a940485d96
+  version: 1.0.30001387
+  resolution: "caniuse-lite@npm:1.0.30001387"
+  checksum: 57b894aa54da582f867018cdbc3c8956f894962988233cd4ace8710ab0e3405dd928926e35f46e5a9b4068e5cea7e36c6e14f930c9c40972885f329df7e8119e
   languageName: node
   linkType: hard
 
@@ -10768,7 +10768,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.2.38":
+"vue@npm:^3.2.33, vue@npm:^3.2.37, vue@npm:^3.2.38":
   version: 3.2.38
   resolution: "vue@npm:3.2.38"
   dependencies:
