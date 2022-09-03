@@ -30,7 +30,11 @@ export default <ModuleSettingFunction>(() => ({
     },
     hideAllianceFunds: <Toggle>{
         type: 'toggle',
-        default: false
+        default: false,
+    },
+    showAlertProgressBar: <Toggle>{
+        type: 'toggle',
+        default: false,
     },
     alerts: <Omit<AppendableList, 'isDisabled' | 'value'>>{
         type: 'appendable-list',

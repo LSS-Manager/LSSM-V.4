@@ -33,6 +33,10 @@
             "description": "Uthever Mynter grønne hvis et salg er tilgjengelig",
             "title": "Høydepunkter salg"
         },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Mål",
+            "title": "Mål progress bar"
+        },
         "showSales": {
             "description": "Viser salg for mynter når det er tilgjengelig.",
             "title": "Vis salg"

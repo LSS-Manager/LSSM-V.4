@@ -33,6 +33,10 @@
             "description": "Hebt Coins grün hervor, wenn es gerade einen Sale gibt.",
             "title": "Sales hervorheben"
         },
+        "showAlertProgressBar": {
+            "description": "Zeigt einen kleinen Fortschrittsbalken an, wie weit du auf deinem Weg zum nächsten gesetzten Ziel bist.",
+            "title": "Fortschrittsbalken für Ziele"
+        },
         "showSales": {
             "description": "Zeigt an, wenn es gerade ein Sale für Coins gibt.",
             "title": "Sales anzeigen"

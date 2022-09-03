@@ -33,6 +33,10 @@
             "description": "Highlights Coins green if a sale is available",
             "title": "highlight Sales"
         },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Goals",
+            "title": "Goals progress bar"
+        },
         "showSales": {
             "description": "Shows Sales for Coins when available.",
             "title": "show Sales"

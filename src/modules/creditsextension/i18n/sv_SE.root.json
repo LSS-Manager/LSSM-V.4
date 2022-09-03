@@ -33,6 +33,10 @@
             "description": "Markera Mynt med grönt om försäljning är tillgänlig",
             "title": "Markera Försäljningar"
         },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Mål",
+            "title": "Mål progress bar"
+        },
         "showSales": {
             "description": "Visa försäljningar för Mynt när det är tillgängligt.",
             "title": "Visa Försäljningar"

@@ -12,6 +12,14 @@
         :title="`${$t('credits')}: ${creditsLocalized}\n${$t(
             'coins'
         )}: ${coinsLocalized}`"
+        :style="
+            showAlertProgressBar
+                ? `background-image: linear-gradient(90deg, rgb(0, 255, 0) 0%, rgb(0, 255, 0) ${alertProgressPercentage}%, rgba(255, 0, 0, 0.5) ${
+                      alertProgressPercentage + 0.01
+                  }%`
+                : null
+        "
+        :data-progress="showAlertProgressBar"
         @click="() => (highlightedConsistend = false)"
     >
         <a
@@ -142,7 +150,9 @@
                     {{ toplistPosition.toLocaleString() }}
                 </a>
             </li>
-            <template v-if="creditsAPI.credits_alliance_active && !hideAllianceFunds">
+            <template
+                v-if="creditsAPI.credits_alliance_active && !hideAllianceFunds"
+            >
                 <li class="divider"></li>
                 <li>
                     <a href="/verband/kasse" class="lightbox-open">
@@ -215,6 +225,8 @@ export default Vue.extend<
             credits_alliance_total: number;
         };
         hideAllianceFunds: boolean;
+        showAlertProgressBar: boolean;
+        alertProgressPercentage: number;
     },
     {
         $m(
@@ -274,6 +286,8 @@ export default Vue.extend<
                 credits_alliance_total: 0,
             },
             hideAllianceFunds: false,
+            showAlertProgressBar: false,
+            alertProgressPercentage: 0,
         };
     },
     props: {
@@ -389,10 +403,19 @@ export default Vue.extend<
         this.getSetting('hideAllianceFunds').then(value =>
             this.$set(this, 'hideAllianceFunds', value)
         );
+        this.getSetting('showAlertProgressBar').then(value =>
+            this.$set(this, 'showAlertProgressBar', value)
+        );
 
         this.getSetting<{ enabled: boolean; value: { credits: number }[] }>(
             'alerts'
-        ).then(({ value: alerts }) =>
+        ).then(({ value: alerts }) => {
+            if (!alerts.length) return;
+            const alertValues = alerts.map(({ credits }) => credits).sort();
+
+            const findNextAlertValue = (current: number) =>
+                alertValues.find(value => value > current) ?? 0;
+
             window.addEventListener(`${PREFIX}_credits_update`, ev => {
                 const { new: newValue, old: oldValue } = (<
                     CustomEvent<{ new: number; old: number; diff: number }>
@@ -402,8 +425,20 @@ export default Vue.extend<
                     if (oldValue < credits && newValue >= credits)
                         this.highlightedConsistend = true;
                 });
-            })
-        );
+                this.alertProgressPercentage =
+                    (newValue / findNextAlertValue(newValue)) * 100;
+            });
+
+            useAPIStore()
+                .getCredits('creditsextension-alerts-initial')
+                .then(
+                    ({ value: { credits_user_current } }) =>
+                        (this.alertProgressPercentage =
+                            (credits_user_current /
+                                findNextAlertValue(credits_user_current)) *
+                            100)
+                );
+        });
 
         if (this.showSales) {
             (async () => {
@@ -468,6 +503,11 @@ export default Vue.extend<
             justify-content: space-between
 
 li.dropdown
+    &[data-progress]
+        background-size: 100% 5px
+        background-repeat: no-repeat
+        background-position-y: 100%
+
     > a.dropdown-toggle
 
         &.piggy-bank-mode
