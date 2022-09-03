@@ -5,7 +5,12 @@ import { SortedMissionsRawButtonClasses } from '../../../extendedCallList/assets
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 export default <
-    Scope<Empty, ['sorted', 'alliance', 'arr', 'vehicleList'], [], true>
+    Scope<
+        Empty,
+        ['sorted', 'alliance', 'arr', 'vehicleList', 'backalarm'],
+        [],
+        true
+    >
 >{
     sorted: <
         Scope<
@@ -181,6 +186,28 @@ export default <
             //display:none => no vehicles missing
             if (this.loadMissingBtn?.style.display != 'none')
                 this.loadMissingBtn?.click();
+        },
+    },
+    backalarm: <
+        Scope<Empty, [], ['allVehicles', 'onlyAmbulance', 'abortApproach']>
+    >{
+        validatorFunction: () => true,
+        allVehicles() {
+            document
+                .querySelector<HTMLAnchorElement>("a[href$='backalarmAll']")
+                ?.click();
+        },
+        onlyAmbulance() {
+            document
+                .querySelector<HTMLAnchorElement>(
+                    "a[href$='backalarmRettungsdienst']"
+                )
+                ?.click();
+        },
+        abortApproach() {
+            document
+                .querySelector<HTMLAnchorElement>("a[href$='backalarmDriving']")
+                ?.click();
         },
     },
 };

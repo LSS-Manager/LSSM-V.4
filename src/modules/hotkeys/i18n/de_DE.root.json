@@ -84,6 +84,12 @@
                 "previous": "Vorheriger Tab",
                 "title": "AAO"
             },
+            "backalarm": {
+                "abortApproach": "Anfahrten abbrechen",
+                "allVehicles": "Alle eigenen Fahrzeuge rückalarmieren",
+                "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
+                "title": "Zurückalamieren"
+            },
             "sorted": {
                 "alert_next": "Alarmieren und weiter",
                 "alert_share_next": "Alarmieren, Teilen und weiter",
