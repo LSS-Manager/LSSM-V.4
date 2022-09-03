@@ -25,6 +25,10 @@
             "description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
             "title": "Credits statt Sparschwein"
         },
+        "hideAllianceFunds": {
+            "description": "Zeigt keine Informationen über die Verbandskasse an.",
+            "title": "Verbandskasse ausblenden"
+        },
         "highlightSales": {
             "description": "Hebt Coins grün hervor, wenn es gerade einen Sale gibt.",
             "title": "Sales hervorheben"

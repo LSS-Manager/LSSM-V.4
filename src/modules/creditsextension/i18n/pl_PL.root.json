@@ -25,6 +25,10 @@
             "description": "Pokazuje liość kredytów w pasku nawigacyjnym zamiast uroczej skarbonki.",
             "title": "Kredyty zamiast skarbonki"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Monety będą zielone, jeśli dostępna jest wyprzedaż",
             "title": "Wyróżnij wyprzedaż"

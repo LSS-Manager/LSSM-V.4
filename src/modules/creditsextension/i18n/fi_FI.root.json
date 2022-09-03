@@ -25,6 +25,10 @@
             "description": "Näyttää nykyiset krediitit navigointipalkissa söpön säästöpossun sijasta.",
             "title": "Krediitit säästöpossun sijasta"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Korostaa kolikot vihreänä, jos on alennukset",
             "title": "Korosta alennuksia"

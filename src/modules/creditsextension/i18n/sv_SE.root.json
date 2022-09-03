@@ -25,6 +25,10 @@
             "description": "Visar nuvarade krediter i menyn utan att gå via den gulliga grisen.",
             "title": "Krediter utan gullig gris"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Markera Mynt med grönt om försäljning är tillgänlig",
             "title": "Markera Försäljningar"

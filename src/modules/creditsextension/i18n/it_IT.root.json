@@ -25,6 +25,10 @@
             "description": "Mostra i tuoi crediti nella barra principale in un salvadanaio.",
             "title": "Crediti al posto del salvadanaio"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Evidenzia le monete in verde se è in corso un saldo",
             "title": "Evidenzia i saldi"

@@ -25,6 +25,10 @@
             "description": "Zobrazí aktuální stav kreditů v navigačním menu místo prasátka.",
             "title": "Aktuální kredity místo prasátka"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Zvýrazní mince zeleně, pokud je dostupná sleva.",
             "title": "Zvýraznění slev"

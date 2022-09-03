@@ -25,6 +25,10 @@
             "description": "Toont de huidige credits in de menubalk i.p.v. de het icoontje.",
             "title": "Credits i.p.v. het icoon."
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Highlight coins groen als er een aanbieiding beschikbaar is.",
             "title": "Highlight aanbiedingen"

@@ -142,7 +142,7 @@
                     {{ toplistPosition.toLocaleString() }}
                 </a>
             </li>
-            <template v-if="creditsAPI.credits_alliance_active">
+            <template v-if="creditsAPI.credits_alliance_active && !hideAllianceFunds">
                 <li class="divider"></li>
                 <li>
                     <a href="/verband/kasse" class="lightbox-open">
@@ -214,6 +214,7 @@ export default Vue.extend<
             credits_alliance_current: number;
             credits_alliance_total: number;
         };
+        hideAllianceFunds: boolean;
     },
     {
         $m(
@@ -272,6 +273,7 @@ export default Vue.extend<
                 credits_alliance_current: 0,
                 credits_alliance_total: 0,
             },
+            hideAllianceFunds: false,
         };
     },
     props: {
@@ -383,6 +385,9 @@ export default Vue.extend<
         );
         this.getSetting('showToplistPosition').then(value =>
             this.$set(this, 'showToplistPosition', value)
+        );
+        this.getSetting('hideAllianceFunds').then(value =>
+            this.$set(this, 'hideAllianceFunds', value)
         );
 
         this.getSetting<{ enabled: boolean; value: { credits: number }[] }>(

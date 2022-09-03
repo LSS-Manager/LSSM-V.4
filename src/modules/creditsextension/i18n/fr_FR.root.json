@@ -25,6 +25,10 @@
             "description": "Affiche la valeur actuelle des crédits à la place de la tirelire dans la barre de navigation.",
             "title": "Des crédits au lieu d'une tirelire"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Surligne les pièces en vert si des soldes est disponible",
             "title": "Mettre en évidence les soldes"

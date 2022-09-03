@@ -25,6 +25,10 @@
             "description": "Muestra los créditos actuales en la barra de navegación principal en vez de en una hucha.",
             "title": "Créditos en lugar de hucha"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Destacar monedas verdes si hay una venta disponible",
             "title": "Destacar las ventas de monedas"
