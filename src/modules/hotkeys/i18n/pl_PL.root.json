@@ -75,14 +75,14 @@
         },
         "mission": {
             "alliance": {
-                "focus": "Focus alliance response window",
-                "title": "Alliance",
-                "toggle": "Toggle 'post in alliance chat'"
+                "focus": "Skup się na uwagach o wydarzeniu.",
+                "title": "Sojusz",
+                "toggle": "Opublikuj wpisz na czacie sojuszu.'"
             },
             "arr": {
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "ARR"
+                "next": "Poprzednie okno",
+                "previous": "Następne okno",
+                "title": "ZR"
             },
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
@@ -93,10 +93,10 @@
             },
             "title": "Okno misji",
             "vehicleList": {
-                "loadMissing": "Load missing vehicles",
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "vehicle list"
+                "loadMissing": "Załaduj brakujące pojazdy",
+                "next": "Poprzednia zakładka",
+                "previous": "Następna zakładka",
+                "title": "Lista pojazdów"
             }
         }
     },
