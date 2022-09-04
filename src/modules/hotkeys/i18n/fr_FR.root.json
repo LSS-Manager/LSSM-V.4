@@ -73,6 +73,16 @@
             "title": "Fenêtre principale"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Déployer et aller à la mission suivante",
                 "alert_share_next": "Déployer, partager et aller à la mission suivante",
@@ -80,7 +90,13 @@
                 "prev": "mission précédente",
                 "title": "Missions triées"
             },
-            "title": "Fenêtre des missions"
+            "title": "Fenêtre des missions",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",

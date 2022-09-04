@@ -67,6 +67,16 @@
             "title": "Hoofdscherm"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Alarmeer en ga naar de volgende melding",
                 "alert_share_next": "Alarmeer, deel en ga naar de volgende melding",
@@ -74,7 +84,13 @@
                 "prev": "vorige melding",
                 "title": "Gesorteerde meldingen"
             },
-            "title": "Meldingsscherm"
+            "title": "Meldingsscherm",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",

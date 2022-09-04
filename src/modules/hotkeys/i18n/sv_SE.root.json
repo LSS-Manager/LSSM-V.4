@@ -73,6 +73,16 @@
             "title": "Huvudfönster"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
             "sorted": {
                 "alert_next": "Skicka enheter och gå till nästa",
                 "alert_share_next": "Skicka enheter, dela och gå till nästa",
@@ -80,7 +90,13 @@
                 "prev": "föregående upptrag",
                 "title": "Sortara uppdrag"
             },
-            "title": "Huvud fönster"
+            "title": "Huvud fönster",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Styr spelet med hotkeys som du själv kan definera.",

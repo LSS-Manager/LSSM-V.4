@@ -70,6 +70,16 @@
             "title": "Główne okno"
         },
         "mission": {
+            "alliance": {
+                "focus": "Skup się na uwagach o wydarzeniu.",
+                "title": "Sojusz",
+                "toggle": "Opublikuj wpisz na czacie sojuszu.'"
+            },
+            "arr": {
+                "next": "Poprzednie okno",
+                "previous": "Następne okno",
+                "title": "ZR"
+            },
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
                 "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
@@ -77,7 +87,13 @@
                 "prev": "Poprzednia misja",
                 "title": "Posortowane misje"
             },
-            "title": "Okno misji"
+            "title": "Okno misji",
+            "vehicleList": {
+                "loadMissing": "Załaduj brakujące pojazdy",
+                "next": "Poprzednia zakładka",
+                "previous": "Następna zakładka",
+                "title": "Lista pojazdów"
+            }
         }
     },
     "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",
