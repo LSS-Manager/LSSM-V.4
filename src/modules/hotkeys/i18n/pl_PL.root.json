@@ -6,37 +6,37 @@
                 "buildings": "Otwórz przegląd budynków sojuszu",
                 "forum": "Otwórz tablice",
                 "funds": "Otwórz okno funduszy sojuszniczych",
-                "logfiles": "otwórz logi",
-                "members": "otwórz listę członków",
-                "messages": "otwarte wiadomości",
-                "onlineMembers": "otwórz listę członków (pokaż tylko graczy online)",
-                "open": "otwórz okno sojuszu",
-                "schoolings": "otwórz okno szkoleń",
+                "logfiles": "Otwórz logi",
+                "members": "Otwórz listę członków",
+                "messages": "Otwórz wiadomości",
+                "onlineMembers": "Otwórz listę członków (pokaż tylko graczy online)",
+                "open": "Otwórz okno sojuszu",
+                "schoolings": "Otwórz okno szkoleń",
                 "title": "Sojusz"
             },
             "credits": {
-                "daily": "otwórz podsumowanie dnia",
-                "open": "otwórz dziennik",
-                "overview": "otwórz przegląd ostatnich 7 dni",
+                "daily": "Otwórz podsumowanie dnia",
+                "open": "Otwórz dziennik",
+                "overview": "Otwórz przegląd ostatnich 7 dni",
                 "title": "Kredyty"
             },
             "help": "Otwórz tę pomoc",
             "profile": {
-                "awards": "otwórz lista nagród",
-                "level": "otwórz listę poziomów",
-                "notes": "otwórz notatki",
-                "open": "otwórz własny profil",
+                "awards": "Otwórz listę nagród",
+                "level": "Otwórz listę poziomów",
+                "notes": "Otwórz notatki",
+                "open": "Otwórz własny profil",
                 "title": "Profil"
             },
-            "protocol": "otwórz dziennik CPR",
+            "protocol": "Otwórz dziennik CPR",
             "tasks": {
-                "open": "otwórz listę aktualnych zadań",
+                "open": "Otwórz listę aktualnych zadań",
                 "title": "Zadania i wydarzenia"
             },
             "title": "Ogólne"
         },
         "main": {
-            "chat": { "focus": "skup się na polu wiadomości", "title": "Czat" },
+            "chat": { "focus": "Skup się na polu wiadomości", "title": "Czat" },
             "lssm": {
                 "menu": { "title": "Menu", "toggle": "Otwórz / Zamknij" },
                 "title": "LSSM"
@@ -46,19 +46,15 @@
                     "down": "dół",
                     "left": "lewo",
                     "right": "prawo",
-                    "title": "Przesuń",
-                    "up": "góra"
+                    "title": "Przeduń w ",
+                    "up": "gorę"
                 },
                 "search": {
-                    "focus": "skup się na polu tekstowym",
+                    "focus": "Skup się na polu tekstowym",
                     "title": "Wyszukiwanie lokalizacji"
                 },
                 "title": "Mapa",
-                "zoom": {
-                    "in": "przybliż",
-                    "out": "oddal",
-                    "title": "Przybliżenie"
-                }
+                "zoom": { "in": "Przybliż", "out": "Oddal", "title": "Zoom" }
             },
             "missionlist": {
                 "eclSort": {
