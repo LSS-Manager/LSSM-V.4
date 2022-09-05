@@ -35,18 +35,20 @@ export default (
         {
             selectorText: labelSelector,
             style: {
-                'background-color': color,
-                'color': customColor
-                    ? customColorColor
-                    : isBrightColor
-                    ? '#333'
-                    : '#fff',
+                'background-color': `${color} !important`,
+                'color': `${
+                    customColor
+                        ? customColorColor
+                        : isBrightColor
+                        ? '#333'
+                        : '#fff'
+                } !important`,
             },
         },
         {
             selectorText: `${labelSelector}:hover`,
             style: {
-                'background-color': `rgb(${hoverColor.r}, ${hoverColor.g}, ${hoverColor.b})`,
+                'background-color': `rgb(${hoverColor.r}, ${hoverColor.g}, ${hoverColor.b}) !important`,
             },
         },
     ]);
