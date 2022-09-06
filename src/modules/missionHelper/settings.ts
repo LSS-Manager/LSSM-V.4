@@ -289,6 +289,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   mission_categories: <Toggle>{
                       type: 'toggle',
                       default: true,
+                      disabled: () => true,
                   },
               }
             : null),
