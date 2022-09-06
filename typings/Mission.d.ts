@@ -232,4 +232,5 @@ export interface Mission {
     overlay_index: number | null;
     base_mission_id: number;
     additive_overlays: string;
+    mission_categories: string[];
 }
