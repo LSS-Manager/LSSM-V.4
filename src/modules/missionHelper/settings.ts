@@ -284,15 +284,6 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: false,
         },
-        ...(['en_GB'].includes(locale)
-            ? {
-                  mission_categories: <Toggle>{
-                      type: 'toggle',
-                      default: true,
-                      disabled: () => true,
-                  },
-              }
-            : null),
         'credits': <Toggle>{
             type: 'toggle',
             default: true,

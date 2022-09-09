@@ -309,13 +309,18 @@
                 </li>
             </ul>
             <span v-if="!maxState && settings.generatedBy">
-                {{ $m('generated_by') }}:
-                {{ missionSpecs.generated_by }}
-                <br />
-            </span>
-            <span v-if="!maxState && settings.mission_categories">
-                {{ $m('mission_categories') }}:
-                {{ missionSpecs.mission_categories }}
+                <template v-if="missionSpecs.generated_by">
+                    {{ $m('generated_by') }}:
+                    {{ missionSpecs.generated_by }}
+                </template>
+                <template v-else-if="missionSpecs.mission_categories">
+                    {{ $m('mission_categories.title') }}:
+                    <ul>
+                        <li v-for="category in missionSpecs.mission_categories" data-amount="•">
+                            {{ $m(`mission_categories.${category}`) }}
+                        </li>
+                    </ul>
+                </template>
                 <br />
             </span>
             <ul v-if="missionSpecs.additional.personnel_educations">
@@ -578,7 +583,6 @@ export default Vue.extend<
                 expansions: false,
                 followup: false,
                 subsequent: false,
-                mission_categories: false,
                 k9_only_if_needed: false,
                 bucket_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
