@@ -147,7 +147,7 @@
     "all-contributors-cli": {
         "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
-        "version": "6.20.0"
+        "version": "6.20.4"
     },
     "axios": {
         "icon": "https://axios-http.com/assets/favicon.ico",
