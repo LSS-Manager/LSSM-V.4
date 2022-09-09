@@ -309,8 +309,22 @@
                 </li>
             </ul>
             <span v-if="!maxState && settings.generatedBy">
-                {{ $m('generated_by') }}:
-                {{ missionSpecs.generated_by }}
+                <template v-if="missionSpecs.generated_by">
+                    {{ $m('generated_by') }}:
+                    {{ missionSpecs.generated_by }}
+                </template>
+                <template v-else-if="missionSpecs.mission_categories">
+                    {{ $m('mission_categories.title') }}:
+                    <ul>
+                        <li
+                            v-for="category in missionSpecs.mission_categories"
+                            data-amount="•"
+                            :key="category"
+                        >
+                            {{ $m(`mission_categories.${category}`) }}
+                        </li>
+                    </ul>
+                </template>
                 <br />
             </span>
             <ul v-if="missionSpecs.additional.personnel_educations">
