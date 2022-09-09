@@ -316,7 +316,11 @@
                 <template v-else-if="missionSpecs.mission_categories">
                     {{ $m('mission_categories.title') }}:
                     <ul>
-                        <li v-for="category in missionSpecs.mission_categories" data-amount="•">
+                        <li
+                            v-for="category in missionSpecs.mission_categories"
+                            data-amount="•"
+                            :key="category"
+                        >
                             {{ $m(`mission_categories.${category}`) }}
                         </li>
                     </ul>
