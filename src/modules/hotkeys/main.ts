@@ -10,6 +10,8 @@ export default (async ({ LSSM, $m, getSetting }) => {
     const isMainWindow = window.location.pathname.length <= 1;
     const isMissionWindow =
         !!window.location.pathname.match(/^\/missions\/\d+\/?/u);
+    const isBuildingWindow =
+        !!window.location.pathname.match(/^\/buildings\/\d+\/?/u);
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (
@@ -36,6 +38,18 @@ export default (async ({ LSSM, $m, getSetting }) => {
                       ...(
                           await import(
                               /* webpackChunkName: "modules/hotkeys/commands/mission" */ './assets/commands/mission'
+                          )
+                      ).default,
+                  },
+              }
+            : {}),
+        ...(isBuildingWindow
+            ? {
+                  mission: {
+                      validatorFunction: () => isBuildingWindow,
+                      ...(
+                          await import(
+                              /* webpackChunkName: "modules/hotkeys/commands/building" */ './assets/commands/building'
                           )
                       ).default,
                   },

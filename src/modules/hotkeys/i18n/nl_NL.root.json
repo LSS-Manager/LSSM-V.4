@@ -35,6 +35,15 @@
             },
             "title": "Algemeen"
         },
+        "building": {
+            "goto": {
+                "dispatchCenter": "dispatch center",
+                "nextBuilding": "Next Building",
+                "previousBuilding": "Previous building",
+                "title": "go to"
+            },
+            "title": "Building"
+        },
         "main": {
             "chat": { "focus": "focus invoerveld", "title": "Chat" },
             "lssm": {
