@@ -42,12 +42,17 @@
                 "title": "LSSM"
             },
             "map": {
+              "zoom": {
+                "in": "suurenna",
+                "out": "loitonna",
+                "title": "Zoomaus"
+  },
                 "move": {
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move",
-                    "up": "up"
+                    "down": "alas",
+                    "left": "vasen",
+                    "right": "oikea",
+                    "title": "Liikuta",
+                    "up": "ylös"
                 },
                 "search": {
                     "focus": "Valitsee hakukentän",
@@ -58,8 +63,8 @@
             },
             "missionlist": {
                 "eclSort": {
-                    "open": "Open selection menu",
-                    "title": "Mission sorting"
+                    "open": "Avaa valintavalikko",
+                    "title": "Tehtävän lajittelu"
                 },
                 "search": { "focus": "Valitsee hakukentän", "title": "Haku" },
                 "title": "Tehtävälista"
@@ -67,15 +72,21 @@
             "title": "Pääikkuna"
         },
         "mission": {
+            "backalarm": {
+                "abortApproach": "Peruuta matkalla olevat yksiköt",
+                "allVehicles": "Peruuta kaikki yksiköt",
+                "onlyAmbulance": "Peruuta kaikki ambulanssit",
+                "title": "Peruuta"
+            },
             "alliance": {
-                "focus": "Focus alliance response window",
-                "title": "Alliance",
-                "toggle": "Toggle 'post in alliance chat'"
+                "focus": "Kohdista liittoutuman vastausikkuna",
+                "title": "Liittouma",
+                "toggle": "Valitse 'Lähetä liittoutuman chattiin'"
             },
             "arr": {
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "ARR"
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "hälytysjärjestelyt"
             },
             "backalarm": {
                 "abortApproach": "Cancel approach",
@@ -92,10 +103,10 @@
             },
             "title": "Hälytysikkuna",
             "vehicleList": {
-                "loadMissing": "Load missing vehicles",
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "vehicle list"
+                "loadMissing": "Lataa puuttuvat ajoneuvot",
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "ajoneuvo lista"
             }
         }
     },
