@@ -140,4 +140,7 @@ En cliquant sur la loupe, vous ouvrez et fermez la fenêtre de saisie.
 
 ## RAI-Exporter en tant que QR-Code
 
-Ce paramètre propose de généré un QR-Code quand vous exportez vos RAIs.
+Vous voulez partager rapidement vos RAIs ?
+Avec ce paramètre, un QR code est généré directement sous le lien d'exportation créé.
+Celui-ci peut être scanné directement depuis l'écran,
+soit le télécharger sous forme de graphique et l'avoir ainsi toujours à portée de main.
