@@ -35,6 +35,15 @@
             },
             "title": "Allgemein"
         },
+        "building": {
+            "goto": {
+                "dispatchCenter": "Leitstelle",
+                "nextBuilding": "Nächstes Gebäude",
+                "previousBuilding": "Vorheriges Gebäude",
+                "title": "Gehe zu"
+            },
+            "title": "Gebäude"
+        },
         "main": {
             "chat": { "focus": "Eingabefeld fokussieren", "title": "Chat" },
             "lssm": {
