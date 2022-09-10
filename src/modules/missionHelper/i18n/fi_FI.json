@@ -44,6 +44,9 @@
             "police_helicopters": "poliisihelikopteri | poliisihelikopterit",
             "pump": "säiliöauto | säiliöautot",
             "water_tankers": "säiliöauto | säiliöautot"
+            "civil_patrolcar": "tutkintayksikkö | tutkintayksikköt"
+            "heavy_traffic_control": "vaaka-auto | vaaka-autot"
+            "traffic_car": "VATV-yksikkö | VATV-yksiköt"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
@@ -52,7 +55,7 @@
             },
             "heavy_rescue_vehicles": {
                 "additional_text": "sisältää vähintään {n} pelastusauton",
-                "reduce_from": "firetrucks"
+                "reduce_from": "raskas pelastusauto"
             }
         },
         "optional_alternatives": {
