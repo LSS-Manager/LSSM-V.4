@@ -84,6 +84,12 @@
                 "previous": "previous tab",
                 "title": "ARR"
             },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
             "sorted": {
                 "alert_next": "Výjezd a další mise",
                 "alert_share_next": "Výjezd, sdílení a další mise",

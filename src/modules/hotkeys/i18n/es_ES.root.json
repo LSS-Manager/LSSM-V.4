@@ -80,6 +80,12 @@
                 "previous": "previous tab",
                 "title": "ARR"
             },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
             "sorted": {
                 "alert_next": "Alarma e ir a la siguiente misión",
                 "alert_share_next": "Alarma, compartir e ir a la siguiente misión",
