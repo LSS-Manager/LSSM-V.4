@@ -42,11 +42,6 @@
                 "title": "LSSM"
             },
             "map": {
-              "zoom": {
-                "in": "suurenna",
-                "out": "loitonna",
-                "title": "Zoomaus"
-  },
                 "move": {
                     "down": "alas",
                     "left": "vasen",
@@ -72,12 +67,6 @@
             "title": "Pääikkuna"
         },
         "mission": {
-            "backalarm": {
-                "abortApproach": "Peruuta matkalla olevat yksiköt",
-                "allVehicles": "Peruuta kaikki yksiköt",
-                "onlyAmbulance": "Peruuta kaikki ambulanssit",
-                "title": "Peruuta"
-            },
             "alliance": {
                 "focus": "Kohdista liittoutuman vastausikkuna",
                 "title": "Liittouma",
