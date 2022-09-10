@@ -81,10 +81,10 @@
                 "title": "ZR"
             },
             "backalarm": {
-                "abortApproach": "Cancel approach",
-                "allVehicles": "Backalarm all vehicles",
-                "onlyAmbulance": "Backalarm only ambulances",
-                "title": "Backalarm"
+                "abortApproach": "Odwołaj jednostki w drodze",
+                "allVehicles": "Odwołaj wszystkie jednostki",
+                "onlyAmbulance": "Odwołaj wszystkie ambulanse",
+                "title": "Odwołaj"
             },
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
