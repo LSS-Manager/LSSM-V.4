@@ -54,7 +54,11 @@
                     "title": "Sijaintihaku"
                 },
                 "title": "Kartta",
-                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
+                "zoom": {
+                    "in": "suurenna",
+                    "out": "loitonna",
+                    "title": "Zoomaus"
+                }
             },
             "missionlist": {
                 "eclSort": {
@@ -78,10 +82,10 @@
                 "title": "hälytysjärjestelyt"
             },
             "backalarm": {
-                "abortApproach": "Cancel approach",
-                "allVehicles": "Backalarm all vehicles",
-                "onlyAmbulance": "Backalarm only ambulances",
-                "title": "Backalarm"
+                "abortApproach": "Peruuta matkalla olevat yksiköt",
+                "allVehicles": "Peruuta kaikki yksiköt",
+                "onlyAmbulance": "Peruuta kaikki ambulanssit",
+                "title": "Peruuta"
             },
             "sorted": {
                 "alert_next": "Lähetä ja seuraava",
