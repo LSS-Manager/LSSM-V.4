@@ -42,6 +42,11 @@
                 "title": "LSSM"
             },
             "map": {
+              "zoom": {
+                "in": "suurenna",
+                "out": "loitonna",
+                "title": "Zoomaus"
+  },
                 "move": {
                     "down": "alas",
                     "left": "vasen",
