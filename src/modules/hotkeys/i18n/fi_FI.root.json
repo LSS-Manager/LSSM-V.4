@@ -43,11 +43,11 @@
             },
             "map": {
                 "move": {
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move",
-                    "up": "up"
+                    "down": "alas",
+                    "left": "vasen",
+                    "right": "oikea",
+                    "title": "Liikuta",
+                    "up": "ylös"
                 },
                 "search": {
                     "focus": "Valitsee hakukentän",
@@ -58,8 +58,8 @@
             },
             "missionlist": {
                 "eclSort": {
-                    "open": "Open selection menu",
-                    "title": "Mission sorting"
+                    "open": "Avaa valintavalikko",
+                    "title": "Tehtävän lajittelu"
                 },
                 "search": { "focus": "Valitsee hakukentän", "title": "Haku" },
                 "title": "Tehtävälista"
@@ -92,10 +92,10 @@
             },
             "title": "Hälytysikkuna",
             "vehicleList": {
-                "loadMissing": "Load missing vehicles",
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "vehicle list"
+                "loadMissing": "Lataa puuttuvat ajoneuvot",
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "ajoneuvo lista"
             }
         }
     },
