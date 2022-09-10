@@ -17,8 +17,8 @@ import localeConfig, {
     type LocaleThemeConfig,
 } from './utils/localeConfig';
 
+import type { DocsVar } from './types/ThemeData';
 import type { Locale } from './types/Locale';
-import type { ThemeData } from './types/ThemeData';
 import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
 
@@ -153,6 +153,50 @@ run(
     DOCS_URL.toString()
 );
 
+const __VAR__ = {
+    discord: config.discord,
+    github: `https://github.com/${config.github.repo}`,
+    server: config.server,
+    fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
+    versions,
+    browsers: config.browser,
+    bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
+    i18n: Object.fromEntries(
+        LANGS.map(lang => [
+            lang,
+            $t(lang, '') as unknown as typeof TranslationType,
+        ])
+    ),
+    modules: JSON.parse(fs.readFileSync(modulesFile).toString()),
+    noMapkitSettings,
+    selectLanguageTexts: Object.fromEntries(
+        Object.entries(localeConfigs.themeConfigs).map(
+            ([locale, { selectLanguageText }]) => [
+                locale,
+                selectLanguageText ?? '',
+            ]
+        )
+    ),
+    moment: Object.fromEntries(
+        LANGS.map(lang => [lang, $t(lang, 'moment')])
+    ) as unknown as DocsVar['moment'],
+    tables: Object.fromEntries(
+        LANGS.map(lang => [lang, $t(lang, 'tables')])
+    ) as unknown as DocsVar['tables'],
+    v3Comparison: {
+        translations: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'v3')])
+        ),
+        ...JSON.parse(
+            fs
+                .readFileSync(path.join(DOCS_UTILS_PATH, 'v3Comparison.json'))
+                .toString()
+        ),
+    },
+    contributors: contributorsFile.contributors,
+    contributionTypes: contributorsFile.types,
+} as DocsVar;
+
 export default defineUserConfig({
     // site config
     base: BASE,
@@ -257,44 +301,14 @@ export default defineUserConfig({
         docsRepo: `https://github.com/${config.github.repo}`,
         docsBranch: 'dev',
         docsDir: 'docs',
-        variables: {
-            discord: config.discord,
-            github: `https://github.com/${config.github.repo}`,
-            server: config.server,
-            fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
-            versions,
-            browsers: config.browser,
-            bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
-            i18n: Object.fromEntries(
-                LANGS.map(lang => [
-                    lang,
-                    $t(lang, '') as unknown as typeof TranslationType,
-                ])
-            ),
-            modules: JSON.parse(fs.readFileSync(modulesFile).toString()),
-            noMapkitSettings,
-            moment: Object.fromEntries(
-                LANGS.map(lang => [lang, $t(lang, 'moment')])
-            ) as unknown as ThemeData['variables']['moment'],
-            tables: Object.fromEntries(
-                LANGS.map(lang => [lang, $t(lang, 'tables')])
-            ) as unknown as ThemeData['variables']['tables'],
-            v3Comparison: {
-                translations: Object.fromEntries(
-                    LANGS.map(lang => [lang, $t(lang, 'v3')])
-                ),
-                ...JSON.parse(
-                    fs
-                        .readFileSync(
-                            path.join(DOCS_UTILS_PATH, 'v3Comparison.json')
-                        )
-                        .toString()
-                ),
-            },
-            contributors: contributorsFile.contributors,
-            contributionTypes: contributorsFile.types,
-        },
+        // eslint-disable-next-line
+        // @ts-ignore
+        variables: __VAR__,
     }),
+
+    define: {
+        __VAR__,
+    },
 
     // plugins
     plugins: [
