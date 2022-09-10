@@ -14,9 +14,9 @@
         )}: ${coinsLocalized}`"
         :style="
             showAlertProgressBar
-                ? `background-image: linear-gradient(90deg, rgb(0, 255, 0) 0%, rgb(0, 255, 0) ${alertProgressPercentage}%, rgba(255, 0, 0, 0.5) ${
+                ? `background-image: linear-gradient(0deg, black 0px, black 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) calc(100% - 1px), black calc(100% - 1px), black 100%), linear-gradient(90deg, black 0px, black 1px, rgb(0, 255, 0) 1px, rgb(0, 255, 0) ${alertProgressPercentage}%, rgba(255, 0, 0, 0.5) ${
                       alertProgressPercentage + 0.01
-                  }%`
+                  }%, rgba(255, 0, 0, 0.5) calc(100% - 1px), black calc(100% - 1px), black 100%)`
                 : null
         "
         :data-progress="showAlertProgressBar"
