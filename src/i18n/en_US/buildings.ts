@@ -309,7 +309,7 @@ export default {
         icon: 'building-shield',
     },
     6: {
-        caption: 'Helicopter station',
+        caption: 'Medical helicopter station',
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
