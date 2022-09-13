@@ -45,7 +45,7 @@ const modules = {
 
 export default {
     modules,
-    serverUmzugWarning: `Server maintenance on Thursday, 15.09.2022 from 14h (Local time: {local}). The LSSM and scripts using the LSSM API will be unavailable for a few hours!`,
+    serverUmzugWarning: `Mantenimiento del servidor el Jueves 15 de septiembre de 2022 a partir de las 14h (Hora local: {local}). LSSM y los scripts que utilizan la API de LSSM no estará disponible durante unas horas!`,
     updateUserscript: {
         title: 'Userscript out of date',
         text: `Dear LSSM-User,<br>
