@@ -2,6 +2,10 @@
     "description": "Undvik med den här modulen att spelet laddas om när du trycker på vissa knappar.",
     "name": "Asynkrona knappar",
     "settings": {
+        "buildExtension": {
+            "description": "Förhindra sidomladdning när en byggnadsuttbygnad byggs.",
+            "title": "Byggnadsutbyggnader"
+        },
         "buildingPersonal": {
             "description": "Förhindrar omladdning när du släpper den personliga.",
             "title": "Frigivning av personliga uppgifter"
