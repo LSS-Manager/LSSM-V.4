@@ -19,7 +19,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.8",
         "@vue/composition-api": "^1.7.0",
         "axios": "^0.27.2",
-        "broadcast-channel": "^4.14.0",
+        "broadcast-channel": "^4.17.0",
         "emoji-toolkit": "^6.6.0",
         "he": "^1.2.0",
         "highcharts": "^10.2.1",
