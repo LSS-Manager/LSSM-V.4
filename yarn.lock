@@ -2054,10 +2054,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/i18n-js@npm:^3.8.2":
-  version: 3.8.2
-  resolution: "@types/i18n-js@npm:3.8.2"
-  checksum: a78c769c936c5ba1dd8192dcd1c8e2635fd5d7211c2d22729988af62881e522e1dd9927f7b323691bd1b668fe532268d181435d6e7d0f2b046922c2741ec8091
+"@types/i18n-js@npm:^3.8.3":
+  version: 3.8.3
+  resolution: "@types/i18n-js@npm:3.8.3"
+  checksum: d6cac1cf662db5a2eb3364d439fbaedc92365feb0160b9434701e27cf54cd0de63c4660739cc8eb60b4d69a2d566bc97789ae9b3141779c446bf15ac87990bef
   languageName: node
   linkType: hard
 
@@ -2154,10 +2154,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.7.17":
-  version: 18.7.17
-  resolution: "@types/node@npm:18.7.17"
-  checksum: bb1b832f4ad42a106d189d87e95aef117f0026a7ea291f34c5d106a25419d6d4c9d39099688ad46746cc3c2307c263be4adec1049a35dc12c9e48f19975b2dc6
+"@types/node@npm:^18.7.18":
+  version: 18.7.18
+  resolution: "@types/node@npm:18.7.18"
+  checksum: 8aec61f0f96e2a69ce51f1f40f949ca578bbb4fe05d7c0b8ce3aeeb848e90f755837f17f6ac132ca404d974fe9b2974150ad3b4984fc9dc7c3ceddb10bae0167
   languageName: node
   linkType: hard
 
@@ -9329,11 +9329,11 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": ^6.2.0
     "@fortawesome/vue-fontawesome": ^2.0.8
     "@types/he": ^1.1.2
-    "@types/i18n-js": ^3.8.2
+    "@types/i18n-js": ^3.8.3
     "@types/jquery": ^3.5.14
     "@types/leaflet": ^1.7.11
     "@types/lodash": ^4.14.185
-    "@types/node": ^18.7.17
+    "@types/node": ^18.7.18
     "@types/pdfmake": ^0.2.1
     "@types/prettier": ^2.7.0
     "@types/qrcode": ^1.5.0
