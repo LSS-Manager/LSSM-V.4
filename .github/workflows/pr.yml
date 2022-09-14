@@ -1,0 +1,18 @@
+name: PR Build
+
+on:
+    pull_request:
+        branches:
+            - master
+            - dev
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Build
+              uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
+              secrets: inherit
