@@ -1,5 +1,5 @@
 {
-    "version": "4.6.1+20220913.0732",
+    "version": "4.6.1+20220914.2201",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
@@ -19,7 +19,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.8",
         "@vue/composition-api": "^1.7.0",
         "axios": "^0.27.2",
-        "broadcast-channel": "^4.14.0",
+        "broadcast-channel": "^4.17.0",
         "emoji-toolkit": "^6.6.0",
         "he": "^1.2.0",
         "highcharts": "^10.2.1",
@@ -46,11 +46,11 @@
     },
     "devDependencies": {
         "@types/he": "^1.1.2",
-        "@types/i18n-js": "^3.8.2",
+        "@types/i18n-js": "^3.8.3",
         "@types/jquery": "^3.5.14",
         "@types/leaflet": "^1.7.11",
         "@types/lodash": "^4.14.185",
-        "@types/node": "^18.7.17",
+        "@types/node": "^18.7.18",
         "@types/pdfmake": "^0.2.1",
         "@types/prettier": "^2.7.0",
         "@types/qrcode": "^1.5.0",
