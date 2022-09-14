@@ -28,9 +28,9 @@
         "hide": "Stäng",
         "kickModal": {
             "btnCancel": "Avbryt",
-            "btnConfirm": "Kick",
+            "btnConfirm": "Sparka ut",
             "text": "Vill du verkligen sparka ut spelaren?",
-            "title": "Kick?"
+            "title": "Sparka ut??"
         },
         "set": "set",
         "unset": "ta bort"
