@@ -6,9 +6,9 @@
     "patients": {
         "allow_ktw_instead_of_rtw": "En ambulans kan användas.",
         "critical_care": "intensivvård behövs",
+        "helicopter": "Sannolikhet för ambulanshelikopter:",
         "nef": "Sannolikhet att akutläkare behövs",
         "patient_allow_first_responder_chance": "Sannolikhet att IVPA kan lösa uppdraget",
-        "helicopter": "Sannolikhet för ambulanshelikopter:",
         "patient_at_end_of_mission": "Patienten visas bara i slutet av operationen!",
         "patient_transport": "Sannolikhet för transport",
         "possible_patient": "Maximalt antal patienter",
