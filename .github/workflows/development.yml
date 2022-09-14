@@ -1,0 +1,44 @@
+name: Dev Workflow
+on: [push]
+
+if: ${{ !contains(github.event.head_commit.message, 'skip ci') || !contains(github.event.head_commit.message, 'ci-push') }}
+
+jobs:
+  Building:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
+        secrets: inherit
+
+      - name: list content of dist
+        if: ${{ github.ref == 'refs/heads/dev' }}
+        run: ls -la dist
+      
+      - name: Deployment
+        if: ${{ success() }}
+        run: sh build/deploy.sh
+
+      - name: Get package version
+        run: echo "PACKAGE_VERSION=$(grep '"version":' "$WORK_DIR"/package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')" >> $GITHUB_ENV
+
+      - name: Push to Git
+        if: ${{ success() }}
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_user_name: {{ secrets.GIT_USERNAME }}
+          commit_user_email: {{ secrets.GIT_EMAIL }}
+          commit_author: Build Server <developer@lss-manager.de>
+          commit_message: "📦 Version ${{ env.PACKAGE_VERSION }} [skip ci]"
+
+      - name: Upload Artifact
+        if: ${{ success() || failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: LSSM_V4-${{ env.PACKAGE_VERSION }}-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 10
