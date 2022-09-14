@@ -160,7 +160,7 @@
             { "texts": ["Pickup SAF"], "vehicles": [24] },
             { "texts": ["Barca", "Barche"], "vehicles": [25] },
             {
-                "texts": ["Mezzi AIB", "Mezzio AIB"],
+                "texts": ["Mezzi AIB", "Mezzo AIB"],
                 "vehicles": [0, 9, 28, 29, 30]
             },
             {
