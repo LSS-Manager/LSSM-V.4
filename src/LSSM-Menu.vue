@@ -33,17 +33,6 @@
                 </span>
             </li>
             <li role="presentation" class="divider"></li>
-            <li
-                role="presentation"
-                style="background-color: orange; color: black"
-            >
-                {{
-                    $t('serverUmzugWarning', {
-                        local: localUmzugTimeString,
-                    })
-                }}
-            </li>
-            <li role="presentation" class="divider"></li>
             <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showAppstore">
                     AppStore
