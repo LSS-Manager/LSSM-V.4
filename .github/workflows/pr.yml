@@ -8,7 +8,5 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
-              secrets: inherit
+        uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
+        secrets: inherit
