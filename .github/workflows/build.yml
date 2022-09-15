@@ -39,8 +39,8 @@ jobs:
 
             - name: Prebuild
               run: |
-                  ts-node scripts/utils/fetchEmojis.ts
-                  ts-node scripts/sort.ts || exit 1
+                  ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
+                  ./node_modules/.bin/ts-node scripts/sort.ts || exit 1
                   yarn eslint \
                     docs/.vuepress/ \
                     static/         \
