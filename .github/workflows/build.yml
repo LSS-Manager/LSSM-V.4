@@ -77,6 +77,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: LSSM_V4-${{ github.sha }}
-                  path: !node_modules
+                  path: |
+                      !node_modules
                   if-no-files-found: error
                   retention-days: 1
