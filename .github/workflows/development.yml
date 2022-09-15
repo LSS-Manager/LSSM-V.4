@@ -1,44 +1,52 @@
 name: Dev Workflow
-on: [push]
+
+on:
+    push:
 
 if: ${{ !contains(github.event.head_commit.message, 'skip ci') || !contains(github.event.head_commit.message, 'ci-push') }}
 
 jobs:
-  Building:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    build:
+        - name: Run Build
+          uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
+          secrets: inherit
 
-      - name: Build
-        uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
-        secrets: inherit
+    deploy:
+        needs: build
+        steps:
+            - name: list content of dist
+              if: ${{ github.ref == 'refs/heads/dev' }}
+              run: ls -la dist
 
-      - name: list content of dist
-        if: ${{ github.ref == 'refs/heads/dev' }}
-        run: ls -la dist
-      
-      - name: Deployment
-        if: ${{ success() }}
-        run: sh build/deploy.sh
+            - name: Install SSH Key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.SSH_DEPLOY_KEY }}
+                  known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+            - name: Add known_hosts
+              run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Get package version
-        run: echo "PACKAGE_VERSION=$(grep '"version":' "$WORK_DIR"/package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')" >> $GITHUB_ENV
+            - name: Deployment
+              if: ${{ success() }}
+              run: |
+                  sudo apt-get install -y rsync
 
-      - name: Push to Git
-        if: ${{ success() }}
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_user_name: {{ secrets.GIT_USERNAME }}
-          commit_user_email: {{ secrets.GIT_EMAIL }}
-          commit_author: Build Server <developer@lss-manager.de>
-          commit_message: "📦 Version ${{ env.PACKAGE_VERSION }} [skip ci]"
+                  rsync -run --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}" 
+                  exit 0
+              # cp -rf "$DIR_STATIC"/* "$DEPLOY_DIR"
+              # rsync -r dist/static/ "$DEPLOY_DIR"/static
 
-      - name: Upload Artifact
-        if: ${{ success() || failure() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: LSSM_V4-${{ env.PACKAGE_VERSION }}-${{ github.sha }}
-          path: dist/
-          if-no-files-found: error
-          retention-days: 10
+    git_push:
+        needs: [build, deploy]
+        steps:
+            - name: Get package version
+              run:
+
+            - name: Push to Git
+              if: ${{ success() }}
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_user_name: { { secrets.GIT_USERNAME } }
+                  commit_user_email: { { secrets.GIT_EMAIL } }
+                  commit_author: Build Server <developer@lss-manager.de>
+                  commit_message: '📦 Version ${{ needs.build.outputs.version }} [skip ci]'
