@@ -24,7 +24,7 @@ jobs:
                   yarn set version stable
 
             - name: Version output
-              run: "echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)""
+              run: echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
 
             - name: update browserslist
               run: npx -y browserslist@latest --update-db
