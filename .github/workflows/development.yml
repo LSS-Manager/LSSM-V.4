@@ -7,9 +7,8 @@ if: ${{ !contains(github.event.head_commit.message, 'skip ci') || !contains(gith
 
 jobs:
     build:
-        - name: Run Build
-          uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
-          secrets: inherit
+        uses: LSS-Manager/LSSM-V.4/.github/workflows/reusable-workflows/build.yml@master
+        secrets: inherit
 
     deploy:
         needs: build
