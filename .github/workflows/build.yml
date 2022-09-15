@@ -62,7 +62,7 @@ jobs:
 
             - name: Run Build Tasks
               run: |
-                  ts-node "build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
+                  ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
                   git --no-pager diff --color-words
 
             - name: Set Output
