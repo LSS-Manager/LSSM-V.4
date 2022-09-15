@@ -1,0 +1,83 @@
+name: Build Project
+
+on: 
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.output.outputs.mode }}
+      type: ${{ steps.output.outputs.type }}
+      version: ${{ steps.output.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: Use modern yarn
+        run: |
+          corepack enable
+          yarn set version stable
+
+      - name: Version output
+        run: "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
+
+      - name: update browserslist
+        run: npx -y browserslist@latest --update-db
+      
+      - name: yarn install
+        run: yarn install --immutable
+      
+      - run: |
+        echo "MODE=$(If[[${{ github.ref == 'refs/heads/master' }}]];then 'production'; else 'development';fi)" >> $GITHUB_ENV
+        echo "TYPE=$(If[[${{ github.ref == 'refs/heads/master' }}]];then 'stable'; else 'beta';fi)" >> $GITHUB_ENV
+        
+
+      - name: Prebuild
+        run: |
+          ts-node scripts/utils/fetchEmojis.ts
+          ts-node scripts/sort.ts || exit 1
+          yarn eslint \
+            docs/.vuepress/ \
+            static/         \
+            prebuild/       \
+            build/          \
+            src/            \
+            scripts/        \
+            typings/        \
+            --ext .js,.ts,.vue,.md \
+            -f table \
+            --no-error-on-unmatched-pattern \
+            --exit-on-fatal-error \
+            --report-unused-disable-directives \
+            --cache --cache-strategy content \
+            --fix \
+            || exit 1
+          yarn tsc -b --pretty "./" || exit 1
+          yarn tsc --pretty "src/userscript.ts" || exit 1
+
+      - name: Run Build Tasks
+        run: |
+          ts-node "build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
+          git --no-pager diff --color-words
+
+      - name: Set Output
+        id: output
+        run: |
+          echo "::set-output name=mode::${{ env.MODE }}"
+          echo "::set-output name=type::${{ env.TYPE }}"
+          echo "VERSION=$(grep '"version":' package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"
+          echo "::set-output name=version::$VERSION"
+
+      - name: Upload Artifact
+        if: ${{ success() || failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: LSSM_V4-${{ github.sha }}
+          path: !node_modules
+          if-no-files-found: error
+          retention-days: 1
