@@ -8,5 +8,5 @@ on:
 
 jobs:
     build:
-        uses: LSS-Manager/LSSM-V.4/.github/workflows/build.yml@dev
+        uses: kdev/LSSM-V.4/.github/workflows/build.yml@dev
         secrets: inherit
