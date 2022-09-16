@@ -80,6 +80,7 @@ jobs:
                   name: LSSM_V4-${{ github.sha }}
                   path: |
                       .
+                      !**/.yarn
                       !**/node_modules
                   if-no-files-found: error
                   retention-days: 1
