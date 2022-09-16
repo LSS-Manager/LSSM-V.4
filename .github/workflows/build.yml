@@ -79,6 +79,7 @@ jobs:
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: |
-                      !node_modules/
+                      .
+                      !**/node_modules
                   if-no-files-found: error
                   retention-days: 1
