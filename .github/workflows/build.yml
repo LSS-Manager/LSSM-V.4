@@ -34,8 +34,8 @@ jobs:
               run: yarn install --immutable
 
             - run: |
-                  echo "MODE=$(if [[${{ github.ref == 'refs/heads/master' }}]]; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
-                  echo "TYPE=$(if [[${{ github.ref == 'refs/heads/master' }}]]; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
+                  echo "MODE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
+                  echo "TYPE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
 
             - name: Prebuild
               run: |
