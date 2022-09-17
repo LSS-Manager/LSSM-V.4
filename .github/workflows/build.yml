@@ -42,22 +42,7 @@ jobs:
               run: |
                   ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
                   ./node_modules/.bin/ts-node scripts/sort.ts || exit 1
-                  yarn eslint \
-                    docs/.vuepress/ \
-                    static/         \
-                    prebuild/       \
-                    build/          \
-                    src/            \
-                    scripts/        \
-                    typings/        \
-                    --ext .js,.ts,.vue,.md \
-                    -f table \
-                    --no-error-on-unmatched-pattern \
-                    --exit-on-fatal-error \
-                    --report-unused-disable-directives \
-                    --cache --cache-strategy content \
-                    --fix \
-                    || exit 1
+                  ./scripts/lint_fix.sh || exit 1
                   yarn tsc -b --pretty "./" || exit 1
                   yarn tsc --pretty "src/userscript.ts" || exit 1
                   ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
