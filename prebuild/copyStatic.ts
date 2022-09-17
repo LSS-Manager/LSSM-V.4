@@ -24,6 +24,4 @@ export default (): void => {
     if (!fs.existsSync('./dist')) fs.mkdirSync('./dist');
 
     copydir.sync('./static', `./dist/static`);
-    if (fs.existsSync(`./admin`)) copydir.sync('./admin', './dist/admin');
-    fs.copyFileSync('./.htaccess', './dist/.htaccess');
 };
