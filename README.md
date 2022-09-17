@@ -27,9 +27,9 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 <a href="https://github.com/LSS-Manager/LSSM-V.4" target="_blank" align="center"><img src="https://github-readme-stats.vercel.app/api/pin?username=LSS-Manager&repo=LSSM-V.4&theme=vue-dark&show_owner=true" alt=""></a>
 </div>
 
-<!-- [LSSM-Server-Status](https://status.lss-manager.de/) -->
+[LSSM-Server-Status](https://status.lss-manager.de/)
 
-[All Game-Server-Monitors](https://stats.uptimerobot.com/OEKDJSpmvK)
+[All Game-Server-Monitors](https://status.lss-manager.de/status/missionchief)
 
 ## Information on LSS-Manager V.4
 

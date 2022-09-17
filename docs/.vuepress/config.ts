@@ -83,9 +83,7 @@ run('generate/bugs', bugsFile);
 run(
     'generate/readmes',
     DOCS_PATH,
-    JSON.stringify(
-        LANGS.map(lang => [lang, $t(lang, 'readme.serverStatus.game')])
-    )
+    JSON.stringify(LANGS.map(lang => [lang, $t(lang, 'readme.serverStatus')]))
 );
 
 const modulesFile = path.join(DOCS_TEMP_PATH, '.modules.json');

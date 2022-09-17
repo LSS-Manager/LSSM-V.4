@@ -64,11 +64,11 @@
             <li role="presentation">
                 <a :href="rootStore.githubUrl" target="_blank">GitHub</a>
             </li>
-            <!-- <li role="presentation">
+            <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
                     LSSM-Server Status
                 </a>
-            </li> -->
+            </li>
             <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
