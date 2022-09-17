@@ -1,6 +1,8 @@
 {
     "description": "Invia i mezzi, condividi la missione con l'alleanza e manda un messaggio allo stesso tempo.",
-    "lsam": { "help": "Le variabili sono sostituite con la stessa logica della lista delle missioni." },
+    "lsam": {
+        "help": "Le variabili sono sostituite con la stessa logica della lista delle missioni."
+    },
     "name": "Condividi-Alleanza-Messaggio",
     "noMessage": "Condividi senza un messaggio",
     "settings": {
