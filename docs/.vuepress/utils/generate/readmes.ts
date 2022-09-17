@@ -34,7 +34,7 @@ sidebarDepth: 2
 
 [${serverStatus.lssm}](https://status.lss-manager.de)
 
-[${serverStatus.game}](https://stats.uptimerobot.com/OEKDJSpmvK)
+[${serverStatus.game}](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 `
