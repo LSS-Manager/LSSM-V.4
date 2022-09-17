@@ -42,7 +42,7 @@
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-        "version": "1.7.11"
+        "version": "1.8.0"
     },
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -220,7 +220,7 @@
     "eslint-plugin-tsdoc": {
         "icon": "https://tsdoc.org/images/tsdoc.svg",
         "url": "https://tsdoc.org/",
-        "version": "0.2.16"
+        "version": "0.2.17"
     },
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",

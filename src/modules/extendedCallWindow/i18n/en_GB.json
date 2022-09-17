@@ -62,7 +62,7 @@
         "selected": "Selected",
         "staff": [
             {
-                "texts": ["Armed Response Personnel"],
+                "texts": ["Armed Response Personnel (In Armed Vehicles)"],
                 "vehicles": [13, 25, 52, 56]
             },
             {
