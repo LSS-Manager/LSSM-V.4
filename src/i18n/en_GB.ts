@@ -1009,7 +1009,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
-                'Public Order: [51, 52, 53, 54, 55],
+                'Public Order': [51, 52, 53, 54, 55],
             },
             color: '#00ac00',
         },
