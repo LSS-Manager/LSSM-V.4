@@ -1,5 +1,5 @@
 {
-    "version": "4.6.1+20220915.0524",
+    "version": "4.6.1+20220916.0639",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
@@ -48,7 +48,7 @@
         "@types/he": "^1.1.2",
         "@types/i18n-js": "^3.8.3",
         "@types/jquery": "^3.5.14",
-        "@types/leaflet": "^1.7.11",
+        "@types/leaflet": "^1.8.0",
         "@types/lodash": "^4.14.185",
         "@types/node": "^18.7.18",
         "@types/pdfmake": "^0.2.1",

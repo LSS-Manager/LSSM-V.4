@@ -2084,12 +2084,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:^1.7.11":
-  version: 1.7.11
-  resolution: "@types/leaflet@npm:1.7.11"
+"@types/leaflet@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@types/leaflet@npm:1.8.0"
   dependencies:
     "@types/geojson": "*"
-  checksum: 6613dbc91f174545ed39183a8564a344152f1884f02ab4dbc002b6bd4816d8525b5247e62217694763daf727ca5e589f40144dc809edb7194064e6bdc2f4369a
+  checksum: a0190d48dfd49c7526a38c94490d9acdcb09de8b0338ebae8b33374b24f474330be82733007ab1c39008a61c4712b743ccf230909f203f0f35c9986b3a583ab6
   languageName: node
   linkType: hard
 
@@ -3983,9 +3983,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001304, caniuse-lite@npm:^1.0.30001370, caniuse-lite@npm:^1.0.30001373":
-  version: 1.0.30001399
-  resolution: "caniuse-lite@npm:1.0.30001399"
-  checksum: dd105b06fbbdc89867780a2f4debc3ecb184cff82f35b34aaac486628fcc9cf6bacf37573a9cc22dedc661178d460fa8401374a933cb9d2f8ee67316d98b2a8f
+  version: 1.0.30001401
+  resolution: "caniuse-lite@npm:1.0.30001401"
+  checksum: 40c714ff83502023be17aa6905913005b6387991a1086523755bb47424e74ac779570c29e775064dcb077e43d2bec75fff08c43e8e7f45b300820c4331ae707a
   languageName: node
   linkType: hard
 
@@ -9331,7 +9331,7 @@ __metadata:
     "@types/he": ^1.1.2
     "@types/i18n-js": ^3.8.3
     "@types/jquery": ^3.5.14
-    "@types/leaflet": ^1.7.11
+    "@types/leaflet": ^1.8.0
     "@types/lodash": ^4.14.185
     "@types/node": ^18.7.18
     "@types/pdfmake": ^0.2.1
