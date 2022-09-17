@@ -58,7 +58,7 @@
         "building": "Byggnader",
         "caption": "Namn",
         "fms": "FMS",
-        "status": "Mål",
+        "target": "Mål",
         "type": "Typ"
     },
     "vehicle-types": {
