@@ -1,7 +1,7 @@
 {
     "buildingComplexes": {
         "buildingList": { "details": "Dettagli" },
-        "new": "New LSSM building complex",
+        "new": "Nuovo complesso di edifici LSSM",
         "openInLightbox": "Visualizza l'edificio nella Lightbox (vista standard)",
         "overview": {
             "buildings": {
@@ -13,16 +13,16 @@
                 "inConstruction": "delle quali {n} in costruzione",
                 "share": {
                     "beds": {
-                        "share": "Share beds with alliance",
-                        "unShare": "Don't share beds with alliance"
+                        "share": "Condividi i posti letto con l'alleanza",
+                        "unShare": "Non condividere i posti letto con l'alleanza"
                     },
                     "cells": {
-                        "share": "Share prison cells with alliance",
-                        "unShare": "Don't share prison cells with alliance"
+                        "share": "Condividi le celle con l'alleanza",
+                        "unShare": "Non condividere le celle con l'alleanza"
                     }
                 },
                 "table": {
-                    "alliance": "Alliance",
+                    "alliance": "Alleanza",
                     "head": {
                         "beds": "Letti",
                         "cells": "Celle",
@@ -37,24 +37,24 @@
                 "title": "Edifici collegati"
             },
             "classrooms": {
-                "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
+                "subtitle": "{total} in totale, delle quali {unavailable} in costruzione e {free} libere",
                 "table": {
-                    "countdown": "time left",
-                    "free": "Free Places",
-                    "freeClassrooms": "1 free classroom|{n} free classrooms",
+                    "countdown": "Tempo rimanente",
+                    "free": "Posti Liberi",
+                    "freeClassrooms": "1 classe libera|{n} classi libere",
                     "running": {
                         "false": "No",
-                        "title": "running?",
-                        "true": "Yes"
+                        "title": "Occupata?",
+                        "true": "Si"
                     },
-                    "start": "start new training course",
-                    "unavailable": "1 classroom under construction|{n} classrooms under construction"
+                    "start": "Inizia nuovo corso",
+                    "unavailable": "1 classe in costruzione|{n} classi in costruzione"
                 },
                 "title": "Classi"
             },
             "extensions": {
                 "abort": "Annulla",
-                "allianceFunds": "payed with alliance funds",
+                "allianceFunds": "Finanziata grazie ad i fondi dell'alleanza",
                 "disable": "Disabilita",
                 "disabled": "Completata ma disabilitata",
                 "enable": "Abilita",
@@ -85,18 +85,18 @@
                 "underConstruction": "In costruzione"
             },
             "protocol": {
-                "subtitle": "no relevant entries | 1 relevant entry | {n} relevant entries",
+                "subtitle": "Non è stato ancora registrato nulla | 1 entrata rilevante | {n} entrate rilevanti",
                 "table": {
                     "head": {
-                        "building": "Building",
-                        "label": "Category",
-                        "name": "Name",
+                        "building": "Edificio",
+                        "label": "Categoria",
+                        "name": "Nome",
                         "staff": "Staff",
-                        "time": "Timestamp"
+                        "time": "Data e ora"
                     }
                 },
-                "title": "Protocol",
-                "updating": "Updating..."
+                "title": "Registro",
+                "updating": "Aggiorno..."
             },
             "title": "Panoramica",
             "vehicles": {
@@ -114,10 +114,10 @@
         },
         "settings": {
             "abort": "Annulla",
-            "allianceBuildings": "attached alliance buildings",
+            "allianceBuildings": "Edifici dell'alleanza collegati",
             "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
-            "buildingsInList": "Show attached buildings in the buildings list?",
+            "buildingsInList": "Mostra gli edifici collegati nella lista delle stazioni",
             "dissolve": {
                 "buttons": { "abort": "Annulla", "continue": "Elimina" },
                 "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",
