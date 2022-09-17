@@ -7,7 +7,7 @@ type LangCode = `${string}_${string}`;
 
 const [, , DOCS_PATH, langs] = process.argv;
 
-const LANGS: [LangCode, string][] = JSON.parse(langs);
+const LANGS: [LangCode, { lssm: string; game: string }][] = JSON.parse(langs);
 
 LANGS.forEach(([lang, serverStatus]) => {
     const localePath = path.join(DOCS_PATH, lang);
@@ -32,7 +32,9 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[${serverStatus}](https://stats.uptimerobot.com/OEKDJSpmvK)
+[${serverStatus.lssm}](https://status.lss-manager.de)
+
+[${serverStatus.game}](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 `
