@@ -56,7 +56,7 @@ jobs:
               run: |
                   ./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
                   mkdir -p ./dist/docs
-                  rm -rd ./dist/docs/*
+                  rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
 
             - name: Set Output
