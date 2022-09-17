@@ -136,7 +136,7 @@ const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
 const commitStatsPath = path.join(statsComponentsPath, 'commits.vue');
 run(
     'generate/projectStats',
-    `https://github.com/${config.github.repo}`,
+    config.github.repo,
     ROOT_PATH,
     VUEPRESS_PATH,
     clocStatsPath,
