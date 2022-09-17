@@ -961,8 +961,7 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             special:
                 'Acts as a Incident Response Vehicle and a Armed Response Vehicle. This is a armoured vehicle transporting 6 firearms officers.',
-                },
-                
+        },
     },
     buildingCategories: {
         'Fire Department': {
