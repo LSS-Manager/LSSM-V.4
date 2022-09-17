@@ -14,7 +14,7 @@ sidebarDepth: 2
 
 [LSSM-Server-Status](https://status.lss-manager.de)
 
-[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+[Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 

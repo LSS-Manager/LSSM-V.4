@@ -14,7 +14,7 @@ sidebarDepth: 2
 
 [LSSM server status](https://status.lss-manager.de)
 
-[Spel status](https://stats.uptimerobot.com/OEKDJSpmvK)
+[Spel status](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
