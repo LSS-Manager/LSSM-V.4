@@ -55,7 +55,7 @@ import type { DefaultMethods, DefaultProps } from 'vue/types/options';
 import type {
     LibraryOverviewComputed,
     LibraryOverviewData,
-} from '../../typings/components/LibraryOverview';
+} from 'typings/components/LibraryOverview';
 
 export default Vue.extend<
     LibraryOverviewData,

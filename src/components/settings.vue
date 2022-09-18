@@ -271,6 +271,19 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-location>
+                        <settings-icon
+                            v-else-if="setting.type === 'icon'"
+                            :name="setting.name"
+                            :setting="setting"
+                            v-model="settings[moduleId][settingId].value.value"
+                            @input="update(moduleId, settingId)"
+                            :module-id="moduleId"
+                            :setting-id="settingId"
+                            :orderable="!!setting.orderable"
+                            :enabled="
+                                settings[moduleId][settingId].value.enabled
+                            "
+                        ></settings-icon>
                         <settings-appendable-list
                             v-else-if="setting.type === 'appendable-list'"
                             :setting="setting"
@@ -359,6 +372,10 @@ export default Vue.extend<
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './setting/hotkey.vue'
+            ),
+        SettingsIcon: () =>
+            import(
+                /* webpackChunkName: "components/setting/icon" */ './setting/icon.vue'
             ),
         SettingsLocation: () =>
             import(

@@ -1385,7 +1385,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.2.0":
+"@fortawesome/fa-icon-chooser@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@fortawesome/fa-icon-chooser@npm:0.4.1"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": ^6.2.0
+    "@stencil/core": ^2.13.0
+    lodash: ^4.17.21
+    semver: ^6.3.0
+  checksum: 017feaff4832a8982f2d84f4c8b15d8dd6d2c4bb130a54b98ac4c97322c48fcab4d18f72b73369112fe09268d0da438e510a178e274da4463270b4c9016abf8c
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-common-types@npm:6.2.0, @fortawesome/fontawesome-common-types@npm:^6.2.0":
   version: 6.2.0
   resolution: "@fortawesome/fontawesome-common-types@npm:6.2.0"
   checksum: 1d0a3340dc2d2798609195cf77f1b0db98f0d87144044eb7cd3d78745baac8509705c6ebc7cce3d9bb36c7d7358ca064f77f39d86478ab1e7aa7aadc344cfd91
@@ -1854,6 +1866,15 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 8be16e27863c219edbb25a4e6ec2fe0e1e451d9e917b6a43cf2ae5bc025a6b8faaa40f82a6e53b66d0de37b58ff472c6c3d57a83037ae635041f8df959d6d9aa
+  languageName: node
+  linkType: hard
+
+"@stencil/core@npm:^2.13.0":
+  version: 2.18.0
+  resolution: "@stencil/core@npm:2.18.0"
+  bin:
+    stencil: bin/stencil
+  checksum: f471a4ca4269fb3d67c84fac1909c8e21ec2df944d854dd13c8cc969b1a2a21fa8e89d67ad533fff52472a7b290c80c9348254397403461c9b8476e2a9588bf6
   languageName: node
   linkType: hard
 
@@ -9317,6 +9338,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@fortawesome/fa-icon-chooser": ^0.4.1
     "@fortawesome/fontawesome-free": ^6.2.0
     "@fortawesome/fontawesome-svg-core": ^6.2.0
     "@fortawesome/free-solid-svg-icons": ^6.2.0
