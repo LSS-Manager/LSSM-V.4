@@ -1137,14 +1137,14 @@ If several requests fail in a short time, this could be due to server problems. 
         73: {
             caption: 'Small Coastal Boat Trailer',
             color: '#882222',
-            coins: 30,
-            credits: 500_000,
-            minPersonnel: 1,
-            maxPersonnel: 1,
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             possibleBuildings: [0,13, 26],
             schooling: {
                 'Water Rescue School': {
-                    'Coastal Air Rescue Operations': {
+                    'Swift water rescue': {
                         all: true,
                     },
                 },
