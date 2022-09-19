@@ -1035,7 +1035,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            possibleBuildings: [0,13,23,26],
+            possibleBuildings: [0, 13, 23, 26],
             special: '',
         },
         67: {
@@ -1045,7 +1045,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            possibleBuildings: [0,13,23,26],
+            possibleBuildings: [0, 13, 23, 26],
             schooling: {
                 'Water Rescue School': {
                     'Lifeguard Training': {
@@ -1062,7 +1062,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0,13,23,26],
+            possibleBuildings: [0, 13, 23, 26],
             schooling: {
                 'Water Rescue School': {
                     'Lifeguard Supervisor': {
@@ -1141,7 +1141,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 50_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0,13, 26],
+            possibleBuildings: [0, 13, 26],
             schooling: {
                 'Water Rescue School': {
                     'Swift water rescue': {
