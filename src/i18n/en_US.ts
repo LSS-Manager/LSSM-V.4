@@ -1035,7 +1035,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            possibleBuildings: [23],
+            possibleBuildings: [0,13,23,26],
             special: '',
         },
         67: {
@@ -1045,7 +1045,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            possibleBuildings: [23],
+            possibleBuildings: [0,13,23,26],
             schooling: {
                 'Water Rescue School': {
                     'Lifeguard Training': {
@@ -1062,7 +1062,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [23],
+            possibleBuildings: [0,13,23,26],
             schooling: {
                 'Water Rescue School': {
                     'Lifeguard Supervisor': {
@@ -1134,6 +1134,23 @@ If several requests fail in a short time, this could be due to server problems. 
             },
             special: '',
         },
+        73: {
+            caption: 'Small Coastal Boat Trailer',
+            color: '#882222',
+            coins: 30,
+            credits: 500_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [0,13, 26],
+            schooling: {
+                'Water Rescue School': {
+                    'Coastal Air Rescue Operations': {
+                        all: true,
+                    },
+                },
+            },
+            special: '',
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -1149,7 +1166,7 @@ If several requests fail in a short time, this could be due to server problems. 
             color: '#00ac00',
         },
         'Lifeguard Stations': {
-            buildings: [23, 25],
+            buildings: [23, 25, 26],
             color: '#00ac00',
         },
         'Other': {
@@ -1199,7 +1216,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Lifeguard Vehicles': {
             vehicles: {
                 'Cars': [66, 67, 68],
-                'Boats': [69, 70],
+                'Boats': [69, 70, 73],
                 'Helicopter and Planes': [71, 72],
             },
             color: '#58b658',
