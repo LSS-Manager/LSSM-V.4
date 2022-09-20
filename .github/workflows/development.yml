@@ -42,7 +42,7 @@ jobs:
               if: ${{ success() }}
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_user_name: { { secrets.GIT_USERNAME } }
-                  commit_user_email: { { secrets.GIT_EMAIL } }
+                  commit_user_name: ${{ secrets.GIT_USERNAME }}
+                  commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ needs.build.outputs.version }} [skip ci]'
