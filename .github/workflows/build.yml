@@ -18,48 +18,56 @@ jobs:
               with:
                   node-version: 18
 
-            - name: Use modern yarn
+            - name: [⬆] set yarn to stable
               run: |
                   corepack enable
                   yarn set version stable
 
-            - name: Version output
+            - name: [ℹ] print versions (node, yarn, git)
               run: |
                   echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
 
-            - name: update browserslist
+            - name: [⬆] update browserslist
               run: npx -y browserslist@latest --update-db
 
-            - name: yarn install
+            - name: [🍱] yarn install
               run: yarn install --immutable
 
-            - name: set env variables for beta/stable
+            - name: [🌳] set env variables (e.g. beta/stable for webpack & target dir)
               run: |
                   echo "MODE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
                   echo "TYPE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
 
-            - name: Prebuild
+            - name: [⬆] update emojis 
+              run: ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
+            
+            - name: [🚨] sort JSONs
+              run: ./node_modules/.bin/ts-node scripts/sort.ts || exit 1
+                  
+            - name: [🚨] run ESLint
               run: |
-                  ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
-                  ./node_modules/.bin/ts-node scripts/sort.ts || exit 1
                   ./scripts/lint_fix.sh || exit 1
                   yarn tsc -b --pretty "./" || exit 1
-                  yarn tsc --pretty "src/userscript.ts" || exit 1
-                  ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
+            
+            - name: [📜] build userscript
+              run: yarn tsc --pretty "src/userscript.ts" || exit 1
+            
+            - name: [🚧] run prebuild
+              run: ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
 
-            - name: Run Webpack
+            - name: [👷] webpack
               run: |
                   ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
                   git --no-pager diff --color-words
 
-            - name: Build docs
+            - name: [📝] build docs
               run: |
                   ./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
                   mkdir -p ./dist/docs
                   rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
 
-            - name: Set Output
+            - name: [💬] set output
               id: output
               run: |
                   echo "::set-output name=mode::${{ env.MODE }}"
@@ -67,14 +75,17 @@ jobs:
                   echo "VERSION=$(grep '"version":' package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"
                   echo "::set-output name=version::$VERSION"
 
-            - name: Upload Artifact
+            - name: [📦] zip files
+              run: |
+                apt-get install zip
+                zip -r dist.zip dist
+
+            - name: [☁️] upload artifact
               if: ${{ success() || failure() }}
               uses: actions/upload-artifact@v2
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: |
-                      .
-                      !**/.yarn
-                      !**/node_modules
+                      dist/
                   if-no-files-found: error
                   retention-days: 1
