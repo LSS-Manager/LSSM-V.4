@@ -236,7 +236,7 @@
             },
             {
                 "texts": ["Small Coastal Boat", "Small Coastal Boats"],
-                "vehicles": [69]
+                "vehicles": [69, 73]
             },
             {
                 "texts": ["Large Coastal Boat", "Large Coastal Boats"],
