@@ -12,7 +12,7 @@ type Util =
 
 export default (utilsPath: string) => ({
     run(file: Util, ...args: string[]) {
-        const result = execFileSync('ts-node', [
+        const result = execFileSync('./node_modules/.bin/ts-node', [
             path.join(utilsPath, `${file}.ts`),
             ...args,
         ]).toString();

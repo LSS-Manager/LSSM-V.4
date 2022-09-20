@@ -1,0 +1,12 @@
+name: PR Build
+
+on:
+    pull_request:
+        branches:
+            - master
+            - dev
+
+jobs:
+    build:
+        uses: kdev/LSSM-V.4/.github/workflows/build.yml@dev
+        secrets: inherit
