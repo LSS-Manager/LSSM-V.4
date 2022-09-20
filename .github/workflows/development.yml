@@ -11,6 +11,7 @@ jobs:
 
     deploy:
         needs: build
+        runs-on: ubuntu-latest
         steps:
             - name: list content of dist
               if: ${{ github.ref == 'refs/heads/dev' }}
@@ -35,6 +36,7 @@ jobs:
 
     git_push:
         needs: [build, deploy]
+        runs-on: ubuntu-latest
         steps:
             - name: Push to Git
               if: ${{ success() }}
