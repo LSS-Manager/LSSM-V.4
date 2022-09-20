@@ -2,7 +2,7 @@
 name: "Fehlermeldung \U0001F1E9\U0001F1EA"
 about: Fehlermeldung auf deutsch erstellen
 title: "[BUG]: "
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
