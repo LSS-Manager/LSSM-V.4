@@ -33,8 +33,6 @@ jobs:
 
                   rsync -run --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}" 
                   exit 0
-              # cp -rf "$DIR_STATIC"/* "$DEPLOY_DIR"
-              # rsync -r dist/static/ "$DEPLOY_DIR"/static
 
     git_push:
         needs: [build, deploy]
