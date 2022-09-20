@@ -3,11 +3,10 @@ name: Dev Workflow
 on:
     push:
 
-if: ${{ !contains(github.event.head_commit.message, 'skip ci') || !contains(github.event.head_commit.message, 'ci-push') }}
-
 jobs:
     build:
-        uses: kdev/LSSM-V.4/.github/workflows/build.yml@dev
+        if: ${{ !contains(github.event.head_commit.message, 'skip ci') || !contains(github.event.head_commit.message, 'ci-push') }}
+        uses: ./.github/workflows/build.yml
         secrets: inherit
 
     deploy:
