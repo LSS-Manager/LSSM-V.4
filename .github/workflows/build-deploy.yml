@@ -45,5 +45,5 @@ jobs:
 
             - name: Deployment
               if: ${{ success() }}
-              run: rsync -runtvh --progress --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}"
+              run: rsync -rutvh --progress --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}"
             
