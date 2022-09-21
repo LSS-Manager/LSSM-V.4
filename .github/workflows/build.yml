@@ -83,7 +83,7 @@ jobs:
 
             - name: '[☁️] upload artifact'
               if: ${{ success() || failure() }}
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: dist.zip
