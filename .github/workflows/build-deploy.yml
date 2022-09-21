@@ -38,10 +38,11 @@ jobs:
               uses: shimataro/ssh-key-action@v2
               with:
                   key: ${{ secrets.SSH_DEPLOY_KEY }}
-                  known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+                  known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+                  if_key_exists: replace 
 
-            - name: Add known_hosts
-              run: ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+            # - name: Add known_hosts
+            #   run: ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
 
             - name: Deployment
               if: ${{ success() }}
