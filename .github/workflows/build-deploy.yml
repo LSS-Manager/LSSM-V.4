@@ -26,10 +26,8 @@ jobs:
             
             - name: Unzip artifact
               run: |
-                ls -la
-                ls -lap LSSM_V4-${{ github.sha }}
-                mv LSSM_V4-${{ github.sha }}/dist.zip .
                 unzip dist.zip -d ${{ github.workspace }}/dist
+                rm dist.zip
 
 
             - name: list content of dist
