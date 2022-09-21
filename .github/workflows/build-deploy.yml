@@ -1,7 +1,10 @@
-name: Dev Workflow
+name: Build and Deploy
 
 on:
     push:
+      branches:
+        - 'master'
+        - 'dev'
 
 jobs:
     build:
@@ -13,6 +16,18 @@ jobs:
         needs: build
         runs-on: ubuntu-latest
         steps:
+            - name: Install apt packages
+              run: sudo apt-get install unzip
+
+            - name: Download artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: LSSM_V4-${{ github.sha }}
+                  path: dist.zip
+            
+            - name: Unzip artifact
+              run: unzip dist.zip
+
             - name: list content of dist
               if: ${{ github.ref == 'refs/heads/dev' }}
               run: ls -la dist
@@ -31,18 +46,6 @@ jobs:
               run: |
                   sudo apt-get install -y rsync
 
-                  rsync -run --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}" 
+                  rsync -run --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}"
                   exit 0
-
-    git_push:
-        needs: [build, deploy]
-        runs-on: ubuntu-latest
-        steps:
-            - name: Push to Git
-              if: ${{ success() }}
-              uses: stefanzweifel/git-auto-commit-action@v4
-              with:
-                  commit_user_name: ${{ secrets.GIT_USERNAME }}
-                  commit_user_email: ${{ secrets.GIT_EMAIL }}
-                  commit_author: Build Server <developer@lss-manager.de>
-                  commit_message: '📦 Version ${{ needs.build.outputs.version }} [skip ci]'
+            
