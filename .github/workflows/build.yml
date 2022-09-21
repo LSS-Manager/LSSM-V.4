@@ -20,6 +20,8 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+              with:
+                  ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
             - name: Setup Node.js
               uses: actions/setup-node@v3
@@ -98,6 +100,12 @@ jobs:
                   path: dist.zip
                   if-no-files-found: error
                   retention-days: 1
+
+            - name: Prepare Git Push
+              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              run: |
+                  ssh -o StrictHostKeyChecking=no -T git@github.com
+                  git remote set-url origin git@github.com:LSS-Manager/LSSM-V.4.git
             
             - name: Push to Git
               if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
@@ -107,4 +115,3 @@ jobs:
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ env.version }} [skip ci]'
-                  push_options: --force
