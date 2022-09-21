@@ -5,10 +5,10 @@ on:
       outputs:
         type: 
           description: 'Type of build'
-          value: ${{ steps.output.outputs.type }}
+          value: ${{ jobs.build.outputs.type }}
         version:
           description: 'Version of build'
-          version: ${{ steps.output.outputs.version }}
+          version: ${{ jobs.build.outputs.version }}
 
 jobs:
     build:
