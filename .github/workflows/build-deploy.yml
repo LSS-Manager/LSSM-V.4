@@ -13,11 +13,11 @@ jobs:
         secrets: inherit
 
     deploy:
-        needs: build
+        needs: [build]
         runs-on: ubuntu-latest
         steps:
             - name: Install apt packages
-              run: sudo apt-get install unzip
+              run: sudo apt-get install -y unzip rsync
 
             - name: Download artifact
               uses: actions/download-artifact@v2
@@ -45,9 +45,5 @@ jobs:
 
             - name: Deployment
               if: ${{ success() }}
-              run: |
-                  sudo apt-get install -y rsync
-
-                  rsync -run --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}"
-                  exit 0
+              run: rsync -runtvh --progress --exclude dist/static/* dist/ "/${{ needs.build.outputs.type }}"
             

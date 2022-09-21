@@ -2,6 +2,13 @@ name: Build Project
 
 on:
     workflow_call:
+      outputs:
+        type: 
+          description: 'Type of build'
+          value: ${{ steps.output.outputs.type }}
+        version:
+          description: 'Version of build'
+          version: ${{ steps.output.outputs.version }}
 
 jobs:
     build:
