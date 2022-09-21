@@ -1052,6 +1052,11 @@ If several requests fail in a short time, this could be due to server problems. 
                         all: true,
                     },
                 },
+                'Fire Station': {
+                    'Lifeguard Training': {
+                        all: true,
+                    },
+                },
             },
             special: '',
         },
@@ -1069,9 +1074,14 @@ If several requests fail in a short time, this could be due to server problems. 
                         all: true,
                     },
                 },
+                'Fire Station': {
+                    'Lifeguard Supervisor': {
+                        all: true,
+                    },
+                },
             },
             special:
-                'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
+                '',
         },
         69: {
             caption: 'Small Coastal Boat',
@@ -1144,6 +1154,11 @@ If several requests fail in a short time, this could be due to server problems. 
             possibleBuildings: [0, 13, 26],
             schooling: {
                 'Water Rescue School': {
+                    'Swift water rescue': {
+                        all: true,
+                    },
+                },
+                'Fire Station': {
                     'Swift water rescue': {
                         all: true,
                     },
@@ -1288,6 +1303,16 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'Law Enforcement for Arson Investigation',
                 duration: '4 Days',
                 staffList: 'Peace Officer',
+            },            
+            {
+                caption: 'Lifeguard Supervisor',
+                duration: '5 Days',
+                staffList: 'Lifeguard Supervisor',
+            },
+            {
+                caption: 'Lifeguard Training',
+                duration: '5 Days',
+                staffList: 'Lifeguard Training',
             },
         ],
         'Police': [
