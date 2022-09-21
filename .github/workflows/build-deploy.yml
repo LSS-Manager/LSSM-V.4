@@ -23,7 +23,7 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: LSSM_V4-${{ github.sha }}
-            
+
             - name: Unzip artifact
               run: |
                 unzip dist.zip -d ${{ github.workspace }}/dist
@@ -38,13 +38,13 @@ jobs:
               uses: shimataro/ssh-key-action@v2
               with:
                   key: ${{ secrets.SSH_DEPLOY_KEY }}
-                  known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-                  if_key_exists: replace 
+                  known_hosts: 'placeholder to avoid errors'
+                  if_key_exists: replace
 
-            # - name: Add known_hosts
-            #   run: ssh-keyscan -H ${{ secrets.SSH_KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+            - name: Adding Known Hosts
+              run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
             - name: Deployment
               if: ${{ success() }}
-              run: rsync -ruthz --stats --progress dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/${{ needs.build.outputs.type }}
+              run: rsync -ruthz --stats --progress ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/${{ needs.build.outputs.type }}
 
