@@ -9,6 +9,7 @@ package-lock.json
 /admin/
 /src/userscript.js
 LSSM_V4.zip
+dist.zip
 .eslintcache
 
 # docs files
