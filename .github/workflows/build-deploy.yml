@@ -45,5 +45,5 @@ jobs:
 
             - name: Deployment
               if: ${{ success() }}
-              run: rsync -rutvhz --stats --progress dist/ "${{ needs.build.outputs.type }}"
+              run: rsync -ruthz --stats --progress dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/${{ needs.build.outputs.type }}
 
