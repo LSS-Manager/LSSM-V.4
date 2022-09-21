@@ -75,6 +75,7 @@ jobs:
                   echo "::set-output name=type::${{ env.TYPE }}"
                   echo "VERSION=$(grep '"version":' package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"
                   echo "::set-output name=version::$VERSION"
+                  echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
 
             - name: '[📦] zip files'
               run: |
@@ -83,9 +84,17 @@ jobs:
 
             - name: '[☁️] upload artifact'
               if: ${{ success() || failure() }}
-              uses: actions/upload-artifact@v2
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: dist.zip
                   if-no-files-found: error
                   retention-days: 1
+            
+            - name: Push to Git
+              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_user_name: ${{ secrets.GIT_USERNAME }}
+                  commit_user_email: ${{ secrets.GIT_EMAIL }}
+                  commit_author: Build Server <developer@lss-manager.de>
+                  commit_message: '📦 Version ${{ steps.output.outputs.version }} [skip ci]'
