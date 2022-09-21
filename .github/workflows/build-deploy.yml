@@ -23,12 +23,12 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: LSSM_V4-${{ github.sha }}
-                  path: LSSM_V4-${{ github.sha }}.zip
+                  path: ${{ github.workspace }}/LSSM_V4-${{ github.sha }}.zip
             
             - name: Unzip artifact
               run: | 
-                unzip LSSM_V4-${{ github.sha }}.zip -d ${{ github.workspace }}
-                rm LSSM_V4-${{ github.sha }}.zip
+                unzip ${{ github.workspace }}/LSSM_V4-${{ github.sha }}.zip -d ${{ github.workspace }}
+                rm ${{ github.workspace }}/LSSM_V4-${{ github.sha }}.zip
                 unzip ${{ github.workspace }}/dist.zip -d ${{ github.workspace }}/dist
 
 
