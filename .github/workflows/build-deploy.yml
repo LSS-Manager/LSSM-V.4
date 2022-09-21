@@ -25,9 +25,8 @@ jobs:
                   name: LSSM_V4-${{ github.sha }}
             
             - name: Unzip artifact
-              run: | 
-                unzip LSSM_V4-${{ github.sha }}.zip -d ${{ github.workspace }}
-                rm LSSM_V4-${{ github.sha }}.zip
+              run: |
+                mv LSSM_V4-${{ github.sha }}/dist.zip .
                 unzip dist.zip -d ${{ github.workspace }}/dist
 
 
