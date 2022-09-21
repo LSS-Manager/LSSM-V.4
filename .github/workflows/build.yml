@@ -8,7 +8,7 @@ on:
           value: ${{ jobs.build.outputs.type }}
         version:
           description: 'Version of build'
-          version: ${{ jobs.build.outputs.version }}
+          value: ${{ jobs.build.outputs.version }}
 
 jobs:
     build:
