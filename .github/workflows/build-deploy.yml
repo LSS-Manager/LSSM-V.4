@@ -23,10 +23,14 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: LSSM_V4-${{ github.sha }}
-                  path: dist.zip
+                  path: LSSM_V4-${{ github.sha }}.zip
             
             - name: Unzip artifact
-              run: unzip dist.zip
+              run: | 
+                unzip LSSM_V4-${{ github.sha }}.zip -d ${{ github.workspace }}
+                rm LSSM_V4-${{ github.sha }}.zip
+                unzip ${{ github.workspace }}/dist.zip -d ${{ github.workspace }}/dist
+
 
             - name: list content of dist
               if: ${{ github.ref == 'refs/heads/dev' }}
