@@ -1080,8 +1080,7 @@ If several requests fail in a short time, this could be due to server problems. 
                     },
                 },
             },
-            special:
-                '',
+            special: '',
         },
         69: {
             caption: 'Small Coastal Boat',
@@ -1303,7 +1302,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 caption: 'Law Enforcement for Arson Investigation',
                 duration: '4 Days',
                 staffList: 'Peace Officer',
-            },            
+            },
             {
                 caption: 'Lifeguard Supervisor',
                 duration: '5 Days',
