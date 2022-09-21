@@ -81,6 +81,7 @@ jobs:
                   echo "::set-output name=mode::${{ env.MODE }}"
                   echo "::set-output name=type::${{ env.TYPE }}"
                   echo "VERSION=$(grep '"version":' package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"
+                  echo $VERSION >> $GITHUB_ENV
                   echo "::set-output name=version::$VERSION"
                   echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
 
@@ -105,4 +106,5 @@ jobs:
                   commit_user_name: ${{ secrets.GIT_USERNAME }}
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
-                  commit_message: '📦 Version ${{ steps.output.outputs.version }} [skip ci]'
+                  commit_message: '📦 Version ${{ env.version }} [skip ci]'
+                  push_options: --force
