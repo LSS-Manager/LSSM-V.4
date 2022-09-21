@@ -46,5 +46,5 @@ jobs:
 
             - name: Deployment
               if: ${{ success() }}
-              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/${{ needs.build.outputs.type }}
+              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.type }}
 
