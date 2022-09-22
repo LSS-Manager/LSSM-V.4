@@ -111,7 +111,6 @@ jobs:
                   chmod 600 /home/runner/.ssh/github_actions
                   ssh-agent -a $SSH_AUTH_SOCK > /dev/null
                   ssh-add /home/runner/.ssh/github_actions
-                  ssh -o StrictHostKeyChecking=no -T git@github.com
                   git remote set-url origin git@github.com:LSS-Manager/LSSM-V.4.git
 
             - name: Push to Git
