@@ -3,7 +3,7 @@ name: Build Project
 on:
     workflow_call:
       outputs:
-        type: 
+        type:
           description: 'Type of build'
           value: ${{ jobs.build.outputs.type }}
         version:
@@ -37,11 +37,11 @@ jobs:
               run: |
                   echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
 
-            - name: '[⬆] update browserslist'
-              run: npx -y browserslist@latest --update-db
-
             - name: '[🍱] yarn install'
               run: yarn install --immutable
+
+            - name: '[⬆] update browserslist'
+              run: npx -y browserslist@latest --update-db
 
             - name: '[🌳] set env variables (e.g. beta/stable for webpack & target dir)'
               run: |
@@ -55,9 +55,10 @@ jobs:
               run: ./node_modules/.bin/ts-node scripts/sort.ts || exit 1
 
             - name: '[🚨] run ESLint'
-              run: |
-                  ./scripts/lint_fix.sh || exit 1
-                  yarn tsc -b --pretty "./" || exit 1
+              run: ./scripts/lint_fix.sh || exit 1
+
+            - name: '[🚨] check TypeScript'
+              run: yarn tsc -b --pretty "./" || exit 1
 
             - name: '[📜] build userscript'
               run: yarn tsc --pretty "src/userscript.ts" || exit 1
@@ -66,9 +67,7 @@ jobs:
               run: ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
 
             - name: '[👷] webpack'
-              run: |
-                  ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
-                  git --no-pager diff --color-words
+              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
 
             - name: '[📝] build docs'
               run: |
@@ -76,6 +75,9 @@ jobs:
                   mkdir -p ./dist/docs
                   rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
+
+            - name: '[ℹ️] git diff'
+              run: git --no-pager diff --color-words
 
             - name: '[💬] set output'
               id: output
