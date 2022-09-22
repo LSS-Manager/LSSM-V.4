@@ -2,14 +2,10 @@
     "version": "4.6.1+20220922.1515",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "dev": "yarn prebuild:dev && ./scripts/build.sh development && yarn docs",
-        "prebuild:dev": "./scripts/prebuild.sh development",
-        "prebuild:stable": "./scripts/prebuild.sh production",
-        "build": "yarn prebuild:stable && ./scripts/build.sh production && yarn docs",
+        "dev": "./scripts/build.sh development && yarn docs",
+        "build": "./scripts/build.sh production && yarn docs",
         "docs": "./scripts/docs.sh",
         "eslint:fix": "./scripts/lint_fix.sh",
-        "order-json": "./scripts/sort.sh",
-        "fetch-emojis": "./scripts/emojis.sh",
         "check-tsc": "./scripts/tsc.sh"
     },
     "dependencies": {
