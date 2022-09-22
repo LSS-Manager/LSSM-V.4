@@ -101,15 +101,24 @@ jobs:
                   if-no-files-found: error
                   retention-days: 1
 
-            - name: Prepare Git Push
+            - name: Prepare Git Push (add ssh-key etc.)
               if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              env:
+                  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               run: |
                   ssh -o StrictHostKeyChecking=no -T git@github.com
+                  mkdir -p /home/runner/.ssh
+                  echo "${{ secrets.SSH_DEPLOY_KEY }}" > /home/runner/.ssh/github_actions
+                  chmod 600 /home/runner/.ssh/github_actions
+                  ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+                  ssh-add /home/runner/.ssh/github_actions
                   git remote set-url origin git@github.com:LSS-Manager/LSSM-V.4.git
-            
+
             - name: Push to Git
               if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
+              env:
+                  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               with:
                   commit_user_name: ${{ secrets.GIT_USERNAME }}
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
