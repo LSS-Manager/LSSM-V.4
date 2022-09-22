@@ -27,7 +27,6 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: 18
-                  cache: 'yarn'
 
             - name: '[⬆] set yarn to stable'
               run: |
@@ -37,6 +36,22 @@ jobs:
             - name: '[ℹ] print versions (node, yarn, git)'
               run: |
                   echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
+            
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir
+              run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+            
+            - name: Restore Cache
+              uses: actions/cache@v3
+              id: yarn-cache
+              with:
+                  path: | 
+                    ${{ steps.yarn-cache-dir.outputs.dir }}
+                    **/node_modules
+                    **/.eslintcache
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
 
             - name: '[🍱] yarn install'
               run: yarn install --immutable
@@ -126,3 +141,4 @@ jobs:
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ env.VERSION }} [skip ci]'
+                  
