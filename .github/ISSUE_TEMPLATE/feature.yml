@@ -1,33 +1,33 @@
 name: Feature request
 description: Create a feature request
-title: "[Feature request]: "
+title: '[Feature request]: '
 
 body:
     - type: textarea
       id: description
       attributes:
-        label: Is your feature related to a problem?
-        description: |
-          Write a clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+          label: Is your feature related to a problem?
+          description: |
+              Write a clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
       validations:
-        required: true
+          required: true
 
     - type: textarea
       id: feature
       attributes:
-        label: Solution / Feature
-        description: Give us a clear and concise description of what you want to happen.
+          label: Solution / Feature
+          description: Give us a clear and concise description of what you want to happen.
       validations:
-        required: true
+          required: true
 
     - type: textarea
       id: alternatives
       attributes:
-        label: Alternatives
-        description: A clear and concise description of any alternative solutions or features you've considered.
+          label: Alternatives
+          description: A clear and concise description of any alternative solutions or features you've considered.
 
     - type: textarea
       id: additional
       attributes:
-        label: Additional
-        description: You can use this section for any other information that may be relevant, such as Screenshots.
+          label: Additional
+          description: You can use this section for any other information that may be relevant, such as Screenshots.

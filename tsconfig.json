@@ -7,36 +7,19 @@
         "esModuleInterop": true,
         "importHelpers": true,
         "jsx": "preserve",
-        "lib": [
-            "esnext",
-            "dom",
-            "dom.iterable",
-            "scripthost",
-            "es5"
-        ],
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost", "es5"],
         "module": "ESNext",
         "moduleResolution": "node",
         "outDir": "typings/dist",
         "paths": {
-            "@stores/*": [
-                "../src/stores/*"
-            ],
-            "typings/*": [
-                "../typings/*"
-            ]
+            "@stores/*": ["../src/stores/*"],
+            "typings/*": ["../typings/*"]
         },
         "resolveJsonModule": true,
         "sourceMap": true,
         "strict": true,
         "target": "es2017",
-        "types": [
-            "webpack-env",
-            "vue",
-            "jquery",
-            "node"
-        ]
+        "types": ["webpack-env", "vue", "jquery", "node"]
     },
-    "exclude": [
-        "node_modules"
-    ]
+    "exclude": ["node_modules"]
 }

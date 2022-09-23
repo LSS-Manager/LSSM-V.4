@@ -1,56 +1,56 @@
 name: Fehlermeldung 🇩🇪
 description: Fehlermeldung auf deutsch erstellen
-title: "[BUG]: "
-labels: ["bug"]
+title: '[BUG]: '
+labels: ['bug']
 
 body:
     - type: textarea
       id: description
       attributes:
-        label: What happened?
-        description: |
-          Füge hier eine detaillierte Beschreibung ein, was genau passiert.
-            
-          Je detaillierter, desto besser!
+          label: What happened?
+          description: |
+              Füge hier eine detaillierte Beschreibung ein, was genau passiert.
+                
+              Je detaillierter, desto besser!
       validations:
-        required: true
+          required: true
 
     - type: textarea
       id: reproduce
       attributes:
-        label: Wie kann man den Fehler reproduzieren?
-        description: Beschreibe hier, wenn möglich, was du gemacht hast, als der Fehler auftrat.
-        value: |
-          1. Auf '...' klicken
-          2. '...' eingeben
-          3. ...
-          4. Das Fehlverhalten tritt auf
+          label: Wie kann man den Fehler reproduzieren?
+          description: Beschreibe hier, wenn möglich, was du gemacht hast, als der Fehler auftrat.
+          value: |
+              1. Auf '...' klicken
+              2. '...' eingeben
+              3. ...
+              4. Das Fehlverhalten tritt auf
       validations:
-        required: true
+          required: true
 
     - type: textarea
       id: expected
       attributes:
-        label: Erwartetes Verhalten
-        description: Welches Verhalten hättest du erwartet?
+          label: Erwartetes Verhalten
+          description: Welches Verhalten hättest du erwartet?
       validations:
-        required: true
+          required: true
 
     - type: textarea
       id: system
       attributes:
-        label: System
-        description: Bitte fülle diese Informationen aus
-        value: |
-          - Betriebssystem: [z.B. Windows 10]
-          - Browser und version: [z.B. Firefox 101.3]
-          - LSSM-Version: [z.B. 4.6.1+20220917.1751 [stable]]
-          - Spiel-Version: [z.B. leitstellenspiel.de]
+          label: System
+          description: Bitte fülle diese Informationen aus
+          value: |
+              - Betriebssystem: [z.B. Windows 10]
+              - Browser und version: [z.B. Firefox 101.3]
+              - LSSM-Version: [z.B. 4.6.1+20220917.1751 [stable]]
+              - Spiel-Version: [z.B. leitstellenspiel.de]
       validations:
-        required: true
+          required: true
 
     - type: textarea
       id: additional
       attributes:
-        label: Sonstiges
-        description: Hier kannst du bei Bedarf weitere Infos oder Screenshots hinzufügen.
+          label: Sonstiges
+          description: Hier kannst du bei Bedarf weitere Infos oder Screenshots hinzufügen.
