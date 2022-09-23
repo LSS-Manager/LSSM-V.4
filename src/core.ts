@@ -19,7 +19,6 @@ import { useTranslationStore } from '@stores/translationUtilities';
 import VueJSModal from 'vue-js-modal';
 import { createPinia, PiniaVuePlugin } from 'pinia';
 
-
 import config from './config';
 import i18n from './i18n';
 import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
