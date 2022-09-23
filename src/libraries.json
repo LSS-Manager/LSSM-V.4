@@ -39,6 +39,11 @@
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
         "version": "3.5.14"
     },
+    "@types/js-yaml": {
+        "icon": "https://avatars.githubusercontent.com/u/3637556",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/js-yaml",
+        "version": "4.0.5"
+    },
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
@@ -249,6 +254,9 @@
     "html-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/html-loader",
+        "version": "4.1.0"
+    },
+    "js-yaml": {
         "version": "4.1.0"
     },
     "leaflet.heat": {
