@@ -1,12 +1,13 @@
 {
-    "version": "4.6.1+20220923.1404",
+    "version": "4.6.1+20220923.2115",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "dev": "./scripts/build.sh development && yarn docs",
-        "build": "./scripts/build.sh production && yarn docs",
-        "docs": "./scripts/docs.sh",
-        "eslint:fix": "./scripts/lint_fix.sh",
-        "check-tsc": "./scripts/tsc.sh"
+        "dev": "./build/build.sh --full",
+        "build": "./build/build.sh --full --production",
+        "docs": "./build/build.sh --docs",
+        "format": "./build/build.sh --json_yaml_format",
+        "eslint:fix": "./build/build.sh --eslint",
+        "check-tsc": "./build/build.sh --tsc"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "6.2.0",
@@ -44,6 +45,7 @@
         "@types/he": "1.1.2",
         "@types/i18n-js": "3.8.3",
         "@types/jquery": "3.5.14",
+        "@types/js-yaml": "^4.0.5",
         "@types/leaflet": "1.8.0",
         "@types/lodash": "4.14.185",
         "@types/node": "18.7.18",
@@ -77,6 +79,7 @@
         "eslint-plugin-unicorn": "43.0.2",
         "eslint-plugin-vue": "9.5.1",
         "html-loader": "4.1.0",
+        "js-yaml": "^4.1.0",
         "moment-timezone": "0.5.37",
         "prettier": "2.7.1",
         "sass": "1.55.0",

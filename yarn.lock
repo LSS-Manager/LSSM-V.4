@@ -2425,6 +2425,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/js-yaml@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@types/js-yaml@npm:4.0.5"
+  checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
@@ -9863,6 +9870,7 @@ __metadata:
     "@types/he": 1.1.2
     "@types/i18n-js": 3.8.3
     "@types/jquery": 3.5.14
+    "@types/js-yaml": ^4.0.5
     "@types/leaflet": 1.8.0
     "@types/lodash": 4.14.185
     "@types/node": 18.7.18
@@ -9903,6 +9911,7 @@ __metadata:
     highcharts: 10.2.1
     highcharts-vue: 1.4.0
     html-loader: 4.1.0
+    js-yaml: ^4.1.0
     leaflet.heat: 0.2.0
     localforage: 1.10.0
     lodash: 4.17.21

@@ -19,34 +19,38 @@ jobs:
             version: ${{ steps.output.outputs.version }}
         steps:
             - name: Checkout
+              id: checkout
               uses: actions/checkout@v3
               with:
                   ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
             - name: Setup Node.js
+              id: node
               uses: actions/setup-node@v3
               with:
                   node-version: 18
 
             - name: '[⬆] set yarn to stable'
+              id: yarn_setup
               run: |
                   corepack enable
                   yarn set version stable
 
             - name: '[ℹ] print versions (node, yarn, git)'
+              id: versions
               run: |
                   echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
 
             - name: Get yarn cache directory path
-              id: yarn-cache-dir
+              id: yarn_cache_dir
               run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
             - name: Restore Cache
               uses: actions/cache@v3
-              id: yarn-cache
+              id: yarn_cache
               with:
                   path: |
-                      ${{ steps.yarn-cache-dir.outputs.dir }}
+                      ${{ steps.yarn_cache_dir.outputs.dir }}
                       **/node_modules
                       **/.eslintcache
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
@@ -54,38 +58,65 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: '[🍱] yarn install'
+              id: yarn_install
               run: yarn install --immutable
 
             - name: '[⬆] update browserslist'
+              id: browserslist
               run: npx -y browserslist@latest --update-db
 
             - name: '[🌳] set env variables (e.g. beta/stable for webpack & target dir)'
+              id: env
               run: |
                   echo "MODE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
                   echo "TYPE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
 
             - name: '[⬆] update emojis'
+              id: update_emojis
               run: ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
 
             - name: '[🚨] format JSON & YAML files'
+              id: json_yaml_format
               run: ./node_modules/.bin/ts-node scripts/format.ts || exit 1
 
             - name: '[🚨] run ESLint'
-              run: ./scripts/lint_fix.sh || exit 1
+              id: eslint
+              run: |
+                  yarn eslint \
+                  ./docs/.vuepress/ \
+                  ./static/         \
+                  ./prebuild/       \
+                  ./build/          \
+                  ./src/            \
+                  ./scripts/        \
+                  ./typings/        \
+                  --ext .js,.ts,.vue,.md \
+                  -f table \
+                  --no-error-on-unmatched-pattern \
+                  --exit-on-fatal-error \
+                  --report-unused-disable-directives \
+                  --cache --cache-strategy content \
+                  --fix \
+                  || exit 1
 
             - name: '[🚨] check TypeScript'
+              id: tsc
               run: yarn tsc -b --pretty "./" || exit 1
 
             - name: '[📜] build userscript'
+              id: userscript
               run: yarn tsc --pretty "src/userscript.ts" || exit 1
 
             - name: '[🚧] run prebuild'
+              id: prebuild
               run: ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
 
             - name: '[👷] webpack'
+              id: webpack
               run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
 
             - name: '[📝] build docs'
+              id: docs
               run: |
                   ./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
                   mkdir -p ./dist/docs
@@ -93,6 +124,7 @@ jobs:
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
 
             - name: '[ℹ️] git diff'
+              id: git_diff
               run: git --no-pager diff --color-words
 
             - name: '[💬] set output'
@@ -105,11 +137,13 @@ jobs:
                   echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
 
             - name: '[📦] zip files'
+              id: zip
               run: |
                   sudo apt-get install zip
                   zip -r dist.zip dist
 
             - name: '[☁️] upload artifact'
+              id: artifact
               if: ${{ success() || failure() }}
               uses: actions/upload-artifact@v3
               with:
@@ -119,6 +153,7 @@ jobs:
                   retention-days: 1
 
             - name: Prepare Git Push (add ssh-key etc.)
+              id: git_prepare
               if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -131,6 +166,7 @@ jobs:
                   git remote set-url origin git@github.com:LSS-Manager/LSSM-V.4.git
 
             - name: Push to Git
+              id: git_push
               if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
               env:
