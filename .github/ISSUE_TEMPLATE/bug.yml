@@ -1,0 +1,57 @@
+name: Bug report
+description: Create a Bug report
+title: "[BUG]: "
+labels: ["bug"]
+
+body:
+    - type: textarea
+      id: description
+      attributes:
+        label: What happened?
+        description: |
+          Please describe as detailed as possible how exactly the bug looks like.
+            
+          The more detailed, the better we can help you.
+      validations:
+        required: true
+
+    - type: textarea
+      id: reproduce
+      attributes:
+        label: How to reproduce?
+        description: Explain here, what you did when the error occurred.
+        value: |
+          1. Go to '...'
+          2. Click on '...'
+          3. Scroll down to '...'
+          4. ...
+          5. The error occurred
+      validations:
+        required: true
+
+    - type: textarea
+      id: expected
+      attributes:
+        label: Expected behavior
+        description: What did you expect to happen? What behaviour did you expect from LSSM?
+      validations:
+        required: true
+
+    - type: textarea
+      id: system
+      attributes:
+        label: System
+        description: Please fill out
+        value: |
+          - OS: [e.g. Windows 10]
+          - Browser and version: [e.g. Firefox 101.3]
+          - LSSM-Version: [e.g. 4.6.1+20220917.1751 [stable]]
+          - Game-Version: [e.g. missionchief.co.uk]
+      validations:
+        required: true
+
+    - type: textarea
+      id: additional
+      attributes:
+        label: Additional
+        description: You can use this section for any other information that may be relevant.
