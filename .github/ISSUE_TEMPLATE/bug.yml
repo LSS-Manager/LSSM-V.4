@@ -54,4 +54,4 @@ body:
       id: additional
       attributes:
         label: Additional
-        description: You can use this section for any other information that may be relevant.
+        description: You can use this section for any other information that may be relevant, such as Screenshots or Logs.

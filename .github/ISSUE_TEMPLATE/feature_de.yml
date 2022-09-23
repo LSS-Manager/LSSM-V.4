@@ -1,0 +1,33 @@
+name: Feature Vorschlag 🇩🇪
+description: Mache einen Vorschlag für ein Feature
+title: "[Feature request]: "
+
+body:
+    - type: textarea
+      id: description
+      attributes:
+        label: Geht deine Idee aus einer Problemstellung hervor?
+        description: |
+          Schreibe uns, was der Hintergrund für deine Idee ist. Damit können wir sie besser verstehen.
+      validations:
+        required: true
+
+    - type: textarea
+      id: feature
+      attributes:
+        label: Lösung / Feature
+        description: Was soll das Feature können / was soll passieren?
+      validations:
+        required: true
+
+    - type: textarea
+      id: alternatives
+      attributes:
+        label: Alternativen
+        description: Hast du bereits über alternative Lösungen nachgedacht? Vielleicht können wir diese mit einbauen.
+
+    - type: textarea
+      id: additional
+      attributes:
+        label: Sonstiges
+        description: Hier kannst du weitere Punkte anfügen, die deine Idee besser verständlich machen (z.B. Screenshots o.ä.)

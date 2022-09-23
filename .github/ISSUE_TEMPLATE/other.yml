@@ -1,0 +1,14 @@
+name: Issue for other purpose | Issue für sonstiges
+description: The other templates don't fit? | Die anderen Templates passen nicht?
+
+body:
+    - type: textarea
+      id: description
+      attributes:
+        label: Hello world!
+        description: |
+          Yes, the title is intended! Simply describe your request here. As always, the more detailed the better!
+          
+          Ja, der Titel ist gewollt! Beschreibe hier einfach dein Anliegen. Es gilt wie immer: Je detaillierter, desto besser!
+      validations:
+        required: true
