@@ -2,13 +2,13 @@ name: Build Project
 
 on:
     workflow_call:
-      outputs:
-        type:
-          description: 'Type of build'
-          value: ${{ jobs.build.outputs.type }}
-        version:
-          description: 'Version of build'
-          value: ${{ jobs.build.outputs.version }}
+        outputs:
+            type:
+                description: 'Type of build'
+                value: ${{ jobs.build.outputs.type }}
+            version:
+                description: 'Version of build'
+                value: ${{ jobs.build.outputs.version }}
 
 jobs:
     build:
@@ -45,10 +45,10 @@ jobs:
               uses: actions/cache@v3
               id: yarn-cache
               with:
-                  path: | 
-                    ${{ steps.yarn-cache-dir.outputs.dir }}
-                    **/node_modules
-                    **/.eslintcache
+                  path: |
+                      ${{ steps.yarn-cache-dir.outputs.dir }}
+                      **/node_modules
+                      **/.eslintcache
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
                   restore-keys: |
                       ${{ runner.os }}-yarn-
@@ -67,8 +67,8 @@ jobs:
             - name: '[⬆] update emojis'
               run: ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
 
-            - name: '[🚨] sort JSONs'
-              run: ./node_modules/.bin/ts-node scripts/sort.ts || exit 1
+            - name: '[🚨] format JSON & YAML files'
+              run: ./node_modules/.bin/ts-node scripts/format.ts || exit 1
 
             - name: '[🚨] run ESLint'
               run: ./scripts/lint_fix.sh || exit 1

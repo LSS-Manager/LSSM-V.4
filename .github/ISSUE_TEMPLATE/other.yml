@@ -5,10 +5,10 @@ body:
     - type: textarea
       id: description
       attributes:
-        label: Hello world!
-        description: |
-          Yes, the title is intended! Simply describe your request here. As always, the more detailed the better!
-          
-          Ja, der Titel ist gewollt! Beschreibe hier einfach dein Anliegen. Es gilt wie immer: Je detaillierter, desto besser!
+          label: Hello world!
+          description: |
+              Yes, the title is intended! Simply describe your request here. As always, the more detailed the better!
+
+              Ja, der Titel ist gewollt! Beschreibe hier einfach dein Anliegen. Es gilt wie immer: Je detaillierter, desto besser!
       validations:
-        required: true
+          required: true

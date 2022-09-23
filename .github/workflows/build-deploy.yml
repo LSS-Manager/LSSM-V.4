@@ -2,9 +2,9 @@ name: Build and Deploy
 
 on:
     push:
-      branches:
-        - 'master'
-        - 'dev'
+        branches:
+            - 'master'
+            - 'dev'
 
 jobs:
     build:
@@ -26,9 +26,8 @@ jobs:
 
             - name: Unzip artifact
               run: |
-                unzip dist.zip -d ${{ github.workspace }}/dist
-                rm dist.zip
-
+                  unzip dist.zip -d ${{ github.workspace }}/dist
+                  rm dist.zip
 
             - name: list content of dist
               if: ${{ github.ref == 'refs/heads/dev' }}
@@ -47,4 +46,3 @@ jobs:
             - name: Deployment
               if: ${{ success() }}
               run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.type }}
-
