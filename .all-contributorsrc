@@ -6,6 +6,9 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/27238105?v=4",
       "contributions": [
         "code",
+        "doc",
+        "financial",
+        "infra",
         "maintenance",
         "mentoring",
         "projectManagement",
@@ -45,19 +48,6 @@
       "profile": "https://github.com/Suchty112"
     },
     {
-      "avatar_url": "https://avatars2.githubusercontent.com/u/8158524?v=4",
-      "contributions": [
-        "infra",
-        "security",
-        "review",
-        "question",
-        "financial"
-      ],
-      "login": "Tsumiki-Chan",
-      "name": "Tsumiki",
-      "profile": "https://github.com/Tsumiki-Chan"
-    },
-    {
       "avatar_url": "https://avatars3.githubusercontent.com/u/29802197?v=4",
       "contributions": [
         "ideas",
@@ -70,8 +60,9 @@
     {
       "avatar_url": "https://avatars3.githubusercontent.com/u/42553393?v=4",
       "contributions": [
-        "doc",
         "code",
+        "doc",
+        "infra",
         "review"
       ],
       "login": "kdev",
@@ -81,7 +72,9 @@
     {
       "avatar_url": "https://avatars.githubusercontent.com/u/69073372?v=4",
       "contributions": [
-        "code"
+        "code",
+        "infra",
+        "review"
       ],
       "login": "Cr4zyc4k3",
       "name": "Cr4zyc4k3",
