@@ -36,11 +36,11 @@ jobs:
             - name: '[ℹ] print versions (node, yarn, git)'
               run: |
                   echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
-            
+
             - name: Get yarn cache directory path
               id: yarn-cache-dir
               run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-            
+
             - name: Restore Cache
               uses: actions/cache@v3
               id: yarn-cache
@@ -100,7 +100,7 @@ jobs:
               run: |
                   echo "::set-output name=mode::${{ env.MODE }}"
                   echo "::set-output name=type::${{ env.TYPE }}"
-                  echo "VERSION=$(grep '"version":' package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"
+                  echo "VERSION=$(grep '"version":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"
                   echo $VERSION >> $GITHUB_ENV
                   echo "::set-output name=version::$VERSION"
                   echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
@@ -141,4 +141,3 @@ jobs:
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ env.VERSION }} [skip ci]'
-                  
