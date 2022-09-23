@@ -1,0 +1,15 @@
+{
+    "all": "Vše",
+    "amount": "Počet kurzů",
+    "open": "Otevřených kurzů",
+    "own": "Kurzy se zapojením",
+    "schooling": "Kurz",
+    "seats": "Počet míst",
+    "titles": {
+        "end": "Zbývající čas",
+        "name": "Kurz",
+        "owner": "Vypsal",
+        "price": "Cena",
+        "seats": "Volná místa"
+    }
+}
