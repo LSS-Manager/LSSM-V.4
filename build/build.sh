@@ -12,6 +12,7 @@ JSON_YAML_FORMAT=false
 ESLINT=false
 TSC=false
 USERSCRIPT=false
+BUILDSCRIPT=false
 PREBUILD=false
 WEBPACK=false
 DOCS=false
@@ -30,6 +31,7 @@ while :; do
         --eslint) ESLINT=true ;;
         --tsc) TSC=true ;;
         --userscript) USERSCRIPT=true ;;
+        --buildscript) BUILDSCRIPT=true ;;
         --prebuild) PREBUILD=true ;;
         --webpack) WEBPACK=true ;;
         --docs) DOCS=true ;;
@@ -55,6 +57,7 @@ while :; do
           ESLINT=true
           TSC=true
           USERSCRIPT=true
+          BUILDSCRIPT=true
           PREBUILD=true
           WEBPACK=true
           DOCS=true
@@ -166,6 +169,15 @@ if [[ $USERSCRIPT = true ]]; then
     yarn tsc --pretty "src/userscript.ts" || exit 1
     end_time=$(date +%s%N)
     echo "=== [📜] build userscript: $(((end_time - start_time) / 1000000))ms ==="
+fi
+
+# [📜] build buildscript
+if [[ $BUILDSCRIPT = true ]]; then
+    start_time=$(date +%s%N)
+    echo "### [📜] build buildscript ###"
+    ./node_modules/.bin/ts-node scripts/createBuildScript.ts || exit 1
+    end_time=$(date +%s%N)
+    echo "=== [📜] build buildscript: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
 # [🚧] run prebuild
