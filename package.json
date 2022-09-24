@@ -2,6 +2,7 @@
     "version": "4.6.1+20220923.2123",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
+        "quickbuild": "./build/build.sh --quick",
         "dev": "./build/build.sh --full",
         "build": "./build/build.sh --full --production",
         "docs": "./build/build.sh --docs",
