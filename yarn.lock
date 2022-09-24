@@ -21,7 +21,7 @@ __metadata:
     showdown: 2.1.0
     vue: 3.2.39
     vuepress: 2.0.0-beta.51
-    vuepress-plugin-clipboard: 2.1.3
+    vuepress-plugin-clipboard: 2.1.4
   languageName: unknown
   linkType: soft
 
@@ -3049,7 +3049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/client@npm:2.0.0-beta.51, @vuepress/client@npm:^2.0.0-beta.49":
+"@vuepress/client@npm:2.0.0-beta.51, @vuepress/client@npm:^2.0.0-beta.51":
   version: 2.0.0-beta.51
   resolution: "@vuepress/client@npm:2.0.0-beta.51"
   dependencies:
@@ -3061,7 +3061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/core@npm:2.0.0-beta.51, @vuepress/core@npm:^2.0.0-beta.49":
+"@vuepress/core@npm:2.0.0-beta.51, @vuepress/core@npm:^2.0.0-beta.51":
   version: 2.0.0-beta.51
   resolution: "@vuepress/core@npm:2.0.0-beta.51"
   dependencies:
@@ -3281,15 +3281,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/shared@npm:2.0.0-beta.50-pre":
-  version: 2.0.0-beta.50-pre
-  resolution: "@vuepress/shared@npm:2.0.0-beta.50-pre"
-  dependencies:
-    "@vue/shared": ^3.2.37
-  checksum: c0898f7cb18c1076cccc72e7cf73ca9dcf2795b7f3920116fe557deef354c4037bf5f957e96620c794a3d054a1b3fe937f58dcc67166840a479ced0b0e19ddc5
-  languageName: node
-  linkType: hard
-
 "@vuepress/shared@npm:2.0.0-beta.51":
   version: 2.0.0-beta.51
   resolution: "@vuepress/shared@npm:2.0.0-beta.51"
@@ -3347,25 +3338,6 @@ __metadata:
     ora: ^6.1.2
     upath: ^2.0.1
   checksum: 2899cd4e56506eb5fd70a0eec954e872883fdcb760bc580575fd71c175a51b3f59066bc85dc548d07d0c7000f7279cf98607195cac301e8ef9aa315a32d6088c
-  languageName: node
-  linkType: hard
-
-"@vuepress/utils@npm:^2.0.0-beta.49":
-  version: 2.0.0-beta.50-pre
-  resolution: "@vuepress/utils@npm:2.0.0-beta.50-pre"
-  dependencies:
-    "@types/debug": ^4.1.7
-    "@types/fs-extra": ^9.0.13
-    "@types/hash-sum": ^1.0.0
-    "@vuepress/shared": 2.0.0-beta.50-pre
-    chalk: ^5.0.1
-    debug: ^4.3.4
-    fs-extra: ^10.1.0
-    globby: ^13.1.2
-    hash-sum: ^2.0.0
-    ora: ^6.1.2
-    upath: ^2.0.1
-  checksum: 913d4b2beaed0685d3d85dc33ba7253370aa20465e027d0779c169e43642f19d57f43bbe84f1dea645100251cfdee683af4c826d519d849f7fae9ef9881c2702
   languageName: node
   linkType: hard
 
@@ -11547,7 +11519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.0.15, vue-router@npm:^4.1.4":
+"vue-router@npm:^4.1.4, vue-router@npm:^4.1.5":
   version: 4.1.5
   resolution: "vue-router@npm:4.1.5"
   dependencies:
@@ -11611,7 +11583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.2.39, vue@npm:^3.2.33, vue@npm:^3.2.37":
+"vue@npm:3.2.39, vue@npm:^3.2.37, vue@npm:^3.2.39":
   version: 3.2.39
   resolution: "vue@npm:3.2.39"
   dependencies:
@@ -11624,16 +11596,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-clipboard@npm:2.1.3":
-  version: 2.1.3
-  resolution: "vuepress-plugin-clipboard@npm:2.1.3"
+"vuepress-plugin-clipboard@npm:2.1.4":
+  version: 2.1.4
+  resolution: "vuepress-plugin-clipboard@npm:2.1.4"
   dependencies:
-    "@vuepress/client": ^2.0.0-beta.49
-    "@vuepress/core": ^2.0.0-beta.49
-    "@vuepress/utils": ^2.0.0-beta.49
-    vue: ^3.2.33
-    vue-router: ^4.0.15
-  checksum: 2a96cef9710776cbec641c0c9cd592b6eb9ef9ea058155ab20ec783e27ef87a280c3d771cca14d31b4b86948d66a3fff9fe6eccee855f2bef36b87f7cd6e5770
+    "@vuepress/client": ^2.0.0-beta.51
+    "@vuepress/core": ^2.0.0-beta.51
+    vue: ^3.2.39
+    vue-router: ^4.1.5
+  checksum: e8429ffecc5367b94cadff194a778bc7b463c546c409c0322befe6171ea77e2c0bfd0fdcca46d1a3959387c4afa5ac2c6fe83c2acd6353416ab7d0bc63a2fab2
   languageName: node
   linkType: hard
 
