@@ -417,7 +417,7 @@
     "vuepress-plugin-clipboard": {
         "icon": "https://vuepress.qbb.sh/hero.png",
         "url": "https://vuepress.qbb.sh/clipboard",
-        "version": "2.1.3"
+        "version": "2.1.4"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
