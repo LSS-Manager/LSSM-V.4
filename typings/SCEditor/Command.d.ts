@@ -1,3 +1,7 @@
+/**
+ * @file - Types for SCEditor {@link https://www.sceditor.com/}, the WYSIWYG Editor used in game.
+ */
+
 export interface Command {
     exec:
         | string

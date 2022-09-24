@@ -38,4 +38,16 @@ export default (() => ({
         default: '#0e9a26',
         dependsOn: '.selfHighlightCustomTextColor',
     },
+    whisperIndicator: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    mentionIndicator: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    userSelection: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
 })) as ModuleSettingFunction;

@@ -61,6 +61,7 @@ const modules = {
 
 export default {
     modules,
+    serverUmzugWarning: `Serveronderhoud op donderdag 15-09-2022 vanaf 14:00 (lokale tijd: {local}. LSSM and scripts die de LSSM API gebruiken zullen niet beschikbaar zijn voor een aantal uur!`,
     updateUserscript: {
         title: 'Userscript verouderd',
         text: `Beste LSSM-gebruiker,<br>
@@ -1415,25 +1416,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         7: 'Aanvraag spraakcontact',
         9: 'Wachten op ophalen',
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'ambulance',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'graduation-cap',
-        'helicopter',
-        'warehouse',
-        'shield-alt',
-        'boarder-all',
-        'ambulance',
-        'warehouse',
-        'warehouse',
-        'water',
-    ],
     pois: [
         'Park',
         'Meer',

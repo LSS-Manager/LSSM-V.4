@@ -1,3 +1,7 @@
+/**
+ * @file - Type definition extending the window object by ingame defined properties and methods.
+ */
+
 import 'i18n-js';
 import type { DefaultProps } from 'vue/types/options';
 import type Highcharts from 'highcharts';

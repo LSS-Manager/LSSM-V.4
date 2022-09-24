@@ -45,6 +45,7 @@ const modules = {
 
 export default {
     modules,
+    serverUmzugWarning: `Mantenimiento del servidor el Jueves 15 de septiembre de 2022 a partir de las 14h (Hora local: {local}). LSSM y los scripts que utilizan la API de LSSM no estará disponible durante unas horas!`,
     updateUserscript: {
         title: 'Userscript out of date',
         text: `Dear LSSM-User,<br>
@@ -562,27 +563,6 @@ your LSSM team`,
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'clinic-medical',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'helicopter',
-        'building',
-        '',
-        'ship',
-        'ship',
-        'fire',
-        'stethoscope',
-        'shield-alt',
-        'clinic-medical',
-        'plane',
-        'shield-alt',
-    ],
     pois: [
         'Parque',
         'Lago',

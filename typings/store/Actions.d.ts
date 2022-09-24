@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the actions of root store.
+ */
+
 export interface Hook<Arguments extends unknown[]> {
     event: string;
     post?: boolean;

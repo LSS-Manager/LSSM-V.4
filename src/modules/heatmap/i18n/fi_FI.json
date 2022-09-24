@@ -1,0 +1,12 @@
+{
+    "buildings": "Rakennukset",
+    "enable": "Päällä",
+    "includes": { "buildings": "rakennustyyppi", "vehicles": "ajoneuvotyyppi" },
+    "intensity": "intensiivisyyden lisäys",
+    "livePreview": "Live-esikatselu (Autosave)",
+    "radius": "säde",
+    "save": "Tallenna",
+    "static": "säde pikseleinä?",
+    "title": "Heatmap-asetukset",
+    "vehicles": "Ajoneuvot"
+}

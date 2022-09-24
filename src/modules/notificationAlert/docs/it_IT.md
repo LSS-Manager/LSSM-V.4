@@ -1,6 +1,7 @@
 A volte è utile ricevere notifiche di eventi nel gioco. con il modulo notifiche, è possibile!
 
-È possibile ricevere notifiche dei seguenti eventi, che possono essere impostati singolarmente: 
+È possibile ricevere notifiche dei seguenti eventi, che possono essere impostati singolarmente:
+
 * Nuova registrazione per il team
 * Tutti i messaggi istantanei
 * Solo messaggi istantanei che sono stati chiamati
@@ -29,6 +30,7 @@ A volte è utile ricevere notifiche di eventi nel gioco. con il modulo notifiche
     * Stato 9
 
 Inoltre, nelle impostazioni sono disponibili le seguenti opzioni:
+
 * Colore per il messaggio
 * Durata della visualizzazione del messaggio
 * se la notifica debba essere visualizzata come notifica durante il gioco

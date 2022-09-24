@@ -25,9 +25,17 @@
             "description": "Pokazuje liość kredytów w pasku nawigacyjnym zamiast uroczej skarbonki.",
             "title": "Kredyty zamiast skarbonki"
         },
+        "hideAllianceFunds": {
+            "description": "Nie pokazuj informacji o funduszach sojuszu.",
+            "title": "Ukryj fundusze sojuszu"
+        },
         "highlightSales": {
             "description": "Monety będą zielone, jeśli dostępna jest wyprzedaż",
             "title": "Wyróżnij wyprzedaż"
+        },
+        "showAlertProgressBar": {
+            "description": "Pokazuje pasek postępu na pasku nawigacyjnym, aby wskazać, jak daleko jesteś w swoim postępie do następnego alertu ustawionego w celach.",
+            "title": "Pasek postępu celów"
         },
         "showSales": {
             "description": "Pokazuje wyprzedaż na monety, jeśli jest dostępna.",

@@ -1,0 +1,51 @@
+{
+    "allianceFunds": {
+        "currently": "tällä hetkellä",
+        "title": "Liittouman varat",
+        "total": "yhteensä",
+        "updateNote": "Päivitetään 5 minuutin välein."
+    },
+    "coins": { "list": "lista" },
+    "credits": { "daily": "Päiväyhteenveto", "overview": "Yleiskatsaus" },
+    "description": "Näyttää hyödyllisiä tietoja krediiteistä navigaattoripalkin pudotusvalikossa.",
+    "name": "Krediitti Laajennus",
+    "nextRank": "Seuraava arvo",
+    "nextRankMissing": "jäljellä",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Heti kun olet saavuttanut tietyn määrän krediittejä, Krediitti laajennus näkyy vihreänä, kunnes napsautat sitä.",
+            "title": "Tavoitteet"
+        },
+        "coinsInNavbar": {
+            "description": "Näyttää nykyiset kolikot navigointipalkissa söpön säästöpossun sijasta.",
+            "title": "Kolikot säästöpossun sijasta"
+        },
+        "creditsInNavbar": {
+            "description": "Näyttää nykyiset krediitit navigointipalkissa söpön säästöpossun sijasta.",
+            "title": "Krediitit säästöpossun sijasta"
+        },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
+        "highlightSales": {
+            "description": "Korostaa kolikot vihreänä, jos on alennukset",
+            "title": "Korosta alennuksia"
+        },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Tavoitteet",
+            "title": "Tavoitteet progress bar"
+        },
+        "showSales": {
+            "description": "Näyttää kolikoiden alennukset, kun ne on saatavilla.",
+            "title": "Näytä alennukset"
+        },
+        "showToplistPosition": {
+            "description": "Näyttää tämänhetkisen toplist-sija Krediiitti laajennuksessa.",
+            "title": "Näyttää toplist-sija Krediitti laajennuksessa"
+        }
+    },
+    "toplistPositionName": "Toplist-sija",
+    "totalEarnedCredits": "Ansaitut krediiitit yhteensä"
+}

@@ -12,7 +12,14 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const commands: string[] = [
         'main.chat.focus',
         'main.map.search.focus',
+        'main.map.zoom.in',
+        'main.map.zoom.out',
+        'main.map.move.up',
+        'main.map.move.down',
+        'main.map.move.left',
+        'main.map.move.right',
         'main.missionlist.search.focus',
+        'main.missionlist.eclSort.open',
         'main.lssm.menu.toggle',
         '*.credits.open',
         '*.credits.daily',
@@ -37,6 +44,16 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'mission.sorted.prev',
         'mission.sorted.next',
         'mission.sorted.alert_share_next',
+        'mission.alliance.focus',
+        'mission.alliance.toggle',
+        'mission.arr.next',
+        'mission.arr.previous',
+        'mission.vehicleList.next',
+        'mission.vehicleList.previous',
+        'mission.vehicleList.loadMissing',
+        'mission.backalarm.allVehicles',
+        'mission.backalarm.onlyAmbulance',
+        'mission.backalarm.abortApproach',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)

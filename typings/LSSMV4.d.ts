@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for the LSSMV4 Vue component.
+ */
+
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { NotificationsState } from './store/notifications/State';
 

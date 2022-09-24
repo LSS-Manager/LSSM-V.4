@@ -12,7 +12,9 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[Statut du jeu en ligne](https://stats.uptimerobot.com/OEKDJSpmvK)
+[Statut du serveur LSSM](https://status.lss-manager.de)
+
+[Statut du jeu en ligne](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 

@@ -160,11 +160,11 @@
             { "texts": ["Pickup SAF"], "vehicles": [24] },
             { "texts": ["Barca", "Barche"], "vehicles": [25] },
             {
-                "texts": ["Mezzi AIB", "Mezzio AIB"],
+                "texts": ["Mezzi AIB", "Mezzo AIB"],
                 "vehicles": [0, 9, 28, 29, 30]
             },
             {
-                "texts": ["Velivoli Antincendi", "Velivolo Antincendio"],
+                "texts": ["Velivoli Antincendio", "Velivolo Antincendio"],
                 "vehicles": [34, 35]
             },
             { "texts": ["DOS"], "vehicles": [31] },
@@ -174,7 +174,11 @@
                 "vehicles": [40]
             },
             { "texts": ["Pattuglia della Stradale"], "vehicles": [38, 39] },
-            { "texts": ["Idrante Antisommossa"], "vehicles": [41] }
+            { "texts": ["Idrante Antisommossa"], "vehicles": [41] },
+            {
+                "texts": ["Pattuglia Forestale", "Pattuglie Forestali"],
+                "vehicles": [40]
+            }
         ],
         "water": "l. d'acqua"
     },

@@ -8,6 +8,7 @@
         "@typescript-eslint",
         "compat",
         "import",
+        "jsdoc",
         "prettier",
         "tsdoc",
         "unicorn",
@@ -19,6 +20,7 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:compat/recommended",
         "plugin:import/typescript",
+        "plugin:jsdoc/recommended",
         "plugin:regexp/recommended",
         "plugin:vue/essential",
         "prettier"
@@ -38,6 +40,11 @@
         "parser": "@typescript-eslint/parser",
         "ecmaVersion": 2018,
         "sourceType": "module"
+    },
+    "settings": {
+        "jsdoc": {
+            "mode": "typescript"
+        }
     },
     "rules": {
         "@typescript-eslint/array-type": ["error"],
@@ -71,6 +78,19 @@
             "pathGroupsExcludedImportTypes": ["vue"],
             "newlines-between": "always"
         }],
+        "jsdoc/check-syntax": ["error"],
+        "jsdoc/check-tag-names": ["error", {
+            "definedTags": ["alpha", "beta"]
+        }],
+        "jsdoc/no-types": ["error"],
+        "jsdoc/require-asterisk-prefix": ["error"],
+        "jsdoc/require-description": ["error"],
+        "jsdoc/require-description-complete-sentence": ["error"],
+        // TODO: add a @file JSDoc to all files and then enable this rule
+//        "jsdoc/require-file-overview": ["error"],
+        "jsdoc/require-hyphen-before-param-description": ["error"],
+        "jsdoc/require-param-type": ["off"],
+        "jsdoc/require-returns-type": ["off"],
         "no-constant-binary-expression": "error",
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
@@ -135,6 +155,7 @@
             "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
         }],
         "template-curly-spacing": "error",
+        "tsdoc/syntax": "warn",
         "unicorn/consistent-destructuring": ["error"],
         "unicorn/no-array-push-push": ["error"],
         "unicorn/no-for-loop": ["error"],
@@ -162,5 +183,150 @@
         "yoda": ["error", "never", {
             "exceptRange": true
         }]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.md"],
+            "plugins": ["markdownlint"],
+            "parser": "eslint-plugin-markdownlint/parser",
+            // We will set all non-deprecated markdownlint rules explicitly to avoid unwanted behaviour
+            "rules": {
+                // Turn off prettier for markdown files as we cannot configure it enough
+                "prettier/prettier": ["off"],
+                // Heading levels should only increment by one level at a time
+                "markdownlint/md001": ["error"],
+                // Heading style
+                "markdownlint/md003": ["error", {
+                    "style": "atx"
+                }],
+                // Unordered list style
+                "markdownlint/md004": ["error", {
+                    "style": "asterisk"
+                }],
+                // Inconsistent indentation for list items at the same level
+                "markdownlint/md005": ["error"],
+                // Unordered list indentation
+                "markdownlint/md007": ["error", {
+                    "indent": 4
+                }],
+                // Trailing spaces
+                "markdownlint/md009": ["error"],
+                // Hard tabs
+                "markdownlint/md010": ["error", {
+                    "spaces_per_tab": 4
+                }],
+                // Reversed link syntax
+                "markdownlint/md011": ["error"],
+                // Multiple consecutive blank lines
+                "markdownlint/md012": ["error"],
+                // Line length
+                // "markdownlint/md013": ["error", {
+                //     "line_length": 120
+                // }],
+                // Dollar signs used before commands without showing output
+                "markdownlint/md014": ["error"],
+                // No space after hash on atx style heading
+                "markdownlint/md018": ["error"],
+                // Multiple spaces after hash on atx style heading
+                "markdownlint/md019": ["error"],
+                // No space inside hashes on closed atx style heading
+                "markdownlint/md020": ["error"],
+                // Multiple spaces inside hashes on closed atx style heading
+                "markdownlint/md021": ["error"],
+                // Headings should be surrounded by blank lines
+                "markdownlint/md022": ["error", {
+                    "lines_above": 1,
+                    "lines_below": 0
+                }],
+                // Headings must start at the beginning of the line
+                "markdownlint/md023": ["error"],
+                // Multiple headings with the same content
+                "markdownlint/md024": ["error", {
+                    "siblings_only": true
+                }],
+                // Multiple top-level headings in the same document
+                // turned off for now as we need to improve headings in docs
+                "markdownlint/md025": ["off"],
+                // "markdownlint/md025": ["error", {
+                //    "level": 2
+                // }],
+                // Trailing punctuation in heading
+                "markdownlint/md026": ["error"],
+                // Multiple spaces after blockquote symbol
+                "markdownlint/md027": ["error"],
+                // Blank line inside blockquote
+                "markdownlint/md028": ["error"],
+                // Ordered list item prefix
+                "markdownlint/md029": ["error", {
+                    "style": "ordered"
+                }],
+                // Spaces after list markers
+                "markdownlint/md030": ["error"],
+                // Fenced code blocks should be surrounded by blank lines
+                "markdownlint/md031": ["error"],
+                // Lists should be surrounded by blank lines
+                "markdownlint/md032": ["error"],
+                // Inline HTML
+                "markdownlint/md033": ["error", {
+                    "allowed_elements": [
+                        "discord",
+                        "a"
+                    ] // These are Vue elements used in the docs
+                }],
+                // Bare URL used
+                "markdownlint/md034": ["error"],
+                // Horizontal rule style
+                "markdownlint/md035": ["error", {
+                    "style": "***"
+                }],
+                // Emphasis used instead of a heading
+                "markdownlint/md036": ["error"],
+                // Spaces inside emphasis markers
+                "markdownlint/md037": ["error"],
+                // Spaces inside code span elements
+                "markdownlint/md038": ["error"],
+                // Spaces inside link text
+                "markdownlint/md039": ["error"],
+                // Fenced code blocks should have a language specified
+                "markdownlint/md040": ["error"],
+                // First line in a file should be a top-level heading
+                "markdownlint/md041": ["off"], // turned off because not usefull for module docs
+                // No empty links
+                "markdownlint/md042": ["error"],
+                // Proper names should have the correct capitalization
+                "markdownlint/md044": ["error", {
+                    "names": [
+                        "LSSM"
+                    ]
+                }],
+                // Images should have alternate text (alt text)
+                "markdownlint/md045": ["error"],
+                // Code block style
+                "markdownlint/md046": ["error", {
+                    "style": "fenced"
+                }],
+                // Files should end with a single newline character
+                "markdownlint/md047": ["error"],
+                // Code fence style
+                "markdownlint/md048": ["error", {
+                    "style": "backtick"
+                }],
+                // Emphasis style should be consistent
+                "markdownlint/md049": ["error", {
+                    "style": "asterisk"
+                }],
+                // Strong style should be consistent
+                "markdownlint/md050": ["error", {
+                    "style": "asterisk"
+                }]
+                // TODO: Wait for eslint-plugin-markdownlint to being updated (currently does not support these rules yet). See https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/issues/10 for details.
+                // Link fragments should be valid
+                // "markdownlint/md051": ["error"],
+                // Reference links and images should use a label that is defined
+                // "markdownlint/md052": ["error"],
+                // Link and image reference definitions should be needed
+                // "markdownlint/md053": ["error"]
+            }
+        }
+    ]
 }

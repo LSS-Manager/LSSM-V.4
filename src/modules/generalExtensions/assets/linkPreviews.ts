@@ -76,7 +76,7 @@ export default async (
 
     if (!LinkPreviewInstance) return;
 
-    const buildingIcons = LSSM.$t('buildingIcons') as unknown as string[];
+    const buildingIcons = LSSM.$stores.translations.buildingIcons;
 
     const generateInfobox = (e: MouseEvent) => {
         const type = (e.target as Element)

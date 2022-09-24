@@ -12,7 +12,9 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[Spel status](https://stats.uptimerobot.com/OEKDJSpmvK)
+[LSSM server status](https://status.lss-manager.de)
+
+[Spel status](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 

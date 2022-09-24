@@ -1,3 +1,7 @@
+/**
+ * @file Types for in game allianceInfo API `api/allianceinfo`.
+ */
+
 interface User {
     id: number;
     name: string;

@@ -42,19 +42,47 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "focus input field",
                     "title": "Location search"
                 },
-                "title": "Map"
+                "title": "Map",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selection menu",
+                    "title": "Mission sorting"
+                },
                 "search": { "focus": "focus input field", "title": "Search" },
                 "title": "Mission list"
             },
             "title": "Main window"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
             "sorted": {
                 "alert_next": "Alarm and go to next mission",
                 "alert_share_next": "Alarm, Share and go to next mission",
@@ -62,7 +90,13 @@
                 "prev": "previous mission",
                 "title": "Sorted missions"
             },
-            "title": "Mission window"
+            "title": "Mission window",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Control the game with hotkeys on the keyboard, which you can set yourself.",

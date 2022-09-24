@@ -18,8 +18,12 @@
             "description": "Un design allégé pour l'historique du chat",
             "title": "Design léger de l'historique du chat"
         },
+        "mentionIndicator": {
+            "description": "Affichage d'une petite icône @ dans la fenêtre de chat lorsque vous êtes sur le point de mentionner quelqu'un.",
+            "title": "Indicateur de mention"
+        },
         "selfHighlight": {
-            "description": "mettre en évidence votre nom d'utilisateur dans le chat avec une couleur personnalisée.",
+            "description": "Mettre en évidence votre nom d'utilisateur dans le chat avec une couleur personnalisée.",
             "title": "Couleur personnalisée dans le chat"
         },
         "selfHighlightColor": {
@@ -28,10 +32,18 @@
         },
         "selfHighlightCustomTextColor": {
             "description": "Voulez-vous utiliser une couleur de texte personnalisée?",
-            "title": "couleur personnalisée dans le chat : couleur de texte"
+            "title": "Couleur personnalisée dans le chat : couleur de texte"
         },
         "selfHighlightCustomTextColorColor": {
-            "title": "couleur personnalisée dans le chat : couleur de texte"
+            "title": "Couleur personnalisée dans le chat : couleur de texte"
+        },
+        "userSelection": {
+            "description": "Affiche une liste de suggestions de membres de l'alliance lors d'un chuchotement ou d'une mention, ce qui permet de les insérer rapidement dans le champ de saisie du chat (le contrôle du clavier avec les touches fléchées et la touche Entrée est pris en charge).",
+            "title": "Sélection des utilisateurs"
+        },
+        "whisperIndicator": {
+            "description": "Affichage d'une petite icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter.",
+            "title": "Indicateur de chuchotements"
         }
     }
 }

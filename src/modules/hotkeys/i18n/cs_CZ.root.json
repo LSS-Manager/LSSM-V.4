@@ -42,13 +42,29 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "dolu",
+                    "left": "doleva",
+                    "right": "doprava",
+                    "title": "Posunout",
+                    "up": "nahoru"
+                },
                 "search": {
                     "focus": "zakliknout hledací pole",
                     "title": "Vyhledat lokalitu"
                 },
-                "title": "Mapa"
+                "title": "Mapa",
+                "zoom": {
+                    "in": "Přiblížit",
+                    "out": "Oddálit",
+                    "title": "Přiblížení"
+                }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Otevřít výběr řazení",
+                    "title": "Řazení misí"
+                },
                 "search": {
                     "focus": "zakliknout hledací pole",
                     "title": "Hledat"
@@ -58,6 +74,22 @@
             "title": "Hlavní okno"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
             "sorted": {
                 "alert_next": "Výjezd a další mise",
                 "alert_share_next": "Výjezd, sdílení a další mise",
@@ -65,7 +97,13 @@
                 "prev": "předchozí mise",
                 "title": "Seřazené mise"
             },
-            "title": "Okno mise"
+            "title": "Okno mise",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Ovládejte hru pomocí klávesových zkratek, které si můžete nastavit.",

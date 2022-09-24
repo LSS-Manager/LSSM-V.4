@@ -1,0 +1,19 @@
+{
+    "description": "Helpottaa kohdepisteiden asettamista pienillä, mutta hyödyllisillä ominaisuuksilla.",
+    "name": "Paranneltu kohdepisteen asettaminen",
+    "settings": {
+        "custom_style": { "title": "Mukautettu tyyli korostusta varten" },
+        "predefined_style": {
+            "brown": "Ruskea",
+            "custom": "Custom",
+            "green": "Vihreä",
+            "red": "Punainen",
+            "title": "Merkin korostus",
+            "white": "Valkoinen"
+        },
+        "shown_types": {
+            "description": "Määritä tässä, mitkä kohdepiste tyypit näytetään. Voit myös muuttaa tätä asetusta suoraan \"Aseta uusi kohdepiste\"-valikossa.",
+            "title": "Näytettävät kohdepiste tyypit"
+        }
+    }
+}

@@ -1,3 +1,7 @@
+/**
+ * @file - Types for the state of root store.
+ */
+
 export interface RootState {
     credits: number;
     coins: number;

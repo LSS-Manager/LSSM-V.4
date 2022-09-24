@@ -12,7 +12,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             this.chatInput?.focus();
         },
     },
-    map: <Scope<Empty, ['search']>>{
+    map: <Scope<Empty, ['search', 'zoom', 'move']>>{
         validatorFunction() {
             return !!document.querySelector<HTMLDivElement>('#map');
         },
@@ -28,8 +28,56 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
                 this.mapSearch?.focus();
             },
         },
+        zoom: <Scope<{ leaflet: typeof window.map }, [], ['in', 'out']>>{
+            validatorFunction() {
+                this.leaflet = window.map;
+                return !!this.leaflet;
+            },
+            in() {
+                this.leaflet?.zoomIn();
+            },
+            out() {
+                this.leaflet?.zoomOut();
+            },
+        },
+        move: <
+            Scope<
+                { leaflet: typeof window.map },
+                [],
+                ['up', 'down', 'left', 'right']
+            >
+        >{
+            validatorFunction() {
+                this.leaflet = window.map;
+                return !!this.leaflet;
+            },
+            up() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat + 0.005,
+                    this.leaflet?.getCenter().lng,
+                ]);
+            },
+            down() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat - 0.005,
+                    this.leaflet?.getCenter().lng,
+                ]);
+            },
+            left() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat,
+                    this.leaflet?.getCenter().lng - 0.005,
+                ]);
+            },
+            right() {
+                this.leaflet?.panTo([
+                    this.leaflet?.getCenter().lat,
+                    this.leaflet?.getCenter().lng + 0.005,
+                ]);
+            },
+        },
     },
-    missionlist: <Scope<Empty, ['search']>>{
+    missionlist: <Scope<Empty, ['search', 'eclSort']>>{
         validatorFunction() {
             return !!document.querySelector<HTMLDivElement>('#missions');
         },
@@ -45,6 +93,30 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             },
             focus() {
                 this.missionlistSearch?.focus();
+            },
+        },
+        eclSort: <
+            Scope<
+                {
+                    eclSortBtn: HTMLButtonElement | null;
+                    eclSortList: HTMLLinkElement | null;
+                },
+                [],
+                ['open']
+            >
+        >{
+            validatorFunction() {
+                this.eclSortBtn = document.querySelector<HTMLButtonElement>(
+                    '#lssmv4-extendedCallList_missionlist-sorting_selection-list-btn'
+                );
+                this.eclSortList = document.querySelector(
+                    '#lssmv4-extendedCallList-missionlist-sorting-selection-list > :first-child > a'
+                );
+                return !!this.eclSortBtn;
+            },
+            open() {
+                this.eclSortBtn?.click();
+                this.eclSortList?.focus();
             },
         },
     },

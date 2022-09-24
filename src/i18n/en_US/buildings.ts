@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -65,6 +65,15 @@ export default {
                 unlocksVehicleTypes: [64, 65],
             },
             {
+                caption: 'Lifeguard Extension',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [66, 67, 68, 73],
+            },
+            {
                 caption: 'Water Rescue Expansion',
                 credits: 100_000,
                 coins: 20,
@@ -84,6 +93,7 @@ export default {
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Dispatch Center',
@@ -98,6 +108,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     2: {
         caption: 'Hospital',
@@ -182,6 +193,7 @@ export default {
         special:
             'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
         startBeds: 10,
+        icon: 'hospital',
     },
     3: {
         caption: 'Ambulance station',
@@ -211,6 +223,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['ALS Ambulance'],
         schoolingTypes: ['Rescue'],
+        icon: 'house-medical',
     },
     4: {
         caption: 'Fire academy',
@@ -234,6 +247,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     5: {
         caption: 'Police station',
@@ -301,9 +315,10 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     6: {
-        caption: 'Helicopter station',
+        caption: 'Medical helicopter station',
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
@@ -321,6 +336,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'circle-h',
     },
     7: {
         caption: 'Police academy',
@@ -344,6 +360,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     8: {
         caption: 'Police Aviation',
@@ -364,6 +381,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     9: {
         caption: 'Staging area',
@@ -378,6 +396,7 @@ export default {
             'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 4,
+        icon: 'warehouse',
     },
     10: {
         caption: 'Prison Cells',
@@ -411,6 +430,7 @@ export default {
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
         startCells: 1,
+        icon: 'border-all',
     },
     11: {
         caption: 'Fire Boat Dock',
@@ -426,6 +446,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Fire Station'],
+        icon: 'ship',
     },
     12: {
         caption: 'Rescue Boat Dock',
@@ -441,6 +462,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 1,
         schoolingTypes: ['Fire Station'],
+        icon: 'ship',
     },
     13: {
         caption: 'Fire station (Small station) ',
@@ -520,6 +542,7 @@ export default {
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     14: {
         caption: 'Clinic',
@@ -545,6 +568,7 @@ export default {
         parkingLotsPerLevel: 0,
         startVehicles: ['None. You can buy a max. 2 Vehicles'],
         schoolingTypes: ['Rescue'],
+        icon: 'staff-snake',
     },
     15: {
         caption: 'Police station (Small station)',
@@ -598,6 +622,7 @@ export default {
         startCells: 0,
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     16: {
         caption: 'Ambulance station (Small station)',
@@ -632,6 +657,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['ALS Ambulance'],
         schoolingTypes: ['Rescue'],
+        icon: 'house-medical',
     },
     17: {
         caption: 'Firefighting plane station',
@@ -647,6 +673,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Water drop helicopter'],
         schoolingTypes: ['Fire Station'],
+        icon: 'plane',
     },
     18: {
         caption: 'Federal Police Station',
@@ -681,6 +708,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['FBI Unit'],
         schoolingTypes: ['Police'],
+        icon: 'handcuffs',
     },
     19: {
         caption: 'Rescue (EMS) academy',
@@ -704,6 +732,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     20: {
         caption: 'Large complex',
@@ -719,6 +748,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     21: {
         caption: 'Small complex',
@@ -734,6 +764,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     22: {
         caption: "Fire Marshal's Office",
@@ -749,6 +780,7 @@ export default {
         startVehicles: ['Fire Prevention Unit'],
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
+        icon: 'fire',
     },
     23: {
         caption: 'Coastal Rescue Station',
@@ -764,7 +796,7 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
         startParkingLots: 1,
-        maxBuildingsFunction: (): number => 6000,
+        icon: 'life-ring',
     },
     24: {
         caption: 'Coastal Rescue School',
@@ -788,6 +820,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) Coastal Rescue schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association Coastal Rescue School.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     25: {
         caption: 'Coastal Air Station',
@@ -860,5 +893,22 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
         startParkingLots: 0,
+        icon: 'spaghetti-monster-flying',
+    },
+    26: {
+        caption: 'Lifeguard Post',
+        color: '#bb0000',
+        coins: 35,
+        credits: 50_000,
+        extensions: [],
+        levelcost: [],
+        maxBuildings: '',
+        maxLevel: 5,
+        special: '',
+        startPersonnel: 2,
+        startVehicles: [],
+        schoolingTypes: ['Water Rescue School'],
+        startParkingLots: 1,
+        icon: 'life-ring',
     },
 } as Record<number, InternalBuilding>;

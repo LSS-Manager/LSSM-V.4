@@ -25,9 +25,17 @@
             "description": "Visar nuvarade krediter i menyn utan att gå via den gulliga grisen.",
             "title": "Krediter utan gullig gris"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Markera Mynt med grönt om försäljning är tillgänlig",
             "title": "Markera Försäljningar"
+        },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Mål",
+            "title": "Mål progress bar"
         },
         "showSales": {
             "description": "Visa försäljningar för Mynt när det är tillgängligt.",

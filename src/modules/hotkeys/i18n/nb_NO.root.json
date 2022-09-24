@@ -42,19 +42,47 @@
                 "title": "LSS Manager"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "fokus på input feltet",
                     "title": "Adressesøk"
                 },
-                "title": "Kart"
+                "title": "Kart",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selection menu",
+                    "title": "Mission sorting"
+                },
                 "search": { "focus": "fokus på input feltet", "title": "Søk" },
                 "title": "Oppdragsliste"
             },
             "title": "Hovedvindu"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
             "sorted": {
                 "alert_next": "Utalarmer og gå til neste oppdrag",
                 "alert_share_next": "Utalarmer, del og gå til neste oppdrag",
@@ -62,7 +90,13 @@
                 "prev": "forrige oppdrag",
                 "title": "Sorterte oppdrag"
             },
-            "title": "Oppdragsvindu"
+            "title": "Oppdragsvindu",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
         }
     },
     "description": "Styr spillet med hurtigtaster som du kan sette selv.",

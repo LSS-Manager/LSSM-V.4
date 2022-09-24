@@ -1,0 +1,29 @@
+{
+    "description": "Invia i mezzi, condividi la missione con l'alleanza e manda un messaggio allo stesso tempo.",
+    "lsam": {
+        "help": "Le variabili sono sostituite con la stessa logica della lista delle missioni."
+    },
+    "name": "Condividi-Alleanza-Messaggio",
+    "noMessage": "Condividi senza un messaggio",
+    "settings": {
+        "enableCallList": {
+            "description": "Integra questo modulo in \"Condividi missioni\" nella call-list estesa.",
+            "title": "Integrazione con Call-list"
+        },
+        "enableLSAM": {
+            "description": "Abilita questa opzione per poter selezionare un messaggio durante la creazione delle missioni su larga scala dell'alleanza.",
+            "title": "Missioni su larga scala dell'alleanza"
+        },
+        "message": "Messaggio",
+        "messages": {
+            "description": "Imposta il messaggio qui. Puoi usare delle variabili, elencate nella <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a>! Assegna un nome unico ad ogni messaggio, così da poterlo identificare più in fretta nella finestra di allarme.",
+            "title": "Messaggi"
+        },
+        "name": "Nome",
+        "postInChat": "Manda messaggio in chat?",
+        "stayInCallList": {
+            "description": "Abilitando questa opzione, puoi mandare messaggi anche nelle missioni condivise.",
+            "title": "Rimani in Call-list"
+        }
+    }
+}

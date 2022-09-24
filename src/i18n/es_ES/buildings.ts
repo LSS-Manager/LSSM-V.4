@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -41,6 +41,7 @@ export default {
         schoolingTypes: ['Parque de bomberos'],
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Academia de bomberos',
@@ -64,6 +65,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Parque de ambulancias',
@@ -86,6 +88,7 @@ export default {
         startVehicles: ['Ambulancia'],
         schoolingTypes: ['Rescate'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     3: {
         caption: 'Academia de servicios de emergencia',
@@ -109,6 +112,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Hospital',
@@ -186,6 +190,7 @@ export default {
         special:
             'Los ministros de finanzas y los administradores pueden (ampliar) los hospitales de la alianza con la ayuda de créditos de la tesorería de la alianza.',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Helipuerto médico',
@@ -206,6 +211,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'circle-h',
     },
     6: {
         caption: 'Comisaría de policía',
@@ -245,6 +251,7 @@ export default {
         startVehicles: ['Coche patrulla'],
         schoolingTypes: ['Policía'],
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     7: {
         caption: 'Centralita',
@@ -259,6 +266,7 @@ export default {
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Academia de Policía',
@@ -282,6 +290,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas de policía de la alianza con la ayuda de créditos de la tesorería de la alianza. Los maestros y administradores de cursos de formación pueden comenzar cursos de formación en las escuelas de policía de la alianza.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Helipuerto Policial',
@@ -302,6 +311,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     14: {
         caption: 'Zona de preparación',
@@ -316,6 +326,7 @@ export default {
             'Puede estacionar tantos vehículos propios como desee en un área de preparación, los miembros de la alianza pueden usar la zona de preparación. Un área de preparación permanece durante 24 horas, pero puede restablecerla a 24 horas en cualquier momento.',
         isStagingArea: true,
         maxBuildingsFunction: (): number => 1,
+        icon: 'warehouse',
     },
     16: {
         caption: 'Prisión',
@@ -349,6 +360,7 @@ export default {
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Parque de bomberos (pequeño) ',
@@ -385,6 +397,7 @@ export default {
         schoolingTypes: ['Parque de bomberos'],
         maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Comisaría de policía (pequeño)',
@@ -426,6 +439,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     20: {
         caption: 'Parque de ambulancias (pequeño)',
@@ -453,6 +467,7 @@ export default {
         startVehicles: ['Ambulancia'],
         schoolingTypes: ['Rescate'],
         startParkingLots: 1,
+        icon: 'house-medical',
     },
     21: {
         caption: 'Gran complejo',
@@ -468,6 +483,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
     22: {
         caption: 'Pequeño complejo',
@@ -483,5 +499,6 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
     },
 } as Record<number, InternalBuilding>;

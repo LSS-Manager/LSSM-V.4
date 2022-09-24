@@ -92,8 +92,9 @@
                             <AutoLink
                                 :item="{
                                     link: `/${lang}/modules/${moduleId}/`,
-                                    text: themeData.locales['/' + lang + '/']
-                                        .selectLanguageText,
+                                    text: variables.selectLanguageTexts[
+                                        '/' + lang + '/'
+                                    ],
                                 }"
                             />
                         </li>
@@ -118,11 +119,9 @@ import AutoLink from '@theme/AutoLink.vue';
 import octicons from '@primer/octicons';
 import PageMeta from '@theme/PageMeta.vue';
 import PageNav from '@theme/PageNav.vue';
-import { useThemeData } from '@vuepress/theme-default/lib/client';
 import { usePageData, usePageFrontmatter } from '@vuepress/client';
 
 import type { Frontmatter } from '../../utils/generate/modules';
-import type { ThemeData } from '../../types/ThemeData';
 import type {
     DefaultThemeNormalPageFrontmatter,
     DefaultThemePageData,
@@ -132,10 +131,10 @@ type ModuleFrontmatter = DefaultThemeNormalPageFrontmatter & Frontmatter;
 
 const frontmatter = usePageFrontmatter<ModuleFrontmatter>();
 const pageData = usePageData<DefaultThemePageData>();
-const themeData = useThemeData<ThemeData>();
+const variables = __VAR__;
 
 const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
-const i18n = computed(() => themeData.value.variables.i18n[lang.value]);
+const i18n = computed(() => variables.i18n[lang.value]);
 
 const isModule = computed(
     () => pageData.value.path.split('/')[2] === 'modules'
@@ -144,48 +143,42 @@ const moduleId = computed(() =>
     isModule.value ? pageData.value.path.split('/')[3] : ''
 );
 const moduleRegistration = computed(() =>
-    isModule.value
-        ? themeData.value.variables.modules[moduleId.value].registration
-        : null
+    isModule.value ? variables.modules[moduleId.value].registration : null
 );
 const githubIssueLink = computed(() => {
-    if (!isModule.value || !moduleRegistration.value.github) return '';
-    return `${themeData.value.variables.github}/issues/${moduleRegistration.value.github}`;
+    if (!isModule.value || !moduleRegistration.value?.github) return '';
+    return `${variables.github}/issues/${moduleRegistration.value?.github}`;
 });
 const additionalBlockquote = computed(
     () =>
         isModule.value &&
-        (moduleRegistration.value.settings ||
-            moduleRegistration.value.alpha ||
-            moduleRegistration.value.dev)
+        (moduleRegistration.value?.settings ||
+            moduleRegistration.value?.alpha ||
+            moduleRegistration.value?.dev)
 );
 const moduleI18n = computed(() =>
     isModule.value
-        ? themeData.value.variables.modules[moduleId.value].translations[
-              lang.value
-          ]
+        ? variables.modules[moduleId.value].translations[lang.value]
         : null
 );
 
 const emptyMessageContent = computed(() =>
     i18n.value['404'].modules.content
         .replace(/\n/gu, '<br>')
-        .replace(/\{\{module\}\}/gu, `<b>${moduleI18n.value.name}</b>`)
+        .replace(/\{\{module\}\}/gu, `<b>${moduleI18n.value?.name}</b>`)
         .replace(/\{\{lang\}\}/gu, `<code>${lang.value}</code>`)
         .replace(
             /\{\{github\}\}/gu,
-            `<a href="${themeData.value.variables.github}/new/dev/src/modules/${moduleId.value}/docs?filename=${lang.value}.md" target="_blank">GitHub</a>`
+            `<a href="${variables.github}/new/dev/src/modules/${moduleId.value}/docs?filename=${lang.value}.md" target="_blank">GitHub</a>`
         )
         .replace(
             /\{\{docs_dir\}\}/gu,
-            `<a href="${themeData.value.variables.github}/tree/dev/src/modules/${moduleId.value}/docs" target="_blank">docs directory</a>`
+            `<a href="${variables.github}/tree/dev/src/modules/${moduleId.value}/docs" target="_blank">docs directory</a>`
         )
 );
 
 const docsAvailable = computed(() =>
-    isModule.value
-        ? themeData.value.variables.modules[moduleId.value].docs
-        : null
+    isModule.value ? variables.modules[moduleId.value].docs : null
 );
 </script>
 
