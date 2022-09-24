@@ -1,20 +1,18 @@
 <template>
-    <a
-        :href="`https://discordapp.com/channels/${themeData.variables.discord.id}/${themeData.variables.discord.channels[channel]}`"
-        target="_blank"
-    >
-        <code>#{{ channel }}</code>
-    </a>
+    <AutoLink
+        :item="{
+            link: `https://discordapp.com/channels/${variables.discord.id}/${variables.discord.channels[channel]}`,
+            text: `#${channel}`,
+        }"
+    />
 </template>
 
 <script setup lang="ts">
 import { defineProps, toRefs } from 'vue';
 
-import { useThemeData } from '@vuepress/theme-default/lib/client';
+import AutoLink from '@theme/AutoLink.vue';
 
-import type { ThemeData } from '../types/ThemeData';
-
-const themeData = useThemeData<ThemeData>();
+const variables = __VAR__;
 
 const props = defineProps({
     channel: {
