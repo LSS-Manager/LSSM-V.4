@@ -108,7 +108,7 @@ jobs:
               run: yarn tsc --pretty "src/userscript.ts" || exit 1
 
             - name: '[📜] build buildscript'
-              id: userscript
+              id: buildscript
               run: ./node_modules/.bin/ts-node scripts/createBuildScript.ts || exit 1
 
             - name: '[🚧] run prebuild'
