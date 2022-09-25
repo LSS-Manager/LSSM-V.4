@@ -61,6 +61,7 @@ const modules = {
 
 export default {
     modules,
+    serverUmzugWarning: `W czwartek, 15.09.2022, od godz. 14 (czasu lokalnego: {local}) bedzie trwała konserwacja serwera. LSSM i skrypty korzystające z API LSSM będą niedostępne przez kilka godzin!`,
     updateUserscript: {
         title: 'Skrypt użytkownika nieaktualny',
         text: `Dear LSSM-User,<br>

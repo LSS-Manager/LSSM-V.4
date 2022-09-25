@@ -6,8 +6,6 @@
  *
  * @file - This is the only method in this file.
  * @param LSSM - The current local LSSM instance.
- * @alpha - This feature is not live for betas yet!
- * @beta - This feature is not live for stable users yet!
  */
 import type { User } from 'typings/api/AllianceInfo';
 

@@ -17,16 +17,15 @@
             {{ settingsText }}:
             <ul>
                 <li
-                    v-for="(settings, module) in themeData.variables
-                        .noMapkitSettings"
+                    v-for="(settings, module) in variables.noMapkitSettings"
                     :key="module"
                 >
                     <AutoLink
                         :item="{
                             link: `/${lang}/modules/${module}/`,
                             text:
-                                themeData.variables.modules[module]
-                                    .translations[lang]?.name ?? '',
+                                variables.modules[module].translations[lang]
+                                    ?.name ?? '',
                         }"
                     />:
                     <ul>
@@ -35,9 +34,8 @@
                             :key="`${module}_${setting}`"
                         >
                             {{
-                                themeData.variables.modules[module]
-                                    .translations[lang].settings[setting]
-                                    ?.title ?? setting
+                                variables.modules[module].translations[lang]
+                                    .settings[setting]?.title ?? setting
                             }}
                         </li>
                     </ul>
@@ -52,13 +50,11 @@ import { computed, defineProps, toRefs } from 'vue';
 
 import AutoLink from '@theme/AutoLink.vue';
 import { usePageData } from '@vuepress/client';
-import { useThemeData } from '@vuepress/theme-default/lib/client';
 
 import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
-import type { ThemeData } from '../types/ThemeData';
 
 const pageData = usePageData<DefaultThemePageData>();
-const themeData = useThemeData<ThemeData>();
+const variables = __VAR__;
 
 const props = defineProps({
     settingsText: {
@@ -71,7 +67,7 @@ const { settingsText } = toRefs(props);
 
 const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
 const noMapkitModules = computed(() =>
-    Object.entries(themeData.value.variables.modules).filter(
+    Object.entries(variables.modules).filter(
         ([, module]) => module.registration.noMapkit
     )
 );
