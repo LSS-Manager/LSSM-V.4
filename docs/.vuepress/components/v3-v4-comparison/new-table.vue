@@ -25,15 +25,12 @@
 import { computed } from 'vue';
 
 import { usePageData } from '@vuepress/client';
-import { useThemeData } from '@vuepress/theme-default/lib/client';
 
 import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
-import type { ThemeData } from '../../types/ThemeData';
 
 const pageData = usePageData<DefaultThemePageData>();
-const themeData = useThemeData<ThemeData>();
 
-const comparison = themeData.value.variables.v3Comparison;
+const comparison = __VAR__.v3Comparison;
 const newModules = comparison.v4only;
 
 const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
@@ -43,13 +40,10 @@ const $modules = computed(() =>
         .map(module => {
             return {
                 id: module,
-                name: themeData.value.variables.modules[module].translations[
-                    lang.value
-                ].name,
+                name: __VAR__.modules[module].translations[lang.value].name,
                 description:
-                    themeData.value.variables.modules[module].translations[
-                        lang.value
-                    ].description,
+                    __VAR__.modules[module].translations[lang.value]
+                        .description,
                 annotation: $t.value.v4annotations[module],
             };
         })

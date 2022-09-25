@@ -120,7 +120,7 @@ export default defineComponent({
     },
     computed: {
         moment_texts() {
-            return this.$theme.variables.moment[this.$lang];
+            return __VAR__.moment[this.$lang];
         },
         titles() {
             return this.moment_texts.titles.variables;
