@@ -14,6 +14,7 @@ jobs:
 
     deploy:
         needs: [build]
+        if: github.repository_owner == 'LSS-Manager'
         runs-on: ubuntu-latest
         steps:
             - name: Install apt packages
