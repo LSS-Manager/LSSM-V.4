@@ -122,7 +122,7 @@
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/composition-api#readme",
-        "version": "1.7.0"
+        "version": "1.7.1"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
