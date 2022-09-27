@@ -61,7 +61,6 @@ const modules = {
 
 export default {
     modules,
-    serverUmzugWarning: `Serveronderhoud op donderdag 15-09-2022 vanaf 14:00 (lokale tijd: {local}. LSSM and scripts die de LSSM API gebruiken zullen niet beschikbaar zijn voor een aantal uur!`,
     updateUserscript: {
         title: 'Userscript verouderd',
         text: `Beste LSSM-gebruiker,<br>
