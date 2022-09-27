@@ -61,7 +61,6 @@ const modules = {
 
 export default {
     modules,
-    serverUmzugWarning: `Serverumzug am Donnerstag, 15.09.2022 ab 14 Uhr (Lokale Zeit: {local}). Der LSSM und Scripte, die die LSSM-API nutzen werden für einige Stunden nicht erreichbar sein!`,
     updateUserscript: {
         title: 'Userscript veraltet',
         text: `Lieber LSSM-Nutzer,<br>
