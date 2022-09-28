@@ -61,7 +61,6 @@ const modules = {
 
 export default {
     modules,
-    serverUmzugWarning: `Server maintenance on Thursday, 15.09.2022 from 14h (Local time: {local}). The LSSM and scripts using the LSSM API will be unavailable for a few hours!`,
     updateUserscript: {
         title: 'koodi on vanhentunut',
         text: `Hyvä LSSM-käyttäjä,<br>
@@ -589,29 +588,6 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'graduation-cap',
-        'truck-medical',
-        'graduation-cap',
-        'hospital',
-        'helicopter',
-        'shield-alt',
-        'tower-broadcast',
-        'graduation-cap',
-        '',
-        '',
-        '',
-        '',
-        'helicopter',
-        'car-garage',
-        '',
-        '',
-        '',
-        'fire',
-        'shield-alt',
-        'truck-medical',
-    ],
     pois: [
         'Puisto',
         'Järvi',

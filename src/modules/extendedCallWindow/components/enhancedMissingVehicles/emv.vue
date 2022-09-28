@@ -375,6 +375,8 @@ export default Vue.extend<
             childList: true,
             characterData: true,
         });
+
+        observeHandler();
     },
 });
 </script>

@@ -31,9 +31,11 @@
         "captions": {
             "ambulances": "ambulanssi | ambulanssit",
             "battalion_chief_vehicles": "johtoauto | johtoautot",
+            "civil_patrolcar": "tutkintayksikkö | tutkintayksikköt",
             "firetrucks": "paloauto | paloautot",
             "hazmat_vehicles": "kemikaalitorjunta-auto | kemikaalitorjunta-autot",
             "heavy_rescue_vehicles": "raskas pelastusauto | raskasta pelastusautoa",
+            "heavy_traffic_control": "vaaka-auto | vaaka-autot",
             "hose": "letkuajoneuvo | letkuajoneuvot",
             "k9": "koirapartioauto | koirapartioautoja",
             "kdow_orgl": "ensihoidon kenttäjohtaja | ensihoidon kenttäjohtajat",
@@ -43,6 +45,7 @@
             "police_cars": "partioauto | partioautot",
             "police_helicopters": "poliisihelikopteri | poliisihelikopterit",
             "pump": "säiliöauto | säiliöautot",
+            "traffic_car": "VATV-yksikkö | VATV-yksiköt",
             "water_tankers": "säiliöauto | säiliöautot"
         },
         "multifunctionals": {

@@ -42,19 +42,51 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "alas",
+                    "left": "vasen",
+                    "right": "oikea",
+                    "title": "Liikuta",
+                    "up": "ylös"
+                },
                 "search": {
                     "focus": "Valitsee hakukentän",
                     "title": "Sijaintihaku"
                 },
-                "title": "Kartta"
+                "title": "Kartta",
+                "zoom": {
+                    "in": "suurenna",
+                    "out": "loitonna",
+                    "title": "Zoomaus"
+                }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Avaa valintavalikko",
+                    "title": "Tehtävän lajittelu"
+                },
                 "search": { "focus": "Valitsee hakukentän", "title": "Haku" },
                 "title": "Tehtävälista"
             },
             "title": "Pääikkuna"
         },
         "mission": {
+            "alliance": {
+                "focus": "Kohdista liittoutuman vastausikkuna",
+                "title": "Liittouma",
+                "toggle": "Valitse 'Lähetä liittoutuman chattiin'"
+            },
+            "arr": {
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "hälytysjärjestelyt"
+            },
+            "backalarm": {
+                "abortApproach": "Peruuta matkalla olevat yksiköt",
+                "allVehicles": "Peruuta kaikki yksiköt",
+                "onlyAmbulance": "Peruuta kaikki ambulanssit",
+                "title": "Peruuta"
+            },
             "sorted": {
                 "alert_next": "Lähetä ja seuraava",
                 "alert_share_next": "Lähetä valitut yksiköt, jaa tehtavä liittoutumasi kanssa ja jatka seuraavaan tehtävään.",
@@ -62,7 +94,13 @@
                 "prev": "Edellinen tehtävä",
                 "title": "Lajitellut tehtävät"
             },
-            "title": "Hälytysikkuna"
+            "title": "Hälytysikkuna",
+            "vehicleList": {
+                "loadMissing": "Lataa puuttuvat ajoneuvot",
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "ajoneuvo lista"
+            }
         }
     },
     "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",

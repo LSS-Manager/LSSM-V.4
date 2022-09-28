@@ -61,7 +61,6 @@ const modules = {
 
 export default {
     modules,
-    serverUmzugWarning: `Server maintenance on Thursday, 15.09.2022 from 14h (Local time: {local}). The LSSM and scripts using the LSSM API will be unavailable for a few hours!`,
     updateUserscript: {
         title: 'Userscript out of date',
         text: `Dear LSSM-User,<br>
@@ -368,7 +367,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Required once you have built 13 fire stations. A command post for Major Incidents.',
+                'Acts as a Incident Command and Control Unit and a Fire Officer. Required once you have built 13 fire stations. A command post for Major Incidents.',
         },
         16: {
             caption: 'Rescue Pump',
@@ -448,7 +447,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Can only be placed at the Home Response Location and Clinic. A General Practitioner that can respond as a on call doctor currently. ',
+                'Can only be placed at the Home Response Location and Clinic. A General Practitioner that can respond as a on call doctor and a Rapid Response Vehicle.',
         },
         22: {
             caption: 'Community First Responder',
@@ -459,7 +458,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 1,
             possibleBuildings: [22],
             special:
-                'Can only be placed at the Home Response Location. A ambulance Rapid Response Vehicle but staffed with volunteers',
+                'Can only be placed at the Home Response Location. A Ambulance Rapid Response Vehicle but staffed with volunteers',
         },
         23: {
             caption: 'Crew Carrier',
@@ -537,7 +536,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Responds to the most serious of calls, where lives are in serious danger.',
+                'Acts as a Rapid Response Vehicle and a Primary Response Vehicle. Responds to the most serious of calls, where lives are in serious danger.',
         },
         28: {
             caption: 'SRV',
@@ -555,7 +554,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Responds to the most serious of calls, where lives are in serious danger.',
+                'Acts as a Rapid Response Vehicle and a Secondary Response Vehicle. Responds to the most serious of calls, where lives are in serious danger.',
         },
         29: {
             caption: 'Welfare Vehicle',
@@ -566,7 +565,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 2,
             possibleBuildings: [0, 18, 25],
             special:
-                'Responds to the most serious of calls, Used for Major Fires.',
+                'Acts as a Rapid Response Vehicle and a Welfare Unit. Responds to the most serious of calls, Used for Major Fires.',
         },
         30: {
             caption: 'ATV Carrier',
@@ -584,7 +583,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Responds to the most serious of calls, where lives are in serious danger in ruarl areas.',
+                'Acts as a Rapid Response Vehicle and a ATV Carrier. Responds to the most serious of calls, where lives are in serious danger in ruarl areas.',
         },
         31: {
             caption: 'Ambulance Control Unit',
@@ -655,7 +654,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. Requires Mass Casualty Extension.',
+                'Acts as a Ambulance Officer and A Rapid Response Vehicle. Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. Requires Mass Casualty Extension.',
         },
         35: {
             caption: 'BFU',
@@ -877,7 +876,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 9,
             possibleBuildings: [6, 19, 26],
             special:
-                'This Police Support Unit, carrys a large amount of officers (usally riot trained) to scenes.',
+                'Acts as a Incident Response Vehicle. This Police Support Unit, carrys a large amount of officers (usually L1/2 Public Order Trained) to scenes.',
         },
         52: {
             caption: 'Firearms Personnel Carrier',
@@ -895,7 +894,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'A Large Van carrying Firearms Officers to scenes and reducing the amount of armed vehicles needed.',
+                'Acts as a Incident Response Vehicle and a Armed Response Vehicle. A Large Van carrying 9 Firearms Officers to scenes and reducing the amount of armed vehicles needed.',
         },
         53: {
             caption: 'Multiple Dog Carrier',
@@ -960,7 +959,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
             special:
-                'This is a armoured vehicle transporting 6 firearms officers.',
+                'Acts as a Incident Response Vehicle and a Armed Response Vehicle. This is a armoured vehicle transporting 6 firearms officers.',
         },
     },
     buildingCategories: {
@@ -1010,7 +1009,7 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
-                'PSU': [51, 52, 53, 54, 55],
+                'Public Order': [51, 52, 53, 54, 55],
             },
             color: '#00ac00',
         },
@@ -1165,27 +1164,6 @@ If several requests fail in a short time, this could be due to server problems. 
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'clinic-medical',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'helicopter',
-        'building',
-        '',
-        'ship',
-        'ship',
-        'fire',
-        'stethoscope',
-        'shield-alt',
-        'clinic-medical',
-        'plane',
-        'shield-alt',
-    ],
     pois: [
         'Park',
         'Lake',

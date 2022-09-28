@@ -7,9 +7,7 @@ export interface NextFMSWindow {
 export default <RedesignParser<NextFMSWindow>>(({ doc }) => ({
     next: parseInt(
         doc
-            .querySelector<HTMLAnchorElement>(
-                'a.btn.btn-success[href^="/vehicles/"]'
-            )
+            .querySelector<HTMLAnchorElement>('#next-vehicle-fms-5')
             ?.href?.match(/\d+$/u)?.[0] ?? '-1'
     ),
 }));

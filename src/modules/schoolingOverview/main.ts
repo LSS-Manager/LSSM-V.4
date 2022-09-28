@@ -27,6 +27,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
         '#schooling_own_table'
     );
     if (ownTable) {
+        ownTable.previousElementSibling?.remove();
         new LSSM.$vue({
             pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
@@ -39,6 +40,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
         '#schooling_opened_table'
     );
     if (openTable) {
+        openTable.previousElementSibling?.previousElementSibling?.remove();
         document
             .querySelector(
                 '.search_input_field[search_class="schooling_opened_table_searchable"]'

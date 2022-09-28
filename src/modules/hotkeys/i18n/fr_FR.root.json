@@ -2,42 +2,42 @@
     "commands": {
         "*": {
             "alliance": {
-                "applications": "ouvrir les candidatures",
-                "buildings": "ouvrir la vue d'ensemble des bâtiments de l'alliance",
-                "forum": "ouvrir le mur",
-                "funds": "ouvrir la banque de l'alliance",
-                "logfiles": "ouvrir journal de modération",
-                "members": "ouvrir la liste des membres",
-                "messages": "ouvrir les messages",
-                "onlineMembers": "ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)",
-                "open": "ouvrir une fenêtre d'alliance",
-                "schoolings": "ouvrir la fenêtre de formation",
+                "applications": "Ouvrir les candidatures",
+                "buildings": "Ouvrir la vue d'ensemble des bâtiments de l'alliance",
+                "forum": "Ouvrir le mur",
+                "funds": "Ouvrir la banque de l'alliance",
+                "logfiles": "Ouvrir journal de modération",
+                "members": "Ouvrir la liste des membres",
+                "messages": "Ouvrir les messages",
+                "onlineMembers": "Ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)",
+                "open": "Ouvrir une fenêtre d'alliance",
+                "schoolings": "Ouvrir la fenêtre de formation",
                 "title": "Alliance"
             },
             "credits": {
-                "daily": "ouvrir le résumé quotidien",
-                "open": "ouvrir les log",
-                "overview": "ouvrir l'aperçu des 7 derniers jours",
+                "daily": "Ouvrir le résumé quotidien",
+                "open": "Ouvrir les log",
+                "overview": "Ouvrir l'aperçu des 7 derniers jours",
                 "title": "Crédits"
             },
-            "help": "ouvrir cette aide",
+            "help": "Ouvrir cette aide",
             "profile": {
-                "awards": "ouvrir la liste des récompenses",
-                "level": "ouvrir la liste des niveaux",
-                "notes": "ouvrir les notes",
-                "open": "ouvrir le profil personnel",
+                "awards": "Ouvrir la liste des récompenses",
+                "level": "Ouvrir la liste des niveaux",
+                "notes": "Ouvrir les notes",
+                "open": "Ouvrir le profil personnel",
                 "title": "profil"
             },
-            "protocol": "ouvrir le journal des gestion des appelles",
+            "protocol": "Ouvrir le journal des gestion des appelles",
             "tasks": {
-                "open": "ouvrir la liste des Tâches et événements",
+                "open": "Ouvrir la liste des Tâches et événements",
                 "title": "Tâches et événements"
             },
             "title": "Général"
         },
         "main": {
             "chat": {
-                "focus": "focus sur le champ de saisie",
+                "focus": "Focus sur le champ de saisie",
                 "title": "Chat"
             },
             "lssm": {
@@ -45,15 +45,27 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "bas",
+                    "left": "gauche",
+                    "right": "droite",
+                    "title": "Déplacer",
+                    "up": "haut"
+                },
                 "search": {
-                    "focus": "focus sur le champ de saisie",
+                    "focus": "Focus sur le champ de saisie",
                     "title": "Recherche de lieu"
                 },
-                "title": "Map"
+                "title": "Map",
+                "zoom": { "in": "zoomer", "out": "dézoomer", "title": "Zoomer" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Ouvrir le menu de sélection",
+                    "title": "Ouvrir le tri des missions"
+                },
                 "search": {
-                    "focus": "focus sur le champ de saisie",
+                    "focus": "Focus dans le champ de saisie",
                     "title": "Recherche"
                 },
                 "title": "Liste des missions"
@@ -61,6 +73,22 @@
             "title": "Fenêtre principale"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus de la fenêtre de réponse de l'alliance",
+                "title": "Alliance",
+                "toggle": "Alterner 'poster dans le chat de l'alliance'."
+            },
+            "arr": {
+                "next": "onglet suivant",
+                "previous": "onglet précédent",
+                "title": "RAI"
+            },
+            "backalarm": {
+                "abortApproach": "Annuler l'approche",
+                "allVehicles": "Signal de retour pour tous les véhicules",
+                "onlyAmbulance": "Signal de retour uniquement pour les ambulances",
+                "title": "Signal de retour"
+            },
             "sorted": {
                 "alert_next": "Déployer et aller à la mission suivante",
                 "alert_share_next": "Déployer, partager et aller à la mission suivante",
@@ -68,7 +96,13 @@
                 "prev": "mission précédente",
                 "title": "Missions triées"
             },
-            "title": "Fenêtre des missions"
+            "title": "Fenêtre des missions",
+            "vehicleList": {
+                "loadMissing": "Chargement des véhicules manquants",
+                "next": "onglet suivant",
+                "previous": "onglet précédent",
+                "title": "Liste des véhicules"
+            }
         }
     },
     "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",

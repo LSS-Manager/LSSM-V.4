@@ -25,9 +25,17 @@
             "description": "Affiche la valeur actuelle des crédits à la place de la tirelire dans la barre de navigation.",
             "title": "Des crédits au lieu d'une tirelire"
         },
+        "hideAllianceFunds": {
+            "description": "Ne plus afficher les informations sur les fonds d'alliance",
+            "title": "Cacher les fonds d'alliance"
+        },
         "highlightSales": {
             "description": "Surligne les pièces en vert si des soldes est disponible",
             "title": "Mettre en évidence les soldes"
+        },
+        "showAlertProgressBar": {
+            "description": "Affiche une barre de progression à l'intérieur de la barre de navigation pour indiquer l'état d'avancement de votre progression vers l'alerte suivante dans les objectifs.",
+            "title": "Barre de progression des objectifs"
         },
         "showSales": {
             "description": "Affiche les soldes de pièces lorsqu'elles sont disponibles.",

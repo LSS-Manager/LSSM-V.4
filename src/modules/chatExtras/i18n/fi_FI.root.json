@@ -19,8 +19,8 @@
             "title": "Chat-historiaan kevyt muotoilu"
         },
         "mentionIndicator": {
-            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
-            "title": "Mentioning indicator"
+            "description": "Näyttää pienen @-kuvakkeen chatin kirjoitusboxissa, kun aiot mainita jonkun",
+            "title": "Mainitseva indikaattori"
         },
         "selfHighlight": {
             "description": "Korostaa käyttäjänimeäsi chatissa mukautetulla värillä",
@@ -28,18 +28,22 @@
         },
         "selfHighlightColor": {
             "description": "valitse täältä, millä värillä käyttäjänimesi halutaan korostaa.",
-            "title": "mukautettu väri chatissa: taustaväri"
+            "title": "Mukautettu väri chatissa: taustaväri"
         },
         "selfHighlightCustomTextColor": {
             "description": "Haluatko käyttää mukautettua teksti väriä?",
-            "title": "mukautettu väri chatissa: mukautettu tekstin väri"
+            "title": "Mukautettu väri chatissa: mukautettu tekstin väri"
         },
         "selfHighlightCustomTextColorColor": {
-            "title": "mukautettu väri chatissa: mukautettu tekstin väri"
+            "title": "Mukautettu väri chatissa: mukautettu tekstin väri"
+        },
+        "userSelection": {
+            "description": "Näyttää ehdotusluettelon liittouman jäsenistä, kun lähettämässä yksityisviestiä tai mainintaa, jolloin voit valita nopeasti liittouman jäsenen (nuolinäppäimet & Enter tuettu).",
+            "title": "Käyttäjän valinta"
         },
         "whisperIndicator": {
-            "description": "Shows a small lock icon in the chat input when you're currently whispering",
-            "title": "Whisper indicator"
+            "description": "Näyttää pienen lukkokuvakkeen kirjoitusboxissa, kun olet lähettämässä yksityisviestiä",
+            "title": "yksityisviesti indikaattori"
         }
     }
 }

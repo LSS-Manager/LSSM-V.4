@@ -42,13 +42,29 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "runter",
+                    "left": "Links",
+                    "right": "Rechts",
+                    "title": "Bewegen",
+                    "up": "Hoch"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Ortssuche"
                 },
-                "title": "Karte"
+                "title": "Karte",
+                "zoom": {
+                    "in": "reinzoomen",
+                    "out": "rauszoomen",
+                    "title": "Zoomen"
+                }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Auswahlmenü öffnen",
+                    "title": "Einsatzsortierung"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Suche"
@@ -58,6 +74,22 @@
             "title": "Hauptfenster"
         },
         "mission": {
+            "alliance": {
+                "focus": "Fokussiere Rückmeldungsfeld",
+                "title": "Verband",
+                "toggle": "Wechsle 'Im Verbandschat posten'"
+            },
+            "arr": {
+                "next": "Nächster Tab",
+                "previous": "Vorheriger Tab",
+                "title": "AAO"
+            },
+            "backalarm": {
+                "abortApproach": "Anfahrten abbrechen",
+                "allVehicles": "Alle eigenen Fahrzeuge rückalarmieren",
+                "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
+                "title": "Zurückalamieren"
+            },
             "sorted": {
                 "alert_next": "Alarmieren und weiter",
                 "alert_share_next": "Alarmieren, Teilen und weiter",
@@ -65,7 +97,13 @@
                 "prev": "vorheriger Einsatz",
                 "title": "Einsatzsortierung"
             },
-            "title": "Einsatzfenster"
+            "title": "Einsatzfenster",
+            "vehicleList": {
+                "loadMissing": "Fehlende Fahrzeuge nachladen",
+                "next": "Nächster Tab",
+                "previous": "Vorheriger Tab",
+                "title": "Fahrzeugliste"
+            }
         }
     },
     "description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",

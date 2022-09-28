@@ -1,4 +1,4 @@
-Ten moduł pozwala dostosować i dodać filtry do listy budynków. 
+Ten moduł pozwala dostosować i dodać filtry do listy budynków.
 
 Masz możliwość dodania dodatkowych filtrów nad listą budynków. Będziesz w stanie:
 

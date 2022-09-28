@@ -42,19 +42,47 @@
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "omlaag",
+                    "left": "links",
+                    "right": "rechts",
+                    "title": "Verplaats",
+                    "up": "omhoog"
+                },
                 "search": {
                     "focus": "focus invoerveld",
                     "title": "Plaatsen zoeken"
                 },
-                "title": "Kaart"
+                "title": "Kaart",
+                "zoom": { "in": "zoom in", "out": "zoom uit", "title": "Zoom" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selectie menu",
+                    "title": "Meldingen sortering"
+                },
                 "search": { "focus": "focus invoerveld", "title": "Zoekveld" },
                 "title": "Meldingenlijst"
             },
             "title": "Hoofdscherm"
         },
         "mission": {
+            "alliance": {
+                "focus": "Focus teamchat in inzet",
+                "title": "Team",
+                "toggle": "Zet 'stuur in teamchat' aan/uit"
+            },
+            "arr": {
+                "next": "volgende tab",
+                "previous": "vorige tab",
+                "title": "Inzetvoorstellen"
+            },
+            "backalarm": {
+                "abortApproach": "Annuleer voertuig",
+                "allVehicles": "Annuleer alle voertuigen",
+                "onlyAmbulance": "Annuleer alleen ambulances",
+                "title": "Annuleer voertuigen"
+            },
             "sorted": {
                 "alert_next": "Alarmeer en ga naar de volgende melding",
                 "alert_share_next": "Alarmeer, deel en ga naar de volgende melding",
@@ -62,7 +90,13 @@
                 "prev": "vorige melding",
                 "title": "Gesorteerde meldingen"
             },
-            "title": "Meldingsscherm"
+            "title": "Meldingsscherm",
+            "vehicleList": {
+                "loadMissing": "Laad missende voertuigen",
+                "next": "volgende tab",
+                "previous": "vorige tab",
+                "title": "Voertuigenlijst"
+            }
         }
     },
     "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",

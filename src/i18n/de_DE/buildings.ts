@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from '../../../typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -145,6 +145,7 @@ export default {
         ],
         schoolingTypes: ['Feuerwehr'],
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     1: {
         caption: 'Feuerwehrschule',
@@ -169,6 +170,7 @@ export default {
         startClassrooms: 1,
         special:
             'Finanzminister und Admins können Verbands-Feuerwehrschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Feuerwehrschulen starten.',
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Rettungswache',
@@ -184,6 +186,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RTW'],
         schoolingTypes: ['Rettungsdienst'],
+        icon: 'house-medical',
     },
     3: {
         caption: 'Rettungsschule',
@@ -208,6 +211,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Rettungsschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Rettungsschulen starten.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Krankenhaus',
@@ -292,6 +296,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Krankenhäuser mit Hilfe von Credits aus der Verbandskasse (aus-)bauen.',
         startBeds: 10,
+        icon: 'hospital',
     },
     5: {
         caption: 'Rettungshubschrauber-Station',
@@ -312,6 +317,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'circle-h',
     },
     6: {
         caption: 'Polizeiwache',
@@ -379,6 +385,7 @@ export default {
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     7: {
         caption: 'Leitstelle',
@@ -393,6 +400,7 @@ export default {
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
         isDispatchCenter: true,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Polizeischule',
@@ -417,6 +425,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Polizeischulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Polizeischulen starten.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     9: {
         caption: 'THW-Ortsverband',
@@ -532,6 +541,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['GKW'],
         schoolingTypes: ['THW'],
+        icon: 'gear',
     },
     10: {
         caption: 'THW Bundesschule',
@@ -556,6 +566,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-THW-Schulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-THW-Schulen starten.',
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
     11: {
         caption: 'Bereitschaftspolizei',
@@ -668,6 +679,7 @@ export default {
         startParkingLotReservations: [[35], [50], [50], [50]],
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        icon: 'shield-halved',
     },
     12: {
         caption: 'Schnelleinsatzgruppe (SEG)',
@@ -728,6 +740,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['KTW Typ B'],
         schoolingTypes: ['Rettungsdienst'],
+        icon: 'house-medical-flag',
     },
     13: {
         caption: 'Polizeihubschrauberstation',
@@ -760,6 +773,7 @@ export default {
             buildingsAmountTotal < 125
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
     },
     14: {
         caption: 'Bereitstellungsraum',
@@ -774,6 +788,7 @@ export default {
             'An einem Bereitstellungsraum kann man selbst beliebig viele der eigenen Fahrzeuge stationieren, Verbandsmitglieder können den Raum mitnutzen. Ein Bereitstellungsraum bleibt 24 Stunden bestehen, man kann ihn aber jederzeit wieder auf 24h zurücksetzen.',
         maxBuildingsFunction: (): number => 1,
         isStagingArea: true,
+        icon: 'warehouse',
     },
     15: {
         caption: 'Wasserrettung',
@@ -790,6 +805,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['GW-Wasserrettung'],
         schoolingTypes: ['Rettungsdienst'],
+        icon: 'person-swimming',
     },
     16: {
         caption: 'Verbandszellen',
@@ -824,6 +840,7 @@ export default {
         special:
             'Dieses Gebäude kann nur von Admins und Finanzministern mit Credits aus der Verbandskasse gebaut und ausgebaut werden. Die gebauten Zellen stehen allen Verbandsmitgliedern zur Verfügung.',
         startCells: 1,
+        icon: 'border-all',
     },
     17: {
         caption: 'Polizei-Sondereinheiten',
@@ -892,6 +909,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        icon: 'shield-halved',
     },
     18: {
         caption: 'Feuerwache (Kleinwache)',
@@ -988,6 +1006,7 @@ export default {
         ],
         schoolingTypes: ['Feuerwehr'],
         maxBuildingsFunction: (): number => 6000,
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Polizeiwache (Kleinwache)',
@@ -1057,6 +1076,7 @@ export default {
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
         maxBuildingsFunction: (): number => 1700,
+        icon: 'building-shield',
     },
     20: {
         caption: 'Rettungswache (Kleinwache)',
@@ -1077,6 +1097,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RTW'],
         schoolingTypes: ['Rettungsdienst'],
+        icon: 'house-medical',
     },
     21: {
         caption: 'Rettungshundestaffel',
@@ -1092,6 +1113,7 @@ export default {
         startParkingLots: 2,
         startVehicles: ['Rettungshundefahrzeug'],
         schoolingTypes: ['Rettungsdienst'],
+        icon: 'paw',
     },
     22: {
         caption: 'Großer Komplex',
@@ -1107,6 +1129,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        icon: 'poo',
     },
     23: {
         caption: 'Kleiner Komplex',
@@ -1122,5 +1145,6 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        icon: 'poo',
     },
 } as Record<number, InternalBuilding>;

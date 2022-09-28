@@ -33,7 +33,7 @@ export default defineComponent({
     name: 'momentjs-short-forms',
     computed: {
         moment_texts() {
-            return this.$theme.variables.moment[this.$lang];
+            return __VAR__.moment[this.$lang];
         },
         shorts() {
             return Object.entries(this.moment_texts.shorts).sort(

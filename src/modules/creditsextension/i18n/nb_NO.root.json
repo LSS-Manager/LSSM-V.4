@@ -25,9 +25,17 @@
             "description": "Viser gjeldende kreditter i navbar i stedet for den søte sparegrisen.",
             "title": "Penger i stedet for grise banken"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Uthever Mynter grønne hvis et salg er tilgjengelig",
             "title": "Høydepunkter salg"
+        },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Mål",
+            "title": "Mål progress bar"
         },
         "showSales": {
             "description": "Viser salg for mynter når det er tilgjengelig.",

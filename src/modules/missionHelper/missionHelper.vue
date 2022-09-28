@@ -312,10 +312,11 @@
                 <template v-if="missionSpecs.generated_by">
                     {{ $m('generated_by') }}:
                     {{ missionSpecs.generated_by }}
+                    <br />
                 </template>
                 <template v-else-if="missionSpecs.mission_categories">
                     {{ $m('mission_categories.title') }}:
-                    <ul>
+                    <ul class="mission-categories">
                         <li
                             v-for="category in missionSpecs.mission_categories"
                             data-amount="•"
@@ -325,7 +326,6 @@
                         </li>
                     </ul>
                 </template>
-                <br />
             </span>
             <ul v-if="missionSpecs.additional.personnel_educations">
                 <li
@@ -1229,4 +1229,7 @@ export default Vue.extend<
 
         &.active
             display: block
+
+    .mission-categories
+        margin-bottom: 0
 </style>

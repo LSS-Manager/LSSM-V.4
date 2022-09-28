@@ -181,12 +181,18 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         const type = Object.entries(routeChecks).find(([regex]) =>
             window.location.pathname.match(regex)
         )?.[1];
+        const etrAcSb = // EnhancedTransportRequests: autoClickSuccessBtns
+            !!LSSM.$stores.modules.modules['enhancedTransportRequests']
+                ?.active &&
+            (await LSSM.$stores.settings.getSetting<boolean>({
+                moduleId: 'enhancedTransportRequests',
+                settingId: 'autoClickSuccessBtns',
+                defaultValue: true,
+            }));
         const nextVehicle =
-            type === 'vehicle/nextfms'
+            (etrAcSb && type === 'vehicle') || type === 'vehicle/nextfms'
                 ? document
-                      .querySelector<HTMLAnchorElement>(
-                          'a.btn.btn-success[href^="/vehicles/"]'
-                      )
+                      .querySelector<HTMLAnchorElement>('#next-vehicle-fms-5')
                       ?.href?.match(/\d+$/u)?.[0]
                 : null;
         if (type && (nextVehicle || type !== 'vehicle/nextfms')) {

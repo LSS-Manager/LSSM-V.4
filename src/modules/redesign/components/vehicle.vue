@@ -1038,7 +1038,12 @@
                         </td>
                         <td>
                             <button
-                                :href="`/vehicles/${vehicle.id}/alarm?vehicle_ids%5B%5D=${wlf.id}`"
+                                @click="
+                                    fms(
+                                        `/vehicles/${vehicle.id}/alarm?vehicle_ids%5B%5D=${wlf.id}`,
+                                        true
+                                    )
+                                "
                                 class="btn btn-success"
                             >
                                 {{ lightbox.$sm('wlf.alarm') }}
@@ -1171,7 +1176,7 @@ type Component = RedesignComponent<
         backalarmCurrent(): void;
         switch_state(): void;
         updateFilter(filter: string, value: unknown): void;
-        fms(url: string): void;
+        fms(url: string, wlf?: boolean): void;
         release(type: 'patient' | 'prisoner'): void;
         loadAllHospitals(): void;
     },
@@ -1836,14 +1841,14 @@ export default Vue.extend<
         updateFilter(filter, value) {
             this.setSetting(filter, value).then();
         },
-        fms(url) {
+        fms(url, wlf = false) {
             this.lightbox.apiStore
                 .request({
                     url,
                     feature: `redesign-vehicle-fms`,
                 })
                 .then((res: Response) => {
-                    if (res.redirected) {
+                    if (res.redirected && !wlf) {
                         if (
                             new URL(res.url, window.location.origin)
                                 .pathname === '/'

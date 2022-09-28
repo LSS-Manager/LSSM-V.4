@@ -37,6 +37,10 @@
         "selfHighlightCustomTextColorColor": {
             "title": "Aangepaste kleur in chat: aangepaste tekstkleur"
         },
+        "userSelection": {
+            "description": "Toont een suggestielijst van teamleden als je fluisterd of ze wilt noemn, zodat je ze snel kan kiezen om te gebruiken in de chat (besturing met toetsenbord is mogelijk met de pijltjes en enter toetsen).",
+            "title": "Teamlid selectie"
+        },
         "whisperIndicator": {
             "description": "Toont een klein slotje in het invoerveld van de chat als je een privé chat aan het typen bent.",
             "title": "Privé-chat indicatie"

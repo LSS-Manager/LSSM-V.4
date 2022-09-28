@@ -1,4 +1,4 @@
-import type { InternalBuilding } from '../../../typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -45,6 +45,7 @@ export default {
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
         schoolingTypes: ['Školní a výcvikové zařízení HZS'],
+        icon: 'fire-flame-curved',
         maxBuildingsFunction: (): number => 6000,
     },
     1: {
@@ -69,6 +70,7 @@ export default {
         startClassrooms: 1,
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+        icon: 'graduation-cap',
     },
     2: {
         caption: 'Výjezdové stanoviště ZZS',
@@ -84,6 +86,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RZP'],
         schoolingTypes: ['Zdravotnická akademie'],
+        icon: 'house-medical',
     },
     3: {
         caption: 'Zdravotnická akademie',
@@ -107,6 +110,7 @@ export default {
         startClassrooms: 1,
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+        icon: 'graduation-cap',
     },
     4: {
         caption: 'Nemocnice',
@@ -184,6 +188,7 @@ export default {
         startBeds: 10,
         special:
             'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
+        icon: 'hospital',
     },
     5: {
         caption: 'Základna Letecké záchranné služby',
@@ -204,6 +209,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Zdravotnická akademie'],
+        icon: 'circle-h',
     },
     6: {
         caption: 'Obvodní oddělení Policie',
@@ -234,6 +240,7 @@ export default {
         startVehicles: ['Policejní automobil'],
         maxBuildingsFunction: (): number => 1700,
         schoolingTypes: ['Policejní Akademie'],
+        icon: 'building-shield',
     },
     7: {
         caption: 'Operační středisko',
@@ -248,6 +255,7 @@ export default {
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
         isDispatchCenter: true,
+        icon: 'tower-broadcast',
     },
     8: {
         caption: 'Policejní Akademie',
@@ -271,6 +279,7 @@ export default {
         startClassrooms: 1,
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+        icon: 'graduation-cap',
     },
     13: {
         caption: 'Základna Letecké služby PČR',
@@ -291,6 +300,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Policejní Akademies'],
+        icon: 'helicopter',
     },
     14: {
         caption: 'Přípravná oblast',
@@ -305,6 +315,7 @@ export default {
             'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
         maxBuildingsFunction: (): number => 4,
         isStagingArea: true,
+        icon: 'warehouse',
     },
     15: {
         caption: 'Vodní záchranná služba ČČK',
@@ -320,6 +331,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Školící středisko VZS ČČK'],
+        icon: 'person-swimming',
     },
     16: {
         caption: 'Prison Cells',
@@ -343,6 +355,7 @@ export default {
         special:
             "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
         startCells: 1,
+        icon: 'border-all',
     },
     18: {
         caption: 'Požární stanice (malá)',
@@ -365,6 +378,7 @@ export default {
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 6000,
         schoolingTypes: ['Školní a výcvikové zařízení HZS'],
+        icon: 'fire-flame-curved',
     },
     19: {
         caption: 'Obvodní oddělení Policie (malé)',
@@ -387,6 +401,7 @@ export default {
         startParkingLots: 1,
         maxBuildingsFunction: (): number => 1700,
         schoolingTypes: ['Policejní Akademie'],
+        icon: 'building-shield',
     },
     20: {
         caption: 'Výjezdové stanoviště ZZS (malá)',
@@ -407,6 +422,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RZP'],
         schoolingTypes: ['Zdravotnická akademie'],
+        icon: 'house-medical',
     },
     21: {
         caption: 'Pyrotechnická služba PČR',
@@ -422,6 +438,7 @@ export default {
         startVehicles: ['Vozidlo pyrotechnika PČR'],
         startParkingLots: 2,
         schoolingTypes: ['Policejní Akademie'],
+        icon: 'explosion',
     },
     22: {
         caption: 'Školící středisko VZS ČČK',
@@ -445,5 +462,6 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        icon: 'graduation-cap',
     },
 } as Record<number, InternalBuilding>;

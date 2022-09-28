@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 
+import { Octokit } from 'octokit';
 import Showdown from 'showdown';
 
 interface ClocResult {
@@ -51,6 +52,8 @@ const [
     clocStatsPath,
     commitStatsPath,
 ] = process.argv;
+
+const repositoryLink = `https://github.com/${repository}`;
 
 const sdConverter = new Showdown.Converter({
     literalMidWordUnderscores: true,
@@ -147,96 +150,83 @@ ${Object.entries(absoluteClocStats)
 
 fs.writeFileSync(clocStatsPath, fullClocResult);
 
-const currentBranch = execSync('git branch --show-current').toString().trim();
-execSync(
-    `git fetch origin ${
-        currentBranch === 'master' ? 'dev:dev' : 'master:master'
-    }`
-);
+(async () => {
+    const octokit = new Octokit();
 
-const amountOfCommits = parseInt(
-    execSync('git log dev --format=oneline | wc -l').toString()
-);
-const amountOfCommitsStable = parseInt(
-    execSync('git log master --format=oneline | wc -l').toString()
-);
-const firstCommit = execSync(
-    'git log dev --reverse --format="%h: %s %n %ai" --shortstat | head -4'
-).toString();
-const firstCommitHash = firstCommit.match(/^[\da-f]{8}(?=:)/u)?.[0] ?? '';
-const latestCommit = execSync(
-    'git log dev --format="%h: %s %n %ai" --shortstat -1'
-).toString();
-const latestCommitHash = latestCommit.match(/^[\da-f]{8}(?=:)/u)?.[0] ?? '';
-const latestCommitStable = execSync(
-    'git log master --format="%h: %s %n %ai" --shortstat -1'
-).toString();
-const latestCommitStableHash =
-    latestCommitStable.match(/^[\da-f]{8}(?=:)/u)?.[0] ?? '';
-const changes = execSync(
-    'git log dev --format="%h" --shortstat | grep -E "^ [0-9]+ files? changed"'
-)
-    .toString()
-    .split('\n')
-    .map(
-        line =>
-            line
-                .trim()
-                .match(
-                    /^(?<changes>\d+) files? changed(?:, (?<insertions>\d+) insertions?\(\+\))?(?:, (?<deletions>\d+) deletions?\(-\))?/u
-                )?.groups
-    )
-    .reduce(
-        (acc, item) => {
-            const changes = parseInt(item?.changes ?? '0');
-            const insertions = parseInt(item?.insertions ?? '0');
-            const deletions = parseInt(item?.deletions ?? '0');
-            return {
-                changes: acc.changes + (Number.isNaN(changes) ? 0 : changes),
-                deletions:
-                    acc.deletions + (Number.isNaN(deletions) ? 0 : deletions),
-                insertions:
-                    acc.insertions +
-                    (Number.isNaN(insertions) ? 0 : insertions),
-            };
-        },
-        { changes: 0, insertions: 0, deletions: 0 }
-    );
+    const firstCommit = (
+        await octokit.rest.repos.listCommits({
+            owner: repository.split('/')[0],
+            repo: repository.split('/')[1],
+            until: '2020-02-10T15:13:07Z',
+        })
+    ).data[0];
+    const firstCommitHash = firstCommit.sha.slice(0, 10);
+    const latestCommit = (
+        await octokit.rest.repos.listCommits({
+            owner: repository.split('/')[0],
+            repo: repository.split('/')[1],
+            sha: 'dev',
+        })
+    ).data[0];
+    const latestCommitHash = latestCommit.sha.slice(0, 10);
+    const latestCommitStable = (
+        await octokit.rest.repos.listCommits({
+            owner: repository.split('/')[0],
+            repo: repository.split('/')[1],
+            sha: 'master',
+        })
+    ).data[0];
+    const latestCommitStableHash = latestCommitStable.sha.slice(0, 10);
 
-fs.writeFileSync(
-    commitStatsPath,
-    `
+    const amountOfCommits = (
+        await octokit.rest.repos.compareCommits({
+            owner: repository.split('/')[0],
+            repo: repository.split('/')[1],
+            base: firstCommitHash,
+            head: latestCommitHash,
+        })
+    ).data.ahead_by;
+    const amountOfCommitsStable =
+        (
+            await octokit.rest.repos.compareCommits({
+                owner: repository.split('/')[0],
+                repo: repository.split('/')[1],
+                base: firstCommitHash,
+                head: latestCommitStableHash,
+            })
+        ).data.ahead_by + 1;
+
+    fs.writeFileSync(
+        commitStatsPath,
+        `
 <template><div>
     ${sdConverter.makeHtml(
         `
 * Commits on beta: ${intToLocaleNum(amountOfCommits)}
 * Commits on stable: ${intToLocaleNum(amountOfCommitsStable)}
-* first commit: [${firstCommitHash}](${repository}/commit/${firstCommitHash})
-  * > ${firstCommit
+* first commit: [${firstCommitHash}](${repositoryLink}/commit/${firstCommitHash})
+  * > ${firstCommit.commit.message
       .split('\n')
       .filter(l => l.trim())
       .join('\n    > ')}
-* latest commit on beta: [${latestCommitHash}](${repository}/commit/${latestCommitHash})
-  * > ${latestCommit
+* latest commit on beta: [${latestCommitHash}](${repositoryLink}/commit/${latestCommitHash})
+  * > ${latestCommit.commit.message
       .split('\n')
       .filter(l => l.trim())
       .join('\n    > ')}
-* latest commit on stable: [${latestCommitStableHash}](${repository}/commit/${latestCommitStableHash})
-  * > ${latestCommitStable
+* latest commit on stable: [${latestCommitStableHash}](${repositoryLink}/commit/${latestCommitStableHash})
+  * > ${latestCommitStable.commit.message
       .split('\n')
       .filter(l => l.trim())
       .join('\n    > ')}
-* total amount of changes in all commits (beta):
-  * files changed: ${intToLocaleNum(changes.changes)}
-  * insertions: ${intToLocaleNum(changes.insertions)}
-  * deletions: ${intToLocaleNum(changes.deletions)}
 `.trim()
     )}
 </div></template>
 
 <script setup></script>
 `.trim()
-);
+    );
+})();
 
 /*
 Ideas:
@@ -245,4 +235,5 @@ Ideas:
         * size
         * amount of files
         * duration
+    * total amount of changes in all beta commits
  */
