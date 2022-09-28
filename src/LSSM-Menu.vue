@@ -65,7 +65,7 @@
                 <a :href="rootStore.githubUrl" target="_blank">GitHub</a>
             </li>
             <li role="presentation">
-                <a href="https://status.lss-manager.de/">
+                <a href="https://status.lss-manager.de/" target="_blank">
                     LSSM-Server Status
                 </a>
             </li>
