@@ -57,6 +57,13 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'building.goto.previousBuilding',
         'building.goto.nextBuilding',
         'building.goto.dispatchCenter',
+        'building.goto.expand',
+        'building.goto.firstVehicle',
+        'building.goto.hire',
+        'building.goto.personal',
+        'building.changeSharing.enableSharing',
+        'building.changeSharing.disableSharing',
+        'building.changeSharing.toggleSharing',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)

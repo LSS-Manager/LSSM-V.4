@@ -40,7 +40,17 @@
                 "dispatchCenter": "dispatch center",
                 "nextBuilding": "Next Building",
                 "previousBuilding": "Previous building",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "personal": "personal overview",
                 "title": "go to"
+            },
+            "changeSharing": {
+                "title": "Toggle building sharing",
+                "enableSharing": "Enable sharing",
+                "disableSharing": "Disable sharing",
+                "toggleSharing": "Toggle sharing"
             },
             "title": "Building"
         },
