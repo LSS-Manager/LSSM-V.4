@@ -37,7 +37,7 @@
         },
         "building": {
             "goto": {
-              "dispatchCenter": "Larmcentrall",
+              "dispatchCenter": "Larmcentral",
               "nextBuilding": "Nästa byggnad",
               "previousBuilding": "Föregående byggnad",
               "title": "gå till"
