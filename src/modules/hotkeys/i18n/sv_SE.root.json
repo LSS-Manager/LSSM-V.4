@@ -37,12 +37,12 @@
         },
         "building": {
             "goto": {
-                "dispatchCenter": "dispatch center",
-                "nextBuilding": "Next Building",
-                "previousBuilding": "Previous building",
-                "title": "go to"
+              "dispatchCenter": "Larmcentrall",
+              "nextBuilding": "Nästa byggnad",
+              "previousBuilding": "Föregående byggnad",
+              "title": "gå till"
             },
-            "title": "Building"
+            "title": "Byggnader"
         },
         "main": {
             "chat": {
