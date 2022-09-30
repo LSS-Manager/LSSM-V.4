@@ -143,7 +143,7 @@ When the code is pasted into console, just press the `Enter` Key on your keyboar
 :::
 
 :::warning API disclaimer
-the API is generated from the translation files and thus may contain wrong values. In case of insecurity, please always use information available in game!
+The API is generated from the translation files and thus may contain wrong values. In case of insecurity, please always use information available in game!
 :::
 
 #### Vehicles

@@ -52,18 +52,18 @@
             },
             "map": {
                 "move": {
-                    "down": "down",
-                    "left": "left",
-                    "right": "right",
-                    "title": "Move",
-                    "up": "up"
+                    "down": "omlaag",
+                    "left": "links",
+                    "right": "rechts",
+                    "title": "Verplaats",
+                    "up": "omhoog"
                 },
                 "search": {
                     "focus": "focus invoerveld",
                     "title": "Plaatsen zoeken"
                 },
                 "title": "Kaart",
-                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
+                "zoom": { "in": "zoom in", "out": "zoom uit", "title": "Zoom" }
             },
             "missionlist": {
                 "eclSort": {
@@ -77,20 +77,20 @@
         },
         "mission": {
             "alliance": {
-                "focus": "Focus alliance response window",
-                "title": "Alliance",
-                "toggle": "Toggle 'post in alliance chat'"
+                "focus": "Focus teamchat in inzet",
+                "title": "Team",
+                "toggle": "Zet 'stuur in teamchat' aan/uit"
             },
             "arr": {
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "ARR"
+                "next": "volgende tab",
+                "previous": "vorige tab",
+                "title": "Inzetvoorstellen"
             },
             "backalarm": {
-                "abortApproach": "Cancel approach",
-                "allVehicles": "Backalarm all vehicles",
-                "onlyAmbulance": "Backalarm only ambulances",
-                "title": "Backalarm"
+                "abortApproach": "Annuleer voertuig",
+                "allVehicles": "Annuleer alle voertuigen",
+                "onlyAmbulance": "Annuleer alleen ambulances",
+                "title": "Annuleer voertuigen"
             },
             "sorted": {
                 "alert_next": "Alarmeer en ga naar de volgende melding",
@@ -101,10 +101,10 @@
             },
             "title": "Meldingsscherm",
             "vehicleList": {
-                "loadMissing": "Load missing vehicles",
-                "next": "next tab",
-                "previous": "previous tab",
-                "title": "vehicle list"
+                "loadMissing": "Laad missende voertuigen",
+                "next": "volgende tab",
+                "previous": "vorige tab",
+                "title": "Voertuigenlijst"
             }
         }
     },

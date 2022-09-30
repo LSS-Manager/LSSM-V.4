@@ -21,14 +21,12 @@ export interface lssmMenuData {
     versionWrapperId: string;
     settingsStore: ReturnType<typeof useSettingsStore>;
     rootStore: ReturnType<typeof useRootStore>;
-    umzugDate: Date;
 }
 
 export interface lssmMenuComputed {
     menuItems: HTMLAnchorElement[];
     mode: 'beta' | 'stable';
     version: string;
-    localUmzugTimeString: string;
 }
 
 export interface lssmMenuMethods {

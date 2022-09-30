@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-// import pluginClipboard from 'vuepress-plugin-clipboard';
+import pluginClipboard from 'vuepress-plugin-clipboard';
 import pluginRegisterComponents from '@vuepress/plugin-register-components';
 import pluginSearch from '@vuepress/plugin-search';
 import { pwaPlugin } from '@vuepress/plugin-pwa';
@@ -310,7 +310,7 @@ export default defineUserConfig({
 
     // plugins
     plugins: [
-        // pluginClipboard({ align: 'top', staticIcon: true }),
+        pluginClipboard({ align: 'top', staticIcon: true }),
         pluginSearch({ locales: localeConfigs.searchConfigs }),
         pluginRegisterComponents({
             components: {
