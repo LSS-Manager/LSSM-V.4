@@ -40,7 +40,17 @@
                 "dispatchCenter": "Leitstelle",
                 "nextBuilding": "Nächstes Gebäude",
                 "previousBuilding": "Vorheriges Gebäude",
+                "expand": "Ausbauen",
+                "firstVehicle": "Erstes Fahrzeug öffnen",
+                "hire": "Neue Leute werben",
+                "personal": "Personal",
                 "title": "Gehe zu"
+            },
+            "changeSharing": {
+                "title": "Im Verband freigeben ändern",
+                "enableSharing": "Freigabe aktivieren",
+                "disableSharing": "Freigabe deaktivieren",
+                "toggleSharing": "Freigabe wechseln"
             },
             "title": "Gebäude"
         },

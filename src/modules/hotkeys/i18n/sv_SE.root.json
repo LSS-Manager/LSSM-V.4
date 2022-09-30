@@ -40,7 +40,17 @@
               "dispatchCenter": "Larmcentral",
               "nextBuilding": "Nästa byggnad",
               "previousBuilding": "Föregående byggnad",
+              "expand": "expanding",
+              "firstVehicle": "open first vehicle",
+              "hire": "Recute new personal",
+              "personal": "personal overview",
               "title": "gå till"
+            },
+            "changeSharing": {
+                "title": "Toggle building sharing",
+                "enableSharing": "Enable sharing",
+                "disableSharing": "Disable sharing",
+                "toggleSharing": "Toggle sharing"
             },
             "title": "Byggnader"
         },

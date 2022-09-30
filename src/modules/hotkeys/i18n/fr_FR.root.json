@@ -40,7 +40,17 @@
                 "dispatchCenter": "Centre de Traitement des Appels",
                 "nextBuilding": "Bâtiment suivant",
                 "previousBuilding": "Bâtiment précedent",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "personal": "personal overview",
                 "title": "aller à"
+            },
+            "changeSharing": {
+                "title": "Toggle building sharing",
+                "enableSharing": "Enable sharing",
+                "disableSharing": "Disable sharing",
+                "toggleSharing": "Toggle sharing"
             },
             "title": "Bâtiments"
         },
