@@ -68,6 +68,7 @@
         "mission": "Mission",
         "participation": "Participation",
         "patients": "Patients",
+        "patientsProgress": "{current} of {total}",
         "progress": "Avancement"
     },
     "move": "Déplacer",

@@ -68,6 +68,7 @@
         "mission": "Inzet",
         "participation": "Aanwezigheid",
         "patients": "Patiënten",
+        "patientsProgress": "{current} of {total}",
         "progress": "Voortgang"
     },
     "move": "Verplaatsen",
