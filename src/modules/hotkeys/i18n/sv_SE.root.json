@@ -36,21 +36,21 @@
             "title": "Generella"
         },
         "building": {
-            "goto": {
-              "dispatchCenter": "Larmcentral",
-              "nextBuilding": "Nästa byggnad",
-              "previousBuilding": "Föregående byggnad",
-              "expand": "expanding",
-              "firstVehicle": "open first vehicle",
-              "hire": "Recute new personal",
-              "personal": "personal overview",
-              "title": "gå till"
-            },
             "changeSharing": {
-                "title": "Toggle building sharing",
-                "enableSharing": "Enable sharing",
                 "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
                 "toggleSharing": "Toggle sharing"
+            },
+            "goto": {
+                "dispatchCenter": "Larmcentral",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Nästa byggnad",
+                "personal": "personal overview",
+                "previousBuilding": "Föregående byggnad",
+                "title": "gå till"
             },
             "title": "Byggnader"
         },
