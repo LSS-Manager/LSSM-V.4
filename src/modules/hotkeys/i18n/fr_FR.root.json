@@ -36,21 +36,21 @@
             "title": "Général"
         },
         "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
             "goto": {
                 "dispatchCenter": "Centre de Traitement des Appels",
-                "nextBuilding": "Bâtiment suivant",
-                "previousBuilding": "Bâtiment précedent",
                 "expand": "expanding",
                 "firstVehicle": "open first vehicle",
                 "hire": "Recute new personal",
+                "nextBuilding": "Bâtiment suivant",
                 "personal": "personal overview",
+                "previousBuilding": "Bâtiment précedent",
                 "title": "aller à"
-            },
-            "changeSharing": {
-                "title": "Toggle building sharing",
-                "enableSharing": "Enable sharing",
-                "disableSharing": "Disable sharing",
-                "toggleSharing": "Toggle sharing"
             },
             "title": "Bâtiments"
         },

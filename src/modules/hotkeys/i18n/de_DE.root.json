@@ -36,21 +36,21 @@
             "title": "Allgemein"
         },
         "building": {
+            "changeSharing": {
+                "disableSharing": "Freigabe deaktivieren",
+                "enableSharing": "Freigabe aktivieren",
+                "title": "Im Verband freigeben ändern",
+                "toggleSharing": "Freigabe wechseln"
+            },
             "goto": {
                 "dispatchCenter": "Leitstelle",
-                "nextBuilding": "Nächstes Gebäude",
-                "previousBuilding": "Vorheriges Gebäude",
                 "expand": "Ausbauen",
                 "firstVehicle": "Erstes Fahrzeug öffnen",
                 "hire": "Neue Leute werben",
+                "nextBuilding": "Nächstes Gebäude",
                 "personal": "Personal",
+                "previousBuilding": "Vorheriges Gebäude",
                 "title": "Gehe zu"
-            },
-            "changeSharing": {
-                "title": "Im Verband freigeben ändern",
-                "enableSharing": "Freigabe aktivieren",
-                "disableSharing": "Freigabe deaktivieren",
-                "toggleSharing": "Freigabe wechseln"
             },
             "title": "Gebäude"
         },
