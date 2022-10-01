@@ -566,9 +566,19 @@
                             </div>
                         </td>
                         <td>
-                            {{ mission.patients.current }}
-                            of
-                            {{ mission.patients.total }}
+                            <template v-if="mission.patients.total">
+                                {{
+                                    lightbox.$sm('missions.patientsProgress', {
+                                        current: mission.patients.current,
+                                        total: mission.patients.total,
+                                    })
+                                }}
+                            </template>
+                            <template v-else>
+                                <font-awesome-icon
+                                    :icon="faBan"
+                                ></font-awesome-icon>
+                            </template>
                         </td>
                         <td>
                             <button
@@ -1095,6 +1105,7 @@ import Vue from 'vue';
 
 import { defineAPIStore } from '@stores/api';
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
+import { faBan } from '@fortawesome/free-solid-svg-icons/faBan';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
@@ -1122,6 +1133,7 @@ type Component = RedesignComponent<
         faChartLine: IconDefinition;
         faUsers: IconDefinition;
         faTrash: IconDefinition;
+        faBan: IconDefinition;
         missionListSrc: number;
         search: string;
         searchTimeout: number | null;
@@ -1256,6 +1268,7 @@ export default Vue.extend<
             faChartLine,
             faUsers,
             faTrash,
+            faBan,
             missionListSrc: 0,
             search: '',
             searchTimeout: null,
