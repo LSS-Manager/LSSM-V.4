@@ -65,7 +65,7 @@
                 <a :href="rootStore.githubUrl" target="_blank">GitHub</a>
             </li>
             <li role="presentation">
-                <a href="https://status.lss-manager.de/">
+                <a href="https://status.lss-manager.de/" target="_blank">
                     LSSM-Server Status
                 </a>
             </li>
@@ -212,7 +212,6 @@ export default Vue.extend<
             ),
             settingsStore: useSettingsStore(),
             rootStore: useRootStore(),
-            umzugDate: new Date('2022-09-15T12:00:00.000Z'),
         };
     },
     computed: {
@@ -222,12 +221,6 @@ export default Vue.extend<
         },
         version() {
             return VERSION;
-        },
-        localUmzugTimeString() {
-            return new Intl.DateTimeFormat(navigator.language, {
-                dateStyle: 'medium',
-                timeStyle: 'short',
-            }).format(this.umzugDate);
         },
     },
     directives: {

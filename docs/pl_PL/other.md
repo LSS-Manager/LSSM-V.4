@@ -9,7 +9,7 @@ sidebarDepth: 2
 Różne informacje o Menedżerze LSS.
 
 ## Licencja
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 
 LSS Manager jest objęty licencją [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
@@ -20,19 +20,23 @@ Zdecydowaliśmy się wykorzystać tę licencję, aby zapobiec niewłaściwemu u�
 Obecnie LSS Manager składa się z 4 programistów i 6 dodatkowych osób wspierających nasz <discord/>. Na Discordzie nasi programiści są również aktywną administracją!
 
 ### Deweloperzy
-* Aisaka *[Dyrektor generalny, administrator serwerów i starszy programista]*
-* Jan *[Starszy architekt i programista]*
-* Sanni *[Kontroler jakości, naprawianie błędów i młodszy programista]*
-* Ron31 *[Bugfixer, młodszy programista]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Zespół Discord
 **Administracja**:
+
 * lost
+* Aisaka
 
 **Moderatorzy**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs

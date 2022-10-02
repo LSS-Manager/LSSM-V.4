@@ -9,8 +9,7 @@ sidebarDepth: 2
 Op deze pagina willen we je meer informatie geven over de LSSM.
 
 ## Licentie
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][Licentie]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][Licentie]
 
 LSS Manager heeft een licentie onder [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][Licentie].
 
@@ -20,19 +19,23 @@ We hebben besloten deze licentie te gebruiken om misbruik van onze code te voork
 Momenteel bestaat LSS Manager uit 4 ontwikkelaars en 6 extra supporters voor onze <discord/>. Op Discord zijn onze developers natuurlijk ook administratief actief!
 
 ### De developers
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Het Discord-Team
 **Administratie**:
+
 * lost
+* Aisaka
 
 **Moderatie**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
