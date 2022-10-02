@@ -9,8 +9,7 @@ sidebarDepth: 2
 auf dieser Seite möchten wir dir sonstige Informationen über den LSSM geben.
 
 ## Lizenz
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 Der LSS-Manager steht unter der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,19 +19,23 @@ Wir haben uns dazu entschieden, diese Lizenz zu verwenden, um ein Missbrauch uns
 Aktuell besteht das der LSS-Manager aus 4 Entwicklern und 6 zusätzlichen Unterstützern für unseren <discord/>. Auf Discord sind unsere Entwickler natürlich auch administrativ aktiv! Zusätzlich dazu haben wir noch jede Menge freiwillige Übersetzer!
 
 ### Die Entwickler
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer & "Praktikant"]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Das Discord-Team
 **Administration**:
+
 * lost
+* Aisaka
 
 **Moderation**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
@@ -44,7 +47,7 @@ Jede Menge Dank geht an unsere freiwilligen Übersetzer, die uns mit der Portier
 
 Um die Übersetzer etwas zu würdigen haben wir hier eine Liste erstellt:
 <translators/>
-    
+
 ## Die Geschichte
 Seit September 2015 gibt es den `LSS-Manager`, auch wenn er zu Beginn nur das Design veränderte.
 
