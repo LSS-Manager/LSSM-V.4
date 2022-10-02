@@ -13,7 +13,7 @@
             "text": "Moyenne minimale Policiers"
         },
         "height_rescue_personnel": {
-            "badge": false,
+            "badge": true,
             "in": "additional",
             "text": "Spécialistes IMP requis"
         },
@@ -86,9 +86,17 @@
                 "title": "Ambulance de type A au lieu d'ASSU"
             },
             "allow_rw_instead_of_lf": {
-                "description": "Indique si, au lieu d'un camion de pompiers, il est possible d'utiliser un véhicule de secours routier ou une échelle pivotante automatique",
+                "description": "Indique si, au lieu d'un camion de pompiers, il est possible d'utiliser un véhicule de secours routier ou une échelle pivotante automatique.",
                 "title": "Afficher VSR/EPA au lieu des camions de pompiers"
-            }
+            },
+			"allow_streifenwagen_instead_of_riot_police_van": {
+				"description": "Indique si un Véhicule de patrouille peut être utilisée à la place des VRs.",
+                "title": "Afficher Véhicule de patrouille au lieu des VRs"
+			},
+			"allow_dlk_instead_of_lf":{
+                "description": "Indique si, au lieu d'un camion de pompiers, il est possible d'utiliser une échelle pivotante automatique.",
+                "title": "Afficher EPA au lieu des camions de pompiers"			
+			}
         },
         "patients": {
             "content": {
