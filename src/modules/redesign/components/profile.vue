@@ -769,10 +769,7 @@ export default Vue.extend<
         },
         toggleFilter(type) {
             if (this.hiddenFilters.includes(type)) {
-                this.hiddenFilters.splice(
-                    this.hiddenFilters.findIndex(t => t === type),
-                    1
-                );
+                this.hiddenFilters.splice(this.hiddenFilters.indexOf(type), 1);
                 (this.$refs.map as MapVue)?.map?.addLayer(
                     this.mapLayerGroups[type]
                 );

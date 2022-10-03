@@ -129,7 +129,9 @@ export default async (
     const updateHistoryList = (bookmark = false) => {
         const historyEntry = document.createElement('li');
         const historyText = document.createElement('span');
-        const lastHistoryEntry = history[history.length - 1];
+        const lastHistoryEntry = history.at(-1);
+
+        if (!lastHistoryEntry) return;
 
         const ownMarkerIndex = ownMarkers.findIndex(
             ({ lat, lng, zoom }) =>
