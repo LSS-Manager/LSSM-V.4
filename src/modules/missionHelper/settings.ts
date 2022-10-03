@@ -163,7 +163,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['en_US', 'fi_FI'].includes(locale)
+        ...(['en_US', 'fi_FI', 'fr_FR'].includes(locale)
             ? {
                   'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
                       type: 'toggle',
@@ -201,6 +201,17 @@ export default ((MODULE_ID, LSSM, $m) => {
                       disabled: (settings): boolean =>
                           !settings[MODULE_ID]['patients.content'].value &&
                           !settings[MODULE_ID]['vehicles.content'].value,
+                  },
+              }
+            : null),
+        ...(locale === 'fr_FR'
+            ? {
+                  'optionalAlternatives.allow_streifenwagen_instead_of_riot_police_van': <
+                      Toggle
+                  >{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
                   },
               }
             : null),
