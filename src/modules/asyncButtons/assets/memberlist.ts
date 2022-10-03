@@ -46,14 +46,12 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                         t.textContent =
                             t.textContent?.replace(unsetText, setText) || '';
                         rights.splice(
-                            rights.findIndex(
-                                r =>
-                                    r ===
-                                    roles[
-                                        t.pathname.match(
-                                            /(?<=\/verband\/)[^/]*/u
-                                        )?.[0] || ''
-                                    ]
+                            rights.indexOf(
+                                roles[
+                                    t.pathname.match(
+                                        /(?<=\/verband\/)[^/]*/u
+                                    )?.[0] || ''
+                                ]
                             ),
                             1
                         );

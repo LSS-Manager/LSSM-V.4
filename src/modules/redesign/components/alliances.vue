@@ -271,9 +271,9 @@ export default Vue.extend<
                             this.alliances.alliances[0]?.credits?.toLocaleString() ??
                             '',
                         lastCredits:
-                            this.alliances.alliances[
-                                this.alliances.alliances.length - 1
-                            ]?.credits?.toLocaleString() ?? '',
+                            this.alliances.alliances
+                                .at(-1)
+                                ?.credits?.toLocaleString() ?? '',
                         totalPages: this.alliances.lastPage.toLocaleString(),
                     }
                 )

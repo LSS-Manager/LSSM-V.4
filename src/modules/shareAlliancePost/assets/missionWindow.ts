@@ -131,13 +131,13 @@ export default async ({
         document.querySelector<HTMLSpanElement>('#vehicle_amount');
     if (vehicleAmountElement) {
         new MutationObserver(() => {
-            const selectedVehicles =
+            const selectedVehicles = Array.from(
                 document.querySelectorAll<HTMLInputElement>(
                     '#vehicle_show_table_body_all .vehicle_checkbox:checked'
-                );
+                )
+            );
             if (selectedVehicles.length) {
-                const lastSelectedVehicleId =
-                    selectedVehicles[selectedVehicles.length - 1].value;
+                const lastSelectedVehicleId = selectedVehicles.at(-1)?.value;
                 longestDrive =
                     Array.from(
                         document.querySelector<HTMLTableCellElement>(
