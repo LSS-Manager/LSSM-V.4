@@ -136,7 +136,7 @@ export default {
     },
     3: {
         caption: 'Rescue (EMS) Academy',
-        color: '#8c852c',
+        color: '#9f9830',
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
@@ -659,7 +659,7 @@ export default {
     },
     23: {
         caption: 'Large complex',
-        color: '#8B4513',
+        color: '#652d06',
         coins: -1,
         credits: -1,
         extensions: [],
@@ -675,7 +675,7 @@ export default {
     },
     24: {
         caption: 'Small complex',
-        color: '#8B4513',
+        color: '#562704',
         coins: -1,
         credits: -1,
         extensions: [],
