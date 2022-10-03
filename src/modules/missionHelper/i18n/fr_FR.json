@@ -68,6 +68,7 @@
             "helicopter": "Dragon",
             "hose": "Camion dévidoir",
             "k9": "Unité cynophile",
+            "ktw": "Ambulance Type A",
             "kdow_orgl": "PC DSM",
             "mobile_air_vehicles": "VAR | VAR",
             "mobile_command_vehicles": "VPC | VPC",
@@ -100,18 +101,19 @@
             }
         },
         "optional_alternatives": {
-            "allow_arff_instead_of_lf": {
-                "firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+            "allow_dlk_instead_of_lf": {
+                "firetrucks": "Fourgon d’incendie ou EPA | Fourgons d’incendie ou EPA"
+            },  
+            "allow_ktw_instead_of_rtw": {
+                "ambulances": "Ambulance Type A ou Ambulance"
             },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Fourgon d’incendie ou VSR | Fourgons d’incendie ou VSR"
             },
             "allow_streifenwagen_instead_of_riot_police_van": {
                 "riot_police": "Véhicule de patrouille ou VR | Véhicules de patrouilles ou VR"
-			}
-            "allow_dlk_instead_of_lf": {
-                "firetrucks": "Fire Engine or Platform truck  | Fire Engines or Platform trucks"
-            },        },
+			}      
+		},
         "patient_additionals": { "8": "PC DSM" },
         "title": "Véhicules"
     }
