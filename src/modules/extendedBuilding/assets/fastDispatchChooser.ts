@@ -8,7 +8,7 @@ export default async (
     MODULE_ID: string
 ): Promise<void> => {
     const path = window.location.pathname.split('/').filter(s => !!s);
-    const buildingId = parseInt(path[path.length - 1]);
+    const buildingId = parseInt(path.at(-1) ?? '-1');
     await LSSM.$stores.api.getBuildings(`${MODULE_ID}_fdc`);
 
     const callback = () => {

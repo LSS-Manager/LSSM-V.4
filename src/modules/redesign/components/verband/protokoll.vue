@@ -188,10 +188,7 @@ export default Vue.extend<
                     startPage: this.startPage,
                     endPage: this.endPage,
                     firstDate: this.protokoll.entries[0]?.timestring ?? '',
-                    lastDate:
-                        this.protokoll.entries[
-                            this.protokoll.entries.length - 1
-                        ]?.timestring ?? '',
+                    lastDate: this.protokoll.entries.at(-1)?.timestring ?? '',
                     totalPages: this.protokoll.lastPage.toLocaleString(),
                 })
                 .toString();

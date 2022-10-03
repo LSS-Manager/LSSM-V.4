@@ -134,9 +134,7 @@ export default (Vue: VueConstructor): void => {
             if (initialCall && $utils.activeCountdowns.includes(id)) return;
 
             const element = document.querySelector<HTMLElement>(`#${id}`);
-            const activeIndex = $utils.activeCountdowns.findIndex(
-                cd => id === cd
-            );
+            const activeIndex = $utils.activeCountdowns.indexOf(id);
             if (!element || countdown <= 0) {
                 if (activeIndex >= 0)
                     $utils.activeCountdowns.splice(activeIndex, 1);

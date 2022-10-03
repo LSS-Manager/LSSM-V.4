@@ -280,9 +280,9 @@ export default Vue.extend<
                             this.toplist.users[0]?.credits?.toLocaleString() ??
                             '',
                         lastCredits:
-                            this.toplist.users[
-                                this.toplist.users.length - 1
-                            ]?.credits?.toLocaleString() ?? '',
+                            this.toplist.users
+                                .at(-1)
+                                ?.credits?.toLocaleString() ?? '',
                         totalPages: this.toplist.lastPage.toLocaleString(),
                     }
                 )
