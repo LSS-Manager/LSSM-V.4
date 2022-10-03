@@ -184,9 +184,7 @@ export const defineAPIStore = defineStore('api', {
             });
         },
         _removeAPIFromQueue<API extends StorageAPIKey>(api: API) {
-            const updateIndex = this.currentlyUpdating.findIndex(
-                update => update === api
-            );
+            const updateIndex = this.currentlyUpdating.indexOf(api);
             if (updateIndex >= 0) this.currentlyUpdating.splice(updateIndex, 1);
         },
         _setAPI<API extends StorageAPIKey>(

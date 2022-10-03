@@ -124,14 +124,9 @@ export default (
         const missions = await getSetting<string[]>('collapsedMissions', []);
         const allCollapsed = await getSetting('allMissionsCollapsed', false);
 
-        if (btn.classList.contains(allCollapsed ? BTN_INACTIVE : BTN_ACTIVE)) {
-            missions.splice(
-                missions.findIndex(mission => mission === missionId),
-                1
-            );
-        } else {
-            missions.push(missionId);
-        }
+        if (btn.classList.contains(allCollapsed ? BTN_INACTIVE : BTN_ACTIVE))
+            missions.splice(missions.indexOf(missionId), 1);
+        else missions.push(missionId);
 
         await setSetting('collapsedMissions', missions);
     };

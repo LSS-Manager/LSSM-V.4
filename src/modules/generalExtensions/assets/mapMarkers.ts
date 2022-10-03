@@ -68,6 +68,7 @@ export default async (
         lat: number;
         lng: number;
         zoom: number;
+        title?: string;
     }[];
 
     const historyBtn = await LSSM.$stores.root.addOSMControl({
@@ -128,8 +129,20 @@ export default async (
     const updateHistoryList = (bookmark = false) => {
         const historyEntry = document.createElement('li');
         const historyText = document.createElement('span');
-        const lastHistoryEntry = history[history.length - 1];
-        historyText.textContent = `[${lastHistoryEntry.lat}, ${lastHistoryEntry.lng}] Zoom: ${lastHistoryEntry.zoom}`;
+        const lastHistoryEntry = history.at(-1);
+
+        if (!lastHistoryEntry) return;
+
+        const ownMarkerIndex = ownMarkers.findIndex(
+            ({ lat, lng, zoom }) =>
+                lat === lastHistoryEntry.lat &&
+                lng === lastHistoryEntry.lng &&
+                zoom === lastHistoryEntry.zoom
+        );
+
+        historyText.textContent =
+            lastHistoryEntry.title ??
+            `[${lastHistoryEntry.lat}, ${lastHistoryEntry.lng}] Zoom: ${lastHistoryEntry.zoom}`;
         historyText.setAttribute(
             'data-history',
             JSON.stringify(lastHistoryEntry)
@@ -141,22 +154,54 @@ export default async (
         historyRemoveBtn.addEventListener('click', () => {
             historyEntry.remove();
             if (bookmark) {
-                ownMarkers.splice(
-                    ownMarkers.findIndex(
-                        ({ lat, lng, zoom }) =>
-                            lat === lastHistoryEntry.lat &&
-                            lng === lastHistoryEntry.lng &&
-                            zoom === lastHistoryEntry.zoom
-                    ),
-                    1
-                );
+                ownMarkers.splice(ownMarkerIndex, 1);
                 setSetting('savedOwnMapMarkers', ownMarkers);
             }
         });
 
         historyRemoveBtn.append(historyRemoveIcon);
-        historyEntry.append(historyText);
-        historyEntry.append(historyRemoveBtn);
+        historyEntry.append(historyText, historyRemoveBtn);
+
+        if (bookmark) {
+            historyText.setAttribute('data-address-resolved', 'true');
+
+            const historyEditBtn = document.createElement('button');
+            historyEditBtn.classList.add('btn', 'btn-xs', 'btn-default');
+            const historyEditIcon = document.createElement('i');
+            historyEditIcon.classList.add('fas', 'fa-pen-to-square');
+
+            const saveBtn = document.createElement('button');
+            saveBtn.classList.add('btn', 'btn-xs', 'btn-success', 'hidden');
+            const saveIcon = document.createElement('i');
+            saveIcon.classList.add('fas', 'fa-floppy-disk');
+
+            historyEditBtn.addEventListener('click', () => {
+                saveBtn.classList.remove('hidden');
+                historyEditBtn.classList.add('hidden');
+
+                historyText.setAttribute('contenteditable', 'true');
+                historyText.focus();
+            });
+            saveBtn.addEventListener('click', () => {
+                historyEditBtn.classList.remove('hidden');
+                saveBtn.classList.add('hidden');
+                ownMarkers[ownMarkerIndex].title =
+                    historyText.textContent ?? '';
+                setSetting('savedOwnMapMarkers', ownMarkers);
+                historyText.removeAttribute('contenteditable');
+            });
+            historyText.addEventListener('keydown', e => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    saveBtn.dispatchEvent(new Event('click'));
+                }
+            });
+
+            historyEditBtn.append(historyEditIcon);
+            saveBtn.append(saveIcon);
+            historyEntry.append(historyEditBtn, saveBtn);
+        }
+
         historyList.append(historyEntry);
     };
 
@@ -216,9 +261,10 @@ export default async (
 
     historyList.addEventListener('mouseover', e => {
         const target = (e.target as HTMLElement).closest('li');
-        if (!target) return;
+        if (!target || (e.target as HTMLElement).closest('button.btn-default'))
+            return;
         const span = target.querySelector<HTMLSpanElement>('span');
-        if (!span) return;
+        if (!span || span.getAttribute('contenteditable') === 'true') return;
         if (span.getAttribute('data-address-resolved') !== 'true') {
             currentAddressTimeout = window.setTimeout(
                 () => getAddress(span),
@@ -240,7 +286,7 @@ export default async (
         const target = e.target as HTMLElement;
         if (target.tagName !== 'LI') return;
         const span = target.querySelector<HTMLSpanElement>('span');
-        if (!span) return;
+        if (!span || span.getAttribute('contenteditable') === 'true') return;
         const { lat, lng, zoom } = JSON.parse(
             span.getAttribute('data-history') || '{}'
         );

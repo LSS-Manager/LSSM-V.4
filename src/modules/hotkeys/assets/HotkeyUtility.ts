@@ -88,9 +88,7 @@ export default class HotkeyUtility {
                         window.setTimeout(() => {
                             if (this.executedListeners.includes(sequence)) {
                                 this.executedListeners.splice(
-                                    this.executedListeners.findIndex(
-                                        s => s === sequence
-                                    ),
+                                    this.executedListeners.indexOf(sequence),
                                     1
                                 );
                             }
@@ -106,12 +104,8 @@ export default class HotkeyUtility {
 
         return (listeners: Listener[]) => {
             listeners.forEach(listener => {
-                if (this.listeners.includes(listener)) {
-                    this.listeners.splice(
-                        this.listeners.findIndex(l => l === listener),
-                        1
-                    );
-                }
+                if (this.listeners.includes(listener))
+                    this.listeners.splice(this.listeners.indexOf(listener), 1);
             });
             if (this.listeners.length) return;
             window.removeEventListener('keydown', eventListener);

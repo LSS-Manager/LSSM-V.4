@@ -109,12 +109,9 @@ const parse_filter = (
     ) as (number | string)[] | Record<string, unknown> | number | string;
     if (!sideObject) return;
     if (Array.isArray(sideObject)) {
-        while (sideObject.includes('..')) {
-            sideObject.splice(
-                sideObject.findIndex(attr => attr === '..') - 1,
-                2
-            );
-        }
+        while (sideObject.includes('..'))
+            sideObject.splice(sideObject.indexOf('..') - 1, 2);
+
         const baseAttr = sideObject.shift();
         if (!baseAttr) return;
         let newObject =

@@ -63,15 +63,13 @@ export default async (LSSM: Vue): Promise<void> => {
                         )
                         .replace(/\$m\('(?<module>[^.]*?)'\)/gu, (...args) =>
                             LSSM.$t(
-                                `modules.${
-                                    args[args.length - 1].module ?? ''
-                                }.name`
+                                `modules.${args.at(-1).module ?? ''}.name`
                             ).toString()
                         )
                         .replace(
                             /\$s\((?<noModule>!?)'(?<module>[^.]*?)(?:\.(?<setting>.*?))?'\)/gu,
                             (...args) => {
-                                const groups = args[args.length - 1];
+                                const groups = args.at(-1);
                                 const noModule = groups.noModule?.length > 0;
                                 const module = groups.module ?? '';
                                 const setting = groups.setting ?? '';

@@ -257,14 +257,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                         });
                     } else {
                         input.addEventListener('change', () => {
-                            if (input.checked) {
-                                shown_types.push(poi);
-                            } else {
-                                shown_types.splice(
-                                    shown_types.findIndex(p => p === poi),
-                                    1
-                                );
-                            }
+                            if (input.checked) shown_types.push(poi);
+                            else
+                                shown_types.splice(shown_types.indexOf(poi), 1);
+
                             shown_types.sort();
                             setSetting('shown_types', shown_types);
                             refresh_shown_pois();

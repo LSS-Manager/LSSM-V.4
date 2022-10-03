@@ -224,9 +224,7 @@ export default Vue.extend<
                 startPage: this.startPage,
                 endPage: this.endPage,
                 firstDate: this.coins.entries[0]?.date ?? '',
-                lastDate:
-                    this.coins.entries[this.coins.entries.length - 1]?.date ??
-                    '',
+                lastDate: this.coins.entries.at(-1)?.date ?? '',
                 totalPages: this.coins.lastPage.toLocaleString(),
             }).toString();
         },

@@ -62,10 +62,12 @@ export default async (
             'vehiclesPersonnelMax',
         ].filter(setting => lastRowSettings[setting]);
 
-        if (lastRowItems.length && BUILDING_MODE === 'building') {
-            tableHead.children[
-                tableHead.children.length - 1
-            ].textContent = `(${lastRowItems
+        if (
+            lastRowItems.length &&
+            BUILDING_MODE === 'building' &&
+            tableHead.lastElementChild
+        ) {
+            tableHead.lastElementChild.textContent = `(${lastRowItems
                 .map(setting => $m(`vehiclePersonnel.${setting}`).toString())
                 .join(' / ')})`;
         }
@@ -219,22 +221,23 @@ export default async (
                                       : 'green'
                               };">${assigned_personnel_count}</span>`
                             : assigned_personnel_count;
-                        vehicle.children[
-                            vehicle.children.length - 1
-                        ].innerHTML = `(${lastRowItems
-                            .map(
-                                item =>
-                                    ((
-                                        {
-                                            vehiclesPersonnelCurrent:
-                                                currentPersonnel,
-                                            vehiclesPersonnelMax: maxPersonnel,
-                                            vehiclesPersonnelAssigned:
-                                                assignedPersonnel,
-                                        } as Record<string, number>
-                                    )[item])
-                            )
-                            .join(' / ')})`;
+                        if (vehicle.lastElementChild) {
+                            vehicle.lastElementChild.innerHTML = `(${lastRowItems
+                                .map(
+                                    item =>
+                                        ((
+                                            {
+                                                vehiclesPersonnelCurrent:
+                                                    currentPersonnel,
+                                                vehiclesPersonnelMax:
+                                                    maxPersonnel,
+                                                vehiclesPersonnelAssigned:
+                                                    assignedPersonnel,
+                                            } as Record<string, number>
+                                        )[item])
+                                )
+                                .join(' / ')})`;
+                        }
                     })();
                 }
             }
@@ -252,7 +255,7 @@ export default async (
         });
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
-        const buildingId = parseInt(path[path.length - 1]);
+        const buildingId = parseInt(path.at(-1) ?? '-1');
         await LSSM.$stores.api.getVehiclesAtBuilding(
             buildingId,
             `${MODULE_ID}-enhanceVehicleList`
