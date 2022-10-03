@@ -206,13 +206,12 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(locale === 'fr_FR'
             ? {
-                  'optionalAlternatives.allow_streifenwagen_instead_of_riot_police_van': <
-                      Toggle
-                  >{
-                      type: 'toggle',
-                      default: false,
-                      dependsOn: '.vehicles.content',
-                  },
+                  'optionalAlternatives.allow_streifenwagen_instead_of_riot_police_van':
+                      <Toggle>{
+                          type: 'toggle',
+                          default: false,
+                          dependsOn: '.vehicles.content',
+                      },
               }
             : null),
         'patients.title': <Toggle>{
