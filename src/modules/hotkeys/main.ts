@@ -45,7 +45,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
             : {}),
         ...(isBuildingWindow
             ? {
-                  mission: {
+                  building: {
                       validatorFunction: () => isBuildingWindow,
                       ...(
                           await import(
