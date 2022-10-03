@@ -434,7 +434,7 @@ export default {
     },
     11: {
         caption: 'Fire Boat Dock',
-        color: '#663300',
+        color: '#ab0404',
         coins: 35,
         credits: 500_000,
         extensions: [],
@@ -661,7 +661,7 @@ export default {
     },
     17: {
         caption: 'Firefighting plane station',
-        color: '#db7918',
+        color: '#ce312b',
         coins: 65,
         credits: 1_500_000,
         extensions: [],
@@ -736,7 +736,7 @@ export default {
     },
     20: {
         caption: 'Large complex',
-        color: '#8B4513',
+        color: '#4d2304',
         coins: -1,
         credits: -1,
         extensions: [],
@@ -752,7 +752,7 @@ export default {
     },
     21: {
         caption: 'Small complex',
-        color: '#8B4513',
+        color: '#6e3408',
         coins: -1,
         credits: -1,
         extensions: [],
@@ -768,7 +768,7 @@ export default {
     },
     22: {
         caption: "Fire Marshal's Office",
-        color: '#db7918',
+        color: '#d02020',
         coins: 30,
         credits: 250_000,
         extensions: [],
@@ -784,7 +784,7 @@ export default {
     },
     23: {
         caption: 'Coastal Rescue Station',
-        color: '#bb0000',
+        color: '#11858d',
         coins: 50,
         credits: 500_000,
         extensions: [],
@@ -800,7 +800,7 @@ export default {
     },
     24: {
         caption: 'Coastal Rescue School',
-        color: '#992222',
+        color: '#11858d',
         coins: 50,
         credits: 500_000,
         extensions: multiplyExtension(
@@ -824,7 +824,7 @@ export default {
     },
     25: {
         caption: 'Coastal Air Station',
-        color: '#bb0000',
+        color: '#11858d',
         coins: 50,
         credits: 1_000_000,
         extensions: [
@@ -897,7 +897,7 @@ export default {
     },
     26: {
         caption: 'Lifeguard Post',
-        color: '#bb0000',
+        color: '#11858d',
         coins: 35,
         credits: 50_000,
         extensions: [],
