@@ -46,7 +46,7 @@ Install Tampermonkey extension into your browser.
 For other browsers you can download Tampermonkey on [tampermonkey.net](https://www.tampermonkey.net/).
 
 ::: warning
-Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
+Please note that we do not officially support older browsers, mobile browsers and Apple Safari. Support for these browsers is therefore neither guaranteed nor likely.
 :::
 
 ### Step 2: Userscript
