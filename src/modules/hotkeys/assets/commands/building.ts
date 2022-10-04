@@ -27,13 +27,37 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
             const next = this.navigationGroup?.firstElementChild;
             (next as HTMLElement).click();
         },
-        dispatchCenter() {
-            if (this.navigationGroup?.childElementCount != 3) return;
+        async dispatchCenter() {
+            const buildingId = parseInt(
+                window.location.pathname.match(/(?<=buildings\/)\d+/u)?.[0] ??
+                    '-1'
+            );
+            //Prevent to fire an invalid API request
+            if (buildingId == -1) return;
 
-            const dispatch =
-                this.navigationGroup?.firstElementChild?.nextElementSibling;
-            if (dispatch instanceof HTMLAnchorElement)
-                (dispatch as HTMLElement).click();
+            //Fetch Data vom API
+            const LSSM = window[PREFIX] as Vue;
+            let leitstellenId: number | null;
+            leitstellenId = null;
+            await LSSM.$stores.api
+                .getBuilding(buildingId, 'hotkeys-building')
+                .then(result => {
+                    if (result?.leitstelle_building_id == null) {
+                        if (
+                            LSSM.$stores.api.settings?.leitstelle_building_id ==
+                            null
+                        ) {
+                            return;
+                        } else {
+                            leitstellenId =
+                                LSSM.$stores.api.settings
+                                    ?.leitstelle_building_id;
+                        }
+                    } else {
+                        leitstellenId = result?.leitstelle_building_id;
+                    }
+                    window.location.replace(`/buildings/${leitstellenId}`);
+                });
         },
         previousBuilding() {
             const previous = this.navigationGroup?.firstElementChild;
