@@ -567,6 +567,7 @@ export default Vue.extend<
                     allow_ktw_instead_of_rtw: false,
                     allow_dlk_instead_of_lf: false,
                     allow_drone_instead_of_investigation: false,
+                    allow_streifenwagen_instead_of_riot_police_van: false,
                 },
                 patients: {
                     code_possible: false,

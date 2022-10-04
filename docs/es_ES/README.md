@@ -47,7 +47,7 @@ Instala la extensión **Tampermonkey** en tu navegador.
 Para otros navegadores puedes descargar Tampermonkey en [tampermonkey.net](https://www.tampermonkey.net/).
 
 ::: warning 
-Tenga en cuenta que no admitimos oficialmente navegadores más antiguos, navegadores móviles, Microsoft Edge o Internet Explorer.
+Tenga en cuenta que no admitimos oficialmente navegadores más antiguos, navegadores móviles o Apple Safari.
 :::
 
 ### Paso Nº 2: Userscript

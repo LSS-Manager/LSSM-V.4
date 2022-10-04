@@ -2920,10 +2920,7 @@ export default Vue.extend<
                 });
         },
         updateExtensionsFilterNames(names) {
-            if (
-                names.findIndex(name => name === '*') === names.length - 1 ||
-                !names.length
-            ) {
+            if (names.indexOf('*') === names.length - 1 || !names.length) {
                 this.extensionsTable.filters.extensionNames = 'all';
             } else {
                 this.extensionsTable.filters.extensionNames = names.filter(
@@ -2933,8 +2930,7 @@ export default Vue.extend<
         },
         updateExtensionsFilterBuildings(buildings) {
             if (
-                buildings.findIndex(building => building === '*') ===
-                    buildings.length - 1 ||
+                buildings.indexOf('*') === buildings.length - 1 ||
                 !buildings.length
             ) {
                 this.extensionsTable.filters.buildings = 'all';
@@ -2947,11 +2943,7 @@ export default Vue.extend<
             }
         },
         updateExtensionsFilterStates(states) {
-            if (
-                states.findIndex(state => state === '*') ===
-                    states.length - 1 ||
-                !states.length
-            ) {
+            if (states.indexOf('*') === states.length - 1 || !states.length) {
                 this.extensionsTable.filters.states = 'all';
             } else {
                 const removeAllElement = <S>(state: S | '*'): state is S =>
@@ -3104,7 +3096,7 @@ export default Vue.extend<
                     );
                     this.updateProtocol();
                     this.protocolDeletions.splice(
-                        this.protocolDeletions.findIndex(p => p === id),
+                        this.protocolDeletions.indexOf(id),
                         1
                     );
                 });

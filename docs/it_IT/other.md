@@ -9,8 +9,7 @@ sidebarDepth: 2
 In questa pagina vogliamo fornirvi altre informazioni riguardo a LSSM.
 
 ## Licenza
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 LSS Manager è coperto dalla licenza [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,19 +19,23 @@ Abbiamo deciso di usare questa licenza per prevenire un abuso del nostro codice 
 Attualmente, LSS Manager è composto da 4 sviluppatori e 6 supporter addizionali per il nostro <discord/>. Su Discord i nostri programmatori ovviamente sono attivi amministrativamente!
 
 ### Gli Sviluppatori
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Il Team di Discord
 **Amministrazione**:
+
 * lost
+* Aisaka
 
 **Moderazione**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
@@ -53,7 +56,7 @@ Una lista di quali librerie usiamo, può essere trovata direttamente in gioco, n
 ## Ringraziamenti
 A volte anche noi dobbiamo semplicemente dire un grande GRAZIE!
 
-### Il Team XYRALITY 
+### Il Team XYRALITY
 Prima di tutto un grande grazie va al team di sviluppatori del gioco. Non solo per il gioco in sè, ma anche per il grande aiuto quando abbiamo domande.
 
 Ma anche per i numerosi aiuti/consigli che hanno reso lo sviluppo di LSSM più facile per noi!

@@ -46,7 +46,7 @@ Als u Tampermonkey nog niet in uw browser heeft geïnstalleerd, moet u dit alsno
 Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net](https://www.tampermonkey.net/).
 
 ::: warning
-Houd er rekening mee dat we officieel geen oudere browsers, mobiele browsers, Apple Safari, Microsoft Edge en Internet Explorer ondersteunen. Ondersteuning voor deze browsers is daarom niet gegarandeerd en ook niet waarschijnlijk.
+Houd er rekening mee dat we officieel geen oudere browsers, mobiele browsers, Apple Safari en Internet Explorer ondersteunen. Ondersteuning voor deze browsers is daarom niet gegarandeerd en ook niet waarschijnlijk.
 :::
 
 ### Stap 2: Userscript

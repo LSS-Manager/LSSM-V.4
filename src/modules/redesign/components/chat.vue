@@ -174,9 +174,7 @@ export default Vue.extend<
                     startPage: this.startPage,
                     endPage: this.endPage,
                     firstDate: this.chat.messages[0]?.datetime ?? '',
-                    lastDate:
-                        this.chat.messages[this.chat.messages.length - 1]
-                            ?.datetime ?? '',
+                    lastDate: this.chat.messages.at(-1)?.datetime ?? '',
                     totalPages: this.chat.lastPage.toLocaleString(),
                 })
                 .toString();

@@ -537,7 +537,7 @@ export default {
     },
     21: {
         caption: 'Large complex',
-        color: '#8B4513',
+        color: '#632d07',
         coins: -1,
         credits: -1,
         extensions: [],
@@ -553,7 +553,7 @@ export default {
     },
     22: {
         caption: 'Small complex',
-        color: '#8B4513',
+        color: '#4b2103',
         coins: -1,
         credits: -1,
         extensions: [],

@@ -46,7 +46,7 @@ Nainstaluj doplněk Tampermonkey do tvého prohlížeče.
 Pro ostatní prohlížeče můžete stáhnout Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 
 :::warning
-Berte prosím na vědomí, že nepodporujeme: starší prohlížeče, mobilní prohlížeče, Microsoft Edge nebo Internet Explorer.
+Berte prosím na vědomí, že nepodporujeme: starší prohlížeče, mobilní prohlížeče nebo Apple Safari.
 :::
 
 ### Krok 2: Uživatelský script

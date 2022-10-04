@@ -11,7 +11,7 @@
  */
 export function getCityFromAddress(address: string): string {
     const addressSplit = address.split(',');
-    return addressSplit[addressSplit.length - 1]?.trim() ?? '–';
+    return addressSplit.at(-1)?.trim() ?? '–';
 }
 
 /**

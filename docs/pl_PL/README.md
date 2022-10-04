@@ -48,8 +48,7 @@ W przypadku innych przeglądarek możesz pobrać Tampermonkey na [tampermonkey.n
 Należy pamiętać, że oficjalnie nie wspieramy: 
 -starszych przeglądarkek;
 -przeglądarkek mobilnych;
--Microsoft Edge;
--Internet Explorer.
+-Apple Safari.
 :::
 
 ### Krok 2: Skrypt użytkownika

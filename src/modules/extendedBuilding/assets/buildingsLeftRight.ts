@@ -31,8 +31,11 @@ export default (LSSM: Vue): void => {
         '#building-navigation-container'
     );
     if (!btnGroup) return;
-    btnGroup.children[0].textContent = `[←${position}] ${btnGroup.children[0].textContent}`;
-    btnGroup.children[btnGroup.children.length - 1].textContent += ` [${
-        buildings.length - position - 1
-    }→]`;
+    if (btnGroup.firstElementChild)
+        btnGroup.firstElementChild.textContent = `[←${position}] ${btnGroup.children[0].textContent}`;
+    if (btnGroup.lastElementChild) {
+        btnGroup.lastElementChild.textContent += ` [${
+            buildings.length - position - 1
+        }→]`;
+    }
 };
