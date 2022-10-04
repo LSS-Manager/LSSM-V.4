@@ -24,7 +24,7 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
             return !!this.navigationGroup;
         },
         nextBuilding() {
-            const next = this.navigationGroup?.firstElementChild;
+            const next = this.navigationGroup?.lastElementChild;
             (next as HTMLElement).click();
         },
         async dispatchCenter() {
@@ -64,34 +64,38 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
             (previous as HTMLElement).click();
         },
         expand() {
-            const expand = document.querySelector("a[href$='expand']");
+            const expand =
+                document.querySelector<HTMLAnchorElement>("a[href$='/expand']");
             //No result → Building without expansions
             if (expand == null) return;
 
-            (expand as HTMLElement).click();
+            expand.click();
         },
         firstVehicle() {
-            const firstVehicle = document.querySelector(
+            const firstVehicle = document.querySelector<HTMLAnchorElement>(
                 "td a[href^='/vehicles']"
             );
             //No result → Building without vehicles
             if (firstVehicle == null) return;
 
-            (firstVehicle as HTMLElement).click();
+            firstVehicle.click();
         },
         hire() {
-            const hire = document.querySelector("a[href$='/hire']");
+            const hire =
+                document.querySelector<HTMLAnchorElement>("a[href$='/hire']");
             //No result → Building without personal
             if (hire == null) return;
 
-            (hire as HTMLElement).click();
+            hire.click();
         },
         personal() {
-            const personal = document.querySelector("a[href$='/personals']");
+            const personal = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/personals']"
+            );
             //No result → Building without personal
             if (personal == null) return;
 
-            (personal as HTMLElement).click();
+            personal.click();
         },
     },
     changeSharing: <
@@ -99,35 +103,43 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
     >{
         validatorFunction: () => true,
         enableSharing() {
-            const extensionBtn = document.querySelector("a[href$='/alliance']");
+            const extensionBtn = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/alliance']"
+            );
             //No result → Building without enable able extension or extensionen already enabled
             if (
                 extensionBtn == null ||
                 document.querySelectorAll("a[href*='alliance_costs']").length !=
                     0
-            )
+            ) {
                 return;
+            }
 
-            (extensionBtn as HTMLElement).click();
+            extensionBtn.click();
         },
         disableSharing() {
-            const extensionBtn = document.querySelector("a[href$='/alliance']");
+            const extensionBtn = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/alliance']"
+            );
             //No result → Building without enable able extension or extensionen already disabled
             if (
                 extensionBtn == null ||
                 document.querySelectorAll("a[href*='alliance_costs']").length ==
                     0
-            )
+            ) {
                 return;
+            }
 
-            (extensionBtn as HTMLElement).click();
+            extensionBtn.click();
         },
         toggleSharing() {
-            const extensionBtn = document.querySelector("a[href$='/alliance']");
+            const extensionBtn = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/alliance']"
+            );
             //No result → Building without enable able extension
             if (extensionBtn == null) return;
 
-            (extensionBtn as HTMLElement).click();
+            extensionBtn.click();
         },
     },
 };
