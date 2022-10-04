@@ -4,7 +4,12 @@ import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
+const rootCommandScopes: ['*', 'main', 'mission', 'building'] = [
+    '*',
+    'main',
+    'mission',
+    'building',
+];
 
 export default (async ({ LSSM, $m, getSetting }) => {
     const isMainWindow = window.location.pathname.length <= 1;
