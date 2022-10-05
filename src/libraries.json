@@ -57,7 +57,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.8.0"
+        "version": "18.8.2"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -113,11 +113,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.38.1"
+        "version": "5.39.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.38.1"
+        "version": "5.39.0"
     },
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
@@ -152,12 +152,7 @@
     "all-contributors-cli": {
         "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
-        "version": "6.22.0"
-    },
-    "axios": {
-        "icon": "https://axios-http.com/assets/favicon.ico",
-        "url": "https://axios-http.com",
-        "version": "0.27.2"
+        "version": "6.23.0"
     },
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
@@ -235,7 +230,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.5.1"
+        "version": "9.6.0"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -319,7 +314,7 @@
         "version": "13.0.2"
     },
     "semver": {
-        "version": "7.3.7"
+        "version": "7.3.8"
     },
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
