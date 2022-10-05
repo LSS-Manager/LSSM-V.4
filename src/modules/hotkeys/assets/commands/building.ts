@@ -111,9 +111,8 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
                 extensionBtn == null ||
                 document.querySelectorAll("a[href*='alliance_costs']").length !=
                     0
-            ) {
+            )
                 return;
-            }
 
             extensionBtn.click();
         },
@@ -126,9 +125,8 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
                 extensionBtn == null ||
                 document.querySelectorAll("a[href*='alliance_costs']").length ==
                     0
-            ) {
+            )
                 return;
-            }
 
             extensionBtn.click();
         },
