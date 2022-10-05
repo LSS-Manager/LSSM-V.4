@@ -3,6 +3,7 @@ interface BuildingInfos {
     id: number;
     name: string;
     buildingType: number;
+    dispatchCenter: number | null;
     vehicleTypes: number[];
 }
 
@@ -41,6 +42,7 @@ export default async (LSSM: Vue) => {
                     ?.trim() ?? '',
             id: buildingId,
             buildingType: buildingsById[buildingId].building_type,
+            dispatchCenter: buildingsById[buildingId].leitstelle_building_id,
             vehicleTypes: Array.from(
                 new Set(
                     vehiclesByBuilding[buildingId]?.map(
@@ -84,6 +86,22 @@ export default async (LSSM: Vue) => {
             buildingTypeFilter.append(option);
         });
 
+    const dispatchCenterFilter = document.createElement('select');
+    const dispatchCenterAllOption = document.createElement('option');
+    dispatchCenterAllOption.value = '*';
+    dispatchCenterFilter.append(dispatchCenterAllOption);
+    Array.from(new Set(buildings.map(({ dispatchCenter }) => dispatchCenter)))
+        .filter(<S>(id: S | null): id is S => Number.isInteger(id))
+        .sort((a, b) =>
+            buildingsById[a].caption.localeCompare(buildingsById[b].caption)
+        )
+        .forEach(id => {
+            const option = document.createElement('option');
+            option.value = id.toString();
+            option.textContent = buildingsById[id].caption;
+            dispatchCenterFilter.append(option);
+        });
+
     const searchLabel = document.createElement('label');
     const searchInput = document.createElement('input');
     searchInput.setAttribute('type', 'search');
@@ -92,33 +110,47 @@ export default async (LSSM: Vue) => {
 
     searchLabel.append(searchInput);
 
-    filterWrapper.append(vehicleTypeFilter, buildingTypeFilter, searchLabel);
+    filterWrapper.append(
+        vehicleTypeFilter,
+        buildingTypeFilter,
+        dispatchCenterFilter,
+        searchLabel
+    );
     accordion.prepend(filterWrapper, clearfix);
 
     const filter = () => {
         const search = searchInput.value.trim().toLowerCase();
         const vehicleTypeFilterValue = parseInt(vehicleTypeFilter.value);
         const buildingTypeFilterValue = parseInt(buildingTypeFilter.value);
-        buildings.forEach(({ name, el, buildingType, vehicleTypes }) => {
-            let show = true;
-            if (search.length && !name.toLowerCase().includes(search))
-                show = false;
-            if (
-                show &&
-                !Number.isNaN(vehicleTypeFilterValue) &&
-                !vehicleTypes.includes(vehicleTypeFilterValue)
-            )
-                show = false;
-            if (
-                show &&
-                !Number.isNaN(buildingTypeFilterValue) &&
-                buildingType !== buildingTypeFilterValue
-            )
-                show = false;
+        const dispatchCenterFilterValue = parseInt(dispatchCenterFilter.value);
+        buildings.forEach(
+            ({ name, el, buildingType, vehicleTypes, dispatchCenter }) => {
+                let show = true;
+                if (search.length && !name.toLowerCase().includes(search))
+                    show = false;
+                if (
+                    show &&
+                    !Number.isNaN(vehicleTypeFilterValue) &&
+                    !vehicleTypes.includes(vehicleTypeFilterValue)
+                )
+                    show = false;
+                if (
+                    show &&
+                    !Number.isNaN(buildingTypeFilterValue) &&
+                    buildingType !== buildingTypeFilterValue
+                )
+                    show = false;
+                if (
+                    show &&
+                    !Number.isNaN(dispatchCenterFilterValue) &&
+                    dispatchCenter !== dispatchCenterFilterValue
+                )
+                    show = false;
 
-            if (show) el.classList.remove('hidden');
-            else el.classList.add('hidden');
-        });
+                if (show) el.classList.remove('hidden');
+                else el.classList.add('hidden');
+            }
+        );
         window.schooling_check_educated_counter_visible_check?.();
     };
 
@@ -131,5 +163,6 @@ export default async (LSSM: Vue) => {
 
     vehicleTypeFilter.addEventListener('change', updateFilter);
     buildingTypeFilter.addEventListener('change', updateFilter);
+    dispatchCenterFilter.addEventListener('change', updateFilter);
     searchInput.addEventListener('keyup', updateFilter);
 };
