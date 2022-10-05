@@ -35,6 +35,25 @@
             },
             "title": "Generella"
         },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
+            "goto": {
+                "dispatchCenter": "Larmcentral",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Nästa byggnad",
+                "personal": "personal overview",
+                "previousBuilding": "Föregående byggnad",
+                "title": "gå till"
+            },
+            "title": "Byggnader"
+        },
         "main": {
             "chat": {
                 "focus": "välj chattfönstrets skrivruta",

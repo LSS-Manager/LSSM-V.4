@@ -35,6 +35,25 @@
             },
             "title": "Všeobecné"
         },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
+            "goto": {
+                "dispatchCenter": "dispatch center",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Next Building",
+                "personal": "personal overview",
+                "previousBuilding": "Previous building",
+                "title": "go to"
+            },
+            "title": "Building"
+        },
         "main": {
             "chat": { "focus": "zakliknout chatové pole", "title": "Chat" },
             "lssm": {
