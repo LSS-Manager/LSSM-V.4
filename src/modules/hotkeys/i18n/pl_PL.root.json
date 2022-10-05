@@ -37,20 +37,20 @@
         },
         "building": {
             "changeSharing": {
-                "disableSharing": "Disable sharing",
-                "enableSharing": "Enable sharing",
-                "title": "Toggle building sharing",
-                "toggleSharing": "Toggle sharing"
+                "disableSharing": "Wyłącz udostępnianie",
+                "enableSharing": "Włącz udostępnianie",
+                "title": "Przełącz udostępnianie budynków",
+                "toggleSharing": "Przełącz udostępnianie"
             },
             "goto": {
-                "dispatchCenter": "dispatch center",
+                "dispatchCenter": "CPR",
                 "expand": "expanding",
-                "firstVehicle": "open first vehicle",
-                "hire": "Recute new personal",
-                "nextBuilding": "Next Building",
+                "firstVehicle": "Otwórz pierwszy pojazd",
+                "hire": "Zatrudnij nowe osoby",
+                "nextBuilding": "Następny budynek",
                 "personal": "personal overview",
-                "previousBuilding": "Previous building",
-                "title": "go to"
+                "previousBuilding": "Poprzedni budynek",
+                "title": "Przejdź do"
             },
             "title": "Building"
         },
