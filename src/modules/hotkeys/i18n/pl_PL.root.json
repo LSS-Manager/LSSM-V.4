@@ -44,11 +44,11 @@
             },
             "goto": {
                 "dispatchCenter": "CPR",
-                "expand": "expanding",
+                "expand": "Powiększ budynek",
                 "firstVehicle": "Otwórz pierwszy pojazd",
                 "hire": "Zatrudnij nowe osoby",
                 "nextBuilding": "Następny budynek",
-                "personal": "personal overview",
+                "personal": "Pokaż personel",
                 "previousBuilding": "Poprzedni budynek",
                 "title": "Przejdź do"
             },
