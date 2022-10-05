@@ -154,11 +154,6 @@
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
         "version": "6.23.0"
     },
-    "axios": {
-        "icon": "https://axios-http.com/assets/favicon.ico",
-        "url": "https://axios-http.com",
-        "version": "0.27.2"
-    },
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
         "url": "https://github.com/pubkey/broadcast-channel#readme",
