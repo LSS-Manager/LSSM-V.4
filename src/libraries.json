@@ -186,10 +186,6 @@
         "icon": "https://prettier.io/icon.png",
         "version": "8.5.0"
     },
-    "eslint-formatter-table": {
-        "icon": "https://eslint.org/icon-512.png",
-        "version": "7.32.1"
-    },
     "eslint-import-resolver-typescript": {
         "version": "3.5.1"
     },
