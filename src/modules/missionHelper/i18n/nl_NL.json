@@ -15,10 +15,13 @@
         "title": "Patiënten | {n} Patiënt | {n} Patiënten"
     },
     "prerequisites": {
+        "airport": "Vliegtuigbrandbestrijding uitbreidingen",
+        "at": " Arrestatieteam uitbreidingen",
         "bereitschaftspolizei": "Hoofdbureau | Hoofdbureaus",
         "detention_unit_count": "Aanhoudingseenheiduitbreiding | Aanhoudingseenheiduitbreidingen",
         "fire_stations": "Brandweerkazerne | Brandweerkazernes",
         "fire_support_count": "Schuimblusuitbreiding | Schuimblusuitbreidingen",
+        "hondengeleider": "Hondenbrigade uitbreidingen",
         "max_police_stations": "Politiebureau maximaal | Politiebureaus maximaal",
         "police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
         "police_horse": "Bereden Brigade (paarden)",
