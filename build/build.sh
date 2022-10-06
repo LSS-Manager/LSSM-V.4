@@ -142,7 +142,6 @@ if [[ $ESLINT = true ]]; then
     ./scripts/        \
     ./typings/        \
     --ext .js,.ts,.vue,.md \
-    -f table \
     --no-error-on-unmatched-pattern \
     --exit-on-fatal-error \
     --report-unused-disable-directives \
