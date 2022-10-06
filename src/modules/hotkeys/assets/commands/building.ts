@@ -1,6 +1,6 @@
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
+export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
     goto: <
         Scope<
             { navigationGroup: HTMLDivElement | null },
@@ -102,6 +102,69 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
         Scope<Empty, [], ['enableSharing', 'disableSharing', 'toggleSharing']>
     >{
         validatorFunction: () => true,
+        enableSharing() {
+            const extensionBtn = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/alliance']"
+            );
+            //No result → Building without enable able extension or extensionen already enabled
+            if (
+                extensionBtn == null ||
+                document.querySelectorAll("a[href*='alliance_costs']").length !=
+                    0
+            )
+                return;
+
+            extensionBtn.click();
+        },
+        disableSharing() {
+            const extensionBtn = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/alliance']"
+            );
+            //No result → Building without enable able extension or extensionen already disabled
+            if (
+                extensionBtn == null ||
+                document.querySelectorAll("a[href*='alliance_costs']").length ==
+                    0
+            )
+                return;
+
+            extensionBtn.click();
+        },
+        toggleSharing() {
+            const extensionBtn = document.querySelector<HTMLAnchorElement>(
+                "a[href$='/alliance']"
+            );
+            //No result → Building without enable able extension
+            if (extensionBtn == null) return;
+
+            extensionBtn.click();
+        },
+    },
+    dispatch: <
+        Scope<Empty, [], ['enableSharing', 'disableSharing', 'toggleSharing']>
+    >{
+        validatorFunction() {
+            const buildingId = parseInt(
+                window.location.pathname.match(/(?<=buildings\/)\d+/u)?.[0] ??
+                    '-1'
+            );
+            //Prevent to fire an invalid API request
+            if (buildingId == -1) return false;
+
+            //Fetch Data vom API
+            const LSSM = window[PREFIX] as Vue;
+            //Get the dispatch type for the current loca
+            const dispatchType =
+                LSSM.$stores.translations.dispatchCenterBuildings;
+
+            LSSM.$stores.api
+                .getBuilding(buildingId, 'hotkeys-building-dispatch')
+                .then(result => {
+                    if (dispatchType.includes(result?.building_type))
+                        return true;
+                });
+            return false;
+        },
         enableSharing() {
             const extensionBtn = document.querySelector<HTMLAnchorElement>(
                 "a[href$='/alliance']"
