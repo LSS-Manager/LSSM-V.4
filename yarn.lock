@@ -5934,9 +5934,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:44.0.0":
-  version: 44.0.0
-  resolution: "eslint-plugin-unicorn@npm:44.0.0"
+"eslint-plugin-unicorn@npm:44.0.1":
+  version: 44.0.1
+  resolution: "eslint-plugin-unicorn@npm:44.0.1"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
     ci-info: ^3.4.0
@@ -5954,7 +5954,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.23.1"
-  checksum: c0017a8b51ebadca10140f088a7b02d3a3877e29e243a9d3545d353d4a24961f985454bd73662cf85733796ecb132920ea2ce905567ae6922406c4290b680823
+  checksum: 5a237aa257195984e4d9dff89e5966ce86c2012694b725bff305b40949b02fc3777984ca9a9f707c561b8c1d32406eab94cd377903f969c804903bb455cf931c
   languageName: node
   linkType: hard
 
@@ -9777,7 +9777,7 @@ __metadata:
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-regexp: 1.9.0
     eslint-plugin-tsdoc: 0.2.17
-    eslint-plugin-unicorn: 44.0.0
+    eslint-plugin-unicorn: 44.0.1
     eslint-plugin-vue: 9.6.0
     he: 1.2.0
     highcharts: 10.2.1
