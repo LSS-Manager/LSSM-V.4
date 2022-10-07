@@ -183,7 +183,7 @@ fi
 if [[ $PREBUILD = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚧] run prebuild ###"
-    ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
+    ./node_modules/.bin/ts-node prebuild/index.ts "$MODE" || exit 1
     end_time=$(date +%s%N)
     echo "=== [🚧] run prebuild: $(((end_time - start_time) / 1000000))ms ==="
 fi
