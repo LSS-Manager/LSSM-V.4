@@ -42,6 +42,22 @@
                 "title": "Im Verband freigeben ändern",
                 "toggleSharing": "Freigabe wechseln"
             },
+            "dispatch": {
+                "buildings": "Gebäude Tab",
+                "extensions": "Erweiterungen Tab",
+                "next": "Nächster Tab",
+                "openFirstPlannedMission": "Öffne ersten geplanten Einsatz",
+                "patrol": "Streifenfahrten-Routen Tab",
+                "patrol_vehicles": "Streifenfahrten Tab",
+                "plannedMission": "Geplante Einsätze Tab",
+                "previous": "Vorheriger tab",
+                "protocol": "Protokoll Tab",
+                "schooling": "Lehrgänge Tab",
+                "settings": "Einstellungen Tab",
+                "stats": "Statistiken Tab",
+                "title": "Leitstelle",
+                "vehicle": "Fahrzeuge Tab"
+            },
             "goto": {
                 "dispatchCenter": "Leitstelle",
                 "expand": "Ausbauen",

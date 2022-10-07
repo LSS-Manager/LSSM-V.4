@@ -1,6 +1,6 @@
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
+export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
     goto: <
         Scope<
             { navigationGroup: HTMLDivElement | null },
@@ -138,6 +138,137 @@ export default <Scope<Empty, ['goto', 'changeSharing'], [], true>>{
             if (extensionBtn == null) return;
 
             extensionBtn.click();
+        },
+    },
+    dispatch: <
+        Scope<
+            { ulList: HTMLUListElement | null },
+            [],
+            [
+                'next',
+                'previous',
+                'plannedMission',
+                'protocol',
+                'stats',
+                'buildings',
+                'extensions',
+                'vehicle',
+                'schooling',
+                'patrol_vehicles',
+                'patrol',
+                'settings',
+                'openFirstPlannedMission'
+            ]
+        >
+    >{
+        validatorFunction() {
+            const buildingId = parseInt(
+                window.location.pathname.match(/(?<=buildings\/)\d+/u)?.[0] ??
+                    '-1'
+            );
+            //Prevent to fire an invalid API request
+            if (buildingId == -1) return false;
+
+            //Fetch Data vom API
+            const LSSM = window[PREFIX] as Vue;
+            //Get the dispatch type for the current loca
+            const dispatchType =
+                LSSM.$stores.translations.dispatchCenterBuildings;
+
+            //check if current building is a dispatch type
+            return LSSM.$stores.api
+                .getBuilding(buildingId, 'hotkeys-building-dispatch')
+                .then(result => {
+                    if (dispatchType.includes(result?.building_type)) {
+                        this.ulList =
+                            document.querySelector<HTMLUListElement>('#tabs');
+                    }
+                    return !!this.ulList;
+                })
+                .catch(() => false);
+        },
+        next() {
+            //Cant be undefined. Even on pageload, first tab is always active
+            const current = this.ulList?.querySelector('.active');
+            //Check whether this is the last element
+            if (current?.nextElementSibling != null) {
+                const next = current?.nextElementSibling?.firstElementChild;
+                (next as HTMLElement).click();
+            }
+        },
+        previous() {
+            //Cant be undefined. Even on pageload, first tab is always active
+            const current = this.ulList?.querySelector('.active');
+            //Check whether this is the first element
+            if (current?.previousElementSibling !== null) {
+                const previous =
+                    current?.previousElementSibling?.firstElementChild;
+                (previous as HTMLElement).click();
+            }
+        },
+        plannedMission() {
+            //Shouldn't be undefined
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>(
+                    'a[href="#tab_projected_missions"]'
+                )
+                ?.click();
+        },
+        protocol() {
+            //Shouldn't be undefined
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_protocol"]')
+                ?.click();
+        },
+        stats() {
+            //Shouldn't be undefined
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_stats"]')
+                ?.click();
+        },
+        buildings() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_buildings"]')
+                ?.click();
+        },
+        extensions() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_extensions"]')
+                ?.click();
+        },
+        vehicle() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_vehicle"]')
+                ?.click();
+        },
+        schooling() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_schooling"]')
+                ?.click();
+        },
+        patrol_vehicles() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>(
+                    'a[href="#tab_patrol_vehicles"]'
+                )
+                ?.click();
+        },
+        patrol() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_patrol"]')
+                ?.click();
+        },
+        settings() {
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_settings"]')
+                ?.click();
+        },
+        openFirstPlannedMission() {
+            const firstPlannedMission =
+                document.querySelector<HTMLAnchorElement>(
+                    'a[href^="/missions"]'
+                );
+            if (firstPlannedMission != undefined) firstPlannedMission.click();
         },
     },
 };
