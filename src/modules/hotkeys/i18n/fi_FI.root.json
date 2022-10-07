@@ -37,22 +37,22 @@
         },
         "building": {
             "changeSharing": {
-                "disableSharing": "Disable sharing",
-                "enableSharing": "Enable sharing",
-                "title": "Toggle building sharing",
-                "toggleSharing": "Toggle sharing"
+                "disableSharing": "Poista jakaminen käytöstä",
+                "enableSharing": "Ota jakaminen käyttöön",
+                "title": "Rakennuksen jakaminen päälle/pois",
+                "toggleSharing": "Jakaminen päälle/pois"
             },
             "goto": {
-                "dispatchCenter": "dispatch center",
-                "expand": "expanding",
-                "firstVehicle": "open first vehicle",
-                "hire": "Recute new personal",
-                "nextBuilding": "Next Building",
-                "personal": "personal overview",
-                "previousBuilding": "Previous building",
-                "title": "go to"
+                "dispatchCenter": "hätäkeskus",
+                "expand": "laajenee",
+                "firstVehicle": "avaa ensimmäinen ajoneuvo",
+                "hire": "Rekrytoi uutta henkilöstöä",
+                "nextBuilding": "Seuraava rakennus",
+                "personal": "Henkilöstö",
+                "previousBuilding": "Edellinen rakennus",
+                "title": "mene"
             },
-            "title": "Building"
+            "title": "Rakennus"
         },
         "main": {
             "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },
