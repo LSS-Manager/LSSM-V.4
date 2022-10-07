@@ -76,6 +76,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'building.dispatch.patrol_vehicles',
         'building.dispatch.patrol',
         'building.dispatch.settings',
+        'building.dispatch.openFirstPlannedMission',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)

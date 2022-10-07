@@ -46,6 +46,7 @@
                 "buildings": "buildings tab",
                 "extensions": "extensions tab",
                 "next": "next tab",
+                "openFirstPlannedMission": "Open first planned mission",
                 "patrol": "patrol tab",
                 "patrol_vehicles": "patrol vehicles tab",
                 "plannedMission": "planned mission tab",
