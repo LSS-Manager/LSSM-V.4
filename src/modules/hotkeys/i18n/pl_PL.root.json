@@ -42,6 +42,21 @@
                 "title": "Przełącz udostępnianie budynków",
                 "toggleSharing": "Przełącz udostępnianie"
             },
+            "dispatch": {
+                "buildings": "buildings tab",
+                "extensions": "extensions tab",
+                "next": "next tab",
+                "patrol": "patrol tab",
+                "patrol_vehicles": "patrol vehicles tab",
+                "plannedMission": "planned mission tab",
+                "previous": "next tab",
+                "protocol": "protocol tab",
+                "schooling": "schooling tab",
+                "settings": "settings tab",
+                "stats": "stats tab",
+                "title": "dispatch centre",
+                "vehicle": "vehicle tab"
+            },
             "goto": {
                 "dispatchCenter": "CPR",
                 "expand": "Powiększ budynek",

@@ -64,6 +64,18 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'building.changeSharing.enableSharing',
         'building.changeSharing.disableSharing',
         'building.changeSharing.toggleSharing',
+        'building.dispatch.next',
+        'building.dispatch.previous',
+        'building.dispatch.plannedMission',
+        'building.dispatch.protocol',
+        'building.dispatch.stats',
+        'building.dispatch.buildings',
+        'building.dispatch.extensions',
+        'building.dispatch.vehicle',
+        'building.dispatch.schooling',
+        'building.dispatch.patrol_vehicles',
+        'building.dispatch.patrol',
+        'building.dispatch.settings',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)
