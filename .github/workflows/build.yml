@@ -112,7 +112,7 @@ jobs:
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
+              run: ./node_modules/.bin/ts-node prebuild/index.ts "${{ env.MODE }}" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
