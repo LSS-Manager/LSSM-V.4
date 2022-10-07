@@ -4108,16 +4108,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broadcast-channel@npm:4.17.0":
-  version: 4.17.0
-  resolution: "broadcast-channel@npm:4.17.0"
+"broadcast-channel@npm:4.18.0":
+  version: 4.18.0
+  resolution: "broadcast-channel@npm:4.18.0"
   dependencies:
     "@babel/runtime": ^7.16.0
     oblivious-set: 1.1.1
     p-queue: 6.6.2
     rimraf: 3.0.2
     unload: 2.3.1
-  checksum: c47fc7444e06fcf03766f3be82b95c95f41aa39a1a1cacffc1b8ad47ce727222d5954af5303cd604a91f8d20c3f39db95d4d34910d41477db07c2eac84939ef8
+  checksum: b617d226881725b68c2b55fd05d95ab8ed6dec9d01b1031dfb79ca616541e157dcb7fce9d12d4d6a7e3b146a5789d6797d3c7d19ef081de10686be199802ac33
   languageName: node
   linkType: hard
 
@@ -9738,7 +9738,7 @@ __metadata:
     "@typescript-eslint/parser": 5.39.0
     "@vue/composition-api": 1.7.1
     all-contributors-cli: 6.23.1
-    broadcast-channel: 4.17.0
+    broadcast-channel: 4.18.0
     copy-dir: 1.3.0
     css-loader: 6.7.1
     emoji-toolkit: 6.6.0
