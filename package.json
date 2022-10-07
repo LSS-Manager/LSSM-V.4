@@ -82,7 +82,7 @@
         "moment-timezone": "0.5.37",
         "prettier": "2.7.1",
         "sass": "1.55.0",
-        "sass-loader": "13.0.2",
+        "sass-loader": "13.1.0",
         "string-replace-loader": "3.1.0",
         "terser": "5.15.1",
         "ts-loader": "9.4.1",
