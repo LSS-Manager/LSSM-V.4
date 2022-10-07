@@ -264,11 +264,11 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 ?.click();
         },
         openFirstPlannedMission() {
-            document
-                .querySelector<HTMLAnchorElement>(
-                    '#tab_projected_missions [id^="missions_"] a[href^="/missions/"]'
-                )
-                ?.click();
+            const firstPlannedMission =
+                document.querySelector<HTMLAnchorElement>(
+                    'a[href^="/missions"]'
+                );
+            if (firstPlannedMission != undefined) firstPlannedMission.click();
         },
     },
 };
