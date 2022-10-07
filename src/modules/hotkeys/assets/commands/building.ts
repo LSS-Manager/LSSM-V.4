@@ -175,6 +175,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             const dispatchType =
                 LSSM.$stores.translations.dispatchCenterBuildings;
 
+            //check if current building is a dispatch type
             return LSSM.$stores.api
                 .getBuilding(buildingId, 'hotkeys-building-dispatch')
                 .then(result => {
@@ -187,8 +188,6 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 .catch(() => false);
         },
         next() {
-            const LSSM = window[PREFIX] as Vue;
-            LSSM.$stores.console.debug('next button pressed');
             //Cant be undefined. Even on pageload, first tab is always active
             const current = this.ulList?.querySelector('.active');
             //Check whether this is the last element
