@@ -10,7 +10,9 @@ const loadLSSM = () => {
 
     script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
         I18n.locale
-    }-${user_id}`;
+    }-${user_id}&branch=${
+        localStorage.getItem(`${prefix}_branch`) ?? 'stable'
+    }`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
 
