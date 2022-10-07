@@ -141,7 +141,25 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
         },
     },
     dispatch: <
-        Scope<Empty, [], ['enableSharing', 'disableSharing', 'toggleSharing']>
+        Scope<
+            { ulList: HTMLUListElement | null },
+            [],
+            [
+                'next',
+                'previous',
+                'plannedMission',
+                'protocol',
+                'stats',
+                'buildings',
+                'extensions',
+                'vehicle',
+                'schooling',
+                'patrol_vehicles',
+                'patrol',
+                'settings',
+                'openFirstPlannedMission'
+            ]
+        >
     >{
         validatorFunction() {
             const buildingId = parseInt(
@@ -160,47 +178,98 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             LSSM.$stores.api
                 .getBuilding(buildingId, 'hotkeys-building-dispatch')
                 .then(result => {
-                    if (dispatchType.includes(result?.building_type))
-                        return true;
+                    if (dispatchType.includes(result?.building_type)) {
+                        this.ulList =
+                            document.querySelector<HTMLUListElement>('tabs');
+                        return !!this.ulList;
+                    }
                 });
             return false;
         },
-        enableSharing() {
-            const extensionBtn = document.querySelector<HTMLAnchorElement>(
-                "a[href$='/alliance']"
-            );
-            //No result → Building without enable able extension or extensionen already enabled
-            if (
-                extensionBtn == null ||
-                document.querySelectorAll("a[href*='alliance_costs']").length !=
-                    0
-            )
-                return;
-
-            extensionBtn.click();
+        next() {
+            const LSSM = window[PREFIX] as Vue;
+            LSSM.$stores.console.debug('next button pressed');
+            //Cant be undefinded. Even on pageload, first tab is always active
+            const current = this.ulList?.querySelector('.active');
+            //Check whether this is the last element
+            if (current?.nextElementSibling != null) {
+                const next = current?.nextElementSibling?.firstElementChild;
+                (next as HTMLElement).click();
+            }
         },
-        disableSharing() {
-            const extensionBtn = document.querySelector<HTMLAnchorElement>(
-                "a[href$='/alliance']"
-            );
-            //No result → Building without enable able extension or extensionen already disabled
-            if (
-                extensionBtn == null ||
-                document.querySelectorAll("a[href*='alliance_costs']").length ==
-                    0
-            )
-                return;
-
-            extensionBtn.click();
+        previous() {
+            //Cant be undefinded. Even on pageload, first tab is always active
+            const current = this.ulList?.querySelector('.active');
+            //Check whether this is the first element
+            if (current?.previousElementSibling !== null) {
+                const previous =
+                    current?.previousElementSibling?.firstElementChild;
+                (previous as HTMLElement).click();
+            }
         },
-        toggleSharing() {
-            const extensionBtn = document.querySelector<HTMLAnchorElement>(
-                "a[href$='/alliance']"
+        plannedMission() {
+            //Shouldn't be undefinded
+            this.ulList
+                ?.querySelector('a[href="#tab_projected_missions"]')
+                ?.parentElement?.click();
+        },
+        protocol() {
+            //Shouldn't be undefinded
+            this.ulList
+                ?.querySelector('a[href="#tab_protocol"]')
+                ?.parentElement?.click();
+        },
+        stats() {
+            //Shouldn't be undefinded
+            this.ulList
+                ?.querySelector('a[href="#tab_stats"]')
+                ?.parentElement?.click();
+        },
+        buildings() {
+            this.ulList
+                ?.querySelector('a[href="#tab_buildings"]')
+                ?.parentElement?.click();
+        },
+        extensions() {
+            this.ulList
+                ?.querySelector('a[href="#tab_extensions"]')
+                ?.parentElement?.click();
+        },
+        vehicle() {
+            this.ulList
+                ?.querySelector('a[href="#tab_vehicle"]')
+                ?.parentElement?.click();
+        },
+        schooling() {
+            this.ulList
+                ?.querySelector('a[href="#tab_schooling"]')
+                ?.parentElement?.click();
+        },
+        patrol_vehicles() {
+            this.ulList
+                ?.querySelector('a[href="#tab_patrol_vehicles"]')
+                ?.parentElement?.click();
+        },
+        patrol() {
+            this.ulList
+                ?.querySelector('a[href="#tab_patrol"]')
+                ?.parentElement?.click();
+        },
+        settings() {
+            const settingsTabAnchor =
+                this.ulList?.querySelector<HTMLAnchorElement>(
+                    'a[href="#tab_settings"]'
+                );
+            if (settingsTabAnchor != undefined) settingsTabAnchor.click();
+        },
+        openFirstPlannedMission() {
+            const plannedMissionsNode = document.querySelectorAll(
+                "div[id^='mission_']"
             );
-            //No result → Building without enable able extension
-            if (extensionBtn == null) return;
-
-            extensionBtn.click();
+            if (plannedMissionsNode.length > 0) {
+                const missionID = plannedMissionsNode[0].id.split('_')[1];
+                window.location.replace(`/missions/${missionID}`);
+            }
         },
     },
 };
