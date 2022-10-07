@@ -175,21 +175,21 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             const dispatchType =
                 LSSM.$stores.translations.dispatchCenterBuildings;
 
-            LSSM.$stores.api
+            return LSSM.$stores.api
                 .getBuilding(buildingId, 'hotkeys-building-dispatch')
                 .then(result => {
                     if (dispatchType.includes(result?.building_type)) {
                         this.ulList =
-                            document.querySelector<HTMLUListElement>('tabs');
-                        return !!this.ulList;
+                            document.querySelector<HTMLUListElement>('#tabs');
                     }
-                });
-            return false;
+                    return !!this.ulList;
+                })
+                .catch(() => false);
         },
         next() {
             const LSSM = window[PREFIX] as Vue;
             LSSM.$stores.console.debug('next button pressed');
-            //Cant be undefinded. Even on pageload, first tab is always active
+            //Cant be undefined. Even on pageload, first tab is always active
             const current = this.ulList?.querySelector('.active');
             //Check whether this is the last element
             if (current?.nextElementSibling != null) {
@@ -198,7 +198,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             }
         },
         previous() {
-            //Cant be undefinded. Even on pageload, first tab is always active
+            //Cant be undefined. Even on pageload, first tab is always active
             const current = this.ulList?.querySelector('.active');
             //Check whether this is the first element
             if (current?.previousElementSibling !== null) {
@@ -208,68 +208,68 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             }
         },
         plannedMission() {
-            //Shouldn't be undefinded
+            //Shouldn't be undefined
             this.ulList
-                ?.querySelector('a[href="#tab_projected_missions"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>(
+                    'a[href="#tab_projected_missions"]'
+                )
+                ?.click();
         },
         protocol() {
-            //Shouldn't be undefinded
+            //Shouldn't be undefined
             this.ulList
-                ?.querySelector('a[href="#tab_protocol"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_protocol"]')
+                ?.click();
         },
         stats() {
-            //Shouldn't be undefinded
+            //Shouldn't be undefined
             this.ulList
-                ?.querySelector('a[href="#tab_stats"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_stats"]')
+                ?.click();
         },
         buildings() {
             this.ulList
-                ?.querySelector('a[href="#tab_buildings"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_buildings"]')
+                ?.click();
         },
         extensions() {
             this.ulList
-                ?.querySelector('a[href="#tab_extensions"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_extensions"]')
+                ?.click();
         },
         vehicle() {
             this.ulList
-                ?.querySelector('a[href="#tab_vehicle"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_vehicle"]')
+                ?.click();
         },
         schooling() {
             this.ulList
-                ?.querySelector('a[href="#tab_schooling"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_schooling"]')
+                ?.click();
         },
         patrol_vehicles() {
             this.ulList
-                ?.querySelector('a[href="#tab_patrol_vehicles"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>(
+                    'a[href="#tab_patrol_vehicles"]'
+                )
+                ?.click();
         },
         patrol() {
             this.ulList
-                ?.querySelector('a[href="#tab_patrol"]')
-                ?.parentElement?.click();
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_patrol"]')
+                ?.click();
         },
         settings() {
-            const settingsTabAnchor =
-                this.ulList?.querySelector<HTMLAnchorElement>(
-                    'a[href="#tab_settings"]'
-                );
-            if (settingsTabAnchor != undefined) settingsTabAnchor.click();
+            this.ulList
+                ?.querySelector<HTMLAnchorElement>('a[href="#tab_settings"]')
+                ?.click();
         },
         openFirstPlannedMission() {
-            const plannedMissionsNode = document.querySelectorAll(
-                "div[id^='mission_']"
-            );
-            if (plannedMissionsNode.length > 0) {
-                const missionID = plannedMissionsNode[0].id.split('_')[1];
-                window.location.replace(`/missions/${missionID}`);
-            }
+            document
+                .querySelector<HTMLAnchorElement>(
+                    '#tab_projected_missions [id^="missions_"] a[href^="/missions/"]'
+                )
+                ?.click();
         },
     },
 };
