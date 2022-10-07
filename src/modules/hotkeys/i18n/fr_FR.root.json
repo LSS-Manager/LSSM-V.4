@@ -42,6 +42,22 @@
                 "title": "Toggle building sharing",
                 "toggleSharing": "Toggle sharing"
             },
+            "dispatch": {
+                "buildings": "buildings tab",
+                "extensions": "extensions tab",
+                "next": "next tab",
+                "openFirstPlannedMission": "Open first planned mission",
+                "patrol": "patrol tab",
+                "patrol_vehicles": "patrol vehicles tab",
+                "plannedMission": "planned mission tab",
+                "previous": "next tab",
+                "protocol": "protocol tab",
+                "schooling": "schooling tab",
+                "settings": "settings tab",
+                "stats": "stats tab",
+                "title": "dispatch centre",
+                "vehicle": "vehicle tab"
+            },
             "goto": {
                 "dispatchCenter": "Centre de Traitement des Appels",
                 "expand": "expanding",

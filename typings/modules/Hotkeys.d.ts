@@ -12,7 +12,7 @@ export type Scope<
     Partial<{ [scope in Scopes[number]]: Scope<This> }> &
         (Root extends false
             ? {
-                  validatorFunction(this: This): boolean;
+                  validatorFunction(this: This): Promise<boolean> | boolean;
               }
             : Empty) & {
             [command in Commands[number]]: (
