@@ -192,7 +192,7 @@ fi
 if [[ $WEBPACK = true ]]; then
     start_time=$(date +%s%N)
     echo "### [👷] webpack ###"
-    ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "$MODE" || exit 1
+    ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "$MODE" "$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)" || exit 1
     end_time=$(date +%s%N)
     echo "=== [👷] webpack: $(((end_time - start_time) / 1000000))ms ==="
 fi

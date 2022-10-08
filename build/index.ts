@@ -17,8 +17,6 @@ import webpackConfig from '../webpack.config';
 
 console.time(`build`);
 
-console.info(`Let's build that stuff in Version ${version}`);
-
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
 const locales = Object.keys(config.games).filter(game =>
@@ -26,6 +24,9 @@ const locales = Object.keys(config.games).filter(game =>
 );
 
 const mode = process.argv[3] || 'development';
+const ref = process.argv[4] || 'refs/heads/dev';
+
+console.info(`Let's build that stuff in Version ${version} on ${ref}`);
 
 const entry = {
     mode,
