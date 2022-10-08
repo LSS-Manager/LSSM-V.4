@@ -111,4 +111,4 @@ Voici quelques informations et statistiques plus ou moins intéressantes sur LSS
 
 <stats-commits/>
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr
