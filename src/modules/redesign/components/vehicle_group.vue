@@ -144,6 +144,8 @@ export default Vue.extend<
     },
     mounted() {
         this.lightbox.finishLoading('vehicle_group-mounted');
+        // eslint-disable-next-line no-console
+        console.log(this.$refs.caption, this.$refs.color, this.$refs.column);
     },
 });
 </script>
