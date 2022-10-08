@@ -72,7 +72,11 @@ done`,
         step.run
             ?.trim()
             .replace(/\n/gu, '\n    ')
-            .replace(/\$\{\{ env\.MODE \}\}/u, '$MODE') ?? ''
+            .replace(/\$\{\{ env\.MODE \}\}/u, '$MODE')
+            .replace(
+                /\$\{\{ github\.ref \}\}/u,
+                '$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)'
+            ) ?? ''
     }
     end_time=$(date +%s%N)
     echo "=== ${step.name}: $(((end_time - start_time) / 1000000))ms ==="

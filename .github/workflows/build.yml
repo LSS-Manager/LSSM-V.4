@@ -116,7 +116,7 @@ jobs:
 
             - name: '[👷] webpack'
               id: webpack
-              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
+              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ github.ref }}" || exit 1
 
             - name: '[📝] build docs'
               id: docs
