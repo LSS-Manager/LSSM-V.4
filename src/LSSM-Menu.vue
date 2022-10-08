@@ -29,7 +29,7 @@
                 :id="versionWrapperId"
             >
                 <span class="label label-default">
-                    {{ version }} [{{ mode }}]
+                    {{ version }} [{{ branch }}]
                 </span>
             </li>
             <li role="presentation" class="divider"></li>
@@ -216,8 +216,8 @@ export default Vue.extend<
     },
     computed: {
         ...mapState(defineRootStore, ['menuItems']),
-        mode() {
-            return MODE;
+        branch() {
+            return BRANCH;
         },
         version() {
             return VERSION;
