@@ -18,7 +18,8 @@ Comme décrit dans l'explication de l'[Appstore](appstore.md), il y a des module
 
 ## Fonctionnalité disponible sur LSSM V.3 et sur LSSM V.4 
 
-Ci-dessous, nous avons dressé une liste des fonctionnalités de la V.3 et de l'endroit où tu les trouveras dans la V.4.
+Nous avons listé ci-dessous les fonctionnalités de la V.3 et l'endroit où vous pouvez les trouver dans la V.4.
+Nous voulons intégrer toutes les fonctionnalités de la V.3 dans la V.4 à terme !															  
 
 <v3-v4-comparison-integrated/>
 
@@ -30,4 +31,5 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 
 ## Nouveauté de LSSM V.4 
 
+Ces modules sont nouveaux dans la V4.						
 <v3-v4-comparison-new/>
