@@ -11,7 +11,13 @@ interface Workflow {
     };
 }
 
-const excludedSteps = ['yarn_cache_dir', 'env', 'git_prepare', 'output'];
+const excludedSteps = [
+    'yarn_cache_dir',
+    'env',
+    'generate_token',
+    'output',
+    'git_push',
+];
 const shortcuts = {
     dependencies: ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
     quick: ['json_yaml_format', 'eslint', 'tsc', 'webpack'],
