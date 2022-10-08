@@ -18,11 +18,18 @@ jobs:
             type: ${{ steps.output.outputs.type }}
             version: ${{ steps.output.outputs.version }}
         steps:
+            - name: Generate Token
+              id: generate_token
+              uses: tibdex/github-app-token@v1
+              with:
+                  app_id: ${{ secrets.APP_ID }}
+                  private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
             - name: Checkout
               id: checkout
               uses: actions/checkout@v3
               with:
-                  ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+                  token: ${{ steps.generate_token.outputs.token }}
 
             - name: Setup Node.js
               id: node
@@ -155,27 +162,10 @@ jobs:
                   if-no-files-found: error
                   retention-days: 1
 
-            - name: Prepare Git Push (add ssh-key etc.)
-              id: git_prepare
-              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
-              env:
-                  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-              run: |
-                  mkdir -p /home/runner/.ssh
-                  echo "${{ secrets.SSH_DEPLOY_KEY }}" > /home/runner/.ssh/github_actions
-                  chmod 600 /home/runner/.ssh/github_actions
-                  ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-                  ssh-add /home/runner/.ssh/github_actions
-                  git remote set-url origin git@github.com:LSS-Manager/LSSM-V.4.git
-
             - name: Push to Git
               id: git_push
               if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
-              env:
-                  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               with:
-                  commit_user_name: ${{ secrets.GIT_USERNAME }}
-                  commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ env.VERSION }} [skip ci]'
