@@ -26,7 +26,14 @@ const locales = Object.keys(config.games).filter(game =>
 const mode = process.argv[3] || 'development';
 const ref = process.argv[4] || 'refs/heads/dev';
 
-console.info(`Let's build that stuff in Version ${version} on ${ref}`);
+let branch = 'beta';
+if (ref === 'refs/heads/master') branch = 'stable';
+else if (ref.startsWith('refs/heads')) branch = ref.replace('refs/heads/', '');
+else if (ref.startsWith('refs/pull')) branch = `pr-${ref.split('/')[2]}`;
+
+console.info(
+    `Let's build that stuff! version: ${version}; ref: ${ref}; branch: ${branch};`
+);
 
 const entry = {
     mode,
@@ -57,6 +64,7 @@ entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
+        BRANCH: JSON.stringify(branch),
         SERVER: JSON.stringify(config.server),
         MODE: mode === 'production' ? '"stable"' : '"beta"',
         MODULE_REGISTER_FILES: JSON.stringify(
@@ -93,6 +101,9 @@ entry.plugins?.push(
         uid: {
             value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
             isDynamicKey: true, // false by default
+        },
+        branch: {
+            value: branch,
         },
     }),
     new LoadingProgressPlugin()
