@@ -2,9 +2,6 @@ name: Build and Deploy
 
 on:
     push:
-        branches:
-            - 'master'
-            - 'dev'
 
 jobs:
     build:
@@ -14,7 +11,7 @@ jobs:
 
     deploy:
         needs: [build]
-        if: github.repository_owner == 'LSS-Manager'
+        if: github.repository_owner == 'LSS-Manager' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev')
         runs-on: ubuntu-latest
         steps:
             - name: Install apt packages
@@ -31,7 +28,6 @@ jobs:
                   rm dist.zip
 
             - name: list content of dist
-              if: ${{ github.ref == 'refs/heads/dev' }}
               run: ls -la dist
 
             - name: Install SSH Key
