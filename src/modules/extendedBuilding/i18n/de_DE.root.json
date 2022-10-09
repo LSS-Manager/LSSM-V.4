@@ -6,6 +6,10 @@
             "description": "Zeigt in den Gebäuden an, wie viele vom selben Typen in die jeweilige Richtung noch vorhanden sind.",
             "title": "Anzahl der Gebäude selben Typs"
         },
+        "dispatchCenterBuildingFilter": {
+            "description": "Fügt der Gebäudeliste in der Leitstelle Filter hinzu",
+            "title": "Gebäudefilter in der Leitstelle"
+        },
         "enhanceVehicleList": {
             "description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
             "title": "Fahrzeugliste erweitern"
