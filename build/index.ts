@@ -24,16 +24,9 @@ const locales = Object.keys(config.games).filter(game =>
 );
 
 const mode = process.argv[3] || 'development';
-const ref = process.argv[4] || 'refs/heads/dev';
+const branch = process.argv[4] || 'dummy';
 
-let branch = 'beta';
-if (ref === 'refs/heads/master') branch = 'stable';
-else if (ref.startsWith('refs/heads')) branch = ref.replace('refs/heads/', '');
-else if (ref.startsWith('refs/pull')) branch = `pr-${ref.split('/')[2]}`;
-
-console.info(
-    `Let's build that stuff! version: ${version}; ref: ${ref}; branch: ${branch};`
-);
+console.info(`Let's build that stuff! version: ${version}; branch: ${branch};`);
 
 const entry = {
     mode,
