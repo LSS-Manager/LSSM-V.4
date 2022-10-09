@@ -87,6 +87,16 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             );
         }
 
+        if (BUILDING_MODE === 'dispatch') {
+            if (await getSetting('dispatchCenterBuildingFilter')) {
+                import(
+                    /* webpackChunkName: "modules/extendedBuilding/dispatchCenterBuildingFilter" */ './assets/dispatchCenterBuildingFilter'
+                ).then(({ default: dispatchCenterBuildingFilter }) =>
+                    dispatchCenterBuildingFilter(LSSM, MODULE_ID)
+                );
+            }
+        }
+
         if (
             BUILDING_MODE === 'schooling' &&
             (await getSetting('schoolsBuildingFilter'))

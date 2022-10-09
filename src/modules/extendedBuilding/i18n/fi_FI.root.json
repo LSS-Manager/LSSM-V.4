@@ -6,6 +6,10 @@
             "description": "Näyttää rakennuksissa, kuinka monta samantyyppistä rakennusta on vielä olemassa kyseisessä suunnassa.",
             "title": "Samantyyppisten rakennusten lukumäärä"
         },
+        "dispatchCenterBuildingFilter": {
+            "description": "Adds some useful filters to the list of buildings in dispatch centers",
+            "title": "Filter for buildings in dispatch center"
+        },
         "enhanceVehicleList": {
             "description": "Laajentaa ajoneuvoluetteloa hyödyllisillä ominaisuuksilla - joista osa on erityisesti säädettävissä.",
             "title": "Ajoneuvoluettelon laajentaminen"
