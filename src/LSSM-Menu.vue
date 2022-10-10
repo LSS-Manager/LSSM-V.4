@@ -28,9 +28,17 @@
                 style="text-align: center"
                 :id="versionWrapperId"
             >
-                <span class="label label-default">
+                <span
+                    class="label label-default"
+                    v-if="['stable', 'beta'].includes(branch)"
+                >
                     {{ version }} [{{ branch }}]
                 </span>
+                <template v-else>
+                    <span class="label label-default">{{ version }}</span>
+                    <br />
+                    <span class="label label-default">[{{ branch }}]</span>
+                </template>
             </li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
