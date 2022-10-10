@@ -55,6 +55,11 @@ Po kliknięciu w ten pierwszy pobierze się wam plik z konfiguracją. Możecie g
 ### Czy istnieje sposób na zapisanie ustawień związanych z kontem, aby nie trzeba było ich importować na innym urządzeniu?
 Obecnie nie jest to obsługiwane, ale planujemy wdrożyć to w przyszłości.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
