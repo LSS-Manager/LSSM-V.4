@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: ".vuepress-548500@workspace:docs/.vuepress"
   dependencies:
-    "@primer/octicons": 17.6.0
+    "@primer/octicons": 17.7.0
     "@vuepress/client": 2.0.0-beta.51
     "@vuepress/plugin-pwa": 2.0.0-beta.51
     "@vuepress/plugin-pwa-popup": 2.0.0-beta.51
@@ -1328,9 +1328,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "@eslint/eslintrc@npm:1.3.2"
+"@eslint/eslintrc@npm:^1.3.3":
+  version: 1.3.3
+  resolution: "@eslint/eslintrc@npm:1.3.3"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
@@ -1341,7 +1341,7 @@ __metadata:
     js-yaml: ^4.1.0
     minimatch: ^3.1.2
     strip-json-comments: ^3.1.1
-  checksum: 2074dca47d7e1c5c6323ff353f690f4b25d3ab53fe7d27337e2592d37a894cf60ca0e85ca66b50ff2db0bc7e630cc1e9c7347d65bb185b61416565584c38999c
+  checksum: f03e9d6727efd3e0719da2051ea80c0c73d20e28c171121527dbb868cd34232ca9c1d0525a66e517a404afea26624b1e47895b6a92474678418c2f50c9566694
   languageName: node
   linkType: hard
 
@@ -1450,13 +1450,6 @@ __metadata:
     debug: ^4.1.1
     minimatch: ^3.0.4
   checksum: 009d64be8d5bd098ff04e10af79e34f5633245250581fca032fac12a8667b2df8e7d169e69c05bff4d83ea3dd3c7d2d0e05ea9b94d89a7d092e26530caf6f8a3
-  languageName: node
-  linkType: hard
-
-"@humanwhocodes/gitignore-to-minimatch@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@humanwhocodes/gitignore-to-minimatch@npm:1.0.2"
-  checksum: aba5c40c9e3770ed73a558b0bfb53323842abfc2ce58c91d7e8b1073995598e6374456d38767be24ab6176915f0a8d8b23eaae5c85e2b488c0dccca6d795e2ad
   languageName: node
   linkType: hard
 
@@ -2093,12 +2086,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:17.6.0":
-  version: 17.6.0
-  resolution: "@primer/octicons@npm:17.6.0"
+"@primer/octicons@npm:17.7.0":
+  version: 17.7.0
+  resolution: "@primer/octicons@npm:17.7.0"
   dependencies:
     object-assign: ^4.1.1
-  checksum: 676cda5f3c9e1b03d1123939ba3b5a956515f5ed4827972981dbd3edeb7811fb2629e5dae3fbb038381c05e90648506b15630e778b1e0b940ac2699f1d9c0fc8
+  checksum: 187149a519524eae8fcb598cbf5147eda4baa19208285084826e017a202f45e5534c42cfeac67751604498c805188f601c71f8020775b6a13aed06efbb66f2ef
   languageName: node
   linkType: hard
 
@@ -2909,6 +2902,13 @@ __metadata:
   version: 6.4.3
   resolution: "@vue/devtools-api@npm:6.4.3"
   checksum: 48893be576630267cdb88709bc5006c36b5839d66cec3da1dbe783cfdad82d52c8947c00d848c1d1c41dd66d3fcba3512bfffdeaef87d440e3d58c1c577116e2
+  languageName: node
+  linkType: hard
+
+"@vue/devtools-api@npm:^6.4.4":
+  version: 6.4.4
+  resolution: "@vue/devtools-api@npm:6.4.4"
+  checksum: d4d1079202579eceb8efb503b695dead39d2da4d693419a4a3f4e1823358726325bc2912e15c580ef94128ed61f42be0ce6a23ac013967e04d971b0a7158a263
   languageName: node
   linkType: hard
 
@@ -5917,9 +5917,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:44.0.1":
-  version: 44.0.1
-  resolution: "eslint-plugin-unicorn@npm:44.0.1"
+"eslint-plugin-unicorn@npm:44.0.2":
+  version: 44.0.2
+  resolution: "eslint-plugin-unicorn@npm:44.0.2"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
     ci-info: ^3.4.0
@@ -5937,7 +5937,7 @@ __metadata:
     strip-indent: ^3.0.0
   peerDependencies:
     eslint: ">=8.23.1"
-  checksum: 5a237aa257195984e4d9dff89e5966ce86c2012694b725bff305b40949b02fc3777984ca9a9f707c561b8c1d32406eab94cd377903f969c804903bb455cf931c
+  checksum: b0ed6b3a60e36efab5b19a0e2a1ea4e4faba79ef315aa1eff9bdebaf28b70ada059837a0a4cdf20e0b678d8eee6155afc2c6300d0ff7d51b68eced4f0bcb56e0
   languageName: node
   linkType: hard
 
@@ -6003,13 +6003,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.24.0":
-  version: 8.24.0
-  resolution: "eslint@npm:8.24.0"
+"eslint@npm:8.25.0":
+  version: 8.25.0
+  resolution: "eslint@npm:8.25.0"
   dependencies:
-    "@eslint/eslintrc": ^1.3.2
+    "@eslint/eslintrc": ^1.3.3
     "@humanwhocodes/config-array": ^0.10.5
-    "@humanwhocodes/gitignore-to-minimatch": ^1.0.2
     "@humanwhocodes/module-importer": ^1.0.1
     ajv: ^6.10.0
     chalk: ^4.0.0
@@ -6048,7 +6047,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: ca293ce7116599b742d7ab4d43db469beec22f40dd272092d809498be3cff3a7c567769f9763bdf6799aac13dd53447b93a99629b7b54092783046eb57eaced6
+  checksum: 7acf2693b522b573657b53d2245b5522d3a131e4224b1cbf01e2c3579632fdbf62599284f68bc483e6e4eba23ae3643c9544744e0214a86e727cc361cedcd0fa
   languageName: node
   linkType: hard
 
@@ -8984,15 +8983,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfmake@npm:0.2.5":
-  version: 0.2.5
-  resolution: "pdfmake@npm:0.2.5"
+"pdfmake@npm:0.2.6":
+  version: 0.2.6
+  resolution: "pdfmake@npm:0.2.6"
   dependencies:
     "@foliojs-fork/linebreak": ^1.1.1
     "@foliojs-fork/pdfkit": ^0.13.0
     iconv-lite: ^0.6.3
     xmldoc: ^1.1.2
-  checksum: c13d9c336c529f96b056e00b877978cbe2eb2d59eb3b66bdb509af1e3c9f063f5bc7ffcf4fad684c7cca6439e694701caa8278ae93a913382711e7354e6375a4
+  checksum: b7c06c9d847d3be04266a61f0f398987c19daa185ff5d0ab96521368ab3fe772c1b0655f273c82e8e48e9722c89f20b87646f91511efc17d9a253654c27745c7
   languageName: node
   linkType: hard
 
@@ -9033,11 +9032,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:2.0.22":
-  version: 2.0.22
-  resolution: "pinia@npm:2.0.22"
+"pinia@npm:2.0.23":
+  version: 2.0.23
+  resolution: "pinia@npm:2.0.23"
   dependencies:
-    "@vue/devtools-api": ^6.2.1
+    "@vue/devtools-api": ^6.4.4
     vue-demi: "*"
   peerDependencies:
     "@vue/composition-api": ^1.4.0
@@ -9048,7 +9047,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 394906326758ac41acfdf4a29263c952c2cb7f35ebf87771a025ab492bdde7cf7fd87a49f82ec3a98bf8323ed2cb231f1ad272f7ea522694a9fab5a5cde3e727
+  checksum: 004c76d80bc1127a25b26f92616f1243c570c6be90b04be83aa95108274036b64ed0678e537f3213c8b8f3dd7bcffb52e768e7445a1fd9378cb1db15ada92f83
   languageName: node
   linkType: hard
 
@@ -9742,7 +9741,7 @@ __metadata:
     copy-dir: 1.3.0
     css-loader: 6.7.1
     emoji-toolkit: 6.6.0
-    eslint: 8.24.0
+    eslint: 8.25.0
     eslint-config-prettier: 8.5.0
     eslint-import-resolver-typescript: 3.5.1
     eslint-plugin-compat: 4.0.2
@@ -9752,7 +9751,7 @@ __metadata:
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-regexp: 1.9.0
     eslint-plugin-tsdoc: 0.2.17
-    eslint-plugin-unicorn: 44.0.1
+    eslint-plugin-unicorn: 44.0.2
     eslint-plugin-vue: 9.6.0
     he: 1.2.0
     highcharts: 10.2.1
@@ -9765,8 +9764,8 @@ __metadata:
     mini-svg-data-uri: 1.4.4
     moment: 2.29.4
     moment-timezone: 0.5.37
-    pdfmake: 0.2.5
-    pinia: 2.0.22
+    pdfmake: 0.2.6
+    pinia: 2.0.23
     prettier: 2.7.1
     qrcode: 1.5.1
     sass: 1.55.0

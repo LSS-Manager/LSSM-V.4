@@ -22,7 +22,7 @@
     "@primer/octicons": {
         "icon": "https://primer.style/octicons/icons/icon-512x512.png",
         "url": "https://primer.style/octicons",
-        "version": "17.6.0"
+        "version": "17.7.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -180,7 +180,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.24.0"
+        "version": "8.25.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -221,7 +221,7 @@
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",
         "url": "https://github.com/sindresorhus/eslint-plugin-unicorn",
-        "version": "44.0.1"
+        "version": "44.0.2"
     },
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
@@ -283,12 +283,12 @@
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
-        "version": "0.2.5"
+        "version": "0.2.6"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
-        "version": "2.0.22"
+        "version": "2.0.23"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
