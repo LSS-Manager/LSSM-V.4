@@ -2912,6 +2912,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/devtools-api@npm:^6.4.4":
+  version: 6.4.4
+  resolution: "@vue/devtools-api@npm:6.4.4"
+  checksum: d4d1079202579eceb8efb503b695dead39d2da4d693419a4a3f4e1823358726325bc2912e15c580ef94128ed61f42be0ce6a23ac013967e04d971b0a7158a263
+  languageName: node
+  linkType: hard
+
 "@vue/reactivity-transform@npm:3.2.40":
   version: 3.2.40
   resolution: "@vue/reactivity-transform@npm:3.2.40"
@@ -9033,11 +9040,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:2.0.22":
-  version: 2.0.22
-  resolution: "pinia@npm:2.0.22"
+"pinia@npm:2.0.23":
+  version: 2.0.23
+  resolution: "pinia@npm:2.0.23"
   dependencies:
-    "@vue/devtools-api": ^6.2.1
+    "@vue/devtools-api": ^6.4.4
     vue-demi: "*"
   peerDependencies:
     "@vue/composition-api": ^1.4.0
@@ -9048,7 +9055,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 394906326758ac41acfdf4a29263c952c2cb7f35ebf87771a025ab492bdde7cf7fd87a49f82ec3a98bf8323ed2cb231f1ad272f7ea522694a9fab5a5cde3e727
+  checksum: 004c76d80bc1127a25b26f92616f1243c570c6be90b04be83aa95108274036b64ed0678e537f3213c8b8f3dd7bcffb52e768e7445a1fd9378cb1db15ada92f83
   languageName: node
   linkType: hard
 
@@ -9766,7 +9773,7 @@ __metadata:
     moment: 2.29.4
     moment-timezone: 0.5.37
     pdfmake: 0.2.6
-    pinia: 2.0.22
+    pinia: 2.0.23
     prettier: 2.7.1
     qrcode: 1.5.1
     sass: 1.55.0
