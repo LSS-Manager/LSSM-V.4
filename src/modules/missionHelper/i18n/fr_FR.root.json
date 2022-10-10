@@ -47,8 +47,8 @@
             "title": "Missions de suivi"
         },
         "generatedBy": {
-            "description": "Affiche le type de bâtiment qui a généré cette mission.",
-            "title": "Généré par (type de bâtiment)"
+            "description": "Montre les catégories de mission qui sont utilisées pour sélectionner un bâtiment de production.",
+            "title": "Généré par (catégories de missions)"
         },
         "hide_battalion_chief_vehicles": {
             "description": "Cache le nombre de VLCG et affiche seulement les VPC.",
