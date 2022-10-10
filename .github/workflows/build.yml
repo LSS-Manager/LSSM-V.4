@@ -3,9 +3,9 @@ name: Build Project
 on:
     workflow_call:
         outputs:
-            type:
-                description: 'Type of build'
-                value: ${{ jobs.build.outputs.type }}
+            branch:
+                description: 'The branch to build on and deploy to'
+                value: ${{ jobs.build.outputs.branch }}
             version:
                 description: 'Version of build'
                 value: ${{ jobs.build.outputs.version }}
@@ -73,11 +73,31 @@ jobs:
               id: browserslist
               run: npx -y browserslist@latest --update-db
 
-            - name: '[🌳] set env variables (e.g. beta/stable for webpack & target dir)'
+            - name: '[🌳] set env variables'
               id: env
               run: |
                   echo "MODE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
                   echo "TYPE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
+
+                  # ===BEGIN $BRANCH===
+                  ref="${{ github.ref }}"
+                  BRANCH="dummy"
+
+                  if [[ $ref == "refs/heads/master" ]]; then
+                    BRANCH="stable"
+                  elif [[ $ref == "refs/heads/dev" ]]; then
+                    BRANCH="beta";
+                  elif [[ $ref == "refs/heads/"* ]]; then
+                    BRANCH="${ref/"refs/heads/"/}";
+                    BRANCH="${BRANCH/"/"/"-"}"
+                  elif [[ $ref == "refs/pull/"* ]]; then
+                    BRANCH="${ref/"refs/pull/"/"pr"}";
+                    BRANCH="${BRANCH/"/merge"/}";
+                    BRANCH="${BRANCH//"/"/"-"}"
+                  fi
+                  # ===END $BRANCH===
+                    
+                  echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
             - name: '[⬆] update emojis'
               id: update_emojis
@@ -120,11 +140,11 @@ jobs:
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: ./node_modules/.bin/ts-node prebuild/index.ts "${{ env.MODE }}" || exit 1
+              run: ./node_modules/.bin/ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ github.ref }}" || exit 1
+              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
 
             - name: '[📝] build docs'
               id: docs
@@ -141,8 +161,7 @@ jobs:
             - name: '[💬] set output'
               id: output
               run: |
-                  echo "::set-output name=mode::${{ env.MODE }}"
-                  echo "::set-output name=type::${{ env.TYPE }}"
+                  echo "::set-output name=branch::${{ env.BRANCH }}"
                   echo "VERSION=$(grep '"version":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')" >> $GITHUB_ENV
                   echo "::set-output name=version::$VERSION"
                   echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
