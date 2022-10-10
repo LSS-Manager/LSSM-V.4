@@ -11,7 +11,7 @@ jobs:
 
     deploy:
         needs: [build]
-        if: github.repository_owner == 'LSS-Manager'
+        if: github.repository_owner == 'LSS-Manager' && !startsWith(github.ref, 'refs/heads/renovate/')
         runs-on: ubuntu-latest
         steps:
             - name: Install apt packages
