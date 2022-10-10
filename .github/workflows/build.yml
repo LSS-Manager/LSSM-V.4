@@ -100,7 +100,7 @@ jobs:
                   fi
                   # ===END $BRANCH===
                     
-                  echo "BRANCH=\"$BRANCH\"" >> $GITHUB_ENV
+                  echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
             - name: '[⬆] update emojis'
               id: update_emojis
