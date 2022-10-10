@@ -56,6 +56,11 @@ Momenteel is het niet mogelijk, maar we werken eraan.
 ### Is er een manier om accountgebonden instellingen op te slaan, zodat u ze niet op een ander apparaat hoeft te importeren?
 Momenteel bieden we dit niet aan, maar een implementatie van deze functie is gepland.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 
 [support]: support.md
 [error]: error_report.md
