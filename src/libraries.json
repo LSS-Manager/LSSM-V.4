@@ -180,7 +180,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.24.0"
+        "version": "8.25.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
