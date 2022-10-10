@@ -56,6 +56,11 @@ Sì, è possibile. Vai in [impostazioni] e premi `Esporta`, per scaricare il fil
 ### C'è un modo per salvare le impostazioni legate all'account così da non doverle importare su un'altro dispositivo?
 Attualmente non è possibile, ma un implementazione di questa possibilità è programmata.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 
 [supporto]: support.md
 [errori]: error_report.md

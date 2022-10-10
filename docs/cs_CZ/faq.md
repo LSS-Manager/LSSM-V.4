@@ -56,6 +56,11 @@ Currently it is not possible, but we are working on it.
 ### Is there a way to save settings account bound so that you don't have to import them on another device?
 Currently we do not offer this, but an implementation of this feature is planned.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 
 [support]: support.md
 [error]: error_report.md
