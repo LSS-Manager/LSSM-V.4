@@ -8984,15 +8984,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfmake@npm:0.2.5":
-  version: 0.2.5
-  resolution: "pdfmake@npm:0.2.5"
+"pdfmake@npm:0.2.6":
+  version: 0.2.6
+  resolution: "pdfmake@npm:0.2.6"
   dependencies:
     "@foliojs-fork/linebreak": ^1.1.1
     "@foliojs-fork/pdfkit": ^0.13.0
     iconv-lite: ^0.6.3
     xmldoc: ^1.1.2
-  checksum: c13d9c336c529f96b056e00b877978cbe2eb2d59eb3b66bdb509af1e3c9f063f5bc7ffcf4fad684c7cca6439e694701caa8278ae93a913382711e7354e6375a4
+  checksum: b7c06c9d847d3be04266a61f0f398987c19daa185ff5d0ab96521368ab3fe772c1b0655f273c82e8e48e9722c89f20b87646f91511efc17d9a253654c27745c7
   languageName: node
   linkType: hard
 
@@ -9765,7 +9765,7 @@ __metadata:
     mini-svg-data-uri: 1.4.4
     moment: 2.29.4
     moment-timezone: 0.5.37
-    pdfmake: 0.2.5
+    pdfmake: 0.2.6
     pinia: 2.0.22
     prettier: 2.7.1
     qrcode: 1.5.1
