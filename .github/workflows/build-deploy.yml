@@ -48,8 +48,8 @@ jobs:
               if: ${{ success() }}
               run: |
                   ssh -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/.check_request.php;
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/db_access.php;
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/missions;
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/releasenotes ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/releasenotes;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/releasenotes ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
                   "
