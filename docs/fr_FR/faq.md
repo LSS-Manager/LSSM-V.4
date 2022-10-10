@@ -79,7 +79,7 @@ Oui, c'est possible. Pour cela, il te suffit de cliquer dans les [paramètres][s
 Actuellement, nous ne proposons pas cette possibilité, mais une implémentation de cette fonctionnalité est prévue.
 
 ## Comment puis-je savoir si les serveurs de l'LSSM sont en ligne ? 
-<!--Le mieux est de le consulter ici : [https://status.lss-manager.de/](https://status.lss-manager.de/) -->
+Le mieux est de le consulter ici : [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Ou dans le <discord-channel channel="uptime"/> sur notre <discord/>. 
 

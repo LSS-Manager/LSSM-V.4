@@ -51,6 +51,11 @@ Actualmente, esto no es compatible, pero planeamos implementarlo en el futuro.
 ### ¿Hay alguna manera de guardar la configuración vinculada a la cuenta para que no tenga que importarla en otro dispositivo?
 Actualmente, esto no es compatible, pero planeamos implementarlo en el futuro.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 [Soporte]: support.md
 [Errores]: error_report.md
 [Sugerencias]: suggestions.md

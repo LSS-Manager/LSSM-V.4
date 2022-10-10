@@ -58,6 +58,11 @@ Currently it is not possible, but we are working on it.
 ### Er det mulig å lagre innstillingene jeg har valgt så jeg slipper å importere til en annen enhet?
 For øyeblikket støtter vi ikke det, men vi jobber med det.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
