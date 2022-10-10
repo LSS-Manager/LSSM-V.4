@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         outputs:
             mode: ${{ steps.output.outputs.mode }}
-            type: ${{ steps.output.outputs.type }}
+            branch: ${{ steps.output.outputs.branch }}
             version: ${{ steps.output.outputs.version }}
         steps:
             - name: Generate Token
