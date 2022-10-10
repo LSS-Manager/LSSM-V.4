@@ -3,15 +3,12 @@ name: Build Project
 on:
     workflow_call:
         outputs:
-            type:
-                description: 'Type of build'
-                value: ${{ jobs.build.outputs.type }}
-            version:
-                description: 'Version of build'
-                value: ${{ jobs.build.outputs.version }}
             branch:
                 description: 'The branch to build on and deploy to'
                 value: ${{ jobs.build.outputs.branch }}
+            version:
+                description: 'Version of build'
+                value: ${{ jobs.build.outputs.version }}
 
 jobs:
     build:
@@ -164,8 +161,6 @@ jobs:
             - name: '[💬] set output'
               id: output
               run: |
-                  echo "::set-output name=mode::${{ env.MODE }}"
-                  echo "::set-output name=type::${{ env.TYPE }}"
                   echo "::set-output name=branch::${{ env.BRANCH }}"
                   echo "VERSION=$(grep '"version":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')" >> $GITHUB_ENV
                   echo "::set-output name=version::$VERSION"
