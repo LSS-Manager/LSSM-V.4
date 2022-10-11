@@ -1,5 +1,5 @@
 {
-    "version": "4.6.2+20221011.0707",
+    "version": "4.6.2+20221011.0723",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
