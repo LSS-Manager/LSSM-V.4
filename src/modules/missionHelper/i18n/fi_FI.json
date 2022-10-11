@@ -8,8 +8,8 @@
         "fire": "Palo- ja pelastustehtävät",
         "fire_support_specialization": "Kemialliset onnettomuudet ja teollisuuspalot",
         "police": "Poliisitehtävät",
-        "traffic_police_specialization": "Coming Soon",
-        "title": "Kategorioiden luominen"
+        "title": "Kategorioiden luominen",
+        "traffic_police_specialization": "Coming Soon"
     },
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
