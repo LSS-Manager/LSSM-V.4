@@ -3,6 +3,14 @@
     "expansions": "Ausbreitung | Ausbreitungen",
     "followups": "Folgeeinsatz | Folgeeinsätze",
     "generated_by": "Generiert von",
+    "mission_categories": {
+        "airport": "Flughafenfeuerwehr Einsätze",
+        "ambulance": "Rettungsdienst Einsätze",
+        "fire": "Feuerwehr Einsätze",
+        "police": "Polizei Einsätze",
+        "riot_police_specialization": "Bundespolizei Einsätze",
+        "title": "Einsatz Kategorien"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
         "helicopter": "Wahrscheinlichkeit für einen RTH",

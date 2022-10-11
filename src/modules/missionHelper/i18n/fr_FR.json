@@ -4,9 +4,17 @@
     "followups": "Mission à suivre | Missions à suivre",
     "generated_by": "Généré par",
     "mission_categories": {
+        "ambulance": "Missions ambulancières",
+        "coastal_rescue": "Mission côtière",
+        "coastal_rescue_ocean": "Mission océanique",
+        "fire": "Missions incendie",
         "fire_support_specialization": "Spécialisation de Soutien à Incendie",
+        "police": "Missions de police",
+        "riot_police": "Missions de maintien de l'ordre",
         "title": "Catégories générées",
-        "water_rescue": "Spécialisation en Unité Nautique"
+        "water_rescue": "Spécialisation en Unité Nautique",
+        "water_rescue_2": "Missions de garde-côte",
+        "water_rescue_specialization": "Missions nautiques"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
