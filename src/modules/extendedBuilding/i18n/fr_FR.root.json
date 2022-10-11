@@ -7,8 +7,8 @@
             "title": "Nombre de bâtiments du même type"
         },
         "dispatchCenterBuildingFilter": {
-            "description": "Adds some useful filters to the list of buildings in dispatch centers",
-            "title": "Filter for buildings in dispatch center"
+            "description": "Ajoute des filtres à la liste des bâtiments pour le centre de Traitement des Appels",
+            "title": "Filtre la liste de bâtiments paar le centre de Traitement des Appels"
         },
         "enhanceVehicleList": {
             "description": "Améliore le liste des véhicules. Certaines options sont réglables.",
