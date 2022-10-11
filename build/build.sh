@@ -7,6 +7,7 @@ YARN_SETUP=false
 VERSIONS=false
 YARN_INSTALL=false
 BROWSERSLIST=false
+ENV=false
 UPDATE_EMOJIS=false
 JSON_YAML_FORMAT=false
 ESLINT=false
@@ -26,6 +27,7 @@ while :; do
         --versions) VERSIONS=true ;;
         --yarn_install) YARN_INSTALL=true ;;
         --browserslist) BROWSERSLIST=true ;;
+        --env) ENV=true ;;
         --update_emojis) UPDATE_EMOJIS=true ;;
         --json_yaml_format) JSON_YAML_FORMAT=true ;;
         --eslint) ESLINT=true ;;
@@ -43,6 +45,7 @@ while :; do
           YARN_INSTALL=true
           BROWSERSLIST=true ;;
         --quick)
+          ENV=true
           JSON_YAML_FORMAT=true
           ESLINT=true
           TSC=true
@@ -52,6 +55,7 @@ while :; do
           VERSIONS=true
           YARN_INSTALL=true
           BROWSERSLIST=true
+          ENV=true
           UPDATE_EMOJIS=true
           JSON_YAML_FORMAT=true
           ESLINT=true
@@ -109,6 +113,29 @@ if [[ $BROWSERSLIST = true ]]; then
     npx -y browserslist@latest --update-db
     end_time=$(date +%s%N)
     echo "=== [⬆] update browserslist: $(((end_time - start_time) / 1000000))ms ==="
+fi
+
+# [🌳] set env variables
+if [[ $ENV = true ]]; then
+    start_time=$(date +%s%N)
+    echo "### [🌳] set env variables ###"
+    ref="$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)"
+    BRANCH="dummy"
+    
+    if [[ $ref == "refs/heads/master" ]]; then
+      BRANCH="stable"
+    elif [[ $ref == "refs/heads/dev" ]]; then
+      BRANCH="beta";
+    elif [[ $ref == "refs/heads/"* ]]; then
+      BRANCH="${ref/"refs/heads/"/}";
+      BRANCH="${BRANCH/"/"/"-"}"
+    elif [[ $ref == "refs/pull/"* ]]; then
+      BRANCH="${ref/"refs/pull/"/"pr"}";
+      BRANCH="${BRANCH/"/merge"/}";
+      BRANCH="${BRANCH//"/"/"-"}"
+    fi
+    end_time=$(date +%s%N)
+    echo "=== [🌳] set env variables: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
 # [⬆] update emojis
@@ -183,7 +210,7 @@ fi
 if [[ $PREBUILD = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚧] run prebuild ###"
-    ./node_modules/.bin/ts-node prebuild/index.ts "$MODE" || exit 1
+    ./node_modules/.bin/ts-node prebuild/index.ts "$MODE" "$BRANCH" || exit 1
     end_time=$(date +%s%N)
     echo "=== [🚧] run prebuild: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -192,7 +219,7 @@ fi
 if [[ $WEBPACK = true ]]; then
     start_time=$(date +%s%N)
     echo "### [👷] webpack ###"
-    ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "$MODE" || exit 1
+    ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" || exit 1
     end_time=$(date +%s%N)
     echo "=== [👷] webpack: $(((end_time - start_time) / 1000000))ms ==="
 fi

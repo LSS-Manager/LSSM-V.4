@@ -6,6 +6,10 @@
             "description": "Viser i bygningene hvor mange av samme type.",
             "title": "Antall bygninger av samme type"
         },
+        "dispatchCenterBuildingFilter": {
+            "description": "Adds some useful filters to the list of buildings in dispatch centers",
+            "title": "Filter for buildings in dispatch center"
+        },
         "enhanceVehicleList": {
             "description": "Utvider kjøretøylisten med nyttige funksjoner - noen av dem er justerbare.",
             "title": "Utvid kjøretøylisten"

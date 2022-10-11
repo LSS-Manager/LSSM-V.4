@@ -92,6 +92,10 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: false,
     },
+    dispatchCenterBuildingFilter: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
     //autoBuyLevels: {
     //    type: 'toggle',
     //    default: false,

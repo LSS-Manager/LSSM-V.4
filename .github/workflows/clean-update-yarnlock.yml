@@ -1,0 +1,49 @@
+name: clean & update yarn.lock
+
+on:
+    schedule:
+        - cron: '0 0 * * 6' # At 00:00 on Saturdays (UTC)
+
+jobs:
+    clean-update-yarnlock:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+                  ref: dev
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: '[⬆] set yarn to stable'
+              run: |
+                  corepack enable
+                  yarn set version stable
+
+            - name: '[🔥] empty yarn.lock'
+              run: echo "" > yarn.lock
+
+            - name: '[🍱] run yarn install'
+              run: yarn install --no-immutable
+
+            - name: '[ℹ️] git diff'
+              run: git --no-pager diff --color-words
+
+            - name: '[🔀] Create PR'
+              uses: peter-evans/create-pull-request@v4
+              with:
+                  add-paths: yarn.lock
+                  commit-message: ⬆️ clean & update yarn.lock
+                  committer: Build Server <developer@lss-manager.de>
+                  author: Build Server <developer@lss-manager.de>
+                  branch: chore/clean-update-yarnlock
+                  delete-branch: true
+                  base: dev
+                  title: 🔀⬆️ clean & update yarn.lock
+                  body: This is the automated clean & update yarn.lock PR!
+                  assignees: jxn-30
+                  reviewers: jxn-30

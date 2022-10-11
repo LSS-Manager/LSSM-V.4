@@ -33,6 +33,7 @@
         "PREFIX": "readonly",
         "MODE": "readonly",
         "VERSION": "readonly",
+        "BRANCH": "readonly",
         "LOADSCRIPT_EVENT_START": "readonly",
         "LOADSCRIPT_EVENT_END": "readonly"
     },

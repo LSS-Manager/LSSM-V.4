@@ -25,7 +25,7 @@ export interface lssmMenuData {
 
 export interface lssmMenuComputed {
     menuItems: HTMLAnchorElement[];
-    mode: 'beta' | 'stable';
+    branch: string;
     version: string;
 }
 

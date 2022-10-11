@@ -56,6 +56,11 @@ För närvarande är det inte möjligt, men vi arbetar på det.
 ### Finns det ett sätt att spara inställningar kontobundet så att du inte behöver importera dem till en annan enhet?
 För närvarande erbjuder vi inte detta, men en implementering av den här funktionen är planerad.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
 
 [support]: support.md
 [error]: error_report.md

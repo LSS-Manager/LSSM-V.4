@@ -2,9 +2,6 @@ name: Build and Deploy
 
 on:
     push:
-        branches:
-            - 'master'
-            - 'dev'
 
 jobs:
     build:
@@ -14,7 +11,7 @@ jobs:
 
     deploy:
         needs: [build]
-        if: github.repository_owner == 'LSS-Manager'
+        if: github.repository_owner == 'LSS-Manager' && !startsWith(github.ref, 'refs/heads/renovate/') && github.ref != 'chore/clean-update-yarnlock'
         runs-on: ubuntu-latest
         steps:
             - name: Install apt packages
@@ -31,7 +28,6 @@ jobs:
                   rm dist.zip
 
             - name: list content of dist
-              if: ${{ github.ref == 'refs/heads/dev' }}
               run: ls -la dist
 
             - name: Install SSH Key
@@ -46,4 +42,14 @@ jobs:
 
             - name: Deployment
               if: ${{ success() }}
-              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.type }}
+              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}
+
+            - name: Create symlinks on server
+              if: ${{ success() }}
+              run: |
+                  ssh -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/releasenotes ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                  "

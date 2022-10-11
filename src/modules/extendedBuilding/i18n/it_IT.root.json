@@ -6,6 +6,10 @@
             "description": "Mostra nell'edificio quanti dello stesso tipo esistono ancora nella rispettiva direzione.",
             "title": "Numero degli edifici dello stesso tipo"
         },
+        "dispatchCenterBuildingFilter": {
+            "description": "Adds some useful filters to the list of buildings in dispatch centers",
+            "title": "Filter for buildings in dispatch center"
+        },
         "enhanceVehicleList": {
             "description": "Estende la lista dei veicoli con caratteristiche utili - alcuni dei quali sono particolarmente regolabili.",
             "title": "Estensione elenco dei veicoli"
