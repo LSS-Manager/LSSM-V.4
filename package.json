@@ -63,7 +63,7 @@
         "@types/webpack-env": "1.18.0",
         "@typescript-eslint/eslint-plugin": "5.40.0",
         "@typescript-eslint/parser": "5.40.0",
-        "all-contributors-cli": "6.23.1",
+        "all-contributors-cli": "6.24.0",
         "copy-dir": "1.3.0",
         "css-loader": "6.7.1",
         "eslint": "8.25.0",
