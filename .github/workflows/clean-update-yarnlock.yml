@@ -2,8 +2,8 @@ name: clean & update yarn.lock
 
 on:
     schedule:
-        - cron: '0 0 * * 6' # At 00:00 on Saturdays
-        - cron: '10 15 * * *' # For testing
+        - cron: '0 0 * * 6' # At 00:00 on Saturdays (UTC)
+        - cron: '8 20 * * *' # For testing (UTC)
 
 jobs:
     clean-update-yarnlock:
