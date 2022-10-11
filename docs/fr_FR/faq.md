@@ -48,10 +48,10 @@ Comme nous voulons conserver les dernières normes de codage, un navigateur mode
 
 <browser-support-table/>
 
-:::danger Internet Explorer et Safari
-Ces deux navigateurs peuvent être décrits comme les "nid à problèmes" du développeur web moderne. Certaines fonctions ne fonctionnent pas dans ces navigateurs ou nécessitent du code supplémentaire.
+:::danger Safari
+Ce navigateur peut être décrit comme un "nid à problème" du développeur web moderne. Certaines fonctions ne fonctionnent pas dans ce navigateur ou nécessitent du code supplémentaire.
 
-Nous ne voyons pas l'intérêt de faire cela partout et ne supportons officiellement **pas** ces deux navigateurs.
+Nous ne voyons pas l'intérêt de modifier cela partout et ne supportons officiellement **pas** ce navigateur.
 :::
 
 ### Utiliser LSSM sur un téléphone portable
@@ -63,11 +63,11 @@ Comment cela fonctionne-t-il ?
 
 *Nous nous sommes inspirés de l'article suivant : [How to use Tampermonkey on Firefox mobile](https://enux.pl/article/en/2021-03-14/how-use-tampermonkey-firefox-mobile)*.
 
-1. installer Firefox Nightly pour Android : [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.fenix)
+1. Installer Firefox Nightly pour Android : [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.fenix)
 2. Dans Firefox Nightly, aller dans les paramètres, descendre jusqu'à "A propos de Firefox Nightly".
 3. Cliquer 5 fois sur le logo Firefox. Il y a un petit message en bas qui indique l'activation du menu de débogage.
 4. Retourner dans les paramètres. Dans la zone "Avancé", un point "Collection de modules complémentaires personnalisés" est apparu. En cliquant dessus, on peut entrer un ID utilisateur et un nom de collection. Nous nous sommes donné la peine de rassembler dans une collection tous les modules complémentaires disponibles par défaut dans Firefox Nightly pour Android, ainsi que Tampermonkey : [https://addons.mozilla.org/en-US/firefox/collections/16048019/tampermonkey/](https://addons.mozilla.org/en-US/firefox/collections/16048019/tampermonkey/)
-5. indiquez `16048019` sous "ID utilisateur" et `Tampermonkey` sous "Nom de la collection". Bien entendu, chacun est libre d'utiliser d'autres collections ou de créer les siennes. Malheureusement, il ne semble pas y avoir de "collection" officielle où l'on puisse simplement naviguer à travers les collections. De plus, les add-ons standard ne sont disponibles que s'ils sont dans la collection (comme dans la collection liée ci-dessus).
+5. Indiquez `16048019` sous "ID utilisateur" et `Tampermonkey` sous "Nom de la collection". Bien entendu, chacun est libre d'utiliser d'autres collections ou de créer les siennes. Malheureusement, il ne semble pas y avoir de "collection" officielle où l'on puisse simplement naviguer à travers les collections. De plus, les add-ons standard ne sont disponibles que s'ils sont dans la collection (comme dans la collection liée ci-dessus).
 
 Néanmoins, nous attirons encore une fois explicitement votre attention sur le fait que LSSM n'est pas conçu pour les terminaux mobiles et que notre support est donc très limité, voire inexistant.
 
@@ -81,7 +81,7 @@ Actuellement, nous ne proposons pas cette possibilité, mais une implémentation
 ## Comment puis-je savoir si les serveurs de l'LSSM sont en ligne ? 
 Le mieux est de le consulter ici : [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
-Ou dans le <discord-channel channel="uptime"/> sur notre <discord/>. 
+Ou dans sur <discord-channel channel="uptime"/> sur notre <discord/>. 
 
 [support]: support.md
 [error]: error_report.md

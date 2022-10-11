@@ -16,4 +16,3 @@ Il y a quelques modules qui ne sont pas pris en charge lorsque MapKit est sélec
 
 Pour la même raison, il existe également quelques restrictions mineures pour les utilisateurs de MapKit.
 :::
-
