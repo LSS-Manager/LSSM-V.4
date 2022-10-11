@@ -3,6 +3,18 @@
     "expansions": "Espansione | Espansioni",
     "followups": "Missione supplementare | Missioni supplementari",
     "generated_by": "Generata da",
+    "mission_categories": {
+        "ambulance": "Missioni delle Ambulanze",
+        "fire": "Missioni Antincendio",
+        "fire_support_specialization": "Missioni Antincendio Chimiche e Industriali",
+        "forestry_specialization": "Missioni Antincendio Boschivo",
+        "game_warden_specialization": "Missioni della Forestale",
+        "police": "Missioni della Polizia",
+        "title": "Generazione di categorie",
+        "traffic_police_specialization": "Missioni della Polizia Stradale",
+        "water_rescue": "Coming Soon",
+        "water_rescue_specialization": "Missioni di Soccorso Acquatico"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "Può essere usata una MSB invece di una MSA.",
         "helicopter": "Probabilità per HEMS",

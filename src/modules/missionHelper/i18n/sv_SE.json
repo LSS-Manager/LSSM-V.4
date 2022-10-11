@@ -3,6 +3,17 @@
     "expansions": "Uppdrag att utöka:",
     "followups": "Påföljande uppdrag vid avklarat uppdrag | Påföljande uppdrag vid avklarade uppdrag",
     "generated_by": "Skapad av",
+    "mission_categories": {
+        "ambulance": "Ambulansuppdrag",
+        "fire": "Brandbekämpningsuppdrag",
+        "fire_support_specialization": "Kemiska och industriella branduppdrag",
+        "forestry_specialization": "Skogsbrandsuppdrag",
+        "police": "Polisuppdrag",
+        "title": "Generering av kategorier", 
+        "traffic_police_specialization": "Trafikpolisens uppdrag",
+        "water_rescue": "Coming soon",
+        "water_rescue_specialization": "Vattenräddningsuppdrag"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "En ambulans kan användas.",
         "critical_care": "intensivvård behövs",

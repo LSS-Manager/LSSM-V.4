@@ -3,6 +3,12 @@
     "expansions": "Extenderse",
     "followups": "Siguiente misión | Siguientes misiones",
     "generated_by": "Generado por",
+    "mission_categories": {
+        "ambulance": "Misiones de ambulancia",
+        "fire": "Misiones de extinción de incendios",
+        "police": "Misiones Policiales",
+        "title": "Generación de categorías"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "Se puede usar un BLS en lugar de un ALS.",
         "critical_care": "Probabilidad de que se necesiten cuidados intensivos",

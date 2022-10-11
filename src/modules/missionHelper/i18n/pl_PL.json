@@ -3,6 +3,17 @@
     "expansions": "Rozwinięcia | Spready",
     "followups": "Misja kontynuacyjna | Misje uzupełniające",
     "generated_by": "Wygenerowane przez",
+    "mission_categories": {
+        "ambulance": "Misje ratownictwa medycznego",
+        "fire": "Misje straży pożarnej",
+        "fire_support_specialization": "Coming soon",
+        "police": "Misje policyjne",
+        "riot_police_specialization": "Misje Oddziału Prewencji Policji",
+        "title": "Generowanie kategorii",
+        "traffic_police_specialization": "Misje Wydziału Ruchu Drogowego",
+        "water_rescue": "Coming soon",
+        "water_rescue_specialization": "Misje ratownictwa wodnego"
+    },
     "patients": {
         "critical_care": "opieka specjalistyczna Szansa",
         "helicopter": "Prawdopodobieństwo skorzystania z HEMS",

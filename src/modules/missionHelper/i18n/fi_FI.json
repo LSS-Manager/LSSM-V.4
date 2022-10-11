@@ -3,6 +3,14 @@
     "expansions": "Laajennettava tehtävä | Laajennettavat tehtävät",
     "followups": "Jatkotehtävä | Jatkotehtävät",
     "generated_by": "Luonut",
+    "mission_categories": {
+        "ambulance": "Ensihoitotehtävät",
+        "fire": "Palo- ja pelastustehtävät",
+        "fire_support_specialization": "Kemialliset onnettomuudet ja teollisuuspalot",
+        "police": "Poliisitehtävät",
+        "traffic_police_specialization": "Coming Soon",
+        "title": "Kategorioiden luominen"
+    },
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
         "helicopter": "Helikopteripyynnön mahdollisuus",
