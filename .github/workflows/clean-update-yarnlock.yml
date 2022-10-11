@@ -3,7 +3,7 @@ name: clean & update yarn.lock
 on:
     schedule:
         - cron: '0 0 * * 6' # At 00:00 on Saturdays (UTC)
-        - cron: '30 * * * *' # For testing (UTC)
+        - cron: '5 * * * *' # For testing (UTC)
 
 jobs:
     clean-update-yarnlock:
@@ -29,7 +29,7 @@ jobs:
               run: echo "" > yarn.lock
 
             - name: '[🍱] run yarn install'
-              run: yarn install
+              run: yarn install --no-immutable
 
             - name: '[ℹ️] git diff'
               run: git --no-pager diff --color-words
