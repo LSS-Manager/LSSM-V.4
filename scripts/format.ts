@@ -65,6 +65,9 @@ fs.writeFileSync(
     formatJSON(tsconfig, true)
 );
 
+const yarnrc = path.join(ROOT_PATH, '.yarnrc.yml');
+fs.writeFileSync(yarnrc, format(fs.readFileSync(yarnrc).toString(), 'yaml'));
+
 let currentFile = '';
 try {
     let fileCounterJSON = 0;
