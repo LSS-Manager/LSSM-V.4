@@ -1,4 +1,8 @@
 {
+    "@fortawesome/fa-icon-chooser": {
+        "icon": "https://avatars.githubusercontent.com/u/1505683",
+        "version": "0.4.1"
+    },
     "@fortawesome/fontawesome-free": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
