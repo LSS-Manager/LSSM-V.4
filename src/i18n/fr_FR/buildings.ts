@@ -631,7 +631,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Centre de Formation et d\'Intervention'],
-        icon: 'building-wasserwacht',
+        icon: 'building-shield',
     },
 	24: {
         caption: 'Compagnie de Gendarmerie Maritime',
