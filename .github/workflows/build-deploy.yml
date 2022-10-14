@@ -16,3 +16,4 @@ jobs:
         uses: ./.github/workflows/deploy.yml
         with:
             branch: needs.build.outputs.branch
+        secrets: inherit
