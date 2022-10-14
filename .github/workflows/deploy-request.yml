@@ -6,8 +6,10 @@ on:
             - created
 
 jobs:
-    deploy_request:
+    check_request:
         runs-on: ubuntu-latest
+        outputs:
+            deploy: ${{ steps.output.outputs.deploy }}
         steps:
             - name: '[🧑‍💻] get maintainers'
               run: |
@@ -24,7 +26,7 @@ jobs:
                       }
                     }' --jq '.data.organization.team.members.nodes[].login' | grep $AUTHOR | wc -l)"
 
-                  echo "DEPLOY=$(if [[ $PR == true && $COMMENT == \"@LSS-Manager deploy\" && $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_ENV
+                  echo "deploy=$(if [[ $PR == true && $COMMENT == \"@LSS-Manager deploy\" && $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   OWNER: ${{ github.repository_owner }}
@@ -33,9 +35,11 @@ jobs:
                   COMMENT: ${{ github.event.comment.body }}
                   PR: ${{ github.event.issue.pull_request }}
 
-            - name: '[📦🚀] build and deploy'
-              if: ${{ env.DEPLOY }}
-              uses: ./.github/workflows/build-deploy.yml
-              with:
-                  deploy: ${{ env.DEPLOY }}
-              secrets: inherit
+    build_and_deploy:
+        runs-on: ubuntu-latest
+        needs: [check_request]
+        if: ${{ needs.check_request.outputs.deploy }}
+        uses: ./.github/workflows/build-deploy.yml
+        with:
+            deploy: ${{ env.DEPLOY }}
+        secrets: inherit
