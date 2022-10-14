@@ -40,5 +40,5 @@ jobs:
         if: ${{ needs.check_request.outputs.deploy }}
         uses: ./.github/workflows/build-deploy.yml
         with:
-            deploy: ${{ env.DEPLOY }}
+            deploy: ${{ needs.check_request.outputs.deploy }}
         secrets: inherit
