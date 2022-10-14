@@ -213,6 +213,10 @@
             {
                 "name": "Maintien de l'Ordre",
                 "vehicleTypes": [39, 40, 41, 42, 43, 44, 45]
+            },
+            {
+                "name": "Sauvetage Côtier",
+                "vehicleTypes": [46,47,48,49,50]
             }
         ]
     }
