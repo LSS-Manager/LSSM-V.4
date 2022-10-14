@@ -960,6 +960,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         'Falaise',
         'Raffinerie de pétrole',
         'Lieu de culte',
+        'Plage'
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],
