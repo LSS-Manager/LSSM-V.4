@@ -28,7 +28,7 @@
                 "open": "Avaa oman profiilin",
                 "title": "Profiili"
             },
-            "protocol": "Open Log in Dispatch Center",
+            "protocol": "Avaa loki hätäkeskuksessa",
             "tasks": {
                 "open": "Avaa Urakat ja tapahtumat",
                 "title": "Urakat ja tapahtumat"
@@ -43,20 +43,20 @@
                 "toggleSharing": "Jakaminen päälle/pois"
             },
             "dispatch": {
-                "buildings": "buildings tab",
-                "extensions": "extensions tab",
-                "next": "next tab",
-                "openFirstPlannedMission": "Open first planned mission",
-                "patrol": "patrol tab",
-                "patrol_vehicles": "patrol vehicles tab",
-                "plannedMission": "planned mission tab",
-                "previous": "next tab",
-                "protocol": "protocol tab",
-                "schooling": "schooling tab",
-                "settings": "settings tab",
-                "stats": "stats tab",
-                "title": "dispatch centre",
-                "vehicle": "vehicle tab"
+                "buildings": "Rakennukset",
+                "extensions": "Laajennukset",
+                "next": "Seuraava välilehti",
+                "openFirstPlannedMission": "Avaa ensimmäinen suunniteltu tapahtuma",
+                "patrol": "Partioreitit",
+                "patrol_vehicles": "Partioautot",
+                "plannedMission": "Suunnitellut tapahtumat",
+                "previous": "Edellinen välilehti",
+                "protocol": "Loki",
+                "schooling": "Koulutuskurssit",
+                "settings": "Asetukset",
+                "stats": "Tilastot",
+                "title": "Hätäkeskus",
+                "vehicle": "Ajonneuvot"
             },
             "goto": {
                 "dispatchCenter": "hätäkeskus",
@@ -66,7 +66,7 @@
                 "nextBuilding": "Seuraava rakennus",
                 "personal": "Henkilöstö",
                 "previousBuilding": "Edellinen rakennus",
-                "title": "mene"
+                "title": "Mene"
             },
             "title": "Rakennus"
         },
