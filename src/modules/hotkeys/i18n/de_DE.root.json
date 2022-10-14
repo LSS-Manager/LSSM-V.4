@@ -139,6 +139,28 @@
                 "previous": "Vorheriger Tab",
                 "title": "Fahrzeugliste"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarmiere zu erstem Verbandseinsatz",
+                "firstOwnMission": "Alarmiere zu erstem eigenen Einsatz, ",
+                "title": "Alarmieren"
+            },
+            "goto": {
+                "building": "Gebäude",
+                "edit": "Bearbeiten",
+                "nextVehicle": "Nächstes Fahrzeug",
+                "personalAssigment": "Personal zuweisen",
+                "previousVehicle": "Vorheriges Fahrzeug",
+                "statistics": "Statistiken",
+                "title": "Gehe zu"
+            },
+            "other": {
+                "moveVehicle": "Fahrzeug verschieben",
+                "title": "Sonstiges",
+                "toggleFMS": "FMS ändern"
+            },
+            "title": "Fahrzeuge"
         }
     },
     "description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",

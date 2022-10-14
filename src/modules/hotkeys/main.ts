@@ -4,11 +4,12 @@ import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-const rootCommandScopes: ['*', 'main', 'mission', 'building'] = [
+const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
     '*',
     'main',
     'mission',
     'building',
+    'vehicles',
 ];
 
 export default (async ({ LSSM, $m, getSetting }) => {
@@ -17,6 +18,8 @@ export default (async ({ LSSM, $m, getSetting }) => {
         !!window.location.pathname.match(/^\/missions\/\d+\/?/u);
     const isBuildingWindow =
         !!window.location.pathname.match(/^\/buildings\/\d+\/?/u);
+    const isVehicleWindow =
+        !!window.location.pathname.match(/^\/vehicles\/\d+\/?/u);
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (
@@ -55,6 +58,18 @@ export default (async ({ LSSM, $m, getSetting }) => {
                       ...(
                           await import(
                               /* webpackChunkName: "modules/hotkeys/commands/building" */ './assets/commands/building'
+                          )
+                      ).default,
+                  },
+              }
+            : {}),
+        ...(isVehicleWindow
+            ? {
+                  building: {
+                      validatorFunction: () => isVehicleWindow,
+                      ...(
+                          await import(
+                              /* webpackChunkName: "modules/hotkeys/commands/vehicles" */ './assets/commands/vehicles'
                           )
                       ).default,
                   },
@@ -112,6 +127,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
                     !walkedPath.length
                 )
                     continue hotkeyLoop;
+
                 LSSM.$stores.console.error(
                     `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
                         '.'
