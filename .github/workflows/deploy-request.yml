@@ -8,7 +8,7 @@ on:
 jobs:
     check_request:
         runs-on: ubuntu-latest
-        if: ${{ github.event.issue.pull_request && github.event.comment.body == "@LSS-Manager deploy" }}
+        if: ${{ github.event.issue.pull_request && github.event.comment.body == '@LSS-Manager deploy' }}
         outputs:
             deploy: ${{ steps.output.outputs.deploy }}
         steps:
