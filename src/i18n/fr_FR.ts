@@ -724,6 +724,69 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             maxPersonnel: 2,
             possibleBuildings: [11],
         },
+        46: {
+            caption: 'Buggy',
+            color: '#225CB5',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [23],
+        },
+        47: {
+            caption: 'CSL',
+            color: '#225CB5',
+            coins: 12,
+            credits: 6_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [23],
+            special: 'Remorqueuse nécessaire (Buggy)',
+        },
+        48: {
+            caption: 'CTT',
+            color: '#225CB5',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [23],
+            schooling: {
+                'Centre de Formation et d\'Intervention': {
+                    ["Certificat de surveillance et sauvetage aquatique"]: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        49: {
+            caption: 'VCSM',
+            color: '#225CB5',
+            coins: 25,
+            credits: 75_000,
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            possibleBuildings: [24],
+                'Centre de Formation et d\'Intervention': {
+                    ["Accréditation nautique"]: {
+                        all: true,
+                    },
+                },
+        },
+        50: {
+            caption: 'Dragon',
+            color: '#225CB5',
+            coins: 30,
+            credits: 300_000,
+            minPersonnel: 2,
+            maxPersonnel: 5,
+            possibleBuildings: [26],
+                'Centre de Formation et d\'Intervention': {
+                    ["Pilote d'hélicoptère"]: {
+                        all: true,
+                    },
+                },
+        },
     },
     buildingCategories: {
         Pompiers: {
@@ -770,6 +833,12 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 Choucas: [18],
                 ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
+            },
+            color: '#00ac00',
+        },
+        Maritime: {
+            vehicles: {
+                ["Sauvetage"]:[46,47,48,49,50],
             },
             color: '#00ac00',
         },
@@ -861,6 +930,28 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 caption: 'Armurier',
                 duration: '7 jours',
                 staffList: 'Armurier',
+            },
+        ],
+        'Centre de Formation et d\'Intervention': [
+            {
+                caption: 'Pilote d\'hélicoptère',
+                duration: '5 jours',
+                staffList: 'Pilote d\'hélicoptère',
+            },
+            {
+                caption: 'BNSSA',
+                duration: '5 jours',
+                staffList: 'BNSSA',
+            },
+            {
+                caption: 'Accréditation nautique',
+                duration: '3 jours',
+                staffList: 'Accréditation nautique',
+            },
+            {
+                caption: 'Certificat de surveillance et sauvetage aquatique',
+                duration: '5 jours',
+                staffList: 'Certificat de surveillance et sauvetage aquatique',
             },
         ],
     },
