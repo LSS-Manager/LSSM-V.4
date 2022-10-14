@@ -17,11 +17,6 @@
             "in": "additional",
             "text": "Spécialistes IMP requis"
         },
-        "coastal_guard_boat": {
-            "badge": true,
-            "in": "requirements",
-            "text": "Vedette Côtière de Surveillance Maritime requise"
-        },
         "water_needed": {
             "badge": true,
             "in": "requirements",
