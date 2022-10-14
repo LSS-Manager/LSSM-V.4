@@ -8,6 +8,7 @@ on:
 jobs:
     check_request:
         runs-on: ubuntu-latest
+        if: ${{ github.event.issue.pull_request && github.event.comment.body == "@LSS-Manager deploy" }}
         outputs:
             deploy: ${{ steps.output.outputs.deploy }}
         steps:
@@ -26,14 +27,12 @@ jobs:
                       }
                     }' --jq '.data.organization.team.members.nodes[].login' | grep $AUTHOR | wc -l)"
 
-                  echo "deploy=$(if [[ $PR == true && $COMMENT == \"@LSS-Manager deploy\" && $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
+                  echo "deploy=$(if [[ $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   OWNER: ${{ github.repository_owner }}
                   TEAM: 'v4-maintainers'
                   AUTHOR: ${{ github.event.comment.user.login }}
-                  COMMENT: ${{ github.event.comment.body }}
-                  PR: ${{ github.event.issue.pull_request }}
 
     build_and_deploy:
         needs: [check_request]
