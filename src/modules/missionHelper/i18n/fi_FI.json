@@ -29,11 +29,11 @@
         "title": "Vangit | {n} Vanki | {n} Vankia"
     },
     "tip": {
-        "dragging": "liikuta ikkunaa",
-        "maxState": "enimmäisvaatimukset päälle/pois",
-        "minified": "sulkea",
-        "overlay": "kelluva",
-        "reload": "lataa uudelleen"
+        "dragging": "Liikuta ikkunaa",
+        "maxState": "Enimmäisvaatimukset päälle/pois",
+        "minified": "Sulje",
+        "overlay": "Kelluva",
+        "reload": "Lataa uudelleen"
     },
     "vehicles": {
         "captions": {
@@ -52,7 +52,7 @@
             "platform_trucks": "nostolava-auto | nostolava-autot",
             "police_cars": "partioauto | partioautot",
             "police_helicopters": "poliisihelikopteri | poliisihelikopterit",
-            "pump": "säiliöauto | säiliöautot",
+            "pump": "suurtehopumppu | Suurtehopumppua",
             "traffic_car": "VATV-yksikkö | VATV-yksiköt",
             "water_tankers": "säiliöauto | säiliöautot"
         },
