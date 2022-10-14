@@ -14,3 +14,5 @@ jobs:
         needs: [build]
         if: github.repository_owner == 'LSS-Manager' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev')
         uses: ./.github/workflows/deploy.yml
+        with:
+            branch: needs.build.outputs.branch

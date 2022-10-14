@@ -39,14 +39,14 @@ jobs:
 
             - name: Deployment
               if: ${{ success() }}
-              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}
+              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
 
             - name: Create symlinks on server
               if: ${{ success() }}
               run: |
                   ssh -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
-                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/releasenotes ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/releasenotes ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
                   "
