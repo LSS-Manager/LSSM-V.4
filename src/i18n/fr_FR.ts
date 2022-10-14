@@ -731,7 +731,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            possibleBuildings: [23],
+            possibleBuildings: [11,23],
         },
         47: {
             caption: 'CSL',
@@ -740,7 +740,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [23],
+            possibleBuildings: [11,23],
             special: 'Remorqueuse nécessaire (Buggy)',
         },
         48: {
