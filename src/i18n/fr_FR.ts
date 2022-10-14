@@ -838,7 +838,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         Maritime: {
             vehicles: {
-                ["Sauvetage"]:[46,47,48,49,50],
+                ["Sauvetage Côtier"]:[46,47,48,49,50],
             },
             color: '#00ac00',
         },
