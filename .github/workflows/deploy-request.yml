@@ -4,9 +4,6 @@ on:
     issue_comment:
         types:
             - created
-    commit_comment:
-        types:
-            - created
 
 jobs:
     deploy_request:
