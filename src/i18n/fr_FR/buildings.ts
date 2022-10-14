@@ -674,9 +674,10 @@ export default {
             }),
             3
         ),
-        levelcost: [ ],
+        levelcost: [],
         maxBuildings: 'Aucune limite',
         maxLevel: 0,
+        startClassrooms: 1,
         special:'',
         icon: 'building-shield',
     },
