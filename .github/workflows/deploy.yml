@@ -1,0 +1,52 @@
+name: Deploy Project
+
+on:
+    workflow_call:
+        inputs:
+            branch:
+                required: true
+                type: string
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install apt packages
+              run: sudo apt-get install -y unzip rsync
+
+            - name: Download artifact
+              uses: actions/download-artifact@v3
+              with:
+                  name: LSSM_V4-${{ github.sha }}
+
+            - name: Unzip artifact
+              run: |
+                  unzip dist.zip -d ${{ github.workspace }}/dist
+                  rm dist.zip
+
+            - name: list content of dist
+              run: ls -la dist
+
+            - name: Install SSH Key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.SSH_DEPLOY_KEY }}
+                  known_hosts: 'placeholder to avoid errors'
+                  if_key_exists: replace
+
+            - name: Adding Known Hosts
+              run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+            - name: Deployment
+              if: ${{ success() }}
+              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}
+
+            - name: Create symlinks on server
+              if: ${{ success() }}
+              run: |
+                  ssh -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                    ln -sf ${{ secrets.DEPLOY_DIR }}/static/releasenotes ${{ secrets.DEPLOY_DIR }}/${{ needs.build.outputs.branch }}/static/;
+                  "
