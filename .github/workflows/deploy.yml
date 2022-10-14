@@ -11,37 +11,37 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Install apt packages
+            - name: '[🍱] Install apt packages'
               run: sudo apt-get install -y unzip rsync
 
-            - name: Download artifact
+            - name: '[⬇️] Download artifact'
               uses: actions/download-artifact@v3
               with:
                   name: LSSM_V4-${{ github.sha }}
 
-            - name: Unzip artifact
+            - name: '[📦️] Unzip artifact'
               run: |
                   unzip dist.zip -d ${{ github.workspace }}/dist
                   rm dist.zip
 
-            - name: list content of dist
+            - name: '[ℹ️] list content of dist'
               run: ls -la dist
 
-            - name: Install SSH Key
+            - name: '[🗝️] Install SSH Key'
               uses: shimataro/ssh-key-action@v2
               with:
                   key: ${{ secrets.SSH_DEPLOY_KEY }}
                   known_hosts: 'placeholder to avoid errors'
                   if_key_exists: replace
 
-            - name: Adding Known Hosts
+            - name: '[💡] Adding Known Hosts'
               run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-            - name: Deployment
+            - name: '[🚀] Deployment'
               if: ${{ success() }}
               run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
 
-            - name: Create symlinks on server
+            - name: '[🔗] Create symlinks on server'
               if: ${{ success() }}
               run: |
                   ssh -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
