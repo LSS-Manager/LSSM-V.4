@@ -30,7 +30,7 @@ jobs:
 
                   echo "deploy=$(if [[ $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
               env:
-                  GITHUB_TOKEN: ${{ github.token }}
+                  GITHUB_TOKEN: ${{ secrets.CHECK_MAINTAINERS_TOKEN }}
                   OWNER: ${{ github.repository_owner }}
                   TEAM: 'v4-maintainers'
                   AUTHOR: ${{ github.event.comment.user.login }}
