@@ -36,8 +36,8 @@ jobs:
 
     build_and_deploy:
         needs: [check_request]
-        if: ${{ needs.check_request.outputs.deploy == true }}
+        if: ${{ needs.check_request.outputs.deploy == 'true' }}
         uses: ./.github/workflows/build-deploy.yml
         with:
-            deploy: ${{ needs.check_request.outputs.deploy }}
+            deploy: ${{ needs.check_request.outputs.deploy == 'true' }}
         secrets: inherit
