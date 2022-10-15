@@ -2986,6 +2986,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/shared@npm:^3.2.37":
+  version: 3.2.41
+  resolution: "@vue/shared@npm:3.2.41"
+  checksum: 48f13e3eef2e77c06714f1594f971f6d3ba7df67420774d0d4732b540fc31c463ac1f363e1c753af033046b7b517a1a5b3b3d268978951e355ce6be3a4010db4
+  languageName: node
+  linkType: hard
+
 "@vuepress/bundler-vite@npm:2.0.0-beta.51":
   version: 2.0.0-beta.51
   resolution: "@vuepress/bundler-vite@npm:2.0.0-beta.51"
