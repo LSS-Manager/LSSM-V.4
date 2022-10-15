@@ -355,7 +355,7 @@
     "vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue#readme",
-        "version": "2.7.10"
+        "version": "2.7.13"
     },
     "vue-i18n": {
         "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -393,12 +393,12 @@
     "vue-template-compiler": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
-        "version": "2.7.10"
+        "version": "2.7.13"
     },
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.2.40"
+        "version": "3.2.41"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",

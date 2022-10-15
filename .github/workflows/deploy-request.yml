@@ -1,0 +1,43 @@
+name: Deploy Request
+
+on:
+    issue_comment:
+        types:
+            - created
+
+jobs:
+    check_request:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.issue.pull_request && github.event.comment.body == '@LSS-Manager deploy' }}
+        outputs:
+            deploy: ${{ steps.output.outputs.deploy }}
+        steps:
+            - name: '[🧑‍💻] get maintainers'
+              run: |
+                  isTeamMember="$(gh api graphql -F owner=$OWNER -F team=$TEAM -f query='
+                    query($owner: String!, $team: String!) {
+                      organization(login: $owner) {
+                        team(slug: $team) {
+                          members {
+                            nodes {
+                              login
+                            }
+                          }
+                        }
+                      }
+                    }' --jq '.data.organization.team.members.nodes[].login' | grep $AUTHOR | wc -l)"
+
+                  echo "deploy=$(if [[ $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  OWNER: ${{ github.repository_owner }}
+                  TEAM: 'v4-maintainers'
+                  AUTHOR: ${{ github.event.comment.user.login }}
+
+    build_and_deploy:
+        needs: [check_request]
+        if: ${{ needs.check_request.outputs.deploy }}
+        uses: ./.github/workflows/build-deploy.yml
+        with:
+            deploy: ${{ needs.check_request.outputs.deploy }}
+        secrets: inherit

@@ -96,13 +96,7 @@
         "total": "Manquant",
         "vehicle": "Type de véhicule",
         "vehiclesByRequirement": [
-            {
-                "texts": [
-                    "Buggy",
-                    "Buggies"
-                ],
-                "vehicles": [46]
-            },
+            { "texts": ["Buggy", "Buggies"], "vehicles": [46] },
             {
                 "texts": [
                     "Canot de Sauvetage Léger",
@@ -111,10 +105,7 @@
                 "vehicles": [47]
             },
             {
-                "texts": [
-                    "Canot Tous Temps",
-                    "Canot Tous Temps"
-                ],
+                "texts": ["Canot Tous Temps", "Canot Tous Temps"],
                 "vehicles": [48]
             },
             {
@@ -124,13 +115,7 @@
                 ],
                 "vehicles": [49]
             },
-            {
-                "texts": [
-                    "Dragons",
-                    "Dragons"
-                ],
-                "vehicles": [50]
-            },
+            { "texts": ["Dragons", "Dragons"], "vehicles": [50] },
             {
                 "texts": [
                     "Ambulance de secours ou Ambulance de transport",

@@ -209,7 +209,7 @@ export default {
         icon: 'hospital',
     },
     5: {
-        caption: "Base Hélicoptère du SAMU",
+        caption: 'Base Hélicoptère du SAMU',
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
@@ -355,7 +355,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: "Surveillance de plage",
+                caption: 'Surveillance de plage',
                 credits: 100_000,
                 coins: 15,
                 duration: '5 jours',
@@ -619,7 +619,7 @@ export default {
         startParkingLots: 0,
         icon: 'poo',
     },
-	23: {
+    23: {
         caption: 'Station de Sauvetage',
         color: '#116611',
         coins: 50,
@@ -640,10 +640,10 @@ export default {
         startPersonnel: 5,
         startParkingLots: 1,
         startVehicles: [''],
-        schoolingTypes: ['Centre de Formation et d\'Intervention'],
+        schoolingTypes: ["Centre de Formation et d'Intervention"],
         icon: 'building-shield',
     },
-	24: {
+    24: {
         caption: 'Compagnie de Gendarmerie Maritime',
         color: '#116611',
         coins: 30,
@@ -655,7 +655,7 @@ export default {
             '3. 45 000',
             '4. 75 000',
             '5-9. 100 000',
-            '10. 150 000'
+            '10. 150 000',
         ],
         maxBuildings: 'Aucune limite',
         maxLevel: 10,
@@ -664,11 +664,11 @@ export default {
         startPersonnel: 4,
         startParkingLots: 1,
         startVehicles: [''],
-        schoolingTypes: ['Centre de Formation et d\'Intervention'],
+        schoolingTypes: ["Centre de Formation et d'Intervention"],
         icon: 'building-shield',
     },
-	25: {
-        caption: 'Centre de Formation et d\'Intervention',
+    25: {
+        caption: "Centre de Formation et d'Intervention",
         color: '#116611',
         coins: 50,
         credits: 500_000,
@@ -688,10 +688,10 @@ export default {
         maxBuildings: 'Aucune limite',
         maxLevel: 0,
         startClassrooms: 1,
-        special:'',
+        special: '',
         icon: 'building-shield',
     },
-	26: {
+    26: {
         caption: 'Héliport de la Sécurité Civile',
         color: '#116611',
         coins: 50,
@@ -732,7 +732,7 @@ export default {
         startPersonnel: 2,
         startParkingLots: 0,
         startVehicles: [''],
-        schoolingTypes: ['Centre de Formation et d\'Intervention'],
+        schoolingTypes: ["Centre de Formation et d'Intervention"],
         icon: 'building-shield',
-    }
+    },
 } as Record<number, InternalBuilding>;
