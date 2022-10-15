@@ -30,29 +30,23 @@ jobs:
 
                   echo "deploy=$(if [[ $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
               env:
-                  GITHUB_TOKEN: ${{ secrets.CHECK_MAINTAINERS_TOKEN }}
+                  GITHUB_TOKEN: ${{ github.token }}
                   OWNER: ${{ github.repository_owner }}
                   TEAM: 'v4-maintainers'
                   AUTHOR: ${{ github.event.comment.user.login }}
 
-    output_deploy:
+    react_to_request:
         runs-on: ubuntu-latest
         needs: [check_request]
+        if: ${{ needs.check_request.outputs.deploy == 'true' }}
         steps:
-            - name: '[ℹ️] what is deploy?'
-              run: echo ${{ needs.check_request.outputs.deploy }}
-
-            - name: '[ℹ️] what is deploy? if test 1'
-              if: ${{ needs.check_request.outputs.deploy == 'true' }}
-              run: echo ${{ needs.check_request.outputs.deploy }}
-
-            - name: '[ℹ️] what is deploy? if test 2'
-              if: ${{ needs.check_request.outputs.deploy == true }}
-              run: echo ${{ needs.check_request.outputs.deploy }}
-
-            - name: '[ℹ️] what is deploy? if test 3'
-              if: ${{ needs.check_request.outputs.deploy }}
-              run: echo ${{ needs.check_request.outputs.deploy }}
+            - name: '[👍️️] react to the request'
+              run: |
+                  gh api --method POST -H "Accept: application/vnd.github+json" /repos/$REPO/comments/$COMMENT/reactions -f content='+1'
+              env:
+                  GITHUB_TOKEN: ${{ github.token }}
+                  COMMENT: ${{ github.event.comment.id }}
+                  REPO: ${{ github.repository }}
 
     build_and_deploy:
         needs: [check_request]
