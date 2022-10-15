@@ -15,9 +15,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
             ]
         >
     >{
-        validatorFunction() {
-            return true;
-        },
+        validatorFunction: () => true,
         nextVehicle() {
             //Support for Redesign
             const btnGroups = document.querySelectorAll('.btn-group');
@@ -93,9 +91,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
             )?.click();
         },
         other: <Scope<Empty, [], ['moveVehicle', 'toggleFMS']>>{
-            validatorFunction() {
-                return true;
-            },
+            validatorFunction: () => true,
             moveVehicle() {
                 const vehicleID = parseInt(
                     window.location.pathname.split('/')[2]
