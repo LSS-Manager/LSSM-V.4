@@ -258,7 +258,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             possibleBuildings: [6, 19],
         },
         9: {
-            caption: 'Dragon',
+            caption: 'HéliSMUR',
             color: '#e68a19',
             coins: 30,
             credits: 300_000,
