@@ -10,9 +10,10 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.event.issue.pull_request && github.event.comment.body == '@LSS-Manager deploy' }}
         outputs:
-            deploy: ${{ steps.output.outputs.deploy }}
+            deploy: ${{ steps.get_maintainers.outputs.deploy }}
         steps:
             - name: '[🧑‍💻] get maintainers'
+              id: get_maintainers
               run: |
                   isTeamMember="$(gh api graphql -F owner=$OWNER -F team=$TEAM -f query='
                     query($owner: String!, $team: String!) {
