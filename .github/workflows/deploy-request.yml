@@ -34,6 +34,24 @@ jobs:
                   TEAM: 'v4-maintainers'
                   AUTHOR: ${{ github.event.comment.user.login }}
 
+    output_deploy:
+        needs: [check_request]
+        steps:
+            - name: '[ℹ️] what is deploy?'
+              run: echo ${{ needs.check_request.outputs.deploy }}
+
+            - name: '[ℹ️] what is deploy? if test 1'
+              if: ${{ needs.check_request.outputs.deploy == 'true' }}
+              run: echo ${{ needs.check_request.outputs.deploy }}
+
+            - name: '[ℹ️] what is deploy? if test 2'
+              if: ${{ needs.check_request.outputs.deploy == true }}
+              run: echo ${{ needs.check_request.outputs.deploy }}
+
+            - name: '[ℹ️] what is deploy? if test 3'
+              if: ${{ needs.check_request.outputs.deploy }}
+              run: echo ${{ needs.check_request.outputs.deploy }}
+
     build_and_deploy:
         needs: [check_request]
         if: ${{ needs.check_request.outputs.deploy == 'true' }}
