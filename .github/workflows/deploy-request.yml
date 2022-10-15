@@ -35,6 +35,7 @@ jobs:
                   AUTHOR: ${{ github.event.comment.user.login }}
 
     output_deploy:
+        runs-on: ubuntu-latest
         needs: [check_request]
         steps:
             - name: '[ℹ️] what is deploy?'
