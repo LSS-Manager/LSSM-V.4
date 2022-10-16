@@ -20,7 +20,6 @@ jobs:
     build:
         runs-on: ubuntu-latest
         outputs:
-            mode: ${{ steps.output.outputs.mode }}
             branch: ${{ steps.output.outputs.branch }}
             version: ${{ steps.output.outputs.version }}
         steps:
@@ -170,7 +169,7 @@ jobs:
               run: |
                   echo "branch=${{ env.BRANCH }}" >> $GITHUB_OUTPUT
                   echo "VERSION=$(grep '"version":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')" >> $GITHUB_ENV
-                  echo "version=$VERSION" >> $GITHUB_OUTPUT
+                  echo "version=${{ env.VERSION }}" >> $GITHUB_OUTPUT
                   echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
 
             - name: '[📦] zip files'
