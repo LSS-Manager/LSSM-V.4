@@ -29,28 +29,28 @@
         }
     },
     "dispatchcenter-view": {
-        "building-selection": "Add buildings:",
+        "building-selection": "Lisää rakennuksia:",
         "manage": {
-            "newBoard": "New Board",
-            "title": "Manage boards",
+            "newBoard": "Uusi taulu",
+            "title": "Hallitse tauluja",
             "titles": {
                 "buildings": {
-                    "bold": "Building type selection",
-                    "small": "show only buildings of these building types for selection"
+                    "bold": "Rakennustyypin valinta",
+                    "small": "Näytä vain valittujen rakennustyyppien rakennukset valittavaksi"
                 },
                 "dispatch": {
-                    "bold": "Control center selection",
-                    "small": "show only buildings of these control centers for selection"
+                    "bold": "Hätäkeskuksen valinta",
+                    "small": "Näytä vain valittujen hätäkeskuksien rakennukset valittavaksi"
                 },
-                "name": "Board name"
+                "name": "Taulun nimi"
             }
         },
-        "no-buildings": "No buildings found. If necessary, adjust the filters for this board in the \"Manage Boards\"-tab."
+        "no-buildings": "Rakennuksia ei löytynyt. Säädä taulun suodattimia \"Hallitse tauluja\"-välilehdellä."
     },
     "tabs": {
         "building-types": "Rakennuksen yleiskuva",
         "chart-summary": "Yhteenveto",
-        "dispatchcenter-view": "Premium-näkymä",
+        "dispatchcenter-view": "Hätäkeskusnäkymä",
         "vehicle-types": "Tilannekatsaus"
     },
     "vehicle-list": {
