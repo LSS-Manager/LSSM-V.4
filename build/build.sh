@@ -119,7 +119,7 @@ fi
 if [[ $ENV = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🌳] set env variables ###"
-    ref="${{ inputs.ref }}"
+    ref="$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)"
     BRANCH="dummy"
     
     if [[ $ref == "refs/heads/master" ]]; then
