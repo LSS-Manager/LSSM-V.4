@@ -2,6 +2,12 @@ name: Build Project
 
 on:
     workflow_call:
+        inputs:
+            ref:
+                description: 'The ref to build on'
+                required: false
+                type: string
+                default: github.ref
         outputs:
             branch:
                 description: 'The branch to build on and deploy to'

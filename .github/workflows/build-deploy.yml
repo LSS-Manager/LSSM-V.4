@@ -5,9 +5,15 @@ on:
     workflow_call:
         inputs:
             deploy:
+                description: 'A Boolean indicating the result of deploy request'
                 required: false
                 type: boolean
                 default: false
+            ref:
+                description: 'The ref to build on'
+                required: false
+                type: string
+                default: github.ref
 
 jobs:
     build:
@@ -21,4 +27,5 @@ jobs:
         uses: ./.github/workflows/deploy.yml
         with:
             branch: ${{ needs.build.outputs.branch }}
+            ref: ${{ inputs.ref }}
         secrets: inherit
