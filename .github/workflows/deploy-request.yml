@@ -39,17 +39,17 @@ jobs:
         runs-on: ubuntu-latest
         needs: [check_request]
         if: ${{ needs.check_request.outputs.deploy == 'true' }}
-        permissions:
-            issues: write
-            pull-requests: write
         steps:
-            - name: '[👍️️] react to the request'
-              run: |
-                  gh api --method POST -H "Accept: application/vnd.github+json" /repos/$REPO/comments/$COMMENT/reactions -f content='+1'
-              env:
-                  GITHUB_TOKEN: ${{ github.token }}
-                  COMMENT: ${{ github.event.comment.id }}
-                  REPO: ${{ github.repository }}
+            - name: '[👍️] react to the request'
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      github.rest.issues.createComment({
+                        comment_id: ${{ github.event.comment.id }},
+                        owner: '${{ github.repository_owner }}',
+                        repo: 'LSSM-V.4',
+                        content: '+1'
+                      })
 
     build:
         needs: [check_request]
@@ -76,7 +76,7 @@ jobs:
                   script: |
                       github.rest.issues.createComment({
                         issue_number: ${{ github.event.issue.number }},
-                        owner: ${{ github.repository_owner }},
+                        owner: '${{ github.repository_owner }}',
                         repo: 'LSSM-V.4',
                         body: '👍️ I have successfully deployed a build!'
                       })
