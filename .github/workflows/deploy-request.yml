@@ -50,7 +50,6 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.DEPLOY_REQUEST_TOKEN }}
                   COMMENT: ${{ github.event.comment.id }}
                   REPO: ${{ github.repository }}
-                  REF: refs/pull/${{ github.event.issue.number }}/merge
 
     build:
         needs: [check_request]

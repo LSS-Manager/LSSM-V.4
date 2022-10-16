@@ -83,11 +83,11 @@ jobs:
             - name: '[🌳] set env variables'
               id: env
               run: |
-                  echo "MODE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
-                  echo "TYPE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
+                  echo "MODE=$(if ${{ inputs.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
+                  echo "TYPE=$(if ${{ inputs.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
 
                   # ===BEGIN $BRANCH===
-                  ref="${{ github.ref }}"
+                  ref="${{ inputs.ref }}"
                   BRANCH="dummy"
 
                   if [[ $ref == "refs/heads/master" ]]; then
@@ -191,7 +191,7 @@ jobs:
 
             - name: Prepare Git Push (add ssh-key etc.)
               id: git_prepare
-              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               run: |
@@ -204,7 +204,7 @@ jobs:
 
             - name: Push to Git
               id: git_push
-              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
