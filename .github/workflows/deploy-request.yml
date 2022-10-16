@@ -68,6 +68,7 @@ jobs:
         secrets: inherit
 
     reply_to_request:
+        runs-on: ubuntu-latest
         needs: [deploy]
         steps:
             - name: '[💬] reply to the request'
