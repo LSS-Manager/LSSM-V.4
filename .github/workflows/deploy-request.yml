@@ -47,7 +47,7 @@ jobs:
               run: |
                   gh api --method POST -H "Accept: application/vnd.github+json" /repos/$REPO/comments/$COMMENT/reactions -f content='+1'
               env:
-                  GITHUB_TOKEN: ${{ secrets.DEPLOY_REQUEST_TOKEN }}
+                  GITHUB_TOKEN: ${{ github.token }}
                   COMMENT: ${{ github.event.comment.id }}
                   REPO: ${{ github.repository }}
 
@@ -73,9 +73,8 @@ jobs:
             - name: '[💬] reply to the request'
               uses: actions/github-script@v6
               with:
-                  github-token: ${{ secrets.DEPLOY_REQUEST_TOKEN }}
                   script: |
-                      github.issues.createComment({
+                      github.rest.issues.createComment({
                         issue_number: ${{ github.event.issue.number }},
                         owner: ${{ github.repository_owner }},
                         repo: 'LSSM-V.4',
