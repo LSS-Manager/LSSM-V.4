@@ -43,6 +43,7 @@ jobs:
             - name: '[👍️] react to the request'
               uses: actions/github-script@v6
               with:
+                  github-token: ${{ secrets.DEPLOY_REQUEST_TOKEN }}
                   script: |
                       github.rest.reactions.createForCommitComment({
                         comment_id: ${{ github.event.comment.id }},
@@ -78,5 +79,5 @@ jobs:
                         issue_number: ${{ github.event.issue.number }},
                         owner: '${{ github.repository_owner }}',
                         repo: 'LSSM-V.4',
-                        body: '👍️ I have successfully deployed a build!'
+                        body: '👍️ I have successfully deployed a build `${{ needs.build.outputs.version }}` on `${{ needs.build.outputs.branch }}`!'
                       })
