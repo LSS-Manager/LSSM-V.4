@@ -44,7 +44,7 @@ jobs:
               uses: actions/github-script@v6
               with:
                   script: |
-                      github.rest.issues.createComment({
+                      github.rest.reactions.createForCommitComment({
                         comment_id: ${{ github.event.comment.id }},
                         owner: '${{ github.repository_owner }}',
                         repo: 'LSSM-V.4',
