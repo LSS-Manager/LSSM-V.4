@@ -103,6 +103,9 @@
             "allow_traffic_car_instead_of_fustw": {
                 "traffic_car": "WRD lub OPI"
             }
+            "allow_rw_instead_of_lf": {
+                "firetrucks": "Samochód pożarniczy lub ratownictwa technicznego | Samochody pożarnicze lub ratownictwa technicznego"
+            }
         },
         "title": "Pojazdy"
     }
