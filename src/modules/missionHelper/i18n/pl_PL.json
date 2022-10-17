@@ -15,16 +15,16 @@
         "water_rescue_specialization": "Misje ratownictwa wodnego"
     },
     "patients": {
-        "critical_care": "opieka specjalistyczna Szansa",
-        "helicopter": "Prawdopodobieństwo skorzystania z HEMS",
+        "critical_care": "Szansa, że potrzebny będzie lekarz",
+        "helicopter": "Szansa, że potrzebny będzie śmigłowiec LPR",
         "patient_allow_first_responder_chance": "Prawdopodobieństwo *First Responder*",
-        "patient_at_end_of_mission": "Pacjent pojawia się dopiero pod koniec misji!",
+        "patient_at_end_of_mission": "Pacjentci pojawia się dopiero pod koniec misji!",
         "patient_transport": "Prawdopodobieństwo transportu",
-        "possible_patient": "Maximum pacjentów",
-        "possible_patient_exact": "exact {n} pacjent | exact {n} pacjentów",
+        "possible_patient": "Maksimum pacjentów",
+        "possible_patient_exact": "Dokładnie {n} pacjent | Dokładnie {n} pacjentów",
         "possible_patient_min": "Minimum pacjentów",
         "specializations": "Specializacja",
-        "title": "Pacjenci | {n} Pacjent | {n} Pacjentów"
+        "title": "{n} Pacjent | {n} Pacjentów"
     },
     "prerequisites": {
         "fire_stations": "Remiza | Remizy",
