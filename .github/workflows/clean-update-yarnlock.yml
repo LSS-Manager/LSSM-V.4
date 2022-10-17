@@ -1,12 +1,14 @@
-name: clean & update yarn.lock
+name: '[🧹] Clean & Update yarn.lock'
 
 on:
     schedule:
         - cron: '0 0 * * 6' # At 00:00 on Saturdays (UTC)
+    workflow_dispatch:
 
 jobs:
     clean-update-yarnlock:
         runs-on: ubuntu-latest
+        name: '[🧹] Clean & Update yarn.lock'
         steps:
             - name: Checkout
               uses: actions/checkout@v3
