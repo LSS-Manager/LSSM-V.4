@@ -86,7 +86,8 @@
             "wasserwerfer": "Armatka wodna | Armatki wodne",
             "water_tankers": "SCCn",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
-            "water_needed": "Woda"
+            "water_needed": "Woda",
+            "foam_needed": "Piana gaśnicza"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
