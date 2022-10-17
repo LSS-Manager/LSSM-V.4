@@ -1,5 +1,5 @@
 W wielu momentach gry naciśnięcie prostego przycisku spowoduje ponowne załadowanie gry.
-Ten moduł ma na celu zapobieganie przeładowaniu - ale tylko w miejscach, w których chcesz.
+Ten moduł ma na celu zapobieganie temu - ale tylko w miejscach, w których chcesz.
 
 Wprowadziliśmy tę funkcję w następujących miejscach miejscach:
 
