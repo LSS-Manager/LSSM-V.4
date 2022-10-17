@@ -100,11 +100,8 @@
             }
         },
         "optional_alternatives": {
-            "allow_arff_instead_of_lf": {
-                "firetrucks": "Lotniskowy wóz strażacki | Lotniskowe wozy strażackie"
-            },
-            "allow_rw_instead_of_lf": {
-                "firetrucks": "Wóz strażacki | Wozy strażackie"
+            "allow_traffic_car_instead_of_fustw": {
+                "traffic_car": "WRD lub OPI"
             }
         },
         "title": "Pojazdy"
