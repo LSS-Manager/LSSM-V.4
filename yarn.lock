@@ -2410,12 +2410,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.8.0":
-  version: 1.8.0
-  resolution: "@types/leaflet@npm:1.8.0"
+"@types/leaflet@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@types/leaflet@npm:1.9.0"
   dependencies:
     "@types/geojson": "*"
-  checksum: a0190d48dfd49c7526a38c94490d9acdcb09de8b0338ebae8b33374b24f474330be82733007ab1c39008a61c4712b743ccf230909f203f0f35c9986b3a583ab6
+  checksum: f3ee2e2fc8bd3480d77667471c8f774a3726ff7694a7d08d2423c05b40e28f00379c7d469b4cbd3b53a1bc96c75970c92f9da7908fc477cbac0eda2a9d17b6ad
   languageName: node
   linkType: hard
 
@@ -2480,17 +2480,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:18.11.0":
   version: 18.11.0
   resolution: "@types/node@npm:18.11.0"
   checksum: f27f899ab428e5732f04fadadc9203f44bdf3abf56474540ee27da90e4f2ba133faf87263cada4d2271955f92ee6a142bd50683c86290fe5070c19aac44fd654
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:18.8.5":
-  version: 18.8.5
-  resolution: "@types/node@npm:18.8.5"
-  checksum: f7d896f54743178e64c534c6da16f582505acf18904ecd0ee8541cb4bc1d429ba514e7ecfd5145221b71adbd6ae1ff72df082f667e56d056fcd1a719df948e08
   languageName: node
   linkType: hard
 
@@ -8364,12 +8357,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:0.5.37":
-  version: 0.5.37
-  resolution: "moment-timezone@npm:0.5.37"
+"moment-timezone@npm:0.5.38":
+  version: 0.5.38
+  resolution: "moment-timezone@npm:0.5.38"
   dependencies:
     moment: ">= 2.9.0"
-  checksum: b3fc24848a396ee3801331a4b5511591df0e22241e59f55200a475603f23a8429f01887294c7a0c005dae25b8e4bef20472fbc875ff20080f26fded066559f1a
+  checksum: ff7077de41f2c41a0026cd2b310154c14df8f918331a4ebe88f5872a599deb5e463b123c96990dc447b7474a81c9f3aef7ac57c3d0dfc3bfb9af2cc5b0bca826
   languageName: node
   linkType: hard
 
@@ -9718,9 +9711,9 @@ __metadata:
     "@types/i18n-js": 3.8.3
     "@types/jquery": 3.5.14
     "@types/js-yaml": ^4.0.5
-    "@types/leaflet": 1.8.0
+    "@types/leaflet": 1.9.0
     "@types/lodash": 4.14.186
-    "@types/node": 18.8.5
+    "@types/node": 18.11.0
     "@types/pdfmake": 0.2.1
     "@types/prettier": 2.7.1
     "@types/qrcode": 1.5.0
@@ -9762,7 +9755,7 @@ __metadata:
     lodash: 4.17.21
     mini-svg-data-uri: 1.4.4
     moment: 2.29.4
-    moment-timezone: 0.5.37
+    moment-timezone: 0.5.38
     pdfmake: 0.2.6
     pinia: 2.0.23
     prettier: 2.7.1
@@ -9776,7 +9769,7 @@ __metadata:
     ts-loader: 9.4.1
     ts-node: 10.9.1
     typescript: 4.8.4
-    ua-parser-js: 1.0.2
+    ua-parser-js: 1.0.32
     url-loader: 4.1.1
     vue: 2.7.13
     vue-i18n: 8.27.2
@@ -10980,10 +10973,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:1.0.2":
-  version: 1.0.2
-  resolution: "ua-parser-js@npm:1.0.2"
-  checksum: ff7f6d79a9c1a38aa85a0e751040fc7e17a0b621bda876838d14ebe55aca4e50e68da0350f181e58801c2d8a35e7db4e12473776e558910c4b7cabcec96aa3bf
+"ua-parser-js@npm:1.0.32":
+  version: 1.0.32
+  resolution: "ua-parser-js@npm:1.0.32"
+  checksum: 79a80efd9c21511fdafc042ab748e0e93c8cdb0e8925bf6d48ad7dbb08e808c60fcecd49e679670def44ef428c005aa1810810f6773e7d8135a7817338080813
   languageName: node
   linkType: hard
 
