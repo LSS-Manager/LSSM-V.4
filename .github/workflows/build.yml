@@ -159,6 +159,8 @@ jobs:
                   mkdir -p ./dist/docs
                   rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
+              env:
+                  GITHUB_TOKEN: ${{ github.token }}
 
             - name: '[ℹ️] git diff'
               id: git_diff
