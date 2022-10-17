@@ -9,6 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: ".vuepress-548500@workspace:docs/.vuepress"
   dependencies:
+    "@octokit/auth-action": 2.0.2
     "@primer/octicons": 17.7.0
     "@vuepress/client": 2.0.0-beta.51
     "@vuepress/plugin-pwa": 2.0.0-beta.51
@@ -1789,6 +1790,16 @@ __metadata:
     "@octokit/types": ^8.0.0
     "@octokit/webhooks": ^10.0.0
   checksum: 7de7a7058945cb5151c92ae9f968f6c8d2115be60f7894493166f19243ac6714b63fadb63246f34e421f30579a1beb3541301994ae71dd0c529538698c181284
+  languageName: node
+  linkType: hard
+
+"@octokit/auth-action@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@octokit/auth-action@npm:2.0.2"
+  dependencies:
+    "@octokit/auth-token": ^3.0.0
+    "@octokit/types": ^8.0.0
+  checksum: 033b8776964bfe68ff1f603c56a4e14cfe2d6d13599b025323e1d354d97f8f0a7b0b65b1c19dcb6658261932164dd3b73aaaa46d598f0ad04b054efedc221819
   languageName: node
   linkType: hard
 

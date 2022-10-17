@@ -19,6 +19,9 @@
         "url": "https://github.com/FortAwesome/vue-fontawesome",
         "version": "2.0.8"
     },
+    "@octokit/auth-action": {
+        "version": "2.0.2"
+    },
     "@primer/octicons": {
         "icon": "https://primer.style/octicons/icons/icon-512x512.png",
         "url": "https://primer.style/octicons",

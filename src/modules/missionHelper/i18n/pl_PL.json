@@ -45,7 +45,7 @@
         "title": "{n} Więzień | {n} Więźniów"
     },
     "requirements": {
-        "foam_needed": "piana gaśnicza",
+        "foam_needed": "Piana gaśnicza",
         "water_needed": "Potrzebna woda (L)"
     },
     "tip": {
@@ -60,6 +60,8 @@
             "ambulances": "Ambulans | Ambulanse",
             "battalion_chief_vehicles": "SLOP/SLRr",
             "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
+            "boats": "Łódz | Łodzie",
+            "diver_units": "SLRw",
             "flood_equipment": "Sprzęt przeciwpowodziowy | Sprzęty przeciwpowodziowe",
             "foam": "Samochód ze zbiornikiem na pianę | Samochody ze zbiornikiem na pianę",
             "fwk": "SCDź",
@@ -83,11 +85,8 @@
             "traffic_car": "WRD",
             "wasserwerfer": "Armatka wodna | Armatki wodne",
             "water_tankers": "SCCn",
-            "boats": "Łódz | Łodzie",
-            "diver_units": "SLRw",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
             "water_needed": "Woda",
-            "foam_needed": "Piana gaśnicza"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

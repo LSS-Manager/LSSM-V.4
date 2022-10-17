@@ -1,10 +1,12 @@
-name: Build and Deploy
+name: '[👷🚀] Build and Deploy'
+run-name: '[👷🚀] Build on `${{ github.ref }}` and deploy on master & dev'
 
 on:
     push:
 
 jobs:
     build:
+        name: '[👷] Build'
         if: ${{ !contains(github.event.head_commit.message, 'skip ci') || !contains(github.event.head_commit.message, 'ci-push') }}
         uses: ./.github/workflows/build.yml
         with:
@@ -13,6 +15,7 @@ jobs:
 
     deploy:
         needs: [build]
+        name: '[🚀] Deploy'
         if: github.repository_owner == 'LSS-Manager' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev')
         uses: ./.github/workflows/deploy.yml
         with:
