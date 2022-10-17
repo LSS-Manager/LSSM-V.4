@@ -1,4 +1,5 @@
-name: Build Project
+name: '[👷] Build Project'
+run-name: '[👷] Build Project on `${{ inputs.ref }}`'
 
 on:
     workflow_call:
@@ -19,6 +20,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        name: '[👷] Build'
         outputs:
             branch: ${{ steps.output.outputs.branch }}
             version: ${{ steps.output.outputs.version }}
