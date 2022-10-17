@@ -1243,6 +1243,7 @@ If several requests fail in a short time, this could be due to server problems. 
         'Multi-Storey Car Park',
         'Low Bridge',
         'Care Home',
+        'Prison',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],
