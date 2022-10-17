@@ -1,18 +1,18 @@
 {
-    "diyMission": "Ta misja wydaje się być misją sojuszniczą na dużą skalę!",
-    "expansions": "Rozwinięcia | Spready",
-    "followups": "Misja kontynuacyjna | Misje uzupełniające",
+    "diyMission": "Jest to misja sojuszu na dużą skalę!",
+    "expansions": "Rozbudowa | Rozbudowy",
+    "followups": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
     "generated_by": "Wygenerowane przez",
     "mission_categories": {
         "ambulance": "Misje ratownictwa medycznego",
         "fire": "Misje straży pożarnej",
-        "fire_support_specialization": "Coming soon",
+        "fire_support_specialization": "Specjalizacja",
         "police": "Misje policyjne",
         "riot_police_specialization": "Misje Oddziału Prewencji Policji",
-        "title": "Generowanie kategorii",
+        "title": "Generowane kategorie",
         "traffic_police_specialization": "Misje Wydziału Ruchu Drogowego",
-        "water_rescue": "Coming soon",
-        "water_rescue_specialization": "Misje ratownictwa wodnego"
+        "water_rescue": "Misje WOPR",
+        "water_rescue_specialization": "Misje WOPR"
     },
     "patients": {
         "critical_care": "Szansa, że potrzebny będzie lekarz",
@@ -23,7 +23,7 @@
         "possible_patient": "Maksimum pacjentów",
         "possible_patient_exact": "Dokładnie {n} pacjent | Dokładnie {n} pacjentów",
         "possible_patient_min": "Minimum pacjentów",
-        "specializations": "Specializacja",
+        "specializations": "Departament:",
         "title": "{n} Pacjent | {n} Pacjentów"
     },
     "prerequisites": {
@@ -42,10 +42,10 @@
     },
     "prisoners": {
         "max_possible_prisoners": "Maksymalna liczba więźniów",
-        "title": "Więzień | {n} Więzień | {n} Więzień"
+        "title": "{n} Więzień | {n} Więźniów"
     },
     "requirements": {
-        "foam_needed": "piana gaśnicza",
+        "foam_needed": "Piana gaśnicza",
         "water_needed": "Potrzebna woda (L)"
     },
     "tip": {
@@ -59,16 +59,16 @@
         "captions": {
             "ambulances": "Ambulans | Ambulanse",
             "battalion_chief_vehicles": "SLOP/SLRr",
+            "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
             "boats": "Łódz | Łodzie",
             "diver_units": "SLRw",
-            "firetrucks": "Wóz pożarniczy | Wozy pożarnicze",
             "flood_equipment": "Sprzęt przeciwpowodziowy | Sprzęty przeciwpowodziowe",
-            "foam": "Samochód ze zbiornikiem na piane | Samochody ze zbiornikiem na piane",
+            "foam": "Samochód ze zbiornikiem na pianę | Samochody ze zbiornikiem na pianę",
             "fwk": "SCDź",
             "hazmat_vehicles": "SRChem",
-            "heavy_rescue_vehicles": "SRt",
+            "heavy_rescue_vehicles": "Samochód ratownictwa technicznego | Samochody ratownictwa technicznego",
             "height_rescue_units": "SRWys",
-            "helicopter": "HEMS",
+            "helicopter": "LPR",
             "hose": "SW",
             "k9": "K-9 | K-9",
             "kdow_orgl": "SLOp/SLRr",
@@ -78,15 +78,15 @@
             "police_cars": "OPI",
             "police_helicopters": "Helikopter policyjny | Helikoptery policyjne",
             "police_service_group_leader": "RSD",
-            "riot_police_ambulance": "Ambulanse OPP",
-            "riot_police_equipment": "Specjalistyczny sprzęt OPP (Pickup)",
+            "riot_police_ambulance": "Ambulans OPP | Ambulanse OPP",
+            "riot_police_equipment": "Specjalistyczny sprzęt OPP (Pickup) | Specjalistyczne sprzęty OPP (Pickup)",
             "road_rescue": "APRD",
             "swat_suv": "SPKP",
             "traffic_car": "WRD",
-            "wasserwerfer": "Armatki wodne",
-            "water_needed": "Wody",
+            "wasserwerfer": "Armatka wodna | Armatki wodne",
+            "water_tankers": "SCCn",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
-            "water_tankers": "Cysterna | Cysterny"
+            "water_needed": "Woda"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

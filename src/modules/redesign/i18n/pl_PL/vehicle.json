@@ -42,12 +42,17 @@
                 "yellow": "[3]Reagowanie"
             }
         },
-        "wlf": { "distance": "Maksymalna odległość", "same": "Te same budynki" }
+        "wlf": { 
+            "distance": "Dystans",
+            "same": "Można przetransportować?",
+            "building": "Budynek",
+            "caption": "Pojazd holujący"
+        }
     },
     "fms": "Stan",
-    "fms_switch": { "is_s2": "Niedostępny", "is_s6": "Dostępny" },
+    "fms_switch": { "is_s2": "Dostępny", "is_s6": "Niedostępny" },
     "foam_amount": "Ilość piany",
-    "followup_missions": "Misja następująca | Misje uzupełniające",
+    "followup_missions": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
     "hospitals": {
         "beds": "Wolne łóżka",
         "department": "Department: {department}",
