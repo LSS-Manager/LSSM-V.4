@@ -2863,17 +2863,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-sfc@npm:2.7.13":
-  version: 2.7.13
-  resolution: "@vue/compiler-sfc@npm:2.7.13"
-  dependencies:
-    "@babel/parser": ^7.18.4
-    postcss: ^8.4.14
-    source-map: ^0.6.1
-  checksum: c5e21f55f8951e184294b3dbfd13cb1b2bdc70be88c47c7ca1209f85b19bdb9df0a34dfa3720d75b538e34b63a5c9b8fa28b87eeedf3b84dbd03122f601dcf82
-  languageName: node
-  linkType: hard
-
 "@vue/compiler-sfc@npm:2.7.12":
   version: 2.7.12
   resolution: "@vue/compiler-sfc@npm:2.7.12"
@@ -2882,6 +2871,17 @@ __metadata:
     postcss: ^8.4.14
     source-map: ^0.6.1
   checksum: f71030f57e4bfcdb88636ccc3e700a6c3ab9ffedbe794fc43e7e58104f4603bf887afabc8261b6fa6299f77cfbfd652a113bf4d58284818123e5b0e0f5d85b36
+  languageName: node
+  linkType: hard
+
+"@vue/compiler-sfc@npm:2.7.13":
+  version: 2.7.13
+  resolution: "@vue/compiler-sfc@npm:2.7.13"
+  dependencies:
+    "@babel/parser": ^7.18.4
+    postcss: ^8.4.14
+    source-map: ^0.6.1
+  checksum: c5e21f55f8951e184294b3dbfd13cb1b2bdc70be88c47c7ca1209f85b19bdb9df0a34dfa3720d75b538e34b63a5c9b8fa28b87eeedf3b84dbd03122f601dcf82
   languageName: node
   linkType: hard
 
@@ -11470,7 +11470,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:2.7.13, vue@npm:^2.0.0":
+"vue@npm:2.7.13":
   version: 2.7.13
   resolution: "vue@npm:2.7.13"
   dependencies:
