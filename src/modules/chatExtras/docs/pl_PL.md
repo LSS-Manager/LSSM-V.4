@@ -9,7 +9,7 @@ Możesz go zmienić na `[Dzień godzina:minuta:sekunda]`. Informacje o tym, jak 
 
 ## Pokaż historię czatu w nagłówku
 
-Ta funkcja integruje moduł „Pokaż przycisk czatu powyżej” z lssm v3 do v4.
+Ta funkcja integruje moduł „Pokaż przycisk czatu powyżej” z LSSM v3 do v4.
 
 Pozwala wyświetlić przycisk „Historia czatu” u góry czatu, dzięki czemu nie musisz go już przewijać, aby dotrzeć do przycisku.
 

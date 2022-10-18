@@ -9,10 +9,10 @@
         "fire_support_specialization": "Kjemiske og industrielle brannoppdrag",
         "mass_casualty_ambulance_specialization": "Mass Casualty Mission",
         "police": "Politioppdrag",
-        "riot_police_specialization": "Coming Soon",
+        "riot_police_specialization": "Opprørspolitioppdrag (Spesialisering)",
         "title": "Generer kategorier",
-        "water_rescue": "Coming Soon",
-        "water_rescue_specialization": "Vannredningsoppdrag"
+        "water_rescue": "Vannredningsoppdrag",
+        "water_rescue_specialization": "Vannredningsoppdrag (Spesialisering)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "En syketransport kan bli brukt.",

@@ -116,11 +116,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.40.0"
+        "version": "5.40.1"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.40.0"
+        "version": "5.40.1"
     },
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
@@ -201,7 +201,7 @@
         "version": "2.26.0"
     },
     "eslint-plugin-jsdoc": {
-        "version": "39.3.6"
+        "version": "39.3.13"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",

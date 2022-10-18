@@ -59,9 +59,9 @@
         "captions": {
             "ambulances": "Ambulans | Ambulanse",
             "battalion_chief_vehicles": "SLOP/SLRr",
-            "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
             "boats": "Łódz | Łodzie",
             "diver_units": "SLRw",
+            "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
             "flood_equipment": "Sprzęt przeciwpowodziowy | Sprzęty przeciwpowodziowe",
             "foam": "Samochód ze zbiornikiem na pianę | Samochody ze zbiornikiem na pianę",
             "fwk": "SCDź",
@@ -84,10 +84,11 @@
             "swat_suv": "SPKP",
             "traffic_car": "WRD",
             "wasserwerfer": "Armatka wodna | Armatki wodne",
-            "water_tankers": "SCCn",
+            "water_needed": "Woda",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
             "water_needed": "Woda",
             "foam_needed": "Piana gaśnicza"
+            "water_tankers": "SCCn"
         },
         "multifunctionals": {
             "heavy_rescue_vehicles": {
