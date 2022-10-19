@@ -20,6 +20,7 @@
         "version": "2.0.8"
     },
     "@octokit/auth-action": {
+        "icon": "https://docs.github.com/assets/cb-102209/images/gundamcat.png",
         "version": "2.0.2"
     },
     "@primer/octicons": {
