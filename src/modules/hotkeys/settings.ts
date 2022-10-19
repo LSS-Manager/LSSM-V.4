@@ -90,7 +90,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
             listItem: [
                 <AppendableListSetting<Select>>{
                     name: 'command',
-                    title: $m('settings.command[0]'),
+                    title: $m('settings.command'),
                     size: 5,
                     unique: !!commands[1],
                     setting: {
