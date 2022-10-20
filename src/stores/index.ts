@@ -41,10 +41,10 @@ export const defineRootStore = defineStore('root', {
         isDarkMode: (): boolean => document.body.classList.contains('dark'),
         lssmUrl(): (
             path: string,
-            appendUserId?: boolean,
+            addBranchParam?: boolean,
             parameters?: Record<string, string>
         ) => string {
-            return (path, appendUserId = false, parameters = {}) => {
+            return (path, addBranchParam = false, parameters = {}) => {
                 const basePath = new URL(SERVER).pathname;
                 const url = new URL(
                     `${basePath}${path.replace(SERVER, '')}`.replace(
@@ -53,11 +53,12 @@ export const defineRootStore = defineStore('root', {
                     ),
                     SERVER
                 );
-                if (appendUserId) {
+                if (addBranchParam) {
                     url.searchParams.set(
                         'uid',
                         `${this.locale}-${window.user_id}`
                     );
+                    url.searchParams.set('branch', BRANCH);
                 }
                 Object.entries(parameters).forEach(([key, value]) =>
                     url.searchParams.set(key, value)
