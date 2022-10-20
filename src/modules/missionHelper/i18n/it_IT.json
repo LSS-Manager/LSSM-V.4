@@ -7,13 +7,14 @@
         "ambulance": "Missioni delle Ambulanze",
         "fire": "Missioni Antincendio",
         "fire_support_specialization": "Missioni Antincendio Chimiche e Industriali",
-        "forestry_specialization": "Missioni Antincendio Boschivo",
+        "forestry": "Missioni Antincendio Boschivo",
+        "forestry_specialization": "Missioni Antincendio Boschivo (Specializzazione)",
         "game_warden_specialization": "Missioni della Forestale",
         "police": "Missioni della Polizia",
         "title": "Generazione di categorie",
         "traffic_police_specialization": "Missioni della Polizia Stradale",
         "water_rescue": "Missioni di Soccorso Acquatico",
-        "water_rescue_specialization": "Missioni di Soccorso Acquatico"
+        "water_rescue_specialization": "Missioni di Soccorso Acquatico (Specializzazione)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Può essere usata una MSB invece di una MSA.",

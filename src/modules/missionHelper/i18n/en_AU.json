@@ -6,7 +6,8 @@
     "mission_categories": {
         "ambulance": "Ambulance Mission",
         "fire": "Fire Fighting Missions",
-        "forestry_specialization": "Bushfire Missions",
+        "forestry": "Wildfire Missions",
+        "forestry_specialization": "Bushfire Missions (Specialization)",
         "police": "Police Mission",
         "riot_police_specialization": "Riot Police Missions",
         "title": "Generating Categories",
