@@ -59,7 +59,7 @@ entry.plugins?.unshift(
         VERSION: JSON.stringify(version),
         BRANCH: JSON.stringify(branch),
         SERVER: JSON.stringify(config.server),
-        MODE: mode === 'production' ? '"stable"' : '"beta"',
+        MODE: JSON.stringify(mode === 'production' ? 'stable' : 'beta'),
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(
                 modules.map(module => [
