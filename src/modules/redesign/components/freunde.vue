@@ -181,7 +181,7 @@ export default Vue.extend<
                 })
                 .then(() => {
                     this.notes_editing.splice(
-                        this.notes_editing.findIndex(f => f === friend_id),
+                        this.notes_editing.indexOf(friend_id),
                         1
                     );
                     this.$set(

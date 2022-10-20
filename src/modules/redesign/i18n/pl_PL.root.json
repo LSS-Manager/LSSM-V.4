@@ -1,6 +1,6 @@
 {
     "copy_url": "Skopiuj link do schowka: {url}",
-    "description": "Redesign – obecnie w fazie alfa i w fazie rozwoju.",
+    "description": "Redesign – zmienia nieco ogólny wygląd gry.",
     "name": "Przeprojektowanie",
     "settings": {
         "category": {
@@ -13,8 +13,8 @@
                 "title": "Kredyty i monety"
             },
             "einsaetze": {
-                "description": "Przeprojektowanie listy możliwych misji i strony \"Wymagania dla tej misji\".",
-                "title": "Possible missions"
+                "description": "Przeprojektowanie listy możliwych misji i strony \"Potencjalne misje\".",
+                "title": "Potencjalne misje"
             },
             "messages": {
                 "description": "Przeprojektowanie prywatnych wiadomości i wiadomości systemowych.",

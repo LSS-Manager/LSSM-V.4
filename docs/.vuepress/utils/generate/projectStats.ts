@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 
+import { createActionAuth } from '@octokit/auth-action';
 import { Octokit } from 'octokit';
 import Showdown from 'showdown';
 
@@ -151,7 +152,9 @@ ${Object.entries(absoluteClocStats)
 fs.writeFileSync(clocStatsPath, fullClocResult);
 
 (async () => {
-    const octokit = new Octokit();
+    const octokit = new Octokit({
+        authStrategy: process.env.GITHUB_ACTION ? createActionAuth : undefined,
+    });
 
     const firstCommit = (
         await octokit.rest.repos.listCommits({

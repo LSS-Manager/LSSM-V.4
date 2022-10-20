@@ -23,7 +23,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             : 'building';
 
         const path = window.location.pathname.split('/').filter(s => !!s);
-        const buildingId = parseInt(path[path.length - 1]);
+        const buildingId = parseInt(path.at(-1) ?? '-1');
         await LSSM.$stores.api.getBuilding(buildingId, `${MODULE_ID}-main`);
 
         if (
@@ -85,6 +85,16 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             ).then(({ default: buildingsLeftRight }) =>
                 buildingsLeftRight(LSSM)
             );
+        }
+
+        if (BUILDING_MODE === 'dispatch') {
+            if (await getSetting('dispatchCenterBuildingFilter')) {
+                import(
+                    /* webpackChunkName: "modules/extendedBuilding/dispatchCenterBuildingFilter" */ './assets/dispatchCenterBuildingFilter'
+                ).then(({ default: dispatchCenterBuildingFilter }) =>
+                    dispatchCenterBuildingFilter(LSSM, MODULE_ID)
+                );
+            }
         }
 
         if (

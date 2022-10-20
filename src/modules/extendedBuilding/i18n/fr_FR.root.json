@@ -6,6 +6,10 @@
             "description": "Montre le nombre de bâtiments du même type restant à droite ou à gauche.",
             "title": "Nombre de bâtiments du même type"
         },
+        "dispatchCenterBuildingFilter": {
+            "description": "Ajoute des filtres à la liste des bâtiments pour le centre de Traitement des Appels",
+            "title": "Filtre la liste de bâtiments paar le centre de Traitement des Appels"
+        },
         "enhanceVehicleList": {
             "description": "Améliore le liste des véhicules. Certaines options sont réglables.",
             "title": "Améliore la liste des véhicules"

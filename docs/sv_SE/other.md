@@ -9,8 +9,7 @@ sidebarDepth: 2
 på den här sidan vill vi ge dig övrig information om LSSM.
 
 ## Licens
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 LSS-Manager är licensierad under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,19 +19,23 @@ Vi bestämde oss för att använda denna licens för att undvika att vår kod mi
 För närvarande består LSS-Manager av 4 utvecklare och ytterligare 6 supportrar för våra <discord/>. Våra utvecklare är naturligtvis också administrativt aktiva på Discord!
 
 ### Utvecklarna
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Discord-teamet
 **Administration**:
+
 * lost
+* Aisaka
 
 **Moderation**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs

@@ -35,6 +35,40 @@
             },
             "title": "General"
         },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
+            "dispatch": {
+                "buildings": "buildings tab",
+                "extensions": "extensions tab",
+                "next": "next tab",
+                "openFirstPlannedMission": "Open first planned mission",
+                "patrol": "patrol tab",
+                "patrol_vehicles": "patrol vehicles tab",
+                "plannedMission": "planned mission tab",
+                "previous": "next tab",
+                "protocol": "protocol tab",
+                "schooling": "schooling tab",
+                "settings": "settings tab",
+                "stats": "stats tab",
+                "vehicle": "vehicle tab"
+            },
+            "goto": {
+                "dispatchCenter": "dispatch center",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Next Building",
+                "personal": "personal overview",
+                "previousBuilding": "Previous building",
+                "title": "go to"
+            },
+            "title": "Building"
+        },
         "main": {
             "chat": { "focus": "focus input field", "title": "Chat" },
             "lssm": {

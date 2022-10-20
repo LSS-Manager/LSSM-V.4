@@ -4,12 +4,19 @@ import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
+const rootCommandScopes: ['*', 'main', 'mission', 'building'] = [
+    '*',
+    'main',
+    'mission',
+    'building',
+];
 
 export default (async ({ LSSM, $m, getSetting }) => {
     const isMainWindow = window.location.pathname.length <= 1;
     const isMissionWindow =
         !!window.location.pathname.match(/^\/missions\/\d+\/?/u);
+    const isBuildingWindow =
+        !!window.location.pathname.match(/^\/buildings\/\d+\/?/u);
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (
@@ -36,6 +43,18 @@ export default (async ({ LSSM, $m, getSetting }) => {
                       ...(
                           await import(
                               /* webpackChunkName: "modules/hotkeys/commands/mission" */ './assets/commands/mission'
+                          )
+                      ).default,
+                  },
+              }
+            : {}),
+        ...(isBuildingWindow
+            ? {
+                  building: {
+                      validatorFunction: () => isBuildingWindow,
+                      ...(
+                          await import(
+                              /* webpackChunkName: "modules/hotkeys/commands/building" */ './assets/commands/building'
                           )
                       ).default,
                   },
@@ -76,7 +95,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
         ]);
     }
 
-    hotkeys.forEach(({ command, hotkey }) => {
+    hotkeyLoop: for (const { command, hotkey } of hotkeys) {
         let base: Scope<Empty, [], [], true> = commands;
         let callback: CallbackFunction | null = null;
         const path = command.split('.');
@@ -92,12 +111,13 @@ export default (async ({ LSSM, $m, getSetting }) => {
                     rootCommandScopes.includes(scope) &&
                     !walkedPath.length
                 )
-                    return;
-                return LSSM.$stores.console.error(
+                    continue hotkeyLoop;
+                LSSM.$stores.console.error(
                     `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
                         '.'
                     )}! Cannot add command ${command} with hotkey »${hotkey}«`
                 );
+                continue hotkeyLoop;
             }
             walkedPath.push(scope);
             const result = base[scope as keyof typeof base] as
@@ -106,7 +126,10 @@ export default (async ({ LSSM, $m, getSetting }) => {
             if (typeof result === 'function') {
                 callback = result as CallbackFunction;
             } else {
-                if (!result.validatorFunction.bind(validationResult)()) return;
+                const validatorFn =
+                    result.validatorFunction.bind(validationResult);
+                const validatorResult = await validatorFn();
+                if (!validatorResult) continue hotkeyLoop;
                 base = result;
             }
         }
@@ -118,9 +141,9 @@ export default (async ({ LSSM, $m, getSetting }) => {
                 )
             );
         } else {
-            return LSSM.$stores.console.error(
+            LSSM.$stores.console.error(
                 `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
             );
         }
-    });
+    }
 }) as ModuleMainFunction;

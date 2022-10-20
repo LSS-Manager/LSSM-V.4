@@ -10,10 +10,12 @@ export default (LSSM: Vue): void => {
         },
     });
     const getLastVehicleTime = () => {
-        const vehicles = document.querySelectorAll(
-            '#vehicle_list_step .vehicle_checkbox:checked'
+        const vehicles = Array.from(
+            document.querySelectorAll(
+                '#vehicle_list_step .vehicle_checkbox:checked'
+            )
         );
-        const lastVehicle = vehicles[vehicles.length - 1];
+        const lastVehicle = vehicles.at(-1);
         const vehicleId = lastVehicle?.getAttribute('value');
         const alarmTime =
             document.querySelector<HTMLTableCellElement>(

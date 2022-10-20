@@ -46,7 +46,7 @@ Om du ännu inte har installerat Tampermonkey i din webbläsare måste du fortfa
 För andra webbläsare kan du ladda ner Tampermonkey på [tampermonkey.net](https://www.tampermonkey.net/).
 
 ::: warning
-Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare och Microsoft Edge eller Internet Explorer. Stöd för dessa webbläsare är därför varken garanterat eller troligt.
+Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare och Apple Safari. Stöd för dessa webbläsare är därför varken garanterat eller troligt.
 :::
 
 ### Steg 2: Användarskript

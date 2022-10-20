@@ -17,8 +17,6 @@ import webpackConfig from '../webpack.config';
 
 console.time(`build`);
 
-console.info(`Let's build that stuff in Version ${version}`);
-
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
 const locales = Object.keys(config.games).filter(game =>
@@ -26,6 +24,9 @@ const locales = Object.keys(config.games).filter(game =>
 );
 
 const mode = process.argv[3] || 'development';
+const branch = process.argv[4] || 'dummy';
+
+console.info(`Let's build that stuff! version: ${version}; branch: ${branch};`);
 
 const entry = {
     mode,
@@ -56,6 +57,7 @@ entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
+        BRANCH: JSON.stringify(branch),
         SERVER: JSON.stringify(config.server),
         MODE: mode === 'production' ? '"stable"' : '"beta"',
         MODULE_REGISTER_FILES: JSON.stringify(
@@ -92,6 +94,9 @@ entry.plugins?.push(
         uid: {
             value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
             isDynamicKey: true, // false by default
+        },
+        branch: {
+            value: branch,
         },
     }),
     new LoadingProgressPlugin()

@@ -1,11 +1,18 @@
-name: Build Project
+name: '[👷] Build Project'
+run-name: '[👷] Build Project on `${{ inputs.ref }}`'
 
 on:
     workflow_call:
+        inputs:
+            ref:
+                description: 'The ref to build on'
+                required: false
+                type: string
+                default: github.ref
         outputs:
-            type:
-                description: 'Type of build'
-                value: ${{ jobs.build.outputs.type }}
+            branch:
+                description: 'The branch to build on and deploy to'
+                value: ${{ jobs.build.outputs.branch }}
             version:
                 description: 'Version of build'
                 value: ${{ jobs.build.outputs.version }}
@@ -13,16 +20,25 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        name: '[👷] Build'
         outputs:
-            mode: ${{ steps.output.outputs.mode }}
-            type: ${{ steps.output.outputs.type }}
+            branch: ${{ steps.output.outputs.branch }}
             version: ${{ steps.output.outputs.version }}
         steps:
+            # - name: Generate Token
+            #   id: generate_token
+            #   uses: tibdex/github-app-token@v1
+            #   with:
+            #       app_id: ${{ secrets.APP_ID }}
+            #       private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
             - name: Checkout
               id: checkout
               uses: actions/checkout@v3
               with:
                   ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+                  ref: ${{ inputs.ref }}
+            #     token: ${{ steps.generate_token.outputs.token }}
 
             - name: Setup Node.js
               id: node
@@ -43,7 +59,7 @@ jobs:
 
             - name: Get yarn cache directory path
               id: yarn_cache_dir
-              run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+              run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
             - name: Restore Cache
               uses: actions/cache@v3
@@ -65,11 +81,31 @@ jobs:
               id: browserslist
               run: npx -y browserslist@latest --update-db
 
-            - name: '[🌳] set env variables (e.g. beta/stable for webpack & target dir)'
+            - name: '[🌳] set env variables'
               id: env
               run: |
-                  echo "MODE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
-                  echo "TYPE=$(if ${{ github.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
+                  echo "MODE=$(if ${{ inputs.ref == 'refs/heads/master' }}; then echo "production"; else echo "development"; fi)" >> $GITHUB_ENV
+                  echo "TYPE=$(if ${{ inputs.ref == 'refs/heads/master' }}; then echo "stable"; else echo "beta"; fi)" >> $GITHUB_ENV
+
+                  # ===BEGIN $BRANCH===
+                  ref="${{ inputs.ref }}"
+                  BRANCH="dummy"
+
+                  if [[ $ref == "refs/heads/master" ]]; then
+                    BRANCH="stable"
+                  elif [[ $ref == "refs/heads/dev" ]]; then
+                    BRANCH="beta";
+                  elif [[ $ref == "refs/heads/"* ]]; then
+                    BRANCH="${ref/"refs/heads/"/}";
+                    BRANCH="${BRANCH/"/"/"-"}"
+                  elif [[ $ref == "refs/pull/"* ]]; then
+                    BRANCH="${ref/"refs/pull/"/"pr"}";
+                    BRANCH="${BRANCH/"/merge"/}";
+                    BRANCH="${BRANCH//"/"/"-"}"
+                  fi
+                  # ===END $BRANCH===
+                    
+                  echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
             - name: '[⬆] update emojis'
               id: update_emojis
@@ -91,7 +127,6 @@ jobs:
                   ./scripts/        \
                   ./typings/        \
                   --ext .js,.ts,.vue,.md \
-                  -f table \
                   --no-error-on-unmatched-pattern \
                   --exit-on-fatal-error \
                   --report-unused-disable-directives \
@@ -113,11 +148,11 @@ jobs:
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: ./node_modules/.bin/ts-node prebuild/index.ts || exit 1
+              run: ./node_modules/.bin/ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" || exit 1
+              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
 
             - name: '[📝] build docs'
               id: docs
@@ -126,6 +161,8 @@ jobs:
                   mkdir -p ./dist/docs
                   rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
+              env:
+                  GITHUB_TOKEN: ${{ github.token }}
 
             - name: '[ℹ️] git diff'
               id: git_diff
@@ -134,10 +171,10 @@ jobs:
             - name: '[💬] set output'
               id: output
               run: |
-                  echo "::set-output name=mode::${{ env.MODE }}"
-                  echo "::set-output name=type::${{ env.TYPE }}"
-                  echo "VERSION=$(grep '"version":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')" >> $GITHUB_ENV
-                  echo "::set-output name=version::$VERSION"
+                  echo "branch=${{ env.BRANCH }}" >> $GITHUB_OUTPUT
+                  VERSION=$(grep '"version":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
+                  echo "VERSION=$VERSION" >> $GITHUB_ENV
+                  echo "version=$VERSION" >> $GITHUB_OUTPUT
                   echo "CHANGED_FILES=$(git status -s | wc -l)" >> $GITHUB_ENV
 
             - name: '[📦] zip files'
@@ -158,7 +195,7 @@ jobs:
 
             - name: Prepare Git Push (add ssh-key etc.)
               id: git_prepare
-              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               run: |
@@ -171,7 +208,7 @@ jobs:
 
             - name: Push to Git
               id: git_push
-              if: ${{ success() && (github.ref == 'refs/heads/master' || (github.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -180,3 +217,4 @@ jobs:
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ env.VERSION }} [skip ci]'
+                  push_options: '--force'

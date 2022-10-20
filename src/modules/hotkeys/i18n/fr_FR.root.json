@@ -35,6 +35,41 @@
             },
             "title": "Général"
         },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
+            "dispatch": {
+                "buildings": "Onglet \"Bâtiments\"",
+                "extensions": "Onglet \"Extensions\"",
+                "next": "Onglet suivant",
+                "openFirstPlannedMission": "Ouverture de la première mission",
+                "patrol": "Onglet \"Trajet de patrouille\"",
+                "patrol_vehicles": "Onglet \"Véhicules de patrouille\"",
+                "plannedMission": "Onglet \"Évenements programmés\"",
+                "previous": "Onglet précédent",
+                "protocol": "Onglet \"Journal\"",
+                "schooling": "Onglet \"Formations\"",
+                "settings": "Onglet \"Paramètres\"",
+                "stats": "Onglet \"Statistiques\"",
+                "title": "Centre de Traitement des Appels",
+                "vehicle": "Onglet \"Véhicules\""
+            },
+            "goto": {
+                "dispatchCenter": "Centre de Traitement des Appels",
+                "expand": "élargir",
+                "firstVehicle": "ouvrir le premier véhicule",
+                "hire": "Recutez de nouveaux personnels",
+                "nextBuilding": "Bâtiment suivant",
+                "personal": "Vue d'ensemble du personnel",
+                "previousBuilding": "Bâtiment précedent",
+                "title": "aller à"
+            },
+            "title": "Bâtiments"
+        },
         "main": {
             "chat": {
                 "focus": "Focus sur le champ de saisie",

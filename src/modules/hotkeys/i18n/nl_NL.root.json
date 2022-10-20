@@ -35,6 +35,41 @@
             },
             "title": "Algemeen"
         },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Niet met team delen",
+                "enableSharing": "Met team delen",
+                "title": "Wijzig delen gebouw",
+                "toggleSharing": "Wijzig delen van cellen/bedden"
+            },
+            "dispatch": {
+                "buildings": "gebouwen tab",
+                "extensions": "uitbreidingen tab",
+                "next": "volgende tab",
+                "openFirstPlannedMission": "Open eerste geplande melding",
+                "patrol": "patrouille tab",
+                "patrol_vehicles": "patrouille voertuigen tab",
+                "plannedMission": "geplande meldingen tab",
+                "previous": "vorige tab",
+                "protocol": "afrondingsgeschiedenis tab",
+                "schooling": "opleidingen tab",
+                "settings": "instellingen tab",
+                "stats": "statistieken tab",
+                "title": "Meldkamer",
+                "vehicle": "voertuigen tab"
+            },
+            "goto": {
+                "dispatchCenter": "meldkamer",
+                "expand": "uitbreiden",
+                "firstVehicle": "open eerste voertuig",
+                "hire": "neem nieuwe personeel aan",
+                "nextBuilding": "volgend gebouw",
+                "personal": "personeelsoverzicht",
+                "previousBuilding": "vorig gebouw",
+                "title": "ga naar"
+            },
+            "title": "Gebouw"
+        },
         "main": {
             "chat": { "focus": "focus invoerveld", "title": "Chat" },
             "lssm": {

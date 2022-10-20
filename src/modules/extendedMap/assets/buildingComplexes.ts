@@ -346,9 +346,7 @@ export default async (
                         }
 
                         const allAttachedBuildingsIndex =
-                            allAttachedBuildings.findIndex(
-                                building => building === id
-                            );
+                            allAttachedBuildings.indexOf(id);
                         if (allAttachedBuildingsIndex >= 0) {
                             allAttachedBuildings.splice(
                                 allAttachedBuildingsIndex,

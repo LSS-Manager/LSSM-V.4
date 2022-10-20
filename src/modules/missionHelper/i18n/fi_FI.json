@@ -3,6 +3,14 @@
     "expansions": "Laajennettava tehtävä | Laajennettavat tehtävät",
     "followups": "Jatkotehtävä | Jatkotehtävät",
     "generated_by": "Luonut",
+    "mission_categories": {
+        "ambulance": "Ensihoitotehtävät",
+        "fire": "Palo- ja pelastustehtävät",
+        "fire_support_specialization": "Kemialliset onnettomuudet ja teollisuuspalot",
+        "police": "Poliisitehtävät",
+        "title": "Kategorioiden luominen",
+        "traffic_police_specialization": "Liikenneryhmätehtävät (Erikoistuminen)"
+    },
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
         "helicopter": "Helikopteripyynnön mahdollisuus",
@@ -21,11 +29,11 @@
         "title": "Vangit | {n} Vanki | {n} Vankia"
     },
     "tip": {
-        "dragging": "liikuta ikkunaa",
-        "maxState": "enimmäisvaatimukset päälle/pois",
-        "minified": "sulkea",
-        "overlay": "kelluva",
-        "reload": "lataa uudelleen"
+        "dragging": "Liikuta ikkunaa",
+        "maxState": "Enimmäisvaatimukset päälle/pois",
+        "minified": "Sulje",
+        "overlay": "Kelluva",
+        "reload": "Lataa uudelleen"
     },
     "vehicles": {
         "captions": {
@@ -44,7 +52,7 @@
             "platform_trucks": "nostolava-auto | nostolava-autot",
             "police_cars": "partioauto | partioautot",
             "police_helicopters": "poliisihelikopteri | poliisihelikopterit",
-            "pump": "säiliöauto | säiliöautot",
+            "pump": "suurtehopumppu | Suurtehopumppua",
             "traffic_car": "VATV-yksikkö | VATV-yksiköt",
             "water_tankers": "säiliöauto | säiliöautot"
         },

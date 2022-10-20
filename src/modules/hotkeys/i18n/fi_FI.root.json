@@ -28,12 +28,47 @@
                 "open": "Avaa oman profiilin",
                 "title": "Profiili"
             },
-            "protocol": "Open Log in Dispatch Center",
+            "protocol": "Avaa loki hätäkeskuksessa",
             "tasks": {
                 "open": "Avaa Urakat ja tapahtumat",
                 "title": "Urakat ja tapahtumat"
             },
             "title": "Yleinen"
+        },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Poista jakaminen käytöstä",
+                "enableSharing": "Ota jakaminen käyttöön",
+                "title": "Rakennuksen jakaminen päälle/pois",
+                "toggleSharing": "Jakaminen päälle/pois"
+            },
+            "dispatch": {
+                "buildings": "Rakennukset",
+                "extensions": "Laajennukset",
+                "next": "Seuraava välilehti",
+                "openFirstPlannedMission": "Avaa ensimmäinen suunniteltu tapahtuma",
+                "patrol": "Partioreitit",
+                "patrol_vehicles": "Partioautot",
+                "plannedMission": "Suunnitellut tapahtumat",
+                "previous": "Edellinen välilehti",
+                "protocol": "Loki",
+                "schooling": "Koulutuskurssit",
+                "settings": "Asetukset",
+                "stats": "Tilastot",
+                "title": "Hätäkeskus",
+                "vehicle": "Ajonneuvot"
+            },
+            "goto": {
+                "dispatchCenter": "hätäkeskus",
+                "expand": "laajenee",
+                "firstVehicle": "avaa ensimmäinen ajoneuvo",
+                "hire": "Rekrytoi uutta henkilöstöä",
+                "nextBuilding": "Seuraava rakennus",
+                "personal": "Henkilöstö",
+                "previousBuilding": "Edellinen rakennus",
+                "title": "Mene"
+            },
+            "title": "Rakennus"
         },
         "main": {
             "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },

@@ -653,6 +653,7 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
         'Turvetuotantoalue',
         'Pelastusharjoitusalue',
         'Juhlatila',
+        'Moottoritien levähdyspaikka',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

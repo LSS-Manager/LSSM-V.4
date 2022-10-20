@@ -81,14 +81,10 @@ export default (
 
     const store = async () => {
         const missions = await getSetting<string[]>('starredMissions', []);
-        if (btn.classList.contains('btn-warning')) {
-            missions.splice(
-                missions.findIndex(mission => mission === missionId),
-                1
-            );
-        } else {
-            missions.push(missionId);
-        }
+        if (btn.classList.contains('btn-warning'))
+            missions.splice(missions.indexOf(missionId), 1);
+        else missions.push(missionId);
+
         await setSetting('starredMissions', missions);
     };
 

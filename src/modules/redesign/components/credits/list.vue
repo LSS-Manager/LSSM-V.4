@@ -228,9 +228,7 @@ export default Vue.extend<
                 startPage: this.startPage,
                 endPage: this.endPage,
                 firstDate: this.credits.entries[0]?.date ?? '',
-                lastDate:
-                    this.credits.entries[this.credits.entries.length - 1]
-                        ?.date ?? '',
+                lastDate: this.credits.entries.at(-1)?.date ?? '',
                 totalPages: this.credits.lastPage.toLocaleString(),
             }).toString();
         },

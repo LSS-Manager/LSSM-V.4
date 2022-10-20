@@ -1,19 +1,30 @@
 {
-    "diyMission": "Ta misja wydaje się być misją sojuszniczą na dużą skalę!",
-    "expansions": "Rozwinięcia | Spready",
-    "followups": "Misja kontynuacyjna | Misje uzupełniające",
+    "diyMission": "Jest to misja sojuszu na dużą skalę!",
+    "expansions": "Rozbudowa | Rozbudowy",
+    "followups": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
     "generated_by": "Wygenerowane przez",
+    "mission_categories": {
+        "ambulance": "Misje ratownictwa medycznego",
+        "fire": "Misje straży pożarnej",
+        "fire_support_specialization": "Specjalizacja",
+        "police": "Misje policyjne",
+        "riot_police_specialization": "Misje Oddziału Prewencji Policji",
+        "title": "Generowane kategorie",
+        "traffic_police_specialization": "Misje Wydziału Ruchu Drogowego",
+        "water_rescue": "Misje WOPR",
+        "water_rescue_specialization": "Misje WOPR"
+    },
     "patients": {
-        "critical_care": "opieka specjalistyczna Szansa",
-        "helicopter": "Prawdopodobieństwo skorzystania z HEMS",
-        "patient_allow_first_responder_chance": "Prawdopodobieństwo *First Responder*",
-        "patient_at_end_of_mission": "Pacjent pojawia się dopiero pod koniec misji!",
+        "critical_care": "Szansa, że potrzebny będzie lekarz",
+        "helicopter": "Szansa, że potrzebny będzie śmigłowiec LPR",
+        "patient_allow_first_responder_chance": "Pierwsi przybyli ratownicy mogą w pełni zaopiekować się pacjentami.",
+        "patient_at_end_of_mission": "Pacjentci pojawia się dopiero pod koniec misji!",
         "patient_transport": "Prawdopodobieństwo transportu",
-        "possible_patient": "Maximum pacjentów",
-        "possible_patient_exact": "exact {n} pacjent | exact {n} pacjentów",
+        "possible_patient": "Maksimum pacjentów",
+        "possible_patient_exact": "Dokładnie {n} pacjent | Dokładnie {n} pacjentów",
         "possible_patient_min": "Minimum pacjentów",
-        "specializations": "Specializacja",
-        "title": "Pacjenci | {n} Pacjent | {n} Pacjentów"
+        "specializations": "Departament:",
+        "title": "{n} Pacjent | {n} Pacjentów"
     },
     "prerequisites": {
         "fire_stations": "Remiza | Remizy",
@@ -31,10 +42,10 @@
     },
     "prisoners": {
         "max_possible_prisoners": "Maksymalna liczba więźniów",
-        "title": "Więzień | {n} Więzień | {n} Więzień"
+        "title": "{n} Więzień | {n} Więźniów"
     },
     "requirements": {
-        "foam_needed": "piana gaśnicza",
+        "foam_needed": "Piana gaśnicza",
         "water_needed": "Potrzebna woda (L)"
     },
     "tip": {
@@ -46,49 +57,56 @@
     },
     "vehicles": {
         "captions": {
-            "ambulances": "Ambulans | Ambulans",
-            "battalion_chief_vehicles": "SLOP/SLRr | SLOP/SLRr",
-            "firetrucks": "Wóz strażacki | Wozy strażackie",
-            "flood_equipment": "sprzęt przeciwpowodziowy",
-            "foam": "samochody ze zbiornikiem na piane",
-            "fwk": "Dźwig SP",
-            "hazmat_vehicles": "Rchem | Rchem",
-            "heavy_rescue_vehicles": "Wóz ratownictwa technicznego | Wozy ratownictwa technicznego",
-            "height_rescue_units": "Ratownictwo Wyskościowe",
-            "helicopter": "HEMS",
-            "hose": "samochody wężowe",
-            "k9": "K-9 | K-9",
-            "kdow_orgl": "SLOP/SLRr | SLOP/SLRr",
-            "mobile_air_vehicles": "Jednostka AODO | Jednostki AODO",
-            "mobile_command_vehicles": "Jednostka SDł | Jednostki SDł",
-            "platform_trucks": "SD/SH | SD/SH",
-            "police_cars": "Radiowóz | Radiowozy",
+            "ambulances": "Ambulans | Ambulanse",
+            "battalion_chief_vehicles": "SLOP/SLRr",
+            "boats": "Łódz | Łodzie",
+            "diver_units": "SLRw",
+            "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
+            "flood_equipment": "Sprzęt przeciwpowodziowy | Sprzęty przeciwpowodziowe",
+            "foam": "Samochód ze zbiornikiem na pianę | Samochody ze zbiornikiem na pianę",
+            "foam_needed": "Piana gaśnicza",
+            "fwk": "SCDź",
+            "hazmat_vehicles": "SRChem",
+            "heavy_rescue_vehicles": "Samochód ratownictwa technicznego | Samochody ratownictwa technicznego",
+            "height_rescue_units": "SRWys",
+            "helicopter": "LPR",
+            "hose": "SW",
+            "k9": "K-9",
+            "kdow_orgl": "SLOp/SLRr",
+            "mobile_air_vehicles": "SPGaz",
+            "mobile_command_vehicles": "SDł",
+            "platform_trucks": "SD/SH",
+            "police_cars": "OPI",
             "police_helicopters": "Helikopter policyjny | Helikoptery policyjne",
-            "police_service_group_leader": "Ruchome Stanowisko Dowodzenia",
-            "riot_police_ambulance": "ambulanse OPP",
-            "riot_police_equipment": "specjalistyczny sprzęt OPP (Pickup)",
+            "police_service_group_leader": "RSD",
+            "riot_police_ambulance": "Ambulans OPP | Ambulanse OPP",
+            "riot_police_equipment": "Specjalistyczny sprzęt OPP (Pickup) | Specjalistyczne sprzęty OPP (Pickup)",
             "road_rescue": "APRD",
-            "swat_suv": "SPKP | SPKP",
-            "traffic_car": "WRD | WRD",
-            "wasserwerfer": "armatki wodne",
-            "water_tankers": "Cysterna | Cysterny"
+            "swat_suv": "SPKP",
+            "traffic_car": "WRD",
+            "wasserwerfer": "Armatka wodna | Armatki wodne",
+            "water_needed": "Woda",
+            "water_rescue": "Samochód WOPR | Samochody WOPR",
+            "water_tankers": "SCCn"
         },
         "multifunctionals": {
-            "battalion_chief_vehicles": {
-                "additional_text": "",
-                "reduce_from": "SDł"
-            },
             "heavy_rescue_vehicles": {
                 "additional_text": "przynajmniej z tego {n} samochody gaśnicze",
                 "reduce_from": "wozy strażackie"
             }
         },
         "optional_alternatives": {
-            "allow_arff_instead_of_lf": {
-                "firetrucks": "Lotniskowy wóz strażacki | Lotniskowe wozy strażackie"
+            "allow_dlk_instead_of_lf": {
+                "firetrucks": "Samochód pożarniczy lub SD/SH | Samochody pożarnicze lub SD/SH"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "ambulances": "Ambulans | Ambulanse"
             },
             "allow_rw_instead_of_lf": {
-                "firetrucks": "Wóz strażacki | Wozy strażackie"
+                "firetrucks": "Samochód pożarniczy lub ratownictwa technicznego | Samochody pożarnicze lub ratownictwa technicznego"
+            },
+            "allow_traffic_car_instead_of_fustw": {
+                "traffic_car": "WRD lub OPI"
             }
         },
         "title": "Pojazdy"

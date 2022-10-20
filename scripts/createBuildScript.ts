@@ -11,10 +11,16 @@ interface Workflow {
     };
 }
 
-const excludedSteps = ['yarn_cache_dir', 'env', 'git_prepare', 'output'];
+const excludedSteps = [
+    'yarn_cache_dir',
+    'generate_token',
+    'output',
+    'git_prepare',
+    'git_push',
+];
 const shortcuts = {
     dependencies: ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
-    quick: ['json_yaml_format', 'eslint', 'tsc', 'webpack'],
+    quick: ['env', 'json_yaml_format', 'eslint', 'tsc', 'webpack'],
     full: [],
 };
 
@@ -69,10 +75,20 @@ done`,
     start_time=$(date +%s%N)
     echo "### ${step.name} ###"
     ${
-        step.run
+        (step.id === 'env'
+            ? step.run?.match(
+                  /(?<=# ===BEGIN \$BRANCH===).*?(?=# ===END \$BRANCH===)/su
+              )?.[0]
+            : step.run
+        )
             ?.trim()
             .replace(/\n/gu, '\n    ')
-            .replace(/\$\{\{ env\.MODE \}\}/u, '$MODE') ?? ''
+            .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
+            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
+            .replace(
+                /\$\{\{ (github|inputs)\.ref \}\}/gu,
+                '$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)'
+            ) ?? ''
     }
     end_time=$(date +%s%N)
     echo "=== ${step.name}: $(((end_time - start_time) / 1000000))ms ==="
