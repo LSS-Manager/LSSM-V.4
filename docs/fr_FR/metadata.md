@@ -20,7 +20,7 @@ En utilisant le `LSSM` (Leitstellenspiel Manager, extension pour le navigateur),
     * Y compris si vous utilisez la version police ou pas
 * Le type de carte actif (OSM ou Mapkit)
 * La version LSSM
-* LSSM branch (`stable`, `beta` or a preview-branch)
+* Branche LSSM (`stable`, `beta` ou un branche de preview)
 * La version de l'userscript de LSSM installé
 
 Ces données sont utilisées pour améliorer l'extension ainsi que pour guider le développement de modules existants ou futurs.

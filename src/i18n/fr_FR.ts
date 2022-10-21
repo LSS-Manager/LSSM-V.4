@@ -122,8 +122,8 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
         branch: {
             description:
-                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
-            title: 'Choose version',
+                'Choisissez ici entre la version stable, la version bêta ou une version preview. Notez que les versions preview sont automatiquement supprimées environ 7 jours après leur dernière mise à jour.',
+            title: 'Choisir sa version',
         },
         iconBg: {
             description: "Changez la couleur de fond de l'icône LSSM !",
