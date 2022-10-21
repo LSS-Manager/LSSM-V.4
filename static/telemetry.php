@@ -48,7 +48,7 @@ if ($USER == null) {
     if (!($update = $MYSQLI->prepare('UPDATE `v4_user` SET `name`=?, `version`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP(), `police`=?, `userscript_version`=?, `branch`=? WHERE `id`=?'))) {
         die(json_encode(['Preparing Statement failed!']));
     }
-    $update->bind_param('sssisss', $data['name'], $data['version'], $data['data'], $data['police'], $userscript_version, $branch $USER_KEY);
+    $update->bind_param('sssisss', $data['name'], $data['version'], $data['data'], $data['police'], $userscript_version, $branch, $USER_KEY);
     if (!$update->execute()) {
         // die(json_encode($MYSQLI->error));
 	    die(json_encode(['Execute failed!']));
