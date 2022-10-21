@@ -43,28 +43,6 @@ if ($USER == null) {
     }
     $insert->close();
 
-//    $data['data'] = json_decode($data['data']);
-//    $webhook_body = json_encode([
-//        'embeds' => [
-//            [
-//                'author' => [
-//                    'name' => 'LSS-Manager V.4',
-//                ],
-//                'title' => '**New Telemetry Entry** '.$data['flag'],
-//                'color' => 13185068,
-//                'description' => '**[*'.$data['uid'].'*]**: '.$data['name']."\n".
-//                    '**Version**: '.$data['version']."\n".
-//                    '**Broswer**: '.$data['data']->browser."\n".
-//                    '**Buildings**: '.$data['data']->buildings."\n".
-//                    "**Modules**: ```md\n* ".join("\n* ", $data['data']->modules).'```',
-//                'timestamp' => date(DATE_ATOM)
-//            ]
-//        ]
-//    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-//    require './utils/webhook.php';
-//    $webhook_response = webhook($webhook_body, $configs->discord_webhook_url);
-//
-//    $result['success'] = $webhook_response == '';
     $result['success'] = true;
 } else {
     if (!($update = $MYSQLI->prepare('UPDATE `v4_user` SET `name`=?, `version`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP(), `police`=?, `userscript_version`=?, `branch`=? WHERE `id`=?'))) {
