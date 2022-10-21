@@ -90,40 +90,35 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
                 ) as HTMLInputElement
             )?.click();
         },
-        other: <Scope<Empty, [], ['moveVehicle', 'toggleFMS']>>{
-            validatorFunction: () => true,
-            moveVehicle() {
-                const vehicleID = parseInt(
-                    window.location.pathname.split('/')[2]
-                );
-                const LSSM = window[PREFIX] as Vue;
-                LSSM.$stores.api
-                    .getVehicle(vehicleID, 'hotkeys-vehicles')
-                    .then(result => {
-                        if (result.fms_real == 2) {
-                            (
-                                document.querySelector(
-                                    'a[href$="/move"]'
-                                ) as HTMLAnchorElement
-                            )?.click();
-                        }
-                    });
-            },
-            toggleFMS() {
-                let currentFms;
-                const vehicleID = parseInt(
-                    window.location.pathname.split('/')[2]
-                );
-                const LSSM = window[PREFIX] as Vue;
-                LSSM.$stores.api
-                    .getVehicle(vehicleID, 'hotkeys-vehicles')
-                    .then(result => {
-                        currentFms = result.fms_real;
-                    });
-                if (currentFms == 2) fetch(`/vehicles/${vehicleID}/set_fms/6`);
-                else if (currentFms == 6)
-                    fetch(`/vehicles/${vehicleID}/set_fms/2`);
-            },
+    },
+    other: <Scope<Empty, [], ['moveVehicle', 'toggleFMS']>>{
+        validatorFunction: () => true,
+        moveVehicle() {
+            const vehicleID = parseInt(window.location.pathname.split('/')[2]);
+            const LSSM = window[PREFIX] as Vue;
+            LSSM.$stores.api
+                .getVehicle(vehicleID, 'hotkeys-vehicles')
+                .then(result => {
+                    if (result.fms_real == 2) {
+                        (
+                            document.querySelector(
+                                'a[href$="/move"]'
+                            ) as HTMLAnchorElement
+                        )?.click();
+                    }
+                });
+        },
+        toggleFMS() {
+            let currentFms;
+            const vehicleID = parseInt(window.location.pathname.split('/')[2]);
+            const LSSM = window[PREFIX] as Vue;
+            LSSM.$stores.api
+                .getVehicle(vehicleID, 'hotkeys-vehicles')
+                .then(result => {
+                    currentFms = result.fms_real;
+                });
+            if (currentFms == 2) fetch(`/vehicles/${vehicleID}/set_fms/6`);
+            else if (currentFms == 6) fetch(`/vehicles/${vehicleID}/set_fms/2`);
         },
     },
 };

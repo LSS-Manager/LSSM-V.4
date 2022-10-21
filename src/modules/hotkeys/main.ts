@@ -65,7 +65,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
             : {}),
         ...(isVehicleWindow
             ? {
-                  building: {
+                  vehicles: {
                       validatorFunction: () => isVehicleWindow,
                       ...(
                           await import(
