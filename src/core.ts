@@ -189,6 +189,7 @@ LSSM-Team`,
                     default: BRANCH,
                     values: [BRANCH],
                     labels: [BRANCH],
+                    disabled: () => true,
                 },
             },
         })
