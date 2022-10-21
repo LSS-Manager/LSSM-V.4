@@ -3,6 +3,18 @@
     "expansions": "Uitbreiding | Uitbreidingen",
     "followups": "Verspreiding | Verspreidingen",
     "generated_by": "Gegenereerd door",
+    "mission_categories": {
+        "airport": "VBB inzetten",
+        "airport_specialization": "VBB inzetten (Specialisatie)",
+        "ambulance": "Ambulance inzetten",
+        "fire": "Brandweer inzetten",
+        "fire_support_specialization": "Chemie en industriële inzetten (Specialisatie)",
+        "police": "Politie inzetten",
+        "riot_police": "Politie, Hoofdbureau inzetten",
+        "water_rescue": "Waterredding inzetten",
+        "water_rescue_2": "Kustwacht inzetten",
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
         "nef": "Kans dat het MMT benodigd is",
@@ -16,7 +28,7 @@
     },
     "prerequisites": {
         "airport": "Vliegtuigbrandbestrijding uitbreidingen",
-        "at": " Arrestatieteam uitbreidingen",
+        "at": "Arrestatieteam uitbreidingen",
         "bereitschaftspolizei": "Hoofdbureau | Hoofdbureaus",
         "detention_unit_count": "Aanhoudingseenheiduitbreiding | Aanhoudingseenheiduitbreidingen",
         "fire_stations": "Brandweerkazerne | Brandweerkazernes",

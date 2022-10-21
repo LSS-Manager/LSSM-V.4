@@ -113,6 +113,11 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
                 'Saako LSS-Manager lähettää tietoja, jotka auttavat meitä kehittämään tätä laajennusta.',
             title: 'Salli telemetria',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Vaihda LSSM-Iconin tausta!',
             title: 'LSSM-Iconin tausta',

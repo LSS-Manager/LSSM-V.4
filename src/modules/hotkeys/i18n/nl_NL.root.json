@@ -37,38 +37,38 @@
         },
         "building": {
             "changeSharing": {
-                "disableSharing": "Disable sharing",
-                "enableSharing": "Enable sharing",
-                "title": "Toggle building sharing",
-                "toggleSharing": "Toggle sharing"
+                "disableSharing": "Niet met team delen",
+                "enableSharing": "Met team delen",
+                "title": "Wijzig delen gebouw",
+                "toggleSharing": "Wijzig delen van cellen/bedden"
             },
             "dispatch": {
-                "buildings": "buildings tab",
-                "extensions": "extensions tab",
-                "next": "next tab",
-                "openFirstPlannedMission": "Open first planned mission",
-                "patrol": "patrol tab",
-                "patrol_vehicles": "patrol vehicles tab",
-                "plannedMission": "planned mission tab",
-                "previous": "next tab",
-                "protocol": "protocol tab",
-                "schooling": "schooling tab",
-                "settings": "settings tab",
-                "stats": "stats tab",
-                "title": "dispatch centre",
-                "vehicle": "vehicle tab"
+                "buildings": "gebouwen tab",
+                "extensions": "uitbreidingen tab",
+                "next": "volgende tab",
+                "openFirstPlannedMission": "Open eerste geplande melding",
+                "patrol": "patrouille tab",
+                "patrol_vehicles": "patrouille voertuigen tab",
+                "plannedMission": "geplande meldingen tab",
+                "previous": "vorige tab",
+                "protocol": "afrondingsgeschiedenis tab",
+                "schooling": "opleidingen tab",
+                "settings": "instellingen tab",
+                "stats": "statistieken tab",
+                "title": "Meldkamer",
+                "vehicle": "voertuigen tab"
             },
             "goto": {
-                "dispatchCenter": "dispatch center",
-                "expand": "expanding",
-                "firstVehicle": "open first vehicle",
-                "hire": "Recute new personal",
-                "nextBuilding": "Next Building",
-                "personal": "personal overview",
-                "previousBuilding": "Previous building",
-                "title": "go to"
+                "dispatchCenter": "meldkamer",
+                "expand": "uitbreiden",
+                "firstVehicle": "open eerste voertuig",
+                "hire": "neem nieuwe personeel aan",
+                "nextBuilding": "volgend gebouw",
+                "personal": "personeelsoverzicht",
+                "previousBuilding": "vorig gebouw",
+                "title": "ga naar"
             },
-            "title": "Building"
+            "title": "Gebouw"
         },
         "main": {
             "chat": { "focus": "focus invoerveld", "title": "Chat" },

@@ -89,6 +89,11 @@ your LSSM team`,
                 'Controla si LSS Manager puede enviar datos, lo que nos ayuda a desarrollar esta extensión.',
             title: 'Permitir Telemetría',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Cambiar el fondo de icono de LSSM',
             title: 'Fondo de icono LSSM',

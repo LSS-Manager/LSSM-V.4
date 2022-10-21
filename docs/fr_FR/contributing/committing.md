@@ -5,7 +5,9 @@ sidebarDepth: 2
 ---
 
 # Validation d'un fichier
-Après avoir modifié un fichier, vous devez écrire un message de validation. Si vous voulez nous faire plaisir, utilisez [gitmojis](https://gitmoji.dev) suivi du nom du module entre crochets et d'un résumé rapide (une demi-phrase) de ce que vous avez modifié (par exemple, les traductions). Certains longs noms de modules ont reçu des abréviations non officielles au cours du développement.
+Après avoir modifié un fichier, vous devez écrire un message de validation. Si vous voulez nous faire plaisir. 
+utilisez [gitmojis](https://gitmoji.dev) suivi du nom du module entre crochets et d'un résumé rapide (une demi-phrase) de ce que vous avez modifié (par exemple, les traductions). 
+Certains longs noms de modules ont reçu des abréviations non officielles au cours du développement.
 
 ## Liste des abréviations
 | abréviations | Module                             | Sous-modules            |
