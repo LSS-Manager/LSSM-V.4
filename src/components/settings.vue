@@ -310,6 +310,7 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useAPIStore } from '@stores/api';
 import { useModulesStore } from '@stores/modules';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
@@ -427,6 +428,7 @@ export default Vue.extend<
             storageStore: useStorageStore(),
             settingsStore,
             rootStore: useRootStore(),
+            branches: {},
         };
     },
     computed: {
@@ -483,6 +485,35 @@ export default Vue.extend<
                     .filter(([, settings]) => Object.keys(settings).length)
             );
         },
+        branchSelection() {
+            const branches = {
+                values: ['stable', 'beta'],
+                labels: [
+                    `stable (${this.branches.stable?.version})`,
+                    `beta (${this.branches.beta?.version})`,
+                ],
+            } as Record<'labels' | 'values', string[]>;
+
+            Object.entries(this.branches)
+                .filter(([branch]) => !['beta', 'stable'].includes(branch))
+                .sort(
+                    ([, { version: versionA }], [, { version: versionB }]) =>
+                        versionB.localeCompare(versionA) // sort descending
+                )
+                .forEach(([branch, branchData]) => {
+                    branches.values.push(branch);
+                    let label = `${branch} (${branchData.version})`;
+                    if ('delete' in branchData) {
+                        label += `<br>&nbsp;&nbsp;[🗑️ ${branchData.delete.date.replace(
+                            /\.0+$/u,
+                            ''
+                        )} ${branchData.delete.timezone}]`;
+                    }
+                    branches.labels.push(label);
+                });
+
+            return branches;
+        },
     },
     methods: {
         update(moduleId, settingId) {
@@ -535,6 +566,10 @@ export default Vue.extend<
                 (
                     this.settings.global.loadingIndicator.value as boolean
                 ).toString()
+            );
+            localStorage.setItem(
+                `${PREFIX}_branch`,
+                this.settings.global.branch.value as string
             );
         },
         discard() {
@@ -715,6 +750,10 @@ export default Vue.extend<
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.settings.${key}`, args),
         getSelectOptions(module, setting, settingId) {
+            if (module === 'global' && settingId === 'branch') {
+                setting.values = this.branchSelection.values;
+                setting.labels = this.branchSelection.labels;
+            }
             return setting.values.map((v, vi) => ({
                 label: (setting.noLabelTranslation
                     ? v
@@ -728,6 +767,14 @@ export default Vue.extend<
     mounted() {
         this.getExportData();
         (window[PREFIX] as Vue).$settings = this;
+
+        useAPIStore()
+            .request({
+                url: this.rootStore.lssmUrl('/branches.json'),
+                feature: 'settings',
+            })
+            .then(res => res.json() as Promise<SettingsData['branches']>)
+            .then(branches => (this.branches = branches));
     },
 });
 </script>

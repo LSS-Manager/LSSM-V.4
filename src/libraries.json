@@ -24,6 +24,7 @@
         "version": "2.0.8"
     },
     "@octokit/auth-action": {
+        "icon": "https://docs.github.com/assets/cb-102209/images/gundamcat.png",
         "version": "2.0.2"
     },
     "@primer/octicons": {
@@ -64,7 +65,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.11.0"
+        "version": "18.11.3"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -120,11 +121,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.40.0"
+        "version": "5.40.1"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.40.0"
+        "version": "5.40.1"
     },
     "@vue/composition-api": {
         "icon": "https://vuejs.org/logo.svg",
@@ -194,7 +195,7 @@
         "version": "8.5.0"
     },
     "eslint-import-resolver-typescript": {
-        "version": "3.5.1"
+        "version": "3.5.2"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
@@ -205,7 +206,7 @@
         "version": "2.26.0"
     },
     "eslint-plugin-jsdoc": {
-        "version": "39.3.6"
+        "version": "39.3.14"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",

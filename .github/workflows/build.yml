@@ -195,7 +195,7 @@ jobs:
 
             - name: Prepare Git Push (add ssh-key etc.)
               id: git_prepare
-              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               run: |
@@ -208,7 +208,7 @@ jobs:
 
             - name: Push to Git
               id: git_push
-              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock

@@ -17,7 +17,7 @@
     "patients": {
         "critical_care": "Szansa, że potrzebny będzie lekarz",
         "helicopter": "Szansa, że potrzebny będzie śmigłowiec LPR",
-        "patient_allow_first_responder_chance": "Prawdopodobieństwo *First Responder*",
+        "patient_allow_first_responder_chance": "Pierwsi przybyli ratownicy mogą w pełni zaopiekować się pacjentami.",
         "patient_at_end_of_mission": "Pacjentci pojawia się dopiero pod koniec misji!",
         "patient_transport": "Prawdopodobieństwo transportu",
         "possible_patient": "Maksimum pacjentów",
@@ -64,13 +64,14 @@
             "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
             "flood_equipment": "Sprzęt przeciwpowodziowy | Sprzęty przeciwpowodziowe",
             "foam": "Samochód ze zbiornikiem na pianę | Samochody ze zbiornikiem na pianę",
+            "foam_needed": "Piana gaśnicza",
             "fwk": "SCDź",
             "hazmat_vehicles": "SRChem",
             "heavy_rescue_vehicles": "Samochód ratownictwa technicznego | Samochody ratownictwa technicznego",
             "height_rescue_units": "SRWys",
             "helicopter": "LPR",
             "hose": "SW",
-            "k9": "K-9 | K-9",
+            "k9": "K-9",
             "kdow_orgl": "SLOp/SLRr",
             "mobile_air_vehicles": "SPGaz",
             "mobile_command_vehicles": "SDł",
@@ -89,21 +90,23 @@
             "water_tankers": "SCCn"
         },
         "multifunctionals": {
-            "battalion_chief_vehicles": {
-                "additional_text": "",
-                "reduce_from": "SDł"
-            },
             "heavy_rescue_vehicles": {
                 "additional_text": "przynajmniej z tego {n} samochody gaśnicze",
                 "reduce_from": "wozy strażackie"
             }
         },
         "optional_alternatives": {
-            "allow_arff_instead_of_lf": {
-                "firetrucks": "Lotniskowy wóz strażacki | Lotniskowe wozy strażackie"
+            "allow_dlk_instead_of_lf": {
+                "firetrucks": "Samochód pożarniczy lub SD/SH | Samochody pożarnicze lub SD/SH"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "ambulances": "Ambulans | Ambulanse"
             },
             "allow_rw_instead_of_lf": {
-                "firetrucks": "Wóz strażacki | Wozy strażackie"
+                "firetrucks": "Samochód pożarniczy lub ratownictwa technicznego | Samochody pożarnicze lub ratownictwa technicznego"
+            },
+            "allow_traffic_car_instead_of_fustw": {
+                "traffic_car": "WRD lub OPI"
             }
         },
         "title": "Pojazdy"

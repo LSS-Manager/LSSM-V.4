@@ -6,7 +6,9 @@
     "mission_categories": {
         "ambulance": "Misiones de ambulancia",
         "fire": "Misiones de extinción de incendios",
+        "fire_support_specialization": "Misiones de incendios químicos e industriales (Especialización)",
         "police": "Misiones Policiales",
+        "riot_police_specialization": "Misiones de la policía antidisturbios (Especialización)",
         "title": "Generación de categorías"
     },
     "patients": {

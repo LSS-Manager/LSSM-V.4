@@ -6,10 +6,10 @@
     "mission_categories": {
         "ambulance": "Ambulance Mission",
         "fire": "Firefighting Mission",
-        "fire_support_specialization": "Chemical and Industrial Fire Mission",
-        "mass_casualty_ambulance_specialization": "Mass Casualty Mission",
+        "fire_support_specialization": "Chemical and Industrial Fire Missions (Specialization)",
+        "mass_casualty_ambulance_specialization": "Mass Casualty Missions (Specialization)",
         "police": "Police Mission",
-        "riot_police_specialization": "Public Order Mission",
+        "riot_police_specialization": "Police & Public Order Missions (Specialization)",
         "title": "Generating Categories"
     },
     "patients": {
