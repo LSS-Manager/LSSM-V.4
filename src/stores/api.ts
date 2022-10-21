@@ -750,6 +750,7 @@ export const defineAPIStore = defineStore('api', {
                 });
             }
             setHeader(init.headers, 'X-LSS-Manager', VERSION);
+            setHeader(init.headers, 'X-LSS-Manager-Branch', BRANCH);
             setHeader(init.headers, 'X-LSS-Manager-Feature', feature);
 
             init.cache = init.cache || 'no-cache';

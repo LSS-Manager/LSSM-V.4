@@ -119,6 +119,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 'Contrôle si LSS-Manager est autorisé à envoyer des données, ce qui nous aide à développer cette extension.',
             title: 'Autoriser la télémétrie',
         },
+        branch: {
+            description:
+                'Choisissez ici entre la version stable, la version bêta ou une version preview. Notez que les versions preview sont automatiquement supprimées environ 7 jours après leur dernière mise à jour.',
+            title: 'Choisir sa version',
+        },
         iconBg: {
             description: "Changez la couleur de fond de l'icône LSSM !",
             title: "Couleur de fond de l'icône LSSM",

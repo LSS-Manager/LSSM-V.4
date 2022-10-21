@@ -89,6 +89,11 @@ your LSSM team`,
                 'Povolit LSSM odesílat data, což pomáhá při vývoji tohoto rozšíření.',
             title: 'Povolení telemetrie',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Změnit barvu pozadí ikony LSSM',
             title: 'pozadí ikony LSSM',

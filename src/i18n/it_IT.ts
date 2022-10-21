@@ -107,6 +107,11 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.',
             title: 'Consenti telemetria',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Cambia il colore di sfondo di LSSM-Icon!',
             title: 'LSSM-Icon Colore di sfondo',
