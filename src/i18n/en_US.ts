@@ -119,6 +119,11 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
             title: 'Allow Telemetry',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Change the background of LSSM-Icon!',
             title: 'LSSM-Icon Background',

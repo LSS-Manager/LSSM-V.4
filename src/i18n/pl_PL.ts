@@ -119,6 +119,11 @@ If several requests fail in a short time, this could be due to server problems. 
                 'Kontroluje, czy LSS-Manager może wysyłać dane, które pomagają nam w rozwijaniu tego rozszerzenia.',
             title: 'Zezwól na telemetrię',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Zmień tło likony LSSM!',
             title: 'Tło likony LSSM',

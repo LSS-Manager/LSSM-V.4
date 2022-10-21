@@ -94,6 +94,11 @@ your LSSM team`,
                 'Styrer om LSS-Manager får samle data som hjelper oss i å utvikle utvidelsen.',
             title: 'Tillatt telemetri',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Konfigurer bakgrunnen til LSSM-ikonet',
             title: 'LSSM-Ikon Bakgrunn',

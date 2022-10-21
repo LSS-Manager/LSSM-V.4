@@ -25,7 +25,7 @@ import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginSt
 import LSSMV4 from './LSSMV4.vue';
 import utils from './utils';
 
-import type { Color, Hidden, Toggle } from 'typings/Setting';
+import type { Color, Hidden, Select, Toggle } from 'typings/Setting';
 import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
@@ -184,7 +184,22 @@ LSSM-Team`,
                     type: 'toggle',
                     default: false,
                 },
+                branch: <Select>{
+                    type: 'select',
+                    default: BRANCH,
+                    values: [BRANCH],
+                    labels: [BRANCH],
+                    disabled: () => true,
+                },
             },
+        })
+        .then(() => {
+            localStorage.setItem(`${PREFIX}_branch`, BRANCH);
+            return LSSM.$stores.settings.setSetting({
+                moduleId: 'global',
+                settingId: 'branch',
+                value: BRANCH,
+            });
         })
         .then(() =>
             LSSM.$stores.settings.getSetting({
