@@ -119,6 +119,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.',
             title: 'Telemetrie toestaan',
         },
+        branch: {
+            description:
+                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+            title: 'Choose version',
+        },
         iconBg: {
             description: 'Verander de achtergrond van het LSSM-logo!',
             title: 'LSSM-logo achtergrond',

@@ -120,6 +120,11 @@ Sollten mehrere Anfragen in kurzer Zeit fehlschlagen, könnte das an Serverprobl
                 'Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.',
             title: 'Telemetrie erlauben',
         },
+        branch: {
+            description:
+                'Wähle hier zwischen stable, beta oder einer Preview-Version. Beachte, dass Preview-Versionen ca. 7 Tage nach dem letzten Update automatisch gelöscht werden.',
+            title: 'Version wählen',
+        },
         iconBg: {
             description:
                 'Ändere hiermit die Farbe des Hintergrunds des LSSM-Icons!',
