@@ -7,18 +7,20 @@ sidebarDepth: 0
 # Zbieranie metadanych użytkownika
 
 Używając `LSSM` (Leitstellenspiel Manager, userscript for the browser) użytkownik wyraża zgodę na zbieranie metadanych. Przechowywanie będą następujące informacje:
+
 * Unikalny identyfikator użytkownika (ID)
-  * w tym unikalny "Sekret" (unikalny, niepubliczny ciąg znaków do identyfikacji)
+    * w tym unikalny "Sekret" (unikalny, niepubliczny ciąg znaków do identyfikacji)
 * Nazwa użytkownika
 * Ilość budynków
 * Używana przeglądarka
-  * w tym informacja o jej wersji
+    * w tym informacja o jej wersji
 * Czas zebrania danych
 * Aktywne moduły
 * Język gry
-  * w tym informacje, czy wersja policyjna (jeśli jest dostępna) czy nie
+    * w tym informacje, czy wersja policyjna (jeśli jest dostępna) czy nie
 * Jaki typ mapy jest aktywny (OSM czy Mapkit)
 * Wersja LSSM
+* LSSM branch (`stable`, `beta` or a preview-branch)
 * version of the installed LSSM userscript
 
 Dane te są wykorzystywane do ulepszania rozszerzenia, a także do kierowania rozwojem istniejących lub przyszłych modułów.
@@ -35,20 +37,21 @@ Za każdym razem, gdy otwierana jest strona główna gry, dane telemetryczne (je
 # Publikowanie statystyk
 
 Zespół LSSM może publikować następujące statystyki telemetryczne:
+
 * łączna liczba aktualnych rekordów telemetrii dla kolejnych okresów czasu:
-  * ostatnich 6 miesięcy
-  * ostatnich 30 dni
-  * ostatnich 7 dni
-  * ostatnich 24 godzin
-  * Dzisiejsza data kalendarzowa według czasu niemieckiego
+    * ostatnich 6 miesięcy
+    * ostatnich 30 dni
+    * ostatnich 7 dni
+    * ostatnich 24 godzin
+    * Dzisiejsza data kalendarzowa według czasu niemieckiego
 * liczba wpisów telemetrycznych użytkowników z kontem premium lub bez
 * liczba wpisów telemetrycznych użytkowników w zależności od języka gry
-  * w tym podział na wersję policyjną i wersję „normalną”, jeśli jest dostępna
+    * w tym podział na wersję policyjną i wersję „normalną”, jeśli jest dostępna
 * liczba wpisów telemetrycznych na przeglądarkę
-  * w tym podział na główną wersję przeglądarki. Tj. „Firefox 100.3” i „Firefox 100.4” są połączone jako „Firefox 100”.
+    * w tym podział na główną wersję przeglądarki. Tj. „Firefox 100.3” i „Firefox 100.4” są połączone jako „Firefox 100”.
 * liczba wpisów telemetrycznych na typ mapy
- * liczba wpisów telemetrycznych na wersję LSSM
- * liczba wpisów telemetrycznych dla każdego z dostępnych modułów.
+* liczba wpisów telemetrycznych na wersję LSSM
+* liczba wpisów telemetrycznych dla każdego z dostępnych modułów.
 
 Wnioskowanie do poszczególnych rekordów jest **nie** możliwe dzięki tym statystykom.
 

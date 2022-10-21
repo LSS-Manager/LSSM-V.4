@@ -7,18 +7,21 @@ sidebarDepth: 0
 # Collection of user metadata
 
 By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user accepts that metadata will be collected. The following data will be stored:
+
 * Unique user ID
-  * Including unique Secret (unique, non-public character string for identification)
+    * Including unique Secret (unique, non-public character string for identification)
 * User name
 * Amount of buildings
 * used browser
-  * including version
+    * including version
 * time of metadata collection
 * enabled modules
 * language version of the game
-  * including information whether police version (if available) or not
+    * including information whether police version (if available) or not
 * which map type is activated (OSM or Mapkit)
 * LSSM version
+* LSSM branch (`stable`, `beta` or a preview-branch)
+* version of the installed LSSM userscript
 
 This data is used to improve the extension as well as to guide the development of existing or future modules.
 They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#publishing-statistics)).
@@ -34,17 +37,18 @@ If a data record has not received an update for more than 6 months, it will be d
 ## Publishing statistics
 
 The following telemetry statistics may be published by the LSSM team:
+
 * total number of current telemetry records for the following time periods:
-  * past 6 months
-  * past 30 days
-  * past 7 days
-  * past 24 hours
-  * today's calendar date according to German time
+    * past 6 months
+    * past 30 days
+    * past 7 days
+    * past 24 hours
+    * today's calendar date according to German time
 * number of telemetry entries of users with or without premium account
 * number of telemetry entries per language version
-  * including split into police version and "normal" version, if available
+    * including split into police version and "normal" version, if available
 * number of telemetry entries per browser
-  * including split into major version of browser. I.e. "Firefox 100.3" and "Firefox 100.4" are combined as "Firefox 100".
+    * including split into major version of browser. I.e. "Firefox 100.3" and "Firefox 100.4" are combined as "Firefox 100".
 * number of telemetry entries per map type
 * number of telemetry entries per LSSM version
 * number of telemetry entries for each of the available modules.

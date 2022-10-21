@@ -6,19 +6,21 @@ sidebarDepth: 0
 
 # Erheben von Metadaten der Nutzer
 
-Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Userscript für den Browser) akzeptiert der Nutzer, das Metadaten erhoben werden. Es werden folgende Daten gespeichert: 
+Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Userscript für den Browser) akzeptiert der Nutzer, das Metadaten erhoben werden. Es werden folgende Daten gespeichert:
+
 * Eindeutige Nutzer-ID (User ID)
-  * inklusive eindeutigem Secret (eindeutige, nicht-öffentliche Zeichenkette zur Identifikation)
+    * inklusive eindeutigem Secret (eindeutige, nicht-öffentliche Zeichenkette zur Identifikation)
 * Nutzername
 * Anzahl der Gebäude
 * Aktuell genutzter Browser
-  * inklusive Version
+    * inklusive Version
 * Zeitpunkt der Erhebung der Metadaten
 * aktivierte Module
 * Sprachversion des Spiels
-  * inklusive Information, ob Polizei-Version (falls vorhanden) oder nicht
+    * inklusive Information, ob Polizei-Version (falls vorhanden) oder nicht
 * Welcher Kartentyp aktiviert ist (OSM oder Mapkit)
 * LSSM Version
+* LSSM Branch (`stable`, `beta` oder ein preview-branch)
 * Version des installierten LSSM Userscripts
 
 Diese Daten dienen zur Verbesserung der Erweiterung sowie als Anhaltspunkt für die Entwicklung bestehender bzw. zukünftiger Module.
@@ -35,17 +37,18 @@ Hat ein Datensatz für mehr als 6 Monate keine Aktualisierung erhalten, so wird 
 # Veröffentlichung von Statistiken
 
 Folgende Statistiken der Telemetrie können durch das LSSM-Team veröffentlicht werden:
+
 * Gesamtzahl der aktuellen Telemetrie-Einträge für folgende Zeiträume:
-  * vergangene 6 Monate
-  * vergangene 30 Tage
-  * vergangene 7 Tage
-  * vergangene 24 Stunden
-  * heutiges Kalenderdatum nach deutscher Zeit
+    * vergangene 6 Monate
+    * vergangene 30 Tage
+    * vergangene 7 Tage
+    * vergangene 24 Stunden
+    * heutiges Kalenderdatum nach deutscher Zeit
 * Zahl der Telemetrie-Einträge von Nutzern mit bzw. ohne Premium-Account
 * Zahl der Telemetrie-Einträge pro Sprachversion
-  * inklusive Aufteilung in Polizeiversion und "normale" Version, falls vorhanden
+    * inklusive Aufteilung in Polizeiversion und "normale" Version, falls vorhanden
 * Zahl der Telemetrie-Einträge pro Browser
-  * inklusive Aufteilung in Major-Version des Browsers. D.h. "Firefox 100.3" und "Firefox 100.4" werden als "Firefox 100" zusammengefasst.
+    * inklusive Aufteilung in Major-Version des Browsers. D.h. "Firefox 100.3" und "Firefox 100.4" werden als "Firefox 100" zusammengefasst.
 * Zahl der Telemetrie-Einträge pro Kartentyp
 * Zahl der Telemetrie-Einträge pro LSSM-Version
 * Zahl der Telemetrie-Einträge für jedes der verfügbaren Module
