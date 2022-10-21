@@ -143,7 +143,7 @@
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Alarmiere zu erstem Verbandseinsatz",
-                "firstOwnMission": "Alarmiere zu erstem eigenen Einsatz, ",
+                "firstOwnMission": "Alarmiere zu erstem eigenen Einsatz",
                 "title": "Alarmieren"
             },
             "goto": {

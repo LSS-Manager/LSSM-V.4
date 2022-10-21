@@ -135,7 +135,7 @@
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Alarm to first alliance mission",
-                "firstOwnMission": "Alarm to first own mission, ",
+                "firstOwnMission": "Alarm to first own mission",
                 "title": "alarm"
             },
             "goto": {
