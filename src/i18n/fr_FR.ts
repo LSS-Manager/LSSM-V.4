@@ -821,7 +821,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         Ambulances: {
             vehicles: {
                 Ambulances: [5, 27, 28, 29, 30],
-                Dragon: [9],
+                'HéliSMUR': [9],
             },
             color: '#ffa500',
         },
