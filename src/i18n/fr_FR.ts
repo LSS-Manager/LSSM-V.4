@@ -737,6 +737,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 2,
             maxPersonnel: 4,
             possibleBuildings: [11, 23],
+            schooling: {
+                "Secours nautique": {
+                    ['BNSSA']: {
+                        all: true,
+                    },
+                },
+            },
         },
         47: {
             caption: 'CSL',
@@ -751,13 +758,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         48: {
             caption: 'CTT',
             color: '#225CB5',
-            coins: 10,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 8,
             possibleBuildings: [23],
             schooling: {
-                "Centre de Formation et d'Intervention": {
+                "Secours nautique": {
                     ['Certificat de surveillance et sauvetage aquatique']: {
                         all: true,
                     },
@@ -772,7 +779,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 6,
             'possibleBuildings': [24],
-            "Centre de Formation et d'Intervention": {
+            "Secours nautique": {
                 ['Accréditation nautique']: {
                     all: true,
                 },
@@ -786,7 +793,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 5,
             'possibleBuildings': [26],
-            "Centre de Formation et d'Intervention": {
+            "Secours nautique": {
                 ["Pilote d'hélicoptère"]: {
                     all: true,
                 },
@@ -899,7 +906,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: 'Certificat de surveillance et sauvetage aquatique',
                 duration: '5 jours',
-                staffList: 'Certificat de surveillance et sauvetage aquatique',
+                staffList: 'Sauveteur en Mer',
             },
         ],
         'Secours': [
@@ -965,7 +972,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: 'Certificat de surveillance et sauvetage aquatique',
                 duration: '5 jours',
-                staffList: 'Certificat de surveillance et sauvetage aquatique',
+                staffList: 'Sauveteur en Mer',
             },
         ],
     },
