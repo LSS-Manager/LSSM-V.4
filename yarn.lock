@@ -5,27 +5,6 @@ __metadata:
   version: 6
   cacheKey: 8
 
-".vuepress-548500@workspace:docs/.vuepress":
-  version: 0.0.0-use.local
-  resolution: ".vuepress-548500@workspace:docs/.vuepress"
-  dependencies:
-    "@octokit/auth-action": 2.0.2
-    "@primer/octicons": 17.7.0
-    "@vuepress/client": 2.0.0-beta.52
-    "@vuepress/plugin-pwa": 2.0.0-beta.52
-    "@vuepress/plugin-pwa-popup": 2.0.0-beta.52
-    "@vuepress/plugin-register-components": 2.0.0-beta.52
-    "@vuepress/plugin-search": 2.0.0-beta.52
-    cloc: 2.10.0
-    moment: 2.29.4
-    octokit: 2.0.9
-    showdown: 2.1.0
-    vue: 3.2.41
-    vuepress: 2.0.0-beta.52
-    vuepress-plugin-clipboard: 2.1.4
-  languageName: unknown
-  linkType: soft
-
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.2.0
   resolution: "@ampproject/remapping@npm:2.2.0"
@@ -7788,6 +7767,113 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lss-manager-v4-docs@workspace:docs/.vuepress":
+  version: 0.0.0-use.local
+  resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
+  dependencies:
+    "@octokit/auth-action": 2.0.2
+    "@primer/octicons": 17.7.0
+    "@vuepress/client": 2.0.0-beta.52
+    "@vuepress/plugin-pwa": 2.0.0-beta.52
+    "@vuepress/plugin-pwa-popup": 2.0.0-beta.52
+    "@vuepress/plugin-register-components": 2.0.0-beta.52
+    "@vuepress/plugin-search": 2.0.0-beta.52
+    cloc: 2.10.0
+    moment: 2.29.4
+    octokit: 2.0.9
+    showdown: 2.1.0
+    vue: 3.2.41
+    vuepress: 2.0.0-beta.52
+    vuepress-plugin-clipboard: 2.1.4
+  languageName: unknown
+  linkType: soft
+
+"lss-manager-v4@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "lss-manager-v4@workspace:."
+  dependencies:
+    "@fortawesome/fontawesome-free": 6.2.0
+    "@fortawesome/fontawesome-svg-core": 6.2.0
+    "@fortawesome/free-solid-svg-icons": 6.2.0
+    "@fortawesome/vue-fontawesome": 2.0.8
+    "@types/he": 1.1.2
+    "@types/i18n-js": 3.8.3
+    "@types/jquery": 3.5.14
+    "@types/js-yaml": ^4.0.5
+    "@types/leaflet": 1.9.0
+    "@types/lodash": 4.14.186
+    "@types/node": 18.11.3
+    "@types/pdfmake": 0.2.1
+    "@types/prettier": 2.7.1
+    "@types/qrcode": 1.5.0
+    "@types/semver": 7.3.12
+    "@types/showdown": 2.0.0
+    "@types/tampermonkey": 4.0.5
+    "@types/ua-parser-js": 0.7.36
+    "@types/vue-select": 3.16.2
+    "@types/webpack": 5.28.0
+    "@types/webpack-dev-server": 4.7.2
+    "@types/webpack-env": 1.18.0
+    "@typescript-eslint/eslint-plugin": 5.40.1
+    "@typescript-eslint/parser": 5.40.1
+    "@vue/composition-api": 1.7.1
+    all-contributors-cli: 6.24.0
+    broadcast-channel: 4.18.0
+    copy-dir: 1.3.0
+    css-loader: 6.7.1
+    emoji-toolkit: 7.0.0
+    eslint: 8.25.0
+    eslint-config-prettier: 8.5.0
+    eslint-import-resolver-typescript: 3.5.2
+    eslint-plugin-compat: 4.0.2
+    eslint-plugin-import: 2.26.0
+    eslint-plugin-jsdoc: 39.3.14
+    eslint-plugin-markdownlint: 0.4.0
+    eslint-plugin-prettier: 4.2.1
+    eslint-plugin-regexp: 1.9.0
+    eslint-plugin-tsdoc: 0.2.17
+    eslint-plugin-unicorn: 44.0.2
+    eslint-plugin-vue: 9.6.0
+    he: 1.2.0
+    highcharts: 10.2.1
+    highcharts-vue: 1.4.0
+    html-loader: 4.2.0
+    js-yaml: ^4.1.0
+    leaflet.heat: 0.2.0
+    localforage: 1.10.0
+    lodash: 4.17.21
+    mini-svg-data-uri: 1.4.4
+    moment: 2.29.4
+    moment-timezone: 0.5.38
+    pdfmake: 0.2.6
+    pinia: 2.0.23
+    prettier: 2.7.1
+    qrcode: 1.5.1
+    sass: 1.55.0
+    sass-loader: 13.1.0
+    semver: 7.3.8
+    showdown: 2.1.0
+    string-replace-loader: 3.1.0
+    terser: 5.15.1
+    ts-loader: 9.4.1
+    ts-node: 10.9.1
+    typescript: 4.8.4
+    ua-parser-js: 1.0.32
+    url-loader: 4.1.1
+    vue: 2.7.13
+    vue-i18n: 8.27.2
+    vue-js-modal: 2.0.1
+    vue-js-toggle-button: 1.3.3
+    vue-loader: 15.10.0
+    vue-notification: 1.3.20
+    vue-responsive-dash: 0.5.0
+    vue-select: 3.20.0
+    vue-slim-tabs: 0.4.0
+    vue-template-compiler: 2.7.13
+    webpack: 5.74.0
+  languageName: unknown
+  linkType: soft
+
 "magic-string@npm:0.25.1":
   version: 0.25.1
   resolution: "magic-string@npm:0.25.1"
@@ -9503,92 +9589,6 @@ __metadata:
   checksum: 9034814383ca5bdb4bea6d499270aeb31cdb0bb884f81b0c6a1d19c63cc973f040e6ee09b7af8a7169dd231c090f4b44ef8b99c4bfdf884aceeb3dcefb8cfa14
   languageName: node
   linkType: hard
-
-"root-workspace-0b6124@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root-workspace-0b6124@workspace:."
-  dependencies:
-    "@fortawesome/fontawesome-free": 6.2.0
-    "@fortawesome/fontawesome-svg-core": 6.2.0
-    "@fortawesome/free-solid-svg-icons": 6.2.0
-    "@fortawesome/vue-fontawesome": 2.0.8
-    "@types/he": 1.1.2
-    "@types/i18n-js": 3.8.3
-    "@types/jquery": 3.5.14
-    "@types/js-yaml": ^4.0.5
-    "@types/leaflet": 1.9.0
-    "@types/lodash": 4.14.186
-    "@types/node": 18.11.3
-    "@types/pdfmake": 0.2.1
-    "@types/prettier": 2.7.1
-    "@types/qrcode": 1.5.0
-    "@types/semver": 7.3.12
-    "@types/showdown": 2.0.0
-    "@types/tampermonkey": 4.0.5
-    "@types/ua-parser-js": 0.7.36
-    "@types/vue-select": 3.16.2
-    "@types/webpack": 5.28.0
-    "@types/webpack-dev-server": 4.7.2
-    "@types/webpack-env": 1.18.0
-    "@typescript-eslint/eslint-plugin": 5.40.1
-    "@typescript-eslint/parser": 5.40.1
-    "@vue/composition-api": 1.7.1
-    all-contributors-cli: 6.24.0
-    broadcast-channel: 4.18.0
-    copy-dir: 1.3.0
-    css-loader: 6.7.1
-    emoji-toolkit: 7.0.0
-    eslint: 8.25.0
-    eslint-config-prettier: 8.5.0
-    eslint-import-resolver-typescript: 3.5.2
-    eslint-plugin-compat: 4.0.2
-    eslint-plugin-import: 2.26.0
-    eslint-plugin-jsdoc: 39.3.14
-    eslint-plugin-markdownlint: 0.4.0
-    eslint-plugin-prettier: 4.2.1
-    eslint-plugin-regexp: 1.9.0
-    eslint-plugin-tsdoc: 0.2.17
-    eslint-plugin-unicorn: 44.0.2
-    eslint-plugin-vue: 9.6.0
-    he: 1.2.0
-    highcharts: 10.2.1
-    highcharts-vue: 1.4.0
-    html-loader: 4.2.0
-    js-yaml: ^4.1.0
-    leaflet.heat: 0.2.0
-    localforage: 1.10.0
-    lodash: 4.17.21
-    mini-svg-data-uri: 1.4.4
-    moment: 2.29.4
-    moment-timezone: 0.5.38
-    pdfmake: 0.2.6
-    pinia: 2.0.23
-    prettier: 2.7.1
-    qrcode: 1.5.1
-    sass: 1.55.0
-    sass-loader: 13.1.0
-    semver: 7.3.8
-    showdown: 2.1.0
-    string-replace-loader: 3.1.0
-    terser: 5.15.1
-    ts-loader: 9.4.1
-    ts-node: 10.9.1
-    typescript: 4.8.4
-    ua-parser-js: 1.0.32
-    url-loader: 4.1.1
-    vue: 2.7.13
-    vue-i18n: 8.27.2
-    vue-js-modal: 2.0.1
-    vue-js-toggle-button: 1.3.3
-    vue-loader: 15.10.0
-    vue-notification: 1.3.20
-    vue-responsive-dash: 0.5.0
-    vue-select: 3.20.0
-    vue-slim-tabs: 0.4.0
-    vue-template-compiler: 2.7.13
-    webpack: 5.74.0
-  languageName: unknown
-  linkType: soft
 
 "run-async@npm:^2.4.0":
   version: 2.4.1
