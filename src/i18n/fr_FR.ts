@@ -805,6 +805,10 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             buildings: [6, 8, 11, 13, 19],
             color: '#00ac00',
         },
+        'Secours nautique': {
+            buildings: [23, 24, 25, 26],
+            color: '#00ac00',
+        },
         Autre: {
             buildings: [7, 14, 21, 22],
             color: '#02a18c',
@@ -840,9 +844,9 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             },
             color: '#00ac00',
         },
-        Maritime: {
+        'Secours nautique': {
             vehicles: {
-                ['Sauvetage Côtier']: [46, 47, 48, 49, 50],
+                ['Secours nautique']: [46, 47, 48, 49, 50],
             },
             color: '#00ac00',
         },
@@ -891,6 +895,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 duration: '5 jours',
                 staffList: 'Médecin urgentiste',
             },
+            {
+                caption: 'Certificat de surveillance et sauvetage aquatique',
+                duration: '5 jours',
+                staffList: 'Certificat de surveillance et sauvetage aquatique',
+            },
         ],
         'Secours': [
             {
@@ -936,7 +945,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 staffList: 'Armurier',
             },
         ],
-        "Centre de Formation et d'Intervention": [
+        "Secours nautique": [
             {
                 caption: "Pilote d'hélicoptère",
                 duration: '5 jours',
@@ -945,12 +954,12 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: 'BNSSA',
                 duration: '5 jours',
-                staffList: 'BNSSA',
+                staffList: 'Sauveteur aquatique',
             },
             {
                 caption: 'Accréditation nautique',
                 duration: '3 jours',
-                staffList: 'Accréditation nautique',
+                staffList: 'Gendarme Maritime',
             },
             {
                 caption: 'Certificat de surveillance et sauvetage aquatique',

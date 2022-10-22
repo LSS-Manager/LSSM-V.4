@@ -640,7 +640,7 @@ export default {
         startPersonnel: 5,
         startParkingLots: 1,
         startVehicles: [''],
-        schoolingTypes: ["Centre de Formation et d'Intervention"],
+        schoolingTypes: ["Secours nautique"],
         icon: 'building-shield',
     },
     24: {
@@ -664,7 +664,7 @@ export default {
         startPersonnel: 4,
         startParkingLots: 1,
         startVehicles: [''],
-        schoolingTypes: ["Centre de Formation et d'Intervention"],
+        schoolingTypes: ["Secours nautique"],
         icon: 'building-shield',
     },
     25: {
@@ -750,7 +750,7 @@ export default {
         startPersonnel: 2,
         startParkingLots: 0,
         startVehicles: [''],
-        schoolingTypes: ["Centre de Formation et d'Intervention"],
+        schoolingTypes: ["Secours nautique"],
         icon: 'building-shield',
     },
 } as Record<number, InternalBuilding>;
