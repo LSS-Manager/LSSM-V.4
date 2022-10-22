@@ -9,7 +9,7 @@ const loadLSSM = () => {
     const script = document.createElement('script');
 
     script.src = `${host}core.js?_=${Math.floor(
-        new Date().getTime() / (1000 * 60 * 10) // Cache the core for 10 minutes
+        Date.now() / (1000 * 60 * 10) // Cache the core for 10 minutes
     )}&branch=${localStorage.getItem(`${prefix}_branch`) ?? 'stable'}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
