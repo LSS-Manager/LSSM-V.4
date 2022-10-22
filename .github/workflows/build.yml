@@ -109,11 +109,11 @@ jobs:
 
             - name: '[⬆] update emojis'
               id: update_emojis
-              run: ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
+              run: yarn ts-node scripts/utils/fetchEmojis.ts
 
             - name: '[🚨] format JSON & YAML files'
               id: json_yaml_format
-              run: ./node_modules/.bin/ts-node scripts/format.ts || exit 1
+              run: yarn ts-node scripts/format.ts || exit 1
 
             - name: '[🚨] run ESLint'
               id: eslint
@@ -144,20 +144,20 @@ jobs:
 
             - name: '[📜] build buildscript'
               id: buildscript
-              run: ./node_modules/.bin/ts-node scripts/createBuildScript.ts || exit 1
+              run: yarn ts-node scripts/createBuildScript.ts || exit 1
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: ./node_modules/.bin/ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
+              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
+              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
 
             - name: '[📝] build docs'
               id: docs
               run: |
-                  ./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
+                  "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
                   mkdir -p ./dist/docs
                   rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs

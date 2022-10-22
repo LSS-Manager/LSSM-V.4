@@ -1,19 +1,20 @@
 {
+	"name": "lss-manager-v4-docs",
 	"license": "CC-BY-NC-SA-4.0",
 	"dependencies": {
 		"@octokit/auth-action": "2.0.2",
 		"@primer/octicons": "17.7.0",
-		"@vuepress/client": "2.0.0-beta.51",
-		"@vuepress/plugin-pwa": "2.0.0-beta.51",
-		"@vuepress/plugin-pwa-popup": "2.0.0-beta.51",
-		"@vuepress/plugin-register-components": "2.0.0-beta.51",
-		"@vuepress/plugin-search": "2.0.0-beta.51",
+		"@vuepress/client": "2.0.0-beta.52",
+		"@vuepress/plugin-pwa": "2.0.0-beta.52",
+		"@vuepress/plugin-pwa-popup": "2.0.0-beta.52",
+		"@vuepress/plugin-register-components": "2.0.0-beta.52",
+		"@vuepress/plugin-search": "2.0.0-beta.52",
 		"cloc": "2.10.0",
 		"moment": "2.29.4",
 		"octokit": "2.0.9",
 		"showdown": "2.1.0",
 		"vue": "3.2.41",
-		"vuepress": "2.0.0-beta.51",
+		"vuepress": "2.0.0-beta.52",
 		"vuepress-plugin-clipboard": "2.1.4"
 	}
 }

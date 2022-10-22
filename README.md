@@ -1,35 +1,18 @@
 # LSS-Manager V.4
 
-<!--
-## Builds & Checks
-### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_MasterBuild&guest=1)
-### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_DevBuild&guest=1)
--->
+|                                                                                                           **Stable**                                                                                                           |                                                                                                         **Beta**                                                                                                          |                                                                             **License**                                                                             |                                             **Server Status**                                             |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|
+| [![[👷🚀] Build and Deploy Status for stable](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml/badge.svg?branch=master)](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml) | [![[👷🚀] Build and Deploy Status for beta](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml/badge.svg?branch=dev)](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml) | [![LSSM is licensed under CC BY-NC-SA 4.0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][License]<br/>[CC BY-NC-SA 4.0][License] | **[LSSM](https://status.lss-manager.de/)**<br/>[Games](https://status.lss-manager.de/status/missionchief) |
 
-<div style='display: flex; flex-flow: row;'>
-<p style='width: 100%'>
-    <b>LSS-Manager V.4</b> (LSSM) is an Userscript for <a href="https://www.leitstellenspiel.de/" target="_blank">Leitstellenspiel.de</a>, <a href="https://www.missionchief.com/" target="_blank">Missionchief</a>, <a href="https://www.meldkamerspel.com/" target="_blank">Meldkamerspel.com</a> and its other language versions.
-    <br>
-    LSSM adds many cool features to the game that give you an enhanced gaming experience and more fun when planning, building and dispatching.
-    <br>
-    This script is available free of charge and fully conforms to the terms and conditions of the game.
-</p>
-<img src="./docs/.vuepress/public/img/lssm.png" alt="LSS-Manager: A Userscript for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions" style='width: 50%;'>
-</div>
-
-*[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][1]
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0) ][1]*
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                    |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------:|
+| **LSS-Manager V.4** (LSSM) is an Userscript for [leitstellenspiel.de](https://leitstellenspiel.de), [Missionchief](https://missionchief.com), [Meldkamerspel](https://meldkamerspel.com) and its other language versions.<br/>LSSM adds many cool features to the game that give you an enhanced gaming experience and more fun when planning, building and dispatching.<br/>This script is available free of charge and fully conforms to the terms and conditions of the game. | ![LSS-Manager: A Userscript for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions](./src/img/lssm.png) |
 
 **It is forbidden to use LSS-Manager or its code to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
 
-<div style='text-align: center;'>
-<a href="https://discord.gg/RcTNjpB" target="_blank" align="center"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
-<a href="https://github.com/LSS-Manager/LSSM-V.4" target="_blank" align="center"><img src="https://github-readme-stats.vercel.app/api/pin?username=LSS-Manager&repo=LSSM-V.4&theme=vue-dark&show_owner=true" alt=""></a>
-</div>
-
-[LSSM-Server-Status](https://status.lss-manager.de/)
-
-[All Game-Server-Monitors](https://status.lss-manager.de/status/missionchief)
+|                              Discord                              |                                                                    GitHub                                                                     |
+|:-----------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|
+| [![Our Discord-Server: United Dispatch][Discord Banner]][Discord] | ![Our Repository on GitHub](https://github-readme-stats.vercel.app/api/pin?username=LSS-Manager&repo=LSSM-V.4&theme=vue-dark&show_owner=true) |
 
 ## Information on LSS-Manager V.4
 
@@ -40,13 +23,13 @@ Der LSS-MANAGER V.4 ist eine Erweiterung für das Leitstellenspiel.de und dessen
 Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll.
 
 ### Wiki
-In unserem [Wiki](https://proxy.lss-manager.de/v4/docs/de_DE/) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
+In unserem [Wiki](https://docs.lss-manager.de/de_DE/) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
 
 ### Support Server
 
 Klicke einfach auf das Banner unten um zu unserem Support Discord Server zu gelangen!
 
-[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+[![Unser Discord-Server: United Dispatch][Discord Banner]][Discord]
 
 ## Haftung / Sonstiges
 
@@ -60,13 +43,14 @@ LSS-MANAGER V.4 is an extension for missionchief.co.uk, missionchief.com and mis
 With this extension an appstore is added to the game, which allows the installation of plugins. All functions are modular - you can determine down to the last module what should be activated.
 
 ### Wiki
-In our [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB/) you can find everything about the installation, the FAQ and an explanation of all functions.
+In our [Wiki](https://docs.lss-manager.de/) you can find everything about the installation, the FAQ and an explanation of all functions.
 
 ### Support Server
 
 Just click on the banner below to get to our Support Discord Server!
 
-[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+
+[![Our Discord-Server: United Dispatch][Discord Banner]][Discord]
 
 ## Liability / Other
 
@@ -80,13 +64,13 @@ De LSS-MANAGER V.4 is een uitbreiding voor de meldkamerspel.com en zijn andere t
 Met deze uitbreiding wordt een appstore aan het spel toegevoegd, die de installatie van plugins mogelijk maakt. Alle functies zijn modulair - u kunt tot aan de laatste module bepalen wat er geactiveerd moet worden.
 
 ### Wiki
-In onze [Wiki](https://proxy.lss-manager.de/v4/docs/nl_NL/) vindt u alles over de installatie, de FAQ en een uitleg van alle functies.
+In onze [Wiki](https://docs.lss-manager.de/nl_NL/) vindt u alles over de installatie, de FAQ en een uitleg van alle functies.
 
 ### Ondersteunende server
 
 Klik op de onderstaande banner om naar onze Support Discord Server te gaan!
 
-[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+[![Onze Discord-Server: United Dispatch][Discord Banner]][Discord]
 
 ## Aansprakelijkheid / Overig
 
@@ -100,13 +84,13 @@ LSS-MANAGER V.4 è un'estensione per operatore112.it e le sue altre versioni lin
 Con questa estensione viene aggiunto un Appstore al gioco, che permette l'installazione di plugin. Tutte le funzioni sono modulari - è possibile determinare fino all'ultimo modulo cosa deve essere attivato.
 
 ### Wiki
-Nel nostro [Wiki](https://proxy.lss-manager.de/v4/docs/it_IT/) potete trovare tutto sull'installazione, le FAQ e una spiegazione di tutte le funzioni.
+Nel nostro [Wiki](https://docs.lss-manager.de/it_IT/) potete trovare tutto sull'installazione, le FAQ e una spiegazione di tutte le funzioni.
 
 ### Supporto Server
 
 Basta cliccare sul banner qui sotto per accedere al Server Discord di Supporto!
 
-[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+[![Our Discord-Server: United Dispatch][Discord Banner]][Discord]
 
 ## Responsabilità / Altro
 
@@ -120,13 +104,13 @@ LSS-MANAGER V.4 est une extension pour le jeu operateur112.fr et ses versions en
 Avec cette extension, un Appstore est ajouté au jeu, qui permet d'installer des plugins. Toutes les fonctions sont modulaires - il est possible de déterminer jusqu'au dernier module ce qui doit être activé.
 
 ### Wiki
-Dans notre [Wiki](https://proxy.lss-manager.de/v4/docs/fr_FR/) tu trouveras tout sur l'installation, la FAQ et une explication de toutes les fonctions.
+Dans notre [Wiki](https://docs.lss-manager.de/fr_FR/) tu trouveras tout sur l'installation, la FAQ et une explication de toutes les fonctions.
 
 ### Serveur de support
 
 Clique simplement sur la bannière ci-dessous pour accéder à notre serveur de support Discord !
 
-[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+[![Our Discord-Server: United Dispatch][Discord Banner]][Discord]
 
 ## Responsabilité / Divers
 
@@ -139,9 +123,9 @@ L'utilisation de ce script se fait à vos propres risques. Nous ne sommes pas re
 
 We have adopted the [Contributor Convenant](https://www.contributor-covenant.org/).
 
-### [Contribution Guide](CONTRIBUTING.md)
+### Contribution Guide
 
-See our [contributing guide](https://proxy.lss-manager.de/v4/docs/en_US/contributing) for help regarding contributions.
+See our [contributing guide](https://docs.lss-manager.de/en_US/contributing) for help regarding contributions.
 
 ### Contributors
 
@@ -195,4 +179,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-[1]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[License]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[Discord Banner]: https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1
+[Discord]: https://discord.gg/RcTNjpB
