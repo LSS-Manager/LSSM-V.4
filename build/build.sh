@@ -142,7 +142,7 @@ fi
 if [[ $UPDATE_EMOJIS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] update emojis ###"
-    ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
+    yarn ts-node scripts/utils/fetchEmojis.ts
     end_time=$(date +%s%N)
     echo "=== [⬆] update emojis: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -151,7 +151,7 @@ fi
 if [[ $JSON_YAML_FORMAT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚨] format JSON & YAML files ###"
-    ./node_modules/.bin/ts-node scripts/format.ts || exit 1
+    yarn ts-node scripts/format.ts || exit 1
     end_time=$(date +%s%N)
     echo "=== [🚨] format JSON & YAML files: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -201,7 +201,7 @@ fi
 if [[ $BUILDSCRIPT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📜] build buildscript ###"
-    ./node_modules/.bin/ts-node scripts/createBuildScript.ts || exit 1
+    yarn ts-node scripts/createBuildScript.ts || exit 1
     end_time=$(date +%s%N)
     echo "=== [📜] build buildscript: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -210,7 +210,7 @@ fi
 if [[ $PREBUILD = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚧] run prebuild ###"
-    ./node_modules/.bin/ts-node prebuild/index.ts "$MODE" "$BRANCH" || exit 1
+    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" || exit 1
     end_time=$(date +%s%N)
     echo "=== [🚧] run prebuild: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -219,7 +219,7 @@ fi
 if [[ $WEBPACK = true ]]; then
     start_time=$(date +%s%N)
     echo "### [👷] webpack ###"
-    ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" || exit 1
+    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" || exit 1
     end_time=$(date +%s%N)
     echo "=== [👷] webpack: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -228,7 +228,7 @@ fi
 if [[ $DOCS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📝] build docs ###"
-    ./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
+    "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
     mkdir -p ./dist/docs
     rm -rdf ./dist/docs/*
     cp -r ./docs/.vuepress/dist/* ./dist/docs
