@@ -7,6 +7,7 @@ sidebarDepth: 0
 # Collection of user metadata
 
 By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user accepts that metadata will be collected. The following data will be stored:
+
 * Unique user ID
     * Including unique Secret (unique, non-public character string for identification)
 * User name
@@ -19,6 +20,7 @@ By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user 
     * including information whether police version (if available) or not
 * which map type is activated (OSM or Mapkit)
 * LSSM version
+* LSSM branch (`stable`, `beta` or a preview-branch)
 * version of the installed LSSM userscript
 
 This data is used to improve the extension as well as to guide the development of existing or future modules.
@@ -35,6 +37,7 @@ If a data record has not received an update for more than 6 months, it will be d
 ## Publishing statistics
 
 The following telemetry statistics may be published by the LSSM team:
+
 * total number of current telemetry records for the following time periods:
     * past 6 months
     * past 30 days

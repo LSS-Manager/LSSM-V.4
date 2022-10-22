@@ -8,11 +8,9 @@ declare let prefix: string;
 const loadLSSM = () => {
     const script = document.createElement('script');
 
-    script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
-        I18n.locale
-    }-${user_id}&branch=${
-        localStorage.getItem(`${prefix}_branch`) ?? 'stable'
-    }`;
+    script.src = `${host}core.js?_=${Math.floor(
+        Date.now() / (1000 * 60 * 10) // Cache the core for 10 minutes
+    )}&branch=${localStorage.getItem(`${prefix}_branch`) ?? 'stable'}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
 

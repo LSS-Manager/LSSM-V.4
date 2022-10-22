@@ -115,8 +115,8 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
         },
         branch: {
             description:
-                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
-            title: 'Choose version',
+                'Valitse tästä vakaa, beta- tai esikatseluversio. Huomaa, että esikatseluversiot poistetaan automaattisesti noin. 7 päivää viimeisen päivityksen jälkeen.',
+            title: 'Valitse versio',
         },
         iconBg: {
             description: 'Vaihda LSSM-Iconin tausta!',
