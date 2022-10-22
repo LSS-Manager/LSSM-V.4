@@ -1,10 +1,10 @@
 # LSS-Manager V.4
 
-<!--
-## Builds & Checks
-### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_MasterBuild&guest=1)
-### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_DevBuild&guest=1)
--->
+## Current build & deploy status
+
+### stable [![[👷🚀] Build and Deploy Status for stable](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml/badge.svg?branch=master)](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml)
+
+### beta [![[👷🚀] Build and Deploy Status for beta](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml/badge.svg?branch=dev)](https://github.com/LSS-Manager/LSSM-V.4/actions/workflows/build-deploy.yml)
 
 <div style='display: flex; flex-flow: row;'>
 <p style='width: 100%'>
@@ -14,11 +14,11 @@
     <br>
     This script is available free of charge and fully conforms to the terms and conditions of the game.
 </p>
-<img src="./docs/.vuepress/public/img/lssm.png" alt="LSS-Manager: A Userscript for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions" style='width: 50%;'>
+<img src="./src/img/lssm.png" alt="LSS-Manager: A Userscript for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions" style='width: 50%;'>
 </div>
 
 *[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][1]
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0) ][1]*
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][1]*
 
 **It is forbidden to use LSS-Manager or its code to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
 
