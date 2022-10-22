@@ -53,13 +53,8 @@ export const defineRootStore = defineStore('root', {
                     ),
                     SERVER
                 );
-                if (addBranchParam) {
-                    url.searchParams.set(
-                        'uid',
-                        `${this.locale}-${window.user_id}`
-                    );
-                    url.searchParams.set('branch', BRANCH);
-                }
+                if (addBranchParam) url.searchParams.set('branch', BRANCH);
+
                 Object.entries(parameters).forEach(([key, value]) =>
                     url.searchParams.set(key, value)
                 );

@@ -91,10 +91,6 @@ entry.plugins?.push(
         v: {
             value: version,
         },
-        uid: {
-            value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
-            isDynamicKey: true, // false by default
-        },
         branch: {
             value: branch,
         },
