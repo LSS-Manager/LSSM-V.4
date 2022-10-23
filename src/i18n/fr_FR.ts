@@ -738,7 +738,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             maxPersonnel: 4,
             possibleBuildings: [11, 23],
             schooling: {
-                "Secours nautique": {
+                'Secours nautique': {
                     ['BNSSA']: {
                         all: true,
                     },
@@ -764,7 +764,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             maxPersonnel: 8,
             possibleBuildings: [23],
             schooling: {
-                "Secours nautique": {
+                'Secours nautique': {
                     ['Certificat de surveillance et sauvetage aquatique']: {
                         all: true,
                     },
@@ -779,7 +779,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 6,
             'possibleBuildings': [24],
-            "Secours nautique": {
+            'Secours nautique': {
                 ['Accréditation nautique']: {
                     all: true,
                 },
@@ -793,7 +793,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 5,
             'possibleBuildings': [26],
-            "Secours nautique": {
+            'Secours nautique': {
                 ["Pilote d'hélicoptère"]: {
                     all: true,
                 },
@@ -801,15 +801,15 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
     },
     buildingCategories: {
-        Pompiers: {
+        'Pompiers': {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        Ambulances: {
+        'Ambulances': {
             buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
-        Police: {
+        'Police': {
             buildings: [6, 8, 11, 13, 19],
             color: '#00ac00',
         },
@@ -817,13 +817,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             buildings: [23, 24, 25, 26],
             color: '#00ac00',
         },
-        Autre: {
+        'Autre': {
             buildings: [7, 14, 21, 22],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        Incendie: {
+        'Incendie': {
             vehicles: {
                 ["Fourgons d'incendie"]: [0, 1, 12, 13],
                 ['Échelles']: [2, 15],
@@ -835,14 +835,14 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             },
             color: '#ff2d2d',
         },
-        Ambulances: {
+        'Ambulances': {
             vehicles: {
                 Ambulances: [5, 27, 28, 29, 30],
                 HéliSMUR: [9],
             },
             color: '#ffa500',
         },
-        Police: {
+        'Police': {
             vehicles: {
                 ['Véhicules de patrouille']: [8],
                 ['Unités motocyclistes']: [20],
@@ -953,7 +953,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 staffList: 'Armurier',
             },
         ],
-        "Secours nautique": [
+        'Secours nautique': [
             {
                 caption: "Pilote d'hélicoptère",
                 duration: '5 jours',

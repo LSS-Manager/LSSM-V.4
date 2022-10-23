@@ -126,22 +126,22 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale
 
 ### Map
 
-* Déplacer 
-  * En bas
-  * À gauche
-  * À droite
-  * En haut
+* Déplacer
+    * En bas
+    * À gauche
+    * À droite
+    * En haut
 * Recherche de lieu
-  * Focus sur le champ de saisie
+    * Focus sur le champ de saisie
 * Zoomer
 * Dézoomer
 
 ### Liste des Missions
 
 * Ouvrir le tri des missions
-  * Ouvrir le menu de sélection
+    * Ouvrir le menu de sélection
 * Recherche
-  * Focus dans le champ de saisie
+    * Focus dans le champ de saisie
 
 ## Fenêtre des missions
 
@@ -154,15 +154,14 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale
 
 * Onglet Suivant
 * Onglet Précédent
- 
-### signal de retour 
+
+### signal de retour
 
 * Annuler l'approche
 * Signal de retour pour tous les véhicules
 * Signal de retour uniquement pour les ambulances
 
 ### Mission triées
-
 
 Ces touches de raccourci sont là pour les boutons modifiés du tri des interventions dans le module
 [Liste de mission étendue](../extendedCallList/#trier-les-missions) :
@@ -177,4 +176,3 @@ Ces touches de raccourci sont là pour les boutons modifiés du tri des interven
 * Chargement des véhicules manquants
 * Onglet Suivant
 * Onglet Précédent
-
