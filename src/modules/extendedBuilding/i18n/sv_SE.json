@@ -16,6 +16,7 @@
         "schooling": "Utbildning",
         "title": "Personalöversikt"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "vehiclePersonnel": {
         "vehiclesPersonnelAssigned": "Tilldelad",
         "vehiclesPersonnelCurrent": "Aktuell",

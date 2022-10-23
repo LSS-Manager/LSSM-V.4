@@ -46,6 +46,10 @@
             "description": "Hyödylliset suodattimet rakennuslistan lyhentämiseen kurssi-ikkunassa",
             "title": "Rakennussuodatin kurssi-ikkunassa"
         },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Kysyy, haluatko todella päivittää rakennuksesi.",
             "title": "Päivitä rakennus"

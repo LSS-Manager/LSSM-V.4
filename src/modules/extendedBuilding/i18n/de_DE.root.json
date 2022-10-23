@@ -46,6 +46,10 @@
             "description": "Nützliche Filter, um die Gebäudeliste im Lehrgangsfenster zu kürzen",
             "title": "Gebäudefilter bei Lehrgangsauswahl"
         },
+        "startPatrolsShortcut": {
+            "description": "Über der Gebäudeliste erscheint die Möglichkeit, Streifenfahrten zu starten, ohne erst eine Leitstelle zu öffnen.",
+            "title": "Streifenfahrten im Hauptfenster starten"
+        },
         "upgradeConfirmation": {
             "description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
             "title": "Gebäude ausbauen"

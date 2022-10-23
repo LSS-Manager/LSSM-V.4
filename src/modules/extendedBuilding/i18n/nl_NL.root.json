@@ -46,6 +46,10 @@
             "description": "Handige filters om de gebouwenlijst te filteren in het opleidingsscherm bij de personeelsselectie",
             "title": "Gebouwenfilter bij opleidingen"
         },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Vraagt of u uw gebouw echt wilt upgraden.",
             "title": "Upgrade Gebouw"
