@@ -141,25 +141,25 @@
         },
         "vehicles": {
             "alarm": {
-                "firstAllianceMission": "Alarm to first alliance mission",
-                "firstOwnMission": "Alarm to first own mission",
-                "title": "alarm"
+                "firstAllianceMission": "Signal d'alarme pour la première mission de l'alliance",
+                "firstOwnMission": "Signal d'alarme pour la première mission personnel",
+                "title": "alarmE"
             },
             "goto": {
-                "building": "building",
+                "building": "bâtiments",
                 "edit": "edit",
-                "nextVehicle": "next vehicle",
-                "personalAssigment": "personal assigment",
-                "previousVehicle": "previous vehicle",
+                "nextVehicle": "véhicule suivant",
+                "personalAssigment": "affectation du personnelle",
+                "previousVehicle": "véhicule Précédent",
                 "statistics": "stats",
-                "title": "go to"
+                "title": "allez"
             },
             "other": {
-                "moveVehicle": "move vehicle",
+                "moveVehicle": "déplacer le véhicule",
                 "title": "etc.",
-                "toggleFMS": "toggle status"
+                "toggleFMS": "changer le statut"
             },
-            "title": "vehicles"
+            "title": "véhicules"
         }
     },
     "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",
