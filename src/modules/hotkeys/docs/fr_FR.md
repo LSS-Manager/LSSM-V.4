@@ -75,10 +75,39 @@ Ainsi, vous n'avez pas à craindre que l'affichage actuel soit endommagé.
 
 *Ouvrir la liste des Tâches et événements
 
+## Bâtiments
 
-### Tâches
+### Ouvrir
 
-* Ouvrir la liste des tâches actuelles
+* Centre de Traitement des Appels
+* Élargir
+* Ouvrir le premier véhicule
+* Recruter de nouveaux personnels
+* Bâtiments Suivant
+* Vue d'ensemble du personnel
+* Bâtiments Précédent
+
+### Centre de Traitement des Appels
+
+* Onglet "Bâtiments"
+* Onglet "Extensions"
+* Onglet Suivant
+* Ouverture de la première mission
+* Onglet "Trajet de patrouille"
+* Onglet "Véhicules de patrouille"
+* Onglet "Extensions"
+* Onglet "Évenements programmés"
+* Onglet Précédent
+* Onglet "Journal"
+* Onglet "Paramètres"
+* Onglet "Statistiques"
+* Onglet "Véhicules"
+
+### Partage des bâtiments
+
+* Désactiver le partage
+* Activer le partage
+* Changer le mode de partage
 
 ## Fenêtre principale
 
@@ -87,7 +116,7 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale
 
 ### Chat
 
-* Focaliser le champ de saisie du chat
+* Cocus sur le champ de saisie
 
 ### LSSM
 
@@ -95,22 +124,57 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale
     * A l'état ouvert, vous pouvez naviguer dans les entrées du menu avec les touches fléchées `↑` et `↓`.
     * Avec la touche Entrée `Enter`, vous cliquez sur l'entrée sélectionnée.
 
-### Carte
+### Map
 
-* Focaliser la recherche de lieu
+* Déplacer 
+  * En bas
+  * À gauche
+  * À droite
+  * En haut
+* Recherche de lieu
+  * Focus sur le champ de saisie
+* Zoomer
+* Dézoomer
 
-### Liste des interventions
+### Liste des Missions
 
-* Focaliser le champ de recherche
+* Ouvrir le tri des missions
+  * Ouvrir le menu de sélection
+* Recherche
+  * Focus dans le champ de saisie
 
-## Fenêtre de déploiement
+## Fenêtre des missions
 
-### Tri des interventions
+### Alliance
+
+* Focus de la fenêtre de réponse de l'alliance
+* Alter 'Poster dans le chat de l'alliance'
+
+### RAI
+
+* Onglet Suivant
+* Onglet Précédent
+ 
+### signal de retour 
+
+* Annuler l'approche
+* Signal de retour pour tous les véhicules
+* Signal de retour uniquement pour les ambulances
+
+### Mission triées
+
 
 Ces touches de raccourci sont là pour les boutons modifiés du tri des interventions dans le module
 [Liste de mission étendue](../extendedCallList/#trier-les-missions) :
 
-* Alerter et continuer
-* Alerter, partager et continuer
-* Intervention suivante
-* Intervention précédente
+* Déployer et allez à la mission suivante
+* Déployer, partager et allez à la mission suivante
+* Mission Suivante
+* Mission Précédente
+
+### Liste des véhicules
+
+* Chargement des véhicules manquants
+* Onglet Suivant
+* Onglet Précédent
+
