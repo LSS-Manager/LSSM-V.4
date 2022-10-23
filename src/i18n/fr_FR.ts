@@ -737,6 +737,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 2,
             maxPersonnel: 4,
             possibleBuildings: [11, 23],
+            schooling: {
+                "Secours nautique": {
+                    ['BNSSA']: {
+                        all: true,
+                    },
+                },
+            },
         },
         47: {
             caption: 'CSL',
@@ -751,13 +758,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         48: {
             caption: 'CTT',
             color: '#225CB5',
-            coins: 10,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 8,
             possibleBuildings: [23],
             schooling: {
-                "Centre de Formation et d'Intervention": {
+                "Secours nautique": {
                     ['Certificat de surveillance et sauvetage aquatique']: {
                         all: true,
                     },
@@ -772,7 +779,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 6,
             'possibleBuildings': [24],
-            "Centre de Formation et d'Intervention": {
+            "Secours nautique": {
                 ['Accréditation nautique']: {
                     all: true,
                 },
@@ -786,7 +793,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 5,
             'possibleBuildings': [26],
-            "Centre de Formation et d'Intervention": {
+            "Secours nautique": {
                 ["Pilote d'hélicoptère"]: {
                     all: true,
                 },
@@ -806,6 +813,10 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             buildings: [6, 8, 11, 13, 19],
             color: '#00ac00',
         },
+        'Secours nautique': {
+            buildings: [23, 24, 25, 26],
+            color: '#00ac00',
+        },
         Autre: {
             buildings: [7, 14, 21, 22],
             color: '#02a18c',
@@ -817,9 +828,9 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 ["Fourgons d'incendie"]: [0, 1, 12, 13],
                 ['Échelles']: [2, 15],
                 ['Véhicules spéciaux']: [4, 6, 7, 10, 14, 31, 36, 37, 38],
-                'Chefs de groupe': [3, 11],
-                'Ambulances': [25, 26],
-                'Nautique': [16, 17],
+                ['Chefs de groupe']: [3, 11],
+                ['Ambulances']: [25, 26],
+                ['Nautique']: [16, 17],
                 ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
             },
             color: '#ff2d2d',
@@ -835,15 +846,15 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             vehicles: {
                 ['Véhicules de patrouille']: [8],
                 ['Unités motocyclistes']: [20],
-                Choucas: [18],
+                ['Choucas']: [18],
                 ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',
         },
-        Maritime: {
+        'Secours nautique': {
             vehicles: {
-                ['Sauvetage Côtier']: [46, 47, 48, 49, 50],
+                ['Secours nautique']: [46, 47, 48, 49, 50],
             },
             color: '#00ac00',
         },
@@ -892,6 +903,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 duration: '5 jours',
                 staffList: 'Médecin urgentiste',
             },
+            {
+                caption: 'Certificat de surveillance et sauvetage aquatique',
+                duration: '5 jours',
+                staffList: 'Sauveteur en Mer',
+            },
         ],
         'Secours': [
             {
@@ -937,7 +953,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 staffList: 'Armurier',
             },
         ],
-        "Centre de Formation et d'Intervention": [
+        "Secours nautique": [
             {
                 caption: "Pilote d'hélicoptère",
                 duration: '5 jours',
@@ -946,17 +962,17 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: 'BNSSA',
                 duration: '5 jours',
-                staffList: 'BNSSA',
+                staffList: 'Sauveteur aquatique',
             },
             {
                 caption: 'Accréditation nautique',
                 duration: '3 jours',
-                staffList: 'Accréditation nautique',
+                staffList: 'Gendarme Maritime',
             },
             {
                 caption: 'Certificat de surveillance et sauvetage aquatique',
                 duration: '5 jours',
-                staffList: 'Certificat de surveillance et sauvetage aquatique',
+                staffList: 'Sauveteur en Mer',
             },
         ],
     },
