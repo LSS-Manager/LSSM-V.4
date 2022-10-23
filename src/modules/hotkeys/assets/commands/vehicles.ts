@@ -109,7 +109,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
                 });
         },
         toggleFMS() {
-            let currentFms;
+            let currentFms = 0;
             const vehicleID = parseInt(window.location.pathname.split('/')[2]);
             const LSSM = window[PREFIX] as Vue;
             LSSM.$stores.api
@@ -117,8 +117,23 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
                 .then(result => {
                     currentFms = result.fms_real;
                 });
-            if (currentFms == 2) fetch(`/vehicles/${vehicleID}/set_fms/6`);
-            else if (currentFms == 6) fetch(`/vehicles/${vehicleID}/set_fms/2`);
+            let fmsStatus = 0;
+            switch (currentFms) {
+                case 2:
+                    fmsStatus = 2;
+                    break;
+                case 6:
+                    fmsStatus = 6;
+                    break;
+                default:
+                    return;
+            }
+            LSSM.$stores.api
+                .request({
+                    url: `/vehicles/${vehicleID}/set_fms/${fmsStatus}`,
+                    feature: `hotkeys-toggleFMS`,
+                })
+                .then(window.location.reload);
         },
     },
 };
