@@ -217,7 +217,7 @@ export default {
         levelcost: [],
         maxBuildings: 'Voir particularités',
         maxLevel: 0,
-        special: 'Nombre de stations max : nombre de bâtiments divisé par 25.',
+        special: 'Nombre de stations max : nombre de bâtiments divisé par 25 avec un minimum de 4 bâtiments.',
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Secours'],
@@ -635,8 +635,7 @@ export default {
         ],
         maxBuildings: 'Aucune limite',
         maxLevel: 20,
-        special:
-            'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50 000+100 000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+        special: '',
         startPersonnel: 5,
         startParkingLots: 1,
         startVehicles: [''],
@@ -659,8 +658,7 @@ export default {
         ],
         maxBuildings: 'Aucune limite',
         maxLevel: 10,
-        special:
-            'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50 000+100 000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+        special:'',
         startPersonnel: 4,
         startParkingLots: 1,
         startVehicles: [''],
@@ -745,8 +743,7 @@ export default {
         levelcost: [],
         maxBuildings: 'Aucune limite',
         maxLevel: 0,
-        special:
-            'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50 000+100 000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+        special:'',
         startPersonnel: 2,
         startParkingLots: 0,
         startVehicles: [''],
