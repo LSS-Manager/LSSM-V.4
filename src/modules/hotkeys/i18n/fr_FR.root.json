@@ -3,20 +3,20 @@
         "*": {
             "alliance": {
                 "applications": "Ouvrir les candidatures",
-                "buildings": "Ouvrir la vue d'ensemble des bâtiments de l'alliance",
+                "buildings": "Ouvrir la vue d'ensemble des bâtiments",
                 "forum": "Ouvrir le mur",
-                "funds": "Ouvrir la banque de l'alliance",
+                "funds": "Ouvrir la banque",
                 "logfiles": "Ouvrir journal de modération",
                 "members": "Ouvrir la liste des membres",
                 "messages": "Ouvrir les messages",
                 "onlineMembers": "Ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)",
-                "open": "Ouvrir une fenêtre d'alliance",
-                "schoolings": "Ouvrir la fenêtre de formation",
+                "open": "Ouvrir une page d'alliance",
+                "schoolings": "Ouvrir la page de formation",
                 "title": "Alliance"
             },
             "credits": {
                 "daily": "Ouvrir le résumé quotidien",
-                "open": "Ouvrir les log",
+                "open": "Ouvrir les logs",
                 "overview": "Ouvrir l'aperçu des 7 derniers jours",
                 "title": "Crédits"
             },
@@ -25,10 +25,10 @@
                 "awards": "Ouvrir la liste des récompenses",
                 "level": "Ouvrir la liste des niveaux",
                 "notes": "Ouvrir les notes",
-                "open": "Ouvrir le profil personnel",
-                "title": "profil"
+                "open": "Ouvrir son profil personnel",
+                "title": "Profil"
             },
-            "protocol": "Ouvrir le journal des gestion des appelles",
+            "protocol": "Ouvrir le journal des gestions des appelles",
             "tasks": {
                 "open": "Ouvrir la liste des Tâches et événements",
                 "title": "Tâches et événements"

@@ -37,39 +37,44 @@ N'hésite pas à nous faire part d'autres propositions sur le
 <a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a>.
 Vérifie d'abord dans le GitHub Issue si ta demande a déjà été notée, afin d'éviter les doublons.
 
-## Généralités
+## Général
 
 Ces touches de raccourci sont disponibles dans tout le jeu.
 Lorsqu'elles ouvrent des pages, celles-ci s'ouvrent toujours dans une lightbox (c'est-à-dire une sorte de popup ingame).
 Ainsi, vous n'avez pas à craindre que l'affichage actuel soit endommagé.
 
-* Ouvrir le protocole du centre de contrôle
+* Ouvrir le journal des gestions des appelles
 
-### Crédits
+#### Alliance
 
-* Ouvrir le journal
-* Ouvrir le résumé de la journée
-* Ouvrir le résumé des derniers jours
-
-### Profil
-
-* Ouvrir son propre profil
-* Ouvrir les notes
-* Ouvrir la page de niveau
-* Ouvrir ses propres récompenses
-
-### Alliance
-
-* Ouvrir la page d'accueil de l'alliance
+* Ouvrir la liste des candidatures actuelles
+* Ouvrir la bue d'ensemble des bâtiments
+* Ouvrir le mur
+* Ouvrir la banque de l'alliance
+* Ouvrir le journal de modération
 * Ouvrir la liste des membres
 * Ouvrir les messages
-* Ouvrir le forum
-* Ouvrir la page de la banque de l'alliance
-* Ouvrir l'aperçu des bâtiments de l'alliance
-* Ouvrir l'aperçu des formations actuels
-* Ouvrir la liste des candidatures actuelles
-* Ouvrir les nouvelles de l'alliance
-* Ouvrir le journal de l'alliance
+* Ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)
+* Ouvrir une page d'alliance
+* Ouvrir la page de formation
+
+#### Crédits
+
+* Ouvrir le résumé quotidien
+* Ouvrir les logs
+* Ouvrir l'aperçu des 7 derniers jours
+
+#### Profil
+
+* Ouvrir la liste des récompenses
+* Ouvrir la liste des niveaux
+* Ouvrir les notes
+* Ouvrir son profil personnel
+
+#### Tâches et événements
+
+*Ouvrir la liste des Tâches et événements
+
 
 ### Tâches
 
