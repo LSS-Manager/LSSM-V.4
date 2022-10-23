@@ -19,6 +19,7 @@
         "schooling": "Edukacja",
         "title": "Przegląd personelu"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Anuluj",

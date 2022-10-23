@@ -46,6 +46,10 @@
             "description": "Dodaje dwie listy oraz wyszukiwarkę w oknie kursu, która ułatwia nam wybranie odpowiedniego personelu.",
             "title": "Filtr personelu na kurs"
         },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
             "title": "Ulepszanie budynku"

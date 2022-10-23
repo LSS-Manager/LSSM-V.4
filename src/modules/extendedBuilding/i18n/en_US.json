@@ -19,6 +19,7 @@
         "schooling": "Schooling",
         "title": "Personnel overview"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Cancel",
