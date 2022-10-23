@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇳🇱 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM server status](https://status.lss-manager.de)
+[LSSM server status][lssm.status]
 
 [Spel status](https://status.lss-manager.de/status/missionchief)
 
@@ -59,3 +59,21 @@ De LSSM-indicator is een groen gemarkeerde tekst 'LSSM V.4' of een logo.
 Als je in meldkamerspel zit maar deze indicator niet in de rechterbovenhoek ziet, klik dan op het tampermonkey icoon in je browser en controleer of de schakelaar voor LSS-Manager script op `on` staat.
 
 Bij problemen kunt u altijd contact opnemen met [Support](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nl_NL/apps/
+[docs.appstore]: /nl_NL/appstore/
+[docs.bugs]: /nl_NL/bugs/
+[docs.error_report]: /nl_NL/error_report/
+[docs.faq]: /nl_NL/faq/
+[docs.metadata]: /nl_NL/metadata/
+[docs.other]: /nl_NL/other/
+[docs.settings]: /nl_NL/settings/
+[docs.suggestions]: /nl_NL/suggestions/
+[docs.support]: /nl_NL/support/
+[games.self]: https://meldkamerspel.com
+[tampermonkey]: https://tampermonkey.net/

@@ -173,5 +173,6 @@ export default {
     prefix: PREFIX,
     server: 'https://v4.lss-manager.de/',
     docs: 'https://docs.lss-manager.de/',
+    statuspage: 'https://status.lss-manager.de/',
     fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
 } as Config;

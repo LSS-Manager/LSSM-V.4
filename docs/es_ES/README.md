@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇪🇸 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status][lssm.status]
 
 [Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
@@ -61,3 +61,21 @@ El indicador LSSM es un texto resaltado en verde `LSSM V.4`, presenten en la esq
 Si no encuentras el indicador, haz click en el icono de Tampermonkey de tu navegador y revisa si el boton para el Script LSS-Manager está configurado en `on` o contiene un tick verde `✔ Activado`. 
 
 Si tiene algún problema, contáctanos con el [Soporte](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /es_ES/apps/
+[docs.appstore]: /es_ES/appstore/
+[docs.bugs]: /es_ES/bugs/
+[docs.error_report]: /es_ES/error_report/
+[docs.faq]: /es_ES/faq/
+[docs.metadata]: /es_ES/metadata/
+[docs.other]: /es_ES/other/
+[docs.settings]: /es_ES/settings/
+[docs.suggestions]: /es_ES/suggestions/
+[docs.support]: /es_ES/support/
+[games.self]: https://centro-de-mando.es
+[tampermonkey]: https://tampermonkey.net/

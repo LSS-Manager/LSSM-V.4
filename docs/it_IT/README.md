@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇮🇹 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status][lssm.status]
 
 [Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
@@ -59,3 +59,21 @@ L'indicatore di LSSM è un testo verde evidenziato `LSSM V.4`.
 Se sei su Operatore112 ma non vedi questo indicatore nell'angolo in alto a destra, clicca sull'icona di tampermonkey nel browser e controlla se l'interruttore per LSS-Manager script è impostato su `on`.
 
 Se hai qualsiasi problema puoi sempre contattarci tramite il [supporto](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /it_IT/apps/
+[docs.appstore]: /it_IT/appstore/
+[docs.bugs]: /it_IT/bugs/
+[docs.error_report]: /it_IT/error_report/
+[docs.faq]: /it_IT/faq/
+[docs.metadata]: /it_IT/metadata/
+[docs.other]: /it_IT/other/
+[docs.settings]: /it_IT/settings/
+[docs.suggestions]: /it_IT/suggestions/
+[docs.support]: /it_IT/support/
+[games.self]: https://operatore112.it
+[tampermonkey]: https://tampermonkey.net/

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import addCommonLinks from '../addCommonLinks';
 import config from '../../../../src/config';
 
 type LangCode = `${string}_${string}`;
@@ -16,9 +17,10 @@ LANGS.forEach(([lang, serverStatus]) => {
     const flag = config.games[lang].flag;
     fs.writeFileSync(
         filePath,
-        (fs.readFileSync(filePath).toString() ?? '').replace(
-            /(.|\n)*?(?=\n## )/u,
-            `---
+        addCommonLinks(
+            (fs.readFileSync(filePath).toString() ?? '').replace(
+                /(.|\n)*?(?=\n## )/u,
+                `---
 title: LSS-Manager V.4
 lang: ${lang.replace(/_/u, '-')}
 sidebarDepth: 2
@@ -26,18 +28,21 @@ sidebarDepth: 2
 
 # Wiki ${flag} <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[${serverStatus.lssm}](https://status.lss-manager.de)
+[${serverStatus.lssm}][lssm.status]
 
 [${serverStatus.game}](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 `
+            ),
+            ['lssm', 'tampermonkey', 'games.self', 'docs'],
+            lang
         )
     );
 
