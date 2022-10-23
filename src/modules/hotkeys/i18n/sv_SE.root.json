@@ -149,5 +149,6 @@
             "description": "Här kan du binda dina egna hotkeys för specifika handlignar. Handlingar i kategorin \"Generella\" är tillgängliga överallt i spelet. Genom att trycka F1 samt statistik hur du använder dom",
             "title": "Hotkeys"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

@@ -149,5 +149,6 @@
             "description": "Définissez ici vos propres touches de raccourci pour certaines actions. Les actions de la catégorie \"Général\" sont disponibles partout dans le jeu. En appuyant sur F1, vous pouvez afficher un aperçu des raccourcis que vous avez activés à tout moment.",
             "title": "Touches de raccourci"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

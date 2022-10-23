@@ -40,7 +40,7 @@
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                         :disabled="false"
                     ></settings-text>
                     <settings-textarea
@@ -48,21 +48,21 @@
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                         :disabled="false"
                     ></settings-textarea>
                     <settings-toggle
                         v-else-if="item.setting.type === 'toggle'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                         :pull-right="false"
                     ></settings-toggle>
                     <settings-color
                         v-else-if="item.setting.type === 'color'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                     ></settings-color>
                     <settings-number
                         v-else-if="item.setting.type === 'number'"
@@ -73,7 +73,7 @@
                         :max="item.setting.max"
                         :step="item.setting.step"
                         :float="item.setting.float"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                     ></settings-number>
                     <settings-select
                         v-else-if="item.setting.type === 'select'"
@@ -81,7 +81,7 @@
                         v-model="value[item.name]"
                         :options="getOptions(item, value[item.name])"
                         :placeholder="item.title"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                     ></settings-select>
                     <settings-multi-select
                         v-else-if="item.setting.type === 'multiSelect'"
@@ -91,14 +91,14 @@
                             getMultiselectOptions(item, value[item.name], index)
                         "
                         :placeholder="item.title"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                     ></settings-multi-select>
                     <settings-hotkey
                         v-else-if="item.setting.type === 'hotkey'"
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                     ></settings-hotkey>
                     <settings-location
                         v-else-if="item.setting.type === 'location'"
@@ -106,7 +106,7 @@
                         :placeholder="item.title"
                         :zoom="item.setting.zoom"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value, item)"
+                        @input="changeValue(index, value, item, list_index)"
                     ></settings-location>
                     <div
                         v-else-if="item.setting.type === 'hidden'"
@@ -116,7 +116,7 @@
                         v-else-if="item.setting.type === 'custom'"
                         :is="item.setting.component"
                         v-model="value[item.name]"
-                        @update="changeValue(index, value, item)"
+                        @update="changeValue(index, value, item, list_index)"
                     ></component>
                     <pre v-else>{{ setting }}</pre>
                 </div>
@@ -296,22 +296,29 @@ export default Vue.extend<
                 updated.filter(v => !!v)
             );
         },
-        changeValue(index, value, { name: column, title }) {
-            if (
-                this.uniqueColumns.includes(column) &&
-                this.value.map(item => item[column]).includes(value[column])
-            ) {
+        changeValue(index, value, { name: column, title }, listIndex) {
+            const unique = this.setting.listItem[listIndex].unique;
+            const uniquenessResponse =
+                typeof unique === 'function'
+                    ? unique(value, listIndex, this.value)
+                    : this.value
+                          .map(item => item[column])
+                          .includes(value[column]);
+            if (this.uniqueColumns.includes(column) && uniquenessResponse) {
                 this.$modal.show('dialog', {
                     title: this.$t(
                         'modules.settings.appendableList.unique.title'
                     ),
-                    text: this.$t(
-                        'modules.settings.appendableList.unique.text',
-                        {
-                            value: value[column],
-                            title,
-                        }
-                    ),
+                    text:
+                        typeof uniquenessResponse === 'string'
+                            ? uniquenessResponse
+                            : this.$t(
+                                  'modules.settings.appendableList.unique.text',
+                                  {
+                                      value: value[column],
+                                      title,
+                                  }
+                              ),
                     buttons: [
                         {
                             title: this.$t(

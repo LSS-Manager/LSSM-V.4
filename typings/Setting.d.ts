@@ -126,7 +126,13 @@ interface AppendableListSetting<Type extends SettingType = SettingType> {
     size: number;
     name: string;
     title: string;
-    unique?: boolean;
+    unique?:
+        | boolean
+        | (<Row extends Record<string, unknown>>(
+              row: Row,
+              rowIndex: number,
+              settings: Row[]
+          ) => string | false);
 }
 
 export interface PreviewElement
