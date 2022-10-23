@@ -45,7 +45,7 @@ Ainsi, vous n'avez pas à craindre que l'affichage actuel soit endommagé.
 
 * Ouvrir le journal des gestions des appelles
 
-#### Alliance
+### Alliance
 
 * Ouvrir la liste des candidatures actuelles
 * Ouvrir la bue d'ensemble des bâtiments
@@ -58,20 +58,20 @@ Ainsi, vous n'avez pas à craindre que l'affichage actuel soit endommagé.
 * Ouvrir une page d'alliance
 * Ouvrir la page de formation
 
-#### Crédits
+### Crédits
 
 * Ouvrir le résumé quotidien
 * Ouvrir les logs
 * Ouvrir l'aperçu des 7 derniers jours
 
-#### Profil
+### Profil
 
 * Ouvrir la liste des récompenses
 * Ouvrir la liste des niveaux
 * Ouvrir les notes
 * Ouvrir son profil personnel
 
-#### Tâches et événements
+### Tâches et événements
 
 *Ouvrir la liste des Tâches et événements
 
