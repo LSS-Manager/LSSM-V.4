@@ -108,11 +108,11 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
                     }
                 });
         },
-        toggleFMS() {
+        async toggleFMS() {
             let currentFms = 0;
             const vehicleID = parseInt(window.location.pathname.split('/')[2]);
             const LSSM = window[PREFIX] as Vue;
-            LSSM.$stores.api
+            await LSSM.$stores.api
                 .getVehicle(vehicleID, 'hotkeys-vehicles')
                 .then(result => {
                     currentFms = result.fms_real;
@@ -120,11 +120,12 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
             let fmsStatus = 0;
             switch (currentFms) {
                 case 2:
-                    fmsStatus = 2;
-                    break;
-                case 6:
                     fmsStatus = 6;
                     break;
+                case 6:
+                    fmsStatus = 2;
+                    break;
+                //If fms != 2||6 it can't be changed manually
                 default:
                     return;
             }
