@@ -21,25 +21,34 @@ Attention : Si vous réinitialisez les paramètres, ils ne peuvent être restaur
 
 ## Paramètres généraux
 
-### Label au lieu de l'icône dans le menu
+### Titre au lieu d'une icone dans le menu
 Par défaut, le logo de LSSM est affiché dans la barre de navigation comme en-tête du menu. Certains utilisateurs préfèrent cependant l'utilisation d'un simple texte sur fond vert. C'est pourquoi il est possible de l'activer avec ce paramètre.
 
 ### Autoriser la télémétrie
 Cela vous permet de déterminer si LSSM peut envoyer des [métadonnées](metadata.md) ou non.
 
-### Fond de l'icône LSSM
+### Couleur de fond de l'icône LSSM
 Ce paramètre détermine la couleur de fond de l'icône ou de l'étiquette LSSM.
 
-### Colorer la barre de navigation
+### Colorier la barre de navigation
 Vous souhaitez que la couleur de [`Fond de l'icône LSSM`](#Fond-de-l-icône-LSSM) soit la couleur de toutes les barres de navigation ? C'est très facile avec ce paramètre !
 
-### Infobulles sombres sur la carte
+### Infobulles foncées sur la carte
 Si tu as activé le design sombre, les infobulles (noms de véhicules/d'interventions, etc.) sont tout de même claires. Cette fonction permet de corriger facilement ce problème afin que les infobulles soient également sombres.
+
+### Boutons sombres sur la carte 
+Si tu as activé le design sombre, les boutons sont tout de même claires. Cette fonction permet de corriger facilement ce problème afin que les boutons soient également sombres.
 
 ### Menu V3 comme sous-menu
 Si l'on a beaucoup de scripts actifs, la barre de navigation du jeu devient vite très chargée. Avec ce réglage, le menu du LSSM V.3 est déplacé dans le menu de la V4 :
 
 ![Menu V3 comme sous-menu](/img/fr_FR/v3submenu.png)
+
+### Afficher la progression du chargement
+Affiche un icone de chargement dans le coins inférieur droite.
+
+### Debug-Mode  
+Un petit mode de débogage qui affiche des conseils utiles dans la console du navigateur. Son activation n'est recommandée que si elle est demandée par l'équipe LSSM, car la console contiendra de nombreux messages.
 
 ## Moment.js
 Cette section fournit des informations sur la façon de configurer les paramètres de date et d'heure, par exemple dans le module [clock](modules/clock.md).
