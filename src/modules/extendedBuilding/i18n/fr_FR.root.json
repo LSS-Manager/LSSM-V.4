@@ -47,8 +47,8 @@
             "title": "Filtre pour la sélection des formations"
         },
         "startPatrolsShortcut": {
-            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
-            "title": "Start patrols in main window"
+            "description": "Un raccourci pour lancer des patrouilles dans la fenêtre principale sans ouvrir le centre d'appels.",
+            "title": "Démarrer les patrouilles dans la fenêtre principale"
         },
         "upgradeConfirmation": {
             "description": "Demande si vous voulez vraiment améliorer votre bâtiment.",

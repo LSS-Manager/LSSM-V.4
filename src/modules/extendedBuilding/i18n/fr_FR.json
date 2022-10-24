@@ -19,7 +19,10 @@
         "schooling": "Formation",
         "title": "Vue d'ensemble des employés"
     },
-    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
+    "startPatrols": {
+        "duration": "1 heure | {n} heures",
+        "title": "Patrouilles"
+    },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Annuler",
