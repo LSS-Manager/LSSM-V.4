@@ -9,7 +9,7 @@ on:
 jobs:
     check_request:
         runs-on: ubuntu-latest
-        name: '[🔎] Check Request'
+        name: '[🚀🔎][🔎] Check Request'
         if: ${{ github.event.issue.pull_request && github.event.comment.body == '@LSS-Manager deploy' }}
         outputs:
             deploy: ${{ steps.get_maintainers.outputs.deploy }}
@@ -56,7 +56,7 @@ jobs:
 
     build:
         needs: [check_request]
-        name: '[👷] Build'
+        name: '[🚀🔎][👷] Build'
         if: ${{ needs.check_request.outputs.deploy == 'true' }}
         uses: ./.github/workflows/build.yml
         with:
@@ -65,7 +65,7 @@ jobs:
 
     deploy:
         needs: [build]
-        name: '[🚀] Deploy'
+        name: '[🚀🔎][🚀] Deploy'
         uses: ./.github/workflows/deploy.yml
         with:
             branch: ${{ needs.build.outputs.branch }}
@@ -73,7 +73,7 @@ jobs:
 
     reply_to_request:
         runs-on: ubuntu-latest
-        name: '[💬] reply to request'
+        name: '[🚀🔎][💬] reply to request'
         needs:
             - build
             - deploy
