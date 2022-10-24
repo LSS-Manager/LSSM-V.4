@@ -7,8 +7,8 @@
             "title": "Samantyyppisten rakennusten lukumäärä"
         },
         "dispatchCenterBuildingFilter": {
-            "description": "Adds some useful filters to the list of buildings in dispatch centers",
-            "title": "Filter for buildings in dispatch center"
+            "description": "Lisää hyödyllisiä suodattimia rakennus listaan hätäkeskuksessa",
+            "title": "Suodatin rakennuksille hätäkeskuksessa"
         },
         "enhanceVehicleList": {
             "description": "Laajentaa ajoneuvoluetteloa hyödyllisillä ominaisuuksilla - joista osa on erityisesti säädettävissä.",
@@ -47,8 +47,8 @@
             "title": "Rakennussuodatin kurssi-ikkunassa"
         },
         "startPatrolsShortcut": {
-            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
-            "title": "Start patrols in main window"
+            "description": "Pikakuvake partioinnin aloittamiseen pääikkunassa ilman hätäkeskuksen avaamista.",
+            "title": "Aloita partiointi pääikkunassa"
         },
         "upgradeConfirmation": {
             "description": "Kysyy, haluatko todella päivittää rakennuksesi.",
