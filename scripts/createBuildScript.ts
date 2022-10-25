@@ -16,6 +16,7 @@ const excludedSteps = [
     'generate_token',
     'output',
     'git_prepare',
+    'import_gpg',
     'git_push',
 ];
 const shortcuts = {

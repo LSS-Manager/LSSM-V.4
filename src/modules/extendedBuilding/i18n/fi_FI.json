@@ -19,7 +19,7 @@
         "schooling": "Koulutus",
         "title": "Henkilöstön yleiskatsaus"
     },
-    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
+    "startPatrols": { "duration": "1 tunti | {n} tuntia", "title": "Partiot" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Peruuta",
