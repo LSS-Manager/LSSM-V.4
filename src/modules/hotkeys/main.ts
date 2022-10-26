@@ -90,7 +90,13 @@ export default (async ({ LSSM, $m, getSetting }) => {
                             getCommandName: (command: string) =>
                                 getCommandName(command, $m),
                         },
-                        { name: 'hotkeysHelp', height: 'auto' }
+                        { name: 'hotkeysHelp', height: 'auto' },
+                        {
+                            'before-open': () =>
+                                LSSM.$stores.root.setHotkeysHelpOpen(true),
+                            'closed': () =>
+                                LSSM.$stores.root.setHotkeysHelpOpen(false),
+                        }
                     );
                 }
             }),

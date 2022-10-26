@@ -37,8 +37,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { useRootStore } from '@stores/index';
-
 interface Hotkey {
     command: string;
     hotkey: string;
@@ -125,12 +123,6 @@ export default Vue.extend<
             type: Function,
             required: true,
         },
-    },
-    beforeMount() {
-        useRootStore().setHotkeysHelpOpen(true);
-    },
-    destroyed() {
-        useRootStore().setHotkeysHelpOpen(false);
     },
 });
 </script>
