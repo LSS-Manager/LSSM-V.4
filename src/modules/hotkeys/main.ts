@@ -93,7 +93,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
             if (event.key.toLowerCase() === 'f1') event.preventDefault();
         });
         hotkeyUtility.listen([
-            HotkeyUtility.createListener(['f1'], () => {
+            HotkeyUtility.createListener('f1', ['f1'], () => {
                 if (!LSSM.$stores.root.hotkeysHelpOpen) {
                     LSSM.$modal.show(
                         () =>
@@ -160,6 +160,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
         if (callback) {
             hotkeyUtility.addListener(
                 HotkeyUtility.createListener(
+                    command,
                     hotkey.split(' '),
                     callback.bind(validationResult)
                 )

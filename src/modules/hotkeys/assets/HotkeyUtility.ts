@@ -3,11 +3,20 @@ import isEqual from 'lodash/isEqual';
 
 type Sequence = string[][];
 type NormalizedSequence = string[];
-export type CallbackFunction = (sequence: string[]) => void;
-type Listener = [NormalizedSequence, CallbackFunction];
+export type CallbackFunction = (
+    sequence: string[],
+    redesign?: RedesignParameter
+) => void;
+type Listener =
+    | [NormalizedSequence, CallbackFunction, RedesignParameter]
+    | [NormalizedSequence, CallbackFunction];
 
 type ModifierAttributes = 'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey';
 type Modifiers = 'alt' | 'control' | 'meta' | 'shift';
+
+interface RedesignParameter {
+    element: HTMLElement;
+}
 
 export default class HotkeyUtility {
     private static readonly modifiers: Record<ModifierAttributes, Modifiers> = {
@@ -22,11 +31,14 @@ export default class HotkeyUtility {
     private static readonly defaultCallback = () => void 0;
     private static readonly timeoutLength = 500;
 
+    public static listeners: Record<string, Listener> = {};
+
     public static createListener(
+        name: string,
         sequence: string[],
         callback: CallbackFunction
     ): Listener {
-        return [sequence, callback];
+        return (HotkeyUtility.listeners[name] = [sequence, callback]);
     }
 
     private readonly sequence: Sequence = [];
@@ -78,13 +90,13 @@ export default class HotkeyUtility {
             this.handleKey(event);
             const normalized = this.normalizeSequence();
             if (event.type === 'keyup' && !this.currentKeys.length) {
-                this.listeners.forEach(([sequence, callback]) => {
+                this.listeners.forEach(([sequence, callback, ...args]) => {
                     if (
                         isEqual(sequence, normalized) &&
                         !this.executedListeners.includes(sequence)
                     ) {
                         this.executedListeners.push(sequence);
-                        callback(sequence);
+                        callback(sequence, ...args);
                         window.setTimeout(() => {
                             if (this.executedListeners.includes(sequence)) {
                                 this.executedListeners.splice(
