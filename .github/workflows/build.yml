@@ -208,6 +208,7 @@ jobs:
 
             - name: Import GPG key
               id: import_gpg
+              if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: crazy-max/ghaction-import-gpg@v5
               with:
                   gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}

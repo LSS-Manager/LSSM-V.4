@@ -1273,14 +1273,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@es-joy/jsdoccomment@npm:~0.33.0":
-  version: 0.33.0
-  resolution: "@es-joy/jsdoccomment@npm:0.33.0"
+"@es-joy/jsdoccomment@npm:~0.33.4":
+  version: 0.33.4
+  resolution: "@es-joy/jsdoccomment@npm:0.33.4"
   dependencies:
     comment-parser: 1.3.1
     esquery: ^1.4.0
     jsdoc-type-pratt-parser: ~3.1.0
-  checksum: fe91f9d236fbae44b752b65d95fc6174f89f9b90b9a4cc270247f1f64ed1fe50b438f01303738677ee8c18e5746266bd65e3cba68708bf8190d503039e417f45
+  checksum: 711391f8dc2aad5ba2a2d1dc247dde3b6b20382b8d30747aa2c1266e1386bfccb57facb62c9c6e508bf1c5aeeaa53a32239a991f31e0e25543a8f987ca88cbc3
   languageName: node
   linkType: hard
 
@@ -4265,9 +4265,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001304, caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001407":
-  version: 1.0.30001423
-  resolution: "caniuse-lite@npm:1.0.30001423"
-  checksum: fe443f323f5dc6a858ef7d7deddb93db5e5f9a35e22970c4a65c4ef793bb696c1e2f038df572722d9edf29021e43ed16f5131faafde783563bd0d9eccf486592
+  version: 1.0.30001425
+  resolution: "caniuse-lite@npm:1.0.30001425"
+  checksum: 4fbf9f5b125b15a3eeaf7b75ca611f417ab9ce1a9fc07ee1023b2a7c0cc9844ad61ff089e814e4af6f747b9b532b6b50e7cb7844e6c29900f68ac9d171193ece
   languageName: node
   linkType: hard
 
@@ -5604,11 +5604,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:39.3.24":
-  version: 39.3.24
-  resolution: "eslint-plugin-jsdoc@npm:39.3.24"
+"eslint-plugin-jsdoc@npm:39.3.25":
+  version: 39.3.25
+  resolution: "eslint-plugin-jsdoc@npm:39.3.25"
   dependencies:
-    "@es-joy/jsdoccomment": ~0.33.0
+    "@es-joy/jsdoccomment": ~0.33.4
     comment-parser: 1.3.1
     debug: ^4.3.4
     escape-string-regexp: ^4.0.0
@@ -5617,7 +5617,7 @@ __metadata:
     spdx-expression-parse: ^3.0.1
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: 2d6149a48903502f61c0c5d06944d5a46789a1c38d4999a42f0bd32129e4c66cbc470df8cae7d5d1a730b8dad3e06c9d869ba8abd3d6e08eaa1a5cd39464b7b4
+  checksum: 2e5447e65c26a76724eb1c297c84d3f96d6994c3588ff94e4333b8845ec975792b507d1cfb99e1e7da7efbe1b2ec9210fc7200a0e7c356ac176d4ae5198826c2
   languageName: node
   linkType: hard
 
@@ -7842,7 +7842,7 @@ __metadata:
     eslint-import-resolver-typescript: 3.5.2
     eslint-plugin-compat: 4.0.2
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jsdoc: 39.3.24
+    eslint-plugin-jsdoc: 39.3.25
     eslint-plugin-markdownlint: 0.4.0
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-regexp: 1.9.0
