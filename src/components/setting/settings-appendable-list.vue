@@ -300,7 +300,7 @@ export default Vue.extend<
             const unique = this.setting.listItem[listIndex].unique;
             const uniquenessResponse =
                 typeof unique === 'function'
-                    ? unique(value, listIndex, this.value)
+                    ? unique(value, index, this.value)
                     : this.value
                           .map(item => item[column])
                           .includes(value[column]);
