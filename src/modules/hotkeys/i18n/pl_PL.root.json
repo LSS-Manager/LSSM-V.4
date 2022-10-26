@@ -147,5 +147,5 @@
             "title": "Skróty klawiszowe"
         }
     },
-    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
+    "unique": "Próbowałeś przypisać ten sam skrót klawiszowy do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót dla tej akcji!"
 }
