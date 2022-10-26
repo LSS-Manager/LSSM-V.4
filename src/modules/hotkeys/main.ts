@@ -79,18 +79,20 @@ export default (async ({ LSSM, $m, getSetting }) => {
         });
         hotkeyUtility.listen([
             HotkeyUtility.createListener(['f1'], () => {
-                LSSM.$modal.show(
-                    () =>
-                        import(
-                            /* webpackChunkName: "modules/hotkeys/help" */ './components/help.vue'
-                        ),
-                    {
-                        hotkeys,
-                        getCommandName: (command: string) =>
-                            getCommandName(command, $m),
-                    },
-                    { name: 'hotkeysHelp', height: 'auto' }
-                );
+                if (!LSSM.$stores.root.hotkeysHelpOpen) {
+                    LSSM.$modal.show(
+                        () =>
+                            import(
+                                /* webpackChunkName: "modules/hotkeys/help" */ './components/help.vue'
+                            ),
+                        {
+                            hotkeys,
+                            getCommandName: (command: string) =>
+                                getCommandName(command, $m),
+                        },
+                        { name: 'hotkeysHelp', height: 'auto' }
+                    );
+                }
             }),
         ]);
     }
