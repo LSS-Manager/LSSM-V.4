@@ -146,5 +146,6 @@
             "description": "Configure sus propias teclas de acceso rápido para ciertas acciones aquí. Acciones de categoría \"General\" está disponible en todas las partes del juego. Al presionar F1, puede ver una descripción general de las teclas de acceso rápido que has abierto en cualquier momento.",
             "title": "Teclas de acceso directo"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }
