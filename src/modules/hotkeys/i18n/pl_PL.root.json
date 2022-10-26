@@ -168,5 +168,6 @@
             "description": "Ustaw tutaj własne skróty klawiszowe dla określonych działań. Akcje kategorii \"Ogólne\" są dostępne wszędzie w grze. Naciskając F1, możesz w dowolnym momencie wyświetlić przegląd skrótów klawiszowych, które otworzyłeś.",
             "title": "Skróty klawiszowe"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

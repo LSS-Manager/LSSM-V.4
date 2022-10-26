@@ -169,5 +169,6 @@
             "description": "Aseta omat pikanäppäimet tietyille toiminnoille täällä. Kategorian \"Yleinen\" toiminnot ovat käytettävissä kaikkialla pelissä. Painamalla F1-näppäintä voit nähdä yleiskatsauksen pikanäppäimistä, jotka olet avannut milloin tahansa.",
             "title": "Pikanäppäimet"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

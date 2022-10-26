@@ -165,5 +165,6 @@
             "description": "Sett egne hurtigtaster, handlinger fra kategorien \"Generell\" er tilgjengelig overalt i spillet. Trykk F1, for en oversikt over tilgjengelige hurtigtaster.",
             "title": "Hurtigtaster"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

@@ -164,5 +164,6 @@
             "description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
             "title": "Hotkeys"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

@@ -171,5 +171,6 @@
             "description": "Nastavte si vlastní klávesové zkratky pro dostupné akce. Akce z kategorie \"Všeobecné\" jsou dostupné kdekoliv ve hře. Stisknutím klávesy F1 zobrazíte přehled aktuálně nastavených klávesových zkratek.",
             "title": "Klávesové zkratky"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }
