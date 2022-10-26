@@ -150,5 +150,5 @@
             "title": "Touches de raccourci"
         }
     },
-    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
+    "unique": "Vous avez essayé d'affecter le même raccourci à plusieurs actions, alors que ces actions sont appelées dans la même fenêtre. Veuillez choisir un autre raccourci pour cette action."
 }
