@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇳🇴 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status][lssm.status]
 
 [Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
@@ -59,3 +59,21 @@ The LSSM indicator is a green highlighted text `LSSM V.4`.
 If you are in missionchief but do not see this indicator in the upper right corner, click on the tampermonkey icon in your browser and check if the switch for LSS-Manager script is set to `on`.
 
 If you have any problems you can always contact [Support](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nb_NO/apps/
+[docs.appstore]: /nb_NO/appstore/
+[docs.bugs]: /nb_NO/bugs/
+[docs.error_report]: /nb_NO/error_report/
+[docs.faq]: /nb_NO/faq/
+[docs.metadata]: /nb_NO/metadata/
+[docs.other]: /nb_NO/other/
+[docs.settings]: /nb_NO/settings/
+[docs.suggestions]: /nb_NO/suggestions/
+[docs.support]: /nb_NO/support/
+[games.self]: https://nodsentralspillet.com
+[tampermonkey]: https://tampermonkey.net/

@@ -1,6 +1,22 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
+export default (async ({
+    LSSM,
+    MODULE_ID,
+    $m,
+    $mc,
+    getSetting,
+    setSetting,
+}) => {
+    if (
+        window.location.pathname === '/' &&
+        (await getSetting('startPatrolsShortcut'))
+    ) {
+        return import(
+            /* webpackChunkName: "modules/extendedBuilding/startPatrolsShortcut" */ './assets/startPatrolsShortcut'
+        ).then(({ default: sps }) => sps(LSSM, $m, $mc, MODULE_ID));
+    }
+
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/u

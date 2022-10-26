@@ -33,5 +33,6 @@ export interface Config {
     prefix: string;
     server: string;
     docs: string;
+    statuspage: string;
     fontAwesomeIconSearch: string;
 }

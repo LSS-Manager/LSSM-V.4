@@ -275,9 +275,14 @@ export default <ModuleMainFunction>(async ({
                             shiftY: 0.1,
                         },
                         {
-                            'before-open': () =>
-                                document.head.append(backgroundStyle),
-                            'closed': () => backgroundStyle.remove(),
+                            'before-open': () => {
+                                document.head.append(backgroundStyle);
+                                settingsBtn.disabled = true;
+                            },
+                            'closed': () => {
+                                backgroundStyle.remove();
+                                settingsBtn.disabled = false;
+                            },
                         }
                     )
                 );

@@ -10,6 +10,15 @@
   "dependencyDashboardHeader": "# ℹ️ Renovate Dependency-Dashboard ℹ\nScheduled and currently open dependency updates are listed here\n",
   "dependencyDashboardLabels": ["dependencies"],
   "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
+  "extends": [
+    "workarounds:typesNodeVersioning"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 3am on saturday"],
+    "assignees": ["jxn-30"],
+    "reviewers": ["jxn-30"]
+  },
   "packageRules": [
     {
       "description": "Disable updating vue on main repo. Updates require vue 3",
@@ -21,6 +30,7 @@
     {
       "matchManagers": ["npm"],
       "matchPackagePrefixes": ["@types/"],
+      "excludePackageNames": ["@types/node"],
       "groupName": "types",
       "separateMajorMinor": false,
       "lockFileMaintenance": { "enabled": true },

@@ -27,6 +27,7 @@ export const defineRootStore = defineStore('root', {
             menuItems: [],
             osmBars: {},
             styleSheet: null,
+            hotkeysHelpOpen: false,
         },
     getters: {
         locale: (): string => window.I18n.locale,
@@ -84,6 +85,9 @@ export const defineRootStore = defineStore('root', {
             },
     },
     actions: {
+        setHotkeysHelpOpen(state: boolean) {
+            this.hotkeysHelpOpen = state;
+        },
         updateCredits(credits: number) {
             const old = this.credits;
             this.credits = credits;

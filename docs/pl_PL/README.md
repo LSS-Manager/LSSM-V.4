@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇵🇱 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status][lssm.status]
 
 [Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
@@ -61,3 +61,21 @@ Wskaźnik LSSM to podświetlony na zielono tekst „LSSM V.4”, znajdujący si�
 Jeśli nie możesz znaleźć tego wskaźnika, kliknij ikonę tampermonkey w przeglądarce i sprawdź, czy przełącznik skryptu LSS-Manager jest ustawiony na `on`.
 
 Jeśli masz jakiekolwiek problemy, skontaktuj się z nami: [Support](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /pl_PL/apps/
+[docs.appstore]: /pl_PL/appstore/
+[docs.bugs]: /pl_PL/bugs/
+[docs.error_report]: /pl_PL/error_report/
+[docs.faq]: /pl_PL/faq/
+[docs.metadata]: /pl_PL/metadata/
+[docs.other]: /pl_PL/other/
+[docs.settings]: /pl_PL/settings/
+[docs.suggestions]: /pl_PL/suggestions/
+[docs.support]: /pl_PL/support/
+[games.self]: https://operatorratunkowy.pl
+[tampermonkey]: https://tampermonkey.net/

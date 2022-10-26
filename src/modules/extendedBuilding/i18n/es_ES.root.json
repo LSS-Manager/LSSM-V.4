@@ -46,6 +46,10 @@
             "description": "Useful filters to shorten the building list in the course window",
             "title": "Building filter for course selection"
         },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Pregunta si realmente desea mejorar su edificio.",
             "title": "Mejorar edificio"
