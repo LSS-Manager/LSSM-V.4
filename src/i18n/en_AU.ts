@@ -177,7 +177,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            wtank: 1800,
+            wtank: 3000,
             possibleBuildings: [0, 18],
         },
         2: {
@@ -308,7 +308,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a MRU and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pumper acts as a MRU and a Fire Truck.',
         },
         13: {
             caption: 'Aerial Pumper',
@@ -538,7 +538,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 500,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         29: {
             caption: 'Light Tanker',
@@ -547,8 +547,8 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 8000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 3000,
-            possibleBuildings: [0],
+            wtank: 1800,
+            possibleBuildings: [0, 18],
         },
         30: {
             caption: 'Pumper Tanker',
