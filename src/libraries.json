@@ -283,7 +283,7 @@
     },
     "octokit": {
         "icon": "https://docs.github.com/assets/cb-102209/images/gundamcat.png",
-        "version": "2.0.9"
+        "version": "2.0.10"
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
