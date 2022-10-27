@@ -116,25 +116,25 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
                 .getVehicle(vehicleID, 'hotkeys-vehicles')
                 .then(result => {
                     currentFms = result.fms_real;
+                    let fmsStatus = 0;
+                    switch (currentFms) {
+                        case 2:
+                            fmsStatus = 6;
+                            break;
+                        case 6:
+                            fmsStatus = 2;
+                            break;
+                        //If fms != 2||6 it can't be changed manually
+                        default:
+                            return;
+                    }
+                    LSSM.$stores.api
+                        .request({
+                            url: `/vehicles/${vehicleID}/set_fms/${fmsStatus}`,
+                            feature: `hotkeys-toggleFMS`,
+                        })
+                        .then(() => window.location.reload());
                 });
-            let fmsStatus = 0;
-            switch (currentFms) {
-                case 2:
-                    fmsStatus = 6;
-                    break;
-                case 6:
-                    fmsStatus = 2;
-                    break;
-                //If fms != 2||6 it can't be changed manually
-                default:
-                    return;
-            }
-            LSSM.$stores.api
-                .request({
-                    url: `/vehicles/${vehicleID}/set_fms/${fmsStatus}`,
-                    feature: `hotkeys-toggleFMS`,
-                })
-                .then(window.location.reload);
         },
     },
 };
