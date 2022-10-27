@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.6.3+20221026.0036",
+    "version": "4.6.3+20221027.0706",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -49,11 +49,11 @@
         "@types/js-yaml": "^4.0.5",
         "@types/leaflet": "1.9.0",
         "@types/lodash": "4.14.186",
-        "@types/node": "18.11.5",
+        "@types/node": "18.11.7",
         "@types/pdfmake": "0.2.1",
         "@types/prettier": "2.7.1",
         "@types/qrcode": "1.5.0",
-        "@types/semver": "7.3.12",
+        "@types/semver": "7.3.13",
         "@types/showdown": "2.0.0",
         "@types/tampermonkey": "4.0.5",
         "@types/ua-parser-js": "0.7.36",

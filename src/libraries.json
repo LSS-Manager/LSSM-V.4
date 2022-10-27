@@ -61,7 +61,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.11.5"
+        "version": "18.11.7"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -81,7 +81,7 @@
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.3.12"
+        "version": "7.3.13"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -283,7 +283,7 @@
     },
     "octokit": {
         "icon": "https://docs.github.com/assets/cb-102209/images/gundamcat.png",
-        "version": "2.0.9"
+        "version": "2.0.10"
     },
     "pdfmake": {
         "url": "http://pdfmake.org",
