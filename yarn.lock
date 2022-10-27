@@ -1924,13 +1924,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/openapi-types@npm:^12.11.0":
-  version: 12.11.0
-  resolution: "@octokit/openapi-types@npm:12.11.0"
-  checksum: 8a7d4bd6288cc4085cabe0ca9af2b87c875c303af932cb138aa1b2290eb69d32407759ac23707bb02776466e671244a902e9857896903443a69aff4b6b2b0e3b
-  languageName: node
-  linkType: hard
-
 "@octokit/openapi-types@npm:^14.0.0":
   version: 14.0.0
   resolution: "@octokit/openapi-types@npm:14.0.0"
@@ -1961,13 +1954,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/plugin-retry@npm:^3.0.9":
-  version: 3.0.9
-  resolution: "@octokit/plugin-retry@npm:3.0.9"
+"@octokit/plugin-retry@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "@octokit/plugin-retry@npm:4.0.3"
   dependencies:
-    "@octokit/types": ^6.0.3
+    "@octokit/types": ^8.0.0
     bottleneck: ^2.15.3
-  checksum: 5744780d308dd2f2b8174264604a9f8ea977374256f5eaf0314e5181c32f96ec53a3cfcee67bf1b48dc7eed401ebefebd2fa744b41cf03103affac92f397a874
+  peerDependencies:
+    "@octokit/core": ">=3"
+  checksum: 066a26f922a1550f68bc6d42527e1a4191366173d89f11bd8e1186fb8191e5298e851c4d37848b176457fc7a5f29e9fbdf6cab097ec526e21affaab5b0dfa6dc
   languageName: node
   linkType: hard
 
@@ -2005,15 +2000,6 @@ __metadata:
     node-fetch: ^2.6.7
     universal-user-agent: ^6.0.0
   checksum: adbeb38807c60b53d32d9b69be0c1f861c26698bc6f5f3f7e05d26972290dc4867827dd333bdd801818c347e5723efd049a2b9848c6c8bf74a2032968dede0ff
-  languageName: node
-  linkType: hard
-
-"@octokit/types@npm:^6.0.3":
-  version: 6.41.0
-  resolution: "@octokit/types@npm:6.41.0"
-  dependencies:
-    "@octokit/openapi-types": ^12.11.0
-  checksum: fd6f75e0b19b90d1a3d244d2b0c323ed8f2f05e474a281f60a321986683548ef2e0ec2b3a946aa9405d6092e055344455f69f58957c60f58368c8bdda5b7d2ab
   languageName: node
   linkType: hard
 
@@ -7802,7 +7788,7 @@ __metadata:
     "@vuepress/plugin-search": 2.0.0-beta.53
     cloc: 2.10.0
     moment: 2.29.4
-    octokit: 2.0.9
+    octokit: 2.0.10
     showdown: 2.1.0
     vue: 3.2.41
     vuepress: 2.0.0-beta.53
@@ -8547,19 +8533,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"octokit@npm:2.0.9":
-  version: 2.0.9
-  resolution: "octokit@npm:2.0.9"
+"octokit@npm:2.0.10":
+  version: 2.0.10
+  resolution: "octokit@npm:2.0.10"
   dependencies:
     "@octokit/app": ^13.0.5
     "@octokit/core": ^4.0.4
     "@octokit/oauth-app": ^4.0.6
     "@octokit/plugin-paginate-rest": ^5.0.0
     "@octokit/plugin-rest-endpoint-methods": ^6.0.0
-    "@octokit/plugin-retry": ^3.0.9
+    "@octokit/plugin-retry": ^4.0.3
     "@octokit/plugin-throttling": ^4.0.1
     "@octokit/types": ^8.0.0
-  checksum: 5d4c64692288af530ed8983619c265785b4783dab6b456e00472bd95eddfa367b74a2a4a2cd30df8f51cfcbe0ebb79fe14a2534d93d32b6edf50b0c1404657f2
+  checksum: 9a60fdd781a4736fd11d243bc38526f75b4a6f439c2bb2b4299048204292e808bebf322e8eaf1b58f67395152c357b0616616b022ba68b812236f79ccd8f6812
   languageName: node
   linkType: hard
 
