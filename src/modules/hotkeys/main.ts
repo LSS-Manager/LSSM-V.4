@@ -4,6 +4,14 @@ import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
+type RootScope = typeof rootCommandScopes[number];
+type RootScopeWithoutAll = Exclude<RootScope, '*'>;
+
+type HotkeySetting = {
+    command: string;
+    hotkey: string;
+}[];
+
 const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
     '*',
     'main',
@@ -12,8 +20,20 @@ const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
     'vehicles',
 ];
 
-type RootScope = typeof rootCommandScopes[number];
-type RootScopeWithoutAll = Exclude<RootScope, '*'>;
+const readSetting = (
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'] = (
+        settingId,
+        defaultValue
+    ) =>
+        (window[PREFIX] as Vue).$stores.settings.getSetting({
+            moduleId: 'hotkeys',
+            settingId,
+            defaultValue,
+        })
+) =>
+    getSetting<{ value: HotkeySetting; enabled: boolean }>('hotkeys').then(
+        setting => setting.value
+    );
 
 const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
     const commands: Scope<Empty, RootScope[], [], true> = {
@@ -37,6 +57,8 @@ const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
 };
 
 export default (async ({ LSSM, $m, getSetting }) => {
+    const hotkeys = await readSetting(getSetting);
+
     const rootScopes: RootScopeWithoutAll[] = [];
     if (window.location.pathname.length <= 1) rootScopes.push('main');
     if (window.location.pathname.match(/^\/missions\/\d+\/?/u))
@@ -49,15 +71,6 @@ export default (async ({ LSSM, $m, getSetting }) => {
     const commands = await resolveCommands(rootScopes);
 
     const hotkeyUtility = new HotkeyUtility();
-
-    type HotkeySetting = {
-        command: string;
-        hotkey: string;
-    }[];
-
-    const hotkeys = (
-        await getSetting<{ value: HotkeySetting; enabled: boolean }>('hotkeys')
-    ).value;
 
     if (hotkeys.length) {
         window.addEventListener('keydown', event => {
