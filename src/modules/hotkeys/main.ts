@@ -1,3 +1,5 @@
+import type Vue from 'vue';
+
 import getCommandName from './assets/getCommandName';
 import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
 
@@ -6,6 +8,8 @@ import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 type RootScope = typeof rootCommandScopes[number];
 type RootScopeWithoutAll = Exclude<RootScope, '*'>;
+
+type Commands = Scope<Empty, RootScope[], [], true>;
 
 type HotkeySetting = {
     command: string;
@@ -36,7 +40,7 @@ const readSetting = (
     );
 
 const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
-    const commands: Scope<Empty, RootScope[], [], true> = {
+    const commands: Commands = {
         '*': (
             await import(
                 /* webpackChunkName: "modules/hotkeys/commands/general" */ './assets/commands/general'
@@ -54,6 +58,67 @@ const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
         };
     }
     return commands;
+};
+
+const registerHotkeys = async (
+    hotkeys: HotkeySetting,
+    commands: Commands,
+    hotkeyUtility: HotkeyUtility,
+    LSSM: Vue
+) => {
+    hotkeyLoop: for (const { command, hotkey } of hotkeys) {
+        let base: Scope<Empty, [], [], true> = commands;
+        let callback: CallbackFunction | null = null;
+        const path = command.split('.');
+        const walkedPath: string[] = [];
+
+        const validationResult: Record<string, unknown> = {};
+
+        for (const scope of path) {
+            if (!base.hasOwnProperty(scope)) {
+                if (
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore because TypeScript sometimes :)
+                    rootCommandScopes.includes(scope) &&
+                    !walkedPath.length
+                )
+                    continue hotkeyLoop;
+
+                LSSM.$stores.console.error(
+                    `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
+                        '.'
+                    )}! Cannot add command ${command} with hotkey »${hotkey}«`
+                );
+                continue hotkeyLoop;
+            }
+            walkedPath.push(scope);
+            const result = base[scope as keyof typeof base] as
+                | CallbackFunction
+                | Scope;
+            if (typeof result === 'function') {
+                callback = result as CallbackFunction;
+            } else {
+                const validatorFn =
+                    result.validatorFunction.bind(validationResult);
+                const validatorResult = await validatorFn();
+                if (!validatorResult) continue hotkeyLoop;
+                base = result;
+            }
+        }
+        if (callback) {
+            hotkeyUtility.addListener(
+                HotkeyUtility.createListener(
+                    command,
+                    hotkey.split(' '),
+                    callback.bind(validationResult)
+                )
+            );
+        } else {
+            LSSM.$stores.console.error(
+                `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
+            );
+        }
+    }
 };
 
 export default (async ({ LSSM, $m, getSetting }) => {
@@ -115,57 +180,5 @@ export default (async ({ LSSM, $m, getSetting }) => {
         ]);
     }
 
-    hotkeyLoop: for (const { command, hotkey } of hotkeys) {
-        let base: Scope<Empty, [], [], true> = commands;
-        let callback: CallbackFunction | null = null;
-        const path = command.split('.');
-        const walkedPath: string[] = [];
-
-        const validationResult: Record<string, unknown> = {};
-
-        for (const scope of path) {
-            if (!base.hasOwnProperty(scope)) {
-                if (
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore because TypeScript sometimes :)
-                    rootCommandScopes.includes(scope) &&
-                    !walkedPath.length
-                )
-                    continue hotkeyLoop;
-
-                LSSM.$stores.console.error(
-                    `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
-                        '.'
-                    )}! Cannot add command ${command} with hotkey »${hotkey}«`
-                );
-                continue hotkeyLoop;
-            }
-            walkedPath.push(scope);
-            const result = base[scope as keyof typeof base] as
-                | CallbackFunction
-                | Scope;
-            if (typeof result === 'function') {
-                callback = result as CallbackFunction;
-            } else {
-                const validatorFn =
-                    result.validatorFunction.bind(validationResult);
-                const validatorResult = await validatorFn();
-                if (!validatorResult) continue hotkeyLoop;
-                base = result;
-            }
-        }
-        if (callback) {
-            hotkeyUtility.addListener(
-                HotkeyUtility.createListener(
-                    command,
-                    hotkey.split(' '),
-                    callback.bind(validationResult)
-                )
-            );
-        } else {
-            LSSM.$stores.console.error(
-                `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
-            );
-        }
-    }
+    registerHotkeys(hotkeys, commands, hotkeyUtility, LSSM).then();
 }) as ModuleMainFunction;
