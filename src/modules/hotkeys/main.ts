@@ -60,12 +60,25 @@ export default (async ({ LSSM, $m, getSetting }) => {
     const hotkeys = await readSetting(getSetting);
 
     const rootScopes: RootScopeWithoutAll[] = [];
-    if (window.location.pathname.length <= 1) rootScopes.push('main');
-    if (window.location.pathname.match(/^\/missions\/\d+\/?/u))
+    if (
+        hotkeys.some(({ command }) => command.startsWith('main.')) &&
+        window.location.pathname.length <= 1
+    )
+        rootScopes.push('main');
+    if (
+        hotkeys.some(({ command }) => command.startsWith('mission.')) &&
+        window.location.pathname.match(/^\/missions\/\d+\/?/u)
+    )
         rootScopes.push('mission');
-    if (window.location.pathname.match(/^\/buildings\/\d+\/?/u))
+    if (
+        hotkeys.some(({ command }) => command.startsWith('buildings.')) &&
+        window.location.pathname.match(/^\/buildings\/\d+\/?/u)
+    )
         rootScopes.push('building');
-    if (window.location.pathname.match(/^\/vehicles\/\d+\/?/u))
+    if (
+        hotkeys.some(({ command }) => command.startsWith('vehicles.')) &&
+        window.location.pathname.match(/^\/vehicles\/\d+\/?/u)
+    )
         rootScopes.push('vehicles');
 
     const commands = await resolveCommands(rootScopes);
