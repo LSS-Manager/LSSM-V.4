@@ -2075,6 +2075,7 @@ export default Vue.extend<
     },
     watch: {
         vehicle() {
+            this.lightbox.setHotkeyRedesignParam('vehicles');
             this.lightbox.finishLoading('vehicle-updated-data');
         },
     },
@@ -2086,6 +2087,9 @@ export default Vue.extend<
                 );
             });
         });
+    },
+    beforeDestroy() {
+        this.lightbox.unsetHotkeyRedesignParam('vehicles');
     },
     mounted() {
         const mode = this.vehicle.has_hospitals
@@ -2117,6 +2121,7 @@ export default Vue.extend<
                 });
             });
         }
+        this.lightbox.setHotkeyRedesignParam('vehicles');
         this.lightbox.finishLoading('vehicle-mounted');
     },
 });

@@ -1,21 +1,39 @@
-import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
+
+import type {
+    RedesignKey,
+    RedesignLightbox,
+    RedesignLightboxVue,
+} from 'typings/modules/Redesign';
 
 type Sequence = string[][];
 type NormalizedSequence = string[];
-export type CallbackFunction = (
+export type CallbackFunction<
+    RedesignType extends RedesignKey | undefined = undefined
+> = (
     sequence: string[],
-    redesign?: RedesignParameter
+    redesign?: RedesignType extends RedesignKey
+        ? RedesignParameter<RedesignType>
+        : undefined
 ) => void;
 type Listener =
-    | [NormalizedSequence, CallbackFunction, RedesignParameter]
-    | [NormalizedSequence, CallbackFunction];
+    | [
+          string,
+          NormalizedSequence,
+          CallbackFunction<RedesignKey>,
+          RedesignParameter
+      ]
+    | [string, NormalizedSequence, CallbackFunction];
 
 type ModifierAttributes = 'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey';
 type Modifiers = 'alt' | 'control' | 'meta' | 'shift';
 
-interface RedesignParameter {
-    element: HTMLElement;
+export interface RedesignParameter<
+    RedesignType extends RedesignKey = RedesignKey
+> {
+    element: Element;
+    data: RedesignLightbox<RedesignType>['Data']['data'];
+    lightbox: RedesignLightboxVue<RedesignType>;
 }
 
 export default class HotkeyUtility {
@@ -31,24 +49,20 @@ export default class HotkeyUtility {
     private static readonly defaultCallback = () => void 0;
     private static readonly timeoutLength = 500;
 
-    public static listeners: Record<string, Listener> = {};
+    public static activeCommands: Record<string, Listener> = {};
 
     public static createListener(
-        name: string,
+        command: string,
         sequence: string[],
         callback: CallbackFunction
     ): Listener {
-        return (HotkeyUtility.listeners[name] = [sequence, callback]);
+        return [command, sequence, callback];
     }
 
     private readonly sequence: Sequence = [];
     private readonly currentKeys: string[] = [];
     private readonly listeners: Listener[] = [];
     private readonly executedListeners: NormalizedSequence[] = [];
-
-    public get currentListeners(): Listener[] {
-        return cloneDeep(this.listeners);
-    }
 
     private timer = 0;
     private recordedChar = false;
@@ -74,59 +88,60 @@ export default class HotkeyUtility {
         inputField.addEventListener('keyup', eventListener);
     }
 
-    public listen(listeners: Listener[]): (listeners: Listener[]) => void {
+    private eventListener = (event: KeyboardEvent) => {
+        const target = event.target as HTMLElement | null;
+        if (
+            this.recording ||
+            ['INPUT', 'SELECT', 'TEXTAREA'].includes(target?.tagName ?? '') ||
+            target?.isContentEditable
+        )
+            return;
+        this.handleKey(event);
+        const normalized = this.normalizeSequence();
+        if (event.type === 'keyup' && !this.currentKeys.length) {
+            this.listeners.forEach(([, sequence, callback, ...args]) => {
+                if (
+                    isEqual(sequence, normalized) &&
+                    !this.executedListeners.includes(sequence)
+                ) {
+                    this.executedListeners.push(sequence);
+                    // for some reason, TS does not understand some stuff here
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    callback(sequence, ...args);
+                    window.setTimeout(() => {
+                        if (this.executedListeners.includes(sequence)) {
+                            this.executedListeners.splice(
+                                this.executedListeners.indexOf(sequence),
+                                1
+                            );
+                        }
+                    }, HotkeyUtility.timeoutLength);
+                }
+            });
+        }
+        this.restartTimer();
+    };
+
+    public listen(listeners: Listener[]): void {
         listeners.forEach(listener => this.addListener(listener));
 
-        const eventListener = (event: KeyboardEvent) => {
-            const target = event.target as HTMLElement | null;
-            if (
-                this.recording ||
-                ['INPUT', 'SELECT', 'TEXTAREA'].includes(
-                    target?.tagName ?? ''
-                ) ||
-                target?.isContentEditable
-            )
-                return;
-            this.handleKey(event);
-            const normalized = this.normalizeSequence();
-            if (event.type === 'keyup' && !this.currentKeys.length) {
-                this.listeners.forEach(([sequence, callback, ...args]) => {
-                    if (
-                        isEqual(sequence, normalized) &&
-                        !this.executedListeners.includes(sequence)
-                    ) {
-                        this.executedListeners.push(sequence);
-                        callback(sequence, ...args);
-                        window.setTimeout(() => {
-                            if (this.executedListeners.includes(sequence)) {
-                                this.executedListeners.splice(
-                                    this.executedListeners.indexOf(sequence),
-                                    1
-                                );
-                            }
-                        }, HotkeyUtility.timeoutLength);
-                    }
-                });
-            }
-            this.restartTimer();
-        };
-
-        window.addEventListener('keydown', eventListener);
-        window.addEventListener('keyup', eventListener);
-
-        return (listeners: Listener[]) => {
-            listeners.forEach(listener => {
-                if (this.listeners.includes(listener))
-                    this.listeners.splice(this.listeners.indexOf(listener), 1);
-            });
-            if (this.listeners.length) return;
-            window.removeEventListener('keydown', eventListener);
-            window.removeEventListener('keyup', eventListener);
-        };
+        window.addEventListener('keydown', this.eventListener);
+        window.addEventListener('keyup', this.eventListener);
     }
 
     public addListener(listener: Listener): void {
+        HotkeyUtility.activeCommands[listener[0]] = listener;
         if (!this.listeners.includes(listener)) this.listeners.push(listener);
+    }
+
+    public removeListener(listener: Listener): void {
+        delete HotkeyUtility.activeCommands[listener[0]];
+        if (this.listeners.includes(listener))
+            this.listeners.splice(this.listeners.indexOf(listener), 1);
+        if (this.listeners.length) return;
+        window.removeEventListener('keydown', this.eventListener);
+        window.removeEventListener('keyup', this.eventListener);
     }
 
     private handleKey(event: KeyboardEvent) {

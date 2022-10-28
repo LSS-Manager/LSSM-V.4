@@ -1,140 +1,177 @@
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true>>{
+export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
     goto: <
         Scope<
-            Empty,
+            { vehicleId: number },
             [],
             [
+                'previousVehicle',
                 'nextVehicle',
                 'building',
-                'previousVehicle',
                 'edit',
                 'personalAssigment',
                 'statistics'
-            ]
+            ],
+            false,
+            'vehicle'
         >
     >{
-        validatorFunction: () => true,
-        nextVehicle() {
-            //Support for Redesign
-            const btnGroups = document.querySelectorAll('.btn-group');
-            for (const btnGroup of btnGroups) {
-                if (
-                    btnGroup.childElementCount == 2 &&
-                    btnGroup.firstElementChild?.querySelector(
-                        "[href^='/buildings/']"
-                    ) != null &&
-                    btnGroup.lastElementChild?.querySelector(
-                        "[href^='/buildings/']"
-                    ) != null
-                )
-                    (btnGroup.firstElementChild as HTMLElement)?.click();
+        validatorFunction() {
+            this.vehicleId = parseInt(window.location.pathname.split('/')[2]);
+            return true;
+        },
+        previousVehicle(_, redesign) {
+            if (redesign) {
+                return redesign.lightbox.$set(
+                    redesign.lightbox,
+                    'src',
+                    `/vehicles/${redesign.data.previous_vehicle_id}`
+                );
             }
-        },
-        building() {
-            (
-                document.querySelector(
-                    'a[href^="/buildings/"]'
-                ) as HTMLAnchorElement
-            )?.click();
-        },
-        previousVehicle() {
-            //Support for Redesign
-            const btnGroups = document.querySelectorAll('.btn-group');
-            for (const btnGroup of btnGroups) {
-                if (
-                    btnGroup.childElementCount == 2 &&
-                    btnGroup.firstElementChild?.querySelector(
-                        "[href^='/buildings/']"
-                    ) != null &&
-                    btnGroup.lastElementChild?.querySelector(
-                        "[href^='/buildings/']"
-                    ) != null
+            document
+                .querySelector<HTMLAnchorElement>(
+                    `.btn-group.pull-right a:nth-child(1)[href^="/vehicles/"]:not([href*="${this.vehicleId}"])`
                 )
-                    (btnGroup.firstElementChild as HTMLElement)?.click();
+                ?.click();
+        },
+        nextVehicle(_, redesign) {
+            if (redesign) {
+                return redesign.lightbox.$set(
+                    redesign.lightbox,
+                    'src',
+                    `/vehicles/${redesign.data.next_vehicle_id}`
+                );
             }
+            document
+                .querySelector<HTMLAnchorElement>(
+                    `.btn-group.pull-right a:nth-child(2)[href^="/vehicles/"]:not([href*="${this.vehicleId}"])`
+                )
+                ?.click();
         },
-        edit() {
-            (
-                document.querySelector("a[href$='/edit']") as HTMLAnchorElement
-            )?.click();
+        building(_, redesign) {
+            if (redesign) {
+                return redesign.lightbox.$set(
+                    redesign.lightbox,
+                    'src',
+                    `/buildings/${redesign.data.building.id}`
+                );
+            }
+            document
+                .querySelector<HTMLAnchorElement>('a[href^="/buildings/"]')
+                ?.click();
         },
-        personalAssigment() {
-            (
-                document.querySelector(
-                    "a[href$='/zuweisung']"
-                ) as HTMLAnchorElement
-            )?.click();
+        edit(_, redesign) {
+            const selector = `a[href="/vehicles/${this.vehicleId}/edit"]`;
+            if (redesign) {
+                return redesign.element
+                    .querySelector<HTMLAnchorElement>(selector)
+                    ?.dispatchEvent(
+                        new MouseEvent('mouseup', {
+                            bubbles: true,
+                        })
+                    );
+            }
+            document.querySelector<HTMLAnchorElement>(selector)?.click();
         },
-        statistics() {
-            (
-                document.querySelector("a[href$='/stats']") as HTMLAnchorElement
-            )?.click();
+        personalAssigment(_, redesign) {
+            const selector = `a[href="/vehicles/${this.vehicleId}/zuweisung"]`;
+            if (redesign) {
+                return redesign.element
+                    .querySelector<HTMLAnchorElement>(selector)
+                    ?.dispatchEvent(
+                        new MouseEvent('mouseup', {
+                            bubbles: true,
+                        })
+                    );
+            }
+            document.querySelector<HTMLAnchorElement>(selector)?.click();
+        },
+        statistics(_, redesign) {
+            const selector = `a[href="/vehicles/${this.vehicleId}/stats"]`;
+            if (redesign) {
+                return redesign.element
+                    .querySelector<HTMLAnchorElement>(selector)
+                    ?.dispatchEvent(
+                        new MouseEvent('mouseup', {
+                            bubbles: true,
+                        })
+                    );
+            }
+            document.querySelector<HTMLAnchorElement>(selector)?.click();
         },
     },
     alarm: <Scope<Empty, [], ['firstOwnMission', 'firstAllianceMission']>>{
         validatorFunction: () => true,
-        firstOwnMission() {
-            //Won't work with redesign
-            (
-                document.querySelector(
+        firstOwnMission(_, redesign) {
+            if (redesign) return; // TODO
+            document
+                .querySelector<HTMLInputElement>(
                     "#mission_own input[type='submit']"
-                ) as HTMLInputElement
-            )?.click();
+                )
+                ?.click();
         },
-        firstAllianceMission() {
-            (
-                document.querySelector(
+        firstAllianceMission(_, redesign) {
+            if (redesign) return; // TODO
+            document
+                .querySelector<HTMLInputElement>(
                     "#mission_alliance input[type='submit']"
-                ) as HTMLInputElement
-            )?.click();
+                )
+                ?.click();
         },
     },
-    other: <Scope<Empty, [], ['moveVehicle', 'toggleFMS']>>{
-        validatorFunction: () => true,
-        moveVehicle() {
-            const vehicleID = parseInt(window.location.pathname.split('/')[2]);
+    other: <
+        Scope<
+            { vehicleId: number },
+            [],
+            ['moveVehicle', 'toggleFMS'],
+            false,
+            'vehicle'
+        >
+    >{
+        validatorFunction() {
+            this.vehicleId = parseInt(window.location.pathname.split('/')[2]);
+            return true;
+        },
+        moveVehicle(_, redesign) {
+            const selector = `a[href="/vehicles/${this.vehicleId}/move"]`;
+            if (redesign) {
+                return redesign.element
+                    .querySelector<HTMLAnchorElement>(selector)
+                    ?.dispatchEvent(
+                        new MouseEvent('mouseup', {
+                            bubbles: true,
+                        })
+                    );
+            }
+            document.querySelector<HTMLAnchorElement>(selector)?.click();
+        },
+        async toggleFMS(_, redesign) {
+            const vehicleID = redesign?.data.id ?? this.vehicleId;
             const LSSM = window[PREFIX] as Vue;
             LSSM.$stores.api
                 .getVehicle(vehicleID, 'hotkeys-vehicles')
                 .then(result => {
-                    if (result.fms_real == 2) {
-                        (
-                            document.querySelector(
-                                'a[href$="/move"]'
-                            ) as HTMLAnchorElement
-                        )?.click();
-                    }
-                });
-        },
-        async toggleFMS() {
-            let currentFms = 0;
-            const vehicleID = parseInt(window.location.pathname.split('/')[2]);
-            const LSSM = window[PREFIX] as Vue;
-            await LSSM.$stores.api
-                .getVehicle(vehicleID, 'hotkeys-vehicles')
-                .then(result => {
-                    currentFms = result.fms_real;
-                    let fmsStatus = 0;
-                    switch (currentFms) {
-                        case 2:
-                            fmsStatus = 6;
-                            break;
-                        case 6:
-                            fmsStatus = 2;
-                            break;
-                        //If fms != 2||6 it can't be changed manually
-                        default:
-                            return;
-                    }
-                    LSSM.$stores.api
-                        .request({
-                            url: `/vehicles/${vehicleID}/set_fms/${fmsStatus}`,
-                            feature: `hotkeys-toggleFMS`,
-                        })
-                        .then(() => window.location.reload());
-                });
+                    if (result.fms_real === 2) return 6;
+                    else if (result.fms_real === 6) return 2;
+                    throw new Error('FMS is not 2 or 6');
+                })
+                .then(fms =>
+                    LSSM.$stores.api.request({
+                        url: `/vehicles/${vehicleID}/set_fms/${fms}`,
+                        feature: `hotkeys-toggleFMS`,
+                    })
+                )
+                .then(() =>
+                    redesign
+                        ? redesign.lightbox.$set(
+                              redesign.lightbox,
+                              'src',
+                              `/vehicles/${vehicleID}`
+                          )
+                        : window.location.reload()
+                )
+                .catch(() => void 0); // if current fms is not 2 or 6, we don't want to do anything
         },
     },
 };

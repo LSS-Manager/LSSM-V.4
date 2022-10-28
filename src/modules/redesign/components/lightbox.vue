@@ -95,6 +95,8 @@ import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
 import { useTranslationStore } from '@stores/translationUtilities';
 
+import HotkeyUtility from '../../hotkeys/assets/HotkeyUtility';
+
 import type {
     RedesignLightbox,
     RedesignLightboxVue,
@@ -629,6 +631,26 @@ export default Vue.extend<
                     1000
                 );
             });
+        },
+        setHotkeyRedesignParam(scope) {
+            if (!this.type || this.type === 'default') return;
+            for (const command in HotkeyUtility.activeCommands) {
+                if (command.startsWith(`${scope}.`)) {
+                    HotkeyUtility.activeCommands[command][3] = {
+                        element: this.$el,
+                        data: this.data,
+                        lightbox: this as RedesignLightboxVue<typeof this.type>,
+                    };
+                }
+            }
+            console.log(HotkeyUtility.activeCommands);
+        },
+        unsetHotkeyRedesignParam(scope) {
+            for (const command in HotkeyUtility.activeCommands) {
+                if (command.startsWith(`${scope}.`))
+                    delete HotkeyUtility.activeCommands[command][3];
+            }
+            console.log(HotkeyUtility.activeCommands);
         },
     },
     beforeMount() {

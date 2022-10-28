@@ -183,6 +183,8 @@ export interface RedesignLightbox<
         ) => Promise<void>;
         finishLoading(text?: string): void;
         copyUrl(): void;
+        setHotkeyRedesignParam(scope: string): void;
+        unsetHotkeyRedesignParam(scope: string): void;
     };
     Computed: {
         lightbox: Type extends keyof Redesigns
