@@ -12,70 +12,41 @@ const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
     'vehicles',
 ];
 
-export default (async ({ LSSM, $m, getSetting }) => {
-    const isMainWindow = window.location.pathname.length <= 1;
-    const isMissionWindow =
-        !!window.location.pathname.match(/^\/missions\/\d+\/?/u);
-    const isBuildingWindow =
-        !!window.location.pathname.match(/^\/buildings\/\d+\/?/u);
-    const isVehicleWindow =
-        !!window.location.pathname.match(/^\/vehicles\/\d+\/?/u);
+type RootScope = typeof rootCommandScopes[number];
+type RootScopeWithoutAll = Exclude<RootScope, '*'>;
 
-    const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
+const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
+    const commands: Scope<Empty, RootScope[], [], true> = {
         '*': (
             await import(
                 /* webpackChunkName: "modules/hotkeys/commands/general" */ './assets/commands/general'
             )
         ).default,
-        ...(isMainWindow
-            ? {
-                  main: {
-                      validatorFunction: () => isMainWindow,
-                      ...(
-                          await import(
-                              /* webpackChunkName: "modules/hotkeys/commands/main" */ './assets/commands/main'
-                          )
-                      ).default,
-                  },
-              }
-            : {}),
-        ...(isMissionWindow
-            ? {
-                  mission: {
-                      validatorFunction: () => isMissionWindow,
-                      ...(
-                          await import(
-                              /* webpackChunkName: "modules/hotkeys/commands/mission" */ './assets/commands/mission'
-                          )
-                      ).default,
-                  },
-              }
-            : {}),
-        ...(isBuildingWindow
-            ? {
-                  building: {
-                      validatorFunction: () => isBuildingWindow,
-                      ...(
-                          await import(
-                              /* webpackChunkName: "modules/hotkeys/commands/building" */ './assets/commands/building'
-                          )
-                      ).default,
-                  },
-              }
-            : {}),
-        ...(isVehicleWindow
-            ? {
-                  vehicles: {
-                      validatorFunction: () => isVehicleWindow,
-                      ...(
-                          await import(
-                              /* webpackChunkName: "modules/hotkeys/commands/vehicles" */ './assets/commands/vehicles'
-                          )
-                      ).default,
-                  },
-              }
-            : {}),
     };
+    for (const scope of rootScopes) {
+        commands[scope] = {
+            validatorFunction: () => true,
+            ...(
+                await import(
+                    /* webpackChunkName: "modules/hotkeys/commands/[request]" */ `./assets/commands/${scope}`
+                )
+            ).default,
+        };
+    }
+    return commands;
+};
+
+export default (async ({ LSSM, $m, getSetting }) => {
+    const rootScopes: RootScopeWithoutAll[] = [];
+    if (window.location.pathname.length <= 1) rootScopes.push('main');
+    if (window.location.pathname.match(/^\/missions\/\d+\/?/u))
+        rootScopes.push('mission');
+    if (window.location.pathname.match(/^\/buildings\/\d+\/?/u))
+        rootScopes.push('building');
+    if (window.location.pathname.match(/^\/vehicles\/\d+\/?/u))
+        rootScopes.push('vehicles');
+
+    const commands = await resolveCommands(rootScopes);
 
     const hotkeyUtility = new HotkeyUtility();
 
