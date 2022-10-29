@@ -183,7 +183,18 @@ export interface RedesignLightbox<
         ) => Promise<void>;
         finishLoading(text?: string): void;
         copyUrl(): void;
-        setHotkeyRedesignParam(scope: string): void;
+        setHotkeyRedesignParam<
+            Component extends RedesignComponent<string, RedesignKey>,
+            VueInstance extends RedesignVueInstance<Component> = RedesignVueInstance<Component>
+        >(
+            scope: string,
+            extras: {
+                component: VueInstance;
+                data: Partial<VueInstance['Data']>;
+                methods: Partial<VueInstance['Methods']>;
+                computed: Partial<VueInstance['Computed']>;
+            }
+        ): void;
         unsetHotkeyRedesignParam(scope: string): void;
     };
     Computed: {
@@ -256,6 +267,16 @@ export interface RedesignComponent<
             ): Promise<void>;
         };
 }
+
+export type RedesignVueInstance<
+    Component extends RedesignComponent<string, RedesignKey>
+> = CombinedVueInstance<
+    Vue,
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
+>;
 
 export type RedesignSubComponent<
     DataName extends string,

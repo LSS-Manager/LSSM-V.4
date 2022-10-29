@@ -101,10 +101,25 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
             document.querySelector<HTMLAnchorElement>(selector)?.click();
         },
     },
-    alarm: <Scope<Empty, [], ['firstOwnMission', 'firstAllianceMission']>>{
+    alarm: <
+        Scope<
+            Empty,
+            [],
+            ['firstOwnMission', 'firstAllianceMission'],
+            false,
+            'vehicle'
+        >
+    >{
         validatorFunction: () => true,
         firstOwnMission(_, redesign) {
-            if (redesign) return; // TODO
+            if (redesign) {
+                const mission =
+                    redesign.component.computed.missionListSorted.find(
+                        ({ list, filter }) => list === 'mission_own' && filter
+                    );
+                if (mission) redesign.component.methods.alarm(mission.id);
+                return;
+            }
             document
                 .querySelector<HTMLInputElement>(
                     "#mission_own input[type='submit']"
@@ -112,7 +127,15 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 ?.click();
         },
         firstAllianceMission(_, redesign) {
-            if (redesign) return; // TODO
+            if (redesign) {
+                const mission =
+                    redesign.component.computed.missionListSorted.find(
+                        ({ list, filter }) =>
+                            list === 'mission_alliance' && filter
+                    );
+                if (mission) redesign.component.methods.alarm(mission.id);
+                return;
+            }
             document
                 .querySelector<HTMLInputElement>(
                     "#mission_alliance input[type='submit']"

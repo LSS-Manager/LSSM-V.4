@@ -1,5 +1,6 @@
 import isEqual from 'lodash/isEqual';
 
+import type { RedesignVehicleComponent } from '../../redesign/types/components/vehicle';
 import type {
     RedesignKey,
     RedesignLightbox,
@@ -34,6 +35,16 @@ export interface RedesignParameter<
     element: Element;
     data: RedesignLightbox<RedesignType>['Data']['data'];
     lightbox: RedesignLightboxVue<RedesignType>;
+    component: Omit<
+        RedesignType extends 'vehicle'
+            ? RedesignVehicleComponent['Computed']['hotkeysParam']
+            : {
+                  data: Record<string, unknown>;
+                  methods: Record<string, (...args: unknown[]) => unknown>;
+                  computed: Record<string, unknown>;
+              },
+        'component'
+    >;
 }
 
 export default class HotkeyUtility {

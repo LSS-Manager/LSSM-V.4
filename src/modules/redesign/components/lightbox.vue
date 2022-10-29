@@ -632,7 +632,10 @@ export default Vue.extend<
                 );
             });
         },
-        setHotkeyRedesignParam(scope) {
+        setHotkeyRedesignParam(
+            scope,
+            { component, data = {}, methods = {}, computed = {} }
+        ) {
             if (!this.type || this.type === 'default') return;
             for (const command in HotkeyUtility.activeCommands) {
                 if (command.startsWith(`${scope}.`)) {
@@ -640,10 +643,19 @@ export default Vue.extend<
                         element: this.$el,
                         data: this.data,
                         lightbox: this as RedesignLightboxVue<typeof this.type>,
+                        component: {
+                            data,
+                            methods: Object.fromEntries(
+                                Object.entries(methods).map(([name, fn]) => [
+                                    name,
+                                    fn.bind(component),
+                                ])
+                            ),
+                            computed,
+                        },
                     };
                 }
             }
-            console.log(HotkeyUtility.activeCommands);
         },
         unsetHotkeyRedesignParam(scope) {
             for (const command in HotkeyUtility.activeCommands) {
