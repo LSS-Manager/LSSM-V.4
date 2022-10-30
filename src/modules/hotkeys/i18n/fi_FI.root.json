@@ -170,5 +170,5 @@
             "title": "Pikanäppäimet"
         }
     },
-    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
+    "unique": "Olet yrittänyt valita saman pikanäppäimen useille toiminnoille, vaikka nämä toiminnot käytettäisiin samassa yhteydessä. Valitse eri pikanäppäin tälle toiminnolle."
 }
