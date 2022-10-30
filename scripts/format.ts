@@ -4,7 +4,6 @@ import path from 'path';
 import prettier from 'prettier';
 
 import sortJSON from './utils/sortJSON';
-import tsconfig from '../tsconfig.json';
 
 const ROOT_PATH = path.join(__dirname, '..');
 
@@ -60,23 +59,22 @@ const getYamls = (folder: string): string[] => {
     return yamls;
 };
 
-fs.writeFileSync(
-    path.join(ROOT_PATH, 'tsconfig.json'),
-    formatJSON(tsconfig, true)
-);
-const renovate = path.join(ROOT_PATH, 'renovate.json');
-fs.writeFileSync(
-    renovate,
-    formatJSON(JSON.parse(fs.readFileSync(renovate).toString()), true)
-);
-
-const yarnrc = path.join(ROOT_PATH, '.yarnrc.yml');
-fs.writeFileSync(yarnrc, format(fs.readFileSync(yarnrc).toString(), 'yaml'));
-
 let currentFile = '';
 try {
     let fileCounterJSON = 0;
     let fileCounterYAML = 0;
+    ['tsconfig.json', 'renovate.json', '.yarnrc.yml'].forEach(file => {
+        const filePath = path.join(ROOT_PATH, file);
+        const src = fs.readFileSync(filePath).toString();
+        const isJson = file.endsWith('.json');
+        const formatted = isJson
+            ? formatJSON(JSON.parse(src), true)
+            : format(src, 'yaml');
+        fs.writeFileSync(filePath, formatted);
+
+        if (isJson) fileCounterJSON++;
+        else fileCounterYAML++;
+    });
     [
         '.github',
         'build',
