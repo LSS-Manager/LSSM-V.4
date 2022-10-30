@@ -64,6 +64,11 @@ fs.writeFileSync(
     path.join(ROOT_PATH, 'tsconfig.json'),
     formatJSON(tsconfig, true)
 );
+const renovate = path.join(ROOT_PATH, 'renovate.json');
+fs.writeFileSync(
+    renovate,
+    formatJSON(JSON.parse(fs.readFileSync(renovate).toString()), true)
+);
 
 const yarnrc = path.join(ROOT_PATH, '.yarnrc.yml');
 fs.writeFileSync(yarnrc, format(fs.readFileSync(yarnrc).toString(), 'yaml'));
