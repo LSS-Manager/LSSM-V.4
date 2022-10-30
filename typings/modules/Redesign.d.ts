@@ -40,7 +40,9 @@ import type { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/ver
 import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
 // workaround comment to allow custom group for parser imports
 import type { CombinedVueInstance } from 'vue/types/vue';
+import type HotkeyUtility from '../../src/modules/hotkeys/assets/HotkeyUtility';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RootScopeWithoutAll } from '../../src/modules/hotkeys/main';
 import type { useAPIStore } from '@stores/api';
 import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
@@ -122,6 +124,8 @@ interface Data<T extends RedesignKey | '' | 'default'> {
         enabled: boolean;
         pictures: boolean;
     };
+    existingHotkeys: string[];
+    hotkeyUtility: HotkeyUtility;
     apiStore: ReturnType<typeof useAPIStore>;
     broadcastStore: ReturnType<typeof useBroadcastStore>;
     consoleStore: ReturnType<typeof useConsoleStore>;
@@ -187,7 +191,9 @@ export interface RedesignLightbox<
             Component extends RedesignComponent<string, RedesignKey>,
             VueInstance extends RedesignVueInstance<Component> = RedesignVueInstance<Component>
         >(
-            scope: string,
+            scope:
+                | `${RootScopeWithoutAll}.${string}`
+                | `${RootScopeWithoutAll}`,
             extras: {
                 component: VueInstance;
                 data: Partial<VueInstance['Data']>;
@@ -195,7 +201,9 @@ export interface RedesignLightbox<
                 computed: Partial<VueInstance['Computed']>;
             }
         ): void;
-        unsetHotkeyRedesignParam(scope: string): void;
+        unsetHotkeyRedesignParam(
+            scope: `${RootScopeWithoutAll}.${string}` | `${RootScopeWithoutAll}`
+        ): void;
     };
     Computed: {
         lightbox: Type extends keyof Redesigns

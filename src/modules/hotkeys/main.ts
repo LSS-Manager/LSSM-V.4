@@ -1,13 +1,16 @@
 import type Vue from 'vue';
 
 import getCommandName from './assets/getCommandName';
-import HotkeyUtility, { type CallbackFunction } from './assets/HotkeyUtility';
+import HotkeyUtility, {
+    type CallbackFunction,
+    type RedesignParameter,
+} from './assets/HotkeyUtility';
 
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 type RootScope = typeof rootCommandScopes[number];
-type RootScopeWithoutAll = Exclude<RootScope, '*'>;
+export type RootScopeWithoutAll = Exclude<RootScope, '*'>;
 
 type Commands = Scope<Empty, RootScope[], [], true>;
 
@@ -24,7 +27,7 @@ const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
     'vehicles',
 ];
 
-const readSetting = (
+export const readSetting = (
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'] = (
         settingId,
         defaultValue
@@ -39,7 +42,7 @@ const readSetting = (
         setting => setting.value
     );
 
-const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
+export const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
     const commands: Commands = {
         '*': (
             await import(
@@ -60,13 +63,16 @@ const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
     return commands;
 };
 
-const registerHotkeys = async (
+export const registerHotkeys = async (
     hotkeys: HotkeySetting,
     commands: Commands,
     hotkeyUtility: HotkeyUtility,
-    LSSM: Vue
+    redesignParam?: RedesignParameter,
+    LSSM: Vue = window[PREFIX] as Vue
 ) => {
     hotkeyLoop: for (const { command, hotkey } of hotkeys) {
+        if (HotkeyUtility.activeCommands[command]) continue;
+
         let base: Scope<Empty, [], [], true> = commands;
         let callback: CallbackFunction | null = null;
         const path = command.split('.');
@@ -113,6 +119,8 @@ const registerHotkeys = async (
                     callback.bind(validationResult)
                 )
             );
+            if (redesignParam)
+                HotkeyUtility.activeCommands[command][3] = redesignParam;
         } else {
             LSSM.$stores.console.error(
                 `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
@@ -180,5 +188,5 @@ export default (async ({ LSSM, $m, getSetting }) => {
         ]);
     }
 
-    registerHotkeys(hotkeys, commands, hotkeyUtility, LSSM).then();
+    registerHotkeys(hotkeys, commands, hotkeyUtility, undefined, LSSM).then();
 }) as ModuleMainFunction;

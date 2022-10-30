@@ -96,6 +96,12 @@ import { useStorageStore } from '@stores/storage';
 import { useTranslationStore } from '@stores/translationUtilities';
 
 import HotkeyUtility from '../../hotkeys/assets/HotkeyUtility';
+import {
+    readSetting,
+    registerHotkeys,
+    resolveCommands,
+    type RootScopeWithoutAll,
+} from '../../hotkeys/main';
 
 import type {
     RedesignLightbox,
@@ -307,6 +313,8 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            existingHotkeys: [],
+            hotkeyUtility: new HotkeyUtility(),
             apiStore: useAPIStore(),
             broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),
@@ -637,32 +645,77 @@ export default Vue.extend<
             { component, data = {}, methods = {}, computed = {} }
         ) {
             if (!this.type || this.type === 'default') return;
+            const param = {
+                element: this.$el,
+                data: this.data,
+                lightbox: this as RedesignLightboxVue<typeof this.type>,
+                component: {
+                    data,
+                    methods: Object.fromEntries(
+                        Object.entries(methods).map(([name, fn]) => [
+                            name,
+                            fn.bind(component),
+                        ])
+                    ),
+                    computed,
+                },
+            };
             for (const command in HotkeyUtility.activeCommands) {
                 if (command.startsWith(`${scope}.`)) {
-                    HotkeyUtility.activeCommands[command][3] = {
-                        element: this.$el,
-                        data: this.data,
-                        lightbox: this as RedesignLightboxVue<typeof this.type>,
-                        component: {
-                            data,
-                            methods: Object.fromEntries(
-                                Object.entries(methods).map(([name, fn]) => [
-                                    name,
-                                    fn.bind(component),
-                                ])
-                            ),
-                            computed,
-                        },
-                    };
+                    this.existingHotkeys.push(command);
+                    HotkeyUtility.activeCommands[command][3] = param;
                 }
             }
+            readSetting()
+                .then(hotkeys =>
+                    hotkeys.filter(
+                        ({ command }) =>
+                            command.startsWith(`${scope}.`) &&
+                            !this.existingHotkeys.includes(command)
+                    )
+                )
+                .then(hotkeys => {
+                    if (hotkeys.length) return hotkeys;
+                    else throw new Error('No hotkeys to add. Leaving promise.');
+                })
+                .then(hotkeys =>
+                    resolveCommands([
+                        (
+                            scope.split('.') as [
+                                RootScopeWithoutAll,
+                                ...string[]
+                            ]
+                        )[0],
+                    ]).then(commands => ({
+                        hotkeys,
+                        commands,
+                    }))
+                )
+                .then(({ hotkeys, commands }) =>
+                    registerHotkeys(
+                        hotkeys,
+                        commands,
+                        this.hotkeyUtility,
+                        param
+                    )
+                )
+                .catch(() => void 0); // catch the "error" if no hotkeys to add
         },
         unsetHotkeyRedesignParam(scope) {
             for (const command in HotkeyUtility.activeCommands) {
-                if (command.startsWith(`${scope}.`))
-                    delete HotkeyUtility.activeCommands[command][3];
+                if (HotkeyUtility.activeCommands.hasOwnProperty(command)) {
+                    if (!command.startsWith(`${scope}.`)) continue;
+                    if (this.existingHotkeys.includes(command)) {
+                        delete HotkeyUtility.activeCommands[command][3];
+                        this.existingHotkeys.splice(
+                            this.existingHotkeys.indexOf(command),
+                            1
+                        );
+                    } else {
+                        delete HotkeyUtility.activeCommands[command];
+                    }
+                }
             }
-            console.log(HotkeyUtility.activeCommands);
         },
     },
     beforeMount() {
@@ -683,6 +736,7 @@ export default Vue.extend<
                 this.clickableLinks.pictures = showImg;
             });
         window['lssmv4-redesign-lightbox'] = this;
+        this.hotkeyUtility.listen([]);
         const trySetIframe = (): number | void =>
             this.$refs.iframe
                 ? this.$nextTick(() => {

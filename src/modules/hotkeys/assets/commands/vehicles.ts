@@ -62,7 +62,8 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 ?.click();
         },
         edit(_, redesign) {
-            const selector = `a[href="/vehicles/${this.vehicleId}/edit"]`;
+            const vehicleID = redesign?.data.id ?? this.vehicleId;
+            const selector = `a[href="/vehicles/${vehicleID}/edit"]`;
             if (redesign) {
                 return redesign.element
                     .querySelector<HTMLAnchorElement>(selector)
@@ -75,7 +76,8 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
             document.querySelector<HTMLAnchorElement>(selector)?.click();
         },
         personalAssigment(_, redesign) {
-            const selector = `a[href="/vehicles/${this.vehicleId}/zuweisung"]`;
+            const vehicleID = redesign?.data.id ?? this.vehicleId;
+            const selector = `a[href="/vehicles/${vehicleID}/zuweisung"]`;
             if (redesign) {
                 return redesign.element
                     .querySelector<HTMLAnchorElement>(selector)
@@ -88,7 +90,8 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
             document.querySelector<HTMLAnchorElement>(selector)?.click();
         },
         statistics(_, redesign) {
-            const selector = `a[href="/vehicles/${this.vehicleId}/stats"]`;
+            const vehicleID = redesign?.data.id ?? this.vehicleId;
+            const selector = `a[href="/vehicles/${vehicleID}/stats"]`;
             if (redesign) {
                 return redesign.element
                     .querySelector<HTMLAnchorElement>(selector)
@@ -157,7 +160,8 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
             return true;
         },
         moveVehicle(_, redesign) {
-            const selector = `a[href="/vehicles/${this.vehicleId}/move"]`;
+            const vehicleID = redesign?.data.id ?? this.vehicleId;
+            const selector = `a[href="/vehicles/${vehicleID}/move"]`;
             if (redesign) {
                 return redesign.element
                     .querySelector<HTMLAnchorElement>(selector)

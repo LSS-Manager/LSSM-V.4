@@ -143,7 +143,8 @@ export default class HotkeyUtility {
 
     public addListener(listener: Listener): void {
         HotkeyUtility.activeCommands[listener[0]] = listener;
-        if (!this.listeners.includes(listener)) this.listeners.push(listener);
+        if (!this.listeners.some(([command]) => command === listener[0]))
+            this.listeners.push(listener);
     }
 
     public removeListener(listener: Listener): void {
