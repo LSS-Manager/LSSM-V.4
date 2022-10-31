@@ -357,7 +357,9 @@ export default defineUserConfig({
                 'stats-commits': commitStatsPath,
             },
         }),
-        pwaPlugin({}),
+        pwaPlugin({
+            skipWaiting: true,
+        }),
         pwaPopupPlugin(localeConfigs.pwaPopupConfigs),
     ],
 });
