@@ -2052,12 +2052,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:17.7.0":
-  version: 17.7.0
-  resolution: "@primer/octicons@npm:17.7.0"
+"@primer/octicons@npm:17.8.0":
+  version: 17.8.0
+  resolution: "@primer/octicons@npm:17.8.0"
   dependencies:
     object-assign: ^4.1.1
-  checksum: 187149a519524eae8fcb598cbf5147eda4baa19208285084826e017a202f45e5534c42cfeac67751604498c805188f601c71f8020775b6a13aed06efbb66f2ef
+  checksum: 3f2c86ea4863112766590b4d9c5e408976f944726e3e3153340b605e1a0d2655521f74e144387005f9ef24f797d2eda8378896f56c5580dc7631900adf502aaf
   languageName: node
   linkType: hard
 
@@ -2446,10 +2446,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.7":
+"@types/node@npm:*":
   version: 18.11.7
   resolution: "@types/node@npm:18.11.7"
   checksum: 69d630825cf6fbf580d08d76a4d4836ef8c34ed4fe0842221ade87d275f517099cbfabe8e22397208e564bd24926db97699ab9db5c091383269a432b336665e2
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.11.8":
+  version: 18.11.8
+  resolution: "@types/node@npm:18.11.8"
+  checksum: 60b358f97c1a029722dc785811b217615ef20249c3fbde60a65869cfd7a5cd5b1872ee95c79c187ef70e5a078f4ac7670d2129803985268b1f021ad6e8040af8
   languageName: node
   linkType: hard
 
@@ -5583,9 +5590,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:39.3.25":
-  version: 39.3.25
-  resolution: "eslint-plugin-jsdoc@npm:39.3.25"
+"eslint-plugin-jsdoc@npm:39.4.0":
+  version: 39.4.0
+  resolution: "eslint-plugin-jsdoc@npm:39.4.0"
   dependencies:
     "@es-joy/jsdoccomment": ~0.33.4
     comment-parser: 1.3.1
@@ -5596,7 +5603,7 @@ __metadata:
     spdx-expression-parse: ^3.0.1
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: 2e5447e65c26a76724eb1c297c84d3f96d6994c3588ff94e4333b8845ec975792b507d1cfb99e1e7da7efbe1b2ec9210fc7200a0e7c356ac176d4ae5198826c2
+  checksum: d35e81b2d57c2eec2eceb16600ede3d1eae41e8ab3a76d3f748fc7967c86f29f046fa6c6e306e8366eea7d34ffe2cc9fb7149e1a14ccd4d23137b33d4bcb878e
   languageName: node
   linkType: hard
 
@@ -7766,7 +7773,7 @@ __metadata:
   resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
   dependencies:
     "@octokit/auth-action": 2.0.2
-    "@primer/octicons": 17.7.0
+    "@primer/octicons": 17.8.0
     "@vuepress/client": 2.0.0-beta.53
     "@vuepress/plugin-pwa": 2.0.0-beta.53
     "@vuepress/plugin-pwa-popup": 2.0.0-beta.53
@@ -7796,7 +7803,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/leaflet": 1.9.0
     "@types/lodash": 4.14.186
-    "@types/node": 18.11.7
+    "@types/node": 18.11.8
     "@types/pdfmake": 0.2.1
     "@types/prettier": 2.7.1
     "@types/qrcode": 1.5.0
@@ -7821,7 +7828,7 @@ __metadata:
     eslint-import-resolver-typescript: 3.5.2
     eslint-plugin-compat: 4.0.2
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jsdoc: 39.3.25
+    eslint-plugin-jsdoc: 39.4.0
     eslint-plugin-markdownlint: 0.4.0
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-regexp: 1.9.0
@@ -7855,7 +7862,7 @@ __metadata:
     ua-parser-js: 1.0.32
     url-loader: 4.1.1
     vue: 2.7.13
-    vue-i18n: 8.28.0
+    vue-i18n: 8.28.1
     vue-js-modal: 2.0.1
     vue-js-toggle-button: 1.3.3
     vue-loader: 15.10.0
@@ -11099,10 +11106,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:8.28.0":
-  version: 8.28.0
-  resolution: "vue-i18n@npm:8.28.0"
-  checksum: e7be64e4e1d2d3e90da24c2ac0e81f6abb085193e498d845cb32badb90101968bf4c6c52fe729bd0505b5ba2d99af4b7b8e2c4d896ea18656b104dd11998ae6a
+"vue-i18n@npm:8.28.1":
+  version: 8.28.1
+  resolution: "vue-i18n@npm:8.28.1"
+  checksum: d8d7d7d809107e5d7ea5ecce3272eda07d6ae36268e6ca9adaee26277e94677dbafd674ac22c6729deb28d9e079146b12a425e831a01d79c9c18a684393f1005
   languageName: node
   linkType: hard
 
