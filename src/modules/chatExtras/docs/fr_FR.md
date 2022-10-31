@@ -45,4 +45,4 @@ ce qui permet de les insérer rapidement dans le champ de saisie du chat.
 
 ## Indicateur de chuchotements
 
-Affichage d'un petit icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter 
+Affichage d'un petit icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter
