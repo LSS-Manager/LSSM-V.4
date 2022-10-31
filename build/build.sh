@@ -192,7 +192,7 @@ fi
 if [[ $USERSCRIPT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📜] build userscript ###"
-    yarn tsc --pretty "src/userscript.ts" || exit 1
+    yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
     end_time=$(date +%s%N)
     echo "=== [📜] build userscript: $(((end_time - start_time) / 1000000))ms ==="
 fi

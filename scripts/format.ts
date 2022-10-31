@@ -61,7 +61,11 @@ const getYamls = (folder: string): string[] => {
 
 const tops = (file: string) => {
     const tops: string[] = [];
-    if (file.endsWith('tsconfig.json')) tops.push('extends');
+    if (
+        file.endsWith('/tsconfig.json') ||
+        file.endsWith('/tsconfig.userscript.json')
+    )
+        tops.push('extends');
     return tops;
 };
 

@@ -46,10 +46,7 @@ ${
             fs
                 .readFileSync('./src/userscript.js')
                 .toString()
-                .replace(
-                    /exports\.__esModule = true;|require\("tampermonkey"\);/gu,
-                    ''
-                ),
+                .replace(/import 'tampermonkey';/gu, ''),
             {
                 compress: {
                     ecma: 2020,
