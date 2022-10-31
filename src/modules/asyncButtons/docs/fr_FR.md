@@ -32,4 +32,4 @@ Nous avons intégré cet asynchronisme à différents endroits :
 
 ### Prévu
 
-* écrire une réponse
+* Écrire une réponse
