@@ -40,7 +40,6 @@ import type { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/ver
 import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
 // workaround comment to allow custom group for parser imports
 import type { CombinedVueInstance } from 'vue/types/vue';
-import type HotkeyUtility from '../../src/modules/hotkeys/assets/HotkeyUtility';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RootScopeWithoutAll } from '../../src/modules/hotkeys/main';
 import type { useAPIStore } from '@stores/api';
@@ -125,7 +124,6 @@ interface Data<T extends RedesignKey | '' | 'default'> {
         pictures: boolean;
     };
     existingHotkeys: string[];
-    hotkeyUtility: HotkeyUtility;
     apiStore: ReturnType<typeof useAPIStore>;
     broadcastStore: ReturnType<typeof useBroadcastStore>;
     consoleStore: ReturnType<typeof useConsoleStore>;

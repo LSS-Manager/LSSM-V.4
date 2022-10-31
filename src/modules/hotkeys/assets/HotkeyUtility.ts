@@ -72,8 +72,11 @@ export default class HotkeyUtility {
 
     private readonly sequence: Sequence = [];
     private readonly currentKeys: string[] = [];
-    private readonly listeners: Listener[] = [];
     private readonly executedListeners: NormalizedSequence[] = [];
+
+    private get listeners() {
+        return Object.values(HotkeyUtility.activeCommands);
+    }
 
     private timer = 0;
     private recordedChar = false;
@@ -143,14 +146,10 @@ export default class HotkeyUtility {
 
     public addListener(listener: Listener): void {
         HotkeyUtility.activeCommands[listener[0]] = listener;
-        if (!this.listeners.some(([command]) => command === listener[0]))
-            this.listeners.push(listener);
     }
 
     public removeListener(listener: Listener): void {
         delete HotkeyUtility.activeCommands[listener[0]];
-        if (this.listeners.includes(listener))
-            this.listeners.splice(this.listeners.indexOf(listener), 1);
         if (this.listeners.length) return;
         window.removeEventListener('keydown', this.eventListener);
         window.removeEventListener('keyup', this.eventListener);

@@ -27,6 +27,8 @@ const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
     'vehicles',
 ];
 
+export const hotkeyUtility = new HotkeyUtility();
+
 export const readSetting = (
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'] = (
         settingId,
@@ -66,7 +68,6 @@ export const resolveCommands = async (rootScopes: RootScopeWithoutAll[]) => {
 export const registerHotkeys = async (
     hotkeys: HotkeySetting,
     commands: Commands,
-    hotkeyUtility: HotkeyUtility,
     redesignParam?: RedesignParameter,
     LSSM: Vue = window[PREFIX] as Vue
 ) => {
@@ -156,8 +157,6 @@ export default (async ({ LSSM, $m, getSetting }) => {
 
     const commands = await resolveCommands(rootScopes);
 
-    const hotkeyUtility = new HotkeyUtility();
-
     if (hotkeys.length) {
         window.addEventListener('keydown', event => {
             if (event.key.toLowerCase() === 'f1') event.preventDefault();
@@ -188,5 +187,5 @@ export default (async ({ LSSM, $m, getSetting }) => {
         ]);
     }
 
-    registerHotkeys(hotkeys, commands, hotkeyUtility, undefined, LSSM).then();
+    registerHotkeys(hotkeys, commands, undefined, LSSM).then();
 }) as ModuleMainFunction;

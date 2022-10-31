@@ -314,7 +314,6 @@ export default Vue.extend<
                 pictures: false,
             },
             existingHotkeys: [],
-            hotkeyUtility: new HotkeyUtility(),
             apiStore: useAPIStore(),
             broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),
@@ -692,12 +691,7 @@ export default Vue.extend<
                     }))
                 )
                 .then(({ hotkeys, commands }) =>
-                    registerHotkeys(
-                        hotkeys,
-                        commands,
-                        this.hotkeyUtility,
-                        param
-                    )
+                    registerHotkeys(hotkeys, commands, param)
                 )
                 .catch(() => void 0); // catch the "error" if no hotkeys to add
         },
@@ -736,7 +730,6 @@ export default Vue.extend<
                 this.clickableLinks.pictures = showImg;
             });
         window['lssmv4-redesign-lightbox'] = this;
-        this.hotkeyUtility.listen([]);
         const trySetIframe = (): number | void =>
             this.$refs.iframe
                 ? this.$nextTick(() => {
