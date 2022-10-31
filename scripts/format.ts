@@ -20,8 +20,8 @@ const format = (content: string, format: 'json' | 'yaml'): string =>
         })
         .trimEnd();
 
-const formatJSON = (json: object, sortArray: boolean): string =>
-    format(JSON.stringify(sortJSON(json, sortArray)), 'json');
+const formatJSON = (json: object, sortArray: boolean, top: string[]): string =>
+    format(JSON.stringify(sortJSON(json, sortArray, top)), 'json');
 
 const excluded = [
     path.join(ROOT_PATH, 'src', 'libraries.json'),
@@ -59,6 +59,12 @@ const getYamls = (folder: string): string[] => {
     return yamls;
 };
 
+const tops = (file: string) => {
+    const tops: string[] = [];
+    if (file.endsWith('tsconfig.json')) tops.push('extends');
+    return tops;
+};
+
 let currentFile = '';
 try {
     let fileCounterJSON = 0;
@@ -68,7 +74,7 @@ try {
         const src = fs.readFileSync(filePath).toString();
         const isJson = file.endsWith('.json');
         const formatted = isJson
-            ? formatJSON(JSON.parse(src), true)
+            ? formatJSON(JSON.parse(src), true, tops(file))
             : format(src, 'yaml');
         fs.writeFileSync(filePath, formatted);
 
@@ -96,7 +102,8 @@ try {
                 file,
                 formatJSON(
                     JSON.parse(fs.readFileSync(file).toString()),
-                    sortArray
+                    sortArray,
+                    tops(file)
                 )
             );
             fileCounterJSON++;
