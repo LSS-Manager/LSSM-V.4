@@ -21,7 +21,7 @@ const excludedSteps = [
 ];
 const shortcuts = {
     dependencies: ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
-    quick: ['env', 'json_yaml_format', 'eslint', 'tsc', 'webpack'],
+    quick: ['env', 'format', 'eslint', 'tsc', 'webpack'],
     full: [],
 };
 

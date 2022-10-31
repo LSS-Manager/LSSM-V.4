@@ -111,8 +111,8 @@ jobs:
               id: update_emojis
               run: yarn ts-node scripts/utils/fetchEmojis.ts
 
-            - name: '[🚨] format JSON & YAML files'
-              id: json_yaml_format
+            - name: '[🎨] format files not covered by ESLint'
+              id: format
               run: yarn ts-node scripts/format.ts || exit 1
 
             - name: '[🚨] run ESLint'

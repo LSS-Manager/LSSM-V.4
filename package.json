@@ -7,7 +7,7 @@
         "dev": "./build/build.sh --full",
         "build": "./build/build.sh --full --production",
         "docs": "./build/build.sh --docs",
-        "format": "./build/build.sh --json_yaml_format",
+        "format": "./build/build.sh --format",
         "eslint:fix": "./build/build.sh --eslint",
         "check-tsc": "./build/build.sh --tsc"
     },
