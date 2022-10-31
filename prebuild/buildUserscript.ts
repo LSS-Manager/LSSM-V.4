@@ -52,10 +52,18 @@ ${
                 ),
             {
                 compress: {
+                    ecma: 2020,
                     global_defs: {
                         host: config.urls.server,
                         prefix: config.prefix,
                     },
+                    unsafe_arrows: true,
+                },
+                mangle: {
+                    toplevel: true,
+                },
+                format: {
+                    ecma: 2020,
                 },
             }
         )
