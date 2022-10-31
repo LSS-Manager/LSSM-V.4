@@ -34,7 +34,7 @@ export const defineRootStore = defineStore('root', {
         mapkit: (): boolean => typeof window.mapkit !== 'undefined',
         discordUrl: (): string => `https://discord.gg/${config.discord.invite}`,
         githubUrl: (): string => `https://github.com/${config.github.repo}`,
-        fontAwesomeIconSearch: (): string => config.fontAwesomeIconSearch,
+        fontAwesomeIconSearch: (): string => config.urls.fontAwesomeIconSearch,
         gameFlavour: (): GameFlavour => window.gameFlavour,
         isPoliceChief(): boolean {
             return this.gameFlavour === 'policechief';
@@ -66,7 +66,7 @@ export const defineRootStore = defineStore('root', {
             return this.lssmUrl(lssmLogo, true);
         },
         wiki(): string {
-            return `${config.docs}${this.locale}`;
+            return `${config.urls.docs}${this.locale}`;
         },
         moduleWiki(): (moduleId: string) => string {
             return moduleId => `${this.wiki}/modules/${moduleId}/`;

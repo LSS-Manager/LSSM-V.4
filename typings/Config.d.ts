@@ -31,8 +31,10 @@ export interface Config {
     };
     userscript_latest_update: string;
     prefix: string;
-    server: string;
-    docs: string;
-    statuspage: string;
-    fontAwesomeIconSearch: string;
+    urls: {
+        server: string;
+        docs: string;
+        statuspage: string;
+        fontAwesomeIconSearch: string;
+    };
 }

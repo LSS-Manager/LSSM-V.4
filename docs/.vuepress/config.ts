@@ -147,8 +147,8 @@ run(
 const __VAR__ = {
     discord: config.discord,
     github: `https://github.com/${config.github.repo}`,
-    server: config.server,
-    fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
+    server: config.urls.server,
+    fontAwesomeIconSearchLink: config.urls.fontAwesomeIconSearch,
     versions,
     browsers: config.browser,
     bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),

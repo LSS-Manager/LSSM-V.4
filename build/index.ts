@@ -40,7 +40,7 @@ const entry = {
         path: path.resolve(__dirname, `../dist`),
         filename: pathData =>
             `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/u, '')}.js`,
-        publicPath: `${config.server}`,
+        publicPath: `${config.urls.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
 } as webpack.Configuration;
@@ -58,7 +58,7 @@ entry.plugins?.unshift(
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
         BRANCH: JSON.stringify(branch),
-        SERVER: JSON.stringify(config.server),
+        SERVER: JSON.stringify(config.urls.server),
         MODE: JSON.stringify(mode === 'production' ? 'stable' : 'beta'),
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(

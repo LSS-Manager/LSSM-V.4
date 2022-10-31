@@ -5,7 +5,7 @@ import config from '../../../src/config';
 
 import type { Locale } from '../types/Locale';
 
-const DOCS_URL = new URL(config.docs);
+const DOCS_URL = new URL(config.urls.docs);
 const BASE = DOCS_URL.pathname as '/' | `/${string}/`;
 
 const VUEPRESS_PATH = path.join(__dirname, '../');
