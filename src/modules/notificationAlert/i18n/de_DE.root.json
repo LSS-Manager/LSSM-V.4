@@ -45,8 +45,8 @@
         "top right": "Oben Rechts 🡥"
     },
     "settings": {
-        "alertStyle": "Ingame-Benachrichtigungs-Typ",
         "alerts": { "title": "Benachrichtigungen festlegen" },
+        "alertStyle": "Ingame-Benachrichtigungs-Typ",
         "desktop": "Desktop-Benachrichtigung senden",
         "duration": "Anzeigedauer (Millisekunden, -1 für \"dauerhaft\")",
         "eventTypes": "Events",

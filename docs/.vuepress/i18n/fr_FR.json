@@ -24,16 +24,16 @@
     },
     "moment": {
         "shorts": {
+            "l": "Date sans zéros initiaux",
             "L": "Date avec des zéros initiaux",
+            "ll": "Date avec le mois comme mot (forme courte)",
             "LL": "Date avec le mois sous forme de mot",
+            "lll": "Date avec le mois sous forme de mot (forme courte) et heure",
             "LLL": "Date avec le mois sous forme de mot et heure",
+            "llll": "Date complète (forme courte) avec heure",
             "LLLL": "Date complète avec heure",
             "LT": "Heure",
-            "LTS": "Heure avec secondes",
-            "l": "Date sans zéros initiaux",
-            "ll": "Date avec le mois comme mot (forme courte)",
-            "lll": "Date avec le mois sous forme de mot (forme courte) et heure",
-            "llll": "Date complète (forme courte) avec heure"
+            "LTS": "Heure avec secondes"
         },
         "titles": {
             "shorts": {
@@ -42,7 +42,6 @@
                 "variable": "Variable"
             },
             "variables": {
-                "Variable": "Variable",
                 "ampm": "AM / PM",
                 "category": "Categorie",
                 "description": "Description",
@@ -55,12 +54,13 @@
                 "output": "Sortie",
                 "quarter": "Trimestre",
                 "second": "Seconde",
+                "Variable": "Variable",
                 "week": "Semaine de l'année",
                 "year": "Année"
             }
         },
         "variables": {
-            "ampm": { "A": "AM / PM", "a": "am / pm" },
+            "ampm": { "a": "am / pm", "A": "AM / PM" },
             "dom": {
                 "D": "Jour du mois",
                 "DD": "Jour du mois (avec des zéros initiaux)",
@@ -79,10 +79,10 @@
                 "DDDo": "Jour de l'année (ordinal)"
             },
             "hour": {
-                "H": "Heure (24h)",
-                "HH": "Heure (24h, avec des zéros initiaux)",
                 "h": "Heure (12h)",
-                "hh": "Heure (12h, avec des zéros initiaux)"
+                "H": "Heure (24h)",
+                "hh": "Heure (12h, avec des zéros initiaux)",
+                "HH": "Heure (24h, avec des zéros initiaux)"
             },
             "minute": {
                 "m": "Minute",
@@ -144,14 +144,35 @@
     "v3": {
         "modules": {
             "AaoSearch": { "v3Name": "Recherche AAO" },
+            "aaoZaehler": { "v3Name": "Alarme-Régulation-Compteur d'alarmes" },
+            "allianceMissionlistShare": { "v3Name": "Part de la mission" },
+            "centermap": {
+                "annotation": "Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra.",
+                "v3Name": "Plan du centre"
+            },
             "Clock": { "v3Name": "Horloge" },
+            "creditserweiterung": { "v3Name": "L'expansion du crédit" },
+            "dashboard": { "v3Name": "Dashboard" },
             "DestinationFilter": {
                 "annotation": "Celui-ci est déjà intégré dans la Refonte pour les véhicules, mais il est également prévu de l'intégrer dans la V4 en tant que module.",
                 "v3Name": "Demande de transport sur la carte"
             },
+            "displayUserId": { "v3Name": "User-ID" },
             "DoctorRadioCall": { "v3Name": "Demande HEMS à la radio" },
             "Eventsmission": { "v3Name": "Événements marqués" },
+            "extendedBuilding": { "v3Name": "Vue agrandie du bâtiment" },
             "FMS5InMap": { "v3Name": "Demande de transport sur la carte" },
+            "fms7Target": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "fms7Target"
+            },
+            "geoBorders": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "geoBorders"
+            },
+            "heatmap": { "v3Name": "LS-Heatmap" },
+            "iconFilter": { "v3Name": "Filtre de construction d'icônes" },
+            "keyboardAlert": { "v3Name": "Contrôle de l'affichage des appels" },
             "Layout01": {
                 "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
                 "v3Name": "Layout 01"
@@ -168,44 +189,18 @@
                 "annotation": "Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même.",
                 "v3Name": "Layout 04"
             },
-            "MissionOut": { "v3Name": "MissionOut" },
-            "Notification_Alert": { "v3Name": "Alerte de notification" },
-            "Redesign01": { "v3Name": "Redesign 01" },
-            "RenameFZ": { "v3Name": "Renommer le véhicule" },
-            "ShareAlliancePost": { "v3Name": "Alerter, Partager & Poster" },
-            "WachenHoverStati": { "v3Name": "État de la station" },
-            "WachenplanungOnMap": {
-                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
-                "v3Name": "Wachenplanung auf der Karte"
-            },
-            "aaoZaehler": { "v3Name": "Alarme-Régulation-Compteur d'alarmes" },
-            "allianceMissionlistShare": { "v3Name": "Part de la mission" },
-            "centermap": {
-                "annotation": "Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra.",
-                "v3Name": "Plan du centre"
-            },
-            "creditserweiterung": { "v3Name": "L'expansion du crédit" },
-            "dashboard": { "v3Name": "Dashboard" },
-            "displayUserId": { "v3Name": "User-ID" },
-            "extendedBuilding": { "v3Name": "Vue agrandie du bâtiment" },
-            "fms7Target": {
-                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
-                "v3Name": "fms7Target"
-            },
-            "geoBorders": {
-                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
-                "v3Name": "geoBorders"
-            },
-            "heatmap": { "v3Name": "LS-Heatmap" },
-            "iconFilter": { "v3Name": "Filtre de construction d'icônes" },
-            "keyboardAlert": { "v3Name": "Contrôle de l'affichage des appels" },
             "missionDate": { "v3Name": "Date de la mission" },
             "missionHelper": { "v3Name": "Aide à la mission" },
             "missionKeyword": { "v3Name": "Mots-clés de la mission" },
+            "MissionOut": { "v3Name": "MissionOut" },
+            "Notification_Alert": { "v3Name": "Alerte de notification" },
             "overview": { "v3Name": "Survol" },
+            "Redesign01": { "v3Name": "Redesign 01" },
             "releaseNotes": { "v3Name": "Release Notes" },
+            "RenameFZ": { "v3Name": "Renommer le véhicule" },
             "saveVGE": { "v3Name": "Enregistrer les appels d'alliance créés" },
             "searchMissions": { "v3Name": "Recherche par mission" },
+            "ShareAlliancePost": { "v3Name": "Alerter, Partager & Poster" },
             "showBackAlarmAbove": {
                 "v3Name": "Afficher l'alarme de retour ci- dessus"
             },
@@ -226,7 +221,12 @@
                 "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
                 "v3Name": "tailoredTabs"
             },
-            "verbandsverwaltung": { "v3Name": "Administration" }
+            "verbandsverwaltung": { "v3Name": "Administration" },
+            "WachenHoverStati": { "v3Name": "État de la station" },
+            "WachenplanungOnMap": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
+                "v3Name": "Wachenplanung auf der Karte"
+            }
         },
         "tables": {
             "annotations": "Remarques",

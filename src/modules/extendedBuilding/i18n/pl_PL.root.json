@@ -10,13 +10,13 @@
             "description": "Adds some useful filters to the list of buildings in dispatch centers",
             "title": "Filter for buildings in dispatch center"
         },
-        "enhanceVehicleList": {
-            "description": "Ulepsza listę pojazdów w oknie budynku.",
-            "title": "Ulepsz listę pojazdów"
-        },
         "enhancedPersonnelAssignment": {
             "description": "Daje możliwość ukrycia personelu bez odpowiedniego przeszkolenia. [Obecnie nie działa prawidłowo/Bedziemy nad tym pracować]",
             "title": "Lepsza alokacja personelu"
+        },
+        "enhanceVehicleList": {
+            "description": "Ulepsza listę pojazdów w oknie budynku.",
+            "title": "Ulepsz listę pojazdów"
         },
         "expansions": {
             "description": "Pokazuje rozszerzenia budynku w jego menu głównym.",
@@ -54,14 +54,6 @@
             "description": "Pyta, czy na pewno chcesz ulepszyć swój budynek.",
             "title": "Ulepszanie budynku"
         },
-        "vehicleTypes": {
-            "description": "Pokazuje typ pojazdu i jeśli jest dostępna, własną klasę pojazdu w oddzielnej kolumnie",
-            "title": "Typ pojazdu"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Pokazuje, jeśli jest dostępna, tylko własną klasę pojazdu. Jeśli nie jest dostępna, wyświetli domyślną klasę pojazdu.",
-            "title": "Pokaż tylko klasę własną pojazdu"
-        },
         "vehiclesPersonnelAssigned": {
             "description": "Pokazuje, ile osób jest przypisanych do pojazdu.",
             "title": "Przydzielona załoga"
@@ -77,6 +69,14 @@
         "vehiclesPersonnelMax": {
             "description": "Pokazuje maksymalną liczbę osób, które mogą się zmieścić w pojeździe.",
             "title": "Maksymalna załoga"
+        },
+        "vehicleTypes": {
+            "description": "Pokazuje typ pojazdu i jeśli jest dostępna, własną klasę pojazdu w oddzielnej kolumnie",
+            "title": "Typ pojazdu"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Pokazuje, jeśli jest dostępna, tylko własną klasę pojazdu. Jeśli nie jest dostępna, wyświetli domyślną klasę pojazdu.",
+            "title": "Pokaż tylko klasę własną pojazdu"
         }
     }
 }

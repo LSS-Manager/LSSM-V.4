@@ -45,8 +45,8 @@
         "top right": "Na górze po prawej 🡥"
     },
     "settings": {
-        "alertStyle": "Styl powiadomienia w grze",
         "alerts": { "title": "Ustawienia powiadomień" },
+        "alertStyle": "Styl powiadomienia w grze",
         "desktop": "Wyślij powiadomienie na pulpicie",
         "duration": "Czas wyświatlania powiadomienia(s)",
         "eventTypes": "Wydarzenia",

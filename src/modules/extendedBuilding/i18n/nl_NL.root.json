@@ -10,13 +10,13 @@
             "description": "Adds some useful filters to the list of buildings in dispatch centers",
             "title": "Filter for buildings in dispatch center"
         },
-        "enhanceVehicleList": {
-            "description": "Breidt de voertuigenlijst uit met nuttige functies - Sommige daarvan zijn aanpasbaar.",
-            "title": "Uitgebreide voertuigenlijst"
-        },
         "enhancedPersonnelAssignment": {
             "description": "Geeft je de kans om personeel te verbergen zonder de juiste opleiding.",
             "title": "Verbeterd personeel toewijzen"
+        },
+        "enhanceVehicleList": {
+            "description": "Breidt de voertuigenlijst uit met nuttige functies - Sommige daarvan zijn aanpasbaar.",
+            "title": "Uitgebreide voertuigenlijst"
         },
         "expansions": {
             "description": "Laat de uitbreidingen van een gebouw zien, zonder op de uitbreidingen tab te drukken.",
@@ -54,14 +54,6 @@
             "description": "Vraagt of u uw gebouw echt wilt upgraden.",
             "title": "Upgrade Gebouw"
         },
-        "vehicleTypes": {
-            "description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
-            "title": "Voertuigtype"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Laat indien beschikbaar alleen het eigen voertuigtype zien, anders toont die gewoon het normale voertuigtype.",
-            "title": "Alleen eigen voertuigtype tonen"
-        },
         "vehiclesPersonnelAssigned": {
             "description": "Toont hoeveel personeel is toegewezen aan het voertuig.",
             "title": "Toegewezen personeel"
@@ -77,6 +69,14 @@
         "vehiclesPersonnelMax": {
             "description": "Laat het maximaal aantal personen die in een voertuig passen zien.",
             "title": "Maximum personeel"
+        },
+        "vehicleTypes": {
+            "description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
+            "title": "Voertuigtype"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Laat indien beschikbaar alleen het eigen voertuigtype zien, anders toont die gewoon het normale voertuigtype.",
+            "title": "Alleen eigen voertuigtype tonen"
         }
     }
 }

@@ -10,13 +10,13 @@
             "description": "Adds some useful filters to the list of buildings in dispatch centers",
             "title": "Filter for buildings in dispatch center"
         },
-        "enhanceVehicleList": {
-            "description": "Extends the vehicle list with useful features - some of which are specially adjustable.",
-            "title": "Extend vehicle list"
-        },
         "enhancedPersonnelAssignment": {
             "description": "Gives you the opportunity to hide personnel without the appropriate training.",
             "title": "improved staff allocation"
+        },
+        "enhanceVehicleList": {
+            "description": "Extends the vehicle list with useful features - some of which are specially adjustable.",
+            "title": "Extend vehicle list"
         },
         "expansions": {
             "description": "Shows the extensions of a building without having to press the extensions tab first.",
@@ -54,14 +54,6 @@
             "description": "Asks if you really want to upgrade your building.",
             "title": "Upgrade Building"
         },
-        "vehicleTypes": {
-            "description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
-            "title": "Vehicle type"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Shows if available only the own vehicle class. If not available it will show the default vehicle class.",
-            "title": "Show only own vehicle class"
-        },
         "vehiclesPersonnelAssigned": {
             "description": "Shows how many people are assigned to the vehicle.",
             "title": "Assigned crew"
@@ -77,6 +69,14 @@
         "vehiclesPersonnelMax": {
             "description": "Shows the maximum number of people that can fit on the vehicle.",
             "title": "Maximum crew"
+        },
+        "vehicleTypes": {
+            "description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
+            "title": "Vehicle type"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Shows if available only the own vehicle class. If not available it will show the default vehicle class.",
+            "title": "Show only own vehicle class"
         }
     }
 }

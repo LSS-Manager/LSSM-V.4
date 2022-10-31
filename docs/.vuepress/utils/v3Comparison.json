@@ -1,19 +1,6 @@
 {
     "updated": {
         "AaoSearch": { "module": "extendedCallWindow", "setting": "arrSearch" },
-        "Clock": { "module": "clock" },
-        "Eventsmission": {
-            "module": "extendedCallList",
-            "setting": "eventMissions"
-        },
-        "MissionOut": {
-            "module": "extendedCallList",
-            "setting": "collapsableMissions"
-        },
-        "Notification_Alert": { "module": "notificationAlert" },
-        "Redesign01": { "module": "redesign" },
-        "ShareAlliancePost": { "module": "shareAlliancePost" },
-        "WachenHoverStati": { "module": "buildingHover" },
         "aaoZaehler": {
             "module": "extendedCallWindow",
             "setting": "arrCounter"
@@ -23,9 +10,14 @@
             "setting": "shareMissions"
         },
         "centermap": { "module": "extendedMap", "setting": "centerMap" },
+        "Clock": { "module": "clock" },
         "creditserweiterung": { "module": "creditsextension" },
         "dashboard": { "module": "dashboard" },
         "displayUserId": { "module": "userid" },
+        "Eventsmission": {
+            "module": "extendedCallList",
+            "setting": "eventMissions"
+        },
         "extendedBuilding": { "module": "extendedBuilding" },
         "heatmap": { "module": "heatmap" },
         "iconFilter": { "module": "buildingListFilter" },
@@ -39,8 +31,15 @@
             "module": "extendedCallWindow",
             "setting": "missionKeywords"
         },
+        "MissionOut": {
+            "module": "extendedCallList",
+            "setting": "collapsableMissions"
+        },
+        "Notification_Alert": { "module": "notificationAlert" },
         "overview": { "module": "overview" },
+        "Redesign01": { "module": "redesign" },
         "releaseNotes": { "module": "" },
+        "ShareAlliancePost": { "module": "shareAlliancePost" },
         "showChatButtonAbove": {
             "module": "chatExtras",
             "setting": "cloneHistoryBtnToHeader"
@@ -55,7 +54,8 @@
         "tailoredTabs": {
             "module": "extendedCallWindow",
             "setting": "tailoredTabs"
-        }
+        },
+        "WachenHoverStati": { "module": "buildingHover" }
     },
     "v3only": [
         "DestinationFilter",
