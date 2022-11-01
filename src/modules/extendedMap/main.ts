@@ -36,7 +36,7 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedMap/mapStyleFilter" */ './assets/mapStyleFilter'
         ).then(({ default: mapStyleFilter }) =>
-            mapStyleFilter(LSSM, getSetting, setSetting)
+            mapStyleFilter(LSSM, getSetting)
         );
     }
 
