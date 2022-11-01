@@ -9,7 +9,7 @@ export default async (
     const saturate = await getSetting<number>('mapStyleFilterSaturate');
     const sepia = await getSetting<number>('mapStyleFilterSepia');
     LSSM.$stores.root.addStyle({
-        selectorText: '#map',
+        selectorText: '.leaflet-tile-pane',
         style: {
             filter: `invert(${invert}) grayscale(${grey}) brightness(${brightness}) contrast(${contrast}) saturate(${saturate}) sepia(${sepia})`,
         },
