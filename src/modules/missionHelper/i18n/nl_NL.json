@@ -13,7 +13,9 @@
         "riot_police": "Politie, Hoofdbureau inzetten",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
-        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
+        "coastal_rescue": "Kustwacht inzetten",
+        "coastal_rescue_ocean": "Kustwacht inzetten (Zee)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
@@ -43,7 +45,10 @@
         "riot_unit_count": "ME sectie uitbreiding| ME sectie uitbreidingen",
         "title": "Vereist | Vereisten",
         "wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
-        "water_rescue_2": "Waterreddingspost | Waterreddingsposten"
+        "water_rescue_2": "Waterreddingspost | Waterreddingsposten",
+        "coastal_rescue_small_count": "Boten uitbreiding | Boten uitbreidingen",
+        "coastal_helicopter_count": "SAR Hangar | SAR Hangars",
+        "coastal_rescue_count": "Kustwacht haven | Kustwacht havens"
     },
     "prisoners": {
         "max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
@@ -94,7 +99,10 @@
             "police_horse": "Bereden Brigade (paarden)",
             "spokesman": "Voorlichter | Voorlichters",
             "water_rescue": "Strandvoertuig | Strandvoertuigen",
-            "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
+            "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
+            "coastal_boat": "RB-K of RB-G",
+            "coastal_guard_boat": "KW-boot",
+            "coastal_helicopter": "SAR Helicopter"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
@@ -121,7 +129,9 @@
                 "firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
             }
         },
-        "patient_additionals": { "3": "Officier van Dienst - Geneeskunde" },
+        "patient_additionals": {
+            "3": "Officier van Dienst - Geneeskunde"
+        },
         "title": "Voertuigen"
     }
 }

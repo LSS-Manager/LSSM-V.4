@@ -90,7 +90,9 @@
                     "Bereden Brigade eenheid (paard)",
                     "Bereden Brigade eenheden (paarden)"
                 ],
-                "vehicles": [73]
+                "vehicles": [
+                    73
+                ]
             }
         ],
         "tip": {
@@ -104,120 +106,325 @@
         },
         "total": "Nog nodig",
         "towingVehicles": {
-            "27": [26],
-            "29": [26],
-            "32": [26],
-            "45": [26],
-            "51": [26],
-            "61": [26],
-            "69": [26],
-            "74": [75]
+            "27": [
+                26
+            ],
+            "29": [
+                26
+            ],
+            "32": [
+                26
+            ],
+            "45": [
+                26
+            ],
+            "51": [
+                26
+            ],
+            "61": [
+                26
+            ],
+            "69": [
+                26
+            ],
+            "74": [
+                75
+            ]
         },
         "vehicle": "Voertuigtype",
         "vehiclesByRequirement": [
             {
-                "texts": ["Tankautospuit", "Tankautospuiten"],
-                "vehicles": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62]
+                "texts": [
+                    "Tankautospuit",
+                    "Tankautospuiten"
+                ],
+                "vehicles": [
+                    0,
+                    1,
+                    6,
+                    7,
+                    8,
+                    9,
+                    12,
+                    14,
+                    15,
+                    17,
+                    50,
+                    62
+                ]
             },
-            { "texts": ["Redvoertuig", "Redvoertuigen"], "vehicles": [2, 18] },
+            {
+                "texts": [
+                    "Redvoertuig",
+                    "Redvoertuigen"
+                ],
+                "vehicles": [
+                    2,
+                    18
+                ]
+            },
             {
                 "texts": [
                     "Officier van Dienst - Brandweer",
                     "Officieren van Dienst - Brandweer"
                 ],
-                "vehicles": [3, 19]
+                "vehicles": [
+                    3,
+                    19
+                ]
             },
             {
-                "texts": ["Hulpverleningsvoertuig", "Hulpverleningsvoertuigen"],
-                "vehicles": [4, 51, 62]
+                "texts": [
+                    "Hulpverleningsvoertuig",
+                    "Hulpverleningsvoertuigen"
+                ],
+                "vehicles": [
+                    4,
+                    51,
+                    62
+                ]
             },
-            { "texts": ["AB"], "vehicles": [5, 27] },
+            {
+                "texts": [
+                    "AB"
+                ],
+                "vehicles": [
+                    5,
+                    27
+                ]
+            },
             {
                 "texts": [
                     "Slangenwagen, watertankwagen of gelijkwaardige haakarmbak"
                 ],
-                "vehicles": [10, 29, 34, 45, 61]
+                "vehicles": [
+                    10,
+                    29,
+                    34,
+                    45,
+                    61
+                ]
             },
             {
                 "texts": [
                     "Hoofd Officier van Dienst",
                     "Hoofd Officieren van Dienst"
                 ],
-                "vehicles": [19]
+                "vehicles": [
+                    19
+                ]
             },
             {
-                "texts": ["Commandowagen", "Commandowagens"],
-                "vehicles": [31, 32]
+                "texts": [
+                    "Commandowagen",
+                    "Commandowagens"
+                ],
+                "vehicles": [
+                    31,
+                    32
+                ]
             },
             {
-                "texts": ["Verkenningseenheden", "Verkenningseenheid"],
-                "vehicles": [11]
+                "texts": [
+                    "Verkenningseenheden",
+                    "Verkenningseenheid"
+                ],
+                "vehicles": [
+                    11
+                ]
             },
             {
                 "texts": [
                     "Adviseur Gevaarlijke Stoffen",
                     "Adviseurs Gevaarlijke Stoffen"
                 ],
-                "vehicles": [24]
+                "vehicles": [
+                    24
+                ]
             },
             {
                 "texts": [
                     "Waterongevallenvoertuig / Oppervlaktereddingsteam",
                     "Waterongevallenvoertuigen / Oppervlaktereddingsteams"
                 ],
-                "vehicles": [33, 49, 50]
+                "vehicles": [
+                    33,
+                    49,
+                    50
+                ]
             },
-            { "texts": ["WOA", "WOA of BA-RB"], "vehicles": [36, 67] },
             {
-                "texts": ["Crashtender", "Crashtenders"],
-                "vehicles": [41, 42, 43]
+                "texts": [
+                    "WOA",
+                    "WOA of BA-RB"
+                ],
+                "vehicles": [
+                    36,
+                    67
+                ]
             },
-            { "texts": ["AFO/OSC", "AFO/OSC's"], "vehicles": [44] },
-            { "texts": ["Voorlichter", "Voorlichters"], "vehicles": [56] },
             {
-                "texts": ["Noodhulpeenheden", "Noodhulpeenheid"],
-                "vehicles": [22, 25, 46, 47, 48, 59, 60, 75]
+                "texts": [
+                    "Crashtender",
+                    "Crashtenders"
+                ],
+                "vehicles": [
+                    41,
+                    42,
+                    43
+                ]
+            },
+            {
+                "texts": [
+                    "AFO/OSC",
+                    "AFO/OSC's"
+                ],
+                "vehicles": [
+                    44
+                ]
+            },
+            {
+                "texts": [
+                    "Voorlichter",
+                    "Voorlichters"
+                ],
+                "vehicles": [
+                    56
+                ]
+            },
+            {
+                "texts": [
+                    "Noodhulpeenheden",
+                    "Noodhulpeenheid"
+                ],
+                "vehicles": [
+                    22,
+                    25,
+                    46,
+                    47,
+                    48,
+                    59,
+                    60,
+                    75
+                ]
             },
             {
                 "texts": [
                     "Officier van Dienst - Politie",
                     "Officieren van Dienst - Politie"
                 ],
-                "vehicles": [35]
-            },
-            { "texts": ["Politiehelikopter"], "vehicles": [28] },
-            {
-                "texts": ["Hondengeleider", "Hondengeleiders"],
-                "vehicles": [47, 48]
+                "vehicles": [
+                    35
+                ]
             },
             {
-                "texts": ["ME Commandovoertuig", "ME Commandovoertuigen"],
-                "vehicles": [39]
+                "texts": [
+                    "Politiehelikopter"
+                ],
+                "vehicles": [
+                    28
+                ]
             },
-            { "texts": ["ME Flexbus", "ME Flexbussen"], "vehicles": [40] },
-            { "texts": ["AT Commandant", "AT Commandanten"], "vehicles": [53] },
             {
-                "texts": ["AT Materiaalwagen", "AT Materiaalwagens"],
-                "vehicles": [55]
+                "texts": [
+                    "Hondengeleider",
+                    "Hondengeleiders"
+                ],
+                "vehicles": [
+                    47,
+                    48
+                ]
             },
-            { "texts": ["AT Operator", "AT Operators"], "vehicles": [54] },
             {
-                "texts": ["Ambulance", "Ambulances"],
-                "vehicles": [16, 52, 57, 63]
+                "texts": [
+                    "ME Commandovoertuig",
+                    "ME Commandovoertuigen"
+                ],
+                "vehicles": [
+                    39
+                ]
             },
-            { "texts": ["Biketeam", "Biketeams"], "vehicles": [60] },
             {
-                "texts": ["Aanhoudingseenheden", "Aanhoudingseenheid"],
-                "vehicles": [64]
+                "texts": [
+                    "ME Flexbus",
+                    "ME Flexbussen"
+                ],
+                "vehicles": [
+                    40
+                ]
+            },
+            {
+                "texts": [
+                    "AT Commandant",
+                    "AT Commandanten"
+                ],
+                "vehicles": [
+                    53
+                ]
+            },
+            {
+                "texts": [
+                    "AT Materiaalwagen",
+                    "AT Materiaalwagens"
+                ],
+                "vehicles": [
+                    55
+                ]
+            },
+            {
+                "texts": [
+                    "AT Operator",
+                    "AT Operators"
+                ],
+                "vehicles": [
+                    54
+                ]
+            },
+            {
+                "texts": [
+                    "Ambulance",
+                    "Ambulances"
+                ],
+                "vehicles": [
+                    16,
+                    52,
+                    57,
+                    63
+                ]
+            },
+            {
+                "texts": [
+                    "Biketeam",
+                    "Biketeams"
+                ],
+                "vehicles": [
+                    60
+                ]
+            },
+            {
+                "texts": [
+                    "Aanhoudingseenheden",
+                    "Aanhoudingseenheid"
+                ],
+                "vehicles": [
+                    64
+                ]
             },
             {
                 "texts": [
                     "Dienstbus Arrestantenvervoer",
                     "Dienstbussen Arrestantenvervoer"
                 ],
-                "vehicles": [58]
+                "vehicles": [
+                    58
+                ]
             },
-            { "texts": ["Arrestanten zullen vervoerd worden"], "vehicles": [] },
+            {
+                "texts": [
+                    "Arrestanten zullen vervoerd worden"
+                ],
+                "vehicles": []
+            },
             {
                 "texts": [
                     "Strandvoertuig",
@@ -225,15 +432,71 @@
                     "strandvoertuig",
                     "strandvoertuigen"
                 ],
-                "vehicles": [65, 66]
+                "vehicles": [
+                    65,
+                    66
+                ]
             },
             {
-                "texts": ["schuimblusvoertuig", "schuimblusvoertuigen"],
-                "vehicles": [41, 42, 43, 68, 69, 70]
+                "texts": [
+                    "schuimblusvoertuig",
+                    "schuimblusvoertuigen"
+                ],
+                "vehicles": [
+                    41,
+                    42,
+                    43,
+                    68,
+                    69,
+                    70
+                ]
             },
             {
-                "texts": ["Pompvoertuig", "Pompvoertuigen"],
-                "vehicles": [71, 72]
+                "texts": [
+                    "Pompvoertuig",
+                    "Pompvoertuigen"
+                ],
+                "vehicles": [
+                    71,
+                    72
+                ]
+            },
+            {
+                "texts": [
+                    "KW-boot",
+                    "KW-boten"
+                ],
+                "vehicles": [
+                    77
+                ]
+            },
+            {
+                "texts": [
+                    "Quad",
+                    "Quads"
+                ],
+                "vehicles": [
+                    76
+                ]
+            },
+            {
+                "texts": [
+                    "Kleine of Grote Reddingsboot",
+                    "Kleine of Grote Reddingsboten"
+                ],
+                "vehicles": [
+                    78,
+                    79
+                ]
+            },
+            {
+                "texts": [
+                    "SAR-helicopter",
+                    "SAR-helicopters"
+                ],
+                "vehicles": [
+                    80
+                ]
             }
         ],
         "water": "L. water"
@@ -245,10 +508,19 @@
     "patientCollapse": {
         "amount": "Aantal",
         "combis": "Combinaties",
-        "summary": { "total": "patiënten", "treated": "worden behandeld" }
+        "summary": {
+            "total": "patiënten",
+            "treated": "worden behandeld"
+        }
     },
-    "patientSummary": { "oncePerMission": ["OvD-G"] },
-    "releasePatient": { "release": "Ontsla patiënt (Geen beloning)" },
+    "patientSummary": {
+        "oncePerMission": [
+            "OvD-G"
+        ]
+    },
+    "releasePatient": {
+        "release": "Ontsla patiënt (Geen beloning)"
+    },
     "tailoredTabs": {
         "allTab": "Alles",
         "occupiedTab": "Dooralarmeren",
