@@ -38,6 +38,7 @@
     "prerequisites": {
         "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
         "criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
+        "detention_unit_count": "Sonderfahrzeug: Gefangenenkraftwagen",
         "fire_stations": "Feuerwache | Feuerwachen",
         "guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
         "max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
@@ -48,6 +49,7 @@
         "police_stations": "Polizeiwache | Polizeiwachen",
         "rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
         "rescue_stations": "Rettungswache | Rettungswachen",
+        "riot_unit_count": "Zug der 1. Hundertschaft | Züge der 1. Hundertschaft",
         "sek": "SEK-Zug | SEK-Züge",
         "thw": "THW-Ortsverband | THW-Ortsverbände",
         "thw_bergung_count": "THW-Ausbau: Bergungsgruppe 2 | THW-Ausbauten: Bergungsgruppe 2",
@@ -56,11 +58,9 @@
         "thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
         "title": "Vorraussetzung | Vorraussetzungen",
         "wasserrettung": "Wasserrettung | Wasserrettungen",
+        "water_cannon": "Technischer Zug: Wasserwerfer| Technische Züge: Wasserwerfer",
         "water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
-        "werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren",
-        "riot_unit_count": "Zug der 1. Hundertschaft | Züge der 1. Hundertschaft",
-        "detention_unit_count": "Sonderfahrzeug: Gefangenenkraftwagen",
-        "water_cannon": "Technischer Zug: Wasserwerfer| Technische Züge: Wasserwerfer"
+        "werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
     },
     "prisoners": {
         "max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
