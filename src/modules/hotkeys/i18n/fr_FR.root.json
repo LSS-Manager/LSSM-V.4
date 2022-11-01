@@ -138,6 +138,28 @@
                 "previous": "Onglet Précédent",
                 "title": "Liste des véhicules"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Signal d'alarme pour la première mission de l'alliance",
+                "firstOwnMission": "Signal d'alarme pour la première mission personnel",
+                "title": "alarme"
+            },
+            "goto": {
+                "building": "bâtiments",
+                "edit": "edit",
+                "nextVehicle": "véhicule suivant",
+                "personalAssigment": "affectation du personnelle",
+                "previousVehicle": "véhicule Précédent",
+                "statistics": "stats",
+                "title": "allez"
+            },
+            "other": {
+                "moveVehicle": "déplacer le véhicule",
+                "title": "etc.",
+                "toggleFMS": "changer le statut"
+            },
+            "title": "véhicules"
         }
     },
     "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",

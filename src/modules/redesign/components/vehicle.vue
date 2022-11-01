@@ -1116,125 +1116,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
 
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { RedesignComponent } from 'typings/modules/Redesign';
-import type { VehicleWindow } from '../parsers/vehicle';
-
-type Component = RedesignComponent<
-    'vehicle',
-    'vehicle',
-    {
-        faSitemap: IconDefinition;
-        faPortrait: IconDefinition;
-        faUser: IconDefinition;
-        faAsterisk: IconDefinition;
-        faPalette: IconDefinition;
-        faEdit: IconDefinition;
-        faChartLine: IconDefinition;
-        faUsers: IconDefinition;
-        faTrash: IconDefinition;
-        faBan: IconDefinition;
-        missionListSrc: number;
-        search: string;
-        searchTimeout: number | null;
-        sort: string;
-        sortDir: 'asc' | 'desc';
-        hospitalListSrc: number;
-        cellListSrc: number;
-        releaseDisables: ('patient' | 'prisoner')[];
-        color2Class: {
-            red: 'danger';
-            yellow: 'warning';
-            green: 'success';
-        };
-        filter: {
-            mission: {
-                status: ('green' | 'red' | 'yellow')[];
-                participation: boolean[];
-                distance: number;
-                credits: number;
-                progress: number;
-            };
-            hospital: {
-                department: boolean[];
-                distance: number;
-                tax: number;
-                beds: number;
-                each: number;
-            };
-            cell: {
-                distance: number;
-                tax: number;
-                free: number;
-                each: number;
-            };
-            wlf: {
-                distance: number;
-                same: boolean[];
-                show: number;
-            };
-        };
-    },
-    {
-        setMissionList(_: unknown, group: number): void;
-        setHospitalList(_: unknown, group: number): void;
-        setCellList(_: unknown, group: number): void;
-        setSearch(search: string): void;
-        setSort(type: string): void;
-        alarm(missionId: number): void;
-        deleteVehicle(): void;
-        backalarm(): void;
-        backalarmFollowUp(missionId: number): void;
-        backalarmCurrent(): void;
-        switch_state(): void;
-        updateFilter(filter: string, value: unknown): void;
-        fms(url: string, wlf?: boolean): void;
-        release(type: 'patient' | 'prisoner'): void;
-        loadAllHospitals(): void;
-    },
-    {
-        participated_missions: number[];
-        mission_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        missionList: VehicleWindow['mission_own'];
-        missionListFiltered: VehicleWindow['mission_own'];
-        missionListSorted: VehicleWindow['mission_own'];
-        hospital_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        hospitalList: VehicleWindow['own_hospitals'];
-        hospitalListFiltered: VehicleWindow['own_hospitals'];
-        hospitalListSorted: VehicleWindow['own_hospitals'];
-        cell_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        cellList: VehicleWindow['own_cells'];
-        cellListFiltered: VehicleWindow['own_cells'];
-        cellListSorted: VehicleWindow['own_cells'];
-        wlf_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        wlfListFiltered: VehicleWindow['wlfs'];
-        wlfListSorted: VehicleWindow['wlfs'];
-    }
->;
+import type { RedesignVehicleComponent as Component } from '../types/components/vehicle';
 
 export default Vue.extend<
     Component['Data'],
@@ -1366,30 +1248,31 @@ export default Vue.extend<
                 const credits = missionType
                     ? missionType.average_credits || 0
                     : Number.MAX_SAFE_INTEGER;
+                const filter = !!(
+                    this.filter.mission.status.includes(m.status) &&
+                    this.filter.mission.participation.includes(participation) &&
+                    credits >= this.filter.mission.credits &&
+                    (!this.filter.mission.distance ||
+                        parseInt(m.distance) < this.filter.mission.distance) &&
+                    m.progress.width >= 100 - this.filter.mission.progress &&
+                    JSON.stringify(Object.values(m))
+                        .toLowerCase()
+                        .match(this.search.trim().toLowerCase())
+                );
                 return {
                     ...m,
                     participation,
                     credits,
-                    hidden: !(
-                        this.filter.mission.status.includes(m.status) &&
-                        this.filter.mission.participation.includes(
-                            participation
-                        ) &&
-                        credits >= this.filter.mission.credits &&
-                        (!this.filter.mission.distance ||
-                            parseInt(m.distance) <
-                                this.filter.mission.distance) &&
-                        m.progress.width >=
-                            100 - this.filter.mission.progress &&
-                        (this.missionListSrc === 2 ||
+                    filter,
+                    hidden:
+                        !filter ||
+                        !(
+                            this.missionListSrc === 2 ||
                             (this.missionListSrc === 0 &&
                                 m.list === 'mission_own') ||
                             (this.missionListSrc === 1 &&
-                                m.list === 'mission_alliance')) &&
-                        JSON.stringify(Object.values(m))
-                            .toLowerCase()
-                            .match(this.search.trim().toLowerCase())
-                    ),
+                                m.list === 'mission_alliance')
+                        ),
                 };
             });
         },
@@ -1470,7 +1353,7 @@ export default Vue.extend<
                 alliance_hospitals: 0,
             };
             return this.hospitalList.map(h => {
-                const hidden = !(
+                const filter = !!(
                     this.filter.hospital.department.includes(h.department) &&
                     h.tax <= this.filter.hospital.tax &&
                     h.beds >= this.filter.hospital.beds &&
@@ -1478,18 +1361,23 @@ export default Vue.extend<
                         parseInt(h.distance) < this.filter.hospital.distance) &&
                     (!this.filter.hospital.each ||
                         eachFilterLists[h.list] < this.filter.hospital.each) &&
-                    (this.hospitalListSrc === 2 ||
-                        (this.hospitalListSrc === 0 &&
-                            h.list === 'own_hospitals') ||
-                        (this.hospitalListSrc === 1 &&
-                            h.list === 'alliance_hospitals')) &&
                     JSON.stringify(Object.values(h))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase())
                 );
+                const hidden =
+                    !filter ||
+                    !(
+                        this.hospitalListSrc === 2 ||
+                        (this.hospitalListSrc === 0 &&
+                            h.list === 'own_hospitals') ||
+                        (this.hospitalListSrc === 1 &&
+                            h.list === 'alliance_hospitals')
+                    );
                 if (!hidden) eachFilterLists[h.list]++;
                 return {
                     ...h,
+                    filter,
                     hidden,
                 };
             });
@@ -1551,24 +1439,28 @@ export default Vue.extend<
                 alliance_cells: 0,
             };
             return this.cellList.map(c => {
-                const hidden = !(
+                const filter = !!(
                     c.tax <= this.filter.cell.tax &&
                     c.free >= this.filter.cell.free &&
                     (!this.filter.cell.distance ||
                         parseInt(c.distance) < this.filter.cell.distance) &&
                     (!this.filter.cell.each ||
                         eachFilterLists[c.list] < this.filter.cell.each) &&
-                    (this.cellListSrc === 2 ||
-                        (this.cellListSrc === 0 && c.list === 'own_cells') ||
-                        (this.cellListSrc === 1 &&
-                            c.list === 'alliance_cells')) &&
                     JSON.stringify(Object.values(c))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase())
                 );
+                const hidden =
+                    !filter ||
+                    !(
+                        this.cellListSrc === 2 ||
+                        (this.cellListSrc === 0 && c.list === 'own_cells') ||
+                        (this.cellListSrc === 1 && c.list === 'alliance_cells')
+                    );
                 if (!hidden) eachFilterLists[c.list]++;
                 return {
                     ...c,
+                    filter,
                     hidden,
                 };
             });
@@ -1625,6 +1517,7 @@ export default Vue.extend<
                 if (!hidden) shown++;
                 return {
                     ...w,
+                    filter: hidden,
                     hidden,
                 };
             });
@@ -1651,6 +1544,18 @@ export default Vue.extend<
                 }
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
+        },
+        hotkeysParam() {
+            return {
+                component: this,
+                data: {},
+                methods: {
+                    alarm: this.alarm,
+                },
+                computed: {
+                    missionListSorted: this.missionListSorted,
+                },
+            };
         },
     },
     methods: {
@@ -2075,7 +1980,11 @@ export default Vue.extend<
     },
     watch: {
         vehicle() {
+            this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
             this.lightbox.finishLoading('vehicle-updated-data');
+        },
+        hotkeysParam() {
+            this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
         },
     },
     beforeMount() {
@@ -2086,6 +1995,9 @@ export default Vue.extend<
                 );
             });
         });
+    },
+    beforeDestroy() {
+        this.lightbox.unsetHotkeyRedesignParam('vehicles');
     },
     mounted() {
         const mode = this.vehicle.has_hospitals
@@ -2117,6 +2029,7 @@ export default Vue.extend<
                 });
             });
         }
+        this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
         this.lightbox.finishLoading('vehicle-mounted');
     },
 });
