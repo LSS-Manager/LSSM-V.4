@@ -121,7 +121,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         branch: {
             description:
-                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
+                'Kies hier tussen stable, beta of een andere voorvertonings versie. De voorvertonings versies worden ongeveer 7 dagen na hun laatste update verwijderd.',
             title: 'Choose version',
         },
         iconBg: {
@@ -154,9 +154,9 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Verplaatst het menu van LSSM V3 van de menubalk naar een knop in het menu van V4.',
         },
         debugMode: {
-            title: 'Debug-Mode',
+            title: 'Debug-Modus',
             description:
-                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+                'Een kleine debug modus that behulpzame tips geeft in de browser console. Dit aanzetten is alleen aanbevolen als dit door het LSSM team wordt gevraagd, aangezien de console veel berichten zal bevatten.',
         },
     },
     vehicles: {
