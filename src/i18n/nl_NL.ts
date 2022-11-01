@@ -1210,7 +1210,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         76: {
             caption: 'Quad',
-            color: '#F5A42A',
+            color: '#f5c929',
             minPersonnel: 1,
             maxPersonnel: 1,
             credits: 5000,
@@ -1227,7 +1227,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         77: {
             caption: 'KW-boot',
-            color: '#F5A42A',
+            color: '#f5b829',
             minPersonnel: 2,
             maxPersonnel: 6,
             credits: 50000,
@@ -1247,7 +1247,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         78: {
             caption: 'RB-K',
-            color: '#F5A42A',
+            color: '#f59629',
             minPersonnel: 2,
             maxPersonnel: 4,
             credits: 35000,
@@ -1264,7 +1264,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         79: {
             caption: 'RB-G',
-            color: '#F5A42A',
+            color: '#f5a329',
             minPersonnel: 2,
             maxPersonnel: 6,
             credits: 45000,
@@ -1281,7 +1281,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         80: {
             caption: 'SAR-heli',
-            color: '#F5A42A',
+            color: '#fec039',
             minPersonnel: 2,
             maxPersonnel: 3,
             credits: 300_000,
@@ -1361,6 +1361,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Helikopters': [80],
             }
         },
+        color: '#f5a42a',
     },
     small_buildings: {
         3: 13,
