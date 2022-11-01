@@ -171,8 +171,10 @@ export default {
     },
     userscript_latest_update: '4.5.10',
     prefix: PREFIX,
-    server: 'https://v4.lss-manager.de/',
-    docs: 'https://docs.lss-manager.de/',
-    statuspage: 'https://status.lss-manager.de/',
-    fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
+    urls: {
+        server: 'https://v4.lss-manager.de/',
+        docs: 'https://docs.lss-manager.de/',
+        statuspage: 'https://status.lss-manager.de/',
+        fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
+    },
 } as Config;

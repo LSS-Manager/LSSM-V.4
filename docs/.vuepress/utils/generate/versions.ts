@@ -12,7 +12,7 @@ export interface Versions {
 const [, , file] = process.argv;
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`)
+    fetch(`${config.urls.server}static/build_stats.json`)
         .then(res => (res.status === 200 ? res.json() : { version: '4.x.x' }))
         .catch(() => ({ version: '4.x.x' }));
 

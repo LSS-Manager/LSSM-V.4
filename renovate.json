@@ -23,11 +23,11 @@
             "enabled": false,
             "matchManagers": ["npm"],
             "matchPackageNames": [
+                "@fortawesome/vue-fontawesome",
                 "vue",
                 "vue-i18n",
                 "vue-loader",
-                "vue-template-compiler",
-                "@fortawesome/vue-fontawesome"
+                "vue-template-compiler"
             ],
             "matchPaths": ["+(package.json)"]
         },
@@ -70,7 +70,7 @@
             "groupName": "engines",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackageNames": ["npm", "yarn", "node"],
+            "matchPackageNames": ["node", "npm", "yarn"],
             "rangeStrategy": "bump",
             "separateMajorMinor": false
         },

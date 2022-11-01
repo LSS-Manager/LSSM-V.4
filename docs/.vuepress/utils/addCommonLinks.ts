@@ -7,11 +7,11 @@ const { LANGS, MODULES } = getConstants();
 
 const commonLinks = {
     // LSSM
-    'lssm.status': config.statuspage,
+    'lssm.status': config.urls.statuspage,
     'lssm.discord': `https://discord.gg/${config.discord.invite}`,
-    'lssm.userscript': `${config.server}lssm-v4.user.js`,
+    'lssm.userscript': `${config.urls.server}lssm-v4.user.js`,
     // Docs
-    'docs': config.docs,
+    'docs': config.urls.docs,
     'docs.apps': (lang: Locale) => `/${lang}/apps/`,
     'docs.appstore': (lang: Locale) => `/${lang}/appstore/`,
     'docs.bugs': (lang: Locale) => `/${lang}/bugs/`,
@@ -24,14 +24,14 @@ const commonLinks = {
     'docs.support': (lang: Locale) => `/${lang}/support/`,
     // Docs: Langs
     ...Object.fromEntries(
-        LANGS.map(lang => [`docs.langs.${lang}`, `${config.docs}${lang}/`])
+        LANGS.map(lang => [`docs.langs.${lang}`, `${config.urls.docs}${lang}/`])
     ),
     // Docs: Modules
     ...Object.fromEntries(
         LANGS.flatMap(lang =>
             MODULES.map(module => [
                 `docs.modules.${lang}.${module}`,
-                `${config.docs}${lang}/modules/${module}/`,
+                `${config.urls.docs}${lang}/modules/${module}/`,
             ])
         )
     ),

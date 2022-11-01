@@ -63,9 +63,9 @@
                     "all": "All",
                     "buildings": "Buildings",
                     "canBuy": "can buy",
-                    "canToggle": "can enable/disable",
                     "cannotBuy": "cannot buy",
                     "cannotToggle": "cannot enable/disable",
+                    "canToggle": "can enable/disable",
                     "disabled": "finished & disabled",
                     "enabled": "finished & enabled",
                     "extensions": "Extensions",
@@ -115,9 +115,9 @@
         "settings": {
             "abort": "Abort",
             "allianceBuildings": "attached alliance buildings",
-            "buildingTabs": "Show tabs for attached buildings?",
             "buildings": "attached buildings",
             "buildingsInList": "Show attached buildings in the buildings list?",
+            "buildingTabs": "Show tabs for attached buildings?",
             "dissolve": {
                 "buttons": { "abort": "Abort", "continue": "Dissolve" },
                 "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",

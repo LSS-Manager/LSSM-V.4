@@ -20,11 +20,11 @@ export default async (): Promise<void> =>
 // @author       ${script.author}
 // @description  ${script.description}
 // @namespace    https://lss-manager.de/
-// @homepage     ${config.server}docs/
-// @downloadURL  ${config.server}lssm-v4.user.js
-// @updateURL    ${config.server}lssm-v4.user.js
-// @supportURL   ${config.server}docs/en_US/error_report
-// @icon         ${config.server}docs/img/lssm.png
+// @homepage     ${config.urls.server}docs/
+// @downloadURL  ${config.urls.server}lssm-v4.user.js
+// @updateURL    ${config.urls.server}lssm-v4.user.js
+// @supportURL   ${config.urls.server}docs/en_US/error_report
+// @icon         ${config.urls.server}docs/img/lssm.png
 ${Object.values(config.games)
     .map(
         ({ shortURL, police }) =>
@@ -46,16 +46,21 @@ ${
             fs
                 .readFileSync('./src/userscript.js')
                 .toString()
-                .replace(
-                    /exports\.__esModule = true;|require\("tampermonkey"\);/gu,
-                    ''
-                ),
+                .replace(/import 'tampermonkey';/gu, ''),
             {
                 compress: {
+                    ecma: 2020,
                     global_defs: {
-                        host: config.server,
+                        host: config.urls.server,
                         prefix: config.prefix,
                     },
+                    unsafe_arrows: true,
+                },
+                mangle: {
+                    toplevel: true,
+                },
+                format: {
+                    ecma: 2020,
                 },
             }
         )
