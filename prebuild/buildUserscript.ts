@@ -54,6 +54,7 @@ ${
                         host: config.urls.server,
                         prefix: config.prefix,
                     },
+                    sequences: false,
                     unsafe_arrows: true,
                 },
                 mangle: {
