@@ -26,6 +26,28 @@
             "static": "statisk",
             "title": "Sentrer kart: Modus"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterInvert": {
+            "title": "Invert Colors"
+        },
+        "mapStyleFilterGrey": {
+            "title": "Grey filter"
+        },
+        "mapStyleFilterBrightness": {
+            "title": "Brightness"
+        },
+        "mapStyleFilterContrast": {
+            "title": "Contrast"
+        },
+        "mapStyleFilterSaturate": {
+            "title": "Saturation"
+        },
+        "mapStyleFilterSepia": {
+            "title": "Sepia"
+        },
         "mapScale": {
             "description": "Viser en kartskala og gjeldende zoomnivå",
             "title": "Skala"

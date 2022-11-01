@@ -30,6 +30,28 @@
             "title": "Centrowanie mapy: Tryb"
         },
         "locationSelect": { "sync": "Centruj", "zoom": "Ustawienia mapy" },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterInvert": {
+            "title": "Invert Colors"
+        },
+        "mapStyleFilterGrey": {
+            "title": "Grey filter"
+        },
+        "mapStyleFilterBrightness": {
+            "title": "Brightness"
+        },
+        "mapStyleFilterContrast": {
+            "title": "Contrast"
+        },
+        "mapStyleFilterSaturate": {
+            "title": "Saturation"
+        },
+        "mapStyleFilterSepia": {
+            "title": "Sepia"
+        },
         "mapScale": {
             "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"

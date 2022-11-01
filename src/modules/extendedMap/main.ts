@@ -32,6 +32,13 @@ export default <ModuleMainFunction>(async ({
             /* webpackChunkName: "modules/extendedMap/markerNewWindow" */ './assets/markerNewWindow'
         ).then(({ default: markerNewWindow }) => markerNewWindow(LSSM));
     }
+    if (await getSetting('mapStyleFilter')) {
+        import(
+            /* webpackChunkName: "modules/extendedMap/mapStyleFilter" */ './assets/mapStyleFilter'
+        ).then(({ default: mapStyleFilter }) =>
+            mapStyleFilter(LSSM, getSetting, setSetting)
+        );
+    }
 
     const buildingComplexesSettings = (
         await getSetting<{

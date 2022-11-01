@@ -28,6 +28,28 @@
             "static": "Statico",
             "title": "Centra la mappa: Modalità"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterInvert": {
+            "title": "Invert Colors"
+        },
+        "mapStyleFilterGrey": {
+            "title": "Grey filter"
+        },
+        "mapStyleFilterBrightness": {
+            "title": "Brightness"
+        },
+        "mapStyleFilterContrast": {
+            "title": "Contrast"
+        },
+        "mapStyleFilterSaturate": {
+            "title": "Saturation"
+        },
+        "mapStyleFilterSepia": {
+            "title": "Sepia"
+        },
         "mapScale": {
             "description": "Mostra la scala della mappa e quanto quest'ultima sia zoommata",
             "title": "Scala"

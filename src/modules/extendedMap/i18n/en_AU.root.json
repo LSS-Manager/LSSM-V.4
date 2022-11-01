@@ -26,6 +26,28 @@
             "static": "static",
             "title": "Center map: Mode"
         },
+        "mapStyleFilter": {
+            "description": "Aktiviert ein paar kosmetische Filter für die Karte",
+            "title": "Kosmetische Kartenfilter"
+        },
+        "mapStyleFilterInvert": {
+            "title": "Invertierte Farben"
+        },
+        "mapStyleFilterGrey": {
+            "title": "Graufilter"
+        },
+        "mapStyleFilterBrightness": {
+            "title": "Helligkeit"
+        },
+        "mapStyleFilterContrast": {
+            "title": "Kontrast"
+        },
+        "mapStyleFilterSaturate": {
+            "title": "Sättigung"
+        },
+        "mapStyleFilterSepia": {
+            "title": "Sepia"
+        },
         "mapScale": {
             "description": "Shows a map-scale and current zoom level",
             "title": "Scale"

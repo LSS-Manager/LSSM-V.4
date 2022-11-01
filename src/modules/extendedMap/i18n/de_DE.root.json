@@ -28,6 +28,28 @@
             "static": "Statisch",
             "title": "Karte zentrieren: Typ"
         },
+        "mapStyleFilter": {
+            "description": "Aktiviert ein paar kosmetische Filter für die Karte",
+            "title": "Kosmetische Kartenfilter"
+        },
+        "mapStyleFilterInvert": {
+            "title": "Invertierte Farben"
+        },
+        "mapStyleFilterGrey": {
+            "title": "Graufilter"
+        },
+        "mapStyleFilterBrightness": {
+            "title": "Helligkeit"
+        },
+        "mapStyleFilterContrast": {
+            "title": "Kontrast"
+        },
+        "mapStyleFilterSaturate": {
+            "title": "Sättigung"
+        },
+        "mapStyleFilterSepia": {
+            "title": "Sepia"
+        },
         "mapScale": {
             "description": "Zeigt einen Maßstab und das aktuelle Zoomlevel in der Karte an.",
             "title": "Maßstab"

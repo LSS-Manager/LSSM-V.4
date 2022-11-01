@@ -54,6 +54,16 @@ interface NumberInput extends SettingTemplate {
     float?: boolean;
 }
 
+interface Slider extends SettingTemplate {
+    type: 'number';
+    default: number;
+    value: number;
+    min?: number;
+    max?: number;
+    step?: number;
+    float?: boolean;
+}
+
 interface Select extends SettingTemplate {
     type: 'select';
     default: string;

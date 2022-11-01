@@ -28,6 +28,28 @@
             "static": "statique",
             "title": "Carte centrale: Mode"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterInvert": {
+            "title": "Invert Colors"
+        },
+        "mapStyleFilterGrey": {
+            "title": "Grey filter"
+        },
+        "mapStyleFilterBrightness": {
+            "title": "Brightness"
+        },
+        "mapStyleFilterContrast": {
+            "title": "Contrast"
+        },
+        "mapStyleFilterSaturate": {
+            "title": "Saturation"
+        },
+        "mapStyleFilterSepia": {
+            "title": "Sepia"
+        },
         "mapScale": {
             "description": "Affiche l'échelle de la carte et le niveau de zoom actuel",
             "title": "Échelle"
