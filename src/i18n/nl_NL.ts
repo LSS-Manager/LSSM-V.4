@@ -1052,7 +1052,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 7500,
             coins: 15,
             schooling: {
-                Brandweer: {
+                Waterredding: {
                     Waterredding: {
                         all: true,
                     },
@@ -1069,7 +1069,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 8000,
             coins: 15,
             schooling: {
-                Brandweer: {
+                Waterredding: {
                     Waterredding: {
                         all: true,
                     },
@@ -1203,6 +1203,94 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             icon: 'shuttle-van',
             possibleBuildings: [11],
         },
+        76: {
+            caption: 'Quad',
+            color: '#f5c929',
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            credits: 5000,
+            coins: 10,
+            schooling: {
+                Waterredding: {
+                    Waterredding: {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [16],
+        },
+        77: {
+            caption: 'KW-boot',
+            color: '#f5b829',
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            credits: 50_000,
+            coins: 25,
+            schooling: {
+                Waterredding: {
+                    'Groot vaarbewijs': {
+                        min: 1,
+                    },
+                    'Water handhaving': {
+                        min: 1,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [19],
+        },
+        78: {
+            caption: 'RB-K',
+            color: '#f59629',
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            credits: 35_000,
+            coins: 25,
+            schooling: {
+                Waterredding: {
+                    'Groot vaarbewijs': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [16, 19],
+        },
+        79: {
+            caption: 'RB-G',
+            color: '#f5a329',
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            credits: 45_000,
+            coins: 25,
+            schooling: {
+                Waterredding: {
+                    'Groot vaarbewijs': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [16, 19],
+        },
+        80: {
+            caption: 'SAR-heli',
+            color: '#fec039',
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            credits: 300_000,
+            coins: 30,
+            schooling: {
+                Waterredding: {
+                    'SAR Helicopter': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            possibleBuildings: [21],
+        },
     },
     buildingCategories: {
         Brandweer: {
@@ -1218,7 +1306,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             color: '#00ac00',
         },
         Waterredding: {
-            buildings: [16],
+            buildings: [16, 19, 20, 21],
             color: '#f5a42a',
         },
         Algemeen: {
@@ -1234,7 +1322,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                     2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56, 62, 68,
                     70, 71, 72,
                 ],
-                'Waterongevallen': [33, 36, 49, 50, 65, 66, 67],
+                'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
                 'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
             },
@@ -1260,6 +1348,14 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Paarden': [73, 74, 75],
             },
             color: '#00ac00',
+        },
+        Waterredding: {
+            vehicles: {
+                Voertuigen: [65, 66, 76],
+                Boten: [67, 77, 78, 79],
+                Helikopters: [80],
+            },
+            color: '#f5a42a',
         },
     },
     small_buildings: {
@@ -1314,11 +1410,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 duration: '5 Dagen',
                 staffList: 'Voorlichter',
             },
-            {
-                caption: 'Waterredding',
-                duration: '3 Dagen',
-                staffList: 'Waterredder',
-            },
         ],
         Politie: [
             {
@@ -1372,6 +1463,28 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 caption: 'Officier van Dienst Geneeskunde',
                 duration: '10 Dagen',
                 staffList: 'Officier van Dienst Geneeskunde',
+            },
+        ],
+        Waterredding: [
+            {
+                caption: 'SAR Helicopter',
+                duration: '7 Dagen',
+                staffList: 'SAR Piloot',
+            },
+            {
+                caption: 'Water handhaving',
+                duration: '5 Dagen',
+                staffList: 'Waterhandhaving',
+            },
+            {
+                caption: 'Groot vaarbewijs',
+                duration: '7 Dagen',
+                staffList: 'Kapitein',
+            },
+            {
+                caption: 'Waterredding',
+                duration: '3 Dagen',
+                staffList: 'Waterredder',
             },
         ],
     },

@@ -225,7 +225,7 @@
                     "strandvoertuig",
                     "strandvoertuigen"
                 ],
-                "vehicles": [65, 66]
+                "vehicles": [65, 66, 76]
             },
             {
                 "texts": ["schuimblusvoertuig", "schuimblusvoertuigen"],
@@ -234,7 +234,25 @@
             {
                 "texts": ["Pompvoertuig", "Pompvoertuigen"],
                 "vehicles": [71, 72]
-            }
+            },
+            { "texts": ["KW-boot", "KW-boten"], "vehicles": [77] },
+            { "texts": ["Quad", "Quads"], "vehicles": [76] },
+            {
+                "texts": [
+                    "Kleine of Grote Reddingsboot",
+                    "Kleine of Grote Reddingsboten"
+                ],
+                "vehicles": [78, 79]
+            },
+            {
+                "texts": ["Reddingsboot Groot", "Reddingsboten Groot"],
+                "vehicles": [79]
+            },
+            {
+                "texts": ["Reddingsboot Klein", "Reddingsboten Klein"],
+                "vehicles": [78]
+            },
+            { "texts": ["SAR-helicopter", "SAR-helicopters"], "vehicles": [80] }
         ],
         "water": "L. water"
     },
