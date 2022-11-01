@@ -55,13 +55,12 @@ interface NumberInput extends SettingTemplate {
 }
 
 interface Slider extends SettingTemplate {
-    type: 'number';
+    type: 'slider';
     default: number;
     value: number;
     min?: number;
     max?: number;
-    step?: number;
-    float?: boolean;
+    step?: number | 'any';
 }
 
 interface Select extends SettingTemplate {
@@ -188,6 +187,7 @@ type SettingType<
     | MultiSelect
     | NumberInput
     | Select
+    | Slider
     | Text
     | Textarea
     | Toggle;

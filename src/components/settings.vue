@@ -217,6 +217,21 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
+                        <settings-slider
+                            v-else-if="setting.type === 'slider'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :min="setting.min"
+                            :max="setting.max"
+                            :step="setting.step"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-slider>
                         <settings-select
                             v-else-if="setting.type === 'select'"
                             :name="setting.name"
@@ -356,6 +371,10 @@ export default Vue.extend<
         SettingsNumber: () =>
             import(
                 /* webpackChunkName: "components/setting/number" */ './setting/number.vue'
+            ),
+        SettingsSlider: () =>
+            import(
+                /* webpackChunkName: "components/setting/slider" */ './setting/slider.vue'
             ),
         SettingsHotkey: () =>
             import(

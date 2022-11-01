@@ -75,6 +75,16 @@
                         :float="item.setting.float"
                         @input="changeValue(index, value, item, list_index)"
                     ></settings-number>
+                    <settings-slider
+                        v-else-if="item.setting.type === 'slider'"
+                        :name="item.name"
+                        :placeholder="item.title"
+                        v-model="value[item.name]"
+                        :min="item.setting.min"
+                        :max="item.setting.max"
+                        :step="item.setting.step"
+                        @input="changeValue(index, value, item, list_index)"
+                    ></settings-slider>
                     <settings-select
                         v-else-if="item.setting.type === 'select'"
                         :name="setting.name"
@@ -209,6 +219,10 @@ export default Vue.extend<
         SettingsNumber: () =>
             import(
                 /* webpackChunkName: "components/setting/number" */ './number.vue'
+            ),
+        SettingsSlider: () =>
+            import(
+                /* webpackChunkName: "components/setting/slider" */ './slider.vue'
             ),
         SettingsHotkey: () =>
             import(
