@@ -4,12 +4,22 @@
     "followups": "Folgeeinsatz | Folgeeinsätze",
     "generated_by": "Generiert von",
     "mission_categories": {
-        "airport": "Flughafenfeuerwehr Einsätze",
-        "ambulance": "Rettungsdienst Einsätze",
-        "fire": "Feuerwehr Einsätze",
-        "police": "Polizei Einsätze",
-        "riot_police_specialization": "Bundespolizei Einsätze",
-        "title": "Einsatz Kategorien"
+        "airport": "Flughafenfeuerwehr-Einsätze",
+        "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung)",
+        "ambulance": "Rettungseinsätze",
+        "criminal_investigation": "Kriminalpolizei-Einsätze",
+        "factory_fire_brigade": "Werkfeuerwehr-Einsätze",
+        "factory_fire_brigade_specialization": "Werkfeuerwehr-Einsätze (Spezialisierung)",
+        "fire": "Feuerwehreinsätze",
+        "police": "Polizeieinsätze",
+        "riot_police": "Bereitschaftspolizei-Einsätze",
+        "riot_police_specialization": "Bereitschaftspolizei-Einsätze (Spezialisierung)",
+        "seg": "SEG-Einsätze",
+        "seg_medical_service": "SEG-Sanitätsdienst-Einsätze",
+        "thw": "THW-Einsätze",
+        "title": "Einsatzart",
+        "water_rescue": "Wasserrettungs-Einsätze",
+        "water_rescue_specialization": "Wasserrettungs-Einsätze (Spezialisierung)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
@@ -28,6 +38,7 @@
     "prerequisites": {
         "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
         "criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
+        "detention_unit_count": "Sonderfahrzeug: Gefangenenkraftwagen",
         "fire_stations": "Feuerwache | Feuerwachen",
         "guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
         "max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
@@ -38,6 +49,7 @@
         "police_stations": "Polizeiwache | Polizeiwachen",
         "rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
         "rescue_stations": "Rettungswache | Rettungswachen",
+        "riot_unit_count": "Zug der 1. Hundertschaft | Züge der 1. Hundertschaft",
         "sek": "SEK-Zug | SEK-Züge",
         "thw": "THW-Ortsverband | THW-Ortsverbände",
         "thw_bergung_count": "THW-Ausbau: Bergungsgruppe 2 | THW-Ausbauten: Bergungsgruppe 2",
@@ -46,6 +58,7 @@
         "thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
         "title": "Vorraussetzung | Vorraussetzungen",
         "wasserrettung": "Wasserrettung | Wasserrettungen",
+        "water_cannon": "Technischer Zug: Wasserwerfer| Technische Züge: Wasserwerfer",
         "water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
         "werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
     },
