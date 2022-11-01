@@ -822,7 +822,7 @@ export default {
                 parkingLotReservations: [[80]],
             },
             {
-                caption: 'Additional Helicopter Hangar',
+                caption: 'Extra SAR Helikopter Hangar',
                 credits: 200_000,
                 coins: 15,
                 duration: '4 Dagen',
@@ -833,7 +833,7 @@ export default {
                 parkingLotReservations: [[80]],
             },
             {
-                caption: 'Additional Helicopter Hangar',
+                caption: 'Extra SAR Helikopter Hangar',
                 credits: 200_000,
                 coins: 15,
                 duration: '4 Dagen',

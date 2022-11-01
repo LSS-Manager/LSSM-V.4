@@ -1057,7 +1057,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 7500,
             coins: 15,
             schooling: {
-                Brandweer: {
+                Waterredding: {
                     Waterredding: {
                         all: true,
                     },

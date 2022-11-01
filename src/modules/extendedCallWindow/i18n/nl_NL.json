@@ -491,6 +491,15 @@
             },
             {
                 "texts": [
+                    "Reddingsboot Groot",
+                    "Reddingsboten Groot"
+                ],
+                "vehicles": [
+                    79
+                ]
+            },
+            {
+                "texts": [
                     "SAR-helicopter",
                     "SAR-helicopters"
                 ],
