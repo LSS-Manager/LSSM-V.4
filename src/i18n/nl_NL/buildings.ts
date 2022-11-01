@@ -501,7 +501,7 @@ export default {
         maxBuildings: 'Geen limiet',
         maxLevel: 0,
         special: '',
-        startPersonnel: 10,
+        startPersonnel: 1,
         startVehicles: ['Officier van Dienst - Politie'],
         schoolingTypes: ['Politie'],
         startParkingLots: 1,
