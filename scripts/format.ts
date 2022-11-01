@@ -28,36 +28,35 @@ const excluded = [
     path.join(ROOT_PATH, 'src', 'utils', 'browsers.json'),
 ];
 
-const getJsons = (folder: string): string[] => {
-    const jsons = [] as string[];
+const getFiles = (
+    folder: string,
+    endings: string[],
+    extraFilter?: (file: string) => boolean
+): string[] => {
+    const files = [] as string[];
     if (/node_modules/u.test(folder)) return [];
     fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
-        if (item.isDirectory())
-            jsons.push(...getJsons(`${folder}/${item.name}`));
-        else if (
+        if (item.isDirectory()) {
+            files.push(
+                ...getFiles(`${folder}/${item.name}`, endings, extraFilter)
+            );
+        } else if (
             item.isFile() &&
-            item.name.endsWith('.json') &&
-            !(
-                item.name === 'package.json' ||
-                excluded.includes(path.join(folder, item.name))
-            )
-        )
-            jsons.push(`${folder}/${item.name}`);
+            endings.some(ending => item.name.endsWith(`.${ending}`)) &&
+            !excluded.includes(path.join(folder, item.name)) &&
+            !extraFilter?.(item.name)
+        ) {
+            files.push(`${folder}/${item.name}`);
+        }
     });
-    return jsons;
+    return files;
 };
 
-const getYamls = (folder: string): string[] => {
-    const yamls = [] as string[];
-    if (/node_modules/u.test(folder)) return [];
-    fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
-        if (item.isDirectory())
-            yamls.push(...getYamls(`${folder}/${item.name}`));
-        else if (item.isFile() && item.name.endsWith('.yml'))
-            yamls.push(`${folder}/${item.name}`);
-    });
-    return yamls;
-};
+const getJsons = (folder: string): string[] =>
+    getFiles(folder, ['json'], file => file.endsWith('package.json'));
+
+const getYamls = (folder: string): string[] =>
+    getFiles(folder, ['yml', 'yaml']);
 
 const tops = (file: string) => {
     const tops: string[] = [];
@@ -101,7 +100,7 @@ try {
                 return;
 
             currentFile = file;
-            const sortArray = false;
+            const sortArray = file.endsWith('tsconfig.json');
             fs.writeFileSync(
                 file,
                 formatJSON(
