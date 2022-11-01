@@ -95,7 +95,7 @@
         "webpack": "5.74.0"
     },
     "engines": {
-        "node": "^v18.11.0"
+        "node": "^v18.12.0"
     },
     "packageManager": "yarn@3.2.4",
     "workspaces": [
