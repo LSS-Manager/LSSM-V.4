@@ -27,23 +27,23 @@
             "title": "Center map: Mode"
         },
         "mapStyleFilter": {
-            "description": "Aktiviert ein paar kosmetische Filter für die Karte",
-            "title": "Kosmetische Kartenfilter"
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
         },
         "mapStyleFilterInvert": {
-            "title": "Invertierte Farben"
+            "title": "Invert Colors"
         },
         "mapStyleFilterGrey": {
-            "title": "Graufilter"
+            "title": "Gray filter"
         },
         "mapStyleFilterBrightness": {
-            "title": "Helligkeit"
+            "title": "Brightness"
         },
         "mapStyleFilterContrast": {
-            "title": "Kontrast"
+            "title": "Contrast"
         },
         "mapStyleFilterSaturate": {
-            "title": "Sättigung"
+            "title": "Saturation"
         },
         "mapStyleFilterSepia": {
             "title": "Sepia"
