@@ -73,7 +73,7 @@ export default {
                 ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
-                    (boughtExtensionsAmountByType[17][8] ?? 0) <
+                        (boughtExtensionsAmountByType[17][8] ?? 0) <
                     maxExtensions,
             },
             ...multiplyExtension(
@@ -671,7 +671,7 @@ export default {
                 ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
-                    (boughtExtensionsAmountByType[17][8] ?? 0) <
+                        (boughtExtensionsAmountByType[17][8] ?? 0) <
                     maxExtensions,
             },
             null,

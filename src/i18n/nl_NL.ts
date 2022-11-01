@@ -1230,14 +1230,14 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             color: '#f5b829',
             minPersonnel: 2,
             maxPersonnel: 6,
-            credits: 50000,
+            credits: 50_000,
             coins: 25,
             schooling: {
                 Waterredding: {
-                    "Groot vaarbewijs": {
+                    'Groot vaarbewijs': {
                         min: 1,
                     },
-                    "Water handhaving": {
+                    'Water handhaving': {
                         min: 1,
                     },
                 },
@@ -1250,11 +1250,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             color: '#f59629',
             minPersonnel: 2,
             maxPersonnel: 4,
-            credits: 35000,
+            credits: 35_000,
             coins: 25,
             schooling: {
                 Waterredding: {
-                    "Groot vaarbewijs": {
+                    'Groot vaarbewijs': {
                         all: true,
                     },
                 },
@@ -1267,11 +1267,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             color: '#f5a329',
             minPersonnel: 2,
             maxPersonnel: 6,
-            credits: 45000,
+            credits: 45_000,
             coins: 25,
             schooling: {
                 Waterredding: {
-                    "Groot vaarbewijs": {
+                    'Groot vaarbewijs': {
                         all: true,
                     },
                 },
@@ -1327,7 +1327,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                     2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56, 62, 68,
                     70, 71, 72,
                 ],
-                'Waterongevallen': [33, 36, 49, 50,],
+                'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
                 'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
             },
@@ -1356,12 +1356,12 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
         Waterredding: {
             vehicles: {
-                'Voertuigen': [65, 66, 76],
-                'Boten': [67, 77, 78, 79],
-                'Helikopters': [80],
-            }
+                Voertuigen: [65, 66, 76],
+                Boten: [67, 77, 78, 79],
+                Helikopters: [80],
+            },
+            color: '#f5a42a',
         },
-        color: '#f5a42a',
     },
     small_buildings: {
         3: 13,
