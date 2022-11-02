@@ -7,8 +7,8 @@
             "title": "Aantal gebouwen van hetzelfde type"
         },
         "dispatchCenterBuildingFilter": {
-            "description": "Adds some useful filters to the list of buildings in dispatch centers",
-            "title": "Filter for buildings in dispatch center"
+            "description": "Voegt een aantal zinvolle filters toe aan de lijst van gebouwen in meldkamers",
+            "title": "Filter voor gebouwen in meldkamer"
         },
         "enhancedPersonnelAssignment": {
             "description": "Geeft je de kans om personeel te verbergen zonder de juiste opleiding.",
@@ -47,8 +47,8 @@
             "title": "Gebouwenfilter bij opleidingen"
         },
         "startPatrolsShortcut": {
-            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
-            "title": "Start patrols in main window"
+            "description": "Een snelle manier om patrouilles te starten vanuit de gebouwenlijst in het hoofdscherm.",
+            "title": "Start pattrouille vanuit hoofdscherm"
         },
         "upgradeConfirmation": {
             "description": "Vraagt of u uw gebouw echt wilt upgraden.",

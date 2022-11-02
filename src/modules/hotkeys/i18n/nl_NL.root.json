@@ -135,25 +135,25 @@
         },
         "vehicles": {
             "alarm": {
-                "firstAllianceMission": "Alarm to first alliance mission",
-                "firstOwnMission": "Alarm to first own mission",
-                "title": "alarm"
+                "firstAllianceMission": "Alarmeer naar eerste teammelding",
+                "firstOwnMission": "Alarmeer naar eerste eigen melding",
+                "title": "alarmeer"
             },
             "goto": {
-                "building": "building",
-                "edit": "edit",
-                "nextVehicle": "next vehicle",
-                "personalAssigment": "personal assigment",
-                "previousVehicle": "previous vehicle",
-                "statistics": "stats",
-                "title": "go to"
+                "building": "gebouw",
+                "edit": "bewerkt",
+                "nextVehicle": "volgend voertuig",
+                "personalAssigment": "personeel toewijzen",
+                "previousVehicle": "vorig voertuig",
+                "statistics": "statistieken",
+                "title": "ga naar"
             },
             "other": {
-                "moveVehicle": "move vehicle",
+                "moveVehicle": "verplaats voertuig",
                 "title": "etc.",
                 "toggleFMS": "toggle status"
             },
-            "title": "vehicles"
+            "title": "voertuigen"
         }
     },
     "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
@@ -166,5 +166,5 @@
             "title": "Sneltoetsen"
         }
     },
-    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
+    "unique": "Je hebt geprobeert om dezelfde sneltoets in te stellen voor meerdere acties die in dezelfde schermen gebruikt worden. Selecteer een andere sneltoets voor deze actie"
 }
