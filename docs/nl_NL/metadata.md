@@ -21,7 +21,7 @@ Door `LSSM` (Leitstellenspiel Manager, userscript voor de browser) te gebruiken,
     * inclusief informatie of het de politieversie is of niet
 * welke kaart type wordt gebruikt (OSM of Mapkit)
 * LSSM versie
-* LSSM branch (`stable`, `beta` or a preview-branch)
+* LSSM branch (`stable`, `beta` of een voorvertonings branch)
 * version of the installed LSSM userscript
 
 Deze data wordt gebruikt om de extensie te verbeteren, maar ook als gids voor de ontwikkeling van bestaande of toekomstige modules.

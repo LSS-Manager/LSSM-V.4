@@ -19,7 +19,7 @@
         "schooling": "Opleiding",
         "title": "Personeelsoverzicht"
     },
-    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
+    "startPatrols": { "duration": "1 uur | {n} uren", "title": "Patrouille" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Annuleer",
