@@ -1,7 +1,13 @@
+import type Vue from 'vue';
+
+import { type Filter } from './assets/mapStyleFilter';
+import mapStyleFilterPreview from './components/mapStyleFilter/preview.vue';
+
 import type { ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
     AppendableListSetting,
+    Custom,
     Hidden,
     Location,
     MultiSelect,
@@ -10,6 +16,26 @@ import type {
     Text,
     Toggle,
 } from 'typings/Setting';
+import type {
+    DefaultComputed,
+    DefaultData,
+    DefaultMethods,
+    DefaultProps,
+} from 'vue/types/options';
+
+export interface MapStyleFilterPreview {
+    Data: DefaultData<Vue> & Record<string, never>;
+    Methods: DefaultMethods<Vue> & Record<string, never>;
+    Computed: DefaultComputed & {
+        id: string;
+    };
+    Props: DefaultProps & {
+        module: Record<
+            `mapStyleFilter${Capitalize<Filter>}`,
+            { value: number; unit: string }
+        >;
+    };
+}
 
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
@@ -97,7 +123,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
         mapStyleFilterBrightness: <Slider>{
             type: 'slider',
             default: 100,
-            min: 1, // Prevent users from making their map completely black
+            min: 0,
             max: 200,
             step: 'any',
             unit: '%',
@@ -106,7 +132,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
         mapStyleFilterContrast: <Slider>{
             type: 'slider',
             default: 100,
-            min: 1, // Prevent users from making their map completely black
+            min: 0,
             max: 200,
             step: 'any',
             unit: '%',
@@ -155,6 +181,25 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
             max: 100,
             step: 'any',
             unit: '%',
+            dependsOn: '.mapStyleFilter',
+        },
+        mapStyleFilterPreview: <
+            Omit<
+                Custom<
+                    Record<string, never>,
+                    Record<string, never>,
+                    MapStyleFilterPreview['Data'],
+                    MapStyleFilterPreview['Methods'],
+                    MapStyleFilterPreview['Computed'],
+                    MapStyleFilterPreview['Props']
+                >,
+                'isDisabled' | 'value'
+            >
+        >{
+            type: 'custom',
+            default: {},
+            properties: {},
+            component: mapStyleFilterPreview,
             dependsOn: '.mapStyleFilter',
         },
         buildingComplexes: <Omit<AppendableList, 'isDisabled' | 'value'>>{

@@ -107,7 +107,8 @@ interface Custom<
     ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     ComponentComputed extends DefaultComputed = DefaultComputed,
-    ComponentProps extends DefaultProps = DefaultProps
+    ComponentProps extends DefaultProps &
+        Partial<{ module: Record<string, unknown> }> = DefaultProps
 > extends SettingTemplate {
     type: 'custom';
     default: Data;

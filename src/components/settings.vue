@@ -299,6 +299,14 @@
                                 settings[moduleId][settingId].value.enabled
                             "
                         ></settings-appendable-list>
+                        <component
+                            v-else-if="setting.type === 'custom'"
+                            :is="setting.component"
+                            v-model="settings[moduleId][settingId].value"
+                            :module="settings[moduleId]"
+                            @update="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></component>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>

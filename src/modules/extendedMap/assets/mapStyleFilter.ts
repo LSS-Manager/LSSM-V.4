@@ -10,11 +10,13 @@ const filters = {
     sepia: '%' as const,
 };
 
+export type Filter = keyof typeof filters;
+
 type Settings = {
     [key in keyof typeof filters]: `${number}${typeof filters[key]}`;
 };
 
-const getSettings = async (
+export const getSettings = async (
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting']
 ): Promise<Settings> =>
     Object.fromEntries(
@@ -31,7 +33,7 @@ const getSettings = async (
         )
     ) as Settings;
 
-const getFilter = ({
+export const getFilter = ({
     brightness,
     contrast,
     grayscale,
