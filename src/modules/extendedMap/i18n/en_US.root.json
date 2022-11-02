@@ -26,28 +26,6 @@
             "static": "static",
             "title": "Center map: Mode"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterInvert": {
-            "title": "Invert Colors"
-        },
-        "mapStyleFilterGrey": {
-            "title": "Grey filter"
-        },
-        "mapStyleFilterBrightness": {
-            "title": "Brightness"
-        },
-        "mapStyleFilterContrast": {
-            "title": "Contrast"
-        },
-        "mapStyleFilterSaturate": {
-            "title": "Saturation"
-        },
-        "mapStyleFilterSepia": {
-            "title": "Sepia"
-        },
         "mapScale": {
             "description": "Shows a map-scale and current zoom level",
             "title": "Scale"
@@ -56,6 +34,16 @@
             "description": "Select in which corner of the map the map-scale should appear",
             "title": "Position of map-scale"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterBrightness": { "title": "Brightness" },
+        "mapStyleFilterContrast": { "title": "Contrast" },
+        "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterSaturate": { "title": "Saturation" },
+        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Allows missions and buildings to be opened in a new tab by Ctrl+clicking or clicking the middle mouse button.",
             "title": "open markers in new tab"

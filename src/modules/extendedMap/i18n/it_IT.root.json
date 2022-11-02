@@ -28,28 +28,6 @@
             "static": "Statico",
             "title": "Centra la mappa: Modalità"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterInvert": {
-            "title": "Invert Colors"
-        },
-        "mapStyleFilterGrey": {
-            "title": "Grey filter"
-        },
-        "mapStyleFilterBrightness": {
-            "title": "Brightness"
-        },
-        "mapStyleFilterContrast": {
-            "title": "Contrast"
-        },
-        "mapStyleFilterSaturate": {
-            "title": "Saturation"
-        },
-        "mapStyleFilterSepia": {
-            "title": "Sepia"
-        },
         "mapScale": {
             "description": "Mostra la scala della mappa e quanto quest'ultima sia zoommata",
             "title": "Scala"
@@ -58,6 +36,16 @@
             "description": "Seleziona l'angolo della mappa dove far comparire la scala",
             "title": "Posizione della scala"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterBrightness": { "title": "Brightness" },
+        "mapStyleFilterContrast": { "title": "Contrast" },
+        "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterSaturate": { "title": "Saturation" },
+        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Permette di aprire le missioni e gli edifici in una nuova scheda, tramite Ctrl + click o più semplicemente tramite un semplice click della rotellina.",
             "title": "Apri edifici e missioni in una nuova scheda"

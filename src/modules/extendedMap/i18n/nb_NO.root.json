@@ -26,28 +26,6 @@
             "static": "statisk",
             "title": "Sentrer kart: Modus"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterInvert": {
-            "title": "Invert Colors"
-        },
-        "mapStyleFilterGrey": {
-            "title": "Grey filter"
-        },
-        "mapStyleFilterBrightness": {
-            "title": "Brightness"
-        },
-        "mapStyleFilterContrast": {
-            "title": "Contrast"
-        },
-        "mapStyleFilterSaturate": {
-            "title": "Saturation"
-        },
-        "mapStyleFilterSepia": {
-            "title": "Sepia"
-        },
         "mapScale": {
             "description": "Viser en kartskala og gjeldende zoomnivå",
             "title": "Skala"
@@ -55,6 +33,16 @@
         "mapScalePosition": {
             "description": "Velg i hvilket hjørne av kartet kartskalaen skal vises",
             "title": "Plassering av kartskala"
-        }
+        },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterBrightness": { "title": "Brightness" },
+        "mapStyleFilterContrast": { "title": "Contrast" },
+        "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterSaturate": { "title": "Saturation" },
+        "mapStyleFilterSepia": { "title": "Sepia" }
     }
 }

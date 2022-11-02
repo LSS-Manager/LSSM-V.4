@@ -30,28 +30,6 @@
             "title": "Centrowanie mapy: Tryb"
         },
         "locationSelect": { "sync": "Centruj", "zoom": "Ustawienia mapy" },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterInvert": {
-            "title": "Invert Colors"
-        },
-        "mapStyleFilterGrey": {
-            "title": "Grey filter"
-        },
-        "mapStyleFilterBrightness": {
-            "title": "Brightness"
-        },
-        "mapStyleFilterContrast": {
-            "title": "Contrast"
-        },
-        "mapStyleFilterSaturate": {
-            "title": "Saturation"
-        },
-        "mapStyleFilterSepia": {
-            "title": "Sepia"
-        },
         "mapScale": {
             "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"
@@ -60,6 +38,16 @@
             "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy.",
             "title": "Pozycja skali mapy"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterBrightness": { "title": "Brightness" },
+        "mapStyleFilterContrast": { "title": "Contrast" },
+        "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterSaturate": { "title": "Saturation" },
+        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
             "title": "Otwórz w nowej karcie"

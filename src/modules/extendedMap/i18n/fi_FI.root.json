@@ -28,28 +28,6 @@
             "static": "staattinen",
             "title": "Keskitetty oleva kartta: Mode"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterInvert": {
-            "title": "Invert Colors"
-        },
-        "mapStyleFilterGrey": {
-            "title": "Grey filter"
-        },
-        "mapStyleFilterBrightness": {
-            "title": "Brightness"
-        },
-        "mapStyleFilterContrast": {
-            "title": "Contrast"
-        },
-        "mapStyleFilterSaturate": {
-            "title": "Saturation"
-        },
-        "mapStyleFilterSepia": {
-            "title": "Sepia"
-        },
         "mapScale": {
             "description": "Näyttää kartan mittakaavan ja nykyisen zoomaustason",
             "title": "Mittakaava"
@@ -58,6 +36,16 @@
             "description": "Valitse, missä kartan kulmassa karttamittakaavan tulisi näkyä.",
             "title": "Karttamittakaavan sijainti"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterBrightness": { "title": "Brightness" },
+        "mapStyleFilterContrast": { "title": "Contrast" },
+        "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterSaturate": { "title": "Saturation" },
+        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Tehtävät ja rakennukset voidaan avata uuteen välilehteen Ctrl+klikkaamalla tai klikkaamalla hiiren keskimmäistä painiketta.",
             "title": "Avaa ikonit uudessa välilehdessä"

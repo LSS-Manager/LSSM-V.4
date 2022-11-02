@@ -83,6 +83,7 @@
                         :min="item.setting.min"
                         :max="item.setting.max"
                         :step="item.setting.step"
+                        :unit="setting.unit"
                         @input="changeValue(index, value, item, list_index)"
                     ></settings-slider>
                     <settings-select

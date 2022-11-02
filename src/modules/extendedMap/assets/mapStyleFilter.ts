@@ -1,17 +1,55 @@
+import type { ModuleMainFunction } from 'typings/Module';
+
+const filters = {
+    brightness: '%' as const,
+    contrast: '%' as const,
+    grayscale: '%' as const,
+    hueRotate: 'deg' as const,
+    invert: '%' as const,
+    saturate: '%' as const,
+    sepia: '%' as const,
+};
+
+type Settings = {
+    [key in keyof typeof filters]: `${number}${typeof filters[key]}`;
+};
+
+const getSettings = async (
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting']
+): Promise<Settings> =>
+    Object.fromEntries(
+        await Promise.all(
+            Object.entries(filters).map(([key, unit]) =>
+                getSetting<number, typeof unit>(
+                    `mapStyleFilter${key[0].toUpperCase()}${key.slice(1)}`,
+                    undefined,
+                    true
+                )
+                    .then()
+                    .then(value => [key, value])
+            )
+        )
+    ) as Settings;
+
+const getFilter = ({
+    brightness,
+    contrast,
+    grayscale,
+    hueRotate,
+    invert,
+    saturate,
+    sepia,
+}: Settings) =>
+    `brightness(${brightness}) contrast(${contrast}) grayscale(${grayscale}) hue-rotate(${hueRotate}) invert(${invert}) saturate(${saturate}) sepia(${sepia})`;
+
 export default async (
     LSSM: Vue,
-    getSetting: <Type = boolean>(setting: string) => Promise<Type>
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting']
 ) => {
-    const invert = await getSetting<number>('mapStyleFilterInvert');
-    const grey = await getSetting<number>('mapStyleFilterGrey');
-    const brightness = await getSetting<number>('mapStyleFilterBrightness');
-    const contrast = await getSetting<number>('mapStyleFilterContrast');
-    const saturate = await getSetting<number>('mapStyleFilterSaturate');
-    const sepia = await getSetting<number>('mapStyleFilterSepia');
     LSSM.$stores.root.addStyle({
         selectorText: '.leaflet-tile-pane',
         style: {
-            filter: `invert(${invert}) grayscale(${grey}) brightness(${brightness}) contrast(${contrast}) saturate(${saturate}) sepia(${sepia})`,
+            filter: getFilter(await getSettings(getSetting)),
         },
     });
 };

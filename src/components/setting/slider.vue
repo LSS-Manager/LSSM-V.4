@@ -1,7 +1,7 @@
 <template>
     <div class="form-horizontal">
         <span class="pull-left">
-            {{ updateValue.toLocaleString() }}
+            {{ updateValue.toLocaleString() }}{{ unit }}
         </span>
         <button
             class="pull-right btn btn-default btn-xs"
@@ -29,12 +29,18 @@
                 :list="datalistId"
             />
             <datalist :id="datalistId">
-                <option :value="min" :label="min.toLocaleString()"></option>
+                <option
+                    :value="min"
+                    :label="min.toLocaleString() + unit"
+                ></option>
                 <option
                     :value="min + (max - min) / 2"
-                    :label="(min + (max - min) / 2).toLocaleString()"
+                    :label="(min + (max - min) / 2).toLocaleString() + unit"
                 ></option>
-                <option :value="max" :label="max.toLocaleString()"></option>
+                <option
+                    :value="max"
+                    :label="max.toLocaleString() + unit"
+                ></option>
             </datalist>
         </label>
     </div>
@@ -92,6 +98,11 @@ export default Vue.extend<
             default: 'any',
             validator: value =>
                 value === 'any' || (typeof value === 'number' && value > 0),
+        },
+        unit: {
+            type: String,
+            required: false,
+            default: '',
         },
         disabled: {
             type: Boolean,

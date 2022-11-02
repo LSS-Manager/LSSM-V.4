@@ -61,6 +61,7 @@ interface Slider extends SettingTemplate {
     min?: number;
     max?: number;
     step?: number | 'any';
+    unit?: string;
 }
 
 interface Select extends SettingTemplate {

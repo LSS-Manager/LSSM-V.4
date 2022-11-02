@@ -229,6 +229,7 @@
                             :min="setting.min"
                             :max="setting.max"
                             :step="setting.step"
+                            :unit="setting.unit"
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-slider>

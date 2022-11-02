@@ -28,28 +28,6 @@
             "static": "statique",
             "title": "Carte centrale: Mode"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterInvert": {
-            "title": "Invert Colors"
-        },
-        "mapStyleFilterGrey": {
-            "title": "Grey filter"
-        },
-        "mapStyleFilterBrightness": {
-            "title": "Brightness"
-        },
-        "mapStyleFilterContrast": {
-            "title": "Contrast"
-        },
-        "mapStyleFilterSaturate": {
-            "title": "Saturation"
-        },
-        "mapStyleFilterSepia": {
-            "title": "Sepia"
-        },
         "mapScale": {
             "description": "Affiche l'échelle de la carte et le niveau de zoom actuel",
             "title": "Échelle"
@@ -58,6 +36,16 @@
             "description": "Sélectionnez dans quel coin de la carte l'échelle doit apparaître.",
             "title": "Position de l'échelle"
         },
+        "mapStyleFilter": {
+            "description": "Comsetic filters for the map",
+            "title": "Cosmetic map filter"
+        },
+        "mapStyleFilterBrightness": { "title": "Brightness" },
+        "mapStyleFilterContrast": { "title": "Contrast" },
+        "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterSaturate": { "title": "Saturation" },
+        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Permet d'ouvrir les missions et les bâtiments dans un onglet en faisant Ctrl+clic ou en cliquant sur le bouton du milieu de la souris.",
             "title": "Ouvrir les missions et bâtiments dans un onglet"

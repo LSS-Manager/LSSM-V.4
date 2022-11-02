@@ -16,6 +16,7 @@ export interface SliderProps {
     min: number;
     max: number;
     step: number | 'any';
+    unit: string;
     disabled: boolean;
 }
 

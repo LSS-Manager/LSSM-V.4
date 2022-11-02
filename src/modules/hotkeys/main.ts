@@ -30,9 +30,9 @@ const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
 export const hotkeyUtility = new HotkeyUtility();
 
 export const readSetting = (
-    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'] = (
-        settingId,
-        defaultValue
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting'] = <T>(
+        settingId: string,
+        defaultValue: T | undefined
     ) =>
         (window[PREFIX] as Vue).$stores.settings.getSetting({
             moduleId: 'hotkeys',
