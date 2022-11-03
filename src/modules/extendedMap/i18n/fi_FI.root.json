@@ -46,6 +46,8 @@
         "mapStyleFilterInvert": { "title": "Invert Colors" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
         "mapStyleFilterSepia": { "title": "Sepia" },
+        "mapStyleFilterHueRotate" : {"title": "Hue rotation" },
+        "mapStyleFilterPreview" : {"title": "Preview"},
         "markerNewWindow": {
             "description": "Tehtävät ja rakennukset voidaan avata uuteen välilehteen Ctrl+klikkaamalla tai klikkaamalla hiiren keskimmäistä painiketta.",
             "title": "Avaa ikonit uudessa välilehdessä"

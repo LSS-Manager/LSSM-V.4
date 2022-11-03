@@ -43,6 +43,8 @@
         "mapStyleFilterGrayscale": { "title": "Grey filter" },
         "mapStyleFilterInvert": { "title": "Invert Colors" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" }
+        "mapStyleFilterSepia": { "title": "Sepia" },
+        "mapStyleFilterHueRotate" : {"title": "Hue rotation" },
+        "mapStyleFilterPreview" : {"title": "Preview"}
     }
 }

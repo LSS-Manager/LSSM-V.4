@@ -46,6 +46,8 @@
         "mapStyleFilterInvert": { "title": "Invert Colors" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
         "mapStyleFilterSepia": { "title": "Sepia" },
+        "mapStyleFilterHueRotate" : {"title": "Hue rotation" },
+        "mapStyleFilterPreview" : {"title": "Preview"},
         "markerNewWindow": {
             "description": "Permette di aprire le missioni e gli edifici in una nuova scheda, tramite Ctrl + click o più semplicemente tramite un semplice click della rotellina.",
             "title": "Apri edifici e missioni in una nuova scheda"
