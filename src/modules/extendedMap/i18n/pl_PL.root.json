@@ -45,11 +45,11 @@
         "mapStyleFilterBrightness": { "title": "Brightness" },
         "mapStyleFilterContrast": { "title": "Contrast" },
         "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
         "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterPreview": { "title": "Preview" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
         "mapStyleFilterSepia": { "title": "Sepia" },
-        "mapStyleFilterHueRotate" : {"title": "Hue rotation" },
-        "mapStyleFilterPreview" : {"title": "Preview"},
         "markerNewWindow": {
             "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
             "title": "Otwórz w nowej karcie"

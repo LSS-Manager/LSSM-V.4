@@ -41,10 +41,10 @@
         "mapStyleFilterBrightness": { "title": "Brightness" },
         "mapStyleFilterContrast": { "title": "Contrast" },
         "mapStyleFilterGrayscale": { "title": "Grey filter" },
+        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
         "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterPreview": { "title": "Preview" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" },
-        "mapStyleFilterHueRotate" : {"title": "Hue rotation" },
-        "mapStyleFilterPreview" : {"title": "Preview"}
+        "mapStyleFilterSepia": { "title": "Sepia" }
     }
 }

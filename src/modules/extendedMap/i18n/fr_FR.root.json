@@ -43,11 +43,11 @@
         "mapStyleFilterBrightness": { "title": "Luminosité" },
         "mapStyleFilterContrast": { "title": "Contraste" },
         "mapStyleFilterGrayscale": { "title": "Filtre en gris" },
+        "mapStyleFilterHueRotate": { "title": "rotation de teinte" },
         "mapStyleFilterInvert": { "title": "Couleurs inversées" },
+        "mapStyleFilterPreview": { "title": "Aperçu" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
         "mapStyleFilterSepia": { "title": "Sépia" },
-        "mapStyleFilterHueRotate" : {"title": "rotation de teinte" },
-        "mapStyleFilterPreview" : {"title": "Aperçu"},
         "markerNewWindow": {
             "description": "Permet d'ouvrir les missions et les bâtiments dans un onglet en faisant Ctrl+clic ou en cliquant sur le bouton du milieu de la souris.",
             "title": "Ouvrir les missions et bâtiments dans un onglet"

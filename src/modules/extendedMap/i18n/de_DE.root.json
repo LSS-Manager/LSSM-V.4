@@ -43,11 +43,11 @@
         "mapStyleFilterBrightness": { "title": "Helligkeit" },
         "mapStyleFilterContrast": { "title": "Kontrast" },
         "mapStyleFilterGrayscale": { "title": "Graufilter" },
+        "mapStyleFilterHueRotate": { "title": "Farbtondrehung" },
         "mapStyleFilterInvert": { "title": "Invertierte Farben" },
+        "mapStyleFilterPreview": { "title": "Vorschau" },
         "mapStyleFilterSaturate": { "title": "Sättigung" },
         "mapStyleFilterSepia": { "title": "Sepia" },
-        "mapStyleFilterHueRotate" : {"title": "Farbtondrehung" },
-        "mapStyleFilterPreview" : {"title": "Vorschau"},
         "markerNewWindow": {
             "description": "Ermöglicht es, Einsätze und Gebäude per Strg+Klick oder Klick der mittleren Maustaste in einem neuen Tab zu öffnen.",
             "title": "Marker in neuem Tab öffnen"

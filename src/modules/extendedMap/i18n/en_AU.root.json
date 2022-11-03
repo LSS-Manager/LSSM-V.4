@@ -41,11 +41,11 @@
         "mapStyleFilterBrightness": { "title": "Brightness" },
         "mapStyleFilterContrast": { "title": "Contrast" },
         "mapStyleFilterGrayscale": { "title": "Gray filter" },
+        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
         "mapStyleFilterInvert": { "title": "Invert Colors" },
+        "mapStyleFilterPreview": { "title": "Preview" },
         "mapStyleFilterSaturate": { "title": "Saturation" },
         "mapStyleFilterSepia": { "title": "Sepia" },
-        "mapStyleFilterHueRotate" : {"title": "Hue rotation" },
-        "mapStyleFilterPreview" : {"title": "Preview"},
         "markerNewWindow": {
             "description": "Allows missions and buildings to be opened in a new tab by Ctrl+clicking or clicking the middle mouse button.",
             "title": "open markers in new tab"

@@ -9,6 +9,18 @@ export default <ModuleMainFunction>(async ({
     $m,
     $mc,
 }) => {
+    const isMainPage = window.location.pathname === '/';
+
+    if (await getSetting('mapStyleFilter')) {
+        import(
+            /* webpackChunkName: "modules/extendedMap/mapStyleFilter" */ './assets/mapStyleFilter'
+        ).then(({ default: mapStyleFilter }) =>
+            mapStyleFilter(LSSM, getSetting)
+        );
+    }
+
+    if (!isMainPage) return;
+
     if (await getSetting('mapScale')) {
         import(
             /* webpackChunkName: "modules/extendedMap/mapScale" */ './assets/mapScale'
@@ -31,13 +43,6 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedMap/markerNewWindow" */ './assets/markerNewWindow'
         ).then(({ default: markerNewWindow }) => markerNewWindow(LSSM));
-    }
-    if (await getSetting('mapStyleFilter')) {
-        import(
-            /* webpackChunkName: "modules/extendedMap/mapStyleFilter" */ './assets/mapStyleFilter'
-        ).then(({ default: mapStyleFilter }) =>
-            mapStyleFilter(LSSM, getSetting)
-        );
     }
 
     const buildingComplexesSettings = (
