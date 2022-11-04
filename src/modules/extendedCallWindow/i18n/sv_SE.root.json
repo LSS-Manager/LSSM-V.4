@@ -141,6 +141,7 @@
             },
             { "name": "Brandfordon-Vatten", "vehicleTypes": [18, 20] },
             { "name": "Insatsstyrka", "vehicleTypes": [14, 17] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

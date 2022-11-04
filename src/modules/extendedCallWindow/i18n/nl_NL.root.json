@@ -220,6 +220,7 @@
                     35, 28, 47, 48, 39, 40, 53, 54, 55, 58, 60, 64, 73, 74, 75
                 ]
             }
-        ]
+        ],
+        "noCustoms": "eigen voertuigcategorieën uitgezonderd"
     }
 }

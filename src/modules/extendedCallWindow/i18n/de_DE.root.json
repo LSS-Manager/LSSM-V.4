@@ -226,6 +226,7 @@
                 ]
             },
             { "name": "Wasser", "vehicleTypes": [63, 64, 70] }
-        ]
+        ],
+        "noCustoms": "eigene Fahrzeugklassen ausgenommen"
     }
 }

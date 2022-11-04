@@ -91,7 +91,11 @@ export default (
     btn.switch = async (triggeredInMissionWindow = false) => {
         await store();
         await send(triggeredInMissionWindow);
-        switchBtnState(btn, triggeredInMissionWindow);
+        document
+            .querySelectorAll<HTMLButtonElement>(
+                `button.${starredMissionBtnClass}[data-mission="${missionId}"]`
+            )
+            .forEach(btn => switchBtnState(btn, triggeredInMissionWindow));
     };
 
     return btn;

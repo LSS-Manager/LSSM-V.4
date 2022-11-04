@@ -149,6 +149,7 @@
             { "name": "Sanitky", "vehicleTypes": [5, 11, 15, 20, 25, 26, 27] },
             { "name": "Policie", "vehicleTypes": [10, 14, 16, 19, 23] },
             { "name": "Water", "vehicleTypes": [21, 22, 24, 25] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

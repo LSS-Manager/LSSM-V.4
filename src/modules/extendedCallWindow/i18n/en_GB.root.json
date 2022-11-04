@@ -212,6 +212,7 @@
                     8, 11, 12, 13, 19, 24, 25, 51, 52, 53, 54, 55, 56
                 ]
             }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

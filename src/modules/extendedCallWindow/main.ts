@@ -240,7 +240,7 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
         ).then(({ default: alarmIcons }) =>
-            alarmIcons(LSSM, alarmIconsSettings.value)
+            alarmIcons(LSSM, MODULE_ID, alarmIconsSettings.value)
         );
     }
 

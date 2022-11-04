@@ -1,5 +1,6 @@
 export default (
     LSSM: Vue,
+    MODULE_ID: string,
     icons: {
         icon: string;
         type: 'fab' | 'far' | 'fas';
@@ -13,7 +14,21 @@ export default (
     );
     if (!alarmBtn || !vehicleList) return;
 
-    alarmBtn.insertAdjacentHTML('afterbegin', '&nbsp;');
+    const spacing = document.createElement('span');
+    spacing.innerHTML = '&nbsp;';
+    spacing.id = LSSM.$stores.root.nodeAttribute(
+        `${MODULE_ID}-alarm_icons-spacing`
+    );
+    spacing.style.setProperty('display', 'none');
+
+    LSSM.$stores.root.addStyle({
+        selectorText: `.svg-inline--fa:not(.hidden) ~ #${spacing.id}`,
+        style: {
+            display: 'inline !important',
+        },
+    });
+
+    alarmBtn.prepend(spacing);
 
     icons.reverse().forEach(({ icon, type }) => {
         const iconEl = document.createElement('i');
@@ -33,17 +48,26 @@ export default (
             const type_name = `${type}-${v.parentElement?.parentElement?.getAttribute(
                 'vehicle_type'
             )}`;
-            ([type, type_name].filter(t => !!t) as string[]).forEach(vType =>
-                icons
-                    .filter(icon =>
-                        icon.vehicleTypes.map(t => t.toString()).includes(vType)
-                    )
-                    .forEach(({ icon }) =>
-                        alarmBtn
-                            .querySelector(`.svg-inline--fa.fa-${icon}`)
-                            ?.classList.remove('hidden')
-                    )
-            );
+            const isCustomVehicleType = !v.hasAttribute('custom_');
+            const checks: string[] = [];
+            if (type) checks.push(type);
+            if (type_name) checks.push(type_name);
+            if (!isCustomVehicleType) checks.push(`${type}*`);
+            checks
+                .filter(t => !!t)
+                .forEach(vType =>
+                    icons
+                        .filter(icon =>
+                            icon.vehicleTypes
+                                .map(t => t.toString())
+                                .includes(vType)
+                        )
+                        .forEach(({ icon }) =>
+                            alarmBtn
+                                .querySelector(`.svg-inline--fa.fa-${icon}`)
+                                ?.classList.remove('hidden')
+                        )
+                );
         });
     };
 
