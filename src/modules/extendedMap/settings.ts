@@ -1,8 +1,12 @@
 import type Vue from 'vue';
 
-import { type Filter } from './assets/mapCSSFilter';
 import mapCSSFilterFunctionSlider from './components/mapCSSFilter/functionSlider.vue';
 import mapCSSFilterPreview from './components/mapCSSFilter/preview.vue';
+import {
+    type Filter,
+    type FilterFunction,
+    predefinedFilters,
+} from './assets/mapCSSFilter';
 
 import type { ModuleSettingFunction } from 'typings/Module';
 import type {
@@ -43,10 +47,10 @@ export type MapCSSFilterPreview = MapCSSFilterComponent & {
         updateFilter(): void;
     };
 };
-export type MapCSSFilterFunctionSlider = MapCSSFilterComponent & {
-    Data: MapCSSFilterComponent['Data'] & {
+export interface MapCSSFilterFunctionSlider {
+    Data: {
         sliders: Record<
-            Filter,
+            FilterFunction,
             {
                 min: number;
                 max: number;
@@ -55,6 +59,7 @@ export type MapCSSFilterFunctionSlider = MapCSSFilterComponent & {
                 unit?: string;
             }
         >;
+        predefinedFilters: Record<keyof typeof predefinedFilters, string>;
     };
     Computed: MapCSSFilterComponent['Computed'] & {
         updateValue: number;
@@ -64,13 +69,13 @@ export type MapCSSFilterFunctionSlider = MapCSSFilterComponent & {
             default: number;
             step: number | 'any';
             unit?: string;
-        };
+        } | null;
     };
     Methods: MapCSSFilterComponent['Methods'] & Record<string, never>;
     Props: MapCSSFilterComponent['Props'] & {
         value: number;
     };
-};
+}
 
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
@@ -97,12 +102,23 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
         string,
         string
     >;
-    const mapCSSFilterValues = Object.keys(mapCSSFilters).sort((a, b) =>
-        mapCSSFilters[a].localeCompare(mapCSSFilters[b])
-    );
+    const mapCSSFilterValues = Object.keys(mapCSSFilters)
+        .filter(k => k !== 'presets')
+        .sort((a, b) => mapCSSFilters[a].localeCompare(mapCSSFilters[b]));
     const mapCSSFilterLabels = mapCSSFilterValues.map(
         value => mapCSSFilters[value]
     );
+
+    Object.entries(predefinedFilters)
+        .map(([preset]) => [
+            preset,
+            $m(`mapCSSFilter.presets.${preset}`).toString(),
+        ])
+        .sort(([, labelA], [, labelB]) => labelA.localeCompare(labelB))
+        .forEach(([preset, label]) => {
+            mapCSSFilterValues.push(`preset.${preset}`);
+            mapCSSFilterLabels.push(`[${label}]`);
+        });
 
     // const dynamics = [
     //     ...Object.entries(buildings).map(([type, { caption }]) => [

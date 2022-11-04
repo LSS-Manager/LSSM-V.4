@@ -1,15 +1,3 @@
-const filters = {
-    brightness: '%' as const,
-    contrast: '%' as const,
-    grayscale: '%' as const,
-    hueRotate: 'deg' as const,
-    invert: '%' as const,
-    saturate: '%' as const,
-    sepia: '%' as const,
-};
-
-export type Filter = keyof typeof filters;
-
 export const sliders = {
     brightness: {
         min: 0,
@@ -55,16 +43,36 @@ export const sliders = {
     },
 };
 
+export const predefinedFilters = {
+    dark1: 'brightness(60%) invert(100%) contrast(300%) hue-rotate(200deg) saturate(30%) brightness(50%) contrast(125%) saturate(500%)',
+    dark2: 'invert(1) grayscale(.5) hue-rotate(180deg)',
+    dark3: 'invert(1) grayscale(.7)',
+    gray: 'grayscale(100%) brightness(40%)',
+};
+
+export type FilterFunction = keyof typeof sliders;
+export type PresetFilter = `preset.${keyof typeof predefinedFilters}`;
+
+export type Filter = FilterFunction | PresetFilter;
+
 export const getFilter = (
     settings: { filterFunction: Filter; filterValue: number }[]
 ) =>
     settings
-        .map(
-            ({ filterFunction, filterValue }) =>
-                `${filterFunction.replace(
-                    /[A-Z]/gu,
-                    $0 => `-${$0.toLowerCase()}`
-                )}(${filterValue}${sliders[filterFunction].unit})`
+        .map(({ filterFunction, filterValue }) =>
+            filterFunction.startsWith('preset.')
+                ? predefinedFilters[
+                      filterFunction.replace(
+                          /^preset\./gu,
+                          ''
+                      ) as keyof typeof predefinedFilters
+                  ]
+                : `${filterFunction.replace(
+                      /[A-Z]/gu,
+                      $0 => `-${$0.toLowerCase()}`
+                  )}(${filterValue}${
+                      sliders[filterFunction as FilterFunction].unit
+                  })`
         )
         .join(' ');
 

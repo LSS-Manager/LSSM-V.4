@@ -6,6 +6,12 @@
         "grayscale": "Gray filter",
         "hueRotate": "Hue rotation",
         "invert": "Invert Colors",
+        "presets": {
+            "dark1": "Dark 1",
+            "dark2": "Dark 2",
+            "dark3": "Dark 3",
+            "gray": "Gray"
+        },
         "saturate": "Saturation",
         "sepia": "Sepia"
     },

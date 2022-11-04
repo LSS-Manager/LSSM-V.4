@@ -1,13 +1,6 @@
 <template>
-    <input
-        v-if="row.value.filterFunction.startsWith('predefined')"
-        type="text"
-        class="form-control"
-        :value="row.value.filterFunction"
-        disabled
-    />
     <Slider
-        v-else
+        v-if="slider"
         placeholder=""
         :name="`em-mapCSSFilter-${row.index}`"
         v-model="updateValue"
@@ -17,6 +10,17 @@
         :unit="slider.unit"
         @input="newValue => (updateValue = newValue)"
     />
+    <input
+        v-else
+        type="text"
+        class="form-control disabled"
+        :value="
+            predefinedFilters[
+                row.value.filterFunction.replace(/^preset\./gu, '')
+            ]
+        "
+        disabled
+    />
 </template>
 
 <script lang="ts">
@@ -24,7 +28,11 @@ import Vue from 'vue';
 
 import { useRootStore } from '@stores/index';
 
-import { sliders } from '../../assets/mapCSSFilter';
+import {
+    type FilterFunction,
+    predefinedFilters,
+    sliders,
+} from '../../assets/mapCSSFilter';
 
 import type { MapCSSFilterFunctionSlider } from 'modules/extendedMap/settings';
 
@@ -38,6 +46,7 @@ export default Vue.extend<
     data() {
         return {
             sliders,
+            predefinedFilters,
         };
     },
     components: {
@@ -68,15 +77,19 @@ export default Vue.extend<
             );
         },
         slider() {
-            return {
-                step: 'any',
-                ...this.sliders[this.row.value.filterFunction],
-            };
+            return this.row.value.filterFunction.startsWith('preset.')
+                ? null
+                : {
+                      step: 'any',
+                      ...this.sliders[
+                          this.row.value.filterFunction as FilterFunction
+                      ],
+                  };
         },
         updateValue: {
             get() {
                 return this.value === -1
-                    ? this.slider.default
+                    ? this.slider?.default ?? -1
                     : Number.isNaN(this.value)
                     ? this.min ?? this.max ?? 0
                     : this.value;
@@ -85,7 +98,7 @@ export default Vue.extend<
                 this.$emit(
                     'input',
                     this.updateValue === -1
-                        ? this.slider.default
+                        ? this.slider?.default ?? -1
                         : Number.isNaN(value)
                         ? this.min ?? this.max ?? 0
                         : value
