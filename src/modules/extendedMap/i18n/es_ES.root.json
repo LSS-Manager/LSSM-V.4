@@ -1,5 +1,14 @@
 {
     "description": "Mejora el mapa con algunas características especiales.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Mejorar mapa",
     "positions": {
         "bottomleft": "Abajo a la izquierda 🡧",
@@ -28,6 +37,12 @@
             "static": "Estático",
             "title": "Mapa central: Modo"
         },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
+        },
         "mapScale": {
             "description": "Muestra una escala de mapa y el nivel de zoom actual",
             "title": "Escala"
@@ -35,18 +50,6 @@
         "mapScalePosition": {
             "description": "Seleccione en qué esquina del mapa debe aparecer la escala del mapa",
             "title": "Posición de la escala del mapa"
-        },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterBrightness": { "title": "Brightness" },
-        "mapStyleFilterContrast": { "title": "Contrast" },
-        "mapStyleFilterGrayscale": { "title": "Grey filter" },
-        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
-        "mapStyleFilterInvert": { "title": "Invert Colors" },
-        "mapStyleFilterPreview": { "title": "Preview" },
-        "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" }
+        }
     }
 }

@@ -1,5 +1,14 @@
 {
     "description": "Parantaa karttaa hienoilla ominaisuuksilla.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Parannettu kartta",
     "positions": {
         "bottomleft": "Ala-vasen 🡧",
@@ -28,6 +37,12 @@
             "static": "staattinen",
             "title": "Keskitetty oleva kartta: Mode"
         },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
+        },
         "mapScale": {
             "description": "Näyttää kartan mittakaavan ja nykyisen zoomaustason",
             "title": "Mittakaava"
@@ -36,18 +51,6 @@
             "description": "Valitse, missä kartan kulmassa karttamittakaavan tulisi näkyä.",
             "title": "Karttamittakaavan sijainti"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterBrightness": { "title": "Brightness" },
-        "mapStyleFilterContrast": { "title": "Contrast" },
-        "mapStyleFilterGrayscale": { "title": "Grey filter" },
-        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
-        "mapStyleFilterInvert": { "title": "Invert Colors" },
-        "mapStyleFilterPreview": { "title": "Preview" },
-        "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Tehtävät ja rakennukset voidaan avata uuteen välilehteen Ctrl+klikkaamalla tai klikkaamalla hiiren keskimmäistä painiketta.",
             "title": "Avaa ikonit uudessa välilehdessä"

@@ -1,5 +1,14 @@
 {
     "description": "Verbeter de kaart met een aantal coole functies.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Verbeterde Kaart",
     "positions": {
         "bottomleft": "Linksonder 🡧",
@@ -28,6 +37,12 @@
             "static": "statisch",
             "title": "Centreer kaart: Modus"
         },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
+        },
         "mapScale": {
             "description": "Toont de schaal en het huidige zoomniveau",
             "title": "Schaal"
@@ -36,18 +51,6 @@
             "description": "Selecteer in welke hoek van de kaart de schaal moet worden weergegeven",
             "title": "Positie van de schaal"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterBrightness": { "title": "Brightness" },
-        "mapStyleFilterContrast": { "title": "Contrast" },
-        "mapStyleFilterGrayscale": { "title": "Grey filter" },
-        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
-        "mapStyleFilterInvert": { "title": "Invert Colors" },
-        "mapStyleFilterPreview": { "title": "Preview" },
-        "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Staat meldingen en gebouwen toe om in een nieuwe tab te openen door Ctrl+klikken of klikken met de middelste muisknop.",
             "title": "open markers in nieuwe tab"

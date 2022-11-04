@@ -1,5 +1,14 @@
 {
     "description": "Améliorez la carte en y ajoutant des fonctionnalités intéressantes.",
+    "mapCSSFilter": {
+        "brightness": "Luminosité",
+        "contrast": "Contraste",
+        "grayscale": "Filtre en gris",
+        "hueRotate": "rotation de teinte",
+        "invert": "Couleurs inversées",
+        "saturate": "Saturation",
+        "sepia": "Sépia"
+    },
     "name": "Améliorations de la carte",
     "positions": {
         "bottomleft": "En bas à gauche 🡧",
@@ -28,6 +37,12 @@
             "static": "statique",
             "title": "Carte centrale: Mode"
         },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
+        },
         "mapScale": {
             "description": "Affiche l'échelle de la carte et le niveau de zoom actuel",
             "title": "Échelle"
@@ -36,18 +51,6 @@
             "description": "Sélectionnez dans quel coin de la carte l'échelle doit apparaître.",
             "title": "Position de l'échelle"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterBrightness": { "title": "Luminosité" },
-        "mapStyleFilterContrast": { "title": "Contraste" },
-        "mapStyleFilterGrayscale": { "title": "Filtre en gris" },
-        "mapStyleFilterHueRotate": { "title": "rotation de teinte" },
-        "mapStyleFilterInvert": { "title": "Couleurs inversées" },
-        "mapStyleFilterPreview": { "title": "Aperçu" },
-        "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sépia" },
         "markerNewWindow": {
             "description": "Permet d'ouvrir les missions et les bâtiments dans un onglet en faisant Ctrl+clic ou en cliquant sur le bouton du milieu de la souris.",
             "title": "Ouvrir les missions et bâtiments dans un onglet"

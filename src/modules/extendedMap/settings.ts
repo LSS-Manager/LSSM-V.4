@@ -1,7 +1,8 @@
 import type Vue from 'vue';
 
-import { type Filter } from './assets/mapStyleFilter';
-import mapStyleFilterPreview from './components/mapStyleFilter/preview.vue';
+import { type Filter } from './assets/mapCSSFilter';
+import mapCSSFilterFunctionSlider from './components/mapCSSFilter/functionSlider.vue';
+import mapCSSFilterPreview from './components/mapCSSFilter/preview.vue';
 
 import type { ModuleSettingFunction } from 'typings/Module';
 import type {
@@ -12,7 +13,6 @@ import type {
     Location,
     MultiSelect,
     Select,
-    Slider,
     Text,
     Toggle,
 } from 'typings/Setting';
@@ -23,19 +23,54 @@ import type {
     DefaultProps,
 } from 'vue/types/options';
 
-export interface MapStyleFilterPreview {
-    Data: DefaultData<Vue> & Record<string, never>;
-    Methods: DefaultMethods<Vue> & Record<string, never>;
+export interface MapCSSFilterComponent {
+    Data: DefaultData<Vue>;
+    Methods: DefaultMethods<Vue>;
     Computed: DefaultComputed & {
         id: string;
     };
     Props: DefaultProps & {
-        module: Record<
-            `mapStyleFilter${Capitalize<Filter>}`,
-            { value: number; unit: string }
-        >;
+        values: { filterFunction: Filter; filterValue: number }[];
+        row: {
+            index: number;
+            value: { filterFunction: Filter; filterValue: number };
+        };
     };
 }
+export type MapCSSFilterPreview = MapCSSFilterComponent & {
+    Data: MapCSSFilterComponent['Data'] & Record<string, never>;
+    Methods: MapCSSFilterComponent['Methods'] & {
+        updateFilter(): void;
+    };
+};
+export type MapCSSFilterFunctionSlider = MapCSSFilterComponent & {
+    Data: MapCSSFilterComponent['Data'] & {
+        sliders: Record<
+            Filter,
+            {
+                min: number;
+                max: number;
+                default: number;
+                step?: number | 'any';
+                unit?: string;
+            }
+        >;
+    };
+    Computed: MapCSSFilterComponent['Computed'] & {
+        updateValue: number;
+        slider: {
+            min: number;
+            max: number;
+            default: number;
+            step: number | 'any';
+            unit?: string;
+        };
+    };
+    Methods: MapCSSFilterComponent['Methods'] & Record<string, never>;
+    Props: MapCSSFilterComponent['Props'] & {
+        value: number;
+    };
+};
 
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
@@ -57,6 +92,17 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
             userBuildingIds.push(id);
             userBuildingLabels.push(label);
         });
+
+    const mapCSSFilters = $m('mapCSSFilter') as unknown as Record<
+        string,
+        string
+    >;
+    const mapCSSFilterValues = Object.keys(mapCSSFilters).sort((a, b) =>
+        mapCSSFilters[a].localeCompare(mapCSSFilters[b])
+    );
+    const mapCSSFilterLabels = mapCSSFilterValues.map(
+        value => mapCSSFilters[value]
+    );
 
     // const dynamics = [
     //     ...Object.entries(buildings).map(([type, { caption }]) => [
@@ -115,93 +161,6 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
         //     ],
         //     default: [],
         // },
-        mapStyleFilter: <Toggle>{
-            type: 'toggle',
-            default: false,
-            noMapkit: true,
-        },
-        mapStyleFilterBrightness: <Slider>{
-            type: 'slider',
-            default: 100,
-            min: 0,
-            max: 200,
-            step: 'any',
-            unit: '%',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterContrast: <Slider>{
-            type: 'slider',
-            default: 100,
-            min: 0,
-            max: 200,
-            step: 'any',
-            unit: '%',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterGrayscale: <Slider>{
-            type: 'slider',
-            default: 0,
-            min: 0,
-            max: 100,
-            step: 'any',
-            unit: '%',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterHueRotate: <Slider>{
-            type: 'slider',
-            default: 0,
-            min: 0,
-            max: 360,
-            step: 'any',
-            unit: 'deg',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterInvert: <Slider>{
-            type: 'slider',
-            default: 0,
-            min: 0,
-            max: 100,
-            step: 'any',
-            unit: '%',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterSaturate: <Slider>{
-            type: 'slider',
-            default: 100,
-            min: 0,
-            max: 200,
-            step: 'any',
-            unit: '%',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterSepia: <Slider>{
-            type: 'slider',
-            default: 0,
-            min: 0,
-            max: 100,
-            step: 'any',
-            unit: '%',
-            dependsOn: '.mapStyleFilter',
-        },
-        mapStyleFilterPreview: <
-            Omit<
-                Custom<
-                    Record<string, never>,
-                    Record<string, never>,
-                    MapStyleFilterPreview['Data'],
-                    MapStyleFilterPreview['Methods'],
-                    MapStyleFilterPreview['Computed'],
-                    MapStyleFilterPreview['Props']
-                >,
-                'isDisabled' | 'value'
-            >
-        >{
-            type: 'custom',
-            default: {},
-            properties: {},
-            component: mapStyleFilterPreview,
-            dependsOn: '.mapStyleFilter',
-        },
         buildingComplexes: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
@@ -277,6 +236,71 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                 buildingTabs: true,
             },
             orderable: false,
+            disableable: false,
+        },
+        mapCSSFilter: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+            type: 'appendable-list',
+            default: [],
+            listItem: [
+                <AppendableListSetting<Select>>{
+                    name: 'filterFunction',
+                    title: $m('settings.mapCSSFilter.filterFunction'),
+                    size: 2,
+                    setting: {
+                        type: 'select',
+                        values: mapCSSFilterValues,
+                        labels: mapCSSFilterLabels,
+                    },
+                },
+                <
+                    AppendableListSetting<
+                        Custom<
+                            Record<string, never>,
+                            Record<string, never>,
+                            MapCSSFilterFunctionSlider['Data'],
+                            MapCSSFilterFunctionSlider['Methods'],
+                            MapCSSFilterFunctionSlider['Computed'],
+                            MapCSSFilterFunctionSlider['Props']
+                        >
+                    >
+                >{
+                    name: 'filterValue',
+                    title: $m('settings.mapCSSFilter.filterValue'),
+                    size: 0,
+                    setting: {
+                        type: 'custom',
+                        properties: {},
+                        component: mapCSSFilterFunctionSlider,
+                    },
+                },
+                <
+                    AppendableListSetting<
+                        Custom<
+                            Record<string, never>,
+                            Record<string, never>,
+                            MapCSSFilterPreview['Data'],
+                            MapCSSFilterPreview['Methods'],
+                            MapCSSFilterPreview['Computed'],
+                            MapCSSFilterPreview['Props']
+                        >
+                    >
+                >{
+                    name: 'preview',
+                    title: '',
+                    size: 2,
+                    setting: {
+                        type: 'custom',
+                        properties: {},
+                        component: mapCSSFilterPreview,
+                    },
+                },
+            ],
+            defaultItem: {
+                filterFunction: 'invert',
+                filterValue: -1,
+                preview: null,
+            },
+            orderable: true,
             disableable: false,
         },
     };

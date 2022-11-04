@@ -1,5 +1,14 @@
 {
     "description": "Improve the map with some cool features.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Improved Map",
     "positions": {
         "bottomleft": "Bottom Left 🡧",
@@ -26,6 +35,12 @@
             "static": "static",
             "title": "Center map: Mode"
         },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
+        },
         "mapScale": {
             "description": "Shows a map-scale and current zoom level",
             "title": "Scale"
@@ -34,18 +49,6 @@
             "description": "Select in which corner of the map the map-scale should appear",
             "title": "Position of map-scale"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterBrightness": { "title": "Brightness" },
-        "mapStyleFilterContrast": { "title": "Contrast" },
-        "mapStyleFilterGrayscale": { "title": "Gray filter" },
-        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
-        "mapStyleFilterInvert": { "title": "Invert Colors" },
-        "mapStyleFilterPreview": { "title": "Preview" },
-        "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Allows missions and buildings to be opened in a new tab by Ctrl+clicking or clicking the middle mouse button.",
             "title": "open markers in new tab"

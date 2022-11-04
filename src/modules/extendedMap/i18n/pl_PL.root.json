@@ -1,5 +1,14 @@
 {
     "description": "Ulepsz mapę dzięki kilku przydatnym funkcjom.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Ulepszona mapa",
     "positions": {
         "bottomleft": "Na dole po lewej 🡧",
@@ -30,6 +39,12 @@
             "title": "Centrowanie mapy: Tryb"
         },
         "locationSelect": { "sync": "Centruj", "zoom": "Ustawienia mapy" },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
+        },
         "mapScale": {
             "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"
@@ -38,18 +53,6 @@
             "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy.",
             "title": "Pozycja skali mapy"
         },
-        "mapStyleFilter": {
-            "description": "Comsetic filters for the map",
-            "title": "Cosmetic map filter"
-        },
-        "mapStyleFilterBrightness": { "title": "Brightness" },
-        "mapStyleFilterContrast": { "title": "Contrast" },
-        "mapStyleFilterGrayscale": { "title": "Grey filter" },
-        "mapStyleFilterHueRotate": { "title": "Hue rotation" },
-        "mapStyleFilterInvert": { "title": "Invert Colors" },
-        "mapStyleFilterPreview": { "title": "Preview" },
-        "mapStyleFilterSaturate": { "title": "Saturation" },
-        "mapStyleFilterSepia": { "title": "Sepia" },
         "markerNewWindow": {
             "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
             "title": "Otwórz w nowej karcie"

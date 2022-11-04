@@ -101,14 +101,26 @@ interface LocationWithZoom extends SettingTemplate {
 }
 type Location = LocationWithoutZoom | LocationWithZoom;
 
+type CustomProps<
+    ModuleOrAList extends Record<string, unknown> = Record<string, unknown>,
+    AListKey extends keyof ModuleOrAList = keyof ModuleOrAList
+> = DefaultProps &
+    Partial<
+        | {
+              value: ModuleOrAList[AListKey];
+              values: ModuleOrAList[];
+              row: { index: number; value: ModuleOrAList };
+          }
+        | { module: ModuleOrAList }
+    >;
+
 interface Custom<
     Data = unknown,
     Properties extends Record<string, unknown> = Record<string, never>,
     ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     ComponentComputed extends DefaultComputed = DefaultComputed,
-    ComponentProps extends DefaultProps &
-        Partial<{ module: Record<string, unknown> }> = DefaultProps
+    ComponentProps extends CustomProps = DefaultProps
 > extends SettingTemplate {
     type: 'custom';
     default: Data;

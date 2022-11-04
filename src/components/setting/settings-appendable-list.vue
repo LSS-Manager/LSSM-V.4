@@ -127,7 +127,9 @@
                         v-else-if="item.setting.type === 'custom'"
                         :is="item.setting.component"
                         v-model="value[item.name]"
-                        @update="changeValue(index, value, item, list_index)"
+                        :values="updateValues"
+                        :row="{ index, value }"
+                        @input="changeValue(index, value, item, list_index)"
                     ></component>
                     <pre v-else>{{ setting }}</pre>
                 </div>
