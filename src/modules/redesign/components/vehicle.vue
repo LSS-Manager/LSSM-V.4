@@ -504,8 +504,17 @@
                         :key="mission.id"
                         :class="{ hidden: mission.hidden }"
                     >
-                        <td v-if="missionListSrc === 2">
+                        <td>
+                            <span
+                                v-if="starredMissionsEnabled"
+                                v-html="
+                                    starredMissionButtons[mission.id]
+                                        .outerHTML + '&nbsp;'
+                                "
+                                @click="() => switchStarredMission(mission.id)"
+                            ></span>
                             <font-awesome-icon
+                                v-if="missionListSrc === 2"
                                 :icon="
                                     mission.list === 'mission_own'
                                         ? faPortrait
@@ -1115,6 +1124,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+
+import createBtn from '../../extendedCallList/assets/starrableMissions/createBtn';
 
 import type { RedesignVehicleComponent as Component } from '../types/components/vehicle';
 
@@ -1191,6 +1204,9 @@ export default Vue.extend<
                     show: 0,
                 },
             },
+            settingsStore: useSettingsStore(),
+            starredMissionsEnabled: false,
+            starredMissions: [],
         };
     },
     computed: {
@@ -1199,7 +1215,7 @@ export default Vue.extend<
         }),
         mission_head() {
             return {
-                ...(this.missionListSrc === 2 ? { list: { title: '' } } : {}),
+                list: { title: '', noSort: this.missionListSrc !== 2 },
                 img: { title: '' },
                 participation: {
                     title: this.lightbox
@@ -1556,6 +1572,46 @@ export default Vue.extend<
                     missionListSorted: this.missionListSorted,
                 },
             };
+        },
+        starredMissionButtons() {
+            if (!this.starredMissionsEnabled) return {};
+
+            const btnClass = useRootStore().nodeAttribute(
+                'extendedCallList_starrable-missions_btn'
+            );
+            const getSetting = <T = boolean>(
+                settingId: string,
+                defaultValue?: T
+            ) =>
+                this.settingsStore.getSetting<T>({
+                    moduleId: 'extendedCallList',
+                    settingId,
+                    defaultValue,
+                });
+            const setSetting = <T = boolean>(settingId: string, value: T) =>
+                this.settingsStore.setSetting<T>({
+                    moduleId: 'extendedCallList',
+                    settingId,
+                    value,
+                });
+
+            return Object.fromEntries(
+                this.missionList.map(({ id }) => {
+                    const missionId = id.toString();
+                    return [
+                        missionId,
+                        createBtn(
+                            window[PREFIX] as Vue,
+                            'extendedCallList',
+                            missionId,
+                            this.starredMissions.includes(missionId),
+                            btnClass,
+                            getSetting,
+                            setSetting
+                        ),
+                    ];
+                })
+            );
         },
     },
     methods: {
@@ -1955,6 +2011,34 @@ export default Vue.extend<
                     });
                 });
         },
+        updateStarredMissions() {
+            this.starredMissionsEnabled = false;
+            return this.settingsStore
+                .getSetting<boolean>({
+                    moduleId: 'extendedCallList',
+                    settingId: 'starrableMissions',
+                })
+                .then(starrableMissions => {
+                    this.starredMissionsEnabled = starrableMissions;
+                    if (starrableMissions) {
+                        return this.settingsStore.getSetting<string[]>({
+                            moduleId: 'extendedCallList',
+                            settingId: 'starredMissions',
+                        });
+                    }
+                    return [];
+                })
+                .then(
+                    starredMissions => (this.starredMissions = starredMissions)
+                );
+        },
+        switchStarredMission(missionId: string) {
+            const btn = this.starredMissionButtons[missionId];
+            if (!btn) return;
+
+            if (btn.switch) btn.switch(true).then(this.updateStarredMissions);
+            else this.updateStarredMissions();
+        },
     },
     props: {
         vehicle: {
@@ -1980,6 +2064,7 @@ export default Vue.extend<
     },
     watch: {
         vehicle() {
+            this.updateStarredMissions().then();
             this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
             this.lightbox.finishLoading('vehicle-updated-data');
         },
@@ -2029,6 +2114,9 @@ export default Vue.extend<
                 });
             });
         }
+
+        this.updateStarredMissions().then();
+
         this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
         this.lightbox.finishLoading('vehicle-mounted');
     },

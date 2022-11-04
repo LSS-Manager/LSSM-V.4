@@ -1,4 +1,6 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { StarrableButton } from '../../../extendedCallList/assets/starrableMissions/createBtn';
+import type { useSettingsStore } from '@stores/settings';
 import type { VehicleWindow } from '../../parsers/vehicle';
 import type {
     RedesignComponent,
@@ -78,6 +80,9 @@ export type RedesignVehicleComponent = RedesignComponent<
                 show: number;
             };
         };
+        settingsStore: ReturnType<typeof useSettingsStore>;
+        starredMissionsEnabled: boolean;
+        starredMissions: string[];
     },
     {
         setMissionList(_: unknown, group: number): void;
@@ -95,6 +100,8 @@ export type RedesignVehicleComponent = RedesignComponent<
         fms(url: string, wlf?: boolean): void;
         release(type: 'patient' | 'prisoner'): void;
         loadAllHospitals(): void;
+        updateStarredMissions(): Promise<string[]>;
+        switchStarredMission(missionId: string): void;
     },
     {
         participated_missions: number[];
@@ -147,5 +154,6 @@ export type RedesignVehicleComponent = RedesignComponent<
                 missionListSorted: RedesignVehicleComponent['Computed']['missionListSorted'];
             };
         };
+        starredMissionButtons: Record<string, StarrableButton>;
     }
 >;
