@@ -143,6 +143,7 @@
                 "vehicleTypes": [5, 9, 18, 19, 20, 21, 22]
             },
             { "name": "Policía", "vehicleTypes": [8, 13, 14, 15, 16, 17] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }
