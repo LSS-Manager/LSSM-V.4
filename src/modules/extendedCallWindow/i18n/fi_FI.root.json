@@ -205,6 +205,6 @@
             },
             { "name": "Poliisi", "vehicleTypes": [8, 14, 15, 16, 17, 18] }
         ],
-        "noCustoms": "own vehicle categories excluded"
+        "noCustoms": "Omat ajoneuvoluokat pois"
     }
 }
