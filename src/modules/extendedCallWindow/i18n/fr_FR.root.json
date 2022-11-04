@@ -216,6 +216,6 @@
             },
             { "name": "Sauvetage Côtier", "vehicleTypes": [46, 47, 48, 49, 50] }
         ],
-        "noCustoms": "own vehicle categories excluded"
+        "noCustoms": "catégories de véhicules personnels exclues"
     }
 }
