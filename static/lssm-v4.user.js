@@ -4,11 +4,11 @@
 // @author       The LSSM-Team: Sanni, Jan (jxn_30), Ron31, Crazycake
 // @description  LSSM V4 is a Script-Collection for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions.
 // @namespace    https://lss-manager.de/
-// @homepage     https://v4.lss-manager.de/docs/
+// @homepage     https://docs.lss-manager.de/
 // @downloadURL  https://v4.lss-manager.de/lssm-v4.user.js
 // @updateURL    https://v4.lss-manager.de/lssm-v4.user.js
-// @supportURL   https://v4.lss-manager.de/docs/en_US/error_report
-// @icon         https://v4.lss-manager.de/docs/img/lssm.png
+// @supportURL   https://docs.lss-manager.de/en_US/error_report
+// @icon         https://docs.lss-manager.de/img/lssm.png
 // @match        https://www.operacni-stredisko.cz/*
 // @match        https://policie.operacni-stredisko.cz/*
 // @match        https://www.alarmcentral-spil.dk/*

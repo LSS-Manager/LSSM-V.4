@@ -20,11 +20,11 @@ export default async (): Promise<void> =>
 // @author       ${script.author}
 // @description  ${script.description}
 // @namespace    https://lss-manager.de/
-// @homepage     ${config.urls.server}docs/
+// @homepage     ${config.urls.docs}
 // @downloadURL  ${config.urls.server}lssm-v4.user.js
 // @updateURL    ${config.urls.server}lssm-v4.user.js
-// @supportURL   ${config.urls.server}docs/en_US/error_report
-// @icon         ${config.urls.server}docs/img/lssm.png
+// @supportURL   ${config.urls.docs}en_US/error_report
+// @icon         ${config.urls.docs}img/lssm.png
 ${Object.values(config.games)
     .map(
         ({ shortURL, police }) =>
