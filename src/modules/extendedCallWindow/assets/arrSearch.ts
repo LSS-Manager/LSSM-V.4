@@ -7,6 +7,8 @@ export default (
     dissolveCategories: boolean,
     compactResults: boolean,
     closeDropdownOnSelect: boolean,
+    selectOnEnter: boolean,
+    clearOnEnter: boolean,
     $sm: $m
 ) => {
     const aaoGroupElement =
@@ -28,6 +30,7 @@ export default (
 
         const hideStyle = document.createElement('style');
         let styleAdded = false;
+        let hideSelector = '';
 
         const panels = document.querySelectorAll<HTMLDivElement>(
             '#mission-aao-group .tab-content [id^="aao_category_"]'
@@ -71,8 +74,9 @@ export default (
             const notAttributesSelector = searchAttributeSelectors
                 .map(attributeSelector => `:not(${attributeSelector})`)
                 .join('');
+            hideSelector = `.aao_searchable${notAttributesSelector}`;
             hideStyle.textContent = `
-                .aao_searchable${notAttributesSelector}, .aao_searchable${notAttributesSelector} + br {
+                ${hideSelector}, ${hideSelector}${notAttributesSelector} + br {
                     display: none;
                 }`;
             if (dissolveCategories) {
@@ -108,6 +112,23 @@ export default (
                 `;
             }
         });
+
+        if (selectOnEnter || clearOnEnter) {
+            searchField.addEventListener('keyup', e => {
+                if (e.key !== 'Enter') return;
+                if (selectOnEnter) {
+                    document
+                        .querySelector<HTMLAnchorElement>(
+                            `.aao_searchable:not(${hideSelector})`
+                        )
+                        ?.click();
+                }
+                if (clearOnEnter) {
+                    searchField.value = '';
+                    searchField.dispatchEvent(new Event('input'));
+                }
+            });
+        }
 
         if (dissolveCategories) {
             document

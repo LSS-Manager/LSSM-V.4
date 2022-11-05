@@ -56,6 +56,10 @@
             "description": "Met automatiquement le focus sur Rai-Recherche pour que vous puissiez commencer à taper sans cliquer sur le champ de recherche.",
             "title": "RAI-Recherche: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Ferme la liste déroulante après avoir sélectionné une RAI.",
             "title": "Fermer la liste déroulante après la sélection"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",
             "title": "RAI-Recherche en liste déroulante"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",

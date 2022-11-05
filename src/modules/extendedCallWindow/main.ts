@@ -309,6 +309,8 @@ export default <ModuleMainFunction>(async ({
                 await getSetting('arrSearchDissolveCategories'),
                 await getSetting('arrSearchCompactResults'),
                 await getSetting('arrSearchCloseDropdownOnSelect'),
+                await getSetting('arrSearchSelectOnEnter'),
+                await getSetting('arrSearchClearOnEnter'),
                 $m
             )
         );

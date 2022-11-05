@@ -56,6 +56,10 @@
             "description": "Valitsee hälytysjärjestely haun automaattisesti niin, että voit aloittaa kirjoittamisen napsauttamatta hakukenttää aiemmin.",
             "title": "Hälytysjärjestely haku: automaattinen valinta"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "sulkee pudotusvalikon hälytysjärjestelyn valinnan jälkeen.",
             "title": "Sulje pudotusvalikko valinnan jälkeen"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Piilottaa hälytysjärjestelyt kokonaan ja näyttää sen sijaan hakukelpoisen pudotusvalikon. Mahdollistaa hyvin kompaktin hälytysjärjestelyt.",
             "title": "hälytysjärjestely haku pudotusvalikkona"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Näyttää hälytysjärjestelyyn tallennetut pyynnöt, jos viet hiiren lyhyesti hälytysjärjestelyn päälle.",
