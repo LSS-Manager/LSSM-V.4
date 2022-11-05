@@ -57,8 +57,8 @@
             "title": "RAI-Recherche: autofocus"
         },
         "arrSearchClearOnEnter": {
-            "description": "Clears the ARR-search when the Enter key is pressed",
-            "title": "Clear ARR-search"
+            "description": "Efface la recherche RAI lorsque la touche Entrée est enfoncée.",
+            "title": "Effacer la recherche RAI"
         },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Ferme la liste déroulante après avoir sélectionné une RAI.",
@@ -77,8 +77,8 @@
             "title": "RAI-Recherche en liste déroulante"
         },
         "arrSearchSelectOnEnter": {
-            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
-            "title": "Select first ARR"
+            "description": "Choisir la première RAI correspondant à la recherche lorsque vous appuyez sur la touche Entrée.",
+            "title": "Choisir la première RAI"
         },
         "arrSpecs": {
             "description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",
