@@ -339,6 +339,7 @@
                 </li>
             </ul>
             <template v-if="specialRequirements.nonbadge.length">
+                <br />
                 {{ $m('noVehicleRequirements.title') }}:
                 <br />
             </template>                
