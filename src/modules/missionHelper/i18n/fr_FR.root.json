@@ -13,7 +13,7 @@
             "text": "Moyenne minimale Policiers"
         },
         "height_rescue_personnel": {
-            "badge": true,
+            "badge": false,
             "in": "additional",
             "text": "Spécialistes IMP requis"
         },
