@@ -11,7 +11,8 @@
             "badge": false,
             "in": "additional",
             "text": "Required Armed Response Personnel"
-        }
+        },
+        "title": "Special requirements"
     },
     "settings": {
         "chances": {

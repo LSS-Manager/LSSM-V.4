@@ -48,9 +48,17 @@
             "description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable ARRs"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCompactResults": {
             "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
             "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",

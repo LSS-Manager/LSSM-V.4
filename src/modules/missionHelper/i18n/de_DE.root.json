@@ -27,6 +27,7 @@
             "in": "additional",
             "text": "Wasser abzupumpen (in Litern): {n}"
         },
+        "title": "Besondere Anforderungen",
         "water_needed": {
             "badge": true,
             "in": "requirements",

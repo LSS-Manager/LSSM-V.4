@@ -53,21 +53,22 @@ import { mapState } from 'pinia';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
-import type { DefaultMethods, DefaultProps } from 'vue/types/options';
-import type { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
+import type { DefaultProps } from 'vue/types/options';
+import type { LSSMV4Computed, LSSMV4Data, LSSMV4Methods } from 'typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,
-    DefaultMethods<Vue>,
+    LSSMV4Methods,
     LSSMV4Computed,
     DefaultProps
 >({
     name: 'LSSMV4',
     components: {},
     data() {
+        const rootStore = useRootStore();
         return {
-            id: useRootStore().nodeAttribute('app', true),
             faTimes,
+            id: rootStore.nodeAttribute('app', true),
         };
     },
     computed: {

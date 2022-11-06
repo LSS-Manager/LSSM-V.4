@@ -358,7 +358,7 @@ export default defineUserConfig({
             },
         }),
         pwaPlugin({
-            skipWaiting: true,
+            skipWaiting: false,
         }),
         pwaPopupPlugin(localeConfigs.pwaPopupConfigs),
     ],
