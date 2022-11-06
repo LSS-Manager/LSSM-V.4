@@ -98,10 +98,10 @@
             >
                 {{ $mc('prisoners.title', currentPrisoners) }}
             </span>
+            <h4 v-if="settings.vehicles.title">
+			    {{ $m('vehicles.title') }}
+            </h4>
             <ul v-if="settings.vehicles.content">
-                <h4 v-if="settings.vehicles.title">
-                    {{ $m('vehicles.title') }}
-                </h4>
                 <li
                     v-for="(vehicle, req) in vehicles"
                     :key="`${req}_${vehicle.caption}`"
@@ -338,8 +338,11 @@
                     {{ req }}
                 </li>
             </ul>
+            <template v-if="specialRequirements.nonbadge.length">
+                {{ $m('noVehicleRequirements.title') }}:
+                <br />
+            </template>                
             <ul v-if="specialRequirements.nonbadge.length">
-                {{ $m('noVehicleRequirements.title') }}
                 <li
                     v-for="req in specialRequirements.nonbadge"
                     :key="req"
