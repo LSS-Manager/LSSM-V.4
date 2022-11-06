@@ -17,12 +17,12 @@
             "in": "additional",
             "text": "Required TOG Personnel"
         },
+        "title": "Special requirements",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "Water needed: {n} litre | Water needed: {n} litres"
-        },
-        "title": "Special requirements"
+        }
     },
     "settings": {
         "chances": {

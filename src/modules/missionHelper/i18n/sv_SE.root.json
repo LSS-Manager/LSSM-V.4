@@ -22,12 +22,12 @@
             "in": "additional",
             "text": "Genomsnitt min. Insatspolis"
         },
+        "title": "Speciella krav",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "Vatten: {n} Liter av vatten"
-        },
-        "title": "Speciella krav"
+        }
     },
     "settings": {
         "chances": {

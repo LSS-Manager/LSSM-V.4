@@ -17,12 +17,12 @@
             "in": "requirements",
             "text": "Schiuma necessaria: {n} l"
         },
+        "title": "Requisiti speciali",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "Acqua Necessaria: {n} l. | Acqua Necessaria: {n}  l."
-        },
-        "title": "Requisiti speciali"
+        }
     },
     "settings": {
         "chances": {

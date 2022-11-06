@@ -98,8 +98,8 @@
             >
                 {{ $mc('prisoners.title', currentPrisoners) }}
             </span>
-            <h4 v-if="settings.vehicles.title">
-			    {{ $m('vehicles.title') }}
+            <h4 v-if="settings.vehicles.title && Object.keys(vehicles).length">
+                {{ $m('vehicles.title') }}
             </h4>
             <ul v-if="settings.vehicles.content">
                 <li
@@ -342,7 +342,7 @@
                 <br />
                 {{ $m('noVehicleRequirements.title') }}:
                 <br />
-            </template>                
+            </template>
             <ul v-if="specialRequirements.nonbadge.length">
                 <li
                     v-for="req in specialRequirements.nonbadge"
@@ -603,7 +603,7 @@ export default Vue.extend<
             },
             noVehicleRequirements: Object.keys(
                 this.$m('noVehicleRequirements')
-            ),
+            ).filter(key => key !== 'title'),
             drag: {
                 active: false,
                 top: 60,
@@ -658,6 +658,7 @@ export default Vue.extend<
             };
             this.settings.noVehicleRequirements?.forEach(req =>
                 reqi18n.hasOwnProperty(req) &&
+                req !== 'title' &&
                 this.missionSpecs?.[reqi18n[req].in][req]
                     ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
                     : null

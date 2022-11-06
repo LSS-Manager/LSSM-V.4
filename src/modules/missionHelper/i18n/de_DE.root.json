@@ -27,12 +27,12 @@
             "in": "additional",
             "text": "Wasser abzupumpen (in Litern): {n}"
         },
+        "title": "Besondere Anforderungen",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "Wasserbedarf: {n} L."
-        },
-        "title": "Besondere Anforderungen"
+        }
     },
     "settings": {
         "bucket_only_if_needed": {

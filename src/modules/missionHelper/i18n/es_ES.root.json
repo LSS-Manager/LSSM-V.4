@@ -12,12 +12,12 @@
             "in": "requirements",
             "text": "Espuma necesaria: {n} l"
         },
+        "title": "Requisitos especiales",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "Agua: {n} l"
-        },
-        "title": "Requisitos especiales"
+        }
     },
     "settings": {
         "chances": {

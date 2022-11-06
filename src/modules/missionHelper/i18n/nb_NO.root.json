@@ -22,12 +22,12 @@
             "in": "additional",
             "text": "Nødvendig politi med våpentrening"
         },
+        "title": "Special requirements",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "vann: {n} liter"
-        },
-        "title": "Special requirements"
+        }
     },
     "settings": {
         "chances": {

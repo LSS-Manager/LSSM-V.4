@@ -17,12 +17,12 @@
             "in": "additional",
             "text": "Spécialistes IMP requis"
         },
+        "title": "Conditions particulières",
         "water_needed": {
             "badge": true,
             "in": "requirements",
             "text": "Eau: {n} litre | Eau: {n} litres"
-        },
-        "title": "Conditions particulières"
+        }
     },
     "settings": {
         "chances": {
