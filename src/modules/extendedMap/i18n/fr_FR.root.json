@@ -7,10 +7,10 @@
         "hueRotate": "rotation de teinte",
         "invert": "Couleurs inversées",
         "presets": {
-            "dark1": "Dark 1",
-            "dark2": "Dark 2",
-            "dark3": "Dark 3",
-            "gray": "Gray"
+            "dark1": "Sombre 1",
+            "dark2": "Sombre 2",
+            "dark3": "Sombre 3",
+            "gray": "Gris"
         },
         "saturate": "Saturation",
         "sepia": "Sépia"
