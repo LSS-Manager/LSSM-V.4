@@ -339,6 +339,7 @@
                 </li>
             </ul>
             <ul v-if="specialRequirements.nonbadge.length">
+                {{ $m('noVehicleRequirements.title') }}
                 <li
                     v-for="req in specialRequirements.nonbadge"
                     :key="req"

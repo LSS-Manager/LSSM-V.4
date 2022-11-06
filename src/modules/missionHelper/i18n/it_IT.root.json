@@ -21,7 +21,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Acqua Necessaria: {n} l. | Acqua Necessaria: {n}  l."
-        }
+        },
+        "title": "Requisiti speciali"
     },
     "settings": {
         "chances": {

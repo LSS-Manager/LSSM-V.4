@@ -26,7 +26,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Water: {n} gallon | Water: {n} gallons"
-        }
+        },
+        "title": "Special requirements"
     },
     "settings": {
         "chances": {

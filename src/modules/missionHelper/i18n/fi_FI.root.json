@@ -11,7 +11,8 @@
             "badge": true,
             "in": "requirements",
             "text": "{n} l vettä."
-        }
+        },
+        "title": "Erityisvaatimukset"
     },
     "settings": {
         "chances": {

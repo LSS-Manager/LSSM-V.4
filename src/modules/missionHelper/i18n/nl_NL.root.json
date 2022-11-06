@@ -16,7 +16,8 @@
             "badge": true,
             "in": "requirements",
             "text": "{n} L. water benodigd"
-        }
+        },
+        "title": "Bijzondere benodigdheden"
     },
     "settings": {
         "bike_police_only_if_needed": {

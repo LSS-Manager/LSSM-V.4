@@ -21,7 +21,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Water needed: {n} litre | Water needed: {n} litres"
-        }
+        },
+        "title": "Special requirements"
     },
     "settings": {
         "chances": {

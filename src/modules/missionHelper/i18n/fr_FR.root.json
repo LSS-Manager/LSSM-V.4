@@ -21,7 +21,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Eau: {n} litre | Eau: {n} litres"
-        }
+        },
+        "title": "Conditions particulières"
     },
     "settings": {
         "chances": {

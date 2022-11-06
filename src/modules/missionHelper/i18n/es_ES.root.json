@@ -16,7 +16,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Agua: {n} l"
-        }
+        },
+        "title": "Requisitos especiales"
     },
     "settings": {
         "chances": {

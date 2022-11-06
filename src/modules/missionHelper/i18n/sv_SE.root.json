@@ -26,7 +26,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Vatten: {n} Liter av vatten"
-        }
+        },
+        "title": "Speciella krav"
     },
     "settings": {
         "chances": {

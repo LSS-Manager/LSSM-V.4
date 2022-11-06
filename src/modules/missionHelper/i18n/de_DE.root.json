@@ -31,7 +31,8 @@
             "badge": true,
             "in": "requirements",
             "text": "Wasserbedarf: {n} L."
-        }
+        },
+        "title": "Besondere Anforderungen"
     },
     "settings": {
         "bucket_only_if_needed": {
