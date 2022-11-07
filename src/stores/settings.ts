@@ -7,6 +7,7 @@ import type { SettingsState } from 'typings/store/settings/State';
 import type { AppendableList, ModuleSettings, Setting } from 'typings/Setting';
 import type {
     SettingsGet,
+    SettingsGetType,
     SettingsRegister,
     SettingsSet,
 } from 'typings/store/settings/Actions';
@@ -56,17 +57,35 @@ const settingsStore = defineStore('settings', {
                         }
                 );
         },
-        async getSetting<SettingType>({
+        async getSetting<SettingType, Unit extends string = ''>({
             moduleId,
             settingId,
             defaultValue,
-        }: SettingsGet<SettingType>) {
+            addUnit,
+        }: SettingsGet<SettingType, Unit>): SettingsGetType<SettingType, Unit> {
             const setting = this.settings[moduleId]?.[settingId];
             if (
                 setting?.type === 'appendable-list' &&
                 !setting.hasOwnProperty('value')
             )
                 setting.value = { value: [], enabled: true };
+
+            let unit: Unit;
+            if (addUnit && setting?.type === 'slider')
+                unit = setting.unit as Unit;
+
+            const getValue = (value = setting?.value) =>
+                [
+                    'bigint',
+                    'boolean',
+                    'number',
+                    'string',
+                    ' null',
+                    'undefined',
+                ].includes(typeof value) && unit
+                    ? `${value}${unit}`
+                    : value;
+
             return ((setting?.type === 'appendable-list'
                 ? {
                       enabled: setting?.value.enabled ?? true,
@@ -75,10 +94,12 @@ const settingsStore = defineStore('settings', {
                           ...v,
                       })),
                   }
-                : setting?.value) ??
-                setting?.default ??
-                (await this.getModule(moduleId))[settingId] ??
-                defaultValue) as SettingType;
+                : getValue()) ??
+                getValue(setting?.default) ??
+                getValue((await this.getModule(moduleId))[settingId]) ??
+                getValue(defaultValue)) as Awaited<
+                SettingsGetType<SettingType, Unit>
+            >;
         },
         setSetting<SettingType>({
             moduleId,

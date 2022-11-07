@@ -41,6 +41,17 @@ export type ModuleMainFunction = (parameters: {
     $m: $m;
     $mc: $mc;
     getSetting<T = boolean>(settingId: string, defaultValue?: T): Promise<T>;
+    getSetting<T = boolean, Unit extends string = ''>(
+        settingId: string,
+        defaultValue: T | undefined,
+        addUnit: Unit extends '' ? false | undefined : true
+    ): Promise<
+        Unit extends ''
+            ? T
+            : `${T extends bigint | boolean | number | string | null | undefined
+                  ? T
+                  : string}${Unit}`
+    >;
     setSetting<T = boolean>(settingId: string, value: T): Promise<T>;
 }) => Promise<void> | void;
 

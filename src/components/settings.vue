@@ -217,6 +217,22 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
+                        <settings-slider
+                            v-else-if="setting.type === 'slider'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :min="setting.min"
+                            :max="setting.max"
+                            :step="setting.step"
+                            :unit="setting.unit"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-slider>
                         <settings-select
                             v-else-if="setting.type === 'select'"
                             :name="setting.name"
@@ -283,6 +299,14 @@
                                 settings[moduleId][settingId].value.enabled
                             "
                         ></settings-appendable-list>
+                        <component
+                            v-else-if="setting.type === 'custom'"
+                            :is="setting.component"
+                            v-model="settings[moduleId][settingId].value"
+                            :module="settings[moduleId]"
+                            @update="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></component>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
@@ -356,6 +380,10 @@ export default Vue.extend<
         SettingsNumber: () =>
             import(
                 /* webpackChunkName: "components/setting/number" */ './setting/number.vue'
+            ),
+        SettingsSlider: () =>
+            import(
+                /* webpackChunkName: "components/setting/slider" */ './setting/slider.vue'
             ),
         SettingsHotkey: () =>
             import(

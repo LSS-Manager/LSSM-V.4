@@ -1,4 +1,5 @@
 import type { Complex } from './assets/buildingComplexes';
+import type { Filter } from './assets/mapCSSFilter';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({
@@ -9,6 +10,19 @@ export default <ModuleMainFunction>(async ({
     $m,
     $mc,
 }) => {
+    const isMainPage = window.location.pathname === '/';
+
+    getSetting<{
+        enabled: true;
+        value: { filterFunction: Filter; filterValue: number }[];
+    }>('mapCSSFilter').then(({ value }) => {
+        import(
+            /* webpackChunkName: "modules/extendedMap/mapCSSFilter" */ './assets/mapCSSFilter'
+        ).then(({ default: mapStyleFilter }) => mapStyleFilter(LSSM, value));
+    });
+
+    if (!isMainPage) return;
+
     if (await getSetting('mapScale')) {
         import(
             /* webpackChunkName: "modules/extendedMap/mapScale" */ './assets/mapScale'

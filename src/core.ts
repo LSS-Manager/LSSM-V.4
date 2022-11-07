@@ -25,6 +25,7 @@ import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginSt
 import LSSMV4 from './LSSMV4.vue';
 import utils from './utils';
 
+import type { SettingsGet } from 'typings/store/settings/Actions';
 import type { Color, Hidden, Select, Toggle } from 'typings/Setting';
 import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
@@ -201,7 +202,7 @@ LSSM-Team`,
             });
         })
         .then(() =>
-            LSSM.$stores.settings.getSetting({
+            LSSM.$stores.settings.getSetting<boolean>({
                 moduleId: 'global',
                 settingId: 'debugMode',
                 defaultValue: false,
@@ -529,17 +530,37 @@ LSSM-Team`,
                                                     MODULE_ID: moduleId,
                                                     $m,
                                                     $mc,
-                                                    getSetting: (
-                                                        settingId,
-                                                        defaultValue
+                                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                    // @ts-ignore idk why TS doesn't like this
+                                                    getSetting: <
+                                                        T = boolean,
+                                                        Unit extends string = ''
+                                                    >(
+                                                        settingId: string,
+                                                        defaultValue:
+                                                            | T
+                                                            | undefined,
+                                                        addUnit: Unit extends ''
+                                                            ? false | undefined
+                                                            : true
                                                     ) =>
-                                                        LSSM.$stores.settings.getSetting(
-                                                            {
-                                                                moduleId,
-                                                                settingId,
-                                                                defaultValue,
-                                                            }
-                                                        ),
+                                                        addUnit
+                                                            ? LSSM.$stores.settings.getSetting<
+                                                                  T,
+                                                                  Unit
+                                                              >({
+                                                                  moduleId,
+                                                                  settingId,
+                                                                  defaultValue,
+                                                                  addUnit,
+                                                              } as SettingsGet<T, Unit>)
+                                                            : LSSM.$stores.settings.getSetting<T>(
+                                                                  {
+                                                                      moduleId,
+                                                                      settingId,
+                                                                      defaultValue,
+                                                                  }
+                                                              ),
                                                     setSetting: (
                                                         settingId,
                                                         value

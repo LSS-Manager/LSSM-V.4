@@ -54,7 +54,7 @@ export default async (LSSM: Vue): Promise<void> => {
         new Date() < new Date('2021-11-29T00:00')
     ) {
         LSSM.$stores.settings
-            .getSetting({
+            .getSetting<boolean>({
                 moduleId: 'global',
                 settingId: 'anniversary1Clicked',
                 defaultValue: false,
@@ -78,7 +78,7 @@ export default async (LSSM: Vue): Promise<void> => {
     }
 
     LSSM.$stores.settings
-        .getSetting({
+        .getSetting<boolean>({
             moduleId: 'global',
             settingId: 'osmDarkTooltip',
             defaultValue: true,
@@ -90,7 +90,7 @@ export default async (LSSM: Vue): Promise<void> => {
         );
 
     LSSM.$stores.settings
-        .getSetting({
+        .getSetting<boolean>({
             moduleId: 'global',
             settingId: 'osmDarkControls',
             defaultValue: true,
@@ -102,7 +102,7 @@ export default async (LSSM: Vue): Promise<void> => {
         );
 
     LSSM.$stores.settings
-        .getSetting({
+        .getSetting<boolean>({
             moduleId: 'global',
             settingId: 'loadingIndicator',
             defaultValue: true,
@@ -135,12 +135,12 @@ export default async (LSSM: Vue): Promise<void> => {
             });
     }
 
-    telemetry(LSSM, settingId => {
-        return LSSM.$stores.settings.getSetting({
+    telemetry(LSSM, <SettingType>(settingId: string) =>
+        LSSM.$stores.settings.getSetting<SettingType>({
             moduleId: 'global',
             settingId,
-        });
-    });
+        })
+    );
     import(
         /* webpackChunkName: "releasenotes/main" */
         `./modules/releasenotes/main`
