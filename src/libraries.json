@@ -17,7 +17,7 @@
     "@fortawesome/vue-fontawesome": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://github.com/FortAwesome/vue-fontawesome",
-        "version": "2.0.8"
+        "version": "2.0.9"
     },
     "@octokit/auth-action": {
         "icon": "https://docs.github.com/assets/cb-102209/images/gundamcat.png",
