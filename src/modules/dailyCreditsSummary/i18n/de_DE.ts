@@ -40,7 +40,7 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Wache (erweitert( \(von Kleinwache\))?|ausgebaut)|Abbrechen:|Rückerstattung Gebäudeausbau)/u,
+            regex: /(Wache (erweitert( \(von Kleinwache\))?|ausgebaut)|Abbrechen:|Rückerstattung Gebäudeausbau|Spezialisierung gebaut)/u,
             title: 'Gebäude ausgebaut',
             backgroundColor: '#000080',
             textColor: 'white',
