@@ -40,7 +40,7 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(– Utbyggnad$|Avbryt:|Station uppgraderad)/u,
+            regex: /(– Utbyggnad$|Avbryt:|Station uppgraderad|Specialisering (vald|avbruten))/u,
             title: 'Stationsuppgraderingar',
             backgroundColor: '#000080',
             textColor: 'white',
