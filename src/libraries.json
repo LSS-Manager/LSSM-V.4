@@ -119,11 +119,6 @@
         "icon": "https://typescript-eslint.io/img/typescript.svg",
         "version": "5.42.1"
     },
-    "@vue/composition-api": {
-        "icon": "https://vuejs.org/logo.svg",
-        "url": "https://github.com/vuejs/composition-api#readme",
-        "version": "1.7.1"
-    },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
