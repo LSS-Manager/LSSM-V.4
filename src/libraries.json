@@ -312,11 +312,6 @@
         "url": "http://showdownjs.com/",
         "version": "2.1.0"
     },
-    "string-replace-loader": {
-        "icon": "https://webpack.js.org/assets/icon-square-big.svg",
-        "url": "https://github.com/Va1/string-replace-loader",
-        "version": "3.1.0"
-    },
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",

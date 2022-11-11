@@ -7218,7 +7218,6 @@ __metadata:
     sass-loader: 13.2.0
     semver: 7.3.8
     showdown: 2.1.0
-    string-replace-loader: 3.1.0
     terser: 5.15.1
     ts-loader: 9.4.1
     ts-node: 10.9.1
@@ -9269,18 +9268,6 @@ __metadata:
   dependencies:
     ste-core: ^1.7.2
   checksum: b4ce4665815b8c25e631d624833fa2184998647e23a78fb4dfdea6e1c4bc31ce2b5808f0bc036a7954e522c6fc96074f18d2c8d1f11575d34f52d2ddc5b3b98f
-  languageName: node
-  linkType: hard
-
-"string-replace-loader@npm:3.1.0":
-  version: 3.1.0
-  resolution: "string-replace-loader@npm:3.1.0"
-  dependencies:
-    loader-utils: ^2.0.0
-    schema-utils: ^3.0.0
-  peerDependencies:
-    webpack: ^5
-  checksum: 15fec37e2ddfc83819ad6b8005b5518e4314de69b9332077d8f032292b02106000ccc5ac52ceb1285efe30a5286620aef1e51c7d3c00d08fa4571d648b32cfa9
   languageName: node
   linkType: hard
 
