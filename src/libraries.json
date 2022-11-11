@@ -102,10 +102,6 @@
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
         "version": "3.16.2"
     },
-    "@types/webpack": {
-        "icon": "https://avatars.githubusercontent.com/u/3637556",
-        "version": "5.28.0"
-    },
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
