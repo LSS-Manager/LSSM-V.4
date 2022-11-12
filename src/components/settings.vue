@@ -515,6 +515,8 @@ export default Vue.extend<
                     branches.values.push(branch);
                     let label = `${branch} (${branchData.version})`;
                     if ('delete' in branchData) {
+                        if (branchData.label)
+                            label += `<br>&nbsp;&nbsp${branchData.label}`;
                         label += `<br>&nbsp;&nbsp;[🗑️ ${branchData.delete.date.replace(
                             /\.0+$/u,
                             ''
