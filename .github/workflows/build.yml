@@ -13,7 +13,7 @@ on:
                 description: 'A label for branch chooser'
                 required: false
                 type: string
-                default: inputs.ref
+                default: ${{ inputs.ref }}
         outputs:
             branch:
                 description: 'The branch to build on and deploy to'
