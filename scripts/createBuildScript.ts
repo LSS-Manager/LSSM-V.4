@@ -89,6 +89,7 @@ done`,
             .replace(/\n/gu, '\n    ')
             .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
             .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
+            .replace(/\$\{\{ inputs\.label \}\}/gu, '🦄 branch label')
             .replace(
                 /\$\{\{ (github|inputs)\.ref \}\}/gu,
                 '$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)'
