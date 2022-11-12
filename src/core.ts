@@ -381,8 +381,8 @@ LSSM-Team`,
                         ? `${SERVER}lssm-v4.user.js`
                         : `${rootStore.githubUrl}/raw/dev/static/lssm-v4.user.js`;
                 LSSM.$modal.show('dialog', {
-                    title: LSSM.$t('updateUserscript.title'),
-                    text: LSSM.$t('updateUserscript.text', {
+                    title: LSSM.$t('global.updateUserscript.title'),
+                    text: LSSM.$t('global.updateUserscript.text', {
                         minVersion: `<b>${userscript_latest_update}</b>`,
                         updateLink: `<a href="${userscriptLink}" target='_blank'>lssm-v4.user.js</a>`,
                         bypassLink: `<a href="${userscriptLink}#bypass=true" target='_blank'>lssm-v4.user.js</a>`,
@@ -390,7 +390,7 @@ LSSM-Team`,
                     options: {},
                     buttons: [
                         {
-                            title: LSSM.$t('updateUserscript.close'),
+                            title: LSSM.$t('global.updateUserscript.close'),
                             handler() {
                                 LSSM.$modal.hide('dialog');
                                 resolve();

@@ -782,10 +782,10 @@ export const defineAPIStore = defineStore('api', {
                                         const LSSM = window[PREFIX] as Vue;
                                         LSSM.$modal.show('dialog', {
                                             title: LSSM.$t(
-                                                'warnings.version.title'
+                                                'global.warnings.version.title'
                                             ),
                                             text: LSSM.$t(
-                                                'warnings.version.text',
+                                                'global.warnings.version.text',
                                                 {
                                                     version: data.version,
                                                     curver: VERSION,
@@ -794,7 +794,7 @@ export const defineAPIStore = defineStore('api', {
                                             buttons: [
                                                 {
                                                     title: LSSM.$t(
-                                                        'warnings.version.close'
+                                                        'global.warnings.version.close'
                                                     ),
                                                     default: true,
                                                     handler() {
@@ -807,7 +807,7 @@ export const defineAPIStore = defineStore('api', {
                                                 },
                                                 {
                                                     title: LSSM.$t(
-                                                        'warnings.version.abort'
+                                                        'global.warnings.version.abort'
                                                     ),
                                                     handler() {
                                                         LSSM.$modal.hide(
@@ -825,25 +825,32 @@ export const defineAPIStore = defineStore('api', {
                             if (dialogOnError) {
                                 const LSSM = window[PREFIX] as Vue;
                                 LSSM.$modal.show('dialog', {
-                                    title: LSSM.$t('error.requestIssue.title', {
-                                        status: res.status,
-                                        statusText: res.statusText,
-                                    }),
-                                    text: LSSM.$t('error.requestIssue.text', {
-                                        url: res.url,
-                                        status: res.status,
-                                        statusText: res.statusText,
-                                        method:
-                                            init.method?.toUpperCase() ?? 'GET',
-                                        feature,
-                                        duration: Date.now() - startTime,
-                                        timestamp: new Date().toISOString(),
-                                        uid: `${window.I18n.locale}-${window.user_id}`,
-                                    }),
+                                    title: LSSM.$t(
+                                        'global.error.requestIssue.title',
+                                        {
+                                            status: res.status,
+                                            statusText: res.statusText,
+                                        }
+                                    ),
+                                    text: LSSM.$t(
+                                        'global.error.requestIssue.text',
+                                        {
+                                            url: res.url,
+                                            status: res.status,
+                                            statusText: res.statusText,
+                                            method:
+                                                init.method?.toUpperCase() ??
+                                                'GET',
+                                            feature,
+                                            duration: Date.now() - startTime,
+                                            timestamp: new Date().toISOString(),
+                                            uid: `${window.I18n.locale}-${window.user_id}`,
+                                        }
+                                    ),
                                     buttons: [
                                         {
                                             title: LSSM.$t(
-                                                'error.requestIssue.close'
+                                                'global.error.requestIssue.close'
                                             ),
                                             default: true,
                                             handler() {
