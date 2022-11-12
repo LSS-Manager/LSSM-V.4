@@ -213,7 +213,7 @@ fi
 if [[ $PREBUILD = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚧] run prebuild ###"
-    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" || exit 1
+    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
     end_time=$(date +%s%N)
     echo "=== [🚧] run prebuild: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -222,7 +222,7 @@ fi
 if [[ $WEBPACK = true ]]; then
     start_time=$(date +%s%N)
     echo "### [👷] webpack ###"
-    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" || exit 1
+    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
     end_time=$(date +%s%N)
     echo "=== [👷] webpack: $(((end_time - start_time) / 1000000))ms ==="
 fi

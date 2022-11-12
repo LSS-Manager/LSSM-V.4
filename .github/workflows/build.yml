@@ -9,6 +9,11 @@ on:
                 required: false
                 type: string
                 default: github.ref
+            label:
+                description: 'A label for branch chooser'
+                required: false
+                type: string
+                default: inputs.ref
         outputs:
             branch:
                 description: 'The branch to build on and deploy to'
@@ -148,11 +153,11 @@ jobs:
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
+              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
+              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
 
             - name: '[📝] build docs'
               id: docs
