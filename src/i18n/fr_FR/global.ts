@@ -1,14 +1,14 @@
 export default {
     updateUserscript: {
-        title: 'Script utilisateur obsolète',
-        text: `Cher utilisateur de la LSSM,<br>
-Malheureusement, votre userscript LSSM V.4 est obsolète. Dans la toute dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de LSSM V.4.<br>
-Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être faite facilement en cliquant sur {updateLink}.<br>
-Parfois, la mise à jour ne fonctionne pas en cliquant sur le lien (pour des raisons inconnues). Dans ce cas, vous pouvez soit déclencher une mise à jour dans Tampermonkey (cliquez sur l'icône de Tampermonkey dans votre navigateur, puis sur "Aperçu". Cochez la case devant le userscript LSSM et sélectionnez "Update" comme action.<br>
-Si cela ne fonctionne pas non plus, modifiez le script LSSM dans Tampermonkey en remplaçant tout le contenu du script par le contenu de {bypassLink}..<br>
-Si cela ne fonctionne pas non plus, modifiez le script LSSM dans Parfois, LSSM est installé plusieurs fois après une mise à jour. Dans ce cas, il est utile de désinstaller/supprimer toutes les installations de LSSM V.4 dans Tampermonkey, puis de réinstaller LSSM V.4 une fois.<br><br>
+        title: 'Userscript obsolète',
+        text: `Cher utilisateur de LSSM,<br>
+Malheureusement, votre userscript LSSM V.4 est obsolète. Dans la dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de LSSM V.4.<br>
+Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être effectuée facilement en cliquant sur {updateLink}.<br>
+Il peut arriver que la mise à jour ne fonctionne pas en cliquant sur le lien (pour des raisons inconnues). Vous pouvez alors soit déclencher une mise à jour dans Tampermonkey (cliquez sur l'icône de Tampermonkey dans votre navigateur, puis sur "Aperçu". Cochez la case devant le userscript LSSM et sélectionnez "Update" comme action.<br>
+Si cela ne fonctionne pas non plus, modifiez le script LSSM dans Tampermonkey en remplaçant tout le contenu du script par le contenu de {bypassLink}.<br>
+Parfois, LSSM est installé plusieurs fois après une mise à jour. Dans ce cas, il est utile de désinstaller/supprimer toutes les installations de LSSM V.4 dans Tampermonkey, puis de réinstaller LSSM V.4 une fois.<br><br>
 Sincères salutations,<br>
-l'équipe LSSM`,
+L'équipe LSSM`,
         close: 'Ok',
     },
     error: {
