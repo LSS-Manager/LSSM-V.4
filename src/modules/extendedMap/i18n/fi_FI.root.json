@@ -1,16 +1,16 @@
 {
     "description": "Parantaa karttaa hienoilla ominaisuuksilla.",
     "mapCSSFilter": {
-        "brightness": "Brightness",
-        "contrast": "Contrast",
-        "grayscale": "Gray filter",
-        "hueRotate": "Hue rotation",
-        "invert": "Invert Colors",
+        "brightness": "Kirkkaus",
+        "contrast": "Kontrasti",
+        "grayscale": "Harmaa suodatin",
+        "hueRotate": "Sävyn kierto",
+        "invert": "Käänteiset värit",
         "presets": {
-            "dark1": "Dark 1",
-            "dark2": "Dark 2",
-            "dark3": "Dark 3",
-            "gray": "Gray"
+            "dark1": "Tumma 1",
+            "dark2": "Tumma 2",
+            "dark3": "Tumma 3",
+            "gray": "Harmaa"
         },
         "saturate": "Saturation",
         "sepia": "Sepia"
@@ -44,10 +44,10 @@
             "title": "Keskitetty oleva kartta: Mode"
         },
         "mapCSSFilter": {
-            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
-            "filterFunction": "CSS Filter",
-            "filterValue": "value",
-            "title": "Map Design (CSS Filter)"
+            "description": "Muokkaa karttaa erilaisilla CSS-suodattimilla kuvankäsittelyä varten. Leikkiminen ja kokeilu on tervetullutta!",
+            "filterFunction": "CSS suodatin",
+            "filterValue": "arvo",
+            "title": "CSS-suodatin"
         },
         "mapScale": {
             "description": "Näyttää kartan mittakaavan ja nykyisen zoomaustason",

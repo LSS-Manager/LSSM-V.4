@@ -1,13 +1,13 @@
 <template>
     <div id="lssmv4-anniversary-balloons">
         <div class="anniversary-modal vm--modal">
-            <small>{{ $t('anniversary1.closeNote') }}</small>
+            <small>{{ $t('global.anniversary1.closeNote') }}</small>
             <font-awesome-icon
                 :icon="faTimes"
                 class="pull-right anniversary-modal-close"
             ></font-awesome-icon>
-            <h1>{{ $t('anniversary1.title') }}</h1>
-            <div v-html="$t('anniversary1.content')"></div>
+            <h1>{{ $t('global.anniversary1.title') }}</h1>
+            <div v-html="$t('global.anniversary1.content')"></div>
         </div>
     </div>
 </template>

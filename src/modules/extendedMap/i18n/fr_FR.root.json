@@ -44,10 +44,10 @@
             "title": "Carte centrale: Mode"
         },
         "mapCSSFilter": {
-            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
-            "filterFunction": "CSS Filter",
-            "filterValue": "value",
-            "title": "Map Design (CSS Filter)"
+            "description": "Personnalisez la carte avec divers filtres CSS pour la modification des images. N'hésitez pas à les essayer !",
+            "filterFunction": "Filtre CSS",
+            "filterValue": "valeur",
+            "title": "Map Design (Filtre CSS)"
         },
         "mapScale": {
             "description": "Affiche l'échelle de la carte et le niveau de zoom actuel",

@@ -24,7 +24,7 @@
                                 $t(
                                     `modules.${module}.name`.replace(
                                         'modules.global',
-                                        'globalSettings'
+                                        'global.settings'
                                     )
                                 )
                             }}</b>
@@ -42,7 +42,7 @@
                                                     $t(
                                                         `modules.${module}.settings.${setting}.title`.replace(
                                                             'modules.global.settings',
-                                                            'globalSettings'
+                                                            'global.settings'
                                                         )
                                                     )
                                                 }}
@@ -106,7 +106,7 @@
                     $t(
                         `modules.${moduleId}.name`.replace(
                             'modules.global',
-                            'globalSettings'
+                            'global.settings'
                         )
                     )
                 "
@@ -125,7 +125,7 @@
                             $t(
                                 `modules.${moduleId}.settings.${settingId}.title`.replace(
                                     'modules.global.settings',
-                                    'globalSettings'
+                                    'global.settings'
                                 )
                             )
                         "
@@ -133,7 +133,7 @@
                             $t(
                                 `modules.${moduleId}.settings.${settingId}.description`.replace(
                                     'modules.global.settings',
-                                    'globalSettings'
+                                    'global.settings'
                                 ),
                                 {
                                     wiki: `${rootStore.wiki}/`,
@@ -515,6 +515,8 @@ export default Vue.extend<
                     branches.values.push(branch);
                     let label = `${branch} (${branchData.version})`;
                     if ('delete' in branchData) {
+                        if (branchData.label)
+                            label += `<br>&nbsp;&nbsp${branchData.label}`;
                         label += `<br>&nbsp;&nbsp;[🗑️ ${branchData.delete.date.replace(
                             /\.0+$/u,
                             ''
@@ -631,7 +633,7 @@ export default Vue.extend<
                                     this.modulesSorted[this.tab]
                                 }.name`.replace(
                                     'modules.global',
-                                    'globalSettings'
+                                    'global.settings'
                                 )
                             ),
                         }),
