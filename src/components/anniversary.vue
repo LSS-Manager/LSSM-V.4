@@ -11,9 +11,17 @@ import { useRootStore } from '@stores/index';
 import type { DefaultProps } from 'vue/types/options';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
+const random = (num: number) => Math.floor(Math.random() * num);
+
 export default Vue.extend<
     { faTimes: IconDefinition; rootStore: ReturnType<typeof useRootStore> },
-    { launchBalloons(): void },
+    {
+        createBalloon(margin?: boolean): {
+            balloon: HTMLSpanElement;
+            duration: number;
+        };
+        launchBalloons(): void;
+    },
     { balloons: boolean },
     DefaultProps
 >({
@@ -29,32 +37,34 @@ export default Vue.extend<
         },
     },
     methods: {
-        launchBalloons() {
-            const balloonContainer = this.$el;
-            const random = (num: number) => Math.floor(Math.random() * num);
-            const balloons: HTMLSpanElement[] = [];
-            let maxDuration = 0;
-            for (let i = 0; i < 50; i++) {
-                const balloon = document.createElement('span');
-                balloons.push(balloon);
-                balloon.classList.add('balloon');
-                const image = document.createElement('img');
-                image.src = this.rootStore.lssmLogoUrl;
-                balloon.append(image);
-                balloonContainer.append(balloon);
+        createBalloon(margin = true) {
+            const balloon = document.createElement('span');
+            balloon.classList.add('lssmv4-anniversary-balloon');
+            const image = document.createElement('img');
+            image.src = this.rootStore.lssmLogoUrl;
+            balloon.append(image);
+            const duration = random(5000) + 5000;
+            const color = `${random(255)}, ${random(255)}, ${random(255)}`;
+            balloon.style.setProperty('--color', color);
+            if (margin) {
                 const margins = [random(200), 0, 0, random(50)];
-                const duration = random(5000) + 5000;
-                if (duration > maxDuration) maxDuration = duration;
-                const color = `${random(255)}, ${random(255)}, ${random(255)}`;
-                balloon.style.setProperty('--color', color);
                 balloon.style.setProperty(
                     'margin',
                     margins.map(m => `${m}px`).join(' ')
                 );
-                balloon.style.setProperty(
-                    'animation-duration',
-                    `${duration}ms`
-                );
+            }
+            balloon.style.setProperty('animation-duration', `${duration}ms`);
+            return { balloon, duration };
+        },
+        launchBalloons() {
+            const balloonContainer = this.$el;
+            const balloons: HTMLSpanElement[] = [];
+            let maxDuration = 0;
+            for (let i = 0; i < 50; i++) {
+                const { balloon, duration } = this.createBalloon();
+                balloonContainer.append(balloon);
+                balloons.push(balloon);
+                if (duration > maxDuration) maxDuration = duration;
             }
             setTimeout(
                 () => balloons.forEach(balloon => balloon.remove()),
@@ -64,23 +74,23 @@ export default Vue.extend<
     },
     mounted() {
         if (this.balloons) this.launchBalloons();
+
+        const trigger = this.rootStore.addMenuItem('');
+        trigger.classList.add('lssmv4-anniversary-trigger');
+        trigger.addEventListener('click', this.launchBalloons);
+        for (let i = 0; i < 5; i++) {
+            const triggerBalloon = this.createBalloon(false).balloon;
+            triggerBalloon.classList.add('trigger');
+            trigger.append(triggerBalloon);
+        }
     },
 });
 </script>
 
 <style scoped lang="sass">
-@use "sass:math"
-
-$balloon-width: 106px
-$half-balloon-width: math.div($balloon-width, 2)
 $balloon-height: 125px
-$half-balloon-height: math.div($balloon-height, 2)
-$balloon-cord: 75px
-$half-balloon-cord: math.div($balloon-cord, 2)
-$balloon-total-height: $balloon-height + $balloon-cord
-$one-third: math.div(100%, 3)
-$two-thirds: $one-third * 2
-$modal-top: 10vh
+
+@import '../sass/mixins/anniversaryBallon'
 
 #lssmv4-anniversary-balloons
     position: fixed
@@ -95,46 +105,8 @@ $modal-top: 10vh
     overflow: hidden
     pointer-events: none
 
-    :deep(.balloon)
-        width: $balloon-width
-        height: $balloon-height
-        border-radius: 75% 75% 70% 70%
-        position: relative
-        color: var(--color)
-        background-color: rgba(var(--color), 0.5)
-        box-shadow: inset -7px -3px 10px currentColor
-        animation: float
-        animation-timing-function: ease-in
-        animation-fill-mode: forwards
-
-        &:before, &:after
-            display: block
-            position: absolute
-            left: 0
-            right: 0
-            margin: auto
-            opacity: 1
-
-        &:before
-            content: ""
-            height: $balloon-cord
-            width: 1px
-            padding: 1px
-            background-color: rgba(232, 76, 60, 0.8)
-            top: $balloon-height
-
-        &:after
-            content: "▲"
-            text-align: center
-            color: inherit
-            top: $balloon-height - 7
-
-        img
-            width: 100%
-            position: absolute
-            top: $half-balloon-height
-            transform: translate(0, -50%)
-            opacity: 0.75
+    :deep(.lssmv4-anniversary-balloon)
+        @include anniversaryBalloon($animation: true)
 
 @keyframes float
     from
@@ -143,4 +115,22 @@ $modal-top: 10vh
     to
         transform: translateY(-200vh)
         opacity: 0
+</style>
+<style lang="sass">
+@use "sass:map"
+
+$balloon-height: 20px
+
+@import '../sass/mixins/anniversaryBallon'
+
+$balloon-sizes: getBalloonSizes($balloon-height)
+
+.lssmv4-anniversary-trigger
+    height: map.get($balloon-sizes, 'total-height')
+    box-sizing: content-box
+    display: flex !important
+    justify-content: space-between
+
+    .lssmv4-anniversary-balloon.trigger
+        @include anniversaryBalloon($animation: false)
 </style>
