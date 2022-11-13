@@ -17,5 +17,5 @@ export default (({ LSSM, $m }) => {
 
     LSSM.$stores.root
         .addMenuItem($m('name').toString())
-        .then(element => element.addEventListener('click', openOverview));
+        .addEventListener('click', openOverview);
 }) as ModuleMainFunction;
