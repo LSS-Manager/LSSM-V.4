@@ -19,8 +19,8 @@ export default (LSSM: Vue) => {
                     ? `${SERVER}lssm-v4.user.js`
                     : `${LSSM.$stores.root.githubUrl}/raw/dev/static/lssm-v4.user.js`;
             LSSM.$modal.show('dialog', {
-                title: LSSM.$t('updateUserscript.title'),
-                text: LSSM.$t('updateUserscript.text', {
+                title: LSSM.$t('global.updateUserscript.title'),
+                text: LSSM.$t('global.updateUserscript.text', {
                     minVersion: `<b>${userscript_latest_update}</b>`,
                     updateLink: `<a href="${userscriptLink}" target='_blank'>lssm-v4.user.js</a>`,
                     bypassLink: `<a href="${userscriptLink}#bypass=true" target='_blank'>lssm-v4.user.js</a>`,
@@ -28,7 +28,7 @@ export default (LSSM: Vue) => {
                 options: {},
                 buttons: [
                     {
-                        title: LSSM.$t('updateUserscript.close'),
+                        title: LSSM.$t('global.updateUserscript.close'),
                         handler() {
                             LSSM.$modal.hide('dialog');
                             reject();
