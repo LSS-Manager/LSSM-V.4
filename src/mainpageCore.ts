@@ -49,32 +49,24 @@ export default async (LSSM: Vue): Promise<void> => {
         render: h => h(LSSMMenu),
     }).$mount(indicatorWrapper);
 
-    if (
-        new Date() >= new Date('2021-11-20T00:00') &&
-        new Date() < new Date('2021-11-29T00:00')
-    ) {
-        LSSM.$stores.settings
-            .getSetting<boolean>({
-                moduleId: 'global',
-                settingId: 'anniversary1Clicked',
-                defaultValue: false,
-            })
-            .then(clicked => {
-                if (!clicked) {
-                    import(
-                        /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
-                    ).then(({ default: anniversary }) => {
-                        const anniversaryWrapper =
-                            document.createElement('div');
-                        document.body.append(anniversaryWrapper);
-                        new LSSM.$vue({
-                            pinia: LSSM.$pinia,
-                            i18n: LSSM.$i18n,
-                            render: h => h(anniversary),
-                        }).$mount(anniversaryWrapper);
-                    });
-                }
-            });
+    if (new Date() < new Date('2022-11-29T00:00')) {
+        import(
+            /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
+        ).then(({ default: anniversary }) => {
+            const anniversaryWrapper = document.createElement('div');
+            document.body.append(anniversaryWrapper);
+            new LSSM.$vue({
+                pinia: LSSM.$pinia,
+                i18n: LSSM.$i18n,
+                render: h =>
+                    h(anniversary, {
+                        props: {
+                            balloons:
+                                new Date() >= new Date('2022-11-21T00:00'),
+                        },
+                    }),
+            }).$mount(anniversaryWrapper);
+        });
     }
 
     LSSM.$stores.settings
