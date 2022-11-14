@@ -11,12 +11,15 @@ import { useRootStore } from '@stores/index';
 import type { DefaultProps } from 'vue/types/options';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-const random = (num: number) => Math.floor(Math.random() * num);
+const random = (max: number) => Math.floor(Math.random() * max);
 
 export default Vue.extend<
     { faTimes: IconDefinition; rootStore: ReturnType<typeof useRootStore> },
     {
-        createBalloon(margin?: boolean): {
+        createBalloon(
+            margin?: boolean,
+            rotation?: boolean
+        ): {
             balloon: HTMLSpanElement;
             duration: number;
         };
@@ -37,7 +40,7 @@ export default Vue.extend<
         },
     },
     methods: {
-        createBalloon(margin = true) {
+        createBalloon(margin = true, rotation = true) {
             const balloon = document.createElement('span');
             balloon.classList.add('lssmv4-anniversary-balloon');
             const image = document.createElement('img');
@@ -53,6 +56,9 @@ export default Vue.extend<
                     margins.map(m => `${m}px`).join(' ')
                 );
             }
+            if (rotation)
+                balloon.dataset.rotation = (random(20) - 10).toString();
+
             balloon.style.setProperty('animation-duration', `${duration}ms`);
             return { balloon, duration };
         },
@@ -79,10 +85,16 @@ export default Vue.extend<
         trigger.classList.add('lssmv4-anniversary-trigger');
         trigger.addEventListener('click', this.launchBalloons);
         for (let i = 0; i < 5; i++) {
-            const triggerBalloon = this.createBalloon(false).balloon;
+            const triggerBalloon = this.createBalloon(false, false).balloon;
             triggerBalloon.classList.add('trigger');
             trigger.append(triggerBalloon);
         }
+
+        const navbar = document.createElement('div');
+        navbar.classList.add('lssmv4-anniversary-navbar');
+        for (let i = 0; i < window.innerWidth / 100; i++)
+            navbar.append(this.createBalloon(false).balloon);
+        document.querySelector<HTMLElement>('#main_navbar')?.prepend(navbar);
     },
 });
 </script>
@@ -107,14 +119,6 @@ $balloon-height: 125px
 
     :deep(.lssmv4-anniversary-balloon)
         @include anniversaryBalloon($animation: true)
-
-@keyframes float
-    from
-        transform: translateY(100vh)
-        opacity: 1
-    to
-        transform: translateY(-200vh)
-        opacity: 0
 </style>
 <style lang="sass">
 @use "sass:map"
@@ -133,4 +137,16 @@ $balloon-sizes: getBalloonSizes($balloon-height)
 
     .lssmv4-anniversary-balloon.trigger
         @include anniversaryBalloon($animation: false)
+
+.lssmv4-anniversary-navbar
+    width: 100%
+    height: 100%
+    opacity: 0.3
+    padding: 2px
+    position: absolute
+    display: flex !important
+    justify-content: space-around
+
+    .lssmv4-anniversary-balloon
+        @include anniversaryBalloon($animation: false, $balloon-height: getBalloonHeightFromTotal(46px))
 </style>
