@@ -22,6 +22,7 @@
             "tip": "Klicka på en av kategorierna (t.ex. brandkår eller polis) för att förstora de byggtyper som tilldelats denna kategori. Om du sedan klickar på en byggnadstyp kan du se hur många fordon av varje fordonstyp som finns byggnader av den typen. På detta sätt kan du snabbt ta reda på hur många fordon av varje fordonstyp som är parkerade vid polisstationer och hur många på små polisstationer.",
             "title": "Byggnader"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Du har inga fordon i kategorin {kategori} än!",
             "tip": "Klicka på en grupp fordonstyper för att endast visa den här gruppen.",
