@@ -211,7 +211,7 @@ export const defineRootStore = defineStore('root', {
             menuItem.href = '#';
             menuItem.textContent = text;
             this.menuItems.push(menuItem);
-            return new Promise<HTMLAnchorElement>(resolve => resolve(menuItem));
+            return menuItem;
         },
         addStyle({ selectorText, style }: addStyle) {
             if (!this.styleSheet) {
