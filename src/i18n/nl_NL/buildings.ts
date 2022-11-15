@@ -605,7 +605,7 @@ export default {
                 duration: '5 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [78,79],
+                unlocksVehicleTypes: [78, 79],
             },
         ],
         levelcost: [
