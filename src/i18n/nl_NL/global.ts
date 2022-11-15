@@ -1,14 +1,14 @@
 export default {
     updateUserscript: {
         title: 'Userscript verouderd',
-        text: `Dear LSSM-User,<br>
-unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
-Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
-If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
-Sometimes, LSSM is installed multiple times after an update. In this case it helps to uninstall/remove all LSSM V.4 installations in Tampermonkey and then reinstall LSSM V.4 once.<br><br>
-Kind regards,<br>
-your LSSM team`,
+        text: `Beste LSSM-gebruiker,<br>
+        Helaas is je LSSM V.4 userscript verouderd. In de laatste versie zijn er veranderingen geweest, die belangrijk zijn voor de werking van LSSM V.4.<br>
+        Je hebt minimaal versie {minVersion} nodig, de update kan gedaan worden door te klikken op {updateLink}.<br>
+        Soms werkt de update niet met die link (met een onbekende reden). Dan kan je de update in Tampermonkey doen (klik op het tampermonkey icoon in de browser, dan  "Overzicht". Vink het vakje aan voor het LSSM userscript en selecteer "update" als actie.<br>
+        Als dat ook niet werkt, kan je het LSSM script aanpassen door die leeg te halen en dan de inhoud te plakken van: {bypassLink}.<br>
+        Soms wordt LSSM meerdere keren geïnstalleerd na een update. In dat geval verwijder alle LSSM V.4. versies en installeer deze opnieuw.<br><br>
+        Met vriendelijke groet,<br>
+        Jullie LSSM team`,
         close: 'Oké',
     },
     error: {
