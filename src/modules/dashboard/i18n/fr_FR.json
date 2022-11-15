@@ -22,13 +22,11 @@
             "tip": "Cliquez sur une des catégories (par ex. Centre de secours ou police) pour ouvrir les bâtiments de cette catégorie. Ensuite si vous cliquez sur un type de bâtiment, vous pouvez voir combien de véhicules de chaque type sont dans les bâtiments de ce type là. Vous pouvez donc savoir combien de véhicule d'un type sont stationnées dans un poste de police municipale ou dans une gendarmerie.",
             "title": "Bâtiments"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Vous n'avez pas encore de véhicule dans la catégorie {category} !",
             "tip": "Cliquez sur un groupe de type de véhicules pour afficher seulement ce groupe.",
             "title": "Véhicules"
-        },
-        "maxMissions": {
-            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

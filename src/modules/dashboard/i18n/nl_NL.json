@@ -22,13 +22,11 @@
             "tip": "Klik op één van de categorieën (bijvoorbeeld brandweer of politie) om de toegewezen gebouwen te vergroten. Als je op een gebouwtype klikt, dan kan je zien hoeveel voertuigen je van elk type gevestigd zijn op gebouwen van dat type.",
             "title": "Gebouwen"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Je hebt nog geen voertuigen in de categorie {category}!",
             "tip": "Klik op een groep van voertuigtypes om alleen die groep te zien.",
             "title": "Voertuigen"
-        },
-        "maxMissions": {
-            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {
