@@ -146,6 +146,7 @@ $balloon-sizes: getBalloonSizes($balloon-height)
     position: absolute
     display: flex !important
     justify-content: space-around
+    pointer-events: none
 
     .lssmv4-anniversary-balloon
         @include anniversaryBalloon($animation: false, $balloon-height: getBalloonHeightFromTotal(46px))
