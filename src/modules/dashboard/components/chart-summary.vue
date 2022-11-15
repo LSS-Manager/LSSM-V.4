@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div> class="panel-heading">
                 <b>
                     {{ $sm('buildings.title') }}:
                     {{
@@ -18,6 +18,12 @@
                     {{ $sm('buildings.personal_count') }}:
                     {{ personalCount.toLocaleString() }}
                 </b>
+                <b>
+                    {{ $sm('maxMissions.title') }}:
+                    {{
+                        maxMissions.toLocaleString()
+                    }}
+                </b>
                 <label class="pull-right">
                     <input
                         type="checkbox"
@@ -30,12 +36,6 @@
             <div class="panel-body">
                 <div :id="buildingsId" style="max-height: 400px"></div>
             </div>
-            <b>
-                {{ $sm('maxMissions.title') }}:
-                {{
-                    maxMissions.toLocaleString()
-                }}
-            </b>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
