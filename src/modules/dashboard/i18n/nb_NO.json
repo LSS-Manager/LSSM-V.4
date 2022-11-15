@@ -21,6 +21,7 @@
             "tip": "Klikk på en av kategoriene (f.eks. brannvesen eller politi) for å forstørre bygningstypene som er tilordnet denne kategorien. Hvis du så klikker på en bygningstype, kan du se hvor mange kjøretøy av hver kjøretøytype som er plassert ved bygningene av den typen. På denne måten kan du raskt finne ut hvor mange kjøretøy av hver kjøretøytype som er parkert på politistasjoner og hvor mange på små politistasjoner.",
             "title": "Bygninger"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Du har ingen kjøretøy i kategorien {category} ennå!",
             "tip": "Klikk på en gruppe kjøretøytyper for å vise kun denne gruppen.",
