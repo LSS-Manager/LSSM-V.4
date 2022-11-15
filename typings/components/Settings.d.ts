@@ -17,6 +17,7 @@ interface Branch {
 }
 interface BranchToDelete extends Branch {
     delete: Branch['date'];
+    label: string | null;
 }
 
 export interface SettingsData {

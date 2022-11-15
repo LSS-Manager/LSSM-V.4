@@ -61,6 +61,7 @@ jobs:
         uses: ./.github/workflows/build.yml
         with:
             ref: refs/pull/${{ github.event.issue.number }}/merge
+            label: ${{ github.event.issue.title }}
         secrets: inherit
 
     deploy:
