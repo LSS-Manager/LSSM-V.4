@@ -1,5 +1,9 @@
 <template>
-    <div id="lssmv4-anniversary-balloons"></div>
+    <div id="lssmv4-anniversary-balloons">
+        <span class="popped-balloons-counter" v-if="currentBalloons.length">
+            {{ poppedBalloons }}
+        </span>
+    </div>
 </template>
 
 <script lang="ts">
@@ -14,7 +18,12 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 const random = (max: number) => Math.floor(Math.random() * max);
 
 export default Vue.extend<
-    { faTimes: IconDefinition; rootStore: ReturnType<typeof useRootStore> },
+    {
+        faTimes: IconDefinition;
+        rootStore: ReturnType<typeof useRootStore>;
+        currentBalloons: HTMLSpanElement[];
+        poppedBalloons: number;
+    },
     {
         createBalloon(
             margin?: boolean,
@@ -30,7 +39,12 @@ export default Vue.extend<
 >({
     name: 'lssmv4-anniversary',
     data() {
-        return { faTimes, rootStore: useRootStore() };
+        return {
+            faTimes,
+            rootStore: useRootStore(),
+            currentBalloons: [],
+            poppedBalloons: 0,
+        };
     },
     props: {
         balloons: {
@@ -64,16 +78,22 @@ export default Vue.extend<
         },
         launchBalloons() {
             const balloonContainer = this.$el;
-            const balloons: HTMLSpanElement[] = [];
             let maxDuration = 0;
             for (let i = 0; i < 50; i++) {
                 const { balloon, duration } = this.createBalloon();
                 balloonContainer.append(balloon);
-                balloons.push(balloon);
+                this.currentBalloons.push(balloon);
                 if (duration > maxDuration) maxDuration = duration;
+                balloon.addEventListener('click', () => {
+                    balloon.style.setProperty('visibility', 'hidden');
+                    this.poppedBalloons++;
+                });
             }
             setTimeout(
-                () => balloons.forEach(balloon => balloon.remove()),
+                () =>
+                    this.currentBalloons
+                        .splice(0, 50)
+                        .forEach(balloon => balloon.remove()),
                 maxDuration
             );
         },
@@ -100,9 +120,23 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+@use "sass:math"
+
 $balloon-height: 125px
 
 @import '../sass/mixins/anniversaryBallon'
+
+$pop-particles: 50
+$pop-width: 100
+$pop-height: 100
+
+$pop-shadow: ()
+$pop-shadow2: ()
+
+@for $i from 0 through $pop-particles
+    $pop-shadow: $pop-shadow, random($pop-width) - $pop-width * 0.5 + px, random($pop-height) - math.div($pop-height, 1.2) + px, hsl(random(360), 100%, 50%)
+    $pop-shadow2: $pop-shadow2, 0 0 #fff
+
 
 #lssmv4-anniversary-balloons
     position: fixed
@@ -117,8 +151,16 @@ $balloon-height: 125px
     overflow: hidden
     pointer-events: none
 
-    :deep(.lssmv4-anniversary-balloon)
+    .popped-balloons-counter
+        position: absolute
+        bottom: 1rem
+        right: 1rem
+        font-size: 30px
+
+:deep(.lssmv4-anniversary-balloon)
         @include anniversaryBalloon($animation: true)
+        cursor: pointer
+        pointer-events: all
 </style>
 <style lang="sass">
 @use "sass:map"
