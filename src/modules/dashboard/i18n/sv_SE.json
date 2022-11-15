@@ -26,6 +26,9 @@
             "empty": "Du har inga fordon i kategorin {kategori} än!",
             "tip": "Klicka på en grupp fordonstyper för att endast visa den här gruppen.",
             "title": "Fordon"
+        },
+        "maxMissions": {
+            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

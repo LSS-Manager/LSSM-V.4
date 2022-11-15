@@ -26,6 +26,9 @@
             "empty": "Sinulla ei ole vielä kategoriassa {category} ajoneuvoja!",
             "tip": "Napsauta ajoneuvotyyppien ryhmää näyttääksesi vain tämän ryhmän.",
             "title": "Ajoneuvot"
+        },
+        "maxMissions": {
+            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

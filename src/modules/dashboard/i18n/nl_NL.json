@@ -26,6 +26,9 @@
             "empty": "Je hebt nog geen voertuigen in de categorie {category}!",
             "tip": "Klik op een groep van voertuigtypes om alleen die groep te zien.",
             "title": "Voertuigen"
+        },
+        "maxMissions": {
+            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

@@ -26,6 +26,9 @@
             "empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
             "tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen.",
             "title": "Fahrzeuge"
+        },
+        "maxMissions": {
+            "title": "Maximale Einsätze"
         }
     },
     "dispatchcenter-view": {

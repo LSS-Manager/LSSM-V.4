@@ -30,6 +30,12 @@
             <div class="panel-body">
                 <div :id="buildingsId" style="max-height: 400px"></div>
             </div>
+            <b>
+                {{ $sm('maxMissions.title') }}:
+                {{
+                    maxMissions.toLocaleString()
+                }}
+            </b>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -41,26 +47,26 @@
                             .toLocaleString()
                     }}
                 </b>
-                <span class="glyphicon glyphicon-info-sign tip-btn"></span>
-                <div class="alert alert-info">
+                <span class='glyphicon glyphicon-info-sign tip-btn'></span>
+                <div class='alert alert-info'>
                     {{ $sm('vehicles.tip') }}
                 </div>
             </div>
-            <div class="panel-body sunburst-grid">
+            <div class='panel-body sunburst-grid'>
                 <div
-                    v-for="(_, category) in vehicleCategories"
-                    :key="category"
-                    class="sunburst-chart"
-                    :id="`${vehiclesId}_${category}`"
-                    :style="`flex: 1 0 min(100%, max(250px, calc(100%/${
+                    v-for='(_, category) in vehicleCategories'
+                    :key='category'
+                    class='sunburst-chart'
+                    :id='`${vehiclesId}_${category}`'
+                    :style='`flex: 1 0 min(100%, max(250px, calc(100%/${
                         Object.keys(vehicleCategories).length
-                    })))`"
+                    })))`'
                 >
-                    <div class="alert alert-danger">
+                    <div class='alert alert-danger'>
                         {{
                             $t(
                                 'modules.dashboard.chart-summaries.vehicles.empty',
-                                { category }
+                                { category },
                             )
                         }}
                     </div>
@@ -70,7 +76,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import Vue from 'vue';
 
 import Highcharts from 'highcharts';
@@ -115,12 +121,10 @@ const exportingDefault = {
     fallbackToExportServer: false,
 };
 
-export default Vue.extend<
-    ChartSummary,
+export default Vue.extend<ChartSummary,
     ChartSummaryMethods,
     ChartSummaryComputed,
-    DefaultProps
->({
+    DefaultProps>({
     name: 'lssmv4-dashboard-chart-summary',
     data() {
         const apiStore = useAPIStore();
@@ -131,36 +135,36 @@ export default Vue.extend<
         return {
             buildingsId: rootStore.nodeAttribute(
                 'chart-summary-buildings',
-                true
+                true,
             ),
             buildings: apiStore.buildingsByCategory,
             buildingCategories: this.$t(
-                'buildingCategories'
+                'buildingCategories',
             ) as unknown as Record<string, BuildingCategory>,
             buildingTypeNames: Object.fromEntries(
                 Object.entries(internalBuildingTypes).map(
-                    ([index, { caption }]) => [index, caption]
-                )
+                    ([index, { caption }]) => [index, caption],
+                ),
             ),
             buildingTypeColors: Object.fromEntries(
                 Object.entries(internalBuildingTypes).map(
-                    ([index, { color }]) => [index, color]
-                )
+                    ([index, { color }]) => [index, color],
+                ),
             ),
             vehiclesId: rootStore.nodeAttribute('chart-summary-vehicles', true),
             vehicles: apiStore.vehiclesByType,
             vehicleCategories: this.$t(
-                'vehicleCategories'
+                'vehicleCategories',
             ) as unknown as Record<string, VehicleCategory>,
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(internalVehicleTypes).map(
-                    ([index, { caption }]) => [index, caption]
-                )
+                    ([index, { caption }]) => [index, caption],
+                ),
             ),
             vehicleTypeColors: Object.fromEntries(
                 Object.entries(internalVehicleTypes).map(
-                    ([index, { color }]) => [index, color]
-                )
+                    ([index, { color }]) => [index, color],
+                ),
             ),
             vehiclesByBuilding: apiStore.vehiclesByBuilding,
             buildingsAsColumn: false,
@@ -173,6 +177,12 @@ export default Vue.extend<
                 store.buildings
                     .map(b => b.personal_count)
                     .reduce((a, b) => a + b, 0),
+            maxMissions: store => {
+                let maxBuildingsByCategories: number[]=[];
+                Object.entries(store.buildingsByCategory).forEach(category => maxBuildingsByCategories.push(category[1].length));
+                return Math.max.apply(null, maxBuildingsByCategories)+1;
+
+            },
         }),
     },
     mounted() {
@@ -197,7 +207,7 @@ export default Vue.extend<
         Highcharts.getOptions().colors?.splice(0, 0, 'transparent');
         Object.keys(this.vehicleCategories).forEach(category => {
             const groups = Object.keys(
-                this.vehicleCategories[category].vehicles
+                this.vehicleCategories[category].vehicles,
             );
             const data = [
                 {
@@ -210,7 +220,7 @@ export default Vue.extend<
                     const types = [] as PointOptionsObject[];
                     let groupColor = 0;
                     Object.values(
-                        this.vehicleCategories[category].vehicles[group]
+                        this.vehicleCategories[category].vehicles[group],
                     ).forEach(type => {
                         const value = (this.vehicles[type] || []).length;
                         sum += value;
@@ -225,7 +235,7 @@ export default Vue.extend<
                         });
                     });
                     const color = Math.floor(
-                        groupColor / types.length
+                        groupColor / types.length,
                     ).toString(16);
                     data.push({
                         id: `${category}_${group}`,
@@ -239,7 +249,7 @@ export default Vue.extend<
                 });
             } else {
                 Object.values(
-                    this.vehicleCategories[category].vehicles[groups[0]]
+                    this.vehicleCategories[category].vehicles[groups[0]],
                 ).forEach(type => {
                     const value = (this.vehicles[type] || []).length;
                     sum += value;
@@ -268,7 +278,7 @@ export default Vue.extend<
                 series: [
                     {
                         data: data.filter(
-                            d => !d.hasOwnProperty('value') || d.value
+                            d => !d.hasOwnProperty('value') || d.value,
                         ),
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
@@ -349,7 +359,7 @@ export default Vue.extend<
                 },
                 series: Object.keys(this.buildingCategories).map(category => {
                     const types = Object.values(
-                        this.buildingCategories[category].buildings
+                        this.buildingCategories[category].buildings,
                     );
                     return {
                         name: category,
@@ -359,7 +369,7 @@ export default Vue.extend<
                                     name: this.buildingTypeNames[type],
                                     y: (this.buildings[category] || []).filter(
                                         building =>
-                                            building.building_type === type
+                                            building.building_type === type,
                                     ).length,
                                     color: this.buildingTypeColors[type],
                                 };
@@ -392,7 +402,7 @@ export default Vue.extend<
                         ...Object.keys(this.buildingCategories).map(
                             category => {
                                 const types = Object.values(
-                                    this.buildingCategories[category].buildings
+                                    this.buildingCategories[category].buildings,
                                 );
                                 return {
                                     name: category,
@@ -404,34 +414,32 @@ export default Vue.extend<
                                         ).filter(
                                             building =>
                                                 building.building_type ===
-                                                building_type
+                                                building_type,
                                         );
-                                        const vehicle_types = {} as Record<
-                                            string,
-                                            number
-                                        >;
+                                        const vehicle_types = {} as Record<string,
+                                            number>;
                                         buildings.forEach(building => {
                                             if (
                                                 !this.vehiclesByBuilding.hasOwnProperty(
-                                                    building.id
+                                                    building.id,
                                                 )
                                             )
                                                 return;
                                             this.vehiclesByBuilding[
                                                 building.id
-                                            ].forEach(vehicle => {
+                                                ].forEach(vehicle => {
                                                 if (
                                                     !vehicle_types.hasOwnProperty(
-                                                        vehicle.vehicle_type
+                                                        vehicle.vehicle_type,
                                                     )
                                                 ) {
                                                     vehicle_types[
                                                         vehicle.vehicle_type
-                                                    ] = 0;
+                                                        ] = 0;
                                                 }
                                                 vehicle_types[
                                                     vehicle.vehicle_type
-                                                ]++;
+                                                    ]++;
                                             });
                                         });
                                         if (Object.keys(vehicle_types).length) {
@@ -439,36 +447,36 @@ export default Vue.extend<
                                                 id: `${category}_${building_type}`,
                                                 name: this.buildingTypeNames[
                                                     building_type
-                                                ],
+                                                    ],
                                                 type: 'column',
                                                 data: Object.keys(
-                                                    vehicle_types
+                                                    vehicle_types,
                                                 ).map(vehicle_type => ({
                                                     id: `${category}_${building_type}_${vehicle_type}`,
                                                     name: this.vehicleTypeNames[
                                                         parseInt(vehicle_type)
-                                                    ],
+                                                        ],
                                                     y: vehicle_types[
                                                         vehicle_type
-                                                    ],
+                                                        ],
                                                     color: this
                                                         .vehicleTypeColors[
                                                         parseInt(vehicle_type)
-                                                    ],
+                                                        ],
                                                 })),
                                             } as DrilldownOptions;
                                             buildingVehicleDrilldowns.push(
-                                                drilldown
+                                                drilldown,
                                             );
                                         }
                                         return {
                                             name: this.buildingTypeNames[
                                                 building_type
-                                            ],
+                                                ],
                                             y: buildings.length,
                                             color: this.buildingTypeColors[
                                                 building_type
-                                            ],
+                                                ],
                                             drilldown:
                                                 Object.keys(vehicle_types)
                                                     .length &&
@@ -476,7 +484,7 @@ export default Vue.extend<
                                         };
                                     }),
                                 };
-                            }
+                            },
                         ),
                         ...buildingVehicleDrilldowns,
                     ],
@@ -487,15 +495,15 @@ export default Vue.extend<
 });
 </script>
 
-<style scoped lang="sass">
+<style scoped lang='sass'>
 .tip-btn
     cursor: pointer
 
     &:hover
-        &+ .alert
+        & + .alert
             display: block
 
-    &+ .alert
+    & + .alert
         display: none
         position: absolute
         z-index: 1

@@ -25,6 +25,9 @@
             "empty": "Du har ingen kjøretøy i kategorien {category} ennå!",
             "tip": "Klikk på en gruppe kjøretøytyper for å vise kun denne gruppen.",
             "title": "Kjøretøy"
+        },
+        "maxMissions": {
+            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

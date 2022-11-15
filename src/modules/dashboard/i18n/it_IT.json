@@ -26,6 +26,9 @@
             "empty": "Non hai ancora nessun veicolo in questa categoria {category} !",
             "tip": "Clicca su un gruppo di tipi di veicolo per vedere solo questo gruppo.",
             "title": "Veicoli"
+        },
+        "maxMissions": {
+            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {
