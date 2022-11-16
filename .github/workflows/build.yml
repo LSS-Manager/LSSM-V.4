@@ -51,11 +51,11 @@ jobs:
               with:
                   node-version: 18
 
-            - name: '[⬆] set yarn to stable'
+            - name: '[⬆] retrieve current specified yarn version'
               id: yarn_setup
               run: |
                   corepack enable
-                  yarn set version stable
+                  yarn set version "$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
 
             - name: '[ℹ] print versions (node, yarn, git)'
               id: versions
