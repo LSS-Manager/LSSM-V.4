@@ -48,7 +48,7 @@ jobs:
             - name: Get Node and yarn versions
               id: get_node_yarn_versions
               run: |
-                  echo "NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
+                  echo "NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
                   echo "YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
 
             - name: Setup Node.js
