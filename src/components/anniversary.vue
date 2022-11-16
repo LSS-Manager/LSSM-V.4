@@ -23,6 +23,7 @@ export default Vue.extend<
         rootStore: ReturnType<typeof useRootStore>;
         currentBalloons: HTMLSpanElement[];
         poppedBalloons: number;
+        initialBalloonsKey: string;
     },
     {
         createBalloon(
@@ -44,6 +45,7 @@ export default Vue.extend<
             rootStore: useRootStore(),
             currentBalloons: [],
             poppedBalloons: 0,
+            initialBalloonsKey: `${PREFIX}_anniversary_initial_ballons_dispatched_2022`,
         };
     },
     props: {
@@ -99,7 +101,10 @@ export default Vue.extend<
         },
     },
     mounted() {
-        if (this.balloons) this.launchBalloons();
+        if (this.balloons && !localStorage.getItem(this.initialBalloonsKey)) {
+            this.launchBalloons();
+            localStorage.setItem(this.initialBalloonsKey, 'true');
+        }
 
         const trigger = this.rootStore.addMenuItem('');
         trigger.classList.add('lssmv4-anniversary-trigger');
