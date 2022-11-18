@@ -144,6 +144,8 @@ export default Vue.extend<
                 setTimeout(() => {
                     modal.remove();
                 }, 1000);
+
+                localStorage.setItem(this.initialBalloonsKey, 'true');
             };
             leftCarrier.addEventListener('click', () => {
                 const otherOff = modal.classList.contains('hang-on-left');
@@ -169,8 +171,6 @@ export default Vue.extend<
                     return;
                 leftCarrier.click();
                 setTimeout(() => rightCarrier.click(), 500);
-
-                localStorage.setItem(this.initialBalloonsKey, 'true');
             });
         },
     },
