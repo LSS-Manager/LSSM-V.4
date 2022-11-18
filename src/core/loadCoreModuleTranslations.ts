@@ -1,5 +1,5 @@
 export default (LSSM: Vue, locale: string) =>
-    Promise.all(
+    Promise.allSettled(
         LSSM.$stores.modules.coreModuleIds.map(moduleId =>
             import(
                 /* webpackChunkName: "modules/i18n/[request]" */
