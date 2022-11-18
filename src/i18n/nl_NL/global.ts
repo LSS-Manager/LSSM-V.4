@@ -38,7 +38,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         },
     },
     anniversary: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
+        closeNote: 'Tip: Je kan ook op de ballonnen drukken om dit te sluiten!',
     },
     settings: {
         name: 'Algemene instellingen',
