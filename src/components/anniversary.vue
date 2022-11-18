@@ -309,6 +309,9 @@ $two-thirds: $one-third * 2
         max-height: calc(100vh - #{$modal-top} - #{$carrier-balloon-total-height}) !important
         animation: float-modal ease-in $modal-float-time forwards
 
+        body.dark & :deep(a)
+            color: #6dd5f4
+
         &:before
             content: ""
             position: fixed
