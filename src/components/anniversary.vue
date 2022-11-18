@@ -238,12 +238,11 @@ export default Vue.extend<
 
 $balloon-height: 125px
 
-$modal-top: 10vh
-
 @import '../sass/mixins/anniversaryBallon'
 
 $carrier-balloon-height: 100px
 $carrier-balloon-sizes: getBalloonSizes($carrier-balloon-height)
+$modal-top: map.get($carrier-balloon-sizes, 'half-height')
 $carrier-half-balloon-width: map.get($carrier-balloon-sizes, 'half-width')
 $carrier-balloon-total-height: map.get($carrier-balloon-sizes, 'total-height')
 $modal-float-time: 7500ms
@@ -307,7 +306,7 @@ $two-thirds: $one-third * 2
         pointer-events: all
         padding: 1rem
         overflow: auto !important
-        max-height: calc(#{100vh - $modal-top} - #{$carrier-balloon-total-height}) !important
+        max-height: calc(100vh - #{$modal-top} - #{$carrier-balloon-total-height}) !important
         animation: float-modal ease-in $modal-float-time forwards
 
         &:before
@@ -362,7 +361,7 @@ $two-thirds: $one-third * 2
     from
         transform: translateY(calc(#{$modal-top} + #{$carrier-balloon-total-height - 5}))
     to
-        transform: translateY(110vh)
+        transform: translateY(calc(100vh + #{$modal-top}))
 </style>
 <style lang="sass">
 @use "sass:map"
