@@ -6,7 +6,10 @@
                 :icon="faTimes"
                 class="pull-right anniversary-modal-close"
             ></font-awesome-icon>
-            <div v-html="anniversaryModalContent"></div>
+            <div
+                v-html="anniversaryModalContent"
+                class="anniversary-modal-content"
+            ></div>
         </div>
         <span class="popped-balloons-counter" v-if="currentBalloons.length">
             {{ poppedBalloons }}
@@ -135,7 +138,7 @@ export default Vue.extend<
 
             modal.classList.remove('hidden');
             modal.style.setProperty(
-                '--lssm-logo-url',
+                'background-image',
                 `url(${this.rootStore.lssmLogoUrl})`
             );
 
@@ -308,23 +311,11 @@ $two-thirds: $one-third * 2
         overflow: auto !important
         max-height: calc(100vh - #{$modal-top} - #{$carrier-balloon-total-height}) !important
         animation: float-modal ease-in $modal-float-time forwards
+        background-blend-mode: soft-light
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center center
 
-        body.dark & :deep(a)
-            color: #6dd5f4
-
-        &:before
-            content: ""
-            position: fixed
-            width: 100%
-            height: 100%
-            top: 0
-            left: 0
-            opacity: 0.1
-            background-image: var(--lssm-logo-url)
-            background-size: contain
-            background-repeat: no-repeat
-            background-position: center center
-            pointer-events: none
 
         &.hang-on-right
             transform: rotate(-5deg)
@@ -341,9 +332,20 @@ $two-thirds: $one-third * 2
         .anniversary-modal-close
             cursor: pointer
 
-        :deep(ul li)
-            list-style: none
-            text-indent: -1em
+
+        .anniversary-modal-content
+            background-color: rgba(0, 0, 0, 0.3)
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+            transition: box-shadow 0.3s
+            border-radius: 5px
+            padding: 1rem
+
+            body.dark & :deep(a)
+                color: #6dd5f4
+
+            :deep(ul li)
+                list-style: none
+                text-indent: -1em
 
 @keyframes float-modal-carrier
     from
