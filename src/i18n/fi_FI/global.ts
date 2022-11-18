@@ -37,6 +37,9 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
             abort: 'Sulje viesti lataamatta peliä uudestaan',
         },
     },
+    anniversary: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+    },
     settings: {
         name: 'Yleiset asetukset',
         labelInMenu: {
