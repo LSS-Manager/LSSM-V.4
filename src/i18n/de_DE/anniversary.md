@@ -1,4 +1,4 @@
-# 🎉 Es gibt grund zu feiern! 🎉
+# 🎉 Es gibt Grund zu feiern! 🎉
 
 * *21.11.2022*
 
