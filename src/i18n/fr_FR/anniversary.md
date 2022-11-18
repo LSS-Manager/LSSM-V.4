@@ -29,4 +29,5 @@ Nous attendons avec impatience de nombreuses autres années avec LSSM, quelle qu
 
 Votre équipe LSSM,
 Jan, Sanni, Ron et Crazycake
+*(Deoxis9001)*
 
