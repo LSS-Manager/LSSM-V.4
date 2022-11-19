@@ -1,0 +1,49 @@
+{
+    "amount": "{n} jugador filtrado | {n} jugadores filtrados",
+    "credits": "créditos totales ganados",
+    "discount": "descuento",
+    "edit_caption": { "save": "guardar" },
+    "load": { "next": "cargar la página siguiente", "prev": "cargar la página anterior" },
+    "name": "jugador",
+    "online": {
+        "subtitle": "¡Solo se muestra los miembros conectados!",
+        "titles": {
+            "blue": "¡{user} está desconectado y ha estado en conectado en los últimos 30 días!",
+            "gray": "¡{user} está desconectado y estuvo conectado en los últimos 7 días!",
+            "green": "¡{user} está conectado!",
+            "red": "¡{user} ha estado desconectado más de 60 días!",
+            "yellow": "¡{user} está desconectado y ha estado conectado durante los últimos 60 días!"
+        },
+        "toggle": {
+            "false": "Mostrar jugadores conectados",
+            "true": "Mostrar todos los jugadores (también desconectados)"
+        }
+    },
+    "rights": {
+        "admin": "Administrador de la alianza",
+        "aufsichtsrat": "Registro de acciones del moderador",
+        "coadmin": "Co-administrador de la alianza",
+        "edit": "Editar derechos de administración",
+        "finance": "Finanzas de la alianza",
+        "hide": "Cerrar",
+        "kick": { "btn": "Expulsar" },
+        "kickModal": {
+            "btnCancel": "Cancelar",
+            "btnConfirm": "Expulsar",
+            "text": "¿Quiere realmente expulsar al jugador **{user}** de la alianza?",
+            "title": "¿Expulsar?"
+        },
+        "schooling": "Administrador de formación",
+        "set": "Establecer como {role}",
+        "sprechwunsch_admin": "Administrador de peticiones de transporte",
+        "staff": "Personal de la alianza",
+        "unset": "Quitar como {role}"
+    },
+    "roles": "Role(s)",
+    "search_global": "Búsqueda global",
+    "search_local": "Buscar en jugadores cargados",
+    "search_subtitle": "Muesta {n} jugadores de {startPage} a {endPage} de {totalPages} páginas",
+    "subtitle": "Muestra {n} jugadores de {startPage} ({firstCredits}) a {endPage} ({lastCredits}) de {totalPages} páginas",
+    "tax": "Tasa de impuesto",
+    "title": "Miembros"
+}
