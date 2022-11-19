@@ -10,18 +10,14 @@ sidebarDepth: 3
 LSS-Manager est une offre gratuite - nous n'avons pas l'intention de changer cela.
 Même s'il apporte certainement une valeur ajoutée, il n'y a pas de TVA sur ce produit :wink:
 
-:::warning Dons
-Il y a quelques utilisateurs sympathiques qui aimeraient nous donner de l'argent. Mais : LSS-Manager est et restera gratuit. Aussi, nous n'accepterons aucun don pour ce projet.
+Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
 
-Ceci pour plusieurs raisons :
+::warning donations
+All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
 
-* Ce projet est développé sur une base volontaire pendant le temps libre des développeurs participants.
-* Une variante d'abonnement, similaire à la prime dans le jeu, mettrait trop de pression sur nous personnellement pour continuer à programmer au-delà de notre désir.
-* Pour des raisons légales, nous ne pouvons pas accepter de dons :
-    * Si nous fondions une société pour LSS Manager afin de pouvoir recevoir des dons, cela n'aurait aucun avenir, car une société sans frais ne peut être une société.
-    * Si nous faisions fonctionner les serveurs, qui font actuellement tourner LSS Manager, par le biais d'une société, ils absorberaient immédiatement les revenus.
+Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
 
-Par conséquent, en dehors de l'idée de volontariat, cela n'a aucun sens pour nous de prendre de l'argent pour le LSS-Manager.
+Of course, we are happy about any donation, but we would still like to point out that we would like to keep the project running as before even without the donations.
 :::
 
 ## Comment puis-je contribuer à LSS Manager ?
@@ -71,19 +67,19 @@ Comment cela fonctionne-t-il ?
 
 Néanmoins, nous attirons encore une fois explicitement votre attention sur le fait que LSSM n'est pas conçu pour les terminaux mobiles et que notre support est donc très limité, voire inexistant.
 
-
 ## Je souhaite partager ma configuration avec des amis ou l'utiliser sur plusieurs appareils. Est-ce possible ?
 Oui, c'est possible. Pour cela, il te suffit de cliquer dans les [paramètres][settings] sur `Export` pour télécharger un fichier et `Import` pour importer les paramètres depuis un fichier.
 
 ## Existe-t-il un moyen d'enregistrer les paramètres liés au compte afin de ne pas avoir à les importer sur un autre appareil ?
 Actuellement, nous ne proposons pas cette possibilité, mais une implémentation de cette fonctionnalité est prévue.
 
-## Comment puis-je savoir si les serveurs de l'LSSM sont en ligne ? 
+## Comment puis-je savoir si les serveurs de l'LSSM sont en ligne ?
 Le mieux est de le consulter ici : [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
-Ou dans sur <discord-channel channel="uptime"/> sur notre <discord/>. 
+Ou dans sur <discord-channel channel="uptime"/> sur notre <discord/>.
 
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
 [settings]: settings.md
+[donate]: https://donate.lss-manager.de/

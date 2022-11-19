@@ -1,14 +1,14 @@
 export default {
     updateUserscript: {
         title: 'koodi on vanhentunut',
-        text: `Dear LSSM-User,<br>
-unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
-Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
-If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
-Sometimes, LSSM is installed multiple times after an update. In this case it helps to uninstall/remove all LSSM V.4 installations in Tampermonkey and then reinstall LSSM V.4 once.<br><br>
-Kind regards,<br>
-your LSSM team`,
+        text: `Hyvä LSSM-käyttäjä,<br>
+valitettavasti LSSM V.4 -käyttäjäkoodisi on vanhentunut. Uusimmassa versiossa userscriptiin on tehty muutoksia, jotka ovat tärkeitä LSSM V.4:n toiminnan kannalta.<br>
+Tarvitset vähintään version {minVersion}, päivitys onnistuu kätevästi klikkaamalla {updateLink}.<br>
+Joskus päivitys ei toimi napsauttamalla linkkiä (tuntemattomista syistä). Sitten voit joko käynnistää päivityksen Tampermonkeyssa (klikkaa selaimen tampermonkey-kuvaketta ja sitten "Yleiskatsaus". Valitse LSSM-käyttäjäkoodin edessä oleva valintaruutu ja valitse toiminnoksi "Päivitä".<br>
+Jos tämäkään ei auta, muokkaa LSSM-skriptiä Tampermonkeyssa korvaamalla kaikki skriptin sisältö kohteen {bypassLink} sisällöllä.<br>
+Joskus LSSM asennetaan useita kertoja päivityksen jälkeen. Tässä tapauksessa auttaa poistamaan kaikki LSSM V.4 -asennukset Tampermonkeysta ja asentamaan sitten LSSM V.4 uudelleen kerran.<br><br>
+Ystävällisin terveisin,<br>
+LSSM-tiimisi`,
         close: 'Ok',
     },
     error: {
@@ -38,7 +38,7 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
         },
     },
     anniversary: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
+        closeNote: 'Vinkki: Voit myös sulkea ilmapalloja napsauttamalla!',
     },
     settings: {
         name: 'Yleiset asetukset',
