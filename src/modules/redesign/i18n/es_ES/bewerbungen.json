@@ -1,0 +1,12 @@
+{
+    "accept": "Aceptar",
+    "alert": {
+        "accepted": "¡{username} ha sido aceptado con éxito en la alianza!",
+        "declined": "¡La solicitud de **{username}** fue rechazada!"
+    },
+    "decline": "Rechazar",
+    "earnedCredits": "Créditos ganados",
+    "rules": "Reglas de solicitud",
+    "title": "Solicitud: {n} | Solicitudes: {n}",
+    "user": "Solicitudes"
+}
