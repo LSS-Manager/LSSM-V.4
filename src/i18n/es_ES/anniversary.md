@@ -5,6 +5,7 @@
 Es ese momento otra vez: ¡El pastel de chocolate está horneado, las bebidas calientes están listas!
 
 Para el segundo cumpleaños de LSSM V.4 nos gustaría volver a celebrarlo con usted y, por lo tanto, le hemos preparado algunas sorpresas:
+
 * Un montón de globos de colores
 A través del menú LSSM puedes dejar que algunos globos se eleven y explotarlos haciendo clic en ellos. ¡En la parte inferior derecha encontrarás un contador que puedes usar para indicar cuánto tiempo has invertido en hacer clic en los globos!
 * Mejor beta
