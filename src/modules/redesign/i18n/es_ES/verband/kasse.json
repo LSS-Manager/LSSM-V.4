@@ -1,0 +1,27 @@
+{
+    "disabled": "Los fondos de la alianza están desactivados.",
+    "earnings": {
+        "credits": "Créditos",
+        "daily": "Diaria",
+        "monthly": "Mensual",
+        "sum": "Total",
+        "title": "Ganancias",
+        "user": "Jugador"
+    },
+    "spendings": {
+        "credits": "Créditos",
+        "date": "Fecha",
+        "desc": "Descripción",
+        "loadMore": "Cargar 10 operaciones más",
+        "title": "Gastos",
+        "user": "Jugador"
+    },
+    "summary": {
+        "rate": "Tasa de contribución de la alianza",
+        "title": "Fondos de la alianza"
+    },
+    "toggle": {
+        "disable": "Desactivar fondos de la alianza",
+        "enable": "Activar fondos de la alianza"
+    }
+}
