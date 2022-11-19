@@ -10,14 +10,14 @@ sidebarDepth: 3
 LSS-Manager est une offre gratuite - nous n'avons pas l'intention de changer cela.
 Même s'il apporte certainement une valeur ajoutée, il n'y a pas de TVA sur ce produit :wink:
 
-Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
+Vous souhaitez quand même nous soutenir financièrement ? Alors vous pouvez nous envoyer un don via [OpenCollective][donate]. Nous sommes heureux de tout soutien !
 
-::warning donations
-All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
+::warning Dons
+Tous les dons seront uniquement utilisés pour couvrir nos frais de fonctionnement. Nous n'avons pas l'intention de faire des bénéfices et nous ne les distribuerons pas.
 
-Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
+Les dons n'ont aucune influence directe sur le développement de LSSM ! Nous n'investirons pas plus ou moins de temps et il n'y aura pas d'avantages directs pour les utilisateurs tels que des fonctionnalités premium. Le développement de LSSM se fera sur une base volontaire, pendant notre temps libre, et l'utilisation restera entièrement gratuite pour tous les utilisateurs !
 
-Of course, we are happy about any donation, but we would still like to point out that we would like to keep the project running as before even without the donations.
+Bien sûr, nous sommes heureux de tout don, mais nous tenons à souligner que nous aimerions continuer à faire fonctionner le projet comme avant, même sans les dons.
 :::
 
 ## Comment puis-je contribuer à LSS Manager ?
