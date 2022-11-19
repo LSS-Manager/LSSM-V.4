@@ -2,7 +2,10 @@
     "alliance": "Alianza",
     "amount": "{n} jugador filtrado | {n} jugadores filtrados",
     "credits": "Créditos totales ganados",
-    "load": { "next": "Cargar página siguiente", "prev": "Cargar página anterior" },
+    "load": {
+        "next": "Cargar página siguiente",
+        "prev": "Cargar página anterior"
+    },
     "name": "Jugadores",
     "search_global": "Búsqueda global",
     "search_local": "Buscar en jugadores cargados",

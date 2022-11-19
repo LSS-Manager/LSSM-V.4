@@ -89,7 +89,11 @@
     },
     "release_patient": "Dar de alta al paciente",
     "release_prisoner": "Liberar presos",
-    "staff": { "name": "Nombre", "schooling": "Formación", "title": "Personal" },
+    "staff": {
+        "name": "Nombre",
+        "schooling": "Formación",
+        "title": "Personal"
+    },
     "station": "Edificio",
     "stats": "Estadísticas",
     "tabs": {

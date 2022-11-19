@@ -26,7 +26,10 @@
             "unban": "Permitir el chat de alianza"
         },
         "edit": "Editar perfil",
-        "friend": { "do": "Añadir como amigo", "undo": "Eliminar de mis amigos" },
+        "friend": {
+            "do": "Añadir como amigo",
+            "undo": "Eliminar de mis amigos"
+        },
         "gift": "Enviar Gift",
         "ignore": {
             "do": "Ignorar al jugador",

@@ -3,7 +3,10 @@
     "credits": "créditos totales ganados",
     "discount": "descuento",
     "edit_caption": { "save": "guardar" },
-    "load": { "next": "cargar la página siguiente", "prev": "cargar la página anterior" },
+    "load": {
+        "next": "cargar la página siguiente",
+        "prev": "cargar la página anterior"
+    },
     "name": "jugador",
     "online": {
         "subtitle": "¡Solo se muestra los miembros conectados!",

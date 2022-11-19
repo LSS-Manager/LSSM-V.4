@@ -2,7 +2,10 @@
     "alliance": "Alianza",
     "amount": "{n} Alianza filtrada | {n} alianzas filtradas",
     "credits": "Créditos ganados",
-    "load": { "next": "Cargar página siguiente", "prev": "Cargar página anterior" },
+    "load": {
+        "next": "Cargar página siguiente",
+        "prev": "Cargar página anterior"
+    },
     "members": "Número de miembros",
     "name": "Alianza",
     "search_global": "Búsqueda global",
