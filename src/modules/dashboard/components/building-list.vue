@@ -5,6 +5,7 @@
             :head="{
                 ...headingsAll,
                 ...headingsExtensions,
+                ...headingsHospital,
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -111,6 +112,9 @@
                 <td v-if="listType === 'extension'">
                     {{ building.extension_unavailable.toLocaleString() }}
                 </td>
+                <td v-if="listType === 'building' && this.$stores.translations.bedBuildings.includes(bedBuildings[0])  ">
+
+                </td>
             </tr>
         </enhanced-table>
     </lightbox>
@@ -171,6 +175,19 @@ export default Vue.extend<
                       },
                   }
                 : {}
+        ) as Record<string,
+            {
+                title: string;
+                noSort?: boolean;
+            }>;
+        const headingsHospital = (
+            this.listType === 'building' && this.$stores.translations.bedBuildings.includes(this.buildings[0]?.building_type)
+                ? {
+                    beds: { title: this.$m('beds'), noSort: false },
+                    bedsFree: { title: this.$m('bedsFree'), noSort: false },
+
+                }
+                : {}
         ) as Record<
             string,
             {
@@ -199,6 +216,12 @@ export default Vue.extend<
                 ? 1
                 : 0
         );
+        const bedBuildings: Building[] = [];
+        const bedBuildingsType =
+            useTranslationStore().bedBuildings;
+        bedBuildingsType.forEach(type =>
+            bedBuildings.push(...(buildingsByType[type] ?? [])),
+        );
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(useTranslationStore().buildings).map(
@@ -211,6 +234,7 @@ export default Vue.extend<
             faPencilAlt,
             headingsExtensions,
             headingsAll,
+            headingsHospital,
             dispatchBuildings,
             dispatchCenterBuildings,
             apiStore,
