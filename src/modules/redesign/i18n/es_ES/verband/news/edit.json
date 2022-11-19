@@ -3,5 +3,8 @@
     "public": "Público (será visible para todos los jugadores del juego)",
     "save": "Guardar",
     "text": "Contenido",
-    "title": { "edit": "Alianza de noticias editada", "new": "Crear nueva noticia" }
+    "title": {
+        "edit": "Alianza de noticias editada",
+        "new": "Crear nueva noticia"
+    }
 }
