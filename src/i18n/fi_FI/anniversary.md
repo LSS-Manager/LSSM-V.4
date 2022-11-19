@@ -28,4 +28,4 @@ Odotamme innolla lisää vuosia LSSM:n kanssa riippumatta siitä, mitä versiota
 
 LSSM-tiimisi,
 Jan, Sanni, Ron ja Crazycake
-(Kääntänyt Aapeli_)
+*(Kääntänyt Aapeli_)*
