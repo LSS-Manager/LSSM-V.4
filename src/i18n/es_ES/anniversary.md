@@ -20,7 +20,7 @@ A través del menú LSSM puedes dejar que algunos globos se eleven y explotarlos
   OpenCollective le permite donar de diferentes maneras: única, mensual y anual. La cantidad se puede elegir libremente (sin embargo, hemos creado tres donaciones únicas ejemplares para que pueda ahorrar algunos clics si es necesario). Es importante saber que no tenemos disponible el monto total, ya que se aplican diferentes tarifas según el método de pago. Además, el 6 % de las tarifas de procesamiento van a nuestro servidor fiscal "OpenCollective Europe" (<https://opencollective.com/europe>), que administra el dinero por nosotros para que no tengamos que preocuparnos por cosas como la contabilidad y impuestos.
   Por cierto: con cada donación, puede donar opcionalmente una cantidad ligeramente mayor, que luego se destinará a OpenCollective.
   
-Debido a los problemas recientes en el centro de datos, nos gustaría aprovechar esta oportunidad para consultar una vez más nuestra página de estado oficial, donde siempre se puede ver la disponibilidad actual de LSSM: <https://status.lss-manager.de />
+Debido a los problemas recientes en el centro de datos, nos gustaría aprovechar esta oportunidad para consultar una vez más nuestra página de estado oficial, donde siempre se puede ver la disponibilidad actual de LSSM: <https://status.lss-manager.de/>
 
 ¡Nos gustaría celebrar con usted y agradecerle a nuestra comunidad por su continuo apoyo!
 Esperamos muchos años más con LSSM, sin importar qué versión haya para celebrar.
