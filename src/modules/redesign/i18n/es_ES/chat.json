@@ -1,0 +1,8 @@
+{
+    "load": {
+        "next": "Cargar 20 mensajes antiguos",
+        "prev": "Cargar 20 mensajes nuevos"
+    },
+    "subtitle": "Muestra {n} mensajes de la página {startPage} ({firstDate}) a la página {endPage} ({lastDate}) de un total de {totalPages} páginas.",
+    "title": "Chat de la alianza"
+}

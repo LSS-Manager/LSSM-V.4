@@ -1,0 +1,42 @@
+{
+    "alerts": {
+        "alliance_ignored": "¡{name} está prohibido aplicar a tu alianza!",
+        "friend": "¡{name} está en tu lista de amigos! 🥳",
+        "ignored": "Tú ignoras a este jugador. ¡{name} no puede enviarte mensajes!"
+    },
+    "alliance": "Alianza",
+    "awards": {
+        "bronze": "Bronce",
+        "gold": "Oro",
+        "max": "15",
+        "own": "Abre tus premios",
+        "silver": "Plata",
+        "title": "Premios",
+        "title_amounts": "{sum} de {max} Premios"
+    },
+    "buildings": { "amount": "{n} Edificios" },
+    "buttons": {
+        "alliance_ignore": {
+            "add": "Denegar solicitud de alianza",
+            "destroy": "Permitir solicitud de alianza"
+        },
+        "avatar": "Editar foto de perfil",
+        "chat": {
+            "ban": "Prohibir el chat de alianza",
+            "unban": "Permitir el chat de alianza"
+        },
+        "edit": "Editar perfil",
+        "friend": { "do": "Añadir como amigo", "undo": "Eliminar de mis amigos" },
+        "gift": "Enviar Gift",
+        "ignore": {
+            "do": "Ignorar al jugador",
+            "undo": "Dejar de ignorar al jugador"
+        },
+        "message": "Enviar un mensaje"
+    },
+    "credits": "{credits} créditos ganados",
+    "map": "Mapa",
+    "rank": "Ranking actual",
+    "registration": "Fecha de registro",
+    "text": "Texto de perfil"
+}

@@ -1,0 +1,8 @@
+{
+    "amount": "{n} amigo filtrado | {n} amigos filtrados",
+    "name": "Nombre",
+    "note": "Nota",
+    "remove": "Eliminar de mis amigos",
+    "save": "Guardar nota",
+    "title": "Amigos"
+}

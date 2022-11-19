@@ -1,0 +1,8 @@
+{
+    "description": "En la ventana de alarma, este color se establece como fondo de la casilla de verificación para todos los vehículos de este tipo de vehículo",
+    "noColor": "No hay ningún color de vehículo configurado actualmente",
+    "reset": "Eliminar color",
+    "save": "Guardar",
+    "savedNote": "¡El color del vehículo se ha guardado con éxito!",
+    "title": "Editar color del vehículo: {type}"
+}
