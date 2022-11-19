@@ -1,0 +1,16 @@
+{
+    "automaticMessage": {
+        "content": "Mensaje automático de bienvenida: Mensaje",
+        "subject": "Mensaje automático de bienvenida: Tema",
+        "title": "Mensaje automático de bienvenida"
+    },
+    "faq": "FAQ",
+    "header": "Anuncios importantes de la alianza",
+    "header_help": "Se mostrará en la página de inicio encima del chat",
+    "rules": "Reglas de la alianza",
+    "save": "Guardar",
+    "text": "Texto de descripción (página de inicio)",
+    "title": "Editar alianza",
+    "webhook": "Enlace Discord-WebHook",
+    "webhook_help": "Puede encontrar más información sobre WebHooks en nuestro Discord"
+}
