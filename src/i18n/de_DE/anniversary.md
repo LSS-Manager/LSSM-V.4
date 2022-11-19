@@ -1,4 +1,4 @@
-# 🎉 Es gibt grund zu feiern! 🎉
+# 🎉 Es gibt Grund zu feiern! 🎉
 
 * *21.11.2022*
 
@@ -13,7 +13,7 @@ Zum 2. Geburtstag des LSSM V.4 möchten wir wieder mit euch feiern und haben des
   Was heißt das konkret?
   In den Einstellungen hat jetzt jeder die Möglichkeit, zwischen Stable- und Beta-Version zu wechseln. Außerdem gibt es ab und zu einzelne sogenannte "Preview-Branches". Das dürfte den generischen Nutzer eher weniger interessieren, aber gerade bei der Entwicklung von neuen Features können wir somit eine gezieltere Testung mit potenziell höherer Nutzerbreite ermöglichen. Diese Preview-Branches werden nach 7 Tagen ohne Update automatisch gelöscht, Nutzer erhalten dann wieder die Stable-Version.
   Auch potenzielle Contributoren – Entwickler, die gerne ihren Beitrag am LSSM leisten möchten – haben somit die Möglichkeit, das ganze direkt mit dem LSSM zu testen, ohne sich eine eigene Test-Instanz aufzusetzen. Das Live-Schalten bzw. Aktualisieren eines Preview-Branches kann dennoch nur durch das LSSM-Team geschehen, damit nicht einfach jeder eine Preview-Branches (mit potenziell schädlichem Code) erstellen kann.
-* OpenCollective: <https://opencollective.com/lss-manager>
+* OpenCollective: <https://donate.lss-manager.de/>
   Geld regiert die Welt und so haben auch wir laufende Kosten, um den LSSM zu betreiben. Das ist aktuell zwar nicht viel aber trotzdem möchten wir endlich allen Nutzern die Möglichkeit geben, uns finanziell zu unterstützen. Dazu nutzen wir die Plattform "OpenCollective" (<https://opencollective.com/>), der es uns ermöglicht, alle Spenden und die Nutzung dieser vollständig transparent zu gestalten.
   Wichtig: Das Spenden hat keinen direkten Einfluss auf die Entwicklung des LSSM! Wir werden nicht mehr und nicht weniger Zeit investieren und auch für einzelne Nutzer gibt es keine direkten Vorteile wie z.B. Premium-Features geben. Die Entwicklung des LSSM bleibt weiterhin auf freiwilliger Basis in unserer Freizeit und die Nutzung bleibt weiterhin für alle Nutzer vollständig kostenlos!
   Selbstverständlich freuen wir uns über jede Spende, wir möchten trotzdem darauf hinweisen, dass wir das Projekt auch ohne die Spenden wie bisher weiter laufen lassen möchten.
