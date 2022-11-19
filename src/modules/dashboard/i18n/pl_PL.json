@@ -22,13 +22,11 @@
             "tip": "Kliknij jedną z kategorii (np. straż pożarna lub policja), aby powiększyć typy budynków przypisane do tej kategorii. Jeśli następnie klikniesz na typ budynku, zobaczysz, ile pojazdów każdego typu znajduje się w budynkach tego typu. W ten sposób możesz szybko dowiedzieć się, ile pojazdów każdego typu jest zaparkowanych na posterunkach policji, a ile na komisariatach.",
             "title": "Budynki"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Nie masz jeszcze pojazdów w kategorii {category}!",
             "tip": "Kliknij grupę typów pojazdów, aby wyświetlić tylko tę grupę.",
             "title": "Pojazdy"
-        },
-        "maxMissions": {
-            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

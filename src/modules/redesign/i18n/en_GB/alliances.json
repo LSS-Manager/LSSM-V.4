@@ -9,5 +9,5 @@
     "search_local": "Search in loaded alliances",
     "search_subtitle": "Show {n} Alliances of the pages {startPage} to {endPage} of total {totalPages} Sides",
     "subtitle": "Show {n} Alliances of the pages {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of total {totalPages} Sides",
-    "title": "Verbandsliste"
+    "title": "Alliances"
 }

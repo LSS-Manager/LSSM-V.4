@@ -163,7 +163,7 @@ export default {
         repo: 'LSS-Manager/LSSM-V.4',
     },
     modules: {
-        'core-modules': ['telemetry', 'releasenotes', 'support'],
+        'core-modules': ['telemetry', 'releasenotes' /*, 'support'*/],
     },
     loadScript: {
         start: `${PREFIX}-load-script-start`,

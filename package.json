@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.6.3+20221115.0935",
+    "version": "4.6.3+20221119.1951",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -12,9 +12,9 @@
         "check-tsc": "./build/build.sh --tsc"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "6.2.0",
-        "@fortawesome/fontawesome-svg-core": "6.2.0",
-        "@fortawesome/free-solid-svg-icons": "6.2.0",
+        "@fortawesome/fontawesome-free": "6.2.1",
+        "@fortawesome/fontawesome-svg-core": "6.2.1",
+        "@fortawesome/free-solid-svg-icons": "6.2.1",
         "@fortawesome/vue-fontawesome": "2.0.9",
         "broadcast-channel": "4.18.1",
         "emoji-toolkit": "7.0.0",
@@ -27,7 +27,7 @@
         "mini-svg-data-uri": "1.4.4",
         "moment": "2.29.4",
         "pdfmake": "0.2.6",
-        "pinia": "2.0.23",
+        "pinia": "2.0.24",
         "qrcode": "1.5.1",
         "semver": "7.3.8",
         "showdown": "2.1.0",
@@ -45,7 +45,7 @@
         "@types/he": "1.1.2",
         "@types/i18n-js": "3.8.3",
         "@types/jquery": "3.5.14",
-        "@types/js-yaml": "^4.0.5",
+        "@types/js-yaml": "4.0.5",
         "@types/leaflet": "1.9.0",
         "@types/lodash": "4.14.189",
         "@types/node": "18.11.9",
@@ -76,7 +76,7 @@
         "eslint-plugin-unicorn": "44.0.2",
         "eslint-plugin-vue": "9.7.0",
         "html-loader": "4.2.0",
-        "js-yaml": "^4.1.0",
+        "js-yaml": "4.1.0",
         "moment-timezone": "0.5.39",
         "prettier": "2.7.1",
         "sass": "1.56.1",
@@ -91,9 +91,9 @@
         "webpack": "5.75.0"
     },
     "engines": {
-        "node": "^v18.12.0"
+        "node": "18.12.1"
     },
-    "packageManager": "yarn@3.2.4",
+    "packageManager": "yarn@3.3.0",
     "workspaces": [
         "./docs/.vuepress/"
     ],

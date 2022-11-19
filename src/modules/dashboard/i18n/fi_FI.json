@@ -22,13 +22,11 @@
             "tip": "Klikkaa jotakin luokkaa (esim. pelastuslaitos tai poliisi) suurentaaksesi kyseiseen luokkaan kuuluvia rakennustyyppejä. Jos sitten napsautat rakennustyyppiä, näet, kuinka monta kunkin ajoneuvotyypin ajoneuvoa sijaitsee kyseisen tyypin rakennuksissa. Näin saat nopeasti selville, kuinka monta kunkin ajoneuvotyypin ajoneuvoa on poliisiasemilla ja kuinka monta pienillä poliisiasemilla.",
             "title": "Rakennukset"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Sinulla ei ole vielä kategoriassa {category} ajoneuvoja!",
             "tip": "Napsauta ajoneuvotyyppien ryhmää näyttääksesi vain tämän ryhmän.",
             "title": "Ajoneuvot"
-        },
-        "maxMissions": {
-            "title": "Maximum missions"
         }
     },
     "dispatchcenter-view": {

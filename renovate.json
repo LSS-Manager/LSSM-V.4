@@ -37,7 +37,7 @@
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
             "matchPackagePrefixes": ["@types/"],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
         {
@@ -45,7 +45,7 @@
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
             "matchPackagePrefixes": ["@fortawesome/"],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
         {
@@ -53,7 +53,7 @@
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
             "matchPackagePrefixes": ["@typescript-eslint"],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
         {
@@ -62,7 +62,7 @@
             "matchManagers": ["npm"],
             "matchPackageNames": ["vuepress"],
             "matchPackagePrefixes": ["@vuepress"],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
         {
@@ -71,17 +71,17 @@
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
             "matchPackageNames": ["node", "npm", "yarn"],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
         {
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "pin",
             "separateMajorMinor": false
         }
     ],
-    "rangeStrategy": "bump",
+    "rangeStrategy": "pin",
     "reviewers": ["Suchty112"],
     "schedule": ["before 3am every weekday"],
     "timezone": "Europe/Berlin"

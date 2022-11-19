@@ -6,38 +6,34 @@ sidebarDepth: 3
 
 # FAQ ❓
 
-### Wat kost LSS Manager?
+## Wat kost LSS Manager?
 LSS-Manager is een gratis aanbieding - we zijn niet van plan dit te veranderen.
 
-:::warning donaties
-Er zijn een paar aardige gebruikers die graag geld aan ons willen doneren. Maar: de LSS-Manager is en blijft gratis. Ook accepteren we geen donaties voor dit project.
+Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
 
-Dit heeft verschillende redenen:
+:::warning donations
+All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
 
-* Dit project wordt op vrijwillige basis ontwikkeld in de vrije tijd van de deelnemende ontwikkelaars
-* Een abonnementsvariant, vergelijkbaar met de Premium in de game, zou ons persoonlijk te veel onder druk zetten om verder te gaan dan we wilden met programmeren.
-* Om juridische redenen kunnen we geen donaties accepteren:
-    * Als we een bedrijf voor LSS Manager zouden oprichten zodat we donaties zouden kunnen ontvangen, zou dit geen toekomst hebben, want een bedrijf zonder kosten kan geen bedrijf zijn.
-    * Als we de servers, waarop momenteel LSS Manager draait, door een bedrijf zouden laten lopen, zouden ze het inkomen onmiddellijk opeten.
+Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
 
-Daarom heeft het naast het idee van vrijwilligheid geen zin om geld aan te nemen voor de LSS-Manager.
+Of course, we are happy about any donation, but we would still like to point out that we would like to keep the project running as before even without the donations.
 :::
 
-### Hoe kan ik bijdragen aan LSS Manager?
+## Hoe kan ik bijdragen aan LSS Manager?
 De "normale" gebruiker kan [bugs melden][error] of [suggesties doen][suggestions].
 
 We zijn momenteel bezig met het ontwerpen van een stijlgids voor ontwikkelaars, zodat ook zij gemakkelijk hun eigen plug-ins aan LSSM kunnen toevoegen. We hebben ook geprobeerd onze codestructuur duidelijk en begrijpelijk te houden. Het toevoegen van een plug-in betekent echter op geen enkele manier dat u lid wordt van het team.
 
-### Hoe kan ik bugs melden?
+## Hoe kan ik bugs melden?
 Kijk hoervoor op onze [meld bugs][error] pagina.
 
-### Waar kan ik hulp krijgen?
+## Waar kan ik hulp krijgen?
 Door onze steun. Meer informatie vindt u [hier][support].
 
-### Hoe kan ik suggesties indienen?
+## Hoe kan ik suggesties indienen?
 Op de [suggestions][suggestions] pagina hebben we wat informatie hierover bij elkaar gezet.
 
-### In welke browsers werkt LSS Manager?
+## In welke browsers werkt LSS Manager?
 Alleen desktopbrowsers worden hier vermeld, aangezien mobiele browsers niet officieel worden ondersteund.
 
 Omdat we overal de nieuwste coderingsstandaarden willen behouden, is een moderne en up-to-date browser noodzakelijk en aanbevolen - al was het maar om veiligheidsredenen, zelfs buiten het spel.
@@ -50,10 +46,10 @@ Deze twee browsers kunnen worden omschreven als de "probleemkinderen" van een mo
 We zien het nut niet in om dit overal te doen en ondersteunen deze twee browsers daarom **niet** officieel.
 :::
 
-### Ik wil mijn installatie delen met vrienden of deze op meerdere apparaten gebruiken. Is dat mogelijk?
+## Ik wil mijn installatie delen met vrienden of deze op meerdere apparaten gebruiken. Is dat mogelijk?
 Momenteel is het niet mogelijk, maar we werken eraan.
 
-### Is er een manier om accountgebonden instellingen op te slaan, zodat u ze niet op een ander apparaat hoeft te importeren?
+## Is er een manier om accountgebonden instellingen op te slaan, zodat u ze niet op een ander apparaat hoeft te importeren?
 Momenteel bieden we dit niet aan, maar een implementatie van deze functie is gepland.
 
 ## Where can I see if the LSSM servers are online?
@@ -61,7 +57,7 @@ Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Or in the <discord-channel channel="uptime"/> on our <discord/>
 
-
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
+[donate]: https://donate.lss-manager.de/

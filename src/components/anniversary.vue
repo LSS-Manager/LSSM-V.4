@@ -1,11 +1,27 @@
 <template>
-    <div id="lssmv4-anniversary-balloons"></div>
+    <div id="lssmv4-anniversary-balloons">
+        <div class="anniversary-modal vm--modal hidden">
+            <small>{{ $t('global.anniversary.closeNote') }}</small>
+            <font-awesome-icon
+                :icon="faTimes"
+                class="pull-right anniversary-modal-close"
+            ></font-awesome-icon>
+            <div
+                v-html="anniversaryModalContent"
+                class="anniversary-modal-content"
+            ></div>
+        </div>
+        <span class="popped-balloons-counter" v-if="currentBalloons.length">
+            {{ poppedBalloons }}
+        </span>
+    </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import Showdown from 'showdown';
 import { useRootStore } from '@stores/index';
 
 import type { DefaultProps } from 'vue/types/options';
@@ -14,23 +30,40 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 const random = (max: number) => Math.floor(Math.random() * max);
 
 export default Vue.extend<
-    { faTimes: IconDefinition; rootStore: ReturnType<typeof useRootStore> },
+    {
+        faTimes: IconDefinition;
+        rootStore: ReturnType<typeof useRootStore>;
+        currentBalloons: HTMLSpanElement[];
+        poppedBalloons: number;
+        initialBalloonsKey: string;
+        anniversaryModalContent: string;
+    },
     {
         createBalloon(
             margin?: boolean,
-            rotation?: boolean
+            rotation?: boolean,
+            animation?: boolean
         ): {
             balloon: HTMLSpanElement;
             duration: number;
         };
+        createFixedBalloon(): HTMLSpanElement;
         launchBalloons(): void;
+        launchModal(): void;
     },
     { balloons: boolean },
     DefaultProps
 >({
     name: 'lssmv4-anniversary',
     data() {
-        return { faTimes, rootStore: useRootStore() };
+        return {
+            faTimes,
+            rootStore: useRootStore(),
+            currentBalloons: [],
+            poppedBalloons: 0,
+            initialBalloonsKey: `${PREFIX}_anniversary_initial_ballons_dispatched_2022`,
+            anniversaryModalContent: '',
+        };
     },
     props: {
         balloons: {
@@ -40,7 +73,7 @@ export default Vue.extend<
         },
     },
     methods: {
-        createBalloon(margin = true, rotation = true) {
+        createBalloon(margin = true, rotation = true, animation = true) {
             const balloon = document.createElement('span');
             balloon.classList.add('lssmv4-anniversary-balloon');
             const image = document.createElement('img');
@@ -59,33 +92,136 @@ export default Vue.extend<
             if (rotation)
                 balloon.dataset.rotation = (random(20) - 10).toString();
 
-            balloon.style.setProperty('animation-duration', `${duration}ms`);
+            if (animation) {
+                balloon.style.setProperty(
+                    'animation-duration',
+                    `${duration}ms`
+                );
+            }
             return { balloon, duration };
         },
+        createFixedBalloon() {
+            return this.createBalloon(false, false, false).balloon;
+        },
         launchBalloons() {
-            const balloonContainer = this.$el;
-            const balloons: HTMLSpanElement[] = [];
             let maxDuration = 0;
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 25; i++) {
                 const { balloon, duration } = this.createBalloon();
-                balloonContainer.append(balloon);
-                balloons.push(balloon);
+                this.$el.append(balloon);
+                this.currentBalloons.push(balloon);
                 if (duration > maxDuration) maxDuration = duration;
+                balloon.addEventListener('click', () => {
+                    balloon.style.setProperty('visibility', 'hidden');
+                    this.poppedBalloons++;
+                });
             }
             setTimeout(
-                () => balloons.forEach(balloon => balloon.remove()),
+                () =>
+                    this.currentBalloons
+                        .splice(0, 50)
+                        .forEach(balloon => balloon.remove()),
                 maxDuration
             );
         },
+        launchModal() {
+            const leftCarrier = this.createFixedBalloon();
+            leftCarrier.classList.add('modal-carrier', 'carrier-left');
+            const rightCarrier = this.createFixedBalloon();
+            rightCarrier.classList.add('modal-carrier', 'carrier-right');
+
+            this.$el.append(leftCarrier, rightCarrier);
+
+            const modal =
+                this.$el.querySelector<HTMLDivElement>('.anniversary-modal');
+
+            if (!modal) return;
+
+            modal.classList.remove('hidden');
+            modal.style.setProperty(
+                'background-image',
+                `url(${this.rootStore.lssmLogoUrl})`
+            );
+
+            const modalFall = () => {
+                modal.classList.add('falling');
+                setTimeout(() => {
+                    modal.remove();
+                }, 1000);
+
+                localStorage.setItem(this.initialBalloonsKey, 'true');
+            };
+            leftCarrier.addEventListener('click', () => {
+                const otherOff = modal.classList.contains('hang-on-left');
+                if (!otherOff) modal.classList.add('hang-on-right');
+                leftCarrier.classList.add('carrier-leaving');
+                setTimeout(() => leftCarrier.remove(), 1000);
+                if (otherOff) modalFall();
+            });
+            rightCarrier.addEventListener('click', () => {
+                const otherOff = modal.classList.contains('hang-on-right');
+                if (!otherOff) modal.classList.add('hang-on-left');
+                rightCarrier.classList.add('carrier-leaving');
+                setTimeout(() => rightCarrier.remove(), 1000);
+                if (otherOff) modalFall();
+            });
+            modal.addEventListener('click', e => {
+                const target = e.target;
+                if (
+                    !target ||
+                    !(target instanceof SVGElement) ||
+                    !target.closest('.anniversary-modal-close')
+                )
+                    return;
+                leftCarrier.click();
+                setTimeout(() => rightCarrier.click(), 500);
+            });
+        },
     },
     mounted() {
-        if (this.balloons) this.launchBalloons();
+        if (this.balloons && !localStorage.getItem(this.initialBalloonsKey)) {
+            (async () => {
+                for (const locale of [this.rootStore.locale, 'en_US']) {
+                    if (this.anniversaryModalContent) continue;
+                    await import(
+                        /* webpackChunkName: "i18n/anniversary/[request]" */
+                        /* webpackInclude:/[\\/]+i18n[\\/]+[a-z]{2}_[A-Z]{2}[\\/]+anniversary.md$/ */
+                        `../i18n/${locale}/anniversary.md`
+                    )
+                        .then(
+                            ({ default: content }) =>
+                                (this.anniversaryModalContent =
+                                    new Showdown.Converter({
+                                        headerLevelStart: 1,
+                                        literalMidWordUnderscores: true,
+                                        strikethrough: true,
+                                        tables: true,
+                                        tasklists: true,
+                                        smartIndentationFix: true,
+                                        disableForced4SpacesIndentedSublists:
+                                            true,
+                                        simpleLineBreaks: true,
+                                        openLinksInNewWindow: true,
+                                    }).makeHtml(content))
+                        )
+                        .catch(() => {
+                            // ignore error => try en_US
+                        });
+                }
+            })();
+
+            this.launchBalloons();
+            this.launchModal();
+        } else {
+            this.$el
+                .querySelector<HTMLDivElement>('.anniversary-modal')
+                ?.remove();
+        }
 
         const trigger = this.rootStore.addMenuItem('');
         trigger.classList.add('lssmv4-anniversary-trigger');
         trigger.addEventListener('click', this.launchBalloons);
         for (let i = 0; i < 5; i++) {
-            const triggerBalloon = this.createBalloon(false, false).balloon;
+            const triggerBalloon = this.createFixedBalloon();
             triggerBalloon.classList.add('trigger');
             trigger.append(triggerBalloon);
         }
@@ -93,16 +229,29 @@ export default Vue.extend<
         const navbar = document.createElement('div');
         navbar.classList.add('lssmv4-anniversary-navbar');
         for (let i = 0; i < window.innerWidth / 100; i++)
-            navbar.append(this.createBalloon(false).balloon);
+            navbar.append(this.createBalloon(false, true, false).balloon);
         document.querySelector<HTMLElement>('#main_navbar')?.prepend(navbar);
     },
 });
 </script>
 
 <style scoped lang="sass">
+@use "sass:math"
+@use "sass:map"
+
 $balloon-height: 125px
 
 @import '../sass/mixins/anniversaryBallon'
+
+$carrier-balloon-height: 100px
+$carrier-balloon-sizes: getBalloonSizes($carrier-balloon-height)
+$modal-top: map.get($carrier-balloon-sizes, 'half-height')
+$carrier-half-balloon-width: map.get($carrier-balloon-sizes, 'half-width')
+$carrier-balloon-total-height: map.get($carrier-balloon-sizes, 'total-height')
+$modal-float-time: 7500ms
+$modal-fall-time: 1000ms
+$one-third: math.div(100%, 3)
+$two-thirds: $one-third * 2
 
 #lssmv4-anniversary-balloons
     position: fixed
@@ -117,8 +266,107 @@ $balloon-height: 125px
     overflow: hidden
     pointer-events: none
 
+    .popped-balloons-counter
+        position: absolute
+        bottom: 1rem
+        right: 1rem
+        font-size: 30px
+
     :deep(.lssmv4-anniversary-balloon)
-        @include anniversaryBalloon($animation: true)
+        cursor: pointer
+        pointer-events: all
+
+        &:not(.modal-carrier)
+            @include anniversaryBalloon($animation: true)
+
+        &.modal-carrier
+            @include anniversaryBalloon($animation: false, $balloon-height: $carrier-balloon-height)
+            animation: float-modal-carrier ease-in $modal-float-time forwards
+            position: absolute
+            margin: 0 !important
+            transform: translateY($modal-top)
+            pointer-events: all
+            opacity: 0.95
+            cursor: pointer
+            background-color: rgba(var(--color), 0.75)
+
+            &.carrier-left
+                left: calc(#{$one-third} - #{$carrier-half-balloon-width})
+
+            &.carrier-right
+                left: calc(#{$two-thirds} - #{$carrier-half-balloon-width})
+
+            &.carrier-leaving
+                animation: float-modal-carrier-leaving ease-in $modal-fall-time forwards
+                transform: translateY(-100vh)
+
+    .anniversary-modal
+        width: $one-third * 1.2
+        position: absolute
+        transform: translateY(calc(#{$modal-top} + #{$carrier-balloon-total-height - 5}))
+        left: $one-third - 0.1 * $one-third
+        z-index: 1
+        pointer-events: all
+        padding: 1rem
+        overflow: auto !important
+        max-height: calc(100vh - #{$modal-top} - #{$carrier-balloon-total-height}) !important
+        animation: float-modal ease-in $modal-float-time forwards
+        background-blend-mode: soft-light
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center center
+
+
+        &.hang-on-right
+            transform: rotate(-5deg)
+            rotate: -5deg
+            transform-origin: calc(100% - #{$carrier-half-balloon-width}) $modal-top
+        &.hang-on-left
+            transform: rotate(5deg)
+            rotate: 5deg
+            transform-origin: $carrier-half-balloon-width $modal-top
+
+        &.falling
+            animation: float-modal-leaving ease-in $modal-fall-time forwards
+
+        .anniversary-modal-close
+            cursor: pointer
+
+
+        .anniversary-modal-content
+            background-color: rgba(0, 0, 0, 0.3)
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+            transition: box-shadow 0.3s
+            border-radius: 5px
+            padding: 1rem
+
+            body.dark & :deep(a)
+                color: #6dd5f4
+
+            :deep(ul li)
+                list-style: none
+                text-indent: -1em
+
+@keyframes float-modal-carrier
+    from
+        transform: translateY(100vh)
+    to
+        transform: translateY($modal-top)
+@keyframes float-modal-carrier-leaving
+    from
+        transform: translateY($modal-top)
+    to
+        transform: translateY(-100vh)
+@keyframes float-modal
+    from
+        transform: translateY(calc(100vh + #{$carrier-balloon-total-height}))
+    to
+        transform: translateY(calc(#{$modal-top} + #{$carrier-balloon-total-height - 5}))
+@keyframes float-modal-leaving
+    from
+        transform: translateY(calc(#{$modal-top} + #{$carrier-balloon-total-height - 5}))
+    to
+        transform: translateY(calc(100vh + #{$modal-top}))
 </style>
 <style lang="sass">
 @use "sass:map"
@@ -146,6 +394,7 @@ $balloon-sizes: getBalloonSizes($balloon-height)
     position: absolute
     display: flex !important
     justify-content: space-around
+    pointer-events: none
 
     .lssmv4-anniversary-balloon
         @include anniversaryBalloon($animation: false, $balloon-height: getBalloonHeightFromTotal(46px))

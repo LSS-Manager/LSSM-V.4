@@ -61,8 +61,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 render: h =>
                     h(anniversary, {
                         props: {
-                            balloons:
-                                new Date() >= new Date('2022-11-21T00:00'),
+                            balloons: true,
                         },
                     }),
             }).$mount(anniversaryWrapper);

@@ -45,17 +45,23 @@ jobs:
                   ref: ${{ inputs.ref }}
             #     token: ${{ steps.generate_token.outputs.token }}
 
+            - name: Get Node and yarn versions
+              id: get_node_yarn_versions
+              run: |
+                  echo "NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
+                  echo "YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
+
             - name: Setup Node.js
               id: node
               uses: actions/setup-node@v3
               with:
-                  node-version: 18
+                  node-version: ${{ env.NODE_VERSION }}
 
-            - name: '[⬆] set yarn to stable'
+            - name: '[⬆] retrieve current specified yarn version'
               id: yarn_setup
               run: |
                   corepack enable
-                  yarn set version stable
+                  yarn set version "${{ env.YARN_VERSION }}"
 
             - name: '[ℹ] print versions (node, yarn, git)'
               id: versions

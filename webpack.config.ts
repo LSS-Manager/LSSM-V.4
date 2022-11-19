@@ -24,6 +24,10 @@ export default {
                 type: 'asset/resource',
             },
             {
+                test: /\.md$/iu,
+                type: 'asset/source',
+            },
+            {
                 test: /\.svg$/iu,
                 use: [
                     {

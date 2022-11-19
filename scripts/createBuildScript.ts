@@ -12,6 +12,7 @@ interface Workflow {
 }
 
 const excludedSteps = [
+    'get_node_yarn_versions',
     'yarn_cache_dir',
     'generate_token',
     'output',
@@ -89,6 +90,14 @@ done`,
             .replace(/\n/gu, '\n    ')
             .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
             .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
+            .replace(
+                /\$\{\{ env\.NODE_VERSION \}\}/gu,
+                "grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]'"
+            )
+            .replace(
+                /\$\{\{ env\.YARN_VERSION \}\}/gu,
+                "$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
+            )
             .replace(/\$\{\{ inputs\.label \}\}/gu, '🦄 branch label')
             .replace(
                 /\$\{\{ (github|inputs)\.ref \}\}/gu,

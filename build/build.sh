@@ -81,14 +81,14 @@ done
 
 total_start_time=$(date +%s%N)
 
-# [⬆] set yarn to stable
+# [⬆] retrieve current specified yarn version
 if [[ $YARN_SETUP = true ]]; then
     start_time=$(date +%s%N)
-    echo "### [⬆] set yarn to stable ###"
+    echo "### [⬆] retrieve current specified yarn version ###"
     corepack enable
-    yarn set version stable
+    yarn set version "$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
     end_time=$(date +%s%N)
-    echo "=== [⬆] set yarn to stable: $(((end_time - start_time) / 1000000))ms ==="
+    echo "=== [⬆] retrieve current specified yarn version: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
 # [ℹ] print versions (node, yarn, git)

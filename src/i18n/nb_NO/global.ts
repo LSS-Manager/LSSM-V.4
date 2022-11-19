@@ -23,11 +23,8 @@ your LSSM team`,
             abort: 'Likk vindu uten å omlaste spillet',
         },
     },
-    anniversary1: {
+    anniversary: {
         closeNote: 'Tips: Du kan også klikke på ballongene for å lukke!',
-        title: '🎉 Det er grunn til å feire! 🎉',
-        content:
-            'Wow, så fort tiden går!<br>Det har gått <b>ett år</b> siden LSS Manager V.4 ble online! Mye har selvfølgelig skjedd i år, og derfor vil vi i denne spesielle anledningen rette en spesiell takk til dere brukere. Gleden du tester de nye funksjonene våre med inspirerer oss igjen og igjen og gir oss ny motivasjon til å fortsette. En stor takk rettes også til oversetterne våre som frivillig gir seg tid til å gjøre LSSM brukbar i andre versjoner av spillet.</br>For å feire vil vi gjerne dele noen fakta og tall her:<ul ><li><code>10. februar 2020</code>: Den første forpliktelsen på GitHub ble gjort: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Siden den gang har vi foretatt over 5600 forpliktelser!</li><li><code>19. september 2020</code>: V.4 ble offisielt annonsert for første gang på forumet: <a href="https:/ /forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. Med dette har også søknadsfasen for betatestere startet</li><li><code>17. oktober 2020</code>: Betatestere har fått tilgang til V.4 for første gang. Den 4-ukers betafasen har dermed startet</li><li><code>21. november 2020</code>: LSS Manager V.4 går online for alle!</li><li>Telemetrien vår registrerer for tiden rundt 5000 brukere de siste 6 månedene. Av disse var over 2200 aktive de siste 14 dagene. Mørketallet (antall brukere som har deaktivert telemetri) kan ikke estimeres.</li><li>Tråden vår i forumet har nå nådd nesten 1200 meldinger. Det er ganske mye, men V.3-tråden, som for øyeblikket skraper opp de 3500 svarene, er langt fra å ta igjen.</li><li>For mer statistikk, sjekk ut tråden vår i forumet:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li>< /ul><br>Vi ser frem til mange flere flotte øyeblikk i LSSM V.4-tiden!<br>Ditt LSSM-team<br>Jan, Sanni & Ron',
     },
     settings: {
         name: 'Innstillinger',
