@@ -7,8 +7,8 @@ C'est de nouveau le moment : Le gâteau au chocolat est cuit, les boissons chaud
 Pour le deuxième anniversaire de LSSM V.4, nous aimerions fêter avec vous une nouvelle fois et nous avons donc préparé quelques surprises :
 
 * Beaucoup de ballons colorés
-	Via le menu LSSM, vous pouvez faire apparaître quelques ballons et les faire éclater en cliquant dessus.
-	En bas à droite, vous trouverez un compteur qui vous renseignera sur le nombre de fois où vous avez cliqué sur des ballons !
+    Via le menu LSSM, vous pouvez faire apparaître quelques ballons et les faire éclater en cliquant dessus.
+    En bas à droite, vous trouverez un compteur qui vous renseignera sur le nombre de fois où vous avez cliqué sur des ballons !
 * Une version bêta amélioré
   Ce n'est pas un simple jeu de mots, mais une nouveauté pour LSSM : nous passons d'une bêta fermée à une bêta ouverte.
   Qu'est-ce que cela signifie concrètement ?
