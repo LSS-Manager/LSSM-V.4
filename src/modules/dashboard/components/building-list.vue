@@ -112,7 +112,7 @@
                 <td v-if="listType === 'extension'">
                     {{ building.extension_unavailable.toLocaleString() }}
                 </td>
-                <td v-if="listType === 'building' && this.$stores.translations.bedBuildings.includes(bedBuildings[0])  ">
+                <td v-if="listType === 'building' && bedBuildingsType.includes(building.building_type)  ">
 
                 </td>
             </tr>
