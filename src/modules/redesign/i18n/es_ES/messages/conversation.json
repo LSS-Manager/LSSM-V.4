@@ -1,0 +1,7 @@
+{
+    "back": "Volver a la bandeja de entrada",
+    "delete": "Eliminar conversación",
+    "load": { "next": "cargar mensajes anteriores", "prev": "cargar mensajes siguientes" },
+    "subtitle": "Una conversación con",
+    "subtitleAlliance": "Un mensaje de la alianza"
+}
