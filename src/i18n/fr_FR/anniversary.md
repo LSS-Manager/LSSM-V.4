@@ -4,13 +4,13 @@
 
 C'est de nouveau le moment : Le gâteau au chocolat est cuit, les boissons chaudes sont prêtes !
 
-Pour le deuxième anniversaire de LSSM V.4, nous aimerions fêter avec vous une nouvelle fois et vous avons donc préparé quelques surprises :
+Pour le deuxième anniversaire de LSSM V.4, nous aimerions fêter avec vous une nouvelle fois et nous avons donc préparé quelques surprises :
 
 * Beaucoup de ballons colorés
-	Via le menu LSSM, tu peux faire apparaître quelques ballons et les faire éclater en cliquant dessus.
-	En bas à droite, tu trouveras un compteur qui te renseignera sur le nombre de fois où tu as cliqué sur des ballons !
+	Via le menu LSSM, vous pouvez faire apparaître quelques ballons et les faire éclater en cliquant dessus.
+	En bas à droite, vous trouverez un compteur qui vous renseignera sur le nombre de fois où vous avez cliqué sur des ballons !
 * Une version bêta amélioré
-  Ce n'est pas un simple jeu de mots, mais une nouveauté pour la LSSM : nous passons de la bêta fermée à la bêta ouverte.
+  Ce n'est pas un simple jeu de mots, mais une nouveauté pour LSSM : nous passons d'une bêta fermée à une bêta ouverte.
   Qu'est-ce que cela signifie concrètement ?
   Dans les paramètres, chacun a désormais la possibilité de passer de la version stable à la version bêta. En outre, il y a de temps en temps des branches dites "preview". Cela présente probablement moins d'intérêt pour l'utilisateur générique, mais surtout dans le cadre du développement de nouvelles fonctionnalités, nous pouvons ainsi permettre des tests plus ciblés avec un nombre potentiellement plus élevé d'utilisateurs. Ces branches de prévisualisation sont automatiquement supprimées après 7 jours sans mise à jour, les utilisateurs reviennent alors à la version stable.
   Les contributeurs potentiels, c'est-à-dire les développeurs qui souhaitent contribuer à LSSM, ont également la possibilité de tester l'ensemble directement dans LSSM sans avoir à mettre en place leur propre instance de test. Cependant, seule l'équipe LSSM peut mettre en ligne une branche de prévisualisation ou la mettre à jour, de sorte que tout le monde ne peut pas créer une branche de prévisualisation (avec du code potentiellement dangereux).
@@ -30,4 +30,3 @@ Nous attendons avec impatience de nombreuses autres années avec LSSM, quelle qu
 Votre équipe LSSM,
 Jan, Sanni, Ron et Crazycake
 *(traduit par Deoxis9001)*
-
