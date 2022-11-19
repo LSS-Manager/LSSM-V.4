@@ -12,7 +12,7 @@ Auch wenn er sicherlich einen Mehrwert liefert, liegt keine Mehrwertsteuer auf d
 
 Möchtest du uns trotzdem unterstützen? Dann kannst du uns gerne eine Spende über [OpenCollective][donate] zukommen lassen. Wir freuen uns über jede Unterstützung!
 
-::warning Spenden
+:::warning Spenden
 Alle Spenden werden ausschließlich zum Decken der laufenden Kosten verwendet. Wir haben keine Gewinnabsicht und werden auch keine Gewinne ausschütten.
 
 Das Spenden hat keinen direkten Einfluss auf die Entwicklung des LSSM! Wir werden nicht mehr und nicht weniger Zeit investieren und auch für einzelne Nutzer gibt es keine direkten Vorteile wie z.B. Premium-Features geben. Die Entwicklung des LSSM bleibt weiterhin auf freiwilliger Basis in unserer Freizeit und die Nutzung bleibt weiterhin für alle Nutzer vollständig kostenlos!

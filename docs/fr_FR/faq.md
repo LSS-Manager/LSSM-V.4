@@ -12,7 +12,7 @@ Même s'il apporte certainement une valeur ajoutée, il n'y a pas de TVA sur ce 
 
 Vous souhaitez quand même nous soutenir financièrement ? Alors vous pouvez nous envoyer un don via [OpenCollective][donate]. Nous sommes heureux de tout soutien !
 
-::warning Dons
+:::warning Dons
 Tous les dons seront uniquement utilisés pour couvrir nos frais de fonctionnement. Nous n'avons pas l'intention de faire des bénéfices et nous ne les distribuerons pas.
 
 Les dons n'ont aucune influence directe sur le développement de LSSM ! Nous n'investirons pas plus ou moins de temps et il n'y aura pas d'avantages directs pour les utilisateurs tels que des fonctionnalités premium. Le développement de LSSM se fera sur une base volontaire, pendant notre temps libre, et l'utilisation restera entièrement gratuite pour tous les utilisateurs !

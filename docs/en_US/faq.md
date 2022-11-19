@@ -25,7 +25,7 @@ LSS-Manager is a free extension. - we do not intend to change this.
 
 Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
 
-::warning donations
+:::warning donations
 All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
 
 Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
