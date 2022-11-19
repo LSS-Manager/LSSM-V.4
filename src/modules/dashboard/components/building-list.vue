@@ -181,7 +181,7 @@ export default Vue.extend<
                 noSort?: boolean;
             }>;
         const headingsHospital = (
-            this.listType === 'building' && this.$stores.translations.bedBuildings.includes(this.buildings[0]?.building_type)
+            this.listType === 'building' && useTranslationStore().bedBuildings.includes(this.buildings[0]?.building_type)
                 ? {
                     beds: { title: this.$m('beds'), noSort: false },
                     bedsFree: { title: this.$m('bedsFree'), noSort: false },
