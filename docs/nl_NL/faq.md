@@ -7,16 +7,16 @@ sidebarDepth: 3
 # FAQ ❓
 
 ## Wat kost LSS Manager?
-LSS-Manager is een gratis aanbieding - we zijn niet van plan dit te veranderen.
+LSS-Manager is een gratis uitbreiding - we zijn niet van plan dit te veranderen.
 
-Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
+Wil je ons alsnog financieel ondersteunen? Voel je vrij om ons een donatie te sturen via [OpenCollective][donate]. We zijn blij met elke ondersteuning!
 
-:::warning donations
-All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
+:::warning donaties
+Alle donaties zullen alleen gebruikt worden voor onze lopende kosten, zoals de server en domein. We hebben geen intentie om winst te maken en zullen ook geen winst uitkeren.
 
-Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
+Donaties hebben geen directe invloed op de ontwikkeling van LSSM! We zullen niet meer of minder tijd investeren en er zijn geen directe voordelen voor individuele spelers zoals premium functies. De ontwikkeling van LSSM zal op vrijwillige basis blijven in onze vrije tijd en het gebruik zal compleet gratis blijven voor alle spelers!
 
-Of course, we are happy about any donation, but we would still like to point out that we would like to keep the project running as before even without the donations.
+Uiteraard zijn we blij met elke donatie, maar we willen toch aangeven dat we LSSM zullen laten werken zoals voorheen, zelfs zonder donaties.
 :::
 
 ## Hoe kan ik bijdragen aan LSS Manager?
@@ -25,7 +25,7 @@ De "normale" gebruiker kan [bugs melden][error] of [suggesties doen][suggestions
 We zijn momenteel bezig met het ontwerpen van een stijlgids voor ontwikkelaars, zodat ook zij gemakkelijk hun eigen plug-ins aan LSSM kunnen toevoegen. We hebben ook geprobeerd onze codestructuur duidelijk en begrijpelijk te houden. Het toevoegen van een plug-in betekent echter op geen enkele manier dat u lid wordt van het team.
 
 ## Hoe kan ik bugs melden?
-Kijk hoervoor op onze [meld bugs][error] pagina.
+Kijk hiervoor op onze [meld bugs][error] pagina.
 
 ## Waar kan ik hulp krijgen?
 Door onze steun. Meer informatie vindt u [hier][support].
