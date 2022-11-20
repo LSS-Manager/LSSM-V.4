@@ -1,0 +1,41 @@
+{
+    "copy_url": "Kopioi linkki leikepöydälle: {url}",
+    "description": "Yleinen UI remake - tällä hetkellä alfa-vaiheessa ja edelleen kehitteillä.",
+    "name": "Remake",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "Liittoutuman sivujen remake.",
+                "title": "Liittoutuma"
+            },
+            "credits": {
+                "description": "Krediittien ja kolikoiden yleiskatsausten remake.",
+                "title": "Krediitit ja kolikot"
+            },
+            "einsaetze": {
+                "description": "Mahdollisten tehtävien luettelon ja \"Tämän tehtävän vaatimukset\"-sivun remake.",
+                "title": "Mahdolliset tehtävät"
+            },
+            "messages": {
+                "description": "Yksityisten viestien ja järjestelmäviestien remake.",
+                "title": "Viestit"
+            },
+            "profile": {
+                "description": "Profiilisivujen remake.",
+                "title": "Profiili"
+            },
+            "tasks": {
+                "description": "Urakat ja tapahtumat sivun remake.",
+                "title": "Urakat ja tapahtumat"
+            },
+            "toplist": {
+                "description": "Toplistin remake.",
+                "title": "Toplista"
+            },
+            "vehicles": {
+                "description": "Ajoneuvosivujen ja siihen liittyvien sivujen remake.",
+                "title": "Ajoneuvot"
+            }
+        }
+    }
+}
