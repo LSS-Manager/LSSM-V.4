@@ -1,7 +1,18 @@
+import type Vue from 'vue';
+
+import mapCSSFilterFunctionSlider from './components/mapCSSFilter/functionSlider.vue';
+import mapCSSFilterPreview from './components/mapCSSFilter/preview.vue';
+import {
+    type Filter,
+    type FilterFunction,
+    predefinedFilters,
+} from './assets/mapCSSFilter';
+
 import type { ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
     AppendableListSetting,
+    Custom,
     Hidden,
     Location,
     MultiSelect,
@@ -9,6 +20,62 @@ import type {
     Text,
     Toggle,
 } from 'typings/Setting';
+import type {
+    DefaultComputed,
+    DefaultData,
+    DefaultMethods,
+    DefaultProps,
+} from 'vue/types/options';
+
+export interface MapCSSFilterComponent {
+    Data: DefaultData<Vue>;
+    Methods: DefaultMethods<Vue>;
+    Computed: DefaultComputed & {
+        id: string;
+    };
+    Props: DefaultProps & {
+        values: { filterFunction: Filter; filterValue: number }[];
+        row: {
+            index: number;
+            value: { filterFunction: Filter; filterValue: number };
+        };
+    };
+}
+export type MapCSSFilterPreview = MapCSSFilterComponent & {
+    Data: MapCSSFilterComponent['Data'] & Record<string, never>;
+    Methods: MapCSSFilterComponent['Methods'] & {
+        updateFilter(): void;
+    };
+};
+export interface MapCSSFilterFunctionSlider {
+    Data: {
+        sliders: Record<
+            FilterFunction,
+            {
+                min: number;
+                max: number;
+                default: number;
+                step?: number | 'any';
+                unit?: string;
+            }
+        >;
+        predefinedFilters: Record<keyof typeof predefinedFilters, string>;
+    };
+    Computed: MapCSSFilterComponent['Computed'] & {
+        updateValue: number;
+        slider: {
+            min: number;
+            max: number;
+            default: number;
+            step: number | 'any';
+            unit?: string;
+        } | null;
+    };
+    Methods: MapCSSFilterComponent['Methods'] & Record<string, never>;
+    Props: MapCSSFilterComponent['Props'] & {
+        value: number;
+    };
+}
 
 export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
@@ -29,6 +96,28 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
         .forEach(([id, label]) => {
             userBuildingIds.push(id);
             userBuildingLabels.push(label);
+        });
+
+    const mapCSSFilters = $m('mapCSSFilter') as unknown as Record<
+        string,
+        string
+    >;
+    const mapCSSFilterValues = Object.keys(mapCSSFilters)
+        .filter(k => k !== 'presets')
+        .sort((a, b) => mapCSSFilters[a].localeCompare(mapCSSFilters[b]));
+    const mapCSSFilterLabels = mapCSSFilterValues.map(
+        value => mapCSSFilters[value]
+    );
+
+    Object.entries(predefinedFilters)
+        .map(([preset]) => [
+            preset,
+            $m(`mapCSSFilter.presets.${preset}`).toString(),
+        ])
+        .sort(([, labelA], [, labelB]) => labelA.localeCompare(labelB))
+        .forEach(([preset, label]) => {
+            mapCSSFilterValues.push(`preset.${preset}`);
+            mapCSSFilterLabels.push(`[${label}]`);
         });
 
     // const dynamics = [
@@ -163,6 +252,71 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
                 buildingTabs: true,
             },
             orderable: false,
+            disableable: false,
+        },
+        mapCSSFilter: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+            type: 'appendable-list',
+            default: [],
+            listItem: [
+                <AppendableListSetting<Select>>{
+                    name: 'filterFunction',
+                    title: $m('settings.mapCSSFilter.filterFunction'),
+                    size: 2,
+                    setting: {
+                        type: 'select',
+                        values: mapCSSFilterValues,
+                        labels: mapCSSFilterLabels,
+                    },
+                },
+                <
+                    AppendableListSetting<
+                        Custom<
+                            Record<string, never>,
+                            Record<string, never>,
+                            MapCSSFilterFunctionSlider['Data'],
+                            MapCSSFilterFunctionSlider['Methods'],
+                            MapCSSFilterFunctionSlider['Computed'],
+                            MapCSSFilterFunctionSlider['Props']
+                        >
+                    >
+                >{
+                    name: 'filterValue',
+                    title: $m('settings.mapCSSFilter.filterValue'),
+                    size: 0,
+                    setting: {
+                        type: 'custom',
+                        properties: {},
+                        component: mapCSSFilterFunctionSlider,
+                    },
+                },
+                <
+                    AppendableListSetting<
+                        Custom<
+                            Record<string, never>,
+                            Record<string, never>,
+                            MapCSSFilterPreview['Data'],
+                            MapCSSFilterPreview['Methods'],
+                            MapCSSFilterPreview['Computed'],
+                            MapCSSFilterPreview['Props']
+                        >
+                    >
+                >{
+                    name: 'preview',
+                    title: '',
+                    size: 2,
+                    setting: {
+                        type: 'custom',
+                        properties: {},
+                        component: mapCSSFilterPreview,
+                    },
+                },
+            ],
+            defaultItem: {
+                filterFunction: 'invert',
+                filterValue: -1,
+                preview: null,
+            },
+            orderable: true,
             disableable: false,
         },
     };

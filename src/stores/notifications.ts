@@ -3,8 +3,11 @@ import type Vue from 'vue';
 import { defineStore } from 'pinia';
 import { useRootStore } from '@stores/index';
 
-import type { NotificationsSend } from 'typings/store/notifications/Actions';
 import type { NotificationsState } from 'typings/store/notifications/State';
+import type {
+    ClickHandler,
+    NotificationsSend,
+} from 'typings/store/notifications/Actions';
 
 export const defineNotificationStore = defineStore('notifications', {
     state: () =>
@@ -33,7 +36,7 @@ export const defineNotificationStore = defineStore('notifications', {
                     desktop: false,
                 });
             } else {
-                return this.sendNotification({
+                return this.sendNotification<Record<string, never>, false>({
                     title: (window[PREFIX] as Vue)
                         .$t('modules.notificationAlert.permission.title')
                         .toString(),
@@ -43,7 +46,7 @@ export const defineNotificationStore = defineStore('notifications', {
                     icon: lssmLogo,
                     duration: -1,
                     desktop: false,
-                    clickHandler: async ({ close }: { close(): void }) => {
+                    clickHandler: async ({ close }) => {
                         const perm = await Notification.requestPermission();
                         this.permission = perm;
                         if (perm === 'granted') {
@@ -66,7 +69,10 @@ export const defineNotificationStore = defineStore('notifications', {
                 });
             }
         },
-        async sendNotification({
+        async sendNotification<
+            Data extends Record<string, unknown> = Record<string, unknown>,
+            Desktop extends boolean = true
+        >({
             group = 'bottom_right',
             type = 'info',
             title,
@@ -74,12 +80,14 @@ export const defineNotificationStore = defineStore('notifications', {
             icon = '',
             duration = 8000,
             speed = 300,
-            data = {},
+            data,
             clean = false,
             ingame = true,
-            desktop = true,
+            desktop,
             clickHandler = () => void null,
-        }: NotificationsSend) {
+        }: NotificationsSend<Data, Desktop>) {
+            const normalizedData: Data = data ?? ({} as Data);
+
             let computedGroup = group;
             let computedType = type;
             if (
@@ -105,7 +113,7 @@ export const defineNotificationStore = defineStore('notifications', {
                         text,
                         duration,
                         speed,
-                        data: { icon, clickHandler, ...data },
+                        data: { icon, clickHandler, ...normalizedData },
                         clean,
                     });
                 });
@@ -122,13 +130,16 @@ export const defineNotificationStore = defineStore('notifications', {
                 const notification = new Notification(newTitle, {
                     badge: icon || lssmLogo,
                     body: desktopText,
-                    data,
+                    data: normalizedData,
                     icon: icon || lssmLogo,
                     requireInteraction: duration <= 0,
                 });
                 if (clickHandler) {
                     notification.addEventListener('click', e =>
-                        clickHandler(null, e as MouseEvent)
+                        (clickHandler as ClickHandler<true, Data>)(
+                            null,
+                            e as MouseEvent
+                        )
                     );
                 }
                 if (duration > 0)

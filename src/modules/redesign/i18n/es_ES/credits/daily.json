@@ -1,0 +1,19 @@
+{
+    "amount": "Cantidad",
+    "description": "Descripción",
+    "filter": {
+        "total": {
+            "max": "Créditos total máximo",
+            "min": "Créditos total mínimo"
+        },
+        "type": {
+            "all_types": "Mostrar todos los tipos",
+            "amount": "{n} entrada filtrada | {n} entradas filtradas",
+            "no_types": "No mostrar los tipos",
+            "type": "Tipos de entrada mostrados"
+        }
+    },
+    "title": "Resumen",
+    "today": "Hoy",
+    "total": "Total"
+}

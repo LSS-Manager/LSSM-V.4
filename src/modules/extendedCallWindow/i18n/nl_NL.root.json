@@ -57,6 +57,10 @@
             "description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
             "title": "Inzetvoorstellen zoeken: Focussen"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "sluit de dropdown na het selecteren van een inzetvoorstel.",
             "title": "sluit dropdown na selectie"
@@ -72,6 +76,10 @@
         "arrSearchDropdown": {
             "description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",
             "title": "Inzetvoorstellen als dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
@@ -220,6 +228,7 @@
                     35, 28, 47, 48, 39, 40, 53, 54, 55, 58, 60, 64, 73, 74, 75
                 ]
             }
-        ]
+        ],
+        "noCustoms": "eigen voertuigcategorieën uitgezonderd"
     }
 }

@@ -7,6 +7,7 @@
             "in": "requirements",
             "text": "{n} l vaahtoa."
         },
+        "title": "Erityisvaatimukset",
         "water_needed": {
             "badge": true,
             "in": "requirements",

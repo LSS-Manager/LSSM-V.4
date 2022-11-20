@@ -1,0 +1,40 @@
+{
+    "nav": {
+        "links": {
+            "/alliance_logfiles": "Protocolo",
+            "/alliance_messages": "Mensajes",
+            "/alliance_threads": "Junta",
+            "/alliances/{id}": "Introducción",
+            "/schoolings": "Cursos",
+            "/verband/bereitstellungsraume": "Áreas de preparación",
+            "/verband/bewerbungen": "Solicitudes",
+            "/verband/gebauede": "Edificios",
+            "/verband/kasse": "Fondos de la alianza",
+            "/verband/mitglieder/{id}": "Miembros",
+            "/verband/news/{id}": "Noticias",
+            "/verband/regeln/{id}": "Reglas",
+            "/verband/werbung": "Anuncios"
+        },
+        "other": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}"
+        ],
+        "self": [
+            "/alliances/{id}",
+            "/verband/news/{id}",
+            "/verband/mitglieder/{id}",
+            "/verband/regeln/{id}",
+            "/alliance_logfiles",
+            "/alliance_threads",
+            "/alliance_messages",
+            "/verband/werbung",
+            "/schoolings",
+            "/verband/bereitstellungsraume",
+            "/verband/kasse",
+            "/verband/gebauede",
+            "/verband/bewerbungen"
+        ]
+    }
+}

@@ -19,6 +19,7 @@
         "schooling": "Cursos",
         "title": "Resumen del personal"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Cancelar",

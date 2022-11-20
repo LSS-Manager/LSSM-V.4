@@ -92,6 +92,7 @@ declare global {
         >;
         mission_count_max: number;
         lightboxOpen(link: string): void;
+        successfullMessage(html: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
         building_new_dragend(): void;

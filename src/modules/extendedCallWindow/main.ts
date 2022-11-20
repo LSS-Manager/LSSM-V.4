@@ -240,7 +240,7 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
         ).then(({ default: alarmIcons }) =>
-            alarmIcons(LSSM, alarmIconsSettings.value)
+            alarmIcons(LSSM, MODULE_ID, alarmIconsSettings.value)
         );
     }
 
@@ -309,6 +309,8 @@ export default <ModuleMainFunction>(async ({
                 await getSetting('arrSearchDissolveCategories'),
                 await getSetting('arrSearchCompactResults'),
                 await getSetting('arrSearchCloseDropdownOnSelect'),
+                await getSetting('arrSearchSelectOnEnter'),
+                await getSetting('arrSearchClearOnEnter'),
                 $m
             )
         );

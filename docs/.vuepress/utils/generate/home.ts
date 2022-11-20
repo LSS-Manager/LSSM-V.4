@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+import addCommonLinks from '../addCommonLinks';
+
 type LangCode = `${string}_${string}`;
 
 const PRIMARIES: LangCode[] = ['de_DE', 'en_US', 'nl_NL'];
@@ -19,12 +21,13 @@ const generateAction = (lang: LangCode, flag: string) => `  - text: ${flag}
 
 fs.writeFileSync(
     file,
-    fs
-        .readFileSync(file)
-        .toString()
-        .replace(
-            /^---.*?---\n\n<!--.*?-->/su,
-            `
+    addCommonLinks(
+        fs
+            .readFileSync(file)
+            .toString()
+            .replace(
+                /^---.*?---\n\n<!-- ==END_HEADER==.*?-->/su,
+                `
 ---
 home: true
 heroImage: /img/lssm.png
@@ -52,7 +55,9 @@ ${langArray
     type: secondary
 ---
 
-<!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
+<!-- ==END_HEADER== Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 `.trim()
-        )
+            ),
+        ['lssm', 'tampermonkey']
+    )
 );

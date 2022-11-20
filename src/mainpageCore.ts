@@ -49,36 +49,27 @@ export default async (LSSM: Vue): Promise<void> => {
         render: h => h(LSSMMenu),
     }).$mount(indicatorWrapper);
 
-    if (
-        new Date() >= new Date('2021-11-20T00:00') &&
-        new Date() < new Date('2021-11-29T00:00')
-    ) {
-        LSSM.$stores.settings
-            .getSetting({
-                moduleId: 'global',
-                settingId: 'anniversary1Clicked',
-                defaultValue: false,
-            })
-            .then(clicked => {
-                if (!clicked) {
-                    import(
-                        /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
-                    ).then(({ default: anniversary }) => {
-                        const anniversaryWrapper =
-                            document.createElement('div');
-                        document.body.append(anniversaryWrapper);
-                        new LSSM.$vue({
-                            pinia: LSSM.$pinia,
-                            i18n: LSSM.$i18n,
-                            render: h => h(anniversary),
-                        }).$mount(anniversaryWrapper);
-                    });
-                }
-            });
+    if (new Date() < new Date('2022-11-29T00:00')) {
+        import(
+            /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
+        ).then(({ default: anniversary }) => {
+            const anniversaryWrapper = document.createElement('div');
+            document.body.append(anniversaryWrapper);
+            new LSSM.$vue({
+                pinia: LSSM.$pinia,
+                i18n: LSSM.$i18n,
+                render: h =>
+                    h(anniversary, {
+                        props: {
+                            balloons: true,
+                        },
+                    }),
+            }).$mount(anniversaryWrapper);
+        });
     }
 
     LSSM.$stores.settings
-        .getSetting({
+        .getSetting<boolean>({
             moduleId: 'global',
             settingId: 'osmDarkTooltip',
             defaultValue: true,
@@ -90,7 +81,7 @@ export default async (LSSM: Vue): Promise<void> => {
         );
 
     LSSM.$stores.settings
-        .getSetting({
+        .getSetting<boolean>({
             moduleId: 'global',
             settingId: 'osmDarkControls',
             defaultValue: true,
@@ -102,7 +93,7 @@ export default async (LSSM: Vue): Promise<void> => {
         );
 
     LSSM.$stores.settings
-        .getSetting({
+        .getSetting<boolean>({
             moduleId: 'global',
             settingId: 'loadingIndicator',
             defaultValue: true,
@@ -135,12 +126,12 @@ export default async (LSSM: Vue): Promise<void> => {
             });
     }
 
-    telemetry(LSSM, settingId => {
-        return LSSM.$stores.settings.getSetting({
+    telemetry(LSSM, <SettingType>(settingId: string) =>
+        LSSM.$stores.settings.getSetting<SettingType>({
             moduleId: 'global',
             settingId,
-        });
-    });
+        })
+    );
     import(
         /* webpackChunkName: "releasenotes/main" */
         `./modules/releasenotes/main`

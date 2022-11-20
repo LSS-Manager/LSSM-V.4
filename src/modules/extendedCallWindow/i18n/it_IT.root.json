@@ -56,6 +56,10 @@
             "description": "Seleziona automaticamente la barra di ricerca delle AAR così che tu possa scrivere da subito.",
             "title": "Cerca ARR: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Chiude la tendina dopo aver selezionato un AAR.",
             "title": "Chiudi la tendina dopo la selezione"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Nasconde le AAR e mostra una tendina con barra di ricerca, permettendo così di avere un menù compatto.",
             "title": "Tendina cerca ARR"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Mostra le richieste memorizzate nell'AAR, se stai brevemente con il mouse su un AAR.",
@@ -205,6 +213,7 @@
                 "name": "Polizia",
                 "vehicleTypes": [7, 13, 14, 15, 16, 17, 21, 22, 38, 39, 40, 41]
             }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

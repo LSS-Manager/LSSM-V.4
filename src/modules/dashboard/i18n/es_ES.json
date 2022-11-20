@@ -22,6 +22,7 @@
             "tip": "Haga clic en una de las categorías (por ejemplo, parque de bomberos o policía) para ampliar los tipos de edificios asignados a esta categoría. Si luego hace clic en un tipo de edificio, puede ver cuántos vehículos de cada tipo de vehículo se encuentran en los edificios de ese tipo. De esta manera, puede averiguar rápidamente cuántos vehículos de cada tipo de vehículo están estacionados en las comisarías y cuántos en las pequeñas comisarías.",
             "title": "Edificios"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "¡Aún no tiene vehículos en la categoria {category}!",
             "tip": "Haz click en un grupo de tipo de vehículos para mostar solo este grupo",

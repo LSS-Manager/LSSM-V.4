@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇫🇷 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[Statut du serveur LSSM](https://status.lss-manager.de)
+[Statut du serveur LSSM][lssm.status]
 
 [Statut du jeu en ligne](https://status.lss-manager.de/status/missionchief)
 
@@ -62,3 +62,21 @@ Un clic sur l'indicateur ouvre un petit menu qui vous permet d'accéder à l'[Ap
 Si vous êtes dans operateur112 mais qur vous ne voyez pas l'indicateur dans le coin supérieur droit, cliquez sur l'icône tampermonkey dans votre navigateur et vérifiez si le commutateur pour le script LSS-Manager est réglé sur `on`.
 
 Si vous avez des problèmes, vous pouvez toujours contacter le [Support](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /fr_FR/apps/
+[docs.appstore]: /fr_FR/appstore/
+[docs.bugs]: /fr_FR/bugs/
+[docs.error_report]: /fr_FR/error_report/
+[docs.faq]: /fr_FR/faq/
+[docs.metadata]: /fr_FR/metadata/
+[docs.other]: /fr_FR/other/
+[docs.settings]: /fr_FR/settings/
+[docs.suggestions]: /fr_FR/suggestions/
+[docs.support]: /fr_FR/support/
+[games.self]: https://operateur112.fr
+[tampermonkey]: https://tampermonkey.net/

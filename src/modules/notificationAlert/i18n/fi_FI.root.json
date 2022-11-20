@@ -45,8 +45,8 @@
         "top right": "Ylä-oikea 🡥"
     },
     "settings": {
-        "alertStyle": "Pelin sisäinen ilmoitustyyppi",
         "alerts": { "title": "Aseta ilmoitukset" },
+        "alertStyle": "Pelin sisäinen ilmoitustyyppi",
         "desktop": "Lähetä työpöytäilmoitus",
         "duration": "Näytön kesto",
         "eventTypes": "Tapahtumat",

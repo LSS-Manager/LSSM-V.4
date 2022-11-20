@@ -3,7 +3,7 @@
     "name": "Améliorations du tchat",
     "settings": {
         "chatTime": {
-            "description": "Modifie l'horodatage. Vous pouvez adapter le format toi-même.",
+            "description": "Modifier l'horodatage. Vous pouvez adapter le format toi-même.",
             "title": "Modifier l'horodatage dans le chat"
         },
         "chatTimeFormat": {
@@ -11,38 +11,38 @@
             "title": "Format de la date et de l'heure du chat"
         },
         "cloneHistoryBtnToHeader": {
-            "description": "Afficher le bouton pour l'historique du salon dans l'en-tête afin que vous n'ayez pas à faire défiler le chat pour y accéder.",
-            "title": "Afficher le bouton l'historique du salon dans l'en-tête."
+            "description": "Afficher le bouton pour l'historique du chat dans l'en-tête afin que vous n'ayez pas à le faire défiler pour y accéder.",
+            "title": "Afficher le bouton l'historique du chat dans l'en-tête"
         },
         "lightDesignChatHistory": {
             "description": "Un design allégé pour l'historique du chat",
             "title": "Design léger de l'historique du chat"
         },
         "mentionIndicator": {
-            "description": "Affichage d'une petite icône @ dans la fenêtre de chat lorsque vous êtes sur le point de mentionner quelqu'un.",
+            "description": "Affichage d'un petit icône @ dans la fenêtre de chat lorsque vous êtes sur le point de mentionner quelqu'un.",
             "title": "Indicateur de mention"
         },
         "selfHighlight": {
-            "description": "Mettre en évidence votre nom d'utilisateur dans le chat avec une couleur personnalisée.",
-            "title": "Couleur personnalisée dans le chat"
+            "description": "Mettre en évidence votre nom d'utilisateur sur le chat avec une couleur personnalisée.",
+            "title": "Couleur personnalisée sur le chat"
         },
         "selfHighlightColor": {
-            "description": "Choisissez la couleur dans laquelle votre nom d'utilisateur doit être mis en évidence.",
-            "title": "Couleur personnalisée dans le chat: couleur de fond"
+            "description": "Choisissez la couleur du fond dans laquelle votre nom d'utilisateur doit être mis en évidence.",
+            "title": "Couleur personnalisée sur le chat: Couleur du fond"
         },
         "selfHighlightCustomTextColor": {
             "description": "Voulez-vous utiliser une couleur de texte personnalisée?",
-            "title": "Couleur personnalisée dans le chat : couleur de texte"
+            "title": "Couleur personnalisée sur le chat : Couleur du texte"
         },
         "selfHighlightCustomTextColorColor": {
-            "title": "Couleur personnalisée dans le chat : couleur de texte"
+            "title": "Couleur personnalisée sur le chat : Couleur du texte"
         },
         "userSelection": {
-            "description": "Affiche une liste de suggestions de membres de l'alliance lors d'un chuchotement ou d'une mention, ce qui permet de les insérer rapidement dans le champ de saisie du chat (le contrôle du clavier avec les touches fléchées et la touche Entrée est pris en charge).",
+            "description": "Affiche une liste de suggestions de membres de l'alliance lors d'un chuchotement ou d'une mention, ce qui permet de les insérer rapidement dans le champ de saisie du chat (le contrôle du clavier avec les touches fléchées et la touche Entrée sont pris en charge).",
             "title": "Sélection des utilisateurs"
         },
         "whisperIndicator": {
-            "description": "Affichage d'une petite icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter.",
+            "description": "Affichage d'un petit icône de verrouillage dans la fenêtre de chat lorsque vous êtes en train de chuchoter.",
             "title": "Indicateur de chuchotements"
         }
     }

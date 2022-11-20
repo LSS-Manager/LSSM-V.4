@@ -19,6 +19,10 @@
         "schooling": "Ausbildung",
         "title": "Personalübersicht"
     },
+    "startPatrols": {
+        "duration": "1 Stunde | {n} Stunden",
+        "title": "Streifenfahrten"
+    },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Abbrechen",

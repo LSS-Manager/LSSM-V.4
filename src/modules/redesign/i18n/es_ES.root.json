@@ -1,0 +1,41 @@
+{
+    "copy_url": "Copiar enlace en el portapapeles: {url}",
+    "description": "Un rediseño general – actualmente está en una fase alfa y aún está en desarrollo.",
+    "name": "Rediseño",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "Un rediseño de las páginas de la alianza.",
+                "title": "Alianza"
+            },
+            "credits": {
+                "description": "Un rediseño del resumen de créditos y monedas.",
+                "title": "Créditos y monedas"
+            },
+            "einsaetze": {
+                "description": "Un rediseño de la lista de misiones posibles y de los  \"Requisitos de dicha misión\"-page.",
+                "title": "Misiones posibles"
+            },
+            "messages": {
+                "description": "Un rediseño de los mensajes privados y mensajes del sistema.",
+                "title": "Mensajes"
+            },
+            "profile": {
+                "description": "Un rediseño de las páginas de los perfiles.",
+                "title": "Perfil"
+            },
+            "tasks": {
+                "description": "Un rediseño de la lista de tareas",
+                "title": "Tareas"
+            },
+            "toplist": {
+                "description": "Un rediseño de la lista principal.",
+                "title": "Lista principal"
+            },
+            "vehicles": {
+                "description": "Un rediseño de las páginas de vehículos y todas las páginas correspondientes.",
+                "title": "Vehículos"
+            }
+        }
+    }
+}

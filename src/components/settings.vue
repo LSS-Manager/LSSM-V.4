@@ -24,7 +24,7 @@
                                 $t(
                                     `modules.${module}.name`.replace(
                                         'modules.global',
-                                        'globalSettings'
+                                        'global.settings'
                                     )
                                 )
                             }}</b>
@@ -42,7 +42,7 @@
                                                     $t(
                                                         `modules.${module}.settings.${setting}.title`.replace(
                                                             'modules.global.settings',
-                                                            'globalSettings'
+                                                            'global.settings'
                                                         )
                                                     )
                                                 }}
@@ -106,7 +106,7 @@
                     $t(
                         `modules.${moduleId}.name`.replace(
                             'modules.global',
-                            'globalSettings'
+                            'global.settings'
                         )
                     )
                 "
@@ -125,7 +125,7 @@
                             $t(
                                 `modules.${moduleId}.settings.${settingId}.title`.replace(
                                     'modules.global.settings',
-                                    'globalSettings'
+                                    'global.settings'
                                 )
                             )
                         "
@@ -133,7 +133,7 @@
                             $t(
                                 `modules.${moduleId}.settings.${settingId}.description`.replace(
                                     'modules.global.settings',
-                                    'globalSettings'
+                                    'global.settings'
                                 ),
                                 {
                                     wiki: `${rootStore.wiki}/`,
@@ -217,6 +217,22 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
+                        <settings-slider
+                            v-else-if="setting.type === 'slider'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :min="setting.min"
+                            :max="setting.max"
+                            :step="setting.step"
+                            :unit="setting.unit"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-slider>
                         <settings-select
                             v-else-if="setting.type === 'select'"
                             :name="setting.name"
@@ -283,6 +299,14 @@
                                 settings[moduleId][settingId].value.enabled
                             "
                         ></settings-appendable-list>
+                        <component
+                            v-else-if="setting.type === 'custom'"
+                            :is="setting.component"
+                            v-model="settings[moduleId][settingId].value"
+                            :module="settings[moduleId]"
+                            @update="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></component>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
@@ -297,6 +321,7 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useAPIStore } from '@stores/api';
 import { useModulesStore } from '@stores/modules';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
@@ -356,6 +381,10 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/setting/number" */ './setting/number.vue'
             ),
+        SettingsSlider: () =>
+            import(
+                /* webpackChunkName: "components/setting/slider" */ './setting/slider.vue'
+            ),
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './setting/hotkey.vue'
@@ -410,6 +439,7 @@ export default Vue.extend<
             storageStore: useStorageStore(),
             settingsStore,
             rootStore: useRootStore(),
+            branches: {},
         };
     },
     computed: {
@@ -466,6 +496,37 @@ export default Vue.extend<
                     .filter(([, settings]) => Object.keys(settings).length)
             );
         },
+        branchSelection() {
+            const branches = {
+                values: ['stable', 'beta'],
+                labels: [
+                    `stable (${this.branches.stable?.version})`,
+                    `beta (${this.branches.beta?.version})`,
+                ],
+            } as Record<'labels' | 'values', string[]>;
+
+            Object.entries(this.branches)
+                .filter(([branch]) => !['beta', 'stable'].includes(branch))
+                .sort(
+                    ([, { version: versionA }], [, { version: versionB }]) =>
+                        versionB.localeCompare(versionA) // sort descending
+                )
+                .forEach(([branch, branchData]) => {
+                    branches.values.push(branch);
+                    let label = `${branch} (${branchData.version})`;
+                    if ('delete' in branchData) {
+                        if (branchData.label)
+                            label += `<br>&nbsp;&nbsp${branchData.label}`;
+                        label += `<br>&nbsp;&nbsp;[🗑️ ${branchData.delete.date.replace(
+                            /\.0+$/u,
+                            ''
+                        )} ${branchData.delete.timezone}]`;
+                    }
+                    branches.labels.push(label);
+                });
+
+            return branches;
+        },
     },
     methods: {
         update(moduleId, settingId) {
@@ -519,6 +580,10 @@ export default Vue.extend<
                     this.settings.global.loadingIndicator.value as boolean
                 ).toString()
             );
+            localStorage.setItem(
+                `${PREFIX}_branch`,
+                this.settings.global.branch.value as string
+            );
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);
@@ -568,7 +633,7 @@ export default Vue.extend<
                                     this.modulesSorted[this.tab]
                                 }.name`.replace(
                                     'modules.global',
-                                    'globalSettings'
+                                    'global.settings'
                                 )
                             ),
                         }),
@@ -698,6 +763,10 @@ export default Vue.extend<
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.settings.${key}`, args),
         getSelectOptions(module, setting, settingId) {
+            if (module === 'global' && settingId === 'branch') {
+                setting.values = this.branchSelection.values;
+                setting.labels = this.branchSelection.labels;
+            }
             return setting.values.map((v, vi) => ({
                 label: (setting.noLabelTranslation
                     ? v
@@ -711,6 +780,14 @@ export default Vue.extend<
     mounted() {
         this.getExportData();
         (window[PREFIX] as Vue).$settings = this;
+
+        useAPIStore()
+            .request({
+                url: this.rootStore.lssmUrl('/branches.json'),
+                feature: 'settings',
+            })
+            .then(res => res.json() as Promise<SettingsData['branches']>)
+            .then(branches => (this.branches = branches));
     },
 });
 </script>

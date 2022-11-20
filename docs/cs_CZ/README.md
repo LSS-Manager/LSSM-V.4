@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇨🇿 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status][lssm.status]
 
 [Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
@@ -59,3 +59,21 @@ Indikátorem LSSM je zeleně zvýrazněný text `LSSM V.4`, který se nachází 
 Pokud nemůžete tento indikátor nalézt, klikněte na ikonku tampermonkey ve Vašem prohlížeči a zkontrolujte, zda je přepínač pro LSS-manager nastaven na `Povoleno`.
 
 Pokud máte jakékoli problémy, neváhejte kontaktovat [Podporu](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /cs_CZ/apps/
+[docs.appstore]: /cs_CZ/appstore/
+[docs.bugs]: /cs_CZ/bugs/
+[docs.error_report]: /cs_CZ/error_report/
+[docs.faq]: /cs_CZ/faq/
+[docs.metadata]: /cs_CZ/metadata/
+[docs.other]: /cs_CZ/other/
+[docs.settings]: /cs_CZ/settings/
+[docs.suggestions]: /cs_CZ/suggestions/
+[docs.support]: /cs_CZ/support/
+[games.self]: https://operacni-stredisko.cz
+[tampermonkey]: https://tampermonkey.net/

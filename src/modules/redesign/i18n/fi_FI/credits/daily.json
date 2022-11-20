@@ -1,0 +1,19 @@
+{
+    "amount": "Määrä",
+    "description": "Kuvaus",
+    "filter": {
+        "total": {
+            "max": "Max. Krediitit yhteensä",
+            "min": "Min. Krediitit yhteensä"
+        },
+        "type": {
+            "all_types": "Näytä kaikki",
+            "amount": "{n} suodatettu merkintä | {n} suodatettua merkintää",
+            "no_types": "Älä näytä tyyppejä",
+            "type": "Näytettävät merkintätyypit"
+        }
+    },
+    "title": "Yhteenveto",
+    "today": "Tänään",
+    "total": "Yhteensä"
+}

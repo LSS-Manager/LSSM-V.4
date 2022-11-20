@@ -50,11 +50,15 @@
         },
         "arrSearch": {
             "description": "Näyttää hälytysjärjestelyjen yläpuolella olevan hakupalkin, joka mahdollistaa ARR:ien suodattamisen.",
-            "title": "hälytysjärjestely haku"
+            "title": "Hälytysjärjestely haku"
         },
         "arrSearchAutoFocus": {
             "description": "Valitsee hälytysjärjestely haun automaattisesti niin, että voit aloittaa kirjoittamisen napsauttamatta hakukenttää aiemmin.",
             "title": "Hälytysjärjestely haku: automaattinen valinta"
+        },
+        "arrSearchClearOnEnter": {
+            "description": "Tyhjää hälytysjärjestely haun kun painaa Enter-näppäintä",
+            "title": "Tyhjää hälytysjärjestely haku"
         },
         "arrSearchCloseDropdownOnSelect": {
             "description": "sulkee pudotusvalikon hälytysjärjestelyn valinnan jälkeen.",
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Piilottaa hälytysjärjestelyt kokonaan ja näyttää sen sijaan hakukelpoisen pudotusvalikon. Mahdollistaa hyvin kompaktin hälytysjärjestelyt.",
             "title": "hälytysjärjestely haku pudotusvalikkona"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Valitsee ensimmäisen haan tuloksen, kun Enter-näppäintä painetaan",
+            "title": "Valitse ensimmäinen hälytysjärjestely"
         },
         "arrSpecs": {
             "description": "Näyttää hälytysjärjestelyyn tallennetut pyynnöt, jos viet hiiren lyhyesti hälytysjärjestelyn päälle.",
@@ -204,6 +212,7 @@
                 "vehicleTypes": [5, 9, 19, 20, 21, 22, 23, 24]
             },
             { "name": "Poliisi", "vehicleTypes": [8, 14, 15, 16, 17, 18] }
-        ]
+        ],
+        "noCustoms": "Omat ajoneuvoluokat pois"
     }
 }

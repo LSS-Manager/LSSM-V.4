@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇩🇪 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[Online-Status: LSSM](https://status.lss-manager.de)
+[Online-Status: LSSM][lssm.status]
 
 [Online-Status: Spiel](https://status.lss-manager.de/status/missionchief)
 
@@ -62,3 +62,21 @@ Ein Klick auf den Indikator öffnet ein kleines Menü, über das du in den [Apps
 Solltest du dich im Leitstellenspiel befinden, aber diesen Indikator nicht in der oberen rechten Ecke sehen, so klicke auf das Tampermonkey-Icon in deinem Browser und überprüfe, ob der Schalter für das LSS-Manager Script auf `an` gestellt ist.
 
 Bei Problemen kannst du dich jederzeit an den [Support](support.md) wenden.
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /de_DE/apps/
+[docs.appstore]: /de_DE/appstore/
+[docs.bugs]: /de_DE/bugs/
+[docs.error_report]: /de_DE/error_report/
+[docs.faq]: /de_DE/faq/
+[docs.metadata]: /de_DE/metadata/
+[docs.other]: /de_DE/other/
+[docs.settings]: /de_DE/settings/
+[docs.suggestions]: /de_DE/suggestions/
+[docs.support]: /de_DE/support/
+[games.self]: https://leitstellenspiel.de
+[tampermonkey]: https://tampermonkey.net/

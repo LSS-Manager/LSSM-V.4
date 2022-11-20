@@ -138,6 +138,28 @@
                 "previous": "previous tab",
                 "title": "vehicle list"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "personal assigment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Styr spelet med hotkeys som du själv kan definera.",
@@ -149,5 +171,6 @@
             "description": "Här kan du binda dina egna hotkeys för specifika handlignar. Handlingar i kategorin \"Generella\" är tillgängliga överallt i spelet. Genom att trycka F1 samt statistik hur du använder dom",
             "title": "Hotkeys"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

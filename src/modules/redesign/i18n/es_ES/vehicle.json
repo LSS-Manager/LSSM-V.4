@@ -1,0 +1,118 @@
+{
+    "approach": "Acercarse",
+    "backalarm": "Retroalarma",
+    "backalarmNext": "acercarse directamente",
+    "cells": { "cell": "Edificio", "free": "Celdas libres" },
+    "color": "Ajustar color",
+    "current_mission": "Misión actual",
+    "delete": {
+        "button": "eliminar",
+        "cancel": "cancelar",
+        "confirm": "Eliminar",
+        "text": "¿Realmente quiere eliminar **{caption}** en el edificio **{building}** de forma permanente?",
+        "title": "Eliminar vehículo"
+    },
+    "distance": "Distancia",
+    "edit": "Editar",
+    "false": "No",
+    "filter": {
+        "cells": {
+            "distance": "Distancia máxima",
+            "each": "Muestra X edificios de cada",
+            "free": "Mínimo de celdas libres",
+            "tax": "Impuesto máximo"
+        },
+        "hospitals": {
+            "beds": "Mínimo de camas libres",
+            "department": { "title": "Departamento: {department}" },
+            "distance": "Distancia máxima",
+            "each": "Muestra X edificios de cada",
+            "tax": "Impuesto máximo"
+        },
+        "missions": {
+            "credits": "Créditos mínimos",
+            "distance": "Distancia máxima",
+            "participation": { "title": "Participación" },
+            "progress": "% máximo de progreso",
+            "status": {
+                "green": "verde",
+                "red": "rojo",
+                "title": "Estado",
+                "yellow": "amarillo"
+            }
+        },
+        "wlf": { "distance": "Distancia máxima", "same": "Mismo edificio" }
+    },
+    "fms": "FMS",
+    "fms_switch": { "is_s2": "set S6", "is_s6": "set S2" },
+    "foam_amount": "Cantidad de espuma",
+    "followup_missions": "Misión de seguimiento | Misiones de seguimiento",
+    "hospitals": {
+        "beds": "camas libres",
+        "department": "Departamento: {department}",
+        "hospital": "Hospital"
+    },
+    "load_all_hospitals": {
+        "btn": "Cargar todo ",
+        "text": "Solo se muestran 50 hospitales de la alianza. ¡Cargar todos los hospitales puede llevar un tiempo dependiendo de la cantidad!"
+    },
+    "max_staff": "Personal máximo",
+    "mileage": "Kilometraje",
+    "missions": {
+        "alarm": "Alarma",
+        "alarmed": "Misión actual",
+        "credits": "Premio",
+        "mission": "Misión",
+        "participation": "Participación",
+        "patients": "Pacientes",
+        "patientsProgress": "{current} de {total}",
+        "progress": "Progreso"
+    },
+    "move": "Mover",
+    "owner": "Propietario",
+    "owner_pic_state": {
+        "offline": "¡{user} está desconectado!",
+        "online": "¡{user} está conectado!"
+    },
+    "release": {
+        "cancel": "Abortar",
+        "confirm": "¡Sí, dar de alta!",
+        "disable": "dar de alta y deshabilitar la confirmación",
+        "patient": {
+            "text": "¿Realmente quiere dar de alta al paciente de este vehículo? ¡Ningún pago será acreditado para el paciente!",
+            "title": "Dar de alta al paciente"
+        },
+        "prisoner": {
+            "text": "¿Quieres librar a **todos** los presos de esta operación? ¡No habrá compensación acreditada para estos presos!",
+            "title": "Liberar presos"
+        }
+    },
+    "release_patient": "Dar de alta al paciente",
+    "release_prisoner": "Liberar presos",
+    "staff": {
+        "name": "Nombre",
+        "schooling": "Formación",
+        "title": "Personal"
+    },
+    "station": "Edificio",
+    "stats": "Estadísticas",
+    "tabs": {
+        "all": "todo {type}: {amount}",
+        "alliance": "alianza {type}: {amount}",
+        "cells": "Celdas",
+        "hospitals": "Hospitales",
+        "missions": "Misiones",
+        "own": "propietario {type}: {amount}"
+    },
+    "tax": "impuesto",
+    "true": "sí",
+    "vehicletype": "Tipo de vehículo",
+    "water_amount": "Cantidad de agua",
+    "wlf": {
+        "alarm": "Centralita",
+        "building": "Edificio",
+        "caption": "Fuerza motriz",
+        "same": "mismo edificio: {building}"
+    },
+    "zuweisung": "Asignación de personal"
+}

@@ -1,0 +1,12 @@
+{
+    "accept": "Hyväksy",
+    "alert": {
+        "accepted": "{username} hyväksyttiin onnistuneesti liittoutumaan!",
+        "declined": "**{username}**:n hakemus hylättiin!"
+    },
+    "decline": "Ei hyväksytty",
+    "earnedCredits": "ansaitut krediitit",
+    "rules": "Hakemuksen säännöt",
+    "title": "Hakemus: {n} | Hakemukset: {n}",
+    "user": "Hakemukset"
+}

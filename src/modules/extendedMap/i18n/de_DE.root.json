@@ -1,5 +1,20 @@
 {
     "description": "Verbessere deine Karte mit verschiedenen nützlichen Funktionen.",
+    "mapCSSFilter": {
+        "brightness": "Helligkeit",
+        "contrast": "Kontrast",
+        "grayscale": "Graufilter",
+        "hueRotate": "Farbtondrehung",
+        "invert": "Invertierte Farben",
+        "presets": {
+            "dark1": "Dunkel 1",
+            "dark2": "Dunkel 2",
+            "dark3": "Dunkel 3",
+            "gray": "Grau"
+        },
+        "saturate": "Sättigung",
+        "sepia": "Sepia"
+    },
     "name": "Verbesserte Karte",
     "positions": {
         "bottomleft": "Unten Links 🡧",
@@ -27,6 +42,12 @@
             "dynamic": "Dynamisch",
             "static": "Statisch",
             "title": "Karte zentrieren: Typ"
+        },
+        "mapCSSFilter": {
+            "description": "Passe dir die Karte mit verschiedenen CSS-Filtern zur Bildbearbeitung an. Rumspielen und ausprobieren gerne erwünscht!",
+            "filterFunction": "CSS-Filter",
+            "filterValue": "Wert",
+            "title": "Kartendesign (CSS-Filter)"
         },
         "mapScale": {
             "description": "Zeigt einen Maßstab und das aktuelle Zoomlevel in der Karte an.",

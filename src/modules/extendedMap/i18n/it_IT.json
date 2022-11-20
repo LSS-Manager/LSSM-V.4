@@ -63,9 +63,9 @@
                     "all": "Tutto",
                     "buildings": "Edifici",
                     "canBuy": "Disponibili",
-                    "canToggle": "Si può abilitare/disabilitare",
                     "cannotBuy": "Non disponibili",
                     "cannotToggle": "Non si può abilitare/disabilitare",
+                    "canToggle": "Si può abilitare/disabilitare",
                     "disabled": "Completata ma disabilitata",
                     "enabled": "Completata ed in funzione",
                     "extensions": "Estensioni",
@@ -115,9 +115,9 @@
         "settings": {
             "abort": "Annulla",
             "allianceBuildings": "Edifici dell'alleanza collegati",
-            "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "buildings": "Edifici collegati",
             "buildingsInList": "Mostra gli edifici collegati nella lista delle stazioni",
+            "buildingTabs": "Mostra le schede separate per ogni edificio connesso",
             "dissolve": {
                 "buttons": { "abort": "Annulla", "continue": "Elimina" },
                 "text": "Vuoi davvero eliminare questo complesso di edifici? Tutti gli edifici collegati verranno mostrati nella mappa, come prima.",

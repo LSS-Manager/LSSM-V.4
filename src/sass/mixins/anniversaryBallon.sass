@@ -1,0 +1,105 @@
+@use "sass:math"
+@use "sass:map"
+
+$balloon-height: 125px !default
+$cord-length-factor: 0.6 !default
+
+@function getBalloonHeightFromTotal($total-height)
+  @return math.div($total-height, 1 + $cord-length-factor)
+
+@function getBalloonSizes($height: $balloon-height)
+    $width: $height * 0.848
+    // round to the next even number to have a 2px center
+    $width: math.round(math.div($width, 2)) * 2
+    $cord-length: $height * $cord-length-factor
+    $sizes: ()
+    $sizes: map.set($sizes, "height", $height)
+    $sizes: map.set($sizes, "half-height", $height * 0.5)
+    $sizes: map.set($sizes, "width", $width)
+    $sizes: map.set($sizes, "half-width", $width * 0.5)
+    $sizes: map.set($sizes, "cord-length", $cord-length)
+    $sizes: map.set($sizes, "total-height", $height + $cord-length)
+    $sizes: map.set($sizes, "font-size", math.max(10px, math.div($height, 6)))
+    @return $sizes
+
+@mixin anniversaryBalloon($animation, $balloon-height: $balloon-height)
+    // calculate sizes
+    $balloon-sizes: getBalloonSizes($balloon-height)
+
+    width: map.get($balloon-sizes, "width")
+    height: map.get($balloon-sizes, "height")
+    border-radius: 75% 75% 70% 70%
+    position: relative
+    color: rgb(var(--color))
+    background-color: rgba(var(--color), 0.5)
+    box-shadow: inset -7px -3px 10px currentColor
+
+    @if $animation
+        animation-name: float
+        animation-timing-function: ease-in
+        animation-fill-mode: forwards
+
+        @keyframes float
+            from
+                top: 100vh
+                opacity: 1
+            to
+                top: -200vh
+                opacity: 0
+
+    @for $i from -10 through 10
+        &[data-rotation="#{$i}"]
+            $i-neg: $i * -1
+            $cord-rotation: $i-neg * 0.5
+            $zipfel-rotation: $i-neg * math.div(3, 4)
+            rotate: $i + deg
+
+            &:before
+                transform: rotate($cord-rotation + deg)
+                transform-origin: 0 0
+
+            &:after
+                transform: rotate($zipfel-rotation + deg)
+                transform-origin: top center
+
+            @if $animation
+                animation-name: float, rotate-float-#{$i}
+
+                @keyframes rotate-float-#{$i}
+                    from
+                        transform: translateX(0)
+                    to
+                        transform: translateX($i * 30%)
+
+    &:before, &:after
+        display: block
+        position: absolute
+        left: 0
+        right: 0
+        margin: auto
+        opacity: 1
+
+    &:before
+        content: ""
+        height: map.get($balloon-sizes, "cord-length")
+        width: 1px
+        padding: 1px
+        background-color: rgba(232, 76, 60, 0.8)
+        top: $balloon-height
+
+    &:after
+        content: "▲"
+        color: inherit
+        top: $balloon-height
+        height: map.get($balloon-sizes, "font-size")
+        font-size: map.get($balloon-sizes, "font-size")
+        display: inline-flex
+        align-items: end
+        justify-content: center
+
+    img
+        width: 100%
+        position: absolute
+        top: map.get($balloon-sizes, "half-height")
+        transform: translate(0, -50%)
+        opacity: 0.75

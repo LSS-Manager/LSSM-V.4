@@ -24,16 +24,16 @@
     },
     "moment": {
         "shorts": {
+            "l": "Date without leading zeros",
             "L": "Date with leading zeros",
+            "ll": "Date with month as a word (short form)",
             "LL": "Date with month as a word",
+            "lll": "Date with month as a word (short form) and time",
             "LLL": "Date with month as a word and time",
+            "llll": "Full date (short form) with time",
             "LLLL": "Full date with time",
             "LT": "Time",
-            "LTS": "Time with seconds",
-            "l": "Date without leading zeros",
-            "ll": "Date with month as a word (short form)",
-            "lll": "Date with month as a word (short form) and time",
-            "llll": "Full date (short form) with time"
+            "LTS": "Time with seconds"
         },
         "titles": {
             "shorts": {
@@ -42,7 +42,6 @@
                 "variable": "Variable"
             },
             "variables": {
-                "Variable": "Variable",
                 "ampm": "AM / PM",
                 "category": "Category",
                 "description": "Description",
@@ -55,12 +54,13 @@
                 "output": "Output",
                 "quarter": "Quarter",
                 "second": "Second",
+                "Variable": "Variable",
                 "week": "Week of Year",
                 "year": "Year"
             }
         },
         "variables": {
-            "ampm": { "A": "AM / PM", "a": "am / pm" },
+            "ampm": { "a": "am / pm", "A": "AM / PM" },
             "dom": {
                 "D": "Day of Month",
                 "DD": "Day of Month (with leading zeros)",
@@ -79,10 +79,10 @@
                 "DDDo": "Day of Year (enumerated)"
             },
             "hour": {
-                "H": "Hour (24h)",
-                "HH": "Hour (24h, with leading zeros)",
                 "h": "Hour (12h)",
-                "hh": "Hour (12h, with leading zeros)"
+                "H": "Hour (24h)",
+                "hh": "Hour (12h, with leading zeros)",
+                "HH": "Hour (24h, with leading zeros)"
             },
             "minute": { "m": "Minute", "mm": "Minute (with leading zeros)" },
             "month": {

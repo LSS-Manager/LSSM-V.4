@@ -56,6 +56,10 @@
             "description": "Automatically focuses ARR-Search so that you can start typing without clicking the search field before.",
             "title": "ARR-Search: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "closes dropdown after selecting an ARR.",
             "title": "close dropdown after select"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Hides the ARR completely and shows a searchable dropdown instead. Allows a very compact ARR.",
             "title": "ARR-Search as Dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
@@ -219,6 +227,7 @@
                 "name": "FBI",
                 "vehicleTypes": [42, 43, 44, 45, 46, 51, 52, 53, 54]
             }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

@@ -7,16 +7,16 @@
             "title": "Samantyyppisten rakennusten lukumäärä"
         },
         "dispatchCenterBuildingFilter": {
-            "description": "Adds some useful filters to the list of buildings in dispatch centers",
-            "title": "Filter for buildings in dispatch center"
-        },
-        "enhanceVehicleList": {
-            "description": "Laajentaa ajoneuvoluetteloa hyödyllisillä ominaisuuksilla - joista osa on erityisesti säädettävissä.",
-            "title": "Ajoneuvoluettelon laajentaminen"
+            "description": "Lisää hyödyllisiä suodattimia rakennus listaan hätäkeskuksessa",
+            "title": "Suodatin rakennuksille hätäkeskuksessa"
         },
         "enhancedPersonnelAssignment": {
             "description": "Antaa sinulle mahdollisuuden piilottaa henkilöstöä, jolla ei ole asianmukaista koulutusta.",
             "title": "henkilöstön kohdentamisen parantaminen"
+        },
+        "enhanceVehicleList": {
+            "description": "Laajentaa ajoneuvoluetteloa hyödyllisillä ominaisuuksilla - joista osa on erityisesti säädettävissä.",
+            "title": "Ajoneuvoluettelon laajentaminen"
         },
         "expansions": {
             "description": "Näyttää rakennuksen laajennukset painamatta ensin laajennukset-välilehteä.",
@@ -46,17 +46,13 @@
             "description": "Hyödylliset suodattimet rakennuslistan lyhentämiseen kurssi-ikkunassa",
             "title": "Rakennussuodatin kurssi-ikkunassa"
         },
+        "startPatrolsShortcut": {
+            "description": "Pikakuvake partioinnin aloittamiseen pääikkunassa ilman hätäkeskuksen avaamista.",
+            "title": "Aloita partiointi pääikkunassa"
+        },
         "upgradeConfirmation": {
             "description": "Kysyy, haluatko todella päivittää rakennuksesi.",
             "title": "Päivitä rakennus"
-        },
-        "vehicleTypes": {
-            "description": "Näyttää ajoneuvotyypin (ja jos saatavilla, oman ajoneuvoluokan) erillisessä sarakkeessa.",
-            "title": "Ajoneuvo tyyppi"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Näyttää vain oman ajoneuvoluokan, jos se on käytettävissä. Jos se ei ole käytettävissä, se näyttää oletusajoneuvoluokan.",
-            "title": "Näytä vain oma ajoneuvoluokka"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Näyttää, kuinka monta henkilöä on osoitettu ajoneuvoon.",
@@ -73,6 +69,14 @@
         "vehiclesPersonnelMax": {
             "description": "Näyttää ajoneuvoon mahtuvien henkilöiden enimmäismäärän.",
             "title": "Miehistön enimmäismäärä"
+        },
+        "vehicleTypes": {
+            "description": "Näyttää ajoneuvotyypin (ja jos saatavilla, oman ajoneuvoluokan) erillisessä sarakkeessa.",
+            "title": "Ajoneuvo tyyppi"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Näyttää vain oman ajoneuvoluokan, jos se on käytettävissä. Jos se ei ole käytettävissä, se näyttää oletusajoneuvoluokan.",
+            "title": "Näytä vain oma ajoneuvoluokka"
         }
     }
 }

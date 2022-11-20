@@ -1,0 +1,12 @@
+{
+    "alliance": "Liittoutuma",
+    "amount": "{n} suodatettu pelaaja | {n} suodatettua pelaajaa",
+    "credits": "Krediitit (ansaitut yhteensä)",
+    "load": { "next": "Lataa seuraava sivu", "prev": "Lataa edellinen sivu" },
+    "name": "Pelaajat",
+    "search_global": "Globaali haku",
+    "search_local": "Hae ladatuista pelaajista",
+    "search_subtitle": "Näytä sivujen {startPage} {endPage} väliltä pelaajat",
+    "subtitle": "Näytä sivujen {startPage} ({firstCredits}) {endPage} ({lastCredits}) väliltä pelaajat",
+    "title": "Pelaajalista"
+}

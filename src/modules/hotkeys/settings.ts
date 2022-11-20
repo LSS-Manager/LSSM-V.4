@@ -77,10 +77,45 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'building.dispatch.patrol',
         'building.dispatch.settings',
         'building.dispatch.openFirstPlannedMission',
+        'vehicles.goto.nextVehicle',
+        'vehicles.goto.building',
+        'vehicles.goto.previousVehicle',
+        'vehicles.goto.edit',
+        'vehicles.goto.personalAssigment',
+        'vehicles.goto.statistics',
+        'vehicles.alarm.firstOwnMission',
+        'vehicles.alarm.firstAllianceMission',
+        'vehicles.other.moveVehicle',
+        'vehicles.other.toggleFMS',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)
     );
+
+    interface SettingRow {
+        command: string;
+        hotkey: string;
+    }
+
+    const uniquenessCheck = (
+        row: SettingRow,
+        rowIndex: number,
+        settings: SettingRow[]
+    ) => {
+        if (!row.command || !row.hotkey) return false;
+        const scope = row.command.split('.')[0];
+        const sameHotkeys = settings
+            .filter((_, i) => i !== rowIndex)
+            .filter(({ hotkey }) => hotkey === row.hotkey)
+            .filter(
+                ({ command }) =>
+                    scope === '*' ||
+                    command.startsWith(`${scope}.`) ||
+                    command.startsWith('*.')
+            );
+        if (sameHotkeys.length === 0) return false;
+        return $m('unique').toString();
+    };
 
     return {
         hotkeys: <Omit<AppendableList, 'isDisabled' | 'value'>>{
@@ -91,7 +126,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     name: 'command',
                     title: $m('settings.command'),
                     size: 5,
-                    unique: true,
+                    unique: uniquenessCheck,
                     setting: {
                         type: 'select',
                         values: commands,
@@ -102,7 +137,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     name: 'hotkey',
                     title: $m('settings.hotkey'),
                     size: 0,
-                    unique: true,
+                    unique: uniquenessCheck,
                     setting: {
                         type: 'hotkey',
                     },

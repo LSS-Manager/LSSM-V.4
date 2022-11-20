@@ -1,0 +1,55 @@
+{
+    "amount": "{n} misión mostrada | {n} misiones mostradas",
+    "columns": {
+        "average_credits": "Media créditos",
+        "details": "",
+        "duration": "duración",
+        "generated_by": "Generado por",
+        "id": "",
+        "missing": "requisitos restantes",
+        "name": "inserta",
+        "place": "POI / POIs",
+        "prerequisites": "requisitos"
+    },
+    "main_building_extensions": {
+        "text": "con las siguientes extensiones activas"
+    },
+    "missing": {
+        "date": "Esta misión no se puede generar en este momento porque actualmente solo está habilitada para el periodo de  **{date_start}** a **{date_end}**.",
+        "diff": "Todavía necesitas",
+        "have": "Tu tienes",
+        "need": "Necesario",
+        "req": "Requisito"
+    },
+    "no_dispatchcenter": "Sin centralita",
+    "prerequisite_calculations": {
+        "fire_stations": [0, 18],
+        "hazard_response_ems_count": [25],
+        "police_helicopter_stations": ["13.level"],
+        "police_stations": [6, 19],
+        "rescue_helicopter_station": ["5.level"],
+        "rescue_stations": [2, 20, "0.0"]
+    },
+    "prerequisites_long": {
+        "fire_stations": "Estación de bombero | Estaciones de bomberos",
+        "hazard_response_ems_count": "HART Base | HART Bases",
+        "max_police_stations": "Comisarías máximas",
+        "max_rescue_stations": "Estaciones de ambulancias máximas",
+        "police_helicopter_stations": "Estación de helicóptero de policía | Estaciones de helicópteros de policías",
+        "police_stations": "Comisaría | Comisarías",
+        "rescue_helicopter_stations": "Recuento de helicópteros de rescate",
+        "rescue_stations": "Estación de ambulancia | Estaciones de ambulancias"
+    },
+    "prerequisites_short": {
+        "fire_stations": "Estación de bombero | Estaciones de bomberos",
+        "hazard_response_ems_count": "HART Base | HART Bases",
+        "max_police_stations": "Comisarías máximas",
+        "max_rescue_stations": "Estaciones de ambulancias máximas",
+        "police_helicopter_stations": "Estación de helicóptero de policía | Estaciones de helicópteros de policía",
+        "police_stations": "Comisaría | Comisarías",
+        "rescue_helicopter_stations": "Recuento de helicópteros de rescate",
+        "rescue_stations": "Estación de ambulancia | Estaciones de ambulancias"
+    },
+    "select_dispatchcenter": "Seleccionar centro de control",
+    "title": "Misiones posibles"
+}

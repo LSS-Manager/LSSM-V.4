@@ -597,7 +597,17 @@ export default {
         color: '#f5a42a',
         coins: 50,
         credits: 500_000,
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Boten',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [78, 79],
+            },
+        ],
         levelcost: [
             '1. 10.000',
             '2. 25.000',

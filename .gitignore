@@ -8,6 +8,7 @@ package-lock.json
 /static/beta.php
 /admin/
 /src/userscript.js
+/src/userscript.js.map
 LSSM_V4.zip
 dist.zip
 .eslintcache

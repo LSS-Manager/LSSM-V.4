@@ -138,6 +138,28 @@
                 "previous": "previous tab",
                 "title": "vehicle list"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "personal assigment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Ovládejte hru pomocí klávesových zkratek, které si můžete nastavit.",
@@ -149,5 +171,6 @@
             "description": "Nastavte si vlastní klávesové zkratky pro dostupné akce. Akce z kategorie \"Všeobecné\" jsou dostupné kdekoliv ve hře. Stisknutím klávesy F1 zobrazíte přehled aktuálně nastavených klávesových zkratek.",
             "title": "Klávesové zkratky"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

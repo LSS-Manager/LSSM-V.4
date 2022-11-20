@@ -50,7 +50,7 @@
                 "patrol": "Streifenfahrten-Routen Tab",
                 "patrol_vehicles": "Streifenfahrten Tab",
                 "plannedMission": "Geplante Einsätze Tab",
-                "previous": "Vorheriger tab",
+                "previous": "Vorheriger Tab",
                 "protocol": "Protokoll Tab",
                 "schooling": "Lehrgänge Tab",
                 "settings": "Einstellungen Tab",
@@ -139,6 +139,28 @@
                 "previous": "Vorheriger Tab",
                 "title": "Fahrzeugliste"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarmiere zu erstem Verbandseinsatz",
+                "firstOwnMission": "Alarmiere zu erstem eigenen Einsatz",
+                "title": "Alarmieren"
+            },
+            "goto": {
+                "building": "Gebäude",
+                "edit": "Bearbeiten",
+                "nextVehicle": "Nächstes Fahrzeug",
+                "personalAssigment": "Personal zuweisen",
+                "previousVehicle": "Vorheriges Fahrzeug",
+                "statistics": "Statistiken",
+                "title": "Gehe zu"
+            },
+            "other": {
+                "moveVehicle": "Fahrzeug verschieben",
+                "title": "Sonstiges",
+                "toggleFMS": "FMS ändern"
+            },
+            "title": "Fahrzeuge"
         }
     },
     "description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",
@@ -150,5 +172,6 @@
             "description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest. Aktionen der Kategorie \"Allgemein\" funktionieren auf allen Seiten. Mittels F1 kannst du jederzeit eine Übersicht der von dir geöffneten Hotkeys einsehen.",
             "title": "Hotkeys"
         }
-    }
+    },
+    "unique": "Du hast versucht, mehreren Aktionen den selben Hotkey zuzuweisen, auch wenn diese Aktionen in gleichem Kontext aufgerufen werden. Bitte wähle einen anderen Hotkey für diese Aktion."
 }

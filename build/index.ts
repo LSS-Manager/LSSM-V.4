@@ -40,7 +40,7 @@ const entry = {
         path: path.resolve(__dirname, `../dist`),
         filename: pathData =>
             `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/u, '')}.js`,
-        publicPath: `${config.server}`,
+        publicPath: `${config.urls.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
 } as webpack.Configuration;
@@ -58,8 +58,8 @@ entry.plugins?.unshift(
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
         BRANCH: JSON.stringify(branch),
-        SERVER: JSON.stringify(config.server),
-        MODE: mode === 'production' ? '"stable"' : '"beta"',
+        SERVER: JSON.stringify(config.urls.server),
+        MODE: JSON.stringify(mode === 'production' ? 'stable' : 'beta'),
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(
                 modules.map(module => [
@@ -90,10 +90,6 @@ entry.plugins?.push(
     new DynamicImportQueryPlugin({
         v: {
             value: version,
-        },
-        uid: {
-            value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
-            isDynamicKey: true, // false by default
         },
         branch: {
             value: branch,

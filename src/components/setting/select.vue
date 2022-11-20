@@ -10,6 +10,15 @@
             <div slot="no-options">
                 {{ $t('noOptions') }}
             </div>
+            <template v-if="name === 'global.branch'" #option="{ label }">
+                <span v-html="label"></span>
+            </template>
+            <template
+                v-if="name === 'global.branch'"
+                #selected-option="{ label }"
+            >
+                <span v-html="label"></span>
+            </template>
         </v-select>
     </div>
 </template>
@@ -84,4 +93,10 @@ export default Vue.extend<
 <style scoped lang="sass">
 label
     width: 100%
+
+.setting[name="global.branch"] .form-horizontal ::v-deep(.vs__dropdown-option)
+    white-space: break-spaces
+
+    &:nth-child(1), &:nth-child(2)
+        font-weight: bold
 </style>

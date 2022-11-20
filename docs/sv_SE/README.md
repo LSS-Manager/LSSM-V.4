@@ -6,13 +6,13 @@ sidebarDepth: 2
 
 # Wiki 🇸🇪 <Badge :text="'v' + $theme.variables.versions.short"/>
 
-> stable: <i>{{ $theme.variables.versions.stable }}</i>
+> stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
-> beta: <i>{{ $theme.variables.versions.beta }}</i>
+> beta: *{{ $theme.variables.versions.beta }}* [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status][lssm.status]
 
 [Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
@@ -59,3 +59,21 @@ LSSM-indikatorn är en grön markerad text `LSSM V.4`.
 Om du befinner dig i larmcentralen-spelet men inte ser den här indikatorn i det övre högra hörnet klickar du på tampermonkey-ikonen i din webbläsare och kontrollerar om omkopplaren för LSS-Manager-skript är inställd på `on`.
 
 Om du har några problem kan du alltid kontakta [Support](support.md).
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /sv_SE/apps/
+[docs.appstore]: /sv_SE/appstore/
+[docs.bugs]: /sv_SE/bugs/
+[docs.error_report]: /sv_SE/error_report/
+[docs.faq]: /sv_SE/faq/
+[docs.metadata]: /sv_SE/metadata/
+[docs.other]: /sv_SE/other/
+[docs.settings]: /sv_SE/settings/
+[docs.suggestions]: /sv_SE/suggestions/
+[docs.support]: /sv_SE/support/
+[games.self]: https://larmcentralen-spelet.se
+[tampermonkey]: https://tampermonkey.net/

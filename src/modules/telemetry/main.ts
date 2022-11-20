@@ -155,6 +155,7 @@ export default (
                                 /-.*$/u,
                                 ''
                             ) ?? '4.0.0',
+                        branch: BRANCH,
                     }),
                 },
                 feature: 'telemetry',

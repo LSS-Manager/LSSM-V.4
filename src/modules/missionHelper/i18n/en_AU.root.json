@@ -17,6 +17,7 @@
             "in": "additional",
             "text": "Required TOG Personnel"
         },
+        "title": "Special requirements",
         "water_needed": {
             "badge": true,
             "in": "requirements",
