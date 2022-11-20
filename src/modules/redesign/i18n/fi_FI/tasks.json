@@ -3,7 +3,7 @@
     "claim": "Lunasta",
     "claimAll": "Lunasta kaikki ({amount})",
     "collectionTasks": {
-        "taskName": "Suorita \\d+ tapahtuman \"(.*?)\" tehtävää",
+        "taskName": "Suorita \\d+ tapahtuman ”(.*?)” tehtävää",
         "title": "Kollektiiviset tehtävät"
     },
     "confirmation": {
