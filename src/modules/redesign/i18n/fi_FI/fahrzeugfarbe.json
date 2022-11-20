@@ -1,0 +1,8 @@
+{
+    "description": "Hälytysikkunassa tämä väri asetetaan kaikkien tämän ajoneuvotyypin ajoneuvojen valintaruudun taustaksi.",
+    "noColor": "Ajoneuvon väriä ei ole tällä hetkellä valittu",
+    "reset": "Poista väri",
+    "save": "Tallenna",
+    "savedNote": "Ajoneuvon väri onnistuneesti tallennettu!",
+    "title": "Muokkaa ajoneuvon väriä: {type}"
+}
