@@ -1,0 +1,49 @@
+{
+    "amount": "{n} suodatettu pelaaja | {n} suodatettua pelaajaa",
+    "credits": "Ansaitut krediitit yhteensä",
+    "discount": "alennus",
+    "edit_caption": { "save": "Tallenna" },
+    "load": { "next": "lataa seuraava sivu", "prev": "lataa edellinen sivu" },
+    "name": "pelaaja",
+    "online": {
+        "subtitle": "Vain paikalla olevat jäsenet näytetään!",
+        "titles": {
+            "blue": "{user} on offline ja on ollut online viimeisten 30 päivän aikana!",
+            "gray": "{user} on offline ja oli online viimeisen 7 päivän aikana!",
+            "green": "{user} on paikalla!",
+            "red": "{user} on ollut offline yli 60 päivää!",
+            "yellow": "{user} on offline ja on ollut online viimeiset 60 päivää!"
+        },
+        "toggle": {
+            "false": "Näytä vain paikalla olevat pelaajat",
+            "true": "Näytä kaikki jäsenet (myös offline)"
+        }
+    },
+    "rights": {
+        "admin": "Liittouman ylläpitäjä",
+        "aufsichtsrat": "Moderaattorin toimintaloki",
+        "coadmin": "Liittouman varaylläpitäjä",
+        "edit": "Muokkaa oikeuksia",
+        "finance": "Liittoutuman raha-asiat",
+        "hide": "Sulje",
+        "kick": { "btn": "Potki" },
+        "kickModal": {
+            "btnCancel": "Peruuta",
+            "btnConfirm": "Potki",
+            "text": "Haluatko todella potkia pelaajan **{user}** ulos liittoutumasta?",
+            "title": "Potki?"
+        },
+        "schooling": "Liittouman kouluttaja",
+        "set": "Aseta {role}",
+        "sprechwunsch_admin": "Kuljetuspyyntö - ylläpitäjä",
+        "staff": "Liittouman ylläpitjä",
+        "unset": "Poista {role}"
+    },
+    "roles": "Rooli(t)",
+    "search_global": "Yleinen haku",
+    "search_local": "Haku ladatuista pelaajista",
+    "search_subtitle": "Näytä {n} pelaajaa {startPage} {endPage} sivujen välillä",
+    "subtitle": "Näytä {n} pelaajaa {startPage} ({firstCredits}) - {endPage} ({lastCredits}) sivujen välillä",
+    "tax": "veroprosentti",
+    "title": "Jäsenet"
+}
