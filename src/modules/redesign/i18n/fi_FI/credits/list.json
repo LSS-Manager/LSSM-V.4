@@ -1,0 +1,11 @@
+{
+    "amount": "Määrä",
+    "date": "Päivänmäärä",
+    "description": "Kuvaus",
+    "load": {
+        "next": "20 Lataa vanhempaa merkintää",
+        "prev": "20 Lataa uudempaa merkintää"
+    },
+    "subtitle": "Näytä {n} sivujen {startPage} ({firstDate}) - {endPage} ({lastDate}) {totalPages} sivujen {totalPages} kokonaismäärän {n} merkinnät.",
+    "title": "Tapahtumat"
+}
