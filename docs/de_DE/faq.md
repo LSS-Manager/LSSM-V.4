@@ -15,7 +15,7 @@ Möchtest du uns trotzdem unterstützen? Dann kannst du uns gerne eine Spende ü
 :::warning Spenden
 Alle Spenden werden ausschließlich zum Decken der laufenden Kosten verwendet. Wir haben keine Gewinnabsicht und werden auch keine Gewinne ausschütten.
 
-Das Spenden hat keinen direkten Einfluss auf die Entwicklung des LSSM! Wir werden nicht mehr und nicht weniger Zeit investieren und auch für einzelne Nutzer gibt es keine direkten Vorteile wie z.B. Premium-Features geben. Die Entwicklung des LSSM bleibt weiterhin auf freiwilliger Basis in unserer Freizeit und die Nutzung bleibt weiterhin für alle Nutzer vollständig kostenlos!
+Das Spenden hat keinen direkten Einfluss auf die Entwicklung des LSSM! Wir werden nicht mehr und nicht weniger Zeit investieren und auch für spendende Nutzer wird es keine direkten Vorteile wie z.B. Premium-Features geben. Die Entwicklung des LSSM bleibt weiterhin auf freiwilliger Basis in unserer Freizeit und die Nutzung bleibt weiterhin für alle Nutzer vollständig kostenlos!
 
 Selbstverständlich freuen wir uns über jede Spende, wir möchten trotzdem darauf hinweisen, dass wir das Projekt auch ohne die Spenden wie bisher weiter laufen lassen möchten.
 :::
