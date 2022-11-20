@@ -1,0 +1,27 @@
+{
+    "disabled": "Allianssin varat on poistettu käytöstä tässä liittoutumassa.",
+    "earnings": {
+        "credits": "Krediitit",
+        "daily": "Päivittäinen",
+        "monthly": "Kuukausittainen",
+        "sum": "Yhteenveto",
+        "title": "Tulot",
+        "user": "Pelaaja"
+    },
+    "spendings": {
+        "credits": "Krediitit",
+        "date": "Päivänmäärä",
+        "desc": "Kuvaus",
+        "loadMore": "lataa 10 lisää merkintää",
+        "title": "Menot",
+        "user": "Pelaaja"
+    },
+    "summary": {
+        "rate": "Maksusi liittoumalle",
+        "title": "Liittouman varat"
+    },
+    "toggle": {
+        "disable": "Poista liittouman varat käytöstä",
+        "enable": "Liittouman varojen käyttöönotto"
+    }
+}
