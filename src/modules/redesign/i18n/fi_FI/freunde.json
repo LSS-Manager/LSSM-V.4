@@ -1,0 +1,8 @@
+{
+    "amount": "{n} suodatettu kaveri | {n} suodatettua kaveria",
+    "name": "Nimi",
+    "note": "Huomautus",
+    "remove": "Poista kavereista",
+    "save": "Tallenna huomautus",
+    "title": "Kaverit"
+}
