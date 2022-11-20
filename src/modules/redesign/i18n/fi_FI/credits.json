@@ -1,0 +1,11 @@
+{
+    "nav": {
+        "links": [
+            { "href": "/credits", "text": "Tapahtumat" },
+            { "href": "/credits/overview", "text": "Yleiskatsaus" },
+            { "href": "/credits/daily", "text": "Päiväyhteenveto" },
+            { "href": "/coins/list", "text": "Kolikko loki" }
+        ],
+        "title": "Krediitit"
+    }
+}
