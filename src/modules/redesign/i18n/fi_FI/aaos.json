@@ -1,0 +1,23 @@
+{
+    "add": { "arr": "Luo uusi hälytysjärjestely", "group": "Luo uusi ryhmä" },
+    "categories": "Omat hälytysjärjestelyluokat",
+    "delete": {
+        "all": {
+            "text": "Haluatko varmasti poistaa koko hälytysjärjestelyn? Vietyjä merkintöjä ei voi enää käyttää.",
+            "title": "Poista hälytysjärjestely kokonaan"
+        },
+        "arr": {
+            "text": "Haluatko varmasti poistaa tämän hälytysjärjestelyn?",
+            "title": "Poista hälytysjärjestely"
+        },
+        "cancel": "Peruuta",
+        "confirm": "Poista!",
+        "vehicle_group": {
+            "text": "Haluatko todella poistaa tämän ryhmän? Tätä ei voi perua!",
+            "title": "Poista luokka"
+        }
+    },
+    "delete_all": "Poista hälytysjärjestely kokonaan",
+    "export": "Vie",
+    "title": "Hälytysjärjestelyt"
+}

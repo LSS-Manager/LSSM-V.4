@@ -1,0 +1,42 @@
+{
+    "alerts": {
+        "alliance_ignored": "{nimi} on kiellettyä hakea liittoutumaasi!",
+        "friend": "{nimi} on kavereissasi! 🥳",
+        "ignored": "Estit pelaajan. {name} ei voi enää lähettää sinulle viestejä!"
+    },
+    "alliance": "Liittoutuma",
+    "awards": {
+        "bronze": "Pronssi",
+        "gold": "Kulta",
+        "max": "15",
+        "own": "Avaa Palkinnot",
+        "silver": "Hopea",
+        "title": "Palkinnot",
+        "title_amounts": "{sum} Palkintoa"
+    },
+    "buildings": { "amount": "{n} Rakennukset" },
+    "buttons": {
+        "alliance_ignore": {
+            "add": "Kiellä liittoutumahakemukset",
+            "destroy": "Salli liittoutumahakemukset"
+        },
+        "avatar": "Muokkaa profiilikuvaa",
+        "chat": {
+            "ban": "Estä liittoutuman chatista",
+            "unban": "Poista esto liittoutuman chatista"
+        },
+        "edit": "Edit profile",
+        "friend": { "do": "Lisää kaveriksi", "undo": "Poista kavereista" },
+        "gift": "Lähetä lahja",
+        "ignore": {
+            "do": "Estä pelaaja",
+            "undo": "Poista pelaajan esto"
+        },
+        "message": "Lähetä viesti"
+    },
+    "credits": "{credits} krediittiä ansaittu",
+    "map": "Kartta",
+    "rank": "Nykyinen arvo",
+    "registration": "Rekisteröitymispäivä",
+    "text": "Profiiliteksti"
+}

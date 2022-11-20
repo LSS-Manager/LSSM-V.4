@@ -1,0 +1,8 @@
+{
+    "load": {
+        "next": "Lataa 20 vanhempaa viesti",
+        "prev": "Lataa 20 uudempaa viestiä"
+    },
+    "subtitle": "Näyttää {n} viestiä sivujen {startPage} ({firstDate}) {endPage} ({lastDate}) väliltä",
+    "title": "Liittoutuman chätti"
+}
