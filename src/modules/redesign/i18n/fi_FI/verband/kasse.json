@@ -16,10 +16,7 @@
         "title": "Menot",
         "user": "Pelaaja"
     },
-    "summary": {
-        "rate": "Maksusi liittoumalle",
-        "title": "Liittouman varat"
-    },
+    "summary": { "rate": "Maksusi liittoumalle", "title": "Liittouman varat" },
     "toggle": {
         "disable": "Poista liittouman varat käytöstä",
         "enable": "Liittouman varojen käyttöönotto"

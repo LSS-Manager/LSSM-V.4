@@ -28,10 +28,7 @@
         "edit": "Edit profile",
         "friend": { "do": "Lisää kaveriksi", "undo": "Poista kavereista" },
         "gift": "Lähetä lahja",
-        "ignore": {
-            "do": "Estä pelaaja",
-            "undo": "Poista pelaajan esto"
-        },
+        "ignore": { "do": "Estä pelaaja", "undo": "Poista pelaajan esto" },
         "message": "Lähetä viesti"
     },
     "credits": "{credits} krediittiä ansaittu",

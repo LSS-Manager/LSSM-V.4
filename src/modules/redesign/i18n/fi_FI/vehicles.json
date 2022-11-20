@@ -41,10 +41,16 @@
                 "yellow": "keltainen"
             }
         },
-        "wlf": { "distance": "Suurin sallittu etäisyys", "same": "Sama rakennus" }
+        "wlf": {
+            "distance": "Suurin sallittu etäisyys",
+            "same": "Sama rakennus"
+        }
     },
     "fms": "Tila",
-    "fms_switch": { "is_s2": "Poista ajoneuvo käytöstä (tila 6)", "is_s6": "Ota ajoneuvo taas käyttöön (tila 2)" },
+    "fms_switch": {
+        "is_s2": "Poista ajoneuvo käytöstä (tila 6)",
+        "is_s6": "Ota ajoneuvo taas käyttöön (tila 2)"
+    },
     "foam_amount": "Vaahtoa",
     "followup_missions": "Jatkotehtävä | Jatkotehtävät",
     "hospitals": {
