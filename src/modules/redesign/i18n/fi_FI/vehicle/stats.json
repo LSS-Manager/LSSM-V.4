@@ -1,0 +1,4 @@
+{
+    "distance": { "axis": "etäisyys (km)", "series": "Kokonaismatka" },
+    "title": "Ajoneuvotilastot viimeisiltä {n} päiviltä"
+}
