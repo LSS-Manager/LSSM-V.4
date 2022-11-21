@@ -73,7 +73,7 @@
         "eslint-plugin-prettier": "4.2.1",
         "eslint-plugin-regexp": "1.10.0",
         "eslint-plugin-tsdoc": "0.2.17",
-        "eslint-plugin-unicorn": "44.0.2",
+        "eslint-plugin-unicorn": "45.0.0",
         "eslint-plugin-vue": "9.7.0",
         "html-loader": "4.2.0",
         "js-yaml": "4.1.0",
