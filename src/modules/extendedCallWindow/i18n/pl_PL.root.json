@@ -58,8 +58,8 @@
             "title": "Wyszukiwanie ZR: autofocus"
         },
         "arrSearchClearOnEnter": {
-            "description": "Clears the ARR-search when the Enter key is pressed",
-            "title": "Clear ARR-search"
+            "description": "Czyści wyszukiwanie ZR po naciśnięciu klawisza Enter.",
+            "title": "Wyczyść wyszukiwanie ZR"
         },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Zamyka menu po wybraniu ZR.",
@@ -78,8 +78,8 @@
             "title": "Wyszukiwanie ZR jako rozwijana lista"
         },
         "arrSearchSelectOnEnter": {
-            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
-            "title": "Select first ARR"
+            "description": "Klika pierwszą zasadę reagowania odpowiadającą wyszukiwaniu po naciśnięciu klawisza Enter.",
+            "title": "Wybierz pierwszą ZR"
         },
         "arrSpecs": {
             "description": "Pokazuje jakie pojazdy zostaną wybrane gdy na chwilę zatrzymasz kursor nad ZR",
@@ -234,6 +234,6 @@
                 ]
             }
         ],
-        "noCustoms": "own vehicle categories excluded"
+        "noCustoms": "wyłączone kategorie własne pojazdów"
     }
 }
