@@ -162,12 +162,12 @@
             "title": "Pozostały czas dla pacjentów"
         },
         "selectedVehicleCounter": {
-            "description": "Displays in a expandable list how many vehicles of which type are selected.",
-            "title": "Count selected vehicles"
+            "description": "Wyświetla na rozwijanej liście liczbę wybranych pojazdów danego typu.",
+            "title": "Policz wybrane pojazdy"
         },
         "selectedVehicleCounterBtnVehicles": {
-            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
-            "title": "Count selected vehicles: Quick counter"
+            "description": "Wyświetla te typy pojazdów na przycisku, dzięki czemu nie trzeba otwierać listy, aby zobaczyć ich ilość.",
+            "title": "Policz wybrane pojazdy: Szybki licznik"
         },
         "stagingAreaSelectedCounter": {
             "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków \"Wyślij\"",
