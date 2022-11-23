@@ -160,6 +160,14 @@
             "description": "Näyttää potilaille, kuinka paljon aikaa on jäljellä, ennen kuin heidät on täysin hoidettu.",
             "title": "Jäljellä oleva hoitoaika"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Näyttää kuinka monta ajoneuvoa olet valinnut sillä hwtkellä kokoontumispaikkaan lähetä napin vieressä",
             "title": "Ajoneuvolaskuri kokoontumispaikoille"
