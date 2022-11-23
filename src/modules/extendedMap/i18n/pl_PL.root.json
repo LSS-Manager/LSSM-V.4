@@ -3,7 +3,7 @@
     "mapCSSFilter": {
         "brightness": "Jasność",
         "contrast": "Kontrast",
-        "grayscale": "Szary filtr",
+        "grayscale": "Filtr szarości",
         "hueRotate": "Obrót odcienia",
         "invert": "Odwróć kolory",
         "presets": {
