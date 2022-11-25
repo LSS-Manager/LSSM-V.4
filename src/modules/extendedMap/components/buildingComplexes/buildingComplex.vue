@@ -1698,7 +1698,7 @@ export default Vue.extend<
             buildings: 'buildingsById',
             allianceBuildings: 'allianceBuildingsById',
             vehiclesByBuilding: 'vehiclesByBuilding',
-            allSchoolings: store => store.schoolings.result,
+            allSchoolings: store => store.alliance_schoolings.result,
         }),
         attributedBuildings() {
             const smallBuildings = this.$t(
@@ -2597,8 +2597,12 @@ export default Vue.extend<
             );
         },
         schoolings() {
-            return this.allSchoolings.filter(({ building_id }) =>
-                this.complex.buildings.includes(building_id.toString())
+            return this.allSchoolings.filter(
+                ({ building_id }) =>
+                    this.complex.buildings.includes(building_id.toString()) ||
+                    this.complex.allianceBuildings.includes(
+                        building_id.toString()
+                    )
             );
         },
         schoolingBuildings() {
@@ -2718,6 +2722,11 @@ export default Vue.extend<
                     case this.overviewTabs.classrooms:
                         return this.apiStore
                             .getSchoolings('buildingComplex')
+                            .then(() =>
+                                this.apiStore.getAllianceSchoolings(
+                                    'buildingComplex'
+                                )
+                            )
                             .then(() => this.$nextTick())
                             .then(() => this.initSchoolingCountdowns());
                     case this.overviewTabs.buildings:

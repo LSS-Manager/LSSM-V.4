@@ -1,0 +1,16 @@
+{
+    "affected": "Koskee",
+    "amount": "{n} suodatettu merkintä | {n} suodatettua merkintää",
+    "description": "kuvaus",
+    "executor": "Nimi",
+    "filter": {
+        "all_types": "Näytä kaikki tyypit",
+        "no_types": "Älä näytä tyyppejä",
+        "type": "näytetyt merkintätyypit"
+    },
+    "load": { "next": "lataa seuraava sivu", "prev": "lataa edellinen sivu" },
+    "search_local": "Hae ladatuista merkinnöistä",
+    "subtitle": "Näytä {n} merkintää sivujen {startPage} ({firstDate}) {endPage} ({lastDate}) väliltä",
+    "time": "aika",
+    "title": "Liittouman loki"
+}

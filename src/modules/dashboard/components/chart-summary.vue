@@ -179,14 +179,10 @@ export default Vue.extend<
                 store.buildings
                     .map(b => b.personal_count)
                     .reduce((a, b) => a + b, 0),
-            maxMissions: store => {
-                const maxBuildingsByCategories: number[] = [];
-                Object.entries(store.buildingsByCategory).forEach(category =>
-                    maxBuildingsByCategories.push(category[1].length)
-                );
-                return Math.max.apply(null, maxBuildingsByCategories) + 1;
-            },
         }),
+        maxMissions() {
+            return window.mission_count_max;
+        },
     },
     mounted() {
         if (useRootStore().isDarkMode)

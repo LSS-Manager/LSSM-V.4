@@ -160,6 +160,14 @@
             "description": "Shows for patients how much time remains until they are fully treated",
             "title": "Remaining time for patients"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
             "title": "Alarm-Counter within staging areas"

@@ -169,5 +169,5 @@
             "title": "Skróty klawiszowe"
         }
     },
-    "unique": "Próbowałeś przypisać ten sam skrót klawiszowy do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót dla tej akcji!"
+    "unique": "Próbowałeś przypisać ten sam klawisz skrótu do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót klawiszowy dla tej czynności."
 }

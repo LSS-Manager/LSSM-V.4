@@ -28,4 +28,5 @@ export interface ChartSummaryMethods {
 
 export interface ChartSummaryComputed {
     personalCount: number;
+    maxMissions: number;
 }

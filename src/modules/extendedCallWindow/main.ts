@@ -244,6 +244,18 @@ export default <ModuleMainFunction>(async ({
         );
     }
 
+    if (await getSetting('selectedVehicleCounter')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/selectedVehicleCounter" */ './assets/selectedVehicleCounter'
+        ).then(async ({ default: alarmIcons }) =>
+            alarmIcons(
+                LSSM,
+                MODULE_ID,
+                await getSetting<string[]>('selectedVehicleCounterBtnVehicles')
+            )
+        );
+    }
+
     const arrSpecs = await getSetting('arrSpecs');
     const arrTime = await getSetting('arrTime');
     if (arrSpecs || arrTime) {

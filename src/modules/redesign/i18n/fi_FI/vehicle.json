@@ -1,0 +1,120 @@
+{
+    "approach": "Kuljeta",
+    "backalarm": "Peruuta",
+    "backalarmNext": "Siirry seuraavaan tehtävään",
+    "cells": { "cell": "Rakennus", "free": "Vapaat sellit" },
+    "color": "Muokkaa väriä",
+    "current_mission": "Nykyinen tehtävä",
+    "delete": {
+        "button": "poista",
+        "cancel": "peruuta",
+        "confirm": "Poista",
+        "text": "Haluatko varmasti poistaa ajoneuvon?",
+        "title": "Poista ajoneuvo"
+    },
+    "distance": "Etäisyys",
+    "edit": "Muokka",
+    "false": "Ei",
+    "filter": {
+        "cells": {
+            "distance": "Suurin sallittu etäisyys",
+            "each": "Näytä x määrä rakennuksia",
+            "free": "Vapaiden sellien vähimmäismäärä",
+            "tax": "Enimmäis vero"
+        },
+        "hospitals": {
+            "beds": "Vapaiden paikkojen vähimmäismäärä",
+            "department": { "title": "Osasto: {department}" },
+            "distance": "Suurin sallittu etäisyys",
+            "each": "Näytä x määrä rakennuksia",
+            "tax": "Enimmäis vero"
+        },
+        "missions": {
+            "credits": "Vähintään krediittejä",
+            "distance": "Suurin sallitu etäisyys",
+            "participation": { "title": "Osallistujat" },
+            "progress": "Edistyminen max %",
+            "status": {
+                "green": "vihreä",
+                "red": "punainen",
+                "title": "Tila",
+                "yellow": "keltainen"
+            }
+        },
+        "wlf": {
+            "distance": "Suurin sallittu etäisyys",
+            "same": "Sama rakennus"
+        }
+    },
+    "fms": "Tila",
+    "fms_switch": {
+        "is_s2": "Poista ajoneuvo käytöstä (tila 6)",
+        "is_s6": "Ota ajoneuvo taas käyttöön (tila 2)"
+    },
+    "foam_amount": "Vaahtoa",
+    "followup_missions": "Jatkotehtävä | Jatkotehtävät",
+    "hospitals": {
+        "beds": "vapaita paikkoja",
+        "department": "Osasto: {department}",
+        "hospital": "Sairaala"
+    },
+    "load_all_hospitals": {
+        "btn": "Lataa kaikki ",
+        "text": "Vain 50 liittoutumasairaalaa näytetään. Kaikkien sairaaloiden lataaminen voi kestää kauan määrästä riippuen!"
+    },
+    "max_staff": "Henkilöitä enint.",
+    "mileage": "Kokonaismatka",
+    "missions": {
+        "alarm": "Lähetä",
+        "alarmed": "Nykyinen tehtävä",
+        "credits": "Keskim. krediitit",
+        "mission": "Tehtävä",
+        "participation": "Osallistujat",
+        "patients": "Loukkaantuneet",
+        "patientsProgress": "{current} / {total}",
+        "progress": "Tila"
+    },
+    "move": "Siirrä",
+    "owner": "Omistaja",
+    "owner_pic_state": {
+        "offline": "{user} on offline!",
+        "online": "{user} on paikalla!"
+    },
+    "release": {
+        "cancel": "Peruuta",
+        "confirm": "Kyllä!",
+        "disable": "Kyllä ja älä kysy uudestaan",
+        "patient": {
+            "text": "Haluatko vapauttaa potilaan tästä autosta? Potilaalle ei hyvitetä maksua!",
+            "title": "Päästä potilas"
+        },
+        "prisoner": {
+            "text": "Haluatko vapauttaa **kaikki** tämän operaation vangit? Näistä vangeista ei hyvitetä mitään korvauksia!",
+            "title": "Vapauta vangit"
+        }
+    },
+    "release_patient": "Päästä potilas",
+    "release_prisoner": "Vapauta vankl",
+    "staff": { "name": "Nimi", "schooling": "Kurssi", "title": "Henkilöstö" },
+    "station": "Rakennus",
+    "stats": "Tilastot",
+    "tabs": {
+        "all": "kaikki {type}: {amount}",
+        "alliance": "liittoutuma {type}: {amount}",
+        "cells": "Sellit",
+        "hospitals": "Sairaalat",
+        "missions": "Tehtävät",
+        "own": "oma {type}: {amount}"
+    },
+    "tax": "vero",
+    "true": "kyllä",
+    "vehicletype": "Ajoneuvotyyppi",
+    "water_amount": "Vesi",
+    "wlf": {
+        "alarm": "Lähetä",
+        "building": "Rakennus",
+        "caption": "Pää liikuttaja",
+        "same": "sama rakennus: {building}"
+    },
+    "zuweisung": "Osoita henkilöstöä"
+}
