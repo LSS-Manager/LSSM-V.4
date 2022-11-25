@@ -381,7 +381,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [95],
-                parkingLotReservations: [[95]],
+                parkingLotReservations: [[95], [95]],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
@@ -1077,7 +1077,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [95],
-                parkingLotReservations: [[95]],
+                parkingLotReservations: [[95], [95]],
             },
         ],
         levelcost: [
