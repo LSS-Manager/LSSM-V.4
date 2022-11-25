@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.0+20221124.1023",
+    "version": "4.7.0+20221125.1603",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -68,7 +68,7 @@
         "eslint-import-resolver-typescript": "3.5.2",
         "eslint-plugin-compat": "4.0.2",
         "eslint-plugin-import": "2.26.0",
-        "eslint-plugin-jsdoc": "39.6.2",
+        "eslint-plugin-jsdoc": "39.6.4",
         "eslint-plugin-markdownlint": "0.4.0",
         "eslint-plugin-prettier": "4.2.1",
         "eslint-plugin-regexp": "1.11.0",
@@ -81,7 +81,7 @@
         "prettier": "2.8.0",
         "sass": "1.56.1",
         "sass-loader": "13.2.0",
-        "terser": "5.15.1",
+        "terser": "5.16.0",
         "ts-loader": "9.4.1",
         "ts-node": "10.9.1",
         "typescript": "4.9.3",
