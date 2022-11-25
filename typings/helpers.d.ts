@@ -97,6 +97,7 @@ declare global {
             back(): void;
             clear(): void;
         };
+        pressedKeys?: Record<number, boolean>; // in missions window
         lightboxOpen(link: string): void;
         successfullMessage(html: string): void;
         mission_position_new_dragend(): void;

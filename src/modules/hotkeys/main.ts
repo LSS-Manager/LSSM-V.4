@@ -1,6 +1,7 @@
 import type Vue from 'vue';
 
 import getCommandName from './assets/getCommandName';
+import ingameHotkeys from './assets/ingameHotkeys';
 import HotkeyUtility, {
     type CallbackFunction,
     type RedesignParameter,
@@ -9,7 +10,7 @@ import HotkeyUtility, {
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-type RootScope = typeof rootCommandScopes[number];
+export type RootScope = typeof rootCommandScopes[number];
 export type RootScopeWithoutAll = Exclude<RootScope, '*'>;
 
 type Commands = Scope<Empty, RootScope[], [], true>;
@@ -71,6 +72,21 @@ export const registerHotkeys = async (
     redesignParam?: RedesignParameter,
     LSSM: Vue = window[PREFIX] as Vue
 ) => {
+    const disabledNativeHotkeys: string[] = [];
+    window.pressedKeys = new Proxy(window.pressedKeys ?? {}, {
+        set(obj, key, value) {
+            // we need to get the char from charCode and lowercase because the game uses keyCode instead of key
+            if (
+                typeof key !== 'string' ||
+                !disabledNativeHotkeys.includes(
+                    String.fromCharCode(parseInt(key)).toLowerCase()
+                )
+            )
+                return Reflect.set(obj, key, value);
+            return false;
+        },
+    });
+
     hotkeyLoop: for (const { command, hotkey } of hotkeys) {
         if (HotkeyUtility.activeCommands[command]) continue;
 
@@ -78,6 +94,13 @@ export const registerHotkeys = async (
         let callback: CallbackFunction | null = null;
         const path = command.split('.');
         const walkedPath: string[] = [];
+        const rootScope = path[0] as RootScope;
+        const nativeHotkeys =
+            rootScope === '*'
+                ? Object.values(ingameHotkeys).flatMap(hotkeys =>
+                      Object.values(hotkeys)
+                  )
+                : Object.values(ingameHotkeys[rootScope] ?? {});
 
         const validationResult: Record<string, unknown> = {};
 
@@ -115,6 +138,16 @@ export const registerHotkeys = async (
         if (callback) {
             // disable native breadcrumb hotkey
             if (hotkey.split(' ').includes('b')) window.breadcrumbnav.clear();
+            // disable other native hotkeys
+            const doubledHotkeys = new Set(
+                nativeHotkeys.filter(
+                    key =>
+                        hotkey.split(' ').includes(key) &&
+                        !disabledNativeHotkeys.includes(key)
+                )
+            );
+            if (doubledHotkeys.size)
+                disabledNativeHotkeys.push(...doubledHotkeys);
 
             hotkeyUtility.addListener(
                 HotkeyUtility.createListener(
