@@ -113,6 +113,9 @@ export const registerHotkeys = async (
             }
         }
         if (callback) {
+            // disable native breadcrumb hotkey
+            if (hotkey === 'b') window.breadcrumbnav.clear();
+
             hotkeyUtility.addListener(
                 HotkeyUtility.createListener(
                     command,

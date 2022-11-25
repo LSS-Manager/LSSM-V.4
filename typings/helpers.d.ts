@@ -91,6 +91,12 @@ declare global {
             { from: string; to: string }[]
         >;
         mission_count_max: number;
+        breadcrumbnav: {
+            init(id: string): void;
+            add(id: string): void;
+            back(): void;
+            clear(): void;
+        };
         lightboxOpen(link: string): void;
         successfullMessage(html: string): void;
         mission_position_new_dragend(): void;
