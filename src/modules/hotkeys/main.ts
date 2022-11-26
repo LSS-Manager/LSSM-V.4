@@ -1,6 +1,6 @@
 import type Vue from 'vue';
 
-import getCommandName from './assets/getCommandName';
+import { getCommandNameAsList } from './assets/getCommandName';
 import HotkeyUtility, {
     type CallbackFunction,
     type RedesignParameter,
@@ -172,7 +172,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
                         {
                             hotkeys,
                             getCommandName: (command: string) =>
-                                getCommandName(command, $m),
+                                getCommandNameAsList(command, $m),
                         },
                         { name: 'hotkeysHelp', height: 'auto' },
                         {
