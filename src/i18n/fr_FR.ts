@@ -20,6 +20,7 @@ const modules = {
         reset: 'Reset',
         export: 'Exporter',
         import: 'Importer',
+        donate: 'donate voluntarily',
         appendableList: {
             unique: {
                 title: 'Valeur en double',

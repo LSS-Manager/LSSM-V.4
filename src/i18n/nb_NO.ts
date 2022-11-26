@@ -18,6 +18,7 @@ const modules = {
         reset: 'Resett',
         export: 'Eksporter',
         import: 'Importer',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Tilbakestill endringer',
             text: 'Vil du virkelig tilbakestille alle innstillinger til standard?',
