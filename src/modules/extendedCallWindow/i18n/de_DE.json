@@ -248,7 +248,10 @@
                 "vehicles": [81, 82]
             },
             { "texts": ["Polizeihubschrauber"], "vehicles": [61] },
-            { "texts": ["Polizeimotorrad", "Polizeimotorräder"], "vehicles": [95] },
+            {
+                "texts": ["Polizeimotorrad", "Polizeimotorräder"],
+                "vehicles": [95]
+            },
             {
                 "texts": ["RTW oder KTW oder KTW-B"],
                 "vehicles": [28, 38, 58, 74, 97]
