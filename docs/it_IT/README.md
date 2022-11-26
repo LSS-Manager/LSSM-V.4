@@ -20,7 +20,7 @@ sidebarDepth: 2
 
 ## Circa LSSM
 
-LSS-MANAGER V.4 è un estensione per [Operatore112.it](https://www.operatore112.it/) e le sue altre versioni linguistiche.
+LSS-MANAGER V.4 è un estensione per [Operatore112.it][games.self] e le sue altre versioni linguistiche.
 
 Con questa estensione un negozio viene aggiunto al gioco, che ci permette l'uso dei plugins. Tutte le funzioni sono modulari - puoi decidere cosa attivare, fino all'ultimo modulo.
 
@@ -28,7 +28,7 @@ I plugin che non sono attivi, non vengono neanche caricati - questo ci permette 
 
 
 ## Installazione 📥
-Usando LSSM, sei consapevole del fatto che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [metadata](metadata.md)
+Usando LSSM, sei consapevole del fatto che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [metadata][docs.metadata]
 
 Una tabella con i browser compatibili con LSSM la puoi trovare nelle nostre [FAQ](faq.md#su-quale-browser-lss-manager-funziona)
 
@@ -43,7 +43,7 @@ Se ancora non hai installato Tampermonkey nel tuo browser, devi farlo. Qui puoi 
 
 <tampermonkey-download-table/>
 
-Per altri browser puoi scaricare Tampermonkey su [tampermonkey.net](https://www.tampermonkey.net/).
+Per altri browser puoi scaricare Tampermonkey su [tampermonkey.net][tampermonkey].
 
 ::: warning
 Si prega di notare che ufficialmente noi non forniamo supporto per browser più vecchi, Browser mobili e Apple Safari. Il supporto per questi, non è garantito.
@@ -58,12 +58,13 @@ Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cl
 L'indicatore di LSSM è un testo verde evidenziato `LSSM V.4`.
 Se sei su Operatore112 ma non vedi questo indicatore nell'angolo in alto a destra, clicca sull'icona di tampermonkey nel browser e controlla se l'interruttore per LSS-Manager script è impostato su `on`.
 
-Se hai qualsiasi problema puoi sempre contattarci tramite il [supporto](support.md).
+Se hai qualsiasi problema puoi sempre contattarci tramite il [supporto][docs.support].
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
 [docs.apps]: /it_IT/apps/
 [docs.appstore]: /it_IT/appstore/
