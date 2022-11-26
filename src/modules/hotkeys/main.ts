@@ -1,7 +1,7 @@
 import type Vue from 'vue';
 
 import { getCommandNameAsList } from './assets/getCommandName';
-import ingameHotkeys from './assets/ingameHotkeys';
+import ingameHotkeys, { breadcrumb } from './assets/ingameHotkeys';
 import HotkeyUtility, {
     type CallbackFunction,
     type RedesignParameter,
@@ -137,7 +137,8 @@ export const registerHotkeys = async (
         }
         if (callback) {
             // disable native breadcrumb hotkey
-            if (hotkey.split(' ').includes('b')) window.breadcrumbnav.clear();
+            if (hotkey.split(' ').includes(breadcrumb))
+                window.breadcrumbnav.clear();
             // disable other native hotkeys
             const doubledHotkeys = new Set(
                 nativeHotkeys.filter(

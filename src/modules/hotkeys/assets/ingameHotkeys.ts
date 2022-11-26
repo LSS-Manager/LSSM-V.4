@@ -12,3 +12,7 @@ export default <Partial<Record<RootScope, Record<string, string>>>>{
         'vehicleList.loadMissing': 'n',
     },
 };
+
+const breadcrumb = 'b';
+
+export { breadcrumb };
