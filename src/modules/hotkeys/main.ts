@@ -1,11 +1,11 @@
 import type Vue from 'vue';
 
 import { getCommandNameAsList } from './assets/getCommandName';
-import ingameHotkeys, { breadcrumb } from './assets/ingameHotkeys';
 import HotkeyUtility, {
     type CallbackFunction,
     type RedesignParameter,
 } from './assets/HotkeyUtility';
+import ingameHotkeys, { breadcrumb } from './assets/ingameHotkeys';
 
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
