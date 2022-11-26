@@ -201,5 +201,5 @@ table
         font-family: Monospace, sans-serif
         width: calc(var(--length) + 2*12px + 10px)
         text-align: center
-        margin: 0 auto
+        margin: 0 0 0 auto
 </style>
