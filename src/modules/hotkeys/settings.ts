@@ -40,6 +40,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.alliance.applications',
         '*.alliance.logfiles',
         '*.protocol',
+        'mission.transport_request',
         'mission.sorted.alert_next',
         'mission.sorted.prev',
         'mission.sorted.next',

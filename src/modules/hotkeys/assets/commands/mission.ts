@@ -8,7 +8,7 @@ export default <
     Scope<
         Empty,
         ['sorted', 'alliance', 'arr', 'vehicleList', 'backalarm'],
-        [],
+        ['transport_request'],
         true
     >
 >{
@@ -209,5 +209,12 @@ export default <
                 .querySelector<HTMLAnchorElement>("a[href$='backalarmDriving']")
                 ?.click();
         },
+    },
+    transport_request() {
+        document
+            .querySelector<HTMLAnchorElement>(
+                '.alert.alert-danger:not(.alert-missing-vehicles) a.btn.btn-success[href^="/vehicles/"]'
+            )
+            ?.click();
     },
 };
