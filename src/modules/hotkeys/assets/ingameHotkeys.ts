@@ -13,6 +13,4 @@ export default <Partial<Record<RootScope, Record<string, string>>>>{
     },
 };
 
-const breadcrumb = 'b';
-
-export { breadcrumb };
+export const breadcrumb = 'b';
