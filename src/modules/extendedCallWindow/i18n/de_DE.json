@@ -214,7 +214,13 @@
                 "texts": ["Flugfeldlöschfahrzeug", "Flugfeldlöschfahrzeuge"],
                 "vehicles": [75]
             },
-            { "texts": ["FuStW"], "vehicles": [32, 103] },
+            {
+                "conditionalVehicles": {
+                    "allow_police_motorcycle_instead_of_fustw": [95]
+                },
+                "texts": ["FuStW"],
+                "vehicles": [32, 103]
+            },
             {
                 "texts": ["Funkstreifenwagen (Dienstgruppenleitung)"],
                 "vehicles": [103]
