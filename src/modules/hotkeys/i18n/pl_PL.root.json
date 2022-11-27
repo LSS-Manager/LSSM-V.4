@@ -129,6 +129,7 @@
                 "title": "Posortowane misje"
             },
             "title": "Okno misji",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Załaduj brakujące pojazdy",
                 "next": "Poprzednia zakładka",
