@@ -349,7 +349,7 @@
             <a
                 :href="rootStore.donationUrl"
                 target="_blank"
-                class="btn btn-xs btn-primary"
+                class="btn btn-xs btn-link"
             >
                 {{ $m('donate') }}
             </a>
