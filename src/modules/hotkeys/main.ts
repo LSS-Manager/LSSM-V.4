@@ -77,13 +77,12 @@ export const registerHotkeys = async (
         set(obj, key, value) {
             // we need to get the char from charCode and lowercase because the game uses keyCode instead of key
             if (
-                typeof key !== 'string' ||
-                !disabledNativeHotkeys.includes(
-                    String.fromCharCode(parseInt(key)).toLowerCase()
+                disabledNativeHotkeys.includes(
+                    String.fromCharCode(parseInt(key.toString())).toLowerCase()
                 )
             )
-                return Reflect.set(obj, key, value);
-            return false;
+                return false;
+            else return Reflect.set(obj, key, value);
         },
     });
 
