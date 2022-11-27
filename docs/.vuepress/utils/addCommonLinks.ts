@@ -10,6 +10,7 @@ const commonLinks = {
     'lssm.status': config.urls.statuspage,
     'lssm.discord': `https://discord.gg/${config.discord.invite}`,
     'lssm.userscript': `${config.urls.server}lssm-v4.user.js`,
+    'lssm.donations': config.urls.donations,
     // Docs
     'docs': config.urls.docs,
     'docs.apps': (lang: Locale) => `/${lang}/apps/`,

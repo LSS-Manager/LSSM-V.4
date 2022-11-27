@@ -20,7 +20,7 @@ sidebarDepth: 2
 
 ## O nas (LSSM)
 
-LSS MANAGER V.4 to rozszerzenie dla [operatorratunkowy.pl](https://www.operatorratunkowy.pl) i jego innych wersji językowych.
+LSS MANAGER V.4 to rozszerzenie dla [operatorratunkowy.pl][games.self] i jego innych wersji językowych.
 
 Dzięki temu rozszerzeniu do gry zostaje dodany sklep z aplikacjami, umożliwiający korzystanie z modułów. Możesz zdecydować, które moduły chcesz aktywować.
 
@@ -28,7 +28,7 @@ Dezaktywowane wtyczki nie są ładowane do przeglądarki, aby zapewnić lepszą 
 
 
 ## Instalacja 📥
-[Korzystając z LSSM, zgadzasz się na zbieranie metadanych.](metadata.md)
+[Korzystając z LSSM, zgadzasz się na zbieranie metadanych.][docs.metadata]
 
 Tabelę, z którymi przeglądarkami jest zgodny LSSM, można znaleźć na naszym [FAQ](faq.md)
 
@@ -42,7 +42,7 @@ Zainstaluj rozszerzenie Tampermonkey w swojej przeglądarce.
 
 <tampermonkey-download-table/>
 
-W przypadku innych przeglądarek możesz pobrać Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
+W przypadku innych przeglądarek możesz pobrać Tampermonkey na [tampermonkey.net][tampermonkey].
 
 ::: warning Uwaga!
 Należy pamiętać, że oficjalnie nie wspieramy: 
@@ -60,12 +60,13 @@ Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, mo�
 Wskaźnik LSSM to podświetlony na zielono tekst „LSSM V.4”, znajdujący się w prawym górnym rogu OperatoraRatunkowego.
 Jeśli nie możesz znaleźć tego wskaźnika, kliknij ikonę tampermonkey w przeglądarce i sprawdź, czy przełącznik skryptu LSS-Manager jest ustawiony na `on`.
 
-Jeśli masz jakiekolwiek problemy, skontaktuj się z nami: [Support](support.md).
+Jeśli masz jakiekolwiek problemy, skontaktuj się z nami: [Support][docs.support].
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
 [docs.apps]: /pl_PL/apps/
 [docs.appstore]: /pl_PL/appstore/
