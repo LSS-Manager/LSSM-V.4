@@ -849,6 +849,11 @@ export default Vue.extend<
     flex-flow: column
     justify-content: space-between
 
+    body.dark &
+        :deep(a:not(.btn)),
+        :deep(a.btn.btn-link)
+            color: #6dd5f4
+
 #settings-changelist
     display: none
     position: absolute
