@@ -1,6 +1,8 @@
 {
     "building-list": {
         "actions": "",
+        "beds": "beds",
+        "bedsFree": "free beds",
         "caption": "Navn",
         "current": "Number (aktive)",
         "fastDispatchChooser": { "noDispatch": "Ingen kontrollsenter" },

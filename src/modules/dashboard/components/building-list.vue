@@ -112,8 +112,21 @@
                 <td v-if="listType === 'extension'">
                     {{ building.extension_unavailable.toLocaleString() }}
                 </td>
-                <td v-if="listType === 'building' && bedBuildingsType.includes(building.building_type)  ">
-
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        bedBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{ building.level + 10 }}
+                </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        bedBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{ building.level + 10 - building.patient_count }}
                 </td>
             </tr>
         </enhanced-table>
@@ -175,18 +188,22 @@ export default Vue.extend<
                       },
                   }
                 : {}
-        ) as Record<string,
+        ) as Record<
+            string,
             {
                 title: string;
                 noSort?: boolean;
-            }>;
+            }
+        >;
         const headingsHospital = (
-            this.listType === 'building' && useTranslationStore().bedBuildings.includes(this.buildings[0]?.building_type)
+            this.listType === 'building' &&
+            useTranslationStore().bedBuildings.includes(
+                this.buildings[0]?.building_type
+            )
                 ? {
-                    beds: { title: this.$m('beds'), noSort: false },
-                    bedsFree: { title: this.$m('bedsFree'), noSort: false },
-
-                }
+                      beds: { title: this.$m('beds'), noSort: false },
+                      bedsFree: { title: this.$m('bedsFree'), noSort: false },
+                  }
                 : {}
         ) as Record<
             string,
@@ -217,10 +234,9 @@ export default Vue.extend<
                 : 0
         );
         const bedBuildings: Building[] = [];
-        const bedBuildingsType =
-            useTranslationStore().bedBuildings;
+        const bedBuildingsType = useTranslationStore().bedBuildings;
         bedBuildingsType.forEach(type =>
-            bedBuildings.push(...(buildingsByType[type] ?? [])),
+            bedBuildings.push(...(buildingsByType[type] ?? []))
         );
         return {
             buildingTypeNames: Object.fromEntries(
@@ -237,6 +253,8 @@ export default Vue.extend<
             headingsHospital,
             dispatchBuildings,
             dispatchCenterBuildings,
+            bedBuildings,
+            bedBuildingsType,
             apiStore,
         } as BuildingList;
     },
