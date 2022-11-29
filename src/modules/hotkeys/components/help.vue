@@ -17,6 +17,7 @@
             :sort="sort"
             :sort-dir="sortDir"
             @sort="setSort"
+            @mounted="adjustWidth"
         >
             <tr v-for="hotkey in hotkeysList" :key="hotkey.command">
                 <template v-for="(caption, index) in hotkey.name">
@@ -61,6 +62,7 @@ export default Vue.extend<
     {
         setSort(key: Sort): void;
         getRowSpan(command: string, index: number): number;
+        adjustWidth(): void;
     },
     {
         namedHotkeys: Hotkey[];
@@ -164,10 +166,10 @@ export default Vue.extend<
                 }
                 if (
                     hotkey.command.startsWith(
-                        command
+                        `${command
                             .split('.')
                             .splice(0, index + 1)
-                            .join('.')
+                            .join('.')}.`
                     )
                 ) {
                     if (!passedHotkey) break;
@@ -175,6 +177,24 @@ export default Vue.extend<
                 }
             }
             return rowSpan;
+        },
+        adjustWidth() {
+            const rect = document
+                .querySelector<HTMLTableElement>(
+                    '.vm--overlay[data-modal="hotkeysHelp"] + .vm--modal table'
+                )
+                ?.getBoundingClientRect();
+            if (!rect) return;
+            const { width, left } = rect;
+            const modal = document.querySelector<HTMLDivElement>(
+                '.vm--overlay[data-modal="hotkeysHelp"] + .vm--modal'
+            );
+            if (!modal) return;
+            modal.style.setProperty('width', `${width + 20}px`);
+            modal.style.setProperty(
+                'left',
+                `${(window.innerWidth - (width + 20)) / 2}px`
+            );
         },
     },
     props: {
