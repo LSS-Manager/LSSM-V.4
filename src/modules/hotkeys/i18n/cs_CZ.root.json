@@ -108,6 +108,9 @@
             "title": "Hlavní okno"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarmieren und go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Focus alliance response window",
                 "title": "Alliance",
@@ -124,6 +127,9 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Výjezd a další mise",
                 "alert_share_next": "Výjezd, sdílení a další mise",

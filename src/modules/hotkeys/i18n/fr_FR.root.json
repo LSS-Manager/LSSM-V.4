@@ -108,6 +108,9 @@
             "title": "Fenêtre principale"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarmieren und go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Focus de la fenêtre de réponse de l'alliance",
                 "title": "Alliance",
@@ -124,6 +127,9 @@
                 "onlyAmbulance": "Signal de retour uniquement pour les ambulances",
                 "title": "Signal de retour"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Déployer et aller à la mission suivante",
                 "alert_share_next": "Déployer, partager et aller à la mission suivante",

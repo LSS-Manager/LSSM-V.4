@@ -109,6 +109,9 @@
             "title": "Hauptfenster"
         },
         "mission": {
+            "alert": "Alarmieren",
+            "alert_next": "Alarmieren und weiter",
+            "alert_share_next": "Alarmieren, Teilen und weiter",
             "alliance": {
                 "focus": "Fokussiere Rückmeldungsfeld",
                 "title": "Verband",
@@ -125,6 +128,9 @@
                 "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
                 "title": "Zurückalamieren"
             },
+            "next": "nächster Einsatz",
+            "prev": "vorheriger Einsatz",
+            "share": "Teilen",
             "sorted": {
                 "alert_next": "Alarmieren und weiter",
                 "alert_share_next": "Alarmieren, Teilen und weiter",

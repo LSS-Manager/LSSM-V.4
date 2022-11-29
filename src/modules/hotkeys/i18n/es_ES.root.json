@@ -105,6 +105,9 @@
             "title": "Ventana principal"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarmieren und go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Focus alliance response window",
                 "title": "Alliance",
@@ -121,6 +124,9 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Alarma e ir a la siguiente misión",
                 "alert_share_next": "Alarma, compartir e ir a la siguiente misión",

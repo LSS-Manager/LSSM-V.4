@@ -105,6 +105,9 @@
             "title": "Główne okno"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarmieren und go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Skup się na uwagach o wydarzeniu.",
                 "title": "Sojusz",
@@ -121,6 +124,9 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
                 "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
