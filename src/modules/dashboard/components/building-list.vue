@@ -118,7 +118,7 @@
                         bedBuildingsType.includes(building.building_type)
                     "
                 >
-                    {{ building.level + 10 }}
+                    {{ translationStore.buildings[buildingType].startBeds }}
                 </td>
                 <td
                     v-if="
@@ -126,7 +126,10 @@
                         bedBuildingsType.includes(building.building_type)
                     "
                 >
-                    {{ building.level + 10 - building.patient_count }}
+                    {{
+                        translationStore.buildings[buildingType].startBeds -
+                        building.patient_count
+                    }}
                 </td>
             </tr>
         </enhanced-table>
@@ -201,8 +204,8 @@ export default Vue.extend<
                 this.buildings[0]?.building_type
             )
                 ? {
-                      beds: { title: this.$m('beds'), noSort: false },
-                      bedsFree: { title: this.$m('bedsFree'), noSort: false },
+                      beds: { title: this.$m('beds') },
+                      bedsFree: { title: this.$m('bedsFree') },
                   }
                 : {}
         ) as Record<
