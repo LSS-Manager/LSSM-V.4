@@ -185,7 +185,7 @@ export default Vue.extend<
                 )
                 ?.getBoundingClientRect();
             if (!rect) return;
-            const { width, left } = rect;
+            const { width } = rect;
             const modal = document.querySelector<HTMLDivElement>(
                 '.vm--overlay[data-modal="hotkeysHelp"] + .vm--modal'
             );
