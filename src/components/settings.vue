@@ -1,318 +1,360 @@
 <template>
-    <lightbox name="settings" no-title-hide :key="key">
-        <h1>
-            {{ $m('name') }}
-            <button class="btn btn-success" :disabled="!changes" @click="save">
-                {{ $m('save') }}
-            </button>
-            <span class="btn-group">
+    <div class="lssmv4-settings-modal">
+        <lightbox name="settings" no-title-hide :key="key">
+            <h1>
+                {{ $m('name') }}
                 <button
-                    class="btn btn-warning"
+                    class="btn btn-success"
                     :disabled="!changes"
-                    @click="discard"
+                    @click="save"
                 >
-                    {{ $m('discard') }}
+                    {{ $m('save') }}
                 </button>
-                <button class="btn btn-warning" :disabled="!changes">
-                    <font-awesome-icon :icon="faHistory"></font-awesome-icon>
-                    <div id="settings-changelist">
-                        <div
-                            v-for="(changes, module) in changeList"
-                            :key="module"
-                        >
-                            <b>{{
+                <span class="btn-group">
+                    <button
+                        class="btn btn-warning"
+                        :disabled="!changes"
+                        @click="discard"
+                    >
+                        {{ $m('discard') }}
+                    </button>
+                    <button class="btn btn-warning" :disabled="!changes">
+                        <font-awesome-icon
+                            :icon="faHistory"
+                        ></font-awesome-icon>
+                        <div id="settings-changelist">
+                            <div
+                                v-for="(changes, module) in changeList"
+                                :key="module"
+                            >
+                                <b>{{
+                                    $t(
+                                        `modules.${module}.name`.replace(
+                                            'modules.global',
+                                            'global.settings'
+                                        )
+                                    )
+                                }}</b>
+                                <table
+                                    class="table table-striped table-condensed"
+                                >
+                                    <tbody>
+                                        <tr
+                                            v-for="(
+                                                { saved, current }, setting
+                                            ) in changes"
+                                            :key="setting"
+                                        >
+                                            <td>
+                                                <b>
+                                                    {{
+                                                        $t(
+                                                            `modules.${module}.settings.${setting}.title`.replace(
+                                                                'modules.global.settings',
+                                                                'global.settings'
+                                                            )
+                                                        )
+                                                    }}
+                                                </b>
+                                            </td>
+                                            <td>
+                                                {{
+                                                    $m(
+                                                        `changeList.${saved}`
+                                                    ).replace(
+                                                        /^modules\.settings\.changeList\./,
+                                                        ''
+                                                    )
+                                                }}
+                                            </td>
+                                            <td>→</td>
+                                            <td>
+                                                {{
+                                                    $m(
+                                                        `changeList.${current}`
+                                                    ).replace(
+                                                        /^modules\.settings\.changeList\./,
+                                                        ''
+                                                    )
+                                                }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </button>
+                </span>
+                <button class="btn btn-danger" @click="reset">
+                    {{ $m('reset') }}
+                </button>
+                <a
+                    class="btn btn-info"
+                    download="LSSM_V4.lssm"
+                    :href="exportData"
+                >
+                    {{ $m('export') }}
+                </a>
+                <button class="btn btn-info" @click="$refs.import.click()">
+                    {{ $m('import') }}
+                </button>
+                <label class="hidden">
+                    <input
+                        type="file"
+                        accept="application/json,.lssm"
+                        ref="import"
+                        @change="importSettings"
+                    />
+                </label>
+            </h1>
+            <tabs
+                :class="rootStore.nodeAttribute('settings-tabs')"
+                v-if="modulesSorted.length > 0"
+                :default-index="tab"
+                :on-select="(_, i) => (this.tab = i)"
+            >
+                <tab
+                    v-for="moduleId in modulesSorted"
+                    :title="
+                        $t(
+                            `modules.${moduleId}.name`.replace(
+                                'modules.global',
+                                'global.settings'
+                            )
+                        )
+                    "
+                    :key="moduleId"
+                    :module="moduleId"
+                >
+                    <div class="auto-sized-grid">
+                        <setting
+                            v-for="(setting, settingId) in settings[moduleId]"
+                            :key="settingId"
+                            :wide="wideGrids.includes(setting.type)"
+                            :moduleId="moduleId"
+                            :settingId="settingId"
+                            :name="(setting.name = `${moduleId}.${settingId}`)"
+                            :title="
                                 $t(
-                                    `modules.${module}.name`.replace(
-                                        'modules.global',
+                                    `modules.${moduleId}.settings.${settingId}.title`.replace(
+                                        'modules.global.settings',
                                         'global.settings'
                                     )
                                 )
-                            }}</b>
-                            <table class="table table-striped table-condensed">
-                                <tbody>
-                                    <tr
-                                        v-for="(
-                                            { saved, current }, setting
-                                        ) in changes"
-                                        :key="setting"
-                                    >
-                                        <td>
-                                            <b>
-                                                {{
-                                                    $t(
-                                                        `modules.${module}.settings.${setting}.title`.replace(
-                                                            'modules.global.settings',
-                                                            'global.settings'
-                                                        )
-                                                    )
-                                                }}
-                                            </b>
-                                        </td>
-                                        <td>
-                                            {{
-                                                $m(
-                                                    `changeList.${saved}`
-                                                ).replace(
-                                                    /^modules\.settings\.changeList\./,
-                                                    ''
-                                                )
-                                            }}
-                                        </td>
-                                        <td>→</td>
-                                        <td>
-                                            {{
-                                                $m(
-                                                    `changeList.${current}`
-                                                ).replace(
-                                                    /^modules\.settings\.changeList\./,
-                                                    ''
-                                                )
-                                            }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            "
+                            :description="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.description`.replace(
+                                        'modules.global.settings',
+                                        'global.settings'
+                                    ),
+                                    {
+                                        wiki: `${rootStore.wiki}/`,
+                                        fontAwesomeIconSearch:
+                                            rootStore.fontAwesomeIconSearch,
+                                    }
+                                )
+                            "
+                            :beforeDescription="
+                                settingsBeforeDescription.includes(setting.type)
+                            "
+                            :isDisabled="
+                                (setting.isDisabled = disabled(
+                                    moduleId,
+                                    settingId
+                                ))
+                            "
+                            :disabled="setting.isDisabled"
+                            :hidden="setting.type === 'hidden'"
+                            :appendableListDisableable="
+                                !!settings[moduleId][settingId].disableable
+                            "
+                            :appendableListEnabled="
+                                setting.type === 'appendable-list'
+                                    ? settings[moduleId][settingId].value
+                                          .enabled
+                                    : false
+                            "
+                            :setting-type="setting.type"
+                            @toggleEnabled="
+                                updateAppendableList(
+                                    $event,
+                                    moduleId,
+                                    settingId
+                                )
+                            "
+                        >
+                            <settings-text
+                                v-if="setting.type === 'text'"
+                                :name="setting.name"
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                v-model="settings[moduleId][settingId].value"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-text>
+                            <settings-textarea
+                                v-else-if="setting.type === 'textarea'"
+                                :name="setting.name"
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                v-model="settings[moduleId][settingId].value"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-textarea>
+                            <settings-toggle
+                                v-else-if="setting.type === 'toggle'"
+                                :name="setting.name"
+                                v-model="settings[moduleId][settingId].value"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-toggle>
+                            <settings-color
+                                v-else-if="setting.type === 'color'"
+                                :name="setting.name"
+                                v-model="settings[moduleId][settingId].value"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-color>
+                            <settings-number
+                                v-else-if="setting.type === 'number'"
+                                :name="setting.name"
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                v-model="settings[moduleId][settingId].value"
+                                :min="setting.min"
+                                :max="setting.max"
+                                :step="setting.step"
+                                :float="setting.float"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-number>
+                            <settings-slider
+                                v-else-if="setting.type === 'slider'"
+                                :name="setting.name"
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                v-model="settings[moduleId][settingId].value"
+                                :min="setting.min"
+                                :max="setting.max"
+                                :step="setting.step"
+                                :unit="setting.unit"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-slider>
+                            <settings-select
+                                v-else-if="setting.type === 'select'"
+                                :name="setting.name"
+                                v-model="settings[moduleId][settingId].value"
+                                :options="
+                                    getSelectOptions(
+                                        moduleId,
+                                        setting,
+                                        settingId
+                                    )
+                                "
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-select>
+                            <settings-multi-select
+                                v-else-if="setting.type === 'multiSelect'"
+                                :name="setting.name"
+                                v-model="settings[moduleId][settingId].value"
+                                :options="
+                                    getSelectOptions(
+                                        moduleId,
+                                        setting,
+                                        settingId
+                                    )
+                                "
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-multi-select>
+                            <settings-hotkey
+                                v-else-if="setting.type === 'hotkey'"
+                                :name="setting.name"
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                v-model="settings[moduleId][settingId].value"
+                                @input="update(moduleId, settingId)"
+                            ></settings-hotkey>
+                            <settings-location
+                                v-else-if="setting.type === 'location'"
+                                :name="setting.name"
+                                :placeholder="
+                                    $t(
+                                        `modules.${moduleId}.settings.${settingId}.title`
+                                    )
+                                "
+                                v-model="settings[moduleId][settingId].value"
+                                :zoom="setting.zoom"
+                                @input="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></settings-location>
+                            <settings-appendable-list
+                                v-else-if="setting.type === 'appendable-list'"
+                                :setting="setting"
+                                v-model="
+                                    settings[moduleId][settingId].value.value
+                                "
+                                @input="update(moduleId, settingId)"
+                                :module-id="moduleId"
+                                :setting-id="settingId"
+                                :orderable="!!setting.orderable"
+                                :enabled="
+                                    settings[moduleId][settingId].value.enabled
+                                "
+                            ></settings-appendable-list>
+                            <component
+                                v-else-if="setting.type === 'custom'"
+                                :is="setting.component"
+                                v-model="settings[moduleId][settingId].value"
+                                :module="settings[moduleId]"
+                                @update="update(moduleId, settingId)"
+                                :disabled="setting.isDisabled"
+                            ></component>
+                            <pre v-else>{{ setting }}</pre>
+                        </setting>
                     </div>
-                </button>
-            </span>
-            <button class="btn btn-danger" @click="reset">
-                {{ $m('reset') }}
-            </button>
-            <a class="btn btn-info" download="LSSM_V4.lssm" :href="exportData">
-                {{ $m('export') }}
-            </a>
-            <button class="btn btn-info" @click="$refs.import.click()">
-                {{ $m('import') }}
-            </button>
-            <label class="hidden">
-                <input
-                    type="file"
-                    accept="application/json,.lssm"
-                    ref="import"
-                    @change="importSettings"
-                />
-            </label>
-        </h1>
-        <tabs
-            :class="rootStore.nodeAttribute('settings-tabs')"
-            v-if="modulesSorted.length > 0"
-            :default-index="tab"
-            :on-select="(_, i) => (this.tab = i)"
-        >
-            <tab
-                v-for="moduleId in modulesSorted"
-                :title="
-                    $t(
-                        `modules.${moduleId}.name`.replace(
-                            'modules.global',
-                            'global.settings'
-                        )
-                    )
-                "
-                :key="moduleId"
-                :module="moduleId"
+                </tab>
+            </tabs>
+        </lightbox>
+
+        <small>
+            <a
+                :href="rootStore.donationUrl"
+                target="_blank"
+                class="btn btn-xs btn-link"
             >
-                <div class="auto-sized-grid">
-                    <setting
-                        v-for="(setting, settingId) in settings[moduleId]"
-                        :key="settingId"
-                        :wide="wideGrids.includes(setting.type)"
-                        :moduleId="moduleId"
-                        :settingId="settingId"
-                        :name="(setting.name = `${moduleId}.${settingId}`)"
-                        :title="
-                            $t(
-                                `modules.${moduleId}.settings.${settingId}.title`.replace(
-                                    'modules.global.settings',
-                                    'global.settings'
-                                )
-                            )
-                        "
-                        :description="
-                            $t(
-                                `modules.${moduleId}.settings.${settingId}.description`.replace(
-                                    'modules.global.settings',
-                                    'global.settings'
-                                ),
-                                {
-                                    wiki: `${rootStore.wiki}/`,
-                                    fontAwesomeIconSearch:
-                                        rootStore.fontAwesomeIconSearch,
-                                }
-                            )
-                        "
-                        :beforeDescription="
-                            settingsBeforeDescription.includes(setting.type)
-                        "
-                        :isDisabled="
-                            (setting.isDisabled = disabled(moduleId, settingId))
-                        "
-                        :disabled="setting.isDisabled"
-                        :hidden="setting.type === 'hidden'"
-                        :appendableListDisableable="
-                            !!settings[moduleId][settingId].disableable
-                        "
-                        :appendableListEnabled="
-                            setting.type === 'appendable-list'
-                                ? settings[moduleId][settingId].value.enabled
-                                : false
-                        "
-                        :setting-type="setting.type"
-                        @toggleEnabled="
-                            updateAppendableList($event, moduleId, settingId)
-                        "
-                    >
-                        <settings-text
-                            v-if="setting.type === 'text'"
-                            :name="setting.name"
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            v-model="settings[moduleId][settingId].value"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-text>
-                        <settings-textarea
-                            v-else-if="setting.type === 'textarea'"
-                            :name="setting.name"
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            v-model="settings[moduleId][settingId].value"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-textarea>
-                        <settings-toggle
-                            v-else-if="setting.type === 'toggle'"
-                            :name="setting.name"
-                            v-model="settings[moduleId][settingId].value"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-toggle>
-                        <settings-color
-                            v-else-if="setting.type === 'color'"
-                            :name="setting.name"
-                            v-model="settings[moduleId][settingId].value"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-color>
-                        <settings-number
-                            v-else-if="setting.type === 'number'"
-                            :name="setting.name"
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            v-model="settings[moduleId][settingId].value"
-                            :min="setting.min"
-                            :max="setting.max"
-                            :step="setting.step"
-                            :float="setting.float"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-number>
-                        <settings-slider
-                            v-else-if="setting.type === 'slider'"
-                            :name="setting.name"
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            v-model="settings[moduleId][settingId].value"
-                            :min="setting.min"
-                            :max="setting.max"
-                            :step="setting.step"
-                            :unit="setting.unit"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-slider>
-                        <settings-select
-                            v-else-if="setting.type === 'select'"
-                            :name="setting.name"
-                            v-model="settings[moduleId][settingId].value"
-                            :options="
-                                getSelectOptions(moduleId, setting, settingId)
-                            "
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-select>
-                        <settings-multi-select
-                            v-else-if="setting.type === 'multiSelect'"
-                            :name="setting.name"
-                            v-model="settings[moduleId][settingId].value"
-                            :options="
-                                getSelectOptions(moduleId, setting, settingId)
-                            "
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-multi-select>
-                        <settings-hotkey
-                            v-else-if="setting.type === 'hotkey'"
-                            :name="setting.name"
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            v-model="settings[moduleId][settingId].value"
-                            @input="update(moduleId, settingId)"
-                        ></settings-hotkey>
-                        <settings-location
-                            v-else-if="setting.type === 'location'"
-                            :name="setting.name"
-                            :placeholder="
-                                $t(
-                                    `modules.${moduleId}.settings.${settingId}.title`
-                                )
-                            "
-                            v-model="settings[moduleId][settingId].value"
-                            :zoom="setting.zoom"
-                            @input="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></settings-location>
-                        <settings-appendable-list
-                            v-else-if="setting.type === 'appendable-list'"
-                            :setting="setting"
-                            v-model="settings[moduleId][settingId].value.value"
-                            @input="update(moduleId, settingId)"
-                            :module-id="moduleId"
-                            :setting-id="settingId"
-                            :orderable="!!setting.orderable"
-                            :enabled="
-                                settings[moduleId][settingId].value.enabled
-                            "
-                        ></settings-appendable-list>
-                        <component
-                            v-else-if="setting.type === 'custom'"
-                            :is="setting.component"
-                            v-model="settings[moduleId][settingId].value"
-                            :module="settings[moduleId]"
-                            @update="update(moduleId, settingId)"
-                            :disabled="setting.isDisabled"
-                        ></component>
-                        <pre v-else>{{ setting }}</pre>
-                    </setting>
-                </div>
-            </tab>
-        </tabs>
-    </lightbox>
+                {{ $m('donate') }}
+            </a>
+        </small>
+    </div>
 </template>
 
 <script lang="ts">
@@ -795,16 +837,22 @@ export default Vue.extend<
 <style scoped lang="sass">
 @import 'src/sass/mixins/autoSizedGrid'
 
-.vue-tablist
-    flex-flow: wrap
-
-    .vue-tab[aria-selected="true"]
-        border-bottom-color: white !important
 .vue-tabpanel
     transition: 0.5s
 
 .auto-sized-grid
     @include auto-sized-grid
+
+.lssmv4-settings-modal
+    min-height: 100%
+    display: flex
+    flex-flow: column
+    justify-content: space-between
+
+    body.dark &
+        :deep(a:not(.btn)),
+        :deep(a.btn.btn-link)
+            color: #6dd5f4
 
 #settings-changelist
     display: none

@@ -20,6 +20,7 @@ const modules = {
         reset: 'Resetta',
         export: 'Esporta',
         import: 'Importa',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Resetta i cambiamenti',
             text: 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',

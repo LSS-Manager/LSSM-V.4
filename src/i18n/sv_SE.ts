@@ -18,6 +18,7 @@ const modules = {
         reset: 'Återställ',
         export: 'Exportera',
         import: 'Importera',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Återställ inställningar',
             text: 'Vill du återställa standardinställningarna? Det kan inte bli ogjort! ',

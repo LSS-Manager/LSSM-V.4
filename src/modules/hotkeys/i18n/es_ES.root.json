@@ -129,6 +129,7 @@
                 "title": "Misiones ordenadas"
             },
             "title": "Ventana de misiones",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Load missing vehicles",
                 "next": "next tab",

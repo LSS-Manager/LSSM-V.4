@@ -133,6 +133,7 @@
                 "title": "Einsatzsortierung"
             },
             "title": "Einsatzfenster",
+            "transport_request": "Erster Patienten-Sprechwunsch öffnen",
             "vehicleList": {
                 "loadMissing": "Fehlende Fahrzeuge nachladen",
                 "next": "Nächster Tab",

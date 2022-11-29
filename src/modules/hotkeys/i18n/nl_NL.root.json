@@ -126,6 +126,7 @@
                 "title": "Gesorteerde meldingen"
             },
             "title": "Meldingsscherm",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Laad missende voertuigen",
                 "next": "volgende tab",

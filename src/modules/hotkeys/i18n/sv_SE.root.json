@@ -132,6 +132,7 @@
                 "title": "Sortara uppdrag"
             },
             "title": "Huvud fönster",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Load missing vehicles",
                 "next": "next tab",
