@@ -1,5 +1,20 @@
 {
     "description": "Ulepsz mapę dzięki kilku przydatnym funkcjom.",
+    "mapCSSFilter": {
+        "brightness": "Jasność",
+        "contrast": "Kontrast",
+        "grayscale": "Filtr szarości",
+        "hueRotate": "Obrót odcienia",
+        "invert": "Odwróć kolory",
+        "presets": {
+            "dark1": "Ciemny 1",
+            "dark2": "Ciemny 2",
+            "dark3": "Ciemny 3",
+            "gray": "Szary"
+        },
+        "saturate": "Saturacja",
+        "sepia": "Sepia"
+    },
     "name": "Ulepszona mapa",
     "positions": {
         "bottomleft": "Na dole po lewej 🡧",
@@ -30,6 +45,12 @@
             "title": "Centrowanie mapy: Tryb"
         },
         "locationSelect": { "sync": "Centruj", "zoom": "Ustawienia mapy" },
+        "mapCSSFilter": {
+            "description": "Dostosuj mapę za pomocą różnych filtrów CSS do edycji obrazu. Zabawa z tymi funkcjami i próbowanie ich jest mile widziane!",
+            "filterFunction": "Filtr CSS",
+            "filterValue": "wartość",
+            "title": "Projekt mapy (filtr CSS)"
+        },
         "mapScale": {
             "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"

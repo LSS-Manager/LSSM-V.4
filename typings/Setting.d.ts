@@ -54,6 +54,16 @@ interface NumberInput extends SettingTemplate {
     float?: boolean;
 }
 
+interface Slider extends SettingTemplate {
+    type: 'slider';
+    default: number;
+    value: number;
+    min?: number;
+    max?: number;
+    step?: number | 'any';
+    unit?: string;
+}
+
 interface Select extends SettingTemplate {
     type: 'select';
     default: string;
@@ -91,13 +101,26 @@ interface LocationWithZoom extends SettingTemplate {
 }
 type Location = LocationWithoutZoom | LocationWithZoom;
 
+type CustomProps<
+    ModuleOrAList extends Record<string, unknown> = Record<string, unknown>,
+    AListKey extends keyof ModuleOrAList = keyof ModuleOrAList
+> = DefaultProps &
+    Partial<
+        | {
+              value: ModuleOrAList[AListKey];
+              values: ModuleOrAList[];
+              row: { index: number; value: ModuleOrAList };
+          }
+        | { module: ModuleOrAList }
+    >;
+
 interface Custom<
     Data = unknown,
     Properties extends Record<string, unknown> = Record<string, never>,
     ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     ComponentComputed extends DefaultComputed = DefaultComputed,
-    ComponentProps extends DefaultProps = DefaultProps
+    ComponentProps extends CustomProps = DefaultProps
 > extends SettingTemplate {
     type: 'custom';
     default: Data;
@@ -126,7 +149,13 @@ interface AppendableListSetting<Type extends SettingType = SettingType> {
     size: number;
     name: string;
     title: string;
-    unique?: boolean;
+    unique?:
+        | boolean
+        | (<Row extends Record<string, unknown>>(
+              row: Row,
+              rowIndex: number,
+              settings: Row[]
+          ) => string | false);
 }
 
 export interface PreviewElement
@@ -172,6 +201,7 @@ type SettingType<
     | MultiSelect
     | NumberInput
     | Select
+    | Slider
     | Text
     | Textarea
     | Toggle;

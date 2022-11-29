@@ -57,6 +57,10 @@
             "description": "Zastępnuje kliknięcie wyszukiwarki, dzięki czemu nie musisz na nią klikać przed wyszukiwaniem.",
             "title": "Wyszukiwanie ZR: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Czyści wyszukiwanie ZR po naciśnięciu klawisza Enter.",
+            "title": "Wyczyść wyszukiwanie ZR"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Zamyka menu po wybraniu ZR.",
             "title": "Zamknij menu po wybraniu"
@@ -72,6 +76,10 @@
         "arrSearchDropdown": {
             "description": "Całkowicie ukrywa ZR i zamiast tego wyświetla listę rozwijaną.",
             "title": "Wyszukiwanie ZR jako rozwijana lista"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Klika pierwszą zasadę reagowania odpowiadającą wyszukiwaniu po naciśnięciu klawisza Enter.",
+            "title": "Wybierz pierwszą ZR"
         },
         "arrSpecs": {
             "description": "Pokazuje jakie pojazdy zostaną wybrane gdy na chwilę zatrzymasz kursor nad ZR",
@@ -153,6 +161,14 @@
             "description": "Pokazuje ile czasu pozostało do pełnego leczenia pacjentów",
             "title": "Pozostały czas dla pacjentów"
         },
+        "selectedVehicleCounter": {
+            "description": "Wyświetla na rozwijanej liście liczbę wybranych pojazdów danego typu.",
+            "title": "Policz wybrane pojazdy"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Wyświetla te typy pojazdów na przycisku, dzięki czemu nie trzeba otwierać listy, aby zobaczyć ich ilość.",
+            "title": "Policz wybrane pojazdy: Szybki licznik"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Pokazuje w MKSiś liczbę wybranych pojazdów obok przycisków \"Wyślij\"",
             "title": "Licznik pojazdów w MKSiś"
@@ -217,6 +233,7 @@
                     67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80
                 ]
             }
-        ]
+        ],
+        "noCustoms": "wyłączone kategorie własne pojazdów"
     }
 }

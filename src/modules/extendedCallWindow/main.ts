@@ -240,7 +240,19 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
         ).then(({ default: alarmIcons }) =>
-            alarmIcons(LSSM, alarmIconsSettings.value)
+            alarmIcons(LSSM, MODULE_ID, alarmIconsSettings.value)
+        );
+    }
+
+    if (await getSetting('selectedVehicleCounter')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/selectedVehicleCounter" */ './assets/selectedVehicleCounter'
+        ).then(async ({ default: alarmIcons }) =>
+            alarmIcons(
+                LSSM,
+                MODULE_ID,
+                await getSetting<string[]>('selectedVehicleCounterBtnVehicles')
+            )
         );
     }
 
@@ -309,6 +321,8 @@ export default <ModuleMainFunction>(async ({
                 await getSetting('arrSearchDissolveCategories'),
                 await getSetting('arrSearchCompactResults'),
                 await getSetting('arrSearchCloseDropdownOnSelect'),
+                await getSetting('arrSearchSelectOnEnter'),
+                await getSetting('arrSearchClearOnEnter'),
                 $m
             )
         );

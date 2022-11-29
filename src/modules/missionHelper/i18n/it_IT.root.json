@@ -17,6 +17,7 @@
             "in": "requirements",
             "text": "Schiuma necessaria: {n} l"
         },
+        "title": "Requisiti speciali",
         "water_needed": {
             "badge": true,
             "in": "requirements",

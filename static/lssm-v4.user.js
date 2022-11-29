@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         LSS-Manager V.4
-// @version      4.6.2-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
-// @author       The LSSM-Team: Aisaka, Sanni, Jan (jxn_30), Ron31
+// @version      4.7.0-CZ-DK-DE-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
+// @author       The LSSM-Team: Sanni, Jan (jxn_30), Ron31, Crazycake
 // @description  LSSM V4 is a Script-Collection for Leitstellenspiel, Missionchief, Meldkamerspel and its other language versions.
 // @namespace    https://lss-manager.de/
-// @homepage     https://v4.lss-manager.de/docs/
+// @homepage     https://docs.lss-manager.de/
 // @downloadURL  https://v4.lss-manager.de/lssm-v4.user.js
 // @updateURL    https://v4.lss-manager.de/lssm-v4.user.js
-// @supportURL   https://v4.lss-manager.de/docs/en_US/error_report
-// @icon         https://v4.lss-manager.de/docs/img/lssm.png
+// @supportURL   https://docs.lss-manager.de/en_US/error_report
+// @icon         https://docs.lss-manager.de/img/lssm.png
 // @match        https://www.operacni-stredisko.cz/*
 // @match        https://policie.operacni-stredisko.cz/*
 // @match        https://www.alarmcentral-spil.dk/*
@@ -52,4 +52,4 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 /* global I18n, user_id */
-"use strict";var _a,loadLSSM=function(){var e,n=document.createElement("script");n.src="".concat("https://v4.lss-manager.de/","core.js?_=").concat((new Date).getTime(),"&uid=").concat(I18n.locale,"-").concat(user_id,"&branch=").concat(null!==(e=localStorage.getItem("".concat("lssmv4","_branch")))&&void 0!==e?e:"stable"),n.setAttribute("type","module"),n.setAttribute("async",""),unsafeWindow["".concat("lssmv4","-GM_Info")]=JSON.parse(JSON.stringify(GM_info)),document.body.append(n)};if((!window.frameElement||(null===(_a=window.frameElement)||void 0===_a?void 0:_a.src.startsWith("https")))&&!window.location.pathname.match(/^\/users\//u)&&"undefined"!=typeof user_id&&"undefined"!=typeof I18n)if(window!==window.parent&&window.parent.hasOwnProperty("".concat("lssmv4","-redesign-lightbox"))){var redesignTriggerEvent_1="".concat("lssmv4","-redesign-iframe-trigger-lssm-load");window.parent.addEventListener(redesignTriggerEvent_1,loadLSSM),window.addEventListener("pagehide",(function(){return window.parent.removeEventListener(redesignTriggerEvent_1,loadLSSM)})),window.parent["".concat("lssmv4","-redesign-lightbox")].src=new URL(window.location.href).toString()}else loadLSSM();
+const e=()=>{const e=document.createElement("script");e.src=`https://v4.lss-manager.de/core.js?_=${Math.floor(Date.now()/6e5)}&branch=${localStorage.getItem("lssmv4_branch")??"stable"}`;e.setAttribute("type","module");e.setAttribute("async","");unsafeWindow["lssmv4-GM_Info"]=JSON.parse(JSON.stringify(GM_info));document.body.append(e)};if((!window.frameElement||window.frameElement?.src.startsWith("https"))&&!window.location.pathname.match(/^\/users\//u)&&"undefined"!=typeof user_id&&"undefined"!=typeof I18n)if(window!==window.parent&&window.parent.hasOwnProperty("lssmv4-redesign-lightbox")){const t="lssmv4-redesign-iframe-trigger-lssm-load";window.parent.addEventListener(t,e);window.addEventListener("pagehide",(()=>window.parent.removeEventListener(t,e)));window.parent["lssmv4-redesign-lightbox"].src=new URL(window.location.href).toString()}else e();

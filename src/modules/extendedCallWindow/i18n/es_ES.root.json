@@ -48,9 +48,17 @@
             "description": "Establece un filtro gris sobre todos los ARR que no contienen una palabra del nombre de la misión.",
             "title": "Gris ARR no apto"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCompactResults": {
             "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
             "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Muestra las solicitudes almacenadas en el ARR, si permanece con el mouse brevemente sobre un ARR",
@@ -107,6 +115,14 @@
             "description": "Describe el tiempo de generación en rojo si la apuesta vence la noche siguiente.",
             "title": "Borde rojo"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Muestra en las áreas de preparación la cantidad de vehículos seleccionados junto a los botones de alarma.",
             "title": "Contador de vehículos dentro del área de preparación"
@@ -143,6 +159,7 @@
                 "vehicleTypes": [5, 9, 18, 19, 20, 21, 22]
             },
             { "name": "Policía", "vehicleTypes": [8, 13, 14, 15, 16, 17] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

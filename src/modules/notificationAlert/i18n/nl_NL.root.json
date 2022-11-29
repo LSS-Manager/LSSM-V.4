@@ -45,11 +45,11 @@
         "top right": "Rechtsboven 🡥"
     },
     "settings": {
-        "alertStyle": "In-Game Notificaties Type",
         "alerts": {
             "description": "Stel hieronder notificaties in door de groene `+` te drukken.",
             "title": "Stel notificaties in"
         },
+        "alertStyle": "In-Game Notificaties Type",
         "desktop": "Verstuur desktop notificaties",
         "duration": "Weergavetijd",
         "eventTypes": "Gebeurtenissen",

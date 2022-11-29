@@ -1,5 +1,20 @@
 {
     "description": "Améliorez la carte en y ajoutant des fonctionnalités intéressantes.",
+    "mapCSSFilter": {
+        "brightness": "Luminosité",
+        "contrast": "Contraste",
+        "grayscale": "Filtre en gris",
+        "hueRotate": "rotation de teinte",
+        "invert": "Couleurs inversées",
+        "presets": {
+            "dark1": "Sombre 1",
+            "dark2": "Sombre 2",
+            "dark3": "Sombre 3",
+            "gray": "Gris"
+        },
+        "saturate": "Saturation",
+        "sepia": "Sépia"
+    },
     "name": "Améliorations de la carte",
     "positions": {
         "bottomleft": "En bas à gauche 🡧",
@@ -27,6 +42,12 @@
             "dynamic": "dynamique",
             "static": "statique",
             "title": "Carte centrale: Mode"
+        },
+        "mapCSSFilter": {
+            "description": "Personnalisez la carte avec divers filtres CSS pour la modification des images. N'hésitez pas à les essayer !",
+            "filterFunction": "Filtre CSS",
+            "filterValue": "valeur",
+            "title": "Map Design (Filtre CSS)"
         },
         "mapScale": {
             "description": "Affiche l'échelle de la carte et le niveau de zoom actuel",

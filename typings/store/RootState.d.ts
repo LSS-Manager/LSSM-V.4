@@ -9,4 +9,5 @@ export interface RootState {
     menuItems: HTMLAnchorElement[];
     osmBars: Record<string, Record<string, HTMLDivElement>>;
     styleSheet: HTMLStyleElement | null;
+    hotkeysHelpOpen: boolean;
 }

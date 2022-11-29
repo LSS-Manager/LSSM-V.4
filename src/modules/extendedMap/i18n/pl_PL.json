@@ -63,9 +63,9 @@
                     "all": "Wszystko",
                     "buildings": "Budynki",
                     "canBuy": "można kupić",
-                    "canToggle": "Można włączyć/wyłączyć",
                     "cannotBuy": "Nie można kupić",
                     "cannotToggle": "Nie można włączyć/wyłączyć",
+                    "canToggle": "Można włączyć/wyłączyć",
                     "disabled": "Skończony i wyłączony",
                     "enabled": "Skończony i włączony",
                     "extensions": "Rozbudowy",
@@ -115,9 +115,9 @@
         "settings": {
             "abort": "Anuluj",
             "allianceBuildings": "Dołączone budynki sojuszu",
-            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "buildings": "Wybrane budynki",
             "buildingsInList": "Pokaż wybrane budynki na liście",
+            "buildingTabs": "Pokaż zakładki dla wybranych budynków",
             "dissolve": {
                 "buttons": { "abort": "Anuluj", "continue": "Usuń" },
                 "text": "Czy chcesz usunąć ten kompleks budynków? Wszystkie dołączone budynki zostaną ponownie wyświetlone na mapie, jak poprzednio.",

@@ -9,6 +9,11 @@ on:
                 required: false
                 type: string
                 default: github.ref
+            label:
+                description: 'A label for branch chooser'
+                required: false
+                type: string
+                default: ${{ inputs.ref }}
         outputs:
             branch:
                 description: 'The branch to build on and deploy to'
@@ -40,17 +45,23 @@ jobs:
                   ref: ${{ inputs.ref }}
             #     token: ${{ steps.generate_token.outputs.token }}
 
+            - name: Get Node and yarn versions
+              id: get_node_yarn_versions
+              run: |
+                  echo "NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
+                  echo "YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
+
             - name: Setup Node.js
               id: node
               uses: actions/setup-node@v3
               with:
-                  node-version: 18
+                  node-version: ${{ env.NODE_VERSION }}
 
-            - name: '[⬆] set yarn to stable'
+            - name: '[⬆] retrieve current specified yarn version'
               id: yarn_setup
               run: |
                   corepack enable
-                  yarn set version stable
+                  yarn set version "${{ env.YARN_VERSION }}"
 
             - name: '[ℹ] print versions (node, yarn, git)'
               id: versions
@@ -109,11 +120,11 @@ jobs:
 
             - name: '[⬆] update emojis'
               id: update_emojis
-              run: ./node_modules/.bin/ts-node scripts/utils/fetchEmojis.ts
+              run: yarn ts-node scripts/utils/fetchEmojis.ts
 
-            - name: '[🚨] format JSON & YAML files'
-              id: json_yaml_format
-              run: ./node_modules/.bin/ts-node scripts/format.ts || exit 1
+            - name: '[🎨] format files not covered by ESLint'
+              id: format
+              run: yarn ts-node scripts/format.ts || exit 1
 
             - name: '[🚨] run ESLint'
               id: eslint
@@ -140,24 +151,24 @@ jobs:
 
             - name: '[📜] build userscript'
               id: userscript
-              run: yarn tsc --pretty "src/userscript.ts" || exit 1
+              run: yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
 
             - name: '[📜] build buildscript'
               id: buildscript
-              run: ./node_modules/.bin/ts-node scripts/createBuildScript.ts || exit 1
+              run: yarn ts-node scripts/createBuildScript.ts || exit 1
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: ./node_modules/.bin/ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
+              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: ./node_modules/.bin/ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" || exit 1
+              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
 
             - name: '[📝] build docs'
               id: docs
               run: |
-                  ./docs/.vuepress/node_modules/.bin/vuepress build docs || exit 1
+                  "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
                   mkdir -p ./dist/docs
                   rm -rdf ./dist/docs/*
                   cp -r ./docs/.vuepress/dist/* ./dist/docs
@@ -195,7 +206,7 @@ jobs:
 
             - name: Prepare Git Push (add ssh-key etc.)
               id: git_prepare
-              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               run: |
@@ -206,9 +217,19 @@ jobs:
                   ssh-add /home/runner/.ssh/github_actions
                   git remote set-url origin git@github.com:LSS-Manager/LSSM-V.4.git
 
+            - name: Import GPG key
+              id: import_gpg
+              if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              uses: crazy-max/ghaction-import-gpg@v5
+              with:
+                  gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.GPG_PASSPHRASE }}
+                  git_user_signingkey: true
+                  git_commit_gpgsign: true
+
             - name: Push to Git
               id: git_push
-              if: ${{ success() && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
+              if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -217,4 +238,5 @@ jobs:
                   commit_user_email: ${{ secrets.GIT_EMAIL }}
                   commit_author: Build Server <developer@lss-manager.de>
                   commit_message: '📦 Version ${{ env.VERSION }} [skip ci]'
+                  commit_options: '-S'
                   push_options: '--force'

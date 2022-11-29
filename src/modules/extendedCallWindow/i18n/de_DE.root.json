@@ -56,6 +56,10 @@
             "description": "Fokussiert das AAO-Suchfeld beim Laden automatisch.",
             "title": "AAO-Suche: Automatisch fokussieren"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Leert die AOO-Suche beim Drücken der Eingabetaste",
+            "title": "AAO-Suche leeren"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Schließt die Dropdown der AAO-Suche nach dem Auswählen einer AAO.",
             "title": "Dropdown nach Auswahl schließen"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Blendet die komplette AAO aus und zeigt stattdessen ein durchsuchbares Dropdown an. Ermöglicht eine sehr kompakte AAO-Darstellung.",
             "title": "AAO-Suche als Dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Klickt die erste der Suche entsprechende AAO bei Drücken der Eingabetaste an",
+            "title": "Erste AAO auswählen"
         },
         "arrSpecs": {
             "description": "Zeigt die gespeicherten Anforderungen in der AAO an, wenn man mit der Maus kurz über einer AAO bleibt",
@@ -152,6 +160,14 @@
             "description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
             "title": "Patientenbehandlungsdauer"
         },
+        "selectedVehicleCounter": {
+            "description": "Zeigt in einer ausklappbaren Liste an, wie viele Fahrzeuge welchen Typs ausgewählt sind.",
+            "title": "Ausgewählte Fahrzeuge zählen"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Zeigt diese Fahrzeugtypen auf dem Knopf zum Ausklappen an, sodass du nicht erst die Liste öffnen musst, um deren Anzahl zu sehen.",
+            "title": "Ausgewählte Fahrzeuge zählen: Schnellzähler"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",
             "title": "Zähler im Bereitstellungsraum"
@@ -226,6 +242,7 @@
                 ]
             },
             { "name": "Wasser", "vehicleTypes": [63, 64, 70] }
-        ]
+        ],
+        "noCustoms": "eigene Fahrzeugklassen ausgenommen"
     }
 }

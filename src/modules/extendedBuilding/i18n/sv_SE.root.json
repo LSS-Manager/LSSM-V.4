@@ -10,13 +10,13 @@
             "description": "Adds some useful filters to the list of buildings in dispatch centers",
             "title": "Filter for buildings in dispatch center"
         },
-        "enhanceVehicleList": {
-            "description": "Utökar fordonslistan med användbara funktioner - av vilka vissa är särskilt justerbara.",
-            "title": "Förläng fordonslistan"
-        },
         "enhancedPersonnelAssignment": {
             "description": "Ger dig möjlighet att dölja personal utan lämplig utbildning.",
             "title": "Förbättrad personalallokering"
+        },
+        "enhanceVehicleList": {
+            "description": "Utökar fordonslistan med användbara funktioner - av vilka vissa är särskilt justerbara.",
+            "title": "Förläng fordonslistan"
         },
         "expansions": {
             "description": "Visar en byggnads tillägg utan att först behöva trycka på tilläggsfliken.",
@@ -46,9 +46,9 @@
             "description": "Useful filters to shorten the building list in the course window",
             "title": "Building filter for course selection"
         },
-        "vehicleTypes": {
-            "description": "Visar fordonstypen (och, om tillgänglig, egen fordonsklass) i en separat kolumn",
-            "title": "Fordonstyp"
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Visar hur många personer som tilldelats fordonet.",
@@ -65,6 +65,10 @@
         "vehiclesPersonnelMax": {
             "description": "Visar maximalt antal personer som får plats i fordonet.",
             "title": "Maximalt besättning"
+        },
+        "vehicleTypes": {
+            "description": "Visar fordonstypen (och, om tillgänglig, egen fordonsklass) i en separat kolumn",
+            "title": "Fordonstyp"
         }
     }
 }

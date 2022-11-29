@@ -44,9 +44,17 @@
             "description": "Sets a gray filter over all AARs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable AARs"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCompactResults": {
             "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
             "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR",
@@ -96,6 +104,14 @@
             "description": "Outlines the generation time in red if the bet will expire the following night.",
             "title": "Red border"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stickyHeader": {
             "description": "Always shows the top bar in the insert window, even when you scroll down.",
             "title": "Always show header bar"
@@ -130,6 +146,7 @@
                 "vehicleTypes": [8, 11, 12, 13, 14, 15, 22, 23]
             },
             { "name": "Vann", "vehicleTypes": [19, 20] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

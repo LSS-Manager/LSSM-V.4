@@ -129,12 +129,35 @@
                 "title": "Posortowane misje"
             },
             "title": "Okno misji",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Załaduj brakujące pojazdy",
                 "next": "Poprzednia zakładka",
                 "previous": "Następna zakładka",
                 "title": "Lista pojazdów"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "personal assigment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",
@@ -146,5 +169,6 @@
             "description": "Ustaw tutaj własne skróty klawiszowe dla określonych działań. Akcje kategorii \"Ogólne\" są dostępne wszędzie w grze. Naciskając F1, możesz w dowolnym momencie wyświetlić przegląd skrótów klawiszowych, które otworzyłeś.",
             "title": "Skróty klawiszowe"
         }
-    }
+    },
+    "unique": "Próbowałeś przypisać ten sam klawisz skrótu do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót klawiszowy dla tej czynności."
 }

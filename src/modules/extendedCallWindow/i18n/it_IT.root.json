@@ -56,6 +56,10 @@
             "description": "Seleziona automaticamente la barra di ricerca delle AAR così che tu possa scrivere da subito.",
             "title": "Cerca ARR: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Chiude la tendina dopo aver selezionato un AAR.",
             "title": "Chiudi la tendina dopo la selezione"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Nasconde le AAR e mostra una tendina con barra di ricerca, permettendo così di avere un menù compatto.",
             "title": "Tendina cerca ARR"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Mostra le richieste memorizzate nell'AAR, se stai brevemente con il mouse su un AAR.",
@@ -152,6 +160,14 @@
             "description": "Mostra quanto tempo rimane ad ogni paziente prima di essere completamente curato.",
             "title": "Remaining time for patients"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Mostra nelle basi temporanee la quantità di veicoli selezionati accanto ai pulsanti di allarme.",
             "title": "Contatore di allarmi nelle basi temporanee"
@@ -205,6 +221,7 @@
                 "name": "Polizia",
                 "vehicleTypes": [7, 13, 14, 15, 16, 17, 21, 22, 38, 39, 40, 41]
             }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

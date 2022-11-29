@@ -30,6 +30,9 @@ export const defineAPIStore = defineStore('api', {
             schoolings: {
                 result: [],
             },
+            alliance_schoolings: {
+                result: [],
+            },
             missions: {},
             autoUpdates: [],
             currentlyUpdating: [],
@@ -195,7 +198,7 @@ export const defineAPIStore = defineStore('api', {
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
             // reactivity workaround for schoolings
-            if (api === 'schoolings')
+            if (api === 'schoolings' || api === 'alliance_schoolings')
                 this.schoolings.result = this.schoolings.result.slice(0);
             return { api, value, lastUpdate };
         },
@@ -219,6 +222,7 @@ export const defineAPIStore = defineStore('api', {
                         'buildings',
                         'credits',
                         'schoolings',
+                        'alliance_schoolings',
                         'settings',
                         'vehicles',
                     ] as StorageAPIKey[]
@@ -294,7 +298,9 @@ export const defineAPIStore = defineStore('api', {
                     stateValue.value &&
                     stateValue.lastUpdate > Date.now() - API_MIN_UPDATE &&
                     // these are to be updated with each request
-                    !(['schoolings'] as StorageAPIKey[]).includes(api)
+                    !(
+                        ['schoolings', 'alliance_schoolings'] as StorageAPIKey[]
+                    ).includes(api)
                 ) {
                     this._removeAPIFromQueue(api);
                     return new Promise(resolve =>
@@ -577,6 +583,25 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
+        getAllianceSchoolings(
+            feature: string
+        ): Promise<EnsuredAPIGetter<'alliance_schoolings'>> {
+            return this._getAPI('alliance_schoolings', feature);
+        },
+        autoUpdateAllianceSchoolings(
+            feature: string,
+            callback: (
+                api: EnsuredAPIGetter<'alliance_schoolings'>
+            ) => void = () => void null,
+            updateInterval: number = API_MIN_UPDATE
+        ) {
+            return this._autoUpdate(
+                this.getAllianceSchoolings,
+                feature,
+                callback,
+                updateInterval
+            );
+        },
         getSettings(feature: string): Promise<EnsuredAPIGetter<'settings'>> {
             return this._getAPI('settings', feature);
         },
@@ -750,6 +775,7 @@ export const defineAPIStore = defineStore('api', {
                 });
             }
             setHeader(init.headers, 'X-LSS-Manager', VERSION);
+            setHeader(init.headers, 'X-LSS-Manager-Branch', BRANCH);
             setHeader(init.headers, 'X-LSS-Manager-Feature', feature);
 
             init.cache = init.cache || 'no-cache';
@@ -781,10 +807,10 @@ export const defineAPIStore = defineStore('api', {
                                         const LSSM = window[PREFIX] as Vue;
                                         LSSM.$modal.show('dialog', {
                                             title: LSSM.$t(
-                                                'warnings.version.title'
+                                                'global.warnings.version.title'
                                             ),
                                             text: LSSM.$t(
-                                                'warnings.version.text',
+                                                'global.warnings.version.text',
                                                 {
                                                     version: data.version,
                                                     curver: VERSION,
@@ -793,7 +819,7 @@ export const defineAPIStore = defineStore('api', {
                                             buttons: [
                                                 {
                                                     title: LSSM.$t(
-                                                        'warnings.version.close'
+                                                        'global.warnings.version.close'
                                                     ),
                                                     default: true,
                                                     handler() {
@@ -806,7 +832,7 @@ export const defineAPIStore = defineStore('api', {
                                                 },
                                                 {
                                                     title: LSSM.$t(
-                                                        'warnings.version.abort'
+                                                        'global.warnings.version.abort'
                                                     ),
                                                     handler() {
                                                         LSSM.$modal.hide(
@@ -824,25 +850,32 @@ export const defineAPIStore = defineStore('api', {
                             if (dialogOnError) {
                                 const LSSM = window[PREFIX] as Vue;
                                 LSSM.$modal.show('dialog', {
-                                    title: LSSM.$t('error.requestIssue.title', {
-                                        status: res.status,
-                                        statusText: res.statusText,
-                                    }),
-                                    text: LSSM.$t('error.requestIssue.text', {
-                                        url: res.url,
-                                        status: res.status,
-                                        statusText: res.statusText,
-                                        method:
-                                            init.method?.toUpperCase() ?? 'GET',
-                                        feature,
-                                        duration: Date.now() - startTime,
-                                        timestamp: new Date().toISOString(),
-                                        uid: `${window.I18n.locale}-${window.user_id}`,
-                                    }),
+                                    title: LSSM.$t(
+                                        'global.error.requestIssue.title',
+                                        {
+                                            status: res.status,
+                                            statusText: res.statusText,
+                                        }
+                                    ),
+                                    text: LSSM.$t(
+                                        'global.error.requestIssue.text',
+                                        {
+                                            url: res.url,
+                                            status: res.status,
+                                            statusText: res.statusText,
+                                            method:
+                                                init.method?.toUpperCase() ??
+                                                'GET',
+                                            feature,
+                                            duration: Date.now() - startTime,
+                                            timestamp: new Date().toISOString(),
+                                            uid: `${window.I18n.locale}-${window.user_id}`,
+                                        }
+                                    ),
                                     buttons: [
                                         {
                                             title: LSSM.$t(
-                                                'error.requestIssue.close'
+                                                'global.error.requestIssue.close'
                                             ),
                                             default: true,
                                             handler() {

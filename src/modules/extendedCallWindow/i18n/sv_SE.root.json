@@ -48,9 +48,17 @@
             "description": "Ställer in ett grått filter över alla ARR som inte innehåller ett ord med uppdragsnamnet.",
             "title": "Gråa ut olämpliga ARR's"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCompactResults": {
             "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
             "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Visar de sparade förfrågningarna i ARR, om du stannar kort med musen över en ARR",
@@ -103,6 +111,14 @@
             "description": "Skisserar genereringstiden i rött om vadet går ut nästa natt.",
             "title": "Röd kant"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stickyHeader": {
             "description": "Visar alltid det övre fältet i infogningsfönstret, även när du rullar nedåt.",
             "title": "Visa alltid rubrikfält"
@@ -141,6 +157,7 @@
             },
             { "name": "Brandfordon-Vatten", "vehicleTypes": [18, 20] },
             { "name": "Insatsstyrka", "vehicleTypes": [14, 17] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

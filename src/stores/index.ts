@@ -27,13 +27,15 @@ export const defineRootStore = defineStore('root', {
             menuItems: [],
             osmBars: {},
             styleSheet: null,
+            hotkeysHelpOpen: false,
         },
     getters: {
         locale: (): string => window.I18n.locale,
         mapkit: (): boolean => typeof window.mapkit !== 'undefined',
         discordUrl: (): string => `https://discord.gg/${config.discord.invite}`,
         githubUrl: (): string => `https://github.com/${config.github.repo}`,
-        fontAwesomeIconSearch: (): string => config.fontAwesomeIconSearch,
+        fontAwesomeIconSearch: (): string => config.urls.fontAwesomeIconSearch,
+        donationUrl: (): string => config.urls.donations,
         gameFlavour: (): GameFlavour => window.gameFlavour,
         isPoliceChief(): boolean {
             return this.gameFlavour === 'policechief';
@@ -41,10 +43,10 @@ export const defineRootStore = defineStore('root', {
         isDarkMode: (): boolean => document.body.classList.contains('dark'),
         lssmUrl(): (
             path: string,
-            appendUserId?: boolean,
+            addBranchParam?: boolean,
             parameters?: Record<string, string>
         ) => string {
-            return (path, appendUserId = false, parameters = {}) => {
+            return (path, addBranchParam = false, parameters = {}) => {
                 const basePath = new URL(SERVER).pathname;
                 const url = new URL(
                     `${basePath}${path.replace(SERVER, '')}`.replace(
@@ -53,12 +55,8 @@ export const defineRootStore = defineStore('root', {
                     ),
                     SERVER
                 );
-                if (appendUserId) {
-                    url.searchParams.set(
-                        'uid',
-                        `${this.locale}-${window.user_id}`
-                    );
-                }
+                if (addBranchParam) url.searchParams.set('branch', BRANCH);
+
                 Object.entries(parameters).forEach(([key, value]) =>
                     url.searchParams.set(key, value)
                 );
@@ -69,7 +67,7 @@ export const defineRootStore = defineStore('root', {
             return this.lssmUrl(lssmLogo, true);
         },
         wiki(): string {
-            return `${config.docs}${this.locale}`;
+            return `${config.urls.docs}${this.locale}`;
         },
         moduleWiki(): (moduleId: string) => string {
             return moduleId => `${this.wiki}/modules/${moduleId}/`;
@@ -88,6 +86,9 @@ export const defineRootStore = defineStore('root', {
             },
     },
     actions: {
+        setHotkeysHelpOpen(state: boolean) {
+            this.hotkeysHelpOpen = state;
+        },
         updateCredits(credits: number) {
             const old = this.credits;
             this.credits = credits;
@@ -211,7 +212,7 @@ export const defineRootStore = defineStore('root', {
             menuItem.href = '#';
             menuItem.textContent = text;
             this.menuItems.push(menuItem);
-            return new Promise<HTMLAnchorElement>(resolve => resolve(menuItem));
+            return menuItem;
         },
         addStyle({ selectorText, style }: addStyle) {
             if (!this.styleSheet) {

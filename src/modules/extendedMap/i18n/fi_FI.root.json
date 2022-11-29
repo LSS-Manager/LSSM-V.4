@@ -1,5 +1,20 @@
 {
     "description": "Parantaa karttaa hienoilla ominaisuuksilla.",
+    "mapCSSFilter": {
+        "brightness": "Kirkkaus",
+        "contrast": "Kontrasti",
+        "grayscale": "Harmaa suodatin",
+        "hueRotate": "Sävyn kierto",
+        "invert": "Käänteiset värit",
+        "presets": {
+            "dark1": "Tumma 1",
+            "dark2": "Tumma 2",
+            "dark3": "Tumma 3",
+            "gray": "Harmaa"
+        },
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Parannettu kartta",
     "positions": {
         "bottomleft": "Ala-vasen 🡧",
@@ -27,6 +42,12 @@
             "dynamic": "dynaaminen",
             "static": "staattinen",
             "title": "Keskitetty oleva kartta: Mode"
+        },
+        "mapCSSFilter": {
+            "description": "Muokkaa karttaa erilaisilla CSS-suodattimilla kuvankäsittelyä varten. Leikkiminen ja kokeilu on tervetullutta!",
+            "filterFunction": "CSS suodatin",
+            "filterValue": "arvo",
+            "title": "CSS-suodatin"
         },
         "mapScale": {
             "description": "Näyttää kartan mittakaavan ja nykyisen zoomaustason",

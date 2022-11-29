@@ -37,38 +37,38 @@
         },
         "building": {
             "changeSharing": {
-                "disableSharing": "Disable sharing",
-                "enableSharing": "Enable sharing",
-                "title": "Toggle building sharing",
-                "toggleSharing": "Toggle sharing"
+                "disableSharing": "Niet met team delen",
+                "enableSharing": "Met team delen",
+                "title": "Wijzig delen gebouw",
+                "toggleSharing": "Wijzig delen van cellen/bedden"
             },
             "dispatch": {
-                "buildings": "buildings tab",
-                "extensions": "extensions tab",
-                "next": "next tab",
-                "openFirstPlannedMission": "Open first planned mission",
-                "patrol": "patrol tab",
-                "patrol_vehicles": "patrol vehicles tab",
-                "plannedMission": "planned mission tab",
-                "previous": "next tab",
-                "protocol": "protocol tab",
-                "schooling": "schooling tab",
-                "settings": "settings tab",
-                "stats": "stats tab",
-                "title": "dispatch centre",
-                "vehicle": "vehicle tab"
+                "buildings": "gebouwen tab",
+                "extensions": "uitbreidingen tab",
+                "next": "volgende tab",
+                "openFirstPlannedMission": "Open eerste geplande melding",
+                "patrol": "patrouille tab",
+                "patrol_vehicles": "patrouille voertuigen tab",
+                "plannedMission": "geplande meldingen tab",
+                "previous": "vorige tab",
+                "protocol": "afrondingsgeschiedenis tab",
+                "schooling": "opleidingen tab",
+                "settings": "instellingen tab",
+                "stats": "statistieken tab",
+                "title": "Meldkamer",
+                "vehicle": "voertuigen tab"
             },
             "goto": {
-                "dispatchCenter": "dispatch center",
-                "expand": "expanding",
-                "firstVehicle": "open first vehicle",
-                "hire": "Recute new personal",
-                "nextBuilding": "Next Building",
-                "personal": "personal overview",
-                "previousBuilding": "Previous building",
-                "title": "go to"
+                "dispatchCenter": "meldkamer",
+                "expand": "uitbreiden",
+                "firstVehicle": "open eerste voertuig",
+                "hire": "neem nieuwe personeel aan",
+                "nextBuilding": "volgend gebouw",
+                "personal": "personeelsoverzicht",
+                "previousBuilding": "vorig gebouw",
+                "title": "ga naar"
             },
-            "title": "Building"
+            "title": "Gebouw"
         },
         "main": {
             "chat": { "focus": "focus invoerveld", "title": "Chat" },
@@ -126,12 +126,35 @@
                 "title": "Gesorteerde meldingen"
             },
             "title": "Meldingsscherm",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Laad missende voertuigen",
                 "next": "volgende tab",
                 "previous": "vorige tab",
                 "title": "Voertuigenlijst"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarmeer naar eerste teammelding",
+                "firstOwnMission": "Alarmeer naar eerste eigen melding",
+                "title": "alarmeer"
+            },
+            "goto": {
+                "building": "gebouw",
+                "edit": "bewerkt",
+                "nextVehicle": "volgend voertuig",
+                "personalAssigment": "personeel toewijzen",
+                "previousVehicle": "vorig voertuig",
+                "statistics": "statistieken",
+                "title": "ga naar"
+            },
+            "other": {
+                "moveVehicle": "verplaats voertuig",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "voertuigen"
         }
     },
     "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
@@ -143,5 +166,6 @@
             "description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar. Door op F1 te drukken, kan je altijd een overzicht van de sneltoetsen openen.",
             "title": "Sneltoetsen"
         }
-    }
+    },
+    "unique": "Je hebt geprobeert om dezelfde sneltoets in te stellen voor meerdere acties die in dezelfde schermen gebruikt worden. Selecteer een andere sneltoets voor deze actie"
 }

@@ -22,6 +22,7 @@
             "in": "additional",
             "text": "Required SWAT Personnel"
         },
+        "title": "Special requirements",
         "water_needed": {
             "badge": true,
             "in": "requirements",

@@ -20,6 +20,7 @@ const modules = {
         reset: 'Reset',
         export: 'Exporter',
         import: 'Importer',
+        donate: 'donate voluntarily',
         appendableList: {
             unique: {
                 title: 'Valeur en double',
@@ -61,100 +62,6 @@ const modules = {
 
 export default {
     modules,
-    updateUserscript: {
-        title: 'Script utilisateur obsolète',
-        text: `Cher utilisateur de LSSM,<br>
-malheureusement votre userscript LSSM V.4 est périmé. Dans la dernière version, des modifications ont été apportées au userscript, qui sont importantes pour le fonctionnement de la V.4 de LSSM.<br>
-Vous avez besoin d'au moins la version {minVersion}, la mise à jour peut être effectuée confortablement en cliquant sur {updateLink}.<br>
-Il peut arriver que la mise à jour ne fonctionne pas en cliquant sur le lien (pour des raisons inconnues). Vous pouvez alors soit déclencher une mise à jour dans Tampermonkey (cliquez sur l'icône de Tampermonkey dans votre navigateur, puis sur "Aperçu". Cochez la case en face du userscript LSSM et sélectionnez "Update" comme action. <br>
-Si cela ne fonctionne pas non plus, modifiez le script LSSM dans Tampermonkey en remplaçant tout le contenu du script par le contenu de {bypassLink}.<br>
-Parfois, LSSM est installé plusieurs fois après une mise à jour. Dans ce cas, veuillez supprimer le script qui n'a pas la version 4.5.10 (dans Tampermonkey).<br>
-Nous sommes désolés pour tout problème causé si les mises à jour n'ont pas fonctionné correctement.
-<br>
-Bien à vous,<br>
-votre équipe LSSM`,
-        close: 'Ok',
-    },
-    error: {
-        title: 'LSS Manager: Erreur',
-        msg: "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
-        requestIssue: {
-            title: 'requête erronée: Status {status}',
-            text: `Aïe, malheureusement une erreur s'est produite avec cette requête du serveur :<br>
-<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
-<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
-<b>Fonctionnalité</b>: <code>{feature}</code><br>
-<b>Durée</b>: <code>{duration}ms</code><br>
-<b>Utilisateur</b>: <code>{uid}</code><br>
-<b>Timestamp</b>: <code>{timestamp}</code>
-<br>
-Veuillez réessayer d'effectuer l'action souhaitée.<br>
-Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû à des problèmes de serveur. Veuillez réessayer ultérieurement.`,
-            close: 'Fermer la remarque',
-        },
-    },
-    warnings: {
-        version: {
-            title: 'Mauvaise version de LSS Manager',
-            text: "Cher utilisateur, malheureusement vous n'avez pas la dernière version de LSS Manager. La dernière version est {version} et vous avez la {current}. Merci de recharger le jeu en vidant le cache (Ctrl + F5 ou command + R sur Apple), cela devrait régler le problème. Si le problème persiste, merci de le signaler à l'équipe ! Si vous vous utilisez une mauvaise version nous ne pouvons garantir le plein fonctionnement de LSS-Manager.",
-            close: 'Fermer ce message et recharger le jeu (recommandé)',
-            abort: 'Fermer ce message sans recharger le jeu',
-        },
-    },
-    anniversary1: {
-        closeNote:
-            'Astuce : Vous pouvez également cliquer sur les ballons pour les fermer !',
-        title: '🎉 Il y a des raisons de faire la fête ! 🎉',
-        content:
-            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
-    },
-    globalSettings: {
-        name: 'Paramètres généraux',
-        labelInMenu: {
-            title: "Titre au lieu d'une icone dans le menu",
-            description:
-                'Un simple titre dans la barre de navigation au lieu du logo LSSM',
-        },
-        allowTelemetry: {
-            description:
-                'Contrôle si LSS-Manager est autorisé à envoyer des données, ce qui nous aide à développer cette extension.',
-            title: 'Autoriser la télémétrie',
-        },
-        iconBg: {
-            description: "Changez la couleur de fond de l'icône LSSM !",
-            title: "Couleur de fond de l'icône LSSM",
-        },
-        iconBgAsNavBg: {
-            description:
-                "Colorez toute la barre de navigation avec la couleur de fond de l'icône du LSSM!",
-            title: 'Colorier la barre de navigation',
-        },
-        loadingIndicator: {
-            description:
-                'Si ce paramètre est actif, LSSM affiche un petit cercle de chargement dans le coin inférieur droit.',
-            title: 'Afficher la progression du chargement',
-        },
-        osmDarkTooltip: {
-            description:
-                'Ce paramètre assombrit les infobulles sur la carte si vous avez activé le mode sombre.',
-            title: 'Infobulles foncées sur la carte',
-        },
-        osmDarkControls: {
-            description:
-                'Ce paramètre assombrit les boutons sur la carte si vous avez activé le mode sombre.',
-            title: 'Boutons sombres sur la carte',
-        },
-        v3MenuAsSubmenu: {
-            title: 'Menu V3 comme sous-menu',
-            description:
-                "Déplace le menu du LSSM V3 vers le menu du V4 pour gagner de l'espace dans la barre de navigation.",
-        },
-        debugMode: {
-            title: 'Debug-Mode',
-            description:
-                "Un petit mode de débogage qui affiche des conseils utiles dans la console du navigateur. Son activation n'est recommandée que si elle est demandée par l'équipe LSSM, car la console contiendra de nombreux messages.",
-        },
-    },
     vehicles: {
         0: {
             caption: 'FPT',
@@ -732,6 +639,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             minPersonnel: 2,
             maxPersonnel: 4,
             possibleBuildings: [11, 23],
+            schooling: {
+                'Secours nautique': {
+                    ['BNSSA']: {
+                        all: true,
+                    },
+                },
+            },
         },
         47: {
             caption: 'CSL',
@@ -746,13 +660,13 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         48: {
             caption: 'CTT',
             color: '#225CB5',
-            coins: 10,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 8,
             possibleBuildings: [23],
             schooling: {
-                "Centre de Formation et d'Intervention": {
+                'Secours nautique': {
                     ['Certificat de surveillance et sauvetage aquatique']: {
                         all: true,
                     },
@@ -767,7 +681,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 6,
             'possibleBuildings': [24],
-            "Centre de Formation et d'Intervention": {
+            'Secours nautique': {
                 ['Accréditation nautique']: {
                     all: true,
                 },
@@ -781,7 +695,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             'minPersonnel': 2,
             'maxPersonnel': 5,
             'possibleBuildings': [26],
-            "Centre de Formation et d'Intervention": {
+            'Secours nautique': {
                 ["Pilote d'hélicoptère"]: {
                     all: true,
                 },
@@ -789,56 +703,60 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
         },
     },
     buildingCategories: {
-        Pompiers: {
+        'Pompiers': {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        Ambulances: {
+        'Ambulances': {
             buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
-        Police: {
+        'Police': {
             buildings: [6, 8, 11, 13, 19],
             color: '#00ac00',
         },
-        Autre: {
+        'Secours nautique': {
+            buildings: [23, 24, 25, 26],
+            color: '#00ac00',
+        },
+        'Autre': {
             buildings: [7, 14, 21, 22],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        Incendie: {
+        'Incendie': {
             vehicles: {
                 ["Fourgons d'incendie"]: [0, 1, 12, 13],
                 ['Échelles']: [2, 15],
                 ['Véhicules spéciaux']: [4, 6, 7, 10, 14, 31, 36, 37, 38],
-                'Chefs de groupe': [3, 11],
-                'Ambulances': [25, 26],
-                'Nautique': [16, 17],
+                ['Chefs de groupe']: [3, 11],
+                ['Ambulances']: [25, 26],
+                ['Nautique']: [16, 17],
                 ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
             },
             color: '#ff2d2d',
         },
-        Ambulances: {
+        'Ambulances': {
             vehicles: {
                 Ambulances: [5, 27, 28, 29, 30],
-                Dragon: [9],
+                HéliSMUR: [9],
             },
             color: '#ffa500',
         },
-        Police: {
+        'Police': {
             vehicles: {
                 ['Véhicules de patrouille']: [8],
                 ['Unités motocyclistes']: [20],
-                Choucas: [18],
+                ['Choucas']: [18],
                 ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
             },
             color: '#00ac00',
         },
-        Maritime: {
+        'Secours nautique': {
             vehicles: {
-                ['Sauvetage Côtier']: [46, 47, 48, 49, 50],
+                ['Secours nautique']: [46, 47, 48, 49, 50],
             },
             color: '#00ac00',
         },
@@ -887,6 +805,11 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 duration: '5 jours',
                 staffList: 'Médecin urgentiste',
             },
+            {
+                caption: 'Certificat de surveillance et sauvetage aquatique',
+                duration: '5 jours',
+                staffList: 'Sauveteur en Mer',
+            },
         ],
         'Secours': [
             {
@@ -932,7 +855,7 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
                 staffList: 'Armurier',
             },
         ],
-        "Centre de Formation et d'Intervention": [
+        'Secours nautique': [
             {
                 caption: "Pilote d'hélicoptère",
                 duration: '5 jours',
@@ -941,17 +864,17 @@ Si plusieurs demandes échouent dans un court laps de temps, cela peut être dû
             {
                 caption: 'BNSSA',
                 duration: '5 jours',
-                staffList: 'BNSSA',
+                staffList: 'Sauveteur aquatique',
             },
             {
                 caption: 'Accréditation nautique',
                 duration: '3 jours',
-                staffList: 'Accréditation nautique',
+                staffList: 'Gendarme Maritime',
             },
             {
                 caption: 'Certificat de surveillance et sauvetage aquatique',
                 duration: '5 jours',
-                staffList: 'Certificat de surveillance et sauvetage aquatique',
+                staffList: 'Sauveteur en Mer',
             },
         ],
     },

@@ -48,9 +48,17 @@
             "description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable ARRs"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCompactResults": {
             "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
             "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
@@ -109,6 +117,14 @@
             "description": "Outlines the generation time in red if the bet will expire the following night.",
             "title": "Red border"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stickyHeader": {
             "description": "Always shows the top bar in the insert window, even when you scroll down.",
             "title": "Always show header bar"
@@ -149,6 +165,7 @@
             { "name": "Sanitky", "vehicleTypes": [5, 11, 15, 20, 25, 26, 27] },
             { "name": "Policie", "vehicleTypes": [10, 14, 16, 19, 23] },
             { "name": "Water", "vehicleTypes": [21, 22, 24, 25] }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

@@ -50,11 +50,15 @@
         },
         "arrSearch": {
             "description": "Näyttää hälytysjärjestelyjen yläpuolella olevan hakupalkin, joka mahdollistaa ARR:ien suodattamisen.",
-            "title": "hälytysjärjestely haku"
+            "title": "Hälytysjärjestely haku"
         },
         "arrSearchAutoFocus": {
             "description": "Valitsee hälytysjärjestely haun automaattisesti niin, että voit aloittaa kirjoittamisen napsauttamatta hakukenttää aiemmin.",
             "title": "Hälytysjärjestely haku: automaattinen valinta"
+        },
+        "arrSearchClearOnEnter": {
+            "description": "Tyhjää hälytysjärjestely haun kun painaa Enter-näppäintä",
+            "title": "Tyhjää hälytysjärjestely haku"
         },
         "arrSearchCloseDropdownOnSelect": {
             "description": "sulkee pudotusvalikon hälytysjärjestelyn valinnan jälkeen.",
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Piilottaa hälytysjärjestelyt kokonaan ja näyttää sen sijaan hakukelpoisen pudotusvalikon. Mahdollistaa hyvin kompaktin hälytysjärjestelyt.",
             "title": "hälytysjärjestely haku pudotusvalikkona"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Valitsee ensimmäisen haan tuloksen, kun Enter-näppäintä painetaan",
+            "title": "Valitse ensimmäinen hälytysjärjestely"
         },
         "arrSpecs": {
             "description": "Näyttää hälytysjärjestelyyn tallennetut pyynnöt, jos viet hiiren lyhyesti hälytysjärjestelyn päälle.",
@@ -152,6 +160,14 @@
             "description": "Näyttää potilaille, kuinka paljon aikaa on jäljellä, ennen kuin heidät on täysin hoidettu.",
             "title": "Jäljellä oleva hoitoaika"
         },
+        "selectedVehicleCounter": {
+            "description": "Näyttää laajennettavassa luettelossa, kuinka monta minkä tyyppistä ajoneuvoa on valittu.",
+            "title": "Valittujen ajoneuvojen määrä"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Näyttää nämä ajoneuvotyypit painikkeessa, jotta sinun ei tarvitse avata luetteloa nähdäksesi niiden määrän.",
+            "title": "Laske valitut ajoneuvot: Pikalaskuri"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Näyttää kuinka monta ajoneuvoa olet valinnut sillä hwtkellä kokoontumispaikkaan lähetä napin vieressä",
             "title": "Ajoneuvolaskuri kokoontumispaikoille"
@@ -204,6 +220,7 @@
                 "vehicleTypes": [5, 9, 19, 20, 21, 22, 23, 24]
             },
             { "name": "Poliisi", "vehicleTypes": [8, 14, 15, 16, 17, 18] }
-        ]
+        ],
+        "noCustoms": "Omat ajoneuvoluokat pois"
     }
 }

@@ -18,6 +18,7 @@ export interface StorageAPIs {
     settings: Settings | null;
     credits: CreditsInfo | null;
     schoolings: SchoolingAPI;
+    alliance_schoolings: SchoolingAPI;
 }
 
 export type StorageAPIKey = keyof StorageAPIs;

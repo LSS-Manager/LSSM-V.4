@@ -3,20 +3,20 @@
         "*": {
             "alliance": {
                 "applications": "Ouvrir les candidatures",
-                "buildings": "Ouvrir la vue d'ensemble des bâtiments de l'alliance",
+                "buildings": "Ouvrir la vue d'ensemble des bâtiments",
                 "forum": "Ouvrir le mur",
-                "funds": "Ouvrir la banque de l'alliance",
+                "funds": "Ouvrir la banque",
                 "logfiles": "Ouvrir journal de modération",
                 "members": "Ouvrir la liste des membres",
                 "messages": "Ouvrir les messages",
                 "onlineMembers": "Ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)",
-                "open": "Ouvrir une fenêtre d'alliance",
-                "schoolings": "Ouvrir la fenêtre de formation",
+                "open": "Ouvrir une page d'alliance",
+                "schoolings": "Ouvrir la page de formation",
                 "title": "Alliance"
             },
             "credits": {
                 "daily": "Ouvrir le résumé quotidien",
-                "open": "Ouvrir les log",
+                "open": "Ouvrir les logs",
                 "overview": "Ouvrir l'aperçu des 7 derniers jours",
                 "title": "Crédits"
             },
@@ -25,10 +25,10 @@
                 "awards": "Ouvrir la liste des récompenses",
                 "level": "Ouvrir la liste des niveaux",
                 "notes": "Ouvrir les notes",
-                "open": "Ouvrir le profil personnel",
-                "title": "profil"
+                "open": "Ouvrir son profil personnel",
+                "title": "Profil"
             },
-            "protocol": "Ouvrir le journal des gestion des appelles",
+            "protocol": "Ouvrir le journal des gestions des appelles",
             "tasks": {
                 "open": "Ouvrir la liste des Tâches et événements",
                 "title": "Tâches et événements"
@@ -37,20 +37,20 @@
         },
         "building": {
             "changeSharing": {
-                "disableSharing": "Disable sharing",
-                "enableSharing": "Enable sharing",
-                "title": "Toggle building sharing",
-                "toggleSharing": "Toggle sharing"
+                "disableSharing": "Désactiver le partage",
+                "enableSharing": "Activer le partage",
+                "title": "Partage des bâtiments",
+                "toggleSharing": "Changer le mode de partage"
             },
             "dispatch": {
                 "buildings": "Onglet \"Bâtiments\"",
                 "extensions": "Onglet \"Extensions\"",
-                "next": "Onglet suivant",
+                "next": "Onglet Suivant",
                 "openFirstPlannedMission": "Ouverture de la première mission",
                 "patrol": "Onglet \"Trajet de patrouille\"",
                 "patrol_vehicles": "Onglet \"Véhicules de patrouille\"",
                 "plannedMission": "Onglet \"Évenements programmés\"",
-                "previous": "Onglet précédent",
+                "previous": "Onglet Précédent",
                 "protocol": "Onglet \"Journal\"",
                 "schooling": "Onglet \"Formations\"",
                 "settings": "Onglet \"Paramètres\"",
@@ -60,13 +60,13 @@
             },
             "goto": {
                 "dispatchCenter": "Centre de Traitement des Appels",
-                "expand": "élargir",
-                "firstVehicle": "ouvrir le premier véhicule",
-                "hire": "Recutez de nouveaux personnels",
-                "nextBuilding": "Bâtiment suivant",
+                "expand": "Élargir",
+                "firstVehicle": "Ouvrir le premier véhicule",
+                "hire": "Recruter de nouveaux personnels",
+                "nextBuilding": "Bâtiment Suivant",
                 "personal": "Vue d'ensemble du personnel",
-                "previousBuilding": "Bâtiment précedent",
-                "title": "aller à"
+                "previousBuilding": "Bâtiment Précedent",
+                "title": "Ouvrir"
             },
             "title": "Bâtiments"
         },
@@ -81,18 +81,18 @@
             },
             "map": {
                 "move": {
-                    "down": "bas",
-                    "left": "gauche",
-                    "right": "droite",
+                    "down": "En bas",
+                    "left": "À gauche",
+                    "right": "À droite",
                     "title": "Déplacer",
-                    "up": "haut"
+                    "up": "En haut"
                 },
                 "search": {
                     "focus": "Focus sur le champ de saisie",
                     "title": "Recherche de lieu"
                 },
                 "title": "Map",
-                "zoom": { "in": "zoomer", "out": "dézoomer", "title": "Zoomer" }
+                "zoom": { "in": "Zoomer", "out": "Dézoomer", "title": "Zoomer" }
             },
             "missionlist": {
                 "eclSort": {
@@ -111,11 +111,11 @@
             "alliance": {
                 "focus": "Focus de la fenêtre de réponse de l'alliance",
                 "title": "Alliance",
-                "toggle": "Alterner 'poster dans le chat de l'alliance'."
+                "toggle": "Alterner 'Poster dans le chat de l'alliance'"
             },
             "arr": {
-                "next": "onglet suivant",
-                "previous": "onglet précédent",
+                "next": "Onglet Suivant",
+                "previous": "Onglet Précédent",
                 "title": "RAI"
             },
             "backalarm": {
@@ -127,17 +127,40 @@
             "sorted": {
                 "alert_next": "Déployer et aller à la mission suivante",
                 "alert_share_next": "Déployer, partager et aller à la mission suivante",
-                "next": "prochaine mission",
+                "next": "Mission Suivante",
                 "prev": "mission précédente",
-                "title": "Missions triées"
+                "title": "Mission Précédente"
             },
             "title": "Fenêtre des missions",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Chargement des véhicules manquants",
-                "next": "onglet suivant",
-                "previous": "onglet précédent",
+                "next": "Onglet Suivant",
+                "previous": "Onglet Précédent",
                 "title": "Liste des véhicules"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Signal d'alarme pour la première mission de l'alliance",
+                "firstOwnMission": "Signal d'alarme pour la première mission personnel",
+                "title": "alarme"
+            },
+            "goto": {
+                "building": "bâtiments",
+                "edit": "edit",
+                "nextVehicle": "véhicule suivant",
+                "personalAssigment": "affectation du personnelle",
+                "previousVehicle": "véhicule Précédent",
+                "statistics": "stats",
+                "title": "allez"
+            },
+            "other": {
+                "moveVehicle": "déplacer le véhicule",
+                "title": "etc.",
+                "toggleFMS": "changer le statut"
+            },
+            "title": "véhicules"
         }
     },
     "description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",
@@ -149,5 +172,6 @@
             "description": "Définissez ici vos propres touches de raccourci pour certaines actions. Les actions de la catégorie \"Général\" sont disponibles partout dans le jeu. En appuyant sur F1, vous pouvez afficher un aperçu des raccourcis que vous avez activés à tout moment.",
             "title": "Touches de raccourci"
         }
-    }
+    },
+    "unique": "Vous avez essayé d'affecter le même raccourci à plusieurs actions, alors que ces actions sont appelées dans la même fenêtre. Veuillez choisir un autre raccourci pour cette action."
 }

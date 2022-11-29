@@ -129,12 +129,35 @@
                 "title": "Misiones ordenadas"
             },
             "title": "Ventana de misiones",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Load missing vehicles",
                 "next": "next tab",
                 "previous": "previous tab",
                 "title": "vehicle list"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "personal assigment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Controla el juego con teclas de acceso rápido en el teclado que puedes configurar tú mismo.",
@@ -146,5 +169,6 @@
             "description": "Configure sus propias teclas de acceso rápido para ciertas acciones aquí. Acciones de categoría \"General\" está disponible en todas las partes del juego. Al presionar F1, puede ver una descripción general de las teclas de acceso rápido que has abierto en cualquier momento.",
             "title": "Teclas de acceso directo"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

@@ -57,6 +57,10 @@
             "description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
             "title": "Inzetvoorstellen zoeken: Focussen"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "sluit de dropdown na het selecteren van een inzetvoorstel.",
             "title": "sluit dropdown na selectie"
@@ -72,6 +76,10 @@
         "arrSearchDropdown": {
             "description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",
             "title": "Inzetvoorstellen als dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
@@ -153,6 +161,14 @@
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
             "title": "Patiëntenbehandelingsduur"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
             "title": "Voertuigselectieteller in UGS"
@@ -220,6 +236,7 @@
                     35, 28, 47, 48, 39, 40, 53, 54, 55, 58, 60, 64, 73, 74, 75
                 ]
             }
-        ]
+        ],
+        "noCustoms": "eigen voertuigcategorieën uitgezonderd"
     }
 }

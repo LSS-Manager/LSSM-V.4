@@ -1,7 +1,1 @@
-{
-    "dev": true,
-    "github": 15,
-    "location": ".*",
-    "noapp": false,
-    "settings": true
-}
+{ "github": 15, "location": ".*", "noapp": false, "settings": true }

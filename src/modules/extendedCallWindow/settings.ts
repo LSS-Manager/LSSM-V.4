@@ -42,7 +42,27 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 return;
             vehicleCaptions.push(caption);
             vehicleIds.push(`${vehicle_type}-${vehicle_type_caption}`);
+
+            const noCustomsType = `${vehicle_type}*`;
+            if (!vehicleIds.includes(noCustomsType)) {
+                vehicleCaptions.push(
+                    `${vehicles[vehicle_type].caption} [${$m(
+                        'tailoredTabs.noCustoms'
+                    )}]`
+                );
+                vehicleIds.push(noCustomsType);
+            }
         });
+
+    const vehicleCaptionsSorted = [...vehicleCaptions].sort((a, b) => {
+        if (a.startsWith('[') && !b.startsWith('[')) return 1;
+        if (!a.startsWith('[') && b.startsWith('[')) return -1;
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
+    const vehicleIdsSorted: string[] = [];
+    vehicleCaptionsSorted.forEach(caption =>
+        vehicleIdsSorted.push(vehicleIds[vehicleCaptions.indexOf(caption)])
+    );
 
     const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
         LSSM,
@@ -199,6 +219,17 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.playerCounter',
         },
+        selectedVehicleCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        selectedVehicleCounterBtnVehicles: <MultiSelect>{
+            type: 'multiSelect',
+            values: vehicleIdsSorted,
+            labels: vehicleCaptionsSorted,
+            default: [] as string[],
+            dependsOn: '.selectedVehicleCounter',
+        },
         arrSearch: <Toggle>{
             type: 'toggle',
             default: false,
@@ -211,6 +242,20 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 settings[MODULE_ID].arrSearchDropdown.value,
         },
         arrSearchCompactResults: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
+        arrSearchSelectOnEnter: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
+        arrSearchClearOnEnter: <Toggle>{
             type: 'toggle',
             default: false,
             disabled: settings =>
@@ -262,8 +307,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: vehicleIds,
-                        labels: vehicleCaptions,
+                        values: vehicleIdsSorted,
+                        labels: vehicleCaptionsSorted,
                     },
                 },
             ],
@@ -384,8 +429,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: vehicleIds,
-                        labels: vehicleCaptions,
+                        values: vehicleIdsSorted,
+                        labels: vehicleCaptionsSorted,
                     },
                 },
             ],

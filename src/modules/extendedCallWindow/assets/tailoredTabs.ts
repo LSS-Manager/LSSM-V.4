@@ -361,9 +361,12 @@ export default (
                         'vehicle_type'
                     ) ?? ''
                 }`;
+                const isCustomVehicleType = !v.hasAttribute('custom_');
                 return (
                     vehicleTypeMap[tab].includes(vehicleType) ||
-                    vehicleTypeMap[tab].includes(customVehicleType)
+                    vehicleTypeMap[tab].includes(customVehicleType) ||
+                    (!isCustomVehicleType &&
+                        vehicleTypeMap[tab].includes(`${vehicleType}*`))
                 );
             })
             .map(v => v.parentElement?.parentElement)

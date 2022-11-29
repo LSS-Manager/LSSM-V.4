@@ -1,0 +1,16 @@
+{
+    "automaticMessage": {
+        "content": "Automaattinen tervetuloviesti: Viesti",
+        "subject": "Automaattinen tervetuloviesti: Aihe",
+        "title": "Automaattinen tervetuliaisviesti"
+    },
+    "faq": "FAQ",
+    "header": "Liittouman tärkeät ilmoitukset",
+    "header_help": "Näytetään aloitussivulla chatin yläpuolella.",
+    "rules": "Liittouman säännöt",
+    "save": "Tallenna",
+    "text": "Kuvausteksti (aloitussivu)",
+    "title": "Liittouman muokkaus",
+    "webhook": "Discord-Webhook linkki",
+    "webhook_help": "Löydät lisätietoja Discord-Webhookeista osoitteesta"
+}

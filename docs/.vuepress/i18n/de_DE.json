@@ -24,16 +24,16 @@
     },
     "moment": {
         "shorts": {
+            "l": "Datum ohne führende Nullen",
             "L": "Datum mit führenden Nullen",
+            "ll": "Datum mit kurzem Monat als Wort",
             "LL": "Datum mit Monat als Wort",
+            "lll": "Datum mit kurzem Monat als Wort und Uhrzeit",
             "LLL": "Datum mit Monat als Wort und Uhrzeit",
+            "llll": "Volles Datum in Kurzform mit Uhrzeit",
             "LLLL": "Volles Datum mit Uhrzeit",
             "LT": "Uhrzeit",
-            "LTS": "Uhrzeit mit Sekunden",
-            "l": "Datum ohne führende Nullen",
-            "ll": "Datum mit kurzem Monat als Wort",
-            "lll": "Datum mit kurzem Monat als Wort und Uhrzeit",
-            "llll": "Volles Datum in Kurzform mit Uhrzeit"
+            "LTS": "Uhrzeit mit Sekunden"
         },
         "titles": {
             "shorts": {
@@ -42,7 +42,6 @@
                 "variable": "Kurzform"
             },
             "variables": {
-                "Variable": "Variable",
                 "ampm": "AM / PM",
                 "category": "Kategorie",
                 "description": "Beschreibung",
@@ -55,12 +54,13 @@
                 "output": "Ausgabe",
                 "quarter": "Quartal",
                 "second": "Sekunde",
+                "Variable": "Variable",
                 "week": "Kalenderwoche",
                 "year": "Jahr"
             }
         },
         "variables": {
-            "ampm": { "A": "AM / PM", "a": "am / pm" },
+            "ampm": { "a": "am / pm", "A": "AM / PM" },
             "dom": {
                 "D": "Tag im Monat",
                 "DD": "Tag im Monat (mit führenden Nullen)",
@@ -79,10 +79,10 @@
                 "DDDo": "Tag im Jahr (mit Punkt)"
             },
             "hour": {
-                "H": "Stunde (24h)",
-                "HH": "Stunde (24h, mit führenden Nullen)",
                 "h": "Stunde (12h)",
-                "hh": "Stunde (12h, mit führenden Nullen)"
+                "H": "Stunde (24h)",
+                "hh": "Stunde (12h, mit führenden Nullen)",
+                "HH": "Stunde (24h, mit führenden Nullen)"
             },
             "minute": { "m": "Minute", "mm": "Minute (mit führenden Nullen)" },
             "month": {
@@ -138,15 +138,36 @@
     "v3": {
         "modules": {
             "AaoSearch": { "v3Name": "AAO-Suche" },
+            "aaoZaehler": { "v3Name": "AAO-Klick-Zähler" },
+            "allianceMissionlistShare": { "v3Name": "Einsätze freigeben" },
             "Center-Map": { "v3Name": "Center-Map" },
+            "centermap": {
+                "annotation": "Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt noch.",
+                "v3Name": "Center-Map"
+            },
             "Clock": { "v3Name": "Clock" },
+            "creditserweiterung": { "v3Name": "Creditserweiterung" },
+            "dashboard": { "v3Name": "Dashboard" },
             "DestinationFilter": {
                 "annotation": "Dieser ist im Redesign für Fahrzeuge bereits integriert, soll aber auch noch als eigenes Modul in die V4 integriert werden.",
                 "v3Name": "Zielort Filter"
             },
+            "displayUserId": { "v3Name": "User-ID" },
             "DoctorRadioCall": { "v3Name": "Nachforderungen per FMS" },
             "Eventsmission": { "v3Name": "Markiert Eventeinsätze" },
+            "extendedBuilding": { "v3Name": "Erweiterte Gebäudeansicht" },
             "FMS5InMap": { "v3Name": "FMS 5 in der Karte" },
+            "fms7Target": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "FMS 7 Zielort Anzeige"
+            },
+            "geoBorders": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "Kreis- & Landesgrenzen"
+            },
+            "heatmap": { "v3Name": "LS-Heatmap" },
+            "iconFilter": { "v3Name": "Icon Gebäude Filter" },
+            "keyboardAlert": { "v3Name": "Keyboard Alarmierung" },
             "Layout01": {
                 "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
                 "v3Name": "Layout 01"
@@ -163,44 +184,18 @@
                 "annotation": "Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann.",
                 "v3Name": "Layout 04"
             },
-            "MissionOut": { "v3Name": "MissionOut" },
-            "Notification_Alert": { "v3Name": "Notification Alert" },
-            "Redesign01": { "v3Name": "Redesign 01" },
-            "RenameFZ": { "v3Name": "Fahrzeuge umbenennen" },
-            "ShareAlliancePost": { "v3Name": "Alarmieren, Teilen & Posten" },
-            "WachenHoverStati": { "v3Name": "Wachen Status" },
-            "WachenplanungOnMap": {
-                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
-                "v3Name": "Wachenplanung auf der Karte"
-            },
-            "aaoZaehler": { "v3Name": "AAO-Klick-Zähler" },
-            "allianceMissionlistShare": { "v3Name": "Einsätze freigeben" },
-            "centermap": {
-                "annotation": "Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt noch.",
-                "v3Name": "Center-Map"
-            },
-            "creditserweiterung": { "v3Name": "Creditserweiterung" },
-            "dashboard": { "v3Name": "Dashboard" },
-            "displayUserId": { "v3Name": "User-ID" },
-            "extendedBuilding": { "v3Name": "Erweiterte Gebäudeansicht" },
-            "fms7Target": {
-                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
-                "v3Name": "FMS 7 Zielort Anzeige"
-            },
-            "geoBorders": {
-                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
-                "v3Name": "Kreis- & Landesgrenzen"
-            },
-            "heatmap": { "v3Name": "LS-Heatmap" },
-            "iconFilter": { "v3Name": "Icon Gebäude Filter" },
-            "keyboardAlert": { "v3Name": "Keyboard Alarmierung" },
             "missionDate": { "v3Name": "Meldedatum für Einsätze" },
             "missionHelper": { "v3Name": "Einsatzhelfer" },
             "missionKeyword": { "v3Name": "Einsatzstichworte" },
+            "MissionOut": { "v3Name": "MissionOut" },
+            "Notification_Alert": { "v3Name": "Notification Alert" },
             "overview": { "v3Name": "Übersicht" },
+            "Redesign01": { "v3Name": "Redesign 01" },
             "releaseNotes": { "v3Name": "Release Notes" },
+            "RenameFZ": { "v3Name": "Fahrzeuge umbenennen" },
             "saveVGE": { "v3Name": "Eigene VGE speichern" },
             "searchMissions": { "v3Name": "Einsätze suchen" },
+            "ShareAlliancePost": { "v3Name": "Alarmieren, Teilen & Posten" },
             "showBackAlarmAbove": { "v3Name": "show Back Alarm Above" },
             "showChatButtonAbove": { "v3Name": "show Chatbutton Above" },
             "showNotTransportButtonAbove": {
@@ -215,7 +210,12 @@
                 "annotation": "In der V3 nur in der deutschen Version verfügbar.",
                 "v3Name": "Maßgeschneiderte Tabs"
             },
-            "verbandsverwaltung": { "v3Name": "Verbandsverwaltung" }
+            "verbandsverwaltung": { "v3Name": "Verbandsverwaltung" },
+            "WachenHoverStati": { "v3Name": "Wachen Status" },
+            "WachenplanungOnMap": {
+                "annotation": "In der V3 nur in der deutschen Version verfügbar.",
+                "v3Name": "Wachenplanung auf der Karte"
+            }
         },
         "tables": {
             "annotations": "Hinweise",

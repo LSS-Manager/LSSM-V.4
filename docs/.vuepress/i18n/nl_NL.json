@@ -29,16 +29,16 @@
     },
     "moment": {
         "shorts": {
+            "l": "Datum zonder nullen",
             "L": "Datum met nullen",
+            "ll": "Datum met korte maand als woord",
             "LL": "Datum met maand als woord",
+            "lll": "Datum met korte maand als woord en tijd",
             "LLL": "Datum met maand als woord en tijd",
+            "llll": "Volledige datum in verkorte vorm met tijd",
             "LLLL": "Volledige datum met tijd",
             "LT": "Tijd",
-            "LTS": "Tijd met seconden",
-            "l": "Datum zonder nullen",
-            "ll": "Datum met korte maand als woord",
-            "lll": "Datum met korte maand als woord en tijd",
-            "llll": "Volledige datum in verkorte vorm met tijd"
+            "LTS": "Tijd met seconden"
         },
         "titles": {
             "shorts": {
@@ -47,7 +47,6 @@
                 "variable": "Korte vorm"
             },
             "variables": {
-                "Variable": "Variabele",
                 "ampm": "AM / PM",
                 "category": "Categorie",
                 "description": "Beschrijving",
@@ -60,12 +59,13 @@
                 "output": "Uitkomst",
                 "quarter": "Kwartaal",
                 "second": "Seconde",
+                "Variable": "Variabele",
                 "week": "Kalenderweek",
                 "year": "Jaar"
             }
         },
         "variables": {
-            "ampm": { "A": "AM / PM", "a": "am / pm" },
+            "ampm": { "a": "am / pm", "A": "AM / PM" },
             "dom": {
                 "D": "Dag in maand",
                 "DD": "Dag in maand (met nullen)",
@@ -84,10 +84,10 @@
                 "DDDo": "Dag in jaar (met punt)"
             },
             "hour": {
-                "H": "Uur (24h)",
-                "HH": "Uur (24h, met nullen)",
                 "h": "Uur (12h)",
-                "hh": "Uur (12h, met nullen)"
+                "H": "Uur (24h)",
+                "hh": "Uur (12h, met nullen)",
+                "HH": "Uur (24h, met nullen)"
             },
             "minute": { "m": "Minuut", "mm": "Minuut (met nullen)" },
             "month": {

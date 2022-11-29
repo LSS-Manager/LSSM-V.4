@@ -130,12 +130,35 @@
                 "title": "Lajitellut tehtävät"
             },
             "title": "Hälytysikkuna",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Lataa puuttuvat ajoneuvot",
                 "next": "seuraava välilehti",
                 "previous": "edellinen välilehti",
                 "title": "ajoneuvo lista"
             }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "personal assigment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",
@@ -147,5 +170,6 @@
             "description": "Aseta omat pikanäppäimet tietyille toiminnoille täällä. Kategorian \"Yleinen\" toiminnot ovat käytettävissä kaikkialla pelissä. Painamalla F1-näppäintä voit nähdä yleiskatsauksen pikanäppäimistä, jotka olet avannut milloin tahansa.",
             "title": "Pikanäppäimet"
         }
-    }
+    },
+    "unique": "Olet yrittänyt valita saman pikanäppäimen useille toiminnoille, vaikka nämä toiminnot käytettäisiin samassa yhteydessä. Valitse eri pikanäppäin tälle toiminnolle."
 }

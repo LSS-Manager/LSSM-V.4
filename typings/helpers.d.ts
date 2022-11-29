@@ -91,7 +91,15 @@ declare global {
             { from: string; to: string }[]
         >;
         mission_count_max: number;
+        breadcrumbnav: {
+            init(id: string): void;
+            add(id: string): void;
+            back(): void;
+            clear(): void;
+        };
+        pressedKeys?: Record<number, boolean>; // in missions window
         lightboxOpen(link: string): void;
+        successfullMessage(html: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
         building_new_dragend(): void;

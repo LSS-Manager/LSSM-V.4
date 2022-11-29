@@ -56,6 +56,10 @@
             "description": "Met automatiquement le focus sur Rai-Recherche pour que vous puissiez commencer à taper sans cliquer sur le champ de recherche.",
             "title": "RAI-Recherche: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Efface la recherche RAI lorsque la touche Entrée est enfoncée.",
+            "title": "Effacer la recherche RAI"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "Ferme la liste déroulante après avoir sélectionné une RAI.",
             "title": "Fermer la liste déroulante après la sélection"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",
             "title": "RAI-Recherche en liste déroulante"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Choisir la première RAI correspondant à la recherche lorsque vous appuyez sur la touche Entrée.",
+            "title": "Choisir la première RAI"
         },
         "arrSpecs": {
             "description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",
@@ -152,6 +160,14 @@
             "description": "Indique pour chaque patient le temps qu'il reste jusqu'à ce qu'il soit entièrement traité.",
             "title": "Temps restant pour les patients"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
             "title": "Compteur de véhicules dans les CRM"
@@ -215,6 +231,7 @@
                 "vehicleTypes": [39, 40, 41, 42, 43, 44, 45]
             },
             { "name": "Sauvetage Côtier", "vehicleTypes": [46, 47, 48, 49, 50] }
-        ]
+        ],
+        "noCustoms": "catégories de véhicules personnels exclues"
     }
 }

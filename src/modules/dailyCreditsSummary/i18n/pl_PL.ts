@@ -40,7 +40,7 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Postawiono posterunek|Zwrot ulepszenia budynku| – Ulepszono budynek (.*?)|– rozszerzona ochrona|Anuluj:)/u,
+            regex: /(Postawiono posterunek|Zwrot ulepszenia budynku| – Ulepszono budynek (.*?)|– rozszerzona ochrona|Anuluj:|(S|s)pecjalizacja (zbudowana|odwołana))/u,
             title: 'Zbudowane/Usunięte rozbudowy',
             backgroundColor: '#000080',
             textColor: 'white',

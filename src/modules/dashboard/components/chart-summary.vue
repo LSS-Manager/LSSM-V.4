@@ -14,9 +14,15 @@
                 <div class="alert alert-info">
                     {{ $sm('buildings.tip') }}
                 </div>
+                |
                 <b>
                     {{ $sm('buildings.personal_count') }}:
                     {{ personalCount.toLocaleString() }}
+                </b>
+                |
+                <b>
+                    {{ $sm('maxMissions.title') }}:
+                    {{ maxMissions.toLocaleString() }}
                 </b>
                 <label class="pull-right">
                     <input
@@ -174,6 +180,9 @@ export default Vue.extend<
                     .map(b => b.personal_count)
                     .reduce((a, b) => a + b, 0),
         }),
+        maxMissions() {
+            return window.mission_count_max;
+        },
     },
     mounted() {
         if (useRootStore().isDarkMode)
@@ -492,10 +501,10 @@ export default Vue.extend<
     cursor: pointer
 
     &:hover
-        &+ .alert
+        & + .alert
             display: block
 
-    &+ .alert
+    & + .alert
         display: none
         position: absolute
         z-index: 1

@@ -56,6 +56,10 @@
             "description": "Automatically focuses ARR-Search so that you can start typing without clicking the search field before.",
             "title": "ARR-Search: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "closes dropdown after selecting an ARR.",
             "title": "close dropdown after select"
@@ -71,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Hides the ARR completely and shows a searchable dropdown instead. Allows a very compact ARR.",
             "title": "ARR-Search as Dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
@@ -152,6 +160,14 @@
             "description": "Shows for patients how much time remains until they are fully treated",
             "title": "Remaining time for patients"
         },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
             "title": "Alarm-Counter within staging areas"
@@ -212,6 +228,7 @@
                     8, 11, 12, 13, 19, 24, 25, 51, 52, 53, 54, 55, 56
                 ]
             }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

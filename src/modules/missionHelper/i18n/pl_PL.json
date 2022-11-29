@@ -64,6 +64,7 @@
             "firetrucks": "Samochód pożarniczy | Samochody pożarnicze",
             "flood_equipment": "Sprzęt przeciwpowodziowy | Sprzęty przeciwpowodziowe",
             "foam": "Samochód ze zbiornikiem na pianę | Samochody ze zbiornikiem na pianę",
+            "foam_needed": "Piana gaśnicza",
             "fwk": "SCDź",
             "hazmat_vehicles": "SRChem",
             "heavy_rescue_vehicles": "Samochód ratownictwa technicznego | Samochody ratownictwa technicznego",
@@ -86,8 +87,6 @@
             "wasserwerfer": "Armatka wodna | Armatki wodne",
             "water_needed": "Woda",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
-            "water_needed": "Woda",
-            "foam_needed": "Piana gaśnicza",
             "water_tankers": "SCCn"
         },
         "multifunctionals": {
@@ -97,8 +96,8 @@
             }
         },
         "optional_alternatives": {
-            "allow_traffic_car_instead_of_fustw": {
-                "traffic_car": "WRD lub OPI"
+            "allow_dlk_instead_of_lf": {
+                "firetrucks": "Samochód pożarniczy lub SD/SH | Samochody pożarnicze lub SD/SH"
             },
             "allow_ktw_instead_of_rtw": {
                 "ambulances": "Ambulans | Ambulanse"
@@ -106,8 +105,8 @@
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Samochód pożarniczy lub ratownictwa technicznego | Samochody pożarnicze lub ratownictwa technicznego"
             },
-            "allow_dlk_instead_of_lf": {
-                "firetrucks": "Samochód pożarniczy lub SD/SH | Samochody pożarnicze lub SD/SH"
+            "allow_traffic_car_instead_of_fustw": {
+                "traffic_car": "WRD lub OPI"
             }
         },
         "title": "Pojazdy"
