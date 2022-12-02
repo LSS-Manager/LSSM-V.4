@@ -1,23 +1,21 @@
+import config from '../config';
+
 import type { useRootStore } from '@stores/index';
 
 export default (LSSM: Vue, rootStore: ReturnType<typeof useRootStore>) =>
     LSSM.$modal.show('dialog', {
         title: 'LSSM V.4: Language not supported',
         text: `Thank you for using LSSM V.4!<br>
-unfortunately your language <code>${
-            rootStore.locale
-        }</code> is not yet supported. Why? The translations simply don't exist.<br>
+unfortunately your language <code>${rootStore.locale}</code> is not yet supported. Why? The translations simply don't exist.<br>
 V.4 is too big for LSSM-Team to maintain all translations, so we need to rely on volunteer translators. You can find information on this at:
 <ul>
     <li style='list-style: unset !important;'>
-        <a href='${rootStore.lssmUrl('/docs/en_US/faq')}' target='_blank'>
+        <a href='${config.urls.docs}/en_US/faq' target='_blank'>
             FAQ
         </a>
     </li>
     <li style='list-style: unset !important;'>
-        <a href='${rootStore.lssmUrl(
-            '/docs/en_US/contributing'
-        )}' target='_blank'>
+        <a href='${config.urls.docs}/en_US/contributing' target='_blank'>
             Contribution guide
         </a>
     </li>
