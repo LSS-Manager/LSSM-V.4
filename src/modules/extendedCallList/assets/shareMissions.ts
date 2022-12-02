@@ -47,6 +47,7 @@ export default async (
 
     const addShareBtn: AddShareBtn = mission => {
         if (
+            !types.length ||
             !mission.element.closest(typesIdsSelector) ||
             (!SAPStay && mission.element.querySelector('.panel-success'))
         )
