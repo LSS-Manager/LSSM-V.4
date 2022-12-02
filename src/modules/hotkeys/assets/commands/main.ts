@@ -1,6 +1,8 @@
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
+export default <
+    Scope<Empty, ['chat', 'map', 'missionlist', 'bigMap'], [], true>
+>{
     chat: <Scope<{ chatInput: HTMLInputElement | null }, [], ['focus']>>{
         validatorFunction() {
             this.chatInput = document.querySelector<HTMLInputElement>(
@@ -155,6 +157,49 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
                             ?.focus();
                     }
                 }
+            },
+        },
+    },
+    bigMap: <Scope<{ bigMapMenu: HTMLDivElement | null }, ['toggle']>>{
+        validatorFunction() {
+            this.bigMapMenu =
+                document.querySelector<HTMLDivElement>('#bigMapMenu');
+
+            return !!this.bigMapMenu;
+        },
+        toggle: <
+            Scope<
+                { bigMapMenu: HTMLDivElement | null },
+                [],
+                ['missions', 'buildings', 'chat', 'radio']
+            >
+        >{
+            validatorFunction() {
+                return true;
+            },
+            missions() {
+                this.bigMapMenu
+                    ?.querySelector<HTMLImageElement>(
+                        '#bigMapMenuMissionButton'
+                    )
+                    ?.click();
+            },
+            buildings() {
+                this.bigMapMenu
+                    ?.querySelector<HTMLImageElement>(
+                        '#bigMapMenuBuildingButton'
+                    )
+                    ?.click();
+            },
+            chat() {
+                this.bigMapMenu
+                    ?.querySelector<HTMLImageElement>('#bigMapMenuChatButton')
+                    ?.click();
+            },
+            radio() {
+                this.bigMapMenu
+                    ?.querySelector<HTMLImageElement>('#bigMapMenuRadioButton')
+                    ?.click();
             },
         },
     },

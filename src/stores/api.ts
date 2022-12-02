@@ -30,6 +30,9 @@ export const defineAPIStore = defineStore('api', {
             schoolings: {
                 result: [],
             },
+            alliance_schoolings: {
+                result: [],
+            },
             missions: {},
             autoUpdates: [],
             currentlyUpdating: [],
@@ -195,7 +198,7 @@ export const defineAPIStore = defineStore('api', {
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
             // reactivity workaround for schoolings
-            if (api === 'schoolings')
+            if (api === 'schoolings' || api === 'alliance_schoolings')
                 this.schoolings.result = this.schoolings.result.slice(0);
             return { api, value, lastUpdate };
         },
@@ -219,6 +222,7 @@ export const defineAPIStore = defineStore('api', {
                         'buildings',
                         'credits',
                         'schoolings',
+                        'alliance_schoolings',
                         'settings',
                         'vehicles',
                     ] as StorageAPIKey[]
@@ -294,7 +298,9 @@ export const defineAPIStore = defineStore('api', {
                     stateValue.value &&
                     stateValue.lastUpdate > Date.now() - API_MIN_UPDATE &&
                     // these are to be updated with each request
-                    !(['schoolings'] as StorageAPIKey[]).includes(api)
+                    !(
+                        ['schoolings', 'alliance_schoolings'] as StorageAPIKey[]
+                    ).includes(api)
                 ) {
                     this._removeAPIFromQueue(api);
                     return new Promise(resolve =>
@@ -572,6 +578,25 @@ export const defineAPIStore = defineStore('api', {
         ) {
             return this._autoUpdate(
                 this.getSchoolings,
+                feature,
+                callback,
+                updateInterval
+            );
+        },
+        getAllianceSchoolings(
+            feature: string
+        ): Promise<EnsuredAPIGetter<'alliance_schoolings'>> {
+            return this._getAPI('alliance_schoolings', feature);
+        },
+        autoUpdateAllianceSchoolings(
+            feature: string,
+            callback: (
+                api: EnsuredAPIGetter<'alliance_schoolings'>
+            ) => void = () => void null,
+            updateInterval: number = API_MIN_UPDATE
+        ) {
+            return this._autoUpdate(
+                this.getAllianceSchoolings,
                 feature,
                 callback,
                 updateInterval

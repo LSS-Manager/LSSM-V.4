@@ -71,6 +71,16 @@
             "title": "Rakennus"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },
             "lssm": {
                 "menu": { "title": "Valikko", "toggle": "Auki / Kiinni" },
@@ -106,6 +116,9 @@
             "title": "Pääikkuna"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarm and go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Kohdista liittoutuman vastausikkuna",
                 "title": "Liittouma",
@@ -122,6 +135,9 @@
                 "onlyAmbulance": "Peruuta kaikki ambulanssit",
                 "title": "Peruuta"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Lähetä ja seuraava",
                 "alert_share_next": "Lähetä valitut yksiköt, jaa tehtavä liittoutumasi kanssa ja jatka seuraavaan tehtävään.",
@@ -130,6 +146,7 @@
                 "title": "Lajitellut tehtävät"
             },
             "title": "Hälytysikkuna",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Lataa puuttuvat ajoneuvot",
                 "next": "seuraava välilehti",

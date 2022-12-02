@@ -35,6 +35,7 @@ export const defineRootStore = defineStore('root', {
         discordUrl: (): string => `https://discord.gg/${config.discord.invite}`,
         githubUrl: (): string => `https://github.com/${config.github.repo}`,
         fontAwesomeIconSearch: (): string => config.urls.fontAwesomeIconSearch,
+        donationUrl: (): string => config.urls.donations,
         gameFlavour: (): GameFlavour => window.gameFlavour,
         isPoliceChief(): boolean {
             return this.gameFlavour === 'policechief';

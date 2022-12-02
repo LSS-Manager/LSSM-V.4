@@ -20,7 +20,7 @@ sidebarDepth: 2
 
 ## Over LSSM
 
-LSS-MANAGER V.4 is een extensie voor [Meldkamerspel.com](https://www.meldkamerspel.com) en zijn andere taalversies.
+LSS-MANAGER V.4 is een extensie voor [Meldkamerspel.com][games.self] en zijn andere taalversies.
 
 Met deze extensie wordt een appstore aan het spel toegevoegd, waardoor het gebruik van plug-ins mogelijk is. Alle functies zijn modulair - u kunt zelf beslissen wat u wilt activeren, tot aan de laatste module toe.
 
@@ -28,7 +28,7 @@ Plug-ins die niet geactiveerd zijn, worden ook niet geladen - dit maakt het behe
 
 ## Installatie
 
-Door LSSM te gebruiken, gaat u ermee akkoord dat we metadata verzamelen. Meer informatie hierover vindt u op [Metadata](metadata.md)
+Door LSSM te gebruiken, gaat u ermee akkoord dat we metadata verzamelen. Meer informatie hierover vindt u op [Metadata][docs.metadata]
 
 Een tabel waarmee de browsers LSSM compatibel is, is te vinden in onze [FAQ](faq.md#in-welke-browsers-werkt-LSS-Manager)
 
@@ -43,7 +43,7 @@ Als u Tampermonkey nog niet in uw browser heeft geïnstalleerd, moet u dit alsno
 
 <tampermonkey-download-table/>
 
-Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net](https://www.tampermonkey.net/).
+Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net][tampermonkey].
 
 ::: warning
 Houd er rekening mee dat we officieel geen oudere browsers, mobiele browsers, Apple Safari en Internet Explorer ondersteunen. Ondersteuning voor deze browsers is daarom niet gegarandeerd en ook niet waarschijnlijk.
@@ -58,12 +58,13 @@ Als Tampermonkey met succes in uw browser is geïnstalleerd, kunt u <a :href="$t
 De LSSM-indicator is een groen gemarkeerde tekst 'LSSM V.4' of een logo.
 Als je in meldkamerspel zit maar deze indicator niet in de rechterbovenhoek ziet, klik dan op het tampermonkey icoon in je browser en controleer of de schakelaar voor LSS-Manager script op `on` staat.
 
-Bij problemen kunt u altijd contact opnemen met [Support](support.md).
+Bij problemen kunt u altijd contact opnemen met [Support][docs.support].
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
 [docs.apps]: /nl_NL/apps/
 [docs.appstore]: /nl_NL/appstore/

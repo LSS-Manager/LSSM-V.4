@@ -71,6 +71,16 @@
             "title": "Building"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": { "focus": "Campo de entrada de enfoque", "title": "Chat" },
             "lssm": {
                 "menu": { "title": "Menu", "toggle": "Abrir / Cerrar" },
@@ -105,6 +115,9 @@
             "title": "Ventana principal"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarm and go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Focus alliance response window",
                 "title": "Alliance",
@@ -121,6 +134,9 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Alarma e ir a la siguiente misión",
                 "alert_share_next": "Alarma, compartir e ir a la siguiente misión",
@@ -129,6 +145,7 @@
                 "title": "Misiones ordenadas"
             },
             "title": "Ventana de misiones",
+            "transport_request": "Open first patient transport request",
             "vehicleList": {
                 "loadMissing": "Load missing vehicles",
                 "next": "next tab",

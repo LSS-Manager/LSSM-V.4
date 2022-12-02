@@ -155,6 +155,7 @@ export default Vue.extend<
                 head.classList.remove('fixed');
             }
         });
+        this.$nextTick(() => this.$emit('mounted'));
     },
 });
 </script>
