@@ -10,12 +10,12 @@ unfortunately your language <code>${rootStore.locale}</code> is not yet supporte
 V.4 is too big for LSSM-Team to maintain all translations, so we need to rely on volunteer translators. You can find information on this at:
 <ul>
     <li style='list-style: unset !important;'>
-        <a href='${config.urls.docs}/en_US/faq' target='_blank'>
+        <a href='${config.urls.docs}en_US/faq.html' target='_blank'>
             FAQ
         </a>
     </li>
     <li style='list-style: unset !important;'>
-        <a href='${config.urls.docs}/en_US/contributing' target='_blank'>
+        <a href='${config.urls.docs}en_US/contributing.html' target='_blank'>
             Contribution guide
         </a>
     </li>
