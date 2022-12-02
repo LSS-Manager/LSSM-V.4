@@ -105,9 +105,9 @@
             "title": "Główne okno"
         },
         "mission": {
-            "alert": "Alarm",
-            "alert_next": "Alarm and go to next mission",
-            "alert_share_next": "Alarm, Share and go to next mission",
+            "alert": "Wyślij",
+            "alert_next": "Wyślij i przejdź do następnej misji",
+            "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
             "alliance": {
                 "focus": "Skup się na uwagach o wydarzeniu.",
                 "title": "Sojusz",
@@ -124,9 +124,9 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
-            "next": "next mission",
-            "prev": "previous mission",
-            "share": "Share",
+            "next": "Następna misja",
+            "prev": "Poprzednia misja",
+            "share": "Udostępnij",
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
                 "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
@@ -135,7 +135,7 @@
                 "title": "Posortowane misje"
             },
             "title": "Okno misji",
-            "transport_request": "Open first patient transport request",
+            "transport_request": "Otwórz pierwsze żądanie transportu pacjenta",
             "vehicleList": {
                 "loadMissing": "Załaduj brakujące pojazdy",
                 "next": "Poprzednia zakładka",
