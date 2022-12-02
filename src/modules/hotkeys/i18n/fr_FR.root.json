@@ -72,13 +72,13 @@
         },
         "main": {
             "bigMap": {
-                "title": "Window design",
+                "title": "Configuration des fenêtres",
                 "toggle": {
-                    "buildings": "Buildings",
+                    "buildings": "Bâtiments",
                     "chat": "Chat",
                     "missions": "Missions",
                     "radio": "Radio",
-                    "title": "toggle window"
+                    "title": "Alterner les fenêtres"
                 }
             },
             "chat": {
@@ -118,9 +118,9 @@
             "title": "Fenêtre principale"
         },
         "mission": {
-            "alert": "Alarm",
-            "alert_next": "Alarm and go to next mission",
-            "alert_share_next": "Alarm, Share and go to next mission",
+            "alert": "Alarmer",
+            "alert_next": "alarmer et passer à la mission suivante",
+            "alert_share_next": "Alarmer, partager et passer à la mission suivante",
             "alliance": {
                 "focus": "Focus de la fenêtre de réponse de l'alliance",
                 "title": "Alliance",
@@ -137,9 +137,9 @@
                 "onlyAmbulance": "Signal de retour uniquement pour les ambulances",
                 "title": "Signal de retour"
             },
-            "next": "next mission",
-            "prev": "previous mission",
-            "share": "Share",
+            "next": "mission suivante",
+            "prev": "mission précédente",
+            "share": "Partager ",
             "sorted": {
                 "alert_next": "Déployer et aller à la mission suivante",
                 "alert_share_next": "Déployer, partager et aller à la mission suivante",
@@ -148,7 +148,7 @@
                 "title": "Mission Précédente"
             },
             "title": "Fenêtre des missions",
-            "transport_request": "Open first patient transport request",
+            "transport_request": "Ouvrir la première demande de transport de patient",
             "vehicleList": {
                 "loadMissing": "Chargement des véhicules manquants",
                 "next": "Onglet Suivant",
