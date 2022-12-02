@@ -161,12 +161,12 @@
             "title": "Temps restant pour les patients"
         },
         "selectedVehicleCounter": {
-            "description": "Displays in a expandable list how many vehicles of which type are selected.",
-            "title": "Count selected vehicles"
+            "description": "Affiche dans une liste extensible combien de véhicules sont sélectionnés pour chaque type.",
+            "title": "Compter les véhicules sélectionnés"
         },
         "selectedVehicleCounterBtnVehicles": {
-            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
-            "title": "Count selected vehicles: Quick counter"
+            "description": "Affiche les types de véhicules sur le bouton afin que vous n'ayez pas à ouvrir la liste pour voir leur nombre.",
+            "title": "Compter les véhicules sélectionnés : Comptage rapide"
         },
         "stagingAreaSelectedCounter": {
             "description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
