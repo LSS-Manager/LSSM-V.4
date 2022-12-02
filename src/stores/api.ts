@@ -586,7 +586,12 @@ export const defineAPIStore = defineStore('api', {
         getAllianceSchoolings(
             feature: string
         ): Promise<EnsuredAPIGetter<'alliance_schoolings'>> {
-            return this._getAPI('alliance_schoolings', feature);
+            return this._getAPI('alliance_schoolings', feature).catch(() => {
+                useConsoleStore().error(
+                    'Alliance-Schoolings throwing error 500. Catching the error and not showing the popup'
+                );
+                return { value: { result: [] }, lastUpdate: Date.now() };
+            });
         },
         autoUpdateAllianceSchoolings(
             feature: string,
@@ -847,7 +852,14 @@ export const defineAPIStore = defineStore('api', {
                                     return reject(res);
                                 });
                             }
-                            if (dialogOnError) {
+                            if (
+                                dialogOnError &&
+                                !(
+                                    res.url.endsWith(
+                                        '/api/alliance_schoolings'
+                                    ) && res.status === 500
+                                )
+                            ) {
                                 const LSSM = window[PREFIX] as Vue;
                                 LSSM.$modal.show('dialog', {
                                     title: LSSM.$t(
