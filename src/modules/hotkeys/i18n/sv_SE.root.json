@@ -71,6 +71,16 @@
             "title": "Byggnader"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": {
                 "focus": "välj chattfönstrets skrivruta",
                 "title": "Chat"

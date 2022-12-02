@@ -71,6 +71,16 @@
             "title": "Gebouw"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": { "focus": "focus invoerveld", "title": "Chat" },
             "lssm": {
                 "menu": { "title": "Menu", "toggle": "Open / Sluiten" },

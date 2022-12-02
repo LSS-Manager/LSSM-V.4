@@ -71,6 +71,16 @@
             "title": "Rakennus"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },
             "lssm": {
                 "menu": { "title": "Valikko", "toggle": "Auki / Kiinni" },

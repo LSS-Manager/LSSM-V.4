@@ -71,6 +71,16 @@
             "title": "Gebäude"
         },
         "main": {
+            "bigMap": {
+                "title": "Fensterdesign",
+                "toggle": {
+                    "buildings": "Gebäude",
+                    "chat": "Chat",
+                    "missions": "Einsätze",
+                    "radio": "Funk",
+                    "title": "Fenster öffnen/schließen"
+                }
+            },
             "chat": { "focus": "Eingabefeld fokussieren", "title": "Chat" },
             "lssm": {
                 "menu": { "title": "Menü", "toggle": "Öffnen / Schließen" },

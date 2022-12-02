@@ -71,6 +71,16 @@
             "title": "Building"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": { "focus": "Skup się na polu wiadomości", "title": "Czat" },
             "lssm": {
                 "menu": { "title": "Menu", "toggle": "Otwórz / Zamknij" },

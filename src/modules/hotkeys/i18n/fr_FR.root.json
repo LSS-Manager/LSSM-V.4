@@ -71,6 +71,16 @@
             "title": "Bâtiments"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": {
                 "focus": "Focus sur le champ de saisie",
                 "title": "Chat"

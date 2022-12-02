@@ -71,6 +71,16 @@
             "title": "Building"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": { "focus": "fokus på input feltet", "title": "Chat" },
             "lssm": {
                 "menu": { "title": "Meny", "toggle": "Åpne lukke" },
