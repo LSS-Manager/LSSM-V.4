@@ -72,13 +72,13 @@
         },
         "main": {
             "bigMap": {
-                "title": "Window design",
+                "title": "Vensterdesign",
                 "toggle": {
-                    "buildings": "Buildings",
+                    "buildings": "Gebouwen",
                     "chat": "Chat",
-                    "missions": "Missions",
-                    "radio": "Radio",
-                    "title": "toggle window"
+                    "missions": "Meldingen",
+                    "radio": "Statuslijst",
+                    "title": "Toon/verberg venster"
                 }
             },
             "chat": { "focus": "focus invoerveld", "title": "Chat" },
@@ -112,9 +112,9 @@
             "title": "Hoofdscherm"
         },
         "mission": {
-            "alert": "Alarm",
-            "alert_next": "Alarm and go to next mission",
-            "alert_share_next": "Alarm, Share and go to next mission",
+            "alert": "Alarmeer",
+            "alert_next": "Alarmeer en ga naar volgende melding",
+            "alert_share_next": "Alarmeer, deel en ga naar volgende melding",
             "alliance": {
                 "focus": "Focus teamchat in inzet",
                 "title": "Team",
@@ -131,9 +131,9 @@
                 "onlyAmbulance": "Annuleer alleen ambulances",
                 "title": "Annuleer voertuigen"
             },
-            "next": "next mission",
-            "prev": "previous mission",
-            "share": "Share",
+            "next": "Volgende melding",
+            "prev": "Vorige melding",
+            "share": "Deel",
             "sorted": {
                 "alert_next": "Alarmeer en ga naar de volgende melding",
                 "alert_share_next": "Alarmeer, deel en ga naar de volgende melding",
@@ -142,7 +142,7 @@
                 "title": "Gesorteerde meldingen"
             },
             "title": "Meldingsscherm",
-            "transport_request": "Open first patient transport request",
+            "transport_request": "Open eerste patiënt spraakaanvraag",
             "vehicleList": {
                 "loadMissing": "Laad missende voertuigen",
                 "next": "volgende tab",
