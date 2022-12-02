@@ -72,13 +72,13 @@
         },
         "main": {
             "bigMap": {
-                "title": "Window design",
+                "title": "Projekt okna",
                 "toggle": {
-                    "buildings": "Buildings",
-                    "chat": "Chat",
-                    "missions": "Missions",
+                    "buildings": "Budynki",
+                    "chat": "Czat",
+                    "missions": "Misje",
                     "radio": "Radio",
-                    "title": "toggle window"
+                    "title": "przełącz okno"
                 }
             },
             "chat": { "focus": "Skup się na polu wiadomości", "title": "Czat" },
