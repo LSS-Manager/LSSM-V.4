@@ -78,3 +78,6 @@ If you have any problems you can always contact [Support][docs.support].
 [docs.support]: /en_GB/support/
 [games.self]: https://missionchief.co.uk
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

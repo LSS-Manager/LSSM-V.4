@@ -80,3 +80,6 @@ Si tiene algún problema, contáctanos con el [Soporte][docs.support].
 [docs.support]: /es_ES/support/
 [games.self]: https://centro-de-mando.es
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

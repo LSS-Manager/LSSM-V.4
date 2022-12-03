@@ -70,3 +70,25 @@ pour offrir un large choix de configuration. Si vous souhaitez voir l'original
 ### Texte normal
 Si vous voulez inclure un autre texte avec votre horloge, tel que `heure`, taper simplement `LTS heure` ne fonctionnera pas. Le résultat est "11:13:27 AM 11eure".
 Pour inclure du texte qui ne doit pas être formaté, entourez-le de `[]`. Si vous tapez `LTS [heure]` ou `LTS [h]eure`, vous obtiendrez tous deux l'affichage de `11:13:27 AM heure`.
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /fr_FR/apps/
+[docs.appstore]: /fr_FR/appstore/
+[docs.bugs]: /fr_FR/bugs/
+[docs.error_report]: /fr_FR/error_report/
+[docs.faq]: /fr_FR/faq/
+[docs.metadata]: /fr_FR/metadata/
+[docs.other]: /fr_FR/other/
+[docs.settings]: /fr_FR/settings/
+[docs.suggestions]: /fr_FR/suggestions/
+[docs.support]: /fr_FR/support/
+[games.self]: https://operateur112.fr
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

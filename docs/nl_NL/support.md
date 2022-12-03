@@ -35,3 +35,25 @@ U kunt ook een issue openen op <a :href="$theme.variables.github + '/issues'" ta
 Om u nog snellere en gemakkelijkere ondersteuning te bieden, willen we onze eigen ondersteuningschat integreren. Je hebt dan toegang via het LSSM-menu in het spel. We zullen ons best doen om u zo snel en efficiënt mogelijk te helpen, maar nogmaals, hoe gedetailleerder u uw probleem vanaf het begin beschrijft, hoe beter we u kunnen helpen!
 
 Zodra het zover is zullen wij u uiteraard informeren via de releasenotes.
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nl_NL/apps/
+[docs.appstore]: /nl_NL/appstore/
+[docs.bugs]: /nl_NL/bugs/
+[docs.error_report]: /nl_NL/error_report/
+[docs.faq]: /nl_NL/faq/
+[docs.metadata]: /nl_NL/metadata/
+[docs.other]: /nl_NL/other/
+[docs.settings]: /nl_NL/settings/
+[docs.suggestions]: /nl_NL/suggestions/
+[docs.support]: /nl_NL/support/
+[games.self]: https://meldkamerspel.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

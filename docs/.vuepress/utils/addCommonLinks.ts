@@ -5,6 +5,8 @@ import type { Locale } from '../types/Locale';
 
 const { LANGS, MODULES } = getConstants();
 
+const GITHUB_URL = `https://github.com/${config.github.repo}`;
+
 const commonLinks = {
     // LSSM
     'lssm.status': config.urls.statuspage,
@@ -46,6 +48,9 @@ const commonLinks = {
     ),
     // Other
     'tampermonkey': 'https://tampermonkey.net/',
+    'github': GITHUB_URL,
+    'github.issues': `${GITHUB_URL}/issues`,
+    'github.issues.open': `${GITHUB_URL}/issues?q=is%3Aissue+is%3Aopen+label%3Abug`,
 };
 
 type commonLinksKey =
@@ -54,7 +59,7 @@ type commonLinksKey =
     | `docs.modules.${Locale}.${string}`
     | `games.${Locale}`;
 
-type CommonLinksConfig = (
+export type CommonLinksConfig = (
     | commonLinksKey
     | '*'
     | 'docs.langs'
@@ -81,7 +86,8 @@ const getCommonLinks = (config: CommonLinksConfig, lang: Locale) => {
                 !key.startsWith('docs.langs.') &&
                 config.includes('docs')) ||
             (key.startsWith('games.') && config.includes('games')) ||
-            (key.startsWith('lssm.') && config.includes('lssm'))
+            (key.startsWith('lssm.') && config.includes('lssm')) ||
+            (key.startsWith('github.') && config.includes('github'))
     );
     return filteredLinks
         .map(
@@ -97,9 +103,11 @@ export default (
     lang: Locale = 'en_US'
 ) =>
     md.replace(
-        /<!-- ==START_FOOTER==.*?-->.*$/su,
+        md.includes('==START_FOOTER==')
+            ? /\n<!-- ==START_FOOTER==.*?-->.*$/su
+            : /$/u,
         `
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 ${getCommonLinks(config, lang)}
-`.trim()
+`.trimEnd()
     );

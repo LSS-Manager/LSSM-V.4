@@ -61,3 +61,25 @@ LSSM itself does not use any tools, libraries, utilities or similar, which could
 With the use of a browser and an userscript manager, such as [Tampermonkey](https://tampermonkey.net), a collection of metadata of these may not be avoided.
 All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
 Information about the data collection of the respective software used can be found in the information sources of the respective software.
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /en_GB/apps/
+[docs.appstore]: /en_GB/appstore/
+[docs.bugs]: /en_GB/bugs/
+[docs.error_report]: /en_GB/error_report/
+[docs.faq]: /en_GB/faq/
+[docs.metadata]: /en_GB/metadata/
+[docs.other]: /en_GB/other/
+[docs.settings]: /en_GB/settings/
+[docs.suggestions]: /en_GB/suggestions/
+[docs.support]: /en_GB/support/
+[games.self]: https://missionchief.co.uk
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

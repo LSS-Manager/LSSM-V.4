@@ -25,3 +25,25 @@ Geef ons uw gebruikersnaam of gebruikers-ID. Ook is het handig om de geactiveerd
 
 ### 3. Meld een probleem
 Nu kunt u ons uw geformuleerde probleem met gebruikersgegevens sturen. Open hiervoor een issue op <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer a.u.b. of er al een issue voor deze bug bestaat en volg het dan op.
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nl_NL/apps/
+[docs.appstore]: /nl_NL/appstore/
+[docs.bugs]: /nl_NL/bugs/
+[docs.error_report]: /nl_NL/error_report/
+[docs.faq]: /nl_NL/faq/
+[docs.metadata]: /nl_NL/metadata/
+[docs.other]: /nl_NL/other/
+[docs.settings]: /nl_NL/settings/
+[docs.suggestions]: /nl_NL/suggestions/
+[docs.support]: /nl_NL/support/
+[games.self]: https://meldkamerspel.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

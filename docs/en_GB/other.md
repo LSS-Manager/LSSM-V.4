@@ -87,3 +87,25 @@ Here are some more or less interesting facts and stats about LSSM and its source
 <stats-commits/>
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /en_GB/apps/
+[docs.appstore]: /en_GB/appstore/
+[docs.bugs]: /en_GB/bugs/
+[docs.error_report]: /en_GB/error_report/
+[docs.faq]: /en_GB/faq/
+[docs.metadata]: /en_GB/metadata/
+[docs.other]: /en_GB/other/
+[docs.settings]: /en_GB/settings/
+[docs.suggestions]: /en_GB/suggestions/
+[docs.support]: /en_GB/support/
+[games.self]: https://missionchief.co.uk
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

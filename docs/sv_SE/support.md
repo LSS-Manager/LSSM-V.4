@@ -35,3 +35,25 @@ Du kan också öppna ett problem på <a :href="$theme.variables.github + '/issue
 In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!
 
 As soon as it is so far we will of course inform you about it in the release notes :wink:
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /sv_SE/apps/
+[docs.appstore]: /sv_SE/appstore/
+[docs.bugs]: /sv_SE/bugs/
+[docs.error_report]: /sv_SE/error_report/
+[docs.faq]: /sv_SE/faq/
+[docs.metadata]: /sv_SE/metadata/
+[docs.other]: /sv_SE/other/
+[docs.settings]: /sv_SE/settings/
+[docs.suggestions]: /sv_SE/suggestions/
+[docs.support]: /sv_SE/support/
+[games.self]: https://larmcentralen-spelet.se
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

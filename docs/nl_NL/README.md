@@ -78,3 +78,6 @@ Bij problemen kunt u altijd contact opnemen met [Support][docs.support].
 [docs.support]: /nl_NL/support/
 [games.self]: https://meldkamerspel.com
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

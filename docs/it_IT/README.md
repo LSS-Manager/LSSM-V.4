@@ -78,3 +78,6 @@ Se hai qualsiasi problema puoi sempre contattarci tramite il [supporto][docs.sup
 [docs.support]: /it_IT/support/
 [games.self]: https://operatore112.it
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

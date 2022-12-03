@@ -78,3 +78,6 @@ Pokud máte jakékoli problémy, neváhejte kontaktovat [Podporu][docs.support].
 [docs.support]: /cs_CZ/support/
 [games.self]: https://operacni-stredisko.cz
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

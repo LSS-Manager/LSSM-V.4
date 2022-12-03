@@ -34,3 +34,25 @@ These Modules will be integrated into V4, but it will still take some time to in
 These Modules are new in V4.
 
 <v3-v4-comparison-new/>
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nl_NL/apps/
+[docs.appstore]: /nl_NL/appstore/
+[docs.bugs]: /nl_NL/bugs/
+[docs.error_report]: /nl_NL/error_report/
+[docs.faq]: /nl_NL/faq/
+[docs.metadata]: /nl_NL/metadata/
+[docs.other]: /nl_NL/other/
+[docs.settings]: /nl_NL/settings/
+[docs.suggestions]: /nl_NL/suggestions/
+[docs.support]: /nl_NL/support/
+[games.self]: https://meldkamerspel.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

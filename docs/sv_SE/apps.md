@@ -35,3 +35,25 @@ These Modules will be integrated into V4, but it will still take some time to in
 These Modules are new in V4.
 
 <v3-v4-comparison-new/>
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /sv_SE/apps/
+[docs.appstore]: /sv_SE/appstore/
+[docs.bugs]: /sv_SE/bugs/
+[docs.error_report]: /sv_SE/error_report/
+[docs.faq]: /sv_SE/faq/
+[docs.metadata]: /sv_SE/metadata/
+[docs.other]: /sv_SE/other/
+[docs.settings]: /sv_SE/settings/
+[docs.suggestions]: /sv_SE/suggestions/
+[docs.support]: /sv_SE/support/
+[games.self]: https://larmcentralen-spelet.se
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

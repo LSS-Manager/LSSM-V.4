@@ -81,3 +81,6 @@ Bei Problemen kannst du dich jederzeit an den [Support][docs.support] wenden.
 [docs.support]: /de_DE/support/
 [games.self]: https://leitstellenspiel.de
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug
