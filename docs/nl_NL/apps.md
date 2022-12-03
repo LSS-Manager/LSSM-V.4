@@ -11,7 +11,7 @@ Op de volgende pagina's vindt u een beschrijving van al onze modules. We hebben 
 Als u suggesties voor verbetering heeft, kunt u deze zoals altijd naar ons opsturen - of zelfs zelf aanpassen.
 
 :::danger Modules die niet werken in Mapkit
-Zoals beschreven in de uitleg van de [Appstore](appstore.md), zijn er modules die helaas niet compatibel zijn met het kaarttype `Mapkit`. Dit zijn de volgende modules:
+Zoals beschreven in de uitleg van de [Appstore][docs.appstore], zijn er modules die helaas niet compatibel zijn met het kaarttype `Mapkit`. Dit zijn de volgende modules:
 
 <mapkit-modules settings-text="And these settings"/>
 :::
@@ -41,16 +41,16 @@ These Modules are new in V4.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /nl_NL/apps/
-[docs.appstore]: /nl_NL/appstore/
-[docs.bugs]: /nl_NL/bugs/
-[docs.error_report]: /nl_NL/error_report/
-[docs.faq]: /nl_NL/faq/
-[docs.metadata]: /nl_NL/metadata/
-[docs.other]: /nl_NL/other/
-[docs.settings]: /nl_NL/settings/
-[docs.suggestions]: /nl_NL/suggestions/
-[docs.support]: /nl_NL/support/
+[docs.apps]: /nl_NL/apps.md
+[docs.appstore]: /nl_NL/appstore.md
+[docs.bugs]: /nl_NL/bugs.md
+[docs.error_report]: /nl_NL/error_report.md
+[docs.faq]: /nl_NL/faq.md
+[docs.metadata]: /nl_NL/metadata.md
+[docs.other]: /nl_NL/other.md
+[docs.settings]: /nl_NL/settings.md
+[docs.suggestions]: /nl_NL/suggestions.md
+[docs.support]: /nl_NL/support.md
 [games.self]: https://meldkamerspel.com
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

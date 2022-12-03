@@ -11,7 +11,7 @@ Na následujících stránkách naleznete popis všech našich modulů. Snažili
 Pokud máte návrhy na zlepšení, můžete nám je poslat nebo dokonce samostatně vytvořit. 
 
 :::danger moduly, které v Mapktitu nefungují
-Jak je popsáno ve vysvětlení [Sbírky aplikací](appstore.md), existují moduly, které bohužel nejsou kompatibilní s Mapkitem. Jedná se o tyto moduly:
+Jak je popsáno ve vysvětlení [Sbírky aplikací][docs.appstore], existují moduly, které bohužel nejsou kompatibilní s Mapkitem. Jedná se o tyto moduly:
 
 <mapkit-modules settings-text="And these settings"/>
 :::
@@ -41,16 +41,16 @@ These Modules are new in V4.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /cs_CZ/apps/
-[docs.appstore]: /cs_CZ/appstore/
-[docs.bugs]: /cs_CZ/bugs/
-[docs.error_report]: /cs_CZ/error_report/
-[docs.faq]: /cs_CZ/faq/
-[docs.metadata]: /cs_CZ/metadata/
-[docs.other]: /cs_CZ/other/
-[docs.settings]: /cs_CZ/settings/
-[docs.suggestions]: /cs_CZ/suggestions/
-[docs.support]: /cs_CZ/support/
+[docs.apps]: /cs_CZ/apps.md
+[docs.appstore]: /cs_CZ/appstore.md
+[docs.bugs]: /cs_CZ/bugs.md
+[docs.error_report]: /cs_CZ/error_report.md
+[docs.faq]: /cs_CZ/faq.md
+[docs.metadata]: /cs_CZ/metadata.md
+[docs.other]: /cs_CZ/other.md
+[docs.settings]: /cs_CZ/settings.md
+[docs.suggestions]: /cs_CZ/suggestions.md
+[docs.support]: /cs_CZ/support.md
 [games.self]: https://operacni-stredisko.cz
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

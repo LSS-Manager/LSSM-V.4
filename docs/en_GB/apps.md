@@ -11,7 +11,7 @@ On the following pages you will find a description of all our modules. We have d
 If you have suggestions for improvement, you can send them to us as always - or even do it yourself.
 
 :::danger modules that do not work in Mapkit
-As described in the explanation of the [Appstore](appstore.md), there are modules which are unfortunately not compatible with the map type `Mapkit`. These are these modules:
+As described in the explanation of the [Appstore][docs.appstore], there are modules which are unfortunately not compatible with the map type `Mapkit`. These are these modules:
 
 <mapkit-modules settings-text="And these settings"/>
 :::
@@ -41,16 +41,16 @@ These Modules are new in V4.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /en_GB/apps/
-[docs.appstore]: /en_GB/appstore/
-[docs.bugs]: /en_GB/bugs/
-[docs.error_report]: /en_GB/error_report/
-[docs.faq]: /en_GB/faq/
-[docs.metadata]: /en_GB/metadata/
-[docs.other]: /en_GB/other/
-[docs.settings]: /en_GB/settings/
-[docs.suggestions]: /en_GB/suggestions/
-[docs.support]: /en_GB/support/
+[docs.apps]: /en_GB/apps.md
+[docs.appstore]: /en_GB/appstore.md
+[docs.bugs]: /en_GB/bugs.md
+[docs.error_report]: /en_GB/error_report.md
+[docs.faq]: /en_GB/faq.md
+[docs.metadata]: /en_GB/metadata.md
+[docs.other]: /en_GB/other.md
+[docs.settings]: /en_GB/settings.md
+[docs.suggestions]: /en_GB/suggestions.md
+[docs.support]: /en_GB/support.md
 [games.self]: https://missionchief.co.uk
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

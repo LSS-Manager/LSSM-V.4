@@ -25,7 +25,7 @@ Attention : Si vous réinitialisez les paramètres, ils ne peuvent être restaur
 Par défaut, le logo de LSSM est affiché dans la barre de navigation comme en-tête du menu. Certains utilisateurs préfèrent cependant l'utilisation d'un simple texte sur fond vert. C'est pourquoi il est possible de l'activer avec ce paramètre.
 
 ### Autoriser la télémétrie
-Cela vous permet de déterminer si LSSM peut envoyer des [métadonnées](metadata.md) ou non.
+Cela vous permet de déterminer si LSSM peut envoyer des [métadonnées][docs.metadata] ou non.
 
 ### Couleur de fond de l'icône LSSM
 Ce paramètre détermine la couleur de fond de l'icône ou de l'étiquette LSSM.
@@ -77,16 +77,16 @@ Pour inclure du texte qui ne doit pas être formaté, entourez-le de `[]`. Si vo
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /fr_FR/apps/
-[docs.appstore]: /fr_FR/appstore/
-[docs.bugs]: /fr_FR/bugs/
-[docs.error_report]: /fr_FR/error_report/
-[docs.faq]: /fr_FR/faq/
-[docs.metadata]: /fr_FR/metadata/
-[docs.other]: /fr_FR/other/
-[docs.settings]: /fr_FR/settings/
-[docs.suggestions]: /fr_FR/suggestions/
-[docs.support]: /fr_FR/support/
+[docs.apps]: /fr_FR/apps.md
+[docs.appstore]: /fr_FR/appstore.md
+[docs.bugs]: /fr_FR/bugs.md
+[docs.error_report]: /fr_FR/error_report.md
+[docs.faq]: /fr_FR/faq.md
+[docs.metadata]: /fr_FR/metadata.md
+[docs.other]: /fr_FR/other.md
+[docs.settings]: /fr_FR/settings.md
+[docs.suggestions]: /fr_FR/suggestions.md
+[docs.support]: /fr_FR/support.md
 [games.self]: https://operateur112.fr
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

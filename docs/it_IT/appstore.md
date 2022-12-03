@@ -12,7 +12,7 @@ Se hai dei cambiamenti non salvati, non potrai chiudere il negozio, ma invece co
 :::
 :::warning Supporto della mappa "MapKit"
 
-Ci sono alcuni moduli che non sono supportati quando è selezionata la mappa MapKit. Questo è a causa di alcune funzionalità che MapKit stessa non possiede. Una lista completa di questi moduli può essere trovata in [ℹ️ Informazioni generali sui moduli](apps.md).
+Ci sono alcuni moduli che non sono supportati quando è selezionata la mappa MapKit. Questo è a causa di alcune funzionalità che MapKit stessa non possiede. Una lista completa di questi moduli può essere trovata in [ℹ️ Informazioni generali sui moduli][docs.apps].
 
 Per lo stesso motivo ci sono delle minori restrizioni per gli utilizzatori di MapKit.
 :::
@@ -23,16 +23,16 @@ Per lo stesso motivo ci sono delle minori restrizioni per gli utilizzatori di Ma
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /it_IT/apps/
-[docs.appstore]: /it_IT/appstore/
-[docs.bugs]: /it_IT/bugs/
-[docs.error_report]: /it_IT/error_report/
-[docs.faq]: /it_IT/faq/
-[docs.metadata]: /it_IT/metadata/
-[docs.other]: /it_IT/other/
-[docs.settings]: /it_IT/settings/
-[docs.suggestions]: /it_IT/suggestions/
-[docs.support]: /it_IT/support/
+[docs.apps]: /it_IT/apps.md
+[docs.appstore]: /it_IT/appstore.md
+[docs.bugs]: /it_IT/bugs.md
+[docs.error_report]: /it_IT/error_report.md
+[docs.faq]: /it_IT/faq.md
+[docs.metadata]: /it_IT/metadata.md
+[docs.other]: /it_IT/other.md
+[docs.settings]: /it_IT/settings.md
+[docs.suggestions]: /it_IT/suggestions.md
+[docs.support]: /it_IT/support.md
 [games.self]: https://operatore112.it
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

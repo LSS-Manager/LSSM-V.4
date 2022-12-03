@@ -14,7 +14,7 @@ No puede cerrar la AppStore sin guardar los cambios.
 :::warning Soporte del tipo de mapa "MapKit"
 Hay algunos módulos que no soportan el tipo de mapa MapKit. Esto se debe a que MapKit no proporciona algunas funciones para que los módulos funcionen.
 
-Puede encontrar una lista completa de estos módulos en  [ℹ️ Información general sobre módulos](apps.md).
+Puede encontrar una lista completa de estos módulos en  [ℹ️ Información general sobre módulos][docs.apps].
 
 Debido a estas restricciones de Centro de Mando MapKit, puede cambiar el tipo de mapa a "OpenStreetMap" para una funcionalidad completa.
 :::
@@ -25,16 +25,16 @@ Debido a estas restricciones de Centro de Mando MapKit, puede cambiar el tipo de
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /es_ES/apps/
-[docs.appstore]: /es_ES/appstore/
-[docs.bugs]: /es_ES/bugs/
-[docs.error_report]: /es_ES/error_report/
-[docs.faq]: /es_ES/faq/
-[docs.metadata]: /es_ES/metadata/
-[docs.other]: /es_ES/other/
-[docs.settings]: /es_ES/settings/
-[docs.suggestions]: /es_ES/suggestions/
-[docs.support]: /es_ES/support/
+[docs.apps]: /es_ES/apps.md
+[docs.appstore]: /es_ES/appstore.md
+[docs.bugs]: /es_ES/bugs.md
+[docs.error_report]: /es_ES/error_report.md
+[docs.faq]: /es_ES/faq.md
+[docs.metadata]: /es_ES/metadata.md
+[docs.other]: /es_ES/other.md
+[docs.settings]: /es_ES/settings.md
+[docs.suggestions]: /es_ES/suggestions.md
+[docs.support]: /es_ES/support.md
 [games.self]: https://centro-de-mando.es
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

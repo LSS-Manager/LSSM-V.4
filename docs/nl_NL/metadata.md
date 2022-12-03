@@ -27,9 +27,9 @@ Door `LSSM` (Leitstellenspiel Manager, userscript voor de browser) te gebruiken,
 Deze data wordt gebruikt om de extensie te verbeteren, maar ook als gids voor de ontwikkeling van bestaande of toekomstige modules.
 Ze zijn ook de basis voor spannende statistieken, welke gepubliceerd kunnen worden, bijvoorbeeld als nieuws (voor meer informatie, zie [onder](#publiceren-van-statistieken)).
 
-**De gebruiker kan het verzamelen van deze data op elk moment (de)activeren in de [instellingen](settings.md).**
+**De gebruiker kan het verzamelen van deze data op elk moment (de)activeren in de [instellingen][docs.settings].**
 
-**Verwijderd van reeds verzamelde data kan verzocht worden op elk moment door een bericht (indien mogelijk in het Engels) naar de ontwikkelaars te sturen via een weg genoemd in [support](support.md) of door een informele e-mail te sturen naar `developer[at]lss-manager.de`.**
+**Verwijderd van reeds verzamelde data kan verzocht worden op elk moment door een bericht (indien mogelijk in het Engels) naar de ontwikkelaars te sturen via een weg genoemd in [support][docs.support] of door een informele e-mail te sturen naar `developer[at]lss-manager.de`.**
 
 Elke keer als de home-pagina is geopend, wordt de data verstuurd naar de LSSM server.
 Als er al reeds data bestaat voor de gebruiker, zal deze worden overschreven. Een historie van individuele data wordt niet opgeslagen.
@@ -69,16 +69,16 @@ Informatie over deze dataverzameling van de respectievelijke software die gebrui
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /nl_NL/apps/
-[docs.appstore]: /nl_NL/appstore/
-[docs.bugs]: /nl_NL/bugs/
-[docs.error_report]: /nl_NL/error_report/
-[docs.faq]: /nl_NL/faq/
-[docs.metadata]: /nl_NL/metadata/
-[docs.other]: /nl_NL/other/
-[docs.settings]: /nl_NL/settings/
-[docs.suggestions]: /nl_NL/suggestions/
-[docs.support]: /nl_NL/support/
+[docs.apps]: /nl_NL/apps.md
+[docs.appstore]: /nl_NL/appstore.md
+[docs.bugs]: /nl_NL/bugs.md
+[docs.error_report]: /nl_NL/error_report.md
+[docs.faq]: /nl_NL/faq.md
+[docs.metadata]: /nl_NL/metadata.md
+[docs.other]: /nl_NL/other.md
+[docs.settings]: /nl_NL/settings.md
+[docs.suggestions]: /nl_NL/suggestions.md
+[docs.support]: /nl_NL/support.md
 [games.self]: https://meldkamerspel.com
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

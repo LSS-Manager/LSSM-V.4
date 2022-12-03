@@ -26,9 +26,9 @@ Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Userscript für den Browse
 Diese Daten dienen zur Verbesserung der Erweiterung sowie als Anhaltspunkt für die Entwicklung bestehender bzw. zukünftiger Module.
 Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#veroffentlichung-von-statistiken)).
 
-**Der Nutzer kann die Erhebung dieser Daten jederzeit in den [Einstellungen](settings.md) (de-)aktivieren.**
+**Der Nutzer kann die Erhebung dieser Daten jederzeit in den [Einstellungen][docs.settings] (de-)aktivieren.**
 
-**Eine Löschung bereits erhobener Daten kann jederzeit durch eine Nachricht an die Entwickler über einen der unter [Support](support.md) aufgelisteten Wege oder per formloser E-Mail an `developer[at]lss-manager.de` beantragt werden.**
+**Eine Löschung bereits erhobener Daten kann jederzeit durch eine Nachricht an die Entwickler über einen der unter [Support][docs.support] aufgelisteten Wege oder per formloser E-Mail an `developer[at]lss-manager.de` beantragt werden.**
 
 Bei jedem Aufruf der Hauptseite des Spiels werden die Telemetrie-Daten (falls aktiviert) an den LSSM-Server gesendet.
 Ist bereits ein Datensatz für den Nutzer vorhanden, so wird dieser überschrieben, ein Verlauf der Einzeldaten wird nicht gespeichert.
@@ -68,16 +68,16 @@ Informationen über die Datenerhebung der jeweils genutzten Software ist den Inf
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /de_DE/apps/
-[docs.appstore]: /de_DE/appstore/
-[docs.bugs]: /de_DE/bugs/
-[docs.error_report]: /de_DE/error_report/
-[docs.faq]: /de_DE/faq/
-[docs.metadata]: /de_DE/metadata/
-[docs.other]: /de_DE/other/
-[docs.settings]: /de_DE/settings/
-[docs.suggestions]: /de_DE/suggestions/
-[docs.support]: /de_DE/support/
+[docs.apps]: /de_DE/apps.md
+[docs.appstore]: /de_DE/appstore.md
+[docs.bugs]: /de_DE/bugs.md
+[docs.error_report]: /de_DE/error_report.md
+[docs.faq]: /de_DE/faq.md
+[docs.metadata]: /de_DE/metadata.md
+[docs.other]: /de_DE/other.md
+[docs.settings]: /de_DE/settings.md
+[docs.suggestions]: /de_DE/suggestions.md
+[docs.support]: /de_DE/support.md
 [games.self]: https://leitstellenspiel.de
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

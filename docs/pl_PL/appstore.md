@@ -12,7 +12,7 @@ Nie możesz zamknąć sklepu z niezapisanymi zmianami
 :::
 
 :::warning Obsługa map typu „MapKit”.
-Istnieje kilka modułów, które nie obsługują mapy typu „MapKit”. Dzieje się tak, ponieważ MapKit nie zapewnia pewnych funkcji koniecznych do poprawnego działania modułów. Pełną listę tych modułów można znaleźć na [ℹ️ Ogólne informacje o modułach](apps.md).
+Istnieje kilka modułów, które nie obsługują mapy typu „MapKit”. Dzieje się tak, ponieważ MapKit nie zapewnia pewnych funkcji koniecznych do poprawnego działania modułów. Pełną listę tych modułów można znaleźć na [ℹ️ Ogólne informacje o modułach][docs.apps].
 
 Ze względu na ograniczenia OparatoraRatunkowego, „MapKit” możesz zmienić na „OpenStreetMap”, aby uzyskać pełną funkcjonalność.
 :::
@@ -23,16 +23,16 @@ Ze względu na ograniczenia OparatoraRatunkowego, „MapKit” możesz zmienić 
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /pl_PL/apps/
-[docs.appstore]: /pl_PL/appstore/
-[docs.bugs]: /pl_PL/bugs/
-[docs.error_report]: /pl_PL/error_report/
-[docs.faq]: /pl_PL/faq/
-[docs.metadata]: /pl_PL/metadata/
-[docs.other]: /pl_PL/other/
-[docs.settings]: /pl_PL/settings/
-[docs.suggestions]: /pl_PL/suggestions/
-[docs.support]: /pl_PL/support/
+[docs.apps]: /pl_PL/apps.md
+[docs.appstore]: /pl_PL/appstore.md
+[docs.bugs]: /pl_PL/bugs.md
+[docs.error_report]: /pl_PL/error_report.md
+[docs.faq]: /pl_PL/faq.md
+[docs.metadata]: /pl_PL/metadata.md
+[docs.other]: /pl_PL/other.md
+[docs.settings]: /pl_PL/settings.md
+[docs.suggestions]: /pl_PL/suggestions.md
+[docs.support]: /pl_PL/support.md
 [games.self]: https://operatorratunkowy.pl
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

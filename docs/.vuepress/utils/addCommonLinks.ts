@@ -15,16 +15,16 @@ const commonLinks = {
     'lssm.donations': config.urls.donations,
     // Docs
     'docs': config.urls.docs,
-    'docs.apps': (lang: Locale) => `/${lang}/apps/`,
-    'docs.appstore': (lang: Locale) => `/${lang}/appstore/`,
-    'docs.bugs': (lang: Locale) => `/${lang}/bugs/`,
-    'docs.error_report': (lang: Locale) => `/${lang}/error_report/`,
-    'docs.faq': (lang: Locale) => `/${lang}/faq/`,
-    'docs.metadata': (lang: Locale) => `/${lang}/metadata/`,
-    'docs.other': (lang: Locale) => `/${lang}/other/`,
-    'docs.settings': (lang: Locale) => `/${lang}/settings/`,
-    'docs.suggestions': (lang: Locale) => `/${lang}/suggestions/`,
-    'docs.support': (lang: Locale) => `/${lang}/support/`,
+    'docs.apps': (lang: Locale) => `/${lang}/apps.md`,
+    'docs.appstore': (lang: Locale) => `/${lang}/appstore.md`,
+    'docs.bugs': (lang: Locale) => `/${lang}/bugs.md`,
+    'docs.error_report': (lang: Locale) => `/${lang}/error_report.md`,
+    'docs.faq': (lang: Locale) => `/${lang}/faq.md`,
+    'docs.metadata': (lang: Locale) => `/${lang}/metadata.md`,
+    'docs.other': (lang: Locale) => `/${lang}/other.md`,
+    'docs.settings': (lang: Locale) => `/${lang}/settings.md`,
+    'docs.suggestions': (lang: Locale) => `/${lang}/suggestions.md`,
+    'docs.support': (lang: Locale) => `/${lang}/support.md`,
     // Docs: Langs
     ...Object.fromEntries(
         LANGS.map(lang => [`docs.langs.${lang}`, `${config.urls.docs}${lang}/`])

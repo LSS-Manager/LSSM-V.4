@@ -12,7 +12,7 @@ You cannot close the appstore with unsaved changes
 :::
 
 :::warning Support of "MapKit" map type.
-There are a few modules which do not support MapKit map type. This is because MapKit does not provide some functionality for modules to work. A complete list of these modules can be found at [ℹ️ General information on modules](apps.md).
+There are a few modules which do not support MapKit map type. This is because MapKit does not provide some functionality for modules to work. A complete list of these modules can be found at [ℹ️ General information on modules][docs.apps].
 
 Due to these Missionchief MapKit restrictions, you can change map type to "OpenStreetMap" for full functionality.
 :::
@@ -23,16 +23,16 @@ Due to these Missionchief MapKit restrictions, you can change map type to "OpenS
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /en_US/apps/
-[docs.appstore]: /en_US/appstore/
-[docs.bugs]: /en_US/bugs/
-[docs.error_report]: /en_US/error_report/
-[docs.faq]: /en_US/faq/
-[docs.metadata]: /en_US/metadata/
-[docs.other]: /en_US/other/
-[docs.settings]: /en_US/settings/
-[docs.suggestions]: /en_US/suggestions/
-[docs.support]: /en_US/support/
+[docs.apps]: /en_US/apps.md
+[docs.appstore]: /en_US/appstore.md
+[docs.bugs]: /en_US/bugs.md
+[docs.error_report]: /en_US/error_report.md
+[docs.faq]: /en_US/faq.md
+[docs.metadata]: /en_US/metadata.md
+[docs.other]: /en_US/other.md
+[docs.settings]: /en_US/settings.md
+[docs.suggestions]: /en_US/suggestions.md
+[docs.support]: /en_US/support.md
 [games.self]: https://missionchief.com
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

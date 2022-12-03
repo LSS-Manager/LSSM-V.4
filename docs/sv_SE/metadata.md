@@ -26,9 +26,9 @@ By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user 
 This data is used to improve the extension as well as to guide the development of existing or future modules.
 They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#publishing-statistics)).
 
-**The user can (de-)activate the collection of this data at any time in the [settings](settings.md).**
+**The user can (de-)activate the collection of this data at any time in the [settings][docs.settings].**
 
-**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support](support.md) or by sending an informal e-mail to `developer[at]lss-manager.de`.**
+**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support][docs.support] or by sending an informal e-mail to `developer[at]lss-manager.de`.**
 
 Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
 If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
@@ -68,16 +68,16 @@ Information about the data collection of the respective software used can be fou
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /sv_SE/apps/
-[docs.appstore]: /sv_SE/appstore/
-[docs.bugs]: /sv_SE/bugs/
-[docs.error_report]: /sv_SE/error_report/
-[docs.faq]: /sv_SE/faq/
-[docs.metadata]: /sv_SE/metadata/
-[docs.other]: /sv_SE/other/
-[docs.settings]: /sv_SE/settings/
-[docs.suggestions]: /sv_SE/suggestions/
-[docs.support]: /sv_SE/support/
+[docs.apps]: /sv_SE/apps.md
+[docs.appstore]: /sv_SE/appstore.md
+[docs.bugs]: /sv_SE/bugs.md
+[docs.error_report]: /sv_SE/error_report.md
+[docs.faq]: /sv_SE/faq.md
+[docs.metadata]: /sv_SE/metadata.md
+[docs.other]: /sv_SE/other.md
+[docs.settings]: /sv_SE/settings.md
+[docs.suggestions]: /sv_SE/suggestions.md
+[docs.support]: /sv_SE/support.md
 [games.self]: https://larmcentralen-spelet.se
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

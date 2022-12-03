@@ -12,7 +12,7 @@ So that you can easily get a deeper insight into the module without having to ac
 If you have unsaved changes, you cannot close the Appstore, a small hint message will appear.
 :::
 :::warning Support of the map type "MapKit"
-There are a few modules that are not supported when MapKit is selected as the map type. This is because some functionality is not provided by MapKit itself. A complete list of these modules can be found at [ℹ️ General information on modules](apps.md).
+There are a few modules that are not supported when MapKit is selected as the map type. This is because some functionality is not provided by MapKit itself. A complete list of these modules can be found at [ℹ️ General information on modules][docs.apps].
 
 For the same reason, there are also some minor restrictions for MapKit users.
 :::
@@ -23,16 +23,16 @@ For the same reason, there are also some minor restrictions for MapKit users.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /en_GB/apps/
-[docs.appstore]: /en_GB/appstore/
-[docs.bugs]: /en_GB/bugs/
-[docs.error_report]: /en_GB/error_report/
-[docs.faq]: /en_GB/faq/
-[docs.metadata]: /en_GB/metadata/
-[docs.other]: /en_GB/other/
-[docs.settings]: /en_GB/settings/
-[docs.suggestions]: /en_GB/suggestions/
-[docs.support]: /en_GB/support/
+[docs.apps]: /en_GB/apps.md
+[docs.appstore]: /en_GB/appstore.md
+[docs.bugs]: /en_GB/bugs.md
+[docs.error_report]: /en_GB/error_report.md
+[docs.faq]: /en_GB/faq.md
+[docs.metadata]: /en_GB/metadata.md
+[docs.other]: /en_GB/other.md
+[docs.settings]: /en_GB/settings.md
+[docs.suggestions]: /en_GB/suggestions.md
+[docs.support]: /en_GB/support.md
 [games.self]: https://missionchief.co.uk
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

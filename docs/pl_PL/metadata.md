@@ -26,9 +26,9 @@ Używając `LSSM` (Leitstellenspiel Manager, userscript for the browser) użytko
 Dane te są wykorzystywane do ulepszania rozszerzenia, a także do kierowania rozwojem istniejących lub przyszłych modułów.
  Stanowią też podstawę do tworzenia ciekawych statystyk, które mogą być publikowane np. jako newsy (więcej informacji patrz [poniżej](#publikowanie-statystyk)).
 
-**Użytkownik może (dez)aktywować gromadzenie tych danych w dowolnym momencie w [ustawieniach](settings.md).**
+**Użytkownik może (dez)aktywować gromadzenie tych danych w dowolnym momencie w [ustawieniach][docs.settings].**
 
-**W dowolnym momencie można zażądać usunięcia już zebranych danych, wysyłając wiadomość do programistów na jeden ze sposobów wymienionych w [support](support.md) lub wysyłając nieformalny e-mail na adres `developer[at]lss-manager.de`.**
+**W dowolnym momencie można zażądać usunięcia już zebranych danych, wysyłając wiadomość do programistów na jeden ze sposobów wymienionych w [support][docs.support] lub wysyłając nieformalny e-mail na adres `developer[at]lss-manager.de`.**
 
 Za każdym razem, gdy otwierana jest strona główna gry, dane telemetryczne (jeśli są włączone) są wysyłane na serwer LSSM.
  Jeżeli dla użytkownika istnieje już rekord danych, zostanie on nadpisany, historia poszczególnych danych nie zostanie zapisana.
@@ -68,16 +68,16 @@ Informacje o gromadzeniu danych przez odpowiednie oprogramowanie można znaleź�
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /pl_PL/apps/
-[docs.appstore]: /pl_PL/appstore/
-[docs.bugs]: /pl_PL/bugs/
-[docs.error_report]: /pl_PL/error_report/
-[docs.faq]: /pl_PL/faq/
-[docs.metadata]: /pl_PL/metadata/
-[docs.other]: /pl_PL/other/
-[docs.settings]: /pl_PL/settings/
-[docs.suggestions]: /pl_PL/suggestions/
-[docs.support]: /pl_PL/support/
+[docs.apps]: /pl_PL/apps.md
+[docs.appstore]: /pl_PL/appstore.md
+[docs.bugs]: /pl_PL/bugs.md
+[docs.error_report]: /pl_PL/error_report.md
+[docs.faq]: /pl_PL/faq.md
+[docs.metadata]: /pl_PL/metadata.md
+[docs.other]: /pl_PL/other.md
+[docs.settings]: /pl_PL/settings.md
+[docs.suggestions]: /pl_PL/suggestions.md
+[docs.support]: /pl_PL/support.md
 [games.self]: https://operatorratunkowy.pl
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

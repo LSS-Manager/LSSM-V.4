@@ -11,7 +11,7 @@ Auf den folgenden Seiten findest du zu allen unseren Modulen eine Beschreibung. 
 Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen lassen – oder sogar selbst einbauen.
 
 :::danger Module und Einstellungen, die in Mapkit nicht funktionieren
-Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module und Einstellungen, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
+Wie in der Erklärung zum [Appstore][docs.appstore] beschrieben, gibt es Module und Einstellungen, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
 
 <mapkit-modules settings-text="Und diese Einstellungen"/>
 :::
@@ -41,16 +41,16 @@ Diese Module sind neu in der V4.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /de_DE/apps/
-[docs.appstore]: /de_DE/appstore/
-[docs.bugs]: /de_DE/bugs/
-[docs.error_report]: /de_DE/error_report/
-[docs.faq]: /de_DE/faq/
-[docs.metadata]: /de_DE/metadata/
-[docs.other]: /de_DE/other/
-[docs.settings]: /de_DE/settings/
-[docs.suggestions]: /de_DE/suggestions/
-[docs.support]: /de_DE/support/
+[docs.apps]: /de_DE/apps.md
+[docs.appstore]: /de_DE/appstore.md
+[docs.bugs]: /de_DE/bugs.md
+[docs.error_report]: /de_DE/error_report.md
+[docs.faq]: /de_DE/faq.md
+[docs.metadata]: /de_DE/metadata.md
+[docs.other]: /de_DE/other.md
+[docs.settings]: /de_DE/settings.md
+[docs.suggestions]: /de_DE/suggestions.md
+[docs.support]: /de_DE/support.md
 [games.self]: https://leitstellenspiel.de
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

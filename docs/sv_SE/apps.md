@@ -12,7 +12,7 @@ På följande sidor hittar du en beskrivning av alla våra moduler. Vi har gjort
 Om du har förbättringsförslag kan du skicka dem till oss som alltid - eller till och med göra det själv.
 
 :::danger Moduler som inte fungerar i Mapkit
-Som beskrivs i förklaringen till [Appstore](appstore.md), det finns moduler som tyvärr inte är kompatibla med karttypen `Mapkit`. Det är dessa moduler:
+Som beskrivs i förklaringen till [Appstore][docs.appstore], det finns moduler som tyvärr inte är kompatibla med karttypen `Mapkit`. Det är dessa moduler:
 
 <mapkit-modules settings-text="And these settings"/>
 :::
@@ -42,16 +42,16 @@ These Modules are new in V4.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /sv_SE/apps/
-[docs.appstore]: /sv_SE/appstore/
-[docs.bugs]: /sv_SE/bugs/
-[docs.error_report]: /sv_SE/error_report/
-[docs.faq]: /sv_SE/faq/
-[docs.metadata]: /sv_SE/metadata/
-[docs.other]: /sv_SE/other/
-[docs.settings]: /sv_SE/settings/
-[docs.suggestions]: /sv_SE/suggestions/
-[docs.support]: /sv_SE/support/
+[docs.apps]: /sv_SE/apps.md
+[docs.appstore]: /sv_SE/appstore.md
+[docs.bugs]: /sv_SE/bugs.md
+[docs.error_report]: /sv_SE/error_report.md
+[docs.faq]: /sv_SE/faq.md
+[docs.metadata]: /sv_SE/metadata.md
+[docs.other]: /sv_SE/other.md
+[docs.settings]: /sv_SE/settings.md
+[docs.suggestions]: /sv_SE/suggestions.md
+[docs.support]: /sv_SE/support.md
 [games.self]: https://larmcentralen-spelet.se
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4

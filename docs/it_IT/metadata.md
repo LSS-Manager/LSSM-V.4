@@ -26,9 +26,9 @@ By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user 
 This data is used to improve the extension as well as to guide the development of existing or future modules.
 They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#publishing-statistics)).
 
-**The user can (de-)activate the collection of this data at any time in the [settings](settings.md).**
+**The user can (de-)activate the collection of this data at any time in the [settings][docs.settings].**
 
-**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support](support.md) or by sending an informal e-mail to `developer[at]lss-manager.de`.**
+**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support][docs.support] or by sending an informal e-mail to `developer[at]lss-manager.de`.**
 
 Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
 If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
@@ -68,16 +68,16 @@ Information about the data collection of the respective software used can be fou
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /it_IT/apps/
-[docs.appstore]: /it_IT/appstore/
-[docs.bugs]: /it_IT/bugs/
-[docs.error_report]: /it_IT/error_report/
-[docs.faq]: /it_IT/faq/
-[docs.metadata]: /it_IT/metadata/
-[docs.other]: /it_IT/other/
-[docs.settings]: /it_IT/settings/
-[docs.suggestions]: /it_IT/suggestions/
-[docs.support]: /it_IT/support/
+[docs.apps]: /it_IT/apps.md
+[docs.appstore]: /it_IT/appstore.md
+[docs.bugs]: /it_IT/bugs.md
+[docs.error_report]: /it_IT/error_report.md
+[docs.faq]: /it_IT/faq.md
+[docs.metadata]: /it_IT/metadata.md
+[docs.other]: /it_IT/other.md
+[docs.settings]: /it_IT/settings.md
+[docs.suggestions]: /it_IT/suggestions.md
+[docs.support]: /it_IT/support.md
 [games.self]: https://operatore112.it
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4
