@@ -50,7 +50,7 @@ Berte prosím na vědomí, že nepodporujeme: starší prohlížeče, mobilní p
 :::
 
 ### Krok 2: Uživatelský script
-Pokud byl Tampermonkey úspěšně nainstalován do Vašeho prohlížeče, můžete kliknout <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">ZDE</a> nebo vytvořit nový uživatelský script s následujícím obsahem:
+Pokud byl Tampermonkey úspěšně nainstalován do Vašeho prohlížeče, můžete kliknout [ZDE][lssm.userscript] nebo vytvořit nový uživatelský script s následujícím obsahem:
 
 @[code js](@userscript)
 

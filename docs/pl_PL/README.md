@@ -52,7 +52,7 @@ Należy pamiętać, że oficjalnie nie wspieramy:
 :::
 
 ### Krok 2: Skrypt użytkownika
-Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, możesz kliknąć <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">tutaj</a> lub utworzyć nowy skrypt użytkownika o następującej treści:
+Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, możesz kliknąć [tutaj][lssm.userscript] lub utworzyć nowy skrypt użytkownika o następującej treści:
 
 @[code js](@userscript)
 

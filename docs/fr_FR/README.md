@@ -50,7 +50,7 @@ Veuillez noter que nous ne prenons pas officiellement en charge les anciens navi
 :::
 
 ### Étape 2 : Userscript
-Si Tampermonkey a été installé avec succès dans votre navigateur, vous pouvez soit cliquer sur <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">Ici</a> ou créer un nouveau userscript avec le contenu suivant :
+Si Tampermonkey a été installé avec succès dans votre navigateur, vous pouvez soit cliquer sur [Ici][lssm.userscript] ou créer un nouveau userscript avec le contenu suivant :
 
 @[code js](@userscript)
 

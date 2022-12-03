@@ -50,7 +50,7 @@ Si prega di notare che ufficialmente noi non forniamo supporto per browser più 
 :::
 
 ### Passo 2: Userscript
-Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cliccare <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">qui</a> o creare un nuovo userscript con il seguente contenuto:
+Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cliccare [qui][lssm.userscript] o creare un nuovo userscript con il seguente contenuto:
 
 @[code js](@userscript)
 

@@ -50,7 +50,7 @@ Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare oc
 :::
 
 ### Steg 2: Användarskript
-Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">här </a> eller skapa en nytt användarskript med följande innehåll:
+Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka [här][lssm.userscript] eller skapa en nytt användarskript med följande innehåll:
 
 @[code js](@userscript)
 

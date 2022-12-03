@@ -50,7 +50,7 @@ Houd er rekening mee dat we officieel geen oudere browsers, mobiele browsers, Ap
 :::
 
 ### Stap 2: Userscript
-Als Tampermonkey met succes in uw browser is geïnstalleerd, kunt u <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">hier</a> klikken of een nieuw gebruikersscript met de volgende inhoud:
+Als Tampermonkey met succes in uw browser is geïnstalleerd, kunt u [hier][lssm.userscript] klikken of een nieuw gebruikersscript met de volgende inhoud:
 
 @[code js](@userscript)
 
