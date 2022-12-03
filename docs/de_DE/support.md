@@ -29,7 +29,7 @@ Nun kannst du uns dein ausformuliertes Problem mit Nutzerdaten senden. Nutze hie
 Auf unserem <discord/> kann man sich im Channel <discord-channel channel="lssm-help"/> Support einholen.
 
 ## auf GitHub
-Gerne darf auch ein Issue auf <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a> eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Problem bereits existiert und diesem dann auch anschließen.
+Gerne darf auch ein Issue auf [GitHub][github.issues] eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Problem bereits existiert und diesem dann auch anschließen.
 
 ## Geplant: Support direkt im Spiel
 Um dir noch schneller und einfacher Support geben zu können, möchten wir einen eigenen Support-Chat integrieren. Diesen kannst du dann über das LSSM-Menü im Spiel erreichen. Wir geben unser bestes, dir so gut und schnell wie möglich zu helfen, aber auch hier gilt: Je detaillierter du dein Problem von Anfang an beschreibst, desto besser können wir dir helfen!

@@ -30,7 +30,7 @@ Proszę podać swoje;
 * Wersja LSSM: Możesz ją znaleźć po kliknięciu `LSSM V.4` w prawym górnym rogu gry, w pierwszym wierszu.
 
 ### 3. Zgłaszanie problemu
-Teraz możesz wysłać nam swój raport o błędzie. Aby to zrobić, otwórz zgłoszenie na  <a :href="$theme.variables.github + '/issues'" target="_blank">GitHubie</a>. Sprawdź, czy istnieje już zgłoszenie dotyczące tego problemu. Jeżeli tak to postępuj zgodnie z instrukcją w jego opisie.
+Teraz możesz wysłać nam swój raport o błędzie. Aby to zrobić, otwórz zgłoszenie na  [GitHubie][github.issues]. Sprawdź, czy istnieje już zgłoszenie dotyczące tego problemu. Jeżeli tak to postępuj zgodnie z instrukcją w jego opisie.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

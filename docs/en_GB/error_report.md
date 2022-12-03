@@ -24,7 +24,7 @@ First describe the error. Provide any information that could be important. Also 
 Please provide us with your username or userId. It is also useful to indicate the activated modules. Please also indicate the version of LSSM. You can find it by clicking on `LSSM V.4` in the top right corner of the game's main page, right in the first line.
 
 ### 3. Report problem
-Now you can send us your formulated problem with user data. To do this, open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if an issue for this bug already exists and then follow it up.
+Now you can send us your formulated problem with user data. To do this, open an issue on [GitHub][github.issues]. Please check if an issue for this bug already exists and then follow it up.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

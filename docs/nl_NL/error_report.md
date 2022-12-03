@@ -24,7 +24,7 @@ Beschrijf eerst de fout. Geef alle informatie op die belangrijk kan zijn. Leg oo
 Geef ons uw gebruikersnaam of gebruikers-ID. Ook is het handig om de geactiveerde modules aan te geven. Geef ook de versie van LSSM aan. Je kunt deze vinden door op `LSSM V.4` te klikken in de rechterbovenhoek van de hoofdpagina van het spel, precies op de eerste regel.
 
 ### 3. Meld een probleem
-Nu kunt u ons uw geformuleerde probleem met gebruikersgegevens sturen. Open hiervoor een issue op <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer a.u.b. of er al een issue voor deze bug bestaat en volg het dan op.
+Nu kunt u ons uw geformuleerde probleem met gebruikersgegevens sturen. Open hiervoor een issue op [GitHub][github.issues]. Controleer a.u.b. of er al een issue voor deze bug bestaat en volg het dan op.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

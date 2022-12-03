@@ -58,7 +58,7 @@ Inference to individual records is **not** possible through these statistics.
 ## Collection of metadata by third-party providers
 
 LSSM itself does not use any tools, libraries, utilities or similar, which could collect metadata of the users.
-With the use of a browser and an userscript manager, such as [Tampermonkey](https://tampermonkey.net), a collection of metadata of these may not be avoided.
+With the use of a browser and an userscript manager, such as [Tampermonkey][tampermonkey], a collection of metadata of these may not be avoided.
 All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
 Information about the data collection of the respective software used can be found in the information sources of the respective software.
 

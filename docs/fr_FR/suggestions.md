@@ -13,7 +13,7 @@ Veuillez rédiger vos suggestions le mieux possible avant de les publier. Cela n
 Sur notre <discord/> vous pouvez faire des suggestions dans le <discord-channel channel="suggestions"/> canal.
 
 ## sur GitHub
-Vous pouvez également ouvrir une issue sur <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Veuillez vérifier si une issue existe déjà pour cette suggestion et la suivre.
+Vous pouvez également ouvrir une issue sur [GitHub][github.issues]. Veuillez vérifier si une issue existe déjà pour cette suggestion et la suivre.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

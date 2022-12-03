@@ -29,7 +29,7 @@ Nu kunt u ons uw geformuleerde probleem met gebruikersgegevens sturen. Gebruik e
 In onze <discord/> kun je support krijgen in het kanaal <discord-channel channel="lssm-help"/>.
 
 ## Op GitHub
-U kunt ook een issue openen op <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer hier of er al een issue voor dit probleem bestaat en volg het dan op.
+U kunt ook een issue openen op [GitHub][github.issues]. Controleer hier of er al een issue voor dit probleem bestaat en volg het dan op.
 
 ## Verwacht: ondersteuning rechtstreeks in het spel
 Om u nog snellere en gemakkelijkere ondersteuning te bieden, willen we onze eigen ondersteuningschat integreren. Je hebt dan toegang via het LSSM-menu in het spel. We zullen ons best doen om u zo snel en efficiënt mogelijk te helpen, maar nogmaals, hoe gedetailleerder u uw probleem vanaf het begin beschrijft, hoe beter we u kunnen helpen!

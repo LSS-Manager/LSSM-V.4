@@ -13,7 +13,7 @@ Bitte arbeite Vorschläge vor dem Veröffentlichen grundsätzlich möglichst gut
 Auf unserem <discord/> kann man Vorschläge im Channel <discord-channel channel="suggestions"/> machen.
 
 ## auf GitHub
-Gerne darf auch ein Issue auf <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a> eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Vorschlag bereits existiert und diesem dann auch anschließen.
+Gerne darf auch ein Issue auf [GitHub][github.issues] eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Vorschlag bereits existiert und diesem dann auch anschließen.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

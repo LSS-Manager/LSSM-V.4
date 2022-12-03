@@ -29,7 +29,7 @@ Nu kan du skicka oss ditt formulerade problem med användardata. Använd något 
 På vårt <discord/> kan du få support i kanalen <discord-channel channel="lssm-help"/>.
 
 ## på GitHub
-Du kan också öppna ett problem på <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Kontrollera här om det redan finns ett problem för detta problem och följ sedan upp det.
+Du kan också öppna ett problem på [GitHub][github.issues]. Kontrollera här om det redan finns ett problem för detta problem och följ sedan upp det.
 
 ## Planned: Support directly in the game
 In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!

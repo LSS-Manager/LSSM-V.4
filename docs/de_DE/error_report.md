@@ -24,7 +24,7 @@ Beschreibe zunächst den Fehler. Liefere dabei jede Information, die wichtig sei
 Bitte gebe uns deinen Benutzernamen oder deine NutzerId an. Ebenfalls ist es sinnvoll gleich die aktivierten Module anzugeben. Bitte gebe auch die Version vom LSSM an. Du findest sie, wenn du auf der Hauptseite des Spiels oben rechts auf `LSSM V.4 ` klickst, gleich in der ersten Zeile.
 
 ### 3. Problem melden
-Nun kannst du uns dein ausformuliertes Problem mit Nutzerdaten senden. Eröffne hierfür ein Issue auf <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Bitte hier vorher nachschauen, ob ein Issue zu diesem Fehler bereits existiert und diesem dann auch anschließen.
+Nun kannst du uns dein ausformuliertes Problem mit Nutzerdaten senden. Eröffne hierfür ein Issue auf [GitHub][github.issues]. Bitte hier vorher nachschauen, ob ein Issue zu diesem Fehler bereits existiert und diesem dann auch anschließen.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

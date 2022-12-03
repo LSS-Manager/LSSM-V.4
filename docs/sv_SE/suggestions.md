@@ -13,7 +13,7 @@ Förklara ditt förslag så bra som möjligt innan du publicerar dem. Detta hjä
 På vår <discord/> kan du göra förslag i <discord-channel channel="suggestions"/> kanal.
 
 ## på GitHub
-Du kan också öppna ett problem på <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Kontrollera om det redan finns ett problem med detta förslag och följ sedan upp det.
+Du kan också öppna ett problem på [GitHub][github.issues]. Kontrollera om det redan finns ett problem med detta förslag och följ sedan upp det.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

@@ -13,7 +13,7 @@ Werk suggesties zo goed mogelijk uit voordat u ze publiceert. Dit helpt ons te b
 In onze <discord/> kun je suggesties doen in het <discord-channel channel="suggestions"/> kanaal.
 
 ## Op GitHub
-U kunt ook een issue openen op <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer a.u.b. of er al een issue is met deze suggestie en volg het op.
+U kunt ook een issue openen op [GitHub][github.issues]. Controleer a.u.b. of er al een issue is met deze suggestie en volg het op.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

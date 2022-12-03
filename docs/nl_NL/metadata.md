@@ -59,7 +59,7 @@ De volgende statistieken mogen door het LSSM team worden gepubliceerd:
 ## Collectie van metadata door derden
 
 LSSM zelf gebruikt geen derde partijen die metadata kunnen verzamelen van de gebruikers.
-Door het gebruiken van een browser en de userscript manager, zoals [Tampermonkey](https://tampermonkey.net), kunnen zij metadata verzamelen.
+Door het gebruiken van een browser en de userscript manager, zoals [Tampermonkey][tampermonkey], kunnen zij metadata verzamelen.
 Al deze verzamelde metadata is niet beschikbaar of leesbaar voor het LSSM team en kan niet worden voorkomen, begunstigd of gewijzigd door LSSM.
 Informatie over deze dataverzameling van de respectievelijke software die gebruikt wordt, kan worden gevonden in de informatie van deze software.
 

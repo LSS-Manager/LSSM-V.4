@@ -24,7 +24,7 @@ Per prima cosa descrivete il bug. Fornite qualsiasi informazione che potrebbe es
 Siete pregati di fornirci il vostro nome utente o il vostro numero ID. Questo ci è d'aiuto per capire i moduli attivi. Siete pregati anche di indicarci la versione di LSSM. Potete trovarla cliccando su `LSSM V.4` nell'angolo in alto a destra della pagina principale del gioco.
 
 ### 3. Segnalateci il problema
-Ora potete mandarci il problema ricordandovi di includere il Nome utente o Numero ID. Per fare ciò, aprite una segnalazione su <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Si prega di verificare se questo problema sia già stato segnalato, prima di procedere.
+Ora potete mandarci il problema ricordandovi di includere il Nome utente o Numero ID. Per fare ciò, aprite una segnalazione su [GitHub][github.issues]. Si prega di verificare se questo problema sia già stato segnalato, prima di procedere.
 
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->

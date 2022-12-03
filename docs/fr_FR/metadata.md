@@ -58,7 +58,7 @@ Il n'est **pas** possible de faire des déductions sur des enregistrements indiv
 ## Collecte de métadonnées par des fournisseurs tiers
 
 LSSM lui-même n'utilise pas d'outils, de bibliothèques, d'utilitaires ou autres qui pourraient collecter les métadonnées des utilisateurs.
-Avec l'utilisation d'un navigateur et d'un gestionnaire de scripts utilisateur, tel que [Tampermonkey](https://tampermonkey.net), la collecte des métadonnées de ces derniers ne peut être évitée.
+Avec l'utilisation d'un navigateur et d'un gestionnaire de scripts utilisateur, tel que [Tampermonkey][tampermonkey], la collecte des métadonnées de ces derniers ne peut être évitée.
 Toutes ces données collectées ne sont pas accessibles ou consultables par l'équipe de LSSM et ne peuvent être empêchées, favorisées ou manipulées par LSSM.
 Les informations sur la collecte de données des logiciels utilisés se trouvent dans les sources d'information de ces logiciels.
 

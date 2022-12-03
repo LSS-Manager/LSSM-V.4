@@ -30,7 +30,7 @@ Please provide your;
 * LSSM Version: Found via clicking on `LSSM V.4` in the top right corner of the game main page, in the first line.
 
 ### 3. Report problem
-Now you can send us your bug report. To do this, open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if an issue for this bug already exists and then follow it up.
+Now you can send us your bug report. To do this, open an issue on [GitHub][github.issues]. Please check if an issue for this bug already exists and then follow it up.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

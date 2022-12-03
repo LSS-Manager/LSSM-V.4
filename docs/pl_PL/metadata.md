@@ -58,7 +58,7 @@ Wnioskowanie do poszczególnych rekordów jest **nie** możliwe dzięki tym stat
 ## Zbieranie metadanych przez zewnętrznych dostawców
 
 Sam LSSM nie używa żadnych narzędzi, bibliotek, narzędzi itp., które mogłyby zbierać metadane od użytkowników.
-W przypadku korzystania z przeglądarki i menedżera skryptów użytkownika, takiego jak [Tampermonkey](https://tampermonkey.net), nie można uniknąć gromadzenia ich metadanych.
+W przypadku korzystania z przeglądarki i menedżera skryptów użytkownika, takiego jak [Tampermonkey][tampermonkey], nie można uniknąć gromadzenia ich metadanych.
 Wszystkie te zebrane dane nie są dostępne ani widoczne dla zespołu LSSM i nie można im zapobiegać, faworyzować ani manipulować przez LSSM.
 Informacje o gromadzeniu danych przez odpowiednie oprogramowanie można znaleźć w źródłach informacji odpowiedniego oprogramowania.
 

@@ -29,7 +29,7 @@ Ora puoi segnalarci la tua problematica; usa una delle opzioni scritte qui sotto
 Sul nostro <discord/> puoi ricevere il supporto nel canale <discord-channel channel="lssm-help"/>.
 
 ## Su GitHub
-Puoi anche aprire una segnalazione su <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Per favore, controlla se una segnalazione di questa problematica già esiste, prima di crearne una nuova.
+Puoi anche aprire una segnalazione su [GitHub][github.issues]. Per favore, controlla se una segnalazione di questa problematica già esiste, prima di crearne una nuova.
 
 ## Pianificato: Supporto direttamente nel gioco
 Al fine di essere in grado di fornire supporto ancora più veloce e facile, vorremmo integrare la nostra chat di supporto così da poter essere accessibile direttamente nel gioco. Una volta disponibile, sarà possibile raggiungerla tramite il menu LSSM nel gioco. Faremo del nostro meglio per aiutarvi il più efficacemente e velocemente possibile, ma ancora una volta: più dettagliatamente descriverete il vostro problema fin dall'inizio, meglio potremo aiutarvi!

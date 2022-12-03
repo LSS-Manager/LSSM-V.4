@@ -13,7 +13,7 @@ Please think out suggestions as thoroughly as possible before suggesting. This h
 On our <discord/> you can make suggestions in the <discord-channel channel="suggestions"/> channel.
 
 ## on GitHub
-You may also open an issue on <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if this suggestion already exists and if so, add to it rather than creating a new one.
+You may also open an issue on [GitHub][github.issues]. Please check if this suggestion already exists and if so, add to it rather than creating a new one.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

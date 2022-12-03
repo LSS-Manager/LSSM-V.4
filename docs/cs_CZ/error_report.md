@@ -31,7 +31,7 @@ Uveťe prosím své:
 * Verzi LSSM: Naleznete kliknutím na `LSSM V.4` v pravém horním rohu na hlavní stránce hry, verze uvedena v prvním řádku.
 
 ### 3. Nahlásit chybu
-Nyní můžete nahlásit chybu. K nahlášení vytvořte požacavek na <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Prosím prvně zkontrolujte, zda již tato chyba není nahlášena. 
+Nyní můžete nahlásit chybu. K nahlášení vytvořte požacavek na [GitHub][github.issues]. Prosím prvně zkontrolujte, zda již tato chyba není nahlášena. 
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

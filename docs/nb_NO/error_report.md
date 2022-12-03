@@ -24,7 +24,7 @@ First describe the error. Provide any information that could be important. Also 
 Vennligst oppgi ditt brukernavn eller brukerid. Det er også hjelpsomt å oppgi hvilke utvidelser du har aktivert og hvilken versjon av LSSM du har installert. Versjonsdata finner du ved å trykke på `LSSM V.4` øverst i høyre hjørne.
 
 ### 3. Rapporter problemet
-Nå kan du sende oss feilrapporten med dataen du har samlet. For å gjøre dette, åpne en feilmelding på <a :href="$theme.variables.github + '/issues'" target="_blank">GitHub</a>. Vennligst sjekk på forhånd om feilen du opplever har blitt rapportert tidligere.
+Nå kan du sende oss feilrapporten med dataen du har samlet. For å gjøre dette, åpne en feilmelding på [GitHub][github.issues]. Vennligst sjekk på forhånd om feilen du opplever har blitt rapportert tidligere.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

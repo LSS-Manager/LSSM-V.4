@@ -13,7 +13,7 @@ Prosimy o jak najdokładniejsze przemyślenie sugestii przed zasugerowaniem. To 
 Na naszym <discord/> możesz zgłaszać sugestie na kanale <discord-channel channel="suggestions"/>.
 
 ## na GitHubie
-Możesz również otworzyć problem na <a :href="$theme.variables.github + '/issues'" target="_blank">GitHubie</a>. Sprawdź, czy ta sugestia już istnieje, a jeśli tak, dodaj swoją do niej, zamiast tworzyć nową.
+Możesz również otworzyć problem na [GitHubie][github.issues]. Sprawdź, czy ta sugestia już istnieje, a jeśli tak, dodaj swoją do niej, zamiast tworzyć nową.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
