@@ -1,30 +1,101 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { StarrableButton } from '../../../extendedCallList/assets/starrableMissions/createBtn';
 import type { useSettingsStore } from '@stores/settings';
-import type { VehicleWindow } from '../../parsers/vehicle';
+import type {
+    Cell,
+    Hospital,
+    Mission,
+    TowingVehicle,
+    TransportRequestWindow,
+} from '../../parsers/vehicle';
 import type {
     RedesignComponent,
     RedesignVueInstance,
 } from 'typings/modules/Redesign';
 
-type FilteredMission = VehicleWindow['mission_own'][number] & {
-    participation: boolean;
-    credits: number;
+interface Filter {
     filter: boolean;
     hidden: boolean;
-};
-type FilteredHospital = VehicleWindow['own_hospitals'][number] & {
-    filter: boolean;
-    hidden: boolean;
-};
-type FilteredCell = VehicleWindow['own_cells'][number] & {
-    filter: boolean;
-    hidden: boolean;
-};
-type FilteredWLF = VehicleWindow['wlfs'][number] & {
-    filter: boolean;
-    hidden: boolean;
-};
+}
+
+type FilteredMission = Filter & Mission;
+type FilteredHospital = Filter & Hospital;
+type FilteredCell = Cell & Filter;
+type FilteredTowingVehicle = Filter & TowingVehicle;
+
+interface Types {
+    mission: {
+        item: Mission;
+        filteredItem: FilteredMission;
+        filter: {
+            status: ('green' | 'red' | 'yellow')[];
+            participation: boolean[];
+            distance: number;
+            credits: number;
+            progress: number;
+        };
+        sort:
+            | 'caption'
+            | 'credits'
+            | 'distance'
+            | 'list'
+            | 'participation'
+            | 'patients'
+            | 'progress';
+    };
+    patient: {
+        item: Hospital;
+        filteredItem: FilteredHospital;
+        filter: {
+            department: boolean[];
+            distance: number;
+            tax: number;
+            beds: number;
+            show: number;
+        };
+        sort:
+            | 'caption'
+            | 'department'
+            | 'distance'
+            | 'freeBeds'
+            | 'list'
+            | 'tax';
+        additional: {
+            disableReleaseConfirmation: boolean;
+        };
+    };
+    prisoner: {
+        item: Cell;
+        filteredItem: FilteredCell;
+        filter: {
+            distance: number;
+            tax: number;
+            free: number;
+            show: number;
+        };
+        sort: 'caption' | 'distance' | 'freeCells' | 'list' | 'tax';
+        additional: {
+            disableReleaseConfirmation: boolean;
+        };
+    };
+    trailer: {
+        item: TowingVehicle;
+        filteredItem: FilteredTowingVehicle;
+        filter: {
+            distance: number;
+            same: boolean[];
+            show: number;
+        };
+        sort: 'building' | 'caption' | 'distance' | 'same';
+    };
+}
+
+type ItemChooser<
+    Type extends keyof Types[keyof Types],
+    Window = RedesignVehicleComponent['Props']['vehicle']
+> = (Window extends TransportRequestWindow
+    ? Types[Window['transportRequestType']]
+    : Types['mission'])[Type];
 
 export type RedesignVehicleComponent = RedesignComponent<
     'vehicle',
@@ -40,44 +111,22 @@ export type RedesignVehicleComponent = RedesignComponent<
         faUsers: IconDefinition;
         faTrash: IconDefinition;
         faBan: IconDefinition;
-        missionListSrc: number;
         search: string;
-        searchTimeout: number | null;
-        sort: string;
-        sortDir: 'asc' | 'desc';
-        hospitalListSrc: number;
-        cellListSrc: number;
-        releaseDisables: ('patient' | 'prisoner')[];
+        searchTimeout: number;
         color2Class: {
             red: 'danger';
             yellow: 'warning';
             green: 'success';
         };
-        filter: {
-            mission: {
-                status: ('green' | 'red' | 'yellow')[];
-                participation: boolean[];
-                distance: number;
-                credits: number;
-                progress: number;
-            };
-            hospital: {
-                department: boolean[];
-                distance: number;
-                tax: number;
-                beds: number;
-                each: number;
-            };
-            cell: {
-                distance: number;
-                tax: number;
-                free: number;
-                each: number;
-            };
-            wlf: {
-                distance: number;
-                same: boolean[];
-                show: number;
+        tables: {
+            [key in keyof Types]: (Types[key] extends {
+                additional: Record<never, never>;
+            }
+                ? Types[key]['additional']
+                : Record<never, never>) & {
+                filter: Types[key]['filter'];
+                sort: Types[key]['sort'];
+                sortDir: 'asc' | 'desc';
             };
         };
         settingsStore: ReturnType<typeof useSettingsStore>;
@@ -85,65 +134,48 @@ export type RedesignVehicleComponent = RedesignComponent<
         starredMissions: string[];
     },
     {
-        setMissionList(_: unknown, group: number): void;
-        setHospitalList(_: unknown, group: number): void;
-        setCellList(_: unknown, group: number): void;
-        setSearch(search: string): void;
-        setSort(type: string): void;
-        alarm(missionId: number): void;
-        deleteVehicle(): void;
-        backalarm(): void;
-        backalarmFollowUp(missionId: number): void;
-        backalarmCurrent(): void;
-        switch_state(): void;
-        updateFilter(filter: string, value: unknown): void;
-        fms(url: string, wlf?: boolean): void;
-        release(type: 'patient' | 'prisoner'): void;
-        loadAllHospitals(): void;
+        // setList<Item = ItemChooser<'item'>>(
+        //     _: unknown,
+        //     group: Item extends { list: string } ? Item['list'] : ''
+        // ): void;
+        // setSearch(search: string): void;
+        // setSort(type: ItemChooser<'sort'>): void;
+        alarm(missionId: Mission['id']): void;
+        // approach(url: string, followRedirect?: boolean): void;
+        // deleteVehicle(): void;
+        // backalarm(): void;
+        // backalarmFollowUp(missionId: number): void;
+        // backalarmCurrent(): void;
+        // switchState(): void;
+        // updateFilter<
+        //     Filters = ItemChooser<'filter'>,
+        //     Filter extends keyof Filters = keyof Filters
+        // >(
+        //     filter: Filter,
+        //     value: Filters[Filter]
+        // ): void;
+        // release(): void;
+        // loadAllHospitals(): void;
         updateStarredMissions(): Promise<string[]>;
-        switchStarredMission(missionId: string): void;
+        // switchStarredMission(missionId: Mission['id']): void;
     },
     {
-        participated_missions: number[];
-        mission_head: Record<
+        tableType: keyof Types;
+        navigationBtnClass: Record<'next' | 'prev', string>;
+        tableHead: Record<
             string,
             {
                 title: string;
                 noSort?: boolean;
             }
         >;
-        missionList: VehicleWindow['mission_own'];
-        missionListFiltered: FilteredMission[];
-        missionListSorted: FilteredMission[];
-        hospital_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        hospitalList: VehicleWindow['own_hospitals'];
-        hospitalListFiltered: FilteredHospital[];
-        hospitalListSorted: FilteredHospital[];
-        cell_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        cellList: VehicleWindow['own_cells'];
-        cellListFiltered: FilteredCell[];
-        cellListSorted: FilteredCell[];
-        wlf_head: Record<
-            string,
-            {
-                title: string;
-                noSort?: boolean;
-            }
-        >;
-        wlfListFiltered: FilteredWLF[];
-        wlfListSorted: FilteredWLF[];
+
+        items: ItemChooser<'item'>[];
+        filteredItems: ItemChooser<'filteredItem'>[];
+        // sortedItems: ItemChooser<'filteredItem'>[];
+        //
+        // participatedMissions: number[];
+        //
         hotkeysParam: {
             component: RedesignVueInstance<RedesignVehicleComponent>;
             data: Record<string, never>;
@@ -151,9 +183,10 @@ export type RedesignVehicleComponent = RedesignComponent<
                 alarm: RedesignVehicleComponent['Methods']['alarm'];
             };
             computed: {
-                missionListSorted: RedesignVehicleComponent['Computed']['missionListSorted'];
+                missionsSorted: FilteredMission[];
             };
         };
-        starredMissionButtons: Record<string, StarrableButton>;
+        //
+        // starredMissionButtons: Record<string, StarrableButton>;
     }
 >;

@@ -26,7 +26,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 return redesign.lightbox.$set(
                     redesign.lightbox,
                     'src',
-                    `/vehicles/${redesign.data.previous_vehicle_id}`
+                    `/vehicles/${redesign.data.previousVehicle}`
                 );
             }
             document
@@ -40,7 +40,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 return redesign.lightbox.$set(
                     redesign.lightbox,
                     'src',
-                    `/vehicles/${redesign.data.next_vehicle_id}`
+                    `/vehicles/${redesign.data.nextVehicle}`
                 );
             }
             document
@@ -116,10 +116,9 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         validatorFunction: () => true,
         firstOwnMission(_, redesign) {
             if (redesign) {
-                const mission =
-                    redesign.component.computed.missionListSorted.find(
-                        ({ list, filter }) => list === 'mission_own' && filter
-                    );
+                const mission = redesign.component.computed.missionsSorted.find(
+                    ({ list, filter }) => list === 'own' && filter
+                );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;
             }
@@ -131,11 +130,9 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         },
         firstAllianceMission(_, redesign) {
             if (redesign) {
-                const mission =
-                    redesign.component.computed.missionListSorted.find(
-                        ({ list, filter }) =>
-                            list === 'mission_alliance' && filter
-                    );
+                const mission = redesign.component.computed.missionsSorted.find(
+                    ({ list, filter }) => list === 'alliance' && filter
+                );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;
             }

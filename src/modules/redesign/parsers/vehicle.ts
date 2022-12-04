@@ -1,13 +1,13 @@
 import type { RedesignParser } from 'typings/modules/Redesign';
 
-interface Mission {
+export interface Mission {
     image: string;
     caption: string;
     id: number;
     type: string;
     adress: string;
     distance: string;
-    list: 'mission_alliance' | 'mission_own';
+    list: 'alliance' | 'own';
     progress: {
         active: boolean;
         width: number;
@@ -19,28 +19,28 @@ interface Mission {
     status: 'green' | 'red' | 'yellow';
 }
 
-interface Hospital {
+export interface Hospital {
     caption: string;
     id: number;
     distance: string;
-    beds: number;
+    freeBeds: number;
     department: boolean;
     state: 'danger' | 'success' | 'warning';
-    list: 'alliance_hospitals' | 'own_hospitals';
+    list: 'alliance' | 'own';
     tax: number;
 }
 
-interface Cell {
+export interface Cell {
     caption: string;
     id: number;
     distance: string;
-    free: number;
+    freeCells: number;
     state: 'danger' | 'success' | 'warning';
-    list: 'alliance_cells' | 'own_cells';
+    list: 'alliance' | 'own';
     tax: number;
 }
 
-interface WLF {
+export interface TowingVehicle {
     id: number;
     caption: string;
     distance: string;
@@ -51,57 +51,86 @@ interface WLF {
     };
 }
 
-export interface VehicleWindow {
+interface BaseVehicleWindow {
     id: number;
     building: {
         caption: string;
         id: number;
     };
-    vehicle_type: {
+    vehicleType: {
         caption: string;
         id: number;
         custom: boolean;
     };
-    previous_vehicle_id: number;
-    next_vehicle_id: number;
-    vehicle_name: string;
-    can_move: boolean;
+    previousVehicle: number;
+    nextVehicle: number;
+    name: string;
+    canMove: boolean;
     fms: number;
-    max_staff: number;
+    maxStaff: number;
     mileage: string;
     image: string;
     user?: {
         name: string;
-        online: boolean;
         id: number;
+        online: boolean;
     };
-    current_mission?: {
+    currentMission?: {
         caption: string;
         id: number;
     };
-    followup_missions: {
+    followupMissions: {
         caption: string;
         id: number;
     }[];
     staff?: Record<string, string>;
-    water_amount?: string;
-    foam_amount?: string;
-    mission_own: Mission[];
-    mission_alliance: Mission[];
-    has_hospitals: boolean;
-    own_hospitals: Hospital[];
-    alliance_hospitals: Hospital[];
-    load_all_hospitals: boolean;
-    hospital_department: string;
-    patient_releaseable: boolean;
-    patient_doctor_transport: boolean;
-    has_cells: boolean;
-    own_cells: Cell[];
-    alliance_cells: Cell[];
-    prisoners_releaseable: boolean;
-    has_wlfs: boolean;
-    wlfs: WLF[];
+    water?: string;
+    foam?: string;
 }
+
+export interface MissionsWindow extends BaseVehicleWindow {
+    windowType: 'missions';
+    missions: {
+        own: Mission[];
+        alliance: Mission[];
+    };
+}
+
+export type TransportRequestWindow = BaseVehicleWindow & {
+    windowType: 'transportRequest';
+    transportRequestType:
+        | 'patient-intermediate'
+        | 'patient'
+        | 'prisoner-intermediate'
+        | 'prisoner'
+        | 'trailer';
+} & (
+        | {
+              transportRequestType: 'patient';
+              hospitals: {
+                  own: Hospital[];
+                  alliance: Hospital[];
+              };
+              loadAll: boolean;
+              department: string;
+              doctor: boolean;
+              releasable: boolean;
+          }
+        | {
+              transportRequestType: 'prisoner';
+              cells: {
+                  own: Cell[];
+                  alliance: Cell[];
+              };
+              releasable: boolean;
+          }
+        | {
+              transportRequestType: 'trailer';
+              towingVehicles: TowingVehicle[];
+          }
+    );
+
+export type VehicleWindow = MissionsWindow | TransportRequestWindow;
 
 export default <RedesignParser<VehicleWindow>>(({
     doc,
@@ -109,206 +138,114 @@ export default <RedesignParser<VehicleWindow>>(({
     getIdFromEl = () => -1,
 }) => {
     const id = parseInt(
-        new URL(href, window.location.href).pathname.match(/\d+\/?$/u)?.[0] ??
-            '-1'
+        new URL(href, window.location.origin).pathname.split('/')[2]
     );
-    const fms = parseInt(
-        doc
-            .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
-            ?.className?.match(/(?<=building_list_fms_)\d+/u)?.[0] ?? '-1'
-    );
-    const buildingEl = doc.querySelector<HTMLAnchorElement>(
-        '#vehicle-attr-station a[href^="/buildings/"]'
-    );
+
+    const buildingEl =
+        doc.querySelector<HTMLAnchorElement>('#back_to_building');
+    const building = {
+        caption: buildingEl?.textContent?.trim() ?? '',
+        id: getIdFromEl(buildingEl),
+    };
+
     const vehicleTypeEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-type a[href^="/fahrzeugfarbe/"]'
     );
-    const navBtns = doc.querySelectorAll<HTMLAnchorElement>(
-        '.btn-group.pull-right .btn.btn-xs[href^="/vehicles/"]'
-    );
-    const userEl = doc.querySelector<HTMLAnchorElement>(
-        '#vehicle_details a[href^="/profile/"]'
-    );
-    const currentMissionEl = doc.querySelector<HTMLAnchorElement>(
-        '#vehicle-attr-current-mission a[href^="/missions/"]'
-    );
-    const followUpMissionEls = doc.querySelectorAll<HTMLAnchorElement>(
-        '#vehicle_details h3 + ul li a[href^="/missions/"]'
-    );
-    const vehicleType = getIdFromEl(vehicleTypeEl);
+    const vehicleType = {
+        caption: vehicleTypeEl?.textContent?.trim() ?? '',
+        id: getIdFromEl(vehicleTypeEl),
+        custom: vehicleTypeEl?.href?.includes('?') ?? false,
+    };
+
+    const [previousVehicle, nextVehicle] = Array.from(
+        doc.querySelectorAll<HTMLAnchorElement>(
+            '.btn-group.pull-right .btn.btn-xs[href^="/vehicles/"]'
+        )
+    ).map(btn => getIdFromEl(btn));
+
     const imageEl = doc.querySelector<HTMLImageElement>(
         'img.vehicle_image_reload[vehicle_type_id]'
     );
-    const hasHospitals = !!doc.querySelector<HTMLAnchorElement>(
-        'a[href$="/patient/-1"]'
-    );
-    const hasCells = !!doc.querySelector<HTMLAnchorElement>(
-        `a[href^="/vehicles/${id}/gefangener/"]`
-    );
-    const own_cells: Cell[] = [];
-    const alliance_cells: Cell[] = [];
-    if (hasCells) {
-        let list: 'alliance_cells' | 'own_cells' = 'own_cells';
-        doc.querySelectorAll<HTMLAnchorElement>(
-            `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
-        ).forEach(cell => {
-            if (cell.previousElementSibling?.matches('h5'))
-                list = 'alliance_cells';
-            const text = cell.textContent ?? '';
-            const infos = text
-                .trim()
-                .match(
-                    /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
-                );
-            const cellinfos: Cell = {
-                id: getIdFromEl(cell),
-                caption: text.replace(/\([^(]*?\)$/u, ''),
-                list,
-                state: cell.classList.contains('btn-success')
-                    ? 'success'
-                    : cell.classList.contains('btn-warning')
-                    ? 'warning'
-                    : 'danger',
-                free: parseInt(infos?.groups?.free ?? '-1'),
-                distance: infos?.groups?.distance ?? '-1km',
-                tax:
-                    list === 'own_cells'
-                        ? 0
-                        : parseInt(infos?.groups?.tax ?? '-1'),
-            };
-            if (list === 'own_cells') own_cells.push(cellinfos);
-            else alliance_cells.push(cellinfos);
-        });
-    }
-    const wlf_table = doc.querySelector<HTMLTableElement>(
-        '#vehicle_show_table'
-    );
-    const hospital_departmentNode = doc.querySelector(
-        '.col-md-9 .alert.alert-info b'
-    );
-    // because missions may appear in own and alliance lists
-    const mission_ids: number[] = [];
-    const get_hospitals = (
-        list: 'alliance_hospitals' | 'own_hospitals'
-    ): Hospital[] => {
-        if (!hasHospitals) return [];
-        return Array.from(
-            doc.querySelectorAll<HTMLTableRowElement>(
-                `.col-md-9:first-of-type table#${list.replace(
-                    '_',
-                    '-'
-                )} tbody tr`
-            )
-        )
-            .map(h => {
-                if (h.children.length <= 1) return null;
-                const isOwn = list === 'own_hospitals';
-                const alarmEl =
-                    h.children[isOwn ? 4 : 5].querySelector<HTMLAnchorElement>(
-                        'a'
-                    );
-                return {
-                    caption:
-                        (
-                            (h.children[0] as HTMLElement | null)
-                                ?.firstChild as Text
-                        )?.wholeText?.trim() ?? '',
-                    distance: h.children[1]?.textContent?.trim() ?? '',
-                    beds: parseInt(h.children[2]?.textContent?.trim() ?? '-1'),
-                    department: !!h.children[isOwn ? 3 : 4].querySelector(
-                        '.label.label-success'
-                    ),
-                    id: getIdFromEl(alarmEl),
-                    list,
-                    tax: isOwn
-                        ? 0
-                        : parseInt(h.children[3]?.textContent?.trim() ?? '-1'),
-                    state: alarmEl?.classList.contains('btn-success')
-                        ? 'success'
-                        : alarmEl?.classList.contains('btn-warning')
-                        ? 'warning'
-                        : 'danger',
-                } as Hospital;
-            })
-            .filter(h => !!h) as Hospital[];
-    };
     const imgVehicleGraphicId = imageEl?.getAttribute('vehicle_graphic_id');
-    const vehicleGraphicsRegex = `vehicle_graphics${
-        imgVehicleGraphicId ? `_sorted\\[${imgVehicleGraphicId}]` : ''
-    }\\s*=\\s*`;
+    const image =
+        imageEl?.getAttribute('image_replace_allowed') === 'true'
+            ? // parse the list of graphics for the used set and get the graphic
+              (
+                  JSON.parse(
+                      doc.documentElement.innerHTML.match(
+                          new RegExp(
+                              `(?<=vehicle_graphics${
+                                  imgVehicleGraphicId
+                                      ? `_sorted\\[${imgVehicleGraphicId}]`
+                                      : ''
+                              }\\s*=\\s*)\\[(?:(?:\\[".*?",".*?","(?:true|false)"]|null),?)+]`
+                          )
+                      )?.[0] ?? '[]'
+                  ) as [string, string, 'false' | 'true'][]
+              )[vehicleType.id]?.[0] ??
+              imageEl?.src ??
+              ''
+            : // no replacement? great! use the src attribute directly
+              imageEl?.src ?? '';
 
-    const getMissionType = (el: HTMLElement) => {
-        let type = el.dataset.missionType ?? '-1';
-        const overlay = el.dataset.overlayIndex;
-        const overlays = el.dataset.additiveOverlays;
-        if (overlay) type += `-${overlay}`;
-        if (overlays) type += `/${overlays}`;
-        return type;
-    };
+    const userEl = doc.querySelector<HTMLAnchorElement>(
+        '#vehicle_details a[href^="/profile/"]'
+    );
+    const user = userEl
+        ? {
+              name: userEl.textContent?.trim() ?? '',
+              id: getIdFromEl(userEl),
+              online: !!userEl.parentElement?.querySelector(
+                  'img[src="/images/user_green.png"]'
+              ),
+          }
+        : undefined;
 
-    return {
+    const currentMissionEl = doc.querySelector<HTMLAnchorElement>(
+        '#vehicle-attr-current-mission a[href^="/missions/"]'
+    );
+    const currentMission = currentMissionEl
+        ? {
+              caption: currentMissionEl.textContent?.trim() ?? '',
+              id: getIdFromEl(currentMissionEl),
+          }
+        : undefined;
+
+    const followupMissions = Array.from(
+        doc.querySelectorAll<HTMLAnchorElement>(
+            '#vehicle_details h3 + ul li a[href^="/missions/"]'
+        )
+    ).map(el => ({
+        caption: el.textContent?.trim() ?? '',
+        id: getIdFromEl(el),
+    }));
+
+    const removeUndefined = <S>(value: S | null): value is S => !!value;
+
+    const vehicle: BaseVehicleWindow = {
         id,
-        building: {
-            caption: buildingEl?.textContent ?? '',
-            id: getIdFromEl(buildingEl),
-        },
-        vehicle_type: {
-            caption: vehicleTypeEl?.textContent ?? '',
-            id: vehicleType,
-            custom: vehicleTypeEl?.href?.includes('?') ?? false,
-        },
-        previous_vehicle_id: getIdFromEl(navBtns[0]),
-        next_vehicle_id: getIdFromEl(navBtns[1]),
-        vehicle_name: doc.querySelector('h1')?.textContent ?? '',
-        can_move: !!doc.querySelector('a[href$="/move"]'),
-        fms,
-        max_staff: parseInt(
+        building,
+        vehicleType,
+        previousVehicle,
+        nextVehicle,
+        name: doc.querySelector('h1')?.textContent ?? '',
+        canMove: !!doc.querySelector('a[href$="/move"]'),
+        fms: parseInt(
+            doc
+                .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
+                ?.className?.match(/(?<=building_list_fms_)\d+/u)?.[0] ?? '-1'
+        ),
+        maxStaff: parseInt(
             doc.querySelector<HTMLDivElement>('#vehicle-attr-max-personnel')
                 ?.textContent ?? '-1'
         ),
         mileage:
             doc.querySelector<HTMLDivElement>('#vehicle-attr-total-km')
                 ?.textContent ?? '',
-        image:
-            imageEl?.getAttribute('image_replace_allowed') === 'true'
-                ? (doc.documentElement.innerHTML.match(
-                      new RegExp(vehicleGraphicsRegex)
-                  )
-                      ? JSON.parse(
-                            Array.from(doc.scripts)
-                                .find(({ textContent }) =>
-                                    textContent?.match(/vehicle_graphics/u)
-                                )
-                                ?.innerText.match(
-                                    new RegExp(
-                                        `(?<=${vehicleGraphicsRegex})\\[(?:(?:\\[".*?",".*?","(?:true|false)"]|null),?)+]`
-                                    )
-                                )?.[0] ?? '[]'
-                        )[vehicleType]?.[0]
-                      : imageEl?.src) ??
-                  imageEl?.src ??
-                  ''
-                : imageEl?.src ?? '',
-        user: userEl
-            ? {
-                  name: userEl.textContent ?? '',
-                  id: getIdFromEl(userEl),
-                  online:
-                      (
-                          userEl?.previousElementSibling as HTMLImageElement | null
-                      )?.src?.endsWith('/images/user_green.png') ?? false,
-              }
-            : undefined,
-        current_mission: currentMissionEl
-            ? {
-                  caption: currentMissionEl?.textContent ?? '',
-                  id: getIdFromEl(currentMissionEl),
-              }
-            : undefined,
-        followup_missions: Array.from(followUpMissionEls).map(m => ({
-            id: getIdFromEl(m),
-            caption: m.textContent ?? '',
-        })),
+        image,
+        user,
+        currentMission,
+        followupMissions,
         staff: Object.fromEntries(
             Array.from(
                 doc.querySelectorAll<HTMLTableRowElement>(
@@ -318,112 +255,253 @@ export default <RedesignParser<VehicleWindow>>(({
                 Array.from(children).map(({ textContent }) => textContent)
             )
         ),
-        water_amount:
+        water:
             doc.querySelector<HTMLDivElement>('#vehicle-attr-water-amount')
                 ?.textContent ?? undefined,
-        foam_amount:
+        foam:
             doc.querySelector<HTMLDivElement>('#vehicle-attr-foam-amount')
                 ?.textContent ?? undefined,
-        ...(Object.fromEntries(
-            ['mission_own', 'mission_alliance'].map(list => [
-                list,
-                Array.from(
-                    doc.querySelectorAll<HTMLTableRowElement>(
-                        `#${list} tbody tr`
-                    )
-                )
-                    .map(m => {
-                        const linkEl =
-                            m.children[2]?.querySelector<HTMLAnchorElement>(
-                                'a[href^="/missions/"]'
-                            );
-                        const progressEl =
-                            m.children[4]?.querySelector<HTMLDivElement>(
-                                '.progress .progress-bar'
-                            );
-                        const id = getIdFromEl(linkEl);
-                        if (mission_ids.includes(id)) return null;
-                        mission_ids.push(id);
-                        return {
-                            image:
-                                m.children[0]?.querySelector('img')?.src ?? '',
-                            caption: linkEl?.textContent?.trim() ?? '',
-                            id: getIdFromEl(linkEl),
-                            type: getMissionType(m),
-                            adress: Array.from(m.children[2]?.childNodes ?? [])
-                                .map(c => (c as Text).wholeText ?? '')
-                                .join('')
-                                .trim(),
-                            distance: m.children[3]?.textContent?.trim() ?? '',
-                            list,
-                            progress: {
-                                active: !!progressEl?.querySelector(
-                                    '.progress-striped-inner-active'
-                                ),
-                                width: parseInt(
-                                    progressEl?.style.width ?? '100'
-                                ),
-                            },
-                            patients: {
-                                current: parseInt(
-                                    m.children[5]?.textContent?.trim() ?? '-1'
-                                ),
-                                total: parseInt(
-                                    m.children[5]?.textContent
-                                        ?.trim()
-                                        ?.match(/\d+$/u)?.[0] ?? '-1'
-                                ),
-                            },
-                            status:
-                                m.getAttribute('data-mission-status') ?? 'red',
-                        };
-                    })
-                    .filter(m => !!m),
-            ])
-        ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
-        has_hospitals: hasHospitals,
-        own_hospitals: get_hospitals('own_hospitals'),
-        alliance_hospitals: get_hospitals('alliance_hospitals'),
-        load_all_hospitals: !!doc.querySelector<HTMLAnchorElement>(
-            'a[href$="?load_all=true"]'
-        ),
-        hospital_department: hasHospitals
-            ? hospital_departmentNode?.textContent?.trim() ?? ''
-            : '',
-        patient_releaseable: !!doc.querySelector('a[href$="/patient/-1"]'),
-        patient_doctor_transport:
-            !!hospital_departmentNode?.nextSibling?.textContent?.trim().length,
-        has_cells: hasCells,
-        own_cells,
-        alliance_cells,
-        prisoners_releaseable: !!doc.querySelector(
-            'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
-        ),
-        has_wlfs: !!wlf_table,
-        wlfs: wlf_table
-            ? Array.from(
-                  wlf_table.querySelectorAll<HTMLTableRowElement>('tbody tr')
-              ).map(wlf => {
-                  const building = wlf.children[3];
-                  const buildingA =
-                      building.querySelector<HTMLAnchorElement>('a');
-                  return {
-                      id: parseInt(
-                          wlf.children[0]
-                              .querySelector<HTMLAnchorElement>('a')
-                              ?.href?.match(/\d+$/u)?.[0] ?? '-1'
-                      ),
-                      caption: wlf.children[1].textContent?.trim() ?? '',
-                      distance: wlf.children[2].textContent?.trim() ?? '',
-                      building: {
-                          caption: buildingA?.textContent?.trim() ?? '',
-                          id: getIdFromEl(buildingA),
-                          same: !!building.querySelector<HTMLSpanElement>(
-                              '.label.label-success'
-                          ),
-                      },
-                  };
-              })
-            : [],
     };
+
+    // there are missions => return a vehicle with missions
+    if (doc.querySelector('#mission_own')) {
+        const mission_ids: number[] = [];
+
+        const getMissionType = (el: HTMLElement) => {
+            let type = el.dataset.missionType ?? '-1';
+            const overlay = el.dataset.overlayIndex;
+            const overlays = el.dataset.additiveOverlays;
+            if (overlay) type += `-${overlay}`;
+            if (overlays) type += `/${overlays}`;
+            return type;
+        };
+
+        const getMissions = (
+            rows: HTMLTableRowElement[],
+            list: Mission['list']
+        ) =>
+            rows
+                .map(row => {
+                    const linkEl =
+                        row.children[2]?.querySelector<HTMLAnchorElement>(
+                            'a[href^="/missions/"]'
+                        );
+                    const progressEl =
+                        row.children[4]?.querySelector<HTMLDivElement>(
+                            '.progress .progress-bar'
+                        );
+                    const id = getIdFromEl(linkEl);
+                    if (mission_ids.includes(id)) return null;
+                    mission_ids.push(id);
+                    return {
+                        image: row.children[0]?.querySelector('img')?.src ?? '',
+                        caption: linkEl?.textContent?.trim() ?? '',
+                        id: getIdFromEl(linkEl),
+                        type: getMissionType(row),
+                        adress: Array.from(row.children[2]?.childNodes ?? [])
+                            .map(c => (c as Text).wholeText ?? '')
+                            .join('')
+                            .trim(),
+                        distance: row.children[3]?.textContent?.trim() ?? '',
+                        list,
+                        progress: {
+                            active: !!progressEl?.querySelector(
+                                '.progress-striped-inner-active'
+                            ),
+                            width: parseInt(progressEl?.style.width ?? '100'),
+                        },
+                        patients: {
+                            current: parseInt(
+                                row.children[5]?.textContent?.trim() ?? '-1'
+                            ),
+                            total: parseInt(
+                                row.children[5]?.textContent
+                                    ?.trim()
+                                    ?.match(/\d+$/u)?.[0] ?? '-1'
+                            ),
+                        },
+                        status:
+                            (row.getAttribute('data-mission-status') as
+                                | Mission['status']
+                                | null) ?? 'red',
+                    };
+                })
+                .filter(removeUndefined);
+
+        const missionVehicle: VehicleWindow = {
+            ...vehicle,
+            windowType: 'missions',
+            missions: {
+                own: getMissions(
+                    Array.from(doc.querySelectorAll('#mission_own tbody tr')),
+                    'own'
+                ),
+                alliance: getMissions(
+                    Array.from(
+                        doc.querySelectorAll('#mission_alliance tbody tr')
+                    ),
+                    'own'
+                ),
+            },
+        };
+        return missionVehicle;
+    }
+
+    const transportRequestType =
+        doc.querySelector<HTMLDivElement>('[data-transport-request-type]')
+            ?.dataset.transportRequestType ?? '';
+
+    // workaround to have a safe type checking and assertion
+    const isTransportRequest = (
+        type: string
+    ): type is TransportRequestWindow['transportRequestType'] =>
+        ['patient', 'prisoner', 'trailer'].includes(transportRequestType);
+
+    if (isTransportRequest(transportRequestType)) {
+        const getHospitals = (list: Hospital['list']): Hospital[] => {
+            return Array.from(
+                doc.querySelectorAll<HTMLTableRowElement>(
+                    `.col-md-9:first-of-type table#${list}-hospitals tbody tr`
+                )
+            )
+                .map(row => {
+                    if (row.children.length <= 1) return null;
+                    const isOwn = list === 'own';
+                    const alarmEl =
+                        row.children[
+                            isOwn ? 4 : 5
+                        ].querySelector<HTMLAnchorElement>('a');
+                    return {
+                        caption:
+                            (
+                                (row.children[0] as HTMLElement | null)
+                                    ?.firstChild as Text
+                            )?.wholeText?.trim() ?? '',
+                        id: getIdFromEl(alarmEl),
+                        distance: row.children[1]?.textContent?.trim() ?? '',
+                        freeBeds: parseInt(
+                            row.children[2]?.textContent?.trim() ?? '-1'
+                        ),
+                        department: !!row.children[isOwn ? 3 : 4].querySelector(
+                            '.label.label-success'
+                        ),
+                        list,
+                        tax: isOwn
+                            ? 0
+                            : parseInt(
+                                  row.children[3]?.textContent?.trim() ?? '-1'
+                              ),
+                        state: alarmEl?.classList.contains('btn-success')
+                            ? 'success'
+                            : alarmEl?.classList.contains('btn-warning')
+                            ? 'warning'
+                            : 'danger',
+                    } as Hospital;
+                })
+                .filter(removeUndefined);
+        };
+
+        let transportRequestVehicle: TransportRequestWindow | null = null;
+        if (transportRequestType === 'patient') {
+            const departmentNode = doc.querySelector(
+                '.col-md-9 .alert.alert-info b'
+            );
+            transportRequestVehicle = {
+                ...vehicle,
+                windowType: 'transportRequest',
+                transportRequestType,
+                hospitals: {
+                    own: getHospitals('own'),
+                    alliance: getHospitals('alliance'),
+                },
+                loadAll: !!doc.querySelector('a[href$="?load_all=true"]'),
+                department: departmentNode?.textContent?.trim() ?? '',
+                doctor: !!departmentNode?.nextSibling?.textContent?.trim()
+                    .length,
+                releasable: !!doc.querySelector('a[href$="/patient/-1"]'),
+            };
+        } else if (transportRequestType === 'prisoner') {
+            const own_cells: Cell[] = [];
+            const alliance_cells: Cell[] = [];
+            let list: Cell['list'] = 'own';
+            doc.querySelectorAll<HTMLAnchorElement>(
+                `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
+            ).forEach(cell => {
+                if (cell.previousElementSibling?.matches('h5'))
+                    list = 'alliance';
+                const text = cell.textContent ?? '';
+                const infos = text
+                    .trim()
+                    .match(
+                        /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
+                    );
+                const cellinfos: Cell = {
+                    id: getIdFromEl(cell),
+                    caption: text.replace(/\([^(]*?\)$/u, ''),
+                    list,
+                    state: cell.classList.contains('btn-success')
+                        ? 'success'
+                        : cell.classList.contains('btn-warning')
+                        ? 'warning'
+                        : 'danger',
+                    freeCells: parseInt(infos?.groups?.free ?? '-1'),
+                    distance: infos?.groups?.distance ?? '-1km',
+                    tax:
+                        list === 'own'
+                            ? 0
+                            : parseInt(infos?.groups?.tax ?? '-1'),
+                };
+                if (list === 'own') own_cells.push(cellinfos);
+                else alliance_cells.push(cellinfos);
+            });
+            transportRequestVehicle = {
+                ...vehicle,
+                windowType: 'transportRequest',
+                transportRequestType,
+                cells: {
+                    own: own_cells,
+                    alliance: alliance_cells,
+                },
+                releasable: !!doc.querySelector(
+                    'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
+                ),
+            };
+        } else if (transportRequestType === 'trailer') {
+            transportRequestVehicle = {
+                ...vehicle,
+                windowType: 'transportRequest',
+                transportRequestType,
+                towingVehicles: Array.from(
+                    doc
+                        .querySelector<HTMLTableElement>('#vehicle_show_table')
+                        ?.querySelectorAll<HTMLTableRowElement>('tbody tr') ??
+                        []
+                ).map(row => {
+                    const building = row.children[3];
+                    const buildingA =
+                        building.querySelector<HTMLAnchorElement>('a');
+                    return {
+                        id: parseInt(
+                            row.children[0]
+                                .querySelector<HTMLAnchorElement>('a')
+                                ?.href?.match(/\d+$/u)?.[0] ?? '-1'
+                        ),
+                        caption: row.children[1].textContent?.trim() ?? '',
+                        distance: row.children[2].textContent?.trim() ?? '',
+                        building: {
+                            caption: buildingA?.textContent?.trim() ?? '',
+                            id: getIdFromEl(buildingA),
+                            same: !!building.querySelector<HTMLSpanElement>(
+                                '.label.label-success'
+                            ),
+                        },
+                    };
+                }),
+            };
+        }
+        if (transportRequestVehicle) return transportRequestVehicle;
+    }
+
+    // the vehicle is not owned by current player
+    return vehicle;
 });
