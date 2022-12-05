@@ -340,22 +340,27 @@ export default <RedesignParser<VehicleWindow>>(({
                     Array.from(
                         doc.querySelectorAll('#mission_alliance tbody tr')
                     ),
-                    'own'
+                    'alliance'
                 ),
             },
         };
         return missionVehicle;
     }
 
+    const transportRequestTypes = ['patient', 'prisoner', 'trailer'];
+
     const transportRequestType =
-        doc.querySelector<HTMLDivElement>('[data-transport-request-type]')
-            ?.dataset.transportRequestType ?? '';
+        doc.querySelector<HTMLDivElement>(
+            `[data-transport-request="true"]:where(${transportRequestTypes
+                .map(type => `[data-transport-request-type="${type}"]`)
+                .join(',')})`
+        )?.dataset.transportRequestType ?? '';
 
     // workaround to have a safe type checking and assertion
     const isTransportRequest = (
         type: string
     ): type is TransportRequestWindow['transportRequestType'] =>
-        ['patient', 'prisoner', 'trailer'].includes(transportRequestType);
+        transportRequestTypes.includes(transportRequestType);
 
     if (isTransportRequest(transportRequestType)) {
         const getHospitals = (list: Hospital['list']): Hospital[] => {

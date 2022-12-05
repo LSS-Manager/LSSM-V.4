@@ -1,5 +1,6 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { StarrableButton } from '../../../extendedCallList/assets/starrableMissions/createBtn';
+import type { useAPIStore } from '@stores/api';
 import type { useSettingsStore } from '@stores/settings';
 import type {
     Cell,
@@ -101,10 +102,14 @@ export type RedesignVehicleComponent = RedesignComponent<
     'vehicle',
     'vehicle',
     {
-        faSitemap: IconDefinition;
-        faPortrait: IconDefinition;
-        faUser: IconDefinition;
-        faAsterisk: IconDefinition;
+        listIcon: {
+            own: IconDefinition;
+            alliance: IconDefinition;
+        };
+        participationIcon: {
+            true: IconDefinition;
+            false: IconDefinition;
+        };
         faPalette: IconDefinition;
         faEdit: IconDefinition;
         faChartLine: IconDefinition;
@@ -129,11 +134,13 @@ export type RedesignVehicleComponent = RedesignComponent<
                 sortDir: 'asc' | 'desc';
             };
         };
+        apiStore: ReturnType<typeof useAPIStore>;
         settingsStore: ReturnType<typeof useSettingsStore>;
         starredMissionsEnabled: boolean;
         starredMissions: string[];
     },
     {
+        getUrl(item: ItemChooser<'item'>): string;
         // setList<Item = ItemChooser<'item'>>(
         //     _: unknown,
         //     group: Item extends { list: string } ? Item['list'] : ''
@@ -142,11 +149,11 @@ export type RedesignVehicleComponent = RedesignComponent<
         // setSort(type: ItemChooser<'sort'>): void;
         alarm(missionId: Mission['id']): void;
         // approach(url: string, followRedirect?: boolean): void;
-        // deleteVehicle(): void;
-        // backalarm(): void;
-        // backalarmFollowUp(missionId: number): void;
-        // backalarmCurrent(): void;
-        // switchState(): void;
+        deleteVehicle(): void;
+        backalarm(): void;
+        backalarmFollowUp(missionId: number): void;
+        backalarmCurrent(): void;
+        switchState(): void;
         // updateFilter<
         //     Filters = ItemChooser<'filter'>,
         //     Filter extends keyof Filters = keyof Filters
@@ -154,10 +161,10 @@ export type RedesignVehicleComponent = RedesignComponent<
         //     filter: Filter,
         //     value: Filters[Filter]
         // ): void;
-        // release(): void;
+        release(): void;
         // loadAllHospitals(): void;
         updateStarredMissions(): Promise<string[]>;
-        // switchStarredMission(missionId: Mission['id']): void;
+        switchStarredMission(missionId: Mission['id']): void;
     },
     {
         tableType: keyof Types;
@@ -173,9 +180,9 @@ export type RedesignVehicleComponent = RedesignComponent<
         items: ItemChooser<'item'>[];
         filteredItems: ItemChooser<'filteredItem'>[];
         // sortedItems: ItemChooser<'filteredItem'>[];
-        //
-        // participatedMissions: number[];
-        //
+
+        participatedMissions: number[];
+
         hotkeysParam: {
             component: RedesignVueInstance<RedesignVehicleComponent>;
             data: Record<string, never>;
@@ -186,7 +193,7 @@ export type RedesignVehicleComponent = RedesignComponent<
                 missionsSorted: FilteredMission[];
             };
         };
-        //
-        // starredMissionButtons: Record<string, StarrableButton>;
+
+        starredMissionButtons: Record<string, StarrableButton>;
     }
 >;
