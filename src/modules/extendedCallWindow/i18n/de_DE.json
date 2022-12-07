@@ -267,7 +267,7 @@
             },
             { "texts": ["RTW"], "vehicles": [28, 74, 97] },
             { "texts": ["Radlader (BRmG R)"], "vehicles": [43] },
-            { "texts": ["Rettungshundestaffel/n"], "vehicles": [91, 92] },
+            { "texts": ["Rettungshundestaffel", "Rettungshundestaffeln"], "vehicles": [91, 92] },
             {
                 "texts": ["Rettungstreppe", "Rettungstreppen"],
                 "vehicles": [76]
