@@ -1,7 +1,5 @@
 {
-    "approach": "Seleziona",
     "backalarm": "Torna alla base",
-    "cells": { "cell": "Edificio", "free": "Celle libere" },
     "color": "Modifica colore",
     "current_mission": "Missione attuale",
     "delete": {
@@ -15,20 +13,7 @@
     "edit": "Modifica",
     "false": "No",
     "filter": {
-        "cells": {
-            "distance": "Distanza Massima",
-            "each": "Mostra x per ogni edificio",
-            "free": "Minime celle libere",
-            "tax": "Tassa massima"
-        },
-        "hospitals": {
-            "beds": "Minimi letti liberi",
-            "department": { "title": "Dipartimento: {department}" },
-            "distance": "Distanza Massima",
-            "each": "Mostra x per ogni edificio",
-            "tax": "Tassa massima"
-        },
-        "missions": {
+        "mission": {
             "credits": "Crediti Minimi",
             "distance": "Distanza Massima",
             "participation": { "title": "Partecipazione" },
@@ -40,7 +25,20 @@
                 "yellow": "Giallo"
             }
         },
-        "wlf": { "distance": "Distanza Massima", "same": "Stesso Edificio" }
+        "patient": {
+            "beds": "Minimi letti liberi",
+            "department": { "title": "Dipartimento: {department}" },
+            "distance": "Distanza Massima",
+            "each": "Mostra x per ogni edificio",
+            "tax": "Tassa massima"
+        },
+        "prisoner": {
+            "distance": "Distanza Massima",
+            "each": "Mostra x per ogni edificio",
+            "free": "Minime celle libere",
+            "tax": "Tassa massima"
+        },
+        "trailer": { "distance": "Distanza Massima", "same": "Stesso Edificio" }
     },
     "fms": "FMS",
     "fms_switch": {
@@ -49,21 +47,16 @@
     },
     "foam_amount": "Q.tà schiuma",
     "followup_missions": "Segui missione | Segui missioni",
-    "hospitals": {
-        "beds": "Letti liberi",
-        "department": "Reparto: {department}",
-        "hospital": "Ospedale"
-    },
     "load_all_hospitals": {
         "btn": "Carica tutto ",
         "text": "Solo 50 ospedali alleanza sono visualizzati. Il caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
     },
     "max_staff": "Staff max.",
     "mileage": "Chilometri percorsi",
-    "missions": {
-        "alarm": "Invia",
+    "mission": {
         "alarmed": "Missione attuale",
         "credits": "Ricompensa",
+        "dispatch": "Invia",
         "mission": "Missione",
         "participation": "Partecipazione",
         "patients": "Pazienti",
@@ -75,6 +68,17 @@
     "owner_pic_state": {
         "offline": "{user} è offline!",
         "online": "{user} è online!"
+    },
+    "patient": {
+        "beds": "Letti liberi",
+        "department": "Reparto: {department}",
+        "dispatch": "Seleziona",
+        "hospital": "Ospedale"
+    },
+    "prisoner": {
+        "cell": "Edificio",
+        "dispatch": "Seleziona",
+        "free": "Celle libere"
     },
     "release": {
         "cancel": "Annulla",
@@ -97,20 +101,20 @@
     "tabs": {
         "all": "{type}: {amount}",
         "alliance": "{type} dell'alleanza: {amount}",
-        "cells": "Celle",
-        "hospitals": "Ospedali",
         "missions": "Missioni",
-        "own": "{type} propri: {amount}"
+        "own": "{type} propri: {amount}",
+        "patient": "Ospedali",
+        "prisoner": "Celle"
     },
     "tax": "Tassa",
+    "trailer": {
+        "building": "Edificio",
+        "caption": "Veicolo Trainante",
+        "dispatch": "Seleziona",
+        "same": "Stesso edificio: {building}"
+    },
     "true": "Sì",
     "vehicletype": "Tipo veicolo",
     "water_amount": "Q.tà acqua",
-    "wlf": {
-        "alarm": "Seleziona",
-        "building": "Edificio",
-        "caption": "Veicolo Trainante",
-        "same": "Stesso edificio: {building}"
-    },
     "zuweisung": "Assegnamento staff"
 }

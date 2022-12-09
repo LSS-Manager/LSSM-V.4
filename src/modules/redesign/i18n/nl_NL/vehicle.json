@@ -1,8 +1,6 @@
 {
-    "approach": "Aanrijden",
     "backalarm": "Terugroepen",
     "backalarmNext": "Direct rijden",
-    "cells": { "cell": "Gebouw", "free": "Vrije cellen" },
     "color": "Kleur aanpassen",
     "current_mission": "Huidige inzet",
     "delete": {
@@ -16,20 +14,7 @@
     "edit": "Bewerken",
     "false": "Nee",
     "filter": {
-        "cells": {
-            "distance": "Maximale afstand",
-            "each": "Alleen eerste x gebouwen weergeven",
-            "free": "Minimale vrije cellen",
-            "tax": "Maximale afdracht"
-        },
-        "hospitals": {
-            "beds": "Minimale vrije bedden",
-            "department": { "title": "Specialisatie: {department}" },
-            "distance": "Maximale afstand",
-            "each": "Alleen eerste x ziekenhuizen weergeven",
-            "tax": "Maximale afdracht"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimale opbrengst",
             "distance": "Maximale afstand",
             "participation": { "title": "Aanwezig" },
@@ -41,7 +26,20 @@
                 "yellow": "geel"
             }
         },
-        "wlf": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }
+        "patient": {
+            "beds": "Minimale vrije bedden",
+            "department": { "title": "Specialisatie: {department}" },
+            "distance": "Maximale afstand",
+            "each": "Alleen eerste x ziekenhuizen weergeven",
+            "tax": "Maximale afdracht"
+        },
+        "prisoner": {
+            "distance": "Maximale afstand",
+            "each": "Alleen eerste x gebouwen weergeven",
+            "free": "Minimale vrije cellen",
+            "tax": "Maximale afdracht"
+        },
+        "trailer": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }
     },
     "fms": "Status",
     "fms_switch": {
@@ -50,21 +48,16 @@
     },
     "foam_amount": "Hoeveelheid schuim",
     "followup_missions": "Vervolginzet | Vervolginzetten",
-    "hospitals": {
-        "beds": "Vrije bedden",
-        "department": "Specialisatie: {department}",
-        "hospital": "Ziekenhuis"
-    },
     "load_all_hospitals": {
         "btn": "Alle ziekenhuizen laden",
         "text": "Er worden maar 50 ziekenhuizen weergegeven. Het laden van alle ziekenhuizen kan, afhankelijk van het aantal, veel tijd in beslag nemen!"
     },
     "max_staff": "Max. personeel",
     "mileage": "Totale kilometers",
-    "missions": {
-        "alarm": "Alarmeren",
+    "mission": {
         "alarmed": "Huidige inzet",
         "credits": "Opbrengst",
+        "dispatch": "Alarmeren",
         "mission": "Inzet",
         "participation": "Aanwezigheid",
         "patients": "Patiënten",
@@ -77,7 +70,18 @@
         "offline": "{user} is offline!",
         "online": "{user} is online!"
     },
+    "patient": {
+        "beds": "Vrije bedden",
+        "department": "Specialisatie: {department}",
+        "dispatch": "Aanrijden",
+        "hospital": "Ziekenhuis"
+    },
     "patient_doctor_transport": "Transport met Artsbegeleiding",
+    "prisoner": {
+        "cell": "Gebouw",
+        "dispatch": "Aanrijden",
+        "free": "Vrije cellen"
+    },
     "release": {
         "cancel": "Annuleren",
         "confirm": "Ja",
@@ -99,20 +103,20 @@
     "tabs": {
         "all": "Alle {type}: {amount}",
         "alliance": "Team-{type}: {amount}",
-        "cells": "Cellen",
-        "hospitals": "Ziekenhuizen",
         "missions": "Inzetten",
-        "own": "Eigen {type}: {amount}"
+        "own": "Eigen {type}: {amount}",
+        "patient": "Ziekenhuizen",
+        "prisoner": "Cellen"
     },
     "tax": "Afdracht aan eigenaar",
+    "trailer": {
+        "building": "Gebouw",
+        "caption": "Haakarmvoertuig",
+        "dispatch": "Alarmeren",
+        "same": "Zelfde gebouw: {building}"
+    },
     "true": "Ja",
     "vehicletype": "Voertuigtype",
     "water_amount": "Hoeveelheid water",
-    "wlf": {
-        "alarm": "Alarmeren",
-        "building": "Gebouw",
-        "caption": "Haakarmvoertuig",
-        "same": "Zelfde gebouw: {building}"
-    },
     "zuweisung": "Personeel toewijzen"
 }

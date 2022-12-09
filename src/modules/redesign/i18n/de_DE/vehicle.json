@@ -1,8 +1,6 @@
 {
-    "approach": "Anfahren",
     "backalarm": "Rückalarmieren",
     "backalarmNext": "direkt Anfahren",
-    "cells": { "cell": "Gebäude", "free": "Freie Zellen" },
     "color": "Farbe anpassen",
     "current_mission": "Aktueller Einsatz",
     "delete": {
@@ -16,20 +14,7 @@
     "edit": "Bearbeiten",
     "false": "Nein",
     "filter": {
-        "cells": {
-            "distance": "Maximale Entfernung",
-            "each": "Jeweils nur x Gebäude zeigen",
-            "free": "mindestens freie Zellen",
-            "tax": "Maximale Verbandsabgabe"
-        },
-        "hospitals": {
-            "beds": "mindestens freie Betten",
-            "department": { "title": "Fachabteilung: {department}" },
-            "distance": "Maximale Entfernung",
-            "each": "Jeweils nur x Krankenhäuser zeigen",
-            "tax": "Maximale Verbandsabgabe"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimaler Verdienst",
             "distance": "Maximale Entfernung",
             "participation": { "title": "Anwesend" },
@@ -41,27 +26,38 @@
                 "yellow": "gelb"
             }
         },
-        "wlf": { "distance": "Maximale Entfernung", "same": "Selbes Gebäude" }
+        "patient": {
+            "beds": "mindestens freie Betten",
+            "department": { "title": "Fachabteilung: {department}" },
+            "distance": "Maximale Entfernung",
+            "each": "Jeweils nur x Krankenhäuser zeigen",
+            "tax": "Maximale Verbandsabgabe"
+        },
+        "prisoner": {
+            "distance": "Maximale Entfernung",
+            "each": "Jeweils nur x Gebäude zeigen",
+            "free": "mindestens freie Zellen",
+            "tax": "Maximale Verbandsabgabe"
+        },
+        "trailer": {
+            "distance": "Maximale Entfernung",
+            "same": "Selbes Gebäude"
+        }
     },
     "fms": "FMS",
     "fms_switch": { "is_s2": "S6 setzen", "is_s6": "S2 setzen" },
     "foam_amount": "Schaummenge",
     "followup_missions": "Folgeeinsatz | Folgeeinsätze",
-    "hospitals": {
-        "beds": "Freie Betten",
-        "department": "Fachabteilung: {department}",
-        "hospital": "Krankenhaus"
-    },
     "load_all_hospitals": {
         "btn": "Alle laden",
         "text": "Es werden nur 50 Verbands-Krankenhäuser angezeigt. Das Laden aller Krankenhäuser kann je nach Menge viel Zeit in Anspruch nehmen!"
     },
     "max_staff": "Max. Personal",
     "mileage": "Laufleistung",
-    "missions": {
-        "alarm": "Alarmieren",
+    "mission": {
         "alarmed": "Aktueller Einsatz",
         "credits": "Verdienst",
+        "dispatch": "Alarmieren",
         "mission": "Einsatz",
         "participation": "Anwesenheit",
         "patients": "Patienten",
@@ -74,7 +70,18 @@
         "offline": "{user} ist offline!",
         "online": "{user} ist online!"
     },
+    "patient": {
+        "beds": "Freie Betten",
+        "department": "Fachabteilung: {department}",
+        "dispatch": "Anfahren",
+        "hospital": "Krankenhaus"
+    },
     "patient_doctor_transport": "Transport mit Arztbegleitung",
+    "prisoner": {
+        "cell": "Gebäude",
+        "dispatch": "Anfahren",
+        "free": "Freie Zellen"
+    },
     "release": {
         "cancel": "Abbrechen",
         "confirm": "Ja, entlassen!",
@@ -96,20 +103,20 @@
     "tabs": {
         "all": "Alle {type}: {amount}",
         "alliance": "Verbands-{type}: {amount}",
-        "cells": "Zellen",
-        "hospitals": "Krankenhäuser",
-        "missions": "Einsätze",
-        "own": "eigene {type}: {amount}"
+        "mission": "Einsätze",
+        "own": "eigene {type}: {amount}",
+        "patient": "Krankenhäuser",
+        "prisoner": "Zellen"
     },
     "tax": "Abgabe an Besitzer",
+    "trailer": {
+        "building": "Gebäude",
+        "caption": "Wechselladerfahrzeug",
+        "dispatch": "Alarmieren",
+        "same": "selbes Gebäude: {building}"
+    },
     "true": "Ja",
     "vehicletype": "Fahrzeugtyp",
     "water_amount": "Wassermenge",
-    "wlf": {
-        "alarm": "Alarmieren",
-        "building": "Gebäude",
-        "caption": "Wechselladerfahrzeug",
-        "same": "selbes Gebäude: {building}"
-    },
     "zuweisung": "Personalzuweisung"
 }

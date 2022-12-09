@@ -1,8 +1,6 @@
 {
-    "approach": "Acercarse",
     "backalarm": "Retroalarma",
     "backalarmNext": "acercarse directamente",
-    "cells": { "cell": "Edificio", "free": "Celdas libres" },
     "color": "Ajustar color",
     "current_mission": "Misión actual",
     "delete": {
@@ -16,20 +14,7 @@
     "edit": "Editar",
     "false": "No",
     "filter": {
-        "cells": {
-            "distance": "Distancia máxima",
-            "each": "Muestra X edificios de cada",
-            "free": "Mínimo de celdas libres",
-            "tax": "Impuesto máximo"
-        },
-        "hospitals": {
-            "beds": "Mínimo de camas libres",
-            "department": { "title": "Departamento: {department}" },
-            "distance": "Distancia máxima",
-            "each": "Muestra X edificios de cada",
-            "tax": "Impuesto máximo"
-        },
-        "missions": {
+        "mission": {
             "credits": "Créditos mínimos",
             "distance": "Distancia máxima",
             "participation": { "title": "Participación" },
@@ -41,27 +26,35 @@
                 "yellow": "amarillo"
             }
         },
-        "wlf": { "distance": "Distancia máxima", "same": "Mismo edificio" }
+        "patient": {
+            "beds": "Mínimo de camas libres",
+            "department": { "title": "Departamento: {department}" },
+            "distance": "Distancia máxima",
+            "each": "Muestra X edificios de cada",
+            "tax": "Impuesto máximo"
+        },
+        "prisoner": {
+            "distance": "Distancia máxima",
+            "each": "Muestra X edificios de cada",
+            "free": "Mínimo de celdas libres",
+            "tax": "Impuesto máximo"
+        },
+        "trailer": { "distance": "Distancia máxima", "same": "Mismo edificio" }
     },
     "fms": "FMS",
     "fms_switch": { "is_s2": "set S6", "is_s6": "set S2" },
     "foam_amount": "Cantidad de espuma",
     "followup_missions": "Misión de seguimiento | Misiones de seguimiento",
-    "hospitals": {
-        "beds": "camas libres",
-        "department": "Departamento: {department}",
-        "hospital": "Hospital"
-    },
     "load_all_hospitals": {
         "btn": "Cargar todo ",
         "text": "Solo se muestran 50 hospitales de la alianza. ¡Cargar todos los hospitales puede llevar un tiempo dependiendo de la cantidad!"
     },
     "max_staff": "Personal máximo",
     "mileage": "Kilometraje",
-    "missions": {
-        "alarm": "Alarma",
+    "mission": {
         "alarmed": "Misión actual",
         "credits": "Premio",
+        "dispatch": "Alarma",
         "mission": "Misión",
         "participation": "Participación",
         "patients": "Pacientes",
@@ -73,6 +66,17 @@
     "owner_pic_state": {
         "offline": "¡{user} está desconectado!",
         "online": "¡{user} está conectado!"
+    },
+    "patient": {
+        "beds": "camas libres",
+        "department": "Departamento: {department}",
+        "dispatch": "Acercarse",
+        "hospital": "Hospital"
+    },
+    "prisoner": {
+        "cell": "Edificio",
+        "dispatch": "Acercarse",
+        "free": "Celdas libres"
     },
     "release": {
         "cancel": "Abortar",
@@ -99,20 +103,20 @@
     "tabs": {
         "all": "todo {type}: {amount}",
         "alliance": "alianza {type}: {amount}",
-        "cells": "Celdas",
-        "hospitals": "Hospitales",
         "missions": "Misiones",
-        "own": "propietario {type}: {amount}"
+        "own": "propietario {type}: {amount}",
+        "patient": "Hospitales",
+        "prisoner": "Celdas"
     },
     "tax": "impuesto",
+    "trailer": {
+        "building": "Edificio",
+        "caption": "Fuerza motriz",
+        "dispatch": "Centralita",
+        "same": "mismo edificio: {building}"
+    },
     "true": "sí",
     "vehicletype": "Tipo de vehículo",
     "water_amount": "Cantidad de agua",
-    "wlf": {
-        "alarm": "Centralita",
-        "building": "Edificio",
-        "caption": "Fuerza motriz",
-        "same": "mismo edificio: {building}"
-    },
     "zuweisung": "Asignación de personal"
 }

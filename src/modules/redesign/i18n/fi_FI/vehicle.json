@@ -1,8 +1,6 @@
 {
-    "approach": "Kuljeta",
     "backalarm": "Peruuta",
     "backalarmNext": "Siirry seuraavaan tehtävään",
-    "cells": { "cell": "Rakennus", "free": "Vapaat sellit" },
     "color": "Muokkaa väriä",
     "current_mission": "Nykyinen tehtävä",
     "delete": {
@@ -16,20 +14,7 @@
     "edit": "Muokka",
     "false": "Ei",
     "filter": {
-        "cells": {
-            "distance": "Suurin sallittu etäisyys",
-            "each": "Näytä x määrä rakennuksia",
-            "free": "Vapaiden sellien vähimmäismäärä",
-            "tax": "Enimmäis vero"
-        },
-        "hospitals": {
-            "beds": "Vapaiden paikkojen vähimmäismäärä",
-            "department": { "title": "Osasto: {department}" },
-            "distance": "Suurin sallittu etäisyys",
-            "each": "Näytä x määrä rakennuksia",
-            "tax": "Enimmäis vero"
-        },
-        "missions": {
+        "mission": {
             "credits": "Vähintään krediittejä",
             "distance": "Suurin sallitu etäisyys",
             "participation": { "title": "Osallistujat" },
@@ -41,7 +26,20 @@
                 "yellow": "keltainen"
             }
         },
-        "wlf": {
+        "patient": {
+            "beds": "Vapaiden paikkojen vähimmäismäärä",
+            "department": { "title": "Osasto: {department}" },
+            "distance": "Suurin sallittu etäisyys",
+            "each": "Näytä x määrä rakennuksia",
+            "tax": "Enimmäis vero"
+        },
+        "prisoner": {
+            "distance": "Suurin sallittu etäisyys",
+            "each": "Näytä x määrä rakennuksia",
+            "free": "Vapaiden sellien vähimmäismäärä",
+            "tax": "Enimmäis vero"
+        },
+        "trailer": {
             "distance": "Suurin sallittu etäisyys",
             "same": "Sama rakennus"
         }
@@ -53,21 +51,16 @@
     },
     "foam_amount": "Vaahtoa",
     "followup_missions": "Jatkotehtävä | Jatkotehtävät",
-    "hospitals": {
-        "beds": "vapaita paikkoja",
-        "department": "Osasto: {department}",
-        "hospital": "Sairaala"
-    },
     "load_all_hospitals": {
         "btn": "Lataa kaikki ",
         "text": "Vain 50 liittoutumasairaalaa näytetään. Kaikkien sairaaloiden lataaminen voi kestää kauan määrästä riippuen!"
     },
     "max_staff": "Henkilöitä enint.",
     "mileage": "Kokonaismatka",
-    "missions": {
-        "alarm": "Lähetä",
+    "mission": {
         "alarmed": "Nykyinen tehtävä",
         "credits": "Keskim. krediitit",
+        "dispatch": "Lähetä",
         "mission": "Tehtävä",
         "participation": "Osallistujat",
         "patients": "Loukkaantuneet",
@@ -79,6 +72,17 @@
     "owner_pic_state": {
         "offline": "{user} on offline!",
         "online": "{user} on paikalla!"
+    },
+    "patient": {
+        "beds": "vapaita paikkoja",
+        "department": "Osasto: {department}",
+        "dispatch": "Kuljeta",
+        "hospital": "Sairaala"
+    },
+    "prisoner": {
+        "cell": "Rakennus",
+        "dispatch": "Kuljeta",
+        "free": "Vapaat sellit"
     },
     "release": {
         "cancel": "Peruuta",
@@ -101,20 +105,20 @@
     "tabs": {
         "all": "kaikki {type}: {amount}",
         "alliance": "liittoutuma {type}: {amount}",
-        "cells": "Sellit",
-        "hospitals": "Sairaalat",
         "missions": "Tehtävät",
-        "own": "oma {type}: {amount}"
+        "own": "oma {type}: {amount}",
+        "patient": "Sairaalat",
+        "prisoner": "Sellit"
     },
     "tax": "vero",
+    "trailer": {
+        "building": "Rakennus",
+        "caption": "Pää liikuttaja",
+        "dispatch": "Lähetä",
+        "same": "sama rakennus: {building}"
+    },
     "true": "kyllä",
     "vehicletype": "Ajoneuvotyyppi",
     "water_amount": "Vesi",
-    "wlf": {
-        "alarm": "Lähetä",
-        "building": "Rakennus",
-        "caption": "Pää liikuttaja",
-        "same": "sama rakennus: {building}"
-    },
     "zuweisung": "Osoita henkilöstöä"
 }

@@ -148,7 +148,8 @@ export type RedesignVehicleComponent = RedesignComponent<
         // setSearch(search: string): void;
         // setSort(type: ItemChooser<'sort'>): void;
         alarm(missionId: Mission['id']): void;
-        // approach(url: string, followRedirect?: boolean): void;
+        dispatch(id: ItemChooser<'item'>['id']): void;
+        approach(url: string, followRedirect?: boolean): void;
         deleteVehicle(): void;
         backalarm(): void;
         backalarmFollowUp(missionId: number): void;
@@ -162,7 +163,7 @@ export type RedesignVehicleComponent = RedesignComponent<
         //     value: Filters[Filter]
         // ): void;
         release(): void;
-        // loadAllHospitals(): void;
+        loadAllHospitals(): void;
         updateStarredMissions(): Promise<string[]>;
         switchStarredMission(missionId: Mission['id']): void;
     },

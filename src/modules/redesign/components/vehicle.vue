@@ -8,6 +8,18 @@
             <div>
                 <!-- Metadata -->
                 <div class="well">
+                    <span
+                        v-if="tableType === 'patient' && vehicle.loadAll"
+                        class="pull-right"
+                    >
+                        {{ lightbox.$sm('load_all_hospitals.text') }}
+                        <button
+                            class="btn btn-default btn-xs pull-right"
+                            @click="loadAllHospitals"
+                        >
+                            {{ lightbox.$sm('load_all_hospitals.btn') }}
+                        </button>
+                    </span>
                     <dl class="dl-horizontal">
                         <template v-if="vehicle.user">
                             <dt>{{ lightbox.$sm('owner') }}</dt>
@@ -271,6 +283,7 @@
                     </button>
                 </div>
             </div>
+            <!-- table with missions/hospitals/cells/towing-vehicles/... -->
             <div v-if="vehicle.windowType">
                 <tabs>
                     <tab title="?"></tab>
@@ -368,7 +381,7 @@
                                 <template v-if="item[col].total">
                                     {{
                                         lightbox.$sm(
-                                            'missions.patientsProgress',
+                                            'mission.patientsProgress',
                                             {
                                                 current: item[col].current,
                                                 total: item[col].total,
@@ -386,14 +399,67 @@
                                 {{ item[col] }}%
                             </template>
                             <span
-                                v-else-if="col === 'department'"
+                                v-else-if="
+                                    col === 'department' || col === 'same'
+                                "
                                 class="label"
                                 :class="`label-${
-                                    item.department ? 'success' : 'warning'
+                                    item.department ?? item.building.same
+                                        ? 'success'
+                                        : 'warning'
                                 }`"
                             >
-                                {{ lightbox.$sm(item.department) }}
+                                {{
+                                    lightbox.$sm(
+                                        item.department ?? item.building.same
+                                    )
+                                }}
                             </span>
+                            <template
+                                v-else-if="
+                                    tableType === 'trailer' &&
+                                    col === 'building'
+                                "
+                            >
+                                <a
+                                    :href="`/buildings/${item[col].id}`"
+                                    class="lightbox-open"
+                                    lightbox-open
+                                >
+                                    {{ item[col].caption }}
+                                </a>
+                            </template>
+                            <template v-else-if="col === 'dispatch'">
+                                <button
+                                    @click.prevent="dispatch(item.id)"
+                                    :class="`btn btn-${
+                                        ['patient', 'prisoner'].includes(
+                                            tableType
+                                        )
+                                            ? item.state
+                                            : 'success'
+                                    }`"
+                                    :disabled="
+                                        ['patient', 'prisoner'].includes(
+                                            tableType
+                                        ) && item.state === 'danger'
+                                    "
+                                >
+                                    {{ lightbox.$sm(tableType + '.dispatch') }}
+                                </button>
+                                <template
+                                    v-if="
+                                        vehicle.windowType === 'missions' &&
+                                        vehicle.currentMission &&
+                                        item.id === vehicle.currentMission.id
+                                    "
+                                >
+                                    <br />
+                                    <span class="label label-default">
+                                        {{ lightbox.$sm('mission.alarmed') }}
+                                    </span>
+                                </template>
+                            </template>
                             <template v-else>
                                 {{ item[col] ?? col }}
                             </template>
@@ -572,27 +638,23 @@ export default Vue.extend<
                     image: { title: '' },
                     participation: {
                         title: this.lightbox
-                            .$sm('missions.participation')
+                            .$sm('mission.participation')
                             .toString(),
                     },
                     caption: {
-                        title: this.lightbox.$sm('missions.mission').toString(),
+                        title: this.lightbox.$sm('mission.mission').toString(),
                     },
                     distance: {
                         title: this.lightbox.$sm('distance').toString(),
                     },
                     credits: {
-                        title: this.lightbox.$sm('missions.credits').toString(),
+                        title: this.lightbox.$sm('mission.credits').toString(),
                     },
                     progress: {
-                        title: this.lightbox
-                            .$sm('missions.progress')
-                            .toString(),
+                        title: this.lightbox.$sm('mission.progress').toString(),
                     },
                     patients: {
-                        title: this.lightbox
-                            .$sm('missions.patients')
-                            .toString(),
+                        title: this.lightbox.$sm('mission.patients').toString(),
                     },
                     dispatch: {
                         title: '',
@@ -603,20 +665,18 @@ export default Vue.extend<
                 head = {
                     list: { title: '' },
                     caption: {
-                        title: this.lightbox
-                            .$sm('hospitals.hospital')
-                            .toString(),
+                        title: this.lightbox.$sm('patient.hospital').toString(),
                     },
                     distance: {
                         title: this.lightbox.$sm('distance').toString(),
                     },
                     freeBeds: {
-                        title: this.lightbox.$sm('hospitals.beds').toString(),
+                        title: this.lightbox.$sm('patient.beds').toString(),
                     },
                     tax: { title: this.lightbox.$sm('tax').toString() },
                     department: {
                         title: this.lightbox
-                            .$sm('hospitals.department', {
+                            .$sm('patient.department', {
                                 department: this.vehicle.department,
                             })
                             .toString(),
@@ -630,13 +690,13 @@ export default Vue.extend<
                 head = {
                     list: { title: '' },
                     caption: {
-                        title: this.lightbox.$sm('cells.cell').toString(),
+                        title: this.lightbox.$sm('prisoner.cell').toString(),
                     },
                     distance: {
                         title: this.lightbox.$sm('distance').toString(),
                     },
                     freeCells: {
-                        title: this.lightbox.$sm('cells.free').toString(),
+                        title: this.lightbox.$sm('prisoner.free').toString(),
                     },
                     tax: { title: this.lightbox.$sm('tax').toString() },
                     dispatch: {
@@ -647,17 +707,17 @@ export default Vue.extend<
             } else if (this.vehicle.transportRequestType === 'trailer') {
                 head = {
                     caption: {
-                        title: this.lightbox.$sm('wlf.caption').toString(),
+                        title: this.lightbox.$sm('trailer.caption').toString(),
                     },
                     distance: {
                         title: this.lightbox.$sm('distance').toString(),
                     },
                     building: {
-                        title: this.lightbox.$sm('wlf.building').toString(),
+                        title: this.lightbox.$sm('trailer.building').toString(),
                     },
                     same: {
                         title: this.lightbox
-                            .$sm('wlf.same', {
+                            .$sm('trailer.same', {
                                 building: this.vehicle.building.caption,
                             })
                             .toString(),
@@ -799,6 +859,94 @@ export default Vue.extend<
                         `/vehicles/${this.vehicle.id}`
                     )
                 );
+        },
+        dispatch(id) {
+            if (this.vehicle.windowType === 'missions') return this.alarm(id);
+            switch (this.vehicle.transportRequestType) {
+                case 'patient':
+                    this.approach(`/vehicles/${this.vehicle.id}/patient/${id}`);
+                    break;
+                case 'prisoner':
+                    this.approach(
+                        `/vehicles/${this.vehicle.id}/gefangener/${id}`
+                    );
+                    break;
+                case 'trailer':
+                    this.approach(
+                        `/vehicles/${this.vehicle.id}/alarm?vehicle_ids%5B%5D=${id}`,
+                        false
+                    );
+                    break;
+            }
+        },
+        approach(url, followRedirect = true) {
+            this.lightbox.apiStore
+                .request({
+                    url,
+                    feature: `redesign-vehicle-approach`,
+                })
+                .then((res: Response) => {
+                    if (res.redirected && followRedirect) {
+                        if (
+                            new URL(res.url, window.location.origin)
+                                .pathname === '/'
+                        ) {
+                            this.$set(this.lightbox, 'type', 'vehicle/nextfms');
+                            return window.lightboxClose(this.lightbox.creation);
+                        }
+                        return this.$set(this.lightbox, 'src', res.url);
+                    }
+                    res.text().then(html => {
+                        import(
+                            /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
+                        ).then(async parser => {
+                            const { next: nextVehicle } = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url,
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this.lightbox,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
+                            });
+                            if (nextVehicle < 0) {
+                                import(
+                                    `../i18n/${this.lightbox.rootStore.locale}/vehicle/nextfms.json`
+                                ).then(t => {
+                                    this.$i18n.mergeLocaleMessage(
+                                        this.lightbox.rootStore.locale,
+                                        {
+                                            modules: {
+                                                redesign: {
+                                                    vehicle: {
+                                                        nextfms: t,
+                                                    },
+                                                },
+                                            },
+                                        }
+                                    );
+                                    this.$set(
+                                        this.lightbox,
+                                        'type',
+                                        'vehicle/nextfms'
+                                    );
+                                });
+                                return window.lightboxClose(
+                                    this.lightbox.creation
+                                );
+                            }
+                            this.$set(
+                                this.lightbox,
+                                'src',
+                                `/vehicles/${nextVehicle}`
+                            );
+                        });
+                    });
+                });
         },
         deleteVehicle() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -1004,6 +1152,45 @@ export default Vue.extend<
                     },
                 ],
             });
+        },
+        loadAllHospitals() {
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL(
+                `/vehicles/${this.vehicle.id}?load_all=true`,
+                window.location.origin
+            );
+            this.lightbox.apiStore
+                .request({
+                    url,
+                    feature: `redesign-vehicle-load_all_hospitals`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../parsers/vehicle').then(async parser => {
+                        const result = await parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this.lightbox,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
+                        });
+                        if (
+                            result.windowType === 'transportRequest' &&
+                            result.transportRequestType === 'patient'
+                        )
+                            this.$set(this.lightbox, 'data', result);
+
+                        this.lightbox.finishLoading(
+                            'vehicle-load_all_hospitals'
+                        );
+                    });
+                });
         },
         updateStarredMissions() {
             this.starredMissionsEnabled = false;

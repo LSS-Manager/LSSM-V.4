@@ -1,8 +1,6 @@
 {
-    "approach": "Transférer",
     "backalarm": "Rappeler",
     "backalarmNext": "Envoyer directement",
-    "cells": { "cell": "Poste", "free": "Cellules libres" },
     "color": "Changer la couleur",
     "current_mission": "Mission actuelle",
     "delete": {
@@ -16,20 +14,7 @@
     "edit": "Modifier",
     "false": "Non",
     "filter": {
-        "cells": {
-            "distance": "Distance maximum",
-            "each": "Montrer x bâtiments de chaque",
-            "free": "Nombre minimum de cellules libres",
-            "tax": "Taxe maximum"
-        },
-        "hospitals": {
-            "beds": "Minimum de lits libres",
-            "department": { "title": "Service : {department}" },
-            "distance": "Distance maximum",
-            "each": "Montrer x bâtiments de chaque",
-            "tax": "Taxe maximum"
-        },
-        "missions": {
+        "mission": {
             "credits": "Crédits minimums",
             "distance": "Distance maximum",
             "participation": { "title": "Déjà présent" },
@@ -41,7 +26,20 @@
                 "yellow": "Jaune"
             }
         },
-        "wlf": { "distance": "Distance maximum", "same": "Même bâtiment" }
+        "patient": {
+            "beds": "Minimum de lits libres",
+            "department": { "title": "Service : {department}" },
+            "distance": "Distance maximum",
+            "each": "Montrer x bâtiments de chaque",
+            "tax": "Taxe maximum"
+        },
+        "prisoner": {
+            "distance": "Distance maximum",
+            "each": "Montrer x bâtiments de chaque",
+            "free": "Nombre minimum de cellules libres",
+            "tax": "Taxe maximum"
+        },
+        "trailer": { "distance": "Distance maximum", "same": "Même bâtiment" }
     },
     "fms": "Radio",
     "fms_switch": {
@@ -50,21 +48,16 @@
     },
     "foam_amount": "Quantité de mousse",
     "followup_missions": "Mission suivante | Missions suivantes",
-    "hospitals": {
-        "beds": "Lits libres",
-        "department": "Service : {department}",
-        "hospital": "Hôpitaux"
-    },
     "load_all_hospitals": {
         "btn": "Chargez tout ",
         "text": "Seuls 50 hôpitaux de l'alliance sont affichés. Le chargement de tous les hôpitaux peut prendre beaucoup de temps en fonction de la quantité !"
     },
     "max_staff": "Max. de personnes",
     "mileage": "Kilométrage",
-    "missions": {
-        "alarm": "Déployer",
+    "mission": {
         "alarmed": "Mission actuelle",
         "credits": "Récompense",
+        "dispatch": "Déployer",
         "mission": "Mission",
         "participation": "Participation",
         "patients": "Patients",
@@ -76,6 +69,17 @@
     "owner_pic_state": {
         "offline": "{user} est hors ligne!",
         "online": "{user} est en ligne!"
+    },
+    "patient": {
+        "beds": "Lits libres",
+        "department": "Service : {department}",
+        "dispatch": "Transférer",
+        "hospital": "Hôpitaux"
+    },
+    "prisoner": {
+        "cell": "Poste",
+        "dispatch": "Transférer",
+        "free": "Cellules libres"
     },
     "release": {
         "cancel": "Annuler",
@@ -98,10 +102,10 @@
     "tabs": {
         "all": "{type} (ensemble) : {amount}",
         "alliance": "{type} d'alliance : {amount}",
-        "cells": "Cellules",
-        "hospitals": "Hôpitaux",
         "missions": "Missions",
-        "own": "{type} perso : {amount}"
+        "own": "{type} perso : {amount}",
+        "patient": "Hôpitaux",
+        "prisoner": "Cellules"
     },
     "tax": "Taxe",
     "true": "Oui",

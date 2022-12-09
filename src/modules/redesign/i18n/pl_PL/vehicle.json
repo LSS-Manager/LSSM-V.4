@@ -1,8 +1,6 @@
 {
-    "approach": "Wyślij",
     "backalarm": "Anuluj",
     "backalarmNext": "Wyślij bezpośrednio na te misję",
-    "cells": { "cell": "Budynki", "free": "Wolne jednostki" },
     "color": "Dostosuj kolor",
     "current_mission": "Aktualna misja",
     "delete": {
@@ -16,20 +14,7 @@
     "edit": "Edytuj",
     "false": "Nie",
     "filter": {
-        "cells": {
-            "distance": "Maksymalna odległość:",
-            "each": "Pokaż x budynków każdego",
-            "free": "Minimalna ilość wolnych celi",
-            "tax": "Maksymalny podatek"
-        },
-        "hospitals": {
-            "beds": "Minimalna ilość wolnych łóżek",
-            "department": { "title": "Department: {department}" },
-            "distance": "Maksymalna odległość",
-            "each": "Pokaż x budynków",
-            "tax": "Maksymalny podatek"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimalne kredyty",
             "distance": "Maksymalna odległość",
             "participation": { "title": "Pojazdy na miejscu" },
@@ -42,7 +27,20 @@
                 "yellow": "[3]Reagowanie"
             }
         },
-        "wlf": {
+        "patient": {
+            "beds": "Minimalna ilość wolnych łóżek",
+            "department": { "title": "Department: {department}" },
+            "distance": "Maksymalna odległość",
+            "each": "Pokaż x budynków",
+            "tax": "Maksymalny podatek"
+        },
+        "prisoner": {
+            "distance": "Maksymalna odległość:",
+            "each": "Pokaż x budynków każdego",
+            "free": "Minimalna ilość wolnych celi",
+            "tax": "Maksymalny podatek"
+        },
+        "trailer": {
             "building": "Budynek",
             "caption": "Pojazd holujący",
             "distance": "Dystans",
@@ -53,21 +51,16 @@
     "fms_switch": { "is_s2": "Dostępny", "is_s6": "Niedostępny" },
     "foam_amount": "Ilość piany",
     "followup_missions": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
-    "hospitals": {
-        "beds": "Wolne łóżka",
-        "department": "Department: {department}",
-        "hospital": "Szpital"
-    },
     "load_all_hospitals": {
         "btn": "Załaduj wszystkie!",
         "text": "Liczba wyświetlonych szpitali jest ograniczona. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
     },
     "max_staff": "Personel",
     "mileage": "Przebieg",
-    "missions": {
-        "alarm": "Alarm",
+    "mission": {
         "alarmed": "Obecna misja",
         "credits": "Kredyty",
+        "dispatch": "Alarm",
         "mission": "Misja",
         "participation": "Udział",
         "patients": "Pacjenci",
@@ -79,6 +72,17 @@
     "owner_pic_state": {
         "offline": "{user} jest offline!",
         "online": "{user} jest online!"
+    },
+    "patient": {
+        "beds": "Wolne łóżka",
+        "department": "Department: {department}",
+        "dispatch": "Wyślij",
+        "hospital": "Szpital"
+    },
+    "prisoner": {
+        "cell": "Budynki",
+        "dispatch": "Wyślij",
+        "free": "Wolne jednostki"
     },
     "release": {
         "cancel": "Anuluj",
@@ -101,10 +105,10 @@
     "tabs": {
         "all": "Wszystkie {type}: {amount}",
         "alliance": "Sojusznicze {type}: {amount}",
-        "cells": "cele",
-        "hospitals": "szpitale",
         "missions": "misje",
-        "own": "Twoje {type}: {amount}"
+        "own": "Twoje {type}: {amount}",
+        "patient": "szpitale",
+        "prisoner": "cele"
     },
     "tax": "Podatek",
     "true": "Tak",
