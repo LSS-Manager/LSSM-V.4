@@ -14,10 +14,11 @@ import type {
     RedesignVueInstance,
 } from 'typings/modules/Redesign';
 
-interface Filter {
-    filter: boolean;
-    hidden: boolean;
-}
+type Filter = Record<never, never>;
+// interface Filter {
+//     filter: boolean;
+//     hidden: boolean;
+// }
 
 type FilteredMission = Filter & Mission;
 type FilteredHospital = Filter & Hospital;
@@ -98,6 +99,9 @@ type ItemChooser<
     ? Types[Window['transportRequestType']]
     : Types['mission'])[Type];
 
+type DistributeListUnion<Item extends ItemChooser<'item'>> =
+    Item extends Record<'list', infer List extends string> ? List | '*' : never;
+
 export type RedesignVehicleComponent = RedesignComponent<
     'vehicle',
     'vehicle',
@@ -132,6 +136,7 @@ export type RedesignVehicleComponent = RedesignComponent<
                 filter: Types[key]['filter'];
                 sort: Types[key]['sort'];
                 sortDir: 'asc' | 'desc';
+                list: DistributeListUnion<Types[key]['item']> | '*';
             };
         };
         apiStore: ReturnType<typeof useAPIStore>;
@@ -141,10 +146,7 @@ export type RedesignVehicleComponent = RedesignComponent<
     },
     {
         getUrl(item: ItemChooser<'item'>): string;
-        // setList<Item = ItemChooser<'item'>>(
-        //     _: unknown,
-        //     group: Item extends { list: string } ? Item['list'] : ''
-        // ): void;
+        setList(_: unknown, group: number): void;
         // setSearch(search: string): void;
         // setSort(type: ItemChooser<'sort'>): void;
         alarm(missionId: Mission['id']): void;
@@ -169,6 +171,7 @@ export type RedesignVehicleComponent = RedesignComponent<
     },
     {
         tableType: keyof Types;
+        table: RedesignVehicleComponent['Data']['tables'][RedesignVehicleComponent['Computed']['tableType']];
         navigationBtnClass: Record<'next' | 'prev', string>;
         tableHead: Record<
             string,
@@ -177,6 +180,8 @@ export type RedesignVehicleComponent = RedesignComponent<
                 noSort?: boolean;
             }
         >;
+        // at the moment, this always results in a list of all possible lists, independent of the current table type
+        lists: DistributeListUnion<ItemChooser<'item'>>[];
 
         items: ItemChooser<'item'>[];
         filteredItems: ItemChooser<'filteredItem'>[];

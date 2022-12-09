@@ -117,7 +117,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         firstOwnMission(_, redesign) {
             if (redesign) {
                 const mission = redesign.component.computed.missionsSorted.find(
-                    ({ list, filter }) => list === 'own' && filter
+                    ({ list }) => list === 'own'
                 );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;
@@ -131,7 +131,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         firstAllianceMission(_, redesign) {
             if (redesign) {
                 const mission = redesign.component.computed.missionsSorted.find(
-                    ({ list, filter }) => list === 'alliance' && filter
+                    ({ list }) => list === 'alliance'
                 );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;

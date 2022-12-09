@@ -285,8 +285,24 @@
             </div>
             <!-- table with missions/hospitals/cells/towing-vehicles/... -->
             <div v-if="vehicle.windowType">
-                <tabs>
-                    <tab title="?"></tab>
+                <tabs :on-select="setList">
+                    <tab
+                        v-for="list in lists"
+                        :title="
+                            lightbox.$sm(
+                                `tabs.${list === '*' ? 'all' : list}`,
+                                {
+                                    type: lightbox.$sm(`tabs.${tableType}`),
+                                    amount: items
+                                        .filter(
+                                            i => list === '*' || i.list === list
+                                        )
+                                        .length.toLocaleString(),
+                                }
+                            )
+                        "
+                        :key="list"
+                    ></tab>
                 </tabs>
                 <enhanced-table
                     :head="tableHead"
@@ -297,10 +313,16 @@
                         },
                     }"
                     :search="search"
-                    :sort="tables[tableType].sort"
-                    :sort-dir="tables[tableType].sortDir"
+                    @search="s => (search = s)"
+                    :sort="table.sort"
+                    :sort-dir="table.sortDir"
                 >
-                    <tr v-for="(item, index) in filteredItems" :key="index">
+                    <tr
+                        v-for="(item, index) in filteredItems.filter(
+                            i => table.list === '*' || i.list === table.list
+                        )"
+                        :key="index"
+                    >
                         <td v-for="(_, col, index) in tableHead" :key="col">
                             <span
                                 v-if="
@@ -566,6 +588,7 @@ export default Vue.extend<
                     },
                     sort: 'distance',
                     sortDir: 'asc',
+                    list: '*',
                 },
                 patient: {
                     filter: {
@@ -578,6 +601,7 @@ export default Vue.extend<
                     sort: 'distance',
                     sortDir: 'asc',
                     disableReleaseConfirmation: false,
+                    list: '*',
                 },
                 prisoner: {
                     filter: {
@@ -589,6 +613,7 @@ export default Vue.extend<
                     sort: 'distance',
                     sortDir: 'asc',
                     disableReleaseConfirmation: false,
+                    list: '*',
                 },
                 trailer: {
                     filter: {
@@ -598,6 +623,7 @@ export default Vue.extend<
                     },
                     sort: 'distance',
                     sortDir: 'asc',
+                    list: '*',
                 },
             },
             apiStore: useAPIStore(),
@@ -610,6 +636,9 @@ export default Vue.extend<
         tableType() {
             if (this.vehicle.windowType === 'missions') return 'mission';
             return this.vehicle.transportRequestType;
+        },
+        table() {
+            return this.tables[this.tableType];
         },
         navigationBtnClass() {
             const prev = ['btn', 'btn-xs'];
@@ -727,6 +756,14 @@ export default Vue.extend<
             }
             return head;
         },
+        lists() {
+            if (
+                this.vehicle.windowType === 'transportRequest' &&
+                this.vehicle.transportRequestType === 'trailer'
+            )
+                return [];
+            return ['own', 'alliance', '*'];
+        },
         items() {
             if (this.vehicle.windowType === 'transportRequest') {
                 switch (this.vehicle.transportRequestType) {
@@ -750,11 +787,14 @@ export default Vue.extend<
             ];
         },
         filteredItems() {
-            return this.items.map(item => ({
-                ...item,
-                filter: true,
-                hidden: false,
-            }));
+            const filteredBySearch = this.search.trim()
+                ? this.items.filter(item =>
+                      JSON.stringify(Object.values(item))
+                          .toLowerCase()
+                          .match(this.search.trim().toLowerCase())
+                  )
+                : this.items;
+            return filteredBySearch;
         },
         ...mapState(defineAPIStore, {
             participatedMissions: 'participatedMissions',
@@ -818,6 +858,10 @@ export default Vue.extend<
             if (this.vehicle.transportRequestType === 'trailer')
                 return `/vehicles/${item.id}`;
             return `/buildings/${item.id}`;
+        },
+        setList(_, group) {
+            this.tables[this.tableType].list = this.lists[group];
+            this.setSetting(`${this.tableType}.list`, this.table.list).then();
         },
         alarm(missionId) {
             const url = new URL(
