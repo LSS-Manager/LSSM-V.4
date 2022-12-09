@@ -138,7 +138,88 @@
         "minVersion": "minimum versie"
     },
     "v3": {
-        "modules": {},
+        "modules": {
+            "AaoSearch": { "v3Name": "AUR-zoekfuncties" },
+            "aaoZaehler": { "v3Name": "AUR-Klik-Teller" },
+            "allianceMissionlistShare": { "v3Name": "Meldingen vrijgeven" },
+            "Center-Map": { "v3Name": "Kaart Centreren" },
+            "centermap": {
+                "annotation": "Hier is momenteel alleen de statische modus ingebouwd. De dynamische modus zal volgen.",
+                "v3Name": "Kaart Centreren"
+            },
+            "Clock": { "v3Name": "Klok" },
+            "creditserweiterung": { "v3Name": "Credits-uitbreiding" },
+            "dashboard": { "v3Name": "Dashboard" },
+            "DestinationFilter": {
+                "annotation": "Dit is reeds geïntegreerd in het Redesign voor voertuigen, maar zal ook als afzonderlijke module in V4 worden geïntegreerd.",
+                "v3Name": "Bestemming Filter"
+            },
+            "displayUserId": { "v3Name": "User-ID" },
+            "DoctorRadioCall": { "v3Name": "Spraakaanvraag voor MMT" },
+            "Eventsmission": { "v3Name": "Markeer Eventinzetten" },
+            "extendedBuilding": { "v3Name": "Uitgebreide bouwweergave" },
+            "FMS5InMap": { "v3Name": "Spraakaanvragen op de kaart weergeven" },
+            "fms7Target": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "fms7Target"
+            },
+            "geoBorders": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "geoBorders"
+            },
+            "heatmap": { "v3Name": "Voertuigspreiding weergeven" },
+            "iconFilter": { "v3Name": "Redesign Filterknoppen Gebouwen" },
+            "keyboardAlert": { "v3Name": "Besturing met toetsenbord" },
+            "Layout01": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 04"
+            },
+            "missionDate": { "v3Name": "Begintijd melding weergeven" },
+            "missionHelper": { "v3Name": "Meldinghelper" },
+            "missionKeyword": { "v3Name": "Steekwoorden bij meldingen" },
+            "MissionOut": { "v3Name": "Meldingen inklappen" },
+            "Notification_Alert": { "v3Name": "Browsermeldingen" },
+            "overview": { "v3Name": "Overzicht" },
+            "Redesign01": { "v3Name": "Redesign 01" },
+            "releaseNotes": { "v3Name": "Release Notes" },
+            "RenameFZ": { "v3Name": "Voertuigen herbenoemen" },
+            "saveVGE": { "v3Name": "Zelfgemaakte inzetten opslaan." },
+            "searchMissions": { "v3Name": "Meldingen doorzoeken" },
+            "ShareAlliancePost": { "v3Name": "Alarmeren, delen & Posten" },
+            "showBackAlarmAbove": { "v3Name": "Extra annuleerknop" },
+            "showChatButtonAbove": { "v3Name": "Toon boven chat-knop" },
+            "showNotTransportButtonAbove": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "showNotTransportButtonAbove"
+            },
+            "statusCount": { "v3Name": "Statusteller" },
+            "statusDispatching": { "v3Name": "Verbeterde spraakaanvragen" },
+            "sumDailyMissions": {
+                "v3Name": "Totaalweergave in dagsamenvatting"
+            },
+            "tailoredTabs": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "tailoredTabs"
+            },
+            "verbandsverwaltung": { "v3Name": "Team-uitbreiding" },
+            "WachenHoverStati": { "v3Name": "oertuigstatus bij gebouwen" },
+            "WachenplanungOnMap": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "WachenplanungOnMap"
+            }
+        },
         "tables": {
             "annotations": "Notities",
             "changes": "Wijzigingen",
