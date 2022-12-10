@@ -147,6 +147,7 @@ export type RedesignVehicleComponent = RedesignComponent<
     {
         getUrl(item: ItemChooser<'item'>): string;
         setList(_: unknown, group: number): void;
+        clickListTab(): void;
         // setSearch(search: string): void;
         // setSort(type: ItemChooser<'sort'>): void;
         alarm(missionId: Mission['id']): void;

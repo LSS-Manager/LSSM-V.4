@@ -285,10 +285,18 @@
             </div>
             <!-- table with missions/hospitals/cells/towing-vehicles/... -->
             <div v-if="vehicle.windowType">
-                <tabs :on-select="setList">
-                    <tab
+                <tabs
+                    v-if="lists.length"
+                    :on-select="setList"
+                    :default-index="lists.indexOf(table.list)"
+                >
+                    <span
                         v-for="list in lists"
-                        :title="
+                        :slot="list"
+                        :data-list="list"
+                        :key="list"
+                    >
+                        {{
                             lightbox.$sm(
                                 `tabs.${list === '*' ? 'all' : list}`,
                                 {
@@ -300,8 +308,13 @@
                                         .length.toLocaleString(),
                                 }
                             )
-                        "
+                        }}
+                    </span>
+                    <tab
+                        v-for="list in lists"
+                        :title-slot="list"
                         :key="list"
+                        :data-list="list"
                     ></tab>
                 </tabs>
                 <enhanced-table
@@ -715,6 +728,9 @@ export default Vue.extend<
                         noSort: true,
                     },
                 };
+
+                // do not show tax on own list
+                if (this.table.list === 'own') delete head.tax;
             } else if (this.vehicle.transportRequestType === 'prisoner') {
                 head = {
                     list: { title: '' },
@@ -733,6 +749,9 @@ export default Vue.extend<
                         noSort: true,
                     },
                 };
+
+                // do not show tax on own list
+                if (this.table.list === 'own') delete head.tax;
             } else if (this.vehicle.transportRequestType === 'trailer') {
                 head = {
                     caption: {
@@ -862,6 +881,13 @@ export default Vue.extend<
         setList(_, group) {
             this.tables[this.tableType].list = this.lists[group];
             this.setSetting(`${this.tableType}.list`, this.table.list).then();
+        },
+        clickListTab() {
+            this.$el
+                .querySelector<HTMLSpanElement>(
+                    `.vue-tabs .vue-tab [data-list="${this.table.list}"]`
+                )
+                ?.click();
         },
         alarm(missionId) {
             const url = new URL(
@@ -1290,6 +1316,8 @@ export default Vue.extend<
         vehicle() {
             this.updateStarredMissions().then();
 
+            this.clickListTab();
+
             this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
             this.lightbox.finishLoading('vehicle-updated-data');
         },
@@ -1301,9 +1329,12 @@ export default Vue.extend<
         // load settings
         Object.entries(this.tables).forEach(([table, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
-                this.getSetting(`${table}.${prop}`, value).then(value =>
-                    this.$set(props, prop, value)
-                );
+                this.getSetting(`${table}.${prop}`, value)
+                    .then(value => this.$set(props, prop, value))
+                    .then(() => {
+                        if (table === this.tableType && prop === 'list')
+                            this.clickListTab();
+                    });
             });
         });
     },
