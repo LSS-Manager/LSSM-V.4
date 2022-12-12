@@ -6885,7 +6885,7 @@ __metadata:
     lodash: 4.17.21
     mini-svg-data-uri: 1.4.4
     moment: 2.29.4
-    moment-timezone: 0.5.39
+    moment-timezone: 0.5.40
     pinia: 2.0.27
     prettier: 2.8.1
     qrcode: 1.5.1
@@ -7214,12 +7214,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:0.5.39":
-  version: 0.5.39
-  resolution: "moment-timezone@npm:0.5.39"
+"moment-timezone@npm:0.5.40":
+  version: 0.5.40
+  resolution: "moment-timezone@npm:0.5.40"
   dependencies:
     moment: ">= 2.9.0"
-  checksum: 9f972d3a29b2726d4fd1464df27738b756441fe57575f087cda91b7716a5a31d2cfd274255e3edfb15eb60af3ccf33fd339527b456092cac1a2a4124e4369c8b
+  checksum: 6f6be5412b37fd937bb143efe74bf65b2c3f115fd967a6dc13b717a126ed6dd198bff6db6e179d69a089e20ac03ce7622c6b5598dd585005195554487a91b528
   languageName: node
   linkType: hard
 
