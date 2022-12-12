@@ -148,8 +148,7 @@ export type RedesignVehicleComponent = RedesignComponent<
         getUrl(item: ItemChooser<'item'>): string;
         setList(_: unknown, group: number): void;
         clickListTab(): void;
-        // setSearch(search: string): void;
-        // setSort(type: ItemChooser<'sort'>): void;
+        setSort(type: ItemChooser<'sort'>): void;
         alarm(missionId: Mission['id']): void;
         dispatch(id: ItemChooser<'item'>['id']): void;
         approach(url: string, followRedirect?: boolean): void;
@@ -186,7 +185,7 @@ export type RedesignVehicleComponent = RedesignComponent<
 
         items: ItemChooser<'item'>[];
         filteredItems: ItemChooser<'filteredItem'>[];
-        // sortedItems: ItemChooser<'filteredItem'>[];
+        sortedItems: ItemChooser<'filteredItem'>[];
 
         participatedMissions: number[];
 
@@ -197,7 +196,9 @@ export type RedesignVehicleComponent = RedesignComponent<
                 alarm: RedesignVehicleComponent['Methods']['alarm'];
             };
             computed: {
-                missionsSorted: FilteredMission[];
+                sortedItems: {
+                    [Key in keyof Types]: Types[Key]['filteredItem'][];
+                };
             };
         };
 

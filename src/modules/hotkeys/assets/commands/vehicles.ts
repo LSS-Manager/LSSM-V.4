@@ -116,9 +116,10 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         validatorFunction: () => true,
         firstOwnMission(_, redesign) {
             if (redesign) {
-                const mission = redesign.component.computed.missionsSorted.find(
-                    ({ list }) => list === 'own'
-                );
+                const mission =
+                    redesign.component.computed.sortedItems.mission.find(
+                        ({ list }) => list === 'own'
+                    );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;
             }
@@ -130,9 +131,10 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         },
         firstAllianceMission(_, redesign) {
             if (redesign) {
-                const mission = redesign.component.computed.missionsSorted.find(
-                    ({ list }) => list === 'alliance'
-                );
+                const mission =
+                    redesign.component.computed.sortedItems.mission.find(
+                        ({ list }) => list === 'alliance'
+                    );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;
             }

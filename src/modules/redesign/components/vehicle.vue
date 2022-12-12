@@ -329,9 +329,10 @@
                     @search="s => (search = s)"
                     :sort="table.sort"
                     :sort-dir="table.sortDir"
+                    @sort="setSort"
                 >
                     <tr
-                        v-for="(item, index) in filteredItems.filter(
+                        v-for="(item, index) in sortedItems.filter(
                             i => table.list === '*' || i.list === table.list
                         )"
                         :key="index"
@@ -550,7 +551,10 @@ import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import createBtn from '../../extendedCallList/assets/starrableMissions/createBtn';
 
-import type { RedesignVehicleComponent as Component } from '../types/components/vehicle';
+import type {
+    RedesignVehicleComponent as Component,
+    RedesignVehicleComponent,
+} from '../types/components/vehicle';
 
 export default Vue.extend<
     Component['Data'],
@@ -815,6 +819,84 @@ export default Vue.extend<
                 : this.items;
             return filteredBySearch;
         },
+        sortedItems() {
+            const sortValues: Record<string, number | string> = {};
+
+            const directionModifier = { asc: 1, desc: -1 }[this.table.sortDir];
+
+            const findSortValue = (
+                item: typeof this.filteredItems[number]
+            ): number | string => {
+                if (item.id in sortValues) return sortValues[item.id];
+                const sort = this.table.sort;
+
+                let sortValue: boolean | number | string = 0;
+
+                if (sort === 'participation') {
+                    sortValue = this.participatedMissions.includes(item.id);
+                } else if (sort === 'distance') {
+                    sortValue = parseFloat(
+                        item.distance
+                            .replace(/[^\d,.]/gu, '')
+                            .replace(/,/gu, '.')
+                    );
+                } else if (sort === 'credits') {
+                    sortValue =
+                        'type' in item
+                            ? this.apiStore.missions[item.type]
+                                  .average_credits ?? 0
+                            : Number.MAX_VALUE;
+                } else if (sort === 'progress') {
+                    sortValue =
+                        'progress' in item
+                            ? // hacky way to respect progress and status
+                              item.progress.width +
+                              ['', 'green', 'yellow', 'red'].indexOf(
+                                  item.status
+                              ) /
+                                  10_000
+                            : 0;
+                } else if (sort === 'patients') {
+                    sortValue =
+                        'patients' in item
+                            ? // hacky way to respect current and total
+                              item.patients.current +
+                              item.patients.total / 10_000
+                            : 0;
+                } else if (sort === 'building') {
+                    sortValue = 'building' in item ? item.building.id : 0;
+                } else if (sort === 'same') {
+                    sortValue = 'building' in item ? item.building.same : 0;
+                } else if (sort in item) {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore - yes, TS is not happy because credits doesn't exist on all item types mimimi
+                    sortValue = item[sort];
+                }
+
+                if (typeof sortValue === 'boolean')
+                    sortValue = Number(sortValue);
+
+                return sortValue;
+            };
+
+            return [...this.filteredItems].sort((a, b) => {
+                const sortValueA = findSortValue(a);
+                const sortValueB = findSortValue(b);
+
+                if (
+                    typeof sortValueA === 'string' ||
+                    typeof sortValueB === 'string'
+                ) {
+                    return (
+                        sortValueA
+                            .toString()
+                            .localeCompare(sortValueB.toString()) *
+                        directionModifier
+                    );
+                }
+                return (sortValueA - sortValueB) * directionModifier;
+            });
+        },
         ...mapState(defineAPIStore, {
             participatedMissions: 'participatedMissions',
         }),
@@ -826,7 +908,13 @@ export default Vue.extend<
                     alarm: this.alarm,
                 },
                 computed: {
-                    missionsSorted: [],
+                    sortedItems: Object.fromEntries(
+                        Object.keys(this.tables).map(key => [
+                            key,
+                            key === this.tableType ? this.sortedItems : [],
+                        ])
+                        // yes, what a wonderful hack, but I didn't find a better way
+                    ) as RedesignVehicleComponent['Computed']['hotkeysParam']['computed']['sortedItems'],
                 },
             };
         },
@@ -888,6 +976,22 @@ export default Vue.extend<
                     `.vue-tabs .vue-tab [data-list="${this.table.list}"]`
                 )
                 ?.click();
+        },
+        setSort(sort) {
+            if (this.table.sort === sort) {
+                this.tables[this.tableType].sortDir =
+                    this.table.sortDir === 'asc' ? 'desc' : 'asc';
+            } else {
+                this.tables[this.tableType].sortDir = 'asc';
+            }
+            this.tables[this.tableType].sort = sort;
+            this.setSetting(`${this.tableType}.sort`, this.table.sort).then(
+                () =>
+                    this.setSetting(
+                        `${this.tableType}.sortDir`,
+                        this.table.sortDir
+                    )
+            );
         },
         alarm(missionId) {
             const url = new URL(
