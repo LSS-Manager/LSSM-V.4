@@ -76,7 +76,7 @@
         "eslint-plugin-vue": "9.8.0",
         "html-loader": "4.2.0",
         "js-yaml": "4.1.0",
-        "moment-timezone": "0.5.39",
+        "moment-timezone": "0.5.40",
         "prettier": "2.8.1",
         "sass": "1.56.2",
         "sass-loader": "13.2.0",
