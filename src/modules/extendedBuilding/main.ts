@@ -123,6 +123,22 @@ export default (async ({
                 schoolsBuildingFilter(LSSM)
             );
         }
+
+        if (
+            document.querySelector<HTMLAnchorElement>(
+                '#bereitstellungsraumReset'
+            )
+        ) {
+            if (await getSetting('renewAllStagingAreas')) {
+                import(
+                    /* webpackChunkName: "modules/extendedBuilding/renewAllStagingAreas" */ './assets/renewAllStagingAreas'
+                ).then(({ default: renewAllStagingAreas }) =>
+                    renewAllStagingAreas(LSSM, MODULE_ID, (key, args) =>
+                        $m(`renewAllStagingAreas.${key}`, args)
+                    )
+                );
+            }
+        }
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u)
     ) {

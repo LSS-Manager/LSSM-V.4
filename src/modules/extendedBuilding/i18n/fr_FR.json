@@ -8,6 +8,7 @@
         "additional": "Les valeurs entre crochets excluent les véhicules en status 6.",
         "demand": "Employé requis"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Tout combiné",
         "amount": "Montant",

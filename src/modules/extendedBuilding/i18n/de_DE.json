@@ -8,6 +8,7 @@
         "additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
         "demand": "Benötigtes Personal"
     },
+    "renewAllStagingAreas": { "title": "Alle erneuern" },
     "schoolingSummary": {
         "all": "Alle Kombinationen",
         "amount": "Anzahl",
