@@ -130,7 +130,14 @@ export type TransportRequestWindow = BaseVehicleWindow & {
           }
     );
 
-export type VehicleWindow = MissionsWindow | TransportRequestWindow;
+export type EmptyVehicleWindow = BaseVehicleWindow & {
+    windowType: 'empty';
+};
+
+export type VehicleWindow =
+    | EmptyVehicleWindow
+    | MissionsWindow
+    | TransportRequestWindow;
 
 export default <RedesignParser<VehicleWindow>>(({
     doc,
@@ -508,5 +515,5 @@ export default <RedesignParser<VehicleWindow>>(({
     }
 
     // the vehicle is not owned by current player
-    return vehicle;
+    return { ...vehicle, windowType: 'empty' };
 });

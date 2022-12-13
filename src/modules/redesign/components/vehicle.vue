@@ -284,7 +284,7 @@
                 </div>
             </div>
             <!-- table with missions/hospitals/cells/towing-vehicles/... -->
-            <div v-if="vehicle.windowType">
+            <div v-if="vehicle.windowType !== 'empty'">
                 <tabs
                     v-if="lists.length"
                     :on-select="setList"
@@ -651,7 +651,11 @@ export default Vue.extend<
     },
     computed: {
         tableType() {
-            if (this.vehicle.windowType === 'missions') return 'mission';
+            if (
+                this.vehicle.windowType === 'missions' ||
+                this.vehicle.windowType === 'empty'
+            )
+                return 'mission';
             return this.vehicle.transportRequestType;
         },
         table() {
@@ -678,7 +682,9 @@ export default Vue.extend<
                     noSort?: boolean;
                 }
             > = {};
-            if (this.vehicle.windowType === 'missions') {
+            if (this.vehicle.windowType === 'empty') {
+                // do not modify the head
+            } else if (this.vehicle.windowType === 'missions') {
                 head = {
                     list: { title: '' },
                     image: { title: '' },
@@ -788,6 +794,7 @@ export default Vue.extend<
             return ['own', 'alliance', '*'];
         },
         items() {
+            if (this.vehicle.windowType === 'empty') return [];
             if (this.vehicle.windowType === 'transportRequest') {
                 switch (this.vehicle.transportRequestType) {
                     case 'patient':
@@ -960,6 +967,7 @@ export default Vue.extend<
     },
     methods: {
         getUrl(item) {
+            if (this.vehicle.windowType === 'empty') return '';
             if (this.vehicle.windowType === 'missions')
                 return `/missions/${item.id}`;
             if (this.vehicle.transportRequestType === 'trailer')
@@ -1035,6 +1043,7 @@ export default Vue.extend<
                 );
         },
         dispatch(id) {
+            if (this.vehicle.windowType === 'empty') return;
             if (this.vehicle.windowType === 'missions') return this.alarm(id);
             switch (this.vehicle.transportRequestType) {
                 case 'patient':
