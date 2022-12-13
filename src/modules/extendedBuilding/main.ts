@@ -25,7 +25,8 @@ export default (async ({
                 /^\/vehicles\/\d+\/zuweisung\/?$/u
             ) &&
             !window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) ||
-        document.querySelectorAll('[href*="profile"]').length
+        (!document.querySelector('#bereitstellungsraumReset') &&
+            document.querySelectorAll('[href*="profile"]').length)
     )
         return;
 
