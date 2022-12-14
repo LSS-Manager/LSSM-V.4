@@ -19,6 +19,15 @@ export interface Mission {
     status: 'green' | 'red' | 'yellow';
 }
 
+export interface ShoreStation {
+    id: number;
+    caption: string;
+    distance: string;
+    home: boolean;
+    state: 'danger' | 'success' | 'warning';
+    list: 'alliance' | 'own';
+}
+
 export interface Hospital {
     caption: string;
     id: number;
@@ -105,6 +114,16 @@ export type TransportRequestWindow = BaseVehicleWindow & {
         | 'prisoner'
         | 'trailer';
 } & (
+        | {
+              transportRequestType:
+                  | 'patient-intermediate'
+                  | 'prisoner-intermediate';
+              buildings: {
+                  own: ShoreStation[];
+                  alliance: ShoreStation[];
+              };
+              releasable: boolean;
+          }
         | {
               transportRequestType: 'patient';
               hospitals: {
@@ -354,7 +373,13 @@ export default <RedesignParser<VehicleWindow>>(({
         return missionVehicle;
     }
 
-    const transportRequestTypes = ['patient', 'prisoner', 'trailer'];
+    const transportRequestTypes = [
+        'patient',
+        'prisoner',
+        'trailer',
+        'patient-intermediate',
+        'prisoner-intermediate',
+    ];
 
     const transportRequestType =
         doc.querySelector<HTMLDivElement>(
@@ -433,8 +458,8 @@ export default <RedesignParser<VehicleWindow>>(({
                 releasable: !!doc.querySelector('a[href$="/patient/-1"]'),
             };
         } else if (transportRequestType === 'prisoner') {
-            const own_cells: Cell[] = [];
-            const alliance_cells: Cell[] = [];
+            const ownCells: Cell[] = [];
+            const allianceCells: Cell[] = [];
             let list: Cell['list'] = 'own';
             doc.querySelectorAll<HTMLAnchorElement>(
                 `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
@@ -463,16 +488,16 @@ export default <RedesignParser<VehicleWindow>>(({
                             ? 0
                             : parseInt(infos?.groups?.tax ?? '-1'),
                 };
-                if (list === 'own') own_cells.push(cellinfos);
-                else alliance_cells.push(cellinfos);
+                if (list === 'own') ownCells.push(cellinfos);
+                else allianceCells.push(cellinfos);
             });
             transportRequestVehicle = {
                 ...vehicle,
                 windowType: 'transportRequest',
                 transportRequestType,
                 cells: {
-                    own: own_cells,
-                    alliance: alliance_cells,
+                    own: ownCells,
+                    alliance: allianceCells,
                 },
                 releasable: !!doc.querySelector(
                     'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
@@ -509,6 +534,62 @@ export default <RedesignParser<VehicleWindow>>(({
                         },
                     };
                 }),
+            };
+        } else if (
+            transportRequestType === 'patient-intermediate' ||
+            transportRequestType === 'prisoner-intermediate'
+        ) {
+            const getStations = (
+                list: ShoreStation['list']
+            ): ShoreStation[] => {
+                return Array.from(
+                    doc.querySelectorAll<HTMLTableRowElement>(
+                        `.col-md-9:first-of-type table#${list}-hospitals tbody tr`
+                    )
+                )
+                    .map(row => {
+                        if (row.children.length <= 1) return null;
+                        const isOwn = list === 'own';
+                        const alarmEl =
+                            row.children[
+                                isOwn ? 3 : 2
+                            ].querySelector<HTMLAnchorElement>('a');
+                        return {
+                            caption:
+                                (
+                                    (row.children[0] as HTMLElement | null)
+                                        ?.firstChild as Text
+                                )?.wholeText?.trim() ?? '',
+                            id: getIdFromEl(alarmEl),
+                            list,
+                            distance:
+                                row.children[1]?.textContent?.trim() ?? '',
+                            home: !!row.querySelector<HTMLSpanElement>(
+                                '.label.label-info'
+                            ),
+                            state: alarmEl?.classList.contains('btn-success')
+                                ? 'success'
+                                : alarmEl?.classList.contains('btn-warning')
+                                ? 'warning'
+                                : 'danger',
+                        } as ShoreStation;
+                    })
+                    .filter(removeUndefined);
+            };
+            transportRequestVehicle = {
+                ...vehicle,
+                windowType: 'transportRequest',
+                transportRequestType,
+                buildings: {
+                    own: getStations('own'),
+                    alliance: getStations('alliance'),
+                },
+                releasable:
+                    transportRequestType === 'patient-intermediate'
+                        ? !!doc.querySelector('a[href$="/patient/-1"]')
+                        : !!doc.querySelector(
+                              'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
+                          ),
             };
         }
         if (transportRequestVehicle) return transportRequestVehicle;

@@ -468,11 +468,7 @@
                             >
                             </font-awesome-icon>
                             <template v-else-if="col === 'caption'">
-                                <a
-                                    :href="getUrl(item)"
-                                    class="lightbox-open"
-                                    lightbox-open
-                                >
+                                <a :href="getUrl(item)" class="lightbox-open">
                                     {{ item[col] }}
                                 </a>
                                 <template v-if="item.adress">
@@ -535,18 +531,24 @@
                             </template>
                             <span
                                 v-else-if="
-                                    col === 'department' || col === 'same'
+                                    col === 'department' ||
+                                    col === 'same' ||
+                                    col === 'home'
                                 "
                                 class="label"
                                 :class="`label-${
-                                    item.department ?? item.building.same
+                                    item.department ??
+                                    item.building?.same ??
+                                    item.home
                                         ? 'success'
                                         : 'warning'
                                 }`"
                             >
                                 {{
                                     lightbox.$sm(
-                                        item.department ?? item.building.same
+                                        item.department ??
+                                            item.building?.same ??
+                                            item.home
                                     )
                                 }}
                             </span>
@@ -652,8 +654,16 @@ import createBtn from '../../extendedCallList/assets/starrableMissions/createBtn
 
 import type {
     RedesignVehicleComponent as Component,
+    KebabToCamelCase,
     RedesignVehicleComponent,
 } from '../types/components/vehicle';
+
+const kebabToCamelCase = <Kebab extends string = string>(
+    kebab: Kebab
+): KebabToCamelCase<Kebab> =>
+    kebab.replace(/-([a-z])/gu, g =>
+        g[1].toUpperCase()
+    ) as KebabToCamelCase<Kebab>;
 
 export default Vue.extend<
     Component['Data'],
@@ -733,12 +743,34 @@ export default Vue.extend<
                 },
                 trailer: {
                     filter: {
-                        same: [true, false],
                         distance: 0,
+                        same: [true, false],
                     },
                     sort: 'distance',
                     sortDir: 'asc',
                     list: '*',
+                },
+                patientIntermediate: {
+                    filter: {
+                        distance: 0,
+                        home: [true, false],
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
+                },
+                prisonerIntermediate: {
+                    filter: {
+                        distance: 0,
+                        home: [true, false],
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
                 },
             },
             apiStore: useAPIStore(),
@@ -754,7 +786,7 @@ export default Vue.extend<
                 this.vehicle.windowType === 'empty'
             )
                 return 'mission';
-            return this.vehicle.transportRequestType;
+            return kebabToCamelCase(this.vehicle.transportRequestType);
         },
         table() {
             return this.tables[this.tableType];
@@ -880,6 +912,29 @@ export default Vue.extend<
                     },
                     dispatch: { title: '', noSort: true },
                 };
+            } else if (
+                this.vehicle.transportRequestType === 'patient-intermediate' ||
+                this.vehicle.transportRequestType === 'prisoner-intermediate'
+            ) {
+                head = {
+                    list: { title: '' },
+                    caption: {
+                        title: this.lightbox
+                            .$sm('patientIntermediate.caption')
+                            .toString(),
+                    },
+                    distance: {
+                        title: this.lightbox.$sm('distance').toString(),
+                    },
+                    home: {
+                        title: this.lightbox
+                            .$sm('patientIntermediate.home', {
+                                building: this.vehicle.building.caption,
+                            })
+                            .toString(),
+                    },
+                    dispatch: { title: '', noSort: true },
+                };
             }
             return head;
         },
@@ -899,6 +954,12 @@ export default Vue.extend<
                         return [
                             ...this.vehicle.hospitals.own,
                             ...this.vehicle.hospitals.alliance,
+                        ];
+                    case 'patient-intermediate':
+                    case 'prisoner-intermediate':
+                        return [
+                            ...this.vehicle.buildings.own,
+                            ...this.vehicle.buildings.alliance,
                         ];
                     case 'prisoner':
                         return [
@@ -1192,9 +1253,11 @@ export default Vue.extend<
             if (this.vehicle.windowType === 'missions') return this.alarm(id);
             switch (this.vehicle.transportRequestType) {
                 case 'patient':
+                case 'patient-intermediate':
                     this.approach(`/vehicles/${this.vehicle.id}/patient/${id}`);
                     break;
                 case 'prisoner':
+                case 'prisoner-intermediate':
                     this.approach(
                         `/vehicles/${this.vehicle.id}/gefangener/${id}`
                     );

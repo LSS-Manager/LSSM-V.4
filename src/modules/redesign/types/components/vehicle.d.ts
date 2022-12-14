@@ -6,6 +6,7 @@ import type {
     Cell,
     Hospital,
     Mission,
+    ShoreStation,
     TowingVehicle,
     TransportRequestWindow,
 } from '../../parsers/vehicle';
@@ -13,6 +14,11 @@ import type {
     RedesignComponent,
     RedesignVueInstance,
 } from 'typings/modules/Redesign';
+
+export type KebabToCamelCase<S extends string> =
+    S extends `${infer T}-${infer U}`
+        ? `${T}${Capitalize<KebabToCamelCase<U>>}`
+        : S;
 
 interface Types {
     mission: {
@@ -69,10 +75,34 @@ interface Types {
     trailer: {
         item: TowingVehicle;
         filter: {
-            same: boolean[];
             distance: number;
+            same: boolean[];
         };
         sort: 'building' | 'caption' | 'distance' | 'same';
+    };
+    patientIntermediate: {
+        item: ShoreStation;
+        filter: {
+            distance: number;
+            home: boolean[];
+        };
+        sort: 'caption' | 'distance' | 'home' | 'list';
+        additional: {
+            disableReleaseConfirmation: boolean;
+            showEach: number;
+        };
+    };
+    prisonerIntermediate: {
+        item: ShoreStation;
+        filter: {
+            distance: number;
+            home: boolean[];
+        };
+        sort: 'caption' | 'distance' | 'home' | 'list';
+        additional: {
+            disableReleaseConfirmation: boolean;
+            showEach: number;
+        };
     };
 }
 
@@ -80,7 +110,7 @@ type ItemChooser<
     Type extends keyof Types[keyof Types],
     Window = RedesignVehicleComponent['Props']['vehicle']
 > = (Window extends TransportRequestWindow
-    ? Types[Window['transportRequestType']]
+    ? Types[KebabToCamelCase<Window['transportRequestType']>]
     : Types['mission'])[Type];
 
 type DistributeListUnion<Item extends ItemChooser<'item'>> =

@@ -34,11 +34,21 @@
             "show": "Pokaż x budynków",
             "tax": "Maksymalny podatek"
         },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
         "prisoner": {
             "distance": "Maksymalna odległość:",
             "freeCells": "Minimalna ilość wolnych celi",
             "show": "Pokaż x budynków każdego",
             "tax": "Maksymalny podatek"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
         },
         "trailer": {
             "building": "Budynek",
@@ -79,10 +89,20 @@
         "dispatch": "Wyślij",
         "hospital": "Szpital"
     },
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
     "prisoner": {
         "cell": "Budynki",
         "dispatch": "Wyślij",
         "free": "Wolne jednostki"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Anuluj",

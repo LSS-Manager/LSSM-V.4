@@ -33,11 +33,21 @@
             "show": "Näytä x määrä rakennuksia",
             "tax": "Enimmäis vero"
         },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
         "prisoner": {
             "distance": "Suurin sallittu etäisyys",
             "freeCells": "Vapaiden sellien vähimmäismäärä",
             "show": "Näytä x määrä rakennuksia",
             "tax": "Enimmäis vero"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
         },
         "trailer": {
             "distance": "Suurin sallittu etäisyys",
@@ -79,10 +89,20 @@
         "dispatch": "Kuljeta",
         "hospital": "Sairaala"
     },
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
     "prisoner": {
         "cell": "Rakennus",
         "dispatch": "Kuljeta",
         "free": "Vapaat sellit"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Peruuta",

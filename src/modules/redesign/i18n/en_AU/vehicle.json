@@ -33,11 +33,21 @@
             "show": "Show x buildings of each",
             "tax": "Maximum tax"
         },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
         "prisoner": {
             "distance": "Maximum distance",
             "freeCells": "Minimum free cells",
             "show": "Show x buildings of each",
             "tax": "Maximum tax"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
         },
         "trailer": { "distance": "Maximum Distance", "same": "Same Building" }
     },
@@ -73,10 +83,20 @@
         "dispatch": "Approach",
         "hospital": "Hospital"
     },
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
     "prisoner": {
         "cell": "Building",
         "dispatch": "Approach",
         "free": "Free cells"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Abort",

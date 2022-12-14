@@ -33,11 +33,21 @@
             "show": "Jeweils nur x Krankenhäuser zeigen",
             "tax": "Maximale Verbandsabgabe"
         },
+        "patientIntermediate": {
+            "distance": "Maximale Entfernung",
+            "home": "Heimathafen",
+            "show": "Jeweils nur x Gebäude zeigen"
+        },
         "prisoner": {
             "distance": "Maximale Entfernung",
             "freeCells": "mindestens freie Zellen",
             "show": "Jeweils nur x Gebäude zeigen",
             "tax": "Maximale Verbandsabgabe"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximale Entfernung",
+            "home": "Heimathafen",
+            "show": "Jeweils nur x Gebäude zeigen"
         },
         "trailer": {
             "distance": "Maximale Entfernung",
@@ -77,10 +87,20 @@
         "hospital": "Krankenhaus"
     },
     "patient_doctor_transport": "Transport mit Arztbegleitung",
+    "patientIntermediate": {
+        "caption": "Küstenwache",
+        "dispatch": "Patienten transportieren",
+        "home": "Heimathafen: {building}"
+    },
     "prisoner": {
         "cell": "Gebäude",
         "dispatch": "Anfahren",
         "free": "Freie Zellen"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Gefangenen transportieren",
+        "distance": "Küstenwache",
+        "home": "Heimathafen: {building}"
     },
     "release": {
         "cancel": "Abbrechen",

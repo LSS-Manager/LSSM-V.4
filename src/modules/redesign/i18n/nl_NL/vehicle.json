@@ -33,11 +33,21 @@
             "show": "Alleen eerste x ziekenhuizen weergeven",
             "tax": "Maximale afdracht"
         },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
         "prisoner": {
             "distance": "Maximale afstand",
             "freeCells": "Minimale vrije cellen",
             "show": "Alleen eerste x gebouwen weergeven",
             "tax": "Maximale afdracht"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
         },
         "trailer": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }
     },
@@ -77,10 +87,20 @@
         "hospital": "Ziekenhuis"
     },
     "patient_doctor_transport": "Transport met Artsbegeleiding",
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
     "prisoner": {
         "cell": "Gebouw",
         "dispatch": "Aanrijden",
         "free": "Vrije cellen"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Annuleren",
