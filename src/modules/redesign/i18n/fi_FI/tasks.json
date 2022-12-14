@@ -1,0 +1,17 @@
+{
+    "all": "Kaikki",
+    "claim": "Lunasta",
+    "claimAll": "Lunasta kaikki ({amount})",
+    "collectionTasks": {
+        "taskName": "Suorita \\d+ tapahtuman ”(.*?)” tehtävää",
+        "title": "Kollektiiviset tehtävät"
+    },
+    "confirmation": {
+        "cancel": "Peruuta",
+        "confirm": "Jatka",
+        "title": "Huomio:"
+    },
+    "end": "Loppu",
+    "nextTask": "Seuraava tehtävä",
+    "title": "Urakat ja tapahtumat"
+}

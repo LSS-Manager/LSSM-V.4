@@ -8,6 +8,7 @@
         "additional": "Values in brackets exclude vehicles in Status 6.",
         "demand": "Required personnel"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "All combinations",
         "amount": "Amount",

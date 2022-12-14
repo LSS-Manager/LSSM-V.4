@@ -38,6 +38,10 @@
             "description": "Muestra cuánto personal se requiere con ocupación mínima y máxima de vehículos.",
             "title": "Requerimientos de personal"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Muestra un resumen general del personal de un edificio de cuántas personas tienen formación(es).",
             "title": "Resumen del personal"

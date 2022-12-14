@@ -18,6 +18,7 @@ const modules = {
         reset: 'Resetovat',
         export: 'Export',
         import: 'Import',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Resetovat nastavení',
             text: 'Opravdu chcete resetovat nastavení do počátečních hodnot? Tento krok nelze vrátit!',

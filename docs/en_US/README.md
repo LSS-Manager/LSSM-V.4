@@ -20,7 +20,7 @@ sidebarDepth: 2
 
 ## About LSSM
 
-LSS MANAGER V.4 is an extension for [Missionchief.com](https://www.missionchief.com) and its other language versions.
+LSS MANAGER V.4 is an extension for [Missionchief.com][games.self] and its other language versions.
 
 With this extension, an appstore is added to the game, allowing the usage of modules. You can decide which modules to activate.
 
@@ -28,7 +28,7 @@ Deactivated plugins are not loaded into your browser, for better performance.
 
 
 ## Installation 📥
-[By using LSSM you agree that we collect metadata.](metadata.md)
+[By using LSSM you agree that we collect metadata.][docs.metadata]
 
 A table with which browsers LSSM is compatible can be found in our [FAQ](faq.md)
 
@@ -43,14 +43,14 @@ Install Tampermonkey extension into your browser.
 
 <tampermonkey-download-table/>
 
-For other browsers you can download Tampermonkey on [tampermonkey.net](https://www.tampermonkey.net/).
+For other browsers you can download Tampermonkey on [tampermonkey.net][tampermonkey].
 
 ::: warning
 Please note that we do not officially support older browsers, mobile browsers and Apple Safari. Support for these browsers is therefore neither guaranteed nor likely.
 :::
 
 ### Step 2: Userscript
-If Tampermonkey was successfully installed in your browser, you can either click <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">here</a> or create a new userscript with the following content:
+If Tampermonkey was successfully installed in your browser, you can either click [here][lssm.userscript] or create a new userscript with the following content:
 
 @[code js](@userscript)
 
@@ -58,22 +58,26 @@ If Tampermonkey was successfully installed in your browser, you can either click
 The LSSM indicator is a green highlighted text `LSSM V.4`, present in the upper right corner of Missionchief.
 If you cannot find this indicator, click on the tampermonkey icon in your browser and check if the switch for LSS-Manager script is set to `on`.
 
-If you have any problems, feel free to contact [Support](support.md).
+If you have any problems, feel free to contact [Support][docs.support].
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /en_US/apps/
-[docs.appstore]: /en_US/appstore/
-[docs.bugs]: /en_US/bugs/
-[docs.error_report]: /en_US/error_report/
-[docs.faq]: /en_US/faq/
-[docs.metadata]: /en_US/metadata/
-[docs.other]: /en_US/other/
-[docs.settings]: /en_US/settings/
-[docs.suggestions]: /en_US/suggestions/
-[docs.support]: /en_US/support/
+[docs.apps]: /en_US/apps.md
+[docs.appstore]: /en_US/appstore.md
+[docs.bugs]: /en_US/bugs.md
+[docs.error_report]: /en_US/error_report.md
+[docs.faq]: /en_US/faq.md
+[docs.metadata]: /en_US/metadata.md
+[docs.other]: /en_US/other.md
+[docs.settings]: /en_US/settings.md
+[docs.suggestions]: /en_US/suggestions.md
+[docs.support]: /en_US/support.md
 [games.self]: https://missionchief.com
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

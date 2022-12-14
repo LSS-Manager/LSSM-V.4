@@ -1,0 +1,17 @@
+{
+    "all": "Todo",
+    "claim": "Reclamar",
+    "claimAll": "Reclamar todo ({amount})",
+    "collectionTasks": {
+        "taskName": "Terminado \\d+ \"(.*?)\" tarea de eventos",
+        "title": "Tareas colectivas"
+    },
+    "confirmation": {
+        "cancel": "Abortar",
+        "confirm": "Continuar",
+        "title": "Atención:"
+    },
+    "end": "Terminar",
+    "nextTask": "¡Después de reclamar, aparecerá una nueva tarea!",
+    "title": "Tareas y eventos"
+}

@@ -160,6 +160,14 @@
             "description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
             "title": "Patientenbehandlungsdauer"
         },
+        "selectedVehicleCounter": {
+            "description": "Zeigt in einer ausklappbaren Liste an, wie viele Fahrzeuge welchen Typs ausgewählt sind.",
+            "title": "Ausgewählte Fahrzeuge zählen"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Zeigt diese Fahrzeugtypen auf dem Knopf zum Ausklappen an, sodass du nicht erst die Liste öffnen musst, um deren Anzahl zu sehen.",
+            "title": "Ausgewählte Fahrzeuge zählen: Schnellzähler"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",
             "title": "Zähler im Bereitstellungsraum"

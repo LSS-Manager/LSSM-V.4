@@ -169,12 +169,13 @@ export default {
         start: `${PREFIX}-load-script-start`,
         end: `${PREFIX}-load-script-end`,
     },
-    userscript_latest_update: '4.5.10',
+    userscript_latest_update: '4.7.0',
     prefix: PREFIX,
     urls: {
         server: 'https://v4.lss-manager.de/',
         docs: 'https://docs.lss-manager.de/',
         statuspage: 'https://status.lss-manager.de/',
+        donations: 'https://donate.lss-manager.de/',
         fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
     },
 } as Config;

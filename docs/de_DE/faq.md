@@ -12,10 +12,10 @@ Auch wenn er sicherlich einen Mehrwert liefert, liegt keine Mehrwertsteuer auf d
 
 Möchtest du uns trotzdem unterstützen? Dann kannst du uns gerne eine Spende über [OpenCollective][donate] zukommen lassen. Wir freuen uns über jede Unterstützung!
 
-::warning Spenden
+:::warning Spenden
 Alle Spenden werden ausschließlich zum Decken der laufenden Kosten verwendet. Wir haben keine Gewinnabsicht und werden auch keine Gewinne ausschütten.
 
-Das Spenden hat keinen direkten Einfluss auf die Entwicklung des LSSM! Wir werden nicht mehr und nicht weniger Zeit investieren und auch für einzelne Nutzer gibt es keine direkten Vorteile wie z.B. Premium-Features geben. Die Entwicklung des LSSM bleibt weiterhin auf freiwilliger Basis in unserer Freizeit und die Nutzung bleibt weiterhin für alle Nutzer vollständig kostenlos!
+Das Spenden hat keinen direkten Einfluss auf die Entwicklung des LSSM! Wir werden nicht mehr und nicht weniger Zeit investieren und auch für spendende Nutzer wird es keine direkten Vorteile wie z.B. Premium-Features geben. Die Entwicklung des LSSM bleibt weiterhin auf freiwilliger Basis in unserer Freizeit und die Nutzung bleibt weiterhin für alle Nutzer vollständig kostenlos!
 
 Selbstverständlich freuen wir uns über jede Spende, wir möchten trotzdem darauf hinweisen, dass wir das Projekt auch ohne die Spenden wie bisher weiter laufen lassen möchten.
 :::
@@ -84,3 +84,25 @@ Oder im <discord-channel channel="uptime"/> auf unserem <discord/>
 [suggestions]: suggestions.md
 [settings]: settings.md
 [donate]: https://donate.lss-manager.de/
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /de_DE/apps.md
+[docs.appstore]: /de_DE/appstore.md
+[docs.bugs]: /de_DE/bugs.md
+[docs.error_report]: /de_DE/error_report.md
+[docs.faq]: /de_DE/faq.md
+[docs.metadata]: /de_DE/metadata.md
+[docs.other]: /de_DE/other.md
+[docs.settings]: /de_DE/settings.md
+[docs.suggestions]: /de_DE/suggestions.md
+[docs.support]: /de_DE/support.md
+[games.self]: https://leitstellenspiel.de
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

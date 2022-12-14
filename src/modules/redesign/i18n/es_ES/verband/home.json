@@ -1,0 +1,14 @@
+{
+    "applied": "Se ha postulado a esta alianza, solo necesita ser aceptado por un (Co-)administrador de la alianza. ¡Suerte!",
+    "apply": "Solicitar",
+    "edit_logo": "Editar logo",
+    "edit_name": "Renombrar alianza",
+    "edit_text": "Edite el texto de introducción, las reglas, la información importante de la alianza y los WebHooks de Discord",
+    "leave": {
+        "cancel": "Cancelar",
+        "confirm": "¡Abandonar!",
+        "text": "¿Quiere dejar la alianza **{caption}**? ¡La acción no se puede deshacer!",
+        "title": "Salir de la alianza"
+    },
+    "unapply": "Retirar solicitud"
+}

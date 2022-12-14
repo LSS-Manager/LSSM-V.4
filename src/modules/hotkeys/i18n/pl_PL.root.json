@@ -71,6 +71,16 @@
             "title": "Building"
         },
         "main": {
+            "bigMap": {
+                "title": "Projekt okna",
+                "toggle": {
+                    "buildings": "Budynki",
+                    "chat": "Czat",
+                    "missions": "Misje",
+                    "radio": "Radio",
+                    "title": "przełącz okno"
+                }
+            },
             "chat": { "focus": "Skup się na polu wiadomości", "title": "Czat" },
             "lssm": {
                 "menu": { "title": "Menu", "toggle": "Otwórz / Zamknij" },
@@ -105,6 +115,9 @@
             "title": "Główne okno"
         },
         "mission": {
+            "alert": "Wyślij",
+            "alert_next": "Wyślij i przejdź do następnej misji",
+            "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
             "alliance": {
                 "focus": "Skup się na uwagach o wydarzeniu.",
                 "title": "Sojusz",
@@ -121,6 +134,9 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
+            "next": "Następna misja",
+            "prev": "Poprzednia misja",
+            "share": "Udostępnij",
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
                 "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
@@ -129,6 +145,7 @@
                 "title": "Posortowane misje"
             },
             "title": "Okno misji",
+            "transport_request": "Otwórz pierwsze żądanie transportu pacjenta",
             "vehicleList": {
                 "loadMissing": "Załaduj brakujące pojazdy",
                 "next": "Poprzednia zakładka",
@@ -138,25 +155,25 @@
         },
         "vehicles": {
             "alarm": {
-                "firstAllianceMission": "Alarm to first alliance mission",
-                "firstOwnMission": "Alarm to first own mission",
-                "title": "alarm"
+                "firstAllianceMission": "Wyślij na pierwszą misję sojuszu",
+                "firstOwnMission": "Wyślij na pierwszą misję",
+                "title": "Wyślij"
             },
             "goto": {
-                "building": "building",
-                "edit": "edit",
-                "nextVehicle": "next vehicle",
-                "personalAssigment": "personal assigment",
-                "previousVehicle": "previous vehicle",
-                "statistics": "stats",
-                "title": "go to"
+                "building": "budynków",
+                "edit": "edycji",
+                "nextVehicle": "następnego pojazdu",
+                "personalAssigment": "przypisywania załogi",
+                "previousVehicle": "poprzedniego pojazdu",
+                "statistics": "statystyk",
+                "title": "Przejdź do"
             },
             "other": {
-                "moveVehicle": "move vehicle",
-                "title": "etc.",
-                "toggleFMS": "toggle status"
+                "moveVehicle": "przenieś pojazd",
+                "title": "Inne.",
+                "toggleFMS": "zmień status"
             },
-            "title": "vehicles"
+            "title": "pojazdy"
         }
     },
     "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",
@@ -169,5 +186,5 @@
             "title": "Skróty klawiszowe"
         }
     },
-    "unique": "Próbowałeś przypisać ten sam skrót klawiszowy do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót dla tej akcji!"
+    "unique": "Próbowałeś przypisać ten sam klawisz skrótu do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót klawiszowy dla tej czynności."
 }

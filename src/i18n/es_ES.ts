@@ -18,6 +18,7 @@ const modules = {
         reset: 'Restablecer',
         export: 'Exportar',
         import: 'Importar',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Restablecer la configuración',
             text: '¿Realmente desea restablecer la configuración a sus valores predeterminados? ¡Esto no se puede deshacer!',

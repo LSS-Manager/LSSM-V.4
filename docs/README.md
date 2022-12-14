@@ -62,4 +62,5 @@ For more information click on your flag above
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
 [tampermonkey]: https://tampermonkey.net/

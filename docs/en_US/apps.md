@@ -11,7 +11,7 @@ On the following pages you will find a description of all our modules. We have d
 If you have suggestions for improvement, you can send them to us as always - or even do it yourself.
 
 :::danger modules that do not work in Mapkit
-As described in the explanation of the [Appstore](appstore.md), there are modules which are unfortunately not compatible with the map type `Mapkit`. These are these modules:
+As described in the explanation of the [Appstore][docs.appstore], there are modules which are unfortunately not compatible with the map type `Mapkit`. These are these modules:
 
 <mapkit-modules settings-text="And these settings"/>
 :::
@@ -34,3 +34,25 @@ These Modules will be integrated into V4, but it will still take some time to in
 These Modules are new in V4.
 
 <v3-v4-comparison-new/>
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /en_US/apps.md
+[docs.appstore]: /en_US/appstore.md
+[docs.bugs]: /en_US/bugs.md
+[docs.error_report]: /en_US/error_report.md
+[docs.faq]: /en_US/faq.md
+[docs.metadata]: /en_US/metadata.md
+[docs.other]: /en_US/other.md
+[docs.settings]: /en_US/settings.md
+[docs.suggestions]: /en_US/suggestions.md
+[docs.support]: /en_US/support.md
+[games.self]: https://missionchief.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

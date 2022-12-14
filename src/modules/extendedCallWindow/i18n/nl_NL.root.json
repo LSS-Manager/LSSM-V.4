@@ -161,6 +161,14 @@
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
             "title": "Patiëntenbehandelingsduur"
         },
+        "selectedVehicleCounter": {
+            "description": "Toont een lijst met hoeveel voertuigen van elk type zijn geselecteerd.",
+            "title": "Tel geslecteerde voertuigen"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Toont deze voertuigtypes in de knop, zodat je niet de lijst hoeft te openen om de aantallen te zien.",
+            "title": "Tel geslecteerde voertuigen: snelle teller"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
             "title": "Voertuigselectieteller in UGS"

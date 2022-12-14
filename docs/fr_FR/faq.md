@@ -12,7 +12,7 @@ Même s'il apporte certainement une valeur ajoutée, il n'y a pas de TVA sur ce 
 
 Vous souhaitez quand même nous soutenir financièrement ? Alors vous pouvez nous envoyer un don via [OpenCollective][donate]. Nous sommes heureux de tout soutien !
 
-::warning Dons
+:::warning Dons
 Tous les dons seront uniquement utilisés pour couvrir nos frais de fonctionnement. Nous n'avons pas l'intention de faire des bénéfices et nous ne les distribuerons pas.
 
 Les dons n'ont aucune influence directe sur le développement de LSSM ! Nous n'investirons pas plus ou moins de temps et il n'y aura pas d'avantages directs pour les utilisateurs tels que des fonctionnalités premium. Le développement de LSSM se fera sur une base volontaire, pendant notre temps libre, et l'utilisation restera entièrement gratuite pour tous les utilisateurs !
@@ -83,3 +83,25 @@ Ou dans sur <discord-channel channel="uptime"/> sur notre <discord/>.
 [suggestions]: suggestions.md
 [settings]: settings.md
 [donate]: https://donate.lss-manager.de/
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /fr_FR/apps.md
+[docs.appstore]: /fr_FR/appstore.md
+[docs.bugs]: /fr_FR/bugs.md
+[docs.error_report]: /fr_FR/error_report.md
+[docs.faq]: /fr_FR/faq.md
+[docs.metadata]: /fr_FR/metadata.md
+[docs.other]: /fr_FR/other.md
+[docs.settings]: /fr_FR/settings.md
+[docs.suggestions]: /fr_FR/suggestions.md
+[docs.support]: /fr_FR/support.md
+[games.self]: https://operateur112.fr
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

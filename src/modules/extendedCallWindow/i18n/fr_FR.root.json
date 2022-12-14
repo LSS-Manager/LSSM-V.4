@@ -160,6 +160,14 @@
             "description": "Indique pour chaque patient le temps qu'il reste jusqu'à ce qu'il soit entièrement traité.",
             "title": "Temps restant pour les patients"
         },
+        "selectedVehicleCounter": {
+            "description": "Affiche dans une liste extensible combien de véhicules sont sélectionnés pour chaque type.",
+            "title": "Compter les véhicules sélectionnés"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Affiche les types de véhicules sur le bouton afin que vous n'ayez pas à ouvrir la liste pour voir leur nombre.",
+            "title": "Compter les véhicules sélectionnés : Comptage rapide"
+        },
         "stagingAreaSelectedCounter": {
             "description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
             "title": "Compteur de véhicules dans les CRM"

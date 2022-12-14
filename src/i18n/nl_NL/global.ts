@@ -55,7 +55,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         branch: {
             description:
                 'Kies hier tussen stable, beta of een andere voorvertonings versie. De voorvertonings versies worden ongeveer 7 dagen na hun laatste update verwijderd.',
-            title: 'Choose version',
+            title: 'Kies branch',
         },
         iconBg: {
             description: 'Verander de achtergrond van het LSSM-logo!',

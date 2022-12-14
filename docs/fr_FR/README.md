@@ -20,7 +20,7 @@ sidebarDepth: 2
 
 ## A propos de LSSM
 
-LSS-MANAGER V.4 est une extension de [www.operateur112.fr](https://www.operateur112.fr) et de ses autres versions linguistiques.
+LSS-MANAGER V.4 est une extension de [www.operateur112.fr][games.self] et de ses autres versions linguistiques.
 
 Avec cette extension, une appstore est ajoutée au jeu, ce qui permet l'utilisation de plugins. Toutes les fonctions sont modulaires - vous pouvez décider de ce qui doit être activé, jusqu'au dernier module.
 
@@ -28,7 +28,7 @@ Les plugins qui ne sont pas activés ne seront pas non plus chargés - ce qui fa
 
 
 ## Installation 📥
-En utilisant LSSM, vous acceptez que nous recueillions des métadonnées. Vous trouverez de plus amples informations à ce sujet à l'adresse suivante [métadonnées](metadata.md)
+En utilisant LSSM, vous acceptez que nous recueillions des métadonnées. Vous trouverez de plus amples informations à ce sujet à l'adresse suivante [métadonnées][docs.metadata]
 
 Un tableau avec les navigateurs compatibles avec LSSM se trouve dans notre site web. [FAQ](faq.md#dans-quels-navigateurs-lss-manager-fonctionne-t-il-)
 
@@ -43,40 +43,44 @@ Si vous n'avez pas encore installé Tampermonkey dans votre navigateur, vous dev
 
 <tampermonkey-download-table/>
 
-Pour les autres navigateurs, vous pouvez télécharger Tampermonkey sur [tampermonkey.net](https://www.tampermonkey.net/).
+Pour les autres navigateurs, vous pouvez télécharger Tampermonkey sur [tampermonkey.net][tampermonkey].
 
 ::: warning Attention
 Veuillez noter que nous ne prenons pas officiellement en charge les anciens navigateurs, les navigateurs mobiles et Apple Safari. La prise en charge de ces navigateurs n'est donc pas garantie.
 :::
 
 ### Étape 2 : Userscript
-Si Tampermonkey a été installé avec succès dans votre navigateur, vous pouvez soit cliquer sur <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">Ici</a> ou créer un nouveau userscript avec le contenu suivant :
+Si Tampermonkey a été installé avec succès dans votre navigateur, vous pouvez soit cliquer sur [Ici][lssm.userscript] ou créer un nouveau userscript avec le contenu suivant :
 
 @[code js](@userscript)
 
 ### Étape 3 : Activation
 L'indicateur LSSM est un texte surligné en vert `LSSM V.4`.
 
-Un clic sur l'indicateur ouvre un petit menu qui vous permet d'accéder à l'[Appstore](appstore.md) et aux [paramètres](settings.md). Dans les paramètres, seuls les modules que vous avez activés apparaissent, vous devez donc d'abord visiter l'AppStore !
+Un clic sur l'indicateur ouvre un petit menu qui vous permet d'accéder à l'[Appstore][docs.appstore] et aux [paramètres][docs.settings]. Dans les paramètres, seuls les modules que vous avez activés apparaissent, vous devez donc d'abord visiter l'AppStore !
 
 Si vous êtes dans operateur112 mais qur vous ne voyez pas l'indicateur dans le coin supérieur droit, cliquez sur l'icône tampermonkey dans votre navigateur et vérifiez si le commutateur pour le script LSS-Manager est réglé sur `on`.
 
-Si vous avez des problèmes, vous pouvez toujours contacter le [Support](support.md).
+Si vous avez des problèmes, vous pouvez toujours contacter le [Support][docs.support].
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /fr_FR/apps/
-[docs.appstore]: /fr_FR/appstore/
-[docs.bugs]: /fr_FR/bugs/
-[docs.error_report]: /fr_FR/error_report/
-[docs.faq]: /fr_FR/faq/
-[docs.metadata]: /fr_FR/metadata/
-[docs.other]: /fr_FR/other/
-[docs.settings]: /fr_FR/settings/
-[docs.suggestions]: /fr_FR/suggestions/
-[docs.support]: /fr_FR/support/
+[docs.apps]: /fr_FR/apps.md
+[docs.appstore]: /fr_FR/appstore.md
+[docs.bugs]: /fr_FR/bugs.md
+[docs.error_report]: /fr_FR/error_report.md
+[docs.faq]: /fr_FR/faq.md
+[docs.metadata]: /fr_FR/metadata.md
+[docs.other]: /fr_FR/other.md
+[docs.settings]: /fr_FR/settings.md
+[docs.suggestions]: /fr_FR/suggestions.md
+[docs.support]: /fr_FR/support.md
 [games.self]: https://operateur112.fr
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

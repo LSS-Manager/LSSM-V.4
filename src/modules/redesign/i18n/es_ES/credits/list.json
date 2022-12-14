@@ -1,0 +1,11 @@
+{
+    "amount": "Cantidad",
+    "date": "Fecha",
+    "description": "Descripción",
+    "load": {
+        "next": "Cargar 20 operaciones anteriores",
+        "prev": "Cargar 20 operaciones siguientes"
+    },
+    "subtitle": "Muestra {n} Operaciones de las páginas {startPage} ({firstDate}) a {endPage} ({lastDate}) de {totalPages} páginas",
+    "title": "Transacciones"
+}

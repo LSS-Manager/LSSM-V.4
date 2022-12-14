@@ -11,7 +11,7 @@ LSS-Manager är ett gratis tillägg. - vi har inte för avsikt att ändra detta.
 
 Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
 
-::warning donations
+:::warning donations
 All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
 
 Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
@@ -61,3 +61,25 @@ Or in the <discord-channel channel="uptime"/> on our <discord/>
 [error]: error_report.md
 [suggestions]: suggestions.md
 [donate]: https://donate.lss-manager.de/
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /sv_SE/apps.md
+[docs.appstore]: /sv_SE/appstore.md
+[docs.bugs]: /sv_SE/bugs.md
+[docs.error_report]: /sv_SE/error_report.md
+[docs.faq]: /sv_SE/faq.md
+[docs.metadata]: /sv_SE/metadata.md
+[docs.other]: /sv_SE/other.md
+[docs.settings]: /sv_SE/settings.md
+[docs.suggestions]: /sv_SE/suggestions.md
+[docs.support]: /sv_SE/support.md
+[games.self]: https://larmcentralen-spelet.se
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

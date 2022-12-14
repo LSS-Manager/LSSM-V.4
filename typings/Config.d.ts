@@ -35,6 +35,7 @@ export interface Config {
         server: string;
         docs: string;
         statuspage: string;
+        donations: string;
         fontAwesomeIconSearch: string;
     };
 }

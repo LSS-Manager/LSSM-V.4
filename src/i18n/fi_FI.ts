@@ -20,6 +20,7 @@ const modules = {
         reset: 'Nollaa',
         export: 'Viedä',
         import: 'Tuoda',
+        donate: 'donate voluntarily',
         appendableList: {
             unique: {
                 title: 'Päällekkäinen arvo',

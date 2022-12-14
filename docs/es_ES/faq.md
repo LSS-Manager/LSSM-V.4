@@ -11,7 +11,7 @@ LSS-Manager es una extensión gratuita, no tenemos la intención de cambiar esto
 
 Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
 
-::warning donations
+:::warning donations
 All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
 
 Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
@@ -60,3 +60,25 @@ Or in the <discord-channel channel="uptime"/> on our <discord/>
 [Sugerencias]: suggestions.md
 [settings]: settings.md
 [donate]: https://donate.lss-manager.de/
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /es_ES/apps.md
+[docs.appstore]: /es_ES/appstore.md
+[docs.bugs]: /es_ES/bugs.md
+[docs.error_report]: /es_ES/error_report.md
+[docs.faq]: /es_ES/faq.md
+[docs.metadata]: /es_ES/metadata.md
+[docs.other]: /es_ES/other.md
+[docs.settings]: /es_ES/settings.md
+[docs.suggestions]: /es_ES/suggestions.md
+[docs.support]: /es_ES/support.md
+[games.self]: https://centro-de-mando.es
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

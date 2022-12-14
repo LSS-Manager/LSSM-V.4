@@ -1,0 +1,19 @@
+{
+    "affected": "Afectado",
+    "amount": "{n} entrada filtrada | {n} entradas filtradas",
+    "description": "descripción",
+    "executor": "generar",
+    "filter": {
+        "all_types": "Mostrar todos los tipos",
+        "no_types": "No mostrar los tipos",
+        "type": "Tipos de entradas mostradas"
+    },
+    "load": {
+        "next": "Cargar la página siguiente",
+        "prev": "Cargar la página anterior"
+    },
+    "search_local": "Buscar en entradas cargadas",
+    "subtitle": "Muestra {n} las entradas de páginas {startPage} ({firstDate}) a {endPage} ({lastDate}) de {totalPages} páginas",
+    "time": "tiempo",
+    "title": "Protocolo de la alianza"
+}

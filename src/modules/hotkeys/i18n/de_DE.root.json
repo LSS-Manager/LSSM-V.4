@@ -71,6 +71,16 @@
             "title": "Gebäude"
         },
         "main": {
+            "bigMap": {
+                "title": "Fensterdesign",
+                "toggle": {
+                    "buildings": "Gebäude",
+                    "chat": "Chat",
+                    "missions": "Einsätze",
+                    "radio": "Funk",
+                    "title": "Fenster öffnen/schließen"
+                }
+            },
             "chat": { "focus": "Eingabefeld fokussieren", "title": "Chat" },
             "lssm": {
                 "menu": { "title": "Menü", "toggle": "Öffnen / Schließen" },
@@ -109,6 +119,9 @@
             "title": "Hauptfenster"
         },
         "mission": {
+            "alert": "Alarmieren",
+            "alert_next": "Alarmieren und weiter",
+            "alert_share_next": "Alarmieren, Teilen und weiter",
             "alliance": {
                 "focus": "Fokussiere Rückmeldungsfeld",
                 "title": "Verband",
@@ -125,6 +138,9 @@
                 "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
                 "title": "Zurückalamieren"
             },
+            "next": "nächster Einsatz",
+            "prev": "vorheriger Einsatz",
+            "share": "Teilen",
             "sorted": {
                 "alert_next": "Alarmieren und weiter",
                 "alert_share_next": "Alarmieren, Teilen und weiter",
@@ -133,6 +149,7 @@
                 "title": "Einsatzsortierung"
             },
             "title": "Einsatzfenster",
+            "transport_request": "Erster Patienten-Sprechwunsch öffnen",
             "vehicleList": {
                 "loadMissing": "Fehlende Fahrzeuge nachladen",
                 "next": "Nächster Tab",

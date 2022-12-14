@@ -219,6 +219,17 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.playerCounter',
         },
+        selectedVehicleCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        selectedVehicleCounterBtnVehicles: <MultiSelect>{
+            type: 'multiSelect',
+            values: vehicleIdsSorted,
+            labels: vehicleCaptionsSorted,
+            default: [] as string[],
+            dependsOn: '.selectedVehicleCounter',
+        },
         arrSearch: <Toggle>{
             type: 'toggle',
             default: false,

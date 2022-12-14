@@ -71,6 +71,16 @@
             "title": "Gebouw"
         },
         "main": {
+            "bigMap": {
+                "title": "Vensterdesign",
+                "toggle": {
+                    "buildings": "Gebouwen",
+                    "chat": "Chat",
+                    "missions": "Meldingen",
+                    "radio": "Statuslijst",
+                    "title": "Toon/verberg venster"
+                }
+            },
             "chat": { "focus": "focus invoerveld", "title": "Chat" },
             "lssm": {
                 "menu": { "title": "Menu", "toggle": "Open / Sluiten" },
@@ -102,6 +112,9 @@
             "title": "Hoofdscherm"
         },
         "mission": {
+            "alert": "Alarmeer",
+            "alert_next": "Alarmeer en ga naar volgende melding",
+            "alert_share_next": "Alarmeer, deel en ga naar volgende melding",
             "alliance": {
                 "focus": "Focus teamchat in inzet",
                 "title": "Team",
@@ -118,6 +131,9 @@
                 "onlyAmbulance": "Annuleer alleen ambulances",
                 "title": "Annuleer voertuigen"
             },
+            "next": "Volgende melding",
+            "prev": "Vorige melding",
+            "share": "Deel",
             "sorted": {
                 "alert_next": "Alarmeer en ga naar de volgende melding",
                 "alert_share_next": "Alarmeer, deel en ga naar de volgende melding",
@@ -126,6 +142,7 @@
                 "title": "Gesorteerde meldingen"
             },
             "title": "Meldingsscherm",
+            "transport_request": "Open eerste patiënt spraakaanvraag",
             "vehicleList": {
                 "loadMissing": "Laad missende voertuigen",
                 "next": "volgende tab",
