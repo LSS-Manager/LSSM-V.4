@@ -345,7 +345,7 @@
                                 :placeholder="
                                     lightbox.$sm(`filter.${tableType}.show`)
                                 "
-                                :min="1"
+                                :min="0"
                                 @input="updateShowEach()"
                             ></settings-number>
                         </div>
@@ -1035,14 +1035,14 @@ export default Vue.extend<
             });
         },
         shownItems() {
-            if ('showEach' in this.table) {
+            if ('showEach' in this.table && this.table.showEach) {
+                const showEach = this.table.showEach;
                 const lists: Record<string, number> = {};
                 return this.sortedItems.filter(item => {
-                    if (!('list' in item) || !('showEach' in this.table))
-                        return true;
+                    if (!('list' in item)) return true;
                     const list = item.list;
                     if (lists[list] === undefined) lists[list] = 0;
-                    if (lists[list] >= this.table.showEach) return false;
+                    if (lists[list] >= showEach) return false;
                     lists[list]++;
                     return true;
                 });
