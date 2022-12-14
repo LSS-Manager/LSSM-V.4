@@ -2472,10 +2472,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.11.13":
-  version: 18.11.13
-  resolution: "@types/node@npm:18.11.13"
-  checksum: b0c1aa3bd2f5df8240e61096a49d6d4be600109b824d23408ec4ba1ec057dc0c60588e09f73b8a60455ad26d367e9c5562fad8403099f885cbc7b4cace83ec4c
+"@types/node@npm:18.11.15":
+  version: 18.11.15
+  resolution: "@types/node@npm:18.11.15"
+  checksum: cae8692a5cee0316f93ee0342237eb921f70c51afb37c661c711a925a4642654ae7e404c5a80899d481c0cfaff3a6891ef04bacd330a2e72734192bfc91dc2d8
   languageName: node
   linkType: hard
 
@@ -6846,7 +6846,7 @@ __metadata:
     "@types/js-yaml": 4.0.5
     "@types/leaflet": 1.9.0
     "@types/lodash": 4.14.191
-    "@types/node": 18.11.13
+    "@types/node": 18.11.15
     "@types/pdfmake": 0.2.2
     "@types/prettier": 2.7.1
     "@types/qrcode": 1.5.0
