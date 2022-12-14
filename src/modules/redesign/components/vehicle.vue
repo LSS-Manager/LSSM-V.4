@@ -709,7 +709,7 @@ export default Vue.extend<
                 patient: {
                     filter: {
                         distance: 0,
-                        freeBeds: 30,
+                        freeBeds: 0,
                         tax: 50,
                         department: [true, false],
                     },
@@ -722,7 +722,7 @@ export default Vue.extend<
                 prisoner: {
                     filter: {
                         distance: 0,
-                        freeCells: 10,
+                        freeCells: 0,
                         tax: 50,
                     },
                     sort: 'distance',
