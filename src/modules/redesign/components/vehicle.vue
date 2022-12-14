@@ -331,8 +331,107 @@
                     :sort-dir="table.sortDir"
                     @sort="setSort"
                 >
+                    <template v-slot:head>
+                        <div
+                            class="form-group"
+                            v-if="table.hasOwnProperty('showEach')"
+                        >
+                            <label>{{
+                                lightbox.$sm(`filter.${tableType}.show`)
+                            }}</label>
+                            <settings-number
+                                v-model="table.showEach"
+                                :name="`${tableType}_show-each}`"
+                                :placeholder="
+                                    lightbox.$sm(`filter.${tableType}.show`)
+                                "
+                                :min="1"
+                                @input="updateShowEach()"
+                            ></settings-number>
+                        </div>
+                        <div
+                            class="form-group"
+                            v-for="(value, filter) in table.filter"
+                            :key="filter"
+                            :data-title="
+                                (filter_title = lightbox
+                                    .$sm(
+                                        `filter.${tableType}.${filter}${
+                                            filter === 'status' ? '.title' : ''
+                                        }`,
+                                        {
+                                            department: vehicle.department,
+                                        }
+                                    )
+                                    .toString())
+                            "
+                        >
+                            <label>{{ filter_title }}</label>
+                            <settings-number
+                                v-if="typeof value === 'number'"
+                                v-model="table.filter[filter]"
+                                :name="`${tableType}_${filter}`"
+                                :placeholder="filter_title"
+                                :min="0"
+                                :max="
+                                    {
+                                        progress: 100,
+                                        tax: 50,
+                                    }[filter] ?? Number.MAX_SAFE_INTEGER
+                                "
+                                :step="
+                                    {
+                                        tax: 10,
+                                    }[filter] ?? 1
+                                "
+                                @input="updateFilter(filter)"
+                            ></settings-number>
+                            <multi-select
+                                v-else-if="Array.isArray(value)"
+                                v-model="table.filter[filter]"
+                                :value="table.filter[filter]"
+                                :name="`${tableType}_${filter}`"
+                                :placeholder="filter_title"
+                                :options="
+                                    {
+                                        status: [
+                                            {
+                                                value: 'red',
+                                                label: lightbox.$sm(
+                                                    'filter.mission.status.red'
+                                                ),
+                                            },
+                                            {
+                                                value: 'yellow',
+                                                label: lightbox.$sm(
+                                                    'filter.mission.status.yellow'
+                                                ),
+                                            },
+                                            {
+                                                value: 'green',
+                                                label: lightbox.$sm(
+                                                    'filter.mission.status.green'
+                                                ),
+                                            },
+                                        ],
+                                    }[filter] ?? [
+                                        {
+                                            value: true,
+                                            label: lightbox.$sm('true'),
+                                        },
+                                        {
+                                            value: false,
+                                            label: lightbox.$sm('false'),
+                                        },
+                                    ]
+                                "
+                                @input="updateFilter(filter)"
+                            ></multi-select>
+                            <pre v-else>{{ JSON.stringify(value) }}</pre>
+                        </div>
+                    </template>
                     <tr
-                        v-for="(item, index) in sortedItems.filter(
+                        v-for="(item, index) in shownItems.filter(
                             i => table.list === '*' || i.list === table.list
                         )"
                         :key="index"
@@ -568,14 +667,14 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
             ),
-        // MultiSelect: () =>
-        //     import(
-        //         /* webpackChunkName: "components/settings/multi-select" */ '../../../components/setting/multi-select.vue'
-        //     ),
-        // SettingsNumber: () =>
-        //     import(
-        //         /* webpackChunkName: "components/settings/number" */ '../../../components/setting/number.vue'
-        //     ),
+        MultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/multi-select" */ '../../../components/setting/multi-select.vue'
+            ),
+        SettingsNumber: () =>
+            import(
+                /* webpackChunkName: "components/settings/number" */ '../../../components/setting/number.vue'
+            ),
     },
     data() {
         return {
@@ -601,7 +700,7 @@ export default Vue.extend<
                         participation: [true, false],
                         distance: 0,
                         credits: 0,
-                        progress: 100,
+                        progress: 0,
                     },
                     sort: 'distance',
                     sortDir: 'asc',
@@ -609,34 +708,33 @@ export default Vue.extend<
                 },
                 patient: {
                     filter: {
-                        department: [true, false],
                         distance: 0,
+                        freeBeds: 30,
                         tax: 50,
-                        beds: 0,
-                        show: 0,
+                        department: [true, false],
                     },
                     sort: 'distance',
                     sortDir: 'asc',
                     disableReleaseConfirmation: false,
                     list: '*',
+                    showEach: 0,
                 },
                 prisoner: {
                     filter: {
                         distance: 0,
+                        freeCells: 10,
                         tax: 50,
-                        free: 0,
-                        show: 0,
                     },
                     sort: 'distance',
                     sortDir: 'asc',
                     disableReleaseConfirmation: false,
                     list: '*',
+                    showEach: 0,
                 },
                 trailer: {
                     filter: {
-                        distance: 0,
                         same: [true, false],
-                        show: 0,
+                        distance: 0,
                     },
                     sort: 'distance',
                     sortDir: 'asc',
@@ -824,7 +922,39 @@ export default Vue.extend<
                           .match(this.search.trim().toLowerCase())
                   )
                 : this.items;
-            return filteredBySearch;
+            return filteredBySearch.filter(item =>
+                Object.entries(this.table.filter).every(([filter, value]) => {
+                    if (filter === 'distance' && !value) return true;
+
+                    const itemValue = {
+                        [filter]:
+                            filter in item
+                                ? item[filter as keyof typeof item]
+                                : item,
+                        participation: this.participatedMissions.includes(
+                            item.id
+                        ),
+                        distance: parseFloat(
+                            item.distance
+                                .replace(/[^\d,.]/gu, '')
+                                .replace(/,/gu, '.')
+                        ),
+                        credits:
+                            'type' in item
+                                ? this.apiStore.missions[item.type]
+                                      .average_credits ?? 0
+                                : Number.MAX_SAFE_INTEGER,
+                        progress: 'progress' in item ? item.progress.width : 0,
+                        same: 'building' in item ? item.building.same : false,
+                    }[filter];
+                    if (Array.isArray(value))
+                        return (value as unknown[]).includes(itemValue);
+                    if (filter === 'progress') return itemValue <= 100 - value;
+                    if (['credits', 'freeBeds', 'freeCells'].includes(filter))
+                        return itemValue >= value;
+                    return itemValue <= value;
+                })
+            );
         },
         sortedItems() {
             const sortValues: Record<string, number | string> = {};
@@ -852,7 +982,7 @@ export default Vue.extend<
                         'type' in item
                             ? this.apiStore.missions[item.type]
                                   .average_credits ?? 0
-                            : Number.MAX_VALUE;
+                            : Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =
                         'progress' in item
@@ -903,6 +1033,21 @@ export default Vue.extend<
                 }
                 return (sortValueA - sortValueB) * directionModifier;
             });
+        },
+        shownItems() {
+            if ('showEach' in this.table) {
+                const lists: Record<string, number> = {};
+                return this.sortedItems.filter(item => {
+                    if (!('list' in item) || !('showEach' in this.table))
+                        return true;
+                    const list = item.list;
+                    if (lists[list] === undefined) lists[list] = 0;
+                    if (lists[list] >= this.table.showEach) return false;
+                    lists[list]++;
+                    return true;
+                });
+            }
+            return this.sortedItems;
         },
         ...mapState(defineAPIStore, {
             participatedMissions: 'participatedMissions',
@@ -1250,6 +1395,20 @@ export default Vue.extend<
                     );
                 });
         },
+        updateFilter(filter) {
+            this.setSetting(
+                `${this.tableType}.filter.${filter}`,
+                this.table.filter[filter]
+            );
+        },
+        updateShowEach() {
+            if ('showEach' in this.table) {
+                this.setSetting(
+                    `${this.tableType}.showEach`,
+                    this.table.showEach
+                );
+            }
+        },
         release() {
             if (this.vehicle.windowType !== 'transportRequest') return;
             const type = this.vehicle.transportRequestType;
@@ -1442,6 +1601,14 @@ export default Vue.extend<
         // load settings
         Object.entries(this.tables).forEach(([table, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
+                if (prop === 'filter') {
+                    return Object.entries(value).forEach(([filter, value]) => {
+                        this.getSetting(
+                            `${table}.${prop}.${filter}`,
+                            value
+                        ).then(value => this.$set(props.filter, filter, value));
+                    });
+                }
                 this.getSetting(`${table}.${prop}`, value)
                     .then(value => this.$set(props, prop, value))
                     .then(() => {

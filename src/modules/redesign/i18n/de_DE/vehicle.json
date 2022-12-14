@@ -17,7 +17,7 @@
         "mission": {
             "credits": "Minimaler Verdienst",
             "distance": "Maximale Entfernung",
-            "participation": { "title": "Anwesend" },
+            "participation": "Anwesend",
             "progress": "Abgearbeitet zu max %",
             "status": {
                 "green": "grün",
@@ -27,16 +27,16 @@
             }
         },
         "patient": {
-            "beds": "mindestens freie Betten",
-            "department": { "title": "Fachabteilung: {department}" },
+            "department": "Fachabteilung: {department}",
             "distance": "Maximale Entfernung",
-            "each": "Jeweils nur x Krankenhäuser zeigen",
+            "freeBeds": "mindestens freie Betten",
+            "show": "Jeweils nur x Krankenhäuser zeigen",
             "tax": "Maximale Verbandsabgabe"
         },
         "prisoner": {
             "distance": "Maximale Entfernung",
-            "each": "Jeweils nur x Gebäude zeigen",
-            "free": "mindestens freie Zellen",
+            "freeCells": "mindestens freie Zellen",
+            "show": "Jeweils nur x Gebäude zeigen",
             "tax": "Maximale Verbandsabgabe"
         },
         "trailer": {

@@ -17,7 +17,7 @@
         "mission": {
             "credits": "Minimum Credits",
             "distance": "Maximum Distance",
-            "participation": { "title": "Participating" },
+            "participation": "Participating",
             "progress": "Progress max %",
             "status": {
                 "green": "green",
@@ -27,16 +27,16 @@
             }
         },
         "patient": {
-            "beds": "Minimum free beds",
-            "department": { "title": "Department: {department}" },
+            "department": "Department: {department}",
             "distance": "Maximum Distance",
-            "each": "Show x buildings of each",
+            "freeBeds": "Minimum free beds",
+            "show": "Show x buildings of each",
             "tax": "Maximum tax"
         },
         "prisoner": {
             "distance": "Maximum distance",
-            "each": "Show x buildings of each",
-            "free": "Minimum free cells",
+            "freeCells": "Minimum free cells",
+            "show": "Show x buildings of each",
             "tax": "Maximum tax"
         },
         "trailer": { "distance": "Maximum Distance", "same": "Same Building" }

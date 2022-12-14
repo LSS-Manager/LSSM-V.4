@@ -17,7 +17,7 @@
         "mission": {
             "credits": "Minimale opbrengst",
             "distance": "Maximale afstand",
-            "participation": { "title": "Aanwezig" },
+            "participation": "Aanwezig",
             "progress": "Afgerond tot max %",
             "status": {
                 "green": "groen",
@@ -27,16 +27,16 @@
             }
         },
         "patient": {
-            "beds": "Minimale vrije bedden",
-            "department": { "title": "Specialisatie: {department}" },
+            "department": "Specialisatie: {department}",
             "distance": "Maximale afstand",
-            "each": "Alleen eerste x ziekenhuizen weergeven",
+            "freeBeds": "Minimale vrije bedden",
+            "show": "Alleen eerste x ziekenhuizen weergeven",
             "tax": "Maximale afdracht"
         },
         "prisoner": {
             "distance": "Maximale afstand",
-            "each": "Alleen eerste x gebouwen weergeven",
-            "free": "Minimale vrije cellen",
+            "freeCells": "Minimale vrije cellen",
+            "show": "Alleen eerste x gebouwen weergeven",
             "tax": "Maximale afdracht"
         },
         "trailer": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }

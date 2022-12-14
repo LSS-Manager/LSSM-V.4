@@ -14,21 +14,9 @@ import type {
     RedesignVueInstance,
 } from 'typings/modules/Redesign';
 
-type Filter = Record<never, never>;
-// interface Filter {
-//     filter: boolean;
-//     hidden: boolean;
-// }
-
-type FilteredMission = Filter & Mission;
-type FilteredHospital = Filter & Hospital;
-type FilteredCell = Cell & Filter;
-type FilteredTowingVehicle = Filter & TowingVehicle;
-
 interface Types {
     mission: {
         item: Mission;
-        filteredItem: FilteredMission;
         filter: {
             status: ('green' | 'red' | 'yellow')[];
             participation: boolean[];
@@ -47,13 +35,11 @@ interface Types {
     };
     patient: {
         item: Hospital;
-        filteredItem: FilteredHospital;
         filter: {
-            department: boolean[];
             distance: number;
+            freeBeds: number;
             tax: number;
-            beds: number;
-            show: number;
+            department: boolean[];
         };
         sort:
             | 'caption'
@@ -64,29 +50,27 @@ interface Types {
             | 'tax';
         additional: {
             disableReleaseConfirmation: boolean;
+            showEach: number;
         };
     };
     prisoner: {
         item: Cell;
-        filteredItem: FilteredCell;
         filter: {
             distance: number;
+            freeCells: number;
             tax: number;
-            free: number;
-            show: number;
         };
         sort: 'caption' | 'distance' | 'freeCells' | 'list' | 'tax';
         additional: {
             disableReleaseConfirmation: boolean;
+            showEach: number;
         };
     };
     trailer: {
         item: TowingVehicle;
-        filteredItem: FilteredTowingVehicle;
         filter: {
-            distance: number;
             same: boolean[];
-            show: number;
+            distance: number;
         };
         sort: 'building' | 'caption' | 'distance' | 'same';
     };
@@ -157,13 +141,8 @@ export type RedesignVehicleComponent = RedesignComponent<
         backalarmFollowUp(missionId: number): void;
         backalarmCurrent(): void;
         switchState(): void;
-        // updateFilter<
-        //     Filters = ItemChooser<'filter'>,
-        //     Filter extends keyof Filters = keyof Filters
-        // >(
-        //     filter: Filter,
-        //     value: Filters[Filter]
-        // ): void;
+        updateShowEach(): void;
+        updateFilter(filter: keyof ItemChooser<'filter'>): void;
         release(): void;
         loadAllHospitals(): void;
         updateStarredMissions(): Promise<string[]>;
@@ -184,8 +163,9 @@ export type RedesignVehicleComponent = RedesignComponent<
         lists: DistributeListUnion<ItemChooser<'item'>>[];
 
         items: ItemChooser<'item'>[];
-        filteredItems: ItemChooser<'filteredItem'>[];
-        sortedItems: ItemChooser<'filteredItem'>[];
+        filteredItems: ItemChooser<'item'>[];
+        sortedItems: ItemChooser<'item'>[];
+        shownItems: ItemChooser<'item'>[];
 
         participatedMissions: number[];
 
@@ -197,7 +177,7 @@ export type RedesignVehicleComponent = RedesignComponent<
             };
             computed: {
                 sortedItems: {
-                    [Key in keyof Types]: Types[Key]['filteredItem'][];
+                    [Key in keyof Types]: Types[Key]['item'][];
                 };
             };
         };

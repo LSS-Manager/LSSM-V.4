@@ -17,7 +17,7 @@
         "mission": {
             "credits": "Crédits minimums",
             "distance": "Distance maximum",
-            "participation": { "title": "Déjà présent" },
+            "participation": "Déjà présent",
             "progress": "Avancement max",
             "status": {
                 "green": "Vert",
@@ -27,16 +27,16 @@
             }
         },
         "patient": {
-            "beds": "Minimum de lits libres",
-            "department": { "title": "Service : {department}" },
+            "department": "Service : {department}",
             "distance": "Distance maximum",
-            "each": "Montrer x bâtiments de chaque",
+            "freeBeds": "Minimum de lits libres",
+            "show": "Montrer x bâtiments de chaque",
             "tax": "Taxe maximum"
         },
         "prisoner": {
             "distance": "Distance maximum",
-            "each": "Montrer x bâtiments de chaque",
-            "free": "Nombre minimum de cellules libres",
+            "freeCells": "Nombre minimum de cellules libres",
+            "show": "Montrer x bâtiments de chaque",
             "tax": "Taxe maximum"
         },
         "trailer": { "distance": "Distance maximum", "same": "Même bâtiment" }

@@ -17,7 +17,7 @@
         "mission": {
             "credits": "Vähintään krediittejä",
             "distance": "Suurin sallitu etäisyys",
-            "participation": { "title": "Osallistujat" },
+            "participation": "Osallistujat",
             "progress": "Edistyminen max %",
             "status": {
                 "green": "vihreä",
@@ -27,16 +27,16 @@
             }
         },
         "patient": {
-            "beds": "Vapaiden paikkojen vähimmäismäärä",
-            "department": { "title": "Osasto: {department}" },
+            "department": "Osasto: {department}",
             "distance": "Suurin sallittu etäisyys",
-            "each": "Näytä x määrä rakennuksia",
+            "freeBeds": "Vapaiden paikkojen vähimmäismäärä",
+            "show": "Näytä x määrä rakennuksia",
             "tax": "Enimmäis vero"
         },
         "prisoner": {
             "distance": "Suurin sallittu etäisyys",
-            "each": "Näytä x määrä rakennuksia",
-            "free": "Vapaiden sellien vähimmäismäärä",
+            "freeCells": "Vapaiden sellien vähimmäismäärä",
+            "show": "Näytä x määrä rakennuksia",
             "tax": "Enimmäis vero"
         },
         "trailer": {

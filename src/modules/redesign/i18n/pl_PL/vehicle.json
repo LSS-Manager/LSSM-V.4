@@ -17,7 +17,7 @@
         "mission": {
             "credits": "Minimalne kredyty",
             "distance": "Maksymalna odległość",
-            "participation": { "title": "Pojazdy na miejscu" },
+            "participation": "Pojazdy na miejscu",
             "progress": "Maks. postęp %",
             "status": {
                 "blue": "[1]Dostępne",
@@ -28,16 +28,16 @@
             }
         },
         "patient": {
-            "beds": "Minimalna ilość wolnych łóżek",
-            "department": { "title": "Department: {department}" },
+            "department": "Department: {department}",
             "distance": "Maksymalna odległość",
-            "each": "Pokaż x budynków",
+            "freeBeds": "Minimalna ilość wolnych łóżek",
+            "show": "Pokaż x budynków",
             "tax": "Maksymalny podatek"
         },
         "prisoner": {
             "distance": "Maksymalna odległość:",
-            "each": "Pokaż x budynków każdego",
-            "free": "Minimalna ilość wolnych celi",
+            "freeCells": "Minimalna ilość wolnych celi",
+            "show": "Pokaż x budynków każdego",
             "tax": "Maksymalny podatek"
         },
         "trailer": {
