@@ -208,6 +208,7 @@
                 "v3Name": "Afficher le bouton chat ci-dessus"
             },
             "showNotTransportButtonAbove": {
+                "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
                 "v3Name": "Afficher l'alarme de retour ci-dessus"
             },
             "statusCount": { "v3Name": "Compteur de statuts" },
@@ -225,7 +226,7 @@
             "WachenHoverStati": { "v3Name": "État de la station" },
             "WachenplanungOnMap": {
                 "annotation": "Disponible dans la V3 uniquement dans la version allemande.",
-                "v3Name": "Wachenplanung auf der Karte"
+                "v3Name": "WachenplanungOnMap"
             }
         },
         "tables": {

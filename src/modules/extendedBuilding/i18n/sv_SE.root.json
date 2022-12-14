@@ -38,6 +38,10 @@
             "description": "Visar hur mycket personal som krävs med lägsta och högsta beläggning.",
             "title": "Personalkrav"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Visar i personalöversikten över en byggnad hur många personer som har någon utbildning.",
             "title": "Personalöversikt"

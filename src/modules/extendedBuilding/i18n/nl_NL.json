@@ -8,6 +8,7 @@
         "additional": "Waarden tussen haakjes zijn zonder de voertuigen met status 6.",
         "demand": "Benodigd personeel"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Alle combinaties",
         "amount": "Aantal",

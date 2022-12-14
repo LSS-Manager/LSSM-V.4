@@ -38,6 +38,10 @@
             "description": "Laat zien hoeveel personeel nodig is met de minimale en maximale voertuigbezetting.",
             "title": "Personeel benodigd"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Laat in het personeelsoverzicht van een gebouw zien hoeveel personen welke opleiding(en) hebben.",
             "title": "Personeelsamenvatting"

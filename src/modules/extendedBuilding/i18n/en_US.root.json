@@ -38,6 +38,10 @@
             "description": "Shows how much personnel is required with minimum and maximum vehicle occupancy.",
             "title": "Personnel requirements"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Shows in the staff overview of a building how many people have which training(s).",
             "title": "Personnel summary"

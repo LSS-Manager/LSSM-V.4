@@ -38,6 +38,10 @@
             "description": "Zeigt an, wie viel Personal bei Minimal- bzw. Maximalbesetzung der Fahrzeuge benötigt wird.",
             "title": "Personalbedarf"
         },
+        "renewAllStagingAreas": {
+            "description": "Erneuere alle eigenen Bereitstellungsräume auf einmal mit einem neuen Knopf in Bereitstellungsräumen.",
+            "title": "Alle Bereitstellungsräume erneuern"
+        },
         "schoolingSummary": {
             "description": "Zeigt in der Personalübersicht eines Gebäudes an, wie viele Personen welche Ausbildung(en) haben.",
             "title": "Personalzusammenfassung"
