@@ -1,14 +1,15 @@
 <template>
     <div>
         <h1>
-            {{ vehicle.vehicle_name }}
+            {{ vehicle.name }}
             <img :src="vehicle.image" alt="" class="vehicle-img" />
         </h1>
         <div class="vehicle-window">
             <div>
+                <!-- Metadata -->
                 <div class="well">
                     <span
-                        v-if="hospitalListSrc > 0 && vehicle.load_all_hospitals"
+                        v-if="tableType === 'patient' && vehicle.loadAll"
                         class="pull-right"
                     >
                         {{ lightbox.$sm('load_all_hospitals.text') }}
@@ -19,275 +20,235 @@
                             {{ lightbox.$sm('load_all_hospitals.btn') }}
                         </button>
                     </span>
-                    <table class="table">
-                        <tbody>
-                            <tr v-if="vehicle.user">
-                                <th>{{ lightbox.$sm('owner') }}</th>
-                                <td colspan="2">
-                                    <a :href="`/profile/${vehicle.user.id}`">
-                                        <img
-                                            :src="`/images/user_${
-                                                vehicle.user.online
-                                                    ? 'green'
-                                                    : 'gray'
-                                            }.png`"
-                                            :alt="
-                                                lightbox.$sm(
-                                                    vehicle.user.online
-                                                        ? 'online'
-                                                        : 'offline',
-                                                    { user: vehicle.user.name }
-                                                )
-                                            "
-                                        />
-                                        {{ vehicle.user.name }}
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>{{ lightbox.$sm('station') }}</th>
-                                <td :colspan="vehicle.can_move ? 1 : 2">
-                                    <a
-                                        :href="`/buildings/${vehicle.building.id}`"
-                                    >
-                                        {{ vehicle.building.caption }}
-                                    </a>
-                                </td>
-                                <td v-if="vehicle.can_move">
-                                    <a
-                                        :href="`/vehicles/${vehicle.id}/move`"
-                                        class="btn btn-default btn-xs"
-                                    >
-                                        {{ lightbox.$sm('move') }}
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>{{ lightbox.$sm('vehicletype') }}</th>
-                                <td>
-                                    {{ vehicle.vehicle_type.caption }}
-                                </td>
-                                <td>
-                                    <a
-                                        :href="`/fahrzeugfarbe/${
-                                            vehicle.vehicle_type.id
-                                        }?close-after-submit${
-                                            vehicle.vehicle_type.custom
-                                                ? `&vehicle_type_caption=${vehicle.vehicle_type.caption}`
-                                                : ''
-                                        }`"
-                                        class="btn btn-default btn-xs"
-                                        :title="lightbox.$sm('color')"
-                                        lightbox-open
-                                    >
-                                        <font-awesome-icon
-                                            :icon="faPalette"
-                                        ></font-awesome-icon>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>{{ lightbox.$sm('fms') }}</th>
-                                <td
-                                    :colspan="
-                                        vehicle.patient_doctor_transport ? 2 : 1
-                                    "
+                    <dl class="dl-horizontal">
+                        <template v-if="vehicle.user">
+                            <dt>{{ lightbox.$sm('owner') }}</dt>
+                            <dd>
+                                <a
+                                    :href="`/profile/${vehicle.user.id}`"
+                                    class="lightbox-open"
+                                    lightbox-open
                                 >
-                                    <span
-                                        class="building_list_fms"
-                                        :class="`building_list_fms_${vehicle.fms}`"
-                                    >
-                                        {{
-                                            $i18n.t('fmsReal2Show')[vehicle.fms]
-                                        }}
-                                    </span>
-                                    <br />
-                                    <span
-                                        v-if="vehicle.patient_doctor_transport"
-                                    >
-                                        ({{
+                                    <img
+                                        :src="`/images/user_${
+                                            vehicle.user.online
+                                                ? 'green'
+                                                : 'gray'
+                                        }.png`"
+                                        :alt="
                                             lightbox.$sm(
-                                                'patient_doctor_transport'
+                                                vehicle.user.online
+                                                    ? 'online'
+                                                    : 'offline',
+                                                { user: vehicle.user.name }
                                             )
-                                        }})
-                                    </span>
-                                </td>
-                                <td>
-                                    <button
-                                        v-if="
-                                            (vehicle.fms === 2 ||
-                                                vehicle.fms === 6) &&
-                                            !vehicle.user
                                         "
-                                        class="btn btn-default btn-xs"
-                                        @click="switch_state"
+                                    />
+                                    {{ vehicle.user.name }}
+                                </a>
+                            </dd>
+                        </template>
+                        <dt>{{ lightbox.$sm('station') }}</dt>
+                        <dd>
+                            <a :href="`/buildings/${vehicle.building.id}`">
+                                {{ vehicle.building.caption }}
+                            </a>
+                            <a
+                                v-if="vehicle.canMove"
+                                :href="`/vehicles/${vehicle.id}/move`"
+                                class="btn btn-default btn-xs pull-right"
+                            >
+                                {{ lightbox.$sm('move') }}
+                            </a>
+                        </dd>
+                        <dt>{{ lightbox.$sm('vehicletype') }}</dt>
+                        <dd>
+                            {{ vehicle.vehicleType.caption }}
+                            <a
+                                :href="`/fahrzeugfarbe/${
+                                    vehicle.vehicleType.id
+                                }?close-after-submit${
+                                    vehicle.vehicleType.custom
+                                        ? `&vehicle_type_caption=${vehicle.vehicleType.caption}`
+                                        : ''
+                                }`"
+                                class="btn btn-default btn-xs lightbox-open pull-right"
+                                :title="lightbox.$sm('color')"
+                                lightbox-open
+                            >
+                                <font-awesome-icon
+                                    :icon="faPalette"
+                                ></font-awesome-icon>
+                            </a>
+                        </dd>
+                        <dt>{{ lightbox.$sm('fms') }}</dt>
+                        <dd>
+                            <span
+                                class="building_list_fms"
+                                :class="`building_list_fms_${vehicle.fms}`"
+                            >
+                                {{ $i18n.t('fmsReal2Show')[vehicle.fms] }}
+                            </span>
+                            <button
+                                v-if="
+                                    vehicle.windowType === 'transportRequest' &&
+                                    [
+                                        'patient',
+                                        'prisoner',
+                                        'patient-intermediate',
+                                        'prisoner-intermediate',
+                                    ].includes(vehicle.transportRequestType) &&
+                                    vehicle.releasable
+                                "
+                                @click="release()"
+                                class="btn btn-default btn-xs btn-sm pull-right"
+                            >
+                                {{
+                                    lightbox.$sm(
+                                        'release_' +
+                                            vehicle.transportRequestType
+                                    )
+                                }}
+                            </button>
+                            <button
+                                v-if="
+                                    (vehicle.fms === 2 || vehicle.fms === 6) &&
+                                    !vehicle.user
+                                "
+                                class="btn btn-default btn-xs pull-right"
+                                @click="switchState"
+                            >
+                                {{
+                                    lightbox.$sm(
+                                        `fms_switch.is_s${vehicle.fms}`
+                                    )
+                                }}
+                            </button>
+                            <template
+                                v-if="
+                                    vehicle.windowType === 'patient' &&
+                                    vehicle.doctor
+                                "
+                            >
+                                <br />
+                                ({{ lightbox.$sm('patient_doctor_transport') }})
+                            </template>
+                        </dd>
+                        <dt>{{ lightbox.$sm('max_staff') }}</dt>
+                        <dd>{{ vehicle.maxStaff }}</dd>
+                        <template v-if="vehicle.water">
+                            <dt>{{ lightbox.$sm('water_amount') }}</dt>
+                            <dd>{{ vehicle.water }}</dd>
+                        </template>
+                        <template v-if="vehicle.foam">
+                            <dt>{{ lightbox.$sm('foam_amount') }}</dt>
+                            <dd>{{ vehicle.foam }}</dd>
+                        </template>
+                        <dt>{{ lightbox.$sm('mileage') }}</dt>
+                        <dd>{{ vehicle.mileage }}</dd>
+                        <template v-if="vehicle.currentMission">
+                            <dt>{{ lightbox.$sm('current_mission') }}</dt>
+                            <dd>
+                                <a
+                                    :href="`/missions/${vehicle.currentMission.id}`"
+                                >
+                                    {{ vehicle.currentMission.caption }}
+                                </a>
+                                <button
+                                    v-if="
+                                        vehicle.currentMission && !vehicle.user
+                                    "
+                                    class="btn btn-default btn-xs pull-right"
+                                    @click="backalarm"
+                                >
+                                    {{ lightbox.$sm('backalarm') }}
+                                </button>
+                            </dd>
+                        </template>
+                        <template v-if="vehicle.followupMissions.length">
+                            <dt>
+                                {{
+                                    lightbox.$smc(
+                                        'followup_missions',
+                                        vehicle.followupMissions.length
+                                    )
+                                }}
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li
+                                        v-for="(
+                                            mission, index
+                                        ) in vehicle.followupMissions"
+                                        :key="index"
                                     >
-                                        {{
-                                            lightbox.$sm(
-                                                `fms_switch.is_s${vehicle.fms}`
-                                            )
-                                        }}
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>{{ lightbox.$sm('max_staff') }}</th>
-                                <td colspan="2">
-                                    {{ vehicle.max_staff }}
-                                </td>
-                            </tr>
-                            <tr v-if="vehicle.patient_releaseable">
-                                <th></th>
-                                <td colspan="2">
-                                    <button
-                                        @click="release('patient')"
-                                        class="btn btn-default btn-xs btn-sm"
-                                    >
-                                        {{ lightbox.$sm('release_patient') }}
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr v-else-if="vehicle.prisoners_releaseable">
-                                <th></th>
-                                <td colspan="2">
-                                    <button
-                                        @click="release('prisoner')"
-                                        class="btn btn-default btn-xs btn-sm"
-                                    >
-                                        {{ lightbox.$sm('release_prisoner') }}
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr v-if="vehicle.water_amount">
-                                <th>{{ lightbox.$sm('water_amount') }}</th>
-                                <td colspan="2">
-                                    {{ vehicle.water_amount }}
-                                </td>
-                            </tr>
-                            <tr v-if="vehicle.foam_amount">
-                                <th>{{ lightbox.$sm('foam_amount') }}</th>
-                                <td colspan="2">
-                                    {{ vehicle.foam_amount }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>{{ lightbox.$sm('mileage') }}</th>
-                                <td colspan="2">
-                                    {{ vehicle.mileage }}
-                                </td>
-                            </tr>
-                            <tr v-if="vehicle.current_mission">
-                                <th>{{ lightbox.$sm('current_mission') }}</th>
-                                <td colspan="2">
-                                    <a
-                                        :href="`/missions/${vehicle.current_mission.id}`"
-                                    >
-                                        {{ vehicle.current_mission.caption }}
-                                    </a>
-                                    <button
-                                        v-if="
-                                            vehicle.current_mission &&
-                                            !vehicle.user
-                                        "
-                                        class="btn btn-default btn-xs"
-                                        @click="backalarm"
-                                    >
-                                        {{ lightbox.$sm('backalarm') }}
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr v-if="vehicle.followup_missions.length">
-                                <th>
-                                    {{
-                                        lightbox.$smc(
-                                            'followup_missions',
-                                            vehicle.followup_missions.length
-                                        )
-                                    }}
-                                </th>
-                                <td colspan="2">
-                                    <ul>
-                                        <li
-                                            v-for="mission in vehicle.followup_missions"
-                                            :key="mission.id"
-                                        >
+                                        <a :href="`/missions/${mission.id}`">
+                                            {{ mission.caption }}
+                                        </a>
+                                        <span class="btn-group pull-right">
                                             <a
-                                                :href="`/missions/${mission.id}`"
+                                                class="btn btn-xs btn-default"
+                                                @click="
+                                                    backalarmFollowUp(
+                                                        mission.id
+                                                    )
+                                                "
                                             >
-                                                {{ mission.caption }}
+                                                {{ lightbox.$sm('backalarm') }}
                                             </a>
-                                            <span class="btn-group">
-                                                <a
-                                                    class="btn btn-xs btn-default"
-                                                    @click="
-                                                        backalarmFollowUp(
-                                                            mission.id
-                                                        )
-                                                    "
-                                                >
-                                                    {{
-                                                        lightbox.$sm(
-                                                            'backalarm'
-                                                        )
-                                                    }}
-                                                </a>
-                                                <a
-                                                    class="btn btn-xs btn-default"
-                                                    @click="backalarmCurrent"
-                                                >
-                                                    {{
-                                                        lightbox.$sm(
-                                                            'backalarmNext'
-                                                        )
-                                                    }}
-                                                </a>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr v-if="Object.keys(vehicle.staff).length">
-                                <th>
-                                    {{ lightbox.$sm('staff.title') }}:
-                                    {{ Object.keys(vehicle.staff).length }}
-                                </th>
-                                <td colspan="2">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    {{
-                                                        lightbox.$sm(
-                                                            'staff.name'
-                                                        )
-                                                    }}
-                                                </th>
-                                                <th>
-                                                    {{
-                                                        lightbox.$sm(
-                                                            'staff.schooling'
-                                                        )
-                                                    }}
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr
-                                                v-for="(
-                                                    schooling, name, index
-                                                ) in vehicle.staff"
-                                                :key="index"
+                                            <a
+                                                class="btn btn-xs btn-default"
+                                                @click="backalarmCurrent"
                                             >
-                                                <td>{{ name }}</td>
-                                                <td>{{ schooling }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                                {{
+                                                    lightbox.$sm(
+                                                        'backalarmNext'
+                                                    )
+                                                }}
+                                            </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </template>
+                        <template v-if="Object.keys(vehicle.staff).length">
+                            <dt>
+                                {{ lightbox.$sm('staff.title') }}:
+                                {{ Object.keys(vehicle.staff).length }}
+                            </dt>
+                            <dd>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                {{ lightbox.$sm('staff.name') }}
+                                            </th>
+                                            <th>
+                                                {{
+                                                    lightbox.$sm(
+                                                        'staff.schooling'
+                                                    )
+                                                }}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr
+                                            v-for="(
+                                                schooling, name, index
+                                            ) in vehicle.staff"
+                                            :key="index"
+                                        >
+                                            <td>{{ name }}</td>
+                                            <td>{{ schooling }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </dd>
+                        </template>
+                    </dl>
                 </div>
+                <!-- Vehicle related Actions -->
                 <div class="btn-group pull-right" v-if="!vehicle.user">
                     <a
                         :href="`/vehicles/${vehicle.id}/edit`"
@@ -325,785 +286,350 @@
                     </button>
                 </div>
             </div>
-            <div
-                v-if="
-                    !vehicle.user &&
-                    !vehicle.has_hospitals &&
-                    !vehicle.has_cells &&
-                    !vehicle.has_wlfs &&
-                    missionList.length
-                "
-                class="table-tabs"
-            >
-                <tabs :on-select="setMissionList" ref="tabs">
+            <!-- table with missions/hospitals/cells/towing-vehicles/... -->
+            <div v-if="vehicle.windowType !== 'empty'">
+                <tabs
+                    v-if="lists.length"
+                    :on-select="setList"
+                    :default-index="lists.indexOf(table.list)"
+                >
+                    <span
+                        v-for="list in lists"
+                        :slot="list"
+                        :data-list="list"
+                        :key="list"
+                    >
+                        {{
+                            lightbox.$sm(
+                                `tabs.${list === '*' ? 'all' : list}`,
+                                {
+                                    type: lightbox.$sm(`tabs.${tableType}`),
+                                    amount: items
+                                        .filter(
+                                            i => list === '*' || i.list === list
+                                        )
+                                        .length.toLocaleString(),
+                                }
+                            )
+                        }}
+                    </span>
                     <tab
-                        v-for="group in ['own', 'alliance', 'all']"
-                        :title="
-                            lightbox.$sm(`tabs.${group}`, {
-                                type: lightbox.$sm('tabs.missions'),
-                                amount: (group === 'own'
-                                    ? vehicle.mission_own.length
-                                    : group === 'alliance'
-                                    ? vehicle.mission_alliance.length
-                                    : missionList.length
-                                ).toLocaleString(),
-                            })
-                        "
-                        :key="group"
+                        v-for="list in lists"
+                        :title-slot="list"
+                        :key="list"
+                        :data-list="list"
                     ></tab>
                 </tabs>
                 <enhanced-table
-                    :head="mission_head"
+                    :head="tableHead"
                     :table-attrs="{
                         class: {
                             'table': true,
-                            'table-striped':
-                                missionListFiltered.filter(
-                                    ({ hidden }) => !hidden
-                                ).length === missionList.length,
+                            'table-striped': true,
                         },
                     }"
                     :search="search"
-                    @search="setSearch"
-                    :sort="sort"
-                    :sort-dir="sortDir"
+                    @search="s => (search = s)"
+                    :sort="table.sort"
+                    :sort-dir="table.sortDir"
                     @sort="setSort"
                 >
                     <template v-slot:head>
-                        <div class="form-group">
+                        <div
+                            class="form-group"
+                            v-if="table.hasOwnProperty('showEach')"
+                        >
                             <label>{{
-                                lightbox.$sm('filter.missions.status.title')
+                                lightbox.$sm(`filter.${tableType}.show`)
                             }}</label>
+                            <settings-number
+                                v-model="table.showEach"
+                                :name="`${tableType}_show-each}`"
+                                :placeholder="
+                                    lightbox.$sm(`filter.${tableType}.show`)
+                                "
+                                :min="0"
+                                @input="updateShowEach()"
+                            ></settings-number>
+                        </div>
+                        <div
+                            class="form-group"
+                            v-for="(value, filter) in table.filter"
+                            :key="filter"
+                            :data-title="
+                                (filter_title = lightbox
+                                    .$sm(
+                                        `filter.${tableType}.${filter}${
+                                            filter === 'status' ? '.title' : ''
+                                        }`,
+                                        {
+                                            department: vehicle.department,
+                                        }
+                                    )
+                                    .toString())
+                            "
+                        >
+                            <label>{{ filter_title }}</label>
+                            <settings-number
+                                v-if="typeof value === 'number'"
+                                v-model="table.filter[filter]"
+                                :name="`${tableType}_${filter}`"
+                                :placeholder="filter_title"
+                                :min="0"
+                                :max="
+                                    {
+                                        progress: 100,
+                                        tax: 50,
+                                    }[filter] ?? Number.MAX_SAFE_INTEGER
+                                "
+                                :step="
+                                    {
+                                        tax: 10,
+                                    }[filter] ?? 1
+                                "
+                                @input="updateFilter(filter)"
+                            ></settings-number>
                             <multi-select
-                                name="mission_status"
-                                :placeholder="
-                                    lightbox.$sm('filter.missions.status.title')
+                                v-else-if="Array.isArray(value)"
+                                v-model="table.filter[filter]"
+                                :value="table.filter[filter]"
+                                :name="`${tableType}_${filter}`"
+                                :placeholder="filter_title"
+                                :options="
+                                    {
+                                        status: [
+                                            {
+                                                value: 'red',
+                                                label: lightbox.$sm(
+                                                    'filter.mission.status.red'
+                                                ),
+                                            },
+                                            {
+                                                value: 'yellow',
+                                                label: lightbox.$sm(
+                                                    'filter.mission.status.yellow'
+                                                ),
+                                            },
+                                            {
+                                                value: 'green',
+                                                label: lightbox.$sm(
+                                                    'filter.mission.status.green'
+                                                ),
+                                            },
+                                        ],
+                                    }[filter] ?? [
+                                        {
+                                            value: true,
+                                            label: lightbox.$sm('true'),
+                                        },
+                                        {
+                                            value: false,
+                                            label: lightbox.$sm('false'),
+                                        },
+                                    ]
                                 "
-                                v-model="filter.mission.status"
-                                :options="[
-                                    {
-                                        value: 'red',
-                                        label: lightbox.$sm(
-                                            'filter.missions.status.red'
-                                        ),
-                                    },
-                                    {
-                                        value: 'yellow',
-                                        label: lightbox.$sm(
-                                            'filter.missions.status.yellow'
-                                        ),
-                                    },
-                                    {
-                                        value: 'green',
-                                        label: lightbox.$sm(
-                                            'filter.missions.status.green'
-                                        ),
-                                    },
-                                ]"
-                                @input="
-                                    updateFilter(
-                                        'mission.status',
-                                        filter.mission.status
-                                    )
-                                "
+                                @input="updateFilter(filter)"
                             ></multi-select>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm(
-                                    'filter.missions.participation.title'
-                                )
-                            }}</label>
-                            <multi-select
-                                name="mission_participation"
-                                :placeholder="
-                                    lightbox.$sm(
-                                        'filter.missions.participation.title'
-                                    )
-                                "
-                                v-model="filter.mission.participation"
-                                :options="[
-                                    {
-                                        value: true,
-                                        label: lightbox.$sm('true'),
-                                    },
-                                    {
-                                        value: false,
-                                        label: lightbox.$sm('false'),
-                                    },
-                                ]"
-                                @input="
-                                    updateFilter(
-                                        'mission.participation',
-                                        filter.mission.participation
-                                    )
-                                "
-                            ></multi-select>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.missions.distance')
-                            }}</label>
-                            <settings-number
-                                name="mission_distance"
-                                :placeholder="
-                                    lightbox.$sm('filter.missions.distance')
-                                "
-                                v-model="filter.mission.distance"
-                                :min="0"
-                                @input="
-                                    updateFilter(
-                                        'mission.distance',
-                                        filter.mission.distance
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.missions.credits')
-                            }}</label>
-                            <settings-number
-                                name="mission_credits"
-                                :placeholder="
-                                    lightbox.$sm('filter.missions.credits')
-                                "
-                                v-model="filter.mission.credits"
-                                :min="0"
-                                @input="
-                                    updateFilter(
-                                        'mission.credits',
-                                        filter.mission.credits
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.missions.progress')
-                            }}</label>
-                            <settings-number
-                                name="mission_progress"
-                                :placeholder="
-                                    lightbox.$sm('filter.missions.progress')
-                                "
-                                v-model="filter.mission.progress"
-                                :min="0"
-                                :max="100"
-                                @input="
-                                    updateFilter(
-                                        'mission.progress',
-                                        filter.mission.progress
-                                    )
-                                "
-                            ></settings-number>
+                            <pre v-else>{{ JSON.stringify(value) }}</pre>
                         </div>
                     </template>
                     <tr
-                        v-for="mission in missionListSorted"
-                        :key="mission.id"
-                        :class="{ hidden: mission.hidden }"
+                        v-for="(item, index) in shownItems.filter(
+                            i => table.list === '*' || i.list === table.list
+                        )"
+                        :key="index"
                     >
-                        <td>
-                            <span
-                                v-if="starredMissionsEnabled"
-                                v-html="
-                                    starredMissionButtons[mission.id]
-                                        .outerHTML + '&nbsp;'
-                                "
-                                @click="() => switchStarredMission(mission.id)"
-                            ></span>
-                            <font-awesome-icon
-                                v-if="missionListSrc === 2"
-                                :icon="
-                                    mission.list === 'mission_own'
-                                        ? faPortrait
-                                        : faSitemap
-                                "
-                            ></font-awesome-icon>
-                        </td>
-                        <td>
-                            <img
-                                loading="lazy"
-                                :src="mission.image"
-                                :alt="mission.caption"
-                            />
-                        </td>
-                        <td>
-                            <font-awesome-icon
-                                :icon="
-                                    mission.participation ? faUser : faAsterisk
-                                "
-                            ></font-awesome-icon>
-                        </td>
-                        <td>
-                            <a :href="`/missions/${mission.id}`">{{
-                                mission.caption
-                            }}</a>
-                            <br />
-                            <small>{{ mission.adress }}</small>
-                        </td>
-                        <td>{{ mission.distance }}</td>
-                        <td>
+                        <td v-for="(_, col, index) in tableHead" :key="col">
                             <span
                                 v-if="
-                                    mission.credits !== Number.MAX_SAFE_INTEGER
+                                    starredMissionsEnabled &&
+                                    index === 0 &&
+                                    tableType === 'mission'
+                                "
+                                v-html="
+                                    starredMissionButtons[item.id].outerHTML +
+                                    '&nbsp;'
+                                "
+                                @click="() => switchStarredMission(item.id)"
+                            ></span>
+                            <font-awesome-icon
+                                v-if="col === 'list'"
+                                :icon="listIcon[item[col]]"
+                            ></font-awesome-icon>
+                            <img
+                                v-else-if="col === 'image'"
+                                :src="item[col]"
+                                alt=""
+                            />
+                            <font-awesome-icon
+                                v-else-if="col === 'participation'"
+                                :icon="
+                                    participationIcon[
+                                        participatedMissions.includes(item.id)
+                                    ]
                                 "
                             >
-                                ~
-                                {{ mission.credits.toLocaleString() }}
-                                Credits
-                            </span>
-                        </td>
-                        <td>
-                            <div class="progress">
+                            </font-awesome-icon>
+                            <template v-else-if="col === 'caption'">
+                                <a :href="getUrl(item)" class="lightbox-open">
+                                    {{ item[col] }}
+                                </a>
+                                <template v-if="item.adress">
+                                    <br />
+                                    <small>{{ item.adress }}</small>
+                                </template>
+                            </template>
+                            <template v-else-if="col === 'credits'">
+                                <template v-if="apiStore.missions[item.type]">
+                                    ~
+                                    {{
+                                        (
+                                            apiStore.missions[item.type]
+                                                .average_credits ?? 0
+                                        ).toLocaleString()
+                                    }}
+                                    {{ $t('credits') }}
+                                </template>
+                            </template>
+                            <div
+                                v-else-if="col === 'progress'"
+                                class="progress"
+                            >
                                 <div
                                     class="progress-bar"
                                     :class="`progress-bar-${
-                                        color2Class[mission.status]
+                                        color2Class[item.status]
                                     }`"
-                                    :style="`width: ${mission.progress.width}%;`"
+                                    :style="`width: ${item.progress.width}%;`"
                                 >
                                     <div
                                         class="progress-striped-inner"
                                         :class="{
                                             'progress-striped-inner-active':
-                                                mission.progress.active,
+                                                item.progress.active,
                                         }"
                                     ></div>
                                 </div>
                             </div>
-                        </td>
-                        <td>
-                            <template v-if="mission.patients.total">
+                            <template v-else-if="col === 'patients'">
+                                <template v-if="item[col].total">
+                                    {{
+                                        lightbox.$sm(
+                                            'mission.patientsProgress',
+                                            {
+                                                current: item[col].current,
+                                                total: item[col].total,
+                                            }
+                                        )
+                                    }}
+                                </template>
+                                <template v-else>
+                                    <font-awesome-icon
+                                        :icon="faBan"
+                                    ></font-awesome-icon>
+                                </template>
+                            </template>
+                            <template v-else-if="col === 'tax'">
+                                {{ item[col] }}%
+                            </template>
+                            <span
+                                v-else-if="
+                                    col === 'department' ||
+                                    col === 'same' ||
+                                    col === 'home'
+                                "
+                                class="label"
+                                :class="`label-${
+                                    item.department ??
+                                    item.building?.same ??
+                                    item.home
+                                        ? 'success'
+                                        : 'warning'
+                                }`"
+                            >
                                 {{
-                                    lightbox.$sm('missions.patientsProgress', {
-                                        current: mission.patients.current,
-                                        total: mission.patients.total,
-                                    })
+                                    lightbox.$sm(
+                                        item.department ??
+                                            item.building?.same ??
+                                            item.home
+                                    )
                                 }}
+                            </span>
+                            <template
+                                v-else-if="
+                                    tableType === 'trailer' &&
+                                    col === 'building'
+                                "
+                            >
+                                <a
+                                    :href="`/buildings/${item[col].id}`"
+                                    class="lightbox-open"
+                                    lightbox-open
+                                >
+                                    {{ item[col].caption }}
+                                </a>
+                            </template>
+                            <template v-else-if="col === 'dispatch'">
+                                <button
+                                    @click.prevent="dispatch(item.id)"
+                                    :class="`btn btn-${
+                                        ['patient', 'prisoner'].includes(
+                                            tableType
+                                        )
+                                            ? item.state
+                                            : 'success'
+                                    }`"
+                                    :disabled="
+                                        ['patient', 'prisoner'].includes(
+                                            tableType
+                                        ) && item.state === 'danger'
+                                    "
+                                >
+                                    {{ lightbox.$sm(tableType + '.dispatch') }}
+                                </button>
+                                <template
+                                    v-if="
+                                        vehicle.windowType === 'missions' &&
+                                        vehicle.currentMission &&
+                                        item.id === vehicle.currentMission.id
+                                    "
+                                >
+                                    <br />
+                                    <span class="label label-default">
+                                        {{ lightbox.$sm('mission.alarmed') }}
+                                    </span>
+                                </template>
                             </template>
                             <template v-else>
-                                <font-awesome-icon
-                                    :icon="faBan"
-                                ></font-awesome-icon>
+                                {{ item[col] ?? col }}
                             </template>
                         </td>
-                        <td>
-                            <button
-                                @click.prevent="alarm(mission.id)"
-                                class="btn btn-success"
-                            >
-                                {{ lightbox.$sm('missions.alarm') }}
-                            </button>
-                            <br />
-                            <span
-                                class="label label-default"
-                                v-if="
-                                    vehicle.current_mission &&
-                                    mission.id === vehicle.current_mission.id
-                                "
-                            >
-                                {{ lightbox.$sm('missions.alarmed') }}
-                            </span>
-                        </td>
                     </tr>
                 </enhanced-table>
             </div>
-            <div
-                v-else-if="!vehicle.user && vehicle.has_hospitals"
-                class="table-tabs"
-            >
-                <tabs :on-select="setHospitalList" ref="tabs">
-                    <tab
-                        v-for="group in ['own', 'alliance', 'all']"
-                        :title="
-                            lightbox.$sm(`tabs.${group}`, {
-                                type: lightbox.$sm('tabs.hospitals'),
-                                amount: (group === 'own'
-                                    ? vehicle.own_hospitals.length
-                                    : group === 'alliance'
-                                    ? vehicle.alliance_hospitals.length
-                                    : hospitalList.length
-                                ).toLocaleString(),
-                            })
-                        "
-                        :key="group"
-                    ></tab>
-                </tabs>
-                <enhanced-table
-                    :head="hospital_head"
-                    :table-attrs="{
-                        class: {
-                            'table': true,
-                            'table-striped':
-                                hospitalListFiltered.filter(
-                                    ({ hidden }) => !hidden
-                                ).length === hospitalList.length,
-                        },
-                    }"
-                    :search="search"
-                    @search="setSearch"
-                    :sort="sort"
-                    :sort-dir="sortDir"
-                    @sort="setSort"
-                >
-                    <template v-slot:head>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.hospitals.each')
-                            }}</label>
-                            <settings-number
-                                name="hospital_each"
-                                :placeholder="
-                                    lightbox.$sm('filter.hospitals.each')
-                                "
-                                v-model="filter.hospital.each"
-                                :min="0"
-                                @input="
-                                    updateFilter(
-                                        'hospital.each',
-                                        filter.hospital.each
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.hospitals.distance')
-                            }}</label>
-                            <settings-number
-                                name="hospital_distance"
-                                :placeholder="
-                                    lightbox.$sm('filter.hospitals.distance')
-                                "
-                                v-model="filter.hospital.distance"
-                                :min="0"
-                                @input="
-                                    updateFilter(
-                                        'hospital.distance',
-                                        filter.hospital.distance
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.hospitals.beds')
-                            }}</label>
-                            <settings-number
-                                name="hospital_beds"
-                                :placeholder="
-                                    lightbox.$sm('filter.hospitals.beds')
-                                "
-                                v-model="filter.hospital.beds"
-                                :min="0"
-                                :max="30"
-                                @input="
-                                    updateFilter(
-                                        'hospital.beds',
-                                        filter.hospital.beds
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.hospitals.tax')
-                            }}</label>
-                            <settings-number
-                                name="hospital_tax"
-                                :placeholder="
-                                    lightbox.$sm('filter.hospitals.tax')
-                                "
-                                v-model="filter.hospital.tax"
-                                :min="0"
-                                :max="50"
-                                :step="10"
-                                @input="
-                                    updateFilter(
-                                        'hospital.tax',
-                                        filter.hospital.tax
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm(
-                                    'filter.hospitals.department.title',
-                                    {
-                                        department: vehicle.hospital_department,
-                                    }
-                                )
-                            }}</label>
-                            <multi-select
-                                name="hospital_department"
-                                :placeholder="
-                                    lightbox.$sm(
-                                        'filter.hospitals.department.title',
-                                        {
-                                            department:
-                                                vehicle.hospital_department,
-                                        }
-                                    )
-                                "
-                                v-model="filter.hospital.department"
-                                :options="[
-                                    {
-                                        value: true,
-                                        label: lightbox.$sm('true'),
-                                    },
-                                    {
-                                        value: false,
-                                        label: lightbox.$sm('false'),
-                                    },
-                                ]"
-                                @input="
-                                    updateFilter(
-                                        'hospital.department',
-                                        filter.hospital.department
-                                    )
-                                "
-                            ></multi-select>
-                        </div>
-                    </template>
-                    <tr
-                        v-for="hospital in hospitalListSorted"
-                        :key="hospital.id"
-                        :class="{ hidden: hospital.hidden }"
-                    >
-                        <td v-if="hospitalListSrc === 2">
-                            <font-awesome-icon
-                                :icon="
-                                    hospital.list === 'own_hospitals'
-                                        ? faPortrait
-                                        : faSitemap
-                                "
-                            ></font-awesome-icon>
-                        </td>
-                        <td>
-                            <a :href="`/buildings/${hospital.id}`">
-                                {{ hospital.caption }}
-                            </a>
-                        </td>
-                        <td>{{ hospital.distance }}</td>
-                        <td>{{ hospital.beds }}</td>
-                        <td v-if="hospitalListSrc">
-                            {{ hospital.tax }}
-                            %
-                        </td>
-                        <td>
-                            <span
-                                class="label"
-                                :class="`label-${
-                                    hospital.department ? 'success' : 'warning'
-                                }`"
-                            >
-                                {{ lightbox.$sm(hospital.department) }}
-                            </span>
-                        </td>
-                        <td>
-                            <button
-                                @click="
-                                    fms(
-                                        `/vehicles/${vehicle.id}/patient/${hospital.id}`
-                                    )
-                                "
-                                class="btn"
-                                :class="`btn-${hospital.state}`"
-                                :disabled="hospital.state === 'danger'"
-                            >
-                                {{ lightbox.$sm('approach') }}
-                            </button>
-                        </td>
-                    </tr>
-                </enhanced-table>
-            </div>
-            <div
-                v-else-if="!vehicle.user && vehicle.has_cells"
-                class="table-tabs"
-            >
-                <tabs :on-select="setCellList" ref="tabs">
-                    <tab
-                        v-for="group in ['own', 'alliance', 'all']"
-                        :title="
-                            lightbox.$sm(`tabs.${group}`, {
-                                type: lightbox.$sm('tabs.cells'),
-                                amount: (group === 'own'
-                                    ? vehicle.own_cells.length
-                                    : group === 'alliance'
-                                    ? vehicle.alliance_cells.length
-                                    : cellList.length
-                                ).toLocaleString(),
-                            })
-                        "
-                        :key="group"
-                    ></tab>
-                </tabs>
-                <enhanced-table
-                    :head="cell_head"
-                    :table-attrs="{
-                        class: {
-                            'table': true,
-                            'table-striped':
-                                cellListFiltered.filter(({ hidden }) => !hidden)
-                                    .length === cellList.length,
-                        },
-                    }"
-                    :search="search"
-                    @search="setSearch"
-                    :sort="sort"
-                    :sort-dir="sortDir"
-                    @sort="setSort"
-                >
-                    <template v-slot:head>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.cells.each')
-                            }}</label>
-                            <settings-number
-                                name="cell_each"
-                                :placeholder="lightbox.$sm('filter.cells.each')"
-                                v-model="filter.cell.each"
-                                :min="0"
-                                @input="
-                                    updateFilter('cell.each', filter.cell.each)
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.cells.distance')
-                            }}</label>
-                            <settings-number
-                                name="cell_distance"
-                                :placeholder="
-                                    lightbox.$sm('filter.cells.distance')
-                                "
-                                v-model="filter.cell.distance"
-                                :min="0"
-                                @input="
-                                    updateFilter(
-                                        'cell.distance',
-                                        filter.cell.distance
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.cells.free')
-                            }}</label>
-                            <settings-number
-                                name="cell_free"
-                                :placeholder="lightbox.$sm('filter.cells.free')"
-                                v-model="filter.cell.free"
-                                :min="0"
-                                :max="10"
-                                @input="
-                                    updateFilter('cell.free', filter.cell.free)
-                                "
-                            ></settings-number>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.cells.tax')
-                            }}</label>
-                            <settings-number
-                                name="cell_tax"
-                                :placeholder="lightbox.$sm('filter.cells.tax')"
-                                v-model="filter.cell.tax"
-                                :min="0"
-                                :max="50"
-                                :step="10"
-                                @input="
-                                    updateFilter('cell.tax', filter.cell.tax)
-                                "
-                            ></settings-number>
-                        </div>
-                    </template>
-                    <tr
-                        v-for="cell in cellListSorted"
-                        :key="cell.id"
-                        :class="{ hidden: cell.hidden }"
-                    >
-                        <td v-if="cellListSrc === 2">
-                            <font-awesome-icon
-                                :icon="
-                                    cell.list === 'own_cells'
-                                        ? faPortrait
-                                        : faSitemap
-                                "
-                            ></font-awesome-icon>
-                        </td>
-                        <td>
-                            <a :href="`/buildings/${cell.id}`">
-                                {{ cell.caption }}
-                            </a>
-                        </td>
-                        <td>{{ cell.distance }}</td>
-                        <td>{{ cell.free }}</td>
-                        <td v-if="cellListSrc">
-                            {{ cell.tax }}
-                            %
-                        </td>
-                        <td>
-                            <button
-                                @click="
-                                    fms(
-                                        `/vehicles/${vehicle.id}/gefangener/${cell.id}`
-                                    )
-                                "
-                                class="btn"
-                                :class="`btn-${cell.state}`"
-                                :disabled="cell.state === 'danger'"
-                            >
-                                {{ lightbox.$sm('approach') }}
-                            </button>
-                        </td>
-                    </tr>
-                </enhanced-table>
-            </div>
-            <div
-                v-else-if="!vehicle.user && vehicle.has_wlfs"
-                class="table-tabs"
-            >
-                <enhanced-table
-                    :head="wlf_head"
-                    :table-attrs="{
-                        class: {
-                            'table': true,
-                            'table-striped':
-                                wlfListFiltered.filter(({ hidden }) => !hidden)
-                                    .length === vehicle.wlfs.length,
-                        },
-                    }"
-                    :search="search"
-                    @search="setSearch"
-                    :sort="sort"
-                    :sort-dir="sortDir"
-                    @sort="setSort"
-                >
-                    <template v-slot:head>
-                        <div class="form-group">
-                            <label>{{ lightbox.$sm('filter.wlf.same') }}</label>
-                            <multi-select
-                                name="wlf_same"
-                                :placeholder="
-                                    lightbox.$sm('filter.wlf.same.title')
-                                "
-                                v-model="filter.wlf.same"
-                                :options="[
-                                    {
-                                        value: true,
-                                        label: lightbox.$sm('true'),
-                                    },
-                                    {
-                                        value: false,
-                                        label: lightbox.$sm('false'),
-                                    },
-                                ]"
-                                @input="
-                                    updateFilter('wlf.same', filter.wlf.same)
-                                "
-                            ></multi-select>
-                        </div>
-                        <div class="form-group">
-                            <label>{{
-                                lightbox.$sm('filter.wlf.distance')
-                            }}</label>
-                            <settings-number
-                                name="wlf_distance"
-                                :placeholder="
-                                    lightbox.$sm('filter.wlf.distance')
-                                "
-                                v-model="filter.wlf.distance"
-                                :min="0"
-                                @input="
-                                    updateFilter(
-                                        'wlf.distance',
-                                        filter.wlf.distance
-                                    )
-                                "
-                            ></settings-number>
-                        </div>
-                    </template>
-                    <tr
-                        v-for="wlf in wlfListSorted"
-                        :key="wlf.id"
-                        :class="{ hidden: wlf.hidden }"
-                    >
-                        <td>
-                            <a :href="`/vehicles/${wlf.id}`">{{
-                                wlf.caption
-                            }}</a>
-                        </td>
-                        <td>{{ wlf.distance }}</td>
-                        <td>
-                            <a :href="`/vehicles/${wlf.building.id}`">{{
-                                wlf.building.caption
-                            }}</a>
-                        </td>
-                        <td>
-                            <span
-                                class="label"
-                                :class="`label-${
-                                    wlf.building.same ? 'success' : 'danger'
-                                }`"
-                            >
-                                {{ lightbox.$sm(wlf.building.same) }}
-                            </span>
-                        </td>
-                        <td>
-                            <button
-                                @click="
-                                    fms(
-                                        `/vehicles/${vehicle.id}/alarm?vehicle_ids%5B%5D=${wlf.id}`,
-                                        true
-                                    )
-                                "
-                                class="btn btn-success"
-                            >
-                                {{ lightbox.$sm('wlf.alarm') }}
-                            </button>
-                        </td>
-                    </tr>
-                </enhanced-table>
-            </div>
+
+            <!-- vehicle navigation btns -->
             <div class="btn-group nav-btns">
-                <button
-                    class="btn btn-xs"
-                    :class="`btn-${
-                        vehicle.id === vehicle.previous_vehicle_id
-                            ? 'default'
-                            : 'success'
-                    }`"
+                <a
+                    :class="navigationBtnClass.prev"
                     :href="
-                        vehicle.id === vehicle.previous_vehicle_id
+                        vehicle.id === vehicle.previousVehicle
                             ? '#'
-                            : `/vehicles/${vehicle.previous_vehicle_id}`
+                            : `/vehicles/${vehicle.previousVehicle}`
                     "
-                    :disabled="vehicle.id === vehicle.previous_vehicle_id"
                 >
                     <span class="glyphicon glyphicon-arrow-left"></span>
-                </button>
-                <button
-                    class="btn btn-xs"
-                    :class="`btn-${
-                        vehicle.id === vehicle.next_vehicle_id
-                            ? 'default'
-                            : 'success'
-                    }`"
+                </a>
+                <a
+                    :class="navigationBtnClass.next"
                     :href="
-                        vehicle.id === vehicle.next_vehicle_id
+                        vehicle.id === vehicle.nextVehicle
                             ? '#'
-                            : `/vehicles/${vehicle.next_vehicle_id}`
+                            : `/vehicles/${vehicle.nextVehicle}`
                     "
-                    :disabled="vehicle.id === vehicle.next_vehicle_id"
                 >
                     <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -1112,7 +638,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { defineAPIStore } from '@stores/api';
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
 import { faBan } from '@fortawesome/free-solid-svg-icons/faBan';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
@@ -1126,10 +651,22 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import createBtn from '../../extendedCallList/assets/starrableMissions/createBtn';
 
-import type { RedesignVehicleComponent as Component } from '../types/components/vehicle';
+import type {
+    RedesignVehicleComponent as Component,
+    KebabToCamelCase,
+    RedesignVehicleComponent,
+} from '../types/components/vehicle';
+
+const kebabToCamelCase = <Kebab extends string = string>(
+    kebab: Kebab
+): KebabToCamelCase<Kebab> =>
+    kebab.replace(/-([a-z])/gu, g =>
+        g[1].toUpperCase()
+    ) as KebabToCamelCase<Kebab>;
 
 export default Vue.extend<
     Component['Data'],
@@ -1154,413 +691,431 @@ export default Vue.extend<
     },
     data() {
         return {
-            faSitemap,
-            faPortrait,
-            faUser,
-            faAsterisk,
+            listIcon: { own: faPortrait, alliance: faSitemap },
+            participationIcon: { true: faUser, false: faAsterisk },
             faPalette,
             faEdit,
             faChartLine,
             faUsers,
             faTrash,
             faBan,
-            missionListSrc: 0,
             search: '',
-            searchTimeout: null,
-            sort: 'distance',
-            sortDir: 'asc',
-            hospitalListSrc: 0,
-            cellListSrc: 0,
-            releaseDisables: [],
+            searchTimeout: 0,
             color2Class: {
                 red: 'danger',
                 yellow: 'warning',
                 green: 'success',
             },
-            filter: {
+            tables: {
                 mission: {
-                    status: ['red', 'yellow', 'green'],
-                    participation: [true, false],
-                    distance: 0,
-                    credits: 0,
-                    progress: 100,
+                    filter: {
+                        status: ['red', 'yellow', 'green'],
+                        participation: [true, false],
+                        distance: 0,
+                        credits: 0,
+                        progress: 0,
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    list: '*',
                 },
-                hospital: {
-                    department: [true, false],
-                    distance: 0,
-                    tax: 50,
-                    beds: 0,
-                    each: 0,
+                patient: {
+                    filter: {
+                        distance: 0,
+                        freeBeds: 0,
+                        tax: 50,
+                        department: [true, false],
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
                 },
-                cell: {
-                    distance: 0,
-                    tax: 50,
-                    free: 0,
-                    each: 0,
+                prisoner: {
+                    filter: {
+                        distance: 0,
+                        freeCells: 0,
+                        tax: 50,
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
                 },
-                wlf: {
-                    distance: 0,
-                    same: [true, false],
-                    show: 0,
+                trailer: {
+                    filter: {
+                        distance: 0,
+                        same: [true, false],
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    list: '*',
+                },
+                patientIntermediate: {
+                    filter: {
+                        distance: 0,
+                        home: [true, false],
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
+                },
+                prisonerIntermediate: {
+                    filter: {
+                        distance: 0,
+                        home: [true, false],
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
                 },
             },
+            apiStore: useAPIStore(),
             settingsStore: useSettingsStore(),
             starredMissionsEnabled: false,
             starredMissions: [],
         };
     },
     computed: {
-        ...mapState(defineAPIStore, {
-            participated_missions: 'participatedMissions',
-        }),
-        mission_head() {
-            return {
-                list: { title: '', noSort: this.missionListSrc !== 2 },
-                img: { title: '' },
-                participation: {
-                    title: this.lightbox
-                        .$sm('missions.participation')
-                        .toString(),
-                },
-                mission: {
-                    title: this.lightbox.$sm('missions.mission').toString(),
-                },
-                distance: {
-                    title: this.lightbox.$sm('distance').toString(),
-                },
-                credits: {
-                    title: this.lightbox.$sm('missions.credits').toString(),
-                },
-                progress: {
-                    title: this.lightbox.$sm('missions.progress').toString(),
-                },
-                patients: {
-                    title: this.lightbox.$sm('missions.patients').toString(),
-                },
-                alarm: {
-                    title: '',
-                    noSort: true,
-                },
-            };
+        tableType() {
+            if (
+                this.vehicle.windowType === 'missions' ||
+                this.vehicle.windowType === 'empty'
+            )
+                return 'mission';
+            return kebabToCamelCase(this.vehicle.transportRequestType);
         },
-        missionList() {
+        table() {
+            return this.tables[this.tableType];
+        },
+        navigationBtnClass() {
+            const prev = ['btn', 'btn-xs'];
+            if (this.vehicle.id === this.vehicle.previousVehicle)
+                prev.push('disabled', 'btn-default');
+            else prev.push('btn-success');
+
+            const next = ['btn', 'btn-xs'];
+            if (this.vehicle.id === this.vehicle.nextVehicle)
+                next.push('disabled', 'btn-default');
+            else next.push('btn-success');
+
+            return { prev: prev.join(' '), next: next.join(' ') };
+        },
+        tableHead() {
+            let head: Record<
+                string,
+                {
+                    title: string;
+                    noSort?: boolean;
+                }
+            > = {};
+            if (this.vehicle.windowType === 'empty') {
+                // do not modify the head
+            } else if (this.vehicle.windowType === 'missions') {
+                head = {
+                    list: { title: '' },
+                    image: { title: '' },
+                    participation: {
+                        title: this.lightbox
+                            .$sm('mission.participation')
+                            .toString(),
+                    },
+                    caption: {
+                        title: this.lightbox.$sm('mission.mission').toString(),
+                    },
+                    distance: {
+                        title: this.lightbox.$sm('distance').toString(),
+                    },
+                    credits: {
+                        title: this.lightbox.$sm('mission.credits').toString(),
+                    },
+                    progress: {
+                        title: this.lightbox.$sm('mission.progress').toString(),
+                    },
+                    patients: {
+                        title: this.lightbox.$sm('mission.patients').toString(),
+                    },
+                    dispatch: {
+                        title: '',
+                        noSort: true,
+                    },
+                };
+            } else if (this.vehicle.transportRequestType === 'patient') {
+                head = {
+                    list: { title: '' },
+                    caption: {
+                        title: this.lightbox.$sm('patient.hospital').toString(),
+                    },
+                    distance: {
+                        title: this.lightbox.$sm('distance').toString(),
+                    },
+                    freeBeds: {
+                        title: this.lightbox.$sm('patient.beds').toString(),
+                    },
+                    tax: { title: this.lightbox.$sm('tax').toString() },
+                    department: {
+                        title: this.lightbox
+                            .$sm('patient.department', {
+                                department: this.vehicle.department,
+                            })
+                            .toString(),
+                    },
+                    dispatch: {
+                        title: '',
+                        noSort: true,
+                    },
+                };
+
+                // do not show tax on own list
+                if (this.table.list === 'own') delete head.tax;
+            } else if (this.vehicle.transportRequestType === 'prisoner') {
+                head = {
+                    list: { title: '' },
+                    caption: {
+                        title: this.lightbox.$sm('prisoner.cell').toString(),
+                    },
+                    distance: {
+                        title: this.lightbox.$sm('distance').toString(),
+                    },
+                    freeCells: {
+                        title: this.lightbox.$sm('prisoner.free').toString(),
+                    },
+                    tax: { title: this.lightbox.$sm('tax').toString() },
+                    dispatch: {
+                        title: '',
+                        noSort: true,
+                    },
+                };
+
+                // do not show tax on own list
+                if (this.table.list === 'own') delete head.tax;
+            } else if (this.vehicle.transportRequestType === 'trailer') {
+                head = {
+                    caption: {
+                        title: this.lightbox.$sm('trailer.caption').toString(),
+                    },
+                    distance: {
+                        title: this.lightbox.$sm('distance').toString(),
+                    },
+                    building: {
+                        title: this.lightbox.$sm('trailer.building').toString(),
+                    },
+                    same: {
+                        title: this.lightbox
+                            .$sm('trailer.same', {
+                                building: this.vehicle.building.caption,
+                            })
+                            .toString(),
+                    },
+                    dispatch: { title: '', noSort: true },
+                };
+            } else if (
+                this.vehicle.transportRequestType === 'patient-intermediate' ||
+                this.vehicle.transportRequestType === 'prisoner-intermediate'
+            ) {
+                head = {
+                    list: { title: '' },
+                    caption: {
+                        title: this.lightbox
+                            .$sm('patientIntermediate.caption')
+                            .toString(),
+                    },
+                    distance: {
+                        title: this.lightbox.$sm('distance').toString(),
+                    },
+                    home: {
+                        title: this.lightbox
+                            .$sm('patientIntermediate.home', {
+                                building: this.vehicle.building.caption,
+                            })
+                            .toString(),
+                    },
+                    dispatch: { title: '', noSort: true },
+                };
+            }
+            return head;
+        },
+        lists() {
+            if (
+                this.vehicle.windowType === 'transportRequest' &&
+                this.vehicle.transportRequestType === 'trailer'
+            )
+                return [];
+            return ['own', 'alliance', '*'];
+        },
+        items() {
+            if (this.vehicle.windowType === 'empty') return [];
+            if (this.vehicle.windowType === 'transportRequest') {
+                switch (this.vehicle.transportRequestType) {
+                    case 'patient':
+                        return [
+                            ...this.vehicle.hospitals.own,
+                            ...this.vehicle.hospitals.alliance,
+                        ];
+                    case 'patient-intermediate':
+                    case 'prisoner-intermediate':
+                        return [
+                            ...this.vehicle.buildings.own,
+                            ...this.vehicle.buildings.alliance,
+                        ];
+                    case 'prisoner':
+                        return [
+                            ...this.vehicle.cells.own,
+                            ...this.vehicle.cells.alliance,
+                        ];
+                    case 'trailer':
+                        return this.vehicle.towingVehicles;
+                }
+            }
             return [
-                ...this.vehicle.mission_own,
-                ...this.vehicle.mission_alliance,
-            ].sort((a, b) => {
-                const l = parseInt(
-                    a.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
-                );
-                const r = parseInt(
-                    b.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
-                );
-                return l < r ? -1 : l > r ? 1 : 0;
-            });
+                ...this.vehicle.missions.own,
+                ...this.vehicle.missions.alliance,
+            ];
         },
-        missionListFiltered() {
-            return this.missionList.map(m => {
-                const missionType = this.lightbox.apiStore.missions[m.type];
-                const participation = this.participated_missions.includes(m.id);
-                const credits = missionType
-                    ? missionType.average_credits || 0
-                    : Number.MAX_SAFE_INTEGER;
-                const filter = !!(
-                    this.filter.mission.status.includes(m.status) &&
-                    this.filter.mission.participation.includes(participation) &&
-                    credits >= this.filter.mission.credits &&
-                    (!this.filter.mission.distance ||
-                        parseInt(m.distance) < this.filter.mission.distance) &&
-                    m.progress.width >= 100 - this.filter.mission.progress &&
-                    JSON.stringify(Object.values(m))
-                        .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
-                );
-                return {
-                    ...m,
-                    participation,
-                    credits,
-                    filter,
-                    hidden:
-                        !filter ||
-                        !(
-                            this.missionListSrc === 2 ||
-                            (this.missionListSrc === 0 &&
-                                m.list === 'mission_own') ||
-                            (this.missionListSrc === 1 &&
-                                m.list === 'mission_alliance')
+        filteredItems() {
+            const filteredBySearch = this.search.trim()
+                ? this.items.filter(item =>
+                      JSON.stringify(Object.values(item))
+                          .toLowerCase()
+                          .match(this.search.trim().toLowerCase())
+                  )
+                : this.items;
+            return filteredBySearch.filter(item =>
+                Object.entries(this.table.filter).every(([filter, value]) => {
+                    if (filter === 'distance' && !value) return true;
+
+                    const itemValue = {
+                        [filter]:
+                            filter in item
+                                ? item[filter as keyof typeof item]
+                                : item,
+                        participation: this.participatedMissions.includes(
+                            item.id
                         ),
-                };
-            });
+                        distance: parseFloat(
+                            item.distance
+                                .replace(/[^\d,.]/gu, '')
+                                .replace(/,/gu, '.')
+                        ),
+                        credits:
+                            'type' in item
+                                ? this.apiStore.missions[item.type]
+                                      .average_credits ?? 0
+                                : Number.MAX_SAFE_INTEGER,
+                        progress: 'progress' in item ? item.progress.width : 0,
+                        same: 'building' in item ? item.building.same : false,
+                    }[filter];
+                    if (Array.isArray(value))
+                        return (value as unknown[]).includes(itemValue);
+                    if (filter === 'progress') return itemValue <= 100 - value;
+                    if (['credits', 'freeBeds', 'freeCells'].includes(filter))
+                        return itemValue >= value;
+                    return itemValue <= value;
+                })
+            );
         },
-        missionListSorted() {
-            if (this.sort === 'distance') {
-                if (this.sortDir === 'asc') return this.missionListFiltered;
-                return [...this.missionListFiltered].reverse();
-            }
-            const modifier = this.sortDir === 'desc' ? -1 : 1;
-            return [...this.missionListFiltered].sort((a, b) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                let f = a[this.sort] ?? '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                let s = b[this.sort] ?? '';
-                if (this.sort === 'mission') {
-                    f = a['caption'] ?? '';
-                    s = b['caption'] ?? '';
-                } else if (this.sort === 'img') {
-                    f = a['status'] ?? '';
-                    s = b['status'] ?? '';
-                } else if (this.sort === 'progress') {
-                    f = f['width'] ?? 100;
-                    s = s['width'] ?? 100;
-                } else if (this.sort === 'patients') {
-                    f = f['current'] ?? 0;
-                    s = s['current'] ?? 0;
-                }
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
-            });
-        },
-        hospital_head() {
-            return {
-                ...(this.hospitalListSrc === 2 ? { list: { title: '' } } : {}),
-                caption: {
-                    title: this.lightbox.$sm('hospitals.hospital').toString(),
-                },
-                distance: {
-                    title: this.lightbox.$sm('distance').toString(),
-                },
-                beds: {
-                    title: this.lightbox.$sm('hospitals.beds').toString(),
-                },
-                ...(this.hospitalListSrc
-                    ? { tax: { title: this.lightbox.$sm('tax').toString() } }
-                    : {}),
-                department: {
-                    title: this.lightbox
-                        .$sm('hospitals.department', {
-                            department: this.vehicle.hospital_department,
-                        })
-                        .toString(),
-                },
-                dispatch: {
-                    title: '',
-                    noSort: true,
-                },
-            };
-        },
-        hospitalList() {
-            return [
-                ...this.vehicle.own_hospitals,
-                ...this.vehicle.alliance_hospitals,
-            ].sort((a, b) => {
-                const l = parseInt(
-                    a.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
-                );
-                const r = parseInt(
-                    b.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
-                );
-                return l < r ? -1 : l > r ? 1 : 0;
-            });
-        },
-        hospitalListFiltered() {
-            const eachFilterLists = {
-                own_hospitals: 0,
-                alliance_hospitals: 0,
-            };
-            return this.hospitalList.map(h => {
-                const filter = !!(
-                    this.filter.hospital.department.includes(h.department) &&
-                    h.tax <= this.filter.hospital.tax &&
-                    h.beds >= this.filter.hospital.beds &&
-                    (!this.filter.hospital.distance ||
-                        parseInt(h.distance) < this.filter.hospital.distance) &&
-                    (!this.filter.hospital.each ||
-                        eachFilterLists[h.list] < this.filter.hospital.each) &&
-                    JSON.stringify(Object.values(h))
-                        .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
-                );
-                const hidden =
-                    !filter ||
-                    !(
-                        this.hospitalListSrc === 2 ||
-                        (this.hospitalListSrc === 0 &&
-                            h.list === 'own_hospitals') ||
-                        (this.hospitalListSrc === 1 &&
-                            h.list === 'alliance_hospitals')
+        sortedItems() {
+            const sortValues: Record<string, number | string> = {};
+
+            const directionModifier = { asc: 1, desc: -1 }[this.table.sortDir];
+
+            const findSortValue = (
+                item: typeof this.filteredItems[number]
+            ): number | string => {
+                if (item.id in sortValues) return sortValues[item.id];
+                const sort = this.table.sort;
+
+                let sortValue: boolean | number | string = 0;
+
+                if (sort === 'participation') {
+                    sortValue = this.participatedMissions.includes(item.id);
+                } else if (sort === 'distance') {
+                    sortValue = parseFloat(
+                        item.distance
+                            .replace(/[^\d,.]/gu, '')
+                            .replace(/,/gu, '.')
                     );
-                if (!hidden) eachFilterLists[h.list]++;
-                return {
-                    ...h,
-                    filter,
-                    hidden,
-                };
-            });
-        },
-        hospitalListSorted() {
-            if (this.sort === 'distance') {
-                if (this.sortDir === 'asc') return this.hospitalListFiltered;
-                return [...this.hospitalListFiltered].reverse();
-            }
-            const modifier = this.sortDir === 'desc' ? -1 : 1;
-            return [...this.hospitalListFiltered].sort((a, b) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                const f = a[this.sort] ?? '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                const s = b[this.sort] ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
-            });
-        },
-        cell_head() {
-            return {
-                ...(this.cellListSrc === 2 ? { list: { title: '' } } : {}),
-                caption: {
-                    title: this.lightbox.$sm('cells.cell').toString(),
-                },
-                distance: {
-                    title: this.lightbox.$sm('distance').toString(),
-                },
-                free: {
-                    title: this.lightbox.$sm('cells.free').toString(),
-                },
-                ...(this.cellListSrc
-                    ? { tax: { title: this.lightbox.$sm('tax').toString() } }
-                    : {}),
-                dispatch: {
-                    title: '',
-                    noSort: true,
-                },
-            };
-        },
-        cellList() {
-            return [
-                ...this.vehicle.own_cells,
-                ...this.vehicle.alliance_cells,
-            ].sort((a, b) => {
-                const l = parseInt(
-                    a.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
-                );
-                const r = parseInt(
-                    b.distance.match(/\d+([,.]?\d+)?/u)?.[0] ?? '-1'
-                );
-                return l < r ? -1 : l > r ? 1 : 0;
-            });
-        },
-        cellListFiltered() {
-            const eachFilterLists = {
-                own_cells: 0,
-                alliance_cells: 0,
-            };
-            return this.cellList.map(c => {
-                const filter = !!(
-                    c.tax <= this.filter.cell.tax &&
-                    c.free >= this.filter.cell.free &&
-                    (!this.filter.cell.distance ||
-                        parseInt(c.distance) < this.filter.cell.distance) &&
-                    (!this.filter.cell.each ||
-                        eachFilterLists[c.list] < this.filter.cell.each) &&
-                    JSON.stringify(Object.values(c))
-                        .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
-                );
-                const hidden =
-                    !filter ||
-                    !(
-                        this.cellListSrc === 2 ||
-                        (this.cellListSrc === 0 && c.list === 'own_cells') ||
-                        (this.cellListSrc === 1 && c.list === 'alliance_cells')
-                    );
-                if (!hidden) eachFilterLists[c.list]++;
-                return {
-                    ...c,
-                    filter,
-                    hidden,
-                };
-            });
-        },
-        cellListSorted() {
-            if (this.sort === 'distance') {
-                if (this.sortDir === 'asc') return this.cellListFiltered;
-                return [...this.cellListFiltered].reverse();
-            }
-            const modifier = this.sortDir === 'desc' ? -1 : 1;
-            return [...this.cellListFiltered].sort((a, b) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                const f = a[this.sort] ?? '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                const s = b[this.sort] ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
-            });
-        },
-        wlf_head() {
-            return {
-                vehicle: {
-                    title: this.lightbox.$sm('wlf.caption').toString(),
-                },
-                distance: {
-                    title: this.lightbox.$sm('distance').toString(),
-                },
-                building: {
-                    title: this.lightbox.$sm('wlf.building').toString(),
-                },
-                same: {
-                    title: this.lightbox
-                        .$sm('wlf.same', {
-                            building: this.vehicle.building.caption,
-                        })
-                        .toString(),
-                },
-                dispatch: { title: '', noSort: true },
-            };
-        },
-        wlfListFiltered() {
-            let shown = 0;
-            return this.vehicle.wlfs.map(w => {
-                const hidden = !(
-                    this.filter.wlf.same.includes(w.building.same) &&
-                    (!this.filter.wlf.distance ||
-                        parseInt(w.distance) < this.filter.wlf.distance) &&
-                    (!this.filter.wlf.show || shown < this.filter.wlf.show) &&
-                    JSON.stringify(Object.values(w))
-                        .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
-                );
-                if (!hidden) shown++;
-                return {
-                    ...w,
-                    filter: hidden,
-                    hidden,
-                };
-            });
-        },
-        wlfListSorted() {
-            if (this.sort === 'distance') {
-                if (this.sortDir === 'asc') return this.wlfListFiltered;
-                return [...this.wlfListFiltered].reverse();
-            }
-            const modifier = this.sortDir === 'desc' ? -1 : 1;
-            return [...this.wlfListFiltered].sort((a, b) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                let f = a[this.sort] ?? '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                let s = b[this.sort] ?? '';
-                if (this.sort === 'same') {
-                    f = a.building.same ?? '';
-                    s = b.building.same ?? '';
-                } else if (this.sort === 'building') {
-                    f = f['caption'] ?? '';
-                    s = s['caption'] ?? '';
+                } else if (sort === 'credits') {
+                    sortValue =
+                        'type' in item
+                            ? this.apiStore.missions[item.type]
+                                  .average_credits ?? 0
+                            : Number.MAX_SAFE_INTEGER;
+                } else if (sort === 'progress') {
+                    sortValue =
+                        'progress' in item
+                            ? // hacky way to respect progress and status
+                              item.progress.width +
+                              ['', 'green', 'yellow', 'red'].indexOf(
+                                  item.status
+                              ) /
+                                  10_000
+                            : 0;
+                } else if (sort === 'patients') {
+                    sortValue =
+                        'patients' in item
+                            ? // hacky way to respect current and total
+                              item.patients.current +
+                              item.patients.total / 10_000
+                            : 0;
+                } else if (sort === 'building') {
+                    sortValue = 'building' in item ? item.building.id : 0;
+                } else if (sort === 'same') {
+                    sortValue = 'building' in item ? item.building.same : 0;
+                } else if (sort in item) {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore - yes, TS is not happy because credits doesn't exist on all item types mimimi
+                    sortValue = item[sort];
                 }
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+
+                if (typeof sortValue === 'boolean')
+                    sortValue = Number(sortValue);
+
+                return sortValue;
+            };
+
+            return [...this.filteredItems].sort((a, b) => {
+                const sortValueA = findSortValue(a);
+                const sortValueB = findSortValue(b);
+
+                if (
+                    typeof sortValueA === 'string' ||
+                    typeof sortValueB === 'string'
+                ) {
+                    return (
+                        sortValueA
+                            .toString()
+                            .localeCompare(sortValueB.toString()) *
+                        directionModifier
+                    );
+                }
+                return (sortValueA - sortValueB) * directionModifier;
             });
         },
+        shownItems() {
+            if ('showEach' in this.table && this.table.showEach) {
+                const showEach = this.table.showEach;
+                const lists: Record<string, number> = {};
+                return this.sortedItems.filter(item => {
+                    if (!('list' in item)) return true;
+                    const list = item.list;
+                    if (lists[list] === undefined) lists[list] = 0;
+                    if (lists[list] >= showEach) return false;
+                    lists[list]++;
+                    return true;
+                });
+            }
+            return this.sortedItems;
+        },
+        ...mapState(defineAPIStore, {
+            participatedMissions: 'participatedMissions',
+        }),
         hotkeysParam() {
             return {
                 component: this,
@@ -1569,13 +1124,19 @@ export default Vue.extend<
                     alarm: this.alarm,
                 },
                 computed: {
-                    missionListSorted: this.missionListSorted,
+                    sortedItems: Object.fromEntries(
+                        Object.keys(this.tables).map(key => [
+                            key,
+                            key === this.tableType ? this.sortedItems : [],
+                        ])
+                        // yes, what a wonderful hack, but I didn't find a better way
+                    ) as RedesignVehicleComponent['Computed']['hotkeysParam']['computed']['sortedItems'],
                 },
             };
         },
         starredMissionButtons() {
-            if (!this.starredMissionsEnabled) return {};
-
+            if (!this.starredMissionsEnabled || this.tableType !== 'mission')
+                return {};
             const btnClass = useRootStore().nodeAttribute(
                 'extendedCallList_starrable-missions_btn'
             );
@@ -1594,9 +1155,8 @@ export default Vue.extend<
                     settingId,
                     value,
                 });
-
             return Object.fromEntries(
-                this.missionList.map(({ id }) => {
+                this.items.map(({ id }) => {
                     const missionId = id.toString();
                     return [
                         missionId,
@@ -1615,46 +1175,44 @@ export default Vue.extend<
         },
     },
     methods: {
-        setMissionList(_, list) {
-            this.setSetting('missionListSrc', list).then();
-            this.missionListSrc = list;
+        getUrl(item) {
+            if (this.vehicle.windowType === 'empty') return '';
+            if (this.vehicle.windowType === 'missions')
+                return `/missions/${item.id}`;
+            if (this.vehicle.transportRequestType === 'trailer')
+                return `/vehicles/${item.id}`;
+            return `/buildings/${item.id}`;
         },
-        setHospitalList(_, list) {
-            this.setSetting('hospitalListSrc', list).then();
-            this.hospitalListSrc = list;
+        setList(_, group) {
+            this.tables[this.tableType].list = this.lists[group];
+            this.setSetting(`${this.tableType}.list`, this.table.list).then();
         },
-        setCellList(_, list) {
-            this.setSetting('cellListSrc', list).then();
-            this.cellListSrc = list;
+        clickListTab() {
+            this.$el
+                .querySelector<HTMLSpanElement>(
+                    `.vue-tabs .vue-tab [data-list="${this.table.list}"]`
+                )
+                ?.click();
         },
-        setSearch(search) {
-            if (this.searchTimeout) window.clearTimeout(this.searchTimeout);
-            this.searchTimeout = window.setTimeout(
-                () => (this.search = search),
-                100
-            );
-        },
-        setSort(type) {
-            if (this.sort === type) {
-                this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
+        setSort(sort) {
+            if (this.table.sort === sort) {
+                this.tables[this.tableType].sortDir =
+                    this.table.sortDir === 'asc' ? 'desc' : 'asc';
             } else {
-                this.sort = type;
-                this.sortDir = 'asc';
+                this.tables[this.tableType].sortDir = 'asc';
             }
-            const mode = this.vehicle.has_hospitals
-                ? 'hospital'
-                : this.vehicle.has_cells
-                ? 'cell'
-                : this.vehicle.has_wlfs
-                ? 'wlf'
-                : 'mission';
-            this.setSetting(`${mode}.sort`, type).then(() =>
-                this.setSetting(`${mode}.sortDir`, this.sortDir).then()
+            this.tables[this.tableType].sort = sort;
+            this.setSetting(`${this.tableType}.sort`, this.table.sort).then(
+                () =>
+                    this.setSetting(
+                        `${this.tableType}.sortDir`,
+                        this.table.sortDir
+                    )
             );
         },
-        alarm(mission) {
+        alarm(missionId) {
             const url = new URL(
-                `/missions/${mission}/alarm`,
+                `/missions/${missionId}/alarm`,
                 window.location.origin
             );
             url.searchParams.append('utf8', '✓');
@@ -1669,7 +1227,7 @@ export default Vue.extend<
             url.searchParams.append('vehicle_return', '1');
             this.lightbox.apiStore
                 .request({
-                    url: `/missions/${mission}/alarm`,
+                    url: `/missions/${missionId}/alarm`,
                     init: {
                         credentials: 'include',
                         headers: {
@@ -1683,7 +1241,7 @@ export default Vue.extend<
                         method: 'POST',
                         mode: 'cors',
                     },
-                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-to-${mission}`,
+                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-to-${missionId}`,
                 })
                 .then(() =>
                     this.$set(
@@ -1693,13 +1251,104 @@ export default Vue.extend<
                     )
                 );
         },
+        dispatch(id) {
+            if (this.vehicle.windowType === 'empty') return;
+            if (this.vehicle.windowType === 'missions') return this.alarm(id);
+            switch (this.vehicle.transportRequestType) {
+                case 'patient':
+                case 'patient-intermediate':
+                    this.approach(`/vehicles/${this.vehicle.id}/patient/${id}`);
+                    break;
+                case 'prisoner':
+                case 'prisoner-intermediate':
+                    this.approach(
+                        `/vehicles/${this.vehicle.id}/gefangener/${id}`
+                    );
+                    break;
+                case 'trailer':
+                    this.approach(
+                        `/vehicles/${this.vehicle.id}/alarm?vehicle_ids%5B%5D=${id}`,
+                        false
+                    );
+                    break;
+            }
+        },
+        approach(url, followRedirect = true) {
+            this.lightbox.apiStore
+                .request({
+                    url,
+                    feature: `redesign-vehicle-approach`,
+                })
+                .then((res: Response) => {
+                    if (res.redirected && followRedirect) {
+                        if (
+                            new URL(res.url, window.location.origin)
+                                .pathname === '/'
+                        ) {
+                            this.$set(this.lightbox, 'type', 'vehicle/nextfms');
+                            return window.lightboxClose(this.lightbox.creation);
+                        }
+                        return this.$set(this.lightbox, 'src', res.url);
+                    }
+                    res.text().then(html => {
+                        import(
+                            /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
+                        ).then(async parser => {
+                            const { next: nextVehicle } = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url,
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this.lightbox,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
+                            });
+                            if (nextVehicle < 0) {
+                                import(
+                                    `../i18n/${this.lightbox.rootStore.locale}/vehicle/nextfms.json`
+                                ).then(t => {
+                                    this.$i18n.mergeLocaleMessage(
+                                        this.lightbox.rootStore.locale,
+                                        {
+                                            modules: {
+                                                redesign: {
+                                                    vehicle: {
+                                                        nextfms: t,
+                                                    },
+                                                },
+                                            },
+                                        }
+                                    );
+                                    this.$set(
+                                        this.lightbox,
+                                        'type',
+                                        'vehicle/nextfms'
+                                    );
+                                });
+                                return window.lightboxClose(
+                                    this.lightbox.creation
+                                );
+                            }
+                            this.$set(
+                                this.lightbox,
+                                'src',
+                                `/vehicles/${nextVehicle}`
+                            );
+                        });
+                    });
+                });
+        },
         deleteVehicle() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
             this.$modal.show('dialog', {
                 title: this.lightbox.$sm('delete.title'),
                 text: this.lightbox.$sm('delete.text', {
-                    caption: this.vehicle.vehicle_name,
+                    caption: this.vehicle.name,
                     building: this.vehicle.building.caption,
                 }),
                 buttons: [
@@ -1796,7 +1445,7 @@ export default Vue.extend<
                     );
                 });
         },
-        switch_state() {
+        switchState() {
             if (![2, 6].includes(this.vehicle.fms)) return;
             const target = this.vehicle.fms === 2 ? 6 : 2;
             this.lightbox.apiStore
@@ -1812,82 +1461,40 @@ export default Vue.extend<
                     );
                 });
         },
-        updateFilter(filter, value) {
-            this.setSetting(filter, value).then();
+        updateFilter(filter) {
+            this.setSetting(
+                `${this.tableType}.filter.${filter}`,
+                this.table.filter[filter]
+            );
         },
-        fms(url, wlf = false) {
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-vehicle-fms`,
-                })
-                .then((res: Response) => {
-                    if (res.redirected && !wlf) {
-                        if (
-                            new URL(res.url, window.location.origin)
-                                .pathname === '/'
-                        ) {
-                            this.$set(this.lightbox, 'type', 'vehicle/nextfms');
-                            return window.lightboxClose(this.lightbox.creation);
-                        }
-                        return this.$set(this.lightbox, 'src', res.url);
-                    }
+        updateShowEach() {
+            if ('showEach' in this.table) {
+                this.setSetting(
+                    `${this.tableType}.showEach`,
+                    this.table.showEach
+                );
+            }
+        },
+        release() {
+            if (this.vehicle.windowType !== 'transportRequest') return;
+            const type = this.tableType;
+            if (
+                type !== 'patient' &&
+                type !== 'prisoner' &&
+                type !== 'patientIntermediate' &&
+                type !== 'prisonerIntermediate'
+            )
+                return;
 
-                    res.text().then(html => {
-                        import(
-                            /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
-                        ).then(async parser => {
-                            const { next: next_vehicle } = await parser.default(
-                                {
-                                    doc: new DOMParser().parseFromString(
-                                        html,
-                                        'text/html'
-                                    ),
-                                    href: url,
-                                    getIdFromEl: this.lightbox.getIdFromEl,
-                                    LSSM: this.lightbox,
-                                    $m: this.lightbox.$m,
-                                    $sm: this.lightbox.$sm,
-                                    $mc: this.lightbox.$mc,
-                                    $smc: this.lightbox.$smc,
-                                }
-                            );
-                            if (next_vehicle < 0) {
-                                import(
-                                    `../i18n/${this.lightbox.rootStore.locale}/vehicle/nextfms.json`
-                                ).then(t => {
-                                    this.$i18n.mergeLocaleMessage(
-                                        this.lightbox.rootStore.locale,
-                                        {
-                                            modules: {
-                                                redesign: {
-                                                    vehicle: {
-                                                        nextfms: t,
-                                                    },
-                                                },
-                                            },
-                                        }
-                                    );
-                                    this.$set(
-                                        this.lightbox,
-                                        'type',
-                                        'vehicle/nextfms'
-                                    );
-                                });
-                                return window.lightboxClose(
-                                    this.lightbox.creation
-                                );
-                            }
-                            this.$set(
-                                this.lightbox,
-                                'src',
-                                `/vehicles/${next_vehicle}`
-                            );
-                        });
-                    });
-                });
-        },
-        release(type) {
+            const normalizedType = (
+                {
+                    patient: 'patient',
+                    patientIntermediate: 'patient',
+                    prisoner: 'prisoner',
+                    prisonerIntermediate: 'prisoner',
+                } as Record<typeof type, 'patient' | 'prisoner'>
+            )[type];
+
             const releaseHandler = async () => {
                 if (type === 'patient') {
                     this.$set(
@@ -1899,7 +1506,7 @@ export default Vue.extend<
                 }
                 const url = new URL(
                     `/missions/${
-                        this.vehicle.current_mission?.id ?? 0
+                        this.vehicle.currentMission?.id ?? 0
                     }/gefangene/entlassen`,
                     window.location.origin
                 );
@@ -1940,11 +1547,12 @@ export default Vue.extend<
                     });
             };
 
-            if (this.releaseDisables.includes(type)) return releaseHandler();
+            if (this.tables[type].disableReleaseConfirmation)
+                return releaseHandler();
 
             this.$modal.show('dialog', {
-                title: this.lightbox.$sm(`release.${type}.title`),
-                text: this.lightbox.$sm(`release.${type}.text`),
+                title: this.lightbox.$sm(`release.${normalizedType}.title`),
+                text: this.lightbox.$sm(`release.${normalizedType}.text`),
                 buttons: [
                     {
                         title: this.lightbox.$sm('release.cancel'),
@@ -1954,10 +1562,10 @@ export default Vue.extend<
                     {
                         title: this.lightbox.$sm(`release.disable`),
                         handler: () => {
-                            this.releaseDisables.push(type);
+                            this.tables[type].disableReleaseConfirmation = true;
                             this.setSetting(
-                                'releaseDisables',
-                                this.releaseDisables
+                                `${normalizedType}.disableReleaseConfirmation`,
+                                true
                             ).then(() => releaseHandler());
                         },
                     },
@@ -1995,16 +1603,12 @@ export default Vue.extend<
                             $mc: this.lightbox.$mc,
                             $smc: this.lightbox.$smc,
                         });
-                        this.$set(
-                            this.lightbox.data,
-                            'alliance_hospitals',
-                            result.alliance_hospitals
-                        );
-                        this.$set(
-                            this.lightbox.data,
-                            'load_all_hospitals',
-                            false
-                        );
+                        if (
+                            result.windowType === 'transportRequest' &&
+                            result.transportRequestType === 'patient'
+                        )
+                            this.$set(this.lightbox, 'data', result);
+
                         this.lightbox.finishLoading(
                             'vehicle-load_all_hospitals'
                         );
@@ -2032,10 +1636,9 @@ export default Vue.extend<
                     starredMissions => (this.starredMissions = starredMissions)
                 );
         },
-        switchStarredMission(missionId: string) {
+        switchStarredMission(missionId) {
             const btn = this.starredMissionButtons[missionId];
             if (!btn) return;
-
             if (btn.switch) btn.switch(true).then(this.updateStarredMissions);
             else this.updateStarredMissions();
         },
@@ -2065,6 +1668,9 @@ export default Vue.extend<
     watch: {
         vehicle() {
             this.updateStarredMissions().then();
+
+            this.clickListTab();
+
             this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
             this.lightbox.finishLoading('vehicle-updated-data');
         },
@@ -2073,11 +1679,23 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        Object.entries(this.filter).forEach(([filter, props]) => {
+        // load settings
+        Object.entries(this.tables).forEach(([table, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
-                this.getSetting(`${filter}.${prop}`, value).then(v =>
-                    this.$set(props, prop, v)
-                );
+                if (prop === 'filter') {
+                    return Object.entries(value).forEach(([filter, value]) => {
+                        this.getSetting(
+                            `${table}.${prop}.${filter}`,
+                            value
+                        ).then(value => this.$set(props.filter, filter, value));
+                    });
+                }
+                this.getSetting(`${table}.${prop}`, value)
+                    .then(value => this.$set(props, prop, value))
+                    .then(() => {
+                        if (table === this.tableType && prop === 'list')
+                            this.clickListTab();
+                    });
             });
         });
     },
@@ -2085,36 +1703,6 @@ export default Vue.extend<
         this.lightbox.unsetHotkeyRedesignParam('vehicles');
     },
     mounted() {
-        const mode = this.vehicle.has_hospitals
-            ? 'hospital'
-            : this.vehicle.has_cells
-            ? 'cell'
-            : 'mission';
-        this.getSetting(`${mode}.sort`, this.sort).then(
-            sort => (this.sort = sort)
-        );
-        this.getSetting(`${mode}.sortDir`, this.sortDir).then(
-            dir => (this.sortDir = dir)
-        );
-        this.getSetting('releaseDisables', this.releaseDisables).then(
-            disables => (this.releaseDisables = disables)
-        );
-        if (!this.vehicle.has_wlfs) {
-            this.$nextTick(() => {
-                const tabSrc = this.vehicle.has_hospitals
-                    ? 'hospitalListSrc'
-                    : this.vehicle.has_cells
-                    ? 'cellListSrc'
-                    : 'missionListSrc';
-                this.getSetting(tabSrc, this[tabSrc]).then(list => {
-                    this[tabSrc] = list;
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    if (this.$refs.tabs) this.$refs.tabs.selectedIndex = list;
-                });
-            });
-        }
-
         this.updateStarredMissions().then();
 
         this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
@@ -2124,6 +1712,10 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+.well dl
+    dt, dd
+        margin-bottom: 10px
+
 .vehicle-window
     display: flex
 
@@ -2140,15 +1732,15 @@ export default Vue.extend<
         margin-left: 1em
         margin-right: 1em
 
-        &.table-tabs
+        &:nth-child(2):not(.nav-btns)
             width: 100%
+
+    .nav-btns
+        position: absolute
+        right: 1em
+        transition: right 1s
 
 .vehicle-img
     right: calc(4 * 34px)
     position: absolute
-
-.nav-btns
-    position: absolute
-    right: 1em
-    transition: right 1s
 </style>
