@@ -128,7 +128,9 @@
         "missions": "misje",
         "own": "Twoje {type}: {amount}",
         "patient": "szpitale",
-        "prisoner": "cele"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "cele",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "Podatek",
     "true": "Tak",

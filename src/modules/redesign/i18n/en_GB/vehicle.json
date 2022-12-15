@@ -122,7 +122,9 @@
         "missions": "Missions",
         "own": "own {type}: {amount}",
         "patient": "Hospitals",
-        "prisoner": "Cells"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Cells",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "tax",
     "trailer": {

@@ -126,7 +126,9 @@
         "mission": "Einsätze",
         "own": "eigene {type}: {amount}",
         "patient": "Krankenhäuser",
-        "prisoner": "Zellen"
+        "patientIntermediate": "Küstenwachen",
+        "prisoner": "Zellen",
+        "prisonerIntermediate": "Küstenwachen"
     },
     "tax": "Abgabe an Besitzer",
     "trailer": {

@@ -115,9 +115,7 @@ export type TransportRequestWindow = BaseVehicleWindow & {
         | 'trailer';
 } & (
         | {
-              transportRequestType:
-                  | 'patient-intermediate'
-                  | 'prisoner-intermediate';
+              transportRequestType: 'patient-intermediate';
               buildings: {
                   own: ShoreStation[];
                   alliance: ShoreStation[];
@@ -133,6 +131,14 @@ export type TransportRequestWindow = BaseVehicleWindow & {
               loadAll: boolean;
               department: string;
               doctor: boolean;
+              releasable: boolean;
+          }
+        | {
+              transportRequestType: 'prisoner-intermediate';
+              buildings: {
+                  own: ShoreStation[];
+                  alliance: ShoreStation[];
+              };
               releasable: boolean;
           }
         | {
@@ -535,10 +541,7 @@ export default <RedesignParser<VehicleWindow>>(({
                     };
                 }),
             };
-        } else if (
-            transportRequestType === 'patient-intermediate' ||
-            transportRequestType === 'prisoner-intermediate'
-        ) {
+        } else if (transportRequestType === 'patient-intermediate') {
             const getStations = (
                 list: ShoreStation['list']
             ): ShoreStation[] => {
@@ -584,12 +587,50 @@ export default <RedesignParser<VehicleWindow>>(({
                     own: getStations('own'),
                     alliance: getStations('alliance'),
                 },
-                releasable:
-                    transportRequestType === 'patient-intermediate'
-                        ? !!doc.querySelector('a[href$="/patient/-1"]')
-                        : !!doc.querySelector(
-                              'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
-                          ),
+                releasable: !!doc.querySelector('a[href$="/patient/-1"]'),
+            };
+        } else if (transportRequestType === 'prisoner-intermediate') {
+            const ownStations: ShoreStation[] = [];
+            const allianceStations: ShoreStation[] = [];
+            let list: ShoreStation['list'] = 'own';
+            doc.querySelectorAll<HTMLAnchorElement>(
+                `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
+            ).forEach(station => {
+                if (station.previousElementSibling?.matches('h5'))
+                    list = 'alliance';
+                const text = station.textContent ?? '';
+                const infos = text
+                    .trim()
+                    .match(
+                        /(?<=\()[^(].*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(?=\)$)/u
+                    );
+                const id = getIdFromEl(station);
+                const stationInfos: ShoreStation = {
+                    id,
+                    caption: text.replace(/\([^(]*?\)$/u, ''),
+                    list,
+                    state: station.classList.contains('btn-success')
+                        ? 'success'
+                        : station.classList.contains('btn-warning')
+                        ? 'warning'
+                        : 'danger',
+                    distance: infos?.groups?.distance ?? '-1km',
+                    home: id === vehicle.building.id,
+                };
+                if (list === 'own') ownStations.push(stationInfos);
+                else allianceStations.push(stationInfos);
+            });
+            transportRequestVehicle = {
+                ...vehicle,
+                windowType: 'transportRequest',
+                transportRequestType,
+                buildings: {
+                    own: ownStations,
+                    alliance: allianceStations,
+                },
+                releasable: !!doc.querySelector(
+                    'a[href^="/missions/"][href*="/gefangene/entlassen?vehicle_id="]'
+                ),
             };
         }
         if (transportRequestVehicle) return transportRequestVehicle;

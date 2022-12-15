@@ -123,7 +123,8 @@
         "own": "own {type}: {amount}",
         "patient": "Hospitals",
         "patientIntermediate": "Coastal Rescue Stations",
-        "prisoner": "Cells"
+        "prisoner": "Cells",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "tax",
     "true": "yes",

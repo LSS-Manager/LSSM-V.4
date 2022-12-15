@@ -126,7 +126,9 @@
         "missions": "Misiones",
         "own": "propietario {type}: {amount}",
         "patient": "Hospitales",
-        "prisoner": "Celdas"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Celdas",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "impuesto",
     "trailer": {

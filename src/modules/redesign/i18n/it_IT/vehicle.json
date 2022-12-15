@@ -124,7 +124,9 @@
         "missions": "Missioni",
         "own": "{type} propri: {amount}",
         "patient": "Ospedali",
-        "prisoner": "Celle"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Celle",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "Tassa",
     "trailer": {

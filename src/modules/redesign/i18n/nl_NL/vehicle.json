@@ -126,7 +126,9 @@
         "missions": "Inzetten",
         "own": "Eigen {type}: {amount}",
         "patient": "Ziekenhuizen",
-        "prisoner": "Cellen"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Cellen",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "Afdracht aan eigenaar",
     "trailer": {

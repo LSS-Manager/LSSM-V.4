@@ -34,9 +34,9 @@
             "tax": "Taxe maximum"
         },
         "patientIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Distance maximum",
+            "home": "Bâtiments",
+            "show": "Montrer x bâtiments de chaque"
         },
         "prisoner": {
             "distance": "Distance maximum",
@@ -45,9 +45,9 @@
             "tax": "Taxe maximum"
         },
         "prisonerIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Distance maximum",
+            "home": "Bâtiments",
+            "show": "Montrer x bâtiments de chaque"
         },
         "trailer": { "distance": "Distance maximum", "same": "Même bâtiment" }
     },
@@ -87,9 +87,9 @@
         "hospital": "Hôpitaux"
     },
     "patientIntermediate": {
-        "caption": "Coastal Rescue Station",
-        "dispatch": "Transport patient",
-        "home": "Home: {building}"
+        "caption": "Station de Sauvetage",
+        "dispatch": "Transférer les patients",
+        "home": "Bât : {building}"
     },
     "prisoner": {
         "cell": "Poste",
@@ -97,9 +97,9 @@
         "free": "Cellules libres"
     },
     "prisonerIntermediate": {
-        "dispatch": "Transport prisoner",
-        "distance": "Coastal Rescue Station",
-        "home": "Home: {building}"
+        "caption": "Station de Sauvetage",
+        "dispatch": "Transférer les prisonniers",
+        "home": "Bât : {building}"
     },
     "release": {
         "cancel": "Annuler",
@@ -125,7 +125,9 @@
         "missions": "Missions",
         "own": "{type} perso : {amount}",
         "patient": "Hôpitaux",
-        "prisoner": "Cellules"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Cellules",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "Taxe",
     "true": "Oui",

@@ -128,7 +128,9 @@
         "missions": "Tehtävät",
         "own": "oma {type}: {amount}",
         "patient": "Sairaalat",
-        "prisoner": "Sellit"
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Sellit",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "vero",
     "trailer": {
