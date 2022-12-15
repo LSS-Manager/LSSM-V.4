@@ -1,8 +1,6 @@
 {
-    "approach": "Wyślij",
     "backalarm": "Anuluj",
     "backalarmNext": "Wyślij bezpośrednio na te misję",
-    "cells": { "cell": "Budynki", "free": "Wolne jednostki" },
     "color": "Dostosuj kolor",
     "current_mission": "Aktualna misja",
     "delete": {
@@ -16,23 +14,10 @@
     "edit": "Edytuj",
     "false": "Nie",
     "filter": {
-        "cells": {
-            "distance": "Maksymalna odległość:",
-            "each": "Pokaż x budynków każdego",
-            "free": "Minimalna ilość wolnych celi",
-            "tax": "Maksymalny podatek"
-        },
-        "hospitals": {
-            "beds": "Minimalna ilość wolnych łóżek",
-            "department": { "title": "Department: {department}" },
-            "distance": "Maksymalna odległość",
-            "each": "Pokaż x budynków",
-            "tax": "Maksymalny podatek"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimalne kredyty",
             "distance": "Maksymalna odległość",
-            "participation": { "title": "Pojazdy na miejscu" },
+            "participation": "Pojazdy na miejscu",
             "progress": "Maks. postęp %",
             "status": {
                 "blue": "[1]Dostępne",
@@ -42,7 +27,30 @@
                 "yellow": "[3]Reagowanie"
             }
         },
-        "wlf": {
+        "patient": {
+            "department": "Department: {department}",
+            "distance": "Maksymalna odległość",
+            "freeBeds": "Minimalna ilość wolnych łóżek",
+            "show": "Pokaż x budynków",
+            "tax": "Maksymalny podatek"
+        },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
+        "prisoner": {
+            "distance": "Maksymalna odległość:",
+            "freeCells": "Minimalna ilość wolnych celi",
+            "show": "Pokaż x budynków każdego",
+            "tax": "Maksymalny podatek"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
+        "trailer": {
             "building": "Budynek",
             "caption": "Pojazd holujący",
             "distance": "Dystans",
@@ -53,21 +61,16 @@
     "fms_switch": { "is_s2": "Dostępny", "is_s6": "Niedostępny" },
     "foam_amount": "Ilość piany",
     "followup_missions": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
-    "hospitals": {
-        "beds": "Wolne łóżka",
-        "department": "Department: {department}",
-        "hospital": "Szpital"
-    },
     "load_all_hospitals": {
         "btn": "Załaduj wszystkie!",
         "text": "Liczba wyświetlonych szpitali jest ograniczona. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"
     },
     "max_staff": "Personel",
     "mileage": "Przebieg",
-    "missions": {
-        "alarm": "Alarm",
+    "mission": {
         "alarmed": "Obecna misja",
         "credits": "Kredyty",
+        "dispatch": "Alarm",
         "mission": "Misja",
         "participation": "Udział",
         "patients": "Pacjenci",
@@ -79,6 +82,27 @@
     "owner_pic_state": {
         "offline": "{user} jest offline!",
         "online": "{user} jest online!"
+    },
+    "patient": {
+        "beds": "Wolne łóżka",
+        "department": "Department: {department}",
+        "dispatch": "Wyślij",
+        "hospital": "Szpital"
+    },
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
+    "prisoner": {
+        "cell": "Budynki",
+        "dispatch": "Wyślij",
+        "free": "Wolne jednostki"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Anuluj",
@@ -94,17 +118,21 @@
         }
     },
     "release_patient": "Anuluj transport",
+    "release_patient-intermediate": "Anuluj transport",
     "release_prisoner": "Zwolnij więźniów",
+    "release_prisoner-intermediate": "Zwolnij więźniów",
     "staff": { "name": "Nazwa", "schooling": "Szkolenie", "title": "Załoga" },
     "station": "Budynek",
     "stats": "Statystyki",
     "tabs": {
         "all": "Wszystkie {type}: {amount}",
         "alliance": "Sojusznicze {type}: {amount}",
-        "cells": "cele",
-        "hospitals": "szpitale",
         "missions": "misje",
-        "own": "Twoje {type}: {amount}"
+        "own": "Twoje {type}: {amount}",
+        "patient": "szpitale",
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "cele",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "Podatek",
     "true": "Tak",
