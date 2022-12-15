@@ -115,7 +115,9 @@
         }
     },
     "release_patient": "Décharger le patient",
+    "release_patient-intermediate": "Décharger le patient",
     "release_prisoner": "Libérer les prisonniers",
+    "release_prisoner-intermediate": "Libérer les prisonniers",
     "staff": { "name": "Nom", "schooling": "Formation", "title": "Personnel " },
     "station": "Poste",
     "stats": "Statistiques",

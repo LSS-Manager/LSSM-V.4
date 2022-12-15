@@ -118,7 +118,9 @@
         }
     },
     "release_patient": "Päästä potilas",
+    "release_patient-intermediate": "Päästä potilas",
     "release_prisoner": "Vapauta vankl",
+    "release_prisoner-intermediate": "Vapauta vankl",
     "staff": { "name": "Nimi", "schooling": "Kurssi", "title": "Henkilöstö" },
     "station": "Rakennus",
     "stats": "Tilastot",

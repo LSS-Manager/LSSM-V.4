@@ -116,7 +116,9 @@
         }
     },
     "release_patient": "Patiënt ontslaan",
+    "release_patient-intermediate": "Patiënt ontslaan",
     "release_prisoner": "Gevangene vrijlaten",
+    "release_prisoner-intermediate": "Gevangene vrijlaten",
     "staff": { "name": "Naam", "schooling": "Opleiding", "title": "Personeel" },
     "station": "Post",
     "stats": "Statistieken",

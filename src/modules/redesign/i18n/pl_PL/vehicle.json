@@ -118,7 +118,9 @@
         }
     },
     "release_patient": "Anuluj transport",
+    "release_patient-intermediate": "Anuluj transport",
     "release_prisoner": "Zwolnij więźniów",
+    "release_prisoner-intermediate": "Zwolnij więźniów",
     "staff": { "name": "Nazwa", "schooling": "Szkolenie", "title": "Załoga" },
     "station": "Budynek",
     "stats": "Statystyki",

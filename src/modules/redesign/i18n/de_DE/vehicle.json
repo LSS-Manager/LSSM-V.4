@@ -116,7 +116,9 @@
         }
     },
     "release_patient": "Patienten entlassen",
+    "release_patient-intermediate": "Patienten entlassen",
     "release_prisoner": "Gefangene entlassen",
+    "release_prisoner-intermediate": "Gefangene entlassen",
     "staff": { "name": "Name", "schooling": "Ausbildung", "title": "Personal" },
     "station": "Wache",
     "stats": "Statistiken",

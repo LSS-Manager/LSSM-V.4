@@ -92,9 +92,12 @@
                             <button
                                 v-if="
                                     vehicle.windowType === 'transportRequest' &&
-                                    ['patient', 'prisoner'].includes(
-                                        vehicle.transportRequestType
-                                    ) &&
+                                    [
+                                        'patient',
+                                        'prisoner',
+                                        'patient-intermediate',
+                                        'prisoner-intermediate',
+                                    ].includes(vehicle.transportRequestType) &&
                                     vehicle.releasable
                                 "
                                 @click="release()"
@@ -1474,8 +1477,23 @@ export default Vue.extend<
         },
         release() {
             if (this.vehicle.windowType !== 'transportRequest') return;
-            const type = this.vehicle.transportRequestType;
-            if (type !== 'patient' && type !== 'prisoner') return;
+            const type = this.tableType;
+            if (
+                type !== 'patient' &&
+                type !== 'prisoner' &&
+                type !== 'patientIntermediate' &&
+                type !== 'prisonerIntermediate'
+            )
+                return;
+
+            const normalizedType = (
+                {
+                    patient: 'patient',
+                    patientIntermediate: 'patient',
+                    prisoner: 'prisoner',
+                    prisonerIntermediate: 'prisoner',
+                } as Record<typeof type, 'patient' | 'prisoner'>
+            )[type];
 
             const releaseHandler = async () => {
                 if (type === 'patient') {
@@ -1533,8 +1551,8 @@ export default Vue.extend<
                 return releaseHandler();
 
             this.$modal.show('dialog', {
-                title: this.lightbox.$sm(`release.${type}.title`),
-                text: this.lightbox.$sm(`release.${type}.text`),
+                title: this.lightbox.$sm(`release.${normalizedType}.title`),
+                text: this.lightbox.$sm(`release.${normalizedType}.text`),
                 buttons: [
                     {
                         title: this.lightbox.$sm('release.cancel'),
@@ -1546,7 +1564,7 @@ export default Vue.extend<
                         handler: () => {
                             this.tables[type].disableReleaseConfirmation = true;
                             this.setSetting(
-                                `${type}.disableReleaseConfirmation`,
+                                `${normalizedType}.disableReleaseConfirmation`,
                                 true
                             ).then(() => releaseHandler());
                         },

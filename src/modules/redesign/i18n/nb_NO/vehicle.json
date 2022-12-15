@@ -112,7 +112,9 @@
         }
     },
     "release_patient": "Discharge patient",
+    "release_patient-intermediate": "Discharge patient",
     "release_prisoner": "Release prisoners",
+    "release_prisoner-intermediate": "Release prisoners",
     "staff": { "name": "Name", "schooling": "Training", "title": "Staff" },
     "station": "Building",
     "stats": "Statistics",

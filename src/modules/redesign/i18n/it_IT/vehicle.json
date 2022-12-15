@@ -114,7 +114,9 @@
         }
     },
     "release_patient": "Dimetti paziente",
+    "release_patient-intermediate": "Dimetti paziente",
     "release_prisoner": "Rilascia prigioniero",
+    "release_prisoner-intermediate": "Rilascia prigioniero",
     "staff": { "name": "Nome", "schooling": "Addestramento", "title": "Staff" },
     "station": "Edificio",
     "stats": "Statistiche",
