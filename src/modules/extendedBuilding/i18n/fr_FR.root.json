@@ -39,8 +39,8 @@
             "title": "Employés requis"
         },
         "renewAllStagingAreas": {
-            "description": "Reset all staging areas with a single click from within every staging area.",
-            "title": "Reset all staging areas"
+            "description": "Réinitialise toutes les zones de transit d'un simple clic",
+            "title": "Réinitialiser toutes les zones de transit"
         },
         "schoolingSummary": {
             "description": "Affiche dans l'en-tête de la vue bâtiment combien d'employés sont formés et pour quelles formations.",
