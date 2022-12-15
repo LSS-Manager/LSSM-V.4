@@ -34,9 +34,9 @@
             "tax": "Maximale afdracht"
         },
         "patientIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Maximum afstand",
+            "home": "Thuisbasis",
+            "show": "Toon x gebouwen van elk"
         },
         "prisoner": {
             "distance": "Maximale afstand",
@@ -45,9 +45,9 @@
             "tax": "Maximale afdracht"
         },
         "prisonerIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Maximum afstand",
+            "home": "Thuisbasis",
+            "show": "Toon x gebouwen van elk"
         },
         "trailer": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }
     },
@@ -88,9 +88,9 @@
     },
     "patient_doctor_transport": "Transport met Artsbegeleiding",
     "patientIntermediate": {
-        "caption": "Coastal Rescue Station",
-        "dispatch": "Transport patient",
-        "home": "Home: {building}"
+        "caption": "Kustwachthaven",
+        "dispatch": "Transport patiënt",
+        "home": "Thhuisbasis: {building}"
     },
     "prisoner": {
         "cell": "Gebouw",
@@ -98,9 +98,9 @@
         "free": "Vrije cellen"
     },
     "prisonerIntermediate": {
-        "dispatch": "Transport prisoner",
-        "distance": "Coastal Rescue Station",
-        "home": "Home: {building}"
+        "caption": "Kustwachthaven",
+        "dispatch": "Transport gevangenen",
+        "home": "Thuisbasis: {building}"
     },
     "release": {
         "cancel": "Annuleren",
@@ -128,9 +128,9 @@
         "missions": "Inzetten",
         "own": "Eigen {type}: {amount}",
         "patient": "Ziekenhuizen",
-        "patientIntermediate": "Coastal Rescue Stations",
+        "patientIntermediate": "Kustwachthavens",
         "prisoner": "Cellen",
-        "prisonerIntermediate": "Coastal Rescue Stations"
+        "prisonerIntermediate": "Kustwachthavens"
     },
     "tax": "Afdracht aan eigenaar",
     "trailer": {

@@ -124,7 +124,7 @@
     "tabs": {
         "all": "{type} (ensemble) : {amount}",
         "alliance": "{type} d'alliance : {amount}",
-        "missions": "Missions",
+        "mission": "Missions",
         "own": "{type} perso : {amount}",
         "patient": "Hôpitaux",
         "patientIntermediate": "Station de Sauvetage",
