@@ -11,7 +11,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             string,
             { badge: boolean; text: string }
         >
-    ).forEach(([key, { text }]) => {
+    ).forEach(([key, { text }] && key !== 'title) => {
         noVehicleRequirements.push(key);
         noVehicleRequirementLabels.push(text);
     });
