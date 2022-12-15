@@ -127,9 +127,9 @@
         "missions": "Missions",
         "own": "{type} perso : {amount}",
         "patient": "Hôpitaux",
-        "patientIntermediate": "Coastal Rescue Stations",
+        "patientIntermediate": "Station de Sauvetage",
         "prisoner": "Cellules",
-        "prisonerIntermediate": "Coastal Rescue Stations"
+        "prisonerIntermediate": "Station de Sauvetage"
     },
     "tax": "Taxe",
     "true": "Oui",
