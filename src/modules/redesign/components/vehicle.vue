@@ -1006,7 +1006,7 @@ export default Vue.extend<
                         credits:
                             'type' in item
                                 ? this.apiStore.missions[item.type]
-                                      .average_credits ?? 0
+                                      ?.average_credits ?? 0
                                 : Number.MAX_SAFE_INTEGER,
                         progress: 'progress' in item ? item.progress.width : 0,
                         same: 'building' in item ? item.building.same : false,
@@ -1045,7 +1045,7 @@ export default Vue.extend<
                     sortValue =
                         'type' in item
                             ? this.apiStore.missions[item.type]
-                                  .average_credits ?? 0
+                                  ?.average_credits ?? 0
                             : Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =
