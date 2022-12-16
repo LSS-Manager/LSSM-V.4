@@ -1301,7 +1301,7 @@ export default {
                staffList: 'Wildland Mobile Command Center Training',
             },
             {
-               staffList: 'Hotshot Crew Training',
+               caption: 'Hotshot Crew Training',
                duration: '3 Days',
                staffList: 'Hotshot Crew Training',
             },
