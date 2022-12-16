@@ -1121,7 +1121,7 @@ export default {
                 },
             },
         },
-         62: {
+         77: {
             caption: 'Tanker Semi Truck Trailer',
             color: '#9f1616',
             coins: 15,
@@ -1132,13 +1132,13 @@ export default {
             possibleBuildings: [0, 22],
             special: ' ',
         },
-         62: {
-            caption: '',
+         78: {
+            caption: 'Tanker Trailer',
             color: '#9f1616',
-            coins: 15,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
+            coins: 10,
+            credits: 5_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             Wtank: 1000,
             possibleBuildings: [0, 22],
             special: ' ',
@@ -1169,12 +1169,12 @@ export default {
         'Firefighters': {
             vehicles: {
                 'Fire trucks': [0, 1, 13, 18],
-                'WaterTanker': [7],
+                'Water Tanker': [7, 33],
                 'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63, 64, 65],
-                'Wildland vehicles': [30, 31, 32, 33, 34, 38, 39, 40, 41],
+                'Wildland vehicles': [30, 31, 32, 34, 38, 39, 40, 41, 77, 79],
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],
-                'Fire Aviation': [35, 36, 37],
+                'Fire Aviation': [35, 36, 37, 75, 76,],
             },
             color: '#ff2d2d',
         },
