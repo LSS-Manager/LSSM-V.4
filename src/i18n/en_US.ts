@@ -1073,6 +1073,76 @@ export default {
             special: '',
         },
     },
+        74: {
+            caption: 'Wildfire MCC',
+            color: '#9f1616',
+            coins: 20,
+            credits: 20_000,
+            minPersonnel: 6,
+            maxPersonnel: 6,
+            possibleBuildings: [0, 13],
+            schooling: {
+                'Fire Station': {
+                    'Wildland Mobile Command Center Training': {
+                        all: true,
+                    },
+                },
+            },
+        },       
+         75: {
+            caption: 'Wildland Lead Plane',
+            color: '#9f1616',
+            coins: 20,
+            credits: 750_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Wildland Lead Pilot': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        76: {
+            caption: 'Smoke Jumper Plane',
+            color: '#9f1616',
+            coins: 20,
+            credits: 500_000,
+            minPersonnel: 10,
+            maxPersonnel: 20,
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Smoke Jumper Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+         62: {
+            caption: 'Tanker Semi Truck Trailer',
+            color: '#9f1616',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            wtank: 10000,
+            possibleBuildings: [0, 22],
+            special: ' ',
+        },
+         62: {
+            caption: '',
+            color: '#9f1616',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            Wtank: 1000,
+            possibleBuildings: [0, 22],
+            special: ' ',
+        },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 4, 11, 13, 17, 22],
