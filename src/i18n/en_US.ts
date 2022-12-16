@@ -1290,7 +1290,26 @@ export default {
                 duration: '5 Days',
                 staffList: 'Lifeguard Training',
             },
-        ],
+            {
+               caption: 'Wildland Lead Pilot Training',
+               duration: '7 Days',
+               staffList: 'Wildland Lead Pilot Training',
+            },
+            {
+               caption: 'Wildland Mobile Command Center Training',
+               duration: '5 Days',
+               staffList: 'Wildland Mobile Command Center Training',
+            },
+            {
+               staffList: 'Hotshot Crew Training',
+               duration: '3 Days',
+               staffList: 'Hotshot Crew Training',
+            },
+            {
+               caption: 'Smoke Jumper Training',
+               duration: '3 Days',
+               staffList: 'Smoke Jumper Training',
+        ], 
         'Police': [
             {
                 caption: 'Police Aviation',
