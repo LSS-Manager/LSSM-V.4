@@ -82,8 +82,7 @@
         "foam": "gal. foam",
         "missing": "Missing on mission",
         "selected": "Selected",
-        "staff": [{ "texts": ["SWAT Personnel"], "vehicles": [16, 26] }], 
-        [{ "texts": ["Required Smoke Jumpers (in Smoke Jumper Planes)"],  "vehicles":[76] }],
+        "staff": [{ "texts": ["SWAT Personnel"], "vehicles": [16, 26] }, { "texts": ["Required Smoke Jumpers (in Smoke Jumper Planes)"],  "vehicles":[76] }],
         "staffPrefix": ["We need"],
         "tip": {
             "dragging": "drag window",
