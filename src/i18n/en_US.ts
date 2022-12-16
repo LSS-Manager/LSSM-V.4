@@ -1130,7 +1130,7 @@ export default {
         maxPersonnel: 0,
         wtank: 10_000,
         possibleBuildings: [0, 22],
-        special: ' ',
+        special: 'Towed by Crew cab semi',
     },
     78: {
         caption: 'Tanker Trailer',
@@ -1141,7 +1141,7 @@ export default {
         maxPersonnel: 0,
         Wtank: 1000,
         possibleBuildings: [0, 22],
-        special: ' ',
+        special: 'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
     },
     buildingCategories: {
         'Fire Department': {
