@@ -1139,7 +1139,7 @@ export default {
         credits: 5000,
         minPersonnel: 0,
         maxPersonnel: 0,
-        Wtank: 1000,
+        wtank: 1000,
         possibleBuildings: [0, 22],
         special: 'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
     },
