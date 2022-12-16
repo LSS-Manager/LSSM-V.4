@@ -1309,6 +1309,7 @@ export default {
                caption: 'Smoke Jumper Training',
                duration: '3 Days',
                staffList: 'Smoke Jumper Training',
+            },
         ], 
         'Police': [
             {
