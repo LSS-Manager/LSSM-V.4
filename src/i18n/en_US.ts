@@ -1080,7 +1080,7 @@ export default {
         credits: 20_000,
         minPersonnel: 6,
         maxPersonnel: 6,
-        possibleBuildings: [0, 13],
+        possibleBuildings: [0],
         schooling: {
             'Fire Station': {
                 'Wildland Mobile Command Center Training': {
@@ -1129,7 +1129,7 @@ export default {
         minPersonnel: 0,
         maxPersonnel: 0,
         wtank: 10_000,
-        possibleBuildings: [0, 22],
+        possibleBuildings: [0, 13],
         special: 'Towed by Crew cab semi',
     },
     78: {
@@ -1140,7 +1140,7 @@ export default {
         minPersonnel: 0,
         maxPersonnel: 0,
         wtank: 1000,
-        possibleBuildings: [0, 22],
+        possibleBuildings: [0, 13],
         special: 'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
     },
     buildingCategories: {
