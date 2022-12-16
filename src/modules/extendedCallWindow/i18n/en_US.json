@@ -253,7 +253,7 @@
             { 
                 "texts": ["Wildland MCC", "Wildland MCCs"], "vehicles": [74]
             },
-                "texts":["Wildland Lead Plane", "Wildland Lead Planes", "vehicles": [75]
+                {"texts":["Wildland Lead Plane", "Wildland Lead Planes", "vehicles": [75]}
         ],
         "water": "gal. water"
     },
