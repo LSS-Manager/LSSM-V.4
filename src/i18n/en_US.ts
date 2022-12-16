@@ -1073,76 +1073,76 @@ export default {
             special: '',
         },
     },
-        74: {
-            caption: 'Wildfire MCC',
-            color: '#9f1616',
-            coins: 20,
-            credits: 20_000,
-            minPersonnel: 6,
-            maxPersonnel: 6,
-            possibleBuildings: [0, 13],
-            schooling: {
-                'Fire Station': {
-                    'Wildland Mobile Command Center Training': {
-                        all: true,
-                    },
-                },
-            },
-        },       
-         75: {
-            caption: 'Wildland Lead Plane',
-            color: '#9f1616',
-            coins: 20,
-            credits: 750_000,
-            minPersonnel: 3,
-            maxPersonnel: 3,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Wildland Lead Pilot': {
-                        all: true,
-                    },
+    74: {
+        caption: 'Wildfire MCC',
+        color: '#9f1616',
+        coins: 20,
+        credits: 20_000,
+        minPersonnel: 6,
+        maxPersonnel: 6,
+        possibleBuildings: [0, 13],
+        schooling: {
+            'Fire Station': {
+                'Wildland Mobile Command Center Training': {
+                    all: true,
                 },
             },
         },
-        76: {
-            caption: 'Smoke Jumper Plane',
-            color: '#9f1616',
-            coins: 20,
-            credits: 500_000,
-            minPersonnel: 10,
-            maxPersonnel: 20,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Smoke Jumper Training': {
-                        all: true,
-                    },
+    },
+    75: {
+        caption: 'Wildland Lead Plane',
+        color: '#9f1616',
+        coins: 20,
+        credits: 750_000,
+        minPersonnel: 3,
+        maxPersonnel: 3,
+        possibleBuildings: [17],
+        schooling: {
+            'Fire Station': {
+                'Wildland Lead Pilot': {
+                    all: true,
                 },
             },
         },
-         77: {
-            caption: 'Tanker Semi Truck Trailer',
-            color: '#9f1616',
-            coins: 15,
-            credits: 20_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            wtank: 10000,
-            possibleBuildings: [0, 22],
-            special: ' ',
+    },
+    76: {
+        caption: 'Smoke Jumper Plane',
+        color: '#9f1616',
+        coins: 20,
+        credits: 500_000,
+        minPersonnel: 10,
+        maxPersonnel: 20,
+        possibleBuildings: [17],
+        schooling: {
+            'Fire Station': {
+                'Smoke Jumper Training': {
+                    all: true,
+                },
+            },
         },
-         78: {
-            caption: 'Tanker Trailer',
-            color: '#9f1616',
-            coins: 10,
-            credits: 5_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            Wtank: 1000,
-            possibleBuildings: [0, 22],
-            special: ' ',
-        },
+    },
+    77: {
+        caption: 'Tanker Semi Truck Trailer',
+        color: '#9f1616',
+        coins: 15,
+        credits: 20_000,
+        minPersonnel: 0,
+        maxPersonnel: 0,
+        wtank: 10_000,
+        possibleBuildings: [0, 22],
+        special: ' ',
+    },
+    78: {
+        caption: 'Tanker Trailer',
+        color: '#9f1616',
+        coins: 10,
+        credits: 5000,
+        minPersonnel: 0,
+        maxPersonnel: 0,
+        Wtank: 1000,
+        possibleBuildings: [0, 22],
+        special: ' ',
+    },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 4, 11, 13, 17, 22],
@@ -1174,7 +1174,7 @@ export default {
                 'Wildland vehicles': [30, 31, 32, 34, 38, 39, 40, 41, 77, 79],
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],
-                'Fire Aviation': [35, 36, 37, 75, 76,],
+                'Fire Aviation': [35, 36, 37, 75, 76],
             },
             color: '#ff2d2d',
         },
