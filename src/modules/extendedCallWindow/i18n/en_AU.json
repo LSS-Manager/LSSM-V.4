@@ -90,7 +90,10 @@
                 "vehicles": [3, 11]
             },
             {
-                "texts": ["MRV or SES Rescue Truck", "MRV or SES Rescue Trucks"],
+                "texts": [
+                    "MRV or SES Rescue Truck",
+                    "MRV or SES Rescue Trucks"
+                ],
                 "vehicles": [4, 12, 26, 40]
             },
             { "texts": ["BASU"], "vehicles": [10] },
@@ -98,10 +101,7 @@
                 "texts": ["Bulk Water Tanker", "Bulk Water Tankers"],
                 "vehicles": [6, 30]
             },
-            {
-                "texts": ["MCV or SES Mobile Command"],
-                "vehicles": [11, 41]
-            },
+            { "texts": ["MCV or SES Mobile Command"], "vehicles": [11, 41] },
             { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7] },
             { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
             {
@@ -155,26 +155,11 @@
                 ],
                 "vehicles": [36]
             },
+            { "texts": ["MVR Quad", "MVR Quads"], "vehicles": [38] },
+            { "texts": ["MVR Boat", "MVR Boats"], "vehicles": [39] },
             {
-                "texts": [
-                    "MVR Quad",
-                    "MVR Quads"
-            ],
-            "vehicles": [38]
-            },
-            {
-                "texts": [
-                    "MVR Boat",
-                    "MVR Boats"
-            ],
-            "vehicles": [39]
-            },
-            {
-                "texts": [
-                    "SES Storm Trailer",
-                    "SES Storm Trailers"
-            ],
-            "vehicles": [42]
+                "texts": ["SES Storm Trailer", "SES Storm Trailers"],
+                "vehicles": [42]
             }
         ],
         "water": "l. water"
