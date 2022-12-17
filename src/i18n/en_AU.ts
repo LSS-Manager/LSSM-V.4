@@ -566,7 +566,6 @@ export default {
                 },
             },
         },
-                },
         38: {
             caption: 'VMR Quad',
             color: '#22997d',
