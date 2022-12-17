@@ -774,17 +774,17 @@ export default {
         'SES & Water Rescue': [
             {
                caption: 'Ocean Navigation',
-               duartion: '5 Days',
+               duration: '5 Days',
                staffList: 'Ocean Navigation',
             },
             {
                caption: 'SES Rescue',
-               duartion: '5 Days',
+               duration: '5 Days',
                staffList: 'SES Rescue',
             },
             {
                caption: 'Boat Captain Training',
-               duartion: '5 Days',
+               duration: '5 Days',
                staffList: 'Boat Captain Training',
             },     
             {
