@@ -1171,7 +1171,7 @@ export default {
                 'Fire trucks': [0, 1, 13, 18],
                 'Water Tanker': [7, 33],
                 'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63, 64, 65],
-                'Wildland vehicles': [30, 31, 32, 34, 38, 39, 40, 41, 77, 79],
+                'Wildland vehicles': [30, 31, 32, 34, 38, 39, 40, 41, 77, 78],
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],
                 'Fire Aviation': [35, 36, 37, 75, 76],
