@@ -1072,7 +1072,6 @@ export default {
             },
             special: '',
         },
-    },
     74: {
         caption: 'Wildfire MCC',
         color: '#9f1616',
