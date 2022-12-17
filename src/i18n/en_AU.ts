@@ -774,7 +774,7 @@ export default {
         'SES & Water Rescue': [
             {
                caption: 'Ocean Navigation',
-               duartion: '5 Days'.
+               duartion: '5 Days',
                staffList: 'Ocean Navigation',
             },
             {
