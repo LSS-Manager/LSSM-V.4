@@ -812,6 +812,7 @@ export default {
         'Cliff',
         'Sawmill',
         'Mine',
+        'Beach',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
