@@ -792,6 +792,7 @@ export default {
               duration: '5 Days',
               staffList: 'Mobile Command Training',
          },
+        ],
     amount: 'Quantity',
     search: 'Search',
     mapSearch: 'Location search',
