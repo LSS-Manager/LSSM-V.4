@@ -27,6 +27,7 @@
     },
     "prerequisites": {
         "brush_extension": "Bushfire extension | Bushfire extensions",
+        "coastal_rescue_count": "Volunteer Marine Rescue Station | Volunteer Marine Rescue Stations",
         "fire_aviation_count": "Fire Airbase | Fire Airbases",
         "fire_stations": "Fire Station | Fire Stations",
         "max_police_stations": "Maximum Police Stations",
@@ -62,12 +63,13 @@
             "firetrucks": "Fire Engine | Fire Engines",
             "gw_wasserrettung": "SES Unit | SES Units",
             "hazmat_vehicles": "HAZMAT Truck | HAZMAT Trucks",
-            "heavy_rescue_vehicles": "Major Rescue Vehicle | Major Rescue Vehicles",
+            "heavy_rescue_vehicles": "Major Rescue Vehicle or SES Rescue Truck | Major Rescue Vehicles or SES Rescue Trucks",
             "helicopter": "Air Ambulance | Air Ambulances",
             "k9": "K-9 Unit | K-9 Units",
             "kdow_orgl": "Paramedic Supervisor | Paramedic Supervisors",
+            "large_coastal_boat": "MVR Boat	| MVR Boats"
             "mobile_air_vehicles": "BASU Unit | BASU Units",
-            "mobile_command_vehicles": "Mobile Command Vehicle | Mobile Command Vehicles",
+            "mobile_command_vehicles": "Mobile Command Vehicle or SES Mobile Command Vehicle | Mobile Command Vehicles or SES Mobile Command Vehicles",
             "platform_trucks": "Ladder Platform Truck | Ladder Platform Trucks",
             "police_cars": "Police Car | Police Cars",
             "police_helicopters": "Police Helicopter | Police Helicopters",
