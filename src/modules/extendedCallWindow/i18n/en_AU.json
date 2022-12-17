@@ -157,22 +157,22 @@
             },
             {
                 "texts": [
-                     "MVR Quad",
-                     "MVR Quads"
+                    "MVR Quad",
+                    "MVR Quads"
             ],
             "vehicles": [38]
             },
-                        {
+            {
                 "texts": [
-                     "MVR Boat",
-                     "MVR Boats"
+                    "MVR Boat",
+                    "MVR Boats"
             ],
             "vehicles": [39]
             },
-                        {
+            {
                 "texts": [
-                     "SES Storm Trailer",
-                     "SES Storm Trailers"
+                    "SES Storm Trailer",
+                    "SES Storm Trailers"
             ],
             "vehicles": [42]
             },
