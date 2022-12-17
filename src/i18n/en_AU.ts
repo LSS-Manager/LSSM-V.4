@@ -785,7 +785,7 @@ export default {
             {
                caption: 'Boat Captain Training',
                duartion: '5 Days',
-               staffList: 'Boat Captain Training'
+               staffList: 'Boat Captain Training',
             },     
             {
               caption: 'Mobile Command Training'
