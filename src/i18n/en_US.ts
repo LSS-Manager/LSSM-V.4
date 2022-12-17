@@ -1072,76 +1072,77 @@ export default {
             },
             special: '',
         },
-    },
-    74: {
-        caption: 'Wildfire MCC',
-        color: '#9f1616',
-        coins: 20,
-        credits: 20_000,
-        minPersonnel: 6,
-        maxPersonnel: 6,
-        possibleBuildings: [0],
-        schooling: {
-            'Fire Station': {
-                'Wildland Mobile Command Center Training': {
-                    all: true,
+        74: {
+            caption: 'Wildfire MCC',
+            color: '#9f1616',
+            coins: 20,
+            credits: 20_000,
+            minPersonnel: 6,
+            maxPersonnel: 6,
+            possibleBuildings: [0],
+            schooling: {
+                'Fire Station': {
+                    'Wildland Mobile Command Center Training': {
+                        all: true,
+                    },
                 },
             },
         },
-    },
-    75: {
-        caption: 'Wildland Lead Plane',
-        color: '#9f1616',
-        coins: 20,
-        credits: 750_000,
-        minPersonnel: 3,
-        maxPersonnel: 3,
-        possibleBuildings: [17],
-        schooling: {
-            'Fire Station': {
-                'Wildland Lead Pilot': {
-                    all: true,
+        75: {
+            caption: 'Wildland Lead Plane',
+            color: '#9f1616',
+            coins: 20,
+            credits: 750_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Wildland Lead Pilot': {
+                        all: true,
+                    },
                 },
             },
         },
-    },
-    76: {
-        caption: 'Smoke Jumper Plane',
-        color: '#9f1616',
-        coins: 20,
-        credits: 500_000,
-        minPersonnel: 10,
-        maxPersonnel: 20,
-        possibleBuildings: [17],
-        schooling: {
-            'Fire Station': {
-                'Smoke Jumper Training': {
-                    all: true,
+        76: {
+            caption: 'Smoke Jumper Plane',
+            color: '#9f1616',
+            coins: 20,
+            credits: 500_000,
+            minPersonnel: 10,
+            maxPersonnel: 20,
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Smoke Jumper Training': {
+                        all: true,
+                    },
                 },
             },
         },
-    },
-    77: {
-        caption: 'Tanker Semi Truck Trailer',
-        color: '#9f1616',
-        coins: 15,
-        credits: 20_000,
-        minPersonnel: 0,
-        maxPersonnel: 0,
-        wtank: 10_000,
-        possibleBuildings: [0, 13],
-        special: 'Towed by Crew cab semi',
-    },
-    78: {
-        caption: 'Tanker Trailer',
-        color: '#9f1616',
-        coins: 10,
-        credits: 5000,
-        minPersonnel: 0,
-        maxPersonnel: 0,
-        wtank: 1000,
-        possibleBuildings: [0, 13],
-        special: 'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
+        77: {
+            caption: 'Tanker Semi Truck Trailer',
+            color: '#9f1616',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            wtank: 10_000,
+            possibleBuildings: [0, 13],
+            special: 'Towed by Crew cab semi',
+        },
+        78: {
+            caption: 'Tanker Trailer',
+            color: '#9f1616',
+            coins: 10,
+            credits: 5000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            wtank: 1000,
+            possibleBuildings: [0, 13],
+            special:
+                'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -1291,26 +1292,26 @@ export default {
                 staffList: 'Lifeguard Training',
             },
             {
-               caption: 'Wildland Lead Pilot Training',
-               duration: '7 Days',
-               staffList: 'Wildland Lead Pilot Training',
+                caption: 'Wildland Lead Pilot Training',
+                duration: '7 Days',
+                staffList: 'Wildland Lead Pilot Training',
             },
             {
-               caption: 'Wildland Mobile Command Center Training',
-               duration: '5 Days',
-               staffList: 'Wildland Mobile Command Center Training',
+                caption: 'Wildland Mobile Command Center Training',
+                duration: '5 Days',
+                staffList: 'Wildland Mobile Command Center Training',
             },
             {
-               caption: 'Hotshot Crew Training',
-               duration: '3 Days',
-               staffList: 'Hotshot Crew Training',
+                caption: 'Hotshot Crew Training',
+                duration: '3 Days',
+                staffList: 'Hotshot Crew Training',
             },
             {
-               caption: 'Smoke Jumper Training',
-               duration: '3 Days',
-               staffList: 'Smoke Jumper Training',
+                caption: 'Smoke Jumper Training',
+                duration: '3 Days',
+                staffList: 'Smoke Jumper Training',
             },
-        ], 
+        ],
         'Police': [
             {
                 caption: 'Police Aviation',
