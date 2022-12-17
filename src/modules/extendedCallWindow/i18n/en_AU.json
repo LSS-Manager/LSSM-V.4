@@ -155,6 +155,12 @@
                 ],
                 "vehicles": [36]
             }
+            {
+                "texts": [
+                     "MVR Boat",
+                     "MVR Boats"
+            ],
+            "vehicles": [39]   
         ],
         "water": "l. water"
     },
