@@ -685,7 +685,7 @@ export default {
         },
         'SES & Water Rescue': {
             vehicles: {
-                'SES': [20, 21],
+                'SES': [20, 21, 40, 41, 42],
                 'VMR': [38, 39],
             },
             color: '#02a18c',
@@ -771,7 +771,17 @@ export default {
                 staffList: 'Intensive Care Paramedic',
             },
         ],
-    },
+        'SES & Water Rescue' [
+            {
+               caption: 'Ocean Navigation',
+               duartion: '5 Days'.
+               staffList: 'Ocean Navigation',
+            },
+            {
+               caption: 'SES Rescue',
+               duartion: ' Days',
+               staffList: 'SES Rescue'
+         },
     amount: 'Quantity',
     search: 'Search',
     mapSearch: 'Location search',
