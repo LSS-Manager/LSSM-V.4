@@ -592,7 +592,7 @@ export default {
         caption: 'Volunteer Marine Rescue',
         color: '#7fffd4',
         coins: 35,
-        credits: 0_000,
+        credits: 50_000,
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'No Limit',
