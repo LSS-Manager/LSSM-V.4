@@ -90,8 +90,8 @@
                 "vehicles": [3, 11]
             },
             {
-                "texts": ["Major Rescue Vehicle", "Major Rescue Vehicles"],
-                "vehicles": [4, 12, 26]
+                "texts": ["MRV or SES Rescue Truck", "MRV or SES Rescue Trucks"],
+                "vehicles": [4, 12, 26, 40]
             },
             { "texts": ["BASU"], "vehicles": [10] },
             {
@@ -99,8 +99,8 @@
                 "vehicles": [6, 30]
             },
             {
-                "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
-                "vehicles": [11]
+                "texts": ["MCV or SES Mobile Command"],
+                "vehicles": [11, 41]
             },
             { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7] },
             { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
