@@ -779,8 +779,18 @@ export default {
             },
             {
                caption: 'SES Rescue',
-               duartion: ' Days',
-               staffList: 'SES Rescue'
+               duartion: '5 Days',
+               staffList: 'SES Rescue',
+            },
+            {
+               caption: 'Boat Captain Training',
+               duartion: '5 Days',
+               staffList: 'Boat Captain Training'
+            },     
+            {
+              caption: 'Mobile Command Training'
+              duration: '5 Days',
+              staffList: 'Mobile Command Training
          },
     amount: 'Quantity',
     search: 'Search',
