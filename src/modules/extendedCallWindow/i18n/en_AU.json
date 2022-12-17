@@ -154,14 +154,28 @@
                     "Riot Police Equipment Vehicles"
                 ],
                 "vehicles": [36]
-            }
+            },
             {
                 "texts": [
+                     "MVR Quad",
+                     "MVR Quads"
+            ],
+            "vehicles": [38]
+            },
+                        {
+                "texts": [
                      "MVR Boat",
-                     "MVR Boats"
+                     "MVR Boat"
             ],
             "vehicles": [39]
-            }
+            },
+                        {
+                "texts": [
+                     "SES Storm Trailer",
+                     "SES Storm Trailers"
+            ],
+            "vehicles": [42]
+            },
         ],
         "water": "l. water"
     },
