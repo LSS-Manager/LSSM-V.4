@@ -326,7 +326,7 @@ export default {
             maxPersonnel: 6,
             possibleBuildings: [15],
             schooling: {
-                'Fire Station': {
+                'SES & Water Rescue': {
                     'SES Water Rescue': {
                         all: true,
                     },
@@ -341,7 +341,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [15],
-            special: 'SES Vehicle is the towing vehicle',
+            special: 'SES Vehicle & SES Rescue Truck Are the towing vehicles',
         },
         22: {
             caption: 'Mounted Police',
@@ -566,7 +566,72 @@ export default {
                 },
             },
         },
-    },
+                },
+        38: {
+            caption: 'VMR Quad',
+            color: '#22997d',
+            coins: 10,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [24],
+            special: '',
+        },
+        39: {
+            caption: 'VMR Boat',
+            color: '#22997d',
+            coins: 25,
+            credits: 45_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [24],
+            schooling: {
+                'SES & Water Rescue': {
+                    'Ocean Navigation': {
+                       min: 1,
+                    },
+                },
+                'SES & Water Rescue': {
+                    'Boat Captain Training': {
+                        min: 1,
+                    },
+                },
+         },
+        40: {
+            caption: 'SES Rescue Truck',
+            color: '#105d36',
+            coins: 25,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [15],
+            special: 'Acts a MRV',
+        },
+        41: {
+            caption: 'SES Mobile Command',
+            color: '#791515',
+            coins: 25,
+            credits: 25_500,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [15],
+            schooling: {
+                'SES & Water Rescue': {
+                    'Mobile Command Training': {
+                        all: true,
+                    },
+                },
+            },
+        42: {
+            caption: 'SES Storm Trailer',
+            color: '#105d36',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [15],
+            special: 'Can be towed by SES Vehicle or SES Rescue Truck',
+        },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 1, 18, 23],
@@ -580,8 +645,8 @@ export default {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        'SES': {
-            buildings: [15],
+        'SES & Water Rescue': {
+            buildings: [15, 24],
             color: '#0000ff',
         },
         'Other': {
@@ -618,9 +683,10 @@ export default {
             },
             color: '#00ac00',
         },
-        'SES': {
+        'SES & Water Rescue': {
             vehicles: {
-                SES: [20, 21],
+                'SES': [20, 21],
+                'VMR': [38, 39],
             },
             color: '#02a18c',
         },
@@ -645,11 +711,6 @@ export default {
             {
                 caption: 'ARFF-Training',
                 duration: '3 Days',
-            },
-            {
-                caption: 'SES Water Rescue',
-                duration: '4 Days',
-                staffList: 'SES Water Rescue',
             },
             {
                 caption: 'Ocean Navigation',
