@@ -570,7 +570,7 @@ export default {
             caption: 'VMR Quad',
             color: '#22997d',
             coins: 10,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [24],
@@ -587,15 +587,14 @@ export default {
             schooling: {
                 'SES & Water Rescue': {
                     'Ocean Navigation': {
-                       min: 1,
+                        min: 1,
                     },
-                },
-                'SES & Water Rescue': {
                     'Boat Captain Training': {
                         min: 1,
                     },
                 },
-         },
+            },
+        },
         40: {
             caption: 'SES Rescue Truck',
             color: '#105d36',
@@ -621,6 +620,7 @@ export default {
                     },
                 },
             },
+        },
         42: {
             caption: 'SES Storm Trailer',
             color: '#105d36',
@@ -631,6 +631,7 @@ export default {
             possibleBuildings: [15],
             special: 'Can be towed by SES Vehicle or SES Rescue Truck',
         },
+    },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 1, 18, 23],
@@ -684,8 +685,8 @@ export default {
         },
         'SES & Water Rescue': {
             vehicles: {
-                'SES': [20, 21, 40, 41, 42],
-                'VMR': [38, 39],
+                SES: [20, 21, 40, 41, 42],
+                VMR: [38, 39],
             },
             color: '#02a18c',
         },
@@ -772,26 +773,26 @@ export default {
         ],
         'SES & Water Rescue': [
             {
-               caption: 'Ocean Navigation',
-               duration: '5 Days',
-               staffList: 'Ocean Navigation',
+                caption: 'Ocean Navigation',
+                duration: '5 Days',
+                staffList: 'Ocean Navigation',
             },
             {
-               caption: 'SES Rescue',
-               duration: '5 Days',
-               staffList: 'SES Rescue',
+                caption: 'SES Rescue',
+                duration: '5 Days',
+                staffList: 'SES Rescue',
             },
             {
-               caption: 'Boat Captain Training',
-               duration: '5 Days',
-               staffList: 'Boat Captain Training',
-            },     
+                caption: 'Boat Captain Training',
+                duration: '5 Days',
+                staffList: 'Boat Captain Training',
+            },
             {
-              caption: 'Mobile Command Training',
-              duration: '5 Days',
-              staffList: 'Mobile Command Training',
-         },
-       ],
+                caption: 'Mobile Command Training',
+                duration: '5 Days',
+                staffList: 'Mobile Command Training',
+            },
+        ],
     },
     amount: 'Quantity',
     search: 'Search',
