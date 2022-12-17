@@ -771,7 +771,7 @@ export default {
                 staffList: 'Intensive Care Paramedic',
             },
         ],
-        'SES & Water Rescue' [
+        'SES & Water Rescue': [
             {
                caption: 'Ocean Navigation',
                duartion: '5 Days'.
