@@ -113,6 +113,27 @@
                 :default-index="tab"
                 :on-select="(_, i) => (this.tab = i)"
             >
+                <template v-for="moduleId in modulesSorted" :slot="moduleId">
+                    {{
+                        $t(
+                            `modules.${moduleId}.name`.replace(
+                                'modules.global',
+                                'global.settings'
+                            )
+                        )
+                    }}
+                    <a
+                        v-if="
+                            moduleId !== 'global' &&
+                            moduleId === modulesSorted[tab]
+                        "
+                        :href="rootStore.moduleWiki(moduleId)"
+                        class="pull-right lightbox-open wiki-btn"
+                        :key="moduleId"
+                    >
+                        <small class="glyphicon glyphicon-info-sign"></small>
+                    </a>
+                </template>
                 <tab
                     v-for="moduleId in modulesSorted"
                     :title="
@@ -123,6 +144,7 @@
                             )
                         )
                     "
+                    :title-slot="moduleId"
                     :key="moduleId"
                     :module="moduleId"
                 >
@@ -853,6 +875,9 @@ export default Vue.extend<
         :deep(a:not(.btn)),
         :deep(a.btn.btn-link)
             color: #6dd5f4
+
+    .wiki-btn
+        margin-left: 5px
 
 #settings-changelist
     display: none

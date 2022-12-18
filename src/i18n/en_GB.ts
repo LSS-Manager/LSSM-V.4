@@ -1152,6 +1152,8 @@ export default {
         'Low Bridge',
         'Care Home',
         'Prison',
+        'Fire Station',
+        'Library',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

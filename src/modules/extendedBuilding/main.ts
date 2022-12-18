@@ -25,7 +25,8 @@ export default (async ({
                 /^\/vehicles\/\d+\/zuweisung\/?$/u
             ) &&
             !window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) ||
-        document.querySelectorAll('[href*="profile"]').length
+        (!document.querySelector('#bereitstellungsraumReset') &&
+            document.querySelectorAll('[href*="profile"]').length)
     )
         return;
 
@@ -122,6 +123,22 @@ export default (async ({
             ).then(({ default: schoolsBuildingFilter }) =>
                 schoolsBuildingFilter(LSSM)
             );
+        }
+
+        if (
+            document.querySelector<HTMLAnchorElement>(
+                '#bereitstellungsraumReset'
+            )
+        ) {
+            if (await getSetting('renewAllStagingAreas')) {
+                import(
+                    /* webpackChunkName: "modules/extendedBuilding/renewAllStagingAreas" */ './assets/renewAllStagingAreas'
+                ).then(({ default: renewAllStagingAreas }) =>
+                    renewAllStagingAreas(LSSM, MODULE_ID, (key, args) =>
+                        $m(`renewAllStagingAreas.${key}`, args)
+                    )
+                );
+            }
         }
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u)

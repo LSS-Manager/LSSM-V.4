@@ -50,7 +50,7 @@ Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare oc
 :::
 
 ### Steg 2: Användarskript
-Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">här </a> eller skapa en nytt användarskript med följande innehåll:
+Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka [här][lssm.userscript] eller skapa en nytt användarskript med följande innehåll:
 
 @[code js](@userscript)
 
@@ -66,15 +66,18 @@ Om du har några problem kan du alltid kontakta [Support][docs.support].
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /sv_SE/apps/
-[docs.appstore]: /sv_SE/appstore/
-[docs.bugs]: /sv_SE/bugs/
-[docs.error_report]: /sv_SE/error_report/
-[docs.faq]: /sv_SE/faq/
-[docs.metadata]: /sv_SE/metadata/
-[docs.other]: /sv_SE/other/
-[docs.settings]: /sv_SE/settings/
-[docs.suggestions]: /sv_SE/suggestions/
-[docs.support]: /sv_SE/support/
+[docs.apps]: /sv_SE/apps.md
+[docs.appstore]: /sv_SE/appstore.md
+[docs.bugs]: /sv_SE/bugs.md
+[docs.error_report]: /sv_SE/error_report.md
+[docs.faq]: /sv_SE/faq.md
+[docs.metadata]: /sv_SE/metadata.md
+[docs.other]: /sv_SE/other.md
+[docs.settings]: /sv_SE/settings.md
+[docs.suggestions]: /sv_SE/suggestions.md
+[docs.support]: /sv_SE/support.md
 [games.self]: https://larmcentralen-spelet.se
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

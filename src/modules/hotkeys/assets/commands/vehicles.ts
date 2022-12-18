@@ -26,7 +26,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 return redesign.lightbox.$set(
                     redesign.lightbox,
                     'src',
-                    `/vehicles/${redesign.data.previous_vehicle_id}`
+                    `/vehicles/${redesign.data.previousVehicle}`
                 );
             }
             document
@@ -40,7 +40,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 return redesign.lightbox.$set(
                     redesign.lightbox,
                     'src',
-                    `/vehicles/${redesign.data.next_vehicle_id}`
+                    `/vehicles/${redesign.data.nextVehicle}`
                 );
             }
             document
@@ -117,8 +117,8 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         firstOwnMission(_, redesign) {
             if (redesign) {
                 const mission =
-                    redesign.component.computed.missionListSorted.find(
-                        ({ list, filter }) => list === 'mission_own' && filter
+                    redesign.component.computed.sortedItems.mission.find(
+                        ({ list }) => list === 'own'
                     );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;
@@ -132,9 +132,8 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         firstAllianceMission(_, redesign) {
             if (redesign) {
                 const mission =
-                    redesign.component.computed.missionListSorted.find(
-                        ({ list, filter }) =>
-                            list === 'mission_alliance' && filter
+                    redesign.component.computed.sortedItems.mission.find(
+                        ({ list }) => list === 'alliance'
                     );
                 if (mission) redesign.component.methods.alarm(mission.id);
                 return;

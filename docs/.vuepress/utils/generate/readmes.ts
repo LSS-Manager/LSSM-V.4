@@ -1,14 +1,22 @@
 import fs from 'fs';
 import path from 'path';
 
-import addCommonLinks from '../addCommonLinks';
 import config from '../../../../src/config';
+import addCommonLinks, { type CommonLinksConfig } from '../addCommonLinks';
 
 type LangCode = `${string}_${string}`;
 
 const [, , DOCS_PATH, langs] = process.argv;
 
 const LANGS: [LangCode, { lssm: string; game: string }][] = JSON.parse(langs);
+
+const commonLinksConfig: CommonLinksConfig = [
+    'lssm',
+    'tampermonkey',
+    'games.self',
+    'docs',
+    'github',
+];
 
 LANGS.forEach(([lang, serverStatus]) => {
     const localePath = path.join(DOCS_PATH, lang);
@@ -41,7 +49,7 @@ sidebarDepth: 2
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 `
             ),
-            ['lssm', 'tampermonkey', 'games.self', 'docs'],
+            commonLinksConfig,
             lang
         )
     );
@@ -51,13 +59,17 @@ sidebarDepth: 2
         const filePath = path.join(localePath, fileName);
         fs.writeFileSync(
             filePath,
-            fs
-                .readFileSync(filePath)
-                .toString()
-                .replace(
-                    /(?<=^-+\n(?:.*\n)*?)lang:.*(?=\n(?:.*\n)*?-+\n)/u,
-                    `lang: ${lang}`
-                )
+            addCommonLinks(
+                fs
+                    .readFileSync(filePath)
+                    .toString()
+                    .replace(
+                        /(?<=^-+\n(?:.*\n)*?)lang:.*(?=\n(?:.*\n)*?-+\n)/u,
+                        `lang: ${lang}`
+                    ),
+                commonLinksConfig,
+                lang
+            )
         );
     });
 });

@@ -82,7 +82,13 @@
         "foam": "gal. foam",
         "missing": "Missing on mission",
         "selected": "Selected",
-        "staff": [{ "texts": ["SWAT Personnel"], "vehicles": [16, 26] }],
+        "staff": [
+            { "texts": ["SWAT Personnel"], "vehicles": [16, 26] },
+            {
+                "texts": ["Required Smoke Jumpers (in Smoke Jumper Planes)"],
+                "vehicles": [76]
+            }
+        ],
         "staffPrefix": ["We need"],
         "tip": {
             "dragging": "drag window",
@@ -116,7 +122,7 @@
             { "texts": ["Mobile Air"], "vehicles": [6] },
             {
                 "texts": ["Water Tanker", "Water Tankers"],
-                "vehicles": [7, 33, 64]
+                "vehicles": [7, 33, 64, 77, 78]
             },
             {
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
@@ -249,6 +255,11 @@
             {
                 "texts": ["Coastal Guard Plane", "Coastal Guard Planes"],
                 "vehicles": [72]
+            },
+            { "texts": ["Wildland MCC", "Wildland MCCs"], "vehicles": [74] },
+            {
+                "texts": ["Wildland Lead Plane", "Wildland Lead Planes"],
+                "vehicles": [75]
             }
         ],
         "water": "gal. water"

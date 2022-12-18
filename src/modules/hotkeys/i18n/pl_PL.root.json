@@ -155,25 +155,25 @@
         },
         "vehicles": {
             "alarm": {
-                "firstAllianceMission": "Alarm to first alliance mission",
-                "firstOwnMission": "Alarm to first own mission",
-                "title": "alarm"
+                "firstAllianceMission": "Wyślij na pierwszą misję sojuszu",
+                "firstOwnMission": "Wyślij na pierwszą misję",
+                "title": "Wyślij"
             },
             "goto": {
-                "building": "building",
-                "edit": "edit",
-                "nextVehicle": "next vehicle",
-                "personalAssigment": "personal assigment",
-                "previousVehicle": "previous vehicle",
-                "statistics": "stats",
-                "title": "go to"
+                "building": "budynków",
+                "edit": "edycji",
+                "nextVehicle": "następnego pojazdu",
+                "personalAssigment": "przypisywania załogi",
+                "previousVehicle": "poprzedniego pojazdu",
+                "statistics": "statystyk",
+                "title": "Przejdź do"
             },
             "other": {
-                "moveVehicle": "move vehicle",
-                "title": "etc.",
-                "toggleFMS": "toggle status"
+                "moveVehicle": "przenieś pojazd",
+                "title": "Inne.",
+                "toggleFMS": "zmień status"
             },
-            "title": "vehicles"
+            "title": "pojazdy"
         }
     },
     "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",

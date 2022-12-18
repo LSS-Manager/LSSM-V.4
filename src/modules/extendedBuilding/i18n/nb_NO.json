@@ -8,6 +8,7 @@
         "additional": "Verdier i parentes ekskluderer kjøretøy med status 6.",
         "demand": "Påkrevd personell"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Alle kombinasjoner",
         "amount": "Mengde",

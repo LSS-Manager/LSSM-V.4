@@ -38,6 +38,10 @@
             "description": "Pokazuje minimalną i maksymalną ilość osób wymaganych na posterunku.",
             "title": "Wymagania dotyczące personelu"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Pokazuje ile osób przeszło dane szkolenie na liści pracowników.",
             "title": "Podsumowanie personelu"

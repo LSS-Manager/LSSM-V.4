@@ -858,6 +858,8 @@ export default {
         'Autogrill',
         'Piazzola di Sosta',
         'Chiesa',
+        'Scogliera',
+        'Spiaggia',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [214],

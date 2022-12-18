@@ -5,6 +5,7 @@
     "expansions": { "notBuild": "Inte byggt ännu" },
     "fastDispatchChooser": { "noDispatch": "Ingen larmcentral" },
     "personnelDemands": { "additional": "", "demand": "Personal som krävs" },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Alla kombinationer",
         "amount": "Antal",

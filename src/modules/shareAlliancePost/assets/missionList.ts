@@ -211,6 +211,7 @@ export default (
                             btn.disabled = false;
                         } else {
                             btn.remove();
+                            dropdown.remove();
                             updateShareBtn(mission);
                         }
                     });

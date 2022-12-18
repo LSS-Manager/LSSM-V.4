@@ -50,7 +50,7 @@ Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Safari nicht o
 :::
 
 ### Schritt 2: Userscript
-Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du entweder <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">hier</a> klicken oder ein neues Userscript mit folgendem Inhalt anlegen:
+Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du entweder [hier][lssm.userscript] klicken oder ein neues Userscript mit folgendem Inhalt anlegen:
 
 @[code js](@userscript)
 
@@ -69,15 +69,18 @@ Bei Problemen kannst du dich jederzeit an den [Support][docs.support] wenden.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /de_DE/apps/
-[docs.appstore]: /de_DE/appstore/
-[docs.bugs]: /de_DE/bugs/
-[docs.error_report]: /de_DE/error_report/
-[docs.faq]: /de_DE/faq/
-[docs.metadata]: /de_DE/metadata/
-[docs.other]: /de_DE/other/
-[docs.settings]: /de_DE/settings/
-[docs.suggestions]: /de_DE/suggestions/
-[docs.support]: /de_DE/support/
+[docs.apps]: /de_DE/apps.md
+[docs.appstore]: /de_DE/appstore.md
+[docs.bugs]: /de_DE/bugs.md
+[docs.error_report]: /de_DE/error_report.md
+[docs.faq]: /de_DE/faq.md
+[docs.metadata]: /de_DE/metadata.md
+[docs.other]: /de_DE/other.md
+[docs.settings]: /de_DE/settings.md
+[docs.suggestions]: /de_DE/suggestions.md
+[docs.support]: /de_DE/support.md
 [games.self]: https://leitstellenspiel.de
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

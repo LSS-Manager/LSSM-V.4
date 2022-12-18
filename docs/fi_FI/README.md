@@ -50,7 +50,7 @@ Please note that we do not officially support older browsers, mobile browsers an
 :::
 
 ### Step 2: Userscript
-If Tampermonkey was successfully installed in your browser, you can either click <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">here</a> or create a new userscript with the following content:
+If Tampermonkey was successfully installed in your browser, you can either click [here][lssm.userscript] or create a new userscript with the following content:
 
 @[code js](@userscript)
 
@@ -66,15 +66,18 @@ If you have any problems you can always contact [Support][docs.support].
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /fi_FI/apps/
-[docs.appstore]: /fi_FI/appstore/
-[docs.bugs]: /fi_FI/bugs/
-[docs.error_report]: /fi_FI/error_report/
-[docs.faq]: /fi_FI/faq/
-[docs.metadata]: /fi_FI/metadata/
-[docs.other]: /fi_FI/other/
-[docs.settings]: /fi_FI/settings/
-[docs.suggestions]: /fi_FI/suggestions/
-[docs.support]: /fi_FI/support/
+[docs.apps]: /fi_FI/apps.md
+[docs.appstore]: /fi_FI/appstore.md
+[docs.bugs]: /fi_FI/bugs.md
+[docs.error_report]: /fi_FI/error_report.md
+[docs.faq]: /fi_FI/faq.md
+[docs.metadata]: /fi_FI/metadata.md
+[docs.other]: /fi_FI/other.md
+[docs.settings]: /fi_FI/settings.md
+[docs.suggestions]: /fi_FI/suggestions.md
+[docs.support]: /fi_FI/support.md
 [games.self]: https://hatakeskuspeli.com
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug
