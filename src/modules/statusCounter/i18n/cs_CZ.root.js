@@ -1,7 +1,6 @@
 module.exports = {
     name: 'Přehled statusů',
-    description:
-        'Zobrazí rychlý přehled počtu vozidel s konkrétními statusy.',
+    description: 'Zobrazí rychlý přehled počtu vozidel s konkrétními statusy.',
     settings: {
         percentRounding: {
             title: 'Zaokrouhlení procent',
