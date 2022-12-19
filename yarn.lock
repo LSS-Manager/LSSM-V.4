@@ -1449,7 +1449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.3.3":
+"@eslint/eslintrc@npm:^1.4.0":
   version: 1.4.0
   resolution: "@eslint/eslintrc@npm:1.4.0"
   dependencies:
@@ -1515,7 +1515,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.11.6":
+"@humanwhocodes/config-array@npm:^0.11.8":
   version: 0.11.8
   resolution: "@humanwhocodes/config-array@npm:0.11.8"
   dependencies:
@@ -2472,10 +2472,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.11.15":
-  version: 18.11.15
-  resolution: "@types/node@npm:18.11.15"
-  checksum: cae8692a5cee0316f93ee0342237eb921f70c51afb37c661c711a925a4642654ae7e404c5a80899d481c0cfaff3a6891ef04bacd330a2e72734192bfc91dc2d8
+"@types/node@npm:18.11.17":
+  version: 18.11.17
+  resolution: "@types/node@npm:18.11.17"
+  checksum: 1933afd068d5c75c068c6c4df6d10edb3b0b2bb6503d544e2f0496ac007c90596e6a5e284a8ef032451bc16f871b7e46719d7d2bea60e9b25d13a77d52161cac
   languageName: node
   linkType: hard
 
@@ -5025,12 +5025,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.29.0":
-  version: 8.29.0
-  resolution: "eslint@npm:8.29.0"
+"eslint@npm:8.30.0":
+  version: 8.30.0
+  resolution: "eslint@npm:8.30.0"
   dependencies:
-    "@eslint/eslintrc": ^1.3.3
-    "@humanwhocodes/config-array": ^0.11.6
+    "@eslint/eslintrc": ^1.4.0
+    "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
     ajv: ^6.10.0
@@ -5049,7 +5049,7 @@ __metadata:
     file-entry-cache: ^6.0.1
     find-up: ^5.0.0
     glob-parent: ^6.0.2
-    globals: ^13.15.0
+    globals: ^13.19.0
     grapheme-splitter: ^1.0.4
     ignore: ^5.2.0
     import-fresh: ^3.0.0
@@ -5070,7 +5070,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: e05204b05907b82d910983995cb946e0ba62ca514eb2b6791c43f623333b143564a2eee0139909d31c10935c21877d815b1f76dd674a59cb91c471064325c4ab
+  checksum: b7525bb465b342665c3b8bab7e114d514ef1bc4e79f211c919863f9c71767e7412ec82383a22614a92d159783f91101018817000f7c61ce69a5e7015280cafaf
   languageName: node
   linkType: hard
 
@@ -5551,7 +5551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.15.0, globals@npm:^13.19.0":
+"globals@npm:^13.19.0":
   version: 13.19.0
   resolution: "globals@npm:13.19.0"
   dependencies:
@@ -6768,7 +6768,7 @@ __metadata:
     "@types/js-yaml": 4.0.5
     "@types/leaflet": 1.9.0
     "@types/lodash": 4.14.191
-    "@types/node": 18.11.15
+    "@types/node": 18.11.17
     "@types/pdfmake": 0.2.2
     "@types/prettier": 2.7.1
     "@types/qrcode": 1.5.0
@@ -6785,7 +6785,7 @@ __metadata:
     copy-dir: 1.3.0
     css-loader: 6.7.3
     emoji-toolkit: 7.0.0
-    eslint: 8.29.0
+    eslint: 8.30.0
     eslint-config-prettier: 8.5.0
     eslint-import-resolver-typescript: 3.5.2
     eslint-plugin-compat: 4.0.2
@@ -6811,7 +6811,7 @@ __metadata:
     pinia: 2.0.28
     prettier: 2.8.1
     qrcode: 1.5.1
-    sass: 1.56.2
+    sass: 1.57.0
     sass-loader: 13.2.0
     semver: 7.3.8
     showdown: 2.1.0
@@ -6828,7 +6828,7 @@ __metadata:
     vue-loader: 15.10.0
     vue-notification: 1.3.20
     vue-responsive-dash: 0.5.0
-    vue-select: 3.20.0
+    vue-select: 3.20.2
     vue-slim-tabs: 0.4.0
     vue-template-compiler: 2.7.14
     webpack: 5.75.0
@@ -8347,20 +8347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.56.2":
-  version: 1.56.2
-  resolution: "sass@npm:1.56.2"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-    immutable: ^4.0.0
-    source-map-js: ">=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 7b1f524d04bc42df3bac6dc5201ff7475635b7df9a1390430ed5bd58b6a73ea1ae58b83ccea8da293cb77b85b4c848faf5f2779ca4b91b9303948c251d0ddca4
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.56.2":
+"sass@npm:1.57.0, sass@npm:^1.56.2":
   version: 1.57.0
   resolution: "sass@npm:1.57.0"
   dependencies:
@@ -9506,12 +9493,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-select@npm:3.20.0":
-  version: 3.20.0
-  resolution: "vue-select@npm:3.20.0"
+"vue-select@npm:3.20.2":
+  version: 3.20.2
+  resolution: "vue-select@npm:3.20.2"
   peerDependencies:
     vue: 2.x
-  checksum: a76787bf0475310ed34ad3575fb72b65475e43bf074fbf4c2408d79d06064b33301deef5a12bf1e842921ef24685a73928a50991e43eca3b80ed3d98bd555109
+  checksum: 91206fb427371c35a93ba622b5b0b4cab7dd50f992375c434f4db18330eb1adc1ecc48fd0382baac3af9101eb879c17e1d3d8e94b1be14aaaf23b0834aa78aef
   languageName: node
   linkType: hard
 

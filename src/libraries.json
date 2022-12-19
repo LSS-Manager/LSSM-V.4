@@ -61,7 +61,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.11.15"
+        "version": "18.11.17"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -171,7 +171,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.29.0"
+        "version": "8.30.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -289,7 +289,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.56.2"
+        "version": "1.57.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -366,7 +366,7 @@
     },
     "vue-select": {
         "url": "https://vue-select.org",
-        "version": "3.20.0"
+        "version": "3.20.2"
     },
     "vue-slim-tabs": {
         "url": "https://vue-slim-tabs.egoist.sh/",
