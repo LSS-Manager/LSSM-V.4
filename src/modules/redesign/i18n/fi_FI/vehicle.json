@@ -127,7 +127,7 @@
     "tabs": {
         "all": "kaikki {type}: {amount}",
         "alliance": "liittoutuma {type}: {amount}",
-        "missions": "Tehtävät",
+        "mission": "Tehtävät",
         "own": "oma {type}: {amount}",
         "patient": "Sairaalat",
         "patientIntermediate": "Coastal Rescue Stations",

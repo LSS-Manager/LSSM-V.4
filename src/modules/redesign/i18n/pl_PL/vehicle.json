@@ -127,7 +127,7 @@
     "tabs": {
         "all": "Wszystkie {type}: {amount}",
         "alliance": "Sojusznicze {type}: {amount}",
-        "missions": "misje",
+        "mission": "misje",
         "own": "Twoje {type}: {amount}",
         "patient": "szpitale",
         "patientIntermediate": "Coastal Rescue Stations",
