@@ -34,7 +34,7 @@ $branch = 'stable';
 if (isset($post->branch)) $branch = $post->branch;
 
 if ($USER == null) {
-    if (!($insert = $MYSQLI->prepare('INSERT INTO `v4_user`(`id`, `game`, `uid`, `version`, `name`, `data`, `police`, `userscript_version`, `telemetry`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'))) {
+    if (!($insert = $MYSQLI->prepare('INSERT INTO `v4_user`(`id`, `game`, `uid`, `version`, `name`, `data`, `police`, `userscript_version`, `branch`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'))) {
         die(json_encode(['Preparing Statement failed!']));
     }
     $insert->bind_param('ssisssiss', $USER_KEY, $data['game'], $data['uid'], $data['version'], $data['name'], $data['data'], $data['police'], $userscript_version, $branch);
