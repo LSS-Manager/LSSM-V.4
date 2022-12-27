@@ -210,7 +210,7 @@ export default {
             possibleBuildings: [2, 20],
         },
         14: {
-            caption: '구급 지휘차,
+            caption: '구급 지휘차',
             color: '#415a30',
             coins: 25,
             credits: 20_000,
