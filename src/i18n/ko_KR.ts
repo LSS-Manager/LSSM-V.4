@@ -275,7 +275,7 @@ export default {
             possibleBuildings: [0, 18],
             schooling: {
                 '소방서': {
-                    이동 지휘: {
+                    '이동 지휘': {
                         all: true,
                     },
                 },
@@ -290,7 +290,7 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-			ftank: 3000,
+	    ftank: 3000,
             possibleBuildings: [0, 18],	
         },
         20: {
@@ -300,7 +300,7 @@ export default {
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-			wtank: 1000,
+	    wtank: 1000,
             possibleBuildings: [0, 18],
             special:
 				'견인 차량 필요 (구조사다리, 전술 대응 차량(TRV), 물탱크차, 포장치 운반차)',
@@ -331,7 +331,7 @@ export default {
             possibleBuildings: [6, 19],
             schooling: {
                 경찰서: {
-                    특수화기전술조: {
+                    '특수화기전술조': {
                         all: true,
                     },
                 },
