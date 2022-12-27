@@ -181,7 +181,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
     )
         rootScopes.push('mission');
     if (
-        hotkeys.some(({ command }) => command.startsWith('buildings.')) &&
+        hotkeys.some(({ command }) => command.startsWith('building.')) &&
         window.location.pathname.match(/^\/buildings\/\d+\/?/u)
     )
         rootScopes.push('building');
