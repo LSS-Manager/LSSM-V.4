@@ -465,9 +465,9 @@ export default {
         },
     },
     small_buildings: {
-        0: 13,
-        3: 16,
-        5: 15,
+        0: 18,
+        2: 20,
+        6: 19,
     },
     schoolings: {
         '소방학교': [
