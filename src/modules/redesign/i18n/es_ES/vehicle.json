@@ -125,7 +125,7 @@
     "tabs": {
         "all": "todo {type}: {amount}",
         "alliance": "alianza {type}: {amount}",
-        "missions": "Misiones",
+        "mission": "Misiones",
         "own": "propietario {type}: {amount}",
         "patient": "Hospitales",
         "patientIntermediate": "Coastal Rescue Stations",

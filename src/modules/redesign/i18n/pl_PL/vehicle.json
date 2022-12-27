@@ -35,9 +35,9 @@
             "tax": "Maksymalny podatek"
         },
         "patientIntermediate": {
-            "distance": "Maximum Distance",
+            "distance": "Maksymalna odległość",
             "home": "Home",
-            "show": "Show x buildings of each"
+            "show": "Pokaż po x budynków każdego rodzaju"
         },
         "prisoner": {
             "distance": "Maksymalna odległość:",
@@ -46,9 +46,9 @@
             "tax": "Maksymalny podatek"
         },
         "prisonerIntermediate": {
-            "distance": "Maximum Distance",
+            "distance": "Maksymalna odległość",
             "home": "Home",
-            "show": "Show x buildings of each"
+            "show": "Pokaż po x budynków każdego rodzaju"
         },
         "trailer": {
             "building": "Budynek",
@@ -90,8 +90,8 @@
         "hospital": "Szpital"
     },
     "patientIntermediate": {
-        "caption": "Coastal Rescue Station",
-        "dispatch": "Transport patient",
+        "caption": "Nadbrzeżna Stacja Ratownictwa",
+        "dispatch": "Transport pacjenta",
         "home": "Home: {building}"
     },
     "prisoner": {
@@ -100,8 +100,8 @@
         "free": "Wolne jednostki"
     },
     "prisonerIntermediate": {
-        "dispatch": "Transport prisoner",
-        "distance": "Coastal Rescue Station",
+        "caption": "Nadbrzeżna Stacja Ratownictwa",
+        "dispatch": "Transport pacjenta",
         "home": "Home: {building}"
     },
     "release": {
@@ -118,21 +118,21 @@
         }
     },
     "release_patient": "Anuluj transport",
-    "release_patient-intermediate": "Anuluj transport",
+    "release_patient-intermediate": "Wypisz pacjenta",
     "release_prisoner": "Zwolnij więźniów",
-    "release_prisoner-intermediate": "Zwolnij więźniów",
+    "release_prisoner-intermediate": "Uwolnij więźniów",
     "staff": { "name": "Nazwa", "schooling": "Szkolenie", "title": "Załoga" },
     "station": "Budynek",
     "stats": "Statystyki",
     "tabs": {
         "all": "Wszystkie {type}: {amount}",
         "alliance": "Sojusznicze {type}: {amount}",
-        "missions": "misje",
+        "mission": "misje",
         "own": "Twoje {type}: {amount}",
         "patient": "szpitale",
-        "patientIntermediate": "Coastal Rescue Stations",
+        "patientIntermediate": "Nadbrzeżne Stacje Ratownictwa",
         "prisoner": "cele",
-        "prisonerIntermediate": "Coastal Rescue Stations"
+        "prisonerIntermediate": "Nadbrzeżne Stacje Ratownictwa"
     },
     "tax": "Podatek",
     "true": "Tak",

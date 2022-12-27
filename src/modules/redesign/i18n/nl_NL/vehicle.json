@@ -125,7 +125,7 @@
     "tabs": {
         "all": "Alle {type}: {amount}",
         "alliance": "Team-{type}: {amount}",
-        "missions": "Inzetten",
+        "mission": "Inzetten",
         "own": "Eigen {type}: {amount}",
         "patient": "Ziekenhuizen",
         "patientIntermediate": "Kustwachthavens",
