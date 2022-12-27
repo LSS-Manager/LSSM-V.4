@@ -220,7 +220,7 @@ export default {
             special:
 					'구급대를 6개 이상 건설한 후 필요합니다',
         },
-		15: {
+	15: {
             caption: '일반의',
             color: '#cc2222',
             coins: 20,
@@ -235,10 +235,9 @@ export default {
                     },
                 },
             },
-			special:
-					'특별 교육이 필요합니다 (중환자 치료 훈련)',
-        }
-        },,
+            special:
+			'특별 교육이 필요합니다 (중환자 치료 훈련)',
+        },
         16: {
             caption: '긴급 이송용 오토바이',
             color: '#a4752e',
