@@ -1,7 +1,7 @@
 const modules = {
     appstore: {
         save: '저장',
-        reset: '리셋',
+        reset: '초기화',
         noMapkit:
             'This module does not work with the map type "Mapkit" due to limitations of Mapkit!',
         dev: 'This module is currently still under development. Activating it can lead to incomplete and faulty functions!',
@@ -17,7 +17,7 @@ const modules = {
         name: '설정',
         save: '저장',
         discard: 'Discard changes',
-        reset: '리셋',
+        reset: '초기화',
         export: 'Export',
         import: 'Import',
         donate: 'donate voluntarily',
@@ -72,7 +72,7 @@ export default {
             maxPersonnel: 6,
             wtank: 1500,
             ftank: 500,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: '전술 대응 차량(TRV)',
@@ -83,7 +83,7 @@ export default {
             maxPersonnel: 6,
             wtank: 1500,
             ftank: 250,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: '고가 사다리(TL)',
@@ -92,7 +92,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
             special: '소방서를 3개 이상 건설한 후 필요합니다',
         },
         3: {
@@ -102,7 +102,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
             special: '소방서를 6개 이상 건설한 후 필요합니다',
         },
         4: {
@@ -112,7 +112,7 @@ export default {
             credits: 12_180,
             minPersonnel: 2,
             maxPersonnel: 3,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
             special: '소방서를 4개 이상 건설한 후 필요합니다',
         },
         5: {
@@ -122,19 +122,9 @@ export default {
             credits: 5000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            possibleBuildings: [0, 3, 14, 16],
+            possibleBuildings: [2, 20],
         },
         6: {
-            caption: '10 이동식 호흡 장비',
-            color: '#aa0000',
-            coins: 25,
-            credits: 11_860,
-            minPersonnel: 3,
-            maxPersonnel: 3,
-            possibleBuildings: [0, 13],
-            special: '소방서를 5개 이상 건설한 후 필요합니다',
-        },
-        7: {
             caption: '물탱크차',
             color: '#990000',
             coins: 25,
@@ -142,27 +132,17 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 6000,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
             special: '소방서를 7개 이상 건설한 후 필요합니다',
         },
-        8: {
-            caption: '없음',
-            color: '#880000',
-            coins: 25,
-            credits: 12_180,
-            minPersonnel: 1,
-            maxPersonnel: 4,
-            possibleBuildings: [0, 11, 12, 13],
-            special: 'Required once you have built 4 firehouses',
-        },
-        9: {
+        7: {
             caption: '생화학 인명구조차',
             color: '#770000',
             coins: 25,
             credits: 19_200,
             minPersonnel: 4,
             maxPersonnel: 4,
-            possibleBuildings: [0, 13],
+            possibleBuildings: [0, 18],
             schooling: {
                 '소방서': {
                     유해물질: {
@@ -172,1046 +152,316 @@ export default {
             },
             special: '소방서를 11개 이상 건설한 후 필요합니다',
         },
-        10: {
-            caption: '8 사고 대응차량(IRV)',
+        8: {
+            caption: '사고 대응차량(IRV)',
             color: '#488b18',
             coins: 25,
             credits: 5000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            possibleBuildings: [5, 15],
+            possibleBuildings: [6, 19],
         },
-        11: {
-            caption: 'HEMS',
-            color: '#e68319',
+        9: {
+            caption: '구급 헬리콥터',
+            color: '#552222',
             coins: 30,
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            possibleBuildings: [6],
+            possibleBuildings: [5],
         },
-        12: {
-            caption: 'Mobile command vehicle',
-            color: '#791515',
+        10: {
+            caption: '이동식 호흡 장비',
+            color: '#aa0000',
             coins: 25,
-            credits: 25_500,
-            minPersonnel: 1,
-            maxPersonnel: 6,
-            possibleBuildings: [0, 13],
-            schooling: {
-                'Fire Station': {
-                    'Mobile command': {
-                        all: true,
-                    },
-                },
-            },
-            special: 'Required once you have built 13 firehouses',
+            credits: 11_860,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [0, 18],
+            special: '소방서를 5개 이상 건설한 후 필요합니다',
         },
-        13: {
-            caption: 'Quint',
-            color: '#dc1818',
+        11: {
+            caption: '구조 공작차',
+            color: '#e68319',
             coins: 25,
             credits: 19_000,
-            minPersonnel: 1,
-            maxPersonnel: 6,
-            wtank: 500,
-            ftank: 25,
-            possibleBuildings: [0, 13],
-            special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Quint acts as a Platform Truck and a Fire Truck.',
+            minPersonnel: 9,
+            maxPersonnel: 9,
+            wtank: 3000,
+            ftank: 500,			
+            possibleBuildings: [0, 18],
+        },
+        12: {
+            caption: '사다리차',
+            color: '#791515',
+            coins: 25,
+            credits: 19_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 18],
+        },
+        13: {
+            caption: '긴급 이송차',
+            color: '#92702e',
+            coins: 20,
+            credits: 4000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [2, 20],
         },
         14: {
-            caption: 'Police helicopter',
-            color: '#70ca16',
-            coins: 30,
-            credits: 300_000,
-            minPersonnel: 1,
+            caption: '구급 지휘차,
+            color: '#415a30',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 2,
             maxPersonnel: 3,
-            possibleBuildings: [8],
-            schooling: {
-                Police: {
-                    'Police Aviation': {
-                        all: true,
-                    },
-                },
-            },
+            possibleBuildings: [2, 20],
+            special:
+					'구급대를 6개 이상 건설한 후 필요합니다',
         },
-        15: {
-            caption: 'Fly-Car',
-            color: '#b88f14',
+		15: {
+            caption: '일반의',
+            color: '#cc2222',
             coins: 20,
             credits: 4000,
             minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0, 3, 12, 14, 16],
-        },
-        16: {
-            caption: 'SWAT Armoured Vehicle',
-            color: '#68a512',
-            coins: 25,
-            credits: 10_000,
-            minPersonnel: 6,
-            maxPersonnel: 6,
-            possibleBuildings: [5, 15],
+            maxPersonnel: 1,
+            possibleBuildings: [2, 20],
             schooling: {
-                Police: {
-                    SWAT: {
+                '응급실': {
+                    '중환자 치료 훈련': {
                         all: true,
                     },
                 },
             },
-            special: 'Required once you have built 8 police stations',
+			special:
+					'특별 교육이 필요합니다 (중환자 치료 훈련)',
+        }
+        },,
+        16: {
+            caption: '긴급 이송용 오토바이',
+            color: '#a4752e',
+            coins: 25,
+            credits: 12_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+			schooling: {
+                '응급실': {
+                    '긴급 이송용 오토바이': {
+                        all: true,
+                    },
+                },
+            },	
+            possibleBuildings: [2, 20],
+            special:
+					'특별 교육이 필요합니다 (긴급 이송용 오토바이)',
         },
         17: {
-            caption: 'ARFF Crash Tender',
-            color: '#cc2222',
-            coins: 25,
-            credits: 20_000,
-            minPersonnel: 1,
+            caption: '기본 인명 지원(BLS) 구급차',
+            color: '#f59f00',
+            coins: 12,
+            credits: 5000,
+            minPersonnel: 2,
             maxPersonnel: 2,
-            wtank: 4500,
-            ftank: 650,
-            possibleBuildings: [0],
+            possibleBuildings: [2, 20],
+		},
+        18: {
+            caption: '기동형 지휘차량',
+            color: '#dc1818',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 18],
             schooling: {
-                'Fire Station': {
-                    'ARFF-Training': {
+                '소방서': {
+                    이동 지휘: {
                         all: true,
                     },
                 },
             },
-        },
-        18: {
-            caption: 'Rescue Engine',
-            color: '#bb2222',
-            coins: 25,
-            credits: 19_000,
-            minPersonnel: 1,
-            maxPersonnel: 6,
-            wtank: 750,
-            ftank: 25,
-            possibleBuildings: [0, 13],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
+				'소방서를 13개 이상 건설한 후 필요합니다,<br>특별 교육이 필요합니다 (이동 지휘)',
         },
         19: {
-            caption: 'K-9 Unit',
-            color: '#30aa22',
-            coins: 25,
-            credits: 7000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [5, 15],
+            caption: '포장치 운반차',
+            color: '#70ca16',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+			ftank: 3000,
+            possibleBuildings: [0, 18],	
+        },
+        20: {
+            caption: '엔진 펌프 트레일러',
+            color: '#b88f14',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+			wtank: 1000,
+            possibleBuildings: [0, 18],
+            special:
+				'견인 차량 필요 (구조사다리, 전술 대응 차량(TRV), 물탱크차, 포장치 운반차)',
+        },
+        21: {
+            caption: '무장 개입',
+            color: '#cc2222',
+            coins: 15,
+            credits: 10_000,
+            minPersonnel: 4,
+            maxPersonnel: 6,
+            possibleBuildings: [6, 19],
             schooling: {
-                Police: {
-                    'K-9': {
+                '경찰서': {
+                    '특수화기전술조': {
                         all: true,
                     },
                 },
             },
-            special: 'Required from 6 Police stations',
         },
-        20: {
-            caption: 'Mass Casualty Unit',
+        22: {
+            caption: 'SWAT 자동차',
+            color: '#68a512',
+            coins: 10,
+            credits: 7000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [6, 19],
+            schooling: {
+                경찰서: {
+                    특수화기전술조: {
+                        all: true,
+                    },
+                },
+            },
+            special: '특별 교육이 필요합니다 (특수화기전술조)',
+        },
+        23: {
+            caption: '물대포',
+            color: '#bb2222',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [6, 19],
+            schooling: {
+                '경찰서': {
+                    '물대포 작전 훈련': {
+                        all: true,
+                    },
+                },
+            },			
+        },
+        24: {
+            caption: '철도 경찰',
+            color: '#30aa22',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+        },
+        25: {
+            caption: '죄수 수송 차량',
             color: '#996d22',
             coins: 25,
             credits: 25_000,
-            minPersonnel: 6,
-            maxPersonnel: 6,
-            possibleBuildings: [0, 3, 16],
-            special:
-                'Then 7 patients can be treated and removed simultaneously in the MCU.You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
-        },
-        21: {
-            caption: 'Heavy Rescue + Light Boat',
-            color: '#882222',
-            coins: 25,
-            credits: 19_000,
-            minPersonnel: 1,
-            maxPersonnel: 5,
-            possibleBuildings: [0],
-            schooling: {
-                'Fire Station': {
-                    'Swift water rescue': {
-                        all: true,
-                    },
-                },
-            },
-            special:
-                'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
-        },
-        22: {
-            caption: 'Light Boat Trailer',
-            color: '#772222',
-            coins: 12,
-            credits: 6000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            possibleBuildings: [0, 11, 12],
-            special:
-                'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
-        },
-        23: {
-            caption: 'Police Motorcycle',
-            color: '#638a2a',
-            coins: 18,
-            credits: 2500,
-            minPersonnel: 1,
-            maxPersonnel: 1,
-            possibleBuildings: [5, 15],
-            schooling: {
-                Police: {
-                    'Police Motorcycle': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        24: {
-            caption: 'Large Fireboat',
-            color: '#552222',
-            coins: 35,
-            credits: 35_000,
-            minPersonnel: 2,
-            maxPersonnel: 7,
-            possibleBuildings: [11],
-            schooling: {
-                'Fire Station': {
-                    'Ocean Navigation': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        25: {
-            caption: 'Large Rescue Boat',
-            color: '#92702e',
-            coins: 35,
-            credits: 35_000,
-            minPersonnel: 2,
-            maxPersonnel: 6,
-            possibleBuildings: [12],
-            schooling: {
-                'Fire Station': {
-                    'Ocean Navigation': {
-                        all: true,
-                    },
-                },
-            },
-        },
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [6, 19],
+		},
         26: {
-            caption: 'SWAT SUV',
-            color: '#415a30',
-            coins: 23,
-            credits: 7000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [5, 15],
+            caption: '진압경찰단 차량',
+            color: '#882222',
+            coins: 15,
+            credits: 10_000,
+            minPersonnel: 9,
+            maxPersonnel: 9,
+            possibleBuildings: [6, 19],
             schooling: {
-                Police: {
-                    SWAT: {
+                '경찰서': {
+                    '진압 경찰 교육': {
                         all: true,
                     },
                 },
             },
-            special: 'Required once you have built 8 police stations',
+            special:
+                '특별 교육이 필요합니다 (진압 경찰 교육)',
         },
         27: {
-            caption: 'BLS Ambulance',
-            color: '#a4752e',
-            coins: 25,
-            credits: 5000,
-            minPersonnel: 1,
+            caption: '진압 경찰 장비 차량',
+            color: '#772222',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 2,
             maxPersonnel: 2,
-            possibleBuildings: [0, 3, 14, 16],
-        },
+            possibleBuildings: [6, 19],
+			schooling: {
+                '경찰서': {
+                    '진압경찰장비교육': {
+                        all: true,
+                    },
+                },
+            },		
+		},
         28: {
-            caption: 'EMS Rescue',
-            color: '#f59f00',
-            coins: 25,
-            credits: 12_180,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0, 3, 14, 16],
-            special:
-                'No missions require a EMS Rescue at this time, however it is able to treat patients. And Works as a Heavy Rescue',
-        },
-        29: {
-            caption: 'EMS Chief',
-            color: '#e09200',
-            coins: 20,
-            credits: 10_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0, 3, 14, 16],
-            special: 'Required once you have built 10 Rescue stations',
-        },
-        30: {
-            caption: 'Type 3 engine',
-            color: '#440000',
-            coins: 19,
-            credits: 19_000,
-            minPersonnel: 3,
-            maxPersonnel: 5,
-            wtank: 500,
-            ftank: 20,
-            possibleBuildings: [0],
-        },
-        31: {
-            caption: 'Type 5 engine',
-            color: '#b01d2f',
-            coins: 8,
-            credits: 8000,
-            minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 400,
-            possibleBuildings: [0],
-        },
-        32: {
-            caption: 'Type 7 engine',
-            color: '#a01717',
-            coins: 5,
-            credits: 5000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            wtank: 50,
-            possibleBuildings: [0],
-        },
-        33: {
-            caption: 'Pumper Tanker',
-            color: '#570f0f',
-            coins: 19,
-            credits: 19_000,
-            minPersonnel: 1,
-            maxPersonnel: 6,
-            wtank: 2500,
-            ftank: 25,
-            possibleBuildings: [0, 13],
-        },
-        34: {
-            caption: 'Crew Carrier',
-            color: '#bf2222',
+            caption: '승무원 캐리어',
+            color: '#638a2a',
             coins: 10,
-            credits: 10_000,
-            minPersonnel: 1,
-            maxPersonnel: 12,
-            possibleBuildings: [0, 13],
-        },
-        35: {
-            caption: 'Water drop helicopter',
-            color: '#800e20',
-            coins: 130,
-            credits: 300_000,
-            minPersonnel: 2,
-            maxPersonnel: 5,
-            wtank: 2000,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Airborne firefighting': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        36: {
-            caption: 'Air Tanker',
-            color: '#450c0c',
-            coins: 50,
-            credits: 1_000_000,
-            minPersonnel: 2,
-            maxPersonnel: 5,
-            wtank: 7200,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Airborne firefighting': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        37: {
-            caption: 'Heavy air tanker',
-            color: '#5f0606',
-            coins: 65,
-            credits: 1_500_000,
-            minPersonnel: 2,
-            maxPersonnel: 5,
-            wtank: 12_000,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Airborne firefighting': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        38: {
-            caption: 'Type 4 engine',
-            color: '#9f0d13',
-            coins: 10,
-            credits: 10_000,
-            minPersonnel: 3,
-            maxPersonnel: 5,
-            possibleBuildings: [0],
-            wtank: 750,
-        },
-        39: {
-            caption: 'Type 6 engine',
-            color: '#a70e0e',
-            coins: 5,
-            credits: 5000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0],
-            wtank: 150,
-        },
-        40: {
-            caption: 'Dozer Trailer',
-            color: '#a30021',
-            coins: 15,
-            credits: 20_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            possibleBuildings: [0],
-            schooling: {
-                'Fire Station': {
-                    'Heavy Machinery Operating': {
-                        all: true,
-                    },
-                },
-            },
-            special:
-                "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
-        },
-        41: {
-            caption: 'Crew cap semi',
-            color: '#9f1616',
-            coins: 12,
-            credits: 5000,
-            minPersonnel: 1,
-            maxPersonnel: 3,
-            possibleBuildings: [0, 3, 13],
-            schooling: {
-                'Fire Station': {
-                    "Truck Driver's License": {
-                        all: true,
-                    },
-                },
-                'Rescue': {
-                    "Truck Driver's License": {
-                        all: true,
-                    },
-                },
-            },
-        },
-        42: {
-            caption: 'FBI Unit',
-            color: '#001bcc',
-            coins: 15,
-            credits: 10_000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [18],
-        },
-        43: {
-            caption: 'FBI Investigation Wagon',
-            color: '#001ee0',
-            coins: 15,
-            credits: 10_000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [18],
-        },
-        44: {
-            caption: 'FBI Mobile Command Center',
-            color: '#0021f5',
-            coins: 25,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 4,
-            possibleBuildings: [18],
-            schooling: {
-                Police: {
-                    'FBI Mobile Center Commander': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        45: {
-            caption: 'FBI Bomb Technician Vehicle',
-            color: '#0a2bff',
-            coins: 35,
-            credits: 35_500,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [18],
-            schooling: {
-                Police: {
-                    'FBI Bomb Technician': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        46: {
-            caption: 'FBI Surveillance Drone',
-            color: '#4282f0',
-            coins: 25,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 1,
-            possibleBuildings: [18],
-            schooling: {
-                Police: {
-                    'FBI Drone Operator': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        47: {
-            caption: 'Sheriff Unit',
-            color: '#58ad0e',
-            coins: 20,
             credits: 15_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [5, 15],
-            schooling: {
-                Police: {
-                    Sheriff: {
-                        all: true,
-                    },
-                },
-            },
-        },
-        48: {
-            caption: 'EMS Fire Engine/Ambulance',
-            color: '#cb9240',
-            coins: 30,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 6,
-            possibleBuildings: [0, 3, 14, 16],
-            schooling: {
-                'Fire Station': {
-                    'ALS Medical Training for Fire Apparatus': {
-                        all: true,
-                    },
-                },
-                'Rescue': {
-                    'ALS Medical Training for Fire Apparatus': {
-                        all: true,
-                    },
-                },
-            },
-            special: 'Works as Fire Engine and Ambulance',
-        },
-        49: {
-            caption: 'Tactical Ambulance',
-            color: '#a7741e',
-            coins: 30,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 3,
-            possibleBuildings: [0, 3, 14, 16],
-            schooling: {
-                'Fire Station': {
-                    'Tactical Medic Training': {
-                        all: true,
-                    },
-                },
-                'Rescue': {
-                    'Tactical Medic Training': {
-                        all: true,
-                    },
-                },
-            },
-            special: 'Works as Police Car and Ambulance',
-        },
-        50: {
-            caption: 'Hazmat Ambulance',
-            color: '#bc893d',
-            coins: 35,
-            credits: 30_000,
-            minPersonnel: 1,
-            maxPersonnel: 3,
-            possibleBuildings: [0, 3, 14, 16],
-            schooling: {
-                'Fire Station': {
-                    Hazmat: {
-                        all: true,
-                    },
-                },
-                'Rescue': {
-                    'Hazmat Medic Training': {
-                        all: true,
-                    },
-                },
-            },
-            special:
-                'Required once you have built 11 firehouses, works as HazMat and Ambulance',
-        },
-        51: {
-            caption: 'DEA Unit',
-            color: '#4282f0',
-            coins: 15,
-            credits: 10_000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [18],
-        },
-        52: {
-            caption: 'DEA Clan Lab',
-            color: '#4282f0',
-            coins: 20,
-            credits: 15_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [18],
-        },
-        53: {
-            caption: 'ATF Unit',
-            color: '#4282f0',
-            coins: 15,
-            credits: 10_000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [18],
-        },
-        54: {
-            caption: 'ATF Lab Vehicle',
-            color: '#4282f0',
-            coins: 20,
-            credits: 15_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [18],
-        },
-        55: {
-            caption: 'Patrol Boat',
-            color: '#4282f0',
-            coins: 30,
-            credits: 30_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [5],
-            schooling: {
-                Police: {
-                    'Ocean Navigation': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        56: {
-            caption: "Warden's Truck",
-            color: '#4282f0',
-            coins: 15,
-            credits: 20_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [5],
-            schooling: {
-                Police: {
-                    'Environmental Game Warden': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        57: {
-            caption: 'EMS Mass Casualty Trailer (large)',
-            color: '#bc893d',
-            coins: 30,
-            credits: 30_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            possibleBuildings: [3],
-            special:
-                'Needed towing vehicle (Crew cab semi). Works like the Mass Casualty Unit but without transport.',
-        },
-        58: {
-            caption: 'EMS Mass Casualty Trailer (small)',
-            color: '#bc893d',
-            coins: 15,
-            credits: 15_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            possibleBuildings: [3],
-            special:
-                'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief). Works like the Mass Casualty Unit but without transport.',
-        },
-        59: {
-            caption: 'EMS Operations Support',
-            color: '#bc893d',
-            coins: 20,
-            credits: 25_000,
-            minPersonnel: 3,
-            maxPersonnel: 3,
-            possibleBuildings: [0, 3, 14, 16],
-            special:
-                'You can buy 1 EMS Operations Support Unit for every 20 ambulance stations (respectively 15 with premium account).',
-        },
-        60: {
-            caption: 'EMS Mobile Command Unit',
-            color: '#bc893d',
-            coins: 35,
-            credits: 40_000,
-            minPersonnel: 6,
-            maxPersonnel: 6,
-            possibleBuildings: [0, 3, 14, 16],
-            schooling: {
-                'Fire Station': {
-                    'EMS Mobile Command': {
-                        all: true,
-                    },
-                },
-                'Rescue': {
-                    'EMS Mobile Command': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        61: {
-            caption: 'ALS Rescue Ambulance',
-            color: '#bc893d',
-            coins: 30,
-            credits: 25_000,
-            minPersonnel: 3,
-            maxPersonnel: 3,
-            possibleBuildings: [0, 3, 14, 16],
-            special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Rescue and Ambulance',
-        },
-        62: {
-            caption: 'Fire Investigator Unit',
-            color: '#9f1616',
-            coins: 15,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0, 22],
-            schooling: {
-                'Fire Station': {
-                    'Law Enforcement for Arson Investigation': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        63: {
-            caption: 'Fire Prevention Unit',
-            color: '#9f1616',
-            coins: 15,
-            credits: 15_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0, 22],
-        },
-        64: {
-            caption: 'Foam Tender',
-            color: '#9f1616',
-            coins: 15,
-            credits: 35_000,
-            minPersonnel: 2,
-            maxPersonnel: 3,
-            possibleBuildings: [0],
-            ftank: 6500,
-        },
-        65: {
-            caption: 'Foam Trailer',
-            color: '#9f1616',
-            coins: 10,
-            credits: 10_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            ftank: 650,
-            possibleBuildings: [0],
-            special:
-                'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
-        },
-        66: {
-            caption: 'Lifeguard Truck',
-            color: '#882222',
-            coins: 10,
-            credits: 10_000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [0, 13, 23, 26],
-            special: '',
-        },
-        67: {
-            caption: 'Lifeguard Rescue',
-            color: '#882222',
-            coins: 15,
-            credits: 35_000,
-            minPersonnel: 2,
-            maxPersonnel: 4,
-            possibleBuildings: [0, 13, 23, 26],
-            schooling: {
-                'Water Rescue School': {
-                    'Lifeguard Training': {
-                        all: true,
-                    },
-                },
-                'Fire Station': {
-                    'Lifeguard Training': {
-                        all: true,
-                    },
-                },
-            },
-            special: '',
-        },
-        68: {
-            caption: 'Lifeguard Supervisor',
-            color: '#882222',
-            coins: 10,
-            credits: 25_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
-            possibleBuildings: [0, 13, 23, 26],
-            schooling: {
-                'Water Rescue School': {
-                    'Lifeguard Supervisor': {
-                        all: true,
-                    },
-                },
-                'Fire Station': {
-                    'Lifeguard Supervisor': {
-                        all: true,
-                    },
-                },
-            },
-            special: '',
-        },
-        69: {
-            caption: 'Small Coastal Boat',
-            color: '#882222',
-            coins: 15,
-            credits: 50_000,
-            minPersonnel: 2,
-            maxPersonnel: 6,
-            possibleBuildings: [23],
-            special: '',
-        },
-        70: {
-            caption: 'Large Coastal Boat',
-            color: '#882222',
-            coins: 25,
-            credits: 75_000,
-            minPersonnel: 2,
-            maxPersonnel: 6,
-            possibleBuildings: [23],
-            schooling: {
-                'Water Rescue School': {
-                    'Ocean Navigation': {
-                        all: true,
-                    },
-                },
-            },
-            special: '',
-        },
-        71: {
-            caption: 'Coastal Helicopter',
-            color: '#882222',
-            coins: 30,
-            credits: 300_000,
-            minPersonnel: 1,
-            maxPersonnel: 1,
-            possibleBuildings: [25],
-            schooling: {
-                'Water Rescue School': {
-                    'Coastal Air Rescue Operations': {
-                        all: true,
-                    },
-                },
-            },
-            special: '',
-        },
-        72: {
-            caption: 'Coastal Guard Plane',
-            color: '#882222',
-            coins: 30,
-            credits: 500_000,
-            minPersonnel: 1,
-            maxPersonnel: 1,
-            possibleBuildings: [25],
-            schooling: {
-                'Water Rescue School': {
-                    'Coastal Air Rescue Operations': {
-                        all: true,
-                    },
-                },
-            },
-            special: '',
-        },
-        73: {
-            caption: 'Small Coastal Boat Trailer',
-            color: '#882222',
-            coins: 15,
-            credits: 50_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            possibleBuildings: [0, 13, 26],
-            schooling: {
-                'Water Rescue School': {
-                    'Swift water rescue': {
-                        all: true,
-                    },
-                },
-                'Fire Station': {
-                    'Swift water rescue': {
-                        all: true,
-                    },
-                },
-            },
-            special: '',
-        },
-        74: {
-            caption: 'Wildfire MCC',
-            color: '#9f1616',
-            coins: 20,
-            credits: 20_000,
-            minPersonnel: 6,
-            maxPersonnel: 6,
-            possibleBuildings: [0],
-            schooling: {
-                'Fire Station': {
-                    'Wildland Mobile Command Center Training': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        75: {
-            caption: 'Wildland Lead Plane',
-            color: '#9f1616',
-            coins: 20,
-            credits: 750_000,
-            minPersonnel: 3,
-            maxPersonnel: 3,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Wildland Lead Pilot': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        76: {
-            caption: 'Smoke Jumper Plane',
-            color: '#9f1616',
-            coins: 20,
-            credits: 500_000,
-            minPersonnel: 10,
-            maxPersonnel: 20,
-            possibleBuildings: [17],
-            schooling: {
-                'Fire Station': {
-                    'Smoke Jumper Training': {
-                        all: true,
-                    },
-                },
-            },
-        },
-        77: {
-            caption: 'Tanker Semi Truck Trailer',
-            color: '#9f1616',
-            coins: 15,
-            credits: 20_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            wtank: 10_000,
-            possibleBuildings: [0, 13],
-            special: 'Towed by Crew cab semi',
-        },
-        78: {
-            caption: 'Tanker Trailer',
-            color: '#9f1616',
-            coins: 10,
-            credits: 5000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
-            wtank: 1000,
-            possibleBuildings: [0, 13],
-            special:
-                'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
+            minPersonnel: 9,
+            maxPersonnel: 9,
+            possibleBuildings: [6, 19],
         },
     },
     buildingCategories: {
-        'Fire Department': {
-            buildings: [0, 4, 11, 13, 17, 22],
+        '소방서': {
+            buildings: [0, 18],
             color: '#ff2d2d',
         },
-        'Rescue Stations': {
-            buildings: [3, 6, 12, 16, 19],
+        '응급실': {
+            buildings: [2, 20],
             color: '#ffa500',
         },
-        'Police Stations': {
-            buildings: [5, 7, 8, 15, 18],
-            color: '#00ac00',
-        },
-        'Lifeguard Stations': {
-            buildings: [23, 25, 26],
+        '경찰서': {
+            buildings: [6, 19],
             color: '#00ac00',
         },
         'Other': {
-            buildings: [1, 2, 9, 14, 20, 21, 24],
+            buildings: [1, 3, 4, 5, 7, 8, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        '소방 차량': {
             vehicles: {
-                'Fire trucks': [0, 1, 13, 18],
-                'Water Tanker': [7, 33, 77, 78],
-                'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63, 64, 65],
-                'Wildland vehicles': [30, 31, 32, 34, 38, 39, 40, 41, 74],
-                'Airport Vehicles': [17],
-                'Boats': [21, 22, 24],
-                'Fire Aviation': [35, 36, 37, 75, 76],
+                '소방차': [0, 1, 11, 12],
+                '물탱크차': [6],
+                '특수차량': [2,3,4,6,7,10,18,19,20],
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        '응급 차량': {
             vehicles: {
-                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61],
-                'HEMS': [11],
-                'First Responder': [15],
-                'Rescue Boat': [25],
-                'Other EMS Vehicle': [20, 28, 29, 59, 60],
+                '구급차': [5, 17],
+                'HEMS': [9],
+                '다른 응급차량': [13,14,15, 16],
             },
             color: '#ffa500',
         },
-        'Police Vehicles': {
+        '경찰 차량': {
             vehicles: {
-                'Patrol Car': [10],
-                'SWAT': [16, 26],
-                'Police Motorcycle': [23],
-                'Police helicopter': [14],
-                'K-9 Unit': [19],
-                'FBI': [42, 43, 44, 45, 46],
-                'DEA': [51, 52],
-                'ATF': [53, 54],
-                'Boat': [55],
-                'Game Warden': [56],
-                'Sheriff': [47],
+                '경찰차': [8],
+                'SWAT': [21, 22],
+				'물대포': [23],
+				'철도 경찰': [24],
+				'수송 차량': [25,28],
+				'진압 경찰': [26,27],
             },
             color: '#00ac00',
-        },
-        'Lifeguard Vehicles': {
-            vehicles: {
-                'Cars': [66, 67, 68],
-                'Boats': [69, 70, 73],
-                'Helicopter and Planes': [71, 72],
-            },
-            color: '#58b658',
         },
     },
     small_buildings: {
@@ -1220,202 +470,70 @@ export default {
         5: 15,
     },
     schoolings: {
-        'Fire Station': [
+        '소방학교': [
             {
-                caption: 'HazMat',
+                caption: '유해물질',
                 duration: '3 Days',
-                staffList: 'HazMat',
+                staffList: '유해물질',
             },
             {
-                caption: 'Mobile command',
+                caption: '이동 지휘',
                 duration: '5 Days',
-                staffList: 'Mobile Command',
+                staffList: '이동 지휘',
             },
             {
-                caption: 'ARFF-Training',
+                caption: '항공구조 및 소방 훈련',
                 duration: '3 Days',
                 staffList: 'ARFF',
             },
             {
-                caption: 'Swift water rescue',
+                caption: '신속 수상 구조',
                 duration: '4 Days',
-                staffList: 'Swift water rescue',
+                staffList: '신속 수상 구조',
             },
             {
-                caption: 'Ocean Navigation',
+                caption: '원양 항해',
                 duration: '5 Days',
-                staffList: 'Ocean Navigation',
+                staffList: '원양 항해',
             },
+        ],
+        '경찰 학교': [
             {
-                caption: 'Airborne firefighting',
+                caption: '특수화기전술조',
                 duration: '5 Days',
-                staffList: 'Airborne firefighting',
+                staffList: '특수화기전술조',
             },
             {
-                caption: 'Heavy Machinery Operating',
+                caption: '싸이카',
                 duration: '3 Days',
-                staffList: 'Heavy Machinery Operating',
+                staffList: '싸이카',
             },
             {
-                caption: "Truck Driver's License",
+                caption: '진압 경찰 교육',
                 duration: '2 Days',
-                staffList: "Truck Driver's License",
+                staffList: '진압 경찰 교육',
             },
             {
-                caption: 'ALS Medical Training for Fire Apparatus',
-                duration: '3 Days',
-                staffList: 'ALS Medical Training for Fire Apparatus',
+                caption: '진압경찰장비교육',
+                duration: '5 Days',
+                staffList: '진압경찰장비교육',
             },
             {
-                caption: 'Tactical Medic Training',
-                duration: '4 Days',
-                staffList: 'Tactical Medic Training',
-            },
-            {
-                caption: 'EMS Mobile Command',
+                caption: '물대포 작전 훈련',
                 duration: '7 Days',
-                staffList: 'EMS Mobile Command',
-            },
-            {
-                caption: 'Law Enforcement for Arson Investigation',
-                duration: '4 Days',
-                staffList: 'Peace Officer',
-            },
-            {
-                caption: 'Lifeguard Supervisor',
-                duration: '5 Days',
-                staffList: 'Lifeguard Supervisor',
-            },
-            {
-                caption: 'Lifeguard Training',
-                duration: '5 Days',
-                staffList: 'Lifeguard Training',
-            },
-            {
-                caption: 'Wildland Lead Pilot Training',
-                duration: '7 Days',
-                staffList: 'Wildland Lead Pilot Training',
-            },
-            {
-                caption: 'Wildland Mobile Command Center Training',
-                duration: '5 Days',
-                staffList: 'Wildland Mobile Command Center Training',
-            },
-            {
-                caption: 'Hotshot Crew Training',
-                duration: '3 Days',
-                staffList: 'Hotshot Crew Training',
-            },
-            {
-                caption: 'Smoke Jumper Training',
-                duration: '3 Days',
-                staffList: 'Smoke Jumper Training',
+                staffList: '물대포 작전 훈련',
             },
         ],
-        'Police': [
+        '응급구조학과(응급 의료 서비스)': [
             {
-                caption: 'Police Aviation',
-                duration: '7 Days',
-                staffList: 'Police Aviation',
-            },
-            {
-                caption: 'SWAT',
+                caption: '중환자 치료 훈련',
                 duration: '5 Days',
-                staffList: 'SWAT',
+                staffList: '중환자 치료 훈련',
             },
             {
-                caption: 'K-9',
-                duration: '5 Days',
-                staffList: 'K-9',
-            },
-            {
-                caption: 'Police Motorcycle',
+                caption: '긴급 이송용 오토바이',
                 duration: '3 Days',
-                staffList: 'Motor Officer',
-            },
-            {
-                caption: 'FBI Mobile Center Commander',
-                duration: '7 Days',
-                staffList: 'FBI Mobile Center Commander',
-            },
-            {
-                caption: 'FBI Bomb Technician',
-                duration: '5 Days',
-                staffList: 'FBI Bomb Technician',
-            },
-            {
-                caption: 'FBI Drone Operator',
-                duration: '5 Days',
-                staffList: 'FBI Drone Operator',
-            },
-            {
-                caption: 'Sheriff',
-                duration: '5 Days',
-                staffList: 'Sheriff',
-            },
-            {
-                caption: 'Environmental Game Warden',
-                duration: '4 Days',
-                staffList: 'Environmental Game Warden',
-            },
-            {
-                caption: 'Ocean Navigation',
-                duration: '5 Days',
-                staffList: 'Ocean Navigation',
-            },
-        ],
-        'Rescue': [
-            {
-                caption: 'ALS Medical Training for Fire Apparatus',
-                duration: '3 Days',
-                staffList: 'ALS Medical Training for Fire Apparatus',
-            },
-            {
-                caption: 'Tactical Medic Training',
-                duration: '4 Days',
-                staffList: 'Tactical Medic Training',
-            },
-            {
-                caption: 'Hazmat Medic Training',
-                duration: '3 Days',
-                staffList: 'HazMat',
-            },
-            {
-                caption: 'EMS Mobile Command',
-                duration: '7 Days',
-                staffList: 'EMS Mobile Command',
-            },
-            {
-                caption: "Truck Driver's License",
-                duration: '2 Days',
-                staffList: "Truck Driver's License",
-            },
-        ],
-        'Water Rescue School': [
-            {
-                caption: 'Coastal Air Rescue Operations',
-                duration: '5 Days',
-                staffList: 'Coastal Air Rescue Operations',
-            },
-            {
-                caption: 'Lifeguard Supervisor',
-                duration: '5 Days',
-                staffList: 'Lifeguard Supervisor',
-            },
-            {
-                caption: 'Lifeguard Training',
-                duration: '5 Days',
-                staffList: 'Lifeguard Training',
-            },
-            {
-                caption: 'TACLET',
-                duration: '3 Days',
-                staffList: 'TACLET',
-            },
-            {
-                caption: 'Ocean Navigation',
-                duration: '5 Days',
-                staffList: 'Ocean Navigation',
+                staffList: '긴급 이송용 오토바이',
             },
         ],
     },
