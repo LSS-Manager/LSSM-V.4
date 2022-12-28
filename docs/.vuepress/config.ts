@@ -131,7 +131,6 @@ run(
     'generate/projectStats',
     config.github.repo,
     ROOT_PATH,
-    VUEPRESS_PATH,
     clocStatsPath,
     commitStatsPath
 );
