@@ -185,6 +185,14 @@ const __VAR__ = {
     },
     contributors: contributorsFile.contributors,
     contributionTypes: contributorsFile.types,
+    stats: {
+        cloc: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'stats.cloc')])
+        ) as unknown as DocsVar['stats']['cloc'],
+        commits: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'stats.commits')])
+        ) as unknown as DocsVar['stats']['commits'],
+    },
 } as DocsVar;
 
 export default defineUserConfig({

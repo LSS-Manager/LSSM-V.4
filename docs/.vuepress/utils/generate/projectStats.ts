@@ -57,6 +57,22 @@ const sdConverter = new Showdown.Converter({
     openLinksInNewWindow: true,
 });
 
+const $t = (path: string) => `{{ $t.${path} }}`;
+
+const getSetupScript = (file: string) => `<script setup lang="ts">
+import { computed } from 'vue';
+
+import { usePageData } from '@vuepress/client';
+
+import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
+
+const pageData = usePageData<DefaultThemePageData>();
+const stats = __VAR__.stats;
+
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
+const $t = computed(() => stats.${file}[lang.value]);
+</script>`;
+
 const clocBin = '"$(yarn workspace lss-manager-v4-docs bin cloc)"';
 
 const absoluteClocStats: AbsoluteClocResult = JSON.parse(
@@ -87,7 +103,9 @@ const fullClocResult = `
         relativeClocStats.header.elapsed_seconds
     ).toFixed(2)}s*
 
-|Language|files (%)|blank (%)|comment (%)|code (%)|total|% of lines|
+|${$t('language')}|${$t('files')} (%)|${$t('blank')} (%)|${$t(
+        'comment'
+    )} (%)|${$t('code')} (%)|${$t('total')}|${$t('percentOfLines')}|
 |:-------|--------:|--------:|----------:|-------:|----:|---------:|
 ${Object.entries(absoluteClocStats)
     .filter(([key]) => !['header', 'SUM'].includes(key))
@@ -119,7 +137,7 @@ ${Object.entries(absoluteClocStats)
     .join('\n')}
 |||||||
 |${[
-        'SUM',
+        $t('sum.toUpperCase()'),
         intToLocaleNum(absoluteClocStats.SUM.nFiles),
         `${intToLocaleNum(absoluteClocStats.SUM.blank)} (${floatToLocaleNum(
             relativeClocStats.SUM.blank
@@ -138,7 +156,7 @@ ${Object.entries(absoluteClocStats)
 `.trim()
 )}</div></template>
 
-<script setup></script>
+${getSetupScript('cloc')}
 `.trim();
 
 fs.writeFileSync(clocStatsPath, fullClocResult);
@@ -232,20 +250,20 @@ fs.writeFileSync(clocStatsPath, fullClocResult);
 <template><div>
     ${sdConverter.makeHtml(
         `
-* Commits on beta: ${intToLocaleNum(amountOfCommits)}
-* Commits on stable: ${intToLocaleNum(amountOfCommitsStable)}
-${getCommitText('first commit', firstCommit)}
-${getCommitText('latest commit on beta', latestCommit)}
-${getCommitText('latest commit on stable', latestCommitStable)}
-* total amount of changes in all commits (beta):
-  * files changed: ${intToLocaleNum(changes.changes)}
-  * insertions: ${intToLocaleNum(changes.insertions)}
-  * deletions: ${intToLocaleNum(changes.deletions)}
+* ${$t('sum.beta')}: ${intToLocaleNum(amountOfCommits)}
+* ${$t('sum.stable')}: ${intToLocaleNum(amountOfCommitsStable)}
+${getCommitText($t('first'), firstCommit)}
+${getCommitText($t('latest.beta'), latestCommit)}
+${getCommitText($t('latest.stable'), latestCommitStable)}
+* ${$t('changes.title')}:
+  * ${$t('changes.files')}: ${intToLocaleNum(changes.changes)}
+  * ${$t('changes.insertions')}: ${intToLocaleNum(changes.insertions)}
+  * ${$t('changes.deletions')}: ${intToLocaleNum(changes.deletions)}
 `.trim()
     )}
 </div></template>
 
-<script setup></script>
+${getSetupScript('commits')}
 `.trim()
     );
 })();
