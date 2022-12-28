@@ -3,7 +3,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const emojiyByAlias = {} as Record<string, string>;
     const emojiMap = (
         await import(
-            /* webpackChunkName: "utils/emojis" */ '../../../utils/emojis.json'
+            /* webpackChunkName: "utils/emojis" */ '../../../generated/emojis.json'
         )
     ).default as Record<string, string[]>;
     Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {

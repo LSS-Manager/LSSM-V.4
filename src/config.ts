@@ -1,4 +1,4 @@
-import browsers from './utils/browsers.json';
+import browsers from './generated/browsers.json';
 
 import type { Config } from '../typings/Config';
 

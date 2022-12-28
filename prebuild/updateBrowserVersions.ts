@@ -3,7 +3,7 @@ import path from 'path';
 
 import browserslist from 'browserslist';
 
-const filePath = path.join(__dirname, '../src/utils/browsers.json');
+const filePath = path.join(__dirname, '../src/generated/browsers.json');
 
 export default (): void => {
     const browsers: Record<

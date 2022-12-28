@@ -23,10 +23,7 @@ const format = (content: string, format: 'json' | 'yaml'): string =>
 const formatJSON = (json: object, sortArray: boolean, top: string[]): string =>
     format(JSON.stringify(sortJSON(json, sortArray, top)), 'json');
 
-const excluded = [
-    path.join(ROOT_PATH, 'src', 'libraries.json'),
-    path.join(ROOT_PATH, 'src', 'utils', 'browsers.json'),
-];
+const excluded = [path.join(ROOT_PATH, 'src', 'generated')];
 
 const getFiles = (
     folder: string,
@@ -36,6 +33,7 @@ const getFiles = (
     const files = [] as string[];
     if (/node_modules/u.test(folder)) return [];
     fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
+        if (excluded.includes(path.join(folder, item.name))) return;
         if (item.isDirectory()) {
             files.push(
                 ...getFiles(`${folder}/${item.name}`, endings, extraFilter)
@@ -43,7 +41,6 @@ const getFiles = (
         } else if (
             item.isFile() &&
             endings.some(ending => item.name.endsWith(`.${ending}`)) &&
-            !excluded.includes(path.join(folder, item.name)) &&
             !extraFilter?.(item.name)
         ) {
             files.push(`${folder}/${item.name}`);
@@ -96,9 +93,6 @@ try {
         'typings',
     ].forEach(folder => {
         getJsons(path.join(ROOT_PATH, folder)).forEach(file => {
-            if (file === path.join(ROOT_PATH, './src/utils/emojis.json'))
-                return;
-
             currentFile = file;
             const sortArray = file.endsWith('tsconfig.json');
             fs.writeFileSync(
