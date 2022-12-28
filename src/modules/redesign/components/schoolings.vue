@@ -17,7 +17,6 @@
 import Vue from 'vue';
 
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
-import type { SchoolingsWindow } from '../parsers/schoolings';
 
 type Component = RedesignSubComponent<'schoolings', 'schoolings'>;
 
@@ -81,16 +80,6 @@ export default Vue.extend<
         },
     },
     mounted() {
-        if (!this.lightbox.noModal) {
-            (this.schoolings as SchoolingsWindow).ownSchoolings.tabs[
-                this.$t('modules.schoolingOverview.all').toString()
-            ].forEach(({ end, id }) =>
-                window.educationCountdown(end, `${id}_1`)
-            );
-            (this.schoolings as SchoolingsWindow).openSchoolings.tabs[
-                this.$t('modules.schoolingOverview.all').toString()
-            ].forEach(({ end, id }) => window.educationCountdown(end, id));
-        }
         this.lightbox.finishLoading('schoolings-mounted');
     },
 });
