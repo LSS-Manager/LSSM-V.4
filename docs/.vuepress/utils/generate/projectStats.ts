@@ -71,6 +71,7 @@ const stats = __VAR__.stats;
 
 const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
 const $t = computed(() => stats.${file}[lang.value]);
+const $formatNum = (num, style) => new Intl.NumberFormat(pageData.value.lang.replace(/_/gu, '-'), {style, minimumFractionDigits: 0, maximumFractionDigits: 2}).format(num)
 </script>`;
 
 const clocBin = '"$(yarn workspace lss-manager-v4-docs bin cloc)"';
@@ -88,10 +89,8 @@ const relativeClocStats: RelativeClocResult = JSON.parse(
 
 const clocHeaderStats = absoluteClocStats.header;
 
-const intToLocaleNum = (num: number) =>
-    `{{parseInt("${num}").toLocaleString()}}`;
-const floatToLocaleNum = (num: number, fixed = 2) =>
-    `{{parseFloat("${num.toFixed(fixed)}").toLocaleString()}}`;
+const toLocaleNum = (num: number, style = 'decimal') =>
+    `{{ $formatNum(${num}, ${JSON.stringify(style)}) }}`;
 
 const fullClocResult = `
 <template><div>${sdConverter.makeHtml(
@@ -114,42 +113,52 @@ ${Object.entries(absoluteClocStats)
         ([lang, { nFiles, blank, comment, code }]) =>
             `|${[
                 lang,
-                `${intToLocaleNum(nFiles)} (${floatToLocaleNum(
-                    (nFiles / absoluteClocStats.SUM.nFiles) * 100
-                )}%)`,
-                `${intToLocaleNum(blank)} (${floatToLocaleNum(
-                    relativeClocStats[lang].blank_pct
-                )}%)`,
-                `${intToLocaleNum(comment)} (${floatToLocaleNum(
-                    relativeClocStats[lang].comment_pct
-                )}%)`,
-                `${intToLocaleNum(code)} (${floatToLocaleNum(
-                    100 -
-                        (relativeClocStats[lang].blank_pct +
-                            relativeClocStats[lang].comment_pct)
-                )}%)`,
-                intToLocaleNum(blank + comment + code),
-                `${floatToLocaleNum(
-                    ((blank + comment + code) / clocHeaderStats.n_lines) * 100
-                )}%`,
+                `${toLocaleNum(nFiles)} (${toLocaleNum(
+                    nFiles / absoluteClocStats.SUM.nFiles,
+                    'percent'
+                )})`,
+                `${toLocaleNum(blank)} (${toLocaleNum(
+                    relativeClocStats[lang].blank_pct / 100,
+                    'percent'
+                )})`,
+                `${toLocaleNum(comment)} (${toLocaleNum(
+                    relativeClocStats[lang].comment_pct / 100,
+                    'percent'
+                )})`,
+                `${toLocaleNum(code)} (${toLocaleNum(
+                    1 -
+                        (relativeClocStats[lang].blank_pct / 100 +
+                            relativeClocStats[lang].comment_pct / 100),
+                    'percent'
+                )})`,
+                toLocaleNum(blank + comment + code),
+                `${toLocaleNum(
+                    (blank + comment + code) / clocHeaderStats.n_lines,
+                    'percent'
+                )}`,
             ].join('|')}|`
     )
     .join('\n')}
 |||||||
 |${[
         $t('sum.toUpperCase()'),
-        intToLocaleNum(absoluteClocStats.SUM.nFiles),
-        `${intToLocaleNum(absoluteClocStats.SUM.blank)} (${floatToLocaleNum(
-            relativeClocStats.SUM.blank
-        )}%)`,
-        `${intToLocaleNum(absoluteClocStats.SUM.comment)} (${floatToLocaleNum(
-            relativeClocStats.SUM.comment
-        )}%)`,
-        `${intToLocaleNum(absoluteClocStats.SUM.code)} (${floatToLocaleNum(
-            100 - (relativeClocStats.SUM.blank + relativeClocStats.SUM.comment)
-        )}%)`,
-        intToLocaleNum(clocHeaderStats.n_lines),
-        '100%',
+        toLocaleNum(absoluteClocStats.SUM.nFiles),
+        `${toLocaleNum(absoluteClocStats.SUM.blank)} (${toLocaleNum(
+            relativeClocStats.SUM.blank / 100,
+            'percent'
+        )})`,
+        `${toLocaleNum(absoluteClocStats.SUM.comment)} (${toLocaleNum(
+            relativeClocStats.SUM.comment / 100,
+            'percent'
+        )})`,
+        `${toLocaleNum(absoluteClocStats.SUM.code)} (${toLocaleNum(
+            1 -
+                (relativeClocStats.SUM.blank / 100 +
+                    relativeClocStats.SUM.comment / 100),
+            'percent'
+        )})`,
+        toLocaleNum(clocHeaderStats.n_lines),
+        toLocaleNum(1, 'percent'),
     ]
         .map(c => `**${c}**`)
         .join('|')}|
@@ -250,15 +259,15 @@ fs.writeFileSync(clocStatsPath, fullClocResult);
 <template><div>
     ${sdConverter.makeHtml(
         `
-* ${$t('sum.beta')}: ${intToLocaleNum(amountOfCommits)}
-* ${$t('sum.stable')}: ${intToLocaleNum(amountOfCommitsStable)}
+* ${$t('sum.beta')}: ${toLocaleNum(amountOfCommits)}
+* ${$t('sum.stable')}: ${toLocaleNum(amountOfCommitsStable)}
 ${getCommitText($t('first'), firstCommit)}
 ${getCommitText($t('latest.beta'), latestCommit)}
 ${getCommitText($t('latest.stable'), latestCommitStable)}
 * ${$t('changes.title')}:
-  * ${$t('changes.files')}: ${intToLocaleNum(changes.changes)}
-  * ${$t('changes.insertions')}: ${intToLocaleNum(changes.insertions)}
-  * ${$t('changes.deletions')}: ${intToLocaleNum(changes.deletions)}
+  * ${$t('changes.files')}: ${toLocaleNum(changes.changes)}
+  * ${$t('changes.insertions')}: ${toLocaleNum(changes.insertions)}
+  * ${$t('changes.deletions')}: ${toLocaleNum(changes.deletions)}
 `.trim()
     )}
 </div></template>
