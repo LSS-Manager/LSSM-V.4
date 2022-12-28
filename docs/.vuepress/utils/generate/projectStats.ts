@@ -174,10 +174,13 @@ fs.writeFileSync(clocStatsPath, fullClocResult);
     const git = simpleGit(ROOT_PATH);
 
     // update master and dev branches
-    await Promise.all([
-        git.fetch('origin', 'dev:dev'),
-        git.fetch('origin', 'master:master'),
-    ]);
+    const { current: currentBranch } = await git.branch();
+    const updateBranches = [];
+    if (currentBranch !== 'dev')
+        updateBranches.push(git.fetch('origin', 'dev:dev'));
+    if (currentBranch !== 'master')
+        updateBranches.push(git.fetch('origin', 'master:master'));
+    await Promise.all(updateBranches);
 
     const { total: amountOfCommits } = await git.log(['dev']);
     const { total: amountOfCommitsStable } = await git.log(['master']);
