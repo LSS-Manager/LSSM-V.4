@@ -4,7 +4,7 @@ import path from 'path';
 import emojis from 'emoji-toolkit/emoji.json';
 
 fs.writeFileSync(
-    path.resolve(__dirname, '../../src/utils/emojis.json'),
+    path.resolve(__dirname, '../../src/generated/emojis.json'),
     JSON.stringify(
         Object.fromEntries(
             Object.entries(emojis).map(

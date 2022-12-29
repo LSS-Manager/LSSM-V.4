@@ -118,27 +118,27 @@
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.59"
+        "version": "2.0.0-beta.60"
     },
     "@vuepress/plugin-pwa": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.59"
+        "version": "2.0.0-beta.60"
     },
     "@vuepress/plugin-pwa-popup": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.59"
+        "version": "2.0.0-beta.60"
     },
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.59"
+        "version": "2.0.0-beta.60"
     },
     "@vuepress/plugin-search": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.59"
+        "version": "2.0.0-beta.60"
     },
     "all-contributors-cli": {
         "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
@@ -148,7 +148,7 @@
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
         "url": "https://github.com/pubkey/broadcast-channel#readme",
-        "version": "4.18.1"
+        "version": "4.19.1"
     },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
@@ -304,6 +304,9 @@
         "url": "http://showdownjs.com/",
         "version": "2.1.0"
     },
+    "simple-git": {
+        "version": "3.15.1"
+    },
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
@@ -385,7 +388,7 @@
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-beta.59"
+        "version": "2.0.0-beta.60"
     },
     "vuepress-plugin-clipboard": {
         "icon": "https://vuepress.qbb.sh/hero.png",

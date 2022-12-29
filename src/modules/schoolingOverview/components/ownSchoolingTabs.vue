@@ -19,10 +19,7 @@
                 </button>
             </h3>
         </div>
-        <tabs
-            :on-select="(_, index) => (currentTab = tabTitles[index])"
-            :style="collapsed ? { display: 'none' } : {}"
-        >
+        <tabs :on-select="setTab" v-show="!collapsed">
             <tab v-for="tab in tabTitles" :key="tab" :title="tab">
                 <enhanced-table
                     :head="heads"
@@ -32,6 +29,7 @@
                     :sort-dir="sortDir"
                     :search="search"
                     @search="s => (search = s)"
+                    @hook:mounted="initCountdowns"
                 >
                     <tr
                         v-for="(schooling, id) in schoolings"
@@ -46,7 +44,7 @@
                                 {{ schooling.name }}
                             </a>
                         </td>
-                        <td :id="`education_schooling_${schooling.id}_1`">
+                        <td :id="getCountdownId(schooling)">
                             {{ schooling.end }}
                         </td>
                         <td v-html="schooling.owner"></td>
@@ -62,6 +60,7 @@ import Vue from 'vue';
 
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
 import type {
@@ -112,6 +111,7 @@ export default Vue.extend<
             sortDir: 'asc',
             all,
             collapsed: false,
+            rootStore: useRootStore(),
             settingsStore: useSettingsStore(),
         } as OwnSchoolingTabs;
     },
@@ -136,6 +136,10 @@ export default Vue.extend<
         },
     },
     methods: {
+        setTab(_, index) {
+            this.currentTab = this.tabTitles[index];
+            this.$nextTick().then(this.initCountdowns);
+        },
         setSorting(key) {
             const s = key;
             this.sortDir =
@@ -150,6 +154,19 @@ export default Vue.extend<
                 value: this.collapsed,
             });
         },
+        getCountdownId(schooling) {
+            return this.rootStore.nodeAttribute(
+                `${this.$options.name}_countdown_${schooling.id}`
+            );
+        },
+        initCountdowns() {
+            this.schoolings.forEach(schooling =>
+                this.$utils.countdown(
+                    this.getCountdownId(schooling),
+                    schooling.end
+                )
+            );
+        },
     },
     mounted() {
         this.settingsStore
@@ -158,6 +175,7 @@ export default Vue.extend<
                 settingId: 'hide_ownschooling',
             })
             .then(collapsed => (this.collapsed = collapsed));
+        this.$nextTick(() => this.initCountdowns());
     },
     props: {
         tabs: {

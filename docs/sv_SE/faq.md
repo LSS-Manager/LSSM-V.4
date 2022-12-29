@@ -9,7 +9,7 @@ sidebarDepth: 3
 ## Vad kostar LSS-Manager?
 LSS-Manager är ett gratis tillägg. - vi har inte för avsikt att ändra detta.
 
-Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
+Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][lssm.donations]. We are happy about any support!
 
 :::warning donations
 All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
@@ -20,18 +20,18 @@ Of course, we are happy about any donation, but we would still like to point out
 :::
 
 ## Hur kan jag bidra till LSS-Manager?
-Den "normala" användaren kan [Rapportera ett fel][error] eller [Skicka förslag][suggestions].
+Den "normala" användaren kan [Rapportera ett fel][docs.error_report] eller [Skicka förslag][docs.suggestions].
 
 Vi utformar för närvarande en stilguide för utvecklare så att de också enkelt kan lägga till sina egna plugins till LSSM. Vi försökte också hålla vår kodstruktur tydlig och förståelig. Att lägga till ett plugin innebär dock inte på något sätt att gå med i laget.
 
 ## Hur rapporterar jag fel?
-Ta en titt på sidan [Rapportera ett fel][error].
+Ta en titt på sidan [Rapportera ett fel][docs.error_report].
 
 ## Var kan jag få hjälp?
-Genom vårt stöd. Du hittar mer information [här][support].
+Genom vårt stöd. Du hittar mer information [här][docs.support].
 
 ## Hur kan jag skicka idéer?
-På sidan [Skicka förslag][suggestions] har vi sammanställt lite information om det.
+På sidan [Skicka förslag][docs.suggestions] har vi sammanställt lite information om det.
 
 ## I vilka webbläsare fungerar LSS-Manager?
 Endast stationära webbläsare listas här, eftersom mobilwebbläsare inte stöds officiellt.
@@ -56,11 +56,6 @@ För närvarande erbjuder vi inte detta, men en implementering av den här funkt
 Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Or in the <discord-channel channel="uptime"/> on our <discord/>
-
-[support]: support.md
-[error]: error_report.md
-[suggestions]: suggestions.md
-[donate]: https://donate.lss-manager.de/
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
