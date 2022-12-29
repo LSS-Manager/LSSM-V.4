@@ -126,14 +126,8 @@ LANGS.forEach(lang => {
 const statsComponentsPath = path.join(DOCS_COMPONENTS_PATH, '.temp', 'stats');
 fs.mkdirSync(statsComponentsPath, { recursive: true });
 const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
-const commitStatsPath = path.join(statsComponentsPath, 'commits.vue');
-run(
-    'generate/projectStats',
-    config.github.repo,
-    ROOT_PATH,
-    clocStatsPath,
-    commitStatsPath
-);
+const gitStatsPath = path.join(statsComponentsPath, 'git.vue');
+run('generate/projectStats', ROOT_PATH, clocStatsPath, gitStatsPath);
 
 run(
     'generate/manifest',
@@ -189,9 +183,9 @@ const __VAR__ = {
         cloc: Object.fromEntries(
             LANGS.map(lang => [lang, $t(lang, 'stats.cloc')])
         ) as unknown as DocsVar['stats']['cloc'],
-        commits: Object.fromEntries(
-            LANGS.map(lang => [lang, $t(lang, 'stats.commits')])
-        ) as unknown as DocsVar['stats']['commits'],
+        git: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'stats.git')])
+        ) as unknown as DocsVar['stats']['git'],
     },
 } as DocsVar;
 
@@ -361,7 +355,7 @@ export default defineUserConfig({
                     'translator-list.vue'
                 ),
                 'stats-cloc': clocStatsPath,
-                'stats-commits': commitStatsPath,
+                'stats-git': gitStatsPath,
             },
         }),
         pwaPlugin({

@@ -114,7 +114,7 @@ export interface DocsVar {
     >;
     stats: {
         cloc: Record<string, Translation>;
-        commits: Record<string, Translation>;
+        git: Record<string, Translation>;
     };
 }
 

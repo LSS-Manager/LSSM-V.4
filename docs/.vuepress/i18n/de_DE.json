@@ -140,7 +140,7 @@
             "sum": "Summe",
             "total": "Summe"
         },
-        "commits": {
+        "git": {
             "changes": {
                 "deletions": "Zeilen mit gelöschten Zeichen",
                 "files": "geänderte Dateien",

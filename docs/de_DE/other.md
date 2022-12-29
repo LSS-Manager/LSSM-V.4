@@ -109,7 +109,7 @@ Hier finden sich einige mehr oder weniger spannende Statistiken über den LSSM u
 
 ### Commits & Änderungen
 
-<stats-commits/>
+<stats-git/>
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
 

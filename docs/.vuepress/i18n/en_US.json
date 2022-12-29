@@ -137,7 +137,7 @@
             "sum": "sum",
             "total": "total"
         },
-        "commits": {
+        "git": {
             "changes": {
                 "deletions": "deletions",
                 "files": "files changed",
