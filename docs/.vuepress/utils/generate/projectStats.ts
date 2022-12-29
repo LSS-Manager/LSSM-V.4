@@ -76,6 +76,7 @@ const $formatNum = (num, style) => new Intl.NumberFormat(pageData.value.lang.rep
 
 const clocBin = '"$(yarn workspace lss-manager-v4-docs bin cloc)"';
 
+const clocTime = new Date();
 const absoluteClocStats: AbsoluteClocResult = JSON.parse(
     execSync(
         `cd "${ROOT_PATH}" && ${clocBin} --vcs git --skip-uniqueness --json`
@@ -100,7 +101,7 @@ const fullClocResult = `
     }) in ${(
         absoluteClocStats.header.elapsed_seconds +
         relativeClocStats.header.elapsed_seconds
-    ).toFixed(2)}s*
+    ).toFixed(2)}s at ${clocTime.toISOString()}*
 
 |${$t('language')}|${$t('files')} (%)|${$t('blank')} (%)|${$t(
         'comment'
@@ -182,6 +183,7 @@ fs.writeFileSync(clocStatsPath, fullClocResult);
         updateBranches.push(git.fetch('origin', 'master:master'));
     await Promise.all(updateBranches);
 
+    const gitTime = new Date();
     const { total: amountOfCommits } = await git.log(['dev']);
     const { total: amountOfCommitsStable } = await git.log(['master']);
 
@@ -262,6 +264,8 @@ fs.writeFileSync(clocStatsPath, fullClocResult);
 <template><div>
     ${sdConverter.makeHtml(
         `
+*updated at ${gitTime.toISOString()}*
+        
 * ${$t('sum.beta')}: ${toLocaleNum(amountOfCommits)}
 * ${$t('sum.stable')}: ${toLocaleNum(amountOfCommitsStable)}
 ${getCommitText($t('first'), firstCommit)}
