@@ -9,7 +9,7 @@ sidebarDepth: 3
 ## Ile kosztuje Menedżer LSS?
 LSS-Manager to bezpłatne rozszerzenie. - nie zamierzamy tego zmieniać.
 
-Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
+Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][lssm.donations]. We are happy about any support!
 
 :::warning donations
 All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
@@ -20,18 +20,18 @@ Of course, we are happy about any donation, but we would still like to point out
 :::
 
 ## Jak mogę przyczynić się do rozwoju Menedżera LSS?
-Użytkownik końcowy może: [zgłaszać błędy][error] lub [dawać sugestie][suggestions] dotyczące rozwoju.
+Użytkownik końcowy może: [zgłaszać błędy][docs.error_report] lub [dawać sugestie][docs.suggestions] dotyczące rozwoju.
 
 Obecnie projektujemy przewodnik po stylu dla programistów, aby oni również mogli łatwo dodawać własne wtyczki do LSSM. Staraliśmy się, aby struktura naszego kodu była przejrzysta i zrozumiała. Jednak dodanie wtyczki w żaden sposób nie oznacza dołączenia do zespołu.
 
 ## Jak zgłaszać błędy?
-Proszę spojrzeć na naszą stronę [Zgłoś błędy][error].
+Proszę spojrzeć na naszą stronę [Zgłoś błędy][docs.error_report].
 
 ## Gdzie mogę uzyskać wsparcie?
-Poprzez nasz system wsparcia [tutaj][support].
+Poprzez nasz system wsparcia [tutaj][docs.support].
 
 ## Jak mogę zgłaszać pomysły?
-Na naszej stronie [sugestie][suggestions].
+Na naszej stronie [sugestie][docs.suggestions].
 
 ## W jakich przeglądarkach działa LSS Manager?
 W tym miejscu wymieniono tylko przeglądarki komputerowe, ponieważ przeglądarki mobilne nie są przez nas oficjalnie wspierane.
@@ -59,7 +59,24 @@ Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Or in the <discord-channel channel="uptime"/> on our <discord/>
 
-[support]: support.md
-[error]: error_report.md
-[suggestions]: suggestions.md
-[donate]: https://donate.lss-manager.de/
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /pl_PL/apps.md
+[docs.appstore]: /pl_PL/appstore.md
+[docs.bugs]: /pl_PL/bugs.md
+[docs.error_report]: /pl_PL/error_report.md
+[docs.faq]: /pl_PL/faq.md
+[docs.metadata]: /pl_PL/metadata.md
+[docs.other]: /pl_PL/other.md
+[docs.settings]: /pl_PL/settings.md
+[docs.suggestions]: /pl_PL/suggestions.md
+[docs.support]: /pl_PL/support.md
+[games.self]: https://operatorratunkowy.pl
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

@@ -35,6 +35,14 @@ const translationStore = defineStore('translationUtilities', {
                 )
                 .map(([id]) => parseInt(id.toString()));
         },
+        stagingAreaBuildings(): number[] {
+            return Object.entries(this.buildings)
+                .filter(
+                    ([, building]) =>
+                        'isStagingArea' in building && building.isStagingArea
+                )
+                .map(([id]) => parseInt(id.toString()));
+        },
         cellBuildings(): number[] {
             return Object.entries(this.buildings)
                 .filter(([, building]) => 'startCells' in building)

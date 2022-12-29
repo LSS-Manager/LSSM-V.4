@@ -71,6 +71,16 @@
             "title": "Byggnader"
         },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": {
                 "focus": "välj chattfönstrets skrivruta",
                 "title": "Chat"
@@ -108,6 +118,9 @@
             "title": "Huvudfönster"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarm and go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
             "alliance": {
                 "focus": "Focus alliance response window",
                 "title": "Alliance",
@@ -124,6 +137,9 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Skicka enheter och gå till nästa",
                 "alert_share_next": "Skicka enheter, dela och gå till nästa",
@@ -150,7 +166,7 @@
                 "building": "building",
                 "edit": "edit",
                 "nextVehicle": "next vehicle",
-                "personalAssigment": "personal assigment",
+                "personalAssigment": "staff assignment",
                 "previousVehicle": "previous vehicle",
                 "statistics": "stats",
                 "title": "go to"

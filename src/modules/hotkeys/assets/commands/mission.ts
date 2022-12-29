@@ -8,7 +8,15 @@ export default <
     Scope<
         Empty,
         ['sorted', 'alliance', 'arr', 'vehicleList', 'backalarm'],
-        ['transport_request'],
+        [
+            'transport_request',
+            'alert_next',
+            'prev',
+            'next',
+            'alert_share_next',
+            'share',
+            'alert'
+        ],
         true
     >
 >{
@@ -216,5 +224,31 @@ export default <
                 '.alert.alert-danger:not(.alert-missing-vehicles) a.btn.btn-success[href^="/vehicles/"]'
             )
             ?.click();
+    },
+    alert_next() {
+        document.querySelector<HTMLAnchorElement>('#alert_next_btn')?.click();
+    },
+    prev() {
+        document
+            .querySelector<HTMLAnchorElement>('#mission_previous_mission_btn')
+            ?.click();
+    },
+    next() {
+        document
+            .querySelector<HTMLAnchorElement>('#mission_next_mission_btn')
+            ?.click();
+    },
+    alert_share_next() {
+        document
+            .querySelector<HTMLAnchorElement>('.alert_next_alliance')
+            ?.click();
+    },
+    share() {
+        document
+            .querySelector<HTMLAnchorElement>('#mission_alliance_share_btn')
+            ?.click();
+    },
+    alert() {
+        document.querySelector<HTMLInputElement>('#alert_btn')?.click();
     },
 };

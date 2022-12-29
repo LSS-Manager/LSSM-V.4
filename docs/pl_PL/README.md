@@ -52,7 +52,7 @@ Należy pamiętać, że oficjalnie nie wspieramy:
 :::
 
 ### Krok 2: Skrypt użytkownika
-Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, możesz kliknąć <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">tutaj</a> lub utworzyć nowy skrypt użytkownika o następującej treści:
+Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, możesz kliknąć [tutaj][lssm.userscript] lub utworzyć nowy skrypt użytkownika o następującej treści:
 
 @[code js](@userscript)
 
@@ -68,15 +68,18 @@ Jeśli masz jakiekolwiek problemy, skontaktuj się z nami: [Support][docs.suppor
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /pl_PL/apps/
-[docs.appstore]: /pl_PL/appstore/
-[docs.bugs]: /pl_PL/bugs/
-[docs.error_report]: /pl_PL/error_report/
-[docs.faq]: /pl_PL/faq/
-[docs.metadata]: /pl_PL/metadata/
-[docs.other]: /pl_PL/other/
-[docs.settings]: /pl_PL/settings/
-[docs.suggestions]: /pl_PL/suggestions/
-[docs.support]: /pl_PL/support/
+[docs.apps]: /pl_PL/apps.md
+[docs.appstore]: /pl_PL/appstore.md
+[docs.bugs]: /pl_PL/bugs.md
+[docs.error_report]: /pl_PL/error_report.md
+[docs.faq]: /pl_PL/faq.md
+[docs.metadata]: /pl_PL/metadata.md
+[docs.other]: /pl_PL/other.md
+[docs.settings]: /pl_PL/settings.md
+[docs.suggestions]: /pl_PL/suggestions.md
+[docs.support]: /pl_PL/support.md
 [games.self]: https://operatorratunkowy.pl
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

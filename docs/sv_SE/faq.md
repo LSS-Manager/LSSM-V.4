@@ -9,7 +9,7 @@ sidebarDepth: 3
 ## Vad kostar LSS-Manager?
 LSS-Manager är ett gratis tillägg. - vi har inte för avsikt att ändra detta.
 
-Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][donate]. We are happy about any support!
+Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][lssm.donations]. We are happy about any support!
 
 :::warning donations
 All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
@@ -20,18 +20,18 @@ Of course, we are happy about any donation, but we would still like to point out
 :::
 
 ## Hur kan jag bidra till LSS-Manager?
-Den "normala" användaren kan [Rapportera ett fel][error] eller [Skicka förslag][suggestions].
+Den "normala" användaren kan [Rapportera ett fel][docs.error_report] eller [Skicka förslag][docs.suggestions].
 
 Vi utformar för närvarande en stilguide för utvecklare så att de också enkelt kan lägga till sina egna plugins till LSSM. Vi försökte också hålla vår kodstruktur tydlig och förståelig. Att lägga till ett plugin innebär dock inte på något sätt att gå med i laget.
 
 ## Hur rapporterar jag fel?
-Ta en titt på sidan [Rapportera ett fel][error].
+Ta en titt på sidan [Rapportera ett fel][docs.error_report].
 
 ## Var kan jag få hjälp?
-Genom vårt stöd. Du hittar mer information [här][support].
+Genom vårt stöd. Du hittar mer information [här][docs.support].
 
 ## Hur kan jag skicka idéer?
-På sidan [Skicka förslag][suggestions] har vi sammanställt lite information om det.
+På sidan [Skicka förslag][docs.suggestions] har vi sammanställt lite information om det.
 
 ## I vilka webbläsare fungerar LSS-Manager?
 Endast stationära webbläsare listas här, eftersom mobilwebbläsare inte stöds officiellt.
@@ -57,7 +57,24 @@ Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Or in the <discord-channel channel="uptime"/> on our <discord/>
 
-[support]: support.md
-[error]: error_report.md
-[suggestions]: suggestions.md
-[donate]: https://donate.lss-manager.de/
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /sv_SE/apps.md
+[docs.appstore]: /sv_SE/appstore.md
+[docs.bugs]: /sv_SE/bugs.md
+[docs.error_report]: /sv_SE/error_report.md
+[docs.faq]: /sv_SE/faq.md
+[docs.metadata]: /sv_SE/metadata.md
+[docs.other]: /sv_SE/other.md
+[docs.settings]: /sv_SE/settings.md
+[docs.suggestions]: /sv_SE/suggestions.md
+[docs.support]: /sv_SE/support.md
+[games.self]: https://larmcentralen-spelet.se
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

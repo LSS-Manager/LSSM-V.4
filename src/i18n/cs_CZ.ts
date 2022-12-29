@@ -582,6 +582,9 @@ export default {
         'Kostel',
         'Dálnice',
         'Železnice',
+        'Důl',
+        'Hangár',
+        'Pojezdové dráha',
     ],
     only_alliance_missions: [57, 74],
 };

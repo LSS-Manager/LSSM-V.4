@@ -50,7 +50,7 @@ Si prega di notare che ufficialmente noi non forniamo supporto per browser più 
 :::
 
 ### Passo 2: Userscript
-Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cliccare <a :href="$theme.variables.server + 'lssm-v4.user.js'" target="_blank">qui</a> o creare un nuovo userscript con il seguente contenuto:
+Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cliccare [qui][lssm.userscript] o creare un nuovo userscript con il seguente contenuto:
 
 @[code js](@userscript)
 
@@ -66,15 +66,18 @@ Se hai qualsiasi problema puoi sempre contattarci tramite il [supporto][docs.sup
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.apps]: /it_IT/apps/
-[docs.appstore]: /it_IT/appstore/
-[docs.bugs]: /it_IT/bugs/
-[docs.error_report]: /it_IT/error_report/
-[docs.faq]: /it_IT/faq/
-[docs.metadata]: /it_IT/metadata/
-[docs.other]: /it_IT/other/
-[docs.settings]: /it_IT/settings/
-[docs.suggestions]: /it_IT/suggestions/
-[docs.support]: /it_IT/support/
+[docs.apps]: /it_IT/apps.md
+[docs.appstore]: /it_IT/appstore.md
+[docs.bugs]: /it_IT/bugs.md
+[docs.error_report]: /it_IT/error_report.md
+[docs.faq]: /it_IT/faq.md
+[docs.metadata]: /it_IT/metadata.md
+[docs.other]: /it_IT/other.md
+[docs.settings]: /it_IT/settings.md
+[docs.suggestions]: /it_IT/suggestions.md
+[docs.support]: /it_IT/support.md
 [games.self]: https://operatore112.it
 [tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

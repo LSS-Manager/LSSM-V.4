@@ -1,8 +1,6 @@
 {
-    "approach": "Transférer",
     "backalarm": "Rappeler",
     "backalarmNext": "Envoyer directement",
-    "cells": { "cell": "Poste", "free": "Cellules libres" },
     "color": "Changer la couleur",
     "current_mission": "Mission actuelle",
     "delete": {
@@ -16,23 +14,10 @@
     "edit": "Modifier",
     "false": "Non",
     "filter": {
-        "cells": {
-            "distance": "Distance maximum",
-            "each": "Montrer x bâtiments de chaque",
-            "free": "Nombre minimum de cellules libres",
-            "tax": "Taxe maximum"
-        },
-        "hospitals": {
-            "beds": "Minimum de lits libres",
-            "department": { "title": "Service : {department}" },
-            "distance": "Distance maximum",
-            "each": "Montrer x bâtiments de chaque",
-            "tax": "Taxe maximum"
-        },
-        "missions": {
+        "mission": {
             "credits": "Crédits minimums",
             "distance": "Distance maximum",
-            "participation": { "title": "Déjà présent" },
+            "participation": "Déjà présent",
             "progress": "Avancement max",
             "status": {
                 "green": "Vert",
@@ -41,7 +26,30 @@
                 "yellow": "Jaune"
             }
         },
-        "wlf": { "distance": "Distance maximum", "same": "Même bâtiment" }
+        "patient": {
+            "department": "Service : {department}",
+            "distance": "Distance maximum",
+            "freeBeds": "Minimum de lits libres",
+            "show": "Montrer x bâtiments de chaque",
+            "tax": "Taxe maximum"
+        },
+        "patientIntermediate": {
+            "distance": "Distance maximum",
+            "home": "Bâtiments",
+            "show": "Montrer x bâtiments de chaque"
+        },
+        "prisoner": {
+            "distance": "Distance maximum",
+            "freeCells": "Nombre minimum de cellules libres",
+            "show": "Montrer x bâtiments de chaque",
+            "tax": "Taxe maximum"
+        },
+        "prisonerIntermediate": {
+            "distance": "Distance maximum",
+            "home": "Bâtiments",
+            "show": "Montrer x bâtiments de chaque"
+        },
+        "trailer": { "distance": "Distance maximum", "same": "Même bâtiment" }
     },
     "fms": "Radio",
     "fms_switch": {
@@ -50,21 +58,16 @@
     },
     "foam_amount": "Quantité de mousse",
     "followup_missions": "Mission suivante | Missions suivantes",
-    "hospitals": {
-        "beds": "Lits libres",
-        "department": "Service : {department}",
-        "hospital": "Hôpitaux"
-    },
     "load_all_hospitals": {
         "btn": "Chargez tout ",
         "text": "Seuls 50 hôpitaux de l'alliance sont affichés. Le chargement de tous les hôpitaux peut prendre beaucoup de temps en fonction de la quantité !"
     },
     "max_staff": "Max. de personnes",
     "mileage": "Kilométrage",
-    "missions": {
-        "alarm": "Déployer",
+    "mission": {
         "alarmed": "Mission actuelle",
         "credits": "Récompense",
+        "dispatch": "Déployer",
         "mission": "Mission",
         "participation": "Participation",
         "patients": "Patients",
@@ -76,6 +79,27 @@
     "owner_pic_state": {
         "offline": "{user} est hors ligne!",
         "online": "{user} est en ligne!"
+    },
+    "patient": {
+        "beds": "Lits libres",
+        "department": "Service : {department}",
+        "dispatch": "Transférer",
+        "hospital": "Hôpitaux"
+    },
+    "patientIntermediate": {
+        "caption": "Station de Sauvetage",
+        "dispatch": "Transférer les patients",
+        "home": "Bât : {building}"
+    },
+    "prisoner": {
+        "cell": "Poste",
+        "dispatch": "Transférer",
+        "free": "Cellules libres"
+    },
+    "prisonerIntermediate": {
+        "caption": "Station de Sauvetage",
+        "dispatch": "Transférer les prisonniers",
+        "home": "Bât : {building}"
     },
     "release": {
         "cancel": "Annuler",
@@ -91,17 +115,21 @@
         }
     },
     "release_patient": "Décharger le patient",
+    "release_patient-intermediate": "Décharger le patient",
     "release_prisoner": "Libérer les prisonniers",
+    "release_prisoner-intermediate": "Libérer les prisonniers",
     "staff": { "name": "Nom", "schooling": "Formation", "title": "Personnel " },
     "station": "Poste",
     "stats": "Statistiques",
     "tabs": {
         "all": "{type} (ensemble) : {amount}",
         "alliance": "{type} d'alliance : {amount}",
-        "cells": "Cellules",
-        "hospitals": "Hôpitaux",
-        "missions": "Missions",
-        "own": "{type} perso : {amount}"
+        "mission": "Missions",
+        "own": "{type} perso : {amount}",
+        "patient": "Hôpitaux",
+        "patientIntermediate": "Station de Sauvetage",
+        "prisoner": "Cellules",
+        "prisonerIntermediate": "Station de Sauvetage"
     },
     "tax": "Taxe",
     "true": "Oui",

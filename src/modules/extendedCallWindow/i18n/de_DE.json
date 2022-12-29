@@ -198,7 +198,12 @@
                 "vehicles": [39, 41]
             },
             {
-                "texts": ["Feuerlöschpumpe", "Feuerlöschpumpen"],
+                "texts": [
+                    "Feuerlöschpumpe (z.B. LF)",
+                    "Feuerlöschpumpen (z.B. LF)",
+                    "Feuerlöschpumpe (z. B. LF)",
+                    "Feuerlöschpumpen (z. B. LF)"
+                ],
                 "vehicles": [
                     0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6, 7,
                     8, 87, 88, 89, 9, 90, 101, 102
@@ -264,7 +269,10 @@
             },
             { "texts": ["RTW"], "vehicles": [28, 74, 97] },
             { "texts": ["Radlader (BRmG R)"], "vehicles": [43] },
-            { "texts": ["Rettungshundestaffel/n"], "vehicles": [91, 92] },
+            {
+                "texts": ["Rettungshundestaffel", "Rettungshundestaffeln"],
+                "vehicles": [91, 92]
+            },
             {
                 "texts": ["Rettungstreppe", "Rettungstreppen"],
                 "vehicles": [76]

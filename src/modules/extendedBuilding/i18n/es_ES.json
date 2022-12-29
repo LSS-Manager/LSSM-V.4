@@ -8,6 +8,7 @@
         "additional": "Los valores entre paréntesis excluyen los vehículos en el estado 6.",
         "demand": "Personal requerido"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Todas las combinaciones",
         "amount": "Cantidad",

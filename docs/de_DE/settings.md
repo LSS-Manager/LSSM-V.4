@@ -32,7 +32,7 @@ Nutzung eines einfachen grün hinterlegten Textes aber lieber. Deshalb kann man 
 
 ### Telemetrie erlauben
 
-Damit kannst du bestimmen, ob der LSSM [Metadaten](metadata.md) senden darf oder nicht.
+Damit kannst du bestimmen, ob der LSSM [Metadaten][docs.metadata] senden darf oder nicht.
 
 ### LSSM-Icon Hintergrund
 
@@ -99,3 +99,25 @@ Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. 
 Klammern `[]` setzt. Eigentlich ist nur das Umklammern von Variablen im reinen Text nötig, um eine schönere und
 lesbarere Formatierung zu erhalten kann man aber auch den gesamten Text in Klammern setzen.
 Das oben gewünschte Ergebnis von `08:33:31 Uhr` erreicht man über `LTS [Uhr]` oder `LTS U[h]r`. 
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /de_DE/apps.md
+[docs.appstore]: /de_DE/appstore.md
+[docs.bugs]: /de_DE/bugs.md
+[docs.error_report]: /de_DE/error_report.md
+[docs.faq]: /de_DE/faq.md
+[docs.metadata]: /de_DE/metadata.md
+[docs.other]: /de_DE/other.md
+[docs.settings]: /de_DE/settings.md
+[docs.suggestions]: /de_DE/suggestions.md
+[docs.support]: /de_DE/support.md
+[games.self]: https://leitstellenspiel.de
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

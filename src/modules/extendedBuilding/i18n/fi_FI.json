@@ -8,6 +8,7 @@
         "additional": "Suluissa olevat arvot eivät sisällä ajoneuvoja, joiden tila on 6.",
         "demand": "Tarvittava henkilöstö"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Kaikki yhdistelmät",
         "amount": "Määrä",

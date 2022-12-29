@@ -26,9 +26,9 @@ By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user 
 This data is used to improve the extension as well as to guide the development of existing or future modules.
 They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#publishing-statistics)).
 
-**The user can (de-)activate the collection of this data at any time in the [settings](settings.md).**
+**The user can (de-)activate the collection of this data at any time in the [settings][docs.settings].**
 
-**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support](support.md) or by sending an informal e-mail to `developer[at]lss-manager.de`.**
+**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support][docs.support] or by sending an informal e-mail to `developer[at]lss-manager.de`.**
 
 Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
 If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
@@ -58,6 +58,28 @@ Inference to individual records is **not** possible through these statistics.
 ## Collection of metadata by third-party providers
 
 LSSM itself does not use any tools, libraries, utilities or similar, which could collect metadata of the users.
-With the use of a browser and an userscript manager, such as [Tampermonkey](https://tampermonkey.net), a collection of metadata of these may not be avoided.
+With the use of a browser and an userscript manager, such as [Tampermonkey][tampermonkey], a collection of metadata of these may not be avoided.
 All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
 Information about the data collection of the respective software used can be found in the information sources of the respective software.
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /es_ES/apps.md
+[docs.appstore]: /es_ES/appstore.md
+[docs.bugs]: /es_ES/bugs.md
+[docs.error_report]: /es_ES/error_report.md
+[docs.faq]: /es_ES/faq.md
+[docs.metadata]: /es_ES/metadata.md
+[docs.other]: /es_ES/other.md
+[docs.settings]: /es_ES/settings.md
+[docs.suggestions]: /es_ES/suggestions.md
+[docs.support]: /es_ES/support.md
+[games.self]: https://centro-de-mando.es
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

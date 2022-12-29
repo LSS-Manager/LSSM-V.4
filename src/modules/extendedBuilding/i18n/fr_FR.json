@@ -8,6 +8,9 @@
         "additional": "Les valeurs entre crochets excluent les véhicules en status 6.",
         "demand": "Employé requis"
     },
+    "renewAllStagingAreas": {
+        "title": "Réinitialiser toutes les zones de transit"
+    },
     "schoolingSummary": {
         "all": "Tout combiné",
         "amount": "Montant",

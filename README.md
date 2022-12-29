@@ -126,7 +126,7 @@ We have adopted the [Contributor Convenant](https://www.contributor-covenant.org
 
 ### Contribution Guide
 
-See our [contributing guide](https://docs.lss-manager.de/en_US/contributing) for help regarding contributions.
+See our [contributing guide](https://docs.lss-manager.de/en_US/contributing.html) for help regarding contributions.
 
 ### Contributors
 

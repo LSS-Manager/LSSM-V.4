@@ -71,6 +71,16 @@
             "title": "Rakennus"
         },
         "main": {
+            "bigMap": {
+                "title": "Ikkunoiden muuttaminen",
+                "toggle": {
+                    "buildings": "Rakennukset",
+                    "chat": "Chätti",
+                    "missions": "Tehtävät",
+                    "radio": "Radio",
+                    "title": "Näytä ikkuna"
+                }
+            },
             "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },
             "lssm": {
                 "menu": { "title": "Valikko", "toggle": "Auki / Kiinni" },
@@ -106,6 +116,9 @@
             "title": "Pääikkuna"
         },
         "mission": {
+            "alert": "Lähetä",
+            "alert_next": "Lähetä ja seuraava",
+            "alert_share_next": "Lähetä valitut yksiköt, jaa tehtävä liittoutumasi kanssa ja jatka seuraavaan tehtävään. ",
             "alliance": {
                 "focus": "Kohdista liittoutuman vastausikkuna",
                 "title": "Liittouma",
@@ -122,6 +135,9 @@
                 "onlyAmbulance": "Peruuta kaikki ambulanssit",
                 "title": "Peruuta"
             },
+            "next": "Seuraava tehtävä",
+            "prev": "Edellinen tehtävä",
+            "share": "Jaa liittouman kanssa",
             "sorted": {
                 "alert_next": "Lähetä ja seuraava",
                 "alert_share_next": "Lähetä valitut yksiköt, jaa tehtavä liittoutumasi kanssa ja jatka seuraavaan tehtävään.",
@@ -140,25 +156,25 @@
         },
         "vehicles": {
             "alarm": {
-                "firstAllianceMission": "Alarm to first alliance mission",
-                "firstOwnMission": "Alarm to first own mission",
-                "title": "alarm"
+                "firstAllianceMission": "Lähetä ensimmäiselle liittoutuma tehtävälle",
+                "firstOwnMission": "Lähetä ensimmäiselle omalle tehtävälle",
+                "title": "Lähetä"
             },
             "goto": {
-                "building": "building",
-                "edit": "edit",
-                "nextVehicle": "next vehicle",
-                "personalAssigment": "personal assigment",
-                "previousVehicle": "previous vehicle",
-                "statistics": "stats",
-                "title": "go to"
+                "building": "rakennus",
+                "edit": "muokkaa",
+                "nextVehicle": "seuraava ajoneuvo",
+                "personalAssigment": "Osoita henkilöstöä",
+                "previousVehicle": "edellinen ajoneuvo",
+                "statistics": "tilastot",
+                "title": "mene"
             },
             "other": {
-                "moveVehicle": "move vehicle",
-                "title": "etc.",
-                "toggleFMS": "toggle status"
+                "moveVehicle": "Siirrä ajoneuvoa",
+                "title": "Muut",
+                "toggleFMS": "vaihda tilaa"
             },
-            "title": "vehicles"
+            "title": "ajoneuvot"
         }
     },
     "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",

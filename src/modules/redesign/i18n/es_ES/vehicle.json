@@ -1,8 +1,6 @@
 {
-    "approach": "Acercarse",
     "backalarm": "Retroalarma",
     "backalarmNext": "acercarse directamente",
-    "cells": { "cell": "Edificio", "free": "Celdas libres" },
     "color": "Ajustar color",
     "current_mission": "Misión actual",
     "delete": {
@@ -16,23 +14,10 @@
     "edit": "Editar",
     "false": "No",
     "filter": {
-        "cells": {
-            "distance": "Distancia máxima",
-            "each": "Muestra X edificios de cada",
-            "free": "Mínimo de celdas libres",
-            "tax": "Impuesto máximo"
-        },
-        "hospitals": {
-            "beds": "Mínimo de camas libres",
-            "department": { "title": "Departamento: {department}" },
-            "distance": "Distancia máxima",
-            "each": "Muestra X edificios de cada",
-            "tax": "Impuesto máximo"
-        },
-        "missions": {
+        "mission": {
             "credits": "Créditos mínimos",
             "distance": "Distancia máxima",
-            "participation": { "title": "Participación" },
+            "participation": "Participación",
             "progress": "% máximo de progreso",
             "status": {
                 "green": "verde",
@@ -41,27 +26,45 @@
                 "yellow": "amarillo"
             }
         },
-        "wlf": { "distance": "Distancia máxima", "same": "Mismo edificio" }
+        "patient": {
+            "department": "Departamento: {department}",
+            "distance": "Distancia máxima",
+            "freeBeds": "Mínimo de camas libres",
+            "show": "Muestra X edificios de cada",
+            "tax": "Impuesto máximo"
+        },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
+        "prisoner": {
+            "distance": "Distancia máxima",
+            "freeCells": "Mínimo de celdas libres",
+            "show": "Muestra X edificios de cada",
+            "tax": "Impuesto máximo"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
+        "trailer": { "distance": "Distancia máxima", "same": "Mismo edificio" }
     },
     "fms": "FMS",
     "fms_switch": { "is_s2": "set S6", "is_s6": "set S2" },
     "foam_amount": "Cantidad de espuma",
     "followup_missions": "Misión de seguimiento | Misiones de seguimiento",
-    "hospitals": {
-        "beds": "camas libres",
-        "department": "Departamento: {department}",
-        "hospital": "Hospital"
-    },
     "load_all_hospitals": {
         "btn": "Cargar todo ",
         "text": "Solo se muestran 50 hospitales de la alianza. ¡Cargar todos los hospitales puede llevar un tiempo dependiendo de la cantidad!"
     },
     "max_staff": "Personal máximo",
     "mileage": "Kilometraje",
-    "missions": {
-        "alarm": "Alarma",
+    "mission": {
         "alarmed": "Misión actual",
         "credits": "Premio",
+        "dispatch": "Alarma",
         "mission": "Misión",
         "participation": "Participación",
         "patients": "Pacientes",
@@ -73,6 +76,27 @@
     "owner_pic_state": {
         "offline": "¡{user} está desconectado!",
         "online": "¡{user} está conectado!"
+    },
+    "patient": {
+        "beds": "camas libres",
+        "department": "Departamento: {department}",
+        "dispatch": "Acercarse",
+        "hospital": "Hospital"
+    },
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
+    "prisoner": {
+        "cell": "Edificio",
+        "dispatch": "Acercarse",
+        "free": "Celdas libres"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Abortar",
@@ -88,7 +112,9 @@
         }
     },
     "release_patient": "Dar de alta al paciente",
+    "release_patient-intermediate": "Dar de alta al paciente",
     "release_prisoner": "Liberar presos",
+    "release_prisoner-intermediate": "Liberar presos",
     "staff": {
         "name": "Nombre",
         "schooling": "Formación",
@@ -99,20 +125,22 @@
     "tabs": {
         "all": "todo {type}: {amount}",
         "alliance": "alianza {type}: {amount}",
-        "cells": "Celdas",
-        "hospitals": "Hospitales",
-        "missions": "Misiones",
-        "own": "propietario {type}: {amount}"
+        "mission": "Misiones",
+        "own": "propietario {type}: {amount}",
+        "patient": "Hospitales",
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Celdas",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "impuesto",
+    "trailer": {
+        "building": "Edificio",
+        "caption": "Fuerza motriz",
+        "dispatch": "Centralita",
+        "same": "mismo edificio: {building}"
+    },
     "true": "sí",
     "vehicletype": "Tipo de vehículo",
     "water_amount": "Cantidad de agua",
-    "wlf": {
-        "alarm": "Centralita",
-        "building": "Edificio",
-        "caption": "Fuerza motriz",
-        "same": "mismo edificio: {building}"
-    },
     "zuweisung": "Asignación de personal"
 }

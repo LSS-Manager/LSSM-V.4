@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import docsPackageJson from '../docs/.vuepress/package.json';
-import libraries from '../src/libraries.json';
+import libraries from '../src/generated/libraries.json';
 import packageJson from '../package.json';
 
 const dependencies = Object.keys({
@@ -63,6 +63,6 @@ Object.keys(libraries)
 
 export default (): void =>
     fs.writeFileSync(
-        './src/libraries.json',
+        './src/generated/libraries.json',
         JSON.stringify(librariesSorted, null, 4)
     );

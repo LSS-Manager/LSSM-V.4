@@ -20,7 +20,7 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
-        donate: 'donate voluntarily',
+        donate: 'Wesprzyj dobrowolnie',
         appendableList: {
             unique: {
                 title: 'podwójna wartość',
@@ -710,8 +710,8 @@ export default {
             color: '#990000',
             coins: 8,
             credits: 15_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
+            minPersonnel: 1,
+            maxPersonnel: 3,
             possibleBuildings: [0, 18],
         },
         62: {

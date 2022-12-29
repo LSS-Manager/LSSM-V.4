@@ -1698,7 +1698,15 @@ export default Vue.extend<
             buildings: 'buildingsById',
             allianceBuildings: 'allianceBuildingsById',
             vehiclesByBuilding: 'vehiclesByBuilding',
-            allSchoolings: store => store.alliance_schoolings.result,
+            allSchoolings(store) {
+                const allianceSchoolings = store.alliance_schoolings.result;
+                const allianceSchoolingIds = allianceSchoolings.map(s => s.id);
+                return allianceSchoolings.concat(
+                    store.schoolings.result.filter(
+                        s => !allianceSchoolingIds.includes(s.id)
+                    )
+                );
+            },
         }),
         attributedBuildings() {
             const smallBuildings = this.$t(

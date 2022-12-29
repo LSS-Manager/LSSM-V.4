@@ -38,6 +38,10 @@
             "description": "Pokazuje minimalną i maksymalną ilość osób wymaganych na posterunku.",
             "title": "Wymagania dotyczące personelu"
         },
+        "renewAllStagingAreas": {
+            "description": "Zresetuj wszystkie obszary tymczasowe jednym kliknięciem z poziomu dowolnego obszaru tymczasowego.",
+            "title": "Zresetuj wszystkie obszary tymczasowe"
+        },
         "schoolingSummary": {
             "description": "Pokazuje ile osób przeszło dane szkolenie na liści pracowników.",
             "title": "Podsumowanie personelu"
