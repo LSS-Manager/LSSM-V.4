@@ -4125,12 +4125,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cloc@npm:2.10.0":
-  version: 2.10.0
-  resolution: "cloc@npm:2.10.0"
+"cloc@npm:2.11.0":
+  version: 2.11.0
+  resolution: "cloc@npm:2.11.0"
   bin:
     cloc: lib/cloc
-  checksum: edccb7bfc2a3c7a540ee8847afe2e1930c645cc142fc6e4f69659bd1a4b3ea13067670db0f22427f7d2a2f51cb723dca37390ea4b1a6afba55ed4e72b868f7ce
+  checksum: 5463b6332a0357a3005e7c1df729a358289f15a91dfdd395c1ff90dcf070fd98a39007f7b97ffc75b54570c67ee259ad4fa387a79196f228c68a58c5b5209a91
   languageName: node
   linkType: hard
 
@@ -6765,7 +6765,7 @@ __metadata:
     "@vuepress/plugin-pwa-popup": 2.0.0-beta.60
     "@vuepress/plugin-register-components": 2.0.0-beta.60
     "@vuepress/plugin-search": 2.0.0-beta.60
-    cloc: 2.10.0
+    cloc: 2.11.0
     moment: 2.29.4
     octokit: 2.0.10
     showdown: 2.1.0
