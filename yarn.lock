@@ -2070,19 +2070,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/i18n-js@npm:3.8.3":
-  version: 3.8.3
-  resolution: "@types/i18n-js@npm:3.8.3"
-  checksum: d6cac1cf662db5a2eb3364d439fbaedc92365feb0160b9434701e27cf54cd0de63c4660739cc8eb60b4d69a2d566bc97789ae9b3141779c446bf15ac87990bef
+"@types/i18n-js@npm:3.8.4":
+  version: 3.8.4
+  resolution: "@types/i18n-js@npm:3.8.4"
+  checksum: a8e7f0324f4d376bbcc79991e7e599653c35c20b3f265ab4d8aee96e3f67c2878158e65f5f4fa6b360ff782782378ca2a2d527567c2efbb2eb066ddc79856e95
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.14":
-  version: 3.5.14
-  resolution: "@types/jquery@npm:3.5.14"
+"@types/jquery@npm:3.5.16":
+  version: 3.5.16
+  resolution: "@types/jquery@npm:3.5.16"
   dependencies:
     "@types/sizzle": "*"
-  checksum: 159d6f804ed1a204b3f79f2d591a271d82e866bd45bd49fb6ef40561a25dbe0f47ec7815681b44cc2db5598425f72811e7e80ab0e983d980470998ac56feb375
+  checksum: 13c995f15d1c2f1d322103dc1cb0a22b95eecc3e7546f00279b8731aea21d7ec04550af40e609ee48e755d4e11bf61c25b4aa9f53df3bcbec4b8fe8e81471732
   languageName: node
   linkType: hard
 
@@ -2242,10 +2242,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tampermonkey@npm:4.0.5":
-  version: 4.0.5
-  resolution: "@types/tampermonkey@npm:4.0.5"
-  checksum: 8f7f7b80c412d807863018eed34075eca668580923097e74a97ad89e87768051ca58d26f27a6f0c776c4ef6f4b4b5e33c8388bf42aaa05c5752d34f667331da0
+"@types/tampermonkey@npm:4.0.6":
+  version: 4.0.6
+  resolution: "@types/tampermonkey@npm:4.0.6"
+  checksum: a17cee99af4c4afb1395b7ba8817d842b723281fab2849631320e1349e9b9e594b953f72f5a810d45f6216c25bf4b4492867251af0d2d2d2f7834755107ba539
   languageName: node
   linkType: hard
 
@@ -6309,8 +6309,8 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": 6.2.1
     "@fortawesome/vue-fontawesome": 2.0.9
     "@types/he": 1.1.2
-    "@types/i18n-js": 3.8.3
-    "@types/jquery": 3.5.14
+    "@types/i18n-js": 3.8.4
+    "@types/jquery": 3.5.16
     "@types/js-yaml": 4.0.5
     "@types/leaflet": 1.9.0
     "@types/lodash": 4.14.191
@@ -6320,7 +6320,7 @@ __metadata:
     "@types/qrcode": 1.5.0
     "@types/semver": 7.3.13
     "@types/showdown": 2.0.0
-    "@types/tampermonkey": 4.0.5
+    "@types/tampermonkey": 4.0.6
     "@types/ua-parser-js": 0.7.36
     "@types/vue-select": 3.16.2
     "@types/webpack-env": 1.18.0
