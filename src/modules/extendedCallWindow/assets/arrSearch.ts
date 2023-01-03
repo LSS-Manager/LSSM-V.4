@@ -94,7 +94,7 @@ export default (
                 .join('');
             hideSelector = `.aao_searchable${notAttributesSelector}`;
             hideStyle.textContent = `
-                ${hideSelector}, ${hideSelector}${notAttributesSelector} + br {
+                ${hideSelector}, ${hideSelector} + br {
                     display: none;
                 }`;
             if (dissolveCategories) {
