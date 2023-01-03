@@ -6,7 +6,7 @@ Links that are sent (eg. in chat, forum, messages, etc.) are able to be clicked.
 
 ## Image Preview
 
-*Only works in combination with 'Make Links Clickable'*
+*Only works in combination with `Make Links Clickable`*
 
 This tries to generate a preview of image links sent in chat. 
 
