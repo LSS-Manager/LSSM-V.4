@@ -6,6 +6,7 @@ set -e
 
 
 # default values of variables set from params
+NODE=false
 YARN_SETUP=false
 VERSIONS=false
 YARN_INSTALL=false
@@ -26,6 +27,7 @@ MODE="development"
 
 while :; do
     case "${1-}" in
+        --node) NODE=true ;;
         --yarn_setup) YARN_SETUP=true ;;
         --versions) VERSIONS=true ;;
         --yarn_install) YARN_INSTALL=true ;;
@@ -54,6 +56,7 @@ while :; do
           TSC=true
           WEBPACK=true ;;
         --full)
+          NODE=true
           YARN_SETUP=true
           VERSIONS=true
           YARN_INSTALL=true
@@ -81,12 +84,27 @@ done
 
 total_start_time=$(date +%s%N)
 
+NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')
+YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
+REF=$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)
+
+# [⬆️] Setup Node.js
+if [[ $NODE = true ]]; then
+    start_time=$(date +%s%N)
+    echo "### [⬆️] Setup Node.js ###"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install "$NODE_VERSION"
+    end_time=$(date +%s%N)
+    echo "=== [⬆️] Setup Node.js: $(((end_time - start_time) / 1000000))ms ==="
+fi
+
 # [⬆] retrieve current specified yarn version
 if [[ $YARN_SETUP = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] retrieve current specified yarn version ###"
     corepack enable
-    yarn set version "$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
+    yarn set version "$YARN_VERSION"
     end_time=$(date +%s%N)
     echo "=== [⬆] retrieve current specified yarn version: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -122,7 +140,7 @@ fi
 if [[ $ENV = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🌳] set env variables ###"
-    ref="$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)"
+    ref="$REF"
     BRANCH="dummy"
     
     if [[ $ref == "refs/heads/master" ]]; then

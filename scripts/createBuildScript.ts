@@ -11,6 +11,8 @@ interface Workflow {
     };
 }
 
+type Job = Workflow['jobs']['build']['steps'][0];
+
 const excludedSteps = [
     'get_node_yarn_versions',
     'yarn_cache_dir',
@@ -35,15 +37,26 @@ set -e`,
 ];
 
 try {
-    const doc = yaml.load(
+    const workflow = yaml.load(
         fs.readFileSync(
             path.join(__dirname, '..', '.github', 'workflows', 'build.yml'),
             'utf8'
         )
     ) as Workflow;
 
-    const steps = doc.jobs.build.steps.filter(
-        step => step.run && !excludedSteps.includes(step.id ?? '')
+    const steps = [
+        {
+            name: '[⬆️] Setup Node.js',
+            run:
+                'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n' +
+                '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"\n' +
+                'nvm install "$NODE_VERSION"',
+            id: 'node',
+        } as Job,
+    ].concat(
+        workflow.jobs.build.steps.filter(
+            step => step.run && !excludedSteps.includes(step.id ?? '')
+        )
     );
     const stepIds = steps.map(step => step.id ?? '');
 
@@ -73,6 +86,9 @@ ${Object.entries(shortcuts)
     shift
 done`,
         'total_start_time=$(date +%s%N)',
+        "NODE_VERSION=$(grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')\n" +
+            "YARN_VERSION=$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')\n" +
+            'REF=$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)',
         ...steps.map(step =>
             [
                 `# ${step.name}`,
@@ -90,19 +106,10 @@ done`,
             .replace(/\n/gu, '\n    ')
             .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
             .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
-            .replace(
-                /\$\{\{ env\.NODE_VERSION \}\}/gu,
-                "grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]'"
-            )
-            .replace(
-                /\$\{\{ env\.YARN_VERSION \}\}/gu,
-                "$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
-            )
+            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$NODE_VERSION')
+            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$YARN_VERSION')
             .replace(/\$\{\{ inputs\.label \}\}/gu, '🦄 branch label')
-            .replace(
-                /\$\{\{ (github|inputs)\.ref \}\}/gu,
-                '$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)'
-            ) ?? ''
+            .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
     }
     end_time=$(date +%s%N)
     echo "=== ${step.name}: $(((end_time - start_time) / 1000000))ms ==="
