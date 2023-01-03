@@ -100,14 +100,14 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     echo "=== [⬆️] Setup Node.js: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
-# [⬆] retrieve current specified yarn version
+# [⬆] setup yarn
 if [[ $_RUN_STEP_YARN_SETUP = true ]]; then
     start_time=$(date +%s%N)
-    echo "### [⬆] retrieve current specified yarn version ###"
+    echo "### [⬆] setup yarn ###"
     corepack enable
     yarn set version "$YARN_VERSION"
     end_time=$(date +%s%N)
-    echo "=== [⬆] retrieve current specified yarn version: $(((end_time - start_time) / 1000000))ms ==="
+    echo "=== [⬆] setup yarn: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
 # [ℹ] print versions (node, yarn, git)
