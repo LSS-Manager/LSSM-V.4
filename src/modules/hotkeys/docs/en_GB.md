@@ -73,7 +73,7 @@ These will only work when you can see the map.
 ### LSSM
 
 * Open/Close LSSM menu
-  * Use `↑` and `↓` to navigate to a button, and `Enter` to select it.
+    * Use `↑` and `↓` to navigate to a button, and `Enter` to select it.
 
 ### Map
 

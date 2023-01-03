@@ -26,7 +26,7 @@ This will show the average earnings of that type of mission.
 
 ![Extended Call List](./missionList.png)
 
-## Collapse Missions 
+## Collapse Missions
 
 Allows you to collapse missions so they take up less room in your mission list.
 

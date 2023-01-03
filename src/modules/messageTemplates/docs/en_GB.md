@@ -8,7 +8,7 @@ These are messages to be inserted into the alliance chat. They won't be automati
 
 ## Templates
 
-These are templated for private messages, these support the variables. 
+These are templated for private messages, these support the variables.
 
 ![messages](./messages.png)
 

@@ -8,7 +8,7 @@ Links that are sent (eg. in chat, forum, messages, etc.) are able to be clicked.
 
 *Only works in combination with `Make Links Clickable`*
 
-This tries to generate a preview of image links sent in chat. 
+This tries to generate a preview of image links sent in chat.
 
 ::: warning Previews
 Only direct image links work!
@@ -91,4 +91,3 @@ This moves the location search into a small icon ontop of you map. Click on the 
 ### Position of Map Search
 
 Change where the search icon displays on the map.
-
