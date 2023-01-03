@@ -10,7 +10,7 @@ export default (async ({ LSSM }) => {
     if (header) {
         header.after(sdc);
         new LSSM.$vue({
-            store: LSSM.$store,
+            pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
                 h(dailyCreditssummary, {

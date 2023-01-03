@@ -1,4 +1,7 @@
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { OwnSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type { useRootStore } from '@stores/index';
+import type { useSettingsStore } from '@stores/settings';
 
 export interface OwnSchooling {
     end: number;
@@ -8,6 +11,8 @@ export interface OwnSchooling {
 }
 
 export interface OwnSchoolingTabs {
+    faCompressAlt: IconDefinition;
+    faExpandAlt: IconDefinition;
     heads: Record<
         string,
         {
@@ -20,6 +25,9 @@ export interface OwnSchoolingTabs {
     sort: 'end' | 'name' | 'owner';
     sortDir: string;
     all: string;
+    collapsed: boolean;
+    rootStore: ReturnType<typeof useRootStore>;
+    settingsStore: ReturnType<typeof useSettingsStore>;
 }
 
 export interface OwnSchoolingTabsComputed {
@@ -27,7 +35,11 @@ export interface OwnSchoolingTabsComputed {
 }
 
 export interface OwnSchoolingTabsMethods {
+    setTab(_: unknown, tab: number): void;
     setSorting(s: OwnSchoolingTabs['sort']): void;
+    toggleCollapse(): void;
+    getCountdownId(schooling: OwnSchooling): string;
+    initCountdowns(): void;
 }
 
 export interface OwnSchoolingTabsProps {

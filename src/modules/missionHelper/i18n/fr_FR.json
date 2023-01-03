@@ -3,6 +3,19 @@
     "expansions": "Extension | Extensions",
     "followups": "Mission à suivre | Missions à suivre",
     "generated_by": "Généré par",
+    "mission_categories": {
+        "ambulance": "Missions ambulancières",
+        "coastal_rescue": "Mission côtière",
+        "coastal_rescue_ocean": "Mission océanique",
+        "fire": "Missions incendie",
+        "fire_support_specialization": "Missions de feux chimiques et d'industrie (Spécialisation)",
+        "police": "Missions de police",
+        "riot_police": "Missions de maintien de l'ordre",
+        "title": "Catégories générées",
+        "water_rescue": "Missions nautiques",
+        "water_rescue_2": "Missions de garde-côte",
+        "water_rescue_specialization": "Missions nautiques (Spécialisation)"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
         "critical_care": "Probabilité qu'un médecin soit requis",
@@ -19,25 +32,29 @@
     "prerequisites": {
         "bereitschaftspolizei": "Compagnies de CRS",
         "brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
+        "coastal_helicopter_count": "Hangar pour hélicoptère",
+        "coastal_rescue": "Sauveteur aquatique",
+        "coastal_rescue_count": "Stations de Sauvetage",
+        "coastal_rescue_small_count": "Stations de Sauvetage ou Surveillance des plages",
         "fire_stations": "Caserne de pompier | Casernes de pompier",
         "fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
         "max_police_stations": "Postes de police max.",
         "max_rescue_stations": "Postes de secours max.",
+        "personnel_educations": "Personnel requis",
         "police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
         "police_stations": "Poste de police | Postes de police",
         "rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
         "rescue_stations": "Poste de secours | Postes de secours",
         "title": "Condition | Conditions",
         "wasserrettung": "Unité nautique",
-        "water_cannon": "Section des Moyens Spécialisés | Sections des Moyens Spécialisés"
+        "water_cannon": "Section des Moyens Spécialisés | Sections des Moyens Spécialisés",
+        "water_rescue_2": "Compagnies de Gendarmerie Maritime"
     },
     "prisoners": {
         "max_possible_prisoners": "Prisonniers max.",
         "title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
     },
-    "requirements": {
-        "water_needed": "Demande d'eau (litres)"
-    },
+    "requirements": { "water_needed": "Demande d'eau (litres)" },
     "tip": {
         "dragging": "glisser la fenêtre",
         "maxState": "exigences maximales on/off",
@@ -52,21 +69,30 @@
             "battalion_chief_vehicles": "Chefs de groupe",
             "boats": "Bateau | Bateaux",
             "brush_truck": "CCF",
+            "coastal_boat": "Canot de Sauvetage Léger",
+            "coastal_guard_boat": "Vedette Côtière de Surveillance Maritime",
+            "coastal_helicopter": "Dragon",
+            "coastal_rescue": "Buggy",
             "detention_unit": "VTP",
             "elw3": "VLHR",
             "firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
             "foam": "FMOGP",
+            "gw_taucher": "PLG (Plongeur)",
+            "gw_wasserrettung": "SAV (Sauvetage Aquatique)",
             "hazmat_vehicles": "Véhicule risques technologiques | Véhicule risques technologiques",
             "heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
+            "height_rescue_units": "VGRIMP",
             "helicopter": "Dragon",
             "hose": "Camion dévidoir",
             "k9": "Unité cynophile",
             "kdow_orgl": "PC DSM",
+            "ktw": "Ambulance Type A",
+            "large_coastal_boat": "CTT",
             "mobile_air_vehicles": "VAR | VAR",
             "mobile_command_vehicles": "VPC | VPC",
             "platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
             "police_cars": "Véhicule de patrouille | Véhicules de patrouille",
-            "police_helicopters": "soutien aérien FAG",
+            "police_helicopters": "Soutien aérien FAG",
             "pump": "Motopompe | Motopompes",
             "riot_police": "VR",
             "riot_police_command": "VCT",
@@ -93,16 +119,20 @@
             }
         },
         "optional_alternatives": {
-            "allow_arff_instead_of_lf": {
-                "firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+            "allow_dlk_instead_of_lf": {
+                "firetrucks": "Fourgon d’incendie ou EPA | Fourgons d’incendie ou EPA"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "ambulances": "Ambulance Type A ou Ambulance"
             },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Fourgon d’incendie ou VSR | Fourgons d’incendie ou VSR"
+            },
+            "allow_streifenwagen_instead_of_riot_police_van": {
+                "riot_police": "Véhicule de patrouille ou VR | Véhicules de patrouilles ou VR"
             }
         },
-        "patient_additionals": {
-            "8": "PC DSM"
-        },
+        "patient_additionals": { "8": "PC DSM" },
         "title": "Véhicules"
     }
 }

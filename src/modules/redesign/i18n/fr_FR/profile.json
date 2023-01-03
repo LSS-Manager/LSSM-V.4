@@ -14,9 +14,7 @@
         "title": "Trophée",
         "title_amounts": "{sum} sur {max} Trophée"
     },
-    "buildings": {
-        "amount": "{n} Bâtiments"
-    },
+    "buildings": { "amount": "{n} Bâtiments" },
     "buttons": {
         "alliance_ignore": {
             "add": "Interdire la demande d'alliance",
@@ -28,10 +26,7 @@
             "unban": "Débannir du chat de l'alliance"
         },
         "edit": "Modifier profil",
-        "friend": {
-            "do": "Ajouter comme ami",
-            "undo": "Supprimer l'ami"
-        },
+        "friend": { "do": "Ajouter comme ami", "undo": "Supprimer l'ami" },
         "gift": "Envoyer un cadeau",
         "ignore": {
             "do": "Ignorer le joueur",

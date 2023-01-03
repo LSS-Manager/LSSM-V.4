@@ -1,8 +1,6 @@
 {
     "404": {
-        "general": {
-            "home": "Naar de startpagina"
-        },
+        "general": { "home": "Naar de startpagina" },
         "modules": {
             "content": "Beste gebruiker,\n\nBedankt voor je intresse in de wiki pagina van {{module}}! Helaas bestaat er nog geen pagina voor deze pagina voor jouw taal {{lang}}. Indien je wilt helpen door deze pagina toe te voegen, voel je vrij om deze pagina toe te voegen op {{github}}! We adviseren om een kijkje te nemen bij de andere talen voor voorbeelden {{docs_dir}}.",
             "languages": "Deze module heeft al een Wiki pagina in de volgende talen:",
@@ -15,6 +13,7 @@
         "tip": "Tip",
         "warning": "Waarschuwing"
     },
+    "contributing": "Contributing",
     "description": "De Wiki voor LSS-Manager V.4",
     "edit": "Bewerk pagina",
     "footer": {
@@ -30,16 +29,16 @@
     },
     "moment": {
         "shorts": {
+            "l": "Datum zonder nullen",
             "L": "Datum met nullen",
+            "ll": "Datum met korte maand als woord",
             "LL": "Datum met maand als woord",
+            "lll": "Datum met korte maand als woord en tijd",
             "LLL": "Datum met maand als woord en tijd",
+            "llll": "Volledige datum in verkorte vorm met tijd",
             "LLLL": "Volledige datum met tijd",
             "LT": "Tijd",
-            "LTS": "Tijd met seconden",
-            "l": "Datum zonder nullen",
-            "ll": "Datum met korte maand als woord",
-            "lll": "Datum met korte maand als woord en tijd",
-            "llll": "Volledige datum in verkorte vorm met tijd"
+            "LTS": "Tijd met seconden"
         },
         "titles": {
             "shorts": {
@@ -48,7 +47,6 @@
                 "variable": "Korte vorm"
             },
             "variables": {
-                "Variable": "Variabele",
                 "ampm": "AM / PM",
                 "category": "Categorie",
                 "description": "Beschrijving",
@@ -61,15 +59,13 @@
                 "output": "Uitkomst",
                 "quarter": "Kwartaal",
                 "second": "Seconde",
+                "Variable": "Variabele",
                 "week": "Kalenderweek",
                 "year": "Jaar"
             }
         },
         "variables": {
-            "ampm": {
-                "A": "AM / PM",
-                "a": "am / pm"
-            },
+            "ampm": { "a": "am / pm", "A": "AM / PM" },
             "dom": {
                 "D": "Dag in maand",
                 "DD": "Dag in maand (met nullen)",
@@ -88,15 +84,12 @@
                 "DDDo": "Dag in jaar (met punt)"
             },
             "hour": {
-                "H": "Uur (24h)",
-                "HH": "Uur (24h, met nullen)",
                 "h": "Uur (12h)",
-                "hh": "Uur (12h, met nullen)"
+                "H": "Uur (24h)",
+                "hh": "Uur (12h, met nullen)",
+                "HH": "Uur (24h, met nullen)"
             },
-            "minute": {
-                "m": "Minuut",
-                "mm": "Minuut (met nullen)"
-            },
+            "minute": { "m": "Minuut", "mm": "Minuut (met nullen)" },
             "month": {
                 "M": "Actuele maand (Getal)",
                 "MM": "Actuele maand (Getal met nullen)",
@@ -121,10 +114,7 @@
                 "Q": "Actueel kwartaal",
                 "Qo": "Actueel kwartaal (met punt)"
             },
-            "second": {
-                "s": "Seconde",
-                "ss": "Seconde (met nullen)"
-            },
+            "second": { "s": "Seconde", "ss": "Seconde (met nullen)" },
             "week": {
                 "w": "Kalenderweek",
                 "wo": "Kalenderweek (met punt)",
@@ -136,15 +126,9 @@
             }
         }
     },
-    "pwa": {
-        "button": "Ververs",
-        "message": "Nieuwe content is beschikbaar."
-    },
+    "pwa": { "button": "Ververs", "message": "Nieuwe content is beschikbaar." },
     "readme": {
-        "serverStatus": {
-            "game": "Spel status",
-            "lssm": "LSSM server status"
-        }
+        "serverStatus": { "game": "Spel status", "lssm": "LSSM server status" }
     },
     "search": "Zoek in Wiki",
     "tables": {
@@ -154,7 +138,88 @@
         "minVersion": "minimum versie"
     },
     "v3": {
-        "modules": {},
+        "modules": {
+            "AaoSearch": { "v3Name": "AUR-zoekfuncties" },
+            "aaoZaehler": { "v3Name": "AUR-Klik-Teller" },
+            "allianceMissionlistShare": { "v3Name": "Meldingen vrijgeven" },
+            "Center-Map": { "v3Name": "Kaart Centreren" },
+            "centermap": {
+                "annotation": "Hier is momenteel alleen de statische modus ingebouwd. De dynamische modus zal volgen.",
+                "v3Name": "Kaart Centreren"
+            },
+            "Clock": { "v3Name": "Klok" },
+            "creditserweiterung": { "v3Name": "Credits-uitbreiding" },
+            "dashboard": { "v3Name": "Dashboard" },
+            "DestinationFilter": {
+                "annotation": "Dit is reeds geïntegreerd in het Redesign voor voertuigen, maar zal ook als afzonderlijke module in V4 worden geïntegreerd.",
+                "v3Name": "Bestemming Filter"
+            },
+            "displayUserId": { "v3Name": "User-ID" },
+            "DoctorRadioCall": { "v3Name": "Spraakaanvraag voor MMT" },
+            "Eventsmission": { "v3Name": "Markeer Eventinzetten" },
+            "extendedBuilding": { "v3Name": "Uitgebreide bouwweergave" },
+            "FMS5InMap": { "v3Name": "Spraakaanvragen op de kaart weergeven" },
+            "fms7Target": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "fms7Target"
+            },
+            "geoBorders": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "geoBorders"
+            },
+            "heatmap": { "v3Name": "Voertuigspreiding weergeven" },
+            "iconFilter": { "v3Name": "Redesign Filterknoppen Gebouwen" },
+            "keyboardAlert": { "v3Name": "Besturing met toetsenbord" },
+            "Layout01": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 01"
+            },
+            "Layout02": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 02"
+            },
+            "Layout03": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 03"
+            },
+            "Layout04": {
+                "annotation": "Wij willen een module aanbieden voor vele lay-outs die u ook zelf kunt aanpassen.",
+                "v3Name": "Layout 04"
+            },
+            "missionDate": { "v3Name": "Begintijd melding weergeven" },
+            "missionHelper": { "v3Name": "Meldinghelper" },
+            "missionKeyword": { "v3Name": "Steekwoorden bij meldingen" },
+            "MissionOut": { "v3Name": "Meldingen inklappen" },
+            "Notification_Alert": { "v3Name": "Browsermeldingen" },
+            "overview": { "v3Name": "Overzicht" },
+            "Redesign01": { "v3Name": "Redesign 01" },
+            "releaseNotes": { "v3Name": "Release Notes" },
+            "RenameFZ": { "v3Name": "Voertuigen herbenoemen" },
+            "saveVGE": { "v3Name": "Zelfgemaakte inzetten opslaan." },
+            "searchMissions": { "v3Name": "Meldingen doorzoeken" },
+            "ShareAlliancePost": { "v3Name": "Alarmeren, delen & Posten" },
+            "showBackAlarmAbove": { "v3Name": "Extra annuleerknop" },
+            "showChatButtonAbove": { "v3Name": "Toon boven chat-knop" },
+            "showNotTransportButtonAbove": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "showNotTransportButtonAbove"
+            },
+            "statusCount": { "v3Name": "Statusteller" },
+            "statusDispatching": { "v3Name": "Verbeterde spraakaanvragen" },
+            "sumDailyMissions": {
+                "v3Name": "Totaalweergave in dagsamenvatting"
+            },
+            "tailoredTabs": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "tailoredTabs"
+            },
+            "verbandsverwaltung": { "v3Name": "Team-uitbreiding" },
+            "WachenHoverStati": { "v3Name": "oertuigstatus bij gebouwen" },
+            "WachenplanungOnMap": {
+                "annotation": "In V3 alleen beschikbaar in de Duitse versie.",
+                "v3Name": "WachenplanungOnMap"
+            }
+        },
         "tables": {
             "annotations": "Notities",
             "changes": "Wijzigingen",

@@ -1,0 +1,193 @@
+{
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "zobrazit nové žádosti o přijetí",
+                "buildings": "zobrazit přehled aliančních budov",
+                "forum": "zobrazit diskuzi",
+                "funds": "zobrazit alianční prostředky",
+                "logfiles": "zobrazit protokol",
+                "members": "zobrazit členy aliance",
+                "messages": "zobrazit zprávy",
+                "onlineMembers": "zobrazit členy aliance (pouze online)",
+                "open": "zobrazit alianční okno",
+                "schoolings": "zobrazit školící okno",
+                "title": "Aliance"
+            },
+            "credits": {
+                "daily": "zobrazit shrnutí dne",
+                "open": "zobrazit transakce",
+                "overview": "zobrazit přehled za posledních 7 dní",
+                "title": "Kredity"
+            },
+            "help": "Otevřít nápovědu",
+            "profile": {
+                "awards": "zobrazit přehled ocenění",
+                "level": "zobrazit přehled hodností",
+                "notes": "zobrazit poznámky",
+                "open": "zobrazit vlastní profil",
+                "title": "Profil"
+            },
+            "protocol": "zobrazit protokol v operačním středisku",
+            "tasks": {
+                "open": "zobrazit přehled aktuálních úkolů",
+                "title": "Úkoly a události"
+            },
+            "title": "Všeobecné"
+        },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
+            "dispatch": {
+                "buildings": "buildings tab",
+                "extensions": "extensions tab",
+                "next": "next tab",
+                "openFirstPlannedMission": "Open first planned mission",
+                "patrol": "patrol tab",
+                "patrol_vehicles": "patrol vehicles tab",
+                "plannedMission": "planned mission tab",
+                "previous": "next tab",
+                "protocol": "protocol tab",
+                "schooling": "schooling tab",
+                "settings": "settings tab",
+                "stats": "stats tab",
+                "vehicle": "vehicle tab"
+            },
+            "goto": {
+                "dispatchCenter": "dispatch center",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Next Building",
+                "personal": "personal overview",
+                "previousBuilding": "Previous building",
+                "title": "go to"
+            },
+            "title": "Building"
+        },
+        "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
+            "chat": { "focus": "zakliknout chatové pole", "title": "Chat" },
+            "lssm": {
+                "menu": { "title": "Menu", "toggle": "Otevřít / Zavřít" },
+                "title": "LSSM"
+            },
+            "map": {
+                "move": {
+                    "down": "dolu",
+                    "left": "doleva",
+                    "right": "doprava",
+                    "title": "Posunout",
+                    "up": "nahoru"
+                },
+                "search": {
+                    "focus": "zakliknout hledací pole",
+                    "title": "Vyhledat lokalitu"
+                },
+                "title": "Mapa",
+                "zoom": {
+                    "in": "Přiblížit",
+                    "out": "Oddálit",
+                    "title": "Přiblížení"
+                }
+            },
+            "missionlist": {
+                "eclSort": {
+                    "open": "Otevřít výběr řazení",
+                    "title": "Řazení misí"
+                },
+                "search": {
+                    "focus": "zakliknout hledací pole",
+                    "title": "Hledat"
+                },
+                "title": "Seznam misí"
+            },
+            "title": "Hlavní okno"
+        },
+        "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarm and go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
+            "sorted": {
+                "alert_next": "Výjezd a další mise",
+                "alert_share_next": "Výjezd, sdílení a další mise",
+                "next": "další mise",
+                "prev": "předchozí mise",
+                "title": "Seřazené mise"
+            },
+            "title": "Okno mise",
+            "transport_request": "Open first patient transport request",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "staff assignment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
+        }
+    },
+    "description": "Ovládejte hru pomocí klávesových zkratek, které si můžete nastavit.",
+    "name": "Klávesové zkratky",
+    "settings": {
+        "command": "Akce",
+        "hotkey": "Klávesa",
+        "hotkeys": {
+            "description": "Nastavte si vlastní klávesové zkratky pro dostupné akce. Akce z kategorie \"Všeobecné\" jsou dostupné kdekoliv ve hře. Stisknutím klávesy F1 zobrazíte přehled aktuálně nastavených klávesových zkratek.",
+            "title": "Klávesové zkratky"
+        }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
+}

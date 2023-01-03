@@ -44,10 +44,8 @@
         "top right": "In alto a destra 🡥"
     },
     "settings": {
+        "alerts": { "title": "Imposta notifiche" },
         "alertStyle": "Tipo di notifica in-game",
-        "alerts": {
-            "title": "Imposta notifiche"
-        },
         "desktop": "Invia notifica desktop",
         "duration": "Visualizza la durata",
         "eventTypes": "Eventi",

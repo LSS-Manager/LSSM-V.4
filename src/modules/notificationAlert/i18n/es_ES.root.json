@@ -44,10 +44,8 @@
         "top right": "Arriba a la derecha 🡥"
     },
     "settings": {
+        "alerts": { "title": "Establecer notificaciones" },
         "alertStyle": "Tipo de notificación en el juego",
-        "alerts": {
-            "title": "Establecer notificaciones"
-        },
         "desktop": "Enviar notificación de escritorio",
         "duration": "Duración de la visualización",
         "eventTypes": "Eventos",

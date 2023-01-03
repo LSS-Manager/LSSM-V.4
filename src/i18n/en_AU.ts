@@ -1,5 +1,3 @@
-// import { Building } from 'typings/Building';
-
 const modules = {
     appstore: {
         save: 'Save',
@@ -22,6 +20,7 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        donate: 'donate voluntarily',
         appendableList: {
             unique: {
                 title: 'double value',
@@ -63,80 +62,6 @@ const modules = {
 
 export default {
     modules,
-    error: {
-        title: 'LSS Manager: Error',
-        msg: 'If this error occurs frequently, please report it to the LSSM team!',
-        requestIssue: {
-            title: 'Erroneous request: Status {status}',
-            text: `Ouch, unfortunately an error occurred with this server request:<br>
-<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
-<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
-<b>Feature</b>: <code>{feature}</code><br>
-<b>Duration</b>: <code>{duration}ms</code><br>
-<b>User</b>: <code>{uid}</code><br>
-<b>Timestamp</b>: <code>{timestamp}</code>
-<br>
-Please try to perform the desired action again.<br>
-If several requests fail in a short time, this could be due to server problems. Please try again at a later time.`,
-            close: 'Dismiss',
-        },
-    },
-    warnings: {
-        version: {
-            title: 'Wrong LSS Manager version',
-            text: 'Dear user, unfortunately we had to discover that you do not have the latest version of LSS Manager. The latest version is {version}, but you have {curver} first. Please reload the game without cache (with Ctrl + F5, on Apple devices command + R), this should fix the bug. If the error persists, please report it to the team! If you use a wrong version we cannot guarantee the full functionality of the LSS-Manager.',
-            close: 'Close message and reload game (recommended)',
-            abort: 'Close message without reloading game',
-        },
-    },
-    anniversary1: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
-        title: '🎉 There is reason to celebrate! 🎉',
-        content:
-            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
-    },
-    globalSettings: {
-        name: 'General Settings',
-        labelInMenu: {
-            title: 'Label instead of icon in menu',
-            description:
-                'Displays a simple label in the navigation bar instead of the LSSM logo',
-        },
-        allowTelemetry: {
-            description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
-        },
-        iconBg: {
-            description: 'Change the background of LSSM-Icon!',
-            title: 'LSSM-Icon Background',
-        },
-        iconBgAsNavBg: {
-            description:
-                'Color the whole navbar in the color of LSSM-Icon Background!',
-            title: 'colorize navbar',
-        },
-        loadingIndicator: {
-            description:
-                'If this setting is active, LSSM displays a small loading circle in the lower right corner when it loads its own files.',
-            title: 'show loading progress',
-        },
-        osmDarkTooltip: {
-            description:
-                'This setting darkens tooltips on map if you have enabled dark mode.',
-            title: 'Dark tooltips on map',
-        },
-        osmDarkControls: {
-            description:
-                'This setting darkens buttons on map if you have enabled dark mode.',
-            title: 'Dark buttons on map',
-        },
-        v3MenuAsSubmenu: {
-            title: 'V3 Menu as sub-menu',
-            description:
-                'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
-        },
-    },
     vehicles: {
         0: {
             caption: 'Pumper',
@@ -144,7 +69,7 @@ If several requests fail in a short time, this could be due to server problems. 
             coins: 25,
             credits: 5000,
             minPersonnel: 1,
-            maxPersonnel: 6,
+            maxPersonnel: 5,
             wtank: 2000,
             possibleBuildings: [0, 18],
         },
@@ -154,17 +79,17 @@ If several requests fail in a short time, this could be due to server problems. 
             coins: 25,
             credits: 5000,
             minPersonnel: 1,
-            maxPersonnel: 2,
-            wtank: 1800,
+            maxPersonnel: 5,
+            wtank: 3000,
             possibleBuildings: [0, 18],
         },
         2: {
-            caption: 'Turntable Ladder',
+            caption: 'Ladder Platform',
             color: '#d92626',
             coins: 30,
             credits: 10_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special: 'Required once you have built 3 firehouses',
         },
@@ -203,7 +128,7 @@ If several requests fail in a short time, this could be due to server problems. 
             coins: 25,
             credits: 17_300,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 2,
             wtank: 11_000,
             possibleBuildings: [0, 18],
             special: 'Required once you have built 7 firehouses',
@@ -214,7 +139,7 @@ If several requests fail in a short time, this could be due to server problems. 
             coins: 25,
             credits: 17_300,
             minPersonnel: 1,
-            maxPersonnel: 6,
+            maxPersonnel: 5,
             possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
@@ -256,7 +181,7 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 11_680,
             coins: 25,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 5,
             possibleBuildings: [0, 18],
             special: 'Required from 5 fire stations',
         },
@@ -286,7 +211,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a MRU and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pumper acts as a MRU and a Fire Truck.',
         },
         13: {
             caption: 'Aerial Pumper',
@@ -294,7 +219,7 @@ If several requests fail in a short time, this could be due to server problems. 
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
-            maxPersonnel: 6,
+            maxPersonnel: 5,
             possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Turntable Ladder and a Fire Truck.',
@@ -401,7 +326,7 @@ If several requests fail in a short time, this could be due to server problems. 
             maxPersonnel: 6,
             possibleBuildings: [15],
             schooling: {
-                'Fire Station': {
+                'SES & Water Rescue': {
                     'SES Water Rescue': {
                         all: true,
                     },
@@ -416,7 +341,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [15],
-            special: 'SES Vehicle is the towing vehicle',
+            special: 'SES Vehicle & SES Rescue Truck Are the towing vehicles',
         },
         22: {
             caption: 'Mounted Police',
@@ -516,7 +441,7 @@ If several requests fail in a short time, this could be due to server problems. 
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 500,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         29: {
             caption: 'Light Tanker',
@@ -525,8 +450,8 @@ If several requests fail in a short time, this could be due to server problems. 
             credits: 8000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 3000,
-            possibleBuildings: [0],
+            wtank: 1800,
+            possibleBuildings: [0, 18],
         },
         30: {
             caption: 'Pumper Tanker',
@@ -534,7 +459,7 @@ If several requests fail in a short time, this could be due to server problems. 
             coins: 15,
             credits: 19_000,
             minPersonnel: 4,
-            maxPersonnel: 6,
+            maxPersonnel: 5,
             wtank: 3000,
             possibleBuildings: [0, 18],
         },
@@ -641,474 +566,70 @@ If several requests fail in a short time, this could be due to server problems. 
                 },
             },
         },
-    },
-    buildings: {
-        0: {
-            caption: 'Fire station',
-            color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Ambulance extension',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Bushfire Expansion',
-                    credits: 50_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '6.000 together with small fire stations',
-            maxLevel: 16,
-            special:
-                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
-            startPersonnel: 10,
-            startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
-            schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Fire academy',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Additional classroom',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Days',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        2: {
-            caption: 'Ambulance station',
-            color: '#ffa500',
-            coins: 35,
-            credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 16,
+        38: {
+            caption: 'VMR Quad',
+            color: '#22997d',
+            coins: 10,
+            credits: 5000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [24],
             special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulance'],
-            schoolingTypes: ['Rescue'],
         },
-        3: {
-            caption: 'Paramedic Training Centre',
-            color: '#ffa501',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Additional classroom',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Days',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) Paramedic Training Centre with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        4: {
-            caption: 'Hospital',
-            color: '#bbe944',
+        39: {
+            caption: 'VMR Boat',
+            color: '#22997d',
             coins: 25,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'General Internal',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
+            credits: 45_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [24],
+            schooling: {
+                'SES & Water Rescue': {
+                    'Ocean Navigation': {
+                        min: 1,
+                    },
+                    'Boat Captain Training': {
+                        min: 1,
+                    },
                 },
-                {
-                    caption: 'General Surgeon',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Gynecology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Urology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Traumatology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Neurology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Neurosurgery',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cardiology',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cardiac Surgery',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
-            maxBuildings: 'No limit',
-            maxLevel: 20,
-            special:
-                'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
-            startPersonnel: 0,
-            startVehicles: [],
+            },
         },
-        5: {
-            caption: 'Air Ambulance Station',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'see specials',
-            maxLevel: 0,
-            special:
-                'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 0,
-            startVehicles: [],
-            schoolingTypes: ['Rescue'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        6: {
-            caption: 'Police Station',
-            color: '#007700',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Prison cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                },
-                ...new Array(9).fill({
-                    caption: 'Additional cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                }),
-                {
-                    caption: 'Riot Police Extension',
-                    credits: 100_000,
-                    coins: 15,
-                    duration: '5 Days',
-                },
-                {
-                    caption: "Senior Sergeant's Office",
-                    credits: 200_000,
-                    coins: 25,
-                    duration: '7 Days',
-                },
-                {
-                    caption: "Additional Senior Sergeant's Offices",
-                    credits: 150_000,
-                    coins: 20,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '1.700 together with small police stations',
-            maxLevel: 16,
-            special:
-                'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
-            startPersonnel: 2,
-            startVehicles: ['Police Car'],
-            schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        7: {
-            caption: 'Dispatch Center',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'All 25 buildings one control center',
-            maxLevel: 0,
-            special: 'The control center is the administrative center.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        8: {
-            caption: 'Police Academy',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Additional classroom',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Days',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        13: {
-            caption: 'Police Air Wing',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
-            maxBuildings: 'see specials',
-            maxLevel: 1,
-            special:
-                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 3,
-            startVehicles: [],
-            schoolingTypes: ['Police'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        14: {
-            caption: 'Staging area',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 4,
-            maxLevel: 0,
-            special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 4,
-        },
-        15: {
-            caption: 'SES Unit',
-            color: '#7fffd4',
-            coins: 50,
-            credits: 500_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
-            maxBuildings: 'No Limit',
-            maxLevel: 5,
-            special: 'You will get 10 people and an SES vehicle for free.',
-            startPersonnel: 10,
-            startVehicles: ['SES Vehicle'],
-            schoolingTypes: ['Fire Station'],
-        },
-        16: {
-            caption: 'Police Lockup',
-            coins: 'x',
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Prison cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                },
-                ...new Array(9).fill({
-                    caption: 'Additional cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No limit',
-            maxLevel: 0,
-            special:
-                "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        18: {
-            caption: 'Fire Station (Small) ',
-            color: '#aa1111',
+        40: {
+            caption: 'SES Rescue Truck',
+            color: '#105d36',
             coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Bushfire Expansion',
-                    credits: 50_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: '6.000 together with fire stations',
-            maxLevel: 5,
-            special:
-                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
-            startPersonnel: 10,
-            startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
-            schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (): number => 6000,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [15],
+            special: 'Acts a MRV',
         },
-        19: {
-            caption: 'Police Station (Small station)',
-            color: '#116611',
+        41: {
+            caption: 'SES Mobile Command',
+            color: '#791515',
             coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Prison cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
+            credits: 25_500,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [15],
+            schooling: {
+                'SES & Water Rescue': {
+                    'Mobile Command Training': {
+                        all: true,
+                    },
                 },
-                ...new Array(1).fill({
-                    caption: 'Additional cell',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Days',
-                }),
-                {
-                    caption: 'Riot Police Extension',
-                    credits: 100_000,
-                    coins: 15,
-                    duration: '5 Days',
-                },
-                {
-                    caption: "Senior Sergeant's Office",
-                    credits: 200_000,
-                    coins: 25,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: '1.700 mit Polizeiwachen zusammen',
-            maxLevel: 4,
-            special:
-                'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
-            startPersonnel: 2,
-            startVehicles: ['Police Car'],
-            schoolingTypes: ['Police'],
-            maxBuildingsFunction: (): number => 1700,
+            },
         },
-        20: {
-            caption: 'Ambulance Station (Small station)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: 'No limit',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulance'],
-            schoolingTypes: ['Rescue'],
-        },
-        21: {
-            caption: 'Large complex',
-            color: '#8B4513',
-            coins: 'Too Expensive',
-            credits: 'Too Expensive',
-            extensions: [],
-            levelcost: ['Too Expensive'],
-            maxBuildings: 'No Limit',
-            maxLevel: 5,
-            special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        22: {
-            caption: 'Small complex',
-            color: '#8B4513',
-            coins: 'Too Expensive',
-            credits: 'Too Expensive',
-            extensions: [],
-            levelcost: ['Too Expensive'],
-            maxBuildings: 'No Limit',
-            maxLevel: 5,
-            special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        23: {
-            caption: 'Fire Airbase',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_500_000,
-            extensions: [],
-            levelcost: ['1.-5. 1.000.000'],
-            maxBuildings: 'see specials',
-            maxLevel: 0,
-            special:
-                'Up to the 125th building (of all types) a total of max. 3 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 2,
-            startVehicles: ['Fire Helicopter'],
-            schoolingTypes: ['Fire Station'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 3
-                    : Math.floor(buildingsAmountTotal / 25),
+        42: {
+            caption: 'SES Storm Trailer',
+            color: '#105d36',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [15],
+            special: 'Can be towed by SES Vehicle or SES Rescue Truck',
         },
     },
     buildingCategories: {
@@ -1124,8 +645,8 @@ If several requests fail in a short time, this could be due to server problems. 
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        'SES': {
-            buildings: [15],
+        'SES & Water Rescue': {
+            buildings: [15, 24],
             color: '#0000ff',
         },
         'Other': {
@@ -1134,39 +655,38 @@ If several requests fail in a short time, this could be due to server problems. 
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        'Fire Vehicles': {
             vehicles: {
-                'Fire trucks': [0, 1, 19],
-                'Bushfire': [28, 29, 30, 31, 32, 33],
-                'WaterTanker': [6],
-                'Special vehicles': [2, 3, 4, 7, 10, 11, 12, 13],
+                'Fire Trucks': [0, 1, 12, 13, 19, 30],
+                'Bush-Fire Units': [28, 29, 31, 32, 33],
+                'Special Vehicles': [2, 3, 4, 6, 7, 10, 11],
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        'Ambulance Vehicles': {
             vehicles: {
                 'Ambulances': [5],
-                'Air Ambulance': [9],
-                'Other Rescue Vehicles': [23, 24, 25, 26, 27],
+                'Intensive Care Vehicles': [9, 24, 25],
+                'Other Ambulance Vehicles': [23, 26, 27],
             },
             color: '#ffa500',
         },
         'Police Vehicles': {
             vehicles: {
-                'Police Car': [8],
+                'Police Cars': [8, 17],
                 'TOG': [15, 18],
-                'Police Motorcycle': [17],
-                'Police helicopter': [14],
+                'Police Helicopter': [14],
                 'K-9 Unit': [16],
                 'Mounted': [22],
-                'RIOT': [34, 35, 36],
+                'RIOT Units': [34, 35, 36],
                 'Senior Sergeant': [37],
             },
             color: '#00ac00',
         },
-        'SES': {
+        'SES & Water Rescue': {
             vehicles: {
-                SES: [20, 21],
+                SES: [20, 21, 40, 41, 42],
+                VMR: [38, 39],
             },
             color: '#02a18c',
         },
@@ -1176,25 +696,6 @@ If several requests fail in a short time, this could be due to server problems. 
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 15, 18, 19, 20, 23],
-    cellBuildings: [6, 19],
-    cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
-        '19_1',
-        '19_2',
-    ],
-    bedBuildings: [4],
-    schoolBuildings: [1, 3, 8],
-    dispatchCenterBuildings: [7],
     schoolings: {
         'Fire Station': [
             {
@@ -1210,11 +711,6 @@ If several requests fail in a short time, this could be due to server problems. 
             {
                 caption: 'ARFF-Training',
                 duration: '3 Days',
-            },
-            {
-                caption: 'SES Water Rescue',
-                duration: '4 Days',
-                staffList: 'SES Water Rescue',
             },
             {
                 caption: 'Ocean Navigation',
@@ -1275,6 +771,28 @@ If several requests fail in a short time, this could be due to server problems. 
                 staffList: 'Intensive Care Paramedic',
             },
         ],
+        'SES & Water Rescue': [
+            {
+                caption: 'Ocean Navigation',
+                duration: '5 Days',
+                staffList: 'Ocean Navigation',
+            },
+            {
+                caption: 'SES Rescue',
+                duration: '5 Days',
+                staffList: 'SES Rescue',
+            },
+            {
+                caption: 'Boat Captain Training',
+                duration: '5 Days',
+                staffList: 'Boat Captain Training',
+            },
+            {
+                caption: 'Mobile Command Training',
+                duration: '5 Days',
+                staffList: 'Mobile Command Training',
+            },
+        ],
     },
     amount: 'Quantity',
     search: 'Search',
@@ -1306,27 +824,6 @@ If several requests fail in a short time, this could be due to server problems. 
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'clinic-medical',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'helicopter',
-        'building',
-        '',
-        'ship',
-        'ship',
-        'fire',
-        'stethoscope',
-        'shield-alt',
-        'clinic-medical',
-        'plane',
-        'shield-alt',
-    ],
     pois: [
         'Park',
         'Lake',
@@ -1397,6 +894,8 @@ If several requests fail in a short time, this could be due to server problems. 
         'Campsite',
         'Cliff',
         'Sawmill',
+        'Mine',
+        'Beach',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

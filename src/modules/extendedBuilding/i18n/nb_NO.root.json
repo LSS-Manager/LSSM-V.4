@@ -6,13 +6,17 @@
             "description": "Viser i bygningene hvor mange av samme type.",
             "title": "Antall bygninger av samme type"
         },
-        "enhanceVehicleList": {
-            "description": "Utvider kjøretøylisten med nyttige funksjoner - noen av dem er justerbare.",
-            "title": "Utvid kjøretøylisten"
+        "dispatchCenterBuildingFilter": {
+            "description": "Adds some useful filters to the list of buildings in dispatch centers",
+            "title": "Filter for buildings in dispatch center"
         },
         "enhancedPersonnelAssignment": {
             "description": "Gir deg muligheten til å skjule personell uten riktig opplæring.",
             "title": "Forbedret personalfordeling"
+        },
+        "enhanceVehicleList": {
+            "description": "Utvider kjøretøylisten med nyttige funksjoner - noen av dem er justerbare.",
+            "title": "Utvid kjøretøylisten"
         },
         "expansions": {
             "description": "Viser utvidelsene til en bygning uten å måtte trykke på utvidelsesfanen først.",
@@ -34,21 +38,25 @@
             "description": "Viser hvor mye personell som kreves med minimum og maksimum kjøretøy.",
             "title": "Krav til personell"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Viser i personaloversikten til et bygg hvor mange personer som har hvilken(e) opplæring(er).",
             "title": "Personaloppsummering"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Spør om du virkelig ønsker å oppgradere bygget ditt.",
             "title": "Oppgrader bygningsadvarsel"
-        },
-        "vehicleTypes": {
-            "description": "Viser kjøretøytypen (og hvis tilgjengelig egen kjøretøyklasse) i en egen kolonne",
-            "title": "Enhetstype"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Viser hvis tilgjengelig kun egen kjøretøyklasse. Hvis den ikke er tilgjengelig, vil den vise standard kjøretøyklasse.",
-            "title": "Vis kun egen kjøretøyklasse"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Viser hvor mange personer som er tildelt kjøretøyet.",
@@ -65,6 +73,14 @@
         "vehiclesPersonnelMax": {
             "description": "Viser maksimalt antall personer som får plass på kjøretøyet.",
             "title": "Maksimalt mannskap"
+        },
+        "vehicleTypes": {
+            "description": "Viser kjøretøytypen (og hvis tilgjengelig egen kjøretøyklasse) i en egen kolonne",
+            "title": "Enhetstype"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Viser hvis tilgjengelig kun egen kjøretøyklasse. Hvis den ikke er tilgjengelig, vil den vise standard kjøretøyklasse.",
+            "title": "Vis kun egen kjøretøyklasse"
         }
     }
 }

@@ -1,5 +1,3 @@
-import type { Building } from '../../typings/Building';
-
 const modules = {
     appstore: {
         save: 'Opslaan',
@@ -22,6 +20,7 @@ const modules = {
         reset: 'Reset',
         export: 'Exporteer',
         import: 'Importeer',
+        donate: 'donate voluntarily',
         appendableList: {
             unique: {
                 title: 'Dubbele waarde',
@@ -63,80 +62,6 @@ const modules = {
 
 export default {
     modules,
-    error: {
-        title: 'LSS Manager: Error',
-        msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
-        requestIssue: {
-            title: 'Foutief serververzoek: Status {status}',
-            text: `Oh, helaas heeft er een error plaats gevonden met dit verzoek bij de server:<br>
-<b>Statuscode</b>: <code>{status}</code> <code>{statusText}</code><br>
-<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
-<b>Functie</b>: <code>{feature}</code><br>
-<b>Duur</b>: <code>{duration}ms</code><br>
-<b>Gebruiker</b>: <code>{uid}</code><br>
-<b>Tijdstip</b>: <code>{timestamp}</code>
-<br>
-Probeer opnieuw om de gewenste actie nogmaals uit te voeren.<br>
-Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg zijn van server problemen. Probeer het dan op een later tijdstip nogmaals.`,
-            close: 'Mededeling sluiten',
-        },
-    },
-    warnings: {
-        version: {
-            title: 'Verkeerde LSS Manager versie',
-            text: 'Beste gebruiker, helaas moeten we vaststellen dat je niet de laatste versie van LSS Manager gebruikt. De nieuwste versie is {version}, maar je gebruikt {curver}. Herlaad het spel zonder cache (met Ctrl + F5, op Apple apparaten command + R), dit zou de fout moeten oplossen. Als de fout blijft bestaand, meld het dan aan het LSS Manager team! Als je de verkeerde versie gebruikt, kunnen we niet de volledige functionaliteit garanderen van de LSS-Manager.',
-            close: 'Sluit melding en herlaad het spel (aanbevolen)',
-            abort: 'Sluit melding zonder te herladen',
-        },
-    },
-    anniversary1: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
-        title: '🎉 There is reason to celebrate! 🎉',
-        content:
-            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
-    },
-    globalSettings: {
-        name: 'Algemene instellingen',
-        labelInMenu: {
-            title: 'Label in plaats van afbeelding in menu',
-            description:
-                'Laat een simpel label zien in het menu in plaats van het LSSM logo',
-        },
-        allowTelemetry: {
-            description:
-                'Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.',
-            title: 'Telemetrie toestaan',
-        },
-        iconBg: {
-            description: 'Verander de achtergrond van het LSSM-logo!',
-            title: 'LSSM-logo achtergrond',
-        },
-        iconBgAsNavBg: {
-            description:
-                'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
-            title: 'Kleur menubalk',
-        },
-        loadingIndicator: {
-            description:
-                'Als deze instelling actief is, dan toont LSSM een kleine laadcirkel in de rechterbeneden hoek als LSSM nog aan het laden is.',
-            title: 'Toon laad voortgang',
-        },
-        osmDarkTooltip: {
-            description:
-                'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt.',
-            title: 'Donkere tooltips op de kaart',
-        },
-        osmDarkControls: {
-            description:
-                'Deze instelling zorgt dat er donkere knoppen op de kaart getoond worden als je een donker thema van het spel gebruikt.',
-            title: 'Donkere knoppen op de kaart',
-        },
-        v3MenuAsSubmenu: {
-            title: 'V3 menu als submenu',
-            description:
-                'Verplaatst het menu van LSSM V3 van de menubalk naar een knop in het menu van V4.',
-        },
-    },
     vehicles: {
         0: {
             caption: 'SI-2',
@@ -319,7 +244,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 5000,
             coins: 25,
             icon: 'ambulance',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         17: {
             caption: 'TS 6/7',
@@ -503,7 +428,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 5000,
             coins: 25,
             icon: 'ambulance',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         31: {
             caption: 'Commandovoertuig',
@@ -847,7 +772,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 2500,
             coins: 18,
             icon: 'car-side',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         53: {
             caption: 'AT-Commandant',
@@ -1008,7 +933,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 2500,
             coins: 18,
             icon: 'motorcycle',
-            possibleBuildings: [3, 13],
+            possibleBuildings: [0, 3, 13, 17],
         },
         64: {
             caption: 'ME Aanhoudingseenheid',
@@ -1035,7 +960,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 7500,
             coins: 15,
             schooling: {
-                Brandweer: {
+                Waterredding: {
                     Waterredding: {
                         all: true,
                     },
@@ -1052,7 +977,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             credits: 8000,
             coins: 15,
             schooling: {
-                Brandweer: {
+                Waterredding: {
                     Waterredding: {
                         all: true,
                     },
@@ -1140,551 +1065,139 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             icon: 'trailer',
             possibleBuildings: [0, 17],
         },
-    },
-    buildings: {
-        0: {
-            caption: 'Brandweer kazerne',
-            color: '#bb0000',
+        73: {
+            caption: 'Vrachtwagen - Bereden Brigade',
+            color: '#00005c',
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            credits: 35_000,
+            coins: 15,
+            schooling: {
+                Politie: {
+                    'Bereden Brigade': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            possibleBuildings: [11],
+        },
+        74: {
+            caption: 'Bereden Brigade Aanhanger',
+            color: '#00005c',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 15_000,
+            coins: 15,
+            schooling: {
+                Politie: {
+                    'Bereden Brigade': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'shuttle-van',
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DAT-NH). Benodigd 1 persoon met een speciale opleiding in het trekkende voertuig (Bereden Brigade)',
+            possibleBuildings: [11],
+        },
+        75: {
+            caption: 'Dienstauto terreinvaardig - Noodhulp',
+            color: '#00005c',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 10_000,
+            coins: 10,
+            icon: 'shuttle-van',
+            possibleBuildings: [11],
+        },
+        76: {
+            caption: 'Quad',
+            color: '#f5c929',
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            credits: 5000,
+            coins: 10,
+            schooling: {
+                Waterredding: {
+                    Waterredding: {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [16],
+        },
+        77: {
+            caption: 'KW-boot',
+            color: '#f5b829',
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            credits: 50_000,
+            coins: 25,
+            schooling: {
+                Waterredding: {
+                    'Groot vaarbewijs': {
+                        min: 1,
+                    },
+                    'Water handhaving': {
+                        min: 1,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [19],
+        },
+        78: {
+            caption: 'RB-K',
+            color: '#f59629',
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            credits: 35_000,
+            coins: 25,
+            schooling: {
+                Waterredding: {
+                    'Groot vaarbewijs': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [16, 19],
+        },
+        79: {
+            caption: 'RB-G',
+            color: '#f5a329',
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            credits: 45_000,
+            coins: 25,
+            schooling: {
+                Waterredding: {
+                    'Groot vaarbewijs': {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'car-side',
+            possibleBuildings: [16, 19],
+        },
+        80: {
+            caption: 'SAR-heli',
+            color: '#fec039',
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            credits: 300_000,
             coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Ambulance standplaats',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dagen',
+            schooling: {
+                Waterredding: {
+                    'SAR Helicopter': {
+                        all: true,
+                    },
                 },
-                {
-                    caption: 'Waterongevallenbestrijding',
-                    credits: 400_000,
-                    coins: 25,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Vliegtuigbrandbestrijding',
-                    credits: 400_000,
-                    coins: 25,
-                    duration: '7 Dagen',
-                    maxExtensionsFunction: (
-                        buildingsByType: Record<number, Building[]>
-                    ): number =>
-                        Math.floor((buildingsByType[0]?.length ?? 0) / 10),
-                },
-                ...new Array(10).fill({
-                    caption: 'Haakarmbak parkeerplaats',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dagen',
-                }),
-                {
-                    caption: 'Schuimblussing',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 Dagen',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '6.000',
-            maxLevel: 24,
-            special:
-                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
-            startPersonnel: 10,
-            startVehicles: [
-                'SI-2',
-                'TS 8/9',
-                'TST 8/9',
-                'TST 6/7',
-                'TST 4/5',
-                'TS 4/5',
-                'TST-NB 8/9',
-                'TST-NB 6/7',
-                'TST-NB 4/5',
-                'TS 6/7',
-            ],
-            schoolingTypes: ['Brandweer'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Meldkamer',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'Elke 25 gebouwen mag je 1 meldkamer bouwen',
-            maxLevel: 0,
-            special:
-                'De meldkamer is het administratief centrum. Hier kan je diverse instellingen bewerken.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        2: {
-            caption: 'Ziekenhuis',
-            color: '#bbe944',
-            coins: 35,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Interne Geneeskunde',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Algemene Heelkunde',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Gynaecologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Urologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Traumatologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Neurologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Neurochirurgie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Cardiologie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Cardiochirurgie',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Dagen',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 20,
-            special:
-                'Penningmeesters en Admins kunnen de Team ziekenhuizen met behulp van de credits van de Teamkas uitbreiden.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        3: {
-            caption: 'Ambulancestandplaats',
-            color: '#ffa500',
-            coins: 35,
-            credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 19,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulance'],
-            schoolingTypes: ['Ambulance'],
-        },
-        4: {
-            caption: 'Brandweer academie',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Extra klaslokaal',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Dagen',
-            }),
-            levelcost: [],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 0,
-            special:
-                'Penningmeesters en Admins kunnen de Team Brandweeracademie met behulp van de credits van de Teamkas uitbreiden.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        5: {
-            caption: 'Politie opkomstbureau',
-            color: '#007700',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Gevangeniscel',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dagen',
-                },
-                ...new Array(9).fill({
-                    caption: 'Extra cel',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dagen',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.700',
-            maxLevel: 19,
-            special:
-                'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
-            startPersonnel: 2,
-            startVehicles: ['DA Noodhulp'],
-            schoolingTypes: ['Politie'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        6: {
-            caption: 'MMT Standplaats',
-            color: '#ffd500',
-            coins: 50,
-            credits: 800_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3. 100.000'],
-            maxBuildings: 'Maximaal 1 gebouw per 10 ambulance gebouwen',
-            maxLevel: 3,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: [],
-            schoolingTypes: ['Ambulance'],
-        },
-        7: {
-            caption: 'Universiteit Geneeskunde',
-            color: '#ffc400',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Extra klaslokaal',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Dagen',
-            }),
-            levelcost: [],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 0,
-            special:
-                'Penningmeesters en Admins kunnen de Team Universiteiten geneeskunde met behulp van de credits van de Teamkas uitbreiden.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        8: {
-            caption: 'Politie academie',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Extra klaslokaal',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Dagen',
-            }),
-            levelcost: [],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 0,
-            special:
-                'Penningmeesters en Admins kunnen de Team Politieacademie met behulp van de credits van de Teamkas uitbreiden.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        9: {
-            caption: 'Politiehelikopter standplaats',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'Zie bijzonderheden',
-            maxLevel: 0,
-            special:
-                'Tot het 125ste gebouw (van alle soorten) kunnen maximaal 4 landingsplaatsen worden gebouwd. Dan groeit het aantal met 1 per 25 gebouwen (vanaf 125).',
-            startPersonnel: 0,
-            startVehicles: [],
-            schoolingTypes: ['Politie'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        10: {
-            caption: 'Uitgangsstelling (UGS)',
-            color: '#404040',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 1,
-            maxLevel: 0,
-            special:
-                'Je kan zo veel voertuigen als je wilt sturen naar een UGS, teamleden kunnen de UGS ook gebruiken om voertuigen. Een UGS blijft 24 uur bestaan, maar je kan het elk moment weer reseten naar 24 uur.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 1,
-        },
-        11: {
-            caption: 'Politie Hoofdbureau',
-            color: '#663300',
-            coins: 50,
-            credits: 400_000,
-            extensions: [
-                {
-                    caption: '2e OvD-P',
-                    credits: 40_000,
-                    coins: 5,
-                    duration: '3 Dagen',
-                },
-                {
-                    caption: 'Arrestantenvervoer',
-                    credits: 100_000,
-                    coins: 10,
-                    duration: '5 Dagen',
-                },
-                {
-                    caption: 'Mobiele Eenheid, Sectie',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '5 Dagen',
-                },
-                {
-                    caption: 'Mobiele Eenheid, 2e Sectie',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Mobiele Eenheid, Aanhoudingseenheid',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '5 Dagen',
-                },
-                {
-                    caption: 'Hondenbrigade',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Arrestatieteam',
-                    credits: 200_000,
-                    coins: 20,
-                    duration: '5 Dagen',
-                },
-            ],
-            levelcost: [],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 0,
-            special: '',
-            startPersonnel: 10,
-            startVehicles: ['Officier van Dienst - Politie'],
-            schoolingTypes: ['Politie'],
-        },
-        12: {
-            caption: 'Cellencomplex',
-            color: '#800000',
-            coins: 'x',
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Gevangeniscel',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dagen',
-                },
-                ...new Array(9).fill({
-                    caption: 'Extra cel',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dagen',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 0,
-            special:
-                'Penningmeesters en Admins kunnen de Team cellencomplex met behulp van de credits van de Teamkas uitbreiden.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        13: {
-            caption: 'Ambulance VWS-post',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: ['1. 10.000', 'Upgraden naar normale post: 100.000'],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 1,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulance'],
-            schoolingTypes: ['Ambulance'],
-        },
-        14: {
-            caption: 'Groot gebouwencomplex',
-            color: '#ffffff',
-            coins: 'Te duur',
-            credits: 'Te duur',
-            extensions: [],
-            levelcost: ['Te duur'],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 5,
-            special:
-                'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        15: {
-            caption: 'Klein gebouwencomplex',
-            color: '#ffffff',
-            coins: 'Te duur',
-            credits: 'Te duur',
-            extensions: [],
-            levelcost: ['Te duur'],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 5,
-            special:
-                'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        16: {
-            caption: 'Waterreddingspost',
-            color: '#f5a42a',
-            coins: 50,
-            credits: 500_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 25.000',
-                '3. 50.000',
-                '4. 75.000',
-                '5-9. 100.000',
-                '10-14. 150.000',
-                '15-20. 200.000',
-            ],
-            maxBuildings: 'Geen limiet',
-            maxLevel: 20,
-            special: '',
-            startPersonnel: 4,
-            startVehicles: [],
-            schoolingTypes: ['Brandweer'],
-        },
-        17: {
-            caption: 'Brandweer, Kazerne (klein)',
-            color: '#bb0000',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Ambulance standplaats',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Waterongevallenbestrijding',
-                    credits: 400_000,
-                    coins: 25,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Vliegtuigbrandbestrijding',
-                    credits: 400_000,
-                    coins: 25,
-                    duration: '7 Dagen',
-                    maxExtensionsFunction: (
-                        buildingsByType: Record<number, Building[]>
-                    ): number =>
-                        Math.floor((buildingsByType[0]?.length ?? 0) / 10),
-                },
-                ...new Array(2).fill({
-                    caption: 'Haakarmbak parkeerplaats',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 Dagen',
-                }),
-                {
-                    caption: 'Schuimblussing',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 Dagen',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Upgraden naar normale post : Verschil prijs naar normale post',
-            ],
-            maxBuildings: '6.000',
-            maxLevel: 6,
-            special:
-                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
-            startPersonnel: 10,
-            startVehicles: [
-                'SI-2',
-                'TS 8/9',
-                'TST 8/9',
-                'TST 6/7',
-                'TST 4/5',
-                'TS 4/5',
-                'TST-NB 8/9',
-                'TST-NB 6/7',
-                'TST-NB 4/5',
-                'TS 6/7',
-            ],
-            schoolingTypes: ['Brandweer'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        18: {
-            caption: 'Politie opkomstbureau (klein)',
-            color: '#007700',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Gevangeniscel',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dagen',
-                },
-                {
-                    caption: 'Extra cel',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dagen',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Upgraden naar normale post : Verschil prijs naar normale post',
-            ],
-            maxBuildings: '1.700',
-            maxLevel: 4,
-            special:
-                'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
-            startPersonnel: 2,
-            startVehicles: ['DA Noodhulp'],
-            schoolingTypes: ['Politie'],
-            maxBuildingsFunction: (): number => 1700,
+            },
+            icon: 'shuttle-van',
+            possibleBuildings: [21],
         },
     },
     buildingCategories: {
@@ -1701,7 +1214,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
             color: '#00ac00',
         },
         Waterredding: {
-            buildings: [16],
+            buildings: [16, 19, 20, 21],
             color: '#f5a42a',
         },
         Algemeen: {
@@ -1717,7 +1230,7 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                     2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56, 62, 68,
                     70, 71, 72,
                 ],
-                'Waterongevallen': [33, 36, 49, 50, 65, 66, 67],
+                'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
                 'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
             },
@@ -1740,8 +1253,17 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 'Arrestatieteam': [53, 54, 55],
                 'Arrestantenvervoer': [58],
                 'Biketeam': [60],
+                'Paarden': [73, 74, 75],
             },
             color: '#00ac00',
+        },
+        Waterredding: {
+            vehicles: {
+                Voertuigen: [65, 66, 76],
+                Boten: [67, 77, 78, 79],
+                Helikopters: [80],
+            },
+            color: '#f5a42a',
         },
     },
     small_buildings: {
@@ -1749,25 +1271,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         0: 17,
         5: 18,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17, 18],
-    cellBuildings: [5, 18],
-    cellExtensions: [
-        '5_0',
-        '5_1',
-        '5_2',
-        '5_3',
-        '5_4',
-        '5_5',
-        '5_6',
-        '5_7',
-        '5_8',
-        '5_9',
-        '18_0',
-        '18_1',
-    ],
-    bedBuildings: [2],
-    schoolBuildings: [4, 7, 8],
-    dispatchCenterBuildings: [1],
     schoolings: {
         Brandweer: [
             {
@@ -1815,11 +1318,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 duration: '5 Dagen',
                 staffList: 'Voorlichter',
             },
-            {
-                caption: 'Waterredding',
-                duration: '3 Dagen',
-                staffList: 'Waterredder',
-            },
         ],
         Politie: [
             {
@@ -1857,6 +1355,11 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 duration: '5 Dagen',
                 staffList: 'AE-er',
             },
+            {
+                caption: 'Bereden Brigade',
+                duration: '4 Dagen',
+                staffList: 'Bereden Brigade',
+            },
         ],
         Ambulance: [
             {
@@ -1868,6 +1371,28 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
                 caption: 'Officier van Dienst Geneeskunde',
                 duration: '10 Dagen',
                 staffList: 'Officier van Dienst Geneeskunde',
+            },
+        ],
+        Waterredding: [
+            {
+                caption: 'SAR Helicopter',
+                duration: '7 Dagen',
+                staffList: 'SAR Piloot',
+            },
+            {
+                caption: 'Water handhaving',
+                duration: '5 Dagen',
+                staffList: 'Waterhandhaving',
+            },
+            {
+                caption: 'Groot vaarbewijs',
+                duration: '7 Dagen',
+                staffList: 'Kapitein',
+            },
+            {
+                caption: 'Waterredding',
+                duration: '3 Dagen',
+                staffList: 'Waterredder',
             },
         ],
     },
@@ -1911,25 +1436,6 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         7: 'Aanvraag spraakcontact',
         9: 'Wachten op ophalen',
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'ambulance',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'graduation-cap',
-        'helicopter',
-        'warehouse',
-        'shield-alt',
-        'boarder-all',
-        'ambulance',
-        'warehouse',
-        'warehouse',
-        'water',
-    ],
     pois: [
         'Park',
         'Meer',
@@ -1999,6 +1505,9 @@ Indien het meerdere keren in een korte termijn fout gaat, dan kan het een gevolg
         'Tunnel',
         'Vuurwerkopslag',
         'Gasverdeelstation',
+        'Windmolenpark',
+        'Pretpark',
+        'Circuit',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],

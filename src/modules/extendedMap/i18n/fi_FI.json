@@ -1,0 +1,135 @@
+{
+    "buildingComplexes": {
+        "buildingList": { "details": "Lisätiedot" },
+        "new": "Uusi LSSM-rakennuskompleksi",
+        "openInLightbox": "Avaa rakennus Lightboxissa",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "automaattisesti",
+                    "no": "Ei",
+                    "phase": "1 Päivä | {n} Päivää"
+                },
+                "inConstruction": "joista {n} rakenteilla",
+                "share": {
+                    "beds": {
+                        "share": "Jaa sängyt liittoutuman kanssa",
+                        "unShare": "Älä jaa sänkyjä liittouman kanssa"
+                    },
+                    "cells": {
+                        "share": "Jaa vankilasellit liitouman kanssa",
+                        "unShare": "Älä jaa vankilaselliä liittouman kanssa"
+                    }
+                },
+                "table": {
+                    "alliance": "Liittouma",
+                    "head": {
+                        "beds": "Sängyt",
+                        "cells": "Sellit",
+                        "classrooms": "Luokkahuoneet",
+                        "hiring": "Rekrytointivaihe",
+                        "level": "Taso",
+                        "name": "Nimi",
+                        "staff": "Henkilöstö (Haluttu)",
+                        "vehicles": "Ajoneuvot"
+                    }
+                },
+                "title": "liitetyt rakennukset"
+            },
+            "classrooms": {
+                "subtitle": "{total} yhteensä, joista {unavailable} rakenteilla ja {free} ilmainen",
+                "table": {
+                    "countdown": "aikaa jäljellä",
+                    "free": "Vapaat paikat",
+                    "freeClassrooms": "1 vapaa luokkahuone|{n} vapaata luokkahuoneita",
+                    "running": {
+                        "false": "Ei",
+                        "title": "käynnissä?",
+                        "true": "Kyllä"
+                    },
+                    "start": "aloita uusi kurssi",
+                    "unavailable": "1 rakenteilla oleva luokkahuone|{n} rakenteilla olevat luokkahuoneet"
+                },
+                "title": "Luokkahuoneet"
+            },
+            "extensions": {
+                "abort": "Peruuta",
+                "allianceFunds": "maksettu liittouman varoista",
+                "disable": "poista  käytöstä",
+                "disabled": "Valmis ja poistettu käytöstä",
+                "enable": "ota käyttöön",
+                "enabled": "Valmis ja käytössä",
+                "filter": {
+                    "all": "Kaikki",
+                    "buildings": "Rakennukset",
+                    "canBuy": "voi ostaa",
+                    "cannotBuy": "ei voi ostaa",
+                    "cannotToggle": "ei voi ottaa käyttöön/poistaa käytöstä",
+                    "canToggle": "voi ottaa käyttöön/poistaa käytöstä",
+                    "disabled": "valmis ja poistettu käytöstä",
+                    "enabled": "valmis ja käytössä",
+                    "extensions": "Laajennukset",
+                    "states": "Tila",
+                    "underConstruction": "rakenteilla"
+                },
+                "limit": "Et voi ostaa tällä hetkellä enempää kuin {n} tätä laajennusta!",
+                "missingRequirements": "Seuraavat vaatimukset eivät täyty:",
+                "summary": {
+                    "available": "{n} ready to be built",
+                    "built": "{n} rakennettu",
+                    "inConstruction": "{n} rakenteilla",
+                    "total": "{n} mahdollista yhteensä"
+                },
+                "table": { "head": { "building": "Rakennus", "name": "Nimi" } },
+                "title": "Laajennukset",
+                "underConstruction": "Rakenteilla"
+            },
+            "protocol": {
+                "subtitle": "ei relevantteja merkintöjä | 1 relevantti merkintä | {n} relevanttia merkintää",
+                "table": {
+                    "head": {
+                        "building": "Rakennus",
+                        "label": "Kategoria",
+                        "name": "Nimi",
+                        "staff": "Henkilöstö",
+                        "time": "Aikaleima"
+                    }
+                },
+                "title": "Loki",
+                "updating": "Päivitetään..."
+            },
+            "title": "Yleiskuva",
+            "vehicles": {
+                "imageInfo": "Note: Tällä hetkellä voidaan näyttää vain vakioajoneuvokuvakkeet tai sarjan grafiikkapaketin kuvakkeet. Yksittäiselle ajoneuvolle tai asemalle asetettuja kuvakkeita ei valitettavasti vielä voida tunnistaa.",
+                "table": {
+                    "head": {
+                        "building": "Rakennus",
+                        "fms": "Tila",
+                        "name": "Nimi",
+                        "staff": "Henkilöstö (assigned / max)"
+                    }
+                },
+                "title": "Ajoneuvot"
+            }
+        },
+        "settings": {
+            "abort": "Abort",
+            "allianceBuildings": "attached alliance buildings",
+            "buildings": "attached buildings",
+            "buildingsInList": "Show attached buildings in the buildings list?",
+            "buildingTabs": "Show tabs for attached buildings?",
+            "dissolve": {
+                "buttons": { "abort": "Abort", "continue": "Dissolve" },
+                "text": "Do you want to dissolve this building complex? All attached buildings will be displayed on the map again as before.",
+                "title": "Poista rakennuskompleksi"
+            },
+            "icon": "Ikoni",
+            "iconHelp": "Valitse vakioikonin ja liitettyjen rakennusten kuvakkeiden välillä.",
+            "location": "Sijainti",
+            "name": "Nimi",
+            "save": "Tallenna",
+            "showMarkers": "Näytä liitetyt rakennukset kartalla?",
+            "title": "Muokkaa kompleksia"
+        }
+    }
+}

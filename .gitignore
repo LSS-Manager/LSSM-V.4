@@ -8,7 +8,10 @@ package-lock.json
 /static/beta.php
 /admin/
 /src/userscript.js
+/src/userscript.js.map
 LSSM_V4.zip
+dist.zip
+.eslintcache
 
 # docs files
 /docs/*/modules
@@ -23,12 +26,14 @@ LSSM_V4.zip
 webpack.config.js*
 build/**/*.js*
 typings/**/*.js*
-prebuild/**/*.js*
+prebuild/**/*.js
+prebuild/**/*.js.map
 src/config.js*
 src/i18n/*.js
 docs/.vuepress/*.js
 docs/.vuepress/*.js.map
-scripts/**/*.js*
+scripts/**/*.js
+scripts/**/*.js.map
 
 # local env files
 .env.local
@@ -48,4 +53,12 @@ yarn-error.log*
 *.sln
 *.sw?
 .directory
+
+# yarn
+.pnp.*
 .yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

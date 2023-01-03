@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Name",
         "current": "Anzahl (aktiv)",
-        "fastDispatchChooser": {
-            "noDispatch": "Keine Leitstelle"
-        },
+        "fastDispatchChooser": { "noDispatch": "Keine Leitstelle" },
         "type": "Typ",
         "unavailable": "Im Bau"
     },
@@ -24,6 +22,7 @@
             "tip": "Klicke auf eine der Kategorien (z.B. Feuerwehr oder Polizei), um die dieser Kategorie zugeordneten Gebäudetypen vergrößert dargzustellen. Klickst du anschließend auf einen Gebäudetyp, kannst du sehen, wie viele Fahrzeuge der einzelnen Fahrzeugtypen an den Gebäuden dieses Typs stehen. Somit kannst du z.B. schnell herausfinden, wie viele FuStW an Polizeiwachen und wie viele an Polizei-Kleinwachen stehen.",
             "title": "Gebäude"
         },
+        "maxMissions": { "title": "Maximale Einsätze" },
         "vehicles": {
             "empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
             "tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen.",
@@ -66,16 +65,7 @@
     "vehicle-types": {
         "chart": "Status-Zusammenfassung",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Summe",
         "title": "Alle {type} | Alle {type} im Status {n} | Alle {type} im Status {n}",
         "type": "Fahrzeugtyp",

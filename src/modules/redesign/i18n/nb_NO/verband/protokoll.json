@@ -8,10 +8,7 @@
         "no_types": "Ikke vis typer",
         "type": "viste oppføringstyper"
     },
-    "load": {
-        "next": "last neste side",
-        "prev": "last forrige side"
-    },
+    "load": { "next": "last neste side", "prev": "last forrige side" },
     "search_local": "Søk i innlastede oppføringer",
     "subtitle": "Vis {n} oppføringer fra sidene {startPage} ({firstDate}) til {endPage} ({lastDate}) av {totalPages} sider",
     "time": "tid",

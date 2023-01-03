@@ -1,11 +1,6 @@
 {
-    "approach": "Anfahren",
     "backalarm": "Rückalarmieren",
     "backalarmNext": "direkt Anfahren",
-    "cells": {
-        "cell": "Gebäude",
-        "free": "Freie Zellen"
-    },
     "color": "Farbe anpassen",
     "current_mission": "Aktueller Einsatz",
     "delete": {
@@ -19,27 +14,10 @@
     "edit": "Bearbeiten",
     "false": "Nein",
     "filter": {
-        "cells": {
-            "distance": "Maximale Entfernung",
-            "each": "Jeweils nur x Gebäude zeigen",
-            "free": "mindestens freie Zellen",
-            "tax": "Maximale Verbandsabgabe"
-        },
-        "hospitals": {
-            "beds": "mindestens freie Betten",
-            "department": {
-                "title": "Fachabteilung: {department}"
-            },
-            "distance": "Maximale Entfernung",
-            "each": "Jeweils nur x Krankenhäuser zeigen",
-            "tax": "Maximale Verbandsabgabe"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimaler Verdienst",
             "distance": "Maximale Entfernung",
-            "participation": {
-                "title": "Anwesend"
-            },
+            "participation": "Anwesend",
             "progress": "Abgearbeitet zu max %",
             "status": {
                 "green": "grün",
@@ -48,36 +26,52 @@
                 "yellow": "gelb"
             }
         },
-        "wlf": {
+        "patient": {
+            "department": "Fachabteilung: {department}",
+            "distance": "Maximale Entfernung",
+            "freeBeds": "mindestens freie Betten",
+            "show": "Jeweils nur x Krankenhäuser zeigen",
+            "tax": "Maximale Verbandsabgabe"
+        },
+        "patientIntermediate": {
+            "distance": "Maximale Entfernung",
+            "home": "Heimathafen",
+            "show": "Jeweils nur x Gebäude zeigen"
+        },
+        "prisoner": {
+            "distance": "Maximale Entfernung",
+            "freeCells": "mindestens freie Zellen",
+            "show": "Jeweils nur x Gebäude zeigen",
+            "tax": "Maximale Verbandsabgabe"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximale Entfernung",
+            "home": "Heimathafen",
+            "show": "Jeweils nur x Gebäude zeigen"
+        },
+        "trailer": {
             "distance": "Maximale Entfernung",
             "same": "Selbes Gebäude"
         }
     },
     "fms": "FMS",
-    "fms_switch": {
-        "is_s2": "S6 setzen",
-        "is_s6": "S2 setzen"
-    },
+    "fms_switch": { "is_s2": "S6 setzen", "is_s6": "S2 setzen" },
     "foam_amount": "Schaummenge",
     "followup_missions": "Folgeeinsatz | Folgeeinsätze",
-    "hospitals": {
-        "beds": "Freie Betten",
-        "department": "Fachabteilung: {department}",
-        "hospital": "Krankenhaus"
-    },
     "load_all_hospitals": {
         "btn": "Alle laden",
         "text": "Es werden nur 50 Verbands-Krankenhäuser angezeigt. Das Laden aller Krankenhäuser kann je nach Menge viel Zeit in Anspruch nehmen!"
     },
     "max_staff": "Max. Personal",
     "mileage": "Laufleistung",
-    "missions": {
-        "alarm": "Alarmieren",
+    "mission": {
         "alarmed": "Aktueller Einsatz",
         "credits": "Verdienst",
+        "dispatch": "Alarmieren",
         "mission": "Einsatz",
         "participation": "Anwesenheit",
         "patients": "Patienten",
+        "patientsProgress": "{current} von {total}",
         "progress": "Fortschritt"
     },
     "move": "Verschieben",
@@ -86,7 +80,28 @@
         "offline": "{user} ist offline!",
         "online": "{user} ist online!"
     },
+    "patient": {
+        "beds": "Freie Betten",
+        "department": "Fachabteilung: {department}",
+        "dispatch": "Anfahren",
+        "hospital": "Krankenhaus"
+    },
     "patient_doctor_transport": "Transport mit Arztbegleitung",
+    "patientIntermediate": {
+        "caption": "Küstenwache",
+        "dispatch": "Patienten transportieren",
+        "home": "Heimathafen: {building}"
+    },
+    "prisoner": {
+        "cell": "Gebäude",
+        "dispatch": "Anfahren",
+        "free": "Freie Zellen"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Gefangenen transportieren",
+        "distance": "Küstenwache",
+        "home": "Heimathafen: {building}"
+    },
     "release": {
         "cancel": "Abbrechen",
         "confirm": "Ja, entlassen!",
@@ -101,31 +116,31 @@
         }
     },
     "release_patient": "Patienten entlassen",
+    "release_patient-intermediate": "Patienten entlassen",
     "release_prisoner": "Gefangene entlassen",
-    "staff": {
-        "name": "Name",
-        "schooling": "Ausbildung",
-        "title": "Personal"
-    },
+    "release_prisoner-intermediate": "Gefangene entlassen",
+    "staff": { "name": "Name", "schooling": "Ausbildung", "title": "Personal" },
     "station": "Wache",
     "stats": "Statistiken",
     "tabs": {
         "all": "Alle {type}: {amount}",
         "alliance": "Verbands-{type}: {amount}",
-        "cells": "Zellen",
-        "hospitals": "Krankenhäuser",
-        "missions": "Einsätze",
-        "own": "eigene {type}: {amount}"
+        "mission": "Einsätze",
+        "own": "eigene {type}: {amount}",
+        "patient": "Krankenhäuser",
+        "patientIntermediate": "Küstenwachen",
+        "prisoner": "Zellen",
+        "prisonerIntermediate": "Küstenwachen"
     },
     "tax": "Abgabe an Besitzer",
+    "trailer": {
+        "building": "Gebäude",
+        "caption": "Wechselladerfahrzeug",
+        "dispatch": "Alarmieren",
+        "same": "selbes Gebäude: {building}"
+    },
     "true": "Ja",
     "vehicletype": "Fahrzeugtyp",
     "water_amount": "Wassermenge",
-    "wlf": {
-        "alarm": "Alarmieren",
-        "building": "Gebäude",
-        "caption": "Wechselladerfahrzeug",
-        "same": "selbes Gebäude: {building}"
-    },
     "zuweisung": "Personalzuweisung"
 }

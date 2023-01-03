@@ -97,7 +97,9 @@
 import Vue from 'vue';
 
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import { useSettingsStore } from '@stores/settings';
 
+import type { ConversationMessageTemplate } from '../../messageTemplates/main';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
@@ -138,8 +140,8 @@ export default Vue.extend<
     },
     methods: {
         accept(id, username) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/bewerbungen/annehmen/${id}`,
                     init: {
                         credentials: 'include',
@@ -149,7 +151,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/verband/bewerbungen`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
@@ -169,8 +171,8 @@ export default Vue.extend<
                 });
         },
         decline(id, username) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/bewerbungen/ablehnen/${id}`,
                     init: {
                         credentials: 'include',
@@ -180,7 +182,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/verband/bewerbungen`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
@@ -209,8 +211,8 @@ export default Vue.extend<
                             window.location.origin
                         ).toString();
                         return new Promise<void>(resolve =>
-                            this.$store
-                                .dispatch('api/request', {
+                            this.lightbox.apiStore
+                                .request({
                                     url,
                                     feature: `redesign-bewerbungen-load-credits`,
                                 })
@@ -232,7 +234,7 @@ export default Vue.extend<
                                                     getIdFromEl:
                                                         this.lightbox
                                                             .getIdFromEl,
-                                                    LSSM: this,
+                                                    LSSM: this.lightbox,
                                                     $m: this.lightbox.$m,
                                                     $sm: this.lightbox.$sm,
                                                     $mc: this.lightbox.$mc,
@@ -278,11 +280,15 @@ export default Vue.extend<
         },
     },
     mounted() {
-        if (this.$store.state.modules.messageTemplates.active) {
-            this.$store
-                .dispatch('settings/getSetting', {
+        if (this.lightbox.modulesStore.modules.messageTemplates.active) {
+            useSettingsStore()
+                .getSetting<{
+                    value: ConversationMessageTemplate[];
+                    enabled: boolean;
+                }>({
                     moduleId: 'messageTemplates',
                     settingId: 'templates',
+                    defaultValue: { value: [], enabled: true },
                 })
                 .then(({ value }) => (this.messageTemplates = value));
         }

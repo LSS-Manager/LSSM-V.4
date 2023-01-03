@@ -1,4 +1,4 @@
-Questo modulo consente di regolare e aggiungere filtri all'elenco dei filtri. 
+Questo modulo consente di regolare e aggiungere filtri all'elenco dei filtri.
 
 Hai la possibilità di aggiungere filtri extra sopra la lista degli edifici. Sarai in grado di:
 

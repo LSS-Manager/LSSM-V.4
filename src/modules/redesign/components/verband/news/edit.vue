@@ -42,6 +42,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { useEventStore } from '@stores/event';
+
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 import type { SCEditor } from 'typings/SCEditor/SCEditor';
 
@@ -65,11 +67,11 @@ export default Vue.extend<
     name: 'lssmv4-redesign-verband-news-edit',
     data() {
         return {
-            captionId: this.$store.getters.nodeAttribute(
+            captionId: this.lightbox.rootStore.nodeAttribute(
                 'verband-news-edit-caption',
                 true
             ),
-            contentId: this.$store.getters.nodeAttribute(
+            contentId: this.lightbox.rootStore.nodeAttribute(
                 'verband-news-edit-content',
                 true
             ),
@@ -94,8 +96,8 @@ export default Vue.extend<
             if ((this.$refs.public as HTMLInputElement | null)?.checked)
                 url.searchParams.append('alliance_newse[public]', '1');
             if (this.news.id > 0) url.searchParams.append('_method', 'put');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/alliance_newses${
                         this.news.id < 0 ? '' : `/${this.news.id}`
                     }`,
@@ -112,7 +114,7 @@ export default Vue.extend<
                                     : `${this.news.id}/edit`
                             }`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -129,27 +131,20 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
                     if (this.contentEditor) {
-                        this.$store
-                            .dispatch('event/createEvent', {
-                                name: 'redesign-new/edit-alliance-news',
-                                detail: {
-                                    content: this.contentEditor
-                                        .getWysiwygEditorValue(false)
-                                        .split('\n')
-                                        .map(l =>
-                                            l.replace(
-                                                /^<div>|(<br>)?<\/div>$/gu,
-                                                ''
-                                            )
-                                        ),
-                                },
-                            })
-                            .then(event =>
-                                this.$store.dispatch(
-                                    'event/dispatchEvent',
-                                    event
-                                )
-                            );
+                        useEventStore().createAndDispatchEvent({
+                            name: 'redesign-new/edit-alliance-news',
+                            detail: {
+                                content: this.contentEditor
+                                    .getWysiwygEditorValue(false)
+                                    .split('\n')
+                                    .map(l =>
+                                        l.replace(
+                                            /^<div>|(<br>)?<\/div>$/gu,
+                                            ''
+                                        )
+                                    ),
+                            },
+                        });
                     }
                     window.lightboxClose(this.lightbox.creation);
                 });

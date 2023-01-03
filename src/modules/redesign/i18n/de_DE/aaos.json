@@ -1,8 +1,5 @@
 {
-    "add": {
-        "arr": "Neue AAO",
-        "group": "Neuer Zug"
-    },
+    "add": { "arr": "Neue AAO", "group": "Neuer Zug" },
     "categories": "Eigene Kategorien bearbeiten",
     "delete": {
         "all": {

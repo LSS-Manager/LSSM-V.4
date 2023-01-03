@@ -47,29 +47,34 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { defineNotificationStore } from '@stores/notifications';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { mapState } from 'pinia';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
 
-import type { DefaultMethods, DefaultProps } from 'vue/types/options';
-import type { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
+import type { DefaultProps } from 'vue/types/options';
+import type { LSSMV4Computed, LSSMV4Data, LSSMV4Methods } from 'typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,
-    DefaultMethods<Vue>,
+    LSSMV4Methods,
     LSSMV4Computed,
     DefaultProps
 >({
     name: 'LSSMV4',
     components: {},
     data() {
+        const rootStore = useRootStore();
         return {
-            id: this.$store.getters.nodeAttribute('app', true),
             faTimes,
+            id: rootStore.nodeAttribute('app', true),
         };
     },
     computed: {
-        notificationGroups() {
-            return this.$store.state.notifications.groups;
-        },
+        ...mapState(defineNotificationStore, {
+            notificationGroups: 'groups',
+        }),
     },
     methods: {
         getHandler(props, $event) {
@@ -81,11 +86,11 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$store
-            .dispatch('settings/getModule', 'global')
+        useSettingsStore()
+            .getModule('global')
             .then(({ iconBg, iconBgAsNavBg }) => {
                 if (iconBgAsNavBg) {
-                    this.$store.dispatch('addStyle', {
+                    useRootStore().addStyle({
                         selectorText:
                             '.navbar-default, .navbar-default .dropdown-menu',
                         style: {

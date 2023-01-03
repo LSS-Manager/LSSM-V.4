@@ -1,5 +1,5 @@
-import type { $m } from 'typings/Module';
 import type { Sort } from './callList';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export enum SortedMissionsRawButtonClasses {
     alert_next = 'alert_next_sorted',
@@ -13,7 +13,8 @@ export default async (
     MODULE_ID: string,
     $m: $m,
     sort: Sort,
-    checked: boolean
+    checked: boolean,
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ) => {
     if (sort === 'default') return;
     const order: Record<string, string[]> = JSON.parse(
@@ -23,9 +24,7 @@ export default async (
     let missionList = '';
     let missionListPosition = -1;
     const found = Object.entries(order).find(([list, missions]) => {
-        missionListPosition = missions.findIndex(
-            mission => mission === missionId
-        );
+        missionListPosition = missions.indexOf(missionId);
         if (missionListPosition < 0) return false;
         missionList = list;
         return true;
@@ -36,7 +35,7 @@ export default async (
     );
     if (!navHeader) return;
 
-    const flashStorageKey = LSSM.$store.getters.nodeAttribute(
+    const flashStorageKey = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_sort_mission-flash-msg`
     );
 
@@ -54,9 +53,9 @@ export default async (
     toggleWrapper.style.setProperty('display', 'inline-block');
 
     if (found) {
-        await LSSM.$store.dispatch('api/registerSettings', {
-            feature: `${MODULE_ID}_sort-missions_mission-window`,
-        });
+        await LSSM.$stores.api.getSettings(
+            `${MODULE_ID}_sort-missions_mission-window`
+        );
 
         const alarm = (publish = false) => {
             const url = new URL(
@@ -82,8 +81,8 @@ export default async (
                 ?.forEach(vehicle =>
                     url.searchParams.append('vehicle_ids[]', vehicle.value)
                 );
-            return LSSM.$store
-                .dispatch('api/request', {
+            return LSSM.$stores.api
+                .request({
                     url: url.pathname,
                     feature: `${MODULE_ID}_sort-missions_alarm`,
                     init: {
@@ -93,7 +92,7 @@ export default async (
                         referrer: new URL(
                             `/missions/${missionId}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -130,8 +129,8 @@ export default async (
                             }`
                         );
                     } else if (
-                        LSSM.$store.state.api.settings
-                            .mission_alarmed_successfull_close_window
+                        LSSM.$stores.api.settings
+                            ?.mission_alarmed_successfull_close_window
                     ) {
                         window.location.replace('/missions/close');
                     } else {
@@ -142,7 +141,7 @@ export default async (
 
         const toggleInput = document.createElement('input');
         toggleInput.type = 'checkbox';
-        toggleInput.id = LSSM.$store.getters.nodeAttribute(
+        toggleInput.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_sort_toggle-mission-buttons-mode`,
             true
         );
@@ -161,7 +160,7 @@ export default async (
         const isLastMission =
             missionListPosition === order[missionList].length - 1;
 
-        const alertNextBtnClass = LSSM.$store.getters.nodeAttribute(
+        const alertNextBtnClass = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
         );
         const alertNextBtns: [HTMLAnchorElement, HTMLAnchorElement][] =
@@ -201,7 +200,7 @@ export default async (
             newBtn.classList.add(
                 'hidden',
                 ...btn.classList,
-                LSSM.$store.getters.nodeAttribute(
+                LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['prev']}`
                 )
             );
@@ -237,7 +236,7 @@ export default async (
             newBtn.classList.add(
                 'hidden',
                 ...btn.classList,
-                LSSM.$store.getters.nodeAttribute(
+                LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['next']}`
                 )
             );
@@ -272,7 +271,7 @@ export default async (
                     'hidden',
                     isLastMission ? 'btn-default' : 'btn-primary',
                     ...btn.classList,
-                    LSSM.$store.getters.nodeAttribute(
+                    LSSM.$stores.root.nodeAttribute(
                         `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_share_next']}`
                     )
                 );
@@ -296,22 +295,17 @@ export default async (
                     'hidden'
                 );
             });
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'sortMissionsInMissionwindowChecked',
-                value: toggleInput.checked,
+            await setSetting(
+                'sortMissionsInMissionwindowChecked',
+                toggleInput.checked
+            );
+            LSSM.$stores.event.createAndDispatchEvent({
+                name: `${MODULE_ID}_sorted-missions_toggle-missionwindow`,
+                detail: {
+                    sorted: toggleInput.checked,
+                    alertNextBtnClass,
+                },
             });
-            LSSM.$store
-                .dispatch('event/createEvent', {
-                    name: `${MODULE_ID}_sorted-missions_toggle-missionwindow`,
-                    detail: {
-                        sorted: toggleInput.checked,
-                        alertNextBtnClass,
-                    },
-                })
-                .then(event =>
-                    LSSM.$store.dispatch('event/dispatchEvent', event)
-                );
         });
 
         if (checked) {

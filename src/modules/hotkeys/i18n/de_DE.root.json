@@ -35,26 +35,81 @@
             },
             "title": "Allgemein"
         },
-        "main": {
-            "chat": {
-                "focus": "Eingabefeld fokussieren",
-                "title": "Chat"
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Freigabe deaktivieren",
+                "enableSharing": "Freigabe aktivieren",
+                "title": "Im Verband freigeben ändern",
+                "toggleSharing": "Freigabe wechseln"
             },
+            "dispatch": {
+                "buildings": "Gebäude Tab",
+                "extensions": "Erweiterungen Tab",
+                "next": "Nächster Tab",
+                "openFirstPlannedMission": "Öffne ersten geplanten Einsatz",
+                "patrol": "Streifenfahrten-Routen Tab",
+                "patrol_vehicles": "Streifenfahrten Tab",
+                "plannedMission": "Geplante Einsätze Tab",
+                "previous": "Vorheriger Tab",
+                "protocol": "Protokoll Tab",
+                "schooling": "Lehrgänge Tab",
+                "settings": "Einstellungen Tab",
+                "stats": "Statistiken Tab",
+                "title": "Leitstelle",
+                "vehicle": "Fahrzeuge Tab"
+            },
+            "goto": {
+                "dispatchCenter": "Leitstelle",
+                "expand": "Ausbauen",
+                "firstVehicle": "Erstes Fahrzeug öffnen",
+                "hire": "Neue Leute werben",
+                "nextBuilding": "Nächstes Gebäude",
+                "personal": "Personal",
+                "previousBuilding": "Vorheriges Gebäude",
+                "title": "Gehe zu"
+            },
+            "title": "Gebäude"
+        },
+        "main": {
+            "bigMap": {
+                "title": "Fensterdesign",
+                "toggle": {
+                    "buildings": "Gebäude",
+                    "chat": "Chat",
+                    "missions": "Einsätze",
+                    "radio": "Funk",
+                    "title": "Fenster öffnen/schließen"
+                }
+            },
+            "chat": { "focus": "Eingabefeld fokussieren", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menü",
-                    "toggle": "Öffnen / Schließen"
-                },
+                "menu": { "title": "Menü", "toggle": "Öffnen / Schließen" },
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "runter",
+                    "left": "Links",
+                    "right": "Rechts",
+                    "title": "Bewegen",
+                    "up": "Hoch"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Ortssuche"
                 },
-                "title": "Karte"
+                "title": "Karte",
+                "zoom": {
+                    "in": "reinzoomen",
+                    "out": "rauszoomen",
+                    "title": "Zoomen"
+                }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Auswahlmenü öffnen",
+                    "title": "Einsatzsortierung"
+                },
                 "search": {
                     "focus": "Eingabefeld fokussieren",
                     "title": "Suche"
@@ -64,6 +119,28 @@
             "title": "Hauptfenster"
         },
         "mission": {
+            "alert": "Alarmieren",
+            "alert_next": "Alarmieren und weiter",
+            "alert_share_next": "Alarmieren, Teilen und weiter",
+            "alliance": {
+                "focus": "Fokussiere Rückmeldungsfeld",
+                "title": "Verband",
+                "toggle": "Wechsle 'Im Verbandschat posten'"
+            },
+            "arr": {
+                "next": "Nächster Tab",
+                "previous": "Vorheriger Tab",
+                "title": "AAO"
+            },
+            "backalarm": {
+                "abortApproach": "Anfahrten abbrechen",
+                "allVehicles": "Alle eigenen Fahrzeuge rückalarmieren",
+                "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
+                "title": "Zurückalamieren"
+            },
+            "next": "nächster Einsatz",
+            "prev": "vorheriger Einsatz",
+            "share": "Teilen",
             "sorted": {
                 "alert_next": "Alarmieren und weiter",
                 "alert_share_next": "Alarmieren, Teilen und weiter",
@@ -71,7 +148,36 @@
                 "prev": "vorheriger Einsatz",
                 "title": "Einsatzsortierung"
             },
-            "title": "Einsatzfenster"
+            "title": "Einsatzfenster",
+            "transport_request": "Erster Patienten-Sprechwunsch öffnen",
+            "vehicleList": {
+                "loadMissing": "Fehlende Fahrzeuge nachladen",
+                "next": "Nächster Tab",
+                "previous": "Vorheriger Tab",
+                "title": "Fahrzeugliste"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarmiere zu erstem Verbandseinsatz",
+                "firstOwnMission": "Alarmiere zu erstem eigenen Einsatz",
+                "title": "Alarmieren"
+            },
+            "goto": {
+                "building": "Gebäude",
+                "edit": "Bearbeiten",
+                "nextVehicle": "Nächstes Fahrzeug",
+                "personalAssigment": "Personal zuweisen",
+                "previousVehicle": "Vorheriges Fahrzeug",
+                "statistics": "Statistiken",
+                "title": "Gehe zu"
+            },
+            "other": {
+                "moveVehicle": "Fahrzeug verschieben",
+                "title": "Sonstiges",
+                "toggleFMS": "FMS ändern"
+            },
+            "title": "Fahrzeuge"
         }
     },
     "description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",
@@ -83,5 +189,6 @@
             "description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest. Aktionen der Kategorie \"Allgemein\" funktionieren auf allen Seiten. Mittels F1 kannst du jederzeit eine Übersicht der von dir geöffneten Hotkeys einsehen.",
             "title": "Hotkeys"
         }
-    }
+    },
+    "unique": "Du hast versucht, mehreren Aktionen den selben Hotkey zuzuweisen, auch wenn diese Aktionen in gleichem Kontext aufgerufen werden. Bitte wähle einen anderen Hotkey für diese Aktion."
 }

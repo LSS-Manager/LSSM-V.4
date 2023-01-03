@@ -1,5 +1,20 @@
 {
     "description": "Verbeter de kaart met een aantal coole functies.",
+    "mapCSSFilter": {
+        "brightness": "Helderheid",
+        "contrast": "Contrast",
+        "grayscale": "Grijs filter",
+        "hueRotate": "Tint aanpassen",
+        "invert": "Kleuren omdraaien",
+        "presets": {
+            "dark1": "Donker 1",
+            "dark2": "Donker 2",
+            "dark3": "Donker 3",
+            "gray": "Grijs"
+        },
+        "saturate": "Verzadiging",
+        "sepia": "Sepia"
+    },
     "name": "Verbeterde Kaart",
     "positions": {
         "bottomleft": "Linksonder 🡧",
@@ -9,11 +24,11 @@
     },
     "settings": {
         "buildingComplexes": {
-            "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
-            "name": "Name",
-            "position": "Location",
-            "title": "Building complexes"
+            "buildings": "Gekoppelde gebouwen",
+            "description": "Een Design-update dat er voor zorgt dat je meerdere gebouwen als 1 kan weergeven op de kaart.Meer instellingen zijn beschikbaar in het gebouwencomplex.",
+            "name": "Naam",
+            "position": "Locatie",
+            "title": "Gebouwcomplexen"
         },
         "centerMap": {
             "description": "Centreert de kaart dynamisch of statisch als het spel opstart",
@@ -27,6 +42,12 @@
             "dynamic": "dynamisch",
             "static": "statisch",
             "title": "Centreer kaart: Modus"
+        },
+        "mapCSSFilter": {
+            "description": "Pas de kaart aan met verschillende CSS filters voor de kleuren. Speel er mee en probeer wat je fijn vindt!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "Waarde",
+            "title": "Kaart design (CSS Filter)"
         },
         "mapScale": {
             "description": "Toont de schaal en het huidige zoomniveau",

@@ -2,9 +2,7 @@
     "description": "Underlättar inställningen av intressepunkter genom små, användbara funktioner",
     "name": "Förbättrad IP",
     "settings": {
-        "custom_style": {
-            "title": "Anpassad stil för markering"
-        },
+        "custom_style": { "title": "Anpassad stil för markering" },
         "predefined_style": {
             "brown": "Brun",
             "custom": "Manual",

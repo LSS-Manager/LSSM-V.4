@@ -49,13 +49,13 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import libraries from '../libraries.json';
+import libraries from '../generated/libraries.json';
 
 import type { DefaultMethods, DefaultProps } from 'vue/types/options';
 import type {
     LibraryOverviewComputed,
     LibraryOverviewData,
-} from '../../typings/components/LibraryOverview';
+} from 'typings/components/LibraryOverview';
 
 export default Vue.extend<
     LibraryOverviewData,

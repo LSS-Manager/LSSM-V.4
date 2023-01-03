@@ -6,13 +6,17 @@
             "description": "Shows in the buildings how many of the same type still exist in the respective direction.",
             "title": "Number of buildings of the same type"
         },
-        "enhanceVehicleList": {
-            "description": "Extends the vehicle list with useful features - some of which are specially adjustable.",
-            "title": "Extend vehicle list"
+        "dispatchCenterBuildingFilter": {
+            "description": "Adds some useful filters to the list of buildings in dispatch centers",
+            "title": "Filter for buildings in dispatch center"
         },
         "enhancedPersonnelAssignment": {
             "description": "Gives you the opportunity to hide personnel without the appropriate training.",
             "title": "improved staff allocation"
+        },
+        "enhanceVehicleList": {
+            "description": "Extends the vehicle list with useful features - some of which are specially adjustable.",
+            "title": "Extend vehicle list"
         },
         "expansions": {
             "description": "Shows the extensions of a building without having to press the extensions tab first.",
@@ -34,21 +38,25 @@
             "description": "Shows how much personnel is required with minimum and maximum vehicle occupancy.",
             "title": "Personnel requirements"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Shows in the staff overview of a building how many people have which training(s).",
             "title": "Personnel summary"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Asks if you really want to upgrade your building.",
             "title": "Upgrade Building"
-        },
-        "vehicleTypes": {
-            "description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
-            "title": "Vehicle type"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Shows if available only the own vehicle class. If not available it will show the default vehicle class.",
-            "title": "Show only own vehicle class"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Shows how many people are assigned to the vehicle.",
@@ -65,6 +73,14 @@
         "vehiclesPersonnelMax": {
             "description": "Shows the maximum number of people that can fit on the vehicle.",
             "title": "Maximum crew"
+        },
+        "vehicleTypes": {
+            "description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
+            "title": "Vehicle type"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Shows if available only the own vehicle class. If not available it will show the default vehicle class.",
+            "title": "Show only own vehicle class"
         }
     }
 }

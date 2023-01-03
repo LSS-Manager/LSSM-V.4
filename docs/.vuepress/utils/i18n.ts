@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-interface Translation {
+export interface Translation {
     [key: string]: Translation | string;
 }
 

@@ -26,9 +26,9 @@ export default (
                     )
                         return;
                     e.preventDefault();
-                    LSSM.$store
-                        .dispatch('api/request', {
-                            url: target.getAttribute('href'),
+                    LSSM.$stores.api
+                        .request({
+                            url: target.getAttribute('href') ?? '',
                             feature: `${MODULE_ID}-missions-prisoners`,
                         })
                         .then(() => {
@@ -144,8 +144,8 @@ export default (
                 'mission_reply[mission_id]',
                 missionId.toString()
             );
-            LSSM.$store
-                .dispatch('api/request', {
+            LSSM.$stores.api
+                .request({
                     url: '/mission_replies',
                     feature: `${MODULE_ID}_missionReply`,
                     init: {
@@ -176,7 +176,7 @@ export default (
                     const reply = document.createElement('li');
                     reply.setAttribute('title', new Date().toLocaleString());
                     const userLink = document.createElement('a');
-                    userLink.setAttribute('href', `/profile/${user_id}`);
+                    userLink.setAttribute('href', `/profile/${window.user_id}`);
                     userLink.textContent = window.username;
                     reply.append(
                         document.createTextNode(

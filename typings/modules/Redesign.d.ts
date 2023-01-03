@@ -41,6 +41,17 @@ import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/ver
 // workaround comment to allow custom group for parser imports
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RootScopeWithoutAll } from '../../src/modules/hotkeys/main';
+import type { useAPIStore } from '@stores/api';
+import type { useBroadcastStore } from '@stores/broadcast';
+import type { useConsoleStore } from '@stores/console';
+import type { useEventStore } from '@stores/event';
+import type { useModulesStore } from '@stores/modules';
+import type { useNotificationStore } from '@stores/notifications';
+import type { useRootStore } from '@stores/index';
+import type { useSettingsStore } from '@stores/settings';
+import type { useStorageStore } from '@stores/storage';
+import type { useTranslationStore } from '@stores/translationUtilities';
 import type VueI18n from 'vue-i18n';
 import type { $m, $mc } from 'typings/Module';
 import type {
@@ -112,6 +123,17 @@ interface Data<T extends RedesignKey | '' | 'default'> {
         enabled: boolean;
         pictures: boolean;
     };
+    existingHotkeys: string[];
+    apiStore: ReturnType<typeof useAPIStore>;
+    broadcastStore: ReturnType<typeof useBroadcastStore>;
+    consoleStore: ReturnType<typeof useConsoleStore>;
+    eventStore: ReturnType<typeof useEventStore>;
+    modulesStore: ReturnType<typeof useModulesStore>;
+    notificationsStore: ReturnType<typeof useNotificationStore>;
+    rootStore: ReturnType<typeof useRootStore>;
+    settingsStore: ReturnType<typeof useSettingsStore>;
+    storageStore: ReturnType<typeof useStorageStore>;
+    translationStore: ReturnType<typeof useTranslationStore>;
     windows: Record<
         Exclude<
             RedesignKey,
@@ -153,12 +175,38 @@ export interface RedesignLightbox<
             args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
         getIdFromEl(el: HTMLAnchorElement | null): number;
-        getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting(): <T>(settingId: string, value: T) => Promise<void>;
+        getSetting(): <S extends string, T>(
+            setting: S,
+            defaultValue: T
+        ) => Promise<T>;
+        setSetting(): <S extends string, T>(
+            settingId: S,
+            value: T
+        ) => Promise<void>;
         finishLoading(text?: string): void;
         copyUrl(): void;
+        setHotkeyRedesignParam<
+            Component extends RedesignComponent<string, RedesignKey>,
+            VueInstance extends RedesignVueInstance<Component> = RedesignVueInstance<Component>
+        >(
+            scope:
+                | `${RootScopeWithoutAll}.${string}`
+                | `${RootScopeWithoutAll}`,
+            extras: {
+                component: VueInstance;
+                data: Partial<VueInstance['Data']>;
+                methods: Partial<VueInstance['Methods']>;
+                computed: Partial<VueInstance['Computed']>;
+            }
+        ): void;
+        unsetHotkeyRedesignParam(
+            scope: `${RootScopeWithoutAll}.${string}` | `${RootScopeWithoutAll}`
+        ): void;
     };
     Computed: {
+        lightbox: Type extends keyof Redesigns
+            ? RedesignLightboxVue<Type>
+            : null;
         loaderOffset: number;
         fullUrl: string;
         src: string;
@@ -175,27 +223,29 @@ export interface RedesignLightbox<
     };
 }
 
-interface ParserParam {
+interface ParserParam<Type extends RedesignKey = RedesignKey> {
     doc: Document;
     href?: string;
     getIdFromEl?(el: HTMLAnchorElement | null): number;
-    LSSM: Vue;
+    LSSM: RedesignLightboxVue<Type>;
     $m: $m;
     $sm: $m;
     $mc: $mc;
     $smc: $mc;
 }
 
-export type RedesignParser<Window extends RedesignWindow = RedesignWindow> = (
-    data: ParserParam
-) => Promise<Window> | Window;
+export type RedesignParser<
+    Window extends RedesignWindow = RedesignWindow,
+    Type extends RedesignKey = RedesignKey
+> = (data: ParserParam<Type>) => Promise<Window> | Window;
 
 export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
     Vue,
     RedesignLightbox<Type>['Data'],
     RedesignLightbox<Type>['Methods'],
     RedesignLightbox<Type>['Computed'],
-    RedesignLightbox<Type>['Props']
+    RedesignLightbox<Type>['Props'],
+    unknown
 >;
 
 export interface RedesignComponent<
@@ -213,10 +263,26 @@ export interface RedesignComponent<
         Record<DataName, Redesigns[Type] & { authenticity_token: string }> & {
             url: string;
             lightbox: RedesignLightboxVue<Type>;
-            getSetting<T>(setting: string, defaultValue: T): Promise<T>;
-            setSetting<T>(settingId: string, value: T): Promise<void>;
+            getSetting<S extends string, T>(
+                setting: S,
+                defaultValue: T
+            ): Promise<T>;
+            setSetting<S extends string, T>(
+                settingId: S,
+                value: T
+            ): Promise<void>;
         };
 }
+
+export type RedesignVueInstance<
+    Component extends RedesignComponent<string, RedesignKey>
+> = CombinedVueInstance<
+    Vue,
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
+>;
 
 export type RedesignSubComponent<
     DataName extends string,

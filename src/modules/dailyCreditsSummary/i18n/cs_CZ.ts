@@ -40,7 +40,7 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Stanice (vylepšena( \(z malé .*? stanice\))??|vybudována)|Zrušit:)/u,
+            regex: /(Stanice (vylepšena( \(z malé .*? stanice\))??|vybudována)|Zrušit:|Vytvořená specializace|Specializace zrušena)/u,
             title: 'Rozšíření stanic',
             backgroundColor: '#000080',
             textColor: 'white',

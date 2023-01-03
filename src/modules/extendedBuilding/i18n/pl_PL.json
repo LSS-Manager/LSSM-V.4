@@ -2,15 +2,14 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Ukryj personel bez odpowiedniego przeszkolenia"
     },
-    "expansions": {
-        "notBuild": "Jeszcze nie zbudowano"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Brak CPR"
-    },
+    "expansions": { "notBuild": "Jeszcze nie zbudowano" },
+    "fastDispatchChooser": { "noDispatch": "Brak CPR" },
     "personnelDemands": {
         "additional": "Wartości w nawiasach wykluczają pojazdy o statusie 6.",
         "demand": "Wymagany personel"
+    },
+    "renewAllStagingAreas": {
+        "title": "Zresetuj wszystkie obszary tymczasowe"
     },
     "schoolingSummary": {
         "all": "Wszystkie kombinacje",
@@ -23,6 +22,7 @@
         "schooling": "Edukacja",
         "title": "Przegląd personelu"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Anuluj",

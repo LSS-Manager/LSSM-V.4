@@ -1,26 +1,47 @@
-import type { ActionContext } from 'vuex';
-import type { RootState } from '../RootState';
-import type { SettingsState } from './State';
-import type { ModuleSettings, Settings } from '../../Setting';
+/**
+ * @file - Types for the actions of settings store.
+ */
 
-export type SettingsActionStoreParams = ActionContext<SettingsState, RootState>;
+import type { ModuleSettings, RegisterSettings } from '../../Setting';
 
 export interface SettingsRegister {
     moduleId: string;
-    settings: Settings;
+    settings: RegisterSettings;
 }
 
-export interface SettingsSet {
+export interface SettingsSet<SettingType> {
     moduleId: string;
     settingId: string;
-    value: unknown;
+    value: SettingType;
 }
 
-export interface SettingsGet {
-    moduleId: string;
-    settingId: string;
-    defaultValue: unknown;
-}
+export type SettingsGet<SettingType, Unit extends string = ''> = Unit extends ''
+    ? {
+          moduleId: string;
+          settingId: string;
+          defaultValue?: SettingType;
+          addUnit?: false;
+      }
+    : {
+          moduleId: string;
+          settingId: string;
+          defaultValue?: SettingType;
+          addUnit: true;
+      };
+
+export type SettingsGetType<SettingType, Unit extends string> = Promise<
+    Unit extends ''
+        ? SettingType
+        : `${SettingType extends
+              | bigint
+              | boolean
+              | number
+              | string
+              | null
+              | undefined
+              ? SettingType
+              : string}${Unit}`
+>;
 
 export interface SettingsSave {
     settings: ModuleSettings;

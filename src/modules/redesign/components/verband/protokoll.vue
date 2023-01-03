@@ -188,10 +188,7 @@ export default Vue.extend<
                     startPage: this.startPage,
                     endPage: this.endPage,
                     firstDate: this.protokoll.entries[0]?.timestring ?? '',
-                    lastDate:
-                        this.protokoll.entries[
-                            this.protokoll.entries.length - 1
-                        ]?.timestring ?? '',
+                    lastDate: this.protokoll.entries.at(-1)?.timestring ?? '',
                     totalPages: this.protokoll.lastPage.toLocaleString(),
                 })
                 .toString();
@@ -249,8 +246,8 @@ export default Vue.extend<
             this.startPage--;
             const url = new URL(`/alliance_logfiles`, window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-verband-mitgliederliste-load-prev-${this.startPage}`,
                 })
@@ -265,7 +262,7 @@ export default Vue.extend<
                                 ),
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,
@@ -292,8 +289,8 @@ export default Vue.extend<
             this.endPage++;
             const url = new URL(`/alliance_logfiles`, window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-verband-mitgliederliste-load-prev-${this.endPage}`,
                 })
@@ -308,7 +305,7 @@ export default Vue.extend<
                                 ),
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,

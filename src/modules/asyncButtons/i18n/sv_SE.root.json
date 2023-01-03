@@ -2,6 +2,10 @@
     "description": "Undvik med den här modulen att spelet laddas om när du trycker på vissa knappar.",
     "name": "Asynkrona knappar",
     "settings": {
+        "buildExtension": {
+            "description": "Förhindra sidomladdning när en byggnadsuttbygnad byggs.",
+            "title": "Byggnadsutbyggnader"
+        },
         "buildingPersonal": {
             "description": "Förhindrar omladdning när du släpper den personliga.",
             "title": "Frigivning av personliga uppgifter"
@@ -22,12 +26,8 @@
             "description": "Förhindrar omladdning, om du har Alliance-medlem kasta eller redigera hans rättigheter",
             "title": "Alliansens medlemmars rättigheter"
         },
-        "missionPrisoners": {
-            "title": "Fångar i uppdragsfönstret"
-        },
-        "missionReply": {
-            "title": "MissionReplys in the Mission"
-        },
+        "missionPrisoners": { "title": "Fångar i uppdragsfönstret" },
+        "missionReply": { "title": "MissionReplys in the Mission" },
         "switchExtensionState": {
             "description": "Förhindrar omladdning när du ställer in tillståndet för ett tillägg.",
             "title": "(De-)aktivera förlängning"

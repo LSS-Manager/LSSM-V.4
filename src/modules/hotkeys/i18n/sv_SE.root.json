@@ -35,26 +35,80 @@
             },
             "title": "Generella"
         },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
+            },
+            "dispatch": {
+                "buildings": "buildings tab",
+                "extensions": "extensions tab",
+                "next": "next tab",
+                "openFirstPlannedMission": "Open first planned mission",
+                "patrol": "patrol tab",
+                "patrol_vehicles": "patrol vehicles tab",
+                "plannedMission": "planned mission tab",
+                "previous": "next tab",
+                "protocol": "protocol tab",
+                "schooling": "schooling tab",
+                "settings": "settings tab",
+                "stats": "stats tab",
+                "title": "dispatch centre",
+                "vehicle": "vehicle tab"
+            },
+            "goto": {
+                "dispatchCenter": "Larmcentral",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Nästa byggnad",
+                "personal": "personal overview",
+                "previousBuilding": "Föregående byggnad",
+                "title": "gå till"
+            },
+            "title": "Byggnader"
+        },
         "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
             "chat": {
                 "focus": "välj chattfönstrets skrivruta",
                 "title": "Chat"
             },
             "lssm": {
-                "menu": {
-                    "title": "Meny",
-                    "toggle": "visa / Stäng"
-                },
+                "menu": { "title": "Meny", "toggle": "visa / Stäng" },
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "välj karfönstrets sökruta",
                     "title": "Platssökning"
                 },
-                "title": "karta"
+                "title": "karta",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selection menu",
+                    "title": "Mission sorting"
+                },
                 "search": {
                     "focus": "välj uppdragets fordonsökningslista",
                     "title": "Sök"
@@ -64,6 +118,28 @@
             "title": "Huvudfönster"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarm and go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Skicka enheter och gå till nästa",
                 "alert_share_next": "Skicka enheter, dela och gå till nästa",
@@ -71,7 +147,36 @@
                 "prev": "föregående upptrag",
                 "title": "Sortara uppdrag"
             },
-            "title": "Huvud fönster"
+            "title": "Huvud fönster",
+            "transport_request": "Open first patient transport request",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "staff assignment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Styr spelet med hotkeys som du själv kan definera.",
@@ -83,5 +188,6 @@
             "description": "Här kan du binda dina egna hotkeys för specifika handlignar. Handlingar i kategorin \"Generella\" är tillgängliga överallt i spelet. Genom att trycka F1 samt statistik hur du använder dom",
             "title": "Hotkeys"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

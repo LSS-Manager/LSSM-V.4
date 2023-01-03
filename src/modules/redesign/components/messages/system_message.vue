@@ -23,6 +23,7 @@
 import Vue from 'vue';
 
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
+import { useEventStore } from '@stores/event';
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignComponent } from 'typings/modules/Redesign';
@@ -61,8 +62,8 @@ export default Vue.extend<
                 this.message.authenticity_token
             );
             url.searchParams.append('_method', 'post');
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/messages/system_message/${this.id}/remove`,
                     init: {
                         credentials: 'include',
@@ -73,7 +74,7 @@ export default Vue.extend<
                         referrer: new URL(
                             `/messages/system_message/${this.id}`,
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -90,16 +91,12 @@ export default Vue.extend<
                     )
                         return this.$set(this.lightbox, 'src', url);
 
-                    this.$store
-                        .dispatch('event/createEvent', {
-                            name: 'redesign-messages-system_message-delete',
-                            detail: {
-                                id: this.id,
-                            },
-                        })
-                        .then(event =>
-                            this.$store.dispatch('event/dispatchEvent', event)
-                        );
+                    useEventStore().createAndDispatchEvent({
+                        name: 'redesign-messages-system_message-delete',
+                        detail: {
+                            id: this.id,
+                        },
+                    });
                     window.lightboxClose(this.lightbox.creation);
                 });
         },

@@ -1,5 +1,20 @@
 {
     "description": "Forbedre kartet med noen kule funksjoner.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "presets": {
+            "dark1": "Dark 1",
+            "dark2": "Dark 2",
+            "dark3": "Dark 3",
+            "gray": "Gray"
+        },
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Forbedret kart",
     "positions": {
         "bottomleft": "Nederst til venstre 🡧",
@@ -10,7 +25,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map. More settings are available within each complex.",
             "name": "Name",
             "position": "Location",
             "title": "Building complexes"
@@ -19,14 +34,18 @@
             "description": "Sentrer kartet dynamisk eller til en statisk visning når du åpner spillet",
             "title": "Sentrer kart"
         },
-        "centerMapStaticLocation": {
-            "title": "Senter kart statisk: Posisjon"
-        },
+        "centerMapStaticLocation": { "title": "Senter kart statisk: Posisjon" },
         "centerMapType": {
             "description": "Velg om du vil ha statisk eller dynamisk sentrering [dynamisk er ennå ikke tilgjengelig]",
             "dynamic": "dynamisk",
             "static": "statisk",
             "title": "Sentrer kart: Modus"
+        },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
         },
         "mapScale": {
             "description": "Viser en kartskala og gjeldende zoomnivå",

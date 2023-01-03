@@ -6,13 +6,17 @@
             "description": "Montre le nombre de bâtiments du même type restant à droite ou à gauche.",
             "title": "Nombre de bâtiments du même type"
         },
-        "enhanceVehicleList": {
-            "description": "Améliore le liste des véhicules. Certaines options sont réglables.",
-            "title": "Améliore la liste des véhicules"
+        "dispatchCenterBuildingFilter": {
+            "description": "Ajoute des filtres à la liste des bâtiments pour le centre de Traitement des Appels",
+            "title": "Filtre la liste de bâtiments paar le centre de Traitement des Appels"
         },
         "enhancedPersonnelAssignment": {
             "description": "Permet de cacher les employés sans la formation appropriée.",
             "title": "Améliore la liste des employés"
+        },
+        "enhanceVehicleList": {
+            "description": "Améliore le liste des véhicules. Certaines options sont réglables.",
+            "title": "Améliore la liste des véhicules"
         },
         "expansions": {
             "description": "Montre les extensions d'un bâtiment sans avoir à ouvrir l'onglet des extensions.",
@@ -34,21 +38,25 @@
             "description": "Affiche le nombre d'employés requis pour remplir le véhicule au minimum et au maximum.",
             "title": "Employés requis"
         },
+        "renewAllStagingAreas": {
+            "description": "Réinitialise toutes les zones de transit d'un simple clic",
+            "title": "Réinitialiser toutes les zones de transit"
+        },
         "schoolingSummary": {
             "description": "Affiche dans l'en-tête de la vue bâtiment combien d'employés sont formés et pour quelles formations.",
             "title": "Sommaire des employés"
         },
+        "schoolsBuildingFilter": {
+            "description": "Des filtres utiles pour raccourcir la liste des bâtiments dans la fenêtre des formations",
+            "title": "Filtre pour la sélection des formations"
+        },
+        "startPatrolsShortcut": {
+            "description": "Un raccourci pour lancer des patrouilles dans la fenêtre principale sans ouvrir le centre d'appels.",
+            "title": "Démarrer les patrouilles dans la fenêtre principale"
+        },
         "upgradeConfirmation": {
             "description": "Demande si vous voulez vraiment améliorer votre bâtiment.",
             "title": "Modernisation du bâtiment"
-        },
-        "vehicleTypes": {
-            "description": "Affiche le type de véhicule (et aussi sa classe propre) dans une colonne séparée.",
-            "title": "Type de véhicule"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Affiche, si elle est disponible, la classe du véhicule personnel. Si elle n'est pas disponible, la classe du véhicule par défaut sera affichée.",
-            "title": "Afficher la classe du véhicule"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Affiche le nombre d'employés affectés à un véhicule.",
@@ -65,6 +73,14 @@
         "vehiclesPersonnelMax": {
             "description": "Affiche le nombre maximum d'employés qui peuvent entrer dans le véhicule.",
             "title": "Affectation maximum"
+        },
+        "vehicleTypes": {
+            "description": "Affiche le type de véhicule (et aussi sa classe propre) dans une colonne séparée.",
+            "title": "Type de véhicule"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Affiche, si elle est disponible, la classe du véhicule personnel. Si elle n'est pas disponible, la classe du véhicule par défaut sera affichée.",
+            "title": "Afficher la classe du véhicule"
         }
     }
 }

@@ -1,4 +1,4 @@
-import browsers from './utils/browsers.json';
+import browsers from './generated/browsers.json';
 
 import type { Config } from '../typings/Config';
 
@@ -54,7 +54,7 @@ export default {
         },
         en_US: {
             flag: '🇺🇸',
-            name: 'Missionschief.com',
+            name: 'Missionchief.com',
             shortURL: 'missionchief.com',
             police: 'police',
         },
@@ -163,13 +163,19 @@ export default {
         repo: 'LSS-Manager/LSSM-V.4',
     },
     modules: {
-        'core-modules': ['telemetry', 'releasenotes', 'support'],
+        'core-modules': ['telemetry', 'releasenotes' /*, 'support'*/],
     },
     loadScript: {
         start: `${PREFIX}-load-script-start`,
         end: `${PREFIX}-load-script-end`,
     },
+    userscript_latest_update: '4.7.0',
     prefix: PREFIX,
-    server: 'https://proxy.lss-manager.de/v4/',
-    fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
+    urls: {
+        server: 'https://v4.lss-manager.de/',
+        docs: 'https://docs.lss-manager.de/',
+        statuspage: 'https://status.lss-manager.de/',
+        donations: 'https://donate.lss-manager.de/',
+        fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
+    },
 } as Config;

@@ -13,6 +13,13 @@
             "description": "Muestra junto al botón de alarma cuánto tarda el vehículo con el mayor tiempo de viaje.",
             "title": "Mayor tiempo de viaje"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Dibuja un borde alrededor de los ARR en los que ya se hizo click.",
             "title": "Resaltar ARR en los que se hizo click"
@@ -40,6 +47,18 @@
         "arrMatchHighlight": {
             "description": "Establece un filtro gris sobre todos los ARR que no contienen una palabra del nombre de la misión.",
             "title": "Gris ARR no apto"
+        },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Muestra las solicitudes almacenadas en el ARR, si permanece con el mouse brevemente sobre un ARR",
@@ -84,6 +103,10 @@
             "textcolor": "Color de texto",
             "title": "Palabras claves de la misión"
         },
+        "moreReleasePatientButtons": {
+            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
+            "title": "More buttons to release patients"
+        },
         "patientSummary": {
             "description": "Muestra junto al número de pacientes, qué equipo de rescate necesitan en combinación.",
             "title": "Resumen de pacientes"
@@ -91,6 +114,14 @@
         "redBorder": {
             "description": "Describe el tiempo de generación en rojo si la apuesta vence la noche siguiente.",
             "title": "Borde rojo"
+        },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
         },
         "stagingAreaSelectedCounter": {
             "description": "Muestra en las áreas de preparación la cantidad de vehículos seleccionados junto a los botones de alarma.",
@@ -118,51 +149,17 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Camiones de bomberos",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    12
-                ]
-            },
+            { "name": "Camiones de bomberos", "vehicleTypes": [0, 1, 12] },
             {
                 "name": "Otros vehículos",
-                "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    10,
-                    11,
-                    23,
-                    24
-                ]
+                "vehicleTypes": [2, 3, 4, 6, 7, 10, 11, 23, 24]
             },
             {
                 "name": "Ambulancia",
-                "vehicleTypes": [
-                    5,
-                    9,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22
-                ]
+                "vehicleTypes": [5, 9, 18, 19, 20, 21, 22]
             },
-            {
-                "name": "Policía",
-                "vehicleTypes": [
-                    8,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17
-                ]
-            }
-        ]
+            { "name": "Policía", "vehicleTypes": [8, 13, 14, 15, 16, 17] }
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

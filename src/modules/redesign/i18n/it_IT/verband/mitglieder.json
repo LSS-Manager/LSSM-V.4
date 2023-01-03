@@ -2,9 +2,7 @@
     "amount": "{n} giocatore filtrato | {n} giocatori filtrati",
     "credits": "Totale crediti guadagnati",
     "discount": "Sconto",
-    "edit_caption": {
-        "save": "Salva"
-    },
+    "edit_caption": { "save": "Salva" },
     "load": {
         "next": "Carica pagina successiva",
         "prev": "Carica pagina precedente"
@@ -31,9 +29,7 @@
         "edit": "Modifica permessi",
         "finance": "Finanze dell'Alleanza",
         "hide": "Chiudi",
-        "kick": {
-            "btn": "Espelli"
-        },
+        "kick": { "btn": "Espelli" },
         "kickModal": {
             "btnCancel": "Cancella",
             "btnConfirm": "Espelli",

@@ -1,13 +1,27 @@
 import type { $m } from 'typings/Module';
 import type { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
-import type { InternalVehicle } from 'typings/Vehicle';
+import type { Mission } from 'typings/Mission';
 
 type Requirements = EnhancedMissingVehiclesProps['missingRequirements'];
+
+// VueI18n returns lists as objects...
+export type GroupTranslation = Record<
+    number,
+    {
+        texts: Record<number, string>;
+        vehicles: Record<number, number>;
+        conditionalVehicles?: Record<
+            keyof Mission['additional'],
+            Record<number, number>
+        >;
+    }
+>;
 
 export default (
     LSSM: Vue,
     missingRequirements: Requirements,
     requirements: Requirements,
+    missionType: string,
     setSelected: (
         requirement: Requirements[0],
         value: number | { min: number; max: number }
@@ -19,31 +33,39 @@ export default (
     );
     const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
 
-    const vehicleTypes = LSSM.$t('vehicles') as unknown as Record<
-        number,
-        InternalVehicle
-    >;
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
     if (!vehicleList || !occupiedList) return;
-
-    type GroupTranslation = Record<string, Record<number, number>>;
 
     const getRequirementsByIDs = (translations: GroupTranslation) => {
         const requirements: Record<number, Requirements> = {};
 
-        Object.entries(translations).forEach(([reg, vehicles]) => {
-            const regex = new RegExp(reg.replace(/^\/|\/[ADJUgimux]*$/gu, ''));
-            const requirement = missingRequirements.find(({ vehicle }) =>
-                vehicle.match(regex)
-            );
-            if (requirement) {
-                Object.values(vehicles).forEach(vehicle => {
-                    if (!requirements.hasOwnProperty(vehicle))
-                        requirements[vehicle] = [];
-                    requirements[vehicle].push(requirement);
-                });
+        Object.values(translations).forEach(
+            ({ texts, vehicles, conditionalVehicles }) => {
+                const requirement = missingRequirements.find(({ vehicle }) =>
+                    Object.values(texts)
+                        .map(t => t.toLowerCase())
+                        .includes(vehicle.toLowerCase())
+                );
+                if (requirement) {
+                    const vehicleTypes = Object.values(vehicles);
+                    Object.entries(conditionalVehicles ?? {}).forEach(
+                        ([condition, vehicles]) => {
+                            if (
+                                LSSM.$stores.api.missions[missionType]
+                                    ?.additional[condition]
+                            )
+                                vehicleTypes.push(...Object.values(vehicles));
+                        }
+                    );
+                    vehicleTypes.forEach(vehicle => {
+                        if (!requirements.hasOwnProperty(vehicle))
+                            requirements[vehicle] = [];
+                        requirements[vehicle].push(requirement);
+                    });
+                }
             }
-        });
+        );
         return requirements;
     };
 
@@ -58,12 +80,20 @@ export default (
             )
         );
 
-    const requirementsByVehicleID = getRequirementsByIDs(
-        $m('vehiclesByRequirement') as unknown as GroupTranslation
-    );
-    const staffByVehicleID = getRequirementsByIDs(
-        $m('staff') as unknown as GroupTranslation
-    );
+    const vbrTranslation = $m('vehiclesByRequirement') as unknown as
+        | GroupTranslation
+        | string;
+    const requirementsByVehicleID =
+        typeof vbrTranslation === 'string'
+            ? {}
+            : getRequirementsByIDs(vbrTranslation);
+    const staffTranslation = $m('staff') as unknown as
+        | GroupTranslation
+        | string;
+    const staffByVehicleID =
+        typeof staffTranslation === 'string'
+            ? {}
+            : getRequirementsByIDs(staffTranslation);
 
     const towingVehicles = $m('towingVehicles') as unknown as Record<
         number,
@@ -122,9 +152,8 @@ export default (
                 checkbox.getAttribute('tractive_random') === '0' &&
                 tractiveVehicleID !== '0'
             ) {
-                const tractive = LSSM.$store.getters['api/vehicle'](
-                    parseInt(tractiveVehicleID)
-                );
+                const tractive =
+                    LSSM.$stores.api.vehiclesById[parseInt(tractiveVehicleID)];
                 const tractiveType = tractive.vehicle_type;
                 if (tractive) {
                     if (!selectedVehicles.hasOwnProperty(tractiveType))
@@ -197,9 +226,8 @@ export default (
                                   vehicleIds
                                       .map(
                                           id =>
-                                              LSSM.$store.getters[
-                                                  'api/vehicle'
-                                              ](id)?.max_personnel_override ??
+                                              LSSM.$stores.api.vehiclesById[id]
+                                                  ?.max_personnel_override ??
                                               type.maxPersonnel
                                       )
                                       .reduce((a, b) => a + b, 0),

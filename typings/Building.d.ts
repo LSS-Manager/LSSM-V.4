@@ -1,9 +1,22 @@
-interface Extension {
+/**
+ * @file - Type definitions for in game buildings & internal buildings (translations).
+ */
+
+import type { IconName } from '@fortawesome/free-solid-svg-icons';
+
+type Extension = {
     caption: string;
-    available: boolean;
     enabled: boolean;
     type_id: number;
-}
+} & (
+    | {
+          available: false;
+          available_at: string;
+      }
+    | {
+          available: true;
+      }
+);
 
 export interface Building {
     id: number;
@@ -14,7 +27,7 @@ export interface Building {
     latitude: number;
     longitude: number;
     extensions: Extension[];
-    leitstelle_building_id: number;
+    leitstelle_building_id: number | null;
     small_building: boolean;
     enabled: boolean;
     generate_own_missions: boolean;
@@ -22,6 +35,8 @@ export interface Building {
     hiring_phase: 0 | 1 | 2 | 3;
     hiring_automatic: boolean;
     custom_icon_url?: string;
+    is_alliance_shared?: boolean;
+    alliance_share_credits_percentage?: 0 | 10 | 20 | 30 | 40 | 50;
 }
 
 export interface BuildingCategory {
@@ -34,28 +49,99 @@ export interface ResolvedBuildingCategory {
     buildings: InternalBuilding[];
 }
 
-interface InternalExtension {
+interface BaseExtension {
     caption: string;
     credits: number;
     coins: number;
-    duration: number;
+    duration: string;
+    cannotDisable?: true;
     maxExtensionsFunction?(
         buildingsByType?: Record<number, Building[]>
     ): number;
+    canBuyByAmount?(
+        boughtExtensionsAmountByType: Record<number, Record<number, number>>,
+        maxExtensions: number
+    ): boolean;
+    requiredExtensions?: number[];
+    requiredRank?: number;
 }
 
-export interface InternalBuilding {
+interface VehicleExtension extends BaseExtension {
+    isVehicleExtension: true;
+    givesParkingLots: number;
+    givesParkingLotsPerLevel?: number;
+    unlocksVehicleTypes?: number[];
+    parkingLotReservations?: number[][];
+    giftsVehicles?: number[];
+}
+
+interface ClassroomExtension extends BaseExtension {
+    newClassrooms: number;
+}
+
+interface CellExtension extends BaseExtension {
+    newCells: number;
+}
+
+type InternalExtension =
+    | BaseExtension
+    | CellExtension
+    | ClassroomExtension
+    | VehicleExtension;
+
+interface BaseBuilding {
     caption: string;
     color: string;
-    coins: number;
     credits: number;
-    extensions: InternalExtension[];
+    coins: number;
+    extensions: (InternalExtension | null)[]; // null if extension is not available
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
-    startPersonnel: number;
-    startVehicles: string[];
-    schoolingTypes: string[];
+    icon: IconName; // There is unfortunately no way to say "names of free icons only"
+    requiredRank?: number;
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
 }
+
+interface CellBuilding extends BaseBuilding {
+    startCells: number;
+}
+
+interface HospitalBuilding extends BaseBuilding {
+    startBeds: number;
+}
+
+interface SchoolBuilding extends BaseBuilding {
+    startClassrooms: number;
+}
+
+interface DispatchCenterBuilding extends BaseBuilding {
+    isDispatchCenter: true;
+}
+
+interface StagingAreaBuilding extends BaseBuilding {
+    isStagingArea: true;
+}
+
+type CanHaveVehiclesBuilding<
+    BaseBuildingType extends BaseBuilding | InternalBuilding
+> = BaseBuildingType & {
+    schoolingTypes: string[];
+    startPersonnel: number;
+    startVehicles: string[];
+    startParkingLots: number;
+    startParkingLotReservations?: number[][];
+    parkingLotsPerLevel?: number;
+};
+
+type BuildingTypes =
+    | CellBuilding
+    | DispatchCenterBuilding
+    | HospitalBuilding
+    | SchoolBuilding
+    | StagingAreaBuilding;
+
+export type InternalBuilding =
+    | BuildingTypes
+    | CanHaveVehiclesBuilding<BaseBuilding | BuildingTypes>;

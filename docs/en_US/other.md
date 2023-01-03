@@ -9,8 +9,7 @@ sidebarDepth: 2
 Miscellaneous information about LSS Manager.
 
 ## License
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 LSS Manager is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,19 +19,23 @@ We have decided to use this license to prevent misuse of our code to violate the
 Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are of course also administratively active! We also got a lot of volunteer translators helping us translate LSSM.
 
 ### The developers
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### The Discord-Team
 **Administration**:
+
 * lost
+* Aisaka
 
 **Moderation**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
@@ -77,4 +80,30 @@ Here are some more or less interesting facts and stats about LSSM and its source
 
 <stats-cloc/>
 
+### Commits & Changes
+
+<stats-git/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /en_US/apps.md
+[docs.appstore]: /en_US/appstore.md
+[docs.bugs]: /en_US/bugs.md
+[docs.error_report]: /en_US/error_report.md
+[docs.faq]: /en_US/faq.md
+[docs.metadata]: /en_US/metadata.md
+[docs.other]: /en_US/other.md
+[docs.settings]: /en_US/settings.md
+[docs.suggestions]: /en_US/suggestions.md
+[docs.support]: /en_US/support.md
+[games.self]: https://missionchief.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

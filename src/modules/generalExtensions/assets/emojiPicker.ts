@@ -3,7 +3,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const emojiyByAlias = {} as Record<string, string>;
     const emojiMap = (
         await import(
-            /* webpackChunkName: "utils/emojis" */ '../../../utils/emojis.json'
+            /* webpackChunkName: "utils/emojis" */ '../../../generated/emojis.json'
         )
     ).default as Record<string, string[]>;
     Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {
@@ -21,13 +21,11 @@ export default async (LSSM: Vue): Promise<void> => {
     const emojiNames = Object.keys(emojiByName);
 
     const popupMap = {} as Record<string, HTMLDivElement>;
-    const optionClass = LSSM.$store.getters.nodeAttribute(
-        'emoji-picker-option'
-    );
+    const optionClass = LSSM.$stores.root.nodeAttribute('emoji-picker-option');
 
     let currentTimeout = null as number | null;
 
-    await LSSM.$store.dispatch('addStyles', [
+    LSSM.$stores.root.addStyles([
         {
             selectorText: `.${optionClass}`,
             style: {

@@ -1,4 +1,3 @@
-import { execSync } from 'child_process';
 import fs from 'fs';
 
 import Terser from 'terser';
@@ -7,8 +6,6 @@ import config from '../src/config';
 import packageJson from '../package.json';
 
 const script = packageJson.userscript;
-
-execSync('tsc src/userscript.ts');
 
 export default async (): Promise<void> =>
     fs.writeFileSync(
@@ -22,6 +19,12 @@ export default async (): Promise<void> =>
             .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}
+// @namespace    https://lss-manager.de/
+// @homepage     ${config.urls.docs}
+// @downloadURL  ${config.urls.server}lssm-v4.user.js
+// @updateURL    ${config.urls.server}lssm-v4.user.js
+// @supportURL   ${config.urls.docs}en_US/error_report
+// @icon         ${config.urls.docs}img/lssm.png
 ${Object.values(config.games)
     .map(
         ({ shortURL, police }) =>
@@ -32,23 +35,36 @@ ${Object.values(config.games)
             }`
     )
     .join('\n')}
-// @homepage     ${config.server}docs/
-// @updateURL    ${config.server}lssm-v4.user.js
-// @downloadURL  ${config.server}lssm-v4.user.js
-// @icon         ${config.server}docs/img/lssm.png
-// @supportURL   ${config.server}docs/en_US/error_report
 // @run-at       document-idle
+// @grant        GM_info
+// @grant        unsafeWindow
 // ==/UserScript==
 /* global I18n, user_id */
 ${
     (
-        await Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {
-            compress: {
-                global_defs: {
-                    host: config.server,
+        await Terser.minify(
+            fs
+                .readFileSync('./src/userscript.js')
+                .toString()
+                .replace(/import 'tampermonkey';/gu, ''),
+            {
+                compress: {
+                    ecma: 2020,
+                    global_defs: {
+                        host: config.urls.server,
+                        prefix: config.prefix,
+                    },
+                    sequences: false,
+                    unsafe_arrows: true,
                 },
-            },
-        })
+                mangle: {
+                    toplevel: true,
+                },
+                format: {
+                    ecma: 2020,
+                },
+            }
+        )
     ).code
 }
 `

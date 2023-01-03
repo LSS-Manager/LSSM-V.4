@@ -2,6 +2,7 @@ Ofta vill du ha en snabb överblick över byggnadens status.
 Med den här modulen får du den viktigaste informationen om varje station, som visas på kartan när du flyttar musen över bilden.
 
 Följande information ingår:
+
 * Namn på byggnaden
 * Antal parkeringsplatser (för stationer)
 * Antal fordon (för stationer)
@@ -12,7 +13,7 @@ Följande information ingår:
 * Fordonstyp
 * Antal tillgängliga sängar (sjukhus)
 * Antal tillgängliga klassrum (skolor)
-* Antal färdiga celler och totalt antal inom parentes (färdig + under uppbyggnad) för polisstationer													
+* Antal färdiga celler och totalt antal inom parentes (färdig + under uppbyggnad) för polisstationer
 
 ***
 

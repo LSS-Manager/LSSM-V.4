@@ -14,7 +14,6 @@ import type {
     Text,
     Toggle,
 } from 'typings/Setting';
-import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
@@ -27,10 +26,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: (number | string)[];
     }[];
 
-    const vehicles = LSSM.$t('vehicles') as unknown as Record<
-        number,
-        InternalVehicle
-    >;
+    const vehicles = LSSM.$stores.translations.vehicles;
     const vehicleCaptions = [] as string[];
     const vehicleIds = [] as string[];
     Object.entries(vehicles).forEach(([id, { caption }]) => {
@@ -38,18 +34,35 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
-        feature: `${MODULE_ID}_settings`,
-    });
-    (LSSM.$store.state.api.vehicles as Vehicle[])
-        .filter(v => v.vehicle_type_caption)
+    (await LSSM.$stores.api.getVehicles(`${MODULE_ID}_settings`)).value
+        .filter(v => v.vehicle_type_caption && vehicles[v.vehicle_type])
         .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
             const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;
             if (!vehicle_type_caption || vehicleCaptions.includes(caption))
                 return;
             vehicleCaptions.push(caption);
             vehicleIds.push(`${vehicle_type}-${vehicle_type_caption}`);
+
+            const noCustomsType = `${vehicle_type}*`;
+            if (!vehicleIds.includes(noCustomsType)) {
+                vehicleCaptions.push(
+                    `${vehicles[vehicle_type].caption} [${$m(
+                        'tailoredTabs.noCustoms'
+                    )}]`
+                );
+                vehicleIds.push(noCustomsType);
+            }
         });
+
+    const vehicleCaptionsSorted = [...vehicleCaptions].sort((a, b) => {
+        if (a.startsWith('[') && !b.startsWith('[')) return 1;
+        if (!a.startsWith('[') && b.startsWith('[')) return -1;
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
+    const vehicleIdsSorted: string[] = [];
+    vehicleCaptionsSorted.forEach(caption =>
+        vehicleIdsSorted.push(vehicleIds[vehicleCaptions.indexOf(caption)])
+    );
 
     const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
         LSSM,
@@ -206,11 +219,43 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.playerCounter',
         },
+        selectedVehicleCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        selectedVehicleCounterBtnVehicles: <MultiSelect>{
+            type: 'multiSelect',
+            values: vehicleIdsSorted,
+            labels: vehicleCaptionsSorted,
+            default: [] as string[],
+            dependsOn: '.selectedVehicleCounter',
+        },
         arrSearch: <Toggle>{
             type: 'toggle',
             default: false,
         },
         arrSearchDissolveCategories: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
+        arrSearchCompactResults: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
+        arrSearchSelectOnEnter: <Toggle>{
+            type: 'toggle',
+            default: false,
+            disabled: settings =>
+                !settings[MODULE_ID].arrSearch.value ||
+                settings[MODULE_ID].arrSearchDropdown.value,
+        },
+        arrSearchClearOnEnter: <Toggle>{
             type: 'toggle',
             default: false,
             disabled: settings =>
@@ -231,6 +276,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
             dependsOn: '.arrSearchDropdown',
+        },
+        moreReleasePatientButtons: <Toggle>{
+            type: 'toggle',
+            default: false,
         },
         tailoredTabs: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
@@ -258,14 +307,14 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: vehicleIds,
-                        labels: vehicleCaptions,
+                        values: vehicleIdsSorted,
+                        labels: vehicleCaptionsSorted,
                     },
                 },
             ],
             defaultItem: {
                 name: '',
-                color: LSSM.$store.state.darkmode ? '#505050' : '#fff',
+                color: LSSM.$stores.root.isDarkMode ? '#505050' : '#fff',
                 vehicleTypes: [],
             },
             orderable: true,
@@ -380,8 +429,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: vehicleIds,
-                        labels: vehicleCaptions,
+                        values: vehicleIdsSorted,
+                        labels: vehicleCaptionsSorted,
                     },
                 },
             ],
@@ -391,6 +440,43 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 vehicleTypes: [],
             },
             orderable: true,
+            disableable: false,
+        },
+        arrCategoryColors: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+            type: 'appendable-list',
+            default: [],
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'categoryName',
+                    title: $m('settings.arrCategoryColors.category'),
+                    size: 3,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'bgColor',
+                    title: $m('settings.arrCategoryColors.bgColor'),
+                    size: 3,
+                    setting: {
+                        type: 'color',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'color',
+                    title: $m('settings.arrCategoryColors.color'),
+                    size: 3,
+                    setting: {
+                        type: 'color',
+                    },
+                },
+            ],
+            defaultItem: {
+                categoryName: '',
+                bgColor: LSSM.$stores.root.isDarkMode ? '#505050' : '#ffffff',
+                color: LSSM.$stores.root.isDarkMode ? '#ffffff' : '#337ab7',
+            },
+            orderable: false,
             disableable: false,
         },
         overlay: <Hidden>{

@@ -1,3 +1,5 @@
+import path from 'path';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -10,6 +12,7 @@ export default {
         alias: {
             'vue$': 'vue/dist/vue.runtime.esm.js',
             'vue.esm.js$': 'vue/dist/vue.runtime.esm.js',
+            '@stores': path.resolve('src/stores'),
         },
         extensions: ['.tsx', '.ts', '.js', '.vue', '.json'],
         // modules: ['node_modules', path.resolve(__dirname, 'src')],
@@ -19,6 +22,10 @@ export default {
             {
                 test: /\.(gif|jpg|png)$/iu,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.md$/iu,
+                type: 'asset/source',
             },
             {
                 test: /\.svg$/iu,

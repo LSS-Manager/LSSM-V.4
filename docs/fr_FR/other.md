@@ -9,8 +9,7 @@ sidebarDepth: 2
 Sur cette page, nous souhaitons vous donner d'autres informations sur la LSSM.
 
 ## License
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 LSS Manager est sous licence [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,19 +19,23 @@ Nous avons décidé d'utiliser cette licence pour empêcher toute utilisation ab
 Actuellement, LSS Manager se compose de 4 développeurs et de 6 supporters supplémentaires pour notre <discord/>. Sur Discord, nos développeurs sont bien sûr également actifs sur le plan administratif !
 
 ### Les développeurs
-* Aisaka *[PDG, Administrateur Serveur, Développeur principal]*
-* Jan *[Architecte et Développeur principal]*
-* Sanni *[Contrôle de qualité, Correcteur de bugs, Développeur junior]*
-* Ron31 *[Correcteur de bugs, Développeur junior]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### The Discord-Team
 **Administration**:
-* LOST
+
+* lost
+* Aisaka
 
 **Modération**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
@@ -44,7 +47,7 @@ Nous remercions vivement nos traducteurs bénévoles qui nous aident à réalise
 
 Pour rendre un peu hommage aux traducteurs, nous avons établi une liste ici :
 <translators/>
- 
+
 ## L'histoire
 Le `LSS-Manager` existe depuis septembre 2015, même si au début il ne modifiait que le design.
 
@@ -104,4 +107,30 @@ Voici quelques informations et statistiques plus ou moins intéressantes sur LSS
 
 <stats-cloc/>
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
+### Commits et changements
+
+<stats-git/>
+
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /fr_FR/apps.md
+[docs.appstore]: /fr_FR/appstore.md
+[docs.bugs]: /fr_FR/bugs.md
+[docs.error_report]: /fr_FR/error_report.md
+[docs.faq]: /fr_FR/faq.md
+[docs.metadata]: /fr_FR/metadata.md
+[docs.other]: /fr_FR/other.md
+[docs.settings]: /fr_FR/settings.md
+[docs.suggestions]: /fr_FR/suggestions.md
+[docs.support]: /fr_FR/support.md
+[games.self]: https://operateur112.fr
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

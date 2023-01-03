@@ -103,6 +103,7 @@ import Vue from 'vue';
 
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons/faChevronCircleDown';
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons/faChevronCircleUp';
+import { useRootStore } from '@stores/index';
 
 import type { $m } from 'typings/Module';
 import type { DefaultMethods } from 'vue/types/options';
@@ -145,7 +146,7 @@ export default Vue.extend<
     },
     data() {
         return {
-            boxId: this.$store.getters.nodeAttribute(
+            boxId: useRootStore().nodeAttribute(
                 `${this.featureId}_summary-box`,
                 true
             ),
@@ -234,7 +235,7 @@ export default Vue.extend<
         &:not(:first-child)
             padding-left: 0.5em
 
-    ::v-deep table
+    :deep(table)
         margin-bottom: 0
 </style>
 <style lang="sass">

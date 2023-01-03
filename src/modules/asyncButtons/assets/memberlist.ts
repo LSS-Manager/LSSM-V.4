@@ -13,9 +13,9 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
         rights: string[],
         t: HTMLAnchorElement
     ) => {
-        await LSSM.$store
-            .dispatch('api/request', {
-                url: t.getAttribute('href'),
+        await LSSM.$stores.api
+            .request({
+                url: t.getAttribute('href') ?? '',
                 feature: `${MODULE_ID}-memberlist`,
             })
             .then(({ status }) => {
@@ -46,14 +46,12 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                         t.textContent =
                             t.textContent?.replace(unsetText, setText) || '';
                         rights.splice(
-                            rights.findIndex(
-                                r =>
-                                    r ===
-                                    roles[
-                                        t.pathname.match(
-                                            /(?<=\/verband\/)[^/]*/u
-                                        )?.[0] || ''
-                                    ]
+                            rights.indexOf(
+                                roles[
+                                    t.pathname.match(
+                                        /(?<=\/verband\/)[^/]*/u
+                                    )?.[0] || ''
+                                ]
                             ),
                             1
                         );

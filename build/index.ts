@@ -17,8 +17,6 @@ import webpackConfig from '../webpack.config';
 
 console.time(`build`);
 
-console.info(`Let's build that stuff in Version ${version}`);
-
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
 const locales = Object.keys(config.games).filter(game =>
@@ -26,6 +24,9 @@ const locales = Object.keys(config.games).filter(game =>
 );
 
 const mode = process.argv[3] || 'development';
+const branch = process.argv[4] || 'dummy';
+
+console.info(`Let's build that stuff! version: ${version}; branch: ${branch};`);
 
 const entry = {
     mode,
@@ -39,7 +40,7 @@ const entry = {
         path: path.resolve(__dirname, `../dist`),
         filename: pathData =>
             `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/u, '')}.js`,
-        publicPath: `${config.server}`,
+        publicPath: `${config.urls.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
 } as webpack.Configuration;
@@ -56,7 +57,9 @@ entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
-        MODE: mode === 'production' ? '"stable"' : '"beta"',
+        BRANCH: JSON.stringify(branch),
+        SERVER: JSON.stringify(config.urls.server),
+        MODE: JSON.stringify(mode === 'production' ? 'stable' : 'beta'),
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(
                 modules.map(module => [
@@ -88,9 +91,8 @@ entry.plugins?.push(
         v: {
             value: version,
         },
-        uid: {
-            value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
-            isDynamicKey: true, // false by default
+        branch: {
+            value: branch,
         },
     }),
     new LoadingProgressPlugin()
@@ -113,26 +115,29 @@ webpack(entry, (err, stats) => {
         console.error('Build Error: stats is a falsy value!');
         return process.exit(-1);
     } else {
+        const jsonStats = stats.toJson();
         fs.writeFileSync(
             `./dist/webpack.out.${
                 mode === 'production' ? 'public' : 'beta'
             }.json`,
-            JSON.stringify(stats.toJson(), null, '\t')
+            JSON.stringify(jsonStats, null, '\t')
+        );
+        const fileSizes = Object.fromEntries(
+            jsonStats.assets?.map(({ name, size }) => [
+                name.replace(/\.js$/u, ''),
+                size,
+            ]) ?? []
         );
         fs.writeFileSync(
             './dist/static/fileSizes.json',
-            JSON.stringify(
-                Object.fromEntries(
-                    stats
-                        .toJson()
-                        .assets?.map(({ name, size }) => [
-                            name.replace(/\.js$/u, ''),
-                            size,
-                        ]) ?? []
-                )
-            )
+            JSON.stringify(fileSizes)
         );
-        addToBuildStats({ version });
+        addToBuildStats({
+            version,
+            size: Object.values(fileSizes).reduce((a, b) => a + b, 0),
+            files: Object.entries(fileSizes).length,
+            time: jsonStats.time,
+        });
     }
     console.log('Stats:');
     console.log(stats?.toString({ colors: true }));

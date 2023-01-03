@@ -1,0 +1,65 @@
+{
+    "description": "Parantaa karttaa hienoilla ominaisuuksilla.",
+    "mapCSSFilter": {
+        "brightness": "Kirkkaus",
+        "contrast": "Kontrasti",
+        "grayscale": "Harmaa suodatin",
+        "hueRotate": "Sävyn kierto",
+        "invert": "Käänteiset värit",
+        "presets": {
+            "dark1": "Tumma 1",
+            "dark2": "Tumma 2",
+            "dark3": "Tumma 3",
+            "gray": "Harmaa"
+        },
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
+    "name": "Parannettu kartta",
+    "positions": {
+        "bottomleft": "Ala-vasen 🡧",
+        "bottomright": "Ala-oikea 🡦",
+        "topleft": "Ylä-vasen 🡤",
+        "topright": "Ylä-oikea 🡥"
+    },
+    "settings": {
+        "buildingComplexes": {
+            "buildings": "Kiinnitetyt rakennukset",
+            "description": "Design-päivitys, joka mahdollistaa useiden rakennusten yhdistämisen yhdeksi rakennukseksi kartalla. Kussakin kompleksissa on käytettävissä lisää asetuksia.",
+            "name": "Nimi",
+            "position": "Sijainti",
+            "title": "Rakennuskompleksit"
+        },
+        "centerMap": {
+            "description": "Keskitä kartta dynaamisesti tai staattiseen näkymään, kun peli avataan.",
+            "title": "Keskitetty kartta"
+        },
+        "centerMapStaticLocation": {
+            "title": "Keskitetty kartta staattinen: Sijainti"
+        },
+        "centerMapType": {
+            "description": "Valitse, haluatko staattisen vai dynaamisen keskityksen [dynaaminen ei ole vielä käytettävissä].",
+            "dynamic": "dynaaminen",
+            "static": "staattinen",
+            "title": "Keskitetty oleva kartta: Mode"
+        },
+        "mapCSSFilter": {
+            "description": "Muokkaa karttaa erilaisilla CSS-suodattimilla kuvankäsittelyä varten. Leikkiminen ja kokeilu on tervetullutta!",
+            "filterFunction": "CSS suodatin",
+            "filterValue": "arvo",
+            "title": "CSS-suodatin"
+        },
+        "mapScale": {
+            "description": "Näyttää kartan mittakaavan ja nykyisen zoomaustason",
+            "title": "Mittakaava"
+        },
+        "mapScalePosition": {
+            "description": "Valitse, missä kartan kulmassa karttamittakaavan tulisi näkyä.",
+            "title": "Karttamittakaavan sijainti"
+        },
+        "markerNewWindow": {
+            "description": "Tehtävät ja rakennukset voidaan avata uuteen välilehteen Ctrl+klikkaamalla tai klikkaamalla hiiren keskimmäistä painiketta.",
+            "title": "Avaa ikonit uudessa välilehdessä"
+        }
+    }
+}

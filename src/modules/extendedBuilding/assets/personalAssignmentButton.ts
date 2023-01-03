@@ -1,5 +1,4 @@
-export default (LSSM: Vue): void => {
-    LSSM.$store.commit('useFontAwesome');
+export default (): void => {
     const btn = document.querySelector(
         'div.btn-group > a[href^="/vehicles/"]:first-of-type'
     );

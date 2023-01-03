@@ -1,0 +1,37 @@
+{
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Piilottaa henkilöstöä ilman asianmukaista koulutusta"
+    },
+    "expansions": { "notBuild": "Ei vielä rakennettu" },
+    "fastDispatchChooser": { "noDispatch": "Ei hätäkeskusta" },
+    "personnelDemands": {
+        "additional": "Suluissa olevat arvot eivät sisällä ajoneuvoja, joiden tila on 6.",
+        "demand": "Tarvittava henkilöstö"
+    },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
+    "schoolingSummary": {
+        "all": "Kaikki yhdistelmät",
+        "amount": "Määrä",
+        "bound": "Sidottu",
+        "each": "Jokainen kurssi",
+        "max": "tällä hetkellä suurin vaadittu",
+        "min": "tällä hetkellä vaadittu vähimmäismäärä",
+        "noSchooling": "Ei koulutusta",
+        "schooling": "Koulutus",
+        "title": "Henkilöstön yleiskatsaus"
+    },
+    "startPatrols": { "duration": "1 tunti | {n} tuntia", "title": "Partiot" },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Peruuta",
+            "btnConfirm": "Vahvista",
+            "text": "Haluatko todella päivittää tämän rakennuksen?",
+            "title": "Päivitä rakennus?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "osoitettu",
+        "vehiclesPersonnelCurrent": "nykyinen",
+        "vehiclesPersonnelMax": "enintään"
+    }
+}

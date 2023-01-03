@@ -2,7 +2,8 @@
     "applied": "Du hast dich bei diesem Verband beworben, du musst nurnoch von einem (Co-)Admin des Verbands aufgenommen werden. Viel Glück!",
     "apply": "Bewerben",
     "edit_logo": "Logo bearbeiten",
-    "edit_name": "Verband umbennen",
+    "edit_name": "Verband umbenennen",
+    "edit_settings": "Verbandseinstellungen verwalten, wie z.b. Wer Nachrichten posten darf im Punkt Nachrichten",
     "edit_text": "Vorstellungstext, Regeln, wichtige Verbandsinformationen und Discord-Webhooks bearbeiten",
     "leave": {
         "cancel": "Abbrechen",

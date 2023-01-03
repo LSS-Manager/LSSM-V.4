@@ -1,0 +1,226 @@
+{
+    "name": "Laajennettu hälytysikkuna",
+    "settings": {
+        "alarmIcons": {
+            "description": "Näytä tietyn ikoni \"Lähetä\" napin vieressä, valintasi perusteella. Voit valita <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">kaikkista ilmaisista ikoneista alkaen Font-Awesome</a>. Riittää, että kerrot ikonin nimen. Tämän jälkeen saat kuvakkeen näkyviin esikatselussa.",
+            "icon": "Ikonit",
+            "preview": "Esikatselu",
+            "style": "Ikoni tyyppi",
+            "title": "hälytys ikoni",
+            "vehicles": "ajoneuvo tyypit"
+        },
+        "alarmTime": {
+            "description": "Näyttää hälytyspainikkeen vieressä, kuinka kauan ajoneuvon pisin matka-aika kestää.",
+            "title": "Pisin etäisyys"
+        },
+        "arrCategoryColors": {
+            "bgColor": "Tausta väri",
+            "category": "Luokan nimi",
+            "color": "Tekstin väri",
+            "description": "Hanki väriä hälytysjärjesluokkiisi.",
+            "title": "värilliset hälytysjärjestelyluokat"
+        },
+        "arrClickHighlight": {
+            "description": "Piirtää reunan jo napsautettujen hälytysjärjestelyjen ympärille.",
+            "title": "Korosta klikatut hälytysjärjestelyt"
+        },
+        "arrClickHighlightColor": {
+            "description": "Asettaa hälytysjärjestelyn rajojen reunavärin.",
+            "title": "Korostusväri"
+        },
+        "arrClickHighlightWidth": {
+            "description": "Määritä tässä (pikseleinä), kuinka leveä hälytysjärjetyn reunuksen tulee olla.",
+            "title": "Korostuksen leveys"
+        },
+        "arrCounter": {
+            "description": "Laskee, kuinka usein hälytysjärjestelyä tai ryhmää on klikattu. Kaikki laskurit voidaan nollata käyttämällä oikeassa alakulmassa olevaa painiketta tai nollaustoiminnolla varustettua ARR:ää.",
+            "title": "Hälytysjärjestely Laskin"
+        },
+        "arrCounterAsBadge": {
+            "description": "Näyttää hälytysjärjestely laskurin pienenä merkkinä jokaisessa hälytysjärjestelyssä.",
+            "title": "hälytysjärjestelylaskuri merkkinä"
+        },
+        "arrCounterResetSelection": {
+            "description": "Lisää oikeaan alareunaan painikkeen, jolla voit palauttaa edellisen ajoneuvon valinnan. Huomaa: Se nollaa myös hälytysjärjestely laskurin ja rajat, jos ne on aktivoitu!.",
+            "title": "Ajoneuvon valinnan nollaaminen"
+        },
+        "arrMatchHighlight": {
+            "description": "Asettaa harmaan sävyn kaikille hälytysjärjestelyille, jotka eivät sisällä sanaa tehtävän nimestä.",
+            "title": "Harmaanna liittymättömät hälytysjärjestelyt"
+        },
+        "arrSearch": {
+            "description": "Näyttää hälytysjärjestelyjen yläpuolella olevan hakupalkin, joka mahdollistaa ARR:ien suodattamisen.",
+            "title": "Hälytysjärjestely haku"
+        },
+        "arrSearchAutoFocus": {
+            "description": "Valitsee hälytysjärjestely haun automaattisesti niin, että voit aloittaa kirjoittamisen napsauttamatta hakukenttää aiemmin.",
+            "title": "Hälytysjärjestely haku: automaattinen valinta"
+        },
+        "arrSearchClearOnEnter": {
+            "description": "Tyhjää hälytysjärjestely haun kun painaa Enter-näppäintä",
+            "title": "Tyhjää hälytysjärjestely haku"
+        },
+        "arrSearchCloseDropdownOnSelect": {
+            "description": "sulkee pudotusvalikon hälytysjärjestelyn valinnan jälkeen.",
+            "title": "Sulje pudotusvalikko valinnan jälkeen"
+        },
+        "arrSearchCompactResults": {
+            "description": "Luokan kaikki hälytysjärjestelyt esitetään yhdellä rivillä.",
+            "title": "Hälytysjärjestely haku: Kompaktit tulokset"
+        },
+        "arrSearchDissolveCategories": {
+            "description": "Näyttää kaikki kategoriat kerralla, kun haetaan.",
+            "title": "Hälytysjärjestely haku: Näytä kaikki luokat"
+        },
+        "arrSearchDropdown": {
+            "description": "Piilottaa hälytysjärjestelyt kokonaan ja näyttää sen sijaan hakukelpoisen pudotusvalikon. Mahdollistaa hyvin kompaktin hälytysjärjestelyt.",
+            "title": "hälytysjärjestely haku pudotusvalikkona"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Valitsee ensimmäisen haan tuloksen, kun Enter-näppäintä painetaan",
+            "title": "Valitse ensimmäinen hälytysjärjestely"
+        },
+        "arrSpecs": {
+            "description": "Näyttää hälytysjärjestelyyn tallennetut pyynnöt, jos viet hiiren lyhyesti hälytysjärjestelyn päälle.",
+            "title": "Näytä hälytysjärjestelyn tiedot"
+        },
+        "arrTime": {
+            "description": "Näyttää, mikä on pisin etäisyys, kun olet valinnut kyseisen hälytysjärjestelyn, jos pidät hiiren hälytysjärjestelyn päällä.",
+            "title": "Pisin etäisyys"
+        },
+        "centerMap": {
+            "description": "Voit keskittää pääikkunan kartan käyttöpaikalle napin painalluksella.",
+            "title": "Keskittää kartan"
+        },
+        "collapsablePatients": {
+            "description": "Piilottaa potilaat hälytysikkunassa ja näyttää sen sijaan lyhyen yhteenvedon.",
+            "title": "Piilottaa potilaat"
+        },
+        "collapsablePatientsMinPatients": {
+            "description": "Aseta tässä, kuinka monen potilaan on oltava paikalla, jotta piilottaminen aktivoituu.",
+            "title": "Piilottaa potilaat: vähimmäismäärä"
+        },
+        "emvMaxStaff": {
+            "description": "'Parannetut Puuttuvat ajoneuvot' edellyttää, että kaikissa ajoneuvoissa on täysi henkilökunta laskelmia varten.",
+            "title": "Henkilöstön enimmäismäärä"
+        },
+        "enhancedMissingVehicles": {
+            "description": "Muuntaa lisäksi vaadittujen ajoneuvojen näytön selkeämmäksi taulukoksi.",
+            "title": "Parannettu Puuttuvat ajoneuvot"
+        },
+        "generationDate": {
+            "description": "Näyttää osoitteen vieressä, milloin tehtävä luotiin.",
+            "title": "Tehtävän luonti aika"
+        },
+        "hideVehicleList": {
+            "description": "Piilottaa normaalisti ajoneuvolistan ja voit avata sen painamalla nappia.",
+            "title": "Piilottaa ajoneuvolistan"
+        },
+        "hoverTip": {
+            "description": "Työkaluvihjeet \"Parannetut Puuttuvat ajoneuvot\" -napeille.",
+            "title": "Tooltipsit"
+        },
+        "loadMoreVehiclesInHeader": {
+            "description": "Näyttää otsikkopalkissa painikkeen \"Lataa ajoneuvot uudelleen\", jos se on käytettävissä.",
+            "title": "'Lataa ajoneuvot uudelleen' otsikkoon"
+        },
+        "missionKeywords": {
+            "allMissions": "Kaikki tehtävät",
+            "autotextcolor": "Automaattinen tekstin väri",
+            "color": "taustaväri",
+            "description": "Laita oma teksti näkyviin tehtävän nimen viereen.",
+            "keyword": "Teksti",
+            "missions": "tehtävät",
+            "prepend": "Näytä ennen tehtävän nimeä",
+            "preview": "Esikatselu",
+            "textcolor": "Tekstin väri",
+            "title": "Tehtävä lisäteksti"
+        },
+        "moreReleasePatientButtons": {
+            "description": "Näyttää potilaan vapautuspainikkeen ylhäällä ajoneuvon ikkunassa. Jokaisen kuljetuspainikkeen vieressä tehtäväikkunassa.",
+            "title": "Lisää painikkeita potilaiden vapauttamiseksi"
+        },
+        "patientSummary": {
+            "description": "Näyttää potilaiden lukumäärän vieressä, mitä he tarvitsevat yhdessä.",
+            "title": "Potilaan yhteenveto"
+        },
+        "playerCounter": {
+            "description": "Näyttää henkilöstölistan yläosassa, kuinka monta pelaajaa on lähettänyt ajoneuvon tähän tehtävään. Avaa lisätietoja sisältävä taulukko napsauttamalla sitä.",
+            "title": "Pelaaja määrä"
+        },
+        "playerCounterColor": {
+            "description": "Valitse, minkä värinen haluat pelaajalaskurin merkin olevan.",
+            "title": "Pelaaja määrä: Väri"
+        },
+        "redBorder": {
+            "description": "Punainen reunus tehtävän luontiajan ympärille jos tehtävä katoaa seuraavana yönä.",
+            "title": "Punainen reuna"
+        },
+        "remainingPatientTime": {
+            "description": "Näyttää potilaille, kuinka paljon aikaa on jäljellä, ennen kuin heidät on täysin hoidettu.",
+            "title": "Jäljellä oleva hoitoaika"
+        },
+        "selectedVehicleCounter": {
+            "description": "Näyttää laajennettavassa luettelossa, kuinka monta minkä tyyppistä ajoneuvoa on valittu.",
+            "title": "Valittujen ajoneuvojen määrä"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Näyttää nämä ajoneuvotyypit painikkeessa, jotta sinun ei tarvitse avata luetteloa nähdäksesi niiden määrän.",
+            "title": "Laske valitut ajoneuvot: Pikalaskuri"
+        },
+        "stagingAreaSelectedCounter": {
+            "description": "Näyttää kuinka monta ajoneuvoa olet valinnut sillä hwtkellä kokoontumispaikkaan lähetä napin vieressä",
+            "title": "Ajoneuvolaskuri kokoontumispaikoille"
+        },
+        "stickyHeader": {
+            "description": "Näyttää aina yläpalkin, vaikka selaisisit alaspäin.",
+            "title": "Näytä aina otsikkopalkki"
+        },
+        "tailoredTabs": {
+            "color": "Väri",
+            "description": "Säädä välilehdet lisäysikkunassa tässä. \"Kaikki\" ja \"Jatkotehtävät\" ovat aina näkyvissä.",
+            "name": "nimi",
+            "title": "ajoneuvokategoriat",
+            "vehicles": "ajoneuvotyypit"
+        },
+        "vehicleCounter": {
+            "description": "Näyttää henkilöstöluettelon yläosassa, kuinka monta ajoneuvoa on lähetetty tähän tehtävään. Avaa lisätietoja sisältävä taulukko napsauttamalla sitä.",
+            "title": "ajoneuvolaskuri"
+        },
+        "vehicleCounterColor": {
+            "danger": "punainen",
+            "default": "Harmaa",
+            "description": "Valitse, minkä värinen haluat ajoneuvonlaskurin merkin olevan.",
+            "info": "vaaleansininen",
+            "primary": "tummansininen",
+            "success": "Vihreä",
+            "title": "Ajoneuvolaskuri: väri",
+            "warning": "oranssi"
+        },
+        "vehicleTypeInList": {
+            "description": "Näyttää ajoneuvotyypin Käytettävissä olevat yksiköt -luettelossa.",
+            "title": "Näytä ajoneuvotyyppi"
+        },
+        "yellowBorder": {
+            "description": "Rajaa tehtävän luonnin ajan keltaisella, jos luonti aika on vanhempaa kuin syötetty tuntimäärä. Jos luku on 0, rajausta ei piirretä.",
+            "title": "Keltainen reunus"
+        }
+    },
+    "tailoredTabs": {
+        "defaultTabs": [
+            { "name": "Paloauto", "vehicleTypes": [0, 1, 12, 13] },
+            {
+                "name": "Muu sammutusväline",
+                "vehicleTypes": [
+                    2, 3, 4, 6, 7, 10, 11, 25, 26, 27, 28, 29, 30, 31, 32
+                ]
+            },
+            {
+                "name": "Ambulanssi",
+                "vehicleTypes": [5, 9, 19, 20, 21, 22, 23, 24]
+            },
+            { "name": "Poliisi", "vehicleTypes": [8, 14, 15, 16, 17, 18] }
+        ],
+        "noCustoms": "Omat ajoneuvoluokat pois"
+    }
+}

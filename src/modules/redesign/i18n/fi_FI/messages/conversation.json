@@ -1,0 +1,10 @@
+{
+    "back": "Takaisin Saapuneisiin",
+    "delete": "Poista keskustelu",
+    "load": {
+        "next": "Lataa vanhempia viestejä",
+        "prev": "Lataa uudempia viestejä"
+    },
+    "subtitle": "Keskustelu kanssa:",
+    "subtitleAlliance": "Viesti liittoumalta"
+}

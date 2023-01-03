@@ -8,7 +8,7 @@
                     ref="searchField"
                     class="search_input_field"
                     :value="search"
-                    @input="$emit('search', $refs.searchField.value)"
+                    @input="$emit('search', $refs.searchField.value.trim())"
                     :placeholder="
                         searchPlaceholder ? searchPlaceholder : $t('search')
                     "
@@ -155,6 +155,7 @@ export default Vue.extend<
                 head.classList.remove('fixed');
             }
         });
+        this.$nextTick(() => this.$emit('mounted'));
     },
 });
 </script>

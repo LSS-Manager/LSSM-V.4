@@ -35,35 +35,105 @@
             },
             "title": "Algemeen"
         },
-        "main": {
-            "chat": {
-                "focus": "focus invoerveld",
-                "title": "Chat"
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Niet met team delen",
+                "enableSharing": "Met team delen",
+                "title": "Wijzig delen gebouw",
+                "toggleSharing": "Wijzig delen van cellen/bedden"
             },
+            "dispatch": {
+                "buildings": "gebouwen tab",
+                "extensions": "uitbreidingen tab",
+                "next": "volgende tab",
+                "openFirstPlannedMission": "Open eerste geplande melding",
+                "patrol": "patrouille tab",
+                "patrol_vehicles": "patrouille voertuigen tab",
+                "plannedMission": "geplande meldingen tab",
+                "previous": "vorige tab",
+                "protocol": "afrondingsgeschiedenis tab",
+                "schooling": "opleidingen tab",
+                "settings": "instellingen tab",
+                "stats": "statistieken tab",
+                "title": "Meldkamer",
+                "vehicle": "voertuigen tab"
+            },
+            "goto": {
+                "dispatchCenter": "meldkamer",
+                "expand": "uitbreiden",
+                "firstVehicle": "open eerste voertuig",
+                "hire": "neem nieuwe personeel aan",
+                "nextBuilding": "volgend gebouw",
+                "personal": "personeelsoverzicht",
+                "previousBuilding": "vorig gebouw",
+                "title": "ga naar"
+            },
+            "title": "Gebouw"
+        },
+        "main": {
+            "bigMap": {
+                "title": "Vensterdesign",
+                "toggle": {
+                    "buildings": "Gebouwen",
+                    "chat": "Chat",
+                    "missions": "Meldingen",
+                    "radio": "Statuslijst",
+                    "title": "Toon/verberg venster"
+                }
+            },
+            "chat": { "focus": "focus invoerveld", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Open / Sluiten"
-                },
+                "menu": { "title": "Menu", "toggle": "Open / Sluiten" },
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "omlaag",
+                    "left": "links",
+                    "right": "rechts",
+                    "title": "Verplaats",
+                    "up": "omhoog"
+                },
                 "search": {
                     "focus": "focus invoerveld",
                     "title": "Plaatsen zoeken"
                 },
-                "title": "Kaart"
+                "title": "Kaart",
+                "zoom": { "in": "zoom in", "out": "zoom uit", "title": "Zoom" }
             },
             "missionlist": {
-                "search": {
-                    "focus": "focus invoerveld",
-                    "title": "Zoekveld"
+                "eclSort": {
+                    "open": "Open selectie menu",
+                    "title": "Meldingen sortering"
                 },
+                "search": { "focus": "focus invoerveld", "title": "Zoekveld" },
                 "title": "Meldingenlijst"
             },
             "title": "Hoofdscherm"
         },
         "mission": {
+            "alert": "Alarmeer",
+            "alert_next": "Alarmeer en ga naar volgende melding",
+            "alert_share_next": "Alarmeer, deel en ga naar volgende melding",
+            "alliance": {
+                "focus": "Focus teamchat in inzet",
+                "title": "Team",
+                "toggle": "Zet 'stuur in teamchat' aan/uit"
+            },
+            "arr": {
+                "next": "volgende tab",
+                "previous": "vorige tab",
+                "title": "Inzetvoorstellen"
+            },
+            "backalarm": {
+                "abortApproach": "Annuleer voertuig",
+                "allVehicles": "Annuleer alle voertuigen",
+                "onlyAmbulance": "Annuleer alleen ambulances",
+                "title": "Annuleer voertuigen"
+            },
+            "next": "Volgende melding",
+            "prev": "Vorige melding",
+            "share": "Deel",
             "sorted": {
                 "alert_next": "Alarmeer en ga naar de volgende melding",
                 "alert_share_next": "Alarmeer, deel en ga naar de volgende melding",
@@ -71,7 +141,36 @@
                 "prev": "vorige melding",
                 "title": "Gesorteerde meldingen"
             },
-            "title": "Meldingsscherm"
+            "title": "Meldingsscherm",
+            "transport_request": "Open eerste patiënt spraakaanvraag",
+            "vehicleList": {
+                "loadMissing": "Laad missende voertuigen",
+                "next": "volgende tab",
+                "previous": "vorige tab",
+                "title": "Voertuigenlijst"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarmeer naar eerste teammelding",
+                "firstOwnMission": "Alarmeer naar eerste eigen melding",
+                "title": "alarmeer"
+            },
+            "goto": {
+                "building": "gebouw",
+                "edit": "bewerkt",
+                "nextVehicle": "volgend voertuig",
+                "personalAssigment": "personeel toewijzen",
+                "previousVehicle": "vorig voertuig",
+                "statistics": "statistieken",
+                "title": "ga naar"
+            },
+            "other": {
+                "moveVehicle": "verplaats voertuig",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "voertuigen"
         }
     },
     "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
@@ -83,5 +182,6 @@
             "description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar. Door op F1 te drukken, kan je altijd een overzicht van de sneltoetsen openen.",
             "title": "Sneltoetsen"
         }
-    }
+    },
+    "unique": "Je hebt geprobeert om dezelfde sneltoets in te stellen voor meerdere acties die in dezelfde schermen gebruikt worden. Selecteer een andere sneltoets voor deze actie"
 }

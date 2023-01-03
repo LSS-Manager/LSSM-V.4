@@ -1,7 +1,24 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Modules } from '../Module';
+import type { useRootStore } from '@stores/index';
+import type { useSettingsStore } from '@stores/settings';
+import type { useStorageStore } from '@stores/storage';
 import type VueI18n from 'vue-i18n';
 import type { ModuleSettings, MultiSelect, Select, Setting } from '../Setting';
+
+interface Branch {
+    type: 'beta' | 'stable';
+    version: string;
+    date: {
+        date: string;
+        timezone_type: 3;
+        timezone: 'Europe/Berlin';
+    };
+}
+interface BranchToDelete extends Branch {
+    delete: Branch['date'];
+    label: string | null;
+}
 
 export interface SettingsData {
     faHistory: IconDefinition;
@@ -14,6 +31,10 @@ export interface SettingsData {
     changes: boolean;
     tab: number;
     exportData: string;
+    storageStore: ReturnType<typeof useStorageStore>;
+    settingsStore: ReturnType<typeof useSettingsStore>;
+    rootStore: ReturnType<typeof useRootStore>;
+    branches: Record<string, Branch | BranchToDelete>;
 }
 
 export interface SettingsMethods {
@@ -50,4 +71,5 @@ export interface SettingsComputed {
             }
         >
     >;
+    branchSelection: Record<'labels' | 'values', string[]>;
 }

@@ -23,7 +23,7 @@
                 v-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
-                :lightbox="this"
+                :lightbox="lightbox"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
@@ -32,7 +32,7 @@
                 v-else-if="type.startsWith('verband/') || type === 'schoolings'"
                 :data="data"
                 :url="urlProp"
-                :lightbox="this"
+                :lightbox="lightbox"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
@@ -47,7 +47,7 @@
                 v-else-if="windows[type]"
                 :is="windows[type].component"
                 :url="urlProp"
-                :lightbox="this"
+                :lightbox="lightbox"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 v-bind="{ [windows[type].data]: data }"
@@ -57,8 +57,8 @@
             v-show="!type || type === 'default'"
             ref="iframe"
             src="about:blank"
-            :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
-            :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
+            :id="rootStore.nodeAttribute('redesign-lightbox-iframe')"
+            :name="rootStore.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
         <div
             id="redesign-loader"
@@ -84,10 +84,30 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useAPIStore } from '@stores/api';
+import { useBroadcastStore } from '@stores/broadcast';
+import { useConsoleStore } from '@stores/console';
+import { useEventStore } from '@stores/event';
+import { useModulesStore } from '@stores/modules';
+import { useNotificationStore } from '@stores/notifications';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+import { useStorageStore } from '@stores/storage';
+import { useTranslationStore } from '@stores/translationUtilities';
+
+import HotkeyUtility from '../../hotkeys/assets/HotkeyUtility';
+import {
+    readSetting,
+    registerHotkeys,
+    resolveCommands,
+    type RootScopeWithoutAll,
+} from '../../hotkeys/main';
 
 import type {
     RedesignLightbox,
+    RedesignLightboxVue,
     RedesignParser,
+    Redesigns,
 } from 'typings/modules/Redesign';
 
 const windows: RedesignLightbox['Data']['windows'] = {
@@ -276,9 +296,10 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
         return {
             faSyncAlt,
-            clipboardIconId: this.$store.getters.nodeAttribute(
+            clipboardIconId: rootStore.nodeAttribute(
                 'redesign-clipboard-icon',
                 true
             ),
@@ -292,6 +313,17 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            existingHotkeys: [],
+            apiStore: useAPIStore(),
+            broadcastStore: useBroadcastStore(),
+            consoleStore: useConsoleStore(),
+            eventStore: useEventStore(),
+            modulesStore: useModulesStore(),
+            notificationsStore: useNotificationStore(),
+            rootStore,
+            settingsStore: useSettingsStore(),
+            storageStore: useStorageStore(),
+            translationStore: useTranslationStore(),
             windows,
         };
     },
@@ -372,8 +404,8 @@ export default Vue.extend<
 
                 let redirected = false;
 
-                this.$store
-                    .dispatch('api/request', {
+                this.apiStore
+                    .request({
                         url,
                         feature: `redesign-${type}`,
                     })
@@ -398,12 +430,12 @@ export default Vue.extend<
                         const types = type.split('/');
                         const addLocas = async (typePath: string) =>
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         redesign: {
                                             [typePath]: await import(
-                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${typePath}.json`
+                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.rootStore.locale}/${typePath}.json`
                                             ),
                                         },
                                     },
@@ -420,12 +452,12 @@ export default Vue.extend<
                         if (type === 'coins/list') await addLocas('credits');
                         if (type === 'credits/daily') {
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         dailyCreditsSummary: (
                                             await import(
-                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.$store.state.lang}.ts`
+                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.rootStore.locale}.ts`
                                             )
                                         ).default,
                                     },
@@ -435,11 +467,11 @@ export default Vue.extend<
                         if (type === 'schoolings') {
                             await addLocas('verband');
                             this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
+                                this.rootStore.locale,
                                 {
                                     modules: {
                                         schoolingOverview: await import(
-                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.$store.state.lang}.json`
+                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.rootStore.locale}.json`
                                         ),
                                     },
                                 }
@@ -511,8 +543,10 @@ export default Vue.extend<
                                         'height'
                                     );
                                 } catch (e) {
-                                    if (e instanceof Error) this.errors.push(e);
-                                    this.$store.dispatch('console/error', [e]);
+                                    if (e instanceof Error) {
+                                        this.errors.push(e);
+                                        this.consoleStore.error(e);
+                                    }
                                 }
                             }
                         );
@@ -521,6 +555,14 @@ export default Vue.extend<
         },
         modalName() {
             return `redesign-lightbox-${this.creation}`;
+        },
+        lightbox(): typeof this.type extends keyof Redesigns
+            ? RedesignLightboxVue<typeof this.type>
+            : null {
+            if (this.type === '' || this.type === 'default') return null;
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            return this;
         },
     },
     methods: {
@@ -531,34 +573,31 @@ export default Vue.extend<
             return this.$mc(`${this.type}.${key}`, amount, args);
         },
         getSetting() {
-            return <T>(setting: string, defaultValue: T): Promise<T> =>
-                new Promise(resolve =>
-                    this.$store
-                        .dispatch('settings/getSetting', {
-                            moduleId: 'redesign',
-                            settingId: this.type,
-                        })
-                        .then(settings =>
-                            resolve(settings[setting] ?? defaultValue)
-                        )
-                );
-        },
-        setSetting() {
-            return <T>(settingId: string, value: T): Promise<void> =>
-                this.$store
-                    .dispatch('settings/getSetting', {
+            return <S extends string, T>(
+                setting: S,
+                defaultValue: T
+            ): Promise<T> =>
+                this.settingsStore
+                    .getSetting<Record<S, T>>({
                         moduleId: 'redesign',
                         settingId: this.type,
                     })
-                    .then(settings =>
-                        this.$store
-                            .dispatch('settings/setSetting', {
-                                moduleId: 'redesign',
-                                settingId: this.type,
-                                value: { ...settings, [settingId]: value },
-                            })
-                            .then()
-                    );
+                    .then(settings => settings[setting] ?? defaultValue);
+        },
+        setSetting() {
+            return <S extends string, T>(settingId: S, value: T) =>
+                this.settingsStore
+                    .getSetting<Record<S, T>>({
+                        moduleId: 'redesign',
+                        settingId: this.type,
+                    })
+                    .then(settings => {
+                        this.settingsStore.setSetting({
+                            moduleId: 'redesign',
+                            settingId: this.type,
+                            value: { ...settings, [settingId]: value },
+                        });
+                    });
         },
         getIdFromEl(el) {
             return parseInt(
@@ -569,19 +608,15 @@ export default Vue.extend<
         },
         finishLoading(text) {
             this.loading = false;
-            this.$store
-                .dispatch('event/createEvent', {
-                    name: 'redesign-finished-loading',
-                    detail: {
-                        extra: text,
-                        type: this.type,
-                        data: this.data,
-                        modalName: this.modalName,
-                    },
-                })
-                .then(event =>
-                    this.$store.dispatch('event/dispatchEvent', event)
-                );
+            this.eventStore.createAndDispatchEvent({
+                name: 'redesign-finished-loading',
+                detail: {
+                    extra: text,
+                    type: this.type,
+                    data: this.data,
+                    modalName: this.modalName,
+                },
+            });
             if (this.clickableLinks.enabled) {
                 import(
                     /* webpackChunkName: "utils/clickableLinks" */ '../../generalExtensions/assets/clickableLinks/util'
@@ -604,31 +639,92 @@ export default Vue.extend<
                 );
             });
         },
+        setHotkeyRedesignParam(
+            scope,
+            { component, data = {}, methods = {}, computed = {} }
+        ) {
+            if (!this.type || this.type === 'default') return;
+            const param = {
+                element: this.$el,
+                data: this.data,
+                lightbox: this as RedesignLightboxVue<typeof this.type>,
+                component: {
+                    data,
+                    methods: Object.fromEntries(
+                        Object.entries(methods).map(([name, fn]) => [
+                            name,
+                            fn.bind(component),
+                        ])
+                    ),
+                    computed,
+                },
+            };
+            for (const command in HotkeyUtility.activeCommands) {
+                if (command.startsWith(`${scope}.`)) {
+                    this.existingHotkeys.push(command);
+                    HotkeyUtility.activeCommands[command][3] = param;
+                }
+            }
+            readSetting()
+                .then(hotkeys =>
+                    hotkeys.filter(
+                        ({ command }) =>
+                            command.startsWith(`${scope}.`) &&
+                            !this.existingHotkeys.includes(command)
+                    )
+                )
+                .then(hotkeys => {
+                    if (hotkeys.length) return hotkeys;
+                    else throw new Error('No hotkeys to add. Leaving promise.');
+                })
+                .then(hotkeys =>
+                    resolveCommands([
+                        (
+                            scope.split('.') as [
+                                RootScopeWithoutAll,
+                                ...string[]
+                            ]
+                        )[0],
+                    ]).then(commands => ({
+                        hotkeys,
+                        commands,
+                    }))
+                )
+                .then(({ hotkeys, commands }) =>
+                    registerHotkeys(hotkeys, commands, param)
+                )
+                .catch(() => void 0); // catch the "error" if no hotkeys to add
+        },
+        unsetHotkeyRedesignParam(scope) {
+            for (const command in HotkeyUtility.activeCommands) {
+                if (HotkeyUtility.activeCommands.hasOwnProperty(command)) {
+                    if (!command.startsWith(`${scope}.`)) continue;
+                    if (this.existingHotkeys.includes(command)) {
+                        delete HotkeyUtility.activeCommands[command][3];
+                        this.existingHotkeys.splice(
+                            this.existingHotkeys.indexOf(command),
+                            1
+                        );
+                    } else {
+                        delete HotkeyUtility.activeCommands[command];
+                    }
+                }
+            }
+        },
     },
     beforeMount() {
-        this.$store
-            .dispatch('api/getMissions', {
-                force: false,
-                feature: 'redesign-lightbox-mount',
-            })
-            .then();
-        [
-            'vehicles',
-            'buildings',
-            'allianceinfo',
-            'settings',
-            'credits',
-        ].forEach(type =>
-            this.$store.dispatch('api/initialUpdate', {
-                type,
-                feature: 'redesign-lightbox-mount',
-            })
-        );
+        const mountFeature = 'redesign-lightbox-mount';
+        this.apiStore.getAllianceInfo(mountFeature).then();
+        this.apiStore.getBuildings(mountFeature).then();
+        this.apiStore.getCredits(mountFeature).then();
+        this.apiStore.getMissions(mountFeature).then();
+        this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {
-        this.$store.commit('useFontAwesome');
-        this.$store
-            .dispatch('settings/getModule', 'generalExtensions')
+        this.settingsStore
+            .getModule<{ clickableLinks: boolean; showImg: boolean }>(
+                'generalExtensions'
+            )
             .then(({ clickableLinks, showImg }) => {
                 this.clickableLinks.enabled = clickableLinks;
                 this.clickableLinks.pictures = showImg;

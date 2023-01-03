@@ -6,7 +6,6 @@ export interface AvatarWindow {
 
 export default <RedesignParser<AvatarWindow>>(({ doc }) => ({
     image:
-        doc.querySelector<HTMLImageElement>(
-            'img[src*="/hostedimages/avatars/images"]'
-        )?.src ?? '',
+        doc.querySelector<HTMLImageElement>('img[src*="/avatars/images"]')
+            ?.src ?? '',
 }));

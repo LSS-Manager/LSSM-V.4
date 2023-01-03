@@ -2,16 +2,13 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
     },
-    "expansions": {
-        "notBuild": "Noch nicht gebaut"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Keine Leitstelle"
-    },
+    "expansions": { "notBuild": "Noch nicht gebaut" },
+    "fastDispatchChooser": { "noDispatch": "Keine Leitstelle" },
     "personnelDemands": {
         "additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
         "demand": "Benötigtes Personal"
     },
+    "renewAllStagingAreas": { "title": "Alle erneuern" },
     "schoolingSummary": {
         "all": "Alle Kombinationen",
         "amount": "Anzahl",
@@ -22,6 +19,10 @@
         "noSchooling": "Keinen Lehrgang",
         "schooling": "Ausbildung",
         "title": "Personalübersicht"
+    },
+    "startPatrols": {
+        "duration": "1 Stunde | {n} Stunden",
+        "title": "Streifenfahrten"
     },
     "upgradeConfirmation": {
         "modal": {

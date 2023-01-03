@@ -1,0 +1,86 @@
+{
+    "description": "Lisää joitakin hyödyllisiä toimintoja rakennuksiisi.",
+    "name": "Rakennuksen laajennettu näkymä",
+    "settings": {
+        "buildingsLeftRight": {
+            "description": "Näyttää rakennuksissa, kuinka monta samantyyppistä rakennusta on vielä olemassa kyseisessä suunnassa.",
+            "title": "Samantyyppisten rakennusten lukumäärä"
+        },
+        "dispatchCenterBuildingFilter": {
+            "description": "Lisää hyödyllisiä suodattimia rakennus listaan hätäkeskuksessa",
+            "title": "Suodatin rakennuksille hätäkeskuksessa"
+        },
+        "enhancedPersonnelAssignment": {
+            "description": "Antaa sinulle mahdollisuuden piilottaa henkilöstöä, jolla ei ole asianmukaista koulutusta.",
+            "title": "henkilöstön kohdentamisen parantaminen"
+        },
+        "enhanceVehicleList": {
+            "description": "Laajentaa ajoneuvoluetteloa hyödyllisillä ominaisuuksilla - joista osa on erityisesti säädettävissä.",
+            "title": "Ajoneuvoluettelon laajentaminen"
+        },
+        "expansions": {
+            "description": "Näyttää rakennuksen laajennukset painamatta ensin laajennukset-välilehteä.",
+            "title": "Näytä laajennukset suoraan"
+        },
+        "fastDispatchChooser": {
+            "description": "Voit valita suoraan rakennuksessa, mihin hätäkeskukseen se on määritetty ilman, että sinun tarvitsee ensin siirtyä asetuksiin.",
+            "title": "Hätäkeskuksen nopea valinta"
+        },
+        "fmsSwitch": {
+            "description": "Voit vaihtaa tilojen 2 ja 6 välillä napsauttamalla tilaa.",
+            "title": "Nopea tila 2 <=> 6 kytkin"
+        },
+        "personnelAssignmentBtn": {
+            "description": "Lisää \"Muokkaa\"-napin viereen napin henkilöstön osoittamiseksi. - Ei toimi vielä hätäkeskuksissa!",
+            "title": "Nappi henkilöstön osoittamiseksi"
+        },
+        "personnelDemands": {
+            "description": "Näyttää, kuinka paljon henkilöstöä tarvitaan ajoneuvojen vähimmäis- ja enimmäismäärän kanssa.",
+            "title": "Henkilöstövaatimukset"
+        },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
+        "schoolingSummary": {
+            "description": "Näyttää rakennuksen henkilöstö-sivulla, kuinka monella henkilöllä on jokin koulutus.",
+            "title": "Henkilöstön yhteenveto"
+        },
+        "schoolsBuildingFilter": {
+            "description": "Hyödylliset suodattimet rakennuslistan lyhentämiseen kurssi-ikkunassa",
+            "title": "Rakennussuodatin kurssi-ikkunassa"
+        },
+        "startPatrolsShortcut": {
+            "description": "Pikakuvake partioinnin aloittamiseen pääikkunassa ilman hätäkeskuksen avaamista.",
+            "title": "Aloita partiointi pääikkunassa"
+        },
+        "upgradeConfirmation": {
+            "description": "Kysyy, haluatko todella päivittää rakennuksesi.",
+            "title": "Päivitä rakennus"
+        },
+        "vehiclesPersonnelAssigned": {
+            "description": "Näyttää, kuinka monta henkilöä on osoitettu ajoneuvoon.",
+            "title": "Osoitettu miehistö"
+        },
+        "vehiclesPersonnelColorized": {
+            "description": "Korostaa osoitetun henkilöstön määrän punaisella, jos se on pienempi kuin suurin mahdollinen määrä, ja vihreällä, kun enimmäismäärä on saavutettu.",
+            "title": "Värikoodi osoitetulle henkilöstölle"
+        },
+        "vehiclesPersonnelCurrent": {
+            "description": "Näyttää, kuinka monta henkilöä istuu parhaillaan ajoneuvossa.",
+            "title": "Nykyinen miehistö"
+        },
+        "vehiclesPersonnelMax": {
+            "description": "Näyttää ajoneuvoon mahtuvien henkilöiden enimmäismäärän.",
+            "title": "Miehistön enimmäismäärä"
+        },
+        "vehicleTypes": {
+            "description": "Näyttää ajoneuvotyypin (ja jos saatavilla, oman ajoneuvoluokan) erillisessä sarakkeessa.",
+            "title": "Ajoneuvo tyyppi"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Näyttää vain oman ajoneuvoluokan, jos se on käytettävissä. Jos se ei ole käytettävissä, se näyttää oletusajoneuvoluokan.",
+            "title": "Näytä vain oma ajoneuvoluokka"
+        }
+    }
+}

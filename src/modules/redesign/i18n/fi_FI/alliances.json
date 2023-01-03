@@ -1,0 +1,13 @@
+{
+    "alliance": "Liittoutuma",
+    "amount": "{n} suodatettu liittoutuma | {n} suodatettua liittoutumaa",
+    "credits": "Ansaitut krediitit",
+    "load": { "next": "Lataa seuraava sivu", "prev": "Lataa edellinen sivu" },
+    "members": "Jäsenmäärä",
+    "name": "Liittoutuma",
+    "search_global": "Globaali haku",
+    "search_local": "Hae ladatuista liittoutumista",
+    "search_subtitle": "Näytä {n} liittoutumaa sivujen {startPage} - {endPage} väliltä",
+    "subtitle": "Näytä {n} liittoutumaa sivujen {startPage} ({firstCredits}) {endPage} ({lastCredits}) väliltä.",
+    "title": "Liittoutumat"
+}

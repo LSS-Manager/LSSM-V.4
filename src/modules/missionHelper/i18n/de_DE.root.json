@@ -27,6 +27,7 @@
             "in": "additional",
             "text": "Wasser abzupumpen (in Litern): {n}"
         },
+        "title": "Besondere Anforderungen",
         "water_needed": {
             "badge": true,
             "in": "requirements",
@@ -61,8 +62,8 @@
             "title": "Folgeeinsätze"
         },
         "generatedBy": {
-            "description": "Zeigt an, von welchem Gebäudetyp dieser Einsatz generiert werden kann.",
-            "title": "Generiert von (Gebäudetyp)"
+            "description": "Zeigt die Einsatzart an, die für die Auswahl eines erzeugenden Gebäudes verwendet wird.",
+            "title": "Generiert von (Einsatzart)"
         },
         "hide_battalion_chief_vehicles": {
             "description": "Blendet ELW 1 komplett aus und zeigt nur ELW 2 an.",

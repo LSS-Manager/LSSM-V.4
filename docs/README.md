@@ -20,6 +20,9 @@ actions:
   - text: 🇪🇸
     link: /es_ES/
     type: secondary
+  - text: 🇫🇮
+    link: /fi_FI/
+    type: secondary
   - text: 🇫🇷
     link: /fr_FR/
     type: secondary
@@ -45,9 +48,19 @@ actions:
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
-### Easy installation:
-1. [Tampermonkey](https://tampermonkey.net)
-2. <a :href="`${$theme.variables.server}lssm-v4.user.js`" target="_blank">Userscript</a>
+[![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline&label=stable)][lssm.status] [![Online Status for beta](https://status.lss-manager.de/api/badge/72/status?style=flat&upLabel=online&downLabel=offline&label=beta)][lssm.status]
+
+### Easy installation
+
+1. [Tampermonkey][tampermonkey]
+2. [Userscript][lssm.userscript]
 3. Reload game & start using LSSM
 
 For more information click on your flag above
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[tampermonkey]: https://tampermonkey.net/

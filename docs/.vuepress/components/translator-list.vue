@@ -19,15 +19,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { useThemeData } from '@vuepress/theme-default/lib/client';
-
-import type { ThemeData } from '../types/ThemeData';
-
-const themeData = useThemeData<ThemeData>();
+const variables = __VAR__;
 
 const translators = computed(() => {
     const languages = {};
-    themeData.value.variables.contributors.forEach(contributor => {
+    variables.contributors.forEach(contributor => {
         const langContributions = contributor.contributions.filter(
             contribution => contribution.match(/^[a-z]{2}_[A-Z]{2}$/u)
         );
@@ -43,10 +39,9 @@ const translators = computed(() => {
 });
 const flags = computed(() =>
     Object.fromEntries(
-        Object.entries(
-            themeData.value.variables
-                .contributionTypes as ThemeData['variables']['contributionTypes']
-        ).map(([language, { symbol }]) => [language, symbol])
+        Object.entries(variables.contributionTypes).map(
+            ([language, { symbol }]) => [language, symbol]
+        )
     )
 );
 </script>

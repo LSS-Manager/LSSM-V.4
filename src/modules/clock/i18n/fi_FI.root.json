@@ -1,0 +1,22 @@
+{
+    "description": "Näyttää konfiguroitavan kellon eri paikoissa tarpeen mukaan.",
+    "name": "Kello",
+    "settings": {
+        "displayNav": {
+            "description": "Kello näkyy vasemmalla logon vieressä navigointipalkissa",
+            "title": "Näytä kello navigointipalkissa"
+        },
+        "displayOverlay": {
+            "description": "Kello voidaan siirtää, ja sen on kaikkien muiden elementtien edessä.",
+            "title": "Näytä kello kelluvana"
+        },
+        "navFormat": {
+            "description": "Tässä voit asettaa kellon formaatin. Löydät apua tästä <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">here</a>.",
+            "title": "Navigointipalkin kellon formaatti"
+        },
+        "overlayFormat": {
+            "description": "Tässä voit asettaa kellon muodon. Löydät apua tästä <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">here</a>.",
+            "title": "Kelluvan kellon formaatti"
+        }
+    }
+}

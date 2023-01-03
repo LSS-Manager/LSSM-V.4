@@ -2,15 +2,14 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Cacher les employés sans la formation demandée"
     },
-    "expansions": {
-        "notBuild": "Pas encore construit"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Sans CTA"
-    },
+    "expansions": { "notBuild": "Pas encore construit" },
+    "fastDispatchChooser": { "noDispatch": "Sans CTA" },
     "personnelDemands": {
         "additional": "Les valeurs entre crochets excluent les véhicules en status 6.",
         "demand": "Employé requis"
+    },
+    "renewAllStagingAreas": {
+        "title": "Réinitialiser toutes les zones de transit"
     },
     "schoolingSummary": {
         "all": "Tout combiné",
@@ -22,6 +21,10 @@
         "noSchooling": "Pas de formation",
         "schooling": "Formation",
         "title": "Vue d'ensemble des employés"
+    },
+    "startPatrols": {
+        "duration": "1 heure | {n} heures",
+        "title": "Patrouilles"
     },
     "upgradeConfirmation": {
         "modal": {

@@ -1,3 +1,5 @@
+import { useRootStore } from '@stores/index';
+
 import type { ModuleSettingFunction } from 'typings/Module';
 import type { Hidden, ModuleSettings, Toggle } from 'typings/Setting';
 
@@ -88,6 +90,27 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: true,
     },
+    schoolsBuildingFilter: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    dispatchCenterBuildingFilter: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    startPatrolsShortcut: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    ...(!['de_DE', 'nl_NL'].includes(useRootStore().locale)
+        ? {
+              renewAllStagingAreas: <Toggle>{
+                  type: 'toggle',
+                  default: false,
+              },
+          }
+        : null),
+
     //autoBuyLevels: {
     //    type: 'toggle',
     //    default: false,

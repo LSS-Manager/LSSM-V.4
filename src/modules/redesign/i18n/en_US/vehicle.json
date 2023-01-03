@@ -1,11 +1,6 @@
 {
-    "approach": "Approach",
     "backalarm": "Backalarm",
     "backalarmNext": "approach directly",
-    "cells": {
-        "cell": "Building",
-        "free": "Free cells"
-    },
     "color": "Adjust color",
     "current_mission": "Current mission",
     "delete": {
@@ -19,27 +14,10 @@
     "edit": "Edit",
     "false": "No",
     "filter": {
-        "cells": {
-            "distance": "Maximum distance",
-            "each": "Show x buildings of each",
-            "free": "Minimum free cells",
-            "tax": "Maximum tax"
-        },
-        "hospitals": {
-            "beds": "Minimum free beds",
-            "department": {
-                "title": "Department: {department}"
-            },
-            "distance": "Maximum Distance",
-            "each": "Show x buildings of each",
-            "tax": "Maximum tax"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimum Credits",
             "distance": "Maximum Distance",
-            "participation": {
-                "title": "Participating"
-            },
+            "participation": "Participating",
             "progress": "Progress max %",
             "status": {
                 "green": "green",
@@ -48,36 +26,49 @@
                 "yellow": "yellow"
             }
         },
-        "wlf": {
+        "patient": {
+            "department": "Department: {department}",
             "distance": "Maximum Distance",
-            "same": "Same Building"
-        }
+            "freeBeds": "Minimum free beds",
+            "show": "Show x buildings of each",
+            "tax": "Maximum tax"
+        },
+        "patientIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
+        "prisoner": {
+            "distance": "Maximum distance",
+            "freeCells": "Minimum free cells",
+            "show": "Show x buildings of each",
+            "tax": "Maximum tax"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum Distance",
+            "home": "Home",
+            "show": "Show x buildings of each"
+        },
+        "trailer": { "distance": "Maximum Distance", "same": "Same Building" }
     },
     "fms": "FMS",
-    "fms_switch": {
-        "is_s2": "set S6",
-        "is_s6": "set S2"
-    },
+    "fms_switch": { "is_s2": "set S6", "is_s6": "set S2" },
     "foam_amount": "Foam amount",
     "followup_missions": "Follow-up mission | Follow-up missions",
-    "hospitals": {
-        "beds": "free beds",
-        "department": "Department: {department}",
-        "hospital": "Hospital"
-    },
     "load_all_hospitals": {
         "btn": "Load all ",
         "text": "Only 50 alliance hospitals are displayed. Loading all hospitals can take a long time depending on the quantity!"
     },
     "max_staff": "Max. Staff",
     "mileage": "Mileage",
-    "missions": {
-        "alarm": "Alarm",
+    "mission": {
         "alarmed": "Current mission",
         "credits": "Reward",
+        "dispatch": "Alarm",
         "mission": "Mission",
         "participation": "Participation",
         "patients": "Patients",
+        "patientsProgress": "{current} of {total}",
         "progress": "Progress"
     },
     "move": "Move",
@@ -85,6 +76,27 @@
     "owner_pic_state": {
         "offline": "{user} is offline!",
         "online": "{user} is online!"
+    },
+    "patient": {
+        "beds": "free beds",
+        "department": "Department: {department}",
+        "dispatch": "Approach",
+        "hospital": "Hospital"
+    },
+    "patientIntermediate": {
+        "caption": "Coastal Rescue Station",
+        "dispatch": "Transport patient",
+        "home": "Home: {building}"
+    },
+    "prisoner": {
+        "cell": "Building",
+        "dispatch": "Approach",
+        "free": "Free cells"
+    },
+    "prisonerIntermediate": {
+        "dispatch": "Transport prisoner",
+        "distance": "Coastal Rescue Station",
+        "home": "Home: {building}"
     },
     "release": {
         "cancel": "Abort",
@@ -100,21 +112,21 @@
         }
     },
     "release_patient": "Discharge patient",
+    "release_patient-intermediate": "Discharge patient",
     "release_prisoner": "Release prisoners",
-    "staff": {
-        "name": "Name",
-        "schooling": "Training",
-        "title": "Staff"
-    },
+    "release_prisoner-intermediate": "Release prisoners",
+    "staff": { "name": "Name", "schooling": "Training", "title": "Staff" },
     "station": "Building",
     "stats": "Statistics",
     "tabs": {
         "all": "all {type}: {amount}",
         "alliance": "alliance {type}: {amount}",
-        "cells": "Cells",
-        "hospitals": "Hospitals",
-        "missions": "Missions",
-        "own": "own {type}: {amount}"
+        "mission": "Missions",
+        "own": "own {type}: {amount}",
+        "patient": "Hospitals",
+        "patientIntermediate": "Coastal Rescue Stations",
+        "prisoner": "Cells",
+        "prisonerIntermediate": "Coastal Rescue Stations"
     },
     "tax": "tax",
     "true": "yes",

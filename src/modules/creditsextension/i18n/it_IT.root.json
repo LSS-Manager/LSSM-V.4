@@ -5,13 +5,8 @@
         "total": "Totale",
         "updateNote": "Aggiornato ogni 5 minuti."
     },
-    "coins": {
-        "list": "Protocol"
-    },
-    "credits": {
-        "daily": "Riepilogo giornaliero",
-        "overview": "Panoramica"
-    },
+    "coins": { "list": "Protocol" },
+    "credits": { "daily": "Riepilogo giornaliero", "overview": "Panoramica" },
     "description": "Mostra delle informazioni utili sui crediti in un menù a tendina nella barra principale.",
     "name": "Espansione dei Crediti",
     "nextRank": "Prossimo grado",
@@ -30,9 +25,17 @@
             "description": "Mostra i tuoi crediti nella barra principale in un salvadanaio.",
             "title": "Crediti al posto del salvadanaio"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Evidenzia le monete in verde se è in corso un saldo",
             "title": "Evidenzia i saldi"
+        },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Obiettivi",
+            "title": "Obiettivi progress bar"
         },
         "showSales": {
             "description": "Mostra i saldi per le monete, quando disponibili.",

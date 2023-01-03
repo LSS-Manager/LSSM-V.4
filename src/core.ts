@@ -4,30 +4,31 @@ import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import ToggleButton from 'vue-js-toggle-button';
+import { useAPIStore } from '@stores/api';
+import { useBroadcastStore } from '@stores/broadcast';
+import { useConsoleStore } from '@stores/console';
+import { useEventStore } from '@stores/event';
+import { useModulesStore } from '@stores/modules';
+import { useNotificationStore } from '@stores/notifications';
+import { useRootStore } from '@stores/index';
+import { useSettingsStore } from '@stores/settings';
+import { useStorageStore } from '@stores/storage';
+import { useTranslationStore } from '@stores/translationUtilities';
 import VueJSModal from 'vue-js-modal';
+import { createPinia, PiniaVuePlugin } from 'pinia';
 
+import checkUserscript from './core/checkUserscript';
+import debugMode from './core/debugMode';
 import i18n from './i18n';
+import loadAndExecuteModule from './core/loadAndExecuteModule';
+import loadCoreModuleTranslations from './core/loadCoreModuleTranslations';
 import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMV4 from './LSSMV4.vue';
-import store from './store';
+import registerGlobalSettings from './core/registerGlobalSettings';
 import utils from './utils';
-
-import type {
-    ModuleMainFunction,
-    Modules,
-    ModuleSettingFunction,
-} from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
-
-// a 20% chance for april fool
-if (
-    new Date().getMonth() === 3 &&
-    new Date().getDate() === 1 &&
-    Math.random() < 0.2
-)
-    require('./natives/cursors');
 
 Vue.config.productionTip = false;
 
@@ -48,6 +49,7 @@ Vue.use(VueJSModal, {
 Vue.use(ToggleButton);
 Vue.use(Tabs);
 Vue.use(Notifications);
+Vue.use(PiniaVuePlugin);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 utils(Vue);
@@ -55,30 +57,45 @@ utils(Vue);
 (async () => {
     if (window.hasOwnProperty(PREFIX)) return;
 
+    let couldNotLoadI18n = false;
+
+    const pinia = createPinia();
+
     const LSSM = new Vue({
-        store: store(Vue),
-        i18n: await i18n(Vue),
+        pinia,
+        i18n: await i18n(Vue).catch(() => {
+            couldNotLoadI18n = true;
+            return undefined;
+        }),
         render: h => h(LSSMV4),
     }).$mount(appContainer);
 
+    const rootStore = useRootStore();
+
+    if (couldNotLoadI18n) {
+        if (window.location.pathname === '/') {
+            import('./core/showRootI18nError').then(
+                ({ default: showRootI18nError }) =>
+                    showRootI18nError(LSSM, rootStore)
+            );
+        }
+        return;
+    }
+
     window[PREFIX] = LSSM;
 
-    if (
-        !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
-        localStorage.getItem(loadingIndicatorStorageKey) === 'true'
-    ) {
-        import(
-            /* webpackChunkName: "components/loadingIndicator" */ './components/LoadingIndicator.vue'
-        ).then(({ default: LoadingIndicator }) => {
-            const wrapper = document.createElement('div');
-            document.body.append(wrapper);
-            new LSSM.$vue({
-                store: LSSM.$store,
-                i18n: LSSM.$i18n,
-                render: h => h(LoadingIndicator),
-            }).$mount(wrapper);
-        });
-    }
+    LSSM.$stores = {
+        root: rootStore,
+        api: useAPIStore(),
+        broadcast: useBroadcastStore(),
+        console: useConsoleStore(),
+        event: useEventStore(),
+        modules: useModulesStore(),
+        notifications: useNotificationStore(),
+        settings: useSettingsStore(),
+        storage: useStorageStore(),
+        translations: useTranslationStore(),
+    };
 
     window.addEventListener('pagehide', () => {
         LSSM.$destroy();
@@ -91,173 +108,94 @@ utils(Vue);
         });
     });
 
-    await LSSM.$store.dispatch(
-        'api/setVehicleStates',
-        'core-initialVehicleStates'
+    // show a dialog if userscript is out of date
+    let userScriptValid = false;
+    await checkUserscript(LSSM).then(() => (userScriptValid = true));
+
+    if (!userScriptValid) return;
+
+    registerGlobalSettings(LSSM).then(() => debugMode(LSSM));
+
+    const locale = LSSM.$stores.root.locale;
+
+    LSSM.$stores.api._initAPIsFromBroadcast().then();
+
+    import('./natives/checkboxMultiSelect').then(({ default: multiSelect }) =>
+        multiSelect(LSSM)
     );
-    for (const moduleId of LSSM.$store.state.coreModules) {
-        try {
-            LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
-                modules: {
-                    [moduleId]: (
-                        await import(
-                            /* webpackChunkName: "modules/i18n/[request]" */
-                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
-                            `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
-                        )
-                    ).default,
-                },
-            });
-        } catch {
-            // if no i18n exists, do nothing
-        }
+
+    if (
+        !localStorage.hasOwnProperty(loadingIndicatorStorageKey) ||
+        localStorage.getItem(loadingIndicatorStorageKey) === 'true'
+    ) {
+        import(
+            /* webpackChunkName: "components/loadingIndicator" */ './components/LoadingIndicator.vue'
+        ).then(({ default: LoadingIndicator }) => {
+            const wrapper = document.createElement('div');
+            document.body.append(wrapper);
+            new LSSM.$vue({
+                pinia: LSSM.$pinia,
+                i18n: LSSM.$i18n,
+                render: h => h(LoadingIndicator),
+            }).$mount(wrapper);
+        });
     }
+
+    await loadCoreModuleTranslations(LSSM, locale);
 
     if (window.location.pathname === '/') {
         import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
             core => core.default(LSSM)
         );
+    } else if (
+        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+    ) {
+        LSSM.$stores.api.getSchoolings('core-update-schoolings').then();
     }
 
-    LSSM.$store
-        .dispatch('storage/get', {
+    import(
+        /* webpackChunkName: "fontawesome" */
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        '@fortawesome/fontawesome-free/js/all.min.js'
+    );
+
+    LSSM.$stores.storage
+        .get<string[]>({
             key: 'activeModules',
             defaultValue: [],
         })
-        .then((activeModules: string[]) => {
+        .then(activeModules => {
+            if (!Array.isArray(activeModules)) {
+                return LSSM.$stores.storage.set({
+                    key: 'activeModules',
+                    value: [],
+                });
+            }
             let filteredActiveModules = activeModules.filter(module =>
-                LSSM.$store.state.modules.hasOwnProperty(module)
+                LSSM.$stores.modules.modules.hasOwnProperty(module)
             );
-            if (LSSM.$store.state.mapkit) {
+            if (LSSM.$stores.root.mapkit) {
                 filteredActiveModules = filteredActiveModules.filter(
-                    module => !LSSM.$store.state.modules[module].noMapkit
+                    module =>
+                        !LSSM.$stores.modules.noMapkitModuleIds.includes(module)
                 );
             }
-            Object.entries(LSSM.$store.state.modules as Modules)
+            Object.entries(LSSM.$stores.modules.modules)
                 .filter(
                     ([, { location }]) =>
                         window.location.pathname === '/' ||
                         window.location.pathname.match(location)
                 )
                 .forEach(([moduleId, { location, settings }]) =>
-                    import(
-                        /* webpackChunkName: "modules/i18n/[request]" */
-                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
-                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+                    loadAndExecuteModule(
+                        LSSM,
+                        filteredActiveModules,
+                        locale,
+                        moduleId,
+                        location,
+                        settings
                     )
-                        .then(({ default: i18n }) =>
-                            LSSM.$i18n.mergeLocaleMessage(
-                                LSSM.$store.state.lang,
-                                {
-                                    modules: {
-                                        [moduleId]: i18n,
-                                    },
-                                }
-                            )
-                        )
-                        .catch(() =>
-                            LSSM.$store?.dispatch('console/warn', [
-                                `[core] root translation ${moduleId}/${LSSM.$store.state.lang}.root could not be imported. The file is probably nonexistent`,
-                            ])
-                        )
-                        .finally(async () => {
-                            if (filteredActiveModules.includes(moduleId)) {
-                                LSSM.$store.commit('setModuleActive', moduleId);
-                                const $m = (
-                                    key: string,
-                                    args?: Record<string, unknown>
-                                ) =>
-                                    LSSM.$t(`modules.${moduleId}.${key}`, args);
-                                const $mc = (
-                                    key: string,
-                                    amount?: number,
-                                    args?: Record<string, unknown>
-                                ) =>
-                                    LSSM.$tc(
-                                        `modules.${moduleId}.${key}`,
-                                        amount,
-                                        args
-                                    );
-
-                                if (settings) {
-                                    await LSSM.$store.dispatch(
-                                        'settings/register',
-                                        {
-                                            moduleId,
-                                            settings: await (
-                                                (
-                                                    await import(
-                                                        /* webpackChunkName: "modules/settings/[request]" */
-                                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                                        /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                                        `./modules/${moduleId}/settings`
-                                                    )
-                                                )
-                                                    .default as ModuleSettingFunction
-                                            )(moduleId, LSSM, $m),
-                                        }
-                                    );
-                                }
-
-                                if (window.location.pathname.match(location)) {
-                                    if (moduleId === 'redesign') {
-                                        document
-                                            .querySelector<HTMLButtonElement>(
-                                                '#lightbox_close_inside'
-                                            )
-                                            ?.remove();
-                                    }
-                                    import(
-                                        /* webpackChunkName: "modules/i18n/[request]" */
-                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
-                                        /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
-                                    )
-                                        .then(({ default: i18n }) =>
-                                            LSSM.$i18n.mergeLocaleMessage(
-                                                LSSM.$store.state.lang,
-                                                {
-                                                    modules: {
-                                                        [moduleId]: i18n,
-                                                    },
-                                                }
-                                            )
-                                        )
-                                        .catch(() => {
-                                            // if no i18n exists, do nothing
-                                        })
-                                        .finally(() =>
-                                            import(
-                                                /* webpackChunkName: "modules/mains/[request]" */
-                                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
-                                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                                `./modules/${moduleId}/main`
-                                            ).then(module =>
-                                                (
-                                                    module.default as ModuleMainFunction
-                                                )({
-                                                    LSSM,
-                                                    MODULE_ID: moduleId,
-                                                    $m,
-                                                    $mc,
-                                                    getSetting: (
-                                                        settingId,
-                                                        defaultValue
-                                                    ) =>
-                                                        LSSM.$store.dispatch(
-                                                            'settings/getSetting',
-                                                            {
-                                                                moduleId,
-                                                                settingId,
-                                                                defaultValue,
-                                                            }
-                                                        ),
-                                                })
-                                            )
-                                        );
-                                }
-                            }
-                        })
                 );
         });
 })();

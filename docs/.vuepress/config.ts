@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import pluginClipboard from 'vuepress-plugin-clipboard';
 import pluginRegisterComponents from '@vuepress/plugin-register-components';
 import pluginSearch from '@vuepress/plugin-search';
 import { pwaPlugin } from '@vuepress/plugin-pwa';
@@ -9,6 +10,7 @@ import { defaultTheme, defineUserConfig } from 'vuepress';
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
+import getConstants from './utils/getConstants';
 import i18n from './utils/i18n';
 import noMapkitSettings from './utils/noMapkitSettings.json';
 import localeConfig, {
@@ -16,25 +18,26 @@ import localeConfig, {
     type LocaleThemeConfig,
 } from './utils/localeConfig';
 
-import type { Locale } from './types/Locale';
-import type { ThemeData } from './types/ThemeData';
+import type { DocsVar } from './types/ThemeData';
 import type TranslationType from './i18n/de_DE.json';
 import type { Versions } from './utils/generate/versions';
 
-const BASE = '/v4/docs/';
-const DOCS_URL = new URL(config.server);
-DOCS_URL.pathname = BASE;
-
-const VUEPRESS_PATH = __dirname;
-const ROOT_PATH = path.join(VUEPRESS_PATH, '../../');
-const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
-const DIST_PATH = path.join(ROOT_PATH, 'dist');
-const DOCS_PATH = path.join(ROOT_PATH, 'docs');
-const DOCS_DIST_PATH = path.join(VUEPRESS_PATH, 'dist');
-const DOCS_TEMP_PATH = path.join(VUEPRESS_PATH, '.temp');
-const DOCS_I18N_PATH = path.join(VUEPRESS_PATH, 'i18n');
-const DOCS_UTILS_PATH = path.join(VUEPRESS_PATH, 'utils');
-const DOCS_COMPONENTS_PATH = path.join(VUEPRESS_PATH, 'components');
+const {
+    DOCS_URL,
+    BASE,
+    VUEPRESS_PATH,
+    ROOT_PATH,
+    MODULES_PATH,
+    DIST_PATH,
+    DOCS_PATH,
+    DOCS_DIST_PATH,
+    DOCS_TEMP_PATH,
+    DOCS_I18N_PATH,
+    DOCS_UTILS_PATH,
+    DOCS_COMPONENTS_PATH,
+    LANGS,
+    MODULES,
+} = getConstants();
 
 const contributorsFile = JSON.parse(
     fs.readFileSync(path.join(ROOT_PATH, '.all-contributorsrc')).toString()
@@ -51,16 +54,6 @@ const sidebar_others = [
     'settings',
     'other',
 ];
-
-const LANGS = Object.keys(config.games)
-    .filter(lang => fs.existsSync(path.join(DOCS_PATH, lang)))
-    .sort() as Locale[];
-const MODULES = fs
-    .readdirSync(MODULES_PATH)
-    .filter(
-        module =>
-            !['template', ...config.modules['core-modules']].includes(module)
-    );
 
 const $t = i18n(DOCS_I18N_PATH);
 
@@ -83,9 +76,7 @@ run('generate/bugs', bugsFile);
 run(
     'generate/readmes',
     DOCS_PATH,
-    JSON.stringify(
-        LANGS.map(lang => [lang, $t(lang, 'readme.serverStatus.game')])
-    )
+    JSON.stringify(LANGS.map(lang => [lang, $t(lang, 'readme.serverStatus')]))
 );
 
 const modulesFile = path.join(DOCS_TEMP_PATH, '.modules.json');
@@ -135,7 +126,8 @@ LANGS.forEach(lang => {
 const statsComponentsPath = path.join(DOCS_COMPONENTS_PATH, '.temp', 'stats');
 fs.mkdirSync(statsComponentsPath, { recursive: true });
 const clocStatsPath = path.join(statsComponentsPath, 'cloc.vue');
-run('generate/projectStats', ROOT_PATH, VUEPRESS_PATH, clocStatsPath);
+const gitStatsPath = path.join(statsComponentsPath, 'git.vue');
+run('generate/projectStats', ROOT_PATH, clocStatsPath, gitStatsPath);
 
 run(
     'generate/manifest',
@@ -144,6 +136,58 @@ run(
     'LSS-Manager V.4 Wiki',
     DOCS_URL.toString()
 );
+
+const __VAR__ = {
+    discord: config.discord,
+    github: `https://github.com/${config.github.repo}`,
+    server: config.urls.server,
+    fontAwesomeIconSearchLink: config.urls.fontAwesomeIconSearch,
+    versions,
+    browsers: config.browser,
+    bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
+    i18n: Object.fromEntries(
+        LANGS.map(lang => [
+            lang,
+            $t(lang, '') as unknown as typeof TranslationType,
+        ])
+    ),
+    modules: JSON.parse(fs.readFileSync(modulesFile).toString()),
+    noMapkitSettings,
+    selectLanguageTexts: Object.fromEntries(
+        Object.entries(localeConfigs.themeConfigs).map(
+            ([locale, { selectLanguageText }]) => [
+                locale,
+                selectLanguageText ?? '',
+            ]
+        )
+    ),
+    moment: Object.fromEntries(
+        LANGS.map(lang => [lang, $t(lang, 'moment')])
+    ) as unknown as DocsVar['moment'],
+    tables: Object.fromEntries(
+        LANGS.map(lang => [lang, $t(lang, 'tables')])
+    ) as unknown as DocsVar['tables'],
+    v3Comparison: {
+        translations: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'v3')])
+        ),
+        ...JSON.parse(
+            fs
+                .readFileSync(path.join(DOCS_UTILS_PATH, 'v3Comparison.json'))
+                .toString()
+        ),
+    },
+    contributors: contributorsFile.contributors,
+    contributionTypes: contributorsFile.types,
+    stats: {
+        cloc: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'stats.cloc')])
+        ) as unknown as DocsVar['stats']['cloc'],
+        git: Object.fromEntries(
+            LANGS.map(lang => [lang, $t(lang, 'stats.git')])
+        ) as unknown as DocsVar['stats']['git'],
+    },
+} as DocsVar;
 
 export default defineUserConfig({
     // site config
@@ -249,49 +293,18 @@ export default defineUserConfig({
         docsRepo: `https://github.com/${config.github.repo}`,
         docsBranch: 'dev',
         docsDir: 'docs',
-        variables: {
-            discord: config.discord,
-            github: `https://github.com/${config.github.repo}`,
-            server: config.server,
-            fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
-            versions,
-            browsers: config.browser,
-            bugIssues: JSON.parse(fs.readFileSync(bugsFile).toString()),
-            i18n: Object.fromEntries(
-                LANGS.map(lang => [
-                    lang,
-                    $t(lang, '') as unknown as typeof TranslationType,
-                ])
-            ),
-            modules: JSON.parse(fs.readFileSync(modulesFile).toString()),
-            noMapkitSettings,
-            moment: Object.fromEntries(
-                LANGS.map(lang => [lang, $t(lang, 'moment')])
-            ) as unknown as ThemeData['variables']['moment'],
-            tables: Object.fromEntries(
-                LANGS.map(lang => [lang, $t(lang, 'tables')])
-            ) as unknown as ThemeData['variables']['tables'],
-            v3Comparison: {
-                translations: Object.fromEntries(
-                    LANGS.map(lang => [lang, $t(lang, 'v3')])
-                ),
-                ...JSON.parse(
-                    fs
-                        .readFileSync(
-                            path.join(DOCS_UTILS_PATH, 'v3Comparison.json')
-                        )
-                        .toString()
-                ),
-            },
-            contributors: contributorsFile.contributors,
-            contributionTypes: contributorsFile.types,
-        },
+        // eslint-disable-next-line
+        // @ts-ignore
+        variables: __VAR__,
     }),
+
+    define: {
+        __VAR__,
+    },
 
     // plugins
     plugins: [
-        // disabled as not working with current vuepress version
-        // ['vuepress-plugin-clipboard', { align: 'top', staticIcon: true }],
+        pluginClipboard({ align: 'top', staticIcon: true }),
         pluginSearch({ locales: localeConfigs.searchConfigs }),
         pluginRegisterComponents({
             components: {
@@ -341,14 +354,13 @@ export default defineUserConfig({
                     DOCS_COMPONENTS_PATH,
                     'translator-list.vue'
                 ),
-                'variable': path.join(
-                    DOCS_COMPONENTS_PATH,
-                    'variable-code.vue'
-                ),
                 'stats-cloc': clocStatsPath,
+                'stats-git': gitStatsPath,
             },
         }),
-        pwaPlugin({}),
+        pwaPlugin({
+            skipWaiting: false,
+        }),
         pwaPopupPlugin(localeConfigs.pwaPopupConfigs),
     ],
 });

@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Nazwa",
         "current": "Numer (aktywny)",
-        "fastDispatchChooser": {
-            "noDispatch": "Brak centrum kontroli"
-        },
+        "fastDispatchChooser": { "noDispatch": "Brak centrum kontroli" },
         "type": "Typ",
         "unavailable": "W budowie"
     },
@@ -24,6 +22,7 @@
             "tip": "Kliknij jedną z kategorii (np. straż pożarna lub policja), aby powiększyć typy budynków przypisane do tej kategorii. Jeśli następnie klikniesz na typ budynku, zobaczysz, ile pojazdów każdego typu znajduje się w budynkach tego typu. W ten sposób możesz szybko dowiedzieć się, ile pojazdów każdego typu jest zaparkowanych na posterunkach policji, a ile na komisariatach.",
             "title": "Budynki"
         },
+        "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Nie masz jeszcze pojazdów w kategorii {category}!",
             "tip": "Kliknij grupę typów pojazdów, aby wyświetlić tylko tę grupę.",
@@ -66,16 +65,7 @@
     "vehicle-types": {
         "chart": "Podsumowanie statusu",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Suma",
         "title": "Wszystkie {type} | Wszystkie {type} w statusie {n} | Wszystkie {type} w statusie {n}",
         "type": "Typ pojazdu",

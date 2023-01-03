@@ -1,0 +1,16 @@
+{
+    "description": "Luo kartalle heatmap, joka näyttää rakennusten tai ajoneuvojen tiheyden - täysin kustomoitavissa.",
+    "name": "Heatmap",
+    "positions": {
+        "bottom-left": "Ala-vasen 🡧",
+        "bottom-right": "Ala-oikea 🡦",
+        "top-left": "Ylä-vasen 🡤",
+        "top-right": "Ylä-oikea 🡥"
+    },
+    "settings": {
+        "position": {
+            "description": "Valitse, missä kartan kulmassa asetuspainike näkyy.",
+            "title": "Asetusten sijainti"
+        }
+    }
+}

@@ -9,8 +9,7 @@ sidebarDepth: 2
 Op deze pagina willen we je meer informatie geven over de LSSM.
 
 ## Licentie
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][Licentie]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][Licentie]
 
 LSS Manager heeft een licentie onder [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][Licentie].
 
@@ -20,19 +19,23 @@ We hebben besloten deze licentie te gebruiken om misbruik van onze code te voork
 Momenteel bestaat LSS Manager uit 4 ontwikkelaars en 6 extra supporters voor onze <discord/>. Op Discord zijn onze developers natuurlijk ook administratief actief!
 
 ### De developers
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Het Discord-Team
 **Administratie**:
+
 * lost
+* Aisaka
 
 **Moderatie**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
@@ -79,4 +82,30 @@ Hier vind je een aantal min of meer intressante feitens en statistieken over LSS
 
 <stats-cloc/>
 
+### Commits & Changes
+
+<stats-git/>
+
 [Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nl_NL/apps.md
+[docs.appstore]: /nl_NL/appstore.md
+[docs.bugs]: /nl_NL/bugs.md
+[docs.error_report]: /nl_NL/error_report.md
+[docs.faq]: /nl_NL/faq.md
+[docs.metadata]: /nl_NL/metadata.md
+[docs.other]: /nl_NL/other.md
+[docs.settings]: /nl_NL/settings.md
+[docs.suggestions]: /nl_NL/suggestions.md
+[docs.support]: /nl_NL/support.md
+[games.self]: https://meldkamerspel.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

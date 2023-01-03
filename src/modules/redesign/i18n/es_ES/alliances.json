@@ -1,0 +1,16 @@
+{
+    "alliance": "Alianza",
+    "amount": "{n} Alianza filtrada | {n} alianzas filtradas",
+    "credits": "Créditos ganados",
+    "load": {
+        "next": "Cargar página siguiente",
+        "prev": "Cargar página anterior"
+    },
+    "members": "Número de miembros",
+    "name": "Alianza",
+    "search_global": "Búsqueda global",
+    "search_local": "Buscar en alianzas cargadas",
+    "search_subtitle": "Muestra {n} Alianzas de las páginas {startPage} a {endPage} del total {totalPages} ",
+    "subtitle": "Muestra {n} Alianzas de las páginas {startPage} ({firstCredits}) a {endPage} ({lastCredits}) del total {totalPages} ",
+    "title": "Lista de alianzas"
+}

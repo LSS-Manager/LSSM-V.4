@@ -16,7 +16,8 @@
             "badge": false,
             "in": "additional",
             "text": "Wymagany personel SPKP"
-        }
+        },
+        "title": "Specjalne wymagania"
     },
     "settings": {
         "chances": {

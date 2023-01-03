@@ -9,8 +9,7 @@ sidebarDepth: 2
 on this page we would like to give you other information about the LSSM.
 
 ## Lisens
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 LSS Manager er lisensert under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,20 +19,24 @@ Vi har besluttet å bruke denne lisensen for å forhindre misbruk av koden vår 
 For tiden består LSS Manager av 4 utviklere og 6 ekstra støttespillere for <discord/>. On Discord er utviklerne våre selvfølgelig administrativt aktive!
 
 ### Utviklerne
-* Aisaka *[administrerende direktør, serveradministrator, seniorutvikler]*
-* Jan *[Seniorarkitekt og utvikler]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Discord-teamet
 **Administrasjon**:
-* lost
 
-** Moderering **:
+* lost
+* Aisaka
+
+**Moderering**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
-    * Flyte
+    * John_Lemon
+    * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
 * 🇳🇱
@@ -79,4 +82,30 @@ Here are some more or less interesting facts and stats about LSSM and its source
 
 <stats-cloc/>
 
+### Commits & Changes
+
+<stats-git/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.no
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nb_NO/apps.md
+[docs.appstore]: /nb_NO/appstore.md
+[docs.bugs]: /nb_NO/bugs.md
+[docs.error_report]: /nb_NO/error_report.md
+[docs.faq]: /nb_NO/faq.md
+[docs.metadata]: /nb_NO/metadata.md
+[docs.other]: /nb_NO/other.md
+[docs.settings]: /nb_NO/settings.md
+[docs.suggestions]: /nb_NO/suggestions.md
+[docs.support]: /nb_NO/support.md
+[games.self]: https://nodsentralspillet.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

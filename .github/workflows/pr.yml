@@ -1,0 +1,12 @@
+name: '[👷🔀] PR Build'
+run-name: '[👷🔀] Build on PR #${{ github.event.number }}, `${{ github.ref }}`'
+
+on: [pull_request]
+
+jobs:
+    build:
+        name: '[👷🔀] Build'
+        uses: ./.github/workflows/build.yml
+        with:
+            ref: ${{ github.ref }}
+        secrets: inherit

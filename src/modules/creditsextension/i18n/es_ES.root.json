@@ -5,13 +5,8 @@
         "total": "Total",
         "updateNote": "Se actualiza cada 5 minutos."
     },
-    "coins": {
-        "list": "Protocolo"
-    },
-    "credits": {
-        "daily": "Resumen diario",
-        "overview": "Resumen"
-    },
+    "coins": { "list": "Protocolo" },
+    "credits": { "daily": "Resumen diario", "overview": "Resumen" },
     "description": "Muestra información útil sobre los créditos en un menú desplegable en la barra de navegación principal.",
     "name": "Expansión de créditos",
     "nextRank": "Siguiente rango",
@@ -30,9 +25,17 @@
             "description": "Muestra los créditos actuales en la barra de navegación principal en vez de en una hucha.",
             "title": "Créditos en lugar de hucha"
         },
+        "hideAllianceFunds": {
+            "description": "Do not show information about the alliance funds anymore",
+            "title": "Hide alliance funds"
+        },
         "highlightSales": {
             "description": "Destacar monedas verdes si hay una venta disponible",
             "title": "Destacar las ventas de monedas"
+        },
+        "showAlertProgressBar": {
+            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Objetivos",
+            "title": "Objetivos progress bar"
         },
         "showSales": {
             "description": "Muestra las ventas de monedas cuando están disponibles.",

@@ -1,0 +1,9 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": ".",
+        "sourceRoot": ".",
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "include": ["./userscript.ts"]
+}

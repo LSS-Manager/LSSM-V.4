@@ -1,0 +1,29 @@
+{
+    "description": "Výjezd, sdílení mise a napsání informace jedním klikem.",
+    "lsam": {
+        "help": "Proměnné jsou nahrazovaný stejným způsobem ve výpisu misí."
+    },
+    "name": "Sdílení informací alianci",
+    "noMessage": "Bez informací o misi",
+    "settings": {
+        "enableCallList": {
+            "description": "Integruje tento modul do \"Sdílet misi\" v Rozšíření výpisu misí.",
+            "title": "Integrace do výpisu misí"
+        },
+        "enableLSAM": {
+            "description": "Umožní sdílet informace u vytváření velkých aliančních misí.",
+            "title": "Velké alianční mise"
+        },
+        "message": "Poznámka k misi",
+        "messages": {
+            "description": "Nastavte zde informace k misi. Můžete použít proměnné, prosím podívejte se na <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> ! Prosíme přiřaďte unikátní název ke každé výzvě pro jednoduchý přehled v okně výjezdů.",
+            "title": "Výzvy k zásahu"
+        },
+        "name": "Název výzvy",
+        "postInChat": "Sdílet informace v chatu?",
+        "stayInCallList": {
+            "description": "S tímto potvrzením můžete zasílat informace o misi také na sdílených misích.",
+            "title": "Zůstat v okně výjezduStay in Call-list"
+        }
+    }
+}

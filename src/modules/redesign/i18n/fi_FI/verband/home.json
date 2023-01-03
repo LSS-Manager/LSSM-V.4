@@ -1,0 +1,14 @@
+{
+    "applied": "Olet hakenut tähän liittoumaan, sinun on vain saatava liittouman ylläpitäjän hyväksyntä. Onnea matkaan!",
+    "apply": "Hae",
+    "edit_logo": "Muokkaa logoa",
+    "edit_name": "Nimeä liittouma uudelleen",
+    "edit_text": "Muokkaa esittelytekstiä, sääntöjä, tärkeitä liittoumatietoja ja Discord-Webhookkeja.",
+    "leave": {
+        "cancel": "Peruuta",
+        "confirm": "Poistu!",
+        "text": "Haluatko todella lähteä liittoumasta **{caption}**? Toimintaa ei voi perua!",
+        "title": "Poistu liittoutumasta"
+    },
+    "unapply": "peruuta hakemus"
+}

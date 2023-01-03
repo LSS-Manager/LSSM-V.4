@@ -7,6 +7,6 @@ export interface AllianceAvatarWindow {
 export default <RedesignParser<AllianceAvatarWindow>>(({ doc }) => ({
     image:
         doc.querySelector<HTMLImageElement>(
-            'img[src*="/hostedimages/alliance_avatars/images"]'
+            'img[src*="/alliance_avatars/images"]'
         )?.src ?? '',
 }));

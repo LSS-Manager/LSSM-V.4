@@ -1,5 +1,9 @@
 export default {
     amount: 'Quantità',
+    charts: {
+        income: 'Introiti',
+        expenses: 'Spese',
+    },
     categories: {
         allianceMission: {
             regex: /^\[Alleanza\]/u,
@@ -36,7 +40,7 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Stazione (upgraded( \(from small .*? station\))??|costruita)|Guardia estesa|Cancel:|Refund Building upgrade)/u,
+            regex: /(Stazione (upgraded( \(from small .*? station\))??|costruita)|Guardia estesa|Cancel:|Refund Building upgrade|Specializzazione (annullata|costruita))/u,
             title: 'Stazione costruita',
             backgroundColor: '#000080',
             textColor: 'white',
@@ -77,7 +81,7 @@ export default {
         },
         shitComplexes: {
             regex: /(Attached building to Building Complex Base|Upgraded to Building Complex Base|Upgraded to Building Complex|Building Complex Base upgrade finished)/u,
-            title: 'Building Complex',
+            title: 'Complesso di Edifici',
             backgroundColor: '#b5651d',
             textColor: 'white',
         },
@@ -92,4 +96,11 @@ export default {
     title: 'Riepilogo',
     total: 'Totale',
     others: 'Altro',
+    export: {
+        export: 'Esporta',
+        json: {
+            raw: 'JSON (grezzo)',
+            prettified: 'JSON (abbellito)',
+        },
+    },
 };

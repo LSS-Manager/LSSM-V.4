@@ -13,6 +13,13 @@
             "description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
             "title": "Longest journey time"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Draws a border around already clicked ARRs.",
             "title": "Highlight clicked ARRs"
@@ -49,9 +56,17 @@
             "description": "Automatically focuses ARR-Search so that you can start typing without clicking the search field before.",
             "title": "ARR-Search: autofocus"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "closes dropdown after selecting an ARR.",
             "title": "close dropdown after select"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
         },
         "arrSearchDissolveCategories": {
             "description": "Shows all categories at once, when searching.",
@@ -60,6 +75,10 @@
         "arrSearchDropdown": {
             "description": "Hides the ARR completely and shows a searchable dropdown instead. Allows a very compact ARR.",
             "title": "ARR-Search as Dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
@@ -117,6 +136,10 @@
             "textcolor": "Text color",
             "title": "Mission keywords"
         },
+        "moreReleasePatientButtons": {
+            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
+            "title": "More buttons to release patients"
+        },
         "patientSummary": {
             "description": "Shows next to the number of patients, which rescue equipment they need in combination.",
             "title": "Patient Summary"
@@ -136,6 +159,14 @@
         "remainingPatientTime": {
             "description": "Shows for patients how much time remains until they are fully treated",
             "title": "Remaining time for patients"
+        },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
         },
         "stagingAreaSelectedCounter": {
             "description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
@@ -177,84 +208,27 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Firetruck",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    16,
-                    17,
-                    37,
-                    38
-                ]
-            },
+            { "name": "Firetruck", "vehicleTypes": [0, 1, 16, 17, 37, 38] },
             {
                 "name": "Other Fire Apparatus",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    14,
-                    15,
-                    18,
-                    23,
-                    26,
-                    35,
-                    36,
-                    39,
-                    40,
-                    41,
-                    42,
-                    43,
-                    44,
-                    45,
-                    46,
-                    47,
-                    48,
-                    49,
-                    50
+                    2, 3, 4, 6, 7, 14, 15, 18, 23, 26, 35, 36, 39, 40, 41, 42,
+                    43, 44, 45, 46, 47, 48, 49, 50
                 ]
             },
             {
                 "name": "Ambulance",
                 "vehicleTypes": [
-                    5,
-                    9,
-                    10,
-                    19,
-                    20,
-                    21,
-                    22,
-                    27,
-                    28,
-                    29,
-                    30,
-                    31,
-                    32,
-                    33,
-                    34
+                    5, 9, 10, 19, 20, 21, 22, 27, 28, 29, 30, 31, 32, 33, 34
                 ]
             },
             {
                 "name": "Police",
                 "vehicleTypes": [
-                    8,
-                    11,
-                    12,
-                    13,
-                    19,
-                    24,
-                    25,
-                    51,
-                    52,
-                    53,
-                    54,
-                    55,
-                    56
+                    8, 11, 12, 13, 19, 24, 25, 51, 52, 53, 54, 55, 56
                 ]
             }
-        ]
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

@@ -14,6 +14,13 @@
             "description": "Geeft naast de alarmeer-knop aan hoe lang het voertuig met de langste aanrijdtijd onderweg is.",
             "title": "Langste aanrijdtijd"
         },
+        "arrCategoryColors": {
+            "bgColor": "Achtergrondkleur",
+            "category": "Naam van de categorie",
+            "color": "Tekstkleur",
+            "description": "Kleur je inzetvoorstellencategorieën.",
+            "title": "Gekleurde inzetvoorstellencategorieën"
+        },
         "arrClickHighlight": {
             "description": "Geeft een kader om de aangeklikte inzetvoorstellen.",
             "title": "Aangeklikte inzetvoorstellen markeren"
@@ -50,9 +57,17 @@
             "description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
             "title": "Inzetvoorstellen zoeken: Focussen"
         },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
         "arrSearchCloseDropdownOnSelect": {
             "description": "sluit de dropdown na het selecteren van een inzetvoorstel.",
             "title": "sluit dropdown na selectie"
+        },
+        "arrSearchCompactResults": {
+            "description": "Kolommen worden genegeerd en alle inzetvoorstellen van een categorie worden getoond in een enkele rij.",
+            "title": "Inzetvoorstellen zoeken: Compacte resultaten"
         },
         "arrSearchDissolveCategories": {
             "description": "Toon alle categoriën tegelijk bij het zoeken in de inzetvoorstellen.",
@@ -61,6 +76,10 @@
         "arrSearchDropdown": {
             "description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",
             "title": "Inzetvoorstellen als dropdown"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
@@ -118,6 +137,10 @@
             "textcolor": "Tekstkleur",
             "title": "Meldingstrefwoord"
         },
+        "moreReleasePatientButtons": {
+            "description": "Toont een ontsla patiënt knop bovenaan het voertuigscherm. Naast de elke transport knop in het meldingsvenster.",
+            "title": "Meer knoppen om patiënten te ontslaan"
+        },
         "patientSummary": {
             "description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
             "title": "Patiëntensamenvatting"
@@ -137,6 +160,14 @@
         "remainingPatientTime": {
             "description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
             "title": "Patiëntenbehandelingsduur"
+        },
+        "selectedVehicleCounter": {
+            "description": "Toont een lijst met hoeveel voertuigen van elk type zijn geselecteerd.",
+            "title": "Tel geslecteerde voertuigen"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Toont deze voertuigtypes in de knop, zodat je niet de lijst hoeft te openen om de aantallen te zien.",
+            "title": "Tel geslecteerde voertuigen: snelle teller"
         },
         "stagingAreaSelectedCounter": {
             "description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
@@ -180,113 +211,32 @@
         "defaultTabs": [
             {
                 "name": "TS",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    6,
-                    7,
-                    8,
-                    9,
-                    12,
-                    14,
-                    15,
-                    17,
-                    50,
-                    62
-                ]
+                "vehicleTypes": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62]
             },
             {
                 "name": "Brandweer overig",
                 "vehicleTypes": [
-                    2,
-                    18,
-                    3,
-                    19,
-                    4,
-                    51,
-                    5,
-                    27,
-                    10,
-                    29,
-                    34,
-                    45,
-                    31,
-                    32,
-                    11,
-                    24,
-                    56,
-                    26,
-                    20,
-                    21,
-                    61,
-                    62,
-                    68,
-                    69,
-                    70,
-                    71,
-                    72
+                    2, 18, 3, 19, 4, 51, 5, 27, 10, 29, 34, 45, 31, 32, 11, 24,
+                    56, 26, 20, 21, 61, 62, 68, 69, 70, 71, 72
                 ]
             },
             {
                 "name": "Waterongevallen",
-                "vehicleTypes": [
-                    33,
-                    49,
-                    50,
-                    36,
-                    65,
-                    66,
-                    67
-                ]
+                "vehicleTypes": [33, 49, 50, 36, 65, 66, 67]
             },
-            {
-                "name": "Vliegveld",
-                "vehicleTypes": [
-                    41,
-                    42,
-                    43,
-                    44
-                ]
-            },
+            { "name": "Vliegveld", "vehicleTypes": [41, 42, 43, 44] },
             {
                 "name": "Ambulance",
-                "vehicleTypes": [
-                    16,
-                    52,
-                    57,
-                    30,
-                    23,
-                    37,
-                    38,
-                    63
-                ]
+                "vehicleTypes": [16, 52, 57, 30, 23, 37, 38, 63]
             },
-            {
-                "name": "Politie Noodhulp",
-                "vehicleTypes": [
-                    22,
-                    25,
-                    46,
-                    59
-                ]
-            },
+            { "name": "Politie Noodhulp", "vehicleTypes": [22, 25, 46, 59] },
             {
                 "name": "Politie overig",
                 "vehicleTypes": [
-                    35,
-                    28,
-                    47,
-                    48,
-                    39,
-                    40,
-                    53,
-                    54,
-                    55,
-                    58,
-                    60,
-                    64
+                    35, 28, 47, 48, 39, 40, 53, 54, 55, 58, 60, 64, 73, 74, 75
                 ]
             }
-        ]
+        ],
+        "noCustoms": "eigen voertuigcategorieën uitgezonderd"
     }
 }

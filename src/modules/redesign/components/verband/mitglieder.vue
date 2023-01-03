@@ -325,8 +325,8 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-verband-mitgliederliste-load-prev-${this.startPage}`,
                 })
@@ -341,7 +341,7 @@ export default Vue.extend<
                                 ),
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,
@@ -375,8 +375,8 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url,
                     feature: `redesign-verband-mitgliederliste-load-next-${this.endPage}`,
                 })
@@ -391,7 +391,7 @@ export default Vue.extend<
                                 ),
                                 href: url.toString(),
                                 getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
+                                LSSM: this.lightbox,
                                 $m: this.lightbox.$m,
                                 $sm: this.lightbox.$sm,
                                 $mc: this.lightbox.$mc,
@@ -444,7 +444,7 @@ export default Vue.extend<
                         ] as (HTMLInputElement | null)[]
                     )[0]?.value ?? '';
                 url.searchParams.append('user[caption]', caption);
-                this.$store.dispatch('api/request', {
+                this.lightbox.apiStore.request({
                     url: `/verband/rolecaptionForm/${user_id}`,
                     init: {
                         credentials: 'include',
@@ -456,14 +456,15 @@ export default Vue.extend<
                         referrer: new URL(
                             '/verband/mitglieder',
                             window.location.origin
-                        ),
+                        ).toString(),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
                     },
+                    feature: `redesign-verband-mitgliederliste-save_caption`,
                 });
                 this.caption_editing.splice(
-                    this.caption_editing.findIndex(id => id === user_id),
+                    this.caption_editing.indexOf(user_id),
                     1
                 );
                 const userIndex = this.mitglieder.users.findIndex(
@@ -477,8 +478,8 @@ export default Vue.extend<
             }
         },
         applyDiscount(user_id, amount) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/discount/${user_id}/${amount}`,
                     init: {
                         credentials: 'include',
@@ -488,10 +489,11 @@ export default Vue.extend<
                         referrer: new URL(
                             '/verband/mitglieder',
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
+                    feature: `redesign-verband-mitgliederliste-apply_discount`,
                 })
                 .then(() => {
                     const userIndex = this.mitglieder.users.findIndex(
@@ -505,8 +507,8 @@ export default Vue.extend<
                 });
         },
         toggleRight(user_id, right, new_state) {
-            this.$store
-                .dispatch('api/request', {
+            this.lightbox.apiStore
+                .request({
                     url: `/verband/${right}/${user_id}/${new_state}`,
                     init: {
                         credentials: 'include',
@@ -516,10 +518,11 @@ export default Vue.extend<
                         referrer: new URL(
                             '/verband/mitglieder',
                             window.location.origin
-                        ),
+                        ).toString(),
                         method: 'GET',
                         mode: 'cors',
                     },
+                    feature: `redesign-verband-mitgliederliste-toggle_role`,
                 })
                 .then(() => {
                     const userIndex = this.mitglieder.users.findIndex(
@@ -529,14 +532,9 @@ export default Vue.extend<
                     const right_t = this.lightbox
                         .$sm(`rights.${right}`)
                         .toString();
-                    if (new_state) {
-                        roles.push(right_t);
-                    } else {
-                        roles.splice(
-                            roles.findIndex(r => r === right_t),
-                            1
-                        );
-                    }
+                    if (new_state) roles.push(right_t);
+                    else roles.splice(roles.indexOf(right_t), 1);
+
                     const { edit } = this.lightbox.data.users[userIndex];
                     if (edit) this.$set(edit, right, !!new_state);
 
@@ -566,8 +564,8 @@ export default Vue.extend<
                     {
                         title: LSSM.lightbox.$sm('rights.kickModal.btnConfirm'),
                         handler() {
-                            LSSM.$store
-                                .dispatch('api/request', {
+                            LSSM.lightbox.apiStore
+                                .request({
                                     url: `/verband/kick/${user_id}/`,
                                     init: {
                                         credentials: 'include',
@@ -579,10 +577,11 @@ export default Vue.extend<
                                         referrer: new URL(
                                             '/verband/mitglieder',
                                             window.location.origin
-                                        ),
+                                        ).toString(),
                                         method: 'GET',
                                         mode: 'cors',
                                     },
+                                    feature: `redesign-verband-mitgliederliste-kick`,
                                 })
                                 .then(() => {
                                     LSSM.$set(
@@ -602,7 +601,7 @@ export default Vue.extend<
         toggleEdit(user_id) {
             if (this.rights_editing.includes(user_id)) {
                 this.rights_editing.splice(
-                    this.rights_editing.findIndex(id => id === user_id),
+                    this.rights_editing.indexOf(user_id),
                     1
                 );
             } else {
@@ -637,9 +636,9 @@ export default Vue.extend<
                             this.mitglieder.users[0]?.credits?.toLocaleString() ??
                             '',
                         lastCredits:
-                            this.mitglieder.users[
-                                this.mitglieder.users.length - 1
-                            ]?.credits?.toLocaleString() ?? '',
+                            this.mitglieder.users
+                                .at(-1)
+                                ?.credits?.toLocaleString() ?? '',
                         totalPages: this.mitglieder.lastPage.toLocaleString(),
                     }
                 )

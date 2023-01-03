@@ -1,0 +1,56 @@
+{
+    "alertStyles": {
+        "danger": "Error-viesti (Punainen)",
+        "info": "Info (Sininen)",
+        "success": "Vahvistus (Vihreä)",
+        "unimportant": "Yksinkertainen (Harmaa)",
+        "warning": "Varoitus (Oranssi)"
+    },
+    "description": "Saat selaimen ja pelin sisäisiä ilmoituksia erilaisista tapahtumista - tietysti täysin konfiguroitavissa!",
+    "events": {
+        "allianceCandidature": "Uusi hakemus liittoutumassa",
+        "allianceChat": "Chatti-viesti",
+        "allianceChatMention": "Chatti-viesti (vain maininnat)",
+        "allianceChatWhisper": "Chatti-viesti (vain yksityiset viestit)",
+        "allianceForum": "Uusi ketju liittouman keskustelupalstalla",
+        "allianceMessage": "Uusi liittouma viesti",
+        "allianceNews": "Uusi liittouma uutinen",
+        "dm": "Uusi viesti saapuneissa viesteissä",
+        "ingame_news": "Uutinen pelissä",
+        "mission_getred": "Tehtävä vaatii huomiota",
+        "mission_getred_alliance": "Liittouma tehtävä vaatii huomiota",
+        "mission_new": "Uusi tehtävä luotu",
+        "mission_new_largescale": "Luotiin uusi laaja liittoutumatehtävä.",
+        "mission_share": "Liittoutumassa jaettiin tehtävä",
+        "sicherheitswache_error": "Turvaamistehtävä peruutettu",
+        "sicherheitswache_success": "Turvaamistehtävä hoidettu",
+        "tasks_update": "Urakka tehty",
+        "vehicle_fms": "Radio Viestit",
+        "vehicle_fms_1": "Tila 1",
+        "vehicle_fms_2": "Tila 2",
+        "vehicle_fms_3": "Tila 3",
+        "vehicle_fms_4": "Tila 4",
+        "vehicle_fms_5": "Tila 5",
+        "vehicle_fms_6": "Tila 6",
+        "vehicle_fms_7": "Tila 7",
+        "vehicle_fms_9": "Tila 9"
+    },
+    "name": "Ilmoitukset",
+    "positions": {
+        "bottom center": "Ala-keski 🡣",
+        "bottom left": "Ala-vasen 🡧",
+        "bottom right": "Ala-oikea 🡦",
+        "top center": "Ylä-keski 🡡",
+        "top left": "Ylä-vasen 🡤",
+        "top right": "Ylä-oikea 🡥"
+    },
+    "settings": {
+        "alerts": { "title": "Aseta ilmoitukset" },
+        "alertStyle": "Pelin sisäinen ilmoitustyyppi",
+        "desktop": "Lähetä työpöytäilmoitus",
+        "duration": "Näytön kesto",
+        "eventTypes": "Tapahtumat",
+        "ingame": "Lähetä pelin sisäinen ilmoitus",
+        "position": "Sijainti"
+    }
+}

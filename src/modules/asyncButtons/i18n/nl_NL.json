@@ -7,10 +7,7 @@
             "title": "Verwijderen?"
         }
     },
-    "buildings": {
-        "active": "Beschikbaar",
-        "nonactive": "Niet beschikbaar"
-    },
+    "buildings": { "active": "Beschikbaar", "nonactive": "Niet beschikbaar" },
     "deleteARR": {
         "deleteModal": {
             "btnCancel": "Annuleren",

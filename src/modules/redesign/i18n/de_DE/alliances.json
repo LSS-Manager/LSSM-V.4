@@ -2,10 +2,7 @@
     "alliance": "Verband",
     "amount": "{n} gefilterter Verband | {n} gefilterte Verbände",
     "credits": "Gesamtverdiente Credits",
-    "load": {
-        "next": "nächste Seite laden",
-        "prev": "vorherige Seite laden"
-    },
+    "load": { "next": "nächste Seite laden", "prev": "vorherige Seite laden" },
     "members": "Mitgliederzahl",
     "name": "Verband",
     "search_global": "Globale Suche",

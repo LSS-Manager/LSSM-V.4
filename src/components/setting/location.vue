@@ -54,6 +54,11 @@ export default Vue.extend<
             required: false,
             default: true,
         },
+        markers: {
+            type: Array,
+            required: false,
+            default: () => [],
+        },
     },
     computed: {
         updateValue: {
@@ -93,6 +98,7 @@ export default Vue.extend<
                               window.map.getCenter().lng,
                               window.map.getZoom(),
                           ],
+                    markers: this.markers,
                     save(location: number[]) {
                         Vue.$set(
                             Vue,

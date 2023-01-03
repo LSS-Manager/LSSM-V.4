@@ -6,7 +6,7 @@ export default (LSSM: Vue): void => {
 
     const floatWrapper = document.createElement('div');
     floatWrapper.classList.add('alert', 'alert-info');
-    floatWrapper.id = LSSM.$store.getters.nodeAttribute(
+    floatWrapper.id = LSSM.$stores.root.nodeAttribute(
         'ecw-sasc-floatalarm-wrapper',
         true
     );
@@ -16,17 +16,15 @@ export default (LSSM: Vue): void => {
     floatBtn.type = 'submit';
     floatWrapper.append(floatBtn);
     form.append(floatWrapper);
-    LSSM.$store
-        .dispatch('addStyle', {
-            selectorText: `#${floatWrapper.id}`,
-            style: {
-                'position': 'fixed',
-                'bottom': 0,
-                'right': 0,
-                'font-size': '15px',
-            },
-        })
-        .then();
+    LSSM.$stores.root.addStyle({
+        selectorText: `#${floatWrapper.id}`,
+        style: {
+            'position': 'fixed',
+            'bottom': 0,
+            'right': 0,
+            'font-size': '15px',
+        },
+    });
 
     const counters: HTMLSpanElement[] = [];
     form.querySelectorAll<HTMLInputElement>(
@@ -47,19 +45,14 @@ export default (LSSM: Vue): void => {
             .length.toLocaleString();
         counters.forEach(counter => (counter.textContent = amount));
     };
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'aaoClickHandler',
-            callback: clickHandler,
-        })
-        .then();
-
-    LSSM.$store
-        .dispatch('hook', {
-            event: 'vehicleGroupClickHandler',
-            callback: clickHandler,
-        })
-        .then();
+    LSSM.$stores.root.hook({
+        event: 'aaoClickHandler',
+        callback: clickHandler,
+    });
+    LSSM.$stores.root.hook({
+        event: 'vehicleGroupClickHandler',
+        callback: clickHandler,
+    });
     form.addEventListener('change', clickHandler);
     clickHandler();
 };

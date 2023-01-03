@@ -1,48 +1,11 @@
-import { execSync } from 'child_process';
 import fs from 'fs';
 
 import Showdown from 'showdown';
 
-interface ClocResult {
-    header: {
-        cloc_url: string;
-        cloc_version: string;
-        elapsed_seconds: number;
-        n_files: number;
-        n_lines: number;
-        files_per_second: number;
-        lines_per_second: number;
-    };
-    SUM: {
-        blank: number;
-        comment: number;
-        code: number;
-        nFiles: number;
-    };
-}
+import cloc from '../stats/cloc';
+import git from '../stats/git';
 
-type AbsoluteClocResult = ClocResult &
-    Record<
-        string,
-        {
-            nFiles: number;
-            blank: number;
-            comment: number;
-            code: number;
-        }
-    >;
-type RelativeClocResult = ClocResult &
-    Record<
-        string,
-        {
-            nFiles: number;
-            blank_pct: number;
-            comment_pct: number;
-            code: number;
-        }
-    >;
-
-const [, , ROOT_PATH, VUEPRESS_PATH, clocStatsPath] = process.argv;
+const [, , ROOT_PATH, clocStatsPath, gitStatsPath] = process.argv;
 
 const sdConverter = new Showdown.Converter({
     literalMidWordUnderscores: true,
@@ -55,93 +18,50 @@ const sdConverter = new Showdown.Converter({
     openLinksInNewWindow: true,
 });
 
-const absoluteClocStats: AbsoluteClocResult = JSON.parse(
-    execSync(
-        `cd "${ROOT_PATH}" && "${VUEPRESS_PATH}/node_modules/.bin/cloc" --vcs git --skip-uniqueness --json`
-    ).toString()
-);
-const relativeClocStats: RelativeClocResult = JSON.parse(
-    execSync(
-        `cd "${ROOT_PATH}" && "${VUEPRESS_PATH}/node_modules/.bin/cloc" --vcs git --skip-uniqueness --json --by-percent cmb`
-    ).toString()
-);
+const $t = (path: string) => `{{ $t.${path} }}`;
 
-const clocHeaderStats = absoluteClocStats.header;
+const getSetupScript = (file: string) => `<script setup lang="ts">
+import { computed } from 'vue';
 
-const intToLocaleNum = (num: number) =>
-    `{{parseInt("${num}").toLocaleString()}}`;
-const floatToLocaleNum = (num: number, fixed = 2) =>
-    `{{parseFloat("${num.toFixed(fixed)}").toLocaleString()}}`;
+import { usePageData } from '@vuepress/client';
 
-const fullClocResult = `
-<template><div>${sdConverter.makeHtml(
+import type { DefaultThemePageData } from '@vuepress/theme-default/lib/shared';
+
+const pageData = usePageData<DefaultThemePageData>();
+const stats = __VAR__.stats;
+
+const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
+const $t = computed(() => stats.${file}[lang.value]);
+const $formatNum = (num, style) => new Intl.NumberFormat(pageData.value.lang.replace(/_/gu, '-'), {style, minimumFractionDigits: 0, maximumFractionDigits: 2}).format(num)
+</script>`;
+
+const getComponent = (file: string, content: string) =>
     `
-*generated with [cloc v ${clocHeaderStats.cloc_version}](https://${
-        clocHeaderStats.cloc_url
-    }) in ${(
-        absoluteClocStats.header.elapsed_seconds +
-        relativeClocStats.header.elapsed_seconds
-    ).toFixed(2)}s*
+<template><div>${sdConverter.makeHtml(content)}</div></template>
 
-|Language|files|blank (%)|comment (%)|code (%)|total|% of lines|
-|:-------|----:|--------:|----------:|-------:|----:|---------:|
-${Object.entries(absoluteClocStats)
-    .filter(([key]) => !['header', 'SUM'].includes(key))
-    .sort(([, { code: codeA }], [, { code: codeB }]) => codeB - codeA)
-    .map(
-        ([lang, { nFiles, blank, comment, code }]) =>
-            `|${[
-                lang,
-                intToLocaleNum(nFiles),
-                `${intToLocaleNum(blank)} (${floatToLocaleNum(
-                    relativeClocStats[lang].blank_pct
-                )}%)`,
-                `${intToLocaleNum(comment)} (${floatToLocaleNum(
-                    relativeClocStats[lang].comment_pct
-                )}%)`,
-                `${intToLocaleNum(code)} (${floatToLocaleNum(
-                    100 -
-                        (relativeClocStats[lang].blank_pct +
-                            relativeClocStats[lang].comment_pct)
-                )}%)`,
-                intToLocaleNum(blank + comment + code),
-                `${floatToLocaleNum(
-                    ((blank + comment + code) / clocHeaderStats.n_lines) * 100
-                )}%`,
-            ].join('|')}|`
-    )
-    .join('\n')}
-|||||||
-|${[
-        'SUM',
-        intToLocaleNum(absoluteClocStats.SUM.nFiles),
-        `${intToLocaleNum(absoluteClocStats.SUM.blank)} (${floatToLocaleNum(
-            relativeClocStats.SUM.blank
-        )}%)`,
-        `${intToLocaleNum(absoluteClocStats.SUM.comment)} (${floatToLocaleNum(
-            relativeClocStats.SUM.comment
-        )}%)`,
-        `${intToLocaleNum(absoluteClocStats.SUM.code)} (${floatToLocaleNum(
-            100 - (relativeClocStats.SUM.blank + relativeClocStats.SUM.comment)
-        )}%)`,
-        intToLocaleNum(clocHeaderStats.n_lines),
-        '100%',
-    ]
-        .map(c => `**${c}**`)
-        .join('|')}|
-`.trim()
-)}</div></template>
-
-<script setup></script>
+${getSetupScript(file)}
 `.trim();
 
-fs.writeFileSync(clocStatsPath, fullClocResult);
+const writeComponent = (path: string, file: string, content: string) =>
+    fs.writeFileSync(path, getComponent(file, content));
+
+const toLocaleNum = (num: number, style = 'decimal') =>
+    `{{ $formatNum(${num}, ${JSON.stringify(style)}) }}`;
+
+(async () => {
+    console.time('stats-cloc');
+    writeComponent(clocStatsPath, 'cloc', cloc(ROOT_PATH, $t, toLocaleNum));
+    console.timeEnd('stats-cloc');
+    console.time('stats-git');
+    writeComponent(gitStatsPath, 'git', await git(ROOT_PATH, $t, toLocaleNum));
+    console.timeEnd('stats-git');
+})();
 
 /*
 Ideas:
-    * amount of commits
-        git log --format=oneline | wc -l
-    * first commit
-        git log --reverse --format=%h | head -1
-        git log --reverse --format="%h: %s %n %ai (%ar)" | head -2
+    * build stats (both stable & beta) [get from buildStats file]
+        * version
+        * size
+        * amount of files
+        * duration
  */

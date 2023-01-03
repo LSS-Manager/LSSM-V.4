@@ -1,4 +1,6 @@
-// The interface for `api/settings`
+/**
+ * @file Types for in game Settings API `api/settings`.
+ */
 
 export interface Settings {
     alliance_mission_distance: number | null; //no limit = null

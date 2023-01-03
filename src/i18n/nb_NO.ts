@@ -1,5 +1,3 @@
-// import { Building } from 'typings/Building';
-
 const modules = {
     appstore: {
         save: 'Lagre',
@@ -20,6 +18,7 @@ const modules = {
         reset: 'Resett',
         export: 'Eksporter',
         import: 'Importer',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Tilbakestill endringer',
             text: 'Vil du virkelig tilbakestille alle innstillinger til standard?',
@@ -52,46 +51,6 @@ const modules = {
 
 export default {
     modules,
-    error: {
-        title: 'LSS Manager: Error',
-        msg: 'Om denne feilen skjer ofte, vennligst rapporter det til LSSM teamet!',
-    },
-    warnings: {
-        version: {
-            title: 'Feil LSS Manager versjon',
-            text: 'Kjære bruker, vi ser at du ikke bruker siste versjon av LSS Manager. Den siste vesjonen er {version}, men du har {curver}. Last inn spillet på nytt med (Ctrl + F5, på Apple enheter Command + F5), dette bør fikse feilen. Om feilen fortsetter vennligst rapporter det til LSSM teamet.',
-            close: 'Lukk vindu og omlast spillet (anbefalt).',
-            abort: 'Likk vindu uten å omlaste spillet',
-        },
-    },
-    anniversary1: {
-        closeNote: 'Tips: Du kan også klikke på ballongene for å lukke!',
-        title: '🎉 Det er grunn til å feire! 🎉',
-        content:
-            'Wow, så fort tiden går!<br>Det har gått <b>ett år</b> siden LSS Manager V.4 ble online! Mye har selvfølgelig skjedd i år, og derfor vil vi i denne spesielle anledningen rette en spesiell takk til dere brukere. Gleden du tester de nye funksjonene våre med inspirerer oss igjen og igjen og gir oss ny motivasjon til å fortsette. En stor takk rettes også til oversetterne våre som frivillig gir seg tid til å gjøre LSSM brukbar i andre versjoner av spillet.</br>For å feire vil vi gjerne dele noen fakta og tall her:<ul ><li><code>10. februar 2020</code>: Den første forpliktelsen på GitHub ble gjort: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Siden den gang har vi foretatt over 5600 forpliktelser!</li><li><code>19. september 2020</code>: V.4 ble offisielt annonsert for første gang på forumet: <a href="https:/ /forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. Med dette har også søknadsfasen for betatestere startet</li><li><code>17. oktober 2020</code>: Betatestere har fått tilgang til V.4 for første gang. Den 4-ukers betafasen har dermed startet</li><li><code>21. november 2020</code>: LSS Manager V.4 går online for alle!</li><li>Telemetrien vår registrerer for tiden rundt 5000 brukere de siste 6 månedene. Av disse var over 2200 aktive de siste 14 dagene. Mørketallet (antall brukere som har deaktivert telemetri) kan ikke estimeres.</li><li>Tråden vår i forumet har nå nådd nesten 1200 meldinger. Det er ganske mye, men V.3-tråden, som for øyeblikket skraper opp de 3500 svarene, er langt fra å ta igjen.</li><li>For mer statistikk, sjekk ut tråden vår i forumet:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li>< /ul><br>Vi ser frem til mange flere flotte øyeblikk i LSSM V.4-tiden!<br>Ditt LSSM-team<br>Jan, Sanni & Ron',
-    },
-    globalSettings: {
-        name: 'Innstillinger',
-        labelInMenu: {
-            title: 'Etikett istedenfor ikon i navigasjonslinjen',
-            description:
-                'Viser en enkel etikett i navigasjonslinjen i stedet for LSSM-logoen.',
-        },
-        allowTelemetry: {
-            description:
-                'Styrer om LSS-Manager får samle data som hjelper oss i å utvikle utvidelsen.',
-            title: 'Tillatt telemetri',
-        },
-        iconBg: {
-            description: 'Konfigurer bakgrunnen til LSSM-ikonet',
-            title: 'LSSM-Ikon Bakgrunn',
-        },
-        iconBgAsNavBg: {
-            description:
-                'Bytt farge på hele navigasjonsbaren i fargen til LSSM bakgrunnen!',
-            title: 'Navigasjonsbar farge',
-        },
-    },
     vehicles: {
         0: {
             caption: 'Mannskapsbil',
@@ -225,7 +184,7 @@ export default {
             maxPersonnel: 6,
             schooling: {
                 Politi: {
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -272,7 +231,7 @@ export default {
             maxPersonnel: 4,
             schooling: {
                 Politi: {
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -376,7 +335,7 @@ export default {
                     Utrykningspoliti: {
                         all: true,
                     },
-                    Våpentrening: {
+                    ['Våpentrening']: {
                         all: true,
                     },
                 },
@@ -564,483 +523,6 @@ export default {
                 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
         },
     },
-    buildings: {
-        0: {
-            caption: 'Brannstasjon',
-            color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Ambulanseutvidelse',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Flyplassutvidelse',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Brann Støtte utvidelse',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 dager',
-                },
-                {
-                    caption: 'Vannredningsutvidelse',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 dager',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '6.000 sammen med små brannstasjoner',
-            maxLevel: 24,
-            special:
-                'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </code>. Myntprisen forblir konstant!',
-            startPersonnel: 10,
-            startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Brannskole',
-            color: '#992222',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Flere klasserom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 dager',
-            }),
-            levelcost: [],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 0,
-            special:
-                'Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        2: {
-            caption: 'Ambulansestasjon',
-            color: '#ffa500',
-            coins: 35,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Intensivbehandling utvidelse',
-                    credits: 200_000,
-                    coins: 25,
-                    duration: '7 dager',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 39,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulanse'],
-        },
-        3: {
-            caption: 'Helseskole',
-            color: '#8c852c',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Flere klasserom',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 dager',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 0,
-            special:
-                'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        4: {
-            caption: 'Sykehus',
-            color: '#bbe944',
-            coins: 25,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Generell medisin',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Generell kirurgi',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Gynekologisk',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Urologi',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Traume',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Nevrologi',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Nevrokirurgi',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Kardiologi',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Karkirurgi',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 dager',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 20,
-            special:
-                'Finansministre og admins kan (utvide) alliansesykehus ved hjelp av kreditter fra alliansekassen.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        5: {
-            caption: 'Helikopterstasjon',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'se spesiells',
-            maxLevel: 0,
-            special:
-                'Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Etter det øker antallet med 1 hver 25. bygning (starter på 125.).',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        6: {
-            caption: 'Politistasjon',
-            color: '#007700',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Fengselscelle',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dager',
-                },
-                ...new Array(9).fill({
-                    caption: 'Flere celler',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dager',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.700 sammen med små politistasjoner',
-            maxLevel: 39,
-            special:
-                'Fra og med den 24. politistasjonen øker kostnadene for nybygging av en politistasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende politistasjoner - 22) </code>. Myntprisen forblir konstant!',
-            startPersonnel: 2,
-            startVehicles: ['Patruljebil'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        7: {
-            caption: 'Nødetatssenter',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'Alle 25 bygningene ett kontrollsenter',
-            maxLevel: 0,
-            special: 'Kontrollsenteret er administrasjonssenteret.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        8: {
-            caption: 'Politiskole',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Flere klasserom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 dager',
-            }),
-            levelcost: [],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 0,
-            special:
-                'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        13: {
-            caption: 'Politiheliport',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 kreditter / 50 mynter'],
-            maxBuildings: 'se spesiells',
-            maxLevel: 1,
-            special:
-                'Opptil 2 landingsplasser kan bygges per stasjon (utvidelsesetapper). Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Deretter øker antallet med 1 hver 25. bygning (begynner på 125).',
-            startPersonnel: 3,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        14: {
-            caption: 'Oppstillingsplass',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 4,
-            maxLevel: 0,
-            special:
-                'Du kan stasjonere så mange av dine egne kjøretøy som du vil på et oppstillingsområde, medlemmer av alliansen kan bruke oppstillingsplassen. En oppstillingsplass forblir i 24 timer, men du kan når som helst tilbakestille det til 24 timer. Med Premium-konto kan du ha 8 oppstillingsplasser samtidig',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 4,
-        },
-        16: {
-            caption: 'Fengsel',
-            coins: 'x',
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Fengselscelle',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dager',
-                },
-                ...new Array(9).fill({
-                    caption: 'Flere celler',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dager',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 0,
-            special:
-                'Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        18: {
-            caption: 'Brannstasjon (liten)',
-            color: '#aa1111',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Ambulanseutvidelse',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Flyplassutvidelse',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 dager',
-                },
-                {
-                    caption: 'Brann Støtte utvidelse',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 dager',
-                },
-                {
-                    caption: 'Vannredningsutvidelse',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 dager',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Konvertering til normal vakt: differansepris til normal vakt',
-            ],
-            maxBuildings: '6.000 sammen med brannstasjoner',
-            maxLevel: 5,
-            special:
-                'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> (50.000+100.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22)) / 2 </code>. maks. 1 million kreditter. Myntprisen forblir konstant!',
-            startPersonnel: 10,
-            startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        19: {
-            caption: 'Politistasjon (liten)',
-            color: '#116611',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Fengselscelle',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dager',
-                },
-                ...new Array(1).fill({
-                    caption: 'Flere celler',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Dager',
-                }),
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Konvertering til normal vakt: differansepris til normal vakt',
-            ],
-            maxBuildings: '1700 med politistasjoner',
-            maxLevel: 4,
-            special:
-                'Fra og med den 24. politistasjonen beregnes kostnadene for nybygging av en politistasjon i henhold til følgende formel: <code> (50.000+100.000 * LOG <sub> 2 </sub> (Antall eksisterende politistasjoner - 22 )) / 2 </code>. Myntprisen forblir konstant!',
-            startPersonnel: 2,
-            startVehicles: ['Patruljebil'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        20: {
-            caption: 'Ambulansestasjon (liten)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Intensivbehandling utvidelse',
-                    credits: 200_000,
-                    coins: 25,
-                    duration: '7 dager',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Konvertering til normal vakt: differansepris til normal vakt',
-            ],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulanse'],
-        },
-        21: {
-            caption: 'Legevakt',
-            color: '#e2e53b',
-            coins: 25,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Generell medisin',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 dager',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 0,
-            startVehicles: ['Ikke. Du kan kjøpe maks. 2 Kjøretøy'],
-        },
-        22: {
-            caption: 'Stort kompleks',
-            color: '#8B4513',
-            coins: 'For dyrt',
-            credits: 'For dyrt',
-            extensions: [],
-            levelcost: ['For dyrt'],
-            maxBuildings: 'Keine Grenze',
-            maxLevel: 5,
-            special: 'FOR DYRT, IKKE KJØP DEN, IKKE UTVIDD DEN',
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        23: {
-            caption: 'Lite kompleks',
-            color: '#8B4513',
-            coins: 'For dyrt',
-            credits: 'For dyrt',
-            extensions: [],
-            levelcost: ['For dyrt'],
-            maxBuildings: 'Keine Grenze',
-            maxLevel: 5,
-            special: 'FOR DYRT, IKKE KJØP DEN, IKKE UTVIDD DEN',
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        25: {
-            caption: 'Brannheliport',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 kreditter / 50 mynter'],
-            maxBuildings: 'se spesiells',
-            maxLevel: 1,
-            special:
-                'Opptil 3 landingsplasser kan bygges per stasjon (utvidelsesetapper). Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Deretter øker antallet med 1 hver 25. bygning (begynner på 125).',
-            startPersonnel: 2,
-            startVehicles: ['Skogbrannhelikopter'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 3
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-    },
-
     buildingCategories: {
         Brann: {
             buildings: [1, 2, 3, 25],
@@ -1095,23 +577,6 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
-    cellBuildings: [6],
-    cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
-    ],
-    bedBuildings: [4, 21],
-    schoolBuildings: [1, 3, 8],
-    dispatchCenterBuildings: [7],
     schoolings: {
         Brannstasjon: [
             {
@@ -1219,27 +684,6 @@ export default {
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'clinic-medical',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'helicopter',
-        'building',
-        '',
-        'ship',
-        'ship',
-        'fire',
-        'stethoscope',
-        'shield-alt',
-        'clinic-medical',
-        'plane',
-        'shield-alt',
-    ],
     pois: [
         'Park',
         'Innsjø',
@@ -1281,7 +725,7 @@ export default {
         'Skyskraper',
         'Cruisehavn',
         'Marina',
-        'Planovergang',
+        'Planovergang (Fotgjengere)',
         'Tunnel',
         'Kaldt varehus',
         'Kraftverk',
@@ -1313,6 +757,7 @@ export default {
         'Klippe',
         'Sagbruk',
         'Propan lager',
+        'Kirke',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [306, 307],

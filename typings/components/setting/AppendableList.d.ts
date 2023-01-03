@@ -29,7 +29,8 @@ export interface AppendableListMethods {
     changeValue(
         index: number,
         value: AppendableListSetting['defaultItem'],
-        item: AppendableListSettingSetting
+        item: AppendableListSettingSetting,
+        listIndex: number
     ): void;
     getOptions(
         setting: AppendableListSettingSetting<Select>,

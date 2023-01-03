@@ -1,8 +1,6 @@
 {
     "description": "Alarma, comparte misión y publica una nota de incidente con un solo clic .",
-    "lsam": {
-        "help": "Variables are replaced same way as in missions list."
-    },
+    "lsam": { "help": "Variables are replaced same way as in missions list." },
     "name": "Alarma-Compartir-Publicar",
     "noMessage": "Sin nota de incidencia",
     "settings": {

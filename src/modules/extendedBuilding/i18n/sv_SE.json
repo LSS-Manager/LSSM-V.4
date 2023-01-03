@@ -2,16 +2,10 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Dölj personal utan lämplig utbildning"
     },
-    "expansions": {
-        "notBuild": "Inte byggt ännu"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "Ingen larmcentral"
-    },
-    "personnelDemands": {
-        "additional": "",
-        "demand": "Personal som krävs"
-    },
+    "expansions": { "notBuild": "Inte byggt ännu" },
+    "fastDispatchChooser": { "noDispatch": "Ingen larmcentral" },
+    "personnelDemands": { "additional": "", "demand": "Personal som krävs" },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "Alla kombinationer",
         "amount": "Antal",
@@ -23,6 +17,7 @@
         "schooling": "Utbildning",
         "title": "Personalöversikt"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "vehiclePersonnel": {
         "vehiclesPersonnelAssigned": "Tilldelad",
         "vehiclesPersonnelCurrent": "Aktuell",

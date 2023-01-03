@@ -1,0 +1,170 @@
+{
+    "description": "Saa kaikki tärkeät tiedot tehtävästä tehtäväikkunassa.",
+    "name": "Missionhelper",
+    "noVehicleRequirements": {
+        "foam_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "{n} l vaahtoa."
+        },
+        "title": "Erityisvaatimukset",
+        "water_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "{n} l vettä."
+        }
+    },
+    "settings": {
+        "chances": {
+            "100": {
+                "description": "Näyttää 100% todennäköisyyden.",
+                "title": "Näyttää erikseen 100% todennäköisyyden."
+            },
+            "normal": {
+                "description": "Näyttää, millä todennäköisyydellä ajoneuvoa pyydetään.",
+                "title": "Näyttää todennäköisyyden"
+            }
+        },
+        "credits": {
+            "description": "Näyttää keskimääräisen krediitti määrän mitä kyseisestä tehtävästä voi saada.",
+            "title": "Krediitit"
+        },
+        "expansions": {
+            "description": "Lista tämän tehtävän mahdollisista laajentumisista.",
+            "title": "Laajentumiset"
+        },
+        "followup": {
+            "description": "Lista tämän tehtävän mahdollisista jatkotehtävistä.",
+            "title": "Jatkotehtävät"
+        },
+        "generatedBy": {
+            "description": "Näyttää, mikä rakennustyyppi loi tämän.",
+            "title": "Luonut (Rakennustyyppi)"
+        },
+        "hide_battalion_chief_vehicles": {
+            "description": "Piilottaa johtoautot kokonaan ja näyttää vain johtokeskusautot.",
+            "title": "Pilottaa johtoautot"
+        },
+        "hoverTip": {
+            "description": "Tooltipsit esimerkiksi kelluva ikkuna nappia varten.",
+            "title": "Tooltips"
+        },
+        "id": {
+            "description": "Näyttää tehtävän ID:n otsikon vieressä.",
+            "title": "Tehtävä ID"
+        },
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "description": "Vähentää johtokeskusautojen määrän johtoautoista ja piilottaa johtoautot, jos niiden määrä laskee alle 0:n.",
+                "title": "Johtokeskusauto johtoautosta"
+            },
+            "heavy_rescue_vehicles": {
+                "description": "Jotain tekee sammutusautoille, pelastusautoille ja raskaille pelastusautoille. Tarkoitettu täys pelastusauto pelaajille (En minä vittu tiedä mitä tämä tekee!)",
+                "title": "Pelastusauto korvaa"
+            }
+        },
+        "noVehicleRequirements": {
+            "description": "Määritä, mitkä erityisvaatimukset näytetään, jos niitä on olemassa kyseistä tehtävää varten.",
+            "title": "Erityisvaatimukset"
+        },
+        "optionalAlternatives": {
+            "allow_dlk_instead_of_lf": {
+                "description": "Näyttää, paloauton voi korvata nostolava-autolla.",
+                "title": "Paloauton voi korvata nostolava-autolla"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "description": "Näyttää, kun hoitotason ambulanssin voi korvata perustason ambulanssilla.",
+                "title": "Hoitotason ambulanssin voi korvata perustason ambulanssilla"
+            },
+            "allow_rw_instead_of_lf": {
+                "description": "Näyttää, jos paloauton voi korvata raskaalla pelastusautolla.",
+                "title": "Paloauton voi korvata raskaalla pelastusautolla"
+            }
+        },
+        "patients": {
+            "content": {
+                "description": "Näyttää tietoja mahdollisista potilaista.",
+                "title": "Potentiaalisten potilaiden tiedot"
+            },
+            "critical_care": {
+                "description": "Näyttää todennäköisyyden vaativalle hoitotasolle",
+                "title": "Todennäköisyys vaativalle hoitotasolle"
+            },
+            "hideWhenNoNeed": {
+                "description": "Piilottaa potilastiedot, jos potilaita ei ole enää jäljellä ja potilaat näkyvät vasta tehtävän lopussa.",
+                "title": "Näytä potilastiedot vain tarvittaessa"
+            },
+            "live": {
+                "description": "Näyttää Missionhelper:in yläosassa, kuinka monta potilasta tehtävässä on tällä hetkellä.",
+                "title": "Nykyisten potilaiden määrä"
+            },
+            "patient_allow_first_responder_chance": {
+                "description": "Näyttää todennököisyyden millä ensivasteyksikkö voi hoitaa potilaan kokonaan.",
+                "title": "Ensivasteyksikkö voi hoitaa potilaan kokonaan"
+            },
+            "title": {
+                "description": "Näyttää otsikon \"Potilaat\" mahdollisten potilaiden tietojen yläpuolella.",
+                "title": "Potilaat (Otsikko)"
+            }
+        },
+        "place": {
+            "description": "Näyttää otsikon vieressä, mikä kohdepiste tarvitaan tätä tehtävää varten.",
+            "title": "Kohdepiste"
+        },
+        "prerequisites": {
+            "description": "Näyttää vaatimukset (esim. 3 pelastusasemaa ja 4 paloasemaa).",
+            "title": "Edellytykset"
+        },
+        "prisoners": {
+            "content": {
+                "description": "Näyttää tietoja mahdollisista vangeista.",
+                "title": "Näyttää tietoja mahdollisista vangeista."
+            },
+            "live": {
+                "description": "Näyttää Missionhelper:in yläosassa, kuinka monta vankia tehtävässä on tällä hetkellä.",
+                "title": "Nykyisten vankien määrä"
+            },
+            "title": {
+                "description": "Näyttää otsikon \"Vangit\" mahdollisia vankeja koskevien tietojen yläpuolella.",
+                "title": "Vangit (Otsikko)"
+            }
+        },
+        "title": {
+            "description": "Näyttää tehtävän nimen, esim. \"431 Roskispalo\" otsikkona.",
+            "title": "Tehtävän nimi"
+        },
+        "type": {
+            "description": "Näyttää tehtävän tyyppinumeron otsikon vieressä.",
+            "title": "Tyyppinumero"
+        },
+        "vehicles": {
+            "content": {
+                "description": "Näyttää ajoneuvo vaatimukset.",
+                "title": "Ajoneuvo vaatimukset"
+            },
+            "patient_additionals": {
+                "description": "Jos tehtävällä on yli viisi (5) potilasta ensihoidon kenttäjohtaja listataan automaattisesti ajoneuvo vaatimus listan alkuun.",
+                "title": "Maininta ensihoidon kenttäjohtajasta"
+            },
+            "sort": {
+                "amount": "Tarvittavien ajoneuvojen määrä",
+                "caption": "Valitse järjestys",
+                "description": "Määrittele, minkä perusteella ajoneuvon vaatimukset olisi lajiteltava.",
+                "percentage": "Todennäköisyys",
+                "title": "Ajoneuvovaatimusten lajittelu"
+            },
+            "sortDesc": {
+                "description": "Lajittelee ajoneuvovaatimukset alenevaan järjestykseen.",
+                "title": "Ajoneuvot alenevassa järjestyksessä"
+            },
+            "title": {
+                "description": "Näyttää otsikon \"Ajoneuvot\" ajoneuvo vaatimusten yläpuolella.",
+                "title": "Ajoneuvot (Otsikko)"
+            },
+            "xAfterNumber": {
+                "description": "Asettaa x:n ajoneuvojen määrän taakse",
+                "title": "x määrän perään"
+            }
+        }
+    }
+}

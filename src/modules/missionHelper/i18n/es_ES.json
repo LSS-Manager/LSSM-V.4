@@ -3,6 +3,14 @@
     "expansions": "Extenderse",
     "followups": "Siguiente misión | Siguientes misiones",
     "generated_by": "Generado por",
+    "mission_categories": {
+        "ambulance": "Misiones de ambulancia",
+        "fire": "Misiones de extinción de incendios",
+        "fire_support_specialization": "Misiones de incendios químicos e industriales (Especialización)",
+        "police": "Misiones Policiales",
+        "riot_police_specialization": "Misiones de la policía antidisturbios (Especialización)",
+        "title": "Generación de categorías"
+    },
     "patients": {
         "allow_ktw_instead_of_rtw": "Se puede usar un BLS en lugar de un ALS.",
         "critical_care": "Probabilidad de que se necesiten cuidados intensivos",
@@ -88,9 +96,7 @@
                 "firetrucks": "Camión BUP o Vehículo FUV o Vehículo de rescate | Camiones BUP o Vehículos FUV o Vehículos de rescates"
             }
         },
-        "patient_additionals": {
-            "8": "Unidad logística de AMV"
-        },
+        "patient_additionals": { "8": "Unidad logística de AMV" },
         "title": "Vehículos"
     }
 }

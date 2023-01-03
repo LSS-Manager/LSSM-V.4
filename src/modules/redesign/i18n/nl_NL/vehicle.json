@@ -1,11 +1,6 @@
 {
-    "approach": "Aanrijden",
     "backalarm": "Terugroepen",
     "backalarmNext": "Direct rijden",
-    "cells": {
-        "cell": "Gebouw",
-        "free": "Vrije cellen"
-    },
     "color": "Kleur aanpassen",
     "current_mission": "Huidige inzet",
     "delete": {
@@ -19,27 +14,10 @@
     "edit": "Bewerken",
     "false": "Nee",
     "filter": {
-        "cells": {
-            "distance": "Maximale afstand",
-            "each": "Alleen eerste x gebouwen weergeven",
-            "free": "Minimale vrije cellen",
-            "tax": "Maximale afdracht"
-        },
-        "hospitals": {
-            "beds": "Minimale vrije bedden",
-            "department": {
-                "title": "Specialisatie: {department}"
-            },
-            "distance": "Maximale afstand",
-            "each": "Alleen eerste x ziekenhuizen weergeven",
-            "tax": "Maximale afdracht"
-        },
-        "missions": {
+        "mission": {
             "credits": "Minimale opbrengst",
             "distance": "Maximale afstand",
-            "participation": {
-                "title": "Aanwezig"
-            },
+            "participation": "Aanwezig",
             "progress": "Afgerond tot max %",
             "status": {
                 "green": "groen",
@@ -48,10 +26,30 @@
                 "yellow": "geel"
             }
         },
-        "wlf": {
+        "patient": {
+            "department": "Specialisatie: {department}",
             "distance": "Maximale afstand",
-            "same": "Zelfde gebouw"
-        }
+            "freeBeds": "Minimale vrije bedden",
+            "show": "Alleen eerste x ziekenhuizen weergeven",
+            "tax": "Maximale afdracht"
+        },
+        "patientIntermediate": {
+            "distance": "Maximum afstand",
+            "home": "Thuisbasis",
+            "show": "Toon x gebouwen van elk"
+        },
+        "prisoner": {
+            "distance": "Maximale afstand",
+            "freeCells": "Minimale vrije cellen",
+            "show": "Alleen eerste x gebouwen weergeven",
+            "tax": "Maximale afdracht"
+        },
+        "prisonerIntermediate": {
+            "distance": "Maximum afstand",
+            "home": "Thuisbasis",
+            "show": "Toon x gebouwen van elk"
+        },
+        "trailer": { "distance": "Maximale afstand", "same": "Zelfde gebouw" }
     },
     "fms": "Status",
     "fms_switch": {
@@ -60,24 +58,20 @@
     },
     "foam_amount": "Hoeveelheid schuim",
     "followup_missions": "Vervolginzet | Vervolginzetten",
-    "hospitals": {
-        "beds": "Vrije bedden",
-        "department": "Specialisatie: {department}",
-        "hospital": "Ziekenhuis"
-    },
     "load_all_hospitals": {
         "btn": "Alle ziekenhuizen laden",
         "text": "Er worden maar 50 ziekenhuizen weergegeven. Het laden van alle ziekenhuizen kan, afhankelijk van het aantal, veel tijd in beslag nemen!"
     },
     "max_staff": "Max. personeel",
     "mileage": "Totale kilometers",
-    "missions": {
-        "alarm": "Alarmeren",
+    "mission": {
         "alarmed": "Huidige inzet",
         "credits": "Opbrengst",
+        "dispatch": "Alarmeren",
         "mission": "Inzet",
         "participation": "Aanwezigheid",
         "patients": "Patiënten",
+        "patientsProgress": "{current} van {total}",
         "progress": "Voortgang"
     },
     "move": "Verplaatsen",
@@ -86,7 +80,28 @@
         "offline": "{user} is offline!",
         "online": "{user} is online!"
     },
+    "patient": {
+        "beds": "Vrije bedden",
+        "department": "Specialisatie: {department}",
+        "dispatch": "Aanrijden",
+        "hospital": "Ziekenhuis"
+    },
     "patient_doctor_transport": "Transport met Artsbegeleiding",
+    "patientIntermediate": {
+        "caption": "Kustwachthaven",
+        "dispatch": "Transport patiënt",
+        "home": "Thhuisbasis: {building}"
+    },
+    "prisoner": {
+        "cell": "Gebouw",
+        "dispatch": "Aanrijden",
+        "free": "Vrije cellen"
+    },
+    "prisonerIntermediate": {
+        "caption": "Kustwachthaven",
+        "dispatch": "Transport gevangenen",
+        "home": "Thuisbasis: {building}"
+    },
     "release": {
         "cancel": "Annuleren",
         "confirm": "Ja",
@@ -101,31 +116,31 @@
         }
     },
     "release_patient": "Patiënt ontslaan",
+    "release_patient-intermediate": "Patiënt ontslaan",
     "release_prisoner": "Gevangene vrijlaten",
-    "staff": {
-        "name": "Naam",
-        "schooling": "Opleiding",
-        "title": "Personeel"
-    },
+    "release_prisoner-intermediate": "Gevangene vrijlaten",
+    "staff": { "name": "Naam", "schooling": "Opleiding", "title": "Personeel" },
     "station": "Post",
     "stats": "Statistieken",
     "tabs": {
         "all": "Alle {type}: {amount}",
         "alliance": "Team-{type}: {amount}",
-        "cells": "Cellen",
-        "hospitals": "Ziekenhuizen",
-        "missions": "Inzetten",
-        "own": "Eigen {type}: {amount}"
+        "mission": "Inzetten",
+        "own": "Eigen {type}: {amount}",
+        "patient": "Ziekenhuizen",
+        "patientIntermediate": "Kustwachthavens",
+        "prisoner": "Cellen",
+        "prisonerIntermediate": "Kustwachthavens"
     },
     "tax": "Afdracht aan eigenaar",
+    "trailer": {
+        "building": "Gebouw",
+        "caption": "Haakarmvoertuig",
+        "dispatch": "Alarmeren",
+        "same": "Zelfde gebouw: {building}"
+    },
     "true": "Ja",
     "vehicletype": "Voertuigtype",
     "water_amount": "Hoeveelheid water",
-    "wlf": {
-        "alarm": "Alarmeren",
-        "building": "Gebouw",
-        "caption": "Haakarmvoertuig",
-        "same": "Zelfde gebouw: {building}"
-    },
     "zuweisung": "Personeel toewijzen"
 }

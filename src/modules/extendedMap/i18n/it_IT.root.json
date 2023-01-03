@@ -1,5 +1,20 @@
 {
     "description": "Migliora la mappa con delle caratteristiche tutte nuove.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "presets": {
+            "dark1": "Dark 1",
+            "dark2": "Dark 2",
+            "dark3": "Dark 3",
+            "gray": "Gray"
+        },
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Mappa migliorata",
     "positions": {
         "bottomleft": "In basso a sinistra 🡧",
@@ -10,7 +25,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Edifici Collegati",
-            "description": "Una modifica puramente grafica, permette di unire molteplici edifici nella mappa in uno solo.",
+            "description": "Una modifica puramente grafica, permette di unire molteplici edifici nella mappa in uno solo. More settings are available within each complex.",
             "name": "Nome",
             "position": "Posizione",
             "title": "Complessi edilizi"
@@ -27,6 +42,12 @@
             "dynamic": "Dinamico",
             "static": "Statico",
             "title": "Centra la mappa: Modalità"
+        },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
         },
         "mapScale": {
             "description": "Mostra la scala della mappa e quanto quest'ultima sia zoommata",

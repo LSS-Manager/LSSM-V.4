@@ -9,8 +9,7 @@ sidebarDepth: 2
 auf dieser Seite möchten wir dir sonstige Informationen über den LSSM geben.
 
 ## Lizenz
-[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
-
+[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 Der LSS-Manager steht unter der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
@@ -20,19 +19,23 @@ Wir haben uns dazu entschieden, diese Lizenz zu verwenden, um ein Missbrauch uns
 Aktuell besteht das der LSS-Manager aus 4 Entwicklern und 6 zusätzlichen Unterstützern für unseren <discord/>. Auf Discord sind unsere Entwickler natürlich auch administrativ aktiv! Zusätzlich dazu haben wir noch jede Menge freiwillige Übersetzer!
 
 ### Die Entwickler
-* Aisaka *[CEO, Serveradministrator, Senior Developer]*
-* Jan *[Senior Architect and Developer]*
-* Sanni *[Quality Check, Bugfixing, Junior Developer]*
-* Ron31 *[Bugfixer, Junior Developer & "Praktikant"]*
+
+* Jan *[CEO, Senior Developer, Senior Architect]*
+* Sanni *[Quality Check, Bugfixing, Internationalization]*
+* Ron31 *[Developer]*
+* Crazycake *[Developer, Lead Infrastructure manager]*
 
 ### Das Discord-Team
 **Administration**:
+
 * lost
+* Aisaka
 
 **Moderation**:
+
 * 🇩🇪
     * Konstantin
-    * Saïx
+    * John_Lemon
     * Floet
 * 🇬🇧 🇺🇸 🇦🇺
     * Buggs
@@ -44,7 +47,7 @@ Jede Menge Dank geht an unsere freiwilligen Übersetzer, die uns mit der Portier
 
 Um die Übersetzer etwas zu würdigen haben wir hier eine Liste erstellt:
 <translators/>
-    
+
 ## Die Geschichte
 Seit September 2015 gibt es den `LSS-Manager`, auch wenn er zu Beginn nur das Design veränderte.
 
@@ -104,4 +107,30 @@ Hier finden sich einige mehr oder weniger spannende Statistiken über den LSSM u
 
 <stats-cloc/>
 
+### Commits & Änderungen
+
+<stats-git/>
+
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /de_DE/apps.md
+[docs.appstore]: /de_DE/appstore.md
+[docs.bugs]: /de_DE/bugs.md
+[docs.error_report]: /de_DE/error_report.md
+[docs.faq]: /de_DE/faq.md
+[docs.metadata]: /de_DE/metadata.md
+[docs.other]: /de_DE/other.md
+[docs.settings]: /de_DE/settings.md
+[docs.suggestions]: /de_DE/suggestions.md
+[docs.support]: /de_DE/support.md
+[games.self]: https://leitstellenspiel.de
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

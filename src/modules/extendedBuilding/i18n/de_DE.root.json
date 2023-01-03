@@ -6,13 +6,17 @@
             "description": "Zeigt in den Gebäuden an, wie viele vom selben Typen in die jeweilige Richtung noch vorhanden sind.",
             "title": "Anzahl der Gebäude selben Typs"
         },
-        "enhanceVehicleList": {
-            "description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
-            "title": "Fahrzeugliste erweitern"
+        "dispatchCenterBuildingFilter": {
+            "description": "Fügt der Gebäudeliste in der Leitstelle Filter hinzu",
+            "title": "Gebäudefilter in der Leitstelle"
         },
         "enhancedPersonnelAssignment": {
             "description": "Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden.",
             "title": "verbesserte Personalzuweisung"
+        },
+        "enhanceVehicleList": {
+            "description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
+            "title": "Fahrzeugliste erweitern"
         },
         "expansions": {
             "description": "Zeigt die Ausbauten eines Gebäudes an, ohne dass du erst auf den Ausbauten-Tab drücken musst.",
@@ -34,21 +38,25 @@
             "description": "Zeigt an, wie viel Personal bei Minimal- bzw. Maximalbesetzung der Fahrzeuge benötigt wird.",
             "title": "Personalbedarf"
         },
+        "renewAllStagingAreas": {
+            "description": "Erneuere alle eigenen Bereitstellungsräume auf einmal mit einem neuen Knopf in Bereitstellungsräumen.",
+            "title": "Alle Bereitstellungsräume erneuern"
+        },
         "schoolingSummary": {
             "description": "Zeigt in der Personalübersicht eines Gebäudes an, wie viele Personen welche Ausbildung(en) haben.",
             "title": "Personalzusammenfassung"
         },
+        "schoolsBuildingFilter": {
+            "description": "Nützliche Filter, um die Gebäudeliste im Lehrgangsfenster zu kürzen",
+            "title": "Gebäudefilter bei Lehrgangsauswahl"
+        },
+        "startPatrolsShortcut": {
+            "description": "Über der Gebäudeliste erscheint die Möglichkeit, Streifenfahrten zu starten, ohne erst eine Leitstelle zu öffnen.",
+            "title": "Streifenfahrten im Hauptfenster starten"
+        },
         "upgradeConfirmation": {
             "description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
             "title": "Gebäude ausbauen"
-        },
-        "vehicleTypes": {
-            "description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
-            "title": "Fahrzeugtyp"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Blendet den Standard-Fahrzeugtyp aus (falls ein eigener gesetzt ist) und zeigt nur den eigenen an.",
-            "title": "Nur eigenen Fahrzeugtyp anzeigen"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Zeigt an, wie viele Personen dem Fahrzeug zugewiesen sind.",
@@ -65,6 +73,14 @@
         "vehiclesPersonnelMax": {
             "description": "Zeigt an, wie viele Personen maximal auf das Fahrzeug passen.",
             "title": "Maximale Besatzung"
+        },
+        "vehicleTypes": {
+            "description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
+            "title": "Fahrzeugtyp"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Blendet den Standard-Fahrzeugtyp aus (falls ein eigener gesetzt ist) und zeigt nur den eigenen an.",
+            "title": "Nur eigenen Fahrzeugtyp anzeigen"
         }
     }
 }

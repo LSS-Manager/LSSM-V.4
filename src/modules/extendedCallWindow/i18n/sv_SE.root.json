@@ -13,6 +13,13 @@
             "description": "Visar bredvid alarmknappen hur lång tid fordonet med den längsta restiden tar.",
             "title": "Längsta restid"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Ritar en ram runt redan klickade ARR.",
             "title": "Markera klickade ARR"
@@ -40,6 +47,18 @@
         "arrMatchHighlight": {
             "description": "Ställer in ett grått filter över alla ARR som inte innehåller ett ord med uppdragsnamnet.",
             "title": "Gråa ut olämpliga ARR's"
+        },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Visar de sparade förfrågningarna i ARR, om du stannar kort med musen över en ARR",
@@ -80,6 +99,10 @@
             "textcolor": "Textfärg",
             "title": "Uppdrag nyckelord"
         },
+        "moreReleasePatientButtons": {
+            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
+            "title": "More buttons to release patients"
+        },
         "patientSummary": {
             "description": "Visar bredvid antalet patienter vilken räddningsutrustning de behöver i kombination.",
             "title": "Patientöversikt"
@@ -87,6 +110,14 @@
         "redBorder": {
             "description": "Skisserar genereringstiden i rött om vadet går ut nästa natt.",
             "title": "Röd kant"
+        },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
         },
         "stickyHeader": {
             "description": "Visar alltid det övre fältet i infogningsfönstret, även när du rullar nedåt.",
@@ -106,77 +137,27 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Brandbil",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    12
-                ]
-            },
+            { "name": "Brandbil", "vehicleTypes": [0, 1, 12] },
             {
                 "name": "Övriga Brandbilar",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    10,
-                    11,
-                    19,
-                    21,
-                    22,
-                    24,
-                    25,
-                    26,
-                    27,
-                    29,
-                    35,
-                    36,
-                    37,
-                    38
+                    2, 3, 4, 6, 7, 10, 11, 19, 21, 22, 24, 25, 26, 27, 29, 35,
+                    36, 37, 38
                 ]
             },
             {
                 "name": "Ambulans",
-                "vehicleTypes": [
-                    5,
-                    9,
-                    28,
-                    30,
-                    31,
-                    32,
-                    33,
-                    34
-                ]
+                "vehicleTypes": [5, 9, 28, 30, 31, 32, 33, 34]
             },
             {
                 "name": "Polis",
                 "vehicleTypes": [
-                    8,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    24
+                    8, 13, 14, 15, 16, 17, 24, 39, 40, 41, 42, 43, 44
                 ]
             },
-            {
-                "name": "Brandfordon-Vatten",
-                "vehicleTypes": [
-                    18,
-                    20
-                ]
-            },
-            {
-                "name": "Insatsstyrka",
-                "vehicleTypes": [
-                    14,
-                    17
-                ]
-            }
-        ]
+            { "name": "Brandfordon-Vatten", "vehicleTypes": [18, 20] },
+            { "name": "Insatsstyrka", "vehicleTypes": [14, 17] }
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

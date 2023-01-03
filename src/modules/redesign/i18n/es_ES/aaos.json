@@ -1,0 +1,23 @@
+{
+    "add": { "arr": "Nuevo ARR", "group": "Nuevo Grupo" },
+    "categories": "Categorías propias de ARR editadas",
+    "delete": {
+        "all": {
+            "text": "¿Realmente desea eliminar TODAS las entradas ARR?¡Esto NO se puede deshacer y todas las exportaciones anteriores de su ARR NO funcionarán más!",
+            "title": "Eliminar todos los ARR por completo"
+        },
+        "arr": {
+            "text": "¿Realmente desea eliminar esta entrada ARR? ¡Esto no se puede deshacer! ¡La entrada ya no aparecerá en ninguna exportacion existente!",
+            "title": "Eliminar ARR"
+        },
+        "cancel": "Cancelar",
+        "confirm": "¡Eliminar!",
+        "vehicle_group": {
+            "text": "¿Realmente desea eliminar este grupo? ¡Esto no se puede deshacer!",
+            "title": "Eliminar grupo"
+        }
+    },
+    "delete_all": "Eliminar ARR por completo",
+    "export": "Exportar ARR",
+    "title": "Regulaciones y Grupos de Alarma y Respuesta"
+}

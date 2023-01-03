@@ -1,14 +1,21 @@
-declare let host: string;
-declare let user_id: string | undefined;
+import 'tampermonkey';
+
+declare const host: string;
+declare const user_id: string | undefined;
+declare const I18n: unknown & { locale: string };
+declare const prefix: string;
 
 const loadLSSM = () => {
     const script = document.createElement('script');
 
-    script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
-        I18n.locale
-    }-${user_id}`;
+    script.src = `${host}core.js?_=${Math.floor(
+        Date.now() / (1000 * 60 * 10) // Cache the core for 10 minutes
+    )}&branch=${localStorage.getItem(`${prefix}_branch`) ?? 'stable'}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
+
+    unsafeWindow[`${prefix}-GM_Info`] = JSON.parse(JSON.stringify(GM_info));
+
     document.body.append(script);
 };
 
@@ -23,16 +30,16 @@ if (
 ) {
     if (
         window !== window.parent &&
-        window.parent.hasOwnProperty('lssmv4-redesign-lightbox')
+        window.parent.hasOwnProperty(`${prefix}-redesign-lightbox`)
     ) {
-        const redesignTriggerEvent = 'lssmv4-redesign-iframe-trigger-lssm-load';
+        const redesignTriggerEvent = `${prefix}-redesign-iframe-trigger-lssm-load`;
         window.parent.addEventListener(redesignTriggerEvent, loadLSSM);
         window.addEventListener('pagehide', () =>
             window.parent.removeEventListener(redesignTriggerEvent, loadLSSM)
         );
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        window.parent['lssmv4-redesign-lightbox'].src = new URL(
+        window.parent[`${prefix}-redesign-lightbox`].src = new URL(
             window.location.href
         ).toString();
     } else {

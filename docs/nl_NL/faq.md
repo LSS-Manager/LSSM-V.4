@@ -6,38 +6,34 @@ sidebarDepth: 3
 
 # FAQ ❓
 
-### Wat kost LSS Manager?
-LSS-Manager is een gratis aanbieding - we zijn niet van plan dit te veranderen.
+## Wat kost LSS Manager?
+LSS-Manager is een gratis uitbreiding - we zijn niet van plan dit te veranderen.
+
+Wil je ons alsnog financieel ondersteunen? Voel je vrij om ons een donatie te sturen via [OpenCollective][lssm.donations]. We zijn blij met elke ondersteuning!
 
 :::warning donaties
-Er zijn een paar aardige gebruikers die graag geld aan ons willen doneren. Maar: de LSS-Manager is en blijft gratis. Ook accepteren we geen donaties voor dit project.
+Alle donaties zullen alleen gebruikt worden voor onze lopende kosten, zoals de server en domein. We hebben geen intentie om winst te maken en zullen ook geen winst uitkeren.
 
-Dit heeft verschillende redenen:
+Donaties hebben geen directe invloed op de ontwikkeling van LSSM! We zullen niet meer of minder tijd investeren en er zijn geen directe voordelen voor individuele spelers zoals premium functies. De ontwikkeling van LSSM zal op vrijwillige basis blijven in onze vrije tijd en het gebruik zal compleet gratis blijven voor alle spelers!
 
-* Dit project wordt op vrijwillige basis ontwikkeld in de vrije tijd van de deelnemende ontwikkelaars
-* Een abonnementsvariant, vergelijkbaar met de Premium in de game, zou ons persoonlijk te veel onder druk zetten om verder te gaan dan we wilden met programmeren.
-* Om juridische redenen kunnen we geen donaties accepteren:
-    * Als we een bedrijf voor LSS Manager zouden oprichten zodat we donaties zouden kunnen ontvangen, zou dit geen toekomst hebben, want een bedrijf zonder kosten kan geen bedrijf zijn.
-    * Als we de servers, waarop momenteel LSS Manager draait, door een bedrijf zouden laten lopen, zouden ze het inkomen onmiddellijk opeten.
-
-Daarom heeft het naast het idee van vrijwilligheid geen zin om geld aan te nemen voor de LSS-Manager.
+Uiteraard zijn we blij met elke donatie, maar we willen toch aangeven dat we LSSM zullen laten werken zoals voorheen, zelfs zonder donaties.
 :::
 
-### Hoe kan ik bijdragen aan LSS Manager?
-De "normale" gebruiker kan [bugs melden][error] of [suggesties doen][suggestions].
+## Hoe kan ik bijdragen aan LSS Manager?
+De "normale" gebruiker kan [bugs melden][docs.error_report] of [suggesties doen][docs.suggestions].
 
 We zijn momenteel bezig met het ontwerpen van een stijlgids voor ontwikkelaars, zodat ook zij gemakkelijk hun eigen plug-ins aan LSSM kunnen toevoegen. We hebben ook geprobeerd onze codestructuur duidelijk en begrijpelijk te houden. Het toevoegen van een plug-in betekent echter op geen enkele manier dat u lid wordt van het team.
 
-### Hoe kan ik bugs melden?
-Kijk hoervoor op onze [meld bugs][error] pagina.
+## Hoe kan ik bugs melden?
+Kijk hiervoor op onze [meld bugs][docs.error] pagina.
 
-### Waar kan ik hulp krijgen?
-Door onze steun. Meer informatie vindt u [hier][support].
+## Waar kan ik hulp krijgen?
+Door onze steun. Meer informatie vindt u [hier][docs.support].
 
-### Hoe kan ik suggesties indienen?
-Op de [suggestions][suggestions] pagina hebben we wat informatie hierover bij elkaar gezet.
+## Hoe kan ik suggesties indienen?
+Op de [suggestions][docs.suggestions] pagina hebben we wat informatie hierover bij elkaar gezet.
 
-### In welke browsers werkt LSS Manager?
+## In welke browsers werkt LSS Manager?
 Alleen desktopbrowsers worden hier vermeld, aangezien mobiele browsers niet officieel worden ondersteund.
 
 Omdat we overal de nieuwste coderingsstandaarden willen behouden, is een moderne en up-to-date browser noodzakelijk en aanbevolen - al was het maar om veiligheidsredenen, zelfs buiten het spel.
@@ -50,13 +46,35 @@ Deze twee browsers kunnen worden omschreven als de "probleemkinderen" van een mo
 We zien het nut niet in om dit overal te doen en ondersteunen deze twee browsers daarom **niet** officieel.
 :::
 
-### Ik wil mijn installatie delen met vrienden of deze op meerdere apparaten gebruiken. Is dat mogelijk?
+## Ik wil mijn installatie delen met vrienden of deze op meerdere apparaten gebruiken. Is dat mogelijk?
 Momenteel is het niet mogelijk, maar we werken eraan.
 
-### Is er een manier om accountgebonden instellingen op te slaan, zodat u ze niet op een ander apparaat hoeft te importeren?
+## Is er een manier om accountgebonden instellingen op te slaan, zodat u ze niet op een ander apparaat hoeft te importeren?
 Momenteel bieden we dit niet aan, maar een implementatie van deze functie is gepland.
 
+## Where can I see if the LSSM servers are online?
+Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
-[support]: support.md
-[error]: error_report.md
-[suggestions]: suggestions.md
+Or in the <discord-channel channel="uptime"/> on our <discord/>
+
+<!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
+[lssm.status]: https://status.lss-manager.de/
+[lssm.discord]: https://discord.gg/RcTNjpB
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.donations]: https://donate.lss-manager.de/
+[docs]: https://docs.lss-manager.de/
+[docs.apps]: /nl_NL/apps.md
+[docs.appstore]: /nl_NL/appstore.md
+[docs.bugs]: /nl_NL/bugs.md
+[docs.error_report]: /nl_NL/error_report.md
+[docs.faq]: /nl_NL/faq.md
+[docs.metadata]: /nl_NL/metadata.md
+[docs.other]: /nl_NL/other.md
+[docs.settings]: /nl_NL/settings.md
+[docs.suggestions]: /nl_NL/suggestions.md
+[docs.support]: /nl_NL/support.md
+[games.self]: https://meldkamerspel.com
+[tampermonkey]: https://tampermonkey.net/
+[github]: https://github.com/LSS-Manager/LSSM-V.4
+[github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues
+[github.issues.open]: https://github.com/LSS-Manager/LSSM-V.4/issues?q=is%3Aissue+is%3Aopen+label%3Abug

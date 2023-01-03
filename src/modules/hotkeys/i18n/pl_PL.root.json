@@ -6,55 +6,106 @@
                 "buildings": "Otwórz przegląd budynków sojuszu",
                 "forum": "Otwórz tablice",
                 "funds": "Otwórz okno funduszy sojuszniczych",
-                "logfiles": "otwórz logi",
-                "members": "otwórz listę członków",
-                "messages": "otwarte wiadomości",
-                "onlineMembers": "otwórz listę członków (pokaż tylko graczy online)",
-                "open": "otwórz okno sojuszu",
-                "schoolings": "otwórz okno szkoleń",
+                "logfiles": "Otwórz logi",
+                "members": "Otwórz listę członków",
+                "messages": "Otwórz wiadomości",
+                "onlineMembers": "Otwórz listę członków (pokaż tylko graczy online)",
+                "open": "Otwórz okno sojuszu",
+                "schoolings": "Otwórz okno szkoleń",
                 "title": "Sojusz"
             },
             "credits": {
-                "daily": "otwórz podsumowanie dnia",
-                "open": "otwórz dziennik",
-                "overview": "otwórz przegląd ostatnich 7 dni",
+                "daily": "Otwórz podsumowanie dnia",
+                "open": "Otwórz dziennik",
+                "overview": "Otwórz przegląd ostatnich 7 dni",
                 "title": "Kredyty"
             },
             "help": "Otwórz tę pomoc",
             "profile": {
-                "awards": "otwórz lista nagród",
-                "level": "otwórz listę poziomów",
-                "notes": "otwórz notatki",
-                "open": "otwórz własny profil",
+                "awards": "Otwórz listę nagród",
+                "level": "Otwórz listę poziomów",
+                "notes": "Otwórz notatki",
+                "open": "Otwórz własny profil",
                 "title": "Profil"
             },
-            "protocol": "otwórz dziennik CPR",
+            "protocol": "Otwórz dziennik CPR",
             "tasks": {
-                "open": "otwórz listę aktualnych zadań",
+                "open": "Otwórz listę aktualnych zadań",
                 "title": "Zadania i wydarzenia"
             },
             "title": "Ogólne"
         },
-        "main": {
-            "chat": {
-                "focus": "skup się na polu wiadomości",
-                "title": "Czat"
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Wyłącz udostępnianie",
+                "enableSharing": "Włącz udostępnianie",
+                "title": "Przełącz udostępnianie budynków",
+                "toggleSharing": "Przełącz udostępnianie"
             },
+            "dispatch": {
+                "buildings": "Zakładka budynków",
+                "extensions": "Zakładka rozbudów",
+                "next": "Następna zakładka",
+                "openFirstPlannedMission": "Otwórz pierwszą planowaną misję",
+                "patrol": "Zakładka tras patrolowych",
+                "patrol_vehicles": "Zakładka pojazdów patrolowych",
+                "plannedMission": "Zakładka planowanych wydarzeń",
+                "previous": "Następna zakładka",
+                "protocol": "Zakładka protokołu",
+                "schooling": "Zakładka szkoleń",
+                "settings": "Zakładka ustawień",
+                "stats": "Zakładka statystyk",
+                "title": "CPR",
+                "vehicle": "Zakładka pojazdów"
+            },
+            "goto": {
+                "dispatchCenter": "CPR",
+                "expand": "Powiększ budynek",
+                "firstVehicle": "Otwórz pierwszy pojazd",
+                "hire": "Zatrudnij nowe osoby",
+                "nextBuilding": "Następny budynek",
+                "personal": "Pokaż personel",
+                "previousBuilding": "Poprzedni budynek",
+                "title": "Przejdź do"
+            },
+            "title": "Building"
+        },
+        "main": {
+            "bigMap": {
+                "title": "Projekt okna",
+                "toggle": {
+                    "buildings": "Budynki",
+                    "chat": "Czat",
+                    "missions": "Misje",
+                    "radio": "Radio",
+                    "title": "przełącz okno"
+                }
+            },
+            "chat": { "focus": "Skup się na polu wiadomości", "title": "Czat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Otwórz / Zamknij"
-                },
+                "menu": { "title": "Menu", "toggle": "Otwórz / Zamknij" },
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "dół",
+                    "left": "lewo",
+                    "right": "prawo",
+                    "title": "Przeduń w ",
+                    "up": "gorę"
+                },
                 "search": {
-                    "focus": "skup się na polu tekstowym",
+                    "focus": "Skup się na polu tekstowym",
                     "title": "Wyszukiwanie lokalizacji"
                 },
-                "title": "Mapa"
+                "title": "Mapa",
+                "zoom": { "in": "Przybliż", "out": "Oddal", "title": "Zoom" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Otwórz menu wyboru",
+                    "title": "Sortowanie misji"
+                },
                 "search": {
                     "focus": "skup się na polu tekstowym",
                     "title": "Wyszukiwanie"
@@ -64,6 +115,28 @@
             "title": "Główne okno"
         },
         "mission": {
+            "alert": "Wyślij",
+            "alert_next": "Wyślij i przejdź do następnej misji",
+            "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
+            "alliance": {
+                "focus": "Skup się na uwagach o wydarzeniu.",
+                "title": "Sojusz",
+                "toggle": "Opublikuj wpisz na czacie sojuszu.'"
+            },
+            "arr": {
+                "next": "Poprzednie okno",
+                "previous": "Następne okno",
+                "title": "ZR"
+            },
+            "backalarm": {
+                "abortApproach": "Odwołaj jednostki w drodze",
+                "allVehicles": "Odwołaj wszystkie jednostki",
+                "onlyAmbulance": "Odwołaj wszystkie ambulanse",
+                "title": "Odwołaj"
+            },
+            "next": "Następna misja",
+            "prev": "Poprzednia misja",
+            "share": "Udostępnij",
             "sorted": {
                 "alert_next": "Wyślij i przejdź do następnej misji",
                 "alert_share_next": "Wyślij, udostępnij i przejdź do następnej misji",
@@ -71,7 +144,36 @@
                 "prev": "Poprzednia misja",
                 "title": "Posortowane misje"
             },
-            "title": "Okno misji"
+            "title": "Okno misji",
+            "transport_request": "Otwórz pierwsze żądanie transportu pacjenta",
+            "vehicleList": {
+                "loadMissing": "Załaduj brakujące pojazdy",
+                "next": "Poprzednia zakładka",
+                "previous": "Następna zakładka",
+                "title": "Lista pojazdów"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Wyślij na pierwszą misję sojuszu",
+                "firstOwnMission": "Wyślij na pierwszą misję",
+                "title": "Wyślij"
+            },
+            "goto": {
+                "building": "budynków",
+                "edit": "edycji",
+                "nextVehicle": "następnego pojazdu",
+                "personalAssigment": "przypisywania załogi",
+                "previousVehicle": "poprzedniego pojazdu",
+                "statistics": "statystyk",
+                "title": "Przejdź do"
+            },
+            "other": {
+                "moveVehicle": "przenieś pojazd",
+                "title": "Inne.",
+                "toggleFMS": "zmień status"
+            },
+            "title": "pojazdy"
         }
     },
     "description": "Kontroluj grę za pomocą skrótów klawiszowych na klawiaturze, które możesz ustawić samodzielnie.",
@@ -83,5 +185,6 @@
             "description": "Ustaw tutaj własne skróty klawiszowe dla określonych działań. Akcje kategorii \"Ogólne\" są dostępne wszędzie w grze. Naciskając F1, możesz w dowolnym momencie wyświetlić przegląd skrótów klawiszowych, które otworzyłeś.",
             "title": "Skróty klawiszowe"
         }
-    }
+    },
+    "unique": "Próbowałeś przypisać ten sam klawisz skrótu do kilku akcji, nawet jeśli te akcje są wywoływane w tym samym kontekście. Wybierz inny skrót klawiszowy dla tej czynności."
 }

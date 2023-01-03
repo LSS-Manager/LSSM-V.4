@@ -13,6 +13,13 @@
             "description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
             "title": "Longest journey time"
         },
+        "arrCategoryColors": {
+            "bgColor": "Background color",
+            "category": "Name of the category",
+            "color": "Text color",
+            "description": "Colorize your ARR Categories.",
+            "title": "colorized ARR-Categories"
+        },
         "arrClickHighlight": {
             "description": "Draws a frame around already clicked AARs.",
             "title": "Highlight clicked AARs"
@@ -36,6 +43,18 @@
         "arrMatchHighlight": {
             "description": "Sets a gray filter over all AARs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable AARs"
+        },
+        "arrSearchClearOnEnter": {
+            "description": "Clears the ARR-search when the Enter key is pressed",
+            "title": "Clear ARR-search"
+        },
+        "arrSearchCompactResults": {
+            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
+            "title": "ARR-Search: Compact results"
+        },
+        "arrSearchSelectOnEnter": {
+            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
+            "title": "Select first ARR"
         },
         "arrSpecs": {
             "description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR",
@@ -73,6 +92,10 @@
             "preview": "Preview",
             "title": "Mission keywords"
         },
+        "moreReleasePatientButtons": {
+            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
+            "title": "More buttons to release patients"
+        },
         "patientSummary": {
             "description": "Shows next to the number of patients, which rescue equipment they need in combination.",
             "title": "Patient Summary"
@@ -80,6 +103,14 @@
         "redBorder": {
             "description": "Outlines the generation time in red if the bet will expire the following night.",
             "title": "Red border"
+        },
+        "selectedVehicleCounter": {
+            "description": "Displays in a expandable list how many vehicles of which type are selected.",
+            "title": "Count selected vehicles"
+        },
+        "selectedVehicleCounterBtnVehicles": {
+            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
+            "title": "Count selected vehicles: Quick counter"
         },
         "stickyHeader": {
             "description": "Always shows the top bar in the insert window, even when you scroll down.",
@@ -99,71 +130,23 @@
     },
     "tailoredTabs": {
         "defaultTabs": [
-            {
-                "name": "Brannbil",
-                "vehicleTypes": [
-                    0,
-                    1,
-                    7,
-                    18,
-                    21
-                ]
-            },
+            { "name": "Brannbil", "vehicleTypes": [0, 1, 7, 18, 21] },
             {
                 "name": "Andre brannbiler",
                 "vehicleTypes": [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    16,
-                    17,
-                    29,
-                    33,
-                    34,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39
+                    2, 3, 4, 6, 7, 16, 17, 29, 33, 34, 35, 36, 37, 38, 39
                 ]
             },
             {
                 "name": "Ambulanse",
-                "vehicleTypes": [
-                    5,
-                    9,
-                    24,
-                    25,
-                    26,
-                    27,
-                    28,
-                    30,
-                    31,
-                    32
-                ]
+                "vehicleTypes": [5, 9, 24, 25, 26, 27, 28, 30, 31, 32]
             },
             {
                 "name": "Politi",
-                "vehicleTypes": [
-                    8,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    22,
-                    23
-                ]
+                "vehicleTypes": [8, 11, 12, 13, 14, 15, 22, 23]
             },
-            {
-                "name": "Vann",
-                "vehicleTypes": [
-                    19,
-                    20
-                ]
-            }
-        ]
+            { "name": "Vann", "vehicleTypes": [19, 20] }
+        ],
+        "noCustoms": "own vehicle categories excluded"
     }
 }

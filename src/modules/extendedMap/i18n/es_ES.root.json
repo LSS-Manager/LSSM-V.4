@@ -1,5 +1,20 @@
 {
     "description": "Mejora el mapa con algunas características especiales.",
+    "mapCSSFilter": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "grayscale": "Gray filter",
+        "hueRotate": "Hue rotation",
+        "invert": "Invert Colors",
+        "presets": {
+            "dark1": "Dark 1",
+            "dark2": "Dark 2",
+            "dark3": "Dark 3",
+            "gray": "Gray"
+        },
+        "saturate": "Saturation",
+        "sepia": "Sepia"
+    },
     "name": "Mejorar mapa",
     "positions": {
         "bottomleft": "Abajo a la izquierda 🡧",
@@ -10,7 +25,7 @@
     "settings": {
         "buildingComplexes": {
             "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
+            "description": "A Design-Update, that allows merging multiple buildings into one on the map. More settings are available within each complex.",
             "name": "Name",
             "position": "Location",
             "title": "Building complexes"
@@ -27,6 +42,12 @@
             "dynamic": "Dinámico",
             "static": "Estático",
             "title": "Mapa central: Modo"
+        },
+        "mapCSSFilter": {
+            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
+            "filterFunction": "CSS Filter",
+            "filterValue": "value",
+            "title": "Map Design (CSS Filter)"
         },
         "mapScale": {
             "description": "Muestra una escala de mapa y el nivel de zoom actual",

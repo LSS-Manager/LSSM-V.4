@@ -2,16 +2,13 @@
     "enhancedPersonnelAssignment": {
         "toggleFittingPersonnel": "Hide personnel without suitable training"
     },
-    "expansions": {
-        "notBuild": "Not built yet"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "No control center"
-    },
+    "expansions": { "notBuild": "Not built yet" },
+    "fastDispatchChooser": { "noDispatch": "No control center" },
     "personnelDemands": {
         "additional": "Values in brackets exclude vehicles in Status 6.",
         "demand": "Required personnel"
     },
+    "renewAllStagingAreas": { "title": "Reset all staging areas" },
     "schoolingSummary": {
         "all": "All combinations",
         "amount": "Amount",
@@ -23,6 +20,7 @@
         "schooling": "Schooling",
         "title": "Personnel overview"
     },
+    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Cancel",

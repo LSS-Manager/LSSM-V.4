@@ -1,0 +1,19 @@
+{
+    "description": "Kirjoita oma malli viestejä varten yksityisissä keskusteluissa ja liittouma-chatissa.",
+    "name": "Viesti-mallit",
+    "settings": {
+        "chatTemplates": {
+            "description": "Viestit liittouma chattiin",
+            "name": "Nimi",
+            "text": "Viesti",
+            "title": "Chatti-Viestit"
+        },
+        "templates": {
+            "description": "Malleja varten on käytettävissä muuttujia. Tutustu meidän <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates/#variables\">Wiki</a>.",
+            "name": "Nimi",
+            "subject": "Aihe",
+            "template": "Malli (Muuttujat (Katso wiki): {{username}}, {{today[+n]}})",
+            "title": "Mallit"
+        }
+    }
+}

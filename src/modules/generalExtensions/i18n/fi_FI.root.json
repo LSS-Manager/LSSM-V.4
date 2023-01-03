@@ -1,0 +1,72 @@
+{
+    "description": "Lisää yleisiä parannuksia.",
+    "name": "Yleisiä parannukset",
+    "positions": {
+        "bottom-left": "Ala-vasen 🡧",
+        "bottom-right": "Ala-oikea 🡦",
+        "top-left": "Ylä-vasen 🡤",
+        "top-right": "Ylä-oikea 🡥"
+    },
+    "settings": {
+        "aaoExportQr": {
+            "description": "Näyttää QR-koodin vientilinkkiä varten, kun hälytysjärjestely viedään.",
+            "title": "Hälytysjärjetelyjen vienti QR-koodina"
+        },
+        "browserTitle": {
+            "description": "Vaihtaa välilehden otsikkon niin, että se näyttää, mikä pelissä on parhaillaan auki.",
+            "title": "Välilehden otsikko"
+        },
+        "clickableLinks": {
+            "description": "Linkit, jotka näkyvät pelkkänä tekstinä (esim. chatissa, foorumilla, viesteissä jne.), ovat klikattavissa. Ne avautuvat automaattisesti uuteen välilehteen.",
+            "title": "Klickattavat linkit"
+        },
+        "emojiPicker": {
+            "description": "Näyttää emojit valittavaksi, kun kirjoitat : ja sen jälkeen tekstiä.",
+            "title": "Emoji picker"
+        },
+        "extensionCloseCall": {
+            "description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
+            "title": "Parannettu Tila 5"
+        },
+        "linkPreviews": {
+            "buildings": "Rakennukset",
+            "description": "Näyttää pienen tietolaatikon, kun odotat hiiren ollessa linkin päällä lyhyen aikaa. Tässä voit määrittää, minkä linkkien kohdalla infolaatikko aktivoituu:",
+            "missions": "Tehtävät",
+            "profile": "Käyttäjä",
+            "title": "Linkin esikatselu",
+            "vehicles": "Ajoneuvot"
+        },
+        "mapSearchOnMap": {
+            "description": "Siirtää pääikkunan sijainnin haun kartalle.",
+            "title": "Paikkahaku kartalla"
+        },
+        "mapSearchOnMapPosition": {
+            "description": "Valitse, missä kohtaa karttaa haun pitäisi näkyä.",
+            "title": "Paikkahaun sijainti"
+        },
+        "mapUndo": {
+            "description": "Keskitä kartta sijainteihin, jotka oli keskitetty aiemmin. - Tällä hetkellä toimii vain karttatyypin \"OpenStreetMap\" kanssa.",
+            "title": "Tallenna karttahyppyjä"
+        },
+        "notePreview": {
+            "description": "Muistiinpanoissa olevia linkkejä voi napsauttaa näyttämällä muistiinpanojen esikatselun.",
+            "title": "Muistiinpanot"
+        },
+        "ownMapMarkers": {
+            "description": "Tallenna omat sijaintisi kartalle, jotta pääset niihin käsiksi yhdellä napsautuksella!",
+            "title": "Kirjanmerkit kartalle"
+        },
+        "saveLastBuildingType": {
+            "description": "Muistaa valitun rakennustyypin uutta rakennusta rakennettaessa ja valitsee sen automaattisesti uusille rakennuksille.",
+            "title": "Muista rakennustyyppi"
+        },
+        "saveLastDispatchCenter": {
+            "description": "Muistaa valitun hätäkeskuksen uutta rakennusta rakennettaessa ja valitsee sen automaattisesti uusissa rakennuksissa.",
+            "title": "Muista hätäkeskus"
+        },
+        "showImg": {
+            "description": "Yritä luoda kuvan esikatselu. Toimii vain yhdessä \"Klickattavat linkit\" -toiminnon kanssa!",
+            "title": "Kuvan esikatselun aktivointi"
+        }
+    }
+}

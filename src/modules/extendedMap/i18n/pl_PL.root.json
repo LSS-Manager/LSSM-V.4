@@ -1,5 +1,20 @@
 {
-    "description": "Ulepsz mapę dzięki kilku fajnym funkcjom.",
+    "description": "Ulepsz mapę dzięki kilku przydatnym funkcjom.",
+    "mapCSSFilter": {
+        "brightness": "Jasność",
+        "contrast": "Kontrast",
+        "grayscale": "Filtr szarości",
+        "hueRotate": "Obrót odcienia",
+        "invert": "Odwróć kolory",
+        "presets": {
+            "dark1": "Ciemny 1",
+            "dark2": "Ciemny 2",
+            "dark3": "Ciemny 3",
+            "gray": "Szary"
+        },
+        "saturate": "Saturacja",
+        "sepia": "Sepia"
+    },
     "name": "Ulepszona mapa",
     "positions": {
         "bottomleft": "Na dole po lewej 🡧",
@@ -9,40 +24,44 @@
     },
     "settings": {
         "buildingComplexes": {
-            "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map.",
-            "name": "Name",
-            "position": "Location",
-            "title": "Building complexes"
+            "buildings": "Dołączone budynki",
+            "description": "Aktualizacja projektu, która umożliwia łączenie wielu budynków w jeden na mapie. Graficznie działa identycznie jak kompleksy w grze. W każdym kompleksie dostępnych jest więcej ustawień.",
+            "name": "Nazwa",
+            "position": "Lokacja",
+            "title": "Kompleksy budynków"
         },
         "centerMap": {
-            "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry",
+            "description": "Wyśrodkuj mapę dynamicznie lub w widoku statycznym podczas otwierania gry.",
             "title": "Centrowanie mapy"
         },
         "centerMapStaticLocation": {
+            "description": "Umożliwia wybranie punktu, wzklędem którego będzie centrowana mapa.",
             "title": "Statyczny środek mapy: Pozycja"
         },
         "centerMapType": {
-            "description": "Wybierz, czy chcesz centrować statycznie, czy dynamicznie [dynamiczny nie jest jeszcze dostępny]",
+            "description": "Wybierz, czy chcesz centrować statycznie, czy dynamicznie. [obecnie dostępny jest tylko statyczny]",
             "dynamic": "Dynamiczny",
             "static": "Statyczny",
             "title": "Centrowanie mapy: Tryb"
         },
-        "locationSelect": {
-            "sync": "Centruj",
-            "zoom": "Ustawienia mapy"
+        "locationSelect": { "sync": "Centruj", "zoom": "Ustawienia mapy" },
+        "mapCSSFilter": {
+            "description": "Dostosuj mapę za pomocą różnych filtrów CSS do edycji obrazu. Zabawa z tymi funkcjami i próbowanie ich jest mile widziane!",
+            "filterFunction": "Filtr CSS",
+            "filterValue": "wartość",
+            "title": "Projekt mapy (filtr CSS)"
         },
         "mapScale": {
-            "description": "Pokazuje skalę mapy i aktualny poziom powiększenia",
+            "description": "Pokazuje skalę mapy i aktualny poziom powiększenia.",
             "title": "Skala"
         },
         "mapScalePosition": {
-            "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy",
+            "description": "Wybierz, w którym rogu mapy powinna pojawić się skala mapy.",
             "title": "Pozycja skali mapy"
         },
         "markerNewWindow": {
             "description": "Umożliwia otwieranie misji i budynków w nowej karcie przez Ctrl+kliknięcie lub kliknięcie środkowym przyciskiem myszy.",
-            "title": "Otwórz znaczniki w nowej karcie"
+            "title": "Otwórz w nowej karcie"
         }
     }
 }

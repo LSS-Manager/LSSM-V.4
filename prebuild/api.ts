@@ -1,4 +1,3 @@
-import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
@@ -8,6 +7,24 @@ const rootPath = path.join(__dirname, '..');
 const distPath = path.join(rootPath, 'dist');
 const apiPath = path.join(distPath, 'api');
 const i18nPath = path.join(rootPath, 'src', 'i18n');
+const distI18nPath = path.join(rootPath, 'typings', 'dist', 'src', 'i18n');
+
+const getTSFile = async (
+    sourcePath: string,
+    outputPath: string
+): Promise<Record<number | string, unknown>> => {
+    fs.writeFileSync(
+        outputPath,
+        fs
+            .readFileSync(sourcePath)
+            .toString()
+            .replace(/export default/u, 'module.exports = ')
+    );
+
+    const result = (await import(outputPath)).default;
+    fs.rmSync(outputPath);
+    return result;
+};
 
 export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
@@ -31,26 +48,23 @@ export default async (): Promise<void> => {
         const outputPath = path.join(apiPath, locale);
         const jsPath = path.join(i18nPath, `${locale}.js`);
         if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
-        execSync(
-            `tsc "${path.join(
-                i18nPath,
-                `${locale}.ts`
-            )}" --target esnext --moduleResolution node`
+
+        const t = await getTSFile(
+            path.join(distI18nPath, `${locale}.js`),
+            jsPath
         );
-        fs.writeFileSync(
-            jsPath,
-            fs
-                .readFileSync(jsPath)
-                .toString()
-                .replace(/export default/u, 'module.exports = ')
-        );
-        const t = (await import(jsPath)).default;
-        types.forEach(type => {
+        for (const type of types) {
+            const typePath = path.join(distI18nPath, locale, `${type}.js`);
+            if (fs.existsSync(typePath)) {
+                t[type] = await getTSFile(
+                    typePath,
+                    path.join(i18nPath, `${type}.${locale}.js`)
+                );
+            }
             fs.writeFileSync(
                 path.join(outputPath, `${type}.json`),
                 JSON.stringify(t[type] ?? {})
             );
-        });
-        fs.rmSync(jsPath);
+        }
     }
 };

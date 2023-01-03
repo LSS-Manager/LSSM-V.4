@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for in game missions.
+ */
+
 interface Additional {
     expansion_missions_ids?: number[];
     expansion_missions_names?: Record<number, string>;
@@ -227,4 +231,6 @@ export interface Mission {
     prerequisites: Prerequisites; // What is needed for the mission to be generated?
     overlay_index: number | null;
     base_mission_id: number;
+    additive_overlays: string;
+    mission_categories: string[];
 }

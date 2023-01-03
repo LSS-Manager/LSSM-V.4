@@ -1,0 +1,191 @@
+{
+    "commands": {
+        "*": {
+            "alliance": {
+                "applications": "Avaa hakemukset",
+                "buildings": "Avaa liittouman rakennukset sivu",
+                "forum": "Avaa keskustelupalsta",
+                "funds": "Avaa liittouman varat sivu",
+                "logfiles": "Avaa liittouman logit",
+                "members": "Avaa Jäsenet-sivu",
+                "messages": "Avaa viestit",
+                "onlineMembers": "Avaa jäsenet-lista (Näyttää vain paikalla olevat jäsenet)",
+                "open": "Avaa liittouma ikkunan",
+                "schoolings": "Avaa Kurssit-ikkunan",
+                "title": "Liittouma"
+            },
+            "credits": {
+                "daily": "Avaa Päivittäinen kirjautuminen sivun",
+                "open": "Avaa krediitti logit",
+                "overview": "Avaa yleiskatsauksen 7 viimeisestä päivästä",
+                "title": "Krediitit"
+            },
+            "help": "Avaa tämän ohjeen",
+            "profile": {
+                "awards": "Avaa Palkinnot-sivun",
+                "level": "Avaa Arvo-sivun",
+                "notes": "Avaa Muistiinpanot-sivun",
+                "open": "Avaa oman profiilin",
+                "title": "Profiili"
+            },
+            "protocol": "Avaa loki hätäkeskuksessa",
+            "tasks": {
+                "open": "Avaa Urakat ja tapahtumat",
+                "title": "Urakat ja tapahtumat"
+            },
+            "title": "Yleinen"
+        },
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Poista jakaminen käytöstä",
+                "enableSharing": "Ota jakaminen käyttöön",
+                "title": "Rakennuksen jakaminen päälle/pois",
+                "toggleSharing": "Jakaminen päälle/pois"
+            },
+            "dispatch": {
+                "buildings": "Rakennukset",
+                "extensions": "Laajennukset",
+                "next": "Seuraava välilehti",
+                "openFirstPlannedMission": "Avaa ensimmäinen suunniteltu tapahtuma",
+                "patrol": "Partioreitit",
+                "patrol_vehicles": "Partioautot",
+                "plannedMission": "Suunnitellut tapahtumat",
+                "previous": "Edellinen välilehti",
+                "protocol": "Loki",
+                "schooling": "Koulutuskurssit",
+                "settings": "Asetukset",
+                "stats": "Tilastot",
+                "title": "Hätäkeskus",
+                "vehicle": "Ajonneuvot"
+            },
+            "goto": {
+                "dispatchCenter": "hätäkeskus",
+                "expand": "laajenee",
+                "firstVehicle": "avaa ensimmäinen ajoneuvo",
+                "hire": "Rekrytoi uutta henkilöstöä",
+                "nextBuilding": "Seuraava rakennus",
+                "personal": "Henkilöstö",
+                "previousBuilding": "Edellinen rakennus",
+                "title": "Mene"
+            },
+            "title": "Rakennus"
+        },
+        "main": {
+            "bigMap": {
+                "title": "Ikkunoiden muuttaminen",
+                "toggle": {
+                    "buildings": "Rakennukset",
+                    "chat": "Chätti",
+                    "missions": "Tehtävät",
+                    "radio": "Radio",
+                    "title": "Näytä ikkuna"
+                }
+            },
+            "chat": { "focus": "Valitsee tekstikentän", "title": "Chatti" },
+            "lssm": {
+                "menu": { "title": "Valikko", "toggle": "Auki / Kiinni" },
+                "title": "LSSM"
+            },
+            "map": {
+                "move": {
+                    "down": "alas",
+                    "left": "vasen",
+                    "right": "oikea",
+                    "title": "Liikuta",
+                    "up": "ylös"
+                },
+                "search": {
+                    "focus": "Valitsee hakukentän",
+                    "title": "Sijaintihaku"
+                },
+                "title": "Kartta",
+                "zoom": {
+                    "in": "suurenna",
+                    "out": "loitonna",
+                    "title": "Zoomaus"
+                }
+            },
+            "missionlist": {
+                "eclSort": {
+                    "open": "Avaa valintavalikko",
+                    "title": "Tehtävän lajittelu"
+                },
+                "search": { "focus": "Valitsee hakukentän", "title": "Haku" },
+                "title": "Tehtävälista"
+            },
+            "title": "Pääikkuna"
+        },
+        "mission": {
+            "alert": "Lähetä",
+            "alert_next": "Lähetä ja seuraava",
+            "alert_share_next": "Lähetä valitut yksiköt, jaa tehtävä liittoutumasi kanssa ja jatka seuraavaan tehtävään. ",
+            "alliance": {
+                "focus": "Kohdista liittoutuman vastausikkuna",
+                "title": "Liittouma",
+                "toggle": "Valitse 'Lähetä liittoutuman chattiin'"
+            },
+            "arr": {
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "hälytysjärjestelyt"
+            },
+            "backalarm": {
+                "abortApproach": "Peruuta matkalla olevat yksiköt",
+                "allVehicles": "Peruuta kaikki yksiköt",
+                "onlyAmbulance": "Peruuta kaikki ambulanssit",
+                "title": "Peruuta"
+            },
+            "next": "Seuraava tehtävä",
+            "prev": "Edellinen tehtävä",
+            "share": "Jaa liittouman kanssa",
+            "sorted": {
+                "alert_next": "Lähetä ja seuraava",
+                "alert_share_next": "Lähetä valitut yksiköt, jaa tehtavä liittoutumasi kanssa ja jatka seuraavaan tehtävään.",
+                "next": "Seuraava tehtävä",
+                "prev": "Edellinen tehtävä",
+                "title": "Lajitellut tehtävät"
+            },
+            "title": "Hälytysikkuna",
+            "transport_request": "Open first patient transport request",
+            "vehicleList": {
+                "loadMissing": "Lataa puuttuvat ajoneuvot",
+                "next": "seuraava välilehti",
+                "previous": "edellinen välilehti",
+                "title": "ajoneuvo lista"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Lähetä ensimmäiselle liittoutuma tehtävälle",
+                "firstOwnMission": "Lähetä ensimmäiselle omalle tehtävälle",
+                "title": "Lähetä"
+            },
+            "goto": {
+                "building": "rakennus",
+                "edit": "muokkaa",
+                "nextVehicle": "seuraava ajoneuvo",
+                "personalAssigment": "Osoita henkilöstöä",
+                "previousVehicle": "edellinen ajoneuvo",
+                "statistics": "tilastot",
+                "title": "mene"
+            },
+            "other": {
+                "moveVehicle": "Siirrä ajoneuvoa",
+                "title": "Muut",
+                "toggleFMS": "vaihda tilaa"
+            },
+            "title": "ajoneuvot"
+        }
+    },
+    "description": "Ohjaa peliä näppäimistön pikanäppäimillä, jotka voit asettaa itse.",
+    "name": "Pikanäppäimet",
+    "settings": {
+        "command": "Toiminta",
+        "hotkey": "Pikanäppäimet",
+        "hotkeys": {
+            "description": "Aseta omat pikanäppäimet tietyille toiminnoille täällä. Kategorian \"Yleinen\" toiminnot ovat käytettävissä kaikkialla pelissä. Painamalla F1-näppäintä voit nähdä yleiskatsauksen pikanäppäimistä, jotka olet avannut milloin tahansa.",
+            "title": "Pikanäppäimet"
+        }
+    },
+    "unique": "Olet yrittänyt valita saman pikanäppäimen useille toiminnoille, vaikka nämä toiminnot käytettäisiin samassa yhteydessä. Valitse eri pikanäppäin tälle toiminnolle."
+}

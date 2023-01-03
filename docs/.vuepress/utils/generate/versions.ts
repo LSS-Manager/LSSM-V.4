@@ -1,7 +1,5 @@
 import fs from 'fs';
 
-import axios from 'axios';
-
 import config from '../../../../src/config';
 import { version } from '../../../../package.json';
 
@@ -14,24 +12,9 @@ export interface Versions {
 const [, , file] = process.argv;
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    axios(`${config.server}static/build_stats.json`)
-        .then(res =>
-            res.status === 200
-                ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  (new Promise(resolve => resolve(res.data)) as Promise<{
-                      version: string;
-                  }>)
-                : (new Promise(resolve =>
-                      resolve({ version: '4.x.x' })
-                  ) as Promise<{ version: string }>)
-        )
-        .catch(
-            () =>
-                new Promise(resolve =>
-                    resolve({ version: '4.x.x' })
-                ) as Promise<{ version: string }>
-        );
+    fetch(`${config.urls.server}static/build_stats.json`)
+        .then(res => (res.status === 200 ? res.json() : { version: '4.x.x' }))
+        .catch(() => ({ version: '4.x.x' }));
 
 (async () =>
     fetchStableVersion().then(({ version: stable }) =>

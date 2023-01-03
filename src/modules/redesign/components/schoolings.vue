@@ -4,11 +4,9 @@
             :open-schoolings="schoolings.openSchoolings.amounts"
             :own-schoolings="schoolings.ownSchoolings.amounts"
         ></schoolings-overview>
-        <h3>{{ lightbox.$sm('ownSchoolings') }}</h3>
         <own-schooling-tabs
             :tabs="schoolings.ownSchoolings.tabs"
         ></own-schooling-tabs>
-        <h3>{{ lightbox.$sm('openSchoolings') }}</h3>
         <open-schooling-tabs
             :tabs="schoolings.openSchoolings.tabs"
         ></open-schooling-tabs>
@@ -19,7 +17,6 @@
 import Vue from 'vue';
 
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
-import type { SchoolingsWindow } from '../parsers/schoolings';
 
 type Component = RedesignSubComponent<'schoolings', 'schoolings'>;
 
@@ -83,16 +80,6 @@ export default Vue.extend<
         },
     },
     mounted() {
-        if (!this.lightbox.noModal) {
-            (this.schoolings as SchoolingsWindow).ownSchoolings.tabs[
-                this.$t('modules.schoolingOverview.all').toString()
-            ].forEach(({ end, id }) =>
-                window.educationCountdown(end, `${id}_1`)
-            );
-            (this.schoolings as SchoolingsWindow).openSchoolings.tabs[
-                this.$t('modules.schoolingOverview.all').toString()
-            ].forEach(({ end, id }) => window.educationCountdown(end, id));
-        }
         this.lightbox.finishLoading('schoolings-mounted');
     },
 });

@@ -3,9 +3,7 @@
         "actions": "",
         "caption": "Nom",
         "current": "Nombre (actif)",
-        "fastDispatchChooser": {
-            "noDispatch": "Sans CTA"
-        },
+        "fastDispatchChooser": { "noDispatch": "Sans CTA" },
         "type": "Type",
         "unavailable": "En construction"
     },
@@ -24,6 +22,7 @@
             "tip": "Cliquez sur une des catégories (par ex. Centre de secours ou police) pour ouvrir les bâtiments de cette catégorie. Ensuite si vous cliquez sur un type de bâtiment, vous pouvez voir combien de véhicules de chaque type sont dans les bâtiments de ce type là. Vous pouvez donc savoir combien de véhicule d'un type sont stationnées dans un poste de police municipale ou dans une gendarmerie.",
             "title": "Bâtiments"
         },
+        "maxMissions": { "title": "Missions maximum" },
         "vehicles": {
             "empty": "Vous n'avez pas encore de véhicule dans la catégorie {category} !",
             "tip": "Cliquez sur un groupe de type de véhicules pour afficher seulement ce groupe.",
@@ -50,10 +49,10 @@
         "no-buildings": "Pas de bâtiment trouvé. Si nécessaire, changer les filtres de ce pannel dans l'onglet \"Gestion de pannel\"."
     },
     "tabs": {
-        "building-types": "Aperçu de bâtiment",
-        "chart-summary": "Sommaire",
+        "building-types": "Aperçu des bâtiments",
+        "chart-summary": "Aperçu",
         "dispatchcenter-view": "Aperçu CTA",
-        "vehicle-types": "Aperçu status"
+        "vehicle-types": "Aperçu des statuts"
     },
     "vehicle-list": {
         "actions": "",
@@ -66,16 +65,7 @@
     "vehicle-types": {
         "chart": "Résumé des statuts",
         "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
         "sum": "Total",
         "title": "Tout {type} | Tout {type} en status {n} | Tout {type} en status {n}",
         "type": "Type de véhicule",

@@ -5,13 +5,8 @@
         "total": "insgesamt",
         "updateNote": "Wird alle 5 Minuten aktualisiert."
     },
-    "coins": {
-        "list": "Protokoll"
-    },
-    "credits": {
-        "daily": "Tageszusammenfassung",
-        "overview": "Übersicht"
-    },
+    "coins": { "list": "Protokoll" },
+    "credits": { "daily": "Tageszusammenfassung", "overview": "Übersicht" },
     "description": "Zeigt dir nützliche Infos zu Coins und Credits in der Navigationsleiste als Dropdown-Menü an.",
     "name": "Creditserweiterung",
     "nextRank": "Nächster Dienstgrad",
@@ -30,9 +25,17 @@
             "description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
             "title": "Credits statt Sparschwein"
         },
+        "hideAllianceFunds": {
+            "description": "Zeigt keine Informationen über die Verbandskasse an.",
+            "title": "Verbandskasse ausblenden"
+        },
         "highlightSales": {
             "description": "Hebt Coins grün hervor, wenn es gerade einen Sale gibt.",
             "title": "Sales hervorheben"
+        },
+        "showAlertProgressBar": {
+            "description": "Zeigt einen kleinen Fortschrittsbalken an, wie weit du auf deinem Weg zum nächsten gesetzten Ziel bist.",
+            "title": "Fortschrittsbalken für Ziele"
         },
         "showSales": {
             "description": "Zeigt an, wenn es gerade ein Sale für Coins gibt.",

@@ -6,13 +6,17 @@
             "description": "Laat in het gebouw zien hoeveel van dezelfde gebouwen er nog zijn in de respectievelijke richting.",
             "title": "Aantal gebouwen van hetzelfde type"
         },
-        "enhanceVehicleList": {
-            "description": "Breidt de voertuigenlijst uit met nuttige functies - Sommige daarvan zijn aanpasbaar.",
-            "title": "Uitgebreide voertuigenlijst"
+        "dispatchCenterBuildingFilter": {
+            "description": "Voegt een aantal zinvolle filters toe aan de lijst van gebouwen in meldkamers",
+            "title": "Filter voor gebouwen in meldkamer"
         },
         "enhancedPersonnelAssignment": {
             "description": "Geeft je de kans om personeel te verbergen zonder de juiste opleiding.",
             "title": "Verbeterd personeel toewijzen"
+        },
+        "enhanceVehicleList": {
+            "description": "Breidt de voertuigenlijst uit met nuttige functies - Sommige daarvan zijn aanpasbaar.",
+            "title": "Uitgebreide voertuigenlijst"
         },
         "expansions": {
             "description": "Laat de uitbreidingen van een gebouw zien, zonder op de uitbreidingen tab te drukken.",
@@ -34,21 +38,25 @@
             "description": "Laat zien hoeveel personeel nodig is met de minimale en maximale voertuigbezetting.",
             "title": "Personeel benodigd"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Laat in het personeelsoverzicht van een gebouw zien hoeveel personen welke opleiding(en) hebben.",
             "title": "Personeelsamenvatting"
         },
+        "schoolsBuildingFilter": {
+            "description": "Handige filters om de gebouwenlijst te filteren in het opleidingsscherm bij de personeelsselectie",
+            "title": "Gebouwenfilter bij opleidingen"
+        },
+        "startPatrolsShortcut": {
+            "description": "Een snelle manier om patrouilles te starten vanuit de gebouwenlijst in het hoofdscherm.",
+            "title": "Start pattrouille vanuit hoofdscherm"
+        },
         "upgradeConfirmation": {
             "description": "Vraagt of u uw gebouw echt wilt upgraden.",
             "title": "Upgrade Gebouw"
-        },
-        "vehicleTypes": {
-            "description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
-            "title": "Voertuigtype"
-        },
-        "vehicleTypesOnlyOwn": {
-            "description": "Laat indien beschikbaar alleen het eigen voertuigtype zien, anders toont die gewoon het normale voertuigtype.",
-            "title": "Alleen eigen voertuigtype tonen"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Toont hoeveel personeel is toegewezen aan het voertuig.",
@@ -65,6 +73,14 @@
         "vehiclesPersonnelMax": {
             "description": "Laat het maximaal aantal personen die in een voertuig passen zien.",
             "title": "Maximum personeel"
+        },
+        "vehicleTypes": {
+            "description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
+            "title": "Voertuigtype"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Laat indien beschikbaar alleen het eigen voertuigtype zien, anders toont die gewoon het normale voertuigtype.",
+            "title": "Alleen eigen voertuigtype tonen"
         }
     }
 }

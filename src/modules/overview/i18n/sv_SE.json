@@ -1,9 +1,6 @@
 {
     "extensionTitle": "{caption} (upp till {n} gånger)",
-    "schoolings": {
-        "all": "all",
-        "min": "min. {n}x"
-    },
+    "schoolings": { "all": "all", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Byggnader",
         "schoolings": "Kurser",

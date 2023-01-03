@@ -2,9 +2,7 @@
     "description": "Facilitates the setting of POIs through small, useful features",
     "name": "Enhanced POI",
     "settings": {
-        "custom_style": {
-            "title": "Custom style for highlighting"
-        },
+        "custom_style": { "title": "Custom style for highlighting" },
         "predefined_style": {
             "brown": "Brown",
             "custom": "Manual",

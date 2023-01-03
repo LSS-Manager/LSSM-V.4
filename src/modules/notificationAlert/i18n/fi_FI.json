@@ -1,0 +1,51 @@
+{
+    "desktopTest": {
+        "text": "Työpöytäilmoitukset aktivoitu onnistuneesti!",
+        "title": "Työpöytäilmoitukset"
+    },
+    "messages": {
+        "allianceCandidature": {
+            "body": "Sinun liittoumalla on uusi hakemus! Lukemattomia hakemuksia: {n}",
+            "title": "Uusi hakemus! | Uusia hakemuksia!"
+        },
+        "allianceForum": {
+            "body": "Liittouman keskustelupalstalla on uusi viesti! Avaa keskustelupalsta klikkaamalla tätä ilmoitusta.",
+            "title": "Uusi postaus liittouman keskustelupalstalla!"
+        },
+        "allianceMessage": {
+            "body": "Liittouman uusi viesti on saapunut! Katso se suoraan klikkaamalla tätä ilmoitusta.",
+            "title": "Uusi Liittouma Viesti!"
+        },
+        "allianceNews": {
+            "body": "Liittoumasi on julkaissut uusia uutisia! Klikkaa tätä ilmoitusta siirtyäksesi suoraan uutissivulle.",
+            "title": "Uusi Liittouma uutinen!"
+        },
+        "dm": {
+            "body": "Sinulla on yhteensä {n} lukematonta viestiä. | Sinulla on yhteensä {n} lukematonta viestiä.",
+            "title": "Sinulla on {n} uusi viesti! | Sinulla on {n} uutta viestiä!"
+        },
+        "ingame_news": {
+            "body": "Pelissä on uusia ominaisuuksia! Käy katsomassa ne Facebookissa, mitä tämän päivän päivitykset ovat!",
+            "title": "Pelin uutisia"
+        },
+        "mission_getred": {
+            "body": "{address}<br>Tämä tehtävä vaatii huomiota!"
+        },
+        "mission_getred_alliance": {
+            "body": "{address}<br>Tämä liittoumatehtävä tarvitsee huomiota!"
+        },
+        "radioMessage": { "title": "{vehicle} Tila {status}!" },
+        "tasksUpdate": {
+            "body": "Olet suorittanut urakan loppuun. Kerää palkintosi!",
+            "title": "Urakka tehty."
+        }
+    },
+    "noPermission": {
+        "text": "Selaimesi on määritetty niin, että pelillä ei ole lupaa lähettää työpöytäilmoituksia. Jos haluat silti saada näitä ilmoituksia, sinun on ensin palautettava tämä selaimesi asetuksista!",
+        "title": "Työpöytäilmoitukset"
+    },
+    "permission": {
+        "text": "Salli työpöytäilmoitukset klikkaamalla tätä ilmoitusta!",
+        "title": "Työpöytäilmoitukset"
+    }
+}

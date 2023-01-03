@@ -23,7 +23,7 @@ export default <RedesignParser<VerbandChatWindow>>(({
     doc,
     getIdFromEl = () => -1,
 }) => {
-    moment.locale(LSSM.$store.state.lang);
+    moment.locale(LSSM.rootStore.locale);
     return {
         lastPage: parseInt(
             doc

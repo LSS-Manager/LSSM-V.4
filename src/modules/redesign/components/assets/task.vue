@@ -116,14 +116,10 @@ export default Vue.extend<
             const collapsedTasks: number[] = JSON.parse(
                 localStorage.getItem(collapsedLocalStorageKey) || '[]'
             );
-            if (this.collapsed) {
-                collapsedTasks.push(this.task.id);
-            } else if (collapsedTasks.includes(this.task.id)) {
-                collapsedTasks.splice(
-                    collapsedTasks.findIndex(task => task === this.task.id),
-                    1
-                );
-            }
+            if (this.collapsed) collapsedTasks.push(this.task.id);
+            else if (collapsedTasks.includes(this.task.id))
+                collapsedTasks.splice(collapsedTasks.indexOf(this.task.id), 1);
+
             localStorage.setItem(
                 collapsedLocalStorageKey,
                 JSON.stringify(collapsedTasks)

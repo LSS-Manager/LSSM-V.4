@@ -6,7 +6,7 @@ export default async (
     const { urlRegex } = LSSM.$utils;
     const showImage =
         showImg ??
-        (await LSSM.$store.dispatch('settings/getSetting', {
+        (await LSSM.$stores.settings.getSetting<boolean>({
             moduleId: 'generalExtensions',
             settingId: 'showImg',
         }));

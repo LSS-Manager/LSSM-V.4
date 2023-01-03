@@ -10,7 +10,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             highlightSales: await getSetting('highlightSales'),
         };
         new LSSM.$vue({
-            store: LSSM.$store,
+            pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
                 h(creditsextension, {

@@ -1,0 +1,91 @@
+name: '[🚀🔎] Deploy Request'
+run-name: '[🚀🔎] Deploy Request on #${{ github.event.issue.number }}'
+
+on:
+    issue_comment:
+        types:
+            - created
+
+jobs:
+    check_request:
+        runs-on: ubuntu-latest
+        name: '[🚀🔎] Check Request'
+        if: ${{ github.event.issue.pull_request && github.event.comment.body == '@LSS-Manager deploy' }}
+        outputs:
+            deploy: ${{ steps.get_maintainers.outputs.deploy }}
+        steps:
+            - name: '[🧑‍💻] get maintainers'
+              id: get_maintainers
+              run: |
+                  isTeamMember="$(gh api graphql -F owner=$OWNER -F team=$TEAM -f query='
+                    query($owner: String!, $team: String!) {
+                      organization(login: $owner) {
+                        team(slug: $team) {
+                          members {
+                            nodes {
+                              login
+                            }
+                          }
+                        }
+                      }
+                    }' --jq '.data.organization.team.members.nodes[].login' | grep $AUTHOR | wc -l)"
+
+                  echo "deploy=$(if [[ $isTeamMember == 0 ]]; then echo false; else echo true; fi)" >> $GITHUB_OUTPUT
+              env:
+                  GITHUB_TOKEN: ${{ secrets.DEPLOY_REQUEST_TOKEN }}
+                  OWNER: ${{ github.repository_owner }}
+                  TEAM: 'v4-maintainers'
+                  AUTHOR: ${{ github.event.comment.user.login }}
+
+    # react_to_request:
+    #     runs-on: ubuntu-latest
+    #     needs: [check_request]
+    #     if: ${{ needs.check_request.outputs.deploy == 'true' }}
+    #     steps:
+    #         - name: '[👍️] react to the request'
+    #           uses: actions/github-script@v6
+    #           with:
+    #               github-token: ${{ secrets.DEPLOY_REQUEST_TOKEN }}
+    #               script: |
+    #                   github.rest.reactions.createForCommitComment({
+    #                     comment_id: ${{ github.event.comment.id }},
+    #                     owner: '${{ github.repository_owner }}',
+    #                     repo: 'LSSM-V.4',
+    #                     content: '+1'
+    #                   })
+
+    build:
+        needs: [check_request]
+        name: '[🚀🔎] Build'
+        if: ${{ needs.check_request.outputs.deploy == 'true' }}
+        uses: ./.github/workflows/build.yml
+        with:
+            ref: refs/pull/${{ github.event.issue.number }}/merge
+            label: ${{ github.event.issue.title }}
+        secrets: inherit
+
+    deploy:
+        needs: [build]
+        name: '[🚀🔎] Deploy'
+        uses: ./.github/workflows/deploy.yml
+        with:
+            branch: ${{ needs.build.outputs.branch }}
+        secrets: inherit
+
+    reply_to_request:
+        runs-on: ubuntu-latest
+        name: '[🚀🔎] reply'
+        needs:
+            - build
+            - deploy
+        steps:
+            - name: '[💬] reply to the request'
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      github.rest.issues.createComment({
+                        issue_number: ${{ github.event.issue.number }},
+                        owner: '${{ github.repository_owner }}',
+                        repo: 'LSSM-V.4',
+                        body: '👍️ I have successfully deployed a build `${{ needs.build.outputs.version }}` on `${{ needs.build.outputs.branch }}`!'
+                      })

@@ -8,6 +8,7 @@ export interface VerbandHomeWindow extends VerbandWindow {
     edit_text: boolean;
     edit_name: boolean;
     edit_logo: boolean;
+    edit_settings: boolean;
     text: string;
     appliable: boolean;
     no_apply_box: string;
@@ -32,6 +33,7 @@ export default <RedesignParser<VerbandHomeWindow>>(({
             doc.querySelector<HTMLImageElement>('img.profile_avatar')?.src ??
             '',
         edit_text: !!doc.querySelector('a[href="/veband/text/edit"]'),
+        edit_settings: !!doc.querySelector('a[href="/verband/settings"]'),
         edit_name: !!doc.querySelector(`a[href="/alliances/${id}/edit"]`),
         edit_logo: !!doc.querySelector('a[href="/verband/avatar"]'),
         text:

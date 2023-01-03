@@ -8,10 +8,7 @@
         "no_types": "Keine Typen anzeigen",
         "type": "angezeigte Eintragstypen"
     },
-    "load": {
-        "next": "nächste Seite laden",
-        "prev": "vorherige Seite laden"
-    },
+    "load": { "next": "nächste Seite laden", "prev": "vorherige Seite laden" },
     "search_local": "In geladenen Einträgen suchen",
     "subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
     "time": "Zeitpunkt",

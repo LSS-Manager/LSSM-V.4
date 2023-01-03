@@ -1,0 +1,14 @@
+{
+    "description": "Přidává úpravy pro zlepšení zpracování převozů",
+    "name": "Vylepšení žádostí o převoz",
+    "settings": {
+        "autoClickSuccessBtns": {
+            "description": "Po dokončení žádosti o převoz se automaticky otevře další žádost či se vrátí zpět na misi.",
+            "title": "skočit na další žádost k převozu"
+        },
+        "autoOpenTransportRequest": {
+            "description": "Automaticky otevře první žádost o převoz v okně dané mise.",
+            "title": "otevřít první žádost o převoz"
+        }
+    }
+}

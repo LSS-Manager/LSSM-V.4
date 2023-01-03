@@ -1,5 +1,3 @@
-// import { Building } from 'typings/Building';
-
 const modules = {
     appstore: {
         save: 'Guardar',
@@ -20,6 +18,7 @@ const modules = {
         reset: 'Restablecer',
         export: 'Exportar',
         import: 'Importar',
+        donate: 'donate voluntarily',
         resetWarning: {
             title: 'Restablecer la configuración',
             text: '¿Realmente desea restablecer la configuración a sus valores predeterminados? ¡Esto no se puede deshacer!',
@@ -47,51 +46,6 @@ const modules = {
 
 export default {
     modules,
-    error: {
-        title: 'LSS Manager: Error',
-        msg: 'Si este error ocurre con frecuencia, ¡Infórmelo al equipo de LSSM!',
-    },
-    warnings: {
-        version: {
-            title: 'Versión de LSS Manager incorrecta',
-            text: 'Estimado usuario, lamentablemente tuvimos que descubrir que no tiene la última versión de LSS Manager. La última versión es {version}, pero primero tienes {curver}. Vuelva a cargar el juego sin caché (con Ctrl + F5, en dispositivos Apple comando + R), esto debería corregir el error. Si el error persiste, ¡Infórmalo al equipo! Si usa una versión incorrecta, no podemos garantizar la funcionalidad completa del LSS-Manager.',
-            close: 'Cerrar mensaje y recargar el juego (recomendado)',
-            abort: 'Cerrar el mensaje sin recargar el juego',
-        },
-    },
-    anniversary1: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
-        title: '🎉 There is reason to celebrate! 🎉',
-        content:
-            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
-    },
-    globalSettings: {
-        name: 'Ajustes generales',
-        labelInMenu: {
-            title: 'Etiqueta en lugar de icono en el menú',
-            description:
-                'Muestra una etiqueta simple en la barra de navegación en lugar del logotipo de LSSM',
-        },
-        allowTelemetry: {
-            description:
-                'Controla si LSS Manager puede enviar datos, lo que nos ayuda a desarrollar esta extensión.',
-            title: 'Permitir Telemetría',
-        },
-        iconBg: {
-            description: 'Cambiar el fondo de icono de LSSM',
-            title: 'Fondo de icono LSSM',
-        },
-        iconBgAsNavBg: {
-            description:
-                '¡Colorea toda la barra de navegación con el color del fondo del icono LSSM!',
-            title: 'Colorear barra de navegación',
-        },
-        osmDarkTooltip: {
-            description:
-                'Esta configuración oscurece la información sobre herramientas en el mapa si ha habilitado el modo oscuro',
-            title: 'Información sobre herramienta oscura en el mapa',
-        },
-    },
     vehicles: {
         0: {
             caption: 'Camión BUP',
@@ -407,436 +361,6 @@ export default {
                 'Se necesita un vehículo de remolque (Camión BUP, Camión BUL, Camión BNP, Vehículo de extinción por espuma)',
         },
     },
-    buildings: {
-        0: {
-            caption: 'Parque de bomberos',
-            color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Extensión de ambulancia',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 días',
-                },
-                {
-                    caption: 'Ampliación de apoyo en incendios',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 días',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings:
-                '6.000 edificios junto con pequeñas estaciones de bomberos',
-            maxLevel: 25,
-            special:
-                'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. ¡El precio de las monedas es constante!',
-            startPersonnel: 10,
-            startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
-            schoolingTypes: ['Parque de bomberos'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        1: {
-            caption: 'Academia de bomberos',
-            color: '#24c3ae',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Más aulas',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Días',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No hay límite',
-            maxLevel: 0,
-            special:
-                'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        2: {
-            caption: 'Parque de ambulancias',
-            color: '#bbe944',
-            coins: 35,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Expansión de cuidados de emergencia',
-                    credits: 200_000,
-                    coins: 25,
-                    duration: '7 Días',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: 'No hay límite',
-            maxLevel: 14,
-            special: '',
-            startPersonnel: 0,
-            startVehicles: ['Ambulancia'],
-            schoolingTypes: ['Rescate'],
-        },
-        3: {
-            caption: 'Academia de servicios de emergencia',
-            color: '#24c3ae',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Más aulas',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Días',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No hay límite',
-            maxLevel: 0,
-            special:
-                'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        4: {
-            caption: 'Hospital',
-            color: '#ffa500',
-            coins: 25,
-            credits: 200_000,
-            extensions: [
-                {
-                    caption: 'Medicina interna general',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cirugía general',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Ginecología',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Urología',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Traumatología',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Neurología',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Neurocirugía',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cardiología',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-                {
-                    caption: 'Cirugía cardiovascular',
-                    credits: 70_000,
-                    coins: 15,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1.-20. 19.000 / 11 Monedas'],
-            maxBuildings: 'No hay límite',
-            maxLevel: 20,
-            special:
-                'Los ministros de finanzas y los administradores pueden (ampliar) los hospitales de la alianza con la ayuda de créditos de la tesorería de la alianza.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        5: {
-            caption: 'Helipuerto médico',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'Ver especialidades',
-            maxLevel: 0,
-            special:
-                'Hasta el edificio 125 (de todos los tipos) un total de máx. 4 helipuertos médicos se pueden construir. Después de eso, el número aumenta en 1 cada 25 edificios (comenzando en el 125).',
-            startPersonnel: 0,
-            startVehicles: [],
-            schoolingTypes: ['Rescate'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        6: {
-            caption: 'Comisaría de policía',
-            color: '#007700',
-            coins: 35,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Calabozo',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Días',
-                },
-                ...new Array(9).fill({
-                    caption: 'Más celdas',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Días',
-                }),
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings:
-                '1.700 comisarías de policía junto con pequeñas comisarías',
-            maxLevel: 14,
-            special:
-                'A partir de la comisaría 24 en adelante, los costes de la nueva construcción de una comisaría aumentan según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. ¡El precio de las monedas es constante!',
-            startPersonnel: 2,
-            startVehicles: ['Coche patrulla'],
-            schoolingTypes: ['Policía'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        7: {
-            caption: 'Centralita',
-            color: '#225522',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'Cada 25 edificios una centralita',
-            maxLevel: 0,
-            special: 'La centralita es el centro administrativo',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
-        8: {
-            caption: 'Academia de Policía',
-            color: '#225522',
-            coins: 50,
-            credits: 500_000,
-            extensions: [
-                ...new Array(3).fill({
-                    caption: 'Más aulas',
-                    credits: 400_000,
-                    coins: 40,
-                    duration: '7 Días',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No hay límite',
-            maxLevel: 0,
-            special:
-                'Los ministros y administradores de finanzas pueden (expandir) las escuelas de policía de la alianza con la ayuda de créditos de la tesorería de la alianza. Los maestros y administradores de cursos de formación pueden comenzar cursos de formación en las escuelas de policía de la alianza.',
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        13: {
-            caption: 'Helipuerto Policial',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 Créditos / 50 Monedas'],
-            maxBuildings: 'Ver especialidades',
-            maxLevel: 1,
-            special:
-                'Se pueden construir hasta 2 sitios de aterrizaje por estación (etapas de expansión). Hasta el edificio 125 (de todos los tipos) un total de máx. 4 lugares de aterrizaje se pueden construir. Después de eso, el número aumenta en 1 cada 25 edificios (comenzando en el 125).',
-            startPersonnel: 3,
-            startVehicles: [],
-            schoolingTypes: ['Policía'],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
-        },
-        14: {
-            caption: 'Zona de preparación',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 1,
-            maxLevel: 0,
-            special:
-                'Puede estacionar tantos vehículos propios como desee en un área de preparación, los miembros de la alianza pueden usar la zona de preparación. Un área de preparación permanece durante 24 horas, pero puede restablecerla a 24 horas en cualquier momento.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (): number => 1,
-        },
-        16: {
-            caption: 'Prisión',
-            coins: 'x',
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Calabozo',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Días',
-                },
-                ...new Array(9).fill({
-                    caption: 'Más celdas',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Días',
-                }),
-            ],
-            levelcost: [],
-            maxBuildings: 'No hay límite',
-            maxLevel: 0,
-            special:
-                "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-            startPersonnel: 0,
-            startVehicles: [],
-        },
-        18: {
-            caption: 'Parque de bomberos (pequeño) ',
-            color: '#aa1111',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Extensión de ambulancia',
-                    credits: 100_000,
-                    coins: 20,
-                    duration: '7 días',
-                },
-                {
-                    caption: 'Ampliación de apoyo en incendios',
-                    credits: 150_000,
-                    coins: 15,
-                    duration: '5 días',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Convertir a parque de bombero normal: precio de la diferencia a parque de bombero normal',
-            ],
-            maxBuildings:
-                '6.000 parques de bomberos junto con parques de bomberos pequeños',
-            maxLevel: 5,
-            special:
-                'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
-            startPersonnel: 10,
-            startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
-            schoolingTypes: ['Parque de bomberos'],
-            maxBuildingsFunction: (): number => 6000,
-        },
-        19: {
-            caption: 'Comisaría de policía (pequeño)',
-            color: '#116611',
-            coins: 25,
-            credits: 50_000,
-            extensions: [
-                {
-                    caption: 'Calabozo',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Días',
-                },
-                ...new Array(1).fill({
-                    caption: 'Más celdas',
-                    credits: 25_000,
-                    coins: 5,
-                    duration: '7 Días',
-                }),
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Convertir a comisaria de policía normal: precio de la diferencia a comisaría de policía normal',
-            ],
-            maxBuildings:
-                '1.700 comisarías de polcía junto con comisarías de policías pequeños',
-            maxLevel: 4,
-            special:
-                'A partir de la comisaría 24º en adelante, los costes de la nueva construcción de una comisaría se calculan de acuerdo con la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. ¡El precio de las monedas es constante!',
-            startPersonnel: 2,
-            startVehicles: ['Coche patrulla'],
-            schoolingTypes: ['Policía'],
-            maxBuildingsFunction: (): number => 1700,
-        },
-        20: {
-            caption: 'Parque de ambulancias (pequeño)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'Expansión de cuidados de emergencia',
-                    credits: 200_000,
-                    coins: 25,
-                    duration: '7 Días',
-                },
-            ],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Convertir a parque de ambulancia normal: precio de la diferencia a parque de ambulancia normal',
-            ],
-            maxBuildings: 'No hay límite',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulancia'],
-            schoolingTypes: ['Rescate'],
-        },
-        21: {
-            caption: 'Gran complejo',
-            color: '#8B4513',
-            coins: 'Demasiado caro',
-            credits: 'Demasiado caro',
-            extensions: [],
-            levelcost: ['Demasiado caro'],
-            maxBuildings: 'Keine Grenze',
-            maxLevel: 5,
-            special: 'Demasiado caro, NO LO COMPRES, NO LO AMPLÍES',
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-        22: {
-            caption: 'Pequeño complejo',
-            color: '#8B4513',
-            coins: 'Demasiado caro',
-            credits: 'Demasiado caro',
-            extensions: [],
-            levelcost: ['Demasiado caro'],
-            maxBuildings: 'Keine Grenze',
-            maxLevel: 5,
-            special: 'Demasiado caro, NO LO COMPRES, NO LO AMPLÍES',
-            startPersonnel: 'there is none',
-            startVehicles: [''],
-        },
-    },
     buildingCategories: {
         'Parques de bomberos': {
             buildings: [0, 1, 18],
@@ -885,23 +409,6 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 18, 19, 20],
-    cellBuildings: [6],
-    cellExtensions: [
-        '6_0',
-        '6_1',
-        '6_2',
-        '6_3',
-        '6_4',
-        '6_5',
-        '6_6',
-        '6_7',
-        '6_8',
-        '6_9',
-    ],
-    bedBuildings: [4],
-    schoolBuildings: [1, 3, 8],
-    dispatchCenterBuildings: [7],
     schoolings: {
         'Parque de bomberos': [
             {
@@ -992,27 +499,6 @@ export default {
         7: 7,
         9: 9,
     },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'clinic-medical',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'helicopter',
-        'building',
-        '',
-        'ship',
-        'ship',
-        'fire',
-        'stethoscope',
-        'shield-alt',
-        'clinic-medical',
-        'plane',
-        'shield-alt',
-    ],
     pois: [
         'Parque',
         'Lago',
@@ -1038,6 +524,7 @@ export default {
         'Granja',
         'Edificio de oficinas',
         'Piscina',
+        'Paso a nivel',
         'Cine',
         'Feria',
         'Río',
@@ -1053,7 +540,7 @@ export default {
         'Rascacielos',
         'Cubierta de yate',
         'Puerto deportivo',
-        'Paso a nivel',
+        'Paso de peatones',
         'Túnel',
         'Almacén frigorífico',
         'Central eléctrica',
@@ -1080,6 +567,7 @@ export default {
         'Acantilado',
         'Aserradero',
         'Refinería petrolera',
+        'Iglesia',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for the LSSM config file.
+ */
+
 import type { Games } from './Game';
 
 interface Browser {
@@ -25,7 +29,13 @@ export interface Config {
         start: string;
         end: string;
     };
+    userscript_latest_update: string;
     prefix: string;
-    server: string;
-    fontAwesomeIconSearch: string;
+    urls: {
+        server: string;
+        docs: string;
+        statuspage: string;
+        donations: string;
+        fontAwesomeIconSearch: string;
+    };
 }

@@ -1,0 +1,74 @@
+{
+    "building-list": {
+        "actions": "",
+        "caption": "Nimi",
+        "current": "Number (active)",
+        "fastDispatchChooser": { "noDispatch": "Ei hätäkeskusta" },
+        "type": "Tyyppi",
+        "unavailable": "Rakenteilla"
+    },
+    "building-types": {
+        "building": "Rakennukset",
+        "current": "Number (active)",
+        "extension": "Laajennukset",
+        "maximum": "Suurin mahdollinen",
+        "title": "Kaikki {type}",
+        "unavailable": "Rakenteilla"
+    },
+    "chart-summaries": {
+        "buildings": {
+            "columnchart": "käytä pylväsdiagrammia",
+            "personal_count": "Henkilöstö",
+            "tip": "Klikkaa jotakin luokkaa (esim. pelastuslaitos tai poliisi) suurentaaksesi kyseiseen luokkaan kuuluvia rakennustyyppejä. Jos sitten napsautat rakennustyyppiä, näet, kuinka monta kunkin ajoneuvotyypin ajoneuvoa sijaitsee kyseisen tyypin rakennuksissa. Näin saat nopeasti selville, kuinka monta kunkin ajoneuvotyypin ajoneuvoa on poliisiasemilla ja kuinka monta pienillä poliisiasemilla.",
+            "title": "Rakennukset"
+        },
+        "maxMissions": { "title": "Maximum missions" },
+        "vehicles": {
+            "empty": "Sinulla ei ole vielä kategoriassa {category} ajoneuvoja!",
+            "tip": "Napsauta ajoneuvotyyppien ryhmää näyttääksesi vain tämän ryhmän.",
+            "title": "Ajoneuvot"
+        }
+    },
+    "dispatchcenter-view": {
+        "building-selection": "Lisää rakennuksia:",
+        "manage": {
+            "newBoard": "Uusi taulu",
+            "title": "Hallitse tauluja",
+            "titles": {
+                "buildings": {
+                    "bold": "Rakennustyypin valinta",
+                    "small": "Näytä vain valittujen rakennustyyppien rakennukset valittavaksi"
+                },
+                "dispatch": {
+                    "bold": "Hätäkeskuksen valinta",
+                    "small": "Näytä vain valittujen hätäkeskuksien rakennukset valittavaksi"
+                },
+                "name": "Taulun nimi"
+            }
+        },
+        "no-buildings": "Rakennuksia ei löytynyt. Säädä taulun suodattimia \"Hallitse tauluja\"-välilehdellä."
+    },
+    "tabs": {
+        "building-types": "Rakennuksen yleiskuva",
+        "chart-summary": "Yhteenveto",
+        "dispatchcenter-view": "Hätäkeskusnäkymä",
+        "vehicle-types": "Tilannekatsaus"
+    },
+    "vehicle-list": {
+        "actions": "",
+        "building": "Rakennus",
+        "caption": "Nimi",
+        "fms": "tilaviesti",
+        "target": "Kohde",
+        "type": "Tyyppi"
+    },
+    "vehicle-types": {
+        "chart": "Yhteenveto tilasta",
+        "status": "Tila",
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
+        "sum": "Total",
+        "title": "All {type} | All {type} in status {n} | All {type} in status {n}",
+        "type": "Ajoneuvo tyyppi",
+        "vehicles": "Aujoneuvot"
+    }
+}

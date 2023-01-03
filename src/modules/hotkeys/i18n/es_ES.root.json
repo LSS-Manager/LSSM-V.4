@@ -35,26 +35,77 @@
             },
             "title": "General"
         },
-        "main": {
-            "chat": {
-                "focus": "Campo de entrada de enfoque",
-                "title": "Chat"
+        "building": {
+            "changeSharing": {
+                "disableSharing": "Disable sharing",
+                "enableSharing": "Enable sharing",
+                "title": "Toggle building sharing",
+                "toggleSharing": "Toggle sharing"
             },
+            "dispatch": {
+                "buildings": "buildings tab",
+                "extensions": "extensions tab",
+                "next": "next tab",
+                "openFirstPlannedMission": "Open first planned mission",
+                "patrol": "patrol tab",
+                "patrol_vehicles": "patrol vehicles tab",
+                "plannedMission": "planned mission tab",
+                "previous": "next tab",
+                "protocol": "protocol tab",
+                "schooling": "schooling tab",
+                "settings": "settings tab",
+                "stats": "stats tab",
+                "title": "dispatch centre",
+                "vehicle": "vehicle tab"
+            },
+            "goto": {
+                "dispatchCenter": "dispatch center",
+                "expand": "expanding",
+                "firstVehicle": "open first vehicle",
+                "hire": "Recute new personal",
+                "nextBuilding": "Next Building",
+                "personal": "personal overview",
+                "previousBuilding": "Previous building",
+                "title": "go to"
+            },
+            "title": "Building"
+        },
+        "main": {
+            "bigMap": {
+                "title": "Window design",
+                "toggle": {
+                    "buildings": "Buildings",
+                    "chat": "Chat",
+                    "missions": "Missions",
+                    "radio": "Radio",
+                    "title": "toggle window"
+                }
+            },
+            "chat": { "focus": "Campo de entrada de enfoque", "title": "Chat" },
             "lssm": {
-                "menu": {
-                    "title": "Menu",
-                    "toggle": "Abrir / Cerrar"
-                },
+                "menu": { "title": "Menu", "toggle": "Abrir / Cerrar" },
                 "title": "LSSM"
             },
             "map": {
+                "move": {
+                    "down": "down",
+                    "left": "left",
+                    "right": "right",
+                    "title": "Move",
+                    "up": "up"
+                },
                 "search": {
                     "focus": "Campo de entrada de enfoque",
                     "title": "Búsqueda de ubicación"
                 },
-                "title": "Mapa"
+                "title": "Mapa",
+                "zoom": { "in": "zoom in", "out": "zoom out", "title": "Zoom" }
             },
             "missionlist": {
+                "eclSort": {
+                    "open": "Open selection menu",
+                    "title": "Mission sorting"
+                },
                 "search": {
                     "focus": "Campo de entrada de enfoque",
                     "title": "Buscar"
@@ -64,6 +115,28 @@
             "title": "Ventana principal"
         },
         "mission": {
+            "alert": "Alarm",
+            "alert_next": "Alarm and go to next mission",
+            "alert_share_next": "Alarm, Share and go to next mission",
+            "alliance": {
+                "focus": "Focus alliance response window",
+                "title": "Alliance",
+                "toggle": "Toggle 'post in alliance chat'"
+            },
+            "arr": {
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "ARR"
+            },
+            "backalarm": {
+                "abortApproach": "Cancel approach",
+                "allVehicles": "Backalarm all vehicles",
+                "onlyAmbulance": "Backalarm only ambulances",
+                "title": "Backalarm"
+            },
+            "next": "next mission",
+            "prev": "previous mission",
+            "share": "Share",
             "sorted": {
                 "alert_next": "Alarma e ir a la siguiente misión",
                 "alert_share_next": "Alarma, compartir e ir a la siguiente misión",
@@ -71,7 +144,36 @@
                 "prev": "Misión anterior",
                 "title": "Misiones ordenadas"
             },
-            "title": "Ventana de misiones"
+            "title": "Ventana de misiones",
+            "transport_request": "Open first patient transport request",
+            "vehicleList": {
+                "loadMissing": "Load missing vehicles",
+                "next": "next tab",
+                "previous": "previous tab",
+                "title": "vehicle list"
+            }
+        },
+        "vehicles": {
+            "alarm": {
+                "firstAllianceMission": "Alarm to first alliance mission",
+                "firstOwnMission": "Alarm to first own mission",
+                "title": "alarm"
+            },
+            "goto": {
+                "building": "building",
+                "edit": "edit",
+                "nextVehicle": "next vehicle",
+                "personalAssigment": "staff assignment",
+                "previousVehicle": "previous vehicle",
+                "statistics": "stats",
+                "title": "go to"
+            },
+            "other": {
+                "moveVehicle": "move vehicle",
+                "title": "etc.",
+                "toggleFMS": "toggle status"
+            },
+            "title": "vehicles"
         }
     },
     "description": "Controla el juego con teclas de acceso rápido en el teclado que puedes configurar tú mismo.",
@@ -83,5 +185,6 @@
             "description": "Configure sus propias teclas de acceso rápido para ciertas acciones aquí. Acciones de categoría \"General\" está disponible en todas las partes del juego. Al presionar F1, puede ver una descripción general de las teclas de acceso rápido que has abierto en cualquier momento.",
             "title": "Teclas de acceso directo"
         }
-    }
+    },
+    "unique": "You have tried to assign the same hotkey to several actions, even if these actions are called up in the same context. Please choose a different hotkey for this action."
 }

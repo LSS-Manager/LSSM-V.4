@@ -6,13 +6,17 @@
             "description": "Muestra en los edificios cuántos del mismo tipo aún existen en la dirección respectiva.",
             "title": "Número de edificios del mismo tipo"
         },
-        "enhanceVehicleList": {
-            "description": "Amplía la lista de vehículos con funciones útiles, algunas de las cuales son especialmente ajustables.",
-            "title": "Ampliar la lista de vehículos"
+        "dispatchCenterBuildingFilter": {
+            "description": "Adds some useful filters to the list of buildings in dispatch centers",
+            "title": "Filter for buildings in dispatch center"
         },
         "enhancedPersonnelAssignment": {
             "description": "Te da la oportunidad de esconder personal sin la formación adecuada.",
             "title": "Mejorar la asignacion de personal"
+        },
+        "enhanceVehicleList": {
+            "description": "Amplía la lista de vehículos con funciones útiles, algunas de las cuales son especialmente ajustables.",
+            "title": "Ampliar la lista de vehículos"
         },
         "expansions": {
             "description": "Muestra las extensiones de un edificio sin tener que presionar primero la pestaña de extensiones.",
@@ -34,17 +38,25 @@
             "description": "Muestra cuánto personal se requiere con ocupación mínima y máxima de vehículos.",
             "title": "Requerimientos de personal"
         },
+        "renewAllStagingAreas": {
+            "description": "Reset all staging areas with a single click from within every staging area.",
+            "title": "Reset all staging areas"
+        },
         "schoolingSummary": {
             "description": "Muestra un resumen general del personal de un edificio de cuántas personas tienen formación(es).",
             "title": "Resumen del personal"
         },
+        "schoolsBuildingFilter": {
+            "description": "Useful filters to shorten the building list in the course window",
+            "title": "Building filter for course selection"
+        },
+        "startPatrolsShortcut": {
+            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
+            "title": "Start patrols in main window"
+        },
         "upgradeConfirmation": {
             "description": "Pregunta si realmente desea mejorar su edificio.",
             "title": "Mejorar edificio"
-        },
-        "vehicleTypes": {
-            "description": "Muestra el tipo de vehículo (y, si está disponible, la propia clase de vehículo) en una columna separada.",
-            "title": "Tipo de vehículo"
         },
         "vehiclesPersonnelAssigned": {
             "description": "Muestra cuántas personas están asignadas al vehículo.",
@@ -61,6 +73,10 @@
         "vehiclesPersonnelMax": {
             "description": "Muestra el número máximo de personas que caben en el vehículo.",
             "title": "Tripulación máxima"
+        },
+        "vehicleTypes": {
+            "description": "Muestra el tipo de vehículo (y, si está disponible, la propia clase de vehículo) en una columna separada.",
+            "title": "Tipo de vehículo"
         }
     }
 }

@@ -1,3 +1,7 @@
+/**
+ * @file - Type definitions for in game vehicles & internal vehicles (translations).
+ */
+
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface Vehicle {

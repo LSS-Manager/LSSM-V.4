@@ -35,7 +35,7 @@ Now we should make sure to be up-to-date with the original repository. If you ha
 
 :::tip What's next?
 * Read [how to commit a file](./committing.md)
-* Read [hot to create a Pull Request](./prs.md)
+* Read [how to create a Pull Request](./prs.md)
 * Read one of the special sections for contribution topics
 
 :::
