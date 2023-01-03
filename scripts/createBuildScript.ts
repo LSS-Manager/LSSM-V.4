@@ -36,6 +36,8 @@ const script = [
 set -e`,
 ];
 
+const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
+
 try {
     const workflow = yaml.load(
         fs.readFileSync(
@@ -66,17 +68,17 @@ try {
     script.push(
         `
 # default values of variables set from params
-${stepIds.map(id => `${id.toUpperCase()}=false`).join('\n')}
+${stepIds.map(id => `${getStepName(id)}=false`).join('\n')}
 MODE="development"
 
 while :; do
     case "\${1-}" in
-${stepIds.map(id => `        --${id}) ${id.toUpperCase()}=true ;;`).join('\n')}
+${stepIds.map(id => `        --${id}) ${getStepName(id)}=true ;;`).join('\n')}
 ${Object.entries(shortcuts)
     .map(
         ([shortcut, steps]) => `        --${shortcut})
           ${(shortcut === 'full' ? stepIds : steps)
-              .map(step => `${step.toUpperCase()}=true`)
+              .map(step => `${getStepName(step)}=true`)
               .join('\n          ')} ;;`
     )
     .join('\n')}
@@ -95,7 +97,7 @@ done`,
         ...steps.map(step =>
             [
                 `# ${step.name}`,
-                `if [[ $${step.id?.toUpperCase()} = true ]]; then
+                `if [[ $${getStepName(step.id ?? '')} = true ]]; then
     start_time=$(date +%s%N)
     echo "### ${step.name} ###"
     ${
