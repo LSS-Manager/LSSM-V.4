@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 import Showdown from 'showdown';
 
@@ -49,12 +50,23 @@ const toLocaleNum = (num: number, style = 'decimal') =>
     `{{ $formatNum(${num}, ${JSON.stringify(style)}) }}`;
 
 (async () => {
-    console.time('stats-cloc');
-    writeComponent(clocStatsPath, 'cloc', cloc(ROOT_PATH, $t, toLocaleNum));
-    console.timeEnd('stats-cloc');
-    console.time('stats-git');
-    writeComponent(gitStatsPath, 'git', await git(ROOT_PATH, $t, toLocaleNum));
-    console.timeEnd('stats-git');
+    if (fs.existsSync(path.resolve(ROOT_PATH, '.git'))) {
+        console.time('stats-cloc');
+        writeComponent(clocStatsPath, 'cloc', cloc(ROOT_PATH, $t, toLocaleNum));
+        console.timeEnd('stats-cloc');
+        console.time('stats-git');
+        writeComponent(
+            gitStatsPath,
+            'git',
+            await git(ROOT_PATH, $t, toLocaleNum)
+        );
+        console.timeEnd('stats-git');
+    } else {
+        const excuseMessage =
+            'This project is not a git repository. Stats will not be generated.';
+        writeComponent(clocStatsPath, 'cloc', excuseMessage);
+        writeComponent(gitStatsPath, 'git', excuseMessage);
+    }
 })();
 
 /*
