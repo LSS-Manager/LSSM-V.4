@@ -17,3 +17,10 @@ jobs:
         with:
             ref: ${{ github.ref }}
         secrets: inherit
+
+    success:
+        name: '[👷🔀] Success'
+        needs: [build, test]
+        if: ${{ success() }}
+        run: |
+            echo "🥳 Build and test successful!"
