@@ -54,6 +54,7 @@ try {
                 // not a JS template string but bash
                 // eslint-disable-next-line no-template-curly-in-string
                 'NVM_DIR=$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")\n' +
+                'echo "$NVM_DIR"\n' +
                 '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"\n' +
                 'nvm install "$NODE_VERSION"',
             id: 'node',
