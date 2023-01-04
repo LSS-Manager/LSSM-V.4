@@ -3,6 +3,8 @@
 
 # exit script when any command fails
 set -e
+# enable debugging
+set -x
 
 
 # default values of variables set from params
@@ -92,6 +94,7 @@ REF=$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(
 if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆️] Setup Node.js ###"
+    set +x
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     if [[ -n "${NVM_DIR-}" ]]; then
         NVM_DIR="$NVM_DIR"
@@ -102,6 +105,7 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     fi
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"
+    set -x
     end_time=$(date +%s%N)
     echo "=== [⬆️] Setup Node.js: $(((end_time - start_time) / 1000000))ms ==="
 fi
