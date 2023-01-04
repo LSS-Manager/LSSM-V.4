@@ -107,7 +107,13 @@ done`,
         'total_start_time=$(date +%s%N)',
         "NODE_VERSION=$(grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')\n" +
             "YARN_VERSION=$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')\n" +
-            'REF=$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)',
+            'GIT_BRANCH=$(git branch --show-current)\n' +
+            '# Set ref to latest commit hash if HEAD is detached otherwise use branch name\n' +
+            'if [[ -z "$GIT_BRANCH" ]]; then\n' +
+            '    REF=$(git rev-parse --short HEAD)\n' +
+            'else\n' +
+            '    REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)\n' +
+            'fi',
         ...steps.map(step =>
             [
                 `# ${step.name}`,
