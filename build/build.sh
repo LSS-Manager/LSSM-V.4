@@ -94,7 +94,13 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     echo "### [⬆️] Setup Node.js ###"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     echo "$NVM_DIR"
-    NVM_DIR=$([ -n "${NVM_DIR-}" ] && printf %s "$NVM_DIR" || [ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")
+    if [[ -n "${NVM_DIR-}" ]]; then
+        NVM_DIR="$NVM_DIR"
+    elif [[ -n "${XDG_CONFIG_HOME-}" ]]; then
+        NVM_DIR="${XDG_CONFIG_HOME}/nvm"
+    else
+        NVM_DIR="$HOME/.nvm"
+    fi
     echo "$NVM_DIR"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"

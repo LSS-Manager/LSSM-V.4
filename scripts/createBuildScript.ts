@@ -51,9 +51,20 @@ try {
             name: '[⬆️] Setup Node.js',
             run:
                 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n' +
+                'echo "$NVM_DIR"\n' +
                 // not a JS template string but bash
                 // eslint-disable-next-line no-template-curly-in-string
-                'NVM_DIR=$([ -n "${NVM_DIR-}" ] && printf %s "$NVM_DIR" || [ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")\n' +
+                'if [[ -n "${NVM_DIR-}" ]]; then\n' +
+                '    NVM_DIR="$NVM_DIR"\n' +
+                // not a JS template string but bash
+                // eslint-disable-next-line no-template-curly-in-string
+                'elif [[ -n "${XDG_CONFIG_HOME-}" ]]; then\n' +
+                // not a JS template string but bash
+                // eslint-disable-next-line no-template-curly-in-string
+                '    NVM_DIR="${XDG_CONFIG_HOME}/nvm"\n' +
+                'else\n' +
+                '    NVM_DIR="$HOME/.nvm"\n' +
+                'fi\n' +
                 'echo "$NVM_DIR"\n' +
                 '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"\n' +
                 'nvm install "$NODE_VERSION"',
