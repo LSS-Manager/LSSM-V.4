@@ -93,7 +93,7 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆️] Setup Node.js ###"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-    NVM_DIR=$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")
+    NVM_DIR=$([ -z "${NVM_DIR-}" ] && printf %s "$NVM_DIR" || [ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")
     echo "$NVM_DIR"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"
@@ -144,7 +144,7 @@ if [[ $_RUN_STEP_ENV = true ]]; then
     echo "### [🌳] set env variables ###"
     ref="$REF"
     BRANCH="dummy"
-
+    
     if [[ $ref == "refs/heads/master" ]]; then
       BRANCH="stable"
     elif [[ $ref == "refs/heads/dev" ]]; then
