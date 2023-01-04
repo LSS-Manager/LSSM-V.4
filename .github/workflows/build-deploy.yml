@@ -21,3 +21,11 @@ jobs:
         with:
             branch: ${{ needs.build.outputs.branch }}
         secrets: inherit
+
+    test:
+        needs: [build]
+        name: '[👷🚀] Test'
+        uses: ./.github/workflows/test_build.yml
+        with:
+            ref: ${{ github.ref }}
+        secrets: inherit
