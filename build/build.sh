@@ -6,70 +6,73 @@ set -e
 
 
 # default values of variables set from params
-YARN_SETUP=false
-VERSIONS=false
-YARN_INSTALL=false
-BROWSERSLIST=false
-ENV=false
-UPDATE_EMOJIS=false
-FORMAT=false
-ESLINT=false
-TSC=false
-USERSCRIPT=false
-BUILDSCRIPT=false
-PREBUILD=false
-WEBPACK=false
-DOCS=false
-GIT_DIFF=false
-ZIP=false
+_RUN_STEP_NODE=false
+_RUN_STEP_YARN_SETUP=false
+_RUN_STEP_VERSIONS=false
+_RUN_STEP_YARN_INSTALL=false
+_RUN_STEP_BROWSERSLIST=false
+_RUN_STEP_ENV=false
+_RUN_STEP_UPDATE_EMOJIS=false
+_RUN_STEP_FORMAT=false
+_RUN_STEP_ESLINT=false
+_RUN_STEP_TSC=false
+_RUN_STEP_USERSCRIPT=false
+_RUN_STEP_BUILDSCRIPT=false
+_RUN_STEP_PREBUILD=false
+_RUN_STEP_WEBPACK=false
+_RUN_STEP_DOCS=false
+_RUN_STEP_GIT_DIFF=false
+_RUN_STEP_ZIP=false
 MODE="development"
 
 while :; do
     case "${1-}" in
-        --yarn_setup) YARN_SETUP=true ;;
-        --versions) VERSIONS=true ;;
-        --yarn_install) YARN_INSTALL=true ;;
-        --browserslist) BROWSERSLIST=true ;;
-        --env) ENV=true ;;
-        --update_emojis) UPDATE_EMOJIS=true ;;
-        --format) FORMAT=true ;;
-        --eslint) ESLINT=true ;;
-        --tsc) TSC=true ;;
-        --userscript) USERSCRIPT=true ;;
-        --buildscript) BUILDSCRIPT=true ;;
-        --prebuild) PREBUILD=true ;;
-        --webpack) WEBPACK=true ;;
-        --docs) DOCS=true ;;
-        --git_diff) GIT_DIFF=true ;;
-        --zip) ZIP=true ;;
+        --node) _RUN_STEP_NODE=true ;;
+        --yarn_setup) _RUN_STEP_YARN_SETUP=true ;;
+        --versions) _RUN_STEP_VERSIONS=true ;;
+        --yarn_install) _RUN_STEP_YARN_INSTALL=true ;;
+        --browserslist) _RUN_STEP_BROWSERSLIST=true ;;
+        --env) _RUN_STEP_ENV=true ;;
+        --update_emojis) _RUN_STEP_UPDATE_EMOJIS=true ;;
+        --format) _RUN_STEP_FORMAT=true ;;
+        --eslint) _RUN_STEP_ESLINT=true ;;
+        --tsc) _RUN_STEP_TSC=true ;;
+        --userscript) _RUN_STEP_USERSCRIPT=true ;;
+        --buildscript) _RUN_STEP_BUILDSCRIPT=true ;;
+        --prebuild) _RUN_STEP_PREBUILD=true ;;
+        --webpack) _RUN_STEP_WEBPACK=true ;;
+        --docs) _RUN_STEP_DOCS=true ;;
+        --git_diff) _RUN_STEP_GIT_DIFF=true ;;
+        --zip) _RUN_STEP_ZIP=true ;;
         --dependencies)
-          YARN_SETUP=true
-          VERSIONS=true
-          YARN_INSTALL=true
-          BROWSERSLIST=true ;;
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_VERSIONS=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_BROWSERSLIST=true ;;
         --quick)
-          ENV=true
-          FORMAT=true
-          ESLINT=true
-          TSC=true
-          WEBPACK=true ;;
+          _RUN_STEP_ENV=true
+          _RUN_STEP_FORMAT=true
+          _RUN_STEP_ESLINT=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_WEBPACK=true ;;
         --full)
-          YARN_SETUP=true
-          VERSIONS=true
-          YARN_INSTALL=true
-          BROWSERSLIST=true
-          ENV=true
-          UPDATE_EMOJIS=true
-          FORMAT=true
-          ESLINT=true
-          TSC=true
-          USERSCRIPT=true
-          BUILDSCRIPT=true
-          PREBUILD=true
-          WEBPACK=true
-          DOCS=true
-          GIT_DIFF=true
-          ZIP=true ;;
+          _RUN_STEP_NODE=true
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_VERSIONS=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_BROWSERSLIST=true
+          _RUN_STEP_ENV=true
+          _RUN_STEP_UPDATE_EMOJIS=true
+          _RUN_STEP_FORMAT=true
+          _RUN_STEP_ESLINT=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_USERSCRIPT=true
+          _RUN_STEP_BUILDSCRIPT=true
+          _RUN_STEP_PREBUILD=true
+          _RUN_STEP_WEBPACK=true
+          _RUN_STEP_DOCS=true
+          _RUN_STEP_GIT_DIFF=true
+          _RUN_STEP_ZIP=true ;;
         -p | --production) MODE="production" ;;
         -?*)
           echo "Unknown option: $1"
@@ -81,18 +84,46 @@ done
 
 total_start_time=$(date +%s%N)
 
-# [⬆] retrieve current specified yarn version
-if [[ $YARN_SETUP = true ]]; then
+NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')
+YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
+GIT_BRANCH=$(git branch --show-current)
+# Set ref to latest commit hash if HEAD is detached otherwise use branch name
+if [[ -z "$GIT_BRANCH" ]]; then
+    REF=$(git rev-parse --short HEAD)
+else
+    REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)
+fi
+
+# [⬆️] Setup Node.js
+if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(date +%s%N)
-    echo "### [⬆] retrieve current specified yarn version ###"
-    corepack enable
-    yarn set version "$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
+    echo "### [⬆️] Setup Node.js ###"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+    if [[ -n "${NVM_DIR-}" ]]; then
+        NVM_DIR="$NVM_DIR"
+    elif [[ -n "${XDG_CONFIG_HOME-}" ]]; then
+        NVM_DIR="${XDG_CONFIG_HOME}/nvm"
+    else
+        NVM_DIR="$HOME/.nvm"
+    fi
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install "$NODE_VERSION"
     end_time=$(date +%s%N)
-    echo "=== [⬆] retrieve current specified yarn version: $(((end_time - start_time) / 1000000))ms ==="
+    echo "=== [⬆️] Setup Node.js: $(((end_time - start_time) / 1000000))ms ==="
+fi
+
+# [⬆] setup yarn
+if [[ $_RUN_STEP_YARN_SETUP = true ]]; then
+    start_time=$(date +%s%N)
+    echo "### [⬆] setup yarn ###"
+    corepack enable
+    yarn set version "$YARN_VERSION"
+    end_time=$(date +%s%N)
+    echo "=== [⬆] setup yarn: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
 # [ℹ] print versions (node, yarn, git)
-if [[ $VERSIONS = true ]]; then
+if [[ $_RUN_STEP_VERSIONS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [ℹ] print versions (node, yarn, git) ###"
     echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
@@ -101,7 +132,7 @@ if [[ $VERSIONS = true ]]; then
 fi
 
 # [🍱] yarn install
-if [[ $YARN_INSTALL = true ]]; then
+if [[ $_RUN_STEP_YARN_INSTALL = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🍱] yarn install ###"
     yarn install --immutable
@@ -110,7 +141,7 @@ if [[ $YARN_INSTALL = true ]]; then
 fi
 
 # [⬆] update browserslist
-if [[ $BROWSERSLIST = true ]]; then
+if [[ $_RUN_STEP_BROWSERSLIST = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] update browserslist ###"
     npx -y browserslist@latest --update-db
@@ -119,10 +150,10 @@ if [[ $BROWSERSLIST = true ]]; then
 fi
 
 # [🌳] set env variables
-if [[ $ENV = true ]]; then
+if [[ $_RUN_STEP_ENV = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🌳] set env variables ###"
-    ref="$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)"
+    ref="$REF"
     BRANCH="dummy"
     
     if [[ $ref == "refs/heads/master" ]]; then
@@ -142,7 +173,7 @@ if [[ $ENV = true ]]; then
 fi
 
 # [⬆] update emojis
-if [[ $UPDATE_EMOJIS = true ]]; then
+if [[ $_RUN_STEP_UPDATE_EMOJIS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] update emojis ###"
     yarn ts-node scripts/utils/fetchEmojis.ts
@@ -151,7 +182,7 @@ if [[ $UPDATE_EMOJIS = true ]]; then
 fi
 
 # [🎨] format files not covered by ESLint
-if [[ $FORMAT = true ]]; then
+if [[ $_RUN_STEP_FORMAT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🎨] format files not covered by ESLint ###"
     yarn ts-node scripts/format.ts || exit 1
@@ -160,7 +191,7 @@ if [[ $FORMAT = true ]]; then
 fi
 
 # [🚨] run ESLint
-if [[ $ESLINT = true ]]; then
+if [[ $_RUN_STEP_ESLINT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚨] run ESLint ###"
     yarn eslint \
@@ -183,7 +214,7 @@ if [[ $ESLINT = true ]]; then
 fi
 
 # [🚨] check TypeScript
-if [[ $TSC = true ]]; then
+if [[ $_RUN_STEP_TSC = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚨] check TypeScript ###"
     yarn tsc -b --pretty "./" || exit 1
@@ -192,7 +223,7 @@ if [[ $TSC = true ]]; then
 fi
 
 # [📜] build userscript
-if [[ $USERSCRIPT = true ]]; then
+if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📜] build userscript ###"
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
@@ -201,7 +232,7 @@ if [[ $USERSCRIPT = true ]]; then
 fi
 
 # [📜] build buildscript
-if [[ $BUILDSCRIPT = true ]]; then
+if [[ $_RUN_STEP_BUILDSCRIPT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📜] build buildscript ###"
     yarn ts-node scripts/createBuildScript.ts || exit 1
@@ -210,7 +241,7 @@ if [[ $BUILDSCRIPT = true ]]; then
 fi
 
 # [🚧] run prebuild
-if [[ $PREBUILD = true ]]; then
+if [[ $_RUN_STEP_PREBUILD = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚧] run prebuild ###"
     yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
@@ -219,7 +250,7 @@ if [[ $PREBUILD = true ]]; then
 fi
 
 # [👷] webpack
-if [[ $WEBPACK = true ]]; then
+if [[ $_RUN_STEP_WEBPACK = true ]]; then
     start_time=$(date +%s%N)
     echo "### [👷] webpack ###"
     yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
@@ -228,7 +259,7 @@ if [[ $WEBPACK = true ]]; then
 fi
 
 # [📝] build docs
-if [[ $DOCS = true ]]; then
+if [[ $_RUN_STEP_DOCS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📝] build docs ###"
     "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
@@ -240,7 +271,7 @@ if [[ $DOCS = true ]]; then
 fi
 
 # [ℹ️] git diff
-if [[ $GIT_DIFF = true ]]; then
+if [[ $_RUN_STEP_GIT_DIFF = true ]]; then
     start_time=$(date +%s%N)
     echo "### [ℹ️] git diff ###"
     git --no-pager diff --color-words
@@ -249,7 +280,7 @@ if [[ $GIT_DIFF = true ]]; then
 fi
 
 # [📦] zip files
-if [[ $ZIP = true ]]; then
+if [[ $_RUN_STEP_ZIP = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📦] zip files ###"
     sudo apt-get install zip

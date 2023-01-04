@@ -11,6 +11,8 @@ interface Workflow {
     };
 }
 
+type Job = Workflow['jobs']['build']['steps'][0];
+
 const excludedSteps = [
     'get_node_yarn_versions',
     'yarn_cache_dir',
@@ -34,33 +36,59 @@ const script = [
 set -e`,
 ];
 
+const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
+
 try {
-    const doc = yaml.load(
+    const workflow = yaml.load(
         fs.readFileSync(
             path.join(__dirname, '..', '.github', 'workflows', 'build.yml'),
             'utf8'
         )
     ) as Workflow;
 
-    const steps = doc.jobs.build.steps.filter(
-        step => step.run && !excludedSteps.includes(step.id ?? '')
+    const steps = [
+        {
+            name: '[⬆️] Setup Node.js',
+            run:
+                'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n' +
+                // not a JS template string but bash
+                // eslint-disable-next-line no-template-curly-in-string
+                'if [[ -n "${NVM_DIR-}" ]]; then\n' +
+                '    NVM_DIR="$NVM_DIR"\n' +
+                // not a JS template string but bash
+                // eslint-disable-next-line no-template-curly-in-string
+                'elif [[ -n "${XDG_CONFIG_HOME-}" ]]; then\n' +
+                // not a JS template string but bash
+                // eslint-disable-next-line no-template-curly-in-string
+                '    NVM_DIR="${XDG_CONFIG_HOME}/nvm"\n' +
+                'else\n' +
+                '    NVM_DIR="$HOME/.nvm"\n' +
+                'fi\n' +
+                '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"\n' +
+                'nvm install "$NODE_VERSION"\n',
+            id: 'node',
+        } as Job,
+    ].concat(
+        workflow.jobs.build.steps.filter(
+            step => step.run && !excludedSteps.includes(step.id ?? '')
+        )
     );
     const stepIds = steps.map(step => step.id ?? '');
 
     script.push(
         `
 # default values of variables set from params
-${stepIds.map(id => `${id.toUpperCase()}=false`).join('\n')}
+${stepIds.map(id => `${getStepName(id)}=false`).join('\n')}
 MODE="development"
 
 while :; do
     case "\${1-}" in
-${stepIds.map(id => `        --${id}) ${id.toUpperCase()}=true ;;`).join('\n')}
+${stepIds.map(id => `        --${id}) ${getStepName(id)}=true ;;`).join('\n')}
 ${Object.entries(shortcuts)
     .map(
         ([shortcut, steps]) => `        --${shortcut})
           ${(shortcut === 'full' ? stepIds : steps)
-              .map(step => `${step.toUpperCase()}=true`)
+              .map(step => `${getStepName(step)}=true`)
               .join('\n          ')} ;;`
     )
     .join('\n')}
@@ -73,10 +101,19 @@ ${Object.entries(shortcuts)
     shift
 done`,
         'total_start_time=$(date +%s%N)',
+        "NODE_VERSION=$(grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')\n" +
+            "YARN_VERSION=$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')\n" +
+            'GIT_BRANCH=$(git branch --show-current)\n' +
+            '# Set ref to latest commit hash if HEAD is detached otherwise use branch name\n' +
+            'if [[ -z "$GIT_BRANCH" ]]; then\n' +
+            '    REF=$(git rev-parse --short HEAD)\n' +
+            'else\n' +
+            '    REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)\n' +
+            'fi',
         ...steps.map(step =>
             [
                 `# ${step.name}`,
-                `if [[ $${step.id?.toUpperCase()} = true ]]; then
+                `if [[ $${getStepName(step.id ?? '')} = true ]]; then
     start_time=$(date +%s%N)
     echo "### ${step.name} ###"
     ${
@@ -90,19 +127,10 @@ done`,
             .replace(/\n/gu, '\n    ')
             .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
             .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
-            .replace(
-                /\$\{\{ env\.NODE_VERSION \}\}/gu,
-                "grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]'"
-            )
-            .replace(
-                /\$\{\{ env\.YARN_VERSION \}\}/gu,
-                "$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"
-            )
+            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$NODE_VERSION')
+            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$YARN_VERSION')
             .replace(/\$\{\{ inputs\.label \}\}/gu, '🦄 branch label')
-            .replace(
-                /\$\{\{ (github|inputs)\.ref \}\}/gu,
-                '$(git show-ref --heads --abbrev "$(git branch --show-current)" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)'
-            ) ?? ''
+            .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
     }
     end_time=$(date +%s%N)
     echo "=== ${step.name}: $(((end_time - start_time) / 1000000))ms ==="

@@ -10,3 +10,19 @@ jobs:
         with:
             ref: ${{ github.ref }}
         secrets: inherit
+
+    test:
+        name: '[👷🔀] Test'
+        uses: ./.github/workflows/test_build.yml
+        with:
+            ref: ${{ github.ref }}
+        secrets: inherit
+
+    success:
+        name: '[👷🔀] Success'
+        needs: [build, test]
+        runs-on: ubuntu-latest
+        if: ${{ success() }}
+        steps:
+            - run: |
+                  echo "🥳 Build and test successful!"

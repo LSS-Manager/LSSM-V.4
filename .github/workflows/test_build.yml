@@ -1,0 +1,30 @@
+name: '[🧪] Test build'
+run-name: '[🧪] Test build on `${{ inputs.ref }}`'
+
+on:
+    workflow_call:
+        inputs:
+            ref:
+                description: 'The ref to build on'
+                required: false
+                type: string
+                default: github.ref
+
+jobs:
+    build:
+        strategy:
+            matrix:
+                os: [ubuntu-22.04, ubuntu-20.04]
+        runs-on: ${{ matrix.os }}
+        name: '[🧪] Test Build on ${{ matrix.os }}'
+        steps:
+            - name: '[📥] checkout'
+              uses: actions/checkout@v3
+              with:
+                  ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+                  ref: ${{ inputs.ref }}
+                  fetch-depth: 0
+
+            - name: '[👷] run build script'
+              run: |
+                  ./build/build.sh --full
