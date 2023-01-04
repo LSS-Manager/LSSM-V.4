@@ -93,7 +93,6 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆️] Setup Node.js ###"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-    echo "$NVM_DIR"
     if [[ -n "${NVM_DIR-}" ]]; then
         NVM_DIR="$NVM_DIR"
     elif [[ -n "${XDG_CONFIG_HOME-}" ]]; then
@@ -101,7 +100,6 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     else
         NVM_DIR="$HOME/.nvm"
     fi
-    echo "$NVM_DIR"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"
     end_time=$(date +%s%N)
