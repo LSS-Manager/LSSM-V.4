@@ -86,12 +86,16 @@ total_start_time=$(date +%s%N)
 
 NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
-GIT_BRANCH=$(git branch --show-current)
-# Set ref to latest commit hash if HEAD is detached otherwise use branch name
-if [[ -z "$GIT_BRANCH" ]]; then
-    REF=$(git rev-parse --short HEAD)
+if [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
+    GIT_BRANCH=$(git branch --show-current)
+    # Set ref to latest commit hash if HEAD is detached otherwise use branch name
+    if [[ -z "$GIT_BRANCH" ]]; then
+        REF=$(git rev-parse --short HEAD)
+    else
+        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)
+    fi
 else
-    REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)
+    REF="dev"
 fi
 
 # [⬆️] Setup Node.js
