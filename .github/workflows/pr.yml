@@ -1,7 +1,8 @@
 name: '[👷🔀] PR Build'
 run-name: '[👷🔀] Build on PR #${{ github.event.number }}, `${{ github.ref }}`'
 
-on: [pull_request]
+on:
+    pull_request:
 
 jobs:
     build:
@@ -17,12 +18,3 @@ jobs:
         with:
             ref: ${{ github.ref }}
         secrets: inherit
-
-    success:
-        name: '[👷🔀] Success'
-        needs: [build, test]
-        runs-on: ubuntu-latest
-        if: ${{ success() }}
-        steps:
-            - run: |
-                  echo "🥳 Build and test successful!"

@@ -1,14 +1,9 @@
 name: '[🧪] Test build'
-run-name: '[🧪] Test build on `${{ inputs.ref }}`'
+run-name: '[🧪] Test build on `${{ github.ref }}`'
 
 on:
-    workflow_call:
-        inputs:
-            ref:
-                description: 'The ref to build on'
-                required: false
-                type: string
-                default: github.ref
+    push:
+    pull_request:
 
 jobs:
     build:
@@ -21,8 +16,6 @@ jobs:
             - name: '[📥] checkout'
               uses: actions/checkout@v3
               with:
-                  ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
-                  ref: ${{ inputs.ref }}
                   fetch-depth: 0
 
             - name: '[👷] run build script'
