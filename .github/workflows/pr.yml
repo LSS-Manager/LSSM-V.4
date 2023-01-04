@@ -21,6 +21,8 @@ jobs:
     success:
         name: '[👷🔀] Success'
         needs: [build, test]
+        runs-on: ubuntu-latest
         if: ${{ success() }}
-        run: |
-            echo "🥳 Build and test successful!"
+        steps:
+            - run: |
+                  echo "🥳 Build and test successful!"
