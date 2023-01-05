@@ -337,3 +337,5 @@ fi
 total_end_time=$(date +%s%N)
 
 echo "=== Total: $(((10#$total_end_time - 10#$total_start_time) / 1000000))ms ==="
+
+exit 0
