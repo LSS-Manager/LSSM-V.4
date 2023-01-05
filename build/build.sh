@@ -16,6 +16,12 @@ disable_debugging () {
     fi
 }
 
+now () {
+    local timestamp
+    timestamp="$(date +%s%N)"
+    echo "${timestamp//N/}"
+}
+
 
 # default values of variables set from params
 _RUN_STEP_NODE=false
@@ -115,7 +121,7 @@ fi
 
 # [⬆️] Setup Node.js
 if [[ $_RUN_STEP_NODE = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [⬆️] Setup Node.js ###"
     enable_debugging
     # disable debugging output for installing nvm and node
@@ -133,58 +139,58 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     # re-enable debugging output
     enable_debugging
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [⬆️] Setup Node.js: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [⬆] setup yarn
 if [[ $_RUN_STEP_YARN_SETUP = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [⬆] setup yarn ###"
     enable_debugging
     corepack enable
     yarn set version "$YARN_VERSION"
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [⬆] setup yarn: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [ℹ] print versions (node, yarn, git)
 if [[ $_RUN_STEP_VERSIONS = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [ℹ] print versions (node, yarn, git) ###"
     enable_debugging
     echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [ℹ] print versions (node, yarn, git): $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [🍱] yarn install
 if [[ $_RUN_STEP_YARN_INSTALL = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [🍱] yarn install ###"
     enable_debugging
     yarn install --immutable
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [🍱] yarn install: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [⬆] update browserslist
 if [[ $_RUN_STEP_BROWSERSLIST = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [⬆] update browserslist ###"
     enable_debugging
     npx -y browserslist@latest --update-db
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [⬆] update browserslist: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [🌳] set env variables
 if [[ $_RUN_STEP_ENV = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [🌳] set env variables ###"
     enable_debugging
     ref="$REF"
@@ -203,35 +209,35 @@ if [[ $_RUN_STEP_ENV = true ]]; then
       BRANCH="${BRANCH//"/"/"-"}"
     fi
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [🌳] set env variables: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [⬆] update emojis
 if [[ $_RUN_STEP_UPDATE_EMOJIS = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [⬆] update emojis ###"
     enable_debugging
     yarn ts-node scripts/utils/fetchEmojis.ts
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [⬆] update emojis: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [🎨] format files not covered by ESLint
 if [[ $_RUN_STEP_FORMAT = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [🎨] format files not covered by ESLint ###"
     enable_debugging
     yarn ts-node scripts/format.ts || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [🎨] format files not covered by ESLint: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [🚨] run ESLint
 if [[ $_RUN_STEP_ESLINT = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [🚨] run ESLint ###"
     enable_debugging
     yarn eslint \
@@ -250,68 +256,68 @@ if [[ $_RUN_STEP_ESLINT = true ]]; then
     --fix \
     || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [🚨] run ESLint: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [🚨] check TypeScript
 if [[ $_RUN_STEP_TSC = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [🚨] check TypeScript ###"
     enable_debugging
     yarn tsc -b --pretty "./" || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [🚨] check TypeScript: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [📜] build userscript
 if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [📜] build userscript ###"
     enable_debugging
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [📜] build userscript: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [📜] build buildscript
 if [[ $_RUN_STEP_BUILDSCRIPT = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [📜] build buildscript ###"
     enable_debugging
     yarn ts-node scripts/createBuildScript.ts || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [📜] build buildscript: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [🚧] run prebuild
 if [[ $_RUN_STEP_PREBUILD = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [🚧] run prebuild ###"
     enable_debugging
     yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [🚧] run prebuild: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [👷] webpack
 if [[ $_RUN_STEP_WEBPACK = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [👷] webpack ###"
     enable_debugging
     yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [👷] webpack: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [📝] build docs
 if [[ $_RUN_STEP_DOCS = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [📝] build docs ###"
     enable_debugging
     "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
@@ -319,18 +325,18 @@ if [[ $_RUN_STEP_DOCS = true ]]; then
     rm -rdf ./dist/docs/*
     cp -r ./docs/.vuepress/dist/* ./dist/docs
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [📝] build docs: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [ℹ️] git diff
 if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### [ℹ️] git diff ###"
     enable_debugging
     git --no-pager diff --color-words
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== [ℹ️] git diff: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 

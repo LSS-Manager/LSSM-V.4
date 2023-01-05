@@ -56,6 +56,11 @@ set -e`,
         set +x
     fi
 }`,
+    `now () {
+    local timestamp
+    timestamp="$(date +%s%N)"
+    echo "\${timestamp//N/}"
+}`,
 ];
 
 const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
@@ -152,7 +157,7 @@ done`,
                 `if [[ $${getStepName(
                     step.id ?? ''
                 )} = true ]]${getExtraConditionsString(step.id ?? '')}; then
-    start_time=$(date +%s%N)
+    start_time=$(now)
     echo "### ${step.name} ###"
     enable_debugging
     ${
@@ -172,7 +177,7 @@ done`,
             .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
     }
     disable_debugging
-    end_time=$(date +%s%N)
+    end_time=$(now)
     echo "=== ${
         step.name
     }: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
