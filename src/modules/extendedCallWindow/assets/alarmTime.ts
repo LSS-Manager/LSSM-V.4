@@ -12,14 +12,14 @@ export default (LSSM: Vue): void => {
     const getLastVehicleTime = () => {
         const vehicles = Array.from(
             document.querySelectorAll(
-                '#vehicle_list_step .vehicle_checkbox:checked'
+                '#vehicle_list_step #all .vehicle_checkbox:checked'
             )
         );
         const lastVehicle = vehicles.at(-1);
         const vehicleId = lastVehicle?.getAttribute('value');
         const alarmTime =
             document.querySelector<HTMLTableCellElement>(
-                `#vehicle_sort_${vehicleId}`
+                `#vehicle_list_step #all #vehicle_sort_${vehicleId}`
             )?.childNodes[0]?.textContent ?? '';
         return { lastVehicle, alarmTime };
     };
