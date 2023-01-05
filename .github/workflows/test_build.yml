@@ -18,6 +18,15 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: '[👷] run build script'
+            - name: '[👷] run build script on git repository'
+              run: |
+                  ./build/build.sh --full
+
+            - name: '[🔥] clean and remove git'
+              run: |
+                  git clean -xdf
+                  rm -rf .git
+
+            - name: '[👷] run build script on non-git directory'
               run: |
                   ./build/build.sh --full
