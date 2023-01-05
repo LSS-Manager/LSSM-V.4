@@ -59,7 +59,7 @@ set -e`,
     `now () {
     local timestamp
     timestamp="$(date +%s%N)"
-    echo "\${timestamp//N/}"
+    echo "\${timestamp/N/000000000}"
 }`,
 ];
 
