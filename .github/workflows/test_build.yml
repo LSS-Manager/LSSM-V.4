@@ -24,7 +24,7 @@ jobs:
 
             - name: '[👷] run build script on git repository'
               run: |
-                  ./build/build.sh --full
+                  ./build/build.sh --full --debug
 
             - name: '[🔥] clean and remove git'
               run: |
@@ -33,4 +33,4 @@ jobs:
 
             - name: '[👷] run build script on non-git directory'
               run: |
-                  ./build/build.sh --full
+                  ./build/build.sh --full --debug

@@ -4,6 +4,18 @@
 # exit script when any command fails
 set -e
 
+enable_debugging () {
+    if [[ $DEBUG = true ]]; then
+        set -x
+    fi
+}
+
+disable_debugging () {
+    if [[ $DEBUG = true ]]; then
+        set +x
+    fi
+}
+
 
 # default values of variables set from params
 _RUN_STEP_NODE=false
@@ -24,6 +36,7 @@ _RUN_STEP_DOCS=false
 _RUN_STEP_GIT_DIFF=false
 _RUN_STEP_ZIP=false
 MODE="development"
+DEBUG=false
 
 while :; do
     case "${1-}" in
@@ -74,6 +87,7 @@ while :; do
           _RUN_STEP_GIT_DIFF=true
           _RUN_STEP_ZIP=true ;;
         -p | --production) MODE="production" ;;
+        --debug) DEBUG=true ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -106,6 +120,9 @@ fi
 if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆️] Setup Node.js ###"
+    enable_debugging
+    # disable debugging output for installing nvm and node
+    disable_debugging
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     if [[ -n "${NVM_DIR-}" ]]; then
         NVM_DIR="$NVM_DIR"
@@ -116,6 +133,9 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     fi
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"
+    # re-enable debugging output
+    enable_debugging
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [⬆️] Setup Node.js: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -124,8 +144,10 @@ fi
 if [[ $_RUN_STEP_YARN_SETUP = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] setup yarn ###"
+    enable_debugging
     corepack enable
     yarn set version "$YARN_VERSION"
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [⬆] setup yarn: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -134,7 +156,9 @@ fi
 if [[ $_RUN_STEP_VERSIONS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [ℹ] print versions (node, yarn, git) ###"
+    enable_debugging
     echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [ℹ] print versions (node, yarn, git): $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -143,7 +167,9 @@ fi
 if [[ $_RUN_STEP_YARN_INSTALL = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🍱] yarn install ###"
+    enable_debugging
     yarn install --immutable
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [🍱] yarn install: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -152,7 +178,9 @@ fi
 if [[ $_RUN_STEP_BROWSERSLIST = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] update browserslist ###"
+    enable_debugging
     npx -y browserslist@latest --update-db
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [⬆] update browserslist: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -161,6 +189,7 @@ fi
 if [[ $_RUN_STEP_ENV = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🌳] set env variables ###"
+    enable_debugging
     ref="$REF"
     BRANCH="dummy"
     
@@ -176,6 +205,7 @@ if [[ $_RUN_STEP_ENV = true ]]; then
       BRANCH="${BRANCH/"/merge"/}";
       BRANCH="${BRANCH//"/"/"-"}"
     fi
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [🌳] set env variables: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -184,7 +214,9 @@ fi
 if [[ $_RUN_STEP_UPDATE_EMOJIS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [⬆] update emojis ###"
+    enable_debugging
     yarn ts-node scripts/utils/fetchEmojis.ts
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [⬆] update emojis: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -193,7 +225,9 @@ fi
 if [[ $_RUN_STEP_FORMAT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🎨] format files not covered by ESLint ###"
+    enable_debugging
     yarn ts-node scripts/format.ts || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [🎨] format files not covered by ESLint: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -202,6 +236,7 @@ fi
 if [[ $_RUN_STEP_ESLINT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚨] run ESLint ###"
+    enable_debugging
     yarn eslint \
     ./docs/.vuepress/ \
     ./static/         \
@@ -217,6 +252,7 @@ if [[ $_RUN_STEP_ESLINT = true ]]; then
     --cache --cache-strategy content \
     --fix \
     || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [🚨] run ESLint: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -225,7 +261,9 @@ fi
 if [[ $_RUN_STEP_TSC = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚨] check TypeScript ###"
+    enable_debugging
     yarn tsc -b --pretty "./" || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [🚨] check TypeScript: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -234,7 +272,9 @@ fi
 if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📜] build userscript ###"
+    enable_debugging
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [📜] build userscript: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -243,7 +283,9 @@ fi
 if [[ $_RUN_STEP_BUILDSCRIPT = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📜] build buildscript ###"
+    enable_debugging
     yarn ts-node scripts/createBuildScript.ts || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [📜] build buildscript: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -252,7 +294,9 @@ fi
 if [[ $_RUN_STEP_PREBUILD = true ]]; then
     start_time=$(date +%s%N)
     echo "### [🚧] run prebuild ###"
+    enable_debugging
     yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [🚧] run prebuild: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -261,7 +305,9 @@ fi
 if [[ $_RUN_STEP_WEBPACK = true ]]; then
     start_time=$(date +%s%N)
     echo "### [👷] webpack ###"
+    enable_debugging
     yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [👷] webpack: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -270,10 +316,12 @@ fi
 if [[ $_RUN_STEP_DOCS = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📝] build docs ###"
+    enable_debugging
     "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
     mkdir -p ./dist/docs
     rm -rdf ./dist/docs/*
     cp -r ./docs/.vuepress/dist/* ./dist/docs
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [📝] build docs: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -282,7 +330,9 @@ fi
 if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     start_time=$(date +%s%N)
     echo "### [ℹ️] git diff ###"
+    enable_debugging
     git --no-pager diff --color-words
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [ℹ️] git diff: $(((end_time - start_time) / 1000000))ms ==="
 fi
@@ -291,8 +341,10 @@ fi
 if [[ $_RUN_STEP_ZIP = true ]]; then
     start_time=$(date +%s%N)
     echo "### [📦] zip files ###"
+    enable_debugging
     sudo apt-get install zip
     zip -r dist.zip dist
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== [📦] zip files: $(((end_time - start_time) / 1000000))ms ==="
 fi

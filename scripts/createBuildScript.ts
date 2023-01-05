@@ -45,6 +45,16 @@ const script = [
 
 # exit script when any command fails
 set -e`,
+    `enable_debugging () {
+    if [[ $DEBUG = true ]]; then
+        set -x
+    fi
+}`,
+    `disable_debugging () {
+    if [[ $DEBUG = true ]]; then
+        set +x
+    fi
+}`,
 ];
 
 const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
@@ -61,6 +71,8 @@ try {
         {
             name: '[⬆️] Setup Node.js',
             run:
+                '# disable debugging output for installing nvm and node\n' +
+                'disable_debugging\n' +
                 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n' +
                 // not a JS template string but bash
                 // eslint-disable-next-line no-template-curly-in-string
@@ -76,7 +88,9 @@ try {
                 '    NVM_DIR="$HOME/.nvm"\n' +
                 'fi\n' +
                 '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"\n' +
-                'nvm install "$NODE_VERSION"\n',
+                'nvm install "$NODE_VERSION"\n' +
+                '# re-enable debugging output\n' +
+                'enable_debugging',
             id: 'node',
         } as Job,
     ].concat(
@@ -91,6 +105,7 @@ try {
 # default values of variables set from params
 ${stepIds.map(id => `${getStepName(id)}=false`).join('\n')}
 MODE="development"
+DEBUG=false
 
 while :; do
     case "\${1-}" in
@@ -104,6 +119,7 @@ ${Object.entries(shortcuts)
     )
     .join('\n')}
         -p | --production) MODE="production" ;;
+        --debug) DEBUG=true ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -137,6 +153,7 @@ done`,
                 )} = true ]]${getExtraConditionsString(step.id ?? '')}; then
     start_time=$(date +%s%N)
     echo "### ${step.name} ###"
+    enable_debugging
     ${
         (step.id === 'env'
             ? step.run?.match(
@@ -153,6 +170,7 @@ done`,
             .replace(/\$\{\{ inputs\.label \}\}/gu, '🦄 branch label')
             .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
     }
+    disable_debugging
     end_time=$(date +%s%N)
     echo "=== ${step.name}: $(((end_time - start_time) / 1000000))ms ==="
 fi`,
