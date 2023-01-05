@@ -173,12 +173,14 @@ done`,
     }
     disable_debugging
     end_time=$(date +%s%N)
-    echo "=== ${step.name}: $(((end_time - start_time) / 1000000))ms ==="
+    echo "=== ${
+        step.name
+    }: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi`,
             ].join('\n')
         ),
         'total_end_time=$(date +%s%N)',
-        'echo "=== Total: $(((total_end_time - total_start_time) / 1000000))ms ==="'
+        'echo "=== Total: $(((10#$total_end_time - 10#$total_start_time) / 1000000))ms ==="'
     );
 
     const scriptPath = path.join(__dirname, '..', 'build', 'build.sh');
