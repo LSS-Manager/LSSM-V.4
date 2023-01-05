@@ -16,7 +16,7 @@
                         ></span>
                     </button>
                     <p class="bug-header-title">
-                        <a :href="bug.html_url" target="_blank">{{
+                        <a :href="bug?.html_url" target="_blank">{{
                             bug.title
                         }}</a>
                     </p>
@@ -46,7 +46,7 @@
                         getRelativeTime(new Date(bug.created_at))
                     }}</span>
                     by
-                    <a :href="bug.user.html_url" target="_blank">{{
+                    <a :href="bug.user?.html_url" target="_blank">{{
                         bug.user.login
                     }}</a>
 
