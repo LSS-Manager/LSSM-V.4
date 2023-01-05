@@ -34,7 +34,6 @@ _RUN_STEP_PREBUILD=false
 _RUN_STEP_WEBPACK=false
 _RUN_STEP_DOCS=false
 _RUN_STEP_GIT_DIFF=false
-_RUN_STEP_ZIP=false
 MODE="development"
 DEBUG=false
 
@@ -56,7 +55,6 @@ while :; do
         --webpack) _RUN_STEP_WEBPACK=true ;;
         --docs) _RUN_STEP_DOCS=true ;;
         --git_diff) _RUN_STEP_GIT_DIFF=true ;;
-        --zip) _RUN_STEP_ZIP=true ;;
         --dependencies)
           _RUN_STEP_YARN_SETUP=true
           _RUN_STEP_VERSIONS=true
@@ -84,8 +82,7 @@ while :; do
           _RUN_STEP_PREBUILD=true
           _RUN_STEP_WEBPACK=true
           _RUN_STEP_DOCS=true
-          _RUN_STEP_GIT_DIFF=true
-          _RUN_STEP_ZIP=true ;;
+          _RUN_STEP_GIT_DIFF=true ;;
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
         -?*)
@@ -335,18 +332,6 @@ if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     disable_debugging
     end_time=$(date +%s%N)
     echo "=== [ℹ️] git diff: $(((end_time - start_time) / 1000000))ms ==="
-fi
-
-# [📦] zip files
-if [[ $_RUN_STEP_ZIP = true ]]; then
-    start_time=$(date +%s%N)
-    echo "### [📦] zip files ###"
-    enable_debugging
-    sudo apt-get install zip
-    zip -r dist.zip dist
-    disable_debugging
-    end_time=$(date +%s%N)
-    echo "=== [📦] zip files: $(((end_time - start_time) / 1000000))ms ==="
 fi
 
 total_end_time=$(date +%s%N)

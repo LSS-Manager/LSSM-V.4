@@ -18,6 +18,7 @@ const excludedSteps = [
     'yarn_cache_dir',
     'generate_token',
     'output',
+    'zip',
     'git_prepare',
     'import_gpg',
     'git_push',
