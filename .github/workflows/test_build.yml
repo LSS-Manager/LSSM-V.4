@@ -9,7 +9,11 @@ jobs:
     build:
         strategy:
             matrix:
-                os: [ubuntu-22.04, ubuntu-20.04]
+                os:
+                    - ubuntu-22.04
+                    - ubuntu-20.04
+                    - macos-12
+                    - macos-11
         runs-on: ${{ matrix.os }}
         name: '[🧪] Test Build on ${{ matrix.os }}'
         steps:
