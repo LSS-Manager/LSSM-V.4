@@ -27,6 +27,17 @@ const shortcuts = {
     quick: ['env', 'format', 'eslint', 'tsc', 'webpack'],
     full: [],
 };
+const extraConditions: Record<string, string[]> = {
+    git_diff: ['$GIT_REPO = true'],
+};
+
+const getExtraConditionsString = (step: string) => {
+    const conditions = extraConditions[step];
+    if (!conditions) return '';
+    return ` && ${conditions
+        .map(condition => `[[ ${condition} ]]`)
+        .join(' && ')}`;
+};
 
 const script = [
     `#!/usr/bin/env bash
@@ -104,6 +115,9 @@ done`,
         "NODE_VERSION=$(grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')\n" +
             "YARN_VERSION=$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')\n" +
             'if [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then\n' +
+            '    GIT_REPO=true\n' +
+            'fi\n' +
+            'if [[ $GIT_REPO = true ]]; then\n' +
             '    GIT_BRANCH=$(git branch --show-current)\n' +
             '    # Set ref to latest commit hash if HEAD is detached otherwise use branch name\n' +
             '    if [[ -z "$GIT_BRANCH" ]]; then\n' +
@@ -117,7 +131,9 @@ done`,
         ...steps.map(step =>
             [
                 `# ${step.name}`,
-                `if [[ $${getStepName(step.id ?? '')} = true ]]; then
+                `if [[ $${getStepName(
+                    step.id ?? ''
+                )} = true ]]${getExtraConditionsString(step.id ?? '')}; then
     start_time=$(date +%s%N)
     echo "### ${step.name} ###"
     ${

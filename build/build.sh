@@ -87,6 +87,9 @@ total_start_time=$(date +%s%N)
 NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
 if [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
+    GIT_REPO=true
+fi
+if [[ $GIT_REPO = true ]]; then
     GIT_BRANCH=$(git branch --show-current)
     # Set ref to latest commit hash if HEAD is detached otherwise use branch name
     if [[ -z "$GIT_BRANCH" ]]; then
@@ -275,7 +278,7 @@ if [[ $_RUN_STEP_DOCS = true ]]; then
 fi
 
 # [ℹ️] git diff
-if [[ $_RUN_STEP_GIT_DIFF = true ]]; then
+if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     start_time=$(date +%s%N)
     echo "### [ℹ️] git diff ###"
     git --no-pager diff --color-words
