@@ -95,7 +95,8 @@ if [[ $GIT_REPO = true ]]; then
     if [[ -z "$GIT_BRANCH" ]]; then
         REF=$(git rev-parse --short HEAD)
     else
-        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)
+        # | xargs to remove leading and trailing whitespaces
+        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Eo " .*$" --color=never | xargs)
     fi
 else
     REF="dev"

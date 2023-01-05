@@ -123,7 +123,8 @@ done`,
             '    if [[ -z "$GIT_BRANCH" ]]; then\n' +
             '        REF=$(git rev-parse --short HEAD)\n' +
             '    else\n' +
-            '        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Po "(?<=[a-z0-9]{9} ).*$" --color=never)\n' +
+            '        # | xargs to remove leading and trailing whitespaces\n' +
+            '        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Eo " .*$" --color=never | xargs)\n' +
             '    fi\n' +
             'else\n' +
             '    REF="dev"\n' +
