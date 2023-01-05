@@ -47,7 +47,7 @@
                     }}</span>
                     by
                     <a :href="bug.user?.html_url" target="_blank">{{
-                        bug.user.login
+                        bug.user?.login
                     }}</a>
 
                     <span class="bug-labels">
