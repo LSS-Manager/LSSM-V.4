@@ -1726,9 +1726,10 @@ export default Vue.extend<
                         : this.buildings[intId];
                     if (!building) return null;
 
-                    const realBuildingType =
-                        smallBuildings[building.building_type] ??
-                        building.building_type;
+                    const realBuildingType = building.small_building
+                        ? smallBuildings[building.building_type] ??
+                          building.building_type
+                        : building.building_type;
 
                     const buildingType = this.buildingTypes[realBuildingType];
 
