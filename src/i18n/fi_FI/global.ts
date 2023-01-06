@@ -31,8 +31,8 @@ Jos useat pyynnöt epäonnistuvat lyhyessä ajassa, tämä voi johtua palvelinon
     },
     warnings: {
         version: {
-            title: 'Väärä LSS Manager veriso',
-            text: 'Hyvä käyttäjä, Valitettavasti jouduimme huomaamaan, että sinulla ei ole LSS Managerin uusinta versiota. Uusin versio on {version}, mutta sinulla on ensin {curver}. Lataa peli uudelleen ilman välimuistia (Ctrl + F5, Apple-laitteissa shift + command + R), tämän pitäisi korjata bugi. Jos virhe jatkuu, ilmoita siitä tiimille! Jos käytät väärää versiota, emme voi taata LSS-Managerin kaikkia toimintoja.',
+            title: 'Väärä LSS Manager versio',
+            text: 'Hyvä käyttäjä, valitettavasti sinulla ei ole uusinta LSSM versiota. Uusin versio on {version}, mutta sinulla on {curver}. Lataa peli uudelleen ilman välimuistia (Ctrl + F5, Apple-laitteissa shift + command + R), tämän pitäisi korjata bugi. Jos virhe jatkuu, ilmoita siitä tiimille! Jos käytät väärää versiota, emme voi taata LSS-Managerin kaikkia toimintoja.',
             close: 'Sulje viesti ja lataa peli uudelleen (suositellaan)',
             abort: 'Sulje viesti lataamatta peliä uudestaan',
         },
