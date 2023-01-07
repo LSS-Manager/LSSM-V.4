@@ -50,7 +50,7 @@ export default {
             'Kevyt sammutusauto',
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta "Kapteeni" alkaen )',
         ],
-        schoolingTypes: [],
+        schoolingTypes: ['Paloasema'],
         icon: 'fire',
     },
     1: {
@@ -90,7 +90,7 @@ export default {
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: ['Hoitotason Ambulanssi'],
-        schoolingTypes: [],
+        schoolingTypes: ['Pelastustoimi'],
         icon: 'truck-medical',
     },
     3: {
@@ -214,7 +214,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [],
         startParkingLots: 1,
-        schoolingTypes: [],
+        schoolingTypes: ['Pelastustoimi'],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -246,6 +246,24 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Liikenneryhmä',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 päivää',
+                cannotDisable: false,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [33, 34],
+            },
+            {
+                caption: 'Rikostutkintayksikkö',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 päivää',
+                cannotDisable: false,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [36],
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -255,7 +273,7 @@ export default {
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
-        schoolingTypes: [],
+        schoolingTypes: ['Poliisi'],
         icon: 'shield-halved',
     },
     7: {
@@ -310,7 +328,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [],
         startParkingLots: 1,
-        schoolingTypes: [],
+        schoolingTypes: ['Poliisi'],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -369,7 +387,7 @@ export default {
             'Kevyt sammutusauto',
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta',
         ],
-        schoolingTypes: [],
+        schoolingTypes: ['Paloasema'],
         icon: 'fire',
     },
     19: {
@@ -394,6 +412,15 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
+            {
+                caption: 'Liikenneryhmä',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 päivää',
+                cannotDisable: false,
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [33, 34],
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -403,7 +430,7 @@ export default {
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
-        schoolingTypes: [],
+        schoolingTypes: ['Poliisi'],
         icon: 'shield-halved',
     },
     20: {
@@ -419,7 +446,24 @@ export default {
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: ['Hoitotason ambulanssi'],
-        schoolingTypes: [],
+        schoolingTypes: ['Pelastustoimi'],
         icon: 'truck-medical',
+    },
+    23: {
+        caption: 'Rajavartioasema',
+        color: '#06377b',
+        credits: 500_000,
+        coins: 25,
+        extensions: [],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+        maxBuildings: 'Ei rajoitusta',
+        maxLevel: 20,
+        special:
+            '',
+        startPersonnel: 5,
+        startParkingLots: 1,
+        startVehicles: [],
+        schoolingTypes: ['Poliisi'],
+        icon: 'ship',
     },
 } as Record<number, InternalBuilding>;
