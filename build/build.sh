@@ -123,9 +123,6 @@ fi
 if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(now)
     echo "### [⬆️] Setup Node.js ###"
-    enable_debugging
-    # disable debugging output for installing nvm and node
-    disable_debugging
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     if [[ -n "${NVM_DIR-}" ]]; then
         NVM_DIR="$NVM_DIR"
@@ -136,9 +133,6 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     fi
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"
-    # re-enable debugging output
-    enable_debugging
-    disable_debugging
     end_time=$(now)
     echo "=== [⬆️] Setup Node.js: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi

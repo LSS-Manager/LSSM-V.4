@@ -77,7 +77,6 @@ try {
         {
             name: '[⬆️] Setup Node.js',
             run:
-                '# disable debugging output for installing nvm and node\n' +
                 'disable_debugging\n' +
                 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n' +
                 // not a JS template string but bash
@@ -95,7 +94,6 @@ try {
                 'fi\n' +
                 '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"\n' +
                 'nvm install "$NODE_VERSION"\n' +
-                '# re-enable debugging output\n' +
                 'enable_debugging',
             id: 'node',
         } as Job,
@@ -182,7 +180,12 @@ done`,
         step.name
     }: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi`,
-            ].join('\n')
+            ]
+                .join('\n')
+                .replace(
+                    /(?<=\n)\W*enable_debugging\n\W*disable_debugging\n/gu,
+                    ''
+                )
         ),
         'total_end_time=$(date +%s%N)',
         'echo "=== Total: $(((10#$total_end_time - 10#$total_start_time) / 1000000))ms ==="',
