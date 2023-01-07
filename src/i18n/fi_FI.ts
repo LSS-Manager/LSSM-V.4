@@ -452,16 +452,6 @@ export default {
             maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special: '',
-        },
-        32: {
-            caption: 'Miehistönkuljetusauto',
-            color: '#ff0000',
-            coins: 10,
-            credits: 10_000,
-            minPersonnel: 1,
-            maxPersonnel: 6,
-            possibleBuildings: [0, 18],
-            special: '',
         }
     },
     buildingCategories: {
