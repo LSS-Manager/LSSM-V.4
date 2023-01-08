@@ -393,6 +393,66 @@ export default {
             possibleBuildings: [0, 18],
             special: '',
         },
+        33: {
+            caption: 'VATV-yksikkö',
+            color: '#ff0000',
+            coins: 5,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+            special: '',
+        },
+        34: {
+            caption: 'Vaaka-auto',
+            color: '#ff0000',
+            coins: 5,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [6, 19],
+            special: '',
+        },
+        35: {
+            caption: 'Poliisin kenttäjohtaja',
+            color: '#ff0000',
+            coins: 13,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [6, 19],
+            special: '',
+        },
+        37: {
+            caption: 'RVL Partioauto',
+            color: '#ff0000',
+            coins: 8,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [23],
+            special: 'Poliisipartio, joka toimii lähellä rajaa.',
+        },
+        38: {
+            caption: 'RVL Partiovene',
+            color: '#ff0000',
+            coins: 8,
+            credits: 50_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [23],
+            special: '',
+        },
+        39: {
+            caption: 'RVL Rannikkovartiovene',
+            color: '#ff0000',
+            coins: 13,
+            credits: 75_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [0, 18],
+            special: '',
+        },
     },
     buildingCategories: {
         Paloasemat: {
@@ -407,13 +467,17 @@ export default {
             buildings: [6, 13, 19],
             color: '#06377b',
         },
-        Muut: {
-            buildings: [7, 4, 14],
-            color: '#02a18c',
+        Vesipelastus: {
+            buildings: [23, 24],
+            color: '#00625b',
         },
         Koulut: {
             buildings: [1, 3, 8],
             color: '#d9ae6f',
+        },
+        Muut: {
+            buildings: [7, 4, 14],
+            color: '#02a18c',
         },
     },
     vehicleCategories: {
@@ -440,6 +504,17 @@ export default {
                 Moottoripyörät: [17],
                 VATI: [15, 18],
                 Helikopteri: [14],
+                Liikenne: [33, 34],
+                Tutkinta: [36],
+                Kenttäjohto: [35],
+            },
+            color: '#06377b',
+        },
+        Vesipelastus: {
+            vehicles: {
+                Partioautot: [37],
+                Veneet: [38, 39],
+                Helikopteri: [40, 41],
             },
             color: '#06377b',
         },
@@ -450,29 +525,119 @@ export default {
         6: 19,
     },
     schoolings: {
-        'Fire Station': [
+        Paloasema: [
             {
-                caption: 'HazMat',
-                duration: '3 Days',
-                staffList: 'HazMat Unit',
+                caption: 'Kemikaalitorjunta',
+                duration: '3 Päivää',
+                staffList: 'Kemikaalitorjunta',
+            },
+            {
+                caption: 'Johtokeskus',
+                duration: '5 Päivää',
+                staffList: 'Johtokeskus',
+            },
+            {
+                caption: 'Vaativan hoitotason koulutus',
+                duration: '5 Päivää',
+                staffList: 'Vaativan hoitotason ensihoitaja',
             },
         ],
-        'Police': [
+        Poliisi: [
             {
-                caption: 'Police aviation',
-                duration: '7 Days',
-                staffList: 'Police aviation',
+                caption: 'Poliisin lentotoiminta',
+                duration: '7 Päivää',
+                staffList: 'Poliisin lentotoiminta',
+            },
+            {
+                caption: 'VATI',
+                duration: '5 Päivää',
+                staffList: 'VATI',
+            },
+            {
+                caption: 'Koirapoliisi',
+                duration: '5 Päivää',
+                staffList: 'Koirapoliisi',
+            },
+            {
+                caption: 'Poliisimoottoripyörä',
+                duration: '3 Päivää',
+                staffList: 'Poliisimoottoripyörä',
+            },
+            {
+                caption: 'Alipäällystökoulutus',
+                duration: '7 Päivää',
+                staffList: 'Poliisin kenttäjohtaja',
+            },
+            {
+                caption: 'Vaativa ajotapavalvonta',
+                duration: '5 Päivää',
+                staffList: 'VATV',
+            },
+            {
+                caption: 'Raskan liikenteen valvonta',
+                duration: '5 Päivää',
+                staffList: 'Raskaan liikenteen valvontakoulutettu',
+            },
+            {
+                caption: 'TEPO-koulutus',
+                duration: '5 Päivää',
+                staffList: 'TEPO-koulutettu',
+            },
+            {
+                caption: 'Joukkojenhallintakoulutus',
+                duration: '2 Päivää',
+                staffList: 'JOUHA',
+            },
+            {
+                caption: 'Neuvottelijakoulutus',
+                duration: '7 Päivää',
+                staffList: 'Neuvottelija',
+            },
+            {
+                caption: 'Väkivaltarikostutkinta',
+                duration: '7 Päivää',
+                staffList: 'Väkivaltarikostutkija',
+            },
+            {
+                caption: 'Huumausainerikostutkinta',
+                duration: '7 Päivää',
+                staffList: 'Huumausainerikostutkija',
+            },
+            {
+                caption: 'Tekninen tutkinta',
+                duration: '7 Päivää',
+                staffList: 'Tekninen tutkija',
+            },
+            {
+                caption: 'Palonsyyntutkinta',
+                duration: '7 Päivää',
+                staffList: 'Palonnsyyntutkija',
+            },
+            {
+                caption: 'Omaisuusrikostutkinta',
+                duration: '7 Päivää',
+                staffList: 'Omaisuusrikostutkija',
+            },
+            {
+                caption: 'Merenkulku',
+                duration: '5 Päivää',
+                staffList: 'Merenkulku',
+            },
+            {
+                caption: 'Lainvalvonnan merivoimat',
+                duration: '3 Päivää',
+                staffList: 'Lainvalvonnan merivoimat',
             },
         ],
-        'Rescue': [
+        Pelastustoimi: [
             {
-                caption: 'Critical care',
-                duration: '5 Days',
-                staffList: 'Critical care',
+                caption: 'Vaativan hoitotason koulutus',
+                duration: '5 Päivää',
+                staffList: 'Vaativan hoitotason ensihoitaja',
             },
         ],
     },
-    amount: 'Quantity',
+    amount: 'Määrä',
     search: 'Haku',
     mapSearch: 'Sijaintihaku',
     alliance: 'Liittouma',
