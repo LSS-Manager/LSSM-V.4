@@ -12,7 +12,10 @@
     "name": "Mukautettava rakennusluettelo",
     "settings": {
         "buildings": "Rakennus tyypit",
-        "contentType": { "labels": ["Text", "Icon"], "title": "Teksti vai Ikoni?" },
+        "contentType": {
+            "labels": ["Text", "Icon"],
+            "title": "Teksti vai Ikoni?"
+        },
         "filters": {
             "description": "Jätä kuvakkeet \"Hälytys\" Näytä-painikkeeseen valintasi mukaan. Voit valita <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">kaikkista ilmaisista kuvakkeista alkaen Font-Awesome</a>. Riittää, että määrität kuvakkeen nimen. Tämän jälkeen saat kuvakkeen näkyviin esikatselussa.",
             "title": "Suodattimet"

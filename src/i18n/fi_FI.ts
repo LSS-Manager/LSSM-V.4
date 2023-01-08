@@ -452,7 +452,7 @@ export default {
             maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special: '',
-        }
+        },
     },
     buildingCategories: {
         Paloasemat: {
@@ -479,7 +479,6 @@ export default {
             buildings: [7, 4, 14],
             color: '#02a18c',
         },
-        
     },
     vehicleCategories: {
         Pelastuslaitos: {
@@ -526,7 +525,7 @@ export default {
         6: 19,
     },
     schoolings: {
-        'Paloasema': [
+        Paloasema: [
             {
                 caption: 'Kemikaalitorjunta',
                 duration: '3 Päivää',
@@ -542,9 +541,8 @@ export default {
                 duration: '5 Päivää',
                 staffList: 'Vaativan hoitotason ensihoitaja',
             },
-            
         ],
-        'Poliisi': [
+        Poliisi: [
             {
                 caption: 'Poliisin lentotoiminta',
                 duration: '7 Päivää',
@@ -630,9 +628,8 @@ export default {
                 duration: '3 Päivää',
                 staffList: 'Lainvalvonnan merivoimat',
             },
-            
         ],
-        'Pelastustoimi': [
+        Pelastustoimi: [
             {
                 caption: 'Vaativan hoitotason koulutus',
                 duration: '5 Päivää',

@@ -458,8 +458,7 @@ export default {
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
         maxLevel: 20,
-        special:
-            '',
+        special: '',
         startPersonnel: 5,
         startParkingLots: 1,
         startVehicles: [],

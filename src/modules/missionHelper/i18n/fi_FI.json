@@ -40,6 +40,9 @@
             "ambulances": "Ambulanssi | Ambulanssia",
             "battalion_chief_vehicles": "Johtoauto | Johtoautoa",
             "civil_patrolcar": "Tutkintayksikkö | Tutkintayksikköä",
+            "coastal_helicopter": "H215 | H215:sta",
+            "coastal_plane": "Do228 | Do228:sia",
+            "coastal_rescue": "RVL Partioauto | RVL Partioautoa",
             "firetrucks": "Paloauto | Paloautoa",
             "hazmat_vehicles": "Kemikaalitorjunta-auto | Kemikaalitorjunta-autoa",
             "heavy_rescue_vehicles": "Raskas pelastusauto | Raskasta pelastusautoa",
@@ -54,10 +57,7 @@
             "police_helicopters": "Poliisihelikopteri | Poliisihelikopteria",
             "pump": "Suurtehopumppu | Suurtehopumppua",
             "traffic_car": "VATV-yksikkö | VATV-yksiköä",
-            "water_tankers": "Säiliöauto | Säiliöautoa",
-            "coastal_helicopter": "H215 | H215:sta",
-            "coastal_plane": "Do228 | Do228:sia",
-            "coastal_rescue": "RVL Partioauto | RVL Partioautoa"
+            "water_tankers": "Säiliöauto | Säiliöautoa"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

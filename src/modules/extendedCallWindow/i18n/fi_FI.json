@@ -89,7 +89,10 @@
         "total": "Vielä tarvitaan",
         "vehicle": "Ajoneuvotyyppi",
         "vehiclesByRequirement": [
-            { "texts": ["partioauto", "partioauto"], "vehicles": [8, 16, 18, 37] },
+            {
+                "texts": ["partioauto", "partioauto"],
+                "vehicles": [8, 16, 18, 37]
+            },
             {
                 "texts": ["Poliisihelikopteri", "Poliisihelikopteria"],
                 "vehicles": [14]
@@ -136,11 +139,26 @@
             },
             { "texts": ["vaaka-auto", "vaaka-autoa"], "vehicles": [34] },
             { "texts": ["VATV-yksikkö", "VATV-yksikköä"], "vehicles": [33] },
-            { "texts": ["tutkintayksikkö", "tutkintayksikköä"], "vehicles": [36] },
-            { "texts": ["Poliisin kenttäjohtaja", "Poliisin kenttäjohtajat"], "vehicles": [35] },
-            { "texts": ["RVL Partioauto", "RVL Partioautot"], "vehicles": [37] },
-            { "texts": ["RVL Partiovene", "RVL Partioveneet"], "vehicles": [38] },
-            { "texts": ["RVL Rannikkovartiovene", "RVL Rannikkovartioveneet"], "vehicles": [39] },
+            {
+                "texts": ["tutkintayksikkö", "tutkintayksikköä"],
+                "vehicles": [36]
+            },
+            {
+                "texts": ["Poliisin kenttäjohtaja", "Poliisin kenttäjohtajat"],
+                "vehicles": [35]
+            },
+            {
+                "texts": ["RVL Partioauto", "RVL Partioautot"],
+                "vehicles": [37]
+            },
+            {
+                "texts": ["RVL Partiovene", "RVL Partioveneet"],
+                "vehicles": [38]
+            },
+            {
+                "texts": ["RVL Rannikkovartiovene", "RVL Rannikkovartioveneet"],
+                "vehicles": [39]
+            },
             { "texts": ["H215", "H215s"], "vehicles": [41] },
             { "texts": ["Do228", "Do228"], "vehicles": [40] }
         ]
