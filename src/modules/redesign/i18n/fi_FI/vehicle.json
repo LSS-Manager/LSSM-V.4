@@ -34,9 +34,9 @@
             "tax": "Enimmäis vero"
         },
         "patientIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Suurin etäisyys",
+            "home": "Koti",
+            "show": "Näytä x rakennusta kustakin"
         },
         "prisoner": {
             "distance": "Suurin sallittu etäisyys",
@@ -45,9 +45,9 @@
             "tax": "Enimmäis vero"
         },
         "prisonerIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Suurin etäisyys",
+            "home": "Koti",
+            "show": "Näytä x rakennusta kustakin"
         },
         "trailer": {
             "distance": "Suurin sallittu etäisyys",
@@ -90,9 +90,9 @@
         "hospital": "Sairaala"
     },
     "patientIntermediate": {
-        "caption": "Coastal Rescue Station",
-        "dispatch": "Transport patient",
-        "home": "Home: {building}"
+        "caption": "Rajavartioasema",
+        "dispatch": "Potilaan kuljettaminen",
+        "home": "Koti: {building}"
     },
     "prisoner": {
         "cell": "Rakennus",
@@ -100,9 +100,9 @@
         "free": "Vapaat sellit"
     },
     "prisonerIntermediate": {
-        "dispatch": "Transport prisoner",
-        "distance": "Coastal Rescue Station",
-        "home": "Home: {building}"
+        "dispatch": "Vangin kuljettaminen",
+        "distance": "Rajavartioasema",
+        "home": "Koti: {building}"
     },
     "release": {
         "cancel": "Peruuta",
@@ -130,9 +130,9 @@
         "mission": "Tehtävät",
         "own": "oma {type}: {amount}",
         "patient": "Sairaalat",
-        "patientIntermediate": "Coastal Rescue Stations",
+        "patientIntermediate": "Rajavartioasemat",
         "prisoner": "Sellit",
-        "prisonerIntermediate": "Coastal Rescue Stations"
+        "prisonerIntermediate": "Rajavartioasemat"
     },
     "tax": "vero",
     "trailer": {
