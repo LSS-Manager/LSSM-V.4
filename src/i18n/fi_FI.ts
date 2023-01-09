@@ -514,7 +514,6 @@ export default {
             vehicles: {
                 Partioautot: [37],
                 Veneet: [38, 39],
-                Helikopteri: [40, 41],
             },
             color: '#06377b',
         },
