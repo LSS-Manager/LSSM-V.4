@@ -1026,7 +1026,7 @@ export default Vue.extend<
             const directionModifier = { asc: 1, desc: -1 }[this.table.sortDir];
 
             const findSortValue = (
-                item: typeof this.filteredItems[number]
+                item: (typeof this.filteredItems)[number]
             ): number | string => {
                 if (item.id in sortValues) return sortValues[item.id];
                 const sort = this.table.sort;
