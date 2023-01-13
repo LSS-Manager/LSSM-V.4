@@ -505,7 +505,6 @@ export default {
                 VATI: [15, 18],
                 Helikopteri: [14],
                 Liikenne: [33, 34],
-                Tutkinta: [36],
                 Kenttäjohto: [35],
             },
             color: '#06377b',
@@ -514,7 +513,6 @@ export default {
             vehicles: {
                 Partioautot: [37],
                 Veneet: [38, 39],
-                Helikopteri: [40, 41],
             },
             color: '#06377b',
         },
