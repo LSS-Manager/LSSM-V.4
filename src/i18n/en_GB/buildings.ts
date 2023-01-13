@@ -894,7 +894,6 @@ export default {
     30: {
         caption: 'Coastal Rescue Heliport',
         color: '#88ecc4',
-        coins: 25,
         coins: 50,
         credits: 1_000_000,
         extensions: [
