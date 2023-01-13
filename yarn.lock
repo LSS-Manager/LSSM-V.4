@@ -4634,9 +4634,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:9.8.0":
-  version: 9.8.0
-  resolution: "eslint-plugin-vue@npm:9.8.0"
+"eslint-plugin-vue@npm:9.9.0":
+  version: 9.9.0
+  resolution: "eslint-plugin-vue@npm:9.9.0"
   dependencies:
     eslint-utils: ^3.0.0
     natural-compare: ^1.4.0
@@ -4647,7 +4647,7 @@ __metadata:
     xml-name-validator: ^4.0.0
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: f3fc36512fa124a81332e353b161a84dd7b55ae07c69c0e9eabc85d56fdc2940422e1f33172d90af0f7913fc5cd25cfc7dfe025db37311d15a2ba5ea486b7602
+  checksum: 059f9c1915504d074adf64bc3371d1e174f8844088d0e08800c958cbef09d7fdf2a0a949634187231645435a1ef31595c8c81f441000ec43589bb58a1282fe3c
   languageName: node
   linkType: hard
 
@@ -6422,7 +6422,7 @@ __metadata:
     eslint-plugin-regexp: 1.12.0
     eslint-plugin-tsdoc: 0.2.17
     eslint-plugin-unicorn: 45.0.2
-    eslint-plugin-vue: 9.8.0
+    eslint-plugin-vue: 9.9.0
     he: 1.2.0
     highcharts: 10.3.2
     highcharts-vue: 1.4.0
