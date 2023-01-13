@@ -2605,7 +2605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/client@npm:2.0.0-beta.60, @vuepress/client@npm:^2.0.0-beta.51":
+"@vuepress/client@npm:2.0.0-beta.60":
   version: 2.0.0-beta.60
   resolution: "@vuepress/client@npm:2.0.0-beta.60"
   dependencies:
@@ -2617,7 +2617,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/core@npm:2.0.0-beta.60, @vuepress/core@npm:^2.0.0-beta.51":
+"@vuepress/core@npm:2.0.0-beta.60":
   version: 2.0.0-beta.60
   resolution: "@vuepress/core@npm:2.0.0-beta.60"
   dependencies:
@@ -6376,7 +6376,7 @@ __metadata:
     simple-git: 3.15.1
     vue: 3.2.45
     vuepress: 2.0.0-beta.60
-    vuepress-plugin-clipboard: 2.1.4
+    vuepress-plugin-clipboard: 2.1.5
   languageName: unknown
   linkType: soft
 
@@ -9096,7 +9096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.1.5, vue-router@npm:^4.1.6":
+"vue-router@npm:^4.1.6":
   version: 4.1.6
   resolution: "vue-router@npm:4.1.6"
   dependencies:
@@ -9160,7 +9160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.2.45, vue@npm:^3.2.39, vue@npm:^3.2.45":
+"vue@npm:3.2.45, vue@npm:^3.2.45":
   version: 3.2.45
   resolution: "vue@npm:3.2.45"
   dependencies:
@@ -9173,15 +9173,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-clipboard@npm:2.1.4":
-  version: 2.1.4
-  resolution: "vuepress-plugin-clipboard@npm:2.1.4"
+"vuepress-plugin-clipboard@npm:2.1.5":
+  version: 2.1.5
+  resolution: "vuepress-plugin-clipboard@npm:2.1.5"
   dependencies:
-    "@vuepress/client": ^2.0.0-beta.51
-    "@vuepress/core": ^2.0.0-beta.51
-    vue: ^3.2.39
-    vue-router: ^4.1.5
-  checksum: e8429ffecc5367b94cadff194a778bc7b463c546c409c0322befe6171ea77e2c0bfd0fdcca46d1a3959387c4afa5ac2c6fe83c2acd6353416ab7d0bc63a2fab2
+    "@vuepress/client": 2.0.0-beta.60
+    "@vuepress/core": 2.0.0-beta.60
+    vue: ^3.2.45
+    vue-router: ^4.1.6
+  checksum: 508ac72c6e26a7af10946f166f30c21e9ba4de5e3aef878123c60abce96c5716d7434e5f9e9e3d699d7a2bbef2d8289541a5217bdd3204394503f886517be1c4
   languageName: node
   linkType: hard
 
