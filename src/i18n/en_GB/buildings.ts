@@ -863,7 +863,7 @@ export default {
         startPersonnel: 4,
         startVehicles: [''],
         schoolingTypes: ['Water Rescue'],
-        startParkingLots: ,
+        startParkingLots: 1,
         parkingLotsPerLevel: 1,
         icon: 'staff-snake',
     },
