@@ -360,11 +360,12 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(locale === 'de_DE'
             ? {
-                  max_civil_patrol_replace_police_cars: <Toggle>{
-                      type: 'toggle',
-                      default: false,
-                      disabled: () => true,
-                  },
+                  'optionalAlternatives.max_civil_patrol_replacing_police_cars':
+                      <Toggle>{
+                          type: 'toggle',
+                          default: false,
+                          dependsOn: '.vehicles.content',
+                      },
               }
             : null),
         ...(locale === 'nl_NL'
@@ -375,5 +376,12 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
+        'optionalAlternatives.allow_police_motorcycle_instead_of_fustw': <
+            Toggle
+        >{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
     };
 }) as ModuleSettingFunction;
