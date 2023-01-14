@@ -897,19 +897,14 @@ export default Vue.extend<
                                     optionalAlternatives[alt].based_on
                                 )
                             ) {
-                                if (
-                                    !vehicles[
+                                vehicles[
                                         optionalAlternatives[alt].based_on
-                                    ].newline
-                                ) {
-                                    vehicles[
-                                        optionalAlternatives[alt].based_on
-                                    ].newline = '';
-                                } else {
-                                    vehicles[
+                                    ].newline = !vehicles[optionalAlternatives[alt].based_on]
+                                    .newline
+                                    ? '' : vehicles[
                                         optionalAlternatives[alt].based_on
                                     ].newline += ' / ';
-                                }
+
                                 if (missionSpecs.additional[alt] === true) {
                                     if (
                                         missionSpecs.additional
