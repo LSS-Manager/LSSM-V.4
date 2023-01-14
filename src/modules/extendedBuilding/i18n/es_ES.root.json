@@ -51,7 +51,7 @@
             "title": "Filtro de construcción para la selección de cursos"
         },
         "startPatrolsShortcut": {
-                "description": "Un atajo para iniciar patrullas dentro de la ventana principal sin abrir una centralita.",
+            "description": "Un atajo para iniciar patrullas dentro de la ventana principal sin abrir una centralita.",
             "title": "Iniciar patrullas en la ventana principal"
         },
         "upgradeConfirmation": {
