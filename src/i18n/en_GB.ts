@@ -1115,7 +1115,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [0, 18],
-            special: 'Tows the Boat Trailer for the fire service
+            special: 'Tows the Boat Trailer for the fire service',
         },
         74: {
             caption: 'Boat Trailer',
@@ -1125,7 +1125,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Needed towing vehicle (Light 4x4)\n',
+            special: 'Needed towing vehicle (Light 4x4) Fire Service Boat.',
             schooling: {
                 'Water Rescue': {
                     'Lifeguard Training': {
