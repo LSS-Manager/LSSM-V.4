@@ -877,7 +877,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [28],
-            special: '',
+            special: 'Coastguard Response Vehicle. Responds to all calls on land.',
         },
         58: {
             caption: 'Coastguard Mud Rescue Unit',
@@ -887,6 +887,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [28],
+            special: 'Rescues those stuck in mud.',
         },
         59: {
             caption: 'Coastguard Rope Rescue Unit',
@@ -912,6 +913,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [28],
+            special: 'Takes Command of all coastguard related incidents.',
             schooling: {
                 'Water Rescue': {
                     'Coastal Command Training': {
@@ -929,7 +931,7 @@ export default {
             maxPersonnel: 0,
             possibleBuildings: [27, 28],
             special:
-                'Needed towing vehicle (CRV, Coastguard Commander, Coastguard Mud Rescue Unit, Coastguard Rope Rescue Unit, Support Unit, 4x4 Vehicle)',
+                'Needed towing vehicle (CRV, Coastguard Commander, Coastguard Mud Rescue Unit, Coastguard Rope Rescue Unit, Support Unit, 4x4 Vehicle). Helps to deal with flooding.',
             schooling: {
                 'Water Rescue': {
                     'Flood First Responder Training': {
@@ -946,7 +948,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [28],
-            special: 'Needed towing vehicle (Coastguard Mud Rescue Unit)',
+            special: 'Needed towing vehicle (Coastguard Mud Rescue Unit). Decontaiminates Hazardous Mud',
             schooling: {
                 'Water Rescue': {
                     'Mud Rescue Training': {
@@ -963,6 +965,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 8,
             possibleBuildings: [28],
+            special: 'Provides extra coastguard staff to a incident.',
         },
         64: {
             caption: 'Coastguard Rescue Helicopter',
@@ -972,6 +975,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 4,
             possibleBuildings: [30],
+            special: 'Can Transport More Paitents to hospital then a Air Ambulance',
             schooling: {
                 'Water Rescue': {
                     'Coastal Air Rescue Operarations Training': {
@@ -988,6 +992,7 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             possibleBuildings: [30],
+            special: 'Can Transport even more paitents to hospital then the Small One',
             schooling: {
                 'Water Rescue': {
                     'Coastal Air Rescue Operarations Training': {
@@ -1004,6 +1009,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [27],
+            special: 'Transports Lifeguards by road.'
         },
         67: {
             caption: 'Inland Rescue Boat (Trailer)',
@@ -1013,7 +1019,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [27],
-            special: 'Needed towing vehicle (4x4 Vehicle)',
+            special: 'Needed towing vehicle (4x4 Vehicle). Small Boat run by lifeguards for inland water rescue needs',
             schooling: {
                 'Water Rescue': {
                     'Lifeguard Training': {
@@ -1030,6 +1036,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 4,
             possibleBuildings: [27],
+            special: 'Inshore Lifeboat, Helps those not to far away form the coast line',
             schooling: {
                 'Water Rescue': {
                     'Lifeboat Operations Training': {
@@ -1046,6 +1053,7 @@ export default {
             minPersonnel: 5,
             maxPersonnel: 7,
             possibleBuildings: [27],
+            special: 'All Weather Lifeboat, Helps everyone stuck in the sea in all weather.',
             schooling: {
                 'Water Rescue': {
                     'Lifeboat Operations Training': {
@@ -1062,7 +1070,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [27],
-            special: 'Needed towing vehicle (4x4 Vehicle)',
+            special: 'Needed towing vehicle (4x4 Vehicle). Jetski helps those who are drowning at the beach',
             schooling: {
                 'Water Rescue': {
                     'Jet Ski Handling': {
@@ -1080,7 +1088,7 @@ export default {
             maxPersonnel: 0,
             possibleBuildings: [27],
             special:
-                'Needed towing vehicle (Hovercraft Transporter),Requires 3 people with special education in towing vehicle (Hovercraft Commander Training)',
+                'Needed towing vehicle (Hovercraft Transporter), Requires 3 people with special education in towing vehicle (Hovercraft Commander Training). Another type of boat for incidents closer to the shore line.',
         },
         72: {
             caption: 'Hovercraft Transporter',
@@ -1090,6 +1098,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [27],
+            special: 'Transports Hovercraft trailer to incidents.',
             schooling: {
                 'Water Rescue': {
                     'Hovercraft Commander Training': {
@@ -1106,6 +1115,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [0, 18],
+            special: 'Tows the Boat Trailer for the fire service',
         },
         74: {
             caption: 'Boat Trailer',
@@ -1115,7 +1125,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special: 'Needed towing vehicle (Light 4x4)\n',
+            special: 'Needed towing vehicle (Light 4x4) Fire Service Boat.',
             schooling: {
                 'Water Rescue': {
                     'Lifeguard Training': {
@@ -1181,13 +1191,12 @@ export default {
             },
             color: '#00ac00',
         },
-        'Water Rescue Vehicles': {
+        'Search & Rescue': {
             vehicles: {
-                'Coast Guard': [
-                    57, 58, 59, 60, 62, 63, 66, 67, 68, 69, 70, 71, 72,
-                ],
+                'Coastguard': [57, 58, 59, 60, 62, 63],
                 'Flood': [61],
-                'Helicopter': [64, 65],
+                'Coastguard Helicopter': [64, 65],
+                'Lifeguard': [66, 67, 68, 69, 70, 71, 72],
             },
             color: '#88ecc4',
         },
