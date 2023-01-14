@@ -869,6 +869,264 @@ export default {
             special:
                 'Acts as a Incident Response Vehicle and a Armed Response Vehicle. This is a armoured vehicle transporting 6 firearms officers.',
         },
+        57: {
+            caption: 'CRV',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 1,
+            maxPersonnel: 5,
+            possibleBuildings: [28],
+            special:
+                '',
+        },
+        58: {
+            caption: 'Coastguard Mud Rescue Unit',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 1,
+            maxPersonnel: 5,
+            possibleBuildings: [28],
+        },
+        59: {
+            caption: 'Coastguard Rope Rescue Unit',
+            color: '#88ecc4',
+            coins: 20,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 5,
+            possibleBuildings: [28],
+            schooling: {
+                'Water Rescue': {
+                    'Rope Rescue Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        60: {
+            caption: 'Coastguard Commander',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 5,
+            possibleBuildings: [28],
+            schooling: {
+                'Water Rescue': {
+                    'Coastal Command Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        61: {
+            caption: 'Flood Rescue Unit (Trailer)',
+            color: '#88ecc4',
+            coins: 20,
+            credits: 35_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [27, 28],
+            special:
+                'Needed towing vehicle (CRV, Coastguard Commander, Coastguard Mud Rescue Unit, Coastguard Rope Rescue Unit, Support Unit, 4x4 Vehicle)',
+            schooling: {
+                'Water Rescue': {
+                    'Flood First Responder Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        62: {
+            caption: 'Mud Decontamination Unit',
+            color: '#88ecc4',
+            coins: 20,
+            credits: 35_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [28],
+            special:
+                'Needed towing vehicle (Coastguard Mud Rescue Unit)',
+            schooling: {
+                'Water Rescue': {
+                    'Mud Rescue Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        63: {
+            caption: 'Support Unit',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 8,
+            possibleBuildings: [28],
+        },
+        64: {
+            caption: 'Coastguard Rescue Helicopter',
+            color: '#88ecc4',
+            coins: 30,
+            credits: 300_000,
+            minPersonnel: 4,
+            maxPersonnel: 4,
+            possibleBuildings: [30],
+            schooling: {
+                'Water Rescue': {
+                    'Coastal Air Rescue Operarations Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        65: {
+            caption: 'Coastguard Rescue Helicopter (Large)',
+            color: '#88ecc4',
+            coins: 35,
+            credits: 500_000,
+            minPersonnel: 6,
+            maxPersonnel: 6,
+            possibleBuildings: [30],
+            schooling: {
+                'Water Rescue': {
+                    'Coastal Air Rescue Operarations Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        66: {
+            caption: '4x4 Vehicle',
+            color: '#88ecc4',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [27],
+        },
+        67: {
+            caption: 'Inland Rescue Boat (Trailer)',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [27],
+            special:
+                'Needed towing vehicle (4x4 Vehicle)',
+            schooling: {
+                'Water Rescue': {
+                    'Lifeguard Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        68: {
+            caption: 'ILB',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 3,
+            maxPersonnel: 4,
+            possibleBuildings: [27],
+            schooling: {
+                'Water Rescue': {
+                    'Lifeboat Operations Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        69: {
+            caption: 'ALB',
+            color: '#88ecc4',
+            coins: 25,
+            credits: 40_000,
+            minPersonnel: 5,
+            maxPersonnel: 7,
+            possibleBuildings: [27],
+            schooling: {
+                'Water Rescue': {
+                    'Lifeboat Operations Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        70: {
+            caption: 'Rescue Watercraft (Trailer)',
+            color: '#88ecc4',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [27],
+            special: 'Needed towing vehicle (4x4 Vehicle)',
+            schooling: {
+                'Water Rescue': {
+                    'Jet Ski Handling': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        71: {
+            caption: 'Hovercraft (Trailer)',
+            color: '#88ecc4',
+            coins: 20,
+            credits: 35_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [27],
+            special: 'Needed towing vehicle (Hovercraft Transporter),Requires 3 people with special education in towing vehicle (Hovercraft Commander Training)',
+        },
+        72: {
+            caption: 'Hovercraft Transporter',
+            color: '#88ecc4',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            possibleBuildings: [27],
+            schooling: {
+                'Water Rescue': {
+                    'Hovercraft Commander Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        73: {
+            caption: 'Light 4x4',
+            color: '#88ecc4',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [0, 18],
+        },
+        74: {
+            caption: 'Boat Trailer',
+            color: '#88ecc4',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0, 18],
+            special:
+                'Needed towing vehicle (Light 4x4)\n',
+            schooling: {
+                'Water Rescue': {
+                    'Lifeguard Training': {
+                        all: true,
+                    },
+                },
+            },
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -882,6 +1140,10 @@ export default {
         'Police Stations': {
             buildings: [6, 8, 13, 19, 26],
             color: '#00ac00',
+        },
+        'Water Rescue': {
+            buildings: [27, 28, 29, 30],
+            color: '#88ecc4'
         },
         'Other': {
             buildings: [7, 4, 14, 22, 23, 24],
@@ -898,6 +1160,7 @@ export default {
                     40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
                 ],
                 'Foam Vehicles': [35, 36, 37, 38],
+                'Water Rescue': [73, 74],
             },
             color: '#ff2d2d',
         },
@@ -920,6 +1183,14 @@ export default {
                 'Public Order': [51, 52, 53, 54, 55],
             },
             color: '#00ac00',
+        },
+        'Water Rescue Vehicles': {
+            vehicles: {
+                'Coast Guard': [57, 58, 59, 60, 62, 63, 66, 67, 68, 69, 70, 71, 72],
+                'Flood': [61],
+                'Helicopter': [64, 65],
+            },
+            color: '#88ecc4',
         },
     },
     small_buildings: {
@@ -1041,6 +1312,44 @@ export default {
                 staffList: 'Ambulance Officer',
             },
         ],
+        'Water Rescue': [
+            {
+                caption: 'Coastal Air Rescue Operarations Training',
+                duration: '5 Days',
+            },
+            {
+                caption: 'Coastal Command Training',
+                duration: '5 Days',
+            },
+            {
+                caption: 'Mud Rescue Training',
+                duration: '3 Days',
+            },
+            {
+                caption: 'Lifeboat Operations Training',
+                duration: '5 Days',
+            },
+            {
+                caption: 'Rope Rescue Training',
+                duration: '3 Days',
+            },
+            {
+                caption: 'Flood First Responder Training',
+                duration: '3 Days',
+            },
+            {
+                caption: 'Lifeguard Training',
+                duration: '3 Days',
+            },
+            {
+                caption: 'Jet Ski Handling',
+                duration: '3 Days',
+            },
+            {
+                caption: 'Hovercraft Commander Training',
+                duration: '3 Days',
+            },
+        ],
     },
     amount: 'Quantity',
     search: 'Search',
@@ -1154,6 +1463,11 @@ export default {
         'Prison',
         'Fire Station',
         'Library',
+        'Estuary',
+        'Harbour',
+        'Beach',
+        'Cliff',
+        'Radio Site',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],
