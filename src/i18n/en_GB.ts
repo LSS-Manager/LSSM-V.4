@@ -877,7 +877,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [28],
-            special: 'Coastguard Response Vehicle. Responds to all calls on land.',
+            special:
+                'Coastguard Response Vehicle. Responds to all calls on land.',
         },
         58: {
             caption: 'Coastguard Mud Rescue Unit',
@@ -948,7 +949,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [28],
-            special: 'Needed towing vehicle (Coastguard Mud Rescue Unit). Decontaiminates Hazardous Mud',
+            special:
+                'Needed towing vehicle (Coastguard Mud Rescue Unit). Decontaiminates Hazardous Mud',
             schooling: {
                 'Water Rescue': {
                     'Mud Rescue Training': {
@@ -975,7 +977,8 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 4,
             possibleBuildings: [30],
-            special: 'Can Transport More Paitents to hospital then a Air Ambulance',
+            special:
+                'Can Transport More Paitents to hospital then a Air Ambulance',
             schooling: {
                 'Water Rescue': {
                     'Coastal Air Rescue Operarations Training': {
@@ -992,7 +995,8 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             possibleBuildings: [30],
-            special: 'Can Transport even more paitents to hospital then the Small One',
+            special:
+                'Can Transport even more paitents to hospital then the Small One',
             schooling: {
                 'Water Rescue': {
                     'Coastal Air Rescue Operarations Training': {
@@ -1009,7 +1013,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             possibleBuildings: [27],
-            special: 'Transports Lifeguards by road.'
+            special: 'Transports Lifeguards by road.',
         },
         67: {
             caption: 'Inland Rescue Boat (Trailer)',
@@ -1019,7 +1023,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [27],
-            special: 'Needed towing vehicle (4x4 Vehicle). Small Boat run by lifeguards for inland water rescue needs',
+            special:
+                'Needed towing vehicle (4x4 Vehicle). Small Boat run by lifeguards for inland water rescue needs',
             schooling: {
                 'Water Rescue': {
                     'Lifeguard Training': {
@@ -1036,7 +1041,8 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 4,
             possibleBuildings: [27],
-            special: 'Inshore Lifeboat, Helps those not to far away form the coast line',
+            special:
+                'Inshore Lifeboat, Helps those not to far away form the coast line',
             schooling: {
                 'Water Rescue': {
                     'Lifeboat Operations Training': {
@@ -1053,7 +1059,8 @@ export default {
             minPersonnel: 5,
             maxPersonnel: 7,
             possibleBuildings: [27],
-            special: 'All Weather Lifeboat, Helps everyone stuck in the sea in all weather.',
+            special:
+                'All Weather Lifeboat, Helps everyone stuck in the sea in all weather.',
             schooling: {
                 'Water Rescue': {
                     'Lifeboat Operations Training': {
@@ -1070,7 +1077,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [27],
-            special: 'Needed towing vehicle (4x4 Vehicle). Jetski helps those who are drowning at the beach',
+            special:
+                'Needed towing vehicle (4x4 Vehicle). Jetski helps those who are drowning at the beach',
             schooling: {
                 'Water Rescue': {
                     'Jet Ski Handling': {
