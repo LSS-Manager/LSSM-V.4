@@ -1085,7 +1085,7 @@ export default {
             special: 'Needed towing vehicle (Hovercraft Transporter),Requires 3 people with special education in towing vehicle (Hovercraft Commander Training)',
         },
         72: {
-            caption: 'Detention Van',
+            caption: 'Hovercraft Transporter',
             color: '#88ecc4',
             coins: 10,
             credits: 10_000,
