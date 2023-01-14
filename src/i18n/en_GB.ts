@@ -877,8 +877,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [28],
-            special:
-                '',
+            special: '',
         },
         58: {
             caption: 'Coastguard Mud Rescue Unit',
@@ -947,8 +946,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [28],
-            special:
-                'Needed towing vehicle (Coastguard Mud Rescue Unit)',
+            special: 'Needed towing vehicle (Coastguard Mud Rescue Unit)',
             schooling: {
                 'Water Rescue': {
                     'Mud Rescue Training': {
@@ -1015,8 +1013,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [27],
-            special:
-                'Needed towing vehicle (4x4 Vehicle)',
+            special: 'Needed towing vehicle (4x4 Vehicle)',
             schooling: {
                 'Water Rescue': {
                     'Lifeguard Training': {
@@ -1082,7 +1079,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [27],
-            special: 'Needed towing vehicle (Hovercraft Transporter),Requires 3 people with special education in towing vehicle (Hovercraft Commander Training)',
+            special:
+                'Needed towing vehicle (Hovercraft Transporter),Requires 3 people with special education in towing vehicle (Hovercraft Commander Training)',
         },
         72: {
             caption: 'Hovercraft Transporter',
@@ -1117,8 +1115,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0, 18],
-            special:
-                'Needed towing vehicle (Light 4x4)\n',
+            special: 'Needed towing vehicle (Light 4x4)\n',
             schooling: {
                 'Water Rescue': {
                     'Lifeguard Training': {
@@ -1143,7 +1140,7 @@ export default {
         },
         'Water Rescue': {
             buildings: [27, 28, 29, 30],
-            color: '#88ecc4'
+            color: '#88ecc4',
         },
         'Other': {
             buildings: [7, 4, 14, 22, 23, 24],
@@ -1186,7 +1183,9 @@ export default {
         },
         'Water Rescue Vehicles': {
             vehicles: {
-                'Coast Guard': [57, 58, 59, 60, 62, 63, 66, 67, 68, 69, 70, 71, 72],
+                'Coast Guard': [
+                    57, 58, 59, 60, 62, 63, 66, 67, 68, 69, 70, 71, 72,
+                ],
                 'Flood': [61],
                 'Helicopter': [64, 65],
             },

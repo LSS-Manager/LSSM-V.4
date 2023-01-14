@@ -178,19 +178,64 @@
             { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
             { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] },
             { "texts": ["4x4 Vehicle", "4x4 Vehicles"], "vehicles": [66, 73] },
-            { "texts": ["Coastguard Rope Rescue Unit", "Coastguard Rope Rescue Units"], "vehicles": [59] },
-            { "texts": ["Flood Rescue Unit", "Flood Rescue Units"], "vehicles": [61] },
+            {
+                "texts": [
+                    "Coastguard Rope Rescue Unit",
+                    "Coastguard Rope Rescue Units"
+                ],
+                "vehicles": [59]
+            },
+            {
+                "texts": ["Flood Rescue Unit", "Flood Rescue Units"],
+                "vehicles": [61]
+            },
             { "texts": ["CRV", "CRVs"], "vehicles": [57] },
-            { "texts": ["Coastguard Commander", "Coastguard Commanders"], "vehicles": [60] },
-            { "texts": ["Boat Trailer or Inland Rescue Boat", "Boat Trailers or Inland Rescue Boats"], "vehicles": [67, 74] },
+            {
+                "texts": ["Coastguard Commander", "Coastguard Commanders"],
+                "vehicles": [60]
+            },
+            {
+                "texts": [
+                    "Boat Trailer or Inland Rescue Boat",
+                    "Boat Trailers or Inland Rescue Boats"
+                ],
+                "vehicles": [67, 74]
+            },
             { "texts": ["ILB", "ILBs"], "vehicles": [68] },
-            { "texts": ["Coastguard Rescue Helicopter", "Coastguard Rescue Helicopters"], "vehicles": [64,65] },
+            {
+                "texts": [
+                    "Coastguard Rescue Helicopter",
+                    "Coastguard Rescue Helicopters"
+                ],
+                "vehicles": [64, 65]
+            },
             { "texts": ["ALB", "ALBs"], "vehicles": [69] },
-            { "texts": ["Mud Decontamination Unit", "Mud Decontamination Units"], "vehicles": [62] },
+            {
+                "texts": [
+                    "Mud Decontamination Unit",
+                    "Mud Decontamination Units"
+                ],
+                "vehicles": [62]
+            },
             { "texts": ["Support Unit", "Support Units"], "vehicles": [63] },
-            { "texts": ["Rescue Watercraft (Trailer)", "Rescue Watercraft (Trailers)"], "vehicles": [70] },
-            { "texts": ["Coastguard Mud Rescue Unit", "Coastguard Mud Rescue Units"], "vehicles": [58] },
-            { "texts": ["Hovercraft (trailer)", "hovercrafts (trailer)"], "vehicles": [71] }
+            {
+                "texts": [
+                    "Rescue Watercraft (Trailer)",
+                    "Rescue Watercraft (Trailers)"
+                ],
+                "vehicles": [70]
+            },
+            {
+                "texts": [
+                    "Coastguard Mud Rescue Unit",
+                    "Coastguard Mud Rescue Units"
+                ],
+                "vehicles": [58]
+            },
+            {
+                "texts": ["Hovercraft (trailer)", "hovercrafts (trailer)"],
+                "vehicles": [71]
+            }
         ]
     },
     "hideVehicleList": {

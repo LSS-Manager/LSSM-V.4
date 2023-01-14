@@ -514,7 +514,7 @@ export default {
                     41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
                 ],
                 cannotDisable: true,
-            }
+            },
         ],
         levelcost: [
             '1. 10.000',
@@ -804,7 +804,7 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [71,72],
+                unlocksVehicleTypes: [71, 72],
             },
             {
                 caption: 'Beach Lifeguard',
@@ -849,7 +849,7 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [58,62],
+                unlocksVehicleTypes: [58, 62],
             },
             {
                 caption: 'Flood Rescue',
