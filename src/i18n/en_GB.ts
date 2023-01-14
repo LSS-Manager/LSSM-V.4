@@ -965,7 +965,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 8,
             possibleBuildings: [28],
-            special: 'Provides extra coastguard staff to a incident'.
+            special: 'Provides extra coastguard staff to a incident.',
         },
         64: {
             caption: 'Coastguard Rescue Helicopter',
