@@ -1,18 +1,18 @@
 {
     "description": "Mejora el mapa con algunas características especiales.",
     "mapCSSFilter": {
-        "brightness": "Brightness",
-        "contrast": "Contrast",
-        "grayscale": "Gray filter",
-        "hueRotate": "Hue rotation",
-        "invert": "Invert Colors",
+        "brightness": "Brillo",
+        "contrast": "Contraste",
+        "grayscale": "Filtro gris",
+        "hueRotate": "Rotación de tono",
+        "invert": "Invertir colores",
         "presets": {
-            "dark1": "Dark 1",
-            "dark2": "Dark 2",
-            "dark3": "Dark 3",
-            "gray": "Gray"
+            "dark1": "Oscuro 1",
+            "dark2": "Oscuro 2",
+            "dark3": "Oscuro 3",
+            "gray": "Gris"
         },
-        "saturate": "Saturation",
+        "saturate": "Saturación",
         "sepia": "Sepia"
     },
     "name": "Mejorar mapa",
@@ -24,11 +24,11 @@
     },
     "settings": {
         "buildingComplexes": {
-            "buildings": "Attached buildings",
-            "description": "A Design-Update, that allows merging multiple buildings into one on the map. More settings are available within each complex.",
-            "name": "Name",
-            "position": "Location",
-            "title": "Building complexes"
+            "buildings": "Edificios anexos",
+            "description": "Una actualización de diseño que permite fusionar varios edificios en uno solo en el mapa. Hay más configuraciones disponibles dentro de cada complejo.",
+            "name": "Nombre",
+            "position": "Localización",
+            "title": "Complejos de edificios"
         },
         "centerMap": {
             "description": "Centra el mapa dinámicamente o en una vista estática al abrir el juego",
@@ -44,10 +44,10 @@
             "title": "Mapa central: Modo"
         },
         "mapCSSFilter": {
-            "description": "Customise the map with various CSS filters for image editing. Playing around and trying them out is welcome!",
-            "filterFunction": "CSS Filter",
-            "filterValue": "value",
-            "title": "Map Design (CSS Filter)"
+            "description": "Personaliza el mapa con varios filtros CSS para la edición de imágenes. ¡Jugar y probarlos es bienvenido!",
+            "filterFunction": "Filtros CSS",
+            "filterValue": "Valor",
+            "title": "Diseño de mapas (filtro CSS)"
         },
         "mapScale": {
             "description": "Muestra una escala de mapa y el nivel de zoom actual",

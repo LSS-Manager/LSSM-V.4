@@ -40,8 +40,8 @@ your LSSM team`,
         },
         branch: {
             description:
-                'Choose here between stable, beta or a preview version. Note that preview versions are automatically deleted approx. 7 days after their last update.',
-            title: 'Choose version',
+                'Elija aquí entre una versión estable, beta o de vista previa. Tenga en cuenta que las versiones de vista previa se eliminan automáticamente aprox. 7 días después de su última actualización.',
+            title: 'Elegir una versión',
         },
         iconBg: {
             description: 'Cambiar el fondo de icono de LSSM',
@@ -58,9 +58,9 @@ your LSSM team`,
             title: 'Información sobre herramienta oscura en el mapa',
         },
         debugMode: {
-            title: 'Debug-Mode',
+            title: 'Modo de depuración',
             description:
-                'A small debug mode that displays helpful hints in the browser console. Enabling it is only recommended if requested by the LSSM team, as the console will contain many messages.',
+                'Un pequeño modo de depuración que muestra sugerencias útiles en la consola del navegador. Solo se recomienda habilitarlo si lo solicita el equipo de LSSM, ya que la consola contendrá muchos mensajes.',
         },
     },
 };
