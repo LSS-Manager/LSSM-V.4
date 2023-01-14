@@ -365,7 +365,6 @@ export default ((MODULE_ID, LSSM, $m) => {
                           type: 'toggle',
                           default: false,
                           dependsOn: '.vehicles.content',
-                          //disabled: () => true,
                       },
               }
             : null),
