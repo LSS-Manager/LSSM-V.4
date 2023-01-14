@@ -14,11 +14,11 @@
             "title": "Mayor tiempo de viaje"
         },
         "arrCategoryColors": {
-            "bgColor": "Background color",
-            "category": "Name of the category",
-            "color": "Text color",
-            "description": "Colorize your ARR Categories.",
-            "title": "colorized ARR-Categories"
+            "bgColor": "Color de fondo.",
+            "category": "Nombre de la categoría.",
+            "color": "Color de texto.",
+            "description": "Colorea tus categorías ARR.",
+            "title": "Categorías ARR coloreadas"
         },
         "arrClickHighlight": {
             "description": "Dibuja un borde alrededor de los ARR en los que ya se hizo click.",
@@ -49,19 +49,19 @@
             "title": "Gris ARR no apto"
         },
         "arrSearchClearOnEnter": {
-            "description": "Clears the ARR-search when the Enter key is pressed",
-            "title": "Clear ARR-search"
+            "description": "Borra la búsqueda ARR cuando se presiona la tecla Enter.",
+            "title": "Borrar búsqueda ARR"
         },
         "arrSearchCompactResults": {
-            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
-            "title": "ARR-Search: Compact results"
+            "description": "Las columnas se disuelven y todos los ARR de una categoría se muestran en una sola fila.",
+            "title": "Búsqueda ARR: resultados compactos"
         },
         "arrSearchSelectOnEnter": {
-            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
-            "title": "Select first ARR"
+            "description": "Hace clic en el primer ARR correspondiente a la búsqueda cuando se presiona la tecla enter.",
+            "title": "Seleccionar primer ARR"
         },
         "arrSpecs": {
-            "description": "Muestra las solicitudes almacenadas en el ARR, si permanece con el mouse brevemente sobre un ARR",
+            "description": "Muestra las solicitudes almacenadas en el ARR, si permanece con el mouse brevemente sobre un ARR.",
             "title": " Mostrar detalles de ARR"
         },
         "arrTime": {
@@ -77,7 +77,7 @@
             "title": "Mejorar los vehiculos necesarios"
         },
         "generationDate": {
-            "description": "Se muestra junto a la dirección cuando se generó la misión..",
+            "description": "Se muestra junto a la dirección cuando se generó la misión.",
             "title": "Tiempo generado"
         },
         "hideVehicleList": {
@@ -104,8 +104,8 @@
             "title": "Palabras claves de la misión"
         },
         "moreReleasePatientButtons": {
-            "description": "Displays a patient release button at the top in the vehicle window. Next to each transport button in the mission window.",
-            "title": "More buttons to release patients"
+            "description": "Muestra un botón de liberación del paciente en la parte superior de la ventana del vehículo. Junto a cada botón de transporte en la ventana de la misión.",
+            "title": "Más botones para dar de alta a los pacientes"
         },
         "patientSummary": {
             "description": "Muestra junto al número de pacientes, qué equipo de rescate necesitan en combinación.",
@@ -116,12 +116,12 @@
             "title": "Borde rojo"
         },
         "selectedVehicleCounter": {
-            "description": "Displays in a expandable list how many vehicles of which type are selected.",
-            "title": "Count selected vehicles"
+            "description": "Muestra en una lista expandible cuántos vehículos de qué tipo están seleccionados.",
+            "title": "Contar vehículos seleccionados"
         },
         "selectedVehicleCounterBtnVehicles": {
-            "description": "Displays these vehicle types on the button so you don't have to open the list to see their number.",
-            "title": "Count selected vehicles: Quick counter"
+            "description": "Muestra estos tipos de vehículos en el botón para que no tenga que abrir la lista para ver su número.",
+            "title": "Contar vehículos seleccionados: Contador rápido"
         },
         "stagingAreaSelectedCounter": {
             "description": "Muestra en las áreas de preparación la cantidad de vehículos seleccionados junto a los botones de alarma.",
@@ -160,6 +160,6 @@
             },
             { "name": "Policía", "vehicleTypes": [8, 13, 14, 15, 16, 17] }
         ],
-        "noCustoms": "own vehicle categories excluded"
+        "noCustoms": "Categorías de vehículos propios excluidas"
     }
 }
