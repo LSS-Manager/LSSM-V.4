@@ -16,7 +16,7 @@
                         ></span>
                     </button>
                     <p class="bug-header-title">
-                        <a :href="bug.html_url" target="_blank">{{
+                        <a :href="bug?.html_url" target="_blank">{{
                             bug.title
                         }}</a>
                     </p>
@@ -46,8 +46,8 @@
                         getRelativeTime(new Date(bug.created_at))
                     }}</span>
                     by
-                    <a :href="bug.user.html_url" target="_blank">{{
-                        bug.user.login
+                    <a :href="bug.user?.html_url" target="_blank">{{
+                        bug.user?.login
                     }}</a>
 
                     <span class="bug-labels">
@@ -108,10 +108,10 @@ const rtf = new Intl.RelativeTimeFormat('en', {
 const getRelativeTime = (d1, d2 = new Date()) => {
     const elapsed = d1.getTime() - d2.getTime();
 
-    // "Math.abs" accounts for both "past" & "future" scenarios
     for (const unit in units) {
+        // "Math.abs" accounts for both "past" & "future" scenarios
         if (Math.abs(elapsed) > units[unit] || unit === 'second')
-            return rtf.format(Math.round(elapsed / units[unit]), unit);
+            return rtf.format(Math.round(elapsed / units[unit]) || 0, unit);
     }
     return elapsed.toLocaleString();
 };

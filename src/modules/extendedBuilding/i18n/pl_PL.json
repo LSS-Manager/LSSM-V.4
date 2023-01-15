@@ -8,7 +8,9 @@
         "additional": "Wartości w nawiasach wykluczają pojazdy o statusie 6.",
         "demand": "Wymagany personel"
     },
-    "renewAllStagingAreas": { "title": "Reset all staging areas" },
+    "renewAllStagingAreas": {
+        "title": "Zresetuj wszystkie obszary tymczasowe"
+    },
     "schoolingSummary": {
         "all": "Wszystkie kombinacje",
         "amount": "Ilość",

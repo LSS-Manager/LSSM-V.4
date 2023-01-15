@@ -109,7 +109,7 @@ Voici quelques informations et statistiques plus ou moins intéressantes sur LSS
 
 ### Commits et changements
 
-<stats-commits/>
+<stats-git/>
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr
 

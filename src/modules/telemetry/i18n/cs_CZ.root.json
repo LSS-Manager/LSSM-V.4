@@ -1,0 +1,27 @@
+{
+    "browsersupport": {
+        "close": "Skrýt nápovědu",
+        "faqAnchor": "in-which-browsers-does-lss-manager-work",
+        "not": {
+            "text": "Vážený uživateli LSS-Managera,<br>bohužel podpora LSSM pro Váš aktuální prohlížeč <b>{name}</b> není oficiální! To znamená, že není garantován správný chod všech funkcí. Seznam podporovaných prohlížečů naleznete na  naší <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> a v následující tabulce:",
+            "title": "Prohlížeč není podporován"
+        },
+        "old": {
+            "text": "Vypadá to, že nemáte aktualizovaný prohlížeč! Aktuálně využíváte <b>{name} {current}</b>, ale poslední verze je <b>{name} {latest}</b>! Prosím berte na vědomí, že LSS-Manager může využívat tento prohlížeč od verze <b>{supported}</b> supports.<br> Důvodem je bezpečnost a správná kompatibilita. Doporučujeme držet prohlížeč stále aktualizovaný!<br>Poslední verzi Vašeho prohlížeče můžete stáhnout <a href='{download}' target='_blank'>zde</a>.<br> Seznam podporovaných prohlížečů naleznete na  naší <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a> a v následující tabulce:",
+            "title": "Neaktualizovaný prohlížeč"
+        },
+        "table": {
+            "browser": "Prohlížeč",
+            "download": "Stáhnout",
+            "latest": "Poslední verze",
+            "min": "Minimální verze"
+        }
+    },
+    "info": {
+        "close": "Nezobrazovat znovu tuto poznámku",
+        "decline": "Zakázat sbírání dat",
+        "text": "LSS Manager sbírá metadata popsaná na <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br> Kdykoli můžete svůj souhlas zrušit.",
+        "title": "Informace o sbírání dat"
+    },
+    "name": "Telemetrie"
+}

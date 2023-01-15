@@ -158,8 +158,18 @@
             "allow_ktw_instead_of_rtw": {
                 "ambulances": "RTW oder KTW oder KTW Typ B"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "additional_text": "davon max. {n} Motorrad |  davon max. {n} Motorräder",
+                "based_on": "police_cars",
+                "line_break": true
+            },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
+            },
+            "max_civil_patrol_replacing_police_cars": {
+                "additional_text": "davon max. {n} Zivilstreifenwagen",
+                "based_on": "police_cars",
+                "line_break": true
             }
         },
         "patient_additionals": { "5": "LNA", "10": "OrgL" },

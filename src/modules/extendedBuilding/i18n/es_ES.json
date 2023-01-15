@@ -8,7 +8,9 @@
         "additional": "Los valores entre paréntesis excluyen los vehículos en el estado 6.",
         "demand": "Personal requerido"
     },
-    "renewAllStagingAreas": { "title": "Reset all staging areas" },
+    "renewAllStagingAreas": {
+        "title": "Restablecer todas las áreas de preparación"
+    },
     "schoolingSummary": {
         "all": "Todas las combinaciones",
         "amount": "Cantidad",
@@ -20,7 +22,7 @@
         "schooling": "Cursos",
         "title": "Resumen del personal"
     },
-    "startPatrols": { "duration": "1 hour | {n} hours", "title": "Patrols" },
+    "startPatrols": { "duration": "1 hora | {n} horas", "title": "Patrullas" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Cancelar",

@@ -19,7 +19,7 @@ Wie in der Erklärung zum [Appstore][docs.appstore] beschrieben, gibt es Module 
 ## LSSM V.3 vs. LSSM V.4
 
 Im Folgenden haben wir dir eine kleine Auflistung der Features der V.3 aufgelistet und wo du diese in der V.4 findest.
-Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 integrieren!
+Grundsätzlich möchten wir mit der Zeit fast alle Funktionen der V.3 in die V.4 integrieren! Dies kostet jedoch viel Zeit und Arbeit und kann dementsprechend noch lange brauchen.
 
 <v3-v4-comparison-integrated/>
 

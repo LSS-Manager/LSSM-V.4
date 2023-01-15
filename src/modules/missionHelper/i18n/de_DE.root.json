@@ -81,10 +81,6 @@
             "description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
             "title": "Optionale Diensthunde"
         },
-        "max_civil_patrol_replace_police_cars": {
-            "description": "Zeigt an, wieviele Zivilstreifenwagen, Funkstreifenwagen ersetzen können",
-            "title": "Anzeige ob FuStW ersetzt werden können"
-        },
         "multifunctionals": {
             "battalion_chief_vehicles": {
                 "description": "Zieht die Zahl der benötigten ELW 2 von den ELW 1 ab und blendet ELW 1 aus, falls die Anzahl unter 0 sinkt.",
@@ -116,9 +112,17 @@
                 "description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
                 "title": "KTW statt RTW"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "description": "Zeigt an, wieviele Polizeimotorräder Funkstreifenwagen ersetzen können",
+                "title": "FuStW mit Polizeimotorräder ersetzen"
+            },
             "allow_rw_instead_of_lf": {
                 "description": "Zeigt an, wenn statt eines LF auch Rüstwagen oder GKW am Einsatzort möglich sind.",
                 "title": "RW / GKW statt LF anzeigen"
+            },
+            "max_civil_patrol_replacing_police_cars": {
+                "description": "Zeigt an, wieviele Zivilstreifenwagen Funkstreifenwagen ersetzen können",
+                "title": "FuStW mit Zivilstreifenwagen ersetzen"
             }
         },
         "patients": {

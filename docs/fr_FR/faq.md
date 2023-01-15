@@ -10,7 +10,7 @@ sidebarDepth: 3
 LSS-Manager est une offre gratuite - nous n'avons pas l'intention de changer cela.
 Même s'il apporte certainement une valeur ajoutée, il n'y a pas de TVA sur ce produit :wink:
 
-Vous souhaitez quand même nous soutenir financièrement ? Alors vous pouvez nous envoyer un don via [OpenCollective][donate]. Nous sommes heureux de tout soutien !
+Vous souhaitez quand même nous soutenir financièrement ? Alors vous pouvez nous envoyer un don via [OpenCollective][lssm.donations]. Nous sommes heureux de tout soutien !
 
 :::warning Dons
 Tous les dons seront uniquement utilisés pour couvrir nos frais de fonctionnement. Nous n'avons pas l'intention de faire des bénéfices et nous ne les distribuerons pas.
@@ -21,18 +21,18 @@ Bien sûr, nous sommes heureux de tout don, mais nous tenons à souligner que no
 :::
 
 ## Comment puis-je contribuer à LSS Manager ?
-L'utilisateur "normal" peut [Signaler les bugs][error] ou [faire des suggestions][suggestions].
+L'utilisateur "normal" peut [Signaler les bugs][docs.error_report] ou [faire des suggestions][docs.suggestions].
 
 Nous sommes actuellement en train de concevoir un guide de style pour les développeurs, afin qu'eux aussi puissent facilement ajouter leurs propres plugins à LSSM. Nous avons également essayé de garder notre structure de code claire et compréhensible. Cependant, ajouter un plugin n'implique en aucun cas de rejoindre l'équipe.
 
 ## Comment puis-je signaler des bugs ?
-Veuillez consulter notre page [Signaler les bugs][error].
+Veuillez consulter notre page [Signaler les bugs][docs.error_report].
 
 ## Où puis-je obtenir de l'aide ?
-Par le biais de notre support. Vous pouvez trouver plus d'informations [ici][support].
+Par le biais de notre support. Vous pouvez trouver plus d'informations [ici][docs.support].
 
 ## Comment puis-je soumettre des idées ?
-Sur la page [suggestions][suggestions], nous avons rassemblé quelques informations à ce sujet.
+Sur la page [suggestions][docs.suggestions], nous avons rassemblé quelques informations à ce sujet.
 
 ## Pourquoi mes paramètres et les modules complémentaires activés ne sont-ils pas enregistrés ?
 Cela n'arrive que si la `Base de données indexée` est vidée dans ton navigateur. Tu peux modifier cela quelque part dans les paramètres du navigateur (c'est souvent la même chose que les paramètres des cookies).
@@ -68,7 +68,7 @@ Comment cela fonctionne-t-il ?
 Néanmoins, nous attirons encore une fois explicitement votre attention sur le fait que LSSM n'est pas conçu pour les terminaux mobiles et que notre support est donc très limité, voire inexistant.
 
 ## Je souhaite partager ma configuration avec des amis ou l'utiliser sur plusieurs appareils. Est-ce possible ?
-Oui, c'est possible. Pour cela, il te suffit de cliquer dans les [paramètres][settings] sur `Export` pour télécharger un fichier et `Import` pour importer les paramètres depuis un fichier.
+Oui, c'est possible. Pour cela, il te suffit de cliquer dans les [paramètres][docs.settings] sur `Export` pour télécharger un fichier et `Import` pour importer les paramètres depuis un fichier.
 
 ## Existe-t-il un moyen d'enregistrer les paramètres liés au compte afin de ne pas avoir à les importer sur un autre appareil ?
 Actuellement, nous ne proposons pas cette possibilité, mais une implémentation de cette fonctionnalité est prévue.
@@ -77,12 +77,6 @@ Actuellement, nous ne proposons pas cette possibilité, mais une implémentation
 Le mieux est de le consulter ici : [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Ou dans sur <discord-channel channel="uptime"/> sur notre <discord/>.
-
-[support]: support.md
-[error]: error_report.md
-[suggestions]: suggestions.md
-[settings]: settings.md
-[donate]: https://donate.lss-manager.de/
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

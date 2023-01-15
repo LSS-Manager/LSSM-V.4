@@ -84,7 +84,7 @@ Hier vind je een aantal min of meer intressante feitens en statistieken over LSS
 
 ### Commits & Changes
 
-<stats-commits/>
+<stats-git/>
 
 [Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl
 

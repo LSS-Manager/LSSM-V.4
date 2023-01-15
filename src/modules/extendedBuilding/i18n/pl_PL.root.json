@@ -39,8 +39,8 @@
             "title": "Wymagania dotyczące personelu"
         },
         "renewAllStagingAreas": {
-            "description": "Reset all staging areas with a single click from within every staging area.",
-            "title": "Reset all staging areas"
+            "description": "Zresetuj wszystkie obszary tymczasowe jednym kliknięciem z poziomu dowolnego obszaru tymczasowego.",
+            "title": "Zresetuj wszystkie obszary tymczasowe"
         },
         "schoolingSummary": {
             "description": "Pokazuje ile osób przeszło dane szkolenie na liści pracowników.",

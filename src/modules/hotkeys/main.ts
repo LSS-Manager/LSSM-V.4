@@ -10,7 +10,7 @@ import ingameHotkeys, { breadcrumb } from './assets/ingameHotkeys';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export type RootScope = typeof rootCommandScopes[number];
+export type RootScope = (typeof rootCommandScopes)[number];
 export type RootScopeWithoutAll = Exclude<RootScope, '*'>;
 
 type Commands = Scope<Empty, RootScope[], [], true>;
@@ -181,7 +181,7 @@ export default (async ({ LSSM, $m, getSetting }) => {
     )
         rootScopes.push('mission');
     if (
-        hotkeys.some(({ command }) => command.startsWith('buildings.')) &&
+        hotkeys.some(({ command }) => command.startsWith('building.')) &&
         window.location.pathname.match(/^\/buildings\/\d+\/?/u)
     )
         rootScopes.push('building');

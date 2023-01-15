@@ -37,27 +37,28 @@ jobs:
             #       app_id: ${{ secrets.APP_ID }}
             #       private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
-            - name: Checkout
+            - name: '[📥] checkout'
               id: checkout
               uses: actions/checkout@v3
               with:
                   ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
                   ref: ${{ inputs.ref }}
+                  fetch-depth: 0
             #     token: ${{ steps.generate_token.outputs.token }}
 
-            - name: Get Node and yarn versions
+            - name: '[🔎] get Node and yarn versions'
               id: get_node_yarn_versions
               run: |
                   echo "NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
                   echo "YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')"  >> $GITHUB_ENV
 
-            - name: Setup Node.js
+            - name: '[⬆] setup Node.js'
               id: node
               uses: actions/setup-node@v3
               with:
                   node-version: ${{ env.NODE_VERSION }}
 
-            - name: '[⬆] retrieve current specified yarn version'
+            - name: '[⬆] setup yarn'
               id: yarn_setup
               run: |
                   corepack enable
@@ -68,11 +69,11 @@ jobs:
               run: |
                   echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
 
-            - name: Get yarn cache directory path
+            - name: '[🔎] get yarn cache directory'
               id: yarn_cache_dir
               run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
-            - name: Restore Cache
+            - name: '[💽] restore cache'
               uses: actions/cache@v3
               id: yarn_cache
               with:
@@ -227,7 +228,7 @@ jobs:
                   git_user_signingkey: true
                   git_commit_gpgsign: true
 
-            - name: Push to Git
+            - name: '[📤] push to git'
               id: git_push
               if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
               uses: stefanzweifel/git-auto-commit-action@v4

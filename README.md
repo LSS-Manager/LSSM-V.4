@@ -21,7 +21,7 @@
   <summary>🇩🇪</summary>
 Der LSS-MANAGER V.4 ist eine Erweiterung für das Leitstellenspiel.de und dessen anderssprachige Versionen.
 
-Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll.
+Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll. Der LSSM ist ein Community-Projekt und freut sich über alle, die sich an ihm beteiligen!
 
 ### Wiki
 In unserem [Wiki](https://docs.lss-manager.de/de_DE/) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
@@ -49,7 +49,6 @@ In our [Wiki](https://docs.lss-manager.de/) you can find everything about the in
 ### Support Server
 
 Just click on the banner below to get to our Support Discord Server!
-
 
 [![Our Discord-Server: United Dispatch][Discord Banner]][Discord]
 

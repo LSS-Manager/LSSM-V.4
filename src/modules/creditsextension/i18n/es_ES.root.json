@@ -26,15 +26,15 @@
             "title": "Créditos en lugar de hucha"
         },
         "hideAllianceFunds": {
-            "description": "Do not show information about the alliance funds anymore",
-            "title": "Hide alliance funds"
+            "description": "No mostrar información sobre los fondos de la alianza.",
+            "title": "Ocultar fondos de la alianza"
         },
         "highlightSales": {
             "description": "Destacar monedas verdes si hay una venta disponible",
             "title": "Destacar las ventas de monedas"
         },
         "showAlertProgressBar": {
-            "description": "Shows a progressbar within the navbar to indicate how far you are on your progress to the next alert set in Objetivos",
+            "description": "Muestra una barra de progreso dentro de la barra de navegación para indicar qué tan lejos estás en tu progreso hacia la siguiente alerta configurada en Objetivos",
             "title": "Objetivos progress bar"
         },
         "showSales": {

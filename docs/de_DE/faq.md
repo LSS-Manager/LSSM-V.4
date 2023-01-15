@@ -10,7 +10,7 @@ sidebarDepth: 3
 Der LSS-Manager ist ein kostenloses Angebot - wir haben auch nicht vor, dies zu ändern.
 Auch wenn er sicherlich einen Mehrwert liefert, liegt keine Mehrwertsteuer auf diesem Produkt :wink:
 
-Möchtest du uns trotzdem unterstützen? Dann kannst du uns gerne eine Spende über [OpenCollective][donate] zukommen lassen. Wir freuen uns über jede Unterstützung!
+Möchtest du uns trotzdem unterstützen? Dann kannst du uns gerne eine Spende über [OpenCollective][lssm.donations] zukommen lassen. Wir freuen uns über jede Unterstützung!
 
 :::warning Spenden
 Alle Spenden werden ausschließlich zum Decken der laufenden Kosten verwendet. Wir haben keine Gewinnabsicht und werden auch keine Gewinne ausschütten.
@@ -21,18 +21,18 @@ Selbstverständlich freuen wir uns über jede Spende, wir möchten trotzdem dara
 :::
 
 ## Wie kann ich zum LSS-Manager beitragen?
-Der "normale" Nutzer kann [Fehler melden][error], [Vorschläge einreichen][suggestions] oder [Spenden][donate].
+Der "normale" Nutzer kann [Fehler melden][docs.error_report], [Vorschläge einreichen][docs.suggestions] oder [Spenden][lssm.donations].
 
 Wir gestalten derzeit einen Styleguide für Entwickler, damit auch diese einfach eigene Plugins dem LSSM hinzufügen können. Zudem haben wir versucht, die Code-Struktur übersichtlich und verständlich zu halten. Das Hinzufügen eines Plugins bedeutet jedoch keinen falls eine Aufnahme in das Team.
 
 ## Wie melde ich Fehler?
-Bitte schaue dir unsere Seite [Fehler melden][error] an.
+Bitte schaue dir unsere Seite [Fehler melden][docs.error_report] an.
 
 ## Wo bekomme ich Hilfe?
-Über unseren Support. Nähere Infos dazu gibt es [hier][support].
+Über unseren Support. Nähere Infos dazu gibt es [hier][docs.support].
 
 ## Wie kann ich Vorschläge einreichen?
-Auf der Seite [Vorschläge][suggestions] haben wir dir Informationen darüber zusammengestellt.
+Auf der Seite [Vorschläge][docs.suggestions] haben wir dir Informationen darüber zusammengestellt.
 
 ## Wieso werden meine Einstellungen und aktivierten Add-ons nicht gespeichert?
 Das passiert nur, wenn in deinem Browser die `Indexed DB` geleert wird. Man kann das irgendwo in den Einstellungen des Browsers ändern (ist oft gleich mit den Cookie-Einstellungen).
@@ -69,7 +69,7 @@ Trotzdem weisen wir nochmals explizit darauf hin, dass der LSSM nicht für mobil
 
 
 ## Ich möchte mein Setup an Freunde weitergeben oder es an mehreren Geräten nutzen. Geht das?
-Ja, das geht. Klicke dazu einfach in den [Einstellungen][settings] auf `Export`, um eine Datei herunterzuladen und `Import` um die Einstellungen aus einer Datei zu importieren.
+Ja, das geht. Klicke dazu einfach in den [Einstellungen][docs.settings] auf `Export`, um eine Datei herunterzuladen und `Import` um die Einstellungen aus einer Datei zu importieren.
 
 ## Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
@@ -78,12 +78,6 @@ Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber g
 Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Oder im <discord-channel channel="uptime"/> auf unserem <discord/>
-
-[support]: support.md
-[error]: error_report.md
-[suggestions]: suggestions.md
-[settings]: settings.md
-[donate]: https://donate.lss-manager.de/
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
