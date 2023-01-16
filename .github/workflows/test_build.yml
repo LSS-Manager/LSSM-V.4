@@ -36,7 +36,9 @@ jobs:
                   ./build/build.sh --full --debug
 
     success:
+        needs: [build]
         if: ${{ success() }}
+        name: '[🧪] Success'
         runs-on: ubuntu-latest
         steps:
             - name: '[🥳] Success'
