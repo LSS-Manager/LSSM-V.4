@@ -34,3 +34,10 @@ jobs:
             - name: '[👷] run build script on non-git directory'
               run: |
                   ./build/build.sh --full --debug
+
+    success:
+        if: ${{ success() }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[🥳] Success'
+              run: echo "🥳 Checks passed successfully!"
