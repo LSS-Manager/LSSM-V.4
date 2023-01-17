@@ -260,6 +260,7 @@ export default Vue.extend<
             bedBuildings,
             bedBuildingsType,
             apiStore,
+            translationStore,
         } as BuildingList;
     },
     props: {
