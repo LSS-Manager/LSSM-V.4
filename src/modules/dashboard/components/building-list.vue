@@ -170,6 +170,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
+        const translationStore = useTranslationStore();
         const headingsAll = {
             building_type: { title: this.$m('type') },
             caption: { title: this.$m('caption') },
