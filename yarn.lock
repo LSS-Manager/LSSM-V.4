@@ -2243,10 +2243,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tampermonkey@npm:4.0.6":
-  version: 4.0.6
-  resolution: "@types/tampermonkey@npm:4.0.6"
-  checksum: a17cee99af4c4afb1395b7ba8817d842b723281fab2849631320e1349e9b9e594b953f72f5a810d45f6216c25bf4b4492867251af0d2d2d2f7834755107ba539
+"@types/tampermonkey@npm:4.0.9":
+  version: 4.0.9
+  resolution: "@types/tampermonkey@npm:4.0.9"
+  checksum: 3c5621c3fa5560c04f7a7e40289f37074f96615a22ca9c26746053755505f5086ef15d33a6f84e804d0eceb73256ada9af80aa0c2dc4b0351aeff4916be69a37
   languageName: node
   linkType: hard
 
@@ -6402,7 +6402,7 @@ __metadata:
     "@types/qrcode": 1.5.0
     "@types/semver": 7.3.13
     "@types/showdown": 2.0.0
-    "@types/tampermonkey": 4.0.6
+    "@types/tampermonkey": 4.0.9
     "@types/ua-parser-js": 0.7.36
     "@types/vue-select": 3.16.2
     "@types/webpack-env": 1.18.0
