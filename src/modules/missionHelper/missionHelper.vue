@@ -115,6 +115,11 @@
                     <span v-if="vehicle.percentage">
                         ({{ vehicle.percentage }}%)
                     </span>
+                    <span v-if="vehicle.newline">
+                        <li>
+                            {{ vehicle.newline }}
+                        </li>
+                    </span>
                 </li>
             </ul>
             <h4 v-if="settings.patients.title && showPatients">
@@ -573,6 +578,8 @@ export default Vue.extend<
                     allow_dlk_instead_of_lf: false,
                     allow_drone_instead_of_investigation: false,
                     allow_streifenwagen_instead_of_riot_police_van: false,
+                    allow_police_motorcycle_instead_of_fustw: false,
+                    max_civil_patrol_replacing_police_cars: false,
                 },
                 patients: {
                     code_possible: false,
@@ -596,7 +603,6 @@ export default Vue.extend<
                 k9_only_if_needed: false,
                 bucket_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
-                max_civil_patrol_replace_police_cars: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
                 hoverTip: false,
@@ -830,14 +836,6 @@ export default Vue.extend<
                         vehicleName = 'bike_police_only_if_needed';
                     if (
                         !isMaxReq &&
-                        vehicle === 'civil_patrol' &&
-                        missionSpecs?.additional
-                            .max_civil_patrol_replacing_police_cars &&
-                        this.settings.max_civil_patrol_replace_police_cars
-                    )
-                        vehicleName = 'max_civil_patrol_replace_police_cars';
-                    if (
-                        !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&
                         vehicle === 'battalion_chief_vehicles'
                     )
@@ -882,34 +880,92 @@ export default Vue.extend<
                         })
                 );
             }
+
             if (missionSpecs?.additional) {
                 const optionalAlternatives = this.$m(
                     'vehicles.optional_alternatives'
                 ) as Record<string, Record<string, string>>;
                 Object.keys(optionalAlternatives).forEach(alt => {
-                    if (
-                        !optionalAlternatives[alt].not_customizable &&
-                        !this.settings.optionalAlternatives[alt]
-                    )
-                        return;
-                    if (
-                        missionSpecs?.additional.hasOwnProperty(alt) &&
-                        missionSpecs.additional[alt]
-                    ) {
-                        return Object.keys(optionalAlternatives[alt]).forEach(
-                            rep => {
+                    if (this.settings.optionalAlternatives[alt]) {
+                        if (
+                            missionSpecs?.additional.hasOwnProperty(alt) &&
+                            missionSpecs.additional[alt]
+                        ) {
+                            if (
+                                optionalAlternatives[alt].line_break &&
+                                missionSpecs?.requirements.hasOwnProperty(
+                                    optionalAlternatives[alt].based_on
+                                )
+                            ) {
+                                vehicles[
+                                    optionalAlternatives[alt].based_on
+                                ].newline = !vehicles[
+                                    optionalAlternatives[alt].based_on
+                                ].newline
+                                    ? ''
+                                    : (vehicles[
+                                          optionalAlternatives[alt].based_on
+                                      ].newline += ' / ');
+
+                                if (missionSpecs.additional[alt] === true) {
+                                    if (
+                                        missionSpecs.additional
+                                            .max_possible_prisoners
+                                    ) {
+                                        optionalAlternatives[alt].amount =
+                                            vehicles[
+                                                optionalAlternatives[alt]
+                                                    .based_on
+                                            ].amount -
+                                            missionSpecs.additional
+                                                .max_possible_prisoners;
+                                    } else {
+                                        optionalAlternatives[alt].amount =
+                                            vehicles[
+                                                optionalAlternatives[
+                                                    alt
+                                                ].based_on
+                                            ].amount;
+                                    }
+                                    if (optionalAlternatives[alt].amount > 0) {
+                                        vehicles[
+                                            optionalAlternatives[alt].based_on
+                                        ].newline += this.$mc(
+                                            `vehicles.optional_alternatives.${alt}.additional_text`,
+                                            optionalAlternatives[alt].amount
+                                        ).toString();
+                                        return;
+                                    }
+                                    return;
+                                }
+                                vehicles[
+                                    optionalAlternatives[alt].based_on
+                                ].newline += this.$mc(
+                                    `vehicles.optional_alternatives.${alt}.additional_text`
+                                ).toString();
+                                return;
+                            }
+
+                            return Object.keys(
+                                optionalAlternatives[alt]
+                            ).forEach(rep => {
                                 if (
                                     !missionSpecs?.requirements.hasOwnProperty(
                                         rep
+                                    ) &&
+                                    !missionSpecs?.requirements.hasOwnProperty(
+                                        optionalAlternatives[alt].based_on
                                     )
                                 )
                                     return;
+                                if (rep.length > 1) return;
+
                                 vehicles[rep].caption = this.$mc(
                                     `vehicles.optional_alternatives.${alt}.${rep}`,
                                     vehicles[rep].amount
                                 ).toString();
-                            }
-                        );
+                            });
+                        }
                     }
                 });
             }

@@ -7,8 +7,8 @@
             "title": "Número de edificios del mismo tipo"
         },
         "dispatchCenterBuildingFilter": {
-            "description": "Adds some useful filters to the list of buildings in dispatch centers",
-            "title": "Filter for buildings in dispatch center"
+            "description": "Agrega algunos filtros útiles a la lista de edificios en las centralitas",
+            "title": "Filtro para edificios en centralitas"
         },
         "enhancedPersonnelAssignment": {
             "description": "Te da la oportunidad de esconder personal sin la formación adecuada.",
@@ -39,20 +39,20 @@
             "title": "Requerimientos de personal"
         },
         "renewAllStagingAreas": {
-            "description": "Reset all staging areas with a single click from within every staging area.",
-            "title": "Reset all staging areas"
+            "description": "Restablezca todas las áreas de preparación con un solo clic desde dentro de cada área de preparación.",
+            "title": "Restablecer todas las áreas de preparación"
         },
         "schoolingSummary": {
             "description": "Muestra un resumen general del personal de un edificio de cuántas personas tienen formación(es).",
             "title": "Resumen del personal"
         },
         "schoolsBuildingFilter": {
-            "description": "Useful filters to shorten the building list in the course window",
-            "title": "Building filter for course selection"
+            "description": "Filtros útiles para acortar la lista de edificios en la ventana del curso.",
+            "title": "Filtro de construcción para la selección de cursos"
         },
         "startPatrolsShortcut": {
-            "description": "A shortcut to start patrols within the main window without opening a dispatch center.",
-            "title": "Start patrols in main window"
+            "description": "Un atajo para iniciar patrullas dentro de la ventana principal sin abrir una centralita.",
+            "title": "Iniciar patrullas en la ventana principal"
         },
         "upgradeConfirmation": {
             "description": "Pregunta si realmente desea mejorar su edificio.",

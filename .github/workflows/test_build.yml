@@ -1,0 +1,45 @@
+name: '[🧪] Test build'
+run-name: '[🧪] Test build on `${{ github.ref }}`'
+
+on:
+    push:
+    pull_request:
+
+jobs:
+    build:
+        strategy:
+            matrix:
+                os:
+                    - ubuntu-22.04
+                    - ubuntu-20.04
+                    - macos-12
+                    - macos-11
+        runs-on: ${{ matrix.os }}
+        name: '[🧪] Test Build on ${{ matrix.os }}'
+        steps:
+            - name: '[📥] checkout'
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+
+            - name: '[👷] run build script on git repository'
+              run: |
+                  ./build/build.sh --full --debug
+
+            - name: '[🔥] clean and remove git'
+              run: |
+                  git clean -xdf
+                  rm -rf .git
+
+            - name: '[👷] run build script on non-git directory'
+              run: |
+                  ./build/build.sh --full --debug
+
+    success:
+        needs: [build]
+        if: ${{ success() }}
+        name: '[🧪] Success'
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[🥳] Success'
+              run: echo "🥳 Checks passed successfully!"

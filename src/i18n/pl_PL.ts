@@ -410,7 +410,7 @@ export default {
             color: '#FFFFCC',
             coins: 25,
             credits: 20_000,
-            minPersonnel: 3,
+            minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Ratownictwo - Lekarz',
             shownSchooling: 'Lekarz',

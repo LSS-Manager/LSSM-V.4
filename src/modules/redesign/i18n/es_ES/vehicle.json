@@ -34,9 +34,9 @@
             "tax": "Impuesto máximo"
         },
         "patientIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Distancia máxima",
+            "home": "Casa",
+            "show": "Mostrar x edificios de cada"
         },
         "prisoner": {
             "distance": "Distancia máxima",
@@ -45,9 +45,9 @@
             "tax": "Impuesto máximo"
         },
         "prisonerIntermediate": {
-            "distance": "Maximum Distance",
-            "home": "Home",
-            "show": "Show x buildings of each"
+            "distance": "Distancia máxima",
+            "home": "Casa",
+            "show": "Mostrar x edificios de cada"
         },
         "trailer": { "distance": "Distancia máxima", "same": "Mismo edificio" }
     },
@@ -84,9 +84,9 @@
         "hospital": "Hospital"
     },
     "patientIntermediate": {
-        "caption": "Coastal Rescue Station",
-        "dispatch": "Transport patient",
-        "home": "Home: {building}"
+        "caption": "Estación de Salvamento Costero",
+        "dispatch": "Paciente de transporte",
+        "home": "Casa: {building}"
     },
     "prisoner": {
         "cell": "Edificio",
@@ -94,14 +94,14 @@
         "free": "Celdas libres"
     },
     "prisonerIntermediate": {
-        "dispatch": "Transport prisoner",
-        "distance": "Coastal Rescue Station",
-        "home": "Home: {building}"
+        "dispatch": "Prisionero de transporte",
+        "distance": "Estación de Salvamento Costero",
+        "home": "Casa: {building}"
     },
     "release": {
         "cancel": "Abortar",
         "confirm": "¡Sí, dar de alta!",
-        "disable": "dar de alta y deshabilitar la confirmación",
+        "disable": "Dar de alta y deshabilitar la confirmación",
         "patient": {
             "text": "¿Realmente quiere dar de alta al paciente de este vehículo? ¡Ningún pago será acreditado para el paciente!",
             "title": "Dar de alta al paciente"

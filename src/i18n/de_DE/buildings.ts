@@ -1041,6 +1041,7 @@ export default {
                 requiredExtensions: [0],
                 cannotDisable: true,
             },
+            ...multiplyExtension(null, 8),
             {
                 caption: 'Diensthundestaffel',
                 credits: 100_000,

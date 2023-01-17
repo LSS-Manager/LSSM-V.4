@@ -122,17 +122,17 @@
                                 {{ lightbox.$sm('summary.rate') }}:
                                 <div class="btn-group">
                                     <a
-                                        v-for="rate in 10"
+                                        v-for="rate in 11"
                                         :key="rate"
                                         class="btn btn-xs btn-discount"
                                         :class="`btn-${
-                                            rate === kasse.rate
+                                            rate - 1 === kasse.rate
                                                 ? 'success'
                                                 : 'default'
                                         }`"
-                                        @click="changeRate(rate)"
+                                        @click="changeRate(rate - 1)"
                                     >
-                                        {{ rate }}%
+                                        {{ rate - 1 }}%
                                     </a>
                                 </div>
                             </div>
