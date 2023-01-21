@@ -898,12 +898,14 @@ export default Vue.extend<
                                 )
                             ) {
                                 vehicles[
-                                        optionalAlternatives[alt].based_on
-                                    ].newline = !vehicles[optionalAlternatives[alt].based_on]
-                                    .newline
-                                    ? '' : vehicles[
-                                        optionalAlternatives[alt].based_on
-                                    ].newline += ' / ';
+                                    optionalAlternatives[alt].based_on
+                                ].newline = !vehicles[
+                                    optionalAlternatives[alt].based_on
+                                ].newline
+                                    ? ''
+                                    : (vehicles[
+                                          optionalAlternatives[alt].based_on
+                                      ].newline += ' / ');
 
                                 if (missionSpecs.additional[alt] === true) {
                                     if (
@@ -951,12 +953,9 @@ export default Vue.extend<
                                     !missionSpecs?.requirements.hasOwnProperty(
                                         rep
                                     ) &&
-                                    !missionSpecs?.requirements.hasOwnProperty(
                                         optionalAlternatives[alt].based_on
-                                    )
                                 )
                                     return;
-                                if (rep.length > 1) return;
 
                                 vehicles[rep].caption = this.$mc(
                                     `vehicles.optional_alternatives.${alt}.${rep}`,
@@ -1217,6 +1216,9 @@ export default Vue.extend<
     display: none
     position: absolute
     z-index: 1
+
+li.point-marker
+    margin-left: 12px
 
 .alert
 
