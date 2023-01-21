@@ -118,7 +118,10 @@
                         bedBuildingsType.includes(building.building_type)
                     "
                 >
-                    {{ translationStore.buildings[building.building_type].startBeds + building.level }}
+                    {{
+                        translationStore.buildings[building.building_type]
+                            .startBeds + building.level
+                    }}
                 </td>
                 <td
                     v-if="
@@ -127,7 +130,9 @@
                     "
                 >
                     {{
-                        translationStore.buildings[building.building_type].startBeds + building.level -
+                        translationStore.buildings[building.building_type]
+                            .startBeds +
+                        building.level -
                         building.patient_count
                     }}
                 </td>
