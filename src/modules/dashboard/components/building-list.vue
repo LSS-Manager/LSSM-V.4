@@ -5,6 +5,7 @@
             :head="{
                 ...headingsAll,
                 ...headingsExtensions,
+                ...headingsHospital,
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -111,6 +112,30 @@
                 <td v-if="listType === 'extension'">
                     {{ building.extension_unavailable.toLocaleString() }}
                 </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        bedBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{
+                        translationStore.buildings[building.building_type]
+                            .startBeds + building.level
+                    }}
+                </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        bedBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{
+                        translationStore.buildings[building.building_type]
+                            .startBeds +
+                        building.level -
+                        building.patient_count
+                    }}
+                </td>
             </tr>
         </enhanced-table>
     </lightbox>
@@ -150,6 +175,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
+        const translationStore = useTranslationStore();
         const headingsAll = {
             building_type: { title: this.$m('type') },
             caption: { title: this.$m('caption') },
@@ -169,6 +195,23 @@ export default Vue.extend<
                           title: this.$m('unavailable'),
                           noSort: true,
                       },
+                  }
+                : {}
+        ) as Record<
+            string,
+            {
+                title: string;
+                noSort?: boolean;
+            }
+        >;
+        const headingsHospital = (
+            this.listType === 'building' &&
+            useTranslationStore().bedBuildings.includes(
+                this.buildings[0]?.building_type
+            )
+                ? {
+                      beds: { title: this.$m('beds') },
+                      bedsFree: { title: this.$m('bedsFree') },
                   }
                 : {}
         ) as Record<
@@ -199,6 +242,11 @@ export default Vue.extend<
                 ? 1
                 : 0
         );
+        const bedBuildings: Building[] = [];
+        const bedBuildingsType = useTranslationStore().bedBuildings;
+        bedBuildingsType.forEach(type =>
+            bedBuildings.push(...(buildingsByType[type] ?? []))
+        );
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(useTranslationStore().buildings).map(
@@ -211,9 +259,13 @@ export default Vue.extend<
             faPencilAlt,
             headingsExtensions,
             headingsAll,
+            headingsHospital,
             dispatchBuildings,
             dispatchCenterBuildings,
+            bedBuildings,
+            bedBuildingsType,
             apiStore,
+            translationStore,
         } as BuildingList;
     },
     props: {
