@@ -368,9 +368,6 @@ export default Vue.extend<
         },
     },
     methods: {
-        forEach() {
-            return forEach;
-        },
         $m(key, args) {
             return this.$t(`modules.dashboard.building-list.${key}`, args);
         },
