@@ -87,7 +87,7 @@
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
-        "version": "4.0.6"
+        "version": "4.0.9"
     },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -185,7 +185,7 @@
         "version": "2.27.5"
     },
     "eslint-plugin-jsdoc": {
-        "version": "39.6.4"
+        "version": "39.6.6"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",

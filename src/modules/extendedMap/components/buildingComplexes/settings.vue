@@ -349,6 +349,8 @@ export default Vue.extend<
                             'bereitstellungsraum',
                             'bomb_disposal',
                             'clinic',
+                            'coastal_guard',
+                            'coastal_rescue_heli_port',
                             'commerce_police',
                             'complex',
                             'federal_police',
@@ -387,6 +389,11 @@ export default Vue.extend<
                             'spec_police_station_game_warden',
                             'spec_police_station_water_police',
                             'spec_police_station_riot_police',
+                            'spec_fire_station_airport',
+                            'spec_fire_station_factory_fire_dept',
+                            'spec_fire_station_water_rescue',
+                            'spec_fire_station_fire_support',
+                            'spec_fire_station_forestry',
                         ]
                             .sort()
                             .map(icon => `/images/${icon}.png`)
