@@ -139,7 +139,7 @@
                 <td
                     v-if="
                         listType === 'building' &&
-                        cellBuildings.includes(building.building_type)
+                        cellBuildingsType.includes(building.building_type)
                     "
                 >
                     {{
@@ -168,7 +168,7 @@
                                     ? cells++
                                     : null
                             );
-                            return cells -building.prisoner_count;
+                            return cells - building.prisoner_count;
                         })()
                     }}
                 </td>
