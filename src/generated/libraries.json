@@ -87,7 +87,7 @@
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
-        "version": "4.0.6"
+        "version": "4.0.9"
     },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -105,11 +105,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.48.1"
+        "version": "5.48.2"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.48.1"
+        "version": "5.48.2"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -144,7 +144,7 @@
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
         "url": "https://github.com/pubkey/broadcast-channel#readme",
-        "version": "4.20.1"
+        "version": "4.20.2"
     },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
@@ -167,7 +167,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.31.0"
+        "version": "8.32.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -182,10 +182,10 @@
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
-        "version": "2.27.4"
+        "version": "2.27.5"
     },
     "eslint-plugin-jsdoc": {
-        "version": "39.6.4"
+        "version": "39.6.6"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -267,12 +267,12 @@
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
-        "version": "2.0.28"
+        "version": "2.0.29"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "2.8.2"
+        "version": "2.8.3"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -297,7 +297,7 @@
         "version": "2.1.0"
     },
     "simple-git": {
-        "version": "3.15.1"
+        "version": "3.16.0"
     },
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",

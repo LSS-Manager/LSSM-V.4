@@ -122,7 +122,7 @@
             { "texts": ["Mobile Air"], "vehicles": [6] },
             {
                 "texts": ["Water Tanker", "Water Tankers"],
-                "vehicles": [7, 33, 64, 77, 78]
+                "vehicles": [7, 33, 64, 65, 77, 78]
             },
             {
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
