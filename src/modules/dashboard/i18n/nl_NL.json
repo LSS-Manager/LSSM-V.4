@@ -1,6 +1,8 @@
 {
     "building-list": {
         "actions": "",
+        "beds": "beds",
+        "bedsFree": "free beds",
         "caption": "Naam",
         "current": "Aantal (actief)",
         "fastDispatchChooser": { "noDispatch": "Geen meldkamer" },
