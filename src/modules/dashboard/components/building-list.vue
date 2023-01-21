@@ -143,7 +143,7 @@
                     "
                 >
                     {{
-                        () => {
+                        (() => {
                             let cells = 0;
                             building.extensions.forEach(extension =>
                                 extension && 'newCells' in extension
@@ -151,7 +151,7 @@
                                     : null
                             );
                             return cells;
-                        }
+                        })()
                     }}
                 </td>
                 <td
@@ -161,15 +161,15 @@
                     "
                 >
                     {{
-                        () => {
+                        (() => {
                             let cells = 0;
                             building.extensions.forEach(extension =>
                                 extension && 'newCells' in extension
                                     ? cells++
                                     : null
                             );
-                            return cells - building.prisoner_count;
-                        }
+                            return cells -building.prisoner_count;
+                        })()
                     }}
                 </td>
             </tr>
