@@ -1217,9 +1217,6 @@ export default Vue.extend<
     position: absolute
     z-index: 1
 
-li.point-marker
-    margin-left: 12px
-
 .alert
 
     &.overlay
