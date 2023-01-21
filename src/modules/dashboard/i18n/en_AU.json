@@ -1,9 +1,11 @@
 {
     "building-list": {
         "actions": "",
-        "beds": "beds",
-        "bedsFree": "free beds",
+        "beds": "Beds",
+        "bedsFree": "Free beds",
         "caption": "Name",
+        "cells": "Cells",
+        "cellsFree": "Free cells",
         "current": "Number (active)",
         "fastDispatchChooser": { "noDispatch": "No control center" },
         "type": "Type",

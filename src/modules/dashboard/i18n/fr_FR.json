@@ -4,6 +4,8 @@
         "beds": "beds",
         "bedsFree": "free beds",
         "caption": "Nom",
+        "cells": "Cells",
+        "cellsFree": "Free cells",
         "current": "Nombre (actif)",
         "fastDispatchChooser": { "noDispatch": "Sans CTA" },
         "type": "Type",

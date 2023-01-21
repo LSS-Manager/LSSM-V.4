@@ -4,6 +4,8 @@
         "beds": "beds",
         "bedsFree": "free beds",
         "caption": "Navn",
+        "cells": "Cells",
+        "cellsFree": "Free cells",
         "current": "Number (aktive)",
         "fastDispatchChooser": { "noDispatch": "Ingen kontrollsenter" },
         "type": "Type",

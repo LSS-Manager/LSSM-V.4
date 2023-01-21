@@ -136,6 +136,42 @@
                         building.patient_count
                     }}
                 </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        cellBuildings.includes(building.building_type)
+                    "
+                >
+                    {{
+                        () => {
+                            let cells = 0;
+                            building.extensions.forEach(extension =>
+                                extension && 'newCells' in extension
+                                    ? cells++
+                                    : null
+                            );
+                            return cells;
+                        }
+                    }}
+                </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        cellBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{
+                        () => {
+                            let cells = 0;
+                            building.extensions.forEach(extension =>
+                                extension && 'newCells' in extension
+                                    ? cells++
+                                    : null
+                            );
+                            return cells - building.prisoner_count;
+                        }
+                    }}
+                </td>
             </tr>
         </enhanced-table>
     </lightbox>
@@ -221,6 +257,23 @@ export default Vue.extend<
                 noSort?: boolean;
             }
         >;
+        const headingsCells = (
+            this.listType === 'building' &&
+            useTranslationStore().cellBuildings.includes(
+                this.buildings[0]?.building_type
+            )
+                ? {
+                      cells: { title: this.$m('cells') },
+                      cellsFree: { title: this.$m('cellsFree') },
+                  }
+                : {}
+        ) as Record<
+            string,
+            {
+                title: string;
+                noSort?: boolean;
+            }
+        >;
         const dispatchBuildings = [
             {
                 caption: this.$m('fastDispatchChooser.noDispatch'),
@@ -247,6 +300,11 @@ export default Vue.extend<
         bedBuildingsType.forEach(type =>
             bedBuildings.push(...(buildingsByType[type] ?? []))
         );
+        const cellBuildings: Building[] = [];
+        const cellBuildingsType = useTranslationStore().cellBuildings;
+        cellBuildingsType.forEach(type =>
+            cellBuildings.push(...(buildingsByType[type] ?? []))
+        );
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(useTranslationStore().buildings).map(
@@ -260,10 +318,13 @@ export default Vue.extend<
             headingsExtensions,
             headingsAll,
             headingsHospital,
+            headingsCells,
             dispatchBuildings,
             dispatchCenterBuildings,
             bedBuildings,
             bedBuildingsType,
+            cellBuildings,
+            cellBuildingsType,
             apiStore,
             translationStore,
         } as BuildingList;
@@ -307,6 +368,9 @@ export default Vue.extend<
         },
     },
     methods: {
+        forEach() {
+            return forEach;
+        },
         $m(key, args) {
             return this.$t(`modules.dashboard.building-list.${key}`, args);
         },

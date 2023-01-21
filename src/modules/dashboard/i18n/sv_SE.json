@@ -4,6 +4,8 @@
         "beds": "beds",
         "bedsFree": "free beds",
         "caption": "Namn",
+        "cells": "Cells",
+        "cellsFree": "Free cells",
         "current": "Nummer (aktiv)",
         "fastDispatchChooser": { "noDispatch": "Ingen larmcentral" },
         "type": "Typ",

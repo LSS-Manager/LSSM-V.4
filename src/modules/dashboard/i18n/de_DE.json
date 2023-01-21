@@ -4,6 +4,8 @@
         "beds": "Betten",
         "bedsFree": "Freie Betten",
         "caption": "Name",
+        "cells": "Zellen",
+        "cellsFree": "Freie Zellen",
         "current": "Anzahl (aktiv)",
         "fastDispatchChooser": { "noDispatch": "Keine Leitstelle" },
         "type": "Typ",

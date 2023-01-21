@@ -4,6 +4,8 @@
         "beds": "beds",
         "bedsFree": "free beds",
         "caption": "Naam",
+        "cells": "Cells",
+        "cellsFree": "Free cells",
         "current": "Aantal (actief)",
         "fastDispatchChooser": { "noDispatch": "Geen meldkamer" },
         "type": "Type",
