@@ -145,11 +145,11 @@
                     {{
                         (() => {
                             let cells = 0;
-                            building.extensions.forEach(extension =>
-                                extension && 'newCells' in extension
-                                    ? cells++
-                                    : null
-                            );
+                            building.extensions.forEach(extension => {
+                                if (extension.newCells >= 0) {
+                                    cells++;
+                                }
+                            });
                             return cells;
                         })()
                     }}
@@ -163,12 +163,12 @@
                     {{
                         (() => {
                             let cells = 0;
-                            building.extensions.forEach(extension =>
-                                extension && 'newCells' in extension
-                                    ? cells++
-                                    : null
-                            );
-                            return cells - building.prisoner_count;
+                            building.extensions.forEach(extension => {
+                                if (extension.newCells >= 0) {
+                                    cells++;
+                                }
+                            });
+                            return cells;
                         })()
                     }}
                 </td>
