@@ -118,7 +118,7 @@
                         bedBuildingsType.includes(building.building_type)
                     "
                 >
-                    {{ translationStore.buildings[buildingType].startBeds }}
+                    {{ translationStore.buildings[building.building_type].startBeds }}
                 </td>
                 <td
                     v-if="
@@ -127,7 +127,7 @@
                     "
                 >
                     {{
-                        translationStore.buildings[buildingType].startBeds -
+                        translationStore.buildings[building.building_type].startBeds -
                         building.patient_count
                     }}
                 </td>
