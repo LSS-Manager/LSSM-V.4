@@ -952,13 +952,10 @@ export default Vue.extend<
                                 if (
                                     !missionSpecs?.requirements.hasOwnProperty(
                                         rep
-                                    ) &&
-                                    !missionSpecs?.requirements.hasOwnProperty(
-                                        optionalAlternatives[alt].based_on
-                                    )
+                                    ) ||
+                                    optionalAlternatives[alt].based_on
                                 )
                                     return;
-                                if (rep.length > 1) return;
 
                                 vehicles[rep].caption = this.$mc(
                                     `vehicles.optional_alternatives.${alt}.${rep}`,
