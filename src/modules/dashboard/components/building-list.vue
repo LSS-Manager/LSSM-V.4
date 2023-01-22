@@ -6,6 +6,7 @@
                 ...headingsAll,
                 ...headingsExtensions,
                 ...headingsHospital,
+                ...headingsCells,
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
