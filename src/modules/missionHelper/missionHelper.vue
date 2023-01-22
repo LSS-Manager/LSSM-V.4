@@ -953,7 +953,7 @@ export default Vue.extend<
                                     !missionSpecs?.requirements.hasOwnProperty(
                                         rep
                                     ) ||
-                                        optionalAlternatives[alt].based_on
+                                    optionalAlternatives[alt].based_on
                                 )
                                     return;
 
