@@ -158,18 +158,11 @@
                                 }
                             });
                             let cells = 0;
-                            for (
-                                let i = 0;
-                                i < cellIDsForThisBuilding.length;
-                                i++
-                            ) {
-                                if (
-                                    building.extensions[
-                                        cellIDsForThisBuilding[i]
-                                    ].available
-                                )
+                            cellIDsForThisBuilding.forEach(id => {
+                                if (building.extensions[id]) {
                                     cells++;
-                            }
+                                }
+                            });
                             return cells;
                         })()
                     }}
@@ -195,18 +188,12 @@
                                 }
                             });
                             let cells = 0;
-                            for (
-                                let i = 0;
-                                i < cellIDsForThisBuilding.length;
-                                i++
-                            ) {
-                                if (
-                                    building.extensions[
-                                        cellIDsForThisBuilding[i]
-                                    ].available
-                                )
+                            cellIDsForThisBuilding.forEach(id => {
+                                if (building.extensions[id]) {
                                     cells++;
-                            }
+                                }
+                            });
+
                             return cells - building.prisoner_count;
                         })()
                     }}
