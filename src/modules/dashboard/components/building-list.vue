@@ -145,8 +145,7 @@
                 >
                     {{
                         (() => {
-                            const cellIDsAll =
-                                translationStore.buildings.cellExtensions();
+                            const cellIDsAll = translationStore.cellExtensions;
                             let cellIDsForThisBuilding = [];
                             cellIDsAll.forEach(entry => {
                                 if (
@@ -183,8 +182,7 @@
                 >
                     {{
                         (() => {
-                            const cellIDsAll =
-                                translationStore.buildings.cellExtensions();
+                            const cellIDsAll = translationStore.cellExtensions;
                             let cellIDsForThisBuilding = [];
                             cellIDsAll.forEach(entry => {
                                 if (
