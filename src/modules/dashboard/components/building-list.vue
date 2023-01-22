@@ -145,12 +145,32 @@
                 >
                     {{
                         (() => {
-                            let cells = 0;
-                            building.extensions.forEach(extension => {
-                                if (extension.newCells >= 0) {
-                                    cells++;
+                            const cellIDsAll =
+                                translationStore.buildings.cellExtensions();
+                            let cellIDsForThisBuilding = [];
+                            cellIDsAll.forEach(entry => {
+                                if (
+                                    entry.split('_')[0] ===
+                                    building.building_type
+                                ) {
+                                    cellIDsForThisBuilding.push(
+                                        entry.split('_')[1]
+                                    );
                                 }
                             });
+                            let cells = 0;
+                            for (
+                                let i = 0;
+                                i < cellIDsForThisBuilding.length;
+                                i++
+                            ) {
+                                if (
+                                    building.extensions[
+                                        cellIDsForThisBuilding[i]
+                                    ].available
+                                )
+                                    cells++;
+                            }
                             return cells;
                         })()
                     }}
@@ -163,13 +183,33 @@
                 >
                     {{
                         (() => {
-                            let cells = 0;
-                            building.extensions.forEach(extension => {
-                                if (extension.newCells >= 0) {
-                                    cells++;
+                            const cellIDsAll =
+                                translationStore.buildings.cellExtensions();
+                            let cellIDsForThisBuilding = [];
+                            cellIDsAll.forEach(entry => {
+                                if (
+                                    entry.split('_')[0] ===
+                                    building.building_type
+                                ) {
+                                    cellIDsForThisBuilding.push(
+                                        entry.split('_')[1]
+                                    );
                                 }
                             });
-                            return cells;
+                            let cells = 0;
+                            for (
+                                let i = 0;
+                                i < cellIDsForThisBuilding.length;
+                                i++
+                            ) {
+                                if (
+                                    building.extensions[
+                                        cellIDsForThisBuilding[i]
+                                    ].available
+                                )
+                                    cells++;
+                            }
+                            return cells - building.prisoner_count;
                         })()
                     }}
                 </td>
