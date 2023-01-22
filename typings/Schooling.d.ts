@@ -6,6 +6,7 @@ export interface Schooling {
     caption: string;
     duration: string;
     staffList: string;
+    intern: string;
 
     // general
     [key: string]: string;
