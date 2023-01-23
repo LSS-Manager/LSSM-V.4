@@ -475,7 +475,8 @@ export default {
                 key: 'riot_police_command',
             },
             {
-                caption: 'Educación sobre el equipo de la policía antidisturbios',
+                caption:
+                    'Educación sobre el equipo de la policía antidisturbios',
                 duration: '5 Días',
                 key: 'riot_police_equipment',
             },
