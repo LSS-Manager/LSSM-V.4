@@ -54,7 +54,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [74],
-                requiredExtensions: 3,
+                requiredExtensions: [3],
             },
             {
                 caption: 'Fire Investigation Extension',
