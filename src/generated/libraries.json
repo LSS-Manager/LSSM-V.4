@@ -185,7 +185,7 @@
         "version": "2.27.5"
     },
     "eslint-plugin-jsdoc": {
-        "version": "39.6.6"
+        "version": "39.6.7"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -222,7 +222,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "10.3.2"
+        "version": "10.3.3"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
@@ -322,7 +322,7 @@
     "ua-parser-js": {
         "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
         "url": "https://github.com/faisalman/ua-parser-js",
-        "version": "1.0.32"
+        "version": "1.0.33"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
