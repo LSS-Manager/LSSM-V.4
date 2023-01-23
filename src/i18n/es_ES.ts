@@ -415,23 +415,28 @@ export default {
                 caption: 'Hazmat',
                 duration: '3 Días',
                 staffList: 'Hazmat',
+                key: 'gw_gefahrgut',
             },
             {
                 caption: 'Mando móvil',
                 duration: '5 Días',
                 staffList: 'Mando móvil',
+                key: 'elw2',
             },
             {
                 caption: 'Formación CBA',
                 duration: '3 Días',
+                key: 'arff',
             },
             {
                 caption: 'Rescate acuático rápido',
                 duration: '4 Días',
+                key: 'gw_wasserrettung',
             },
             {
                 caption: 'Navegación en océano',
                 duration: '5 Días',
+                key: 'ocean_navigation',
             },
         ],
         ['Policía']: [
@@ -439,21 +444,55 @@ export default {
                 caption: 'Piloto de Helicóptero',
                 duration: '7 Días',
                 staffList: 'Piloto de Helicóptero',
+                key: 'polizeihubschrauber',
             },
             {
                 caption: 'Fuerzas Especiales',
                 duration: '5 Días',
                 staffList: 'Fuerzas Especiales',
+                key: 'swat',
             },
             {
                 caption: 'Guía Canino',
                 duration: '5 Días',
                 staffList: 'Guía Canino',
+                key: 'k9',
             },
             {
                 caption: 'Motorista',
                 duration: '3 Días',
                 staffList: 'Motorista',
+                key: 'police_motorcycle',
+            },
+            {
+                caption: 'Educación de la policía antidisturbios',
+                duration: '2 Días',
+                key: 'riot_police',
+            },
+            {
+                caption: 'Entrenamiento de mando de policía antidisturbios ',
+                duration: '7 Días',
+                key: 'riot_police_command',
+            },
+            {
+                caption: 'Educación sobre el equipo de la policía antidisturbios',
+                duration: '5 Días',
+                key: 'riot_police_equipment',
+            },
+            {
+                caption: 'Capacitación en operación de cañones de agua',
+                duration: '7 Días',
+                key: 'police_wasserwerfer',
+            },
+            {
+                caption: 'Entrenamiento de líder de equipo de policía',
+                duration: '5 Días',
+                key: 'police_service_group_leader',
+            },
+            {
+                caption: 'Entrenamiento Montado',
+                duration: '4 Días',
+                key: 'police_horse',
             },
         ],
         'Rescate': [
@@ -461,11 +500,13 @@ export default {
                 caption: 'Formación en cuidados intensivos',
                 duration: '5 Días',
                 staffList: 'Formación en cuidados intensivos',
+                key: 'critical_care',
             },
             {
                 caption: 'Motocicleta de intervención rápida',
                 duration: '3 Días',
                 staffList: 'Motocicleta de intervención rápida',
+                key: 'rapid_response_motorcycle',
             },
         ],
     },
