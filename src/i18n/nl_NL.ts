@@ -1199,10 +1199,61 @@ export default {
             icon: 'shuttle-van',
             possibleBuildings: [21],
         },
+        81: {
+            caption: 'DA-RWS | Dienstvoertuig weginspecteur Rijkswaterstaat',
+            color: '#450c0c',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 25_000,
+            coins: 25,
+            schooling: {
+                Brandweer: {
+                    Weginspecteur: {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'truck-moving',
+            possibleBuildings: [22],
+        },
+        82: {
+            caption: 'DM-RWS | Dienstmotor weginspecteur Rijkswaterstaat',
+            color: '#450c0c',
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            credits: 15_000,
+            coins: 15,
+            schooling: {
+                Brandweer: {
+                    Weginspecteur: {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'truck-moving',
+            possibleBuildings: [22],
+        },
+        83: {
+            caption: 'DA-SIG | Signalisatievoertuig',
+            color: '#450c0c',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 25_000,
+            coins: 25,
+            schooling: {
+                Brandweer: {
+                    Weginspecteur: {
+                        all: true,
+                    },
+                },
+            },
+            icon: 'truck-moving',
+            possibleBuildings: [0, 17],
+        },
     },
     buildingCategories: {
         Brandweer: {
-            buildings: [0, 4, 17],
+            buildings: [0, 4, 17, 22],
             color: '#ff2d2d',
         },
         Ambulance: {
@@ -1233,6 +1284,7 @@ export default {
                 'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
                 'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
+                'Signalisatie': [81,82,83],
             },
             color: '#ff2d2d',
         },
@@ -1331,6 +1383,11 @@ export default {
                 caption: 'Waterredding',
                 duration: '3 Dagen',
                 key: 'gw_wasserrettung',
+            },
+            {
+                caption: 'Weginspecteur',
+                duration: '3 Dagen',
+                key: 'technical_aid',
             },
         ],
         Politie: [

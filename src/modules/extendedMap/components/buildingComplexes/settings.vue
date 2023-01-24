@@ -376,6 +376,7 @@ export default Vue.extend<
                             'rettungsschule',
                             'rettungswache',
                             'seg',
+                            'technical_aid',
                             'thw',
                             'thw_school',
                             'wasserwacht',
