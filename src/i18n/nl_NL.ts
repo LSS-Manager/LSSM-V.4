@@ -1284,7 +1284,7 @@ export default {
                 'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
                 'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
-                'Signalisatie': [81,82,83],
+                'Signalisatie': [81, 82, 83],
             },
             color: '#ff2d2d',
         },
