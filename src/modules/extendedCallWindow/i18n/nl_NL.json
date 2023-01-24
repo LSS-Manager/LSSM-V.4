@@ -236,10 +236,8 @@
                 "texts": ["Pompvoertuig", "Pompvoertuigen"],
                 "vehicles": [71, 72]
             },
-            {
-                "texts": ["Coming soon", "Coming soons"],
-                "vehicles": [81, 82, 83]
-            },
+            { "texts": ["Signalisatie Voertuig", "Signalisatie Voertuigen"], "vehicles": [81, 82,83] },
+            { "texts": ["DM-RWS", "DM-RWS"], "vehicles": [82] },
             { "texts": ["KW-boot", "KW-boten"], "vehicles": [77] },
             { "texts": ["Quad", "Quads"], "vehicles": [76] },
             {
