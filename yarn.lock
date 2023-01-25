@@ -1502,13 +1502,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/vue-fontawesome@npm:2.0.9":
-  version: 2.0.9
-  resolution: "@fortawesome/vue-fontawesome@npm:2.0.9"
+"@fortawesome/vue-fontawesome@npm:2.0.10":
+  version: 2.0.10
+  resolution: "@fortawesome/vue-fontawesome@npm:2.0.10"
   peerDependencies:
     "@fortawesome/fontawesome-svg-core": ~1 || ~6
     vue: ~2
-  checksum: 18c35058ebc76472073d225565ce36d1bc80e818b9d586e47eb20cbdcc8cab1bcc80a118e6052f6d7528ae5d23918a4ec9e537db71c5de0255f0cd67db780b37
+  checksum: 9099bce6cfb228f6fe418645ba9369eb9c476fdf3b4d8374b62b590bce6c08d04ea72f3632c5b2411801ce1fe2b9b2bd4bcca83d330c509a440551df1a1dd84a
   languageName: node
   linkType: hard
 
@@ -6389,7 +6389,7 @@ __metadata:
     "@fortawesome/fontawesome-free": 6.2.1
     "@fortawesome/fontawesome-svg-core": 6.2.1
     "@fortawesome/free-solid-svg-icons": 6.2.1
-    "@fortawesome/vue-fontawesome": 2.0.9
+    "@fortawesome/vue-fontawesome": 2.0.10
     "@types/he": 1.1.2
     "@types/i18n-js": 3.8.4
     "@types/jquery": 3.5.16
