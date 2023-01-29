@@ -162,7 +162,7 @@
             { "texts": ["H215", "H215s"], "vehicles": [41] },
             { "texts": ["Do228", "Do228"], "vehicles": [40] }
         ],
-        "water": "litraa vettä"
+        "water": "litraa vettä",
         "foam": "litraa vaahtoa"
     },
     "hideVehicleList": {
