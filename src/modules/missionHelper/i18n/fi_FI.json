@@ -10,6 +10,7 @@
         "police": "Poliisitehtävät",
         "title": "Kategorioiden luominen",
         "traffic_police_specialization": "Liikenneryhmätehtävät (Erikoistuminen)"
+        "coastal_rescue": "Meripelastusoperaatiot"
     },
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
@@ -43,6 +44,7 @@
             "coastal_helicopter": "H215 | H215:sta",
             "coastal_plane": "Do228 | Do228:sia",
             "coastal_rescue": "RVL Partioauto | RVL Partioautoa",
+            "coastal_boat": "RVL Partiovene | RVL Partiovenettä" 
             "firetrucks": "Paloauto | Paloautoa",
             "hazmat_vehicles": "Kemikaalitorjunta-auto | Kemikaalitorjunta-autoa",
             "heavy_rescue_vehicles": "Raskas pelastusauto | Raskasta pelastusautoa",
@@ -58,6 +60,8 @@
             "pump": "Suurtehopumppu | Suurtehopumppua",
             "traffic_car": "VATV-yksikkö | VATV-yksiköä",
             "water_tankers": "Säiliöauto | Säiliöautoa"
+            
+            
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
