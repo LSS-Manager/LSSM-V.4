@@ -58,6 +58,7 @@
     },
     "enhancedMissingVehicles": {
         "driving": "Matkalla",
+        "foam": "litraa vaahtoa",
         "missing": "Tarvitaan",
         "selected": "Valittu",
         "staff": [
@@ -162,8 +163,7 @@
             { "texts": ["H215", "H215s"], "vehicles": [41] },
             { "texts": ["Do228", "Do228"], "vehicles": [40] }
         ],
-        "water": "litraa vettä",
-        "foam": "litraa vaahtoa"
+        "water": "litraa vettä"
     },
     "hideVehicleList": {
         "hide": "Piilota ajoneuvolista",
