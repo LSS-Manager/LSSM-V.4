@@ -115,7 +115,7 @@
             { "texts": ["johtoauto", "johtoautoa"], "vehicles": [3, 11] },
             { "texts": ["Koirapartio", "Koirapartiota"], "vehicles": [16] },
             {
-                "texts": ["johtokeskusauto", "johtokeskusautoa"],
+                "texts": ["johtokeskusauto", "johtokeskusautot"],
                 "vehicles": [11]
             },
             {
@@ -161,7 +161,9 @@
             },
             { "texts": ["H215", "H215s"], "vehicles": [41] },
             { "texts": ["Do228", "Do228"], "vehicles": [40] }
-        ]
+        ],
+        "water": "litraa vettä",
+        "foam": "litraa vaahtoa"
     },
     "hideVehicleList": {
         "hide": "Piilota ajoneuvolista",
