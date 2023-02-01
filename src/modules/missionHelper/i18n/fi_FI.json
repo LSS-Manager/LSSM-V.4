@@ -5,12 +5,13 @@
     "generated_by": "Luonut",
     "mission_categories": {
         "ambulance": "Ensihoitotehtävät",
-        "coastal_rescue": "Meripelastusoperaatiot",
+        "coastal_rescue": "Rannikon pelastusoperaatiot",
         "fire": "Palo- ja pelastustehtävät",
         "fire_support_specialization": "Kemialliset onnettomuudet ja teollisuuspalot",
         "police": "Poliisitehtävät",
         "title": "Kategorioiden luominen",
-        "traffic_police_specialization": "Liikenneryhmätehtävät (Erikoistuminen)"
+        "traffic_police_specialization": "Liikenneryhmätehtävät (Erikoistuminen)",
+        "coastal_rescue_ocean": "Meripelastusoperaatiot"
     },
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
