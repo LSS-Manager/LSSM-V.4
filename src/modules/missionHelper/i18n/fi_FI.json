@@ -6,12 +6,12 @@
     "mission_categories": {
         "ambulance": "Ensihoitotehtävät",
         "coastal_rescue": "Rannikon pelastusoperaatiot",
+        "coastal_rescue_ocean": "Meripelastusoperaatiot",
         "fire": "Palo- ja pelastustehtävät",
         "fire_support_specialization": "Kemialliset onnettomuudet ja teollisuuspalot",
         "police": "Poliisitehtävät",
         "title": "Kategorioiden luominen",
-        "traffic_police_specialization": "Liikenneryhmätehtävät (Erikoistuminen)",
-        "coastal_rescue_ocean": "Meripelastusoperaatiot"
+        "traffic_police_specialization": "Liikenneryhmätehtävät (Erikoistuminen)"
     },
     "patients": {
         "critical_care": "Todennäköisyys, että vaaditaan vaativan hoitotason ambulanssia",
