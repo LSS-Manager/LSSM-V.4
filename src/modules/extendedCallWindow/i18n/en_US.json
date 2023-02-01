@@ -117,7 +117,7 @@
             },
             {
                 "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
-                "vehicles": [4, 8, 18, 21, 28, 61]
+                "vehicles": [4, 8, 18, 21, 28, 61, 67]
             },
             { "texts": ["Mobile Air"], "vehicles": [6] },
             {
