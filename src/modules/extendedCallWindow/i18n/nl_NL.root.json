@@ -49,6 +49,10 @@
             "description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
             "title": "Niet passende inzetvoorstellen grijs"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Toont een zoekbalk boven de inzetvoorstellen om deze te filteren.",
             "title": "Inzetvoorstellen zoeken"

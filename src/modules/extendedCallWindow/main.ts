@@ -221,7 +221,12 @@ export default <ModuleMainFunction>(async ({
     if (await getSetting('arrMatchHighlight')) {
         import(
             /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
-        ).then(({ default: arrMatchHighlight }) => arrMatchHighlight(LSSM));
+        ).then(async ({ default: arrMatchHighlight }) =>
+            arrMatchHighlight(
+                LSSM,
+                await getSetting('arrMatchHighlightAllWords')
+            )
+        );
     }
     if (await getSetting('alarmTime')) {
         import(

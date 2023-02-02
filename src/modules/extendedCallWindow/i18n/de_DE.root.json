@@ -48,6 +48,10 @@
             "description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.",
             "title": "Unpassende AAOs ausgrauen"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Bezieht alle Wörter des Einsatznamens für die Funktion \"Unpassende AAOs ausgrauen\" mit ein.",
+            "title": "Alle Wörter einbeziehen"
+        },
         "arrSearch": {
             "description": "Zeigt ein Suchfeld über den AAOs an, mit dem sich die AAO durchsuchen lässt.",
             "title": "AAO-Suche"
