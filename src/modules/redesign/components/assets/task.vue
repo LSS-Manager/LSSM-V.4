@@ -37,6 +37,13 @@
                 <div v-if="collapsed" class="progress_value">
                     {{ task.progress.toLocaleString() }} /
                     {{ task.total.toLocaleString() }}
+
+                    <font-awesome-icon
+                        v-if="task.hasNextTask"
+                        :icon="faCircleRight"
+                        :title="$sm('nextTask')"
+                        class="pull-right"
+                    ></font-awesome-icon>
                 </div>
             </div>
         </div>
@@ -75,6 +82,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons/faCircleRight';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 
@@ -86,6 +94,7 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
     {
+        faCircleRight: IconDefinition;
         faCompressAlt: IconDefinition;
         faExpandAlt: IconDefinition;
         collapsed: boolean;
@@ -103,6 +112,7 @@ export default Vue.extend<
             localStorage.getItem(collapsedLocalStorageKey) || '[]'
         );
         return {
+            faCircleRight,
             faCompressAlt,
             faExpandAlt,
             collapsed:
@@ -162,4 +172,8 @@ export default Vue.extend<
 
             > *:not(:last-child)
                 margin-right: 1rem
+
+            .progress_value
+                display: flex
+                justify-content: space-between
 </style>
