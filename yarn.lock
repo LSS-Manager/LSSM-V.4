@@ -6460,7 +6460,7 @@ __metadata:
     sass-loader: 13.2.0
     semver: 7.3.8
     showdown: 2.1.0
-    terser: 5.16.2
+    terser: 5.16.3
     ts-loader: 9.4.2
     ts-node: 10.9.1
     typescript: 4.9.5
@@ -8518,21 +8518,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.16.2":
-  version: 5.16.2
-  resolution: "terser@npm:5.16.2"
-  dependencies:
-    "@jridgewell/source-map": ^0.3.2
-    acorn: ^8.5.0
-    commander: ^2.20.0
-    source-map-support: ~0.5.20
-  bin:
-    terser: bin/terser
-  checksum: 58f3ea10ebc931ecd8143a8d9749b4567df891352f1bac992e8ee0e5645327150a16a0d7e0263d947fd648075fea4e42653cbec7ba7a4f2f3e1ff7272889a221
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.0.0, terser@npm:^5.14.1, terser@npm:^5.15.1":
+"terser@npm:5.16.3, terser@npm:^5.0.0, terser@npm:^5.14.1, terser@npm:^5.15.1":
   version: 5.16.3
   resolution: "terser@npm:5.16.3"
   dependencies:
