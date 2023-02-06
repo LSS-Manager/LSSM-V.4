@@ -2073,10 +2073,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/he@npm:1.1.2":
-  version: 1.1.2
-  resolution: "@types/he@npm:1.1.2"
-  checksum: 71e9786c35330a2003a7692d5dc4f70946e4c45486f84d7a5792360c6c234cd34bf53421856de40a2c4bead9c21a805c309d72d012467f46bb2cce0571a9ba08
+"@types/he@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@types/he@npm:1.2.0"
+  checksum: 0110608efe61a8fb710c5a344485d70dab48116e9529d10a3175985ad7a118a2547ffd708349681f3ecdbcd6ae91e63c674b73ed0e4bd2c9a57ca793f538c852
   languageName: node
   linkType: hard
 
@@ -6407,7 +6407,7 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": 6.2.1
     "@fortawesome/free-solid-svg-icons": 6.2.1
     "@fortawesome/vue-fontawesome": 2.0.10
-    "@types/he": 1.1.2
+    "@types/he": 1.2.0
     "@types/i18n-js": 3.8.4
     "@types/jquery": 3.5.16
     "@types/js-yaml": 4.0.5
