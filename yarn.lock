@@ -1799,10 +1799,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdn/browser-compat-data@npm:^4.1.5":
-  version: 4.2.1
-  resolution: "@mdn/browser-compat-data@npm:4.2.1"
-  checksum: 76eaa7dafed154040e769ba6d23f2dcb58e805ed3ccb376a5c4b76326c92643753c20194faed363870800dc3c1af26c107b8562710c8bb37aaee8c5ffe2a89cd
+"@mdn/browser-compat-data@npm:^5.2.34":
+  version: 5.2.34
+  resolution: "@mdn/browser-compat-data@npm:5.2.34"
+  checksum: 9bb69d42750f38bda526931acc6c9b26f8b032be9ff596d671aa8aadcf6be017635bf42418efa45560c07b770ac01c39d43d4974eb58f25dcaf54b220d88b6a2
   languageName: node
   linkType: hard
 
@@ -3551,7 +3551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.14.5, browserslist@npm:^4.16.8, browserslist@npm:^4.21.3, browserslist@npm:^4.21.4":
+"browserslist@npm:^4.14.5, browserslist@npm:^4.21.3, browserslist@npm:^4.21.4, browserslist@npm:^4.21.5":
   version: 4.21.5
   resolution: "browserslist@npm:4.21.5"
   dependencies:
@@ -3656,7 +3656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001304, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449":
+"caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001450":
   version: 1.0.30001451
   resolution: "caniuse-lite@npm:1.0.30001451"
   checksum: 48a06a7881093bb4d8a08ed5428f24a1cbdaa544b0a6f0c3614287d4f34b6c853e79a0f608a5bd901c27995f5e951825606fba11e7930251cc422bd61de9d849
@@ -3944,7 +3944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.16.2":
+"core-js@npm:^3.27.2":
   version: 3.27.2
   resolution: "core-js@npm:3.27.2"
   checksum: 718debd426f55a6b97cf9b757c936be258afd6d4f7052f89d0f96c982d7013e9000b0b006df42831a0cf32adad298e34d6a19052dce9ae1c7ab87162c0c665e0
@@ -4513,21 +4513,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-compat@npm:4.0.2":
-  version: 4.0.2
-  resolution: "eslint-plugin-compat@npm:4.0.2"
+"eslint-plugin-compat@npm:4.1.1":
+  version: 4.1.1
+  resolution: "eslint-plugin-compat@npm:4.1.1"
   dependencies:
-    "@mdn/browser-compat-data": ^4.1.5
+    "@mdn/browser-compat-data": ^5.2.34
     ast-metadata-inferer: ^0.7.0
-    browserslist: ^4.16.8
-    caniuse-lite: ^1.0.30001304
-    core-js: ^3.16.2
+    browserslist: ^4.21.5
+    caniuse-lite: ^1.0.30001450
+    core-js: ^3.27.2
     find-up: ^5.0.0
     lodash.memoize: 4.1.2
-    semver: 7.3.5
+    semver: 7.3.8
   peerDependencies:
     eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 2a1c1ebfd2d9a0e94064417f0f582b183d95bad08014e1f39dd1b4b599c1e909872ea344e016ec8fb297fcf8ab5d0c0b10032f1c2d6d4f9fb57a8a9fad67130e
+  checksum: 1cfbb5285d4690af255567a5009f161ed26586d46ed2faaac3fb62f4923e8cac3b5214cd89ffd63b80753fa513c2897d3cbc30c617fc46c28be39816a3afd6cc
   languageName: node
   linkType: hard
 
@@ -6433,7 +6433,7 @@ __metadata:
     eslint: 8.33.0
     eslint-config-prettier: 8.6.0
     eslint-import-resolver-typescript: 3.5.3
-    eslint-plugin-compat: 4.0.2
+    eslint-plugin-compat: 4.1.1
     eslint-plugin-import: 2.27.5
     eslint-plugin-jsdoc: 39.8.0
     eslint-plugin-markdownlint: 0.4.0
@@ -8027,17 +8027,6 @@ __metadata:
   bin:
     semver: ./bin/semver
   checksum: 57fd0acfd0bac382ee87cd52cd0aaa5af086a7dc8d60379dfe65fea491fb2489b6016400813930ecd61fd0952dae75c115287a1b16c234b1550887117744dfaf
-  languageName: node
-  linkType: hard
-
-"semver@npm:7.3.5":
-  version: 7.3.5
-  resolution: "semver@npm:7.3.5"
-  dependencies:
-    lru-cache: ^6.0.0
-  bin:
-    semver: bin/semver.js
-  checksum: 5eafe6102bea2a7439897c1856362e31cc348ccf96efd455c8b5bc2c61e6f7e7b8250dc26b8828c1d76a56f818a7ee907a36ae9fb37a599d3d24609207001d60
   languageName: node
   linkType: hard
 
