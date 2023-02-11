@@ -387,6 +387,10 @@
         "url": "https://vuepress.qbb.sh/clipboard",
         "version": "2.1.5"
     },
+    "vuepress-plugin-sitemap2": {
+        "url": "https://plugin-sitemap2.vuejs.press/",
+        "version": "2.0.0-beta.173"
+    },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
