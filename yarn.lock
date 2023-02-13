@@ -6532,7 +6532,7 @@ __metadata:
     vue: 3.2.47
     vuepress: 2.0.0-beta.60
     vuepress-plugin-clipboard: 2.1.5
-    vuepress-plugin-sitemap2: 2.0.0-beta.173
+    vuepress-plugin-sitemap2: 2.0.0-beta.174
   languageName: unknown
   linkType: soft
 
@@ -9350,17 +9350,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-beta.173":
-  version: 2.0.0-beta.173
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.173"
+"vuepress-plugin-sitemap2@npm:2.0.0-beta.174":
+  version: 2.0.0-beta.174
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.174"
   dependencies:
     "@vuepress/shared": 2.0.0-beta.60
     "@vuepress/utils": 2.0.0-beta.60
     sitemap: ^7.1.1
-    vuepress-shared: 2.0.0-beta.173
+    vuepress-shared: 2.0.0-beta.174
   peerDependencies:
     vuepress: 2.0.0-beta.60
-    vuepress-shared: 2.0.0-beta.173
+    vuepress-shared: 2.0.0-beta.174
     vuepress-vite: 2.0.0-beta.60
     vuepress-webpack: 2.0.0-beta.60
   peerDependenciesMeta:
@@ -9372,13 +9372,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: fc9d3bf51ed6b88c9e0878c4d84bcd48563ec9d3460bfaa629bab15ef59f471d7ac805b6a6f82905ebd3bd773b6841fcc753c028034c502731e8a3a6af58b978
+  checksum: d04575ecdedb5c6ca8a89ba5c8a97f4d030731edd740edc87ff2e21c6742c1b15583300d52e1d5af03d1fffa4e97abf601b5082a6b0f7ee9863b2f8114602022
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-beta.173":
-  version: 2.0.0-beta.173
-  resolution: "vuepress-shared@npm:2.0.0-beta.173"
+"vuepress-shared@npm:2.0.0-beta.174":
+  version: 2.0.0-beta.174
+  resolution: "vuepress-shared@npm:2.0.0-beta.174"
   dependencies:
     "@vuepress/client": 2.0.0-beta.60
     "@vuepress/shared": 2.0.0-beta.60
@@ -9405,7 +9405,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 8237ec7d57b13f2611770be7cd7c1cde5ba9cec42aaca519db86acc240d33130c4c529aa3a55e4300f4a107422662c1eb763ed5d291e37f9695d5ade083c4cfe
+  checksum: ff03a3beb34a9efc56eabbbed6b1a11b89bec5c36d269fe149e2cfdd32ad51715b609c5289345a7ce4a272825423a43160b2471ccd4e49bd6d6857bdbd28d2e0
   languageName: node
   linkType: hard
 
