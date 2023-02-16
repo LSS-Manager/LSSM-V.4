@@ -21,10 +21,17 @@ export interface addStyle {
     style: Record<string, number | string>;
 }
 
-export interface premodifyParams {
-    event: string;
-    callback?(...args: unknown[]): unknown;
-}
+export type premodifyParams<Args extends unknown[] = []> =
+    | {
+          event: string;
+          callback?(...args: Args): Args;
+          returnModification: true;
+      }
+    | {
+          event: string;
+          callback?(...args: unknown[]): void;
+          returnModification?: false;
+      };
 export interface ObserveAsyncTab {
     tabSelector: string;
     callback(): unknown;
