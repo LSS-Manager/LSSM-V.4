@@ -69,7 +69,11 @@
         "selected": "Valgt",
         "total": "Fortsatt behov",
         "vehicle": "Kjøretøystype",
-        "vehiclesByRequirement": []
+        "vehiclesByRequirement": [
+            { "texts": ["brannbil"], "vehicles": [0] },
+            { "texts": ["stigebil"], "vehicles": [2] }
+        ],
+        "water": "liter vann"
     },
     "generationDate": { "inputFormat": "MMMM DD., HH:mm" },
     "hideVehicleList": {
