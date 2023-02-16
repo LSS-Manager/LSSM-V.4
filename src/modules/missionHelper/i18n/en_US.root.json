@@ -17,6 +17,11 @@
             "in": "requirements",
             "text": "Foam: {n} gallon | Foam: {n} gallons"
         },
+        "smoke_jumper_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Required Smoke Jumpers (in Smoke Jumper Planes)"
+        },
         "swat_personnel": {
             "badge": false,
             "in": "additional",
