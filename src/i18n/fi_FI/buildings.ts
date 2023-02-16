@@ -464,7 +464,8 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Poliisi'],
         icon: 'ship',
-    23: {
+    },
+    24: {
         caption: 'Rannikkovartioston lentoasema',
         color: '#06377b',
         credits: 1_000_000,
