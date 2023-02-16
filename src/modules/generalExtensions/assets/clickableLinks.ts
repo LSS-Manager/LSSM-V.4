@@ -22,7 +22,7 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         if (input) {
             const preview = document.createElement('pre');
             preview.classList.add('input-group', 'form-control');
-            preview.innerHTML = input.value;
+            preview.textContent = input.value;
             preview.style.setProperty('white-space', 'pre-wrap');
             preview.style.setProperty('overflow-wrap', 'break-word');
             document.body.prepend(preview);
