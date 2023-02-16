@@ -6,13 +6,13 @@
     },
     "edge": {
         "download": "https://microsoft.com/edge",
-        "latest": 109,
-        "supported": 103
+        "latest": 110,
+        "supported": 104
     },
     "firefox": {
         "download": "https://firefox.com",
-        "latest": 109,
-        "supported": 103
+        "latest": 110,
+        "supported": 104
     },
     "opera": {
         "download": "https://opera.com",
