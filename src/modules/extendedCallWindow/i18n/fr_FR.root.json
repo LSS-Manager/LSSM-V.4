@@ -49,8 +49,8 @@
             "title": "Griser régulations non adaptées"
         },
         "arrMatchHighlightAllWords": {
-            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
-            "title": "Use all words"
+            "description": "Utilise tous les mots du nom de la mission pour la fonction \"Griser régulations non adaptées\".",
+            "title": "Utiliser tous les mots"
         },
         "arrSearch": {
             "description": "Affiche une barre de recherche au-dessus des RAIs qui permet de filtrer vos Rais.",
