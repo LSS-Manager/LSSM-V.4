@@ -155,8 +155,8 @@
             },
             "first": "premier commit",
             "latest": {
-                "beta" : "Dernier commit de la version bêta",
-                "stable" : "Dernière commit de la version  stable"
+                "beta": "Dernier commit de la version bêta",
+                "stable": "Dernière commit de la version  stable"
             },
             "sum": {
                 "beta": "commits sur la version bêta",
