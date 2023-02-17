@@ -1022,7 +1022,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 1,
+            maxPersonnel: 5,
             possibleBuildings: [25],
             schooling: {
                 'Water Rescue School': {
