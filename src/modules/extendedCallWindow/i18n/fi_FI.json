@@ -161,7 +161,8 @@
                 "vehicles": [39]
             },
             { "texts": ["H215", "H215s"], "vehicles": [41] },
-            { "texts": ["Do228", "Do228"], "vehicles": [40] }
+            { "texts": ["Do228", "Do228"], "vehicles": [40] },
+            { "texts": ["Vaahtoyksikköä", "Vaahtoyksikköä"], "vehicles": [25] }
         ],
         "water": "litraa vettä"
     },
