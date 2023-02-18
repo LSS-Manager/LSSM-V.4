@@ -7,7 +7,7 @@
     "name": "Nazwa",
     "search_global": "Wyszukiwanie globalne",
     "search_local": "Szukaj w załadowanych sojuszach",
-    "search_subtitle": "Pokaż {n} sojusze od strony {startPage} do {endPage} z wszystkich {totalPages} stron",
-    "subtitle": "Pokaż {n} sojusze od strony {startPage} ({firstCredits}) do {endPage} ({lastCredits}) z wszystkich {totalPages} stron",
-    "title": "Członkowie"
+    "search_subtitle": "Pokaż {n} sojusze od strony {startPage} do {endPage} z wszystkich {totalPages} stron.",
+    "subtitle": "Pokaż {n} sojusze od strony {startPage} do {endPage} z wszystkich {totalPages} stron.",
+    "title": "Lista sojuszy"
 }
