@@ -24,7 +24,7 @@
         "possible_patient": "Maksimum pacjentów",
         "possible_patient_exact": "Dokładnie {n} pacjent | Dokładnie {n} pacjentów",
         "possible_patient_min": "Minimum pacjentów",
-        "specializations": "Departament:",
+        "specializations": "Oddział:",
         "title": "Pacjent | Pacjenci"
     },
     "prerequisites": {
