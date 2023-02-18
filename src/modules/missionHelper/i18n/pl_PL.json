@@ -1,6 +1,6 @@
 {
     "diyMission": "Jest to misja sojuszu na dużą skalę!",
-    "expansions": "Rozbudowa | Rozbudowy",
+    "expansions": "Misje, :",
     "followups": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
     "generated_by": "Wygenerowane przez",
     "mission_categories": {
@@ -19,7 +19,7 @@
         "critical_care": "Szansa, że potrzebny będzie lekarz",
         "helicopter": "Szansa, że potrzebny będzie śmigłowiec LPR",
         "patient_allow_first_responder_chance": "Pierwsi przybyli ratownicy mogą w pełni zaopiekować się pacjentami.",
-        "patient_at_end_of_mission": "Pacjentci pojawia się dopiero pod koniec misji!",
+        "patient_at_end_of_mission": "Pacjenci pojawia się dopiero pod koniec misji!",
         "patient_transport": "Prawdopodobieństwo transportu",
         "possible_patient": "Maksimum pacjentów",
         "possible_patient_exact": "Dokładnie {n} pacjent | Dokładnie {n} pacjentów",
