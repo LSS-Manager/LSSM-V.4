@@ -335,7 +335,7 @@
     "patientCollapse": {
         "amount": "Ilość",
         "combis": "Kombinacje",
-        "summary": { "total": "Pacjęci", "treated": "Leczeni" }
+        "summary": { "total": "Pacjenci", "treated": "Leczeni" }
     },
     "releasePatient": { "release": "Zwolnij pacjenta (Bez nagrody)" },
     "tailoredTabs": {
