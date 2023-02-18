@@ -6,7 +6,7 @@
     "mission_categories": {
         "ambulance": "Misje ratownictwa medycznego",
         "fire": "Misje straży pożarnej",
-        "fire_support_specialization": "Specjalizacja",
+        "fire_support_specialization": "Wymagana specjalizacja",
         "police": "Misje policyjne",
         "riot_police_specialization": "Misje Oddziału Prewencji Policji",
         "search_and_rescue": "Misje ratownictwo poszukiwawczo - ratownicze",
