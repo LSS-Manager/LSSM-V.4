@@ -12,9 +12,9 @@
         "check-tsc": "./build/build.sh --tsc"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "6.3.0",
-        "@fortawesome/fontawesome-svg-core": "6.3.0",
-        "@fortawesome/free-solid-svg-icons": "6.3.0",
+        "@fortawesome/fontawesome-free": "6.2.1",
+        "@fortawesome/fontawesome-svg-core": "6.2.1",
+        "@fortawesome/free-solid-svg-icons": "6.2.1",
         "@fortawesome/vue-fontawesome": "2.0.10",
         "broadcast-channel": "4.20.2",
         "emoji-toolkit": "7.0.0",
