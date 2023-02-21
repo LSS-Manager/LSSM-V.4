@@ -389,7 +389,7 @@
     },
     "vuepress-plugin-sitemap2": {
         "url": "https://plugin-sitemap2.vuejs.press/",
-        "version": "2.0.0-beta.177"
+        "version": "2.0.0-beta.178"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
