@@ -26,7 +26,7 @@
         "lodash": "4.17.21",
         "mini-svg-data-uri": "1.4.4",
         "moment": "2.29.4",
-        "pinia": "2.0.30",
+        "pinia": "2.0.32",
         "qrcode": "1.5.1",
         "semver": "7.3.8",
         "showdown": "2.1.0",
