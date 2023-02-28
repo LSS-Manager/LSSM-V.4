@@ -198,7 +198,13 @@
                 "texts": ["FBI Surveillance Drone", "FBI Surveillance Drones"],
                 "vehicles": [46]
             },
-            { "texts": ["Police Supervisor / Sheriff", "Police Supervisors / Sheriffs"], "vehicles": [47] },
+            {
+                "texts": [
+                    "Police Supervisor / Sheriff",
+                    "Police Supervisors / Sheriffs"
+                ],
+                "vehicles": [47]
+            },
             { "texts": ["Patrol Boat", "Patrol Boats"], "vehicles": [55] },
             { "texts": ["ATF Unit", "ATF Units"], "vehicles": [53] },
             {
