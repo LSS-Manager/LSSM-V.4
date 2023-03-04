@@ -28,6 +28,11 @@ export default {
             backgroundColor: '#007fff',
             textColor: 'white',
         },
+        buyEquipment: {
+            regex: /Ausrüstung gekauft/u,
+            backgroundColor: '#007fff',
+            textColor: 'white',
+        },
         dailyLogin: {
             regex: /Täglicher Login-Bonus/u,
             backgroundColor: '#8db600',
