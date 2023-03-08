@@ -897,6 +897,7 @@ export default {
                 caption: 'Helicopter Hangar',
                 credits: 10_000,
                 coins: 1,
+                duration: '0 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [71],
@@ -905,6 +906,7 @@ export default {
                 caption: 'Plane Hangar',
                 credits: 100_000,
                 coins: 20,
+                duration: '0 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [72],
@@ -976,4 +978,4 @@ export default {
         startParkingLots: 1,
         icon: 'life-ring',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

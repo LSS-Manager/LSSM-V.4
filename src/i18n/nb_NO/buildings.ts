@@ -567,4 +567,4 @@ export default {
         schoolingTypes: ['Brannstasjon'],
         icon: 'helicopter',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

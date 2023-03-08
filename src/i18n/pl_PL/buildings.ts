@@ -275,7 +275,7 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
-            multiplyExtension(
+            ...multiplyExtension(
                 index => ({
                     caption: 'Dodatkowa cela',
                     credits: 25_000,
@@ -741,4 +741,4 @@ export default {
         schoolingTypes: ['Policja'],
         icon: 'shield-halved',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;
