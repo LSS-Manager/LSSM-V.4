@@ -3,6 +3,11 @@ import path from 'path';
 
 import config from '../src/config';
 
+import type {
+    BackwardsCompatibilityVehicle,
+    InternalVehicle,
+} from 'typings/Vehicle';
+
 const rootPath = path.join(__dirname, '..');
 const distPath = path.join(rootPath, 'dist');
 const apiPath = path.join(distPath, 'api');
@@ -61,6 +66,27 @@ export default async (): Promise<void> => {
                     path.join(i18nPath, `${type}.${locale}.js`)
                 );
             }
+
+            // This is for backwards compatibility of vehicles API
+            if (type === 'vehicles') {
+                t[type] = Object.fromEntries(
+                    Object.entries(
+                        t[type] as Record<number, InternalVehicle>
+                    ).map(([id, vehicle]) => [
+                        id,
+                        <BackwardsCompatibilityVehicle>{
+                            ...vehicle,
+                            minPersonnel: vehicle.staff.min,
+                            maxPersonnel: vehicle.staff.max,
+                            wtank: vehicle.waterTank,
+                            pumpcap: vehicle.pumpCapacity,
+                            ftank: vehicle.foamTank,
+                            schooling: vehicle.staff.training,
+                        },
+                    ])
+                );
+            }
+
             fs.writeFileSync(
                 path.join(outputPath, `${type}.json`),
                 JSON.stringify(t[type] ?? {})
