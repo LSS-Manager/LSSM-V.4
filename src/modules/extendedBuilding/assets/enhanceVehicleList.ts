@@ -201,7 +201,7 @@ export default async (
                                             .createRange()
                                             .createContextualFragment(res)
                                             .querySelectorAll(
-                                                '#vehicle_details table tbody tr'
+                                                '#vehicle_details table#vehicle-attr-personnel tbody tr'
                                             ).length
                                 );
                         }
