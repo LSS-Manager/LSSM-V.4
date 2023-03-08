@@ -48,6 +48,10 @@
             "description": "Establece un filtro gris sobre todos los ARR que no contienen una palabra del nombre de la misión.",
             "title": "Gris ARR no apto"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearchClearOnEnter": {
             "description": "Borra la búsqueda ARR cuando se presiona la tecla Enter.",
             "title": "Borrar búsqueda ARR"

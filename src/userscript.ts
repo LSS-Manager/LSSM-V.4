@@ -3,7 +3,7 @@ import 'tampermonkey';
 declare const host: string;
 declare const user_id: string | undefined;
 declare const I18n: unknown & { locale: string };
-declare const prefix: string;
+declare const prefix: typeof PREFIX;
 
 const loadLSSM = () => {
     const script = document.createElement('script');

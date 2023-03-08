@@ -65,11 +65,97 @@
     },
     "enhancedMissingVehicles": {
         "driving": "Nærmer seg",
+        "foam": "l. skum",
         "missing": "Mangler fra oppdrag",
         "selected": "Valgt",
         "total": "Fortsatt behov",
         "vehicle": "Kjøretøystype",
-        "vehiclesByRequirement": []
+        "vehiclesByRequirement": [
+            {
+                "texts": [
+                    "bil fra Utrykningspolitiet",
+                    "biler fra Utrykningspolitiet"
+                ],
+                "vehicles": [22, 23]
+            },
+            { "texts": ["brannbåt", "brannbåter"], "vehicles": [56, 57, 58] },
+            {
+                "texts": ["brannbil", "brannbiler"],
+                "vehicles": [0, 1, 10, 18, 21]
+            },
+            { "texts": ["CBRNe enheter"], "vehicles": [7] },
+            { "texts": ["delta"], "vehicles": [12, 15, 23] },
+            {
+                "texts": ["Demonstrasjonspolitibil", "Demonstrasjonspolitibil"],
+                "vehicles": [41]
+            },
+            { "texts": ["1 Drone", "Droner"], "vehicles": [47] },
+            { "texts": ["Dykkerbil", "Dykkerbiler"], "vehicles": [19] },
+            {
+                "texts": ["Fangetransportbuss", "Fangetransportbusser"],
+                "vehicles": [44]
+            },
+            { "texts": ["Hundepatrulje", "Hundepatruljer"], "vehicles": [13] },
+            { "texts": ["Innsatsleder", "Innsatsledere"], "vehicles": [42] },
+            {
+                "texts": ["Innsatsleder brann", "Innsatsledere brann"],
+                "vehicles": [3, 17]
+            },
+            {
+                "texts": ["Innsatsstøttebil", "Innsatsstøttebiler"],
+                "vehicles": [17]
+            },
+            { "texts": ["Kommandobil", "Kommandobiler"], "vehicles": [43] },
+            {
+                "texts": ["kystredningsbil", "kystredningsbiler"],
+                "vehicles": [48]
+            },
+            {
+                "texts": ["kytsvaktbåt", "kytsvaktbåter"],
+                "vehicles": [53, 54, 55]
+            },
+            {
+                "texts": ["lett redningsbåt", "lett redningsbåter"],
+                "vehicles": [20]
+            },
+            { "texts": ["patruljebiler"], "vehicles": [8, 13, 14, 22, 23, 46] },
+            { "texts": ["politibåt", "politibåter"], "vehicles": [61, 62, 63] },
+            {
+                "texts": ["Politihelikopter", "Politihelikoptere"],
+                "vehicles": [11]
+            },
+            { "texts": ["Politihest", "Politihester"], "vehicles": [45] },
+            { "texts": ["politi RHIB"], "vehicles": [64] },
+            {
+                "texts": ["redningsbåt", "redningsbåter"],
+                "vehicles": [49, 50, 51, 52]
+            },
+            {
+                "texts": ["redningshelikopter", "redningshelikoptre"],
+                "vehicles": [65]
+            },
+            {
+                "texts": ["redningsskøyte", "redningsskøyter"],
+                "vehicles": [59, 60]
+            },
+            { "texts": ["Røykdykkerbil", "Røykdykkerbiler"], "vehicles": [16] },
+            { "texts": ["Skogbrann helikopter"], "vehicles": [33] },
+            {
+                "texts": ["Skogbrann kjøretøy", "Skogbrann kjøretøyer"],
+                "vehicles": [0, 1, 18, 21, 33, 34]
+            },
+            { "texts": ["Skum Tankbil", "Skum Tankbiler"], "vehicles": [35] },
+            { "texts": ["Slangebil", "Slangebiler"], "vehicles": [37, 38] },
+            { "texts": ["stigebil"], "vehicles": [2, 10] },
+            { "texts": ["Tankbil", "Tankbiler"], "vehicles": [6, 21] },
+            {
+                "texts": ["Tilhengerpumpe", "Tilhengerpumper"],
+                "vehicles": [36, 38]
+            },
+            { "texts": ["Trøsykkel", "Trøsykler"], "vehicles": [46] },
+            { "texts": ["Tungredningsbil"], "vehicles": [4, 18] }
+        ],
+        "water": "liter vann"
     },
     "generationDate": { "inputFormat": "MMMM DD., HH:mm" },
     "hideVehicleList": {

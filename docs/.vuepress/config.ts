@@ -6,6 +6,7 @@ import pluginRegisterComponents from '@vuepress/plugin-register-components';
 import pluginSearch from '@vuepress/plugin-search';
 import { pwaPlugin } from '@vuepress/plugin-pwa';
 import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup';
+import { sitemapPlugin } from 'vuepress-plugin-sitemap2';
 import { defaultTheme, defineUserConfig } from 'vuepress';
 
 import childProcess from './utils/childProcess';
@@ -304,6 +305,10 @@ export default defineUserConfig({
 
     // plugins
     plugins: [
+        sitemapPlugin({
+            hostname: DOCS_URL.toString(),
+            changefreq: 'always',
+        }),
         pluginClipboard({ align: 'top', staticIcon: true }),
         pluginSearch({ locales: localeConfigs.searchConfigs }),
         pluginRegisterComponents({

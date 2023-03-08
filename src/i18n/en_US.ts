@@ -673,7 +673,7 @@ export default {
             },
         },
         47: {
-            caption: 'Sheriff Unit',
+            caption: 'Police Supervisor / Sheriff Unit',
             color: '#58ad0e',
             coins: 20,
             credits: 15_000,
@@ -682,7 +682,7 @@ export default {
             possibleBuildings: [5, 15],
             schooling: {
                 Police: {
-                    Sheriff: {
+                    'Police Supervisor / Sheriff': {
                         all: true,
                     },
                 },
@@ -1022,7 +1022,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 1,
+            maxPersonnel: 5,
             possibleBuildings: [25],
             schooling: {
                 'Water Rescue School': {
@@ -1201,7 +1201,7 @@ export default {
                 'ATF': [53, 54],
                 'Boat': [55],
                 'Game Warden': [56],
-                'Sheriff': [47],
+                'Police Supervisor / Sheriff': [47],
             },
             color: '#00ac00',
         },
@@ -1374,9 +1374,9 @@ export default {
                 key: 'fbi_drone_operator',
             },
             {
-                caption: 'Sheriff',
+                caption: 'Police Supervisor / Sheriff',
                 duration: '5 Days',
-                staffList: 'Sheriff',
+                staffList: 'Police Supervisor / Sheriff',
                 key: 'sheriff',
             },
             {

@@ -8,7 +8,7 @@
             "/schoolings": "Kurssit",
             "/verband/bereitstellungsraume": "Kokoontumispaikat",
             "/verband/bewerbungen": "Hakemukset",
-            "/verband/gebauede": "rakennukset",
+            "/verband/gebauede": "Rakennukset",
             "/verband/kasse": "Liittoutuman varat",
             "/verband/mitglieder/{id}": "Jäsenet",
             "/verband/news/{id}": "Uutiset",

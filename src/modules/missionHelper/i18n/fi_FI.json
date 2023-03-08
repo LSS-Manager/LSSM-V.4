@@ -5,6 +5,8 @@
     "generated_by": "Luonut",
     "mission_categories": {
         "ambulance": "Ensihoitotehtävät",
+        "coastal_rescue": "Rannikon pelastusoperaatiot",
+        "coastal_rescue_ocean": "Meripelastusoperaatiot",
         "fire": "Palo- ja pelastustehtävät",
         "fire_support_specialization": "Kemialliset onnettomuudet ja teollisuuspalot",
         "police": "Poliisitehtävät",
@@ -40,6 +42,7 @@
             "ambulances": "Ambulanssi | Ambulanssia",
             "battalion_chief_vehicles": "Johtoauto | Johtoautoa",
             "civil_patrolcar": "Tutkintayksikkö | Tutkintayksikköä",
+            "coastal_boat": "RVL Partiovene | RVL Partiovenettä",
             "coastal_helicopter": "H215 | H215:sta",
             "coastal_plane": "Do228 | Do228:sia",
             "coastal_rescue": "RVL Partioauto | RVL Partioautoa",

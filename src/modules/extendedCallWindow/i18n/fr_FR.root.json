@@ -48,6 +48,10 @@
             "description": "Grise les régulations qui ne contiennent pas un des mots du nom de la mission.",
             "title": "Griser régulations non adaptées"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Utilise tous les mots du nom de la mission pour la fonction \"Griser régulations non adaptées\".",
+            "title": "Utiliser tous les mots"
+        },
         "arrSearch": {
             "description": "Affiche une barre de recherche au-dessus des RAIs qui permet de filtrer vos Rais.",
             "title": "RAI-Recherche"
