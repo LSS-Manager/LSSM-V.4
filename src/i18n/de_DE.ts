@@ -1817,7 +1817,7 @@ export default {
                 caption: 'Motorradstaffel',
                 duration: '3 Tage',
                 staffList: 'Motorradstaffel',
-                key: 'police_motorcyle',
+                key: 'police_motorcycle',
             },
             {
                 caption: 'Polizeihubschrauber',

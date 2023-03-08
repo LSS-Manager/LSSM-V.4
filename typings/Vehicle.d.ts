@@ -3,6 +3,7 @@
  */
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconName } from '@fortawesome/free-solid-svg-icons';
 
 export interface Vehicle {
     id: number;
@@ -41,18 +42,48 @@ export type VehicleSchooling = Partial<{
     min: number;
 }>;
 
-export interface InternalVehicle {
+interface BaseVehicle {
     caption: string;
     color: string;
-    coins: number;
     credits: number;
+    coins: number;
+    staff: {
+        min: number;
+        max: number;
+        training?: Record<string, Record<string, VehicleSchooling>>;
+    };
+    icon: IconName;
+    possibleBuildings: number[];
+
+    // tank
+    waterTank?: number;
+    foamTank?: number;
+
+    // bonus on water or foam
+    waterBonus?: number;
+    foamBonus?: number;
+
+    // special information, freetext
+    special?: string;
+}
+
+interface BackwardsCompatibilityAttributes {
     minPersonnel: number;
     maxPersonnel: number;
     wtank?: number;
     pumpcap?: number;
     ftank?: number;
     schooling?: Record<string, Record<string, VehicleSchooling>>;
-    special?: string;
-    icon: string;
-    possibleBuildings: number[];
 }
+
+type pumpVehicleAttributes =
+    | {
+          pumpCapacity: number;
+          pumpType: 'fire' | 'sewage'; // Feuerlöschpumpe | Schmutzwasserpumpe
+      }
+    | { pumpCapacity?: null };
+
+export type InternalVehicle = BaseVehicle & pumpVehicleAttributes;
+
+export type BackwardsCompatibilityVehicle = BackwardsCompatibilityAttributes &
+    InternalVehicle;
