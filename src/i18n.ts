@@ -20,7 +20,7 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
         // do nothing. Appears when highcharts-translations do not exist
     }
 
-    const extraFileNames = ['buildings', 'global'];
+    const extraFileNames = ['buildings', 'global', 'vehicles'];
     const extraFiles: Record<string, unknown> = {};
 
     for (const extraFile of extraFileNames) {
