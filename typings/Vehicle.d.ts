@@ -63,6 +63,9 @@ interface BaseVehicle {
     waterBonus?: number;
     foamBonus?: number;
 
+    // equipment
+    equipmentCapacity?: number;
+
     // special information, freetext
     special?: string;
 }

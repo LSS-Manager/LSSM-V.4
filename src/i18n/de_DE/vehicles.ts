@@ -1560,6 +1560,7 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
+        equipmentCapacity: 20,
     },
     105: {
         caption: 'GW-L2',
@@ -1569,6 +1570,7 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
+        equipmentCapacity: 30,
     },
     106: {
         caption: 'MTF-L',
@@ -1578,6 +1580,7 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
+        equipmentCapacity: 10,
     },
     107: {
         caption: 'LF-L',
@@ -1590,6 +1593,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     108: {
         caption: 'AB-L',
@@ -1599,5 +1603,6 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
+        equipmentCapacity: 30,
     },
 } satisfies Record<number, InternalVehicle>;
