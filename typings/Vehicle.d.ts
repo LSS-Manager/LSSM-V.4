@@ -79,14 +79,25 @@ interface BackwardsCompatibilityAttributes {
     schooling?: Record<string, Record<string, VehicleSchooling>>;
 }
 
-type pumpVehicleAttributes =
+type TrailerVehicleAttributes =
+    | {
+          isTrailer: true;
+          tractiveVehicles: number[];
+      }
+    | {
+          isTrailer?: false;
+      };
+
+type PumpVehicleAttributes =
     | {
           pumpCapacity: number;
           pumpType: 'fire' | 'sewage'; // Feuerlöschpumpe | Schmutzwasserpumpe
       }
     | { pumpCapacity?: null };
 
-export type InternalVehicle = BaseVehicle & pumpVehicleAttributes;
+export type InternalVehicle = BaseVehicle &
+    PumpVehicleAttributes &
+    TrailerVehicleAttributes;
 
 export type BackwardsCompatibilityVehicle = BackwardsCompatibilityAttributes &
     InternalVehicle;

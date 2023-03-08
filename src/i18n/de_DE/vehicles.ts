@@ -629,6 +629,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     48: {
         caption: 'AB-Atemschutz',
@@ -638,6 +640,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     49: {
         caption: 'AB-Öl',
@@ -647,6 +651,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     50: {
         caption: 'GruKw',
@@ -714,6 +720,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     55: {
         caption: 'KdoW-LNA',
@@ -855,6 +863,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        waterBonus: 25,
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     63: {
         caption: 'GW-Taucher',
@@ -984,6 +995,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
         special:
             'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -1105,6 +1118,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     78: {
         caption: 'AB-Einsatzleitung',
@@ -1114,6 +1129,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
     79: {
         caption: 'SEK - ZF',
@@ -1604,5 +1621,7 @@ export default {
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
         equipmentCapacity: 30,
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
 } satisfies Record<number, InternalVehicle>;
