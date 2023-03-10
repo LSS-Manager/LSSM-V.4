@@ -145,7 +145,7 @@ export default {
             max: 3,
             training: {
                 Feuerwehr: {
-                    dekon_p: {
+                    gw_messtechnik: {
                         all: true,
                     },
                 },
