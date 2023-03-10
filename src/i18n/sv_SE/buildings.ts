@@ -605,4 +605,4 @@ export default {
         startParkingLots: 0,
         icon: 'poo',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;
