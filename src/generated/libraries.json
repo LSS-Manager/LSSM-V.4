@@ -136,6 +136,14 @@
         "url": "https://github.com/vuepress",
         "version": "2.0.0-beta.61"
     },
+    "acorn": {
+        "url": "https://github.com/acornjs/acorn",
+        "version": "8.8.2"
+    },
+    "acorn-walk": {
+        "url": "https://github.com/acornjs/acorn",
+        "version": "8.2.0"
+    },
     "all-contributors-cli": {
         "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
