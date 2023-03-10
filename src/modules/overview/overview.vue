@@ -363,19 +363,30 @@ export default Vue.extend<
                         (resolvedVehicleCategories[category].vehicles[group] =
                             Object.values(vehicles as number[]).map(type => {
                                 const v = vehicleTypes[type];
-                                Object.entries(v.schooling ?? {}).forEach(
+                                if (!v.staff.training) return v;
+                                Object.entries(v.staff.training).forEach(
                                     ([school, schoolings]) =>
                                         Object.keys(schoolings).forEach(
-                                            schooling =>
-                                                resolvedSchoolings[school]
-                                                    .find(
-                                                        ({ caption }) =>
-                                                            caption ===
-                                                            schooling
-                                                    )
-                                                    ?.required_for.push(
-                                                        v.caption
-                                                    )
+                                            schooling => {
+                                                const s = resolvedSchoolings[
+                                                    school
+                                                ].find(
+                                                    ({ key }) =>
+                                                        key === schooling
+                                                );
+                                                if (!s) return;
+                                                s.required_for.push(v.caption);
+                                                if (!v.staff.training) return;
+                                                v.staff.training[school][
+                                                    s.caption
+                                                ] =
+                                                    v.staff.training[school][
+                                                        schooling
+                                                    ];
+                                                delete v.staff.training[school][
+                                                    schooling
+                                                ];
+                                            }
                                         )
                                 );
                                 return v;
