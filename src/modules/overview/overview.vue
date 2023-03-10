@@ -36,8 +36,8 @@
                                     @search="s => (vehiclesTab['search'] = s)"
                                 >
                                     <tr
-                                        v-for="vehicle in vehicleTypes"
-                                        :key="vehicle.caption"
+                                        v-for="(vehicle, index) in vehicleTypes"
+                                        :key="index"
                                     >
                                         <td
                                             v-for="(
@@ -69,7 +69,7 @@
                                                 <template
                                                     v-for="(
                                                         schoolings, type
-                                                    ) in vehicle[attr]"
+                                                    ) in vehicle.staff.training"
                                                 >
                                                     <span :key="type + '-t'"
                                                         >{{ type }}:</span
@@ -114,8 +114,23 @@
                                                             {{ schooling }}
                                                         </li>
                                                     </ul>
-                                                </template> </span
-                                            ><span
+                                                </template>
+                                            </span>
+                                            <span
+                                                v-else-if="
+                                                    attr === 'minPersonnel'
+                                                "
+                                            >
+                                                {{ vehicle.staff.min }}
+                                            </span>
+                                            <span
+                                                v-else-if="
+                                                    attr === 'maxPersonnel'
+                                                "
+                                            >
+                                                {{ vehicle.staff.max }}
+                                            </span>
+                                            <span
                                                 v-else-if="
                                                     typeof vehicle[attr] ===
                                                     'object'
@@ -453,14 +468,14 @@ export default Vue.extend<
                         'es_ES',
                     ].includes(locale)
                         ? {
-                              wtank: {
+                              waterTank: {
                                   title: this.$m('titles.vehicles.wtank'),
                               },
                           }
                         : null),
                     ...(['de_DE'].includes(locale)
                         ? {
-                              pumpcap: {
+                              pumpCapacity: {
                                   title: this.$m('titles.vehicles.pumpcap'),
                               },
                           }
@@ -475,7 +490,7 @@ export default Vue.extend<
                         'sv_SE',
                     ].includes(locale)
                         ? {
-                              ftank: {
+                              foamTank: {
                                   title: this.$m('titles.vehicles.ftank'),
                               },
                           }
