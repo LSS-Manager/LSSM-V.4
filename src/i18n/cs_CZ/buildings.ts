@@ -464,4 +464,4 @@ export default {
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;
