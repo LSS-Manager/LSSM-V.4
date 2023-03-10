@@ -32,9 +32,23 @@ export interface VehicleCategory {
     vehicles: Record<string, number[]>;
 }
 
+interface captionedVehicleSchooling extends VehicleSchooling {
+    caption: string;
+}
+
 export interface ResolvedVehicleCategory {
     color: string;
-    vehicles: Record<string, InternalVehicle[]>;
+    vehicles: Record<
+        string,
+        (InternalVehicle & {
+            staff: BaseVehicle['staff'] & {
+                training: Record<
+                    string,
+                    Record<string, captionedVehicleSchooling>
+                >;
+            };
+        })[]
+    >;
 }
 
 export type VehicleSchooling = Partial<{

@@ -111,7 +111,7 @@
                                                                 }}:
                                                             </template>
                                                             {{ type }} -
-                                                            {{ schooling }}
+                                                            {{ s.caption }}
                                                         </li>
                                                     </ul>
                                                 </template>
@@ -360,6 +360,8 @@ export default Vue.extend<
                 resolvedVehicleCategories[category] = { color, vehicles: {} };
                 Object.entries(groups).forEach(
                     ([group, vehicles]) =>
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         (resolvedVehicleCategories[category].vehicles[group] =
                             Object.values(vehicles as number[]).map(type => {
                                 const v = vehicleTypes[type];
@@ -377,15 +379,12 @@ export default Vue.extend<
                                                 if (!s) return;
                                                 s.required_for.push(v.caption);
                                                 if (!v.staff.training) return;
+
                                                 v.staff.training[school][
-                                                    s.caption
-                                                ] =
-                                                    v.staff.training[school][
-                                                        schooling
-                                                    ];
-                                                delete v.staff.training[school][
                                                     schooling
-                                                ];
+                                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                    // @ts-ignore
+                                                ].caption = s.caption;
                                             }
                                         )
                                 );
