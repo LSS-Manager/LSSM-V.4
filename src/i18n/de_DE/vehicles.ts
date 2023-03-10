@@ -14,7 +14,7 @@ export default {
         pumpType: 'fire',
     },
     1: {
-        caption: 'LF 20',
+        caption: 'LF 10',
         color: '#bb0000',
         credits: 5000,
         coins: 25,
