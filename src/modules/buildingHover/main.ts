@@ -71,7 +71,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     .map(
                         ({ max_personnel_override, vehicle_type }) =>
                             max_personnel_override ??
-                            vehicleTypes[vehicle_type].maxPersonnel
+                            vehicleTypes[vehicle_type].staff.max
                     )
                     .reduce((a, b) => a + b, 0)}`;
                 if (

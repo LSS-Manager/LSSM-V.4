@@ -80,7 +80,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
 
     if (!schools) return;
 
-    const schoolingStaffListByCaption = Object.fromEntries(
+    const schoolingsByKey = Object.fromEntries(
         schools.map(school => [
             school,
             Object.fromEntries(
@@ -89,7 +89,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
                         string,
                         Schooling[]
                     >
-                )[school].map(({ caption, staffList }) => [caption, staffList])
+                )[school].map(({ key, staffList }) => [key, staffList])
             ),
         ])
     );
@@ -100,22 +100,23 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
             vehicles.forEach(vehicle => {
                 const type = vehicleTypes[vehicle.vehicle_type];
                 schools.forEach(school => {
-                    const vehicleSchoolings = type.schooling?.[school] ?? {};
+                    const vehicleSchoolings =
+                        type.staff.training?.[school] ?? {};
                     Object.entries(vehicleSchoolings).forEach(
                         ([schooling, { min, all }]) => {
                             const staffListSchooling =
-                                schoolingStaffListByCaption[school][schooling];
+                                schoolingsByKey[school][schooling];
                             if (
                                 !staffListSchooling ||
                                 !summaryEach.hasOwnProperty(staffListSchooling)
                             )
                                 return;
                             summaryEach[staffListSchooling].min +=
-                                (all ? null : min) ?? type.minPersonnel;
+                                (all ? null : min) ?? type.staff.min;
                             summaryEach[staffListSchooling].max +=
                                 vehicle.max_personnel_override ??
                                 vehicle.max_personnel_override ??
-                                type.maxPersonnel;
+                                type.staff.max;
                         }
                     );
                 });

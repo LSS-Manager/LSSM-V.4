@@ -220,7 +220,7 @@ export default (
                         : {
                               min:
                                   requirement.selected.min +
-                                  type.minPersonnel * vehicleIds.length,
+                                  type.staff.min * vehicleIds.length,
                               max:
                                   requirement.selected.max +
                                   vehicleIds
@@ -228,7 +228,7 @@ export default (
                                           id =>
                                               LSSM.$stores.api.vehiclesById[id]
                                                   ?.max_personnel_override ??
-                                              type.maxPersonnel
+                                              type.staff.max
                                       )
                                       .reduce((a, b) => a + b, 0),
                           }
