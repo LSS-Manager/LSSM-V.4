@@ -3,6 +3,7 @@ import path from 'path';
 
 import config from '../src/config';
 
+import type { Schooling } from 'typings/Schooling';
 import type {
     BackwardsCompatibilityVehicle,
     InternalVehicle,
@@ -35,12 +36,12 @@ export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
 
     const types = [
+        'schoolings',
         'vehicles',
         'vehicleCategories',
         'buildings',
         'buildingCategories',
         'small_buildings',
-        'schoolings',
         'pois',
         'ranks',
     ];
@@ -81,7 +82,30 @@ export default async (): Promise<void> => {
                             wtank: vehicle.waterTank,
                             pumpcap: vehicle.pumpCapacity,
                             ftank: vehicle.foamTank,
-                            schooling: vehicle.staff.training,
+                            schooling: vehicle.staff.training
+                                ? Object.fromEntries(
+                                      Object.entries(
+                                          vehicle.staff.training
+                                      ).map(([school, trainings]) => [
+                                          school,
+                                          Object.fromEntries(
+                                              Object.entries(trainings).map(
+                                                  ([key, value]) => [
+                                                      (
+                                                          t.schoolings as Record<
+                                                              string,
+                                                              Schooling[]
+                                                          >
+                                                      )[school]?.find(
+                                                          s => s.key === key
+                                                      )?.caption,
+                                                      value,
+                                                  ]
+                                              )
+                                          ),
+                                      ])
+                                  )
+                                : null,
                         },
                     ])
                 );
