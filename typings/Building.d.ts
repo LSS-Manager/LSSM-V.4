@@ -89,12 +89,22 @@ type InternalExtension =
     | ClassroomExtension
     | VehicleExtension;
 
+interface StorageUpgrade {
+    caption: string;
+    duration: string;
+    credits: number;
+    coins: number;
+    additionalStorage: number;
+    requiredStorageUpgrades?: string[];
+}
+
 interface BaseBuilding {
     caption: string;
     color: string;
     credits: number;
     coins: number;
     extensions: (InternalExtension | null)[]; // null if extension is not available
+    storageUpgrades?: Record<string, StorageUpgrade>;
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;
