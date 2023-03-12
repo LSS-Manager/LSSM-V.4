@@ -17,17 +17,17 @@ type Extension = {
           available: true;
       }
 );
-type Storage = {
+interface Storage {
     upgrade_type: string;
     available: boolean;
     type_id: string;
-};
-type Specialization = {
+}
+interface Specialization {
     caption: string;
     type: string;
     active: boolean;
     available: boolean;
-};
+}
 
 export interface Building {
     id: number;
