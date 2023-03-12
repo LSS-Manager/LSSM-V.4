@@ -28,13 +28,15 @@ export interface Vehicle {
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
 }
-interface Equipments { // Only visible when the car is approaching and the RCs are assigned.
+interface Equipments {
+    // Only visible when the car is approaching and the RCs are assigned.
     equipment_type: string;
     size: number; // Only in V2
     caption: string; //Only in V2
     id: number;
 }
-interface AEquipments { // Only visible when the car is approaching and the RCs are assigned.
+interface AEquipments {
+    // Only visible when the car is approaching and the RCs are assigned.
     equipment_type: string;
     id: number;
 }
