@@ -17,6 +17,17 @@ type Extension = {
           available: true;
       }
 );
+type Storage = {
+    upgrade_type: string;
+    available: boolean;
+    type_id: string;
+};
+type Specialization = {
+    caption: string;
+    type: string;
+    active: boolean;
+    available: boolean;
+};
 
 export interface Building {
     id: number;
@@ -27,6 +38,7 @@ export interface Building {
     latitude: number;
     longitude: number;
     extensions: Extension[];
+    storage_upgrades: Storage[];
     leitstelle_building_id: number | null;
     small_building: boolean;
     enabled: boolean;
@@ -36,7 +48,9 @@ export interface Building {
     hiring_automatic: boolean;
     custom_icon_url?: string;
     is_alliance_shared?: boolean;
+    specialization: Specialization[];
     alliance_share_credits_percentage?: 0 | 10 | 20 | 30 | 40 | 50;
+    generates_mission_categories: string[];
 }
 
 export interface BuildingCategory {
