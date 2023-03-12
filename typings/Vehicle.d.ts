@@ -23,10 +23,21 @@ export interface Vehicle {
     target_id: number | null; // The ID of where the vehicle is currently driving to
     tractive_vehicle_id: number | null;
     queued_mission_id: number | null;
+    equipments: Equipments[]; // Equipment only visible when the car is approaching and the RCs are assigned.
+    assigned_equipments: AEquipments[]; // Equipment only visible when the car is approaching and the RCs are assigned.
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
 }
-
+interface Equipments { // Only visible when the car is approaching and the RCs are assigned.
+    equipment_type: string;
+    size: number; // Only in V2
+    caption: string; //Only in V2
+    id: number;
+}
+interface AEquipments { // Only visible when the car is approaching and the RCs are assigned.
+    equipment_type: string;
+    id: number;
+}
 export interface VehicleCategory {
     color: string;
     vehicles: Record<string, number[]>;
