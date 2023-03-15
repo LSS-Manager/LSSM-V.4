@@ -112,7 +112,6 @@ export default (
         '#mission_vehicle_driving tbody'
     );
     if (drivingTable) {
-        const drivingRows = drivingTable.innerHTML;
         missingRequirements.forEach(requirement => {
             const isWater = requirement.vehicle === water;
             const isFoam = requirement.vehicle === foam;
@@ -208,19 +207,14 @@ export default (
                         )
                             vehicleTypes.push(...Object.values(vehicles));
                     });
-                    requirement.driving = vehicleTypes
-                        .map(
-                            vehicleType =>
-                                (
-                                    drivingRows.match(
-                                        new RegExp(
-                                            `vehicle_type_id="${vehicleType}"`,
-                                            'g'
-                                        )
-                                    ) || []
-                                ).length
-                        )
-                        .reduce((a, b) => a + b, 0);
+                    requirement.driving = drivingTable.querySelectorAll(
+                        vehicleTypes
+                            .map(
+                                vehicleType =>
+                                    `[vehicle_type_id="${vehicleType}"]`
+                            )
+                            .join(',')
+                    ).length;
                 }
             }
             requirement.total = requirement.missing - requirement.driving;
