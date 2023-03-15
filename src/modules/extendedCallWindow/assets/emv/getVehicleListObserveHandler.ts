@@ -10,6 +10,7 @@ export type GroupTranslation = Record<
     {
         texts: Record<number, string>;
         vehicles: Record<number, number>;
+        equipment?: Record<number, string>;
         conditionalVehicles?: Record<
             keyof Mission['additional'],
             Record<number, number>

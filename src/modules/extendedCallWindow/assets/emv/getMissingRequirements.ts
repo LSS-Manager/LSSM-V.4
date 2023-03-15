@@ -196,6 +196,9 @@ export default (
                     const vehicleTypes: number[] = Object.values(
                         vehicleGroups[vehicleGroupRequirement].vehicles
                     );
+                    const equipment = Object.values(
+                        vehicleGroups[vehicleGroupRequirement].equipment ?? {}
+                    );
                     Object.entries(
                         vehicleGroups[vehicleGroupRequirement]
                             .conditionalVehicles ?? {}
@@ -207,13 +210,19 @@ export default (
                         )
                             vehicleTypes.push(...Object.values(vehicles));
                     });
-                    requirement.driving = drivingTable.querySelectorAll(
-                        vehicleTypes
-                            .map(
-                                vehicleType =>
-                                    `[vehicle_type_id="${vehicleType}"]`
+
+                    const selectors = vehicleTypes
+                        .map(
+                            vehicleType => `[vehicle_type_id="${vehicleType}"]`
+                        )
+                        .concat(
+                            ...equipment.map(
+                                e => `[data-equipment-type="${e}"]`
                             )
-                            .join(',')
+                        );
+
+                    requirement.driving = drivingTable.querySelectorAll(
+                        selectors.join(',')
                     ).length;
                 }
             }
