@@ -846,6 +846,7 @@ export default {
                 caption: 'SAR Helicopter Hangar',
                 credits: 10_000,
                 coins: 1,
+                duration: '0 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [80],
@@ -900,4 +901,4 @@ export default {
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

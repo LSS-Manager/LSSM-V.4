@@ -10,6 +10,7 @@ export type GroupTranslation = Record<
     {
         texts: Record<number, string>;
         vehicles: Record<number, number>;
+        equipment?: Record<number, string>;
         conditionalVehicles?: Record<
             keyof Mission['additional'],
             Record<number, number>
@@ -220,7 +221,7 @@ export default (
                         : {
                               min:
                                   requirement.selected.min +
-                                  type.minPersonnel * vehicleIds.length,
+                                  type.staff.min * vehicleIds.length,
                               max:
                                   requirement.selected.max +
                                   vehicleIds
@@ -228,7 +229,7 @@ export default (
                                           id =>
                                               LSSM.$stores.api.vehiclesById[id]
                                                   ?.max_personnel_override ??
-                                              type.maxPersonnel
+                                              type.staff.max
                                       )
                                       .reduce((a, b) => a + b, 0),
                           }
