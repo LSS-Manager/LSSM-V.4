@@ -1,9 +1,6 @@
 {
     "extends": "../tsconfig.json",
-    "compilerOptions": {
-        "outDir": ".",
-        "sourceRoot": "."
-    },
+    "compilerOptions": { "outDir": ".", "sourceRoot": "." },
     "files": ["./globals.d.ts"],
     "include": ["./userscript.ts"]
 }
