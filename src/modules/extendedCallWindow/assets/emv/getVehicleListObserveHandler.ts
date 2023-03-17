@@ -70,6 +70,25 @@ export default (
         return requirements;
     };
 
+    const getRequirementsByEquipment = (translations: GroupTranslation) => {
+        const requirements: Record<string, Requirements> = {};
+
+        Object.values(translations).forEach(({ texts, equipment }) => {
+            const requirement = missingRequirements.find(({ vehicle }) =>
+                Object.values(texts)
+                    .map(t => t.toLowerCase())
+                    .includes(vehicle.toLowerCase())
+            );
+            if (requirement) {
+                Object.values(equipment ?? {}).forEach(eq => {
+                    if (!requirements.hasOwnProperty(eq)) requirements[eq] = [];
+                    requirements[eq].push(requirement);
+                });
+            }
+        });
+        return requirements;
+    };
+
     const getSpecialRequirement = (requirement: string) =>
         requirements.find(({ vehicle }) =>
             vehicle.match(
@@ -88,6 +107,10 @@ export default (
         typeof vbrTranslation === 'string'
             ? {}
             : getRequirementsByIDs(vbrTranslation);
+    const requirementsByEquipment =
+        typeof vbrTranslation === 'string'
+            ? {}
+            : getRequirementsByEquipment(vbrTranslation);
     const staffTranslation = $m('staff') as unknown as
         | GroupTranslation
         | string;
@@ -123,6 +146,7 @@ export default (
 
     return () => {
         const selectedVehicles: Record<number, number[]> = {};
+        const selectedEquipment: Record<string, number> = {};
         const definiteTractives: Record<number, number> = {};
         const possibleTractives: Record<number, number> = {};
 
@@ -143,6 +167,14 @@ export default (
             if (!selectedVehicles.hasOwnProperty(vehicleType))
                 selectedVehicles[vehicleType] = [];
             selectedVehicles[vehicleType].push(vehicleID);
+
+            (checkbox.dataset.equipmentTypes ?? '')
+                .split(',')
+                .forEach(equipment => {
+                    if (!selectedEquipment.hasOwnProperty(equipment))
+                        selectedEquipment[equipment] = 0;
+                    selectedEquipment[equipment]++;
+                });
 
             const tractiveVehicleID = checkbox.getAttribute(
                 'tractive_vehicle_id'
@@ -236,6 +268,16 @@ export default (
                 );
             });
         });
+        Object.entries(selectedEquipment).forEach(([equipment, amount]) =>
+            requirementsByEquipment[equipment]?.forEach(requirement =>
+                setSelected(
+                    requirement,
+                    typeof requirement.selected === 'number'
+                        ? requirement.selected + amount
+                        : requirement.selected
+                )
+            )
+        );
         Object.entries(specialRequirements).forEach(([key, requirement]) =>
             setSelected(requirement, getProgressBarSelected(key))
         );
