@@ -143,7 +143,7 @@ export default {
     station: 'Casernes | Caserne | Casernes',
     distance: 'Distance | Distances',
     vehicleType: 'Type de véhicule',
-    noOptions: 'Désolé, pas d\'options correspondantes.',
+    noOptions: "Désolé, pas d'options correspondantes.",
     fmsReal2Show: {
         1: 1,
         2: 2,

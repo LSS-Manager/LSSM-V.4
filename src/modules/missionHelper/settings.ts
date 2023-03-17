@@ -378,13 +378,13 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(locale !== 'fr_FR'
             ? {
-                  'optionalAlternatives.allow_police_motorcycle_instead_of_fustw': 
-				  <Toggle>{
+                  'optionalAlternatives.allow_police_motorcycle_instead_of_fustw':
+                      <Toggle>{
                           type: 'toggle',
                           default: false,
                           dependsOn: '.vehicles.content',
-                  },
+                      },
               }
-            : null)
+            : null),
     };
 }) as ModuleSettingFunction;
