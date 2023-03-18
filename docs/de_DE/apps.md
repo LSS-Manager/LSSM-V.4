@@ -6,9 +6,9 @@ sidebarDepth: 2
 
 # ℹ️ Allgemeines zu Modulen
 
-Auf den folgenden Seiten findest du zu allen unseren Modulen eine Beschreibung. Wir haben unser Bestes gegeben, diese so verständlich, und trotzdem vollständig, wie möglich zu halten. Allerdings ist dies aufgrund des Umfangs des LSSM nicht immer einfach.
+Auf den folgenden Seiten findest du zu einigen unseren Modulen eine Beschreibung. Wir haben unser Bestes gegeben, diese so verständlich, und trotzdem vollständig, wie möglich zu halten. Allerdings ist es aufgrund des Umfangs des LSSM nicht einfach, diese Beschreibungen immer aktuell zu halten und fehlende nachzureichen.
 
-Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen lassen – oder sogar selbst einbauen.
+Wenn du Verbesserungsvorschläge hast oder selbst am Wiki mithelfen möchtest, kannst du uns Vorschläge wie immer zukommen lassen – oder sogar selbst einbauen.
 
 :::danger Module und Einstellungen, die in Mapkit nicht funktionieren
 Wie in der Erklärung zum [Appstore][docs.appstore] beschrieben, gibt es Module und Einstellungen, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
