@@ -24,7 +24,7 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [28, 29, 38, 73, 74],
+                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
             ...multiplyExtension(
                 {
@@ -34,8 +34,8 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
-                    parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78, 108]],
                     cannotDisable: true,
                 },
                 5
@@ -56,8 +56,8 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
-                parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78, 108]],
                 cannotDisable: true,
             },
             {
@@ -986,7 +986,7 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [28, 29, 38, 73, 74],
+                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
             ...multiplyExtension(
                 {
