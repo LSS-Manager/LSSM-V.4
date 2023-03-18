@@ -92,7 +92,7 @@
         "vehiclesByRequirement": [
             {
                 "texts": ["partioauto", "partioauto"],
-                "vehicles": [8, 16, 18, 37]
+                "vehicles": [8, 16, 18, 37, 15]
             },
             {
                 "texts": ["Poliisihelikopteri", "Poliisihelikopteria"],
