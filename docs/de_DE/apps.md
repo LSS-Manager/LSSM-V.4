@@ -25,13 +25,13 @@ Grundsätzlich möchten wir mit der Zeit fast alle Funktionen der V.3 in die V.4
 
 ### Module, die nur in der V3 sind
 
-Diese Module werden mit der Zeit übernommen, allerdings benötigen wir dafür noch etwas Zeit.
+Diese Module werden mit der Zeit übernommen, allerdings benötigen wir dafür noch etwas Zeit:
 
 <v3-v4-comparison-v3only/>
 
 ### Neue Module im LSSM V.4
 
-Diese Module sind neu in der V4.
+Diese Module sind neu in der V4:
 
 <v3-v4-comparison-new/>
 
