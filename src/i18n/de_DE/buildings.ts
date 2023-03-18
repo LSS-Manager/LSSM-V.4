@@ -35,7 +35,9 @@ export default {
                     isVehicleExtension: true,
                     givesParkingLots: 1,
                     unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
-                    parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78, 108]],
+                    parkingLotReservations: [
+                        [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    ],
                     cannotDisable: true,
                 },
                 5
