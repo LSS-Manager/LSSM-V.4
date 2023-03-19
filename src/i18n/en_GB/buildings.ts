@@ -305,7 +305,7 @@ export default {
                 unlocksVehicleTypes: [53, 54, 55, 56],
                 givesParkingLots: 1,
                 isVehicleExtension: true,
-                parkingLotReservations: [54],
+                parkingLotReservations: [[54]],
             },
             {
                 caption: 'Additional Detention Van Parking Spaces',
@@ -314,7 +314,7 @@ export default {
                 duration: '5 Days',
                 givesParkingLots: 2,
                 isVehicleExtension: true,
-                parkingLotReservations: [54, 54],
+                parkingLotReservations: [[54], [54]],
                 requiredExtensions: [10],
             },
         ],
@@ -496,7 +496,7 @@ export default {
                 givesParkingLots: 1,
                 isVehicleExtension: true,
                 parkingLotReservations: [
-                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+                    [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
                 ],
                 cannotDisable: true,
             },
@@ -511,7 +511,7 @@ export default {
                 givesParkingLots: 1,
                 isVehicleExtension: true,
                 parkingLotReservations: [
-                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+                    [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
                 ],
                 cannotDisable: true,
             },
@@ -566,7 +566,7 @@ export default {
                 unlocksVehicleTypes: [53, 54, 55, 56],
                 givesParkingLots: 1,
                 isVehicleExtension: true,
-                parkingLotReservations: [54],
+                parkingLotReservations: [[54]],
             },
         ],
         levelcost: [
@@ -757,7 +757,7 @@ export default {
                 unlocksVehicleTypes: [53, 54, 55, 56],
                 givesParkingLots: 1,
                 isVehicleExtension: true,
-                parkingLotReservations: [54],
+                parkingLotReservations: [[54]],
             },
             {
                 caption: 'Additional Detention Van Parking Spaces',
@@ -766,7 +766,7 @@ export default {
                 duration: '5 Days',
                 givesParkingLots: 2,
                 isVehicleExtension: true,
-                parkingLotReservations: [54, 54],
+                parkingLotReservations: [[54], [54]],
                 requiredExtensions: [40],
             },
         ],
@@ -967,4 +967,4 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         icon: 'helicopter',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

@@ -1,4 +1,4 @@
-declare const PREFIX: string;
+declare const PREFIX: 'lssmv4';
 declare const VERSION: string;
 declare const BRANCH: string;
 declare const SERVER: string;

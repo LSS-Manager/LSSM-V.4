@@ -47,7 +47,7 @@ export default async (
 
     if (!schools) return;
 
-    const schoolingStaffListByCaption = Object.fromEntries(
+    const schoolingsByKey = Object.fromEntries(
         schools.map(school => [
             school,
             Object.fromEntries(
@@ -56,29 +56,33 @@ export default async (
                         string,
                         Schooling[]
                     >
-                )[school].map(({ caption, staffList }) => [caption, staffList])
+                )[school].map(({ key, staffList, caption }) => [
+                    key,
+                    { staffList, caption },
+                ])
             ),
         ])
     );
 
-    const hasSchooling = vehicleTypes[vehicle.vehicle_type].schooling;
+    const hasSchooling = vehicleTypes[vehicle.vehicle_type].staff.training;
 
     const fittingRows: HTMLTableRowElement[] = hasSchooling ? [] : personnel;
     if (hasSchooling) {
         schools.forEach(school => {
             const schoolings = Object.keys(
-                vehicleTypes[vehicle.vehicle_type].schooling?.[school] ?? {}
+                vehicleTypes[vehicle.vehicle_type].staff.training?.[school] ??
+                    {}
             );
-            schoolings.forEach(schoolingCaption => {
-                const staffList =
-                    schoolingStaffListByCaption[school][schoolingCaption];
+            schoolings.forEach(schoolingKey => {
+                const { staffList, caption } =
+                    schoolingsByKey[school][schoolingKey];
                 personnel.forEach(row => {
                     if (
                         (row.textContent?.match(
                             LSSM.$utils.escapeRegex(staffList)
                         ) ||
                             row.textContent?.match(
-                                LSSM.$utils.escapeRegex(schoolingCaption)
+                                LSSM.$utils.escapeRegex(caption)
                             )) &&
                         !fittingRows.includes(row)
                     )

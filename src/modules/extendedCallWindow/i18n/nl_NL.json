@@ -16,6 +16,7 @@
             "ab_atemschutz_only": "Adembeschermingshaakarmbak",
             "abl2wasser_only": "Watertransportsysteem-haakarmbak",
             "ambulance_or_rapid_responder": "Ambulance of Rapid Responder",
+            "any_traffic_unit": "Signalisatie Voertuig (DA-RWS, DA-SIG of DM-RWS)",
             "arff": "Crashtender",
             "at_c": "AT-Commandant",
             "at_m": "AT-Materiaalwagen",
@@ -235,6 +236,11 @@
                 "texts": ["Pompvoertuig", "Pompvoertuigen"],
                 "vehicles": [71, 72]
             },
+            {
+                "texts": ["Signalisatie Voertuig", "Signalisatie Voertuigen"],
+                "vehicles": [81, 82, 83]
+            },
+            { "texts": ["DM-RWS", "DM-RWS"], "vehicles": [82] },
             { "texts": ["KW-boot", "KW-boten"], "vehicles": [77] },
             { "texts": ["Quad", "Quads"], "vehicles": [76] },
             {

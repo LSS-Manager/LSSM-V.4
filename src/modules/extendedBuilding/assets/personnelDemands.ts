@@ -23,13 +23,13 @@ export default (
         .then(vehicles => {
             vehicles.forEach(vehicle => {
                 const type = vehicleTypes[vehicle.vehicle_type];
-                sumMinPersonnel += type.minPersonnel;
+                sumMinPersonnel += type.staff.min;
                 sumMaxPersonnel +=
-                    vehicle.max_personnel_override ?? type.maxPersonnel;
+                    vehicle.max_personnel_override ?? type.staff.max;
                 if (vehicle.fms_real !== 6) {
-                    sumMinPersonnelS6 += type.minPersonnel;
+                    sumMinPersonnelS6 += type.staff.min;
                     sumMaxPersonnelS6 +=
-                        vehicle.max_personnel_override ?? type.maxPersonnel;
+                        vehicle.max_personnel_override ?? type.staff.max;
                 }
             });
 

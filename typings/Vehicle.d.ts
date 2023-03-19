@@ -3,6 +3,7 @@
  */
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconName } from '@fortawesome/free-solid-svg-icons';
 
 export interface Vehicle {
     id: number;
@@ -22,18 +23,45 @@ export interface Vehicle {
     target_id: number | null; // The ID of where the vehicle is currently driving to
     tractive_vehicle_id: number | null;
     queued_mission_id: number | null;
+    equipments: Equipments[]; // Equipment only visible when the car is approaching and the RCs are assigned.
+    assigned_equipments: AEquipments[]; // Equipment only visible when the car is approaching and the RCs are assigned.
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
 }
-
+interface Equipments {
+    // Only visible when the car is approaching and the RCs are assigned.
+    equipment_type: string;
+    size: number; // Only in V2
+    caption: string; //Only in V2
+    id: number;
+}
+interface AEquipments {
+    // Only visible when the car is approaching and the RCs are assigned.
+    equipment_type: string;
+    id: number;
+}
 export interface VehicleCategory {
     color: string;
     vehicles: Record<string, number[]>;
 }
 
+interface captionedVehicleSchooling extends VehicleSchooling {
+    caption: string;
+}
+
 export interface ResolvedVehicleCategory {
     color: string;
-    vehicles: Record<string, InternalVehicle[]>;
+    vehicles: Record<
+        string,
+        (InternalVehicle & {
+            staff: BaseVehicle['staff'] & {
+                training: Record<
+                    string,
+                    Record<string, captionedVehicleSchooling>
+                >;
+            };
+        })[]
+    >;
 }
 
 export type VehicleSchooling = Partial<{
@@ -41,18 +69,62 @@ export type VehicleSchooling = Partial<{
     min: number;
 }>;
 
-export interface InternalVehicle {
+interface BaseVehicle {
     caption: string;
     color: string;
-    coins: number;
     credits: number;
+    coins: number;
+    staff: {
+        min: number;
+        max: number;
+        training?: Record<string, Record<string, VehicleSchooling>>;
+    };
+    icon: IconName;
+    possibleBuildings: number[];
+
+    // tank
+    waterTank?: number;
+    foamTank?: number;
+
+    // bonus on water or foam
+    waterBonus?: number;
+    foamBonus?: number;
+
+    // equipment
+    equipmentCapacity?: number;
+
+    // special information, freetext
+    special?: string;
+}
+
+interface BackwardsCompatibilityAttributes {
     minPersonnel: number;
     maxPersonnel: number;
     wtank?: number;
     pumpcap?: number;
     ftank?: number;
     schooling?: Record<string, Record<string, VehicleSchooling>>;
-    special?: string;
-    icon: string;
-    possibleBuildings: number[];
 }
+
+type TrailerVehicleAttributes =
+    | {
+          isTrailer: true;
+          tractiveVehicles: number[];
+      }
+    | {
+          isTrailer?: false;
+      };
+
+type PumpVehicleAttributes =
+    | {
+          pumpCapacity: number;
+          pumpType: 'fire' | 'sewage'; // Feuerlöschpumpe | Schmutzwasserpumpe
+      }
+    | { pumpCapacity?: null };
+
+export type InternalVehicle = BaseVehicle &
+    PumpVehicleAttributes &
+    TrailerVehicleAttributes;
+
+export type BackwardsCompatibilityVehicle = BackwardsCompatibilityAttributes &
+    InternalVehicle;

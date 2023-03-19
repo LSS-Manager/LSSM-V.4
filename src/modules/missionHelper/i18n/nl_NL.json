@@ -13,6 +13,7 @@
         "fire_support_specialization": "Chemie en industriële inzetten (Specialisatie)",
         "police": "Politie inzetten",
         "riot_police": "Politie, Hoofdbureau inzetten",
+        "technical_aid": "RWS / Signalisatie Inzetten",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
         "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
@@ -46,6 +47,7 @@
         "prisoner_transport_count": "Arrestantenvervoeruitbreiding | Arrestantenvervoeruitbreidingen",
         "rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
         "riot_unit_count": "ME sectie uitbreiding| ME sectie uitbreidingen",
+        "technical_aid": "RWS / Signalisatie",
         "title": "Vereist | Vereisten",
         "wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
         "water_rescue_2": "Waterreddingspost | Waterreddingsposten"
@@ -101,6 +103,8 @@
             "police_helicopters": "Politiehelikopter | Politiehelikopters",
             "police_horse": "Bereden Brigade (paarden)",
             "spokesman": "Voorlichter | Voorlichters",
+            "traffic_motorcycle": "DM-RWS",
+            "traffic_unit": "Signalisatie Voertuig | Signalisatie Voertuigen",
             "water_rescue": "Strandvoertuig | Strandvoertuigen",
             "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
         },

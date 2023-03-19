@@ -24,7 +24,7 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [28, 29, 38, 73, 74],
+                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
             ...multiplyExtension(
                 {
@@ -34,8 +34,10 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
-                    parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    parkingLotReservations: [
+                        [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    ],
                     cannotDisable: true,
                 },
                 5
@@ -56,8 +58,8 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
-                parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78, 108]],
                 cannotDisable: true,
             },
             {
@@ -108,8 +110,10 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
-                    parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    parkingLotReservations: [
+                        [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    ],
                     cannotDisable: true,
                 },
                 3
@@ -124,6 +128,55 @@ export default {
                 unlocksVehicleTypes: [83, 84, 85, 86],
             },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Lagerraum',
+                additionalStorage: 40,
+                credits: 25_000,
+                coins: 10,
+                duration: '5 Tage',
+            },
+            additional_containers_1: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+            additional_containers_2: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_1'],
+            },
+            additional_containers_3: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_2'],
+            },
+            additional_containers_4: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_3'],
+            },
+            additional_containers_5: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_4'],
+            },
+        },
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: '6.000 mit kleinen Feuerwachen zusammen',
         maxLevel: 16,
@@ -141,6 +194,7 @@ export default {
             'KLF',
             'MLF',
             'TSF-W',
+            '(LF-L => Baukosten 4.000 höher)',
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 20.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
@@ -550,6 +604,7 @@ export default {
         startPersonnel: 9,
         startParkingLots: 1,
         startVehicles: ['GKW'],
+        startParkingLotReservations: [[39]],
         schoolingTypes: ['THW'],
         icon: 'gear',
     },
@@ -749,6 +804,7 @@ export default {
         startPersonnel: 0,
         startParkingLots: 1,
         startVehicles: ['KTW Typ B'],
+        startParkingLotReservations: [[58]],
         schoolingTypes: ['Rettungsdienst'],
         icon: 'house-medical-flag',
     },
@@ -934,7 +990,7 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [28, 29, 38, 73, 74],
+                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
             ...multiplyExtension(
                 {
@@ -944,8 +1000,10 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78],
-                    parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78]],
+                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    parkingLotReservations: [
+                        [47, 48, 49, 54, 62, 71, 77, 78, 108],
+                    ],
                     cannotDisable: true,
                 },
                 2
@@ -990,6 +1048,31 @@ export default {
                 unlocksVehicleTypes: [83, 84, 85, 86],
             },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Lagerraum',
+                additionalStorage: 40,
+                credits: 25_000,
+                coins: 10,
+                duration: '5 Tage',
+            },
+            additional_containers_1: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+            additional_containers_2: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_1'],
+            },
+        },
         levelcost: [
             '1. 10.000',
             '2. 50.000',
@@ -1012,6 +1095,7 @@ export default {
             'KLF',
             'MLF',
             'TSF-W',
+            '(LF-L => Baukosten 4.000 höher)',
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
@@ -1168,4 +1252,4 @@ export default {
         schoolingTypes: [],
         icon: 'poo',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

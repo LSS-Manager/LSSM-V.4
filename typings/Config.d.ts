@@ -30,7 +30,7 @@ export interface Config {
         end: string;
     };
     userscript_latest_update: string;
-    prefix: string;
+    prefix: typeof PREFIX;
     urls: {
         server: string;
         docs: string;

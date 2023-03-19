@@ -751,4 +751,4 @@ export default {
         schoolingTypes: ['Secours nautique'],
         icon: 'building-shield',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

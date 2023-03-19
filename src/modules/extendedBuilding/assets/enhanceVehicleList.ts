@@ -201,7 +201,7 @@ export default async (
                                             .createRange()
                                             .createContextualFragment(res)
                                             .querySelectorAll(
-                                                '#vehicle_details table tbody tr'
+                                                '#vehicle_details table#vehicle-attr-personnel tbody tr'
                                             ).length
                                 );
                         }
@@ -210,7 +210,7 @@ export default async (
                         const maxPersonnel =
                             storedVehicle.max_personnel_override ??
                             internalVehicleTypes[storedVehicle.vehicle_type]
-                                ?.maxPersonnel ??
+                                ?.staff.max ??
                             0;
                         const assignedPersonnel = (await getSetting(
                             'vehiclesPersonnelColorized'

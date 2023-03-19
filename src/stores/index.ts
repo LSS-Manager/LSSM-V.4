@@ -185,7 +185,11 @@ export const defineRootStore = defineStore('root', {
                 },
             });
         },
-        preModifyParams({ event, callback = undefined }: premodifyParams) {
+        preModifyParams<Args extends unknown[] = []>({
+            event,
+            callback = undefined,
+            returnModification = false,
+        }: premodifyParams<Args>) {
             const split = event.split('.');
             const trueProp = split.pop();
             const trueBase = split.reduce(
@@ -200,11 +204,12 @@ export const defineRootStore = defineStore('root', {
             const originalEvent = trueBase[trueProp];
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            trueBase[trueProp] = (...args) => {
-                callback?.(...args);
+            trueBase[trueProp] = (...args: Args) => {
+                const result = callback?.(...args);
+                const params = returnModification ? result : args;
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                originalEvent(...args);
+                originalEvent(...params);
             };
         },
         addMenuItem(text: string) {

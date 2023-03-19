@@ -40,6 +40,10 @@ import type {
 
 export type GameFlavour = 'missionchief' | 'policechief';
 
+export type Prefixed<str extends string> = `${typeof PREFIX}-${str}`;
+
+declare const GM_INFO_KEY: Prefixed<'GM_Info'>;
+
 declare global {
     interface Window {
         $: JQueryStatic;
@@ -71,8 +75,8 @@ declare global {
             massFiltersChange(filter_id: string, add: boolean): void;
             decorateFilterText(text: string, filter_id: string): string;
         };
-        [PREFIX: string]: Vue | unknown;
-        [`lssmv4-GM_Info`]: Tampermonkey.ScriptInfo;
+        [PREFIX]: Vue | unknown;
+        [GM_INFO_KEY]: Tampermonkey.ScriptInfo;
         map: L.Map;
         L: typeof L;
         icon_empty: L.Icon;

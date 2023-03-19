@@ -1,6 +1,8 @@
 {
     "building-list": {
         "actions": "",
+        "beds": "beds",
+        "bedsFree": "free beds",
         "caption": "Nazwa",
         "current": "Numer (aktywny)",
         "fastDispatchChooser": { "noDispatch": "Brak centrum kontroli" },

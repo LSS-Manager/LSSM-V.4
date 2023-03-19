@@ -48,6 +48,10 @@
             "description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.",
             "title": "Unpassende AAOs ausgrauen"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Bezieht alle Wörter des Einsatznamens für die Funktion \"Unpassende AAOs ausgrauen\" mit ein.",
+            "title": "Alle Wörter einbeziehen"
+        },
         "arrSearch": {
             "description": "Zeigt ein Suchfeld über den AAOs an, mit dem sich die AAO durchsuchen lässt.",
             "title": "AAO-Suche"
@@ -212,7 +216,7 @@
                 "name": "LF",
                 "vehicleTypes": [
                     0, 1, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
-                    30, 37, 87, 88, 89, 90
+                    30, 37, 87, 88, 89, 90, 107
                 ]
             },
             {
@@ -220,7 +224,7 @@
                 "vehicleTypes": [
                     2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 27, 33, 34, 36, 46,
                     47, 48, 49, 53, 54, 57, 62, 71, 75, 76, 77, 78, 83, 84, 85,
-                    86
+                    86, 104, 105, 106, 108
                 ]
             },
             {

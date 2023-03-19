@@ -48,6 +48,10 @@
             "description": "Ställer in ett grått filter över alla ARR som inte innehåller ett ord med uppdragsnamnet.",
             "title": "Gråa ut olämpliga ARR's"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearchClearOnEnter": {
             "description": "Clears the ARR-search when the Enter key is pressed",
             "title": "Clear ARR-search"

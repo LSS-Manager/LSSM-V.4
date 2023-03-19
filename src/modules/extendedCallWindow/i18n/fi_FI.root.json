@@ -48,6 +48,10 @@
             "description": "Asettaa harmaan sävyn kaikille hälytysjärjestelyille, jotka eivät sisällä sanaa tehtävän nimestä.",
             "title": "Harmaanna liittymättömät hälytysjärjestelyt"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Näyttää hälytysjärjestelyjen yläpuolella olevan hakupalkin, joka mahdollistaa ARR:ien suodattamisen.",
             "title": "Hälytysjärjestely haku"

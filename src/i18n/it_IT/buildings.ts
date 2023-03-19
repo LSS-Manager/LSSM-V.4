@@ -734,4 +734,4 @@ export default {
         special: '',
         icon: 'plane',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

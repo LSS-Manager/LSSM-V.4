@@ -48,6 +48,10 @@
             "description": "Imposta un filtro grigio su tutte le AAR che non contengono una parola del nome della missione.",
             "title": "Disattiva AAR non idonei"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Mostra una barra di ricerca sopra le AAR che permette il filtraggio delle AAR.",
             "title": "Cerca ARR"

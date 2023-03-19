@@ -1,14 +1,15 @@
 {
     "diyMission": "Jest to misja sojuszu na dużą skalę!",
-    "expansions": "Rozbudowa | Rozbudowy",
+    "expansions": "Może się rozwinąć w:",
     "followups": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
     "generated_by": "Wygenerowane przez",
     "mission_categories": {
         "ambulance": "Misje ratownictwa medycznego",
         "fire": "Misje straży pożarnej",
-        "fire_support_specialization": "Specjalizacja",
+        "fire_support_specialization": "Wymagana specjalizacja",
         "police": "Misje policyjne",
         "riot_police_specialization": "Misje Oddziału Prewencji Policji",
+        "search_and_rescue": "Misje ratownictwo poszukiwawczo - ratownicze",
         "title": "Generowane kategorie",
         "traffic_police_specialization": "Misje Wydziału Ruchu Drogowego",
         "water_rescue": "Misje WOPR",
@@ -18,12 +19,12 @@
         "critical_care": "Szansa, że potrzebny będzie lekarz",
         "helicopter": "Szansa, że potrzebny będzie śmigłowiec LPR",
         "patient_allow_first_responder_chance": "Pierwsi przybyli ratownicy mogą w pełni zaopiekować się pacjentami.",
-        "patient_at_end_of_mission": "Pacjentci pojawia się dopiero pod koniec misji!",
+        "patient_at_end_of_mission": "Pacjenci pojawia się dopiero pod koniec misji!",
         "patient_transport": "Prawdopodobieństwo transportu",
         "possible_patient": "Maksimum pacjentów",
         "possible_patient_exact": "Dokładnie {n} pacjent | Dokładnie {n} pacjentów",
         "possible_patient_min": "Minimum pacjentów",
-        "specializations": "Departament:",
+        "specializations": "Oddział:",
         "title": "Pacjent | Pacjenci"
     },
     "prerequisites": {

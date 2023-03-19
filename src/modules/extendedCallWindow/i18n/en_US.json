@@ -55,7 +55,7 @@
             "rescueboat": "Large Rescue Boat",
             "rtw": "ALS Ambulance",
             "rw": "Heavy rescue vehicle",
-            "sheriff_unit": "Sheriff Unit",
+            "sheriff_unit": "Police Supervisor / Sheriff",
             "swat": "SWAT",
             "swat_armored_vehicle": "SWAT Armoured Vehicle",
             "swat_suv": "SWAT SUV",
@@ -117,12 +117,12 @@
             },
             {
                 "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
-                "vehicles": [4, 8, 18, 21, 28, 61]
+                "vehicles": [4, 8, 18, 21, 28, 61, 67]
             },
             { "texts": ["Mobile Air"], "vehicles": [6] },
             {
                 "texts": ["Water Tanker", "Water Tankers"],
-                "vehicles": [7, 33, 64, 77, 78]
+                "vehicles": [7, 33, 64, 65, 77, 78]
             },
             {
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
@@ -198,7 +198,13 @@
                 "texts": ["FBI Surveillance Drone", "FBI Surveillance Drones"],
                 "vehicles": [46]
             },
-            { "texts": ["Sheriff", "Sheriffs"], "vehicles": [47] },
+            {
+                "texts": [
+                    "Police Supervisor / Sheriff",
+                    "Police Supervisors / Sheriffs"
+                ],
+                "vehicles": [47]
+            },
             { "texts": ["Patrol Boat", "Patrol Boats"], "vehicles": [55] },
             { "texts": ["ATF Unit", "ATF Units"], "vehicles": [53] },
             {

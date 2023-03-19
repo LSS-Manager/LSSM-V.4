@@ -1,6 +1,8 @@
 {
     "building-list": {
         "actions": "",
+        "beds": "Lits",
+        "bedsFree": "Lits Libre",
         "caption": "Nom",
         "current": "Nombre (actif)",
         "fastDispatchChooser": { "noDispatch": "Sans CTA" },
