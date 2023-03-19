@@ -680,7 +680,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [11],
+        possibleBuildings: [11, 17],
     },
     52: {
         caption: 'GefKw',

@@ -940,7 +940,7 @@ export default {
         staff: { min: 2, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0],
-        foamTank: 6500,
+        foamTank: 2500,
     },
     65: {
         caption: 'Foam Trailer',
