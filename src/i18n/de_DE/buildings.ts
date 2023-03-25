@@ -289,8 +289,8 @@ export default {
         coins: 25,
         credits: 200_000,
         levelPrices: {
-            credits: [],
-            coins: [],
+            credits: [...Array(20).fill(19_000)],
+            coins: [...Array(20).fill(11)],
         },
         extensions: [
             {
