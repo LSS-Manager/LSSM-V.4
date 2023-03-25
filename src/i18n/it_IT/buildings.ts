@@ -802,7 +802,6 @@ export default {
         levelPrices: {
             credits: [...Array(5).fill(1_000_000)],
             coins: [...Array(5).fill(50)],
-            coins: [...Array(5).fill(50)],
         },
         extensions: [],
         levelcost: ['1.-5. 1.000.000'],
