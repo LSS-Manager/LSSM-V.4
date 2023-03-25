@@ -16,6 +16,10 @@ export default {
         color: '#bb0000',
         coins: 30,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
+            coins: [10, 15, ...Array(3147).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulance extension',
@@ -53,6 +57,10 @@ export default {
         color: '#992222',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',
@@ -77,6 +85,10 @@ export default {
         color: '#ffa500',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
+            coins: [10, 15, ...Array(14).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: 'No limit',
@@ -93,6 +105,10 @@ export default {
         color: '#ffa501',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',
@@ -117,6 +133,10 @@ export default {
         color: '#bbe944',
         coins: 25,
         credits: 200_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'General Internal',
@@ -203,6 +223,10 @@ export default {
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'see specials',
@@ -224,6 +248,10 @@ export default {
         color: '#007700',
         coins: 35,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
+            coins: [10, 15, ...Array(14).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -291,6 +319,10 @@ export default {
         color: '#24c3ae',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'All 25 buildings one control center',
@@ -306,6 +338,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',
@@ -330,6 +366,10 @@ export default {
         color: '#148423',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1. 1.000.000 Credits / 50 Coins'],
         maxBuildings: 'see specials',
@@ -351,6 +391,10 @@ export default {
         color: '#c259b5',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 4,
@@ -366,6 +410,10 @@ export default {
         color: '#7fffd4',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'No Limit',
@@ -382,6 +430,10 @@ export default {
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -427,6 +479,10 @@ export default {
         color: '#aa1111',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Bushfire Expansion',
@@ -460,6 +516,10 @@ export default {
         color: '#116611',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -519,6 +579,10 @@ export default {
         color: '#eeb611',
         coins: 25,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [],
         levelcost: [
             '1. 10.000',
@@ -541,6 +605,10 @@ export default {
         coins: -1,
         credits: -1,
         extensions: [],
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         levelcost: ['Too Expensive'],
         maxBuildings: 'No Limit',
         maxLevel: 5,
@@ -556,6 +624,10 @@ export default {
         color: '#4b2103',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Too Expensive'],
         maxBuildings: 'No Limit',
@@ -572,6 +644,10 @@ export default {
         color: '#e7ad2f',
         coins: 50,
         credits: 1_500_000,
+        levelPrices: {
+            credits: [...Array(5).fill(1_000_000)],
+            coins: [...Array(5).fill(50)],
+        },
         extensions: [],
         levelcost: ['1.-5. 1.000.000'],
         maxBuildings: 'see specials',
@@ -593,6 +669,10 @@ export default {
         color: '#7fffd4',
         coins: 35,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'No Limit',
@@ -609,6 +689,10 @@ export default {
         color: '#7fffd4',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',

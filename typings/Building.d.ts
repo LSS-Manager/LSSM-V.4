@@ -119,6 +119,10 @@ interface BaseBuilding {
     coins: number;
     extensions: (InternalExtension | null)[]; // null if extension is not available
     storageUpgrades?: Record<string, StorageUpgrade>;
+    levelPrices: {
+        credits: number[];
+        coins: number[];
+    };
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;

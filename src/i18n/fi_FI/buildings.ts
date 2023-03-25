@@ -16,6 +16,10 @@ export default {
         color: '#FF0000',
         credits: 100_000,
         coins: 30,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(22).fill(100_000)],
+            coins: [10, 15, ...Array(22).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulanssilaajennus',
@@ -56,6 +60,10 @@ export default {
         color: '#d9ae6f',
         credits: 500_000,
         coins: 50,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Lisäluokkahuone',
@@ -80,6 +88,10 @@ export default {
         color: '#ffff00',
         credits: 200_000,
         coins: 35,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(12).fill(100_000)],
+            coins: [10, 15, ...Array(12).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -96,6 +108,10 @@ export default {
         color: '#d9ae6f',
         credits: 500_000,
         coins: 50,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Lisäluokkahuone',
@@ -120,6 +136,10 @@ export default {
         color: '#ff0000',
         credits: 200_000,
         coins: 35,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Yleislääkäri',
@@ -204,6 +224,10 @@ export default {
         color: '#ffff00',
         credits: 1_000_000,
         coins: 50,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1000000'],
         maxBuildings: 'Ei rajoitusta',
@@ -224,6 +248,10 @@ export default {
         color: '#06377b',
         credits: 100_000,
         coins: 35,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(12).fill(100_000)],
+            coins: [10, 15, ...Array(12).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Vankilan selli',
@@ -277,6 +305,10 @@ export default {
         color: '#ff0000',
         credits: 0,
         coins: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: '1 per 25 rakennusta',
@@ -292,6 +324,10 @@ export default {
         color: '#d9ae6f',
         credits: 500_000,
         coins: 50,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Lisäluokkahuone',
@@ -316,6 +352,10 @@ export default {
         color: '#06377b',
         credits: 1_000_000,
         coins: 50,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1000000'],
         maxBuildings: 'Ei rajoitusta',
@@ -336,6 +376,10 @@ export default {
         color: '#FFFFFF',
         credits: 0,
         coins: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: '1',
@@ -349,6 +393,10 @@ export default {
         color: '#FF0000',
         credits: 50_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulanssilaajennus',
@@ -389,6 +437,10 @@ export default {
         color: '#06377b',
         credits: 50_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Vankilan selli',
@@ -431,6 +483,10 @@ export default {
         color: '#ffff00',
         credits: 100_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -447,6 +503,10 @@ export default {
         color: '#06377b',
         credits: 500_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -463,6 +523,10 @@ export default {
         color: '#06377b',
         credits: 1_000_000,
         coins: 50,
+        levelPrices: {
+            credits: [...Array(2).fill(1_000_000)],
+            coins: [...Array(2).fill(50)],
+        },
         extensions: [],
         levelcost: ['1. 1.000.000', '2. 1.000.000'],
         maxBuildings: 'Ei rajoitusta',
