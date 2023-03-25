@@ -501,4 +501,4 @@ export default {
         schoolingTypes: [],
         icon: 'poo',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

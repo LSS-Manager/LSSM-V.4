@@ -628,4 +628,4 @@ export default {
             "Finance ministers and admins can (expand) Water Rescue Academy with the help of credits from the association's treasury.Training course masters and admins can start training courses at association Water Rescue Academys.",
         icon: 'graduation-cap',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

@@ -3,9 +3,12 @@ import type VueI18n from 'vue-i18n';
 import type { InternalBuilding, ResolvedBuildingCategory } from '../Building';
 import type { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 
-interface ResolvedSchooling extends Pick<Schooling, 'caption' | 'duration'> {
+type ResolvedSchooling = Pick<
+    Schooling,
+    'caption' | 'duration' | 'key' | 'staffList'
+> & {
     required_for: string[];
-}
+};
 
 export interface Overview {
     vehicles: Record<number, InternalVehicle>;

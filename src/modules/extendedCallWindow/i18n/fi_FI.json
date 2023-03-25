@@ -58,6 +58,7 @@
     },
     "enhancedMissingVehicles": {
         "driving": "Matkalla",
+        "foam": "litraa vaahtoa",
         "missing": "Tarvitaan",
         "selected": "Valittu",
         "staff": [
@@ -91,7 +92,7 @@
         "vehiclesByRequirement": [
             {
                 "texts": ["partioauto", "partioauto"],
-                "vehicles": [8, 16, 18, 37]
+                "vehicles": [8, 16, 18, 37, 15]
             },
             {
                 "texts": ["Poliisihelikopteri", "Poliisihelikopteria"],
@@ -115,11 +116,11 @@
             { "texts": ["johtoauto", "johtoautoa"], "vehicles": [3, 11] },
             { "texts": ["Koirapartio", "Koirapartiota"], "vehicles": [16] },
             {
-                "texts": ["johtokeskusauto", "johtokeskusautoa"],
+                "texts": ["johtokeskusauto", "johtokeskusautot"],
                 "vehicles": [11]
             },
             {
-                "texts": ["kemikaalitorjunta-auto, kemikaalitorjunta-auto"],
+                "texts": ["kemikaalitorjunta-auto", "kemikaalitorjunta-auto"],
                 "vehicles": [7]
             },
             {
@@ -160,8 +161,10 @@
                 "vehicles": [39]
             },
             { "texts": ["H215", "H215s"], "vehicles": [41] },
-            { "texts": ["Do228", "Do228"], "vehicles": [40] }
-        ]
+            { "texts": ["Do228", "Do228"], "vehicles": [40] },
+            { "texts": ["Vaahtoyksikköä", "Vaahtoyksikköä"], "vehicles": [25] }
+        ],
+        "water": "litraa vettä"
     },
     "hideVehicleList": {
         "hide": "Piilota ajoneuvolista",

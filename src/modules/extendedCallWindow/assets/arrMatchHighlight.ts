@@ -1,4 +1,4 @@
-export default (LSSM: Vue): void => {
+export default (LSSM: Vue, allWords: boolean): void => {
     const title = document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!title) return;
 
@@ -20,7 +20,8 @@ export default (LSSM: Vue): void => {
     Array.from(document.querySelectorAll<HTMLAnchorElement>('.aao')).forEach(
         arr => {
             const arrText = arr.textContent?.trim().toLowerCase() || '';
-            if (!words.some(w => arrText.match(w)))
+            const filter = allWords ? words.every : words.some;
+            if (!filter.call(words, w => arrText.match(w)))
                 arr.classList.add(greyClass);
         }
     );

@@ -157,6 +157,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        arrMatchHighlightAllWords: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrMatchHighlight',
+        },
         arrTime: <Toggle>{
             type: 'toggle',
             default: false,

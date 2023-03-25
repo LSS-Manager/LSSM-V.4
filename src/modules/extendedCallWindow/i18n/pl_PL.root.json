@@ -49,6 +49,10 @@
             "description": "Ustawia szary filtr na wszystkie ZR, które nie zawierają słowa nazwy misji.",
             "title": "Wyszarzenie nieodpowiednich ZR"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Pokazuje pasek wyszukiwania nad ZR, który działa lepiej niż wbudowany. ",
             "title": "Wyszukiwanie ZR"

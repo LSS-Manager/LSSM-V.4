@@ -135,6 +135,35 @@
         }
     },
     "search": "Recherche sur le wiki",
+    "stats": {
+        "cloc": {
+            "blank": "Vide",
+            "code": "Code",
+            "comment": "Commentaire",
+            "files": "fichiers",
+            "language": "langue",
+            "percentOfLines": "% de lignes",
+            "sum": "somme",
+            "total": "total"
+        },
+        "git": {
+            "changes": {
+                "deletions": "Lignes comprenant des caractères supprimés",
+                "files": "fichiers modifiés",
+                "insertions": "Lignes comprenant des caractères ajoutés",
+                "title": "Nombre total de modifications sur beta (cumulatif)"
+            },
+            "first": "premier commit",
+            "latest": {
+                "beta": "Dernier commit de la version bêta",
+                "stable": "Dernière commit de la version  stable"
+            },
+            "sum": {
+                "beta": "commits sur la version bêta",
+                "stable": "commits sur la version  stable"
+            }
+        }
+    },
     "tables": {
         "browser": "Navigateur",
         "download": "Télécharger",

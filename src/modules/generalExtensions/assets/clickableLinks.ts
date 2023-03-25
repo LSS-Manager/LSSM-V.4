@@ -1,3 +1,5 @@
+import he from 'he';
+
 import type { AllianceChatMessage } from 'typings/Ingame';
 
 export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
@@ -20,7 +22,7 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         if (input) {
             const preview = document.createElement('pre');
             preview.classList.add('input-group', 'form-control');
-            preview.innerHTML = input.value;
+            preview.textContent = input.value;
             preview.style.setProperty('white-space', 'pre-wrap');
             preview.style.setProperty('overflow-wrap', 'break-word');
             document.body.prepend(preview);
@@ -30,7 +32,7 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         await scopedClickableLinks(document);
     }
 
-    document.querySelector('#mission_chat_messages')?.addEventListener(
+    document.querySelector('#chat_panel_body')?.addEventListener(
         'error',
         e => {
             const img = e.target as HTMLElement | null;
@@ -63,6 +65,34 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                     }</a>`;
                 }
             });
+        },
+    });
+
+    LSSM.$stores.root.preModifyParams<[string]>({
+        event: 'allianceChatHeaderInfo',
+        returnModification: true,
+        callback(e) {
+            const message = he.unescape(e);
+            const links = message.match(urlRegex) || [];
+            const texts = message.split(urlRegex);
+            let newMessage = '';
+            texts.forEach(text => {
+                if (text) newMessage += he.escape(text);
+                const link = links.shift();
+                if (link) {
+                    newMessage += `<a href="${link}" ${
+                        new URL(link, window.location.origin).origin ===
+                        window.location.origin
+                            ? 'class="lightbox-open"'
+                            : 'target="_blank"'
+                    }>${
+                        showImg
+                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                            : link
+                    }</a>`;
+                }
+            });
+            return [newMessage];
         },
     });
 
