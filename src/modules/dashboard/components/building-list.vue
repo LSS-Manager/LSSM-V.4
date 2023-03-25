@@ -158,8 +158,8 @@
                                 }
                             });
                             let cells = 0;
-                            building.extensions.forEach(id => {
-                                if (building.extensions[id].enabled && cellIDsForThisBuilding.includes(building.extensions[id].type_id)) {
+                            building.extensions.forEach(extension => {
+                                if (extension && cellIDsForThisBuilding.includes(extension.type_id)) {
                                     cells++;
                                 }
                             });
@@ -188,8 +188,8 @@
                                 }
                             });
                             let cells = 0;
-                            building.extensions.forEach(id => {
-                                if (building.extensions[id].enabled && cellIDsForThisBuilding.includes(building.extensions[id].type_id)) {
+                            building.extensions.forEach(extension => {
+                                if (extension.enabled && cellIDsForThisBuilding.includes(extension.type_id)) {
                                     cells++;
                                 }
                             });
