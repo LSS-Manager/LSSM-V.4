@@ -153,13 +153,13 @@
                                     building.building_type
                                 ) {
                                     cellIDsForThisBuilding.push(
-                                        entry.split('_')[1]
+                                        entry.split('_')[1],
                                     );
                                 }
                             });
                             let cells = 0;
-                            cellIDsForThisBuilding.forEach(id => {
-                                if (building.extensions[id]) {
+                            building.extensions.forEach(id => {
+                                if (building.extensions[id].enabled && cellIDsForThisBuilding.includes(building.extensions[id].type_id)) {
                                     cells++;
                                 }
                             });
@@ -183,17 +183,16 @@
                                     building.building_type
                                 ) {
                                     cellIDsForThisBuilding.push(
-                                        entry.split('_')[1]
+                                        entry.split('_')[1],
                                     );
                                 }
                             });
                             let cells = 0;
-                            cellIDsForThisBuilding.forEach(id => {
-                                if (building.extensions[id]) {
+                            building.extensions.forEach(id => {
+                                if (building.extensions[id].enabled && cellIDsForThisBuilding.includes(building.extensions[id].type_id)) {
                                     cells++;
                                 }
                             });
-
                             return cells - building.prisoner_count;
                         })()
                     }}
