@@ -357,5 +357,8 @@
         "players": "Spieler",
         "total": "Gesamt",
         "vehicles": "Fahrzeuge"
+    },
+    "arrHighlight" : {
+        "removeBMAstring": "(Brandmeldeanlage)"
     }
 }

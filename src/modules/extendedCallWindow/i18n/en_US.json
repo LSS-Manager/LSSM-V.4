@@ -297,5 +297,8 @@
         "players": "Players",
         "total": "Total",
         "vehicles": "Vehicles"
+    },
+    "arrHighlight" : {
+        "removeBMAstring": ""
     }
 }

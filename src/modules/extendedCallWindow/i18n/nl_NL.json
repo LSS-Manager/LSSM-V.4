@@ -290,5 +290,8 @@
         "players": "Spelers",
         "total": "Totaal",
         "vehicles": "Voertuigen"
+    },
+    "arrHighlight" : {
+        "removeBMAstring": ""
     }
 }

@@ -172,5 +172,8 @@
             "text": "The following vehicle types are only present in the \"All\" tab:",
             "title": "One vehicle is not present in any tab | Several vehicles are not present in any tab"
         }
+    },
+    "arrHighlight" : {
+        "removeBMAstring": ""
     }
 }

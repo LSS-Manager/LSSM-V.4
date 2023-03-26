@@ -11,9 +11,11 @@ export default (LSSM: Vue, allWords: boolean): void => {
             position: 'relative',
         },
     });
+    const removeBMAstring = $m('arrHighlight.removeBMAstring');
     const words = (
         title.textContent
-            ?.trim()
+            ?.replace(removeBMAstring, '')
+            .trim()
             .split(' ')
             .map(w => LSSM.$utils.escapeRegex(w.toLowerCase())) || []
     ).filter(w => w.length > 3);

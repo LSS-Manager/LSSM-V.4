@@ -250,5 +250,8 @@
         "players": "Hráči",
         "total": "Celkem",
         "vehicles": "Vozidla"
+    },
+    "arrHighlight" : {
+        "removeBMAstring": ""
     }
 }

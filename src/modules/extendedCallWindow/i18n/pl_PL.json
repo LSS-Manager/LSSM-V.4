@@ -355,5 +355,8 @@
         "players": "Gracze",
         "total": "Łącznie",
         "vehicles": "Pojazdy"
+    },
+    "arrHighlight" : {
+        "removeBMAstring": ""
     }
 }
