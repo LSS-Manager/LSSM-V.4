@@ -159,7 +159,7 @@
                             });
                             let cells = 0;
                             building.extensions.forEach(extension => {
-                                if (extension && cellIDsForThisBuilding.includes(extension.type_id)) {
+                                if (extension.enabled && cellIDsForThisBuilding.includes(extension.type_id)) {
                                     cells++;
                                 }
                             });
