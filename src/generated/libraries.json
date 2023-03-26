@@ -151,8 +151,8 @@
     },
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
-        "url": "https://pubkey.github.io/broadcast-channel/",
-        "version": "5.0.3"
+        "url": "https://github.com/pubkey/broadcast-channel#readme",
+        "version": "4.20.2"
     },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
