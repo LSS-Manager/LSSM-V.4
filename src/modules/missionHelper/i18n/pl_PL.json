@@ -88,7 +88,8 @@
             "wasserwerfer": "Armatka wodna | Armatki wodne",
             "water_needed": "Woda",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
-            "water_tankers": "SCCn"
+            "water_tankers": "SCCn",
+            "min_pump_speed": "Minimalna wydajność pomp"
         },
         "multifunctionals": {
             "heavy_rescue_vehicles": {
