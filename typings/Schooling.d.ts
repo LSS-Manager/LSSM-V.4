@@ -11,3 +11,5 @@ export interface Schooling {
     // general
     [key: string]: string;
 }
+
+export type SchoolingsBySchool = Record<string, Schooling[]>;

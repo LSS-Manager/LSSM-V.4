@@ -186,7 +186,11 @@
             },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
             { "texts": ["DHuFüKw"], "vehicles": [94] },
-            { "texts": ["Dekon-P"], "vehicles": [53, 54] },
+            {
+                "equipment": ["decon"],
+                "texts": ["Dekon-P"],
+                "vehicles": [53, 54]
+            },
             {
                 "texts": ["Drehleiter (DLK 23)", "Drehleitern (DLK 23)"],
                 "vehicles": [2, 85]
@@ -233,14 +237,30 @@
             },
             { "texts": ["FwK"], "vehicles": [57] },
             { "texts": ["FüKw"], "vehicles": [51] },
-            { "texts": ["GW-Atemschutz"], "vehicles": [5, 48] },
-            { "texts": ["GW-Gefahrgut"], "vehicles": [27, 77] },
-            { "texts": ["GW-Höhenrettung"], "vehicles": [33] },
+            {
+                "equipment": ["breathing_protection"],
+                "texts": ["GW-Atemschutz"],
+                "vehicles": [5, 48]
+            },
+            {
+                "equipment": ["hazmat"],
+                "texts": ["GW-Gefahrgut"],
+                "vehicles": [27, 77]
+            },
+            {
+                "equipment": ["hight_rescue"],
+                "texts": ["GW-Höhenrettung"],
+                "vehicles": [33]
+            },
             { "texts": ["GW-Messtechnik"], "vehicles": [12] },
             { "texts": ["GW-San"], "vehicles": [60] },
-            { "texts": ["GW-Taucher"], "vehicles": [63, 69] },
+            {
+                "equipment": ["diver"],
+                "texts": ["GW-Taucher"],
+                "vehicles": [63, 69]
+            },
             { "texts": ["GW-Werkfeuerwehr"], "vehicles": [83] },
-            { "texts": ["GW-Öl"], "vehicles": [10, 49] },
+            { "equipment": ["oil"], "texts": ["GW-Öl"], "vehicles": [10, 49] },
             { "texts": ["GefKw"], "vehicles": [52] },
             { "texts": ["Gerätekraftwagen (GKW)"], "vehicles": [39] },
             { "texts": ["GruKw"], "vehicles": [50] },
@@ -279,6 +299,7 @@
                 "vehicles": [76]
             },
             {
+                "equipment": ["heavy_rescue"],
                 "texts": ["Rüstwagen oder HLF"],
                 "vehicles": [4, 30, 39, 47, 90]
             },
@@ -287,6 +308,7 @@
                 "vehicles": [79, 80]
             },
             {
+                "equipment": ["hose_water"],
                 "texts": [
                     "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)"
                 ],

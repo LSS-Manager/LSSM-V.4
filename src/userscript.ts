@@ -5,6 +5,9 @@ declare const user_id: string | undefined;
 declare const I18n: unknown & { locale: string };
 declare const prefix: typeof PREFIX;
 
+type UserscriptWindow = Record<`${typeof PREFIX}-GM_Info`, typeof GM_info> &
+    typeof unsafeWindow;
+
 const loadLSSM = () => {
     const script = document.createElement('script');
 
@@ -14,7 +17,9 @@ const loadLSSM = () => {
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
 
-    unsafeWindow[`${prefix}-GM_Info`] = JSON.parse(JSON.stringify(GM_info));
+    (unsafeWindow as UserscriptWindow)[`${prefix}-GM_Info`] = JSON.parse(
+        JSON.stringify(GM_info)
+    );
 
     document.body.append(script);
 };

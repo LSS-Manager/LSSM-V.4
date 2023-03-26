@@ -145,7 +145,7 @@
                     "Operational Team Leader",
                     "Operational Team Leaders"
                 ],
-                "vehicles": [20, 31]
+                "vehicles": [20, 31, 34]
             },
             { "texts": ["Traffic Car", "Traffic Cars"], "vehicles": [24, 25] },
             { "texts": ["ATV Carrier", "ATV Carriers"], "vehicles": [30] },
