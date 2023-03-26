@@ -1,3 +1,4 @@
+import { $m } from 'typings/Module';
 export default (LSSM: Vue, allWords: boolean): void => {
     const title = document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!title) return;
@@ -11,11 +12,19 @@ export default (LSSM: Vue, allWords: boolean): void => {
             position: 'relative',
         },
     });
-    const removeBMAstring = $m('arrHighlight.removeBMAstring');
+
+    let wordsPreParsing: string =
+        title.textContent ?? (title.textContent || '');
+    const removeForParsing: string[] = $m(
+        `arrHighlight.removeForParsing`,
+        null
+    );
+    removeForParsing.forEach(stringToRemove => {
+        wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
+    });
     const words = (
-        title.textContent
-            ?.replace(removeBMAstring, '')
-            .trim()
+        wordsPreParsing
+            ?.trim()
             .split(' ')
             .map(w => LSSM.$utils.escapeRegex(w.toLowerCase())) || []
     ).filter(w => w.length > 3);

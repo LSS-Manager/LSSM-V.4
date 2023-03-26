@@ -359,6 +359,6 @@
         "vehicles": "Fahrzeuge"
     },
     "arrHighlight" : {
-        "removeBMAstring": "(Brandmeldeanlage)"
+        "removeForParsing": ["(Brandmeldeanlage)", "[Verband]"]
     }
 }
