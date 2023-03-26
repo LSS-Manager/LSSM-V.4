@@ -74,6 +74,7 @@
             "hose": "SW",
             "k9": "K-9",
             "kdow_orgl": "SLOp/SLRr",
+            "min_pump_speed": "Minimalna wydajność pomp",
             "mobile_air_vehicles": "SPGaz",
             "mobile_command_vehicles": "SDł",
             "platform_trucks": "SD/SH",
@@ -88,8 +89,7 @@
             "wasserwerfer": "Armatka wodna | Armatki wodne",
             "water_needed": "Woda",
             "water_rescue": "Samochód WOPR | Samochody WOPR",
-            "water_tankers": "SCCn",
-            "min_pump_speed": "Minimalna wydajność pomp"
+            "water_tankers": "SCCn"
         },
         "multifunctionals": {
             "heavy_rescue_vehicles": {
