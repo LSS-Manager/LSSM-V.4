@@ -1248,11 +1248,11 @@ export default {
         levelcost: [
             '1. 10.000',
             '2. 50.000',
-            '3.-4. 100.000',
+            '3.-5. 100.000',
             'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
         ],
         maxBuildings: '1.700 mit Polizeiwachen zusammen',
-        maxLevel: 4,
+        maxLevel: 5,
         special:
             'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(50.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
         startPersonnel: 2,
