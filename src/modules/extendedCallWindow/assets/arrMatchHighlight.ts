@@ -18,12 +18,13 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
 
     let wordsPreParsing: string = title.textContent;
     //Remove "reserved" phrases like "[Verband]" or "(Brandmeldeanlage)"
-    const removeBeforeForParsing = (
-        $m(`arrHighlight.removeBeforeParsing`) as string
-    ).split(',');
-
-    console.debug(removeBeforeForParsing);
-    removeBeforeForParsing.forEach(stringToRemove => {
+    const removeBeforeParsing = $m(
+        `arrHighlight.removeBeforeParsing`
+    ) as string;
+    const removeBeforeParsingArray: string[] = removeBeforeParsing.split(',');
+    console.debug(removeBeforeParsing);
+    console.debug(removeBeforeParsingArray);
+    removeBeforeParsingArray.forEach(stringToRemove => {
         wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
 
         console.debug(wordsPreParsing);
