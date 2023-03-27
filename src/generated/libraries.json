@@ -57,7 +57,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.15.6"
+        "version": "18.15.10"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -289,7 +289,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.59.3"
+        "version": "1.60.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -310,7 +310,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.16.6"
+        "version": "5.16.8"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -397,7 +397,7 @@
     },
     "vuepress-plugin-sitemap2": {
         "url": "https://plugin-sitemap2.vuejs.press/",
-        "version": "2.0.0-beta.197"
+        "version": "2.0.0-beta.199"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",

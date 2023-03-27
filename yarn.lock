@@ -2308,10 +2308,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.15.6":
-  version: 18.15.6
-  resolution: "@types/node@npm:18.15.6"
-  checksum: 46a1b04553a03574fb845bb4414292d47338d29c40fa25861d3c9e8a957455dfb23ff6385428da1613b02ddc3b5b5fe91c9227c55db80a46a655799ea2add285
+"@types/node@npm:18.15.10":
+  version: 18.15.10
+  resolution: "@types/node@npm:18.15.10"
+  checksum: 9aeae0b683eda82892def5315812bdee3f1a28c4898b7e70f8e2514564538b16c4dccbe8339c1266f8fc1d707a48f152689264a854f5ebc2eba5011e793612d9
   languageName: node
   linkType: hard
 
@@ -6724,7 +6724,7 @@ __metadata:
     vue: 3.2.47
     vuepress: 2.0.0-beta.61
     vuepress-plugin-clipboard: 2.1.5
-    vuepress-plugin-sitemap2: 2.0.0-beta.197
+    vuepress-plugin-sitemap2: 2.0.0-beta.199
   languageName: unknown
   linkType: soft
 
@@ -6742,7 +6742,7 @@ __metadata:
     "@types/js-yaml": 4.0.5
     "@types/leaflet": 1.9.3
     "@types/lodash": 4.14.191
-    "@types/node": 18.15.6
+    "@types/node": 18.15.10
     "@types/pdfmake": 0.2.2
     "@types/prettier": 2.7.2
     "@types/qrcode": 1.5.0
@@ -6787,11 +6787,11 @@ __metadata:
     pinia: 2.0.33
     prettier: 2.8.7
     qrcode: 1.5.1
-    sass: 1.59.3
+    sass: 1.60.0
     sass-loader: 13.2.1
     semver: 7.3.8
     showdown: 2.1.0
-    terser: 5.16.6
+    terser: 5.16.8
     ts-loader: 9.4.2
     ts-node: 10.9.1
     typescript: 5.0.2
@@ -8301,20 +8301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.59.3":
-  version: 1.59.3
-  resolution: "sass@npm:1.59.3"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-    immutable: ^4.0.0
-    source-map-js: ">=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 839b5282cdf7d0ba3fdbfb605277dd584a8c40fa3e3e58ad905d64cd812acfb82ff0a4072d4981673db884ee61505472ff07c5c5a8a497f16ba013b183ba6473
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.58.3":
+"sass@npm:1.60.0, sass@npm:^1.58.3":
   version: 1.60.0
   resolution: "sass@npm:1.60.0"
   dependencies:
@@ -8902,21 +8889,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.16.6":
-  version: 5.16.6
-  resolution: "terser@npm:5.16.6"
-  dependencies:
-    "@jridgewell/source-map": ^0.3.2
-    acorn: ^8.5.0
-    commander: ^2.20.0
-    source-map-support: ~0.5.20
-  bin:
-    terser: bin/terser
-  checksum: f763a7bcc7b98cb2bfc41434f7b92bfe8a701a12c92ea6049377736c8e6de328240d654a20dfe15ce170fd783491b9873fad9f4cd8fee4f6c6fb8ca407859dee
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.0.0, terser@npm:^5.15.1, terser@npm:^5.16.5":
+"terser@npm:5.16.8, terser@npm:^5.0.0, terser@npm:^5.15.1, terser@npm:^5.16.5":
   version: 5.16.8
   resolution: "terser@npm:5.16.8"
   dependencies:
@@ -9591,17 +9564,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-beta.197":
-  version: 2.0.0-beta.197
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.197"
+"vuepress-plugin-sitemap2@npm:2.0.0-beta.199":
+  version: 2.0.0-beta.199
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.199"
   dependencies:
     "@vuepress/shared": 2.0.0-beta.61
     "@vuepress/utils": 2.0.0-beta.61
     sitemap: ^7.1.1
-    vuepress-shared: 2.0.0-beta.197
+    vuepress-shared: 2.0.0-beta.199
   peerDependencies:
     vuepress: 2.0.0-beta.61
-    vuepress-shared: 2.0.0-beta.197
+    vuepress-shared: 2.0.0-beta.199
     vuepress-vite: 2.0.0-beta.61
     vuepress-webpack: 2.0.0-beta.61
   peerDependenciesMeta:
@@ -9613,13 +9586,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 47f1b264648d17ea49e8c47c1ff2782452ae6a6a178e149117fd7064b1483fdaa79f08da628edc11e20381c88d708db63dd82dce1379eca05a445b4f4a22c113
+  checksum: 82703fde99aeee90c6602c8856698832ba070bf27e51bea5ecca3027362a5f78f7112353fce6e9a247b15e4f40ca88b1971e46880cc327f2382ba6f85da3af84
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-beta.197":
-  version: 2.0.0-beta.197
-  resolution: "vuepress-shared@npm:2.0.0-beta.197"
+"vuepress-shared@npm:2.0.0-beta.199":
+  version: 2.0.0-beta.199
+  resolution: "vuepress-shared@npm:2.0.0-beta.199"
   dependencies:
     "@vuepress/client": 2.0.0-beta.61
     "@vuepress/shared": 2.0.0-beta.61
@@ -9648,7 +9621,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 000601b8a458a7909824588472d26d7ee633f2f509a8053f7e3fd8a16936c7174f26b46b34c2b8f63cb27e1f13aa6ce13015c8d0afbb24eeb42cd80026f4e0d3
+  checksum: 04c0021add81e787d8ec7ab6553f2232300e7b4bc3e4ba1a86791ce8d0fbe9320c200f1a772f358b0d79124298d03514ef2c5548266ebd7a8cc9c694ff96bfca
   languageName: node
   linkType: hard
 
