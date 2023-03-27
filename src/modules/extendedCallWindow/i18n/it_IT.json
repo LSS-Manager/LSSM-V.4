@@ -11,6 +11,7 @@
             "selection": "Selezione veicoli"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Pattuglia Polizia Stradale e Moto Polizia Stradale",
@@ -210,6 +211,5 @@
         "players": "Giocatori",
         "total": "Totale",
         "vehicles": "Veicoli"
-    },
-    "arrHighlight": { "removeBeforeParsing": "" }
+    }
 }

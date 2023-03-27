@@ -11,7 +11,9 @@
             "selection": "Fahrzeugauswahl"
         }
     },
-    "arrHighlight": { "removeBeforeParsing": ["(Brandmeldeanlage)", "[Verband]"] },
+    "arrHighlight": {
+        "removeBeforeParsing": ["(Brandmeldeanlage)", "[Verband]"]
+    },
     "arrHover": {
         "arrSpecs": {
             "ab_atemschutz_only": "AB-Atemschutz",

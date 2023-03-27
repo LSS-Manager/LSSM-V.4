@@ -11,6 +11,7 @@
             "selection": "Séléction de véhicules"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "boot": "Bateaux (généraux)",
@@ -257,6 +258,5 @@
         "players": "Joueurs",
         "total": "Total",
         "vehicles": "Véhicules"
-    },
-    "arrHighlight": { "removeBeforeParsing": "" }
+    }
 }
