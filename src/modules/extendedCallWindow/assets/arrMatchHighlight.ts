@@ -14,7 +14,7 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
         },
     });
 
-    let wordsPreParsing: string = title.textContent ?? (title.textContent || '');
+    let wordsPreParsing: string = title.innerText ?? (title.innerText || '');
     //Remove
     const removeBeforeForParsing = ($m(`arrHighlight.removeBeforeParsing`) as string).split(',');
     removeBeforeForParsing.forEach(stringToRemove => {
