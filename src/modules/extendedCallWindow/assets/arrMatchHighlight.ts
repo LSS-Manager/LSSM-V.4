@@ -14,11 +14,19 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
         },
     });
 
-    let wordsPreParsing: string = title.innerText ?? (title.innerText || '');
-    //Remove
-    const removeBeforeForParsing = ($m(`arrHighlight.removeBeforeParsing`) as string).split(',');
+    if (!title.textContent) return;
+
+    let wordsPreParsing: string = title.textContent;
+    //Remove "reserved" phrases like "[Verband]" or "(Brandmeldeanlage)"
+    const removeBeforeForParsing = (
+        $m(`arrHighlight.removeBeforeParsing`) as string
+    ).split(',');
+
+    console.debug(removeBeforeForParsing);
     removeBeforeForParsing.forEach(stringToRemove => {
         wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
+
+        console.debug(wordsPreParsing);
     });
     const words = (
         wordsPreParsing
@@ -32,6 +40,6 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
             const filter = allWords ? words.every : words.some;
             if (!filter.call(words, w => arrText.match(w)))
                 arr.classList.add(greyClass);
-        },
+        }
     );
 };
