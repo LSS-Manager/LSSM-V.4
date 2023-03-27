@@ -11,6 +11,7 @@
             "selection": "Vehicle selection"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "air_tanker": "Air tanker",
@@ -250,8 +251,5 @@
         "players": "Hráči",
         "total": "Celkem",
         "vehicles": "Vozidla"
-    },
-    "arrHighlight" : {
-        "removeBMAstring": ""
     }
 }

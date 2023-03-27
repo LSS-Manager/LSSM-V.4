@@ -12,6 +12,7 @@
             "selection": "wybór pojazdów"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Pojazd WRD",
@@ -355,8 +356,5 @@
         "players": "Gracze",
         "total": "Łącznie",
         "vehicles": "Pojazdy"
-    },
-    "arrHighlight" : {
-        "removeBMAstring": ""
     }
 }

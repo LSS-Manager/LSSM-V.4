@@ -210,5 +210,6 @@
         "players": "Giocatori",
         "total": "Totale",
         "vehicles": "Veicoli"
-    }
+    },
+    "arrHighlight": { "removeBeforeParsing": "" }
 }

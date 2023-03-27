@@ -11,6 +11,7 @@
             "selection": "Vehicle selection"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "air_tanker": "Bomber",
@@ -191,8 +192,5 @@
         "players": "Players",
         "total": "Total",
         "vehicles": "Vehicles"
-    },
-    "arrHighlight" : {
-        "removeBMAstring": ""
     }
 }

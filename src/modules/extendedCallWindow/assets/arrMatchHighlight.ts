@@ -1,5 +1,6 @@
-import { $m } from 'typings/Module';
-export default (LSSM: Vue, allWords: boolean): void => {
+import type { $m } from 'typings/Module';
+
+export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
     const title = document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!title) return;
 
@@ -13,13 +14,10 @@ export default (LSSM: Vue, allWords: boolean): void => {
         },
     });
 
-    let wordsPreParsing: string =
-        title.textContent ?? (title.textContent || '');
-    const removeForParsing: string[] = $m(
-        `arrHighlight.removeForParsing`,
-        null
-    );
-    removeForParsing.forEach(stringToRemove => {
+    let wordsPreParsing: string = title.textContent ?? (title.textContent || '');
+    //Remove
+    const removeBeforeForParsing = ($m(`arrHighlight.removeBeforeParsing`) as string).split(',');
+    removeBeforeForParsing.forEach(stringToRemove => {
         wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
     });
     const words = (
@@ -34,6 +32,6 @@ export default (LSSM: Vue, allWords: boolean): void => {
             const filter = allWords ? words.every : words.some;
             if (!filter.call(words, w => arrText.match(w)))
                 arr.classList.add(greyClass);
-        }
+        },
     );
 };

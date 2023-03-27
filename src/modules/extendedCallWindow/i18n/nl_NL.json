@@ -11,6 +11,7 @@
             "selection": "Voertuigselectie"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "ab_atemschutz_only": "Adembeschermingshaakarmbak",
@@ -290,8 +291,5 @@
         "players": "Spelers",
         "total": "Totaal",
         "vehicles": "Voertuigen"
-    },
-    "arrHighlight" : {
-        "removeBMAstring": ""
     }
 }

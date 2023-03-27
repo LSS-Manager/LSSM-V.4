@@ -11,6 +11,7 @@
             "selection": "Fahrzeugauswahl"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": ["(Brandmeldeanlage)", "[Verband]"] },
     "arrHover": {
         "arrSpecs": {
             "ab_atemschutz_only": "AB-Atemschutz",
@@ -357,8 +358,5 @@
         "players": "Spieler",
         "total": "Gesamt",
         "vehicles": "Fahrzeuge"
-    },
-    "arrHighlight" : {
-        "removeForParsing": ["(Brandmeldeanlage)", "[Verband]"]
     }
 }

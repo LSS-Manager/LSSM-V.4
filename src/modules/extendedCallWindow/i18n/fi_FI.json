@@ -11,6 +11,7 @@
             "selection": "Ajoneuvon valinta"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "dlk": "Nostolava-autot",
@@ -193,8 +194,5 @@
         "players": "Pelaajat",
         "total": "Yhteensä",
         "vehicles": "Ajoneuvot"
-    },
-    "arrHighlight" : {
-        "removeBMAstring": ""
     }
 }

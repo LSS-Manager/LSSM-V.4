@@ -257,5 +257,6 @@
         "players": "Joueurs",
         "total": "Total",
         "vehicles": "Véhicules"
-    }
+    },
+    "arrHighlight": { "removeBeforeParsing": "" }
 }

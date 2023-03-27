@@ -11,6 +11,7 @@
             "selection": "Selección de vehículos"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "dlk": "Camión AE",
@@ -138,8 +139,5 @@
             "text": "Los siguientes tipos de vehículos solo están presentes en la pestaña \"Todo\":",
             "title": "Un vehículo no está presente en ninguna pestaña | Varios vehículos no están presentes en ninguna pestaña"
         }
-    },
-    "arrHighlight" : {
-        "removeBMAstring": ""
     }
 }
