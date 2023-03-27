@@ -21,13 +21,11 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
     const removeBeforeParsing = $m(
         `arrHighlight.removeBeforeParsing`
     ) as string;
-    const removeBeforeParsingArray: string[] = removeBeforeParsing.split(',');
     console.debug(removeBeforeParsing);
+    const removeBeforeParsingArray: string[] = removeBeforeParsing.split(',');
     console.debug(removeBeforeParsingArray);
     removeBeforeParsingArray.forEach(stringToRemove => {
         wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
-
-        console.debug(wordsPreParsing);
     });
     const words = (
         wordsPreParsing
