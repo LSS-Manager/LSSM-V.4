@@ -1,7 +1,7 @@
 import type { $m } from 'typings/Module';
 
 export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
-    const title = document.querySelector<HTMLHeadingElement>('#missionH1');
+    const title = document.getElementById('mission_general_info');
     if (!title) return;
 
     const greyClass = LSSM.$stores.root.nodeAttribute('arr-grey');
@@ -15,8 +15,7 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
     });
 
     let wordsPreParsing: string =
-        (title as HTMLElement).innerText ??
-        ((title as HTMLElement).innerText || '');
+        title.getAttribute("data-mission-title") as string
     console.log(wordsPreParsing);
     if (wordsPreParsing === '') return;
     //Remove "reserved" phrases like "[Verband]" or "(Brandmeldeanlage)"
