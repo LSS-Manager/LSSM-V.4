@@ -16,7 +16,6 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
 
     let wordsPreParsing: string =
         title.getAttribute("data-mission-title") as string
-    console.log(wordsPreParsing);
     if (wordsPreParsing === '') return;
     //Remove "reserved" phrases like "[Verband]" or "(Brandmeldeanlage)"
     const removeBeforeParsing = Object.values(
@@ -25,7 +24,6 @@ export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
     removeBeforeParsing.forEach(stringToRemove => {
         wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
     });
-    console.log(wordsPreParsing);
 
     const words = (
         wordsPreParsing
