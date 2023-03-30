@@ -402,6 +402,6 @@
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
-        "version": "5.76.3"
+        "version": "5.77.0"
     }
 }
