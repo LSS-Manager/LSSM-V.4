@@ -146,7 +146,7 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                                 prop => [
                                     prop.key.value,
                                     prop.value.type === 'UnaryExpression'
-                                        ? parseInt(
+                                        ? parseFloat(
                                               prop.value.operator +
                                                   prop.value.argument.value
                                           )
