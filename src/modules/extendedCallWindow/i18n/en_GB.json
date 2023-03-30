@@ -11,6 +11,7 @@
             "selection": "Vehicle selection"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Any Traffic Car",

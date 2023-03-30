@@ -224,7 +224,8 @@ export default <ModuleMainFunction>(async ({
         ).then(async ({ default: arrMatchHighlight }) =>
             arrMatchHighlight(
                 LSSM,
-                await getSetting('arrMatchHighlightAllWords')
+                await getSetting('arrMatchHighlightAllWords'),
+                $m
             )
         );
     }

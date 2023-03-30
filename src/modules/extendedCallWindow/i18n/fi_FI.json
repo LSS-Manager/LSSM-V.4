@@ -11,6 +11,7 @@
             "selection": "Ajoneuvon valinta"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "dlk": "Nostolava-autot",
