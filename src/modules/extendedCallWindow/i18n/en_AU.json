@@ -156,7 +156,10 @@
                 ],
                 "vehicles": [36]
             },
-            { "texts": ["ULFV Crash Tender", "ULFV Crash Tenders"], "vehicles": [43] },
+            {
+                "texts": ["ULFV Crash Tender", "ULFV Crash Tenders"],
+                "vehicles": [43]
+            },
             { "texts": ["RIV", "RIVs"], "vehicles": [44] },
             { "texts": ["Emergency Stairs"], "vehicles": [45] },
             { "texts": ["MVR Quad", "MVR Quads"], "vehicles": [38] },
