@@ -244,6 +244,8 @@ export default {
         'Beach',
         'Oil Rig',
         'Library',
+        'Launderette',
+        'Pipeline',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

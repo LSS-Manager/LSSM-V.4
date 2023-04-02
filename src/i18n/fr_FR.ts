@@ -223,6 +223,7 @@ export default {
         'Raffinerie de pétrole',
         'Lieu de culte',
         'Plage',
+        'Hangar à avions',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],

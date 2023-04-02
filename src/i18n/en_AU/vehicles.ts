@@ -626,4 +626,63 @@ export default {
         possibleBuildings: [15],
         special: 'Can be towed by SES Vehicle or SES Rescue Truck',
     },
+    43: {
+        caption: 'ULFV Crash Tender',
+        color: '#bb0000',
+        credits: 45_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        waterTank: 6000,
+    },
+    44: {
+        caption: 'RIV',
+        color: '#bb0000',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 3,
+            max: 5,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        waterTank: 600,
+    },
+    45: {
+        caption: 'Emergency Stairs',
+        color: '#bb0000',
+        credits: 60_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                'Fire Station': {
+                    rettungstreppe: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+    },
 } satisfies Record<number, InternalVehicle>;

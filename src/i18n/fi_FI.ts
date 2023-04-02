@@ -226,6 +226,7 @@ export default {
         'Pelastusharjoitusalue',
         'Juhlatila',
         'Moottoritien levähdyspaikka',
+        'Halli',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

@@ -216,6 +216,7 @@ export default {
         'Důl',
         'Hangár',
         'Pojezdové dráha',
+        'Věznice',
     ],
     only_alliance_missions: [57, 74],
 };

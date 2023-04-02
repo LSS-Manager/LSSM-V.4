@@ -83,8 +83,8 @@
         },
         "optionalAlternatives": {
             "allow_arff_instead_of_lf": {
-                "description": " Indicates, if instead of a firetruck arrfs are possible on site.",
-                "title": "Show if arrfs are allowed as firetrucks"
+                "description": " Indicates, if instead of a firetruck ULFV are possible on site.",
+                "title": "Show if ULFV are allowed as firetrucks"
             },
             "allow_rw_instead_of_lf": {
                 "description": "Indicates, if instead of a Fire Engine also Major Rescue Vehicle or Rescue Pumper is possible on site.",

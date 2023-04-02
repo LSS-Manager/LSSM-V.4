@@ -193,6 +193,7 @@ export default {
         'Aserradero',
         'Refinería petrolera',
         'Iglesia',
+        'Playa',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

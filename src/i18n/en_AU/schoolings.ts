@@ -15,9 +15,9 @@ export default {
             key: 'elw2',
         },
         {
-            caption: 'ARFF-Training',
+            caption: 'ULFV Crash Tender-Training',
             duration: '3 Days',
-            staffList: 'ARFF-Training',
+            staffList: 'ULFV Crash Tender',
             key: 'arff',
         },
         {
@@ -31,6 +31,12 @@ export default {
             duration: '5 Days',
             staffList: 'Intensive Care Paramedic',
             key: 'critical_care',
+        },
+        {
+            caption: 'Emergency Stairs Training',
+            duration: '7 Days',
+            staffList: 'Emergency Stairs Operator',
+            key: 'rettungstreppe',
         },
     ],
     'Police': [
