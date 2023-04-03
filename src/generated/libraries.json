@@ -330,7 +330,7 @@
     "ua-parser-js": {
         "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
         "url": "https://github.com/faisalman/ua-parser-js",
-        "version": "1.0.34"
+        "version": "1.0.35"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
