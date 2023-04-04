@@ -118,20 +118,49 @@ export function getTimeReplacers(): Record<
     string,
     (match: string, ...groups: string[]) => string
 > {
+    const format = (date: Date, printDate: boolean): string => {
+        if (printDate) return `${dateToTime(date)} (${dateToDayString(date)})`;
+        else return dateToTime(date);
+    };
+    const roundDate = (date: Date, round: string): void => {
+        const roundTo = Math.abs(parseInt(round)) % 60;
+        const roundUp = !round.startsWith('-');
+        const resultHours = date.getHours();
+        const resultMinutes = date.getMinutes();
+        if (!roundTo) {
+            date.setMinutes(0);
+            if (roundUp) date.setHours(resultHours + 1);
+        } else {
+            if (roundUp)
+                addMinutesToDate(roundTo - (resultMinutes % roundTo), date);
+            else addMinutesToDate(-(resultMinutes % roundTo), date);
+        }
+    };
     return {
         [/now\+(\d+(?:[,.]\d+)?)(d?)/u.toString()]: (
             match,
             additive,
             printDate
         ) => {
-            const resultDate = addHoursToNow(parseFloat(additive));
-            if (printDate) {
-                return `${dateToTime(resultDate)} (${dateToDayString(
-                    resultDate
-                )})`;
-            } else {
-                return dateToTime(resultDate);
-            }
+            const resultDate = addHoursToNow(
+                parseFloat(additive.replace(',', '.'))
+            );
+            return format(resultDate, !!printDate);
+        },
+        [/share\+(\d+(?:[,.]\d+)?)(d?)/u.toString()]: (
+            match,
+            additive,
+            printDate
+        ) => {
+            const shareTime = document.querySelector<HTMLLIElement>(
+                '#mission_replies > li:last-child'
+            )?.dataset.timestamp;
+
+            const resultDate = addMinutesToDate(
+                parseFloat(additive.replace(',', '.')) * 60,
+                new Date(shareTime ?? Date.now())
+            );
+            return format(resultDate, !!printDate);
         },
         [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)(d?)/u.toString()]: (
             match,
@@ -139,31 +168,27 @@ export function getTimeReplacers(): Record<
             round,
             printDate
         ) => {
-            const resultDate = addHoursToNow(parseFloat(additive));
-            const roundTo = Math.abs(parseInt(round)) % 60;
-            const roundUp = !round.startsWith('-');
-            const resultHours = resultDate.getHours();
-            const resultMinutes = resultDate.getMinutes();
-            if (!roundTo) {
-                resultDate.setMinutes(0);
-                if (roundUp) resultDate.setHours(resultHours + 1);
-            } else {
-                if (roundUp) {
-                    addMinutesToDate(
-                        roundTo - (resultMinutes % roundTo),
-                        resultDate
-                    );
-                } else {
-                    addMinutesToDate(-(resultMinutes % roundTo), resultDate);
-                }
-            }
-            if (printDate) {
-                return `${dateToTime(resultDate)} (${dateToDayString(
-                    resultDate
-                )})`;
-            } else {
-                return dateToTime(resultDate);
-            }
+            const resultDate = addHoursToNow(
+                parseFloat(additive.replace(',', '.'))
+            );
+            roundDate(resultDate, round);
+            return format(resultDate, !!printDate);
+        },
+        [/share\+(\d+(?:[,.]\d+)?)r(-?\d+)(d?)/u.toString()]: (
+            match,
+            additive,
+            round,
+            printDate
+        ) => {
+            const shareTime = document.querySelector<HTMLLIElement>(
+                '#mission_replies > li:last-child'
+            )?.dataset.timestamp;
+            const resultDate = addMinutesToDate(
+                parseFloat(additive.replace(',', '.')) * 60,
+                new Date(shareTime ?? Date.now())
+            );
+            roundDate(resultDate, round);
+            return format(resultDate, !!printDate);
         },
     };
 }
