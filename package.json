@@ -89,7 +89,7 @@
         "url-loader": "4.1.1",
         "vue-loader": "15.10.1",
         "vue-template-compiler": "2.7.14",
-        "webpack": "5.77.0"
+        "webpack": "5.78.0"
     },
     "engines": {
         "node": "18.15.0"
