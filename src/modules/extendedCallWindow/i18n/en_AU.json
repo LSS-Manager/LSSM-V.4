@@ -88,7 +88,7 @@
             },
             {
                 "texts": ["Support Vehicle", "Support Vehicles"],
-                "vehicles": [3, 11]
+                "vehicles": [3, 11,41]
             },
             {
                 "texts": [
@@ -120,7 +120,7 @@
             { "texts": ["SES"], "vehicles": [20] },
             {
                 "texts": ["Brush Truck", "Brush Trucks"],
-                "vehicles": [1, 18, 28, 29]
+                "vehicles": [0, 1, 19, 28, 29, 30]
             },
             {
                 "texts": [
