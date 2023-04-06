@@ -6782,7 +6782,7 @@ __metadata:
     pinia: 2.0.33
     prettier: 2.8.7
     qrcode: 1.5.1
-    sass: 1.60.0
+    sass: 1.61.0
     sass-loader: 13.2.2
     semver: 7.3.8
     showdown: 2.1.0
@@ -8279,7 +8279,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.60.0, sass@npm:^1.58.3":
+"sass@npm:1.61.0":
+  version: 1.61.0
+  resolution: "sass@npm:1.61.0"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 31bfb3719f1bb1299bec7b8918bcbca77efa7328b8030cc8e665ed55a02bc5498a3e543b4eb0d06d55ceda8b2f5b2b3176f0678854a8277cb19a59addf65533f
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.58.3":
   version: 1.60.0
   resolution: "sass@npm:1.60.0"
   dependencies:
