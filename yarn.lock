@@ -1901,17 +1901,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdn/browser-compat-data@npm:^3.3.14":
-  version: 3.3.14
-  resolution: "@mdn/browser-compat-data@npm:3.3.14"
-  checksum: 0363cc9cb3cef308b78b3ba82af0542ad928bacecc95ee1e849c134c3eb866f4771df9fb064fd4da42fdb28e2d6932e0abb6e47ed47fbc42a26a9b0a5aee1e9f
-  languageName: node
-  linkType: hard
-
 "@mdn/browser-compat-data@npm:^5.2.34":
   version: 5.2.47
   resolution: "@mdn/browser-compat-data@npm:5.2.47"
   checksum: c579e2aa900d5e586fa27cc40ad9e97b84ad550080a626336b7224904b764688c87f57029dfba17f0be8300f134fa44a0682837e47ea6e78ed6fd0e04157c893
+  languageName: node
+  linkType: hard
+
+"@mdn/browser-compat-data@npm:^5.2.47":
+  version: 5.2.48
+  resolution: "@mdn/browser-compat-data@npm:5.2.48"
+  checksum: 5e3d3f293084ce17c3b78f9c138d4ac86a705320fede7ec31059e2448115e19444b104dce51fa67a764701b80ac1abe66a66dfcb15e2e13100649ee2a2ad3d54
   languageName: node
   linkType: hard
 
@@ -2095,7 +2095,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node14@npm:^1.0.0":
+"@tsconfig/node14@npm:^1.0.0, @tsconfig/node14@npm:^1.0.3":
   version: 1.0.3
   resolution: "@tsconfig/node14@npm:1.0.3"
   checksum: 19275fe80c4c8d0ad0abed6a96dbf00642e88b220b090418609c4376e1cef81bf16237bf170ad1b341452feddb8115d8dd2e5acdfdea1b27422071163dc9ba9d
@@ -3598,12 +3598,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ast-metadata-inferer@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "ast-metadata-inferer@npm:0.7.0"
+"ast-metadata-inferer@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "ast-metadata-inferer@npm:0.8.0"
   dependencies:
-    "@mdn/browser-compat-data": ^3.3.14
-  checksum: 9bb633b680d537cd6d5066e48ed6ae68d7ddae663a380bdba78d4f40b53d4c03845dc3a7307d55ecf1248b447ee28d62bb20ade8b880abc2df629cda9414e32e
+    "@mdn/browser-compat-data": ^5.2.34
+  checksum: 8b9f38b5c7d33e2fad80174bb2613fad962c6ef728175281dd7957548608c95d958190b5269b74f6e24d037f6e650b45eb39440c1e206e3f9799aedde27fa54a
   languageName: node
   linkType: hard
 
@@ -3888,7 +3888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001451, caniuse-lite@npm:^1.0.30001464":
+"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464, caniuse-lite@npm:^1.0.30001473":
   version: 1.0.30001474
   resolution: "caniuse-lite@npm:1.0.30001474"
   checksum: c05faab958fae1bbf3c595203c96d3a2f6b4c7a0d122069addc6c386f208b4db66eed3f5e3d606b80e3b384603d353b27a306f6dcb6145642b5b97a330dba86a
@@ -4834,20 +4834,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-compat@npm:4.1.2":
-  version: 4.1.2
-  resolution: "eslint-plugin-compat@npm:4.1.2"
+"eslint-plugin-compat@npm:4.1.4":
+  version: 4.1.4
+  resolution: "eslint-plugin-compat@npm:4.1.4"
   dependencies:
-    "@mdn/browser-compat-data": ^5.2.34
-    ast-metadata-inferer: ^0.7.0
+    "@mdn/browser-compat-data": ^5.2.47
+    "@tsconfig/node14": ^1.0.3
+    ast-metadata-inferer: ^0.8.0
     browserslist: ^4.21.5
-    caniuse-lite: ^1.0.30001451
+    caniuse-lite: ^1.0.30001473
     find-up: ^5.0.0
     lodash.memoize: 4.1.2
     semver: 7.3.8
   peerDependencies:
     eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 385c29d7392ce161cf24bb118fa98f45a817106fbb131919be03c4b332c0e2baa4609e57ee182cb1c26a788d6030569a08a1598561014fe0a2fa648c11502de2
+  checksum: 25df48509996fd540839abf59aeb5257df3fd7826792c94aabd045ab11b94f7dfbba77ccebcce52be18ae2048b91a6d8f3cf8864b70fd0d3f798c76027f51925
   languageName: node
   linkType: hard
 
@@ -6758,7 +6759,7 @@ __metadata:
     eslint: 8.37.0
     eslint-config-prettier: 8.8.0
     eslint-import-resolver-typescript: 3.5.5
-    eslint-plugin-compat: 4.1.2
+    eslint-plugin-compat: 4.1.4
     eslint-plugin-import: 2.27.5
     eslint-plugin-jsdoc: 40.1.1
     eslint-plugin-markdownlint: 0.4.1
