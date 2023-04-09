@@ -4874,9 +4874,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:40.1.1":
-  version: 40.1.1
-  resolution: "eslint-plugin-jsdoc@npm:40.1.1"
+"eslint-plugin-jsdoc@npm:40.1.2":
+  version: 40.1.2
+  resolution: "eslint-plugin-jsdoc@npm:40.1.2"
   dependencies:
     "@es-joy/jsdoccomment": ~0.37.0
     comment-parser: 1.3.1
@@ -4887,7 +4887,7 @@ __metadata:
     spdx-expression-parse: ^3.0.1
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: fb2d7c80f27256ae446eeb7df0390155b90192a3d2fbbf8136f8b22a18be4d9aa9e65eef95e2ce89297d5149f2696ec04616a5a9d33f085056b2ab04b347660e
+  checksum: be5b35b82cf06933f9cba2b44b8dc578e84bcc6c251c33bc21524f21301d6d58aa17d6afce75880d58b61fef19030a2cb1a59c3084ecd851fa3143fd96667037
   languageName: node
   linkType: hard
 
@@ -6758,7 +6758,7 @@ __metadata:
     eslint-import-resolver-typescript: 3.5.5
     eslint-plugin-compat: 4.1.4
     eslint-plugin-import: 2.27.5
-    eslint-plugin-jsdoc: 40.1.1
+    eslint-plugin-jsdoc: 40.1.2
     eslint-plugin-markdownlint: 0.4.1
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-regexp: 1.14.0
