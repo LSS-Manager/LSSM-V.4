@@ -6716,7 +6716,7 @@ __metadata:
     vue: 3.2.47
     vuepress: 2.0.0-beta.61
     vuepress-plugin-clipboard: 2.1.5
-    vuepress-plugin-sitemap2: 2.0.0-beta.201
+    vuepress-plugin-sitemap2: 2.0.0-beta.202
   languageName: unknown
   linkType: soft
 
@@ -9553,14 +9553,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-beta.201":
-  version: 2.0.0-beta.201
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.201"
+"vuepress-plugin-sitemap2@npm:2.0.0-beta.202":
+  version: 2.0.0-beta.202
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.202"
   dependencies:
     "@vuepress/shared": 2.0.0-beta.61
     "@vuepress/utils": 2.0.0-beta.61
     sitemap: ^7.1.1
-    vuepress-shared: 2.0.0-beta.201
+    vuepress-shared: 2.0.0-beta.202
   peerDependencies:
     vuepress: 2.0.0-beta.61
     vuepress-vite: 2.0.0-beta.61
@@ -9572,13 +9572,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 4b8bd6abeff72aa1b5c168ef4e3c858e19cf80551fa1de476a4a5f18c88b04efdbf897a3cfaeb6f40d40b73375bed9897ac29c719fdb3a04887c6a2bf03f0ac7
+  checksum: b09c1f32c1a81fbabc4f09b4809c283fcbf44a0a22230d9d95d594e7445ace28b8b3a38a18a97406043e157d37cb1c021f6df0304e04d172916319c23febeee7
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-beta.201":
-  version: 2.0.0-beta.201
-  resolution: "vuepress-shared@npm:2.0.0-beta.201"
+"vuepress-shared@npm:2.0.0-beta.202":
+  version: 2.0.0-beta.202
+  resolution: "vuepress-shared@npm:2.0.0-beta.202"
   dependencies:
     "@vuepress/client": 2.0.0-beta.61
     "@vuepress/shared": 2.0.0-beta.61
@@ -9604,7 +9604,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: c5de19a92bdbbf401aca104201eb2f4599b33ed1b50ffcd639f627987142be0cb29752019932132cf4727b54048d1d19cc3e664f62bfb233b78e19ef72aea444
+  checksum: e5b3b00e594435374e5a19fb8d50e9840e7f41425704032e5ffb3f72c32f2408a291d7a5f976607450d1c00e0a1510a3de2b8ec121e3e48cda71aa4a39341549
   languageName: node
   linkType: hard
 
