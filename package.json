@@ -30,7 +30,7 @@
         "moment": "2.29.4",
         "pinia": "2.0.34",
         "qrcode": "1.5.1",
-        "semver": "7.3.8",
+        "semver": "7.4.0",
         "showdown": "2.1.0",
         "ua-parser-js": "1.0.35",
         "vue": "2.7.14",
