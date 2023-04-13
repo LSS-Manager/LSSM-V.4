@@ -29,7 +29,14 @@ export default {
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [5, 19, 20, 21, 22, 23],
             },
-            null,
+            {
+                caption: 'Lentokenttälaajennus',
+                credits: 250_000,
+                coins: 25,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [42, 43, 44, 45],
+            },
             null,
             {
                 caption: 'Huoltolaajennus',
@@ -406,7 +413,14 @@ export default {
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [5, 19, 20, 21, 22, 23],
             },
-            null,
+            {
+                caption: 'Lentokenttälaajennus',
+                credits: 250_000,
+                coins: 25,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [42, 43, 44, 45],
+            },
             null,
             {
                 caption: 'Huoltolaajennus',
