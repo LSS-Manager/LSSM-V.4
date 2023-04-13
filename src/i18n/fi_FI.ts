@@ -94,6 +94,7 @@ export default {
                 Paloautot: [0, 1, 12, 13],
                 Huolto: [26, 27, 28, 29, 30, 32],
                 Säiliö: [6, 25, 31],
+                Lentokenttä: [42, 43, 44, 45], 
                 Muut: [2, 3, 4, 7, 10, 11],
             },
             color: '#FF0000',
