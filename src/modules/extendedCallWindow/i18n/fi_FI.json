@@ -163,9 +163,24 @@
             },
             { "texts": ["H215", "H215s"], "vehicles": [41] },
             { "texts": ["Do228", "Do228"], "vehicles": [40] },
-            { "texts": ["ARFF Lentokenttäpaloauto", "ARFF Lentokenttäpaloautot"], "vehicles": [42] },
-            { "texts": ["Lentokentän Johtoauto", "Lentokentän Johtoautot"], "vehicles": [45] },
-            { "texts": ["RIV Lentokenttäpaloauto", "RIV Lentokenttäpaloautot"], "vehicles": [44] }
+            {
+                "texts": [
+                    "ARFF Lentokenttäpaloauto",
+                    "ARFF Lentokenttäpaloautot"
+                ],
+                "vehicles": [42]
+            },
+            {
+                "texts": ["Lentokentän Johtoauto", "Lentokentän Johtoautot"],
+                "vehicles": [45]
+            },
+            {
+                "texts": [
+                    "RIV Lentokenttäpaloauto",
+                    "RIV Lentokenttäpaloautot"
+                ],
+                "vehicles": [44]
+            }
         ],
         "water": "litraa vettä"
     },

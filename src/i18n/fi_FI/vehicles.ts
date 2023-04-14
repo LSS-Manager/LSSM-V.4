@@ -364,7 +364,7 @@ export default {
     36: {
         caption: 'Tutkintayksikkö',
         color: '#ff0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 15,
         staff: { min: 1, max: 3 },
         icon: 'car-side',

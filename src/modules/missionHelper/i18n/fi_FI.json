@@ -53,6 +53,7 @@
             "hose": "Letkuajoneuvo | Letkuajoneuvoa",
             "k9": "Koirapartioauto | Koirapartioautoa",
             "kdow_orgl": "Ensihoidon kenttäjohtaja | Ensihoidon kenttäjohtajaa",
+            "large_coastal_boat": "RVL Rannikkovartiovene | RVL Rannikkovartiovenettä",
             "mobile_air_vehicles": "Paineilmahuoltoauto | Paineilmahuoltoautoa",
             "mobile_command_vehicles": "Johtokeskusauto | Johtokeskusautoa",
             "platform_trucks": "Nostolava-auto | Nostolava-autoa",
@@ -60,8 +61,7 @@
             "police_helicopters": "Poliisihelikopteri | Poliisihelikopteria",
             "pump": "Suurtehopumppu | Suurtehopumppua",
             "traffic_car": "VATV-yksikkö | VATV-yksiköä",
-            "water_tankers": "Säiliöauto | Säiliöautoa",
-            "large_coastal_boat": "RVL Rannikkovartiovene | RVL Rannikkovartiovenettä"
+            "water_tankers": "Säiliöauto | Säiliöautoa"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
