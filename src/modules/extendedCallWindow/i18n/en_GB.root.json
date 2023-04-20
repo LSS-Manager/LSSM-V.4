@@ -241,9 +241,7 @@
             },
             {
                 "name": "Airport",
-                "vehicleTypes": [
-                    75, 76, 77, 78, 79, 80, 81, 82
-                ]
+                "vehicleTypes": [75, 76, 77, 78, 79, 80, 81, 82]
             }
         ],
         "noCustoms": "own vehicle categories excluded"

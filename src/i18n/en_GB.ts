@@ -95,7 +95,7 @@ export default {
                 ],
                 'Foam Vehicles': [35, 36, 37, 38],
                 'Water Rescue': [73, 74],
-                'ARFF': [75,76, 77, 78, 79, 80, 81]
+                'ARFF': [75, 76, 77, 78, 79, 80, 81],
             },
             color: '#ff2d2d',
         },

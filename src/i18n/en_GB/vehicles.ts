@@ -1267,7 +1267,7 @@ export default {
             max: 2,
         },
         icon: 'car-side',
-        possibleBuildings: [0,6, 18, 19],
+        possibleBuildings: [0, 6, 18, 19],
     },
     80: {
         caption: 'Airfield Operations Supervisor',
@@ -1279,7 +1279,7 @@ export default {
             max: 2,
         },
         icon: 'car-side',
-        possibleBuildings: [0,6, 18, 19],
+        possibleBuildings: [0, 6, 18, 19],
     },
     81: {
         caption: 'Medical equipment trailer',
@@ -1291,7 +1291,7 @@ export default {
             max: 0,
         },
         icon: 'car-side',
-        possibleBuildings: [0,6, 18, 19],
+        possibleBuildings: [0, 6, 18, 19],
         special:
             'Needed towing vehicle (Airfield Operations Vehicle, Airfield Operations Supervisor)',
     },
@@ -1317,7 +1317,7 @@ export default {
     83: {
         caption: 'Medical cycle responder',
         color: '#b89d14',
-        credits: 5_000,
+        credits: 5000,
         coins: 10,
         staff: {
             min: 1,

@@ -241,28 +241,34 @@
                 "texts": ["Major Foam Tender", "Major Foam Tenders"],
                 "vehicles": [75]
             },
+            { "texts": ["Rescue Stair", "Rescue Stairs"], "vehicles": [78] },
             {
-                "texts": ["Rescue Stair", "Rescue Stairs"],
-                "vehicles": [78]
-            },
-            {
-                "texts": ["Airfield Firefighting Command Vehicle", "Airfield Firefighting Command Vehicles"],
+                "texts": [
+                    "Airfield Firefighting Command Vehicle",
+                    "Airfield Firefighting Command Vehicles"
+                ],
                 "vehicles": [77]
             },
             {
-                "texts": ["Airfield Operations Vehicle", "Airfield Operations Vehicles"],
+                "texts": [
+                    "Airfield Operations Vehicle",
+                    "Airfield Operations Vehicles"
+                ],
                 "vehicles": [79]
             },
+            { "texts": ["RIV", "RIVs"], "vehicles": [76] },
             {
-                "texts": ["RIV", "RIVs"],
-                "vehicles": [76]
-            },
-            {
-                "texts": ["Medical equipment trailer", "Medical equipment trailers"],
+                "texts": [
+                    "Medical equipment trailer",
+                    "Medical equipment trailers"
+                ],
                 "vehicles": [81]
             },
             {
-                "texts": ["Airfield Operations Supervisor", "Airfield Operations Supervisors"],
+                "texts": [
+                    "Airfield Operations Supervisor",
+                    "Airfield Operations Supervisors"
+                ],
                 "vehicles": [80]
             },
             {
@@ -270,7 +276,10 @@
                 "vehicles": [82]
             },
             {
-                "texts": ["Medical cycle responder", "Medical cycle responders"],
+                "texts": [
+                    "Medical cycle responder",
+                    "Medical cycle responders"
+                ],
                 "vehicles": [83]
             }
         ]
