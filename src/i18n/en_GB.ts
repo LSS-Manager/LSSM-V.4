@@ -95,6 +95,7 @@ export default {
                 ],
                 'Foam Vehicles': [35, 36, 37, 38],
                 'Water Rescue': [73, 74],
+                'ARFF': [75,76, 77, 78, 79, 80, 81]
             },
             color: '#ff2d2d',
         },
@@ -102,7 +103,7 @@ export default {
             vehicles: {
                 'Ambulances': [5],
                 'HEMS': [9],
-                'Rapid Response Vehicles': [10, 19, 20, 21, 22],
+                'Rapid Response Vehicles': [10, 19, 20, 21, 22, 83],
                 'HART Units': [23, 27, 28, 29, 30, 31, 32, 33, 34],
             },
             color: '#ffa500',
@@ -114,7 +115,7 @@ export default {
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
-                'Public Order': [51, 52, 53, 54, 55],
+                'Public Order': [51, 52, 53, 54, 55, 82],
             },
             color: '#00ac00',
         },
@@ -251,6 +252,7 @@ export default {
         'Cliff',
         'Radio Site',
         'Windmill Park',
+        'Medium Airport (Runway)',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

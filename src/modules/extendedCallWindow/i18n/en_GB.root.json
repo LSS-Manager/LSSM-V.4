@@ -238,6 +238,12 @@
                 "vehicleTypes": [
                     8, 11, 12, 13, 19, 24, 25, 51, 52, 53, 54, 55, 56
                 ]
+            },
+            {
+                "name": "Airport",
+                "vehicleTypes": [
+                    75, 76, 77, 78, 79, 80, 81, 82
+                ]
             }
         ],
         "noCustoms": "own vehicle categories excluded"
