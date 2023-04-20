@@ -272,7 +272,7 @@
             {
                 "texts": ["Medical cycle responder", "Medical cycle responders"],
                 "vehicles": [83]
-            },
+            }
         ]
     },
     "hideVehicleList": {
