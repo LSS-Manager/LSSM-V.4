@@ -297,7 +297,7 @@
         "version": "13.2.2"
     },
     "semver": {
-        "version": "7.4.0"
+        "version": "7.5.0"
     },
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
@@ -336,6 +336,10 @@
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/url-loader",
         "version": "4.1.1"
+    },
+    "util": {
+        "url": "https://github.com/browserify/node-util",
+        "version": "0.12.5"
     },
     "vue": {
         "icon": "https://vuejs.org/logo.svg",
