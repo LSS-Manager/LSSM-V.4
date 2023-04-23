@@ -284,7 +284,7 @@
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
-        "version": "1.5.1"
+        "version": "1.5.3"
     },
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
