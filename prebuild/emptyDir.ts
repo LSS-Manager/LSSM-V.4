@@ -7,7 +7,6 @@ import fs from 'fs';
 /**
  * This method allows to empty a folder and even delete it if desired.
  * All existing symlinks in the folder will also be unlinked.
- *
  * @param path - The path to the folder. Preferably an absolute path.
  * @param deleteFolder - Whether to delete the folder.
  */
