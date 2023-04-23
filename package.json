@@ -29,7 +29,7 @@
         "mini-svg-data-uri": "1.4.4",
         "moment": "2.29.4",
         "pinia": "2.0.34",
-        "qrcode": "1.5.1",
+        "qrcode": "1.5.3",
         "semver": "7.5.0",
         "showdown": "2.1.0",
         "ua-parser-js": "1.0.35",
