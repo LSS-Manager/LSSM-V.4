@@ -144,7 +144,7 @@ export function getTimeReplacers(): Record<
         ) => {
             const shareTime = document.querySelector<HTMLLIElement>(
                 '#mission_replies > li:last-child'
-            )?.dataset.timestamp;
+            )?.dataset.messageTime;
 
             const resultDate = addMinutesToDate(
                 parseFloat(additive.replace(',', '.')) * 60,
@@ -172,7 +172,7 @@ export function getTimeReplacers(): Record<
         ) => {
             const shareTime = document.querySelector<HTMLLIElement>(
                 '#mission_replies > li:last-child'
-            )?.dataset.timestamp;
+            )?.dataset.messageTime;
             const resultDate = addMinutesToDate(
                 parseFloat(additive.replace(',', '.')) * 60,
                 new Date(shareTime ?? Date.now())
