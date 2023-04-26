@@ -58,32 +58,17 @@ export default async (
         );
 
         const alarm = (publish = false) => {
-            const url = new URL(
-                `/missions/${missionId}/alarm`,
-                window.location.origin
+            const form =
+                document.querySelector<HTMLFormElement>('#mission-form');
+            if (!form) return;
+            const searchParams = new URLSearchParams();
+            Array.from(new FormData(form).entries()).forEach(([key, value]) =>
+                searchParams.append(key, value.toString())
             );
-            url.searchParams.append('utf8', '✓');
-            url.searchParams.append(
-                'authenticity_token',
-                document.querySelector<HTMLMetaElement>(
-                    'meta[name="csrf-token"]'
-                )?.content ?? ''
-            );
-            url.searchParams.append('next_mission', '0');
-            url.searchParams.append(
-                'alliance_mission_publish',
-                publish ? '1' : '0'
-            );
-            document
-                .querySelectorAll<HTMLInputElement>(
-                    '#vehicle_show_table_body_all .vehicle_checkbox:checked, #vehicle_show_table_body_occupied .vehicle_checkbox:checked'
-                )
-                ?.forEach(vehicle =>
-                    url.searchParams.append('vehicle_ids[]', vehicle.value)
-                );
+            searchParams.set('alliance_mission_publish', publish ? '1' : '0');
             return LSSM.$stores.api
                 .request({
-                    url: url.pathname,
+                    url: `/missions/${missionId}/alarm`,
                     feature: `${MODULE_ID}_sort-missions_alarm`,
                     init: {
                         headers: {
@@ -93,7 +78,7 @@ export default async (
                             `/missions/${missionId}`,
                             window.location.origin
                         ).toString(),
-                        body: url.searchParams.toString(),
+                        body: searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
                     },
