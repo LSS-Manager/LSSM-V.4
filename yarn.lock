@@ -2383,10 +2383,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/showdown@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@types/showdown@npm:2.0.0"
-  checksum: 90ae870146b3d3f2ca75732b5ee9b85cd2b10719f1aea8021af97e0bb6828acd7715093a1f715dcc18244636e1a983650556a051b1aa51a06018302b1d7c8722
+"@types/showdown@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@types/showdown@npm:2.0.1"
+  checksum: 75078b292d645bb6adbda7d440415fa06f37433225ba097d8f56391fc6f1234beaeb7339baf01c4093b5f1be51fa285f81b32d11055892758294bb63de92fb01
   languageName: node
   linkType: hard
 
@@ -6805,7 +6805,7 @@ __metadata:
     "@types/prettier": 2.7.2
     "@types/qrcode": 1.5.0
     "@types/semver": 7.3.13
-    "@types/showdown": 2.0.0
+    "@types/showdown": 2.0.1
     "@types/tampermonkey": 4.0.10
     "@types/ua-parser-js": 0.7.36
     "@types/vue-select": 3.16.2
