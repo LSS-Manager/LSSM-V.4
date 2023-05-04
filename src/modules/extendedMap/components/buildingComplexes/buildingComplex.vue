@@ -3005,7 +3005,10 @@ export default Vue.extend<
                     .then(html => {
                         const protocolDocument =
                             new DOMParser().parseFromString(html, 'text/html');
-                        const attachedBuildingsSelector = this.complex.buildings
+                        const attachedBuildingsSelector = [
+                            ...this.complex.buildings,
+                            ...this.complex.allianceBuildings,
+                        ]
                             .map(
                                 buildingId =>
                                     `a[href="/buildings/${buildingId}"]`
