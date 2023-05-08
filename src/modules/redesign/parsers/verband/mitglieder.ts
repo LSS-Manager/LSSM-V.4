@@ -66,11 +66,11 @@ export default <RedesignParser<VerbandMitgliederWindow>>(({
                             .querySelector<HTMLSpanElement>(
                                 '.badge[id^="role_caption_"]'
                             )
-                            ?.innerText?.trim() ?? '',
+                            ?.textContent?.trim() ?? '',
                     roles:
                         user.children[1]
                             .querySelector<HTMLElement>('small')
-                            ?.innerText?.trim()
+                            ?.textContent?.trim()
                             .split(',')
                             .map(r => r.trim())
                             .filter(r => r.length)

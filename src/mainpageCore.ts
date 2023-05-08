@@ -12,7 +12,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const indicatorWrapper = document.createElement('li') as HTMLLIElement;
     document
         .querySelector('.navbar-default .navbar-right')
-        ?.appendChild(indicatorWrapper);
+        ?.append(indicatorWrapper);
 
     LSSM.$stores.root.updateCredits(
         LSSM.$utils.getNumberFromText(
