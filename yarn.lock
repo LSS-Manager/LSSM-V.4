@@ -1463,7 +1463,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/eslint-utils@npm:^4.1.2, @eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.3.0":
+"@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.3.0, @eslint-community/eslint-utils@npm:^4.4.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
   dependencies:
@@ -4060,7 +4060,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ci-info@npm:^3.6.1":
+"ci-info@npm:^3.8.0":
   version: 3.8.0
   resolution: "ci-info@npm:3.8.0"
   checksum: d0a4d3160497cae54294974a7246202244fff031b0a6ea20dd57b10ec510aa17399c41a1b0982142c105f3255aff2173e5c0dd7302ee1b2f28ba3debda375098
@@ -5046,29 +5046,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:46.0.0":
-  version: 46.0.0
-  resolution: "eslint-plugin-unicorn@npm:46.0.0"
+"eslint-plugin-unicorn@npm:47.0.0":
+  version: 47.0.0
+  resolution: "eslint-plugin-unicorn@npm:47.0.0"
   dependencies:
     "@babel/helper-validator-identifier": ^7.19.1
-    "@eslint-community/eslint-utils": ^4.1.2
-    ci-info: ^3.6.1
+    "@eslint-community/eslint-utils": ^4.4.0
+    ci-info: ^3.8.0
     clean-regexp: ^1.0.0
-    esquery: ^1.4.0
+    esquery: ^1.5.0
     indent-string: ^4.0.0
-    is-builtin-module: ^3.2.0
+    is-builtin-module: ^3.2.1
     jsesc: ^3.0.2
     lodash: ^4.17.21
     pluralize: ^8.0.0
     read-pkg-up: ^7.0.1
     regexp-tree: ^0.1.24
-    regjsparser: ^0.9.1
+    regjsparser: ^0.10.0
     safe-regex: ^2.1.1
     semver: ^7.3.8
     strip-indent: ^3.0.0
   peerDependencies:
-    eslint: ">=8.28.0"
-  checksum: 30f9c67b9f94e42ae9917601ce203aa89a33c5fb821a1f45db389c8a143d3887c6b3316a74f0de7edc5e6cdac7a54d9e527cd109b96426cf2eca8f37478d0021
+    eslint: ">=8.38.0"
+  checksum: 8d93bd76d54fb44e134c6576e3bda72dbf4c9cb5bae90451ace6acf1c48e6d7329f1e36db1d19266a5da499afeff6bf0c647875d69adc92d546bcc2d8b765cca
   languageName: node
   linkType: hard
 
@@ -6162,7 +6162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-builtin-module@npm:^3.2.0":
+"is-builtin-module@npm:^3.2.1":
   version: 3.2.1
   resolution: "is-builtin-module@npm:3.2.1"
   dependencies:
@@ -6913,7 +6913,7 @@ __metadata:
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-regexp: 1.14.0
     eslint-plugin-tsdoc: 0.2.17
-    eslint-plugin-unicorn: 46.0.0
+    eslint-plugin-unicorn: 47.0.0
     eslint-plugin-vue: 9.11.1
     he: 1.2.0
     highcharts: 11.0.0
@@ -8164,6 +8164,17 @@ __metadata:
   version: 1.7.2
   resolution: "register-service-worker@npm:1.7.2"
   checksum: 53cabe99212e623b3e7bf3af90d82519c53566e56c77d6670f36f52bd40c4592c0e6b9b18036a540ad6ea573cb8b5a34aff71b71d4607f759190c54560d99026
+  languageName: node
+  linkType: hard
+
+"regjsparser@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "regjsparser@npm:0.10.0"
+  dependencies:
+    jsesc: ~0.5.0
+  bin:
+    regjsparser: bin/parser
+  checksum: 17550661f43ba792f8365fb95b3dbdb64e25f14e31ef7c2c11876c240a60e87b7bfc28c98589f4e76b7cf49307e45fb24d030f57d68dd0cc41c56b4d378e9254
   languageName: node
   linkType: hard
 
