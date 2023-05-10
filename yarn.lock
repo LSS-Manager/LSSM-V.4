@@ -6926,7 +6926,7 @@ __metadata:
     mini-svg-data-uri: 1.4.4
     moment: 2.29.4
     moment-timezone: 0.5.43
-    pinia: 2.0.35
+    pinia: 2.0.36
     prettier: 2.8.8
     qrcode: 1.5.3
     sass: 1.62.1
@@ -7799,9 +7799,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:2.0.35":
-  version: 2.0.35
-  resolution: "pinia@npm:2.0.35"
+"pinia@npm:2.0.36":
+  version: 2.0.36
+  resolution: "pinia@npm:2.0.36"
   dependencies:
     "@vue/devtools-api": ^6.5.0
     vue-demi: "*"
@@ -7814,7 +7814,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: cecb1e1e97ed77f69166dc3815dfd05f712ac725763eb74059f5e4804b5902976c278a3d14ab5227892459e8d0b6d9645104e1d049e733228b696be98de450f0
+  checksum: 42a6f14a6875f0aac7026940671979d4dc31708a83b2c9551101148b752a8bb2c85b66a74b12d0b4cec793461d5eaf265777373fe79e33c5a8fb5dfa3169d7c6
   languageName: node
   linkType: hard
 
