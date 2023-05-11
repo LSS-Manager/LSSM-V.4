@@ -145,7 +145,7 @@ export default {
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',
-                requiredExtensions: '9',
+                requiredExtensions: [9],
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 parkingLotReservations: 1,
