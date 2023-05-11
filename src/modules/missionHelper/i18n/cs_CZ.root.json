@@ -15,10 +15,6 @@
         "title": "Special requirements"
     },
     "settings": {
-        "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
-        },
         "chances": {
             "100": {
                 "description": "Zobrazuje 100% u povinných vozidel",
@@ -48,6 +44,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Skryje VEA a zobrazí pouze MOS",
             "title": "Skrýt VEA"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Popisky pro tlačítka",

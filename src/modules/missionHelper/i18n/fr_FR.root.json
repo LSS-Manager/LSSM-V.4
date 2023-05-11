@@ -25,10 +25,6 @@
         }
     },
     "settings": {
-        "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
-        },
         "chances": {
             "100": {
                 "description": "Affiche les probabilités à 100%.",
@@ -58,6 +54,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Cache le nombre de VLCG et affiche seulement les VPC.",
             "title": "Cacher VLCG"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Infobulles pour le bouton de superposition, par exemple.",

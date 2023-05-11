@@ -15,10 +15,6 @@
         }
     },
     "settings": {
-        "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
-        },
         "chances": {
             "100": {
                 "description": "Näyttää 100% todennäköisyyden.",
@@ -48,6 +44,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Piilottaa johtoautot kokonaan ja näyttää vain johtokeskusautot.",
             "title": "Pilottaa johtoautot"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Tooltipsit esimerkiksi kelluva ikkuna nappia varten.",

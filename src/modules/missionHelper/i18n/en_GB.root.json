@@ -15,10 +15,6 @@
         "title": "Special requirements"
     },
     "settings": {
-        "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
-        },
         "chances": {
             "100": {
                 "description": "Shows probabilities of 100%",
@@ -48,6 +44,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Hides Fire Officer completely and shows only ICCU.",
             "title": "Hide Fire Officers"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Tooltips for as example the overlay button.",

@@ -30,10 +30,6 @@
         }
     },
     "settings": {
-        "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
-        },
         "chances": {
             "100": {
                 "description": "Viser sannsynligheten selv om den er 100%",
@@ -63,6 +59,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Skjuler innsatsleder brann og viser heller innsatsstøttebil.",
             "title": "Skjul innsatsleder brann"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "id": {
             "description": "Viser oppdrags ID etter oppdragsnavnet.",

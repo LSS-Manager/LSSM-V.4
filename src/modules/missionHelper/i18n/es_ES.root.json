@@ -20,10 +20,6 @@
         }
     },
     "settings": {
-        "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
-        },
         "chances": {
             "100": {
                 "description": "Muestra probabilidades del 100%",
@@ -53,6 +49,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Oculta el UMC por completo y muestra solo Vehículo de mando móvil.",
             "title": "Ocultar UMC"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Información sobre herramientas, por ejemplo, el botón de superposición.",

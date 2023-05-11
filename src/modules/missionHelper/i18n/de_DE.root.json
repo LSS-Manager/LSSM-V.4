@@ -69,6 +69,10 @@
             "description": "Blendet ELW 1 komplett aus und zeigt nur ELW 2 an.",
             "title": "ELW 1 ausblenden"
         },
+        "hide_on_Krankentransport": {
+            "description": "Verstecke den Einsatzhelfer bei Kranken/Intensivtransporten",
+            "title": "Verstecke bei Krankentransport"
+        },
         "hoverTip": {
             "description": "Tooltips für die Buttons wie der Overlay-Button",
             "title": "Tooltips"
@@ -124,10 +128,6 @@
                 "description": "Zeigt an, wieviele Zivilstreifenwagen Funkstreifenwagen ersetzen können",
                 "title": "FuStW mit Zivilstreifenwagen ersetzen"
             }
-        },
-        "hide_on_Krankentransport": {
-            "description": "Verstecke den Einsatzhelfer bei Kranken/Intensivtransporten",
-            "title": "Verstecke bei Krankentransport"
         },
         "patients": {
             "content": {
