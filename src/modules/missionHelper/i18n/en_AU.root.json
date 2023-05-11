@@ -26,8 +26,8 @@
     },
     "settings": {
         "hide_on_Krankentransport": {
-            "description": "Hide on ambulance missions",
-            "title": "Hide on ambulance missions"
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "chances": {
             "100": {

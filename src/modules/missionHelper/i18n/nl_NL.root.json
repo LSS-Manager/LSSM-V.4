@@ -21,8 +21,8 @@
     },
     "settings": {
         "hide_on_Krankentransport": {
-            "description": "Verstecke den Einsatzhelfer bei Kranken/Intensivtransporten",
-            "title": "Verstecke bei Krankentransport"
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "bike_police_only_if_needed": {
             "description": "Geeft aan wanneer biketeams alleen nodig zijn als je ze hebt.",

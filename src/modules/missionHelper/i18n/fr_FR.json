@@ -3,7 +3,6 @@
     "expansions": "Extension | Extensions",
     "followups": "Mission à suivre | Missions à suivre",
     "generated_by": "Généré par",
-    "ignore_mission_IDs": [],
     "mission_categories": {
         "ambulance": "Missions ambulancières",
         "coastal_rescue": "Mission côtière",

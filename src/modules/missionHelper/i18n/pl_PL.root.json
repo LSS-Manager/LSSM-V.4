@@ -21,8 +21,8 @@
     },
     "settings": {
         "hide_on_Krankentransport": {
-            "description": "Verstecke den Einsatzhelfer bei Kranken/Intensivtransporten",
-            "title": "Verstecke bei Krankentransport"
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "chances": {
             "100": {
