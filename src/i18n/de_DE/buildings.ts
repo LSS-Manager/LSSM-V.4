@@ -148,7 +148,7 @@ export default {
                 requiredExtensions: [9],
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                parkingLotReservations: [113],
+                parkingLotReservations: [[113]],
                 unlocksVehicleTypes: [113],
             },
         ],
