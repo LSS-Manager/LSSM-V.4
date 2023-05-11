@@ -15,6 +15,10 @@
         "title": "Special requirements"
     },
     "settings": {
+        "hide_on_Krankentransport": {
+            "description": "Hide on ambulance missions",
+            "title": "Hide on ambulance missions"
+        },
         "chances": {
             "100": {
                 "description": "Shows probabilities of 100%",

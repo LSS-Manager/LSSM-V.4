@@ -30,6 +30,10 @@
         }
     },
     "settings": {
+        "hide_on_Krankentransport": {
+            "description": "Verstecke den Einsatzhelfer bei Kranken/Intensivtransporten",
+            "title": "Verstecke bei Krankentransport"
+        },
         "chances": {
             "100": {
                 "description": "Viser sannsynligheten selv om den er 100%",
