@@ -9,7 +9,7 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     )
         return;
     getSetting('hide_on_Krankentransport').then(r => {
-        const missionID = LSSM.$utils.getMissionTypeInMissionWindow();
+        const missionID = parseInt(LSSM.$utils.getMissionTypeInMissionWindow());
         console.debug(Object.values($m('ignore_mission_IDs')).includes(missionID))
         console.debug(r)
         if (Object.values($m('ignore_mission_IDs')).includes(missionID) && r)
