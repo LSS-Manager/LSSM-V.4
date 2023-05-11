@@ -1650,11 +1650,12 @@ export default {
         coins: 20,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'trailer',
         possibleBuildings: [9],
-        special: 'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (MzGW (FGr N))',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (MzGW (FGr N))',
         isTrailer: true,
         tractiveVehicles: [41],
     },
@@ -1665,13 +1666,16 @@ export default {
         coins: 20,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'trailer',
-        special: 'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
         possibleBuildings: [0, 18],
         isTrailer: true,
-        tractiveVehicles: [90,4,27, 53,104,105,6, 8,9,15,16,18,21,22],
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
+        ],
     },
     112: {
         caption: 'NEA200',
@@ -1690,7 +1694,8 @@ export default {
             },
         },
         icon: 'trailer',
-        special: 'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw)',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw)',
         isTrailer: true,
         tractiveVehicles: [99],
         possibleBuildings: [9],
@@ -1712,9 +1717,12 @@ export default {
             },
         },
         icon: 'trailer',
-        special: 'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
         isTrailer: true,
-        tractiveVehicles: [90,4,27, 53,104,105,6, 8,9,15,16,18,21,22],
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
+        ],
         possibleBuildings: [0],
     },
 } satisfies Record<number, InternalVehicle>;

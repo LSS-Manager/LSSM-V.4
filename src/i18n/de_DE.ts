@@ -99,7 +99,7 @@ export default {
                 Flughafenfeuerwehr: [75, 76],
                 Werkfeuerwehr: [83, 84, 85, 86],
                 Logistikfahrzeuge: [104, 105, 106, 107],
-                Netzersatzanlagen: [111, 113]
+                Netzersatzanlagen: [111, 113],
             },
             color: '#ff2d2d',
         },

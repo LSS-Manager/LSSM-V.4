@@ -558,14 +558,15 @@ export default {
         },
         extensions: [
             {
-                caption: '1. Technischer Zug: Fachgruppe Notversorgung/Notinstandsetzung',
+                caption:
+                    '1. Technischer Zug: Fachgruppe Notversorgung/Notinstandsetzung',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [41, 110],
-                parkingLotReservations: [[41],[110]],
+                parkingLotReservations: [[41], [110]],
             },
             {
                 caption: '1. Technischer Zug: Zugtrupp',
@@ -611,7 +612,8 @@ export default {
                 requiredExtensions: [0, 1],
             },
             {
-                caption: '2. Technischer Zug: Fachgruppe Notversorgung/Notinstandsetzung',
+                caption:
+                    '2. Technischer Zug: Fachgruppe Notversorgung/Notinstandsetzung',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Tage',

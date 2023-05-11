@@ -333,7 +333,7 @@
             { "texts": ["Wasserwerfer"], "vehicles": [72] },
             { "texts": ["Zivilstreifenwagen"], "vehicles": [98] },
             { "texts": ["leBefKw"], "vehicles": [35] },
-            { "texts": ["NEA50"], "vehicles": [110,111] },
+            { "texts": ["NEA50"], "vehicles": [110, 111] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
             { "texts": ["MzGW SB"], "vehicles": [109] }
         ],
