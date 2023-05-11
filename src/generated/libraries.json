@@ -401,7 +401,7 @@
     },
     "vuepress-plugin-sitemap2": {
         "url": "https://plugin-sitemap2.vuejs.press/",
-        "version": "2.0.0-beta.208"
+        "version": "2.0.0-beta.210"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
