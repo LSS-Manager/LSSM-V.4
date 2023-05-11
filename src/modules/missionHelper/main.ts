@@ -8,11 +8,13 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
         document.querySelector('.missionNotFound')
     )
         return;
+    getSetting('hide_on_Krankentransport').then(r => {
+        const missionID = LSSM.$utils.getMissionTypeInMissionWindow();
 
-    const missionID = LSSM.$utils.getMissionTypeInMissionWindow();
-
-    if (Object.values($m('ignore_mission_IDs')).includes(missionID) && await getSetting('hide_on_Krankentransport'))
+        if (Object.values($m('ignore_mission_IDs')).includes(missionID) && r)
         return;
+    });
+
 
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
