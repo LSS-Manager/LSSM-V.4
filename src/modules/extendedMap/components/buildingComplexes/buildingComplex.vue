@@ -2614,10 +2614,11 @@ export default Vue.extend<
         schoolings() {
             return this.allSchoolings.filter(
                 ({ building_id }) =>
-                    this.complex.buildings.includes(building_id.toString()) ||
-                    this.complex.allianceBuildings.includes(
-                        building_id.toString()
-                    )
+                    building_id &&
+                    (this.complex.buildings.includes(building_id.toString()) ||
+                        this.complex.allianceBuildings.includes(
+                            building_id.toString()
+                        ))
             );
         },
         schoolingBuildings() {
