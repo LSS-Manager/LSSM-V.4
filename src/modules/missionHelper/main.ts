@@ -9,7 +9,7 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     )
         return;
 
-    const missionID = parseInt(LSSM.$utils.getMissionTypeInMissionWindow());
+    const missionID = LSSM.$utils.getMissionTypeInMissionWindow();
     if ($m('ignore_mission_IDs').toString().split(',').includes(missionID))
         return;
 
