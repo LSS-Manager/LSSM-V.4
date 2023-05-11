@@ -3,6 +3,7 @@
     "expansions": "Ausbreitung | Ausbreitungen",
     "followups": "Folgeeinsatz | Folgeeinsätze",
     "generated_by": "Generiert von",
+    "ignore_mission_IDs": [143,613],
     "mission_categories": {
         "airport": "Flughafenfeuerwehr-Einsätze",
         "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung",

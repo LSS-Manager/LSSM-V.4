@@ -3,6 +3,7 @@
     "expansions": "Espansione | Espansioni",
     "followups": "Missione supplementare | Missioni supplementari",
     "generated_by": "Generata da",
+    "ignore_mission_IDs": [],
     "mission_categories": {
         "airport": "Missioni Aeroportuali",
         "ambulance": "Missioni delle Ambulanze",

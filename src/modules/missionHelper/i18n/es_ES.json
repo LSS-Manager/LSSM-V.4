@@ -3,6 +3,7 @@
     "expansions": "Extenderse",
     "followups": "Siguiente misión | Siguientes misiones",
     "generated_by": "Generado por",
+    "ignore_mission_IDs": [],
     "mission_categories": {
         "ambulance": "Misiones de ambulancia",
         "fire": "Misiones de extinción de incendios",

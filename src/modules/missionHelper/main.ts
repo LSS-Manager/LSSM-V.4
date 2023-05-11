@@ -9,6 +9,10 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     )
         return;
 
+    const missionID = parseInt(LSSM.$utils.getMissionTypeInMissionWindow());
+    if ($m('ignore_mission_IDs').toString().split(',').includes(missionID))
+        return;
+
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
     const missionForm =

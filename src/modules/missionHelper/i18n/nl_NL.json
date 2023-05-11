@@ -3,6 +3,7 @@
     "expansions": "Uitbreiding | Uitbreidingen",
     "followups": "Verspreiding | Verspreidingen",
     "generated_by": "Gegenereerd door",
+    "ignore_mission_IDs": [],
     "mission_categories": {
         "airport": "VBB inzetten",
         "airport_specialization": "VBB inzetten (Specialisatie)",

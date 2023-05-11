@@ -3,6 +3,7 @@
     "expansions": "Uppdrag att utöka:",
     "followups": "Påföljande uppdrag vid avklarat uppdrag | Påföljande uppdrag vid avklarade uppdrag",
     "generated_by": "Skapad av",
+    "ignore_mission_IDs": [],
     "mission_categories": {
         "ambulance": "Ambulansuppdrag",
         "fire": "Brandbekämpningsuppdrag",
