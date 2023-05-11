@@ -9,12 +9,11 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     )
         return;
 
-    const missionID = LSSM.$utils.getMissionTypeInMissionWindow();
-    console.debug(missionID);
-    console.debug($m('ignore_mission_IDs').toString().split(','));
-    console.debug($m('ignore_mission_IDs').toString().split(',').includes(missionID))
-    if ($m('ignore_mission_IDs').toString().split(',').includes(missionID))
-        return;
+    //const missionID = LSSM.$utils.getMissionTypeInMissionWindow();
+    console.debug($m('ignore_mission_IDs').toString());
+    console.debug($m('ignore_mission_IDs'))
+    /*if ($m('ignore_mission_IDs').toString().split(',').includes(missionID)&& await getSetting('hide_on_Krankentransport'))
+        return;*/
 
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
