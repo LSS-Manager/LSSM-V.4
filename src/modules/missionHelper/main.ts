@@ -8,11 +8,10 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
         document.querySelector('.missionNotFound')
     )
         return;
-    getSetting('hide_on_Krankentransport').then(r => {
+    getSetting('hide_on_Krankentransport').then(hideBool => {
         const missionID = parseInt(LSSM.$utils.getMissionTypeInMissionWindow());
-        console.debug(Object.values($m('ignore_mission_IDs')).includes(missionID))
-        console.debug(r)
-        if (Object.values($m('ignore_mission_IDs')).includes(missionID) && r)
+
+        if (Object.values($m('ignore_mission_IDs')).includes(missionID) && hideBool)
         return;
     });
 
