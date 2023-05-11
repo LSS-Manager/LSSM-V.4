@@ -11,10 +11,12 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     getSetting('hide_on_Krankentransport').then(hideBool => {
         const missionID = parseInt(LSSM.$utils.getMissionTypeInMissionWindow());
 
-        if (Object.values(LSSM.$t('transfer_missions')).includes(missionID) && hideBool)
-        return;
+        if (
+            Object.values(LSSM.$t('transfer_missions')).includes(missionID) &&
+            hideBool
+        )
+            return false;
     });
-
 
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
