@@ -86,6 +86,12 @@ export default {
             staffList: 'Intensivpflege',
             key: 'intensiv_care',
         },
+        {
+            caption: 'NEA200 Fortbildung',
+            duration: '7 Tage',
+            staffList: 'NEA200',
+            key: 'energy_supply',
+        },
     ],
     Polizei: [
         {
@@ -247,6 +253,18 @@ export default {
             duration: '7 Tage',
             staffList: 'Fachgruppe Wasserschaden/Pumpen',
             key: 'water_damage_pump',
+        },
+        {
+            caption: 'Fachgruppe Schwere Bergung',
+            duration: '7 Tage',
+            staffList: 'FGr SB',
+            key: 'heavy_rescue',
+        },
+        {
+            caption: 'Fachgruppe Elektroversorgung',
+            duration: '7 Tage',
+            staffList: 'FGr E',
+            key: 'thw_energy_supply',
         },
     ],
 } satisfies SchoolingsBySchool;
