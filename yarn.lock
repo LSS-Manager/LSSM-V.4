@@ -7033,7 +7033,7 @@ __metadata:
     moment: 2.29.4
     showdown: 2.1.0
     simple-git: 3.18.0
-    vue: 3.2.47
+    vue: 3.3.1
     vuepress: 2.0.0-beta.61
     vuepress-plugin-clipboard: 2.1.5
     vuepress-plugin-sitemap2: 2.0.0-beta.210
@@ -9934,20 +9934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.2.47, vue@npm:^3.2.45, vue@npm:^3.2.47":
-  version: 3.2.47
-  resolution: "vue@npm:3.2.47"
-  dependencies:
-    "@vue/compiler-dom": 3.2.47
-    "@vue/compiler-sfc": 3.2.47
-    "@vue/runtime-dom": 3.2.47
-    "@vue/server-renderer": 3.2.47
-    "@vue/shared": 3.2.47
-  checksum: 3b586f61fd2cdfdd24459a946a2831c0f164056993cc005badde4fea10d53e430f1cedf1b62d52a6992b58fe656fc5fc67b32f594a2832dfe440c6db46d6f158
-  languageName: node
-  linkType: hard
-
-"vue@npm:^3.3.1":
+"vue@npm:3.3.1, vue@npm:^3.3.1":
   version: 3.3.1
   resolution: "vue@npm:3.3.1"
   dependencies:
@@ -9957,6 +9944,19 @@ __metadata:
     "@vue/server-renderer": 3.3.1
     "@vue/shared": 3.3.1
   checksum: 37655d81ba3b22b237082bad8cc63fdf29a4eb15b058b453a5cfe58e3d23ba65be2aa3e8123b0a49b86230ee23486283ec89fdc3d94e2111ab29ec76c54f3bdc
+  languageName: node
+  linkType: hard
+
+"vue@npm:^3.2.45, vue@npm:^3.2.47":
+  version: 3.2.47
+  resolution: "vue@npm:3.2.47"
+  dependencies:
+    "@vue/compiler-dom": 3.2.47
+    "@vue/compiler-sfc": 3.2.47
+    "@vue/runtime-dom": 3.2.47
+    "@vue/server-renderer": 3.2.47
+    "@vue/shared": 3.2.47
+  checksum: 3b586f61fd2cdfdd24459a946a2831c0f164056993cc005badde4fea10d53e430f1cedf1b62d52a6992b58fe656fc5fc67b32f594a2832dfe440c6db46d6f158
   languageName: node
   linkType: hard
 
