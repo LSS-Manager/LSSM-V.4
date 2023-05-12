@@ -2729,7 +2729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/shared@npm:3.3.2":
+"@vue/shared@npm:3.3.2, @vue/shared@npm:^3.2.45, @vue/shared@npm:^3.2.47, @vue/shared@npm:^3.3.1":
   version: 3.3.2
   resolution: "@vue/shared@npm:3.3.2"
   checksum: b142c410186e65b51dfb11409137a2f47862dbc7b74d0e6b331966695539eef98ae0f52d66c8072b69fc7327a07c0f4b27db723d6d9052a5c439a7e4b44e155f
@@ -9815,7 +9815,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.3.2":
+"vue@npm:3.3.2", vue@npm:^3.2.45, vue@npm:^3.2.47, vue@npm:^3.3.1":
   version: 3.3.2
   resolution: "vue@npm:3.3.2"
   dependencies:
