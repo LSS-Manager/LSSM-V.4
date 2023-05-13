@@ -134,6 +134,10 @@
             "title": "fordonskategorier",
             "vehicles": "Fordonstyper"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "yellowBorder": {
             "description": "Gränsar genereringstiden gul om användningen är äldre än det angivna antalet timmar. Om siffran är 0 dras ingen kant.",
             "title": "Gul kant"

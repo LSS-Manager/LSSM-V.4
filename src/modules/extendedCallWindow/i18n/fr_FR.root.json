@@ -201,6 +201,10 @@
             "title": "Compteur de véhicules : couleur",
             "warning": "Orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Affiche le type de véhicule dans la liste des unités disponibles.",
             "title": "Afficher le type de véhicule"

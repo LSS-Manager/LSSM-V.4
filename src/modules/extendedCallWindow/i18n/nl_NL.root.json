@@ -202,6 +202,10 @@
             "title": "Voertuigteller: kleur",
             "warning": "Oranje"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
             "title": "Voertuigtype weergeven"

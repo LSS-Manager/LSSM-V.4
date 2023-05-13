@@ -202,6 +202,10 @@
             "title": "Licznik pojazdów: kolor",
             "warning": "Pomarańczowy"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Wyświetla typy pojazdów na liście.",
             "title": "Pokaż typy pojazdów"

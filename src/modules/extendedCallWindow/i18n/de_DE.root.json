@@ -201,6 +201,10 @@
             "title": "Fahrzeugzähler: Farbe",
             "warning": "Orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Aktiviere die Fahrzeugsuchleiste permanent.",
+            "title": "Permanente Fahrzeugsuche"
+        },
         "vehicleTypeInList": {
             "description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
             "title": "Fahrzeugtyp anzeigen"
