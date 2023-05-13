@@ -218,6 +218,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.vehicleCounter',
         },
+        vehicleListPermanentSearch: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         playerCounter: <Toggle>{
             type: 'toggle',
             default: false,

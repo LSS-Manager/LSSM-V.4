@@ -201,6 +201,10 @@
             "title": "Vehicle counter: color",
             "warning": "orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Displays the vehicle type in the Available Units list.",
             "title": "Show vehicle type"

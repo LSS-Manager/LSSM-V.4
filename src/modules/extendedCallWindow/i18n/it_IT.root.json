@@ -201,6 +201,10 @@
             "title": "Conta Veicoli: colore",
             "warning": "Arancione"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Visualizza il tipo di veicolo nell'elenco Unità disponibili.",
             "title": "Mostra il tipo di veicolo"

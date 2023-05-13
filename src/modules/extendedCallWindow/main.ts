@@ -295,6 +295,13 @@ export default <ModuleMainFunction>(async ({
             /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
         ).then(({ default: centerMap }) => centerMap(LSSM));
     }
+    if (await getSetting('vehicleListPermanentSearch')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/vehicleListPermanentSearch" */ './assets/vehicleListPermanentSearch'
+        ).then(({ default: vehicleListPermanentSearch }) =>
+            vehicleListPermanentSearch()
+        );
+    }
     if (await getSetting('remainingPatientTime')) {
         import(
             /* webpackChunkName: "modules/extendedCallWindow/remainingPatientTime" */ './assets/remainingPatientTime'
