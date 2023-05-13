@@ -20,7 +20,7 @@
         "version": "2.0.10"
     },
     "@primer/octicons": {
-        "icon": "https://primer.style/octicons/icons/icon-512x512.png",
+        "icon": "https://primer.style/design/icons/icon-512x512.png",
         "url": "https://primer.style/octicons",
         "version": "18.3.0"
     },
