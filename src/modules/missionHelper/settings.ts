@@ -386,5 +386,9 @@ export default ((MODULE_ID, LSSM, $m) => {
                       },
               }
             : null),
+        'hide_on_Krankentransport': <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
     };
 }) as ModuleSettingFunction;
