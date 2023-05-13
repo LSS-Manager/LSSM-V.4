@@ -11,6 +11,7 @@
             "selection": "Séléction de véhicules"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "boot": "Bateaux (généraux)",

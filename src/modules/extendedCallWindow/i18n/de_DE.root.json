@@ -201,6 +201,10 @@
             "title": "Fahrzeugzähler: Farbe",
             "warning": "Orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Aktiviere die Fahrzeugsuchleiste permanent.",
+            "title": "Permanente Fahrzeugsuche"
+        },
         "vehicleTypeInList": {
             "description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
             "title": "Fahrzeugtyp anzeigen"
@@ -224,7 +228,7 @@
                 "vehicleTypes": [
                     2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 27, 33, 34, 36, 46,
                     47, 48, 49, 53, 54, 57, 62, 71, 75, 76, 77, 78, 83, 84, 85,
-                    86, 104, 105, 106, 108
+                    86, 104, 105, 106, 108, 111, 113
                 ]
             },
             {
@@ -242,7 +246,7 @@
                 "name": "THW",
                 "vehicleTypes": [
                     39, 40, 41, 42, 43, 44, 45, 65, 66, 67, 68, 69, 92, 93, 99,
-                    100, 101, 102
+                    100, 101, 102, 109, 110, 112
                 ]
             },
             { "name": "Wasser", "vehicleTypes": [63, 64, 70] }

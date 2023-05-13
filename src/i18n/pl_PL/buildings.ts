@@ -16,6 +16,10 @@ export default {
         color: '#bb0000',
         coins: 30,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
+            coins: [10, 15, ...Array(14).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Rozbudowa dla pogotowia',
@@ -94,6 +98,10 @@ export default {
         color: '#992222',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Dodatkowa sala',
@@ -119,6 +127,10 @@ export default {
         color: '#ffffcc',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
+            coins: [10, 15, ...Array(14).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: 'Bez limitu',
@@ -135,6 +147,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Dodatkowa sala',
@@ -160,6 +176,10 @@ export default {
         color: '#bbe944',
         coins: 25,
         credits: 200_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Interna',
@@ -245,6 +265,10 @@ export default {
         color: '#FFFFCC',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'Zobacz specjalne',
@@ -266,6 +290,10 @@ export default {
         color: '#93B7FF',
         coins: 35,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
+            coins: [10, 15, ...Array(14).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Cela więzienna',
@@ -347,6 +375,10 @@ export default {
         color: '#24c3ae',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
@@ -363,6 +395,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Dodatkowa sala',
@@ -388,6 +424,10 @@ export default {
         color: '#93B7FF',
         coins: 50,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Rozbudowa o policyjne więźniarki',
@@ -417,6 +457,10 @@ export default {
         color: '#148423',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1. 1.000.000 Kredytów / 50 Monet'],
         maxBuildings: 'see specials',
@@ -438,6 +482,10 @@ export default {
         color: '#c259b5',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 1,
@@ -453,6 +501,10 @@ export default {
         color: '#F9D74A',
         coins: 35,
         credits: 150_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Bez limitu',
@@ -470,6 +522,10 @@ export default {
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -515,6 +571,10 @@ export default {
         color: '#990000',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Rozbudowa dla pogotowia',
@@ -594,6 +654,10 @@ export default {
         color: '#93B7FF',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Cela więzienna',
@@ -677,6 +741,10 @@ export default {
         color: '#FFFFCC',
         coins: 25,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [],
         levelcost: [
             '1. 10.000',
@@ -698,6 +766,10 @@ export default {
         color: '#8B4513',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Zbyt drogie'],
         maxBuildings: 'Nie kupuj',
@@ -714,6 +786,10 @@ export default {
         color: '#8B4513',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Zbyt drogie'],
         maxBuildings: 'Keine Grenze',
@@ -730,6 +806,10 @@ export default {
         color: '#93B7FF',
         coins: 25,
         credits: -1,
+        levelPrices: {
+            credits: [10_000, 25_000, ...Array(5).fill(100_000)],
+            coins: [10, 15, ...Array(5).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 25.000', '3.-7. 100.000'],
         maxBuildings: 'no limit',

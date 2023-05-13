@@ -21,7 +21,7 @@ export default <ModuleMainFunction>(async ({
     if (await getSetting('displayNav')) {
         const clock = await createClock('nav');
         clock.classList.add('navbar-brand');
-        document.querySelector('.navbar-header')?.appendChild(clock);
+        document.querySelector('.navbar-header')?.append(clock);
     }
 
     if (await getSetting('displayOverlay')) {

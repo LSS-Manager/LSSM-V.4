@@ -1,5 +1,7 @@
-export default (LSSM: Vue, allWords: boolean): void => {
-    const title = document.querySelector<HTMLHeadingElement>('#missionH1');
+import type { $m } from 'typings/Module';
+
+export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
+    const title = document.querySelector('#mission_general_info');
     if (!title) return;
 
     const greyClass = LSSM.$stores.root.nodeAttribute('arr-grey');
@@ -11,8 +13,21 @@ export default (LSSM: Vue, allWords: boolean): void => {
             position: 'relative',
         },
     });
+
+    let wordsPreParsing: string = title.getAttribute(
+        'data-mission-title'
+    ) as string;
+    if (wordsPreParsing === '') return;
+    //Remove "reserved" phrases like "[Verband]" or "(Brandmeldeanlage)"
+    const removeBeforeParsing = Object.values(
+        $m(`arrHighlight.removeBeforeParsing`) as string
+    );
+    removeBeforeParsing.forEach(stringToRemove => {
+        wordsPreParsing = wordsPreParsing.replace(stringToRemove, '');
+    });
+
     const words = (
-        title.textContent
+        wordsPreParsing
             ?.trim()
             .split(' ')
             .map(w => LSSM.$utils.escapeRegex(w.toLowerCase())) || []

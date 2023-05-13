@@ -88,6 +88,7 @@ export default {
         'Fire Vehicles': {
             vehicles: {
                 'Fire Trucks': [0, 1, 12, 13, 19, 30],
+                'Airport': [43, 44, 45],
                 'Bush-Fire Units': [28, 29, 31, 32, 33],
                 'Special Vehicles': [2, 3, 4, 6, 7, 10, 11],
             },
@@ -228,6 +229,7 @@ export default {
         'Sawmill',
         'Mine',
         'Beach',
+        'Aged Care Home',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

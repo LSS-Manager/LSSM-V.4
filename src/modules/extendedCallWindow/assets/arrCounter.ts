@@ -153,7 +153,7 @@ export default async (
             .querySelector<HTMLElement>(
                 '#container_navbar_alarm .container-fluid'
             )
-            ?.appendChild(resetBtnHolder);
+            ?.append(resetBtnHolder);
     }
     document
         .querySelector<HTMLDivElement>('#navbar-right-help-button')

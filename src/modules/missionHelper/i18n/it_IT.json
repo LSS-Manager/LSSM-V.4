@@ -4,6 +4,7 @@
     "followups": "Missione supplementare | Missioni supplementari",
     "generated_by": "Generata da",
     "mission_categories": {
+        "airport": "Missioni Aeroportuali",
         "ambulance": "Missioni delle Ambulanze",
         "coastal_rescue": "Missioni Terrestri Guardia Costiera",
         "coastal_rescue_ocean": "Missioni Marittime Guardia Costiera",
@@ -31,6 +32,7 @@
         "title": "Pazienti | {n} Paziente | {n} Pazienti"
     },
     "prerequisites": {
+        "airport": "Estensioni aeroportuali",
         "brush_extension": "espansione Anticendio Boschivo",
         "coastal_helicopter_count": "Hangar Elicotteri",
         "coastal_rescue_count": "Moli Guardia Costiera",
@@ -70,7 +72,7 @@
     "vehicles": {
         "captions": {
             "ambulances": "Ambulanza Medicalizzata",
-            "arff": "Flotta antincendio aeroporti",
+            "arff": "AIS/AISP Aeroportuali",
             "battalion_chief_vehicles": "Funzionari",
             "boats": "Barche",
             "brush_truck": "Mezzi AIB",
@@ -80,6 +82,7 @@
             "coastal_helicopter": "Elicottero Guardia Costiera",
             "commerce_police": "Volante finanza",
             "diver_units": "Camion tecnico NSSA",
+            "elw_airport": "ROS",
             "elw3": "DOS",
             "fbi_bomb": "Furgone artificieri",
             "fire_aviation": "Mezzi Aerei Antincendio",
@@ -89,6 +92,7 @@
             "hazmat_vehicles": "NBCR",
             "heavy_rescue_vehicles": "Unità polisoccorso",
             "helicopter": "Elisoccorso",
+            "irff": "AIS/AISP Industriali",
             "k9": "Unità cinofila antidroga",
             "large_coastal_boat": "Motovedetta Costiera",
             "mobile_air_vehicles": "Carro aria",
@@ -96,6 +100,8 @@
             "platform_trucks": "Autoscala | Autoscale",
             "police_cars": "Pattuglia | Pattuglie",
             "police_helicopters": "Elicottero della polizia",
+            "rettungstreppe": "ASA",
+            "riv": "ARI",
             "swat_armored_vehicle": "Furgone Antisommossa",
             "swat_suv": "Suv UOPI",
             "traffic_car": "Polizia Stradale",

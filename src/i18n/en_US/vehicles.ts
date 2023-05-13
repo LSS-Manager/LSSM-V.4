@@ -213,13 +213,13 @@ export default {
         special: 'Required once you have built 8 police stations',
     },
     17: {
-        caption: 'ARFF Crash Tender',
+        caption: 'Large ARFF Crash Tender',
         color: '#cc2222',
         credits: 20_000,
         coins: 25,
         staff: {
-            min: 1,
-            max: 2,
+            min: 2,
+            max: 4,
             training: {
                 'Fire Station': {
                     arff: {
@@ -1188,5 +1188,47 @@ export default {
         waterTank: 1000,
         special:
             'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
+    },
+    79: {
+        caption: 'Small ARFF Crash Tender',
+        color: '#cc2222',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0],
+        waterTank: 300,
+        foamTank: 50,
+    },
+    80: {
+        caption: 'Medium ARFF Crash Tender',
+        color: '#cc2222',
+        credits: 16_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0],
+        waterTank: 650,
+        foamTank: 60,
     },
 } satisfies Record<number, InternalVehicle>;

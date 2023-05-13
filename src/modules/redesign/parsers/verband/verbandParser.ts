@@ -10,7 +10,7 @@ export default ({
             name:
                 doc
                     .querySelector<HTMLAnchorElement>('nav .navbar-brand')
-                    ?.innerText?.trim() ?? '',
+                    ?.textContent?.trim() ?? '',
             id: getIdFromEl(
                 doc.querySelector<HTMLAnchorElement>(
                     'nav ul.navbar-right li:first-child a[href^="/alliances/"]'

@@ -99,6 +99,7 @@ export default {
                 Flughafenfeuerwehr: [75, 76],
                 Werkfeuerwehr: [83, 84, 85, 86],
                 Logistikfahrzeuge: [104, 105, 106, 107],
+                Netzersatzanlagen: [111, 113],
             },
             color: '#ff2d2d',
         },
@@ -126,11 +127,13 @@ export default {
         THW: {
             vehicles: {
                 'GKW': [39],
-                'Bergungsgruppe': [41],
+                'Notversorgung': [41, 110],
                 'Zugtrupp': [40],
                 ['Fachgruppe Räumen']: [42, 43, 44, 45],
                 'Fachgruppe Ortung': [92, 93],
                 'Fachgruppe Wasserschade/Pumpen': [99, 100, 101, 102],
+                'Schwere Bergung': [109],
+                'Netzersatzanlagen': [112],
             },
             color: '#0000ff',
         },

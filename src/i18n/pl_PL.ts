@@ -231,6 +231,7 @@ export default {
         'Parking',
         'Silos',
         'Centrum Miasta',
+        'Hangar lotniczy',
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],

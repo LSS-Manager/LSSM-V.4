@@ -2614,10 +2614,11 @@ export default Vue.extend<
         schoolings() {
             return this.allSchoolings.filter(
                 ({ building_id }) =>
-                    this.complex.buildings.includes(building_id.toString()) ||
-                    this.complex.allianceBuildings.includes(
-                        building_id.toString()
-                    )
+                    building_id &&
+                    (this.complex.buildings.includes(building_id.toString()) ||
+                        this.complex.allianceBuildings.includes(
+                            building_id.toString()
+                        ))
             );
         },
         schoolingBuildings() {
@@ -3005,7 +3006,10 @@ export default Vue.extend<
                     .then(html => {
                         const protocolDocument =
                             new DOMParser().parseFromString(html, 'text/html');
-                        const attachedBuildingsSelector = this.complex.buildings
+                        const attachedBuildingsSelector = [
+                            ...this.complex.buildings,
+                            ...this.complex.allianceBuildings,
+                        ]
                             .map(
                                 buildingId =>
                                     `a[href="/buildings/${buildingId}"]`

@@ -45,6 +45,10 @@
             "description": "Piilottaa johtoautot kokonaan ja näyttää vain johtokeskusautot.",
             "title": "Pilottaa johtoautot"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "hoverTip": {
             "description": "Tooltipsit esimerkiksi kelluva ikkuna nappia varten.",
             "title": "Tooltips"

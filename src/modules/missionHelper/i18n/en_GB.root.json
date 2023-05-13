@@ -45,6 +45,10 @@
             "description": "Hides Fire Officer completely and shows only ICCU.",
             "title": "Hide Fire Officers"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "hoverTip": {
             "description": "Tooltips for as example the overlay button.",
             "title": "Tooltips"

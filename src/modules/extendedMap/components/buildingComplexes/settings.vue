@@ -375,6 +375,7 @@ export default Vue.extend<
                             'polizeiwache',
                             'rescue_boat_dock',
                             'rescue_dog_unit',
+                            'rescue_station',
                             'rettungsschule',
                             'rettungswache',
                             'seg',

@@ -201,6 +201,10 @@
             "title": "Ajoneuvolaskuri: väri",
             "warning": "oranssi"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Näyttää ajoneuvotyypin Käytettävissä olevat yksiköt -luettelossa.",
             "title": "Näytä ajoneuvotyyppi"

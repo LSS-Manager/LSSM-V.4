@@ -851,6 +851,10 @@ iframe
     color: black
     cursor: wait
 
+    body.dark &
+        background: rgba(0, 0, 0, 0.5)
+        color: rgb(100, 100, 100)
+
     .error-list
         position: absolute
         right: 0

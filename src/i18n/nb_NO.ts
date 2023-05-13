@@ -208,6 +208,8 @@ export default {
         'Sagbruk',
         'Propan lager',
         'Kirke',
+        'Fengsel',
+        'Strand',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [306, 307],

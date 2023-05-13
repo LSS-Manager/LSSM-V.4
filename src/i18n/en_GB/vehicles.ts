@@ -888,7 +888,7 @@ export default {
         coins: 15,
         staff: { min: 1, max: 5 },
         icon: 'car-side',
-        possibleBuildings: [28],
+        possibleBuildings: [22, 28],
         special: 'Coastguard Response Vehicle. Responds to all calls on land.',
     },
     58: {
@@ -937,7 +937,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [28],
+        possibleBuildings: [22, 28],
         special: 'Takes Command of all coastguard related incidents.',
     },
     61: {
@@ -1187,5 +1187,143 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special: 'Needed towing vehicle (Light 4x4) Fire Service Boat.',
+    },
+    75: {
+        caption: 'Major Foam Tender',
+        color: '#aa0000',
+        credits: 45_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 4,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+    },
+    76: {
+        caption: 'RIV',
+        color: '#aa0000',
+        credits: 20_000,
+        coins: 20,
+        staff: {
+            min: 1,
+            max: 4,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+    },
+    77: {
+        caption: 'Airfield Firefighting Command Vehicle',
+        color: '#aa0000',
+        credits: 30_000,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+    },
+    78: {
+        caption: 'Rescue Stairs',
+        color: '#aa0000',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                'Fire Station': {
+                    arff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+    },
+    79: {
+        caption: 'Airfield Operations Vehicle',
+        color: '#8cec24',
+        credits: 10_000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 6, 18, 19],
+    },
+    80: {
+        caption: 'Airfield Operations Supervisor',
+        color: '#8cec24',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 6, 18, 19],
+    },
+    81: {
+        caption: 'Medical equipment trailer',
+        color: '#8cec24',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 6, 18, 19],
+        special:
+            'Needed towing vehicle (Airfield Operations Vehicle, Airfield Operations Supervisor)',
+    },
+    82: {
+        caption: 'Armed Cell Van',
+        color: '#3a5522',
+        credits: 30_000,
+        coins: 20,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Police: {
+                    swat: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19],
+    },
+    83: {
+        caption: 'Medical cycle responder',
+        color: '#b89d14',
+        credits: 5000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 1,
+        },
+        icon: 'car-side',
+        possibleBuildings: [2, 20],
     },
 } satisfies Record<number, InternalVehicle>;

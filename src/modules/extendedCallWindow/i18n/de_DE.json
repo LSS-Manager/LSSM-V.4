@@ -11,6 +11,9 @@
             "selection": "Fahrzeugauswahl"
         }
     },
+    "arrHighlight": {
+        "removeBeforeParsing": ["(Brandmeldeanlage)", "[Verband]"]
+    },
     "arrHover": {
         "arrSpecs": {
             "ab_atemschutz_only": "AB-Atemschutz",
@@ -29,6 +32,8 @@
             "elw1_or_elw2": "ELW 1, ELW 2 oder AB-Einsatzleitung",
             "elw2": "Einsatzleitfahrzeuge 2",
             "elw2_or_ab_elw": "ELW 2 oder AB-Einsatzleitung",
+            "energy_supply": "NEA50",
+            "energy_supply_2": "NEA200",
             "fire": "Löschfahrzeuge oder Tanklöschfahrzeuge",
             "fukw": "FüKw (Führungskraftwagen)",
             "fustw": "Funkstreifenwagen",
@@ -101,7 +106,7 @@
             "thw_lkw_7_lkr_19_tm": "LKW 7 Lkr 19 tm",
             "thw_mlw5": "Mannschaftslastwagen Typ V (MLW 5)",
             "thw_mtw": "Mannschaftstransportwagen Technischer Zug (MTW-TZ - THW)",
-            "thw_mzkw": "Mehrzweckkraftwagen (MzKW)",
+            "thw_mzkw": "Mehrzweck-Gerätewagen (FGr N)",
             "thw_tauchkraftwagen": "Tauchkraftwagen",
             "thw_tauchkraftwagen_or_gw_taucher": "Tauchkraftwagen oder GW-Taucher",
             "tlf_only": "Tanklöschfahrzeuge",
@@ -175,7 +180,9 @@
             "77": [46],
             "78": [46],
             "92": [93],
-            "96": [61]
+            "96": [61],
+            "110": [41],
+            "112": [99]
         },
         "vehicle": "Fahrzeugtyp",
         "vehiclesByRequirement": [
@@ -319,13 +326,16 @@
                 "vehicles": [101, 102]
             },
             { "texts": ["THW-Einsatzleitung (MTW TZ)"], "vehicles": [40] },
-            { "texts": ["THW-Mehrzweckkraftwagen (MzKW)"], "vehicles": [41] },
+            { "texts": ["MzGW (FGr N)"], "vehicles": [41] },
             { "texts": ["Teleskopmast", "Teleskopmasten"], "vehicles": [85] },
             { "texts": ["Turbolöscher"], "vehicles": [86] },
             { "texts": ["ULF mit Löscharm"], "vehicles": [84] },
             { "texts": ["Wasserwerfer"], "vehicles": [72] },
             { "texts": ["Zivilstreifenwagen"], "vehicles": [98] },
-            { "texts": ["leBefKw"], "vehicles": [35] }
+            { "texts": ["leBefKw"], "vehicles": [35] },
+            { "texts": ["NEA50"], "vehicles": [110, 111] },
+            { "texts": ["NEA200"], "vehicles": [112, 113] },
+            { "texts": ["MzGW SB"], "vehicles": [109] }
         ],
         "water": "l. Wasser"
     },

@@ -11,6 +11,7 @@
             "selection": "Vehicle selection"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "air_tanker": "Bomber",
@@ -87,7 +88,7 @@
             },
             {
                 "texts": ["Support Vehicle", "Support Vehicles"],
-                "vehicles": [3, 11]
+                "vehicles": [3, 11, 41]
             },
             {
                 "texts": [
@@ -119,7 +120,7 @@
             { "texts": ["SES"], "vehicles": [20] },
             {
                 "texts": ["Brush Truck", "Brush Trucks"],
-                "vehicles": [1, 18, 28, 29]
+                "vehicles": [0, 1, 19, 28, 29, 30]
             },
             {
                 "texts": [
@@ -155,6 +156,12 @@
                 ],
                 "vehicles": [36]
             },
+            {
+                "texts": ["ULFV Crash Tender", "ULFV Crash Tenders"],
+                "vehicles": [43]
+            },
+            { "texts": ["RIV", "RIVs"], "vehicles": [44] },
+            { "texts": ["Emergency Stairs"], "vehicles": [45] },
             { "texts": ["MVR Quad", "MVR Quads"], "vehicles": [38] },
             { "texts": ["MVR Boat", "MVR Boats"], "vehicles": [39] },
             {

@@ -15,9 +15,9 @@ export default {
             key: 'elw2',
         },
         {
-            caption: 'ARFF-Training',
+            caption: 'Aircraft Rescue and Firefighting',
             duration: '3 Days',
-            staffList: 'ARFF-Training',
+            staffList: 'ARFF',
             key: 'arff',
         },
         {

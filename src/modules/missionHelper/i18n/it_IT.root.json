@@ -55,6 +55,10 @@
             "description": "Nasconde completamente il capo del battaglione e mostra solo MCV.",
             "title": "Nascondi il capo del battaglione"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "hoverTip": {
             "description": "Tooltips per esempio per il pulsante di sovrapposizione.",
             "title": "Tooltips"

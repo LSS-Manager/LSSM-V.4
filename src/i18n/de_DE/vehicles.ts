@@ -535,7 +535,7 @@ export default {
         possibleBuildings: [9],
     },
     41: {
-        caption: 'MzKW',
+        caption: 'MzGW (FGr N)',
         color: '#0018b8',
         credits: 15_000,
         coins: 25,
@@ -581,7 +581,7 @@ export default {
         icon: 'trailer',
         possibleBuildings: [9],
         special:
-            'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
+            'Muss von einem "GKW", "MzGW (FGr N)", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
     },
     45: {
         caption: 'MLW 5',
@@ -1623,5 +1623,106 @@ export default {
         equipmentCapacity: 30,
         isTrailer: true,
         tractiveVehicles: [46],
+    },
+    109: {
+        caption: 'MzGW SB',
+        color: '#001bcc',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 9,
+            training: {
+                THW: {
+                    heavy_rescue: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-pickup',
+        possibleBuildings: [9],
+    },
+    110: {
+        caption: 'NEA50',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 20,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'trailer',
+        possibleBuildings: [9],
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (MzGW (FGr N))',
+        isTrailer: true,
+        tractiveVehicles: [41],
+    },
+    111: {
+        caption: 'NEA50',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 20,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
+        ],
+    },
+    112: {
+        caption: 'NEA200',
+        color: '#36759e',
+        credits: 50_000,
+        coins: 20,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    thw_energy_supply: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw)',
+        isTrailer: true,
+        tractiveVehicles: [99],
+        possibleBuildings: [9],
+    },
+    113: {
+        caption: 'NEA200',
+        color: '#36759e',
+        credits: 50_000,
+        coins: 20,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Feuerwehr: {
+                    energy_supply: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
+        isTrailer: true,
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
+        ],
+        possibleBuildings: [0],
     },
 } satisfies Record<number, InternalVehicle>;

@@ -584,6 +584,9 @@ body.dark
         &.other-side
             visibility: hidden
 
+            .profile-avatar
+                visibility: collapse
+
     .message-content
         width: 100%
 

@@ -11,6 +11,7 @@
             "selection": "Selección de vehículos"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "dlk": "Camión AE",

@@ -154,6 +154,10 @@
             "title": "Součet vozidel: barva",
             "warning": "oranžová"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "yellowBorder": {
             "description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
             "title": "Yellow border"

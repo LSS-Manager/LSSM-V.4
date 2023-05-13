@@ -160,7 +160,7 @@ export default (
         tabList.classList.add('nav', 'nav-tabs');
         tabList.setAttribute('role', 'tablist');
         tabList.setAttribute('id', 'tabs');
-        document.querySelector('#vehicle_list_step')?.appendChild(tabList);
+        document.querySelector('#vehicle_list_step')?.append(tabList);
     }
     if (!allTab) {
         allTab = document.createElement('li');
@@ -202,7 +202,7 @@ export default (
         allVehicleTable?.setAttribute('role', 'grid');
         panelDiv.append(allVehicleTable);
         panelWrapper.append(panelDiv);
-        document.querySelector('#vehicle_list_step')?.appendChild(panelWrapper);
+        document.querySelector('#vehicle_list_step')?.append(panelWrapper);
     }
 
     const panels = {} as Record<string, HTMLDivElement>;

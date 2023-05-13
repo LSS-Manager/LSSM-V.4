@@ -84,7 +84,9 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
             'img[src="/images/user_green.png"]'
         ),
         self,
-        credits: LSSM.$utils.getNumberFromText(headTexts[1]),
+        credits: pageHeader?.dataset.creditsEarned
+            ? parseInt(pageHeader?.dataset.creditsEarned ?? '0')
+            : LSSM.$utils.getNumberFromText(headTexts[1]),
         alliance: alliance
             ? {
                   id: parseInt(
@@ -146,7 +148,7 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                                 prop => [
                                     prop.key.value,
                                     prop.value.type === 'UnaryExpression'
-                                        ? parseInt(
+                                        ? parseFloat(
                                               prop.value.operator +
                                                   prop.value.argument.value
                                           )

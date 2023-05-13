@@ -61,7 +61,7 @@ export default {
         {
             caption: 'DSM',
             duration: '7 jours',
-            staffList: 'Chef du pôle urgences',
+            staffList: 'Directeur des Secours Médicaux',
             key: 'orgl',
         },
         {

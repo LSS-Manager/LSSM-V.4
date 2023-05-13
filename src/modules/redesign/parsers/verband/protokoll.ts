@@ -70,7 +70,7 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
     const getUser = (
         cell: HTMLTableCellElement | null
     ): Building | User | undefined =>
-        cell?.innerText.trim()
+        cell?.textContent?.trim()
             ? cell?.querySelector<HTMLAnchorElement>('a[href^="/profile/"]')
                 ? {
                       icon:
@@ -98,7 +98,7 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
             const description =
                 row
                     .querySelector<HTMLTableCellElement>('td:nth-child(3)')
-                    ?.innerText?.trim()
+                    ?.textContent?.trim()
                     .split(/\n/gu)
                     .map(t => t.trim())
                     .join(' ') ?? '';

@@ -74,6 +74,7 @@
             "hose": "SW",
             "k9": "K-9",
             "kdow_orgl": "SLOp/SLRr",
+            "min_pump_speed": "Minimalna wydajność pomp",
             "mobile_air_vehicles": "SPGaz",
             "mobile_command_vehicles": "SDł",
             "platform_trucks": "SD/SH",

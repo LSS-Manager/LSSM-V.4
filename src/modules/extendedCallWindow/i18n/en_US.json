@@ -11,6 +11,7 @@
             "selection": "Vehicle selection"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "air_tanker": "Air tanker",
@@ -143,7 +144,7 @@
                 "vehicles": [14]
             },
             { "texts": ["SWAT"], "vehicles": [16, 26] },
-            { "texts": ["ARFF"], "vehicles": [17] },
+            { "texts": ["ARFF"], "vehicles": [17, 79, 80] },
             { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [19] },
             {
                 "texts": ["Large fire boat", "Large fire boats"],

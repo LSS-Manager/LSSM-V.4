@@ -60,6 +60,10 @@
             "description": "Skjuler innsatsleder brann og viser heller innsatsstøttebil.",
             "title": "Skjul innsatsleder brann"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "id": {
             "description": "Viser oppdrags ID etter oppdragsnavnet.",
             "title": "Oppdrags ID"

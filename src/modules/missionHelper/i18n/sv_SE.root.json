@@ -56,6 +56,10 @@
             "description": "Visar från vilken byggnad uppdraget genererades från.",
             "title": "Skapad av"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "id": {
             "description": "Visar uppdrags-ID efter uppdragsnamnet.",
             "title": "Uppdrags-ID"
