@@ -1,6 +1,8 @@
 export default (): void => {
     const vehicleTabs = document.querySelector('#tabs');
     if (vehicleTabs) vehicleTabs.addEventListener('click', vehicleListChange);
+    //Initial expanding
+    vehicleListChange()
 
     /**
      * Gets called on every vehicle tab change to update the vehicle search bar
