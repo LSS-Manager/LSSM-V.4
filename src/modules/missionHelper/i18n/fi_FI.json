@@ -40,6 +40,7 @@
     "vehicles": {
         "captions": {
             "ambulances": "Ambulanssi | Ambulanssia",
+            "arff": "Lentokenttäpaloauto | ARFF Lentokenttäpaloautoa",
             "battalion_chief_vehicles": "Johtoauto | Johtoautoa",
             "civil_patrolcar": "Tutkintayksikkö | Tutkintayksikköä",
             "coastal_boat": "RVL Partiovene | RVL Partiovenettä",
@@ -60,6 +61,7 @@
             "police_cars": "Partioauto | Partioautoa",
             "police_helicopters": "Poliisihelikopteri | Poliisihelikopteria",
             "pump": "Suurtehopumppu | Suurtehopumppua",
+            "riv": "RIV Lentokenttäpaloauto | RIV Lentokenttäpaloautoa",
             "traffic_car": "VATV-yksikkö | VATV-yksiköä",
             "water_tankers": "Säiliöauto | Säiliöautoa"
         },
