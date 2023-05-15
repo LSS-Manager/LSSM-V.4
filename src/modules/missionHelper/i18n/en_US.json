@@ -16,11 +16,11 @@
         "forestry_specialization": "Wildfire Missions (Specialization)",
         "game_warden_specialization": "Game Warden Missions (Specialization)",
         "police": "Police Missions",
+        "riot_police_specialization": "Riot Police Missions (Specialization)",
         "title": "Generating Categories",
         "water_police_specialization": "Water Police Missions (Specialization)",
         "water_rescue": "Water Rescue Missions",
-        "water_rescue_specialization": "Water Rescue Missions (Specialization)",
-        "riot_police_specialization": "Riot Police Missions (Specialization)"
+        "water_rescue_specialization": "Water Rescue Missions (Specialization)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "A BLS can be used instead of an ALS.",
@@ -48,6 +48,7 @@
         "coastal_rescue_count": "Coastal Rescue Stations",
         "coastal_rescue_small_count": "Lifeguard Posts or Coastal Rescue Stations",
         "dea_count": "DEA Expansion | DEA Expansions",
+        "detention_unit_count": "detention unit extension | detention unit extensions",
         "federalpolice_stations": "Federal Police Station | Federal Police Stations",
         "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
         "fire_boat_docks": "fire boat dock | fire boat docks",
@@ -63,13 +64,12 @@
         "police_stations": "Police Station | Police Stations",
         "rescue_boat_docks": "rescue boat dock | rescue boat docks",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
+        "riot_police": "Riot Police Extension | Riot Police Extensionss",
         "smoke_jumper": "Smoke Jumper Team | SmokeJumper Teams",
+        "sniper": "Sharpshooter",
         "title": "Prerequisite | Prerequisites",
         "wasserrettung": "Water Rescue Station | Water Rescue Stations",
-        "water_police_count": "Water Police Expansion | Water Police Expansions",
-        "sniper": "Sharpshooter",
-        "riot_police": "Riot Police Extension | Riot Police Extensionss",
-        "detention_unit_count": "detention unit extension | detention unit extensions"
+        "water_police_count": "Water Police Expansion | Water Police Expansions"
     },
     "prisoners": {
         "max_possible_prisoners": "Maximum Prisoners",
@@ -93,6 +93,7 @@
             "arff": "ARFF",
             "atf_lab_vehicle": "ATF Lab Vehicle | ATF Lab Vehicles",
             "atf_unit": "ATF Unit | ATF Units",
+            "atv_carrier": "Police ATV Trailer | Police ATV Trailers",
             "battalion_chief_vehicles": "Battalion Chief Vehicle | Battalion Chief Vehicles",
             "boats": "Light Boat | Light Boats",
             "brush_air_command": "Wildland Lead Plane | Wildland Lead Planes",
@@ -105,6 +106,8 @@
             "coastal_rescue": "Lifeguard Rescue Unit | Lifeguard Rescue Units",
             "dea_clan_lab": "DEA Clan Lab | DEA Clan Labs",
             "dea_unit": "DEA Unit | DEA Units",
+            "detention_unit": "Police Prisoner Van | Police Prisoner Van",
+            "elw_police": "Police MCV | Police MCVs",
             "elw3": "Wildland MCC | Wildland MCCs",
             "fbi": "FBI Unit | FBI Units",
             "fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
@@ -131,16 +134,13 @@
             "police_boat": "Patrol Boat | Patrol Boats",
             "police_cars": "Patrol Car | Patrol Cars",
             "police_helicopters": "Police Helicopter | Police Helicopters",
+            "riot_police": "Riot Police Unit | Riot Police Units",
+            "riot_police_trailer": "Riot Police Trailer | Riot Police Trailers",
             "sheriff": "Police Supervisor / Sheriff | Police Supervisors / Sheriffs",
             "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
             "swat_suv": "SWAT SUV | SWAT SUVs",
             "water_rescue": "Lifeguard Truck | Lifeguard Trucks",
-            "water_tankers": "Water Tanker | Water Tankers",
-            "elw_police": "Police MCV | Police MCVs",
-            "detention_unit": "Police Prisoner Van | Police Prisoner Van",
-            "riot_police": "Riot Police Unit | Riot Police Units",
-            "riot_police_trailer": "Riot Police Trailer | Riot Police Trailers",
-            "atv_carrier": "Police ATV Trailer | Police ATV Trailers"
+            "water_tankers": "Water Tanker | Water Tankers"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

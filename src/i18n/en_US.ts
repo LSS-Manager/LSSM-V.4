@@ -114,7 +114,7 @@ export default {
                 'Police Motorcycle': [23],
                 'Police helicopter': [14],
                 'K-9 Unit': [19, 81, 82],
-                'Riot': [83,84,85],
+                'Riot': [83, 84, 85],
                 'FBI': [42, 43, 44, 45, 46],
                 'DEA': [51, 52],
                 'ATF': [53, 54],

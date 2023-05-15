@@ -16,6 +16,7 @@
         "arrSpecs": {
             "air_tanker": "Air tanker",
             "arff": "ARFF",
+            "atv_carrier": "Police ATV Trailers",
             "boot": "Boats (General)",
             "brush_truck": "Wildland fire engine",
             "brush_truck_1": "Type 3 engine",
@@ -25,9 +26,11 @@
             "brush_truck_5": "Type 6 engine",
             "brush_vehicle": "Wildland fire vehicle",
             "crew_carrier": "Crew Carrier",
+            "detention_unit": "Police Prisoner Van",
             "dlk": "Platform trucks",
             "dozer_trailer": "Dozer Trailer",
             "elw": "Battalion Chief unit",
+            "elw_police": "Police MCV",
             "elw2": "Mobile Command Vehicle",
             "fbi_bomb_tech": "FBI Bomb Tech",
             "fbi_drone": "FBI Surveillance Drone",
@@ -54,6 +57,8 @@
             "police_motorcycle": "Police Motorcycle",
             "polizeihubschrauber": "Police helicopter",
             "rescueboat": "Large Rescue Boat",
+            "riot_police": "Riot Police Units",
+            "riot_police_trailer": "Riot Police Trailers",
             "rtw": "ALS Ambulance",
             "rw": "Heavy rescue vehicle",
             "sheriff_unit": "Police Supervisor / Sheriff",
@@ -61,12 +66,7 @@
             "swat_armored_vehicle": "SWAT Armoured Vehicle",
             "swat_suv": "SWAT SUV",
             "wasser_amount": "Gallons of water",
-            "water_drop_helicopter": "Water drop helicopter",
-            "elw_police": "Police MCV",
-            "detention_unit": "Police Prisoner Van",
-            "riot_police": "Riot Police Units",
-            "riot_police_trailer": "Riot Police Trailers",
-            "atv_carrier": "Police ATV Trailers"
+            "water_drop_helicopter": "Water drop helicopter"
         },
         "headers": {
             "attribute": "Name",
@@ -273,11 +273,23 @@
                 "texts": ["Wildland Lead Plane", "Wildland Lead Planes"],
                 "vehicles": [75]
             },
-            { "texts": ["Police Prisoner Van", "Police Prisoner Vans"], "vehicles": [87] },
+            {
+                "texts": ["Police Prisoner Van", "Police Prisoner Vans"],
+                "vehicles": [87]
+            },
             { "texts": ["Police MCV", "Police MCVs"], "vehicles": [89] },
-            { "texts": ["Police ATV Trailer", "Police ATV Trailers"], "vehicles": [88] },
-            { "texts": ["Riot Police Unit", "Riot Police Units"], "vehicles": [83, 84] },
-            { "texts": ["Riot Police Trailer", "Riot Police Trailers"], "vehicles": [85] },
+            {
+                "texts": ["Police ATV Trailer", "Police ATV Trailers"],
+                "vehicles": [88]
+            },
+            {
+                "texts": ["Riot Police Unit", "Riot Police Units"],
+                "vehicles": [83, 84]
+            },
+            {
+                "texts": ["Riot Police Trailer", "Riot Police Trailers"],
+                "vehicles": [85]
+            },
             { "texts": ["Wildland MCC", "Wildland MCCs"], "vehicles": [74] }
         ],
         "water": "gal. water"

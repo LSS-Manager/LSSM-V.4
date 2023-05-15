@@ -355,7 +355,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 3,
                 unlocksVehicleTypes: [83, 84, 85],
-                parkingLotReservations: [[83], [84],[85]],
+                parkingLotReservations: [[83], [84], [85]],
             },
             {
                 caption: 'Detention Unit Extension',
@@ -764,7 +764,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 3,
                 unlocksVehicleTypes: [83, 84, 85],
-                parkingLotReservations: [[83], [84],[85]],
+                parkingLotReservations: [[83], [84], [85]],
             },
             {
                 caption: 'Detention Unit Extension',

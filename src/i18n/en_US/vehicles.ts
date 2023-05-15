@@ -608,7 +608,7 @@ export default {
         coins: 15,
         staff: { min: 2, max: 4 },
         icon: 'car-side',
-        possibleBuildings: [5, 15,18],
+        possibleBuildings: [5, 15, 18],
     },
     44: {
         caption: 'FBI Mobile Command Center',
@@ -646,7 +646,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [5,18],
+        possibleBuildings: [5, 18],
     },
     46: {
         caption: 'FBI Surveillance Drone',
@@ -665,7 +665,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [18 ,5 , 15],
+        possibleBuildings: [18, 5, 15],
     },
     47: {
         caption: 'Police Supervisor / Sheriff Unit',
@@ -1232,7 +1232,7 @@ export default {
         foamTank: 60,
     },
     81: {
-        caption: "Small K9 Carrier",
+        caption: 'Small K9 Carrier',
         color: '#4282f0',
         credits: 30_000,
         coins: 15,
@@ -1251,7 +1251,7 @@ export default {
         possibleBuildings: [5, 15],
     },
     82: {
-        caption: "Large K9 Carrier",
+        caption: 'Large K9 Carrier',
         color: '#4282f0',
         credits: 40_000,
         coins: 20,
@@ -1270,7 +1270,7 @@ export default {
         possibleBuildings: [5, 15],
     },
     83: {
-        caption: "Riot Police Van",
+        caption: 'Riot Police Van',
         color: '#4282f0',
         credits: 10_000,
         coins: 15,
@@ -1289,7 +1289,7 @@ export default {
         possibleBuildings: [5, 15],
     },
     84: {
-        caption: "Riot Police Bus",
+        caption: 'Riot Police Bus',
         color: '#4282f0',
         credits: 20_000,
         coins: 15,
@@ -1308,17 +1308,18 @@ export default {
         possibleBuildings: [5],
     },
     85: {
-        caption: "Riot Police Trailer",
+        caption: 'Riot Police Trailer',
         color: '#4282f0',
         credits: 15_000,
         coins: 15,
-        staff: {min: 0, max: 0},
+        staff: { min: 0, max: 0 },
         icon: 'car-side',
-        special: 'Needed towing vehicle (Patrol car, SWAT SUV, Police Supervisor / Sheriff Unit)',
+        special:
+            'Needed towing vehicle (Patrol car, SWAT SUV, Police Supervisor / Sheriff Unit)',
         possibleBuildings: [5, 15],
     },
     86: {
-        caption: "Police Crew Carrier",
+        caption: 'Police Crew Carrier',
         color: '#4282f0',
         credits: 10_000,
         coins: 10,
@@ -1330,7 +1331,7 @@ export default {
         possibleBuildings: [5, 15],
     },
     87: {
-        caption: "Police Prisoner Van",
+        caption: 'Police Prisoner Van',
         color: '#4282f0',
         credits: 25_000,
         coins: 25,
@@ -1342,7 +1343,7 @@ export default {
         possibleBuildings: [5, 15],
     },
     88: {
-        caption: "Police ATV Trailer",
+        caption: 'Police ATV Trailer',
         color: '#4282f0',
         credits: 15_000,
         coins: 15,
@@ -1351,11 +1352,12 @@ export default {
             max: 0,
         },
         icon: 'car-side',
-        special: "Needed towing vehicle (Police Supervisor / Sheriff Unit, Warden's Truck)",
-        possibleBuildings: [5,15],
+        special:
+            "Needed towing vehicle (Police Supervisor / Sheriff Unit, Warden's Truck)",
+        possibleBuildings: [5, 15],
     },
     89: {
-        caption: "Police MCV",
+        caption: 'Police MCV',
         color: '#4282f0',
         credits: 20_000,
         coins: 15,
@@ -1374,7 +1376,7 @@ export default {
         possibleBuildings: [5, 15],
     },
     90: {
-        caption: "Tactical Rescue Truck",
+        caption: 'Tactical Rescue Truck',
         color: '#4282f0',
         credits: 35_000,
         coins: 25,
