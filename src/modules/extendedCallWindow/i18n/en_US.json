@@ -61,7 +61,12 @@
             "swat_armored_vehicle": "SWAT Armoured Vehicle",
             "swat_suv": "SWAT SUV",
             "wasser_amount": "Gallons of water",
-            "water_drop_helicopter": "Water drop helicopter"
+            "water_drop_helicopter": "Water drop helicopter",
+            "elw_police": "Police MCV",
+            "detention_unit": "Police Prisoner Van",
+            "riot_police": "Riot Police Units",
+            "riot_police_trailer": "Riot Police Trailers",
+            "atv_carrier": "Police ATV Trailers"
         },
         "headers": {
             "attribute": "Name",
@@ -145,7 +150,7 @@
             },
             { "texts": ["SWAT"], "vehicles": [16, 26] },
             { "texts": ["ARFF"], "vehicles": [17, 79, 80] },
-            { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [19] },
+            { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [19, 81, 82] },
             {
                 "texts": ["Large fire boat", "Large fire boats"],
                 "vehicles": [24]
@@ -267,7 +272,13 @@
             {
                 "texts": ["Wildland Lead Plane", "Wildland Lead Planes"],
                 "vehicles": [75]
-            }
+            },
+            { "texts": ["Police Prisoner Van", "Police Prisoner Vans"], "vehicles": [87] },
+            { "texts": ["Police MCV", "Police MCVs"], "vehicles": [89] },
+            { "texts": ["Police ATV Trailer", "Police ATV Trailers"], "vehicles": [88] },
+            { "texts": ["Riot Police Unit", "Riot Police Units"], "vehicles": [83, 84] },
+            { "texts": ["Riot Police Trailer", "Riot Police Trailers"], "vehicles": [85] },
+            { "texts": ["Wildland MCC", "Wildland MCCs"], "vehicles": [74] }
         ],
         "water": "gal. water"
     },
