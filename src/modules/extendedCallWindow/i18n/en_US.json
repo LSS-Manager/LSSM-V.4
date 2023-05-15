@@ -289,8 +289,7 @@
             {
                 "texts": ["Riot Police Trailer", "Riot Police Trailers"],
                 "vehicles": [85]
-            },
-            { "texts": ["Wildland MCC", "Wildland MCCs"], "vehicles": [74] }
+            }
         ],
         "water": "gal. water"
     },
