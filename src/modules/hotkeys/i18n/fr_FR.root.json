@@ -137,6 +137,10 @@
                 "onlyAmbulance": "Signal de retour uniquement pour les ambulances",
                 "title": "Signal de retour"
             },
+            "missionHelper": {
+                "title": "MissionHelper",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "next": "mission suivante",
             "prev": "mission précédente",
             "share": "Partager ",
