@@ -209,7 +209,7 @@
         "version": "1.15.0"
     },
     "eslint-plugin-tsdoc": {
-        "icon": "https://tsdoc.org/images/tsdoc.svg",
+        "icon": "https://tsdoc.org/images/site/favicon.ico",
         "url": "https://tsdoc.org/",
         "version": "0.2.17"
     },
