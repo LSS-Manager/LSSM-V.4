@@ -134,6 +134,10 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
+            "missionHelper": {
+                "title": "MissionHelper",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "next": "Następna misja",
             "prev": "Poprzednia misja",
             "share": "Udostępnij",

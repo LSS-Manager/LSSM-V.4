@@ -65,6 +65,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'mission.backalarm.allVehicles',
         'mission.backalarm.onlyAmbulance',
         'mission.backalarm.abortApproach',
+        'mission.missionHelper.toggleCollapse',
         'building.goto.previousBuilding',
         'building.goto.nextBuilding',
         'building.goto.dispatchCenter',

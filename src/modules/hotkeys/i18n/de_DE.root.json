@@ -138,6 +138,10 @@
                 "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
                 "title": "Zurückalamieren"
             },
+            "missionHelper": {
+                "title": "Einsatzhelfer",
+                "toggleCollapse": "Ein- / Ausklappen"
+            },
             "next": "nächster Einsatz",
             "prev": "vorheriger Einsatz",
             "share": "Teilen",

@@ -57,7 +57,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.16.9"
+        "version": "18.16.12"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -193,7 +193,7 @@
         "version": "2.27.5"
     },
     "eslint-plugin-jsdoc": {
-        "version": "44.2.3"
+        "version": "44.2.4"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -209,7 +209,7 @@
         "version": "1.15.0"
     },
     "eslint-plugin-tsdoc": {
-        "icon": "https://tsdoc.org/images/tsdoc.svg",
+        "icon": "https://tsdoc.org/images/site/favicon.ico",
         "url": "https://tsdoc.org/",
         "version": "0.2.17"
     },
@@ -310,7 +310,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.17.3"
+        "version": "5.17.4"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -401,7 +401,7 @@
     },
     "vuepress-plugin-sitemap2": {
         "url": "https://plugin-sitemap2.vuejs.press/",
-        "version": "2.0.0-beta.210"
+        "version": "2.0.0-beta.211"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",

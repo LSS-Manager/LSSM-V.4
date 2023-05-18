@@ -135,6 +135,10 @@
                 "onlyAmbulance": "Peruuta kaikki ambulanssit",
                 "title": "Peruuta"
             },
+            "missionHelper": {
+                "title": "MissionHelper",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "next": "Seuraava tehtävä",
             "prev": "Edellinen tehtävä",
             "share": "Jaa liittouman kanssa",
