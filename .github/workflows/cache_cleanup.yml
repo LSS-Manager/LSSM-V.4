@@ -1,6 +1,6 @@
 name: '[🌋] Stale Branch Cache Cleanup'
 # prettier-ignore
-run-name: '[🌋] Stale Branch Cache Cleanup on `${{ github.event.pull_request && format(''# {0}'', ${{ github.event.number }}) || ${{ github.event.ref }} }}`'
+run-name: '[🌋] Stale Branch Cache Cleanup on `${{ github.event.pull_request && format(''# {0}'', ''${{ github.event.number }}'') || ${{ github.event.ref }} }}`'
 
 on:
     pull_request:
