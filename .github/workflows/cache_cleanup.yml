@@ -1,4 +1,6 @@
 name: '[🌋] Stale Branch Cache Cleanup'
+# prettier-ignore
+run-name: '[🌋] Stale Branch Cache Cleanup on `${{ (github.event.pull_request && github.event.pull_request.merged == true) && ''#${{ github.event.number }}'' || ''${{ github.event.ref }}'' }}`'
 on:
     pull_request:
         types:
@@ -30,7 +32,7 @@ jobs:
                   echo "Fetching list of cache key"
                   cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
 
-                  ## Setting this to not fail the workflow while deleting cache keys. 
+                  ## Setting this to not fail the workflow while deleting cache keys.
                   set +e
                   echo "Deleting caches..."
                   for cacheKey in $cacheKeysForPR
