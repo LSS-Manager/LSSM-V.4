@@ -100,7 +100,7 @@
             { "texts": ["BASU"], "vehicles": [10] },
             {
                 "texts": ["Bulk Water Tanker", "Bulk Water Tankers"],
-                "vehicles": [6, 30]
+                "vehicles": [6]
             },
             { "texts": ["MCV or SES Mobile Command"], "vehicles": [11, 41] },
             { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7] },
