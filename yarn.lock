@@ -9787,7 +9787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.3.4, vue@npm:^3.2.47, vue@npm:^3.3.1, vue@npm:^3.3.2":
+"vue@npm:3.3.4, vue@npm:^3.2.45, vue@npm:^3.2.47, vue@npm:^3.3.1, vue@npm:^3.3.2":
   version: 3.3.4
   resolution: "vue@npm:3.3.4"
   dependencies:
