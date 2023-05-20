@@ -63,7 +63,8 @@
             "pump": "Suurtehopumppu | Suurtehopumppua",
             "riv": "RIV Lentokenttäpaloauto | RIV Lentokenttäpaloautoa",
             "traffic_car": "VATV-yksikkö | VATV-yksiköä",
-            "water_tankers": "Säiliöauto | Säiliöautoa"
+            "water_tankers": "Säiliöauto | Säiliöautoa",
+            "elw_airport": "Lentokentän Johtoauto | Lentokentän Johtoautoa"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
