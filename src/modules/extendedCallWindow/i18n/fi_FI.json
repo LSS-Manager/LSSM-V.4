@@ -11,7 +11,7 @@
             "selection": "Ajoneuvon valinta"
         }
     },
-    "arrHighlight": { "removeBeforeParsing": "(PALOHÄLYTYSJÄRJESTELMÄ)" },
+    "arrHighlight": { "removeBeforeParsing": "(PALOHÄLYTYSJÄRJESTELMÄ)", "[LIITTOUMA]" },
     "arrHover": {
         "arrSpecs": {
             "dlk": "Nostolava-autot",
