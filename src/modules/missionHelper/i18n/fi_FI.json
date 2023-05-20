@@ -40,7 +40,7 @@
     "vehicles": {
         "captions": {
             "ambulances": "Ambulanssi | Ambulanssia",
-            "arff": "Lentokenttäpaloauto | ARFF Lentokenttäpaloautoa",
+            "arff": "ARFF Lentokenttäpaloauto | ARFF Lentokenttäpaloautoa",
             "battalion_chief_vehicles": "Johtoauto | Johtoautoa",
             "civil_patrolcar": "Tutkintayksikkö | Tutkintayksikköä",
             "coastal_boat": "RVL Partiovene | RVL Partiovenettä",
