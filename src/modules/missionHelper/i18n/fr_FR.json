@@ -4,6 +4,7 @@
     "followups": "Mission à suivre | Missions à suivre",
     "generated_by": "Généré par",
     "mission_categories": {
+        "airport":"Missions aéroportuaires",
         "ambulance": "Missions ambulancières",
         "coastal_rescue": "Mission côtière",
         "coastal_rescue_ocean": "Mission océanique",
@@ -14,7 +15,8 @@
         "title": "Catégories générées",
         "water_rescue": "Missions nautiques",
         "water_rescue_2": "Missions de garde-côte",
-        "water_rescue_specialization": "Missions nautiques (Spécialisation)"
+        "water_rescue_specialization": "Missions nautiques (Spécialisation)",
+        "water_damage_and_flood": "Mission Dégâts des eaux et Inondations"	
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
@@ -88,6 +90,7 @@
             "kdow_orgl": "PC DSM",
             "ktw": "Ambulance Type A",
             "large_coastal_boat": "CTT",
+            "min_pump_speed": "Min. Capacité de la pompe",
             "mobile_air_vehicles": "VAR | VAR",
             "mobile_command_vehicles": "VPC | VPC",
             "platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
