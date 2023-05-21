@@ -13,10 +13,10 @@
         "police": "Missions de police",
         "riot_police": "Missions de maintien de l'ordre",
         "title": "Catégories générées",
+        "water_damage_and_flood": "Mission Dégâts des eaux et Inondations",
         "water_rescue": "Missions nautiques",
         "water_rescue_2": "Missions de garde-côte",
-        "water_rescue_specialization": "Missions nautiques (Spécialisation)",
-        "water_damage_and_flood": "Mission Dégâts des eaux et Inondations"	
+        "water_rescue_specialization": "Missions nautiques (Spécialisation)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
@@ -32,21 +32,22 @@
         "title": "Patients | {n} Patient | {n} Patients"
     },
     "prerequisites": {
+        "airport": "Extensions SSLIA",
         "bereitschaftspolizei": "Compagnies de CRS",
-        "brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
         "coastal_helicopter_count": "Hangar pour hélicoptère",
         "coastal_rescue": "Sauveteur aquatique",
         "coastal_rescue_count": "Stations de Sauvetage",
-        "coastal_rescue_small_count": "Stations de Sauvetage ou Surveillance des plages",
+        "fire_aviation_2":"Hangars pour hélicoptères bombardiers d'eau",
+        "fire_aviation_count": "Hangars d'avions bombardiers d'eau",
         "fire_stations": "Caserne de pompier | Casernes de pompier",
         "fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
-		"fire_aviation_2":"Hangars pour hélicoptères bombardiers d'eau"
-        "max_police_stations": "Postes de police max.",
-        "max_rescue_stations": "Postes de secours max.",
+        "flood_equipment": "Extensions d'équipement d'inondation",
+        "max_fire_stations":"Max. casernes de pompiers",
+        "max_police_stations": "Max. Postes de police",
         "personnel_educations": "Personnel requis",
         "police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
         "police_stations": "Poste de police | Postes de police",
-        "rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
+        "rescue_helicopter_stations": "Base d'hélicoptère de secours | Bases d'hélicoptère de secours",
         "rescue_stations": "Poste de secours | Postes de secours",
         "title": "Condition | Conditions",
         "wasserrettung": "Unité nautique",
