@@ -15,7 +15,7 @@ export default {
             key: 'elw2',
         },
         {
-            caption: 'Formation SSLIA',
+            caption: 'SSLIA',
             duration: '3 jours',
             staffList: 'Formation SSLIA',
             key: 'arff',
@@ -27,7 +27,7 @@ export default {
             key: 'gw_wasserrettung',
         },
         {
-            caption: 'Navigation maritime',
+            caption: 'Certificat de surveillance et sauvetage aquatique',
             duration: '5 jours',
             staffList: 'Navigation maritime',
             key: 'ocean_navigation',
@@ -49,13 +49,7 @@ export default {
             duration: '5 jours',
             staffList: 'Médecin urgentiste',
             key: 'critical_care',
-        },
-        {
-            caption: 'Certificat de surveillance et sauvetage aquatique',
-            duration: '5 jours',
-            staffList: 'Sauveteur en Mer',
-            key: '',
-        },
+        }
     ],
     'Secours': [
         {
@@ -111,7 +105,7 @@ export default {
     ],
     'Secours nautique': [
         {
-            caption: "Pilote d'hélicoptère",
+            caption: "Formation Pilote d'Intervention",
             duration: '5 jours',
             staffList: "Pilote d'hélicoptère",
             key: 'intervention_pilot',
@@ -133,6 +127,12 @@ export default {
             duration: '5 jours',
             staffList: 'Sauveteur en Mer',
             key: 'ocean_navigation',
+        },
+        {
+            caption: 'Formation de mécanicien',
+            duration: '5 jours',
+            staffList: 'Formation de mécanicien',
+            key: 'airborne_firefighting',
         },
     ],
 } satisfies SchoolingsBySchool;
