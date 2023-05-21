@@ -94,6 +94,9 @@ export default {
                 ['Ambulances']: [25, 26],
                 ['Nautique']: [16, 17],
                 ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
+                ['Aéroport']: [51,52,53,54,55],
+                ['bombardier d\'eau'] : [58,59,60]
+                ['Autres véhicules']:[56,57]
             },
             color: '#ff2d2d',
         },
