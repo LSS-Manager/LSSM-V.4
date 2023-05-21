@@ -48,7 +48,7 @@
             "rw": "Véhicule de secours routier",
             "wasser_amount": "litres d'eau",
             "water_damage_pump_value":"litres d'eau/min",
-            "water_damage_pump_value_only_pumps":"litres d'eau/min",
+            "water_damage_pump_value_only_pumps":"litres d'eau/min"
         },
         "headers": {
             "attribute": "Nom",
