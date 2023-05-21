@@ -47,6 +47,7 @@
             "rtw": "ASSU",
             "rw": "Véhicule de secours routier",
             "wasser_amount": "litres d'eau",
+            "water_damage_pump":"litres d'eau/min",
             "water_damage_pump_value":"litres d'eau/min",
             "water_damage_pump_value_only_pumps":"litres d'eau/min"
         },
@@ -69,6 +70,7 @@
         "driving": "En approche",
         "missing": "Manque sur la mission",
         "selected": "Séléctionné",
+        "pump":"l d’eau/min",
         "staff": [
             {
                 "texts": ["agent de police", "agents de police"],
