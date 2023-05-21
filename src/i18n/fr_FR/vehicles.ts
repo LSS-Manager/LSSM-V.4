@@ -11,6 +11,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 3_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
     },
     1: {
         caption: 'FPTL',
@@ -22,6 +23,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 2_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
     },
     2: {
         caption: 'EPA',
@@ -168,6 +170,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 3_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Sergent-chef.',
     },
     13: {
@@ -179,6 +182,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
     },
@@ -311,6 +315,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 14_500,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
     },
@@ -324,6 +329,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 4_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
     },
@@ -337,6 +343,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 2_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
     },
@@ -466,6 +473,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 1_400,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Adjudant.',
     },
     33: {
@@ -478,6 +486,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 3_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Adjudant.',
     },
     34: {
@@ -490,6 +499,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 3_000,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Adjudant.',
     },
     35: {
@@ -512,6 +522,7 @@ export default {
         possibleBuildings: [0],
         waterBonus: 25,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
     },
     37: {
         caption: 'FDGP',
@@ -523,6 +534,7 @@ export default {
         possibleBuildings: [0],
         waterBonus: 35,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
     },
     38: {
         caption: 'MPR',
@@ -534,6 +546,7 @@ export default {
         possibleBuildings: [0],
         waterBonus: 15,
         pumpCapacity: 1_000,
+        pumpType: 'fire',
         special:
             'Remorqueuse nécessaire (FPT, FPTL, CCFS, CCFM, CCFL, CCRL, CCRM, CCGC, FMOGP, VLHR, CDHR, FDGP, VTU)',
     },
@@ -812,6 +825,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0],
         pumpCapacity: 1_500,
+        pumpType: 'fire',
         special: 'Remorqueuse nécessaire (VPCE)',
     },
     58: {
