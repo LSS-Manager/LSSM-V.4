@@ -19,8 +19,8 @@
         },
         "min_pump_speed":{
             "badge": true,
-            "in": "additional",
-            "text": "pompe: {n} l/min"
+            "in": "requirements",
+            "text": "Pompe: {n} l/min"
         },
         "title": "Conditions particulières",
         "water_needed": {
