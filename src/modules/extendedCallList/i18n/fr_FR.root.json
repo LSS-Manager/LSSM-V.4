@@ -115,8 +115,8 @@
             "title": "Durée du traitement du patient"
         },
         "remainingPumpingTime": {
-            "description": "Indique, pour la progression du pompage, le temps restant jusqu'à ce qu'il soit terminé.",
-            "title": "Temps restant pour la progression de pompage"
+            "description": "Afficher le temps restant du pompage",
+            "title": "Durée du pompage"
         },
         "remainingTime": {
             "description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
