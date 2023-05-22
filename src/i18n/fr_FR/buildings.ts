@@ -49,16 +49,17 @@ export default {
                 unlocksVehicleTypes: [35, 36, 37, 38],
             },
             {
-                caption: 'Service de Sauvetage et de Lutte contre L\'incendie des Aéronefs',
+                caption:
+                    "Service de Sauvetage et de Lutte contre L'incendie des Aéronefs",
                 credits: 300_000,
                 coins: 30,
                 duration: '5 jours',
                 isVehicleExtension: true,
                 givesParkingLots: 5,
-                unlocksVehicleTypes: [51,52,53,54,55],
+                unlocksVehicleTypes: [51, 52, 53, 54, 55],
             },
             {
-                caption: 'Extension d\'équipement d\'inondation',
+                caption: "Extension d'équipement d'inondation",
                 credits: 200_000,
                 coins: 25,
                 duration: '5 jours',
@@ -858,7 +859,7 @@ export default {
                 requiredExtensions: [3],
             },
             {
-                caption: 'Hangar pour hélicoptères bombardiers d\'eau',
+                caption: "Hangar pour hélicoptères bombardiers d'eau",
                 credits: 100_000,
                 coins: 15,
                 duration: '2 jours',
@@ -866,7 +867,8 @@ export default {
                 givesParkingLots: 1,
             },
             {
-                caption: 'Hangar supplémentaire pour hélicoptères bombardiers d\'eau',
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -875,7 +877,8 @@ export default {
                 requiredExtensions: [5],
             },
             {
-                caption: 'Hangar supplémentaire pour hélicoptères bombardiers d\'eau',
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -884,7 +887,8 @@ export default {
                 requiredExtensions: [6],
             },
             {
-                caption: 'Hangar supplémentaire pour hélicoptères bombardiers d\'eau',
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -893,7 +897,8 @@ export default {
                 requiredExtensions: [7],
             },
             {
-                caption: 'Hangar supplémentaire pour hélicoptères bombardiers d\'eau',
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -902,7 +907,7 @@ export default {
                 requiredExtensions: [8],
             },
             {
-                caption: 'Hangar pour avion bombardiers d\'eau',
+                caption: "Hangar pour avion bombardiers d'eau",
                 credits: 100_000,
                 coins: 15,
                 duration: '2 jours',
@@ -910,7 +915,7 @@ export default {
                 givesParkingLots: 1,
             },
             {
-                caption: 'Hangar supplémentaire pour avion bombardiers d\'eau',
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -919,7 +924,7 @@ export default {
                 requiredExtensions: [10],
             },
             {
-                caption: 'Hangar supplémentaire pour avion bombardiers d\'eau',
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -928,7 +933,7 @@ export default {
                 requiredExtensions: [11],
             },
             {
-                caption: 'Hangar supplémentaire pour avion bombardiers d\'eau',
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',
@@ -937,7 +942,7 @@ export default {
                 requiredExtensions: [12],
             },
             {
-                caption: 'Hangar supplémentaire pour avion bombardiers d\'eau',
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
                 credits: 200_000,
                 coins: 15,
                 duration: '4 jours',

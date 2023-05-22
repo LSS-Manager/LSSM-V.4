@@ -49,7 +49,7 @@ export default {
             duration: '5 jours',
             staffList: 'Médecin urgentiste',
             key: 'critical_care',
-        }
+        },
     ],
     'Secours': [
         {

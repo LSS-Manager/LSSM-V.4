@@ -4,25 +4,25 @@ export default {
     0: {
         caption: 'FPT',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: { min: 4, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 3_000,
-        pumpCapacity: 1_000,
+        waterTank: 3000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
     },
     1: {
         caption: 'FPTL',
         color: '#bb0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: { min: 4, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 2_000,
-        pumpCapacity: 1_000,
+        waterTank: 2000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
     },
     2: {
@@ -61,7 +61,7 @@ export default {
     5: {
         caption: 'ASSU',
         color: '#9c691c',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: { min: 2, max: 3 },
         icon: 'car-side',
@@ -103,7 +103,7 @@ export default {
     8: {
         caption: 'Véhicule de patrouille',
         color: '#3a8b18',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: { min: 2, max: 4 },
         icon: 'car-side',
@@ -168,8 +168,8 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 3_000,
-        pumpCapacity: 1_000,
+        waterTank: 3000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Sergent-chef.',
     },
@@ -181,7 +181,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        pumpCapacity: 1_000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
@@ -268,7 +268,7 @@ export default {
     19: {
         caption: 'Equipe cynophile',
         color: '#27aa22',
-        credits: 7_000,
+        credits: 7000,
         coins: 25,
         staff: {
             min: 1,
@@ -314,7 +314,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 14_500,
-        pumpCapacity: 1_000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
@@ -322,13 +322,13 @@ export default {
     22: {
         caption: 'CCFM',
         color: '#d71919',
-        credits: 8_000,
+        credits: 8000,
         coins: 8,
         staff: { min: 2, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 4_000,
-        pumpCapacity: 1_000,
+        waterTank: 4000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
@@ -336,13 +336,13 @@ export default {
     23: {
         caption: 'CCFL',
         color: '#d71919',
-        credits: 5_000,
+        credits: 5000,
         coins: 5,
         staff: { min: 2, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 2_000,
-        pumpCapacity: 1_000,
+        waterTank: 2000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special:
             'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
@@ -361,7 +361,7 @@ export default {
     25: {
         caption: 'VSAV',
         color: '#9c691c',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: { min: 3, max: 3 },
         icon: 'car-side',
@@ -370,7 +370,7 @@ export default {
     26: {
         caption: 'VL SSSM',
         color: '#9c691c',
-        credits: 4_000,
+        credits: 4000,
         coins: 20,
         staff: {
             min: 1,
@@ -389,7 +389,7 @@ export default {
     27: {
         caption: 'VLM',
         color: '#9c691c',
-        credits: 4_000,
+        credits: 4000,
         coins: 20,
         staff: {
             min: 3,
@@ -448,7 +448,7 @@ export default {
     30: {
         caption: 'Ambulance Type A',
         color: '#9c691c',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: { min: 2, max: 2 },
         icon: 'car-side',
@@ -471,8 +471,8 @@ export default {
         staff: { min: 2, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 1_400,
-        pumpCapacity: 1_000,
+        waterTank: 1400,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Adjudant.',
     },
@@ -484,8 +484,8 @@ export default {
         staff: { min: 2, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 3_000,
-        pumpCapacity: 1_000,
+        waterTank: 3000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Adjudant.',
     },
@@ -497,8 +497,8 @@ export default {
         staff: { min: 2, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 3_000,
-        pumpCapacity: 1_000,
+        waterTank: 3000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special: 'Vous devez posséder au moins le grade : Adjudant.',
     },
@@ -521,7 +521,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0],
         waterBonus: 25,
-        pumpCapacity: 1_000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
     },
     37: {
@@ -533,7 +533,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0],
         waterBonus: 35,
-        pumpCapacity: 1_000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
     },
     38: {
@@ -545,7 +545,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0],
         waterBonus: 15,
-        pumpCapacity: 1_000,
+        pumpCapacity: 1000,
         pumpType: 'fire',
         special:
             'Remorqueuse nécessaire (FPT, FPTL, CCFS, CCFM, CCFL, CCRL, CCRM, CCGC, FMOGP, VLHR, CDHR, FDGP, VTU)',
@@ -666,7 +666,7 @@ export default {
     47: {
         caption: 'CSL',
         color: '#225CB5',
-        credits: 6_000,
+        credits: 6000,
         coins: 12,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
@@ -728,15 +728,15 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0],
-        waterTank: 9_000,
+        waterTank: 9000,
     },
     52: {
         caption: 'VSA',
         color: '#225CB5',
         credits: 20_000,
         coins: 20,
-        staff: { 
-            min: 2, 
+        staff: {
+            min: 2,
             max: 3,
             training: {
                 'Centre de secours': {
@@ -745,7 +745,7 @@ export default {
                     },
                 },
             },
-		},
+        },
         icon: 'car-side',
         possibleBuildings: [0],
     },
@@ -754,8 +754,8 @@ export default {
         color: '#225CB5',
         credits: 60_000,
         coins: 30,
-        staff: { 
-            min: 2, 
+        staff: {
+            min: 2,
             max: 2,
             training: {
                 'Centre de secours': {
@@ -764,7 +764,7 @@ export default {
                     },
                 },
             },
-		},
+        },
         icon: 'car-side',
         possibleBuildings: [0],
     },
@@ -773,8 +773,8 @@ export default {
         color: '#225CB5',
         credits: 35_000,
         coins: 25,
-        staff: { 
-            min: 2, 
+        staff: {
+            min: 2,
             max: 4,
             training: {
                 'Centre de secours': {
@@ -783,7 +783,7 @@ export default {
                     },
                 },
             },
-		},
+        },
         icon: 'car-side',
         possibleBuildings: [0],
         waterTank: 600,
@@ -793,9 +793,9 @@ export default {
         color: '#225CB5',
         credits: 20_000,
         coins: 20,
-        staff: { 
-			min: 0,
-			max: 2 ,
+        staff: {
+            min: 0,
+            max: 2,
             training: {
                 'Centre de secours': {
                     arff: {
@@ -803,14 +803,14 @@ export default {
                     },
                 },
             },
-		},
+        },
         icon: 'car-side',
         possibleBuildings: [0],
     },
     56: {
         caption: 'VPCE',
         color: '#225CB5',
-        credits: 5_000,
+        credits: 5000,
         coins: 12,
         staff: { min: 2, max: 3 },
         icon: 'car-side',
@@ -821,10 +821,10 @@ export default {
         color: '#225CB5',
         credits: 35_000,
         coins: 20,
-        staff: {min: 0,max: 0},
+        staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [0],
-        pumpCapacity: 1_500,
+        pumpCapacity: 1500,
         pumpType: 'fire',
         special: 'Remorqueuse nécessaire (VPCE)',
     },
@@ -833,8 +833,8 @@ export default {
         color: '#225CB5',
         credits: 400_000,
         coins: 30,
-        staff: { 
-            min: 2, 
+        staff: {
+            min: 2,
             max: 2,
             training: {
                 'Secours nautique': {
@@ -845,19 +845,19 @@ export default {
                         all: true,
                     },
                 },
-            }, 
+            },
         },
         icon: 'car-side',
         possibleBuildings: [26],
-        waterTank: 6_000,
+        waterTank: 6000,
     },
     59: {
         caption: 'Dash Milan',
         color: '#225CB5',
         credits: 500_000,
         coins: 30,
-        staff: { 
-            min: 2, 
+        staff: {
+            min: 2,
             max: 2,
             training: {
                 'Secours nautique': {
@@ -868,7 +868,7 @@ export default {
                         all: true,
                     },
                 },
-            }, 
+            },
         },
         icon: 'car-side',
         possibleBuildings: [26],
@@ -879,8 +879,8 @@ export default {
         color: '#225CB5',
         credits: 300_000,
         coins: 30,
-        staff: { 
-            min: 2, 
+        staff: {
+            min: 2,
             max: 2,
             training: {
                 'Secours nautique': {
@@ -891,10 +891,10 @@ export default {
                         all: true,
                     },
                 },
-            }, 
+            },
         },
         icon: 'car-side',
         possibleBuildings: [26],
-        waterTank: 1_000,
+        waterTank: 1000,
     },
 } satisfies Record<number, InternalVehicle>;

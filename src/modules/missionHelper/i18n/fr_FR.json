@@ -58,7 +58,10 @@
         "max_possible_prisoners": "Prisonniers max.",
         "title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
     },
-    "requirements": { "water_needed": "Demande d'eau (litres)", "min_pump_speed": "Min. Capacité de la pompe" },
+    "requirements": {
+        "min_pump_speed": "Min. Capacité de la pompe",
+        "water_needed": "Demande d'eau (litres)"
+    },
     "tip": {
         "dragging": "glisser la fenêtre",
         "maxState": "exigences maximales on/off",
@@ -81,11 +84,11 @@
             "detention_unit": "VTP",
             "elw_airport": "VLCM",
             "elw3": "VLHR",
-            "flood_equipment": "Cellule épuisement",
-            "firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
             "fire_aviation": "Pélican",
             "fire_aviation_2": "Grands avions bombardiers d'eau",
             "fire_aviation_3": "Hélicoptères bombardiers d'eau",
+            "firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
+            "flood_equipment": "Cellule épuisement",
             "foam": "FMOGP",
             "gw_taucher": "PLG (Plongeur)",
             "gw_wasserrettung": "SAV (Sauvetage Aquatique)",
