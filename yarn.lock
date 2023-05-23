@@ -5316,10 +5316,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fflate@npm:^0.7.4":
-  version: 0.7.4
-  resolution: "fflate@npm:0.7.4"
-  checksum: b812ab26047432db70ff4c73eb45ad53bd0774575b4818b9c61c2921e89ec65d1259f06ec1618f2ac55e6a2f2e29b6dc09173d213b46580bc69efae5344bf8f1
+"fflate@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "fflate@npm:0.8.0"
+  checksum: 6215f95ee01d620a41e459247a7de7e7117dd23e78ef017c26b64c26f2a880a90eedc77675918bbf816d18cc990f6505cd71be933c67cc48cc1e7ebbff1589ea
   languageName: node
   linkType: hard
 
@@ -6825,7 +6825,7 @@ __metadata:
     vue: 3.3.4
     vuepress: 2.0.0-beta.62
     vuepress-plugin-clipboard: 2.1.5
-    vuepress-plugin-sitemap2: 2.0.0-beta.211
+    vuepress-plugin-sitemap2: 2.0.0-beta.212
   languageName: unknown
   linkType: soft
 
@@ -9633,7 +9633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.1.6, vue-router@npm:^4.2.0":
+"vue-router@npm:^4.1.6, vue-router@npm:^4.2.0, vue-router@npm:^4.2.1":
   version: 4.2.1
   resolution: "vue-router@npm:4.2.1"
   dependencies:
@@ -9697,7 +9697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.3.4, vue@npm:^3.2.45, vue@npm:^3.3.1, vue@npm:^3.3.2":
+"vue@npm:3.3.4, vue@npm:^3.2.45, vue@npm:^3.3.1, vue@npm:^3.3.4":
   version: 3.3.4
   resolution: "vue@npm:3.3.4"
   dependencies:
@@ -9722,14 +9722,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-beta.211":
-  version: 2.0.0-beta.211
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.211"
+"vuepress-plugin-sitemap2@npm:2.0.0-beta.212":
+  version: 2.0.0-beta.212
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.212"
   dependencies:
     "@vuepress/shared": 2.0.0-beta.62
     "@vuepress/utils": 2.0.0-beta.62
     sitemap: ^7.1.1
-    vuepress-shared: 2.0.0-beta.211
+    vuepress-shared: 2.0.0-beta.212
   peerDependencies:
     vuepress: 2.0.0-beta.62
     vuepress-vite: 2.0.0-beta.62
@@ -9741,13 +9741,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: f2f79b53e9eeb9c688fdd91c4793ec3ce88504b3aaf05b70d01607ce6192c9f36daf7f9c82c6fc909364376cf699f3125c05612e0a9436a916955d6757ae9fdd
+  checksum: fcfa2f4430476b8d56e2a88d6913577561f15443346c02070270a47295d2cc95e3788bae522a41af34035bee19f07f215b354c0a623689d399e4fb1a9c6b949c
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-beta.211":
-  version: 2.0.0-beta.211
-  resolution: "vuepress-shared@npm:2.0.0-beta.211"
+"vuepress-shared@npm:2.0.0-beta.212":
+  version: 2.0.0-beta.212
+  resolution: "vuepress-shared@npm:2.0.0-beta.212"
   dependencies:
     "@vuepress/client": 2.0.0-beta.62
     "@vuepress/shared": 2.0.0-beta.62
@@ -9756,12 +9756,12 @@ __metadata:
     cheerio: 1.0.0-rc.12
     dayjs: ^1.11.7
     execa: ^7.1.1
-    fflate: ^0.7.4
+    fflate: ^0.8.0
     gray-matter: ^4.0.3
     semver: ^7.5.1
     striptags: ^3.2.0
-    vue: ^3.3.2
-    vue-router: ^4.2.0
+    vue: ^3.3.4
+    vue-router: ^4.2.1
   peerDependencies:
     vuepress: 2.0.0-beta.62
     vuepress-vite: 2.0.0-beta.62
@@ -9773,7 +9773,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 872f1052933a9e4ff94c96f952af758f293282fa17dc9edd11718dfb64b562fbca3794c21f112b48f07489d0d51ba31979b98aee608933653b98ed947608a0a3
+  checksum: 8cc1b3e751a74a0b9a49d4c3d607afab3911f85260b1f187a48e2b848e85b9a0031daace1ef9c110ad6b2ba7c1fe2a453a134f3f727ad85309ccd854ddb8e861
   languageName: node
   linkType: hard
 
