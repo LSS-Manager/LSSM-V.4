@@ -17,6 +17,11 @@
             "in": "additional",
             "text": "Spécialistes IMP requis"
         },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Pompe: {n} l/min"
+        },
         "title": "Conditions particulières",
         "water_needed": {
             "badge": true,
