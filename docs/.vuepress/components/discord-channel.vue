@@ -1,8 +1,8 @@
 <template>
     <AutoLink
         :item="{
-            link: `https://discordapp.com/channels/${variables.discord.id}/${variables.discord.channels[channel]}`,
-            text: `#${channel}`,
+            link: `https://discordapp.com/channels/${variables.discord.id}/${variables.discord.channels[channelProp]}`,
+            text: `#${channelProp}`,
         }"
     />
 </template>
@@ -21,5 +21,5 @@ const props = defineProps({
     },
 });
 
-const { channel } = toRefs(props);
+const { channel: channelProp } = toRefs(props);
 </script>
