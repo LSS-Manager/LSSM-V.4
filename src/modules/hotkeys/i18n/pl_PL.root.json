@@ -135,8 +135,8 @@
                 "title": "Odwołaj"
             },
             "missionHelper": {
-                "title": "MissionHelper",
-                "toggleCollapse": "Collapse / Uncollapse"
+                "title": "Pomocnik misji",
+                "toggleCollapse": "Zwiń / Rozwiń"
             },
             "next": "Następna misja",
             "prev": "Poprzednia misja",
