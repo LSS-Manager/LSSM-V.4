@@ -101,7 +101,7 @@
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.18.0"
+        "version": "1.18.1"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
