@@ -131,6 +131,10 @@
                 "onlyAmbulance": "Annuleer alleen ambulances",
                 "title": "Annuleer voertuigen"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "missionHelper": {
                 "title": "MissionHelper",
                 "toggleCollapse": "Collapse / Uncollapse"

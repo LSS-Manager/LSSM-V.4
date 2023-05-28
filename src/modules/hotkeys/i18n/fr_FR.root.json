@@ -137,6 +137,10 @@
                 "onlyAmbulance": "Signal de retour uniquement pour les ambulances",
                 "title": "Signal de retour"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "missionHelper": {
                 "title": "MissionHelper",
                 "toggleCollapse": "Collapse / Uncollapse"

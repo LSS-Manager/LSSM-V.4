@@ -22,6 +22,8 @@ export interface EnhancedMissingVehicles {
     faExpandAlt: IconDefinition;
     faTable: IconDefinition;
     faParagraph: IconDefinition;
+    id: string;
+    collapseBtnId: string;
     missingRequirementsSearch: string;
     sort: string;
     sortDir: string;

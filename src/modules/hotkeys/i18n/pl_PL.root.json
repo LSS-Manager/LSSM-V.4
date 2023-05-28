@@ -134,6 +134,10 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Zwiń / Rozwiń"
+            },
             "missionHelper": {
                 "title": "Pomocnik misji",
                 "toggleCollapse": "Zwiń / Rozwiń"

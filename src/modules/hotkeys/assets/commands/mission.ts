@@ -13,7 +13,8 @@ export default <
             'arr',
             'vehicleList',
             'backalarm',
-            'missionHelper'
+            'missionHelper',
+            'emv'
         ],
         [
             'transport_request',
@@ -232,6 +233,18 @@ export default <
                 .querySelector<SVGElement>(
                     `#${(window[PREFIX] as Vue).$stores.root.nodeAttribute(
                         'missionHelper-collapse-btn'
+                    )}`
+                )
+                ?.dispatchEvent(new MouseEvent('click'));
+        },
+    },
+    emv: <Scope<Empty, [], ['toggleCollapse']>>{
+        validatorFunction: () => true,
+        toggleCollapse() {
+            document
+                .querySelector<SVGElement>(
+                    `#${(window[PREFIX] as Vue).$stores.root.nodeAttribute(
+                        'emv-collapse-btn'
                     )}`
                 )
                 ?.dispatchEvent(new MouseEvent('click'));

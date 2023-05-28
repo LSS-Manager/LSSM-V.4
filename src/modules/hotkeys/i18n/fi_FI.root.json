@@ -135,6 +135,10 @@
                 "onlyAmbulance": "Peruuta kaikki ambulanssit",
                 "title": "Peruuta"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "missionHelper": {
                 "title": "MissionHelper",
                 "toggleCollapse": "Collapse / Uncollapse"
