@@ -165,7 +165,7 @@
     "css-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/css-loader",
-        "version": "6.7.4"
+        "version": "6.8.1"
     },
     "emoji-toolkit": {
         "icon": "https://avatars.githubusercontent.com/u/6843823",
