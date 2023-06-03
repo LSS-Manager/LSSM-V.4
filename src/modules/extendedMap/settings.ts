@@ -90,7 +90,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     userBuildings
         .map(({ id, caption, building_type }) => [
             id.toString(),
-            `[${buildingTypes[building_type].caption}] ${caption}`,
+            `[${buildingTypes[building_type]?.caption ?? '🌈'}] ${caption}`,
         ])
         .sort(([, labelA], [, labelB]) => labelA.localeCompare(labelB))
         .forEach(([id, label]) => {
