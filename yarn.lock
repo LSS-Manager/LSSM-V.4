@@ -6896,7 +6896,7 @@ __metadata:
     vue: 3.3.4
     vuepress: 2.0.0-beta.62
     vuepress-plugin-clipboard: 2.1.5
-    vuepress-plugin-sitemap2: 2.0.0-beta.218
+    vuepress-plugin-sitemap2: 2.0.0-beta.220
   languageName: unknown
   linkType: soft
 
@@ -9814,14 +9814,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-beta.218":
-  version: 2.0.0-beta.218
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.218"
+"vuepress-plugin-sitemap2@npm:2.0.0-beta.220":
+  version: 2.0.0-beta.220
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.220"
   dependencies:
     "@vuepress/shared": 2.0.0-beta.62
     "@vuepress/utils": 2.0.0-beta.62
     sitemap: ^7.1.1
-    vuepress-shared: 2.0.0-beta.218
+    vuepress-shared: 2.0.0-beta.220
   peerDependencies:
     vuepress: 2.0.0-beta.62
     vuepress-vite: 2.0.0-beta.62
@@ -9833,13 +9833,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 388c1997179a091fdc216051b830e04890d4b56c8aabe9a2fc66ab0ef944a79a13830fbfe6e4c5f349ff9a0f3c0564cc51ef9565b5e353292e8e30c716df3c65
+  checksum: 9376736142322e3caca1267639103761d816fa6af96d776f31fe1c6237b409ed6122761b350619b783d4e6cc9a39c4fc120408eda70aa43f56395450d652eafc
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-beta.218":
-  version: 2.0.0-beta.218
-  resolution: "vuepress-shared@npm:2.0.0-beta.218"
+"vuepress-shared@npm:2.0.0-beta.220":
+  version: 2.0.0-beta.220
+  resolution: "vuepress-shared@npm:2.0.0-beta.220"
   dependencies:
     "@vuepress/client": 2.0.0-beta.62
     "@vuepress/shared": 2.0.0-beta.62
@@ -9865,7 +9865,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: bad941f20985483707167332ce1adbac4b37fa8ec8ce68a42b357421dc9ee351d79eea473ffeaf8cefb0ad7a3d26b879ad85e9717563ab9e164fdb918643671b
+  checksum: c615bf8139e518c93387351ad80eec82d876f47c31b842c9dd02eed583c54ca34880923828afce9532f1990c65cfb30e6e0e04873b7ff486fc15e90c96ecf0f3
   languageName: node
   linkType: hard
 
