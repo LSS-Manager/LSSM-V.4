@@ -1,5 +1,6 @@
 {
     "description": "Muestra un reloj configurable en varias ubicaciones según sea necesario",
+    "localTime": "local time",
     "name": "Reloj",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Aquí puede configurar el formato del reloj. Encontrarás ayuda de ésto <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">aquí</a>.",
             "title": "Formato de reloj superpuesto"
+        },
+        "timeZone": {
+            "description": "Here, you can set time timezone of the clock(s).",
+            "title": "Timezone"
         }
     }
 }

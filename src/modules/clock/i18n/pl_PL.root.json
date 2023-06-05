@@ -1,5 +1,6 @@
 {
     "description": "W razie potrzeby wyświetla konfigurowalny zegar w różnych lokalizacjach.",
+    "localTime": "local time",
     "name": "Zegar",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Tutaj możesz ustawić format zegara nakładki. Pomoc znajdziesz <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">tutaj</a>.",
             "title": "Format zegara nakładki"
+        },
+        "timeZone": {
+            "description": "Here, you can set time timezone of the clock(s).",
+            "title": "Timezone"
         }
     }
 }
