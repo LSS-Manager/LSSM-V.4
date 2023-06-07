@@ -1,6 +1,6 @@
 {
     "description": "W razie potrzeby wyświetla konfigurowalny zegar w różnych lokalizacjach.",
-    "localTime": "local time",
+    "localTime": "czas lokalny",
     "name": "Zegar",
     "settings": {
         "displayNav": {
@@ -20,8 +20,8 @@
             "title": "Format zegara nakładki"
         },
         "timeZone": {
-            "description": "Here, you can set time timezone of the clock(s).",
-            "title": "Timezone"
+            "description": "Tutaj możesz ustawić strefę czasową zegara/ów.",
+            "title": "Strefa czasowa"
         }
     }
 }
