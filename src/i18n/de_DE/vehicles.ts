@@ -1499,7 +1499,10 @@ export default {
             training: {
                 THW: {
                     water_damage_pump: {
-                        all: true,
+                        min: 0,
+                    },
+                    thw_energy_supply: {
+                        min: 0,
                     },
                 },
             },
