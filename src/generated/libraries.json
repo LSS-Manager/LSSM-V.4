@@ -22,7 +22,7 @@
     "@primer/octicons": {
         "icon": "https://primer.style/design/icons/icon-512x512.png",
         "url": "https://primer.style/octicons",
-        "version": "19.1.0"
+        "version": "19.2.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
