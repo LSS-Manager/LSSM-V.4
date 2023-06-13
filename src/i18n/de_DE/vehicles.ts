@@ -1729,7 +1729,7 @@ export default {
         possibleBuildings: [0],
     },
     114: {
-        caption: 'GW Lüfter ',
+        caption: 'GW Lüfter',
         color: '#36759e',
         credits: 25_000,
         coins: 25,
@@ -1743,7 +1743,7 @@ export default {
         possibleBuildings: [0, 18],
     },
     115: {
-        caption: 'Anh Lüfter ',
+        caption: 'Anh Lüfter',
         color: '#36759e',
         credits: 10_000,
         coins: 15,
@@ -1761,9 +1761,9 @@ export default {
         possibleBuildings: [0, 18],
     },
     116: {
-        caption: 'AB Lüfter ',
+        caption: 'AB Lüfter',
         color: '#36759e',
-        credits: 6000,
+        credits: 7000,
         coins: 12,
         staff: { min: 0, max: 0 },
         icon: 'square',
