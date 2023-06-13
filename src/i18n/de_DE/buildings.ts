@@ -151,6 +151,15 @@ export default {
                 parkingLotReservations: [[113]],
                 unlocksVehicleTypes: [113],
             },
+            {
+                caption: 'Lüfter-Erweiterung',
+                credits: 75_000,
+                coins: 15,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [114, 115, 116],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1175,6 +1184,15 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [111],
+            },
+            {
+                caption: 'Lüfter-Erweiterung',
+                credits: 75_000,
+                coins: 15,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [114, 115, 116],
             },
         ],
         storageUpgrades: {

@@ -1728,4 +1728,47 @@ export default {
         ],
         possibleBuildings: [0],
     },
+    114: {
+        caption: 'GW Lüfter ',
+        color: '#36759e',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'fan',
+        special:
+            'Mobile Großventilatoren führen Rauch und Hitze aus großen Gebäuden ab.',
+        possibleBuildings: [0, 18],
+    },
+    115: {
+        caption: 'Anh Lüfter ',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
+        isTrailer: true,
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
+        ],
+        possibleBuildings: [0, 18],
+    },
+    116: {
+        caption: 'AB Lüfter ',
+        color: '#36759e',
+        credits: 6000,
+        coins: 12,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
 } satisfies Record<number, InternalVehicle>;
