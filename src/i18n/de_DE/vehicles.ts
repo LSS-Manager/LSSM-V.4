@@ -1729,7 +1729,7 @@ export default {
         possibleBuildings: [0],
     },
     114: {
-        caption: 'GW Lüfter',
+        caption: 'GW-Lüfter',
         color: '#36759e',
         credits: 25_000,
         coins: 25,
@@ -1753,15 +1753,15 @@ export default {
         },
         icon: 'trailer',
         special:
-            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25)',
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, GW-Werkfeuerwehr)',
         isTrailer: true,
         tractiveVehicles: [
-            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 83,
         ],
         possibleBuildings: [0, 18],
     },
     116: {
-        caption: 'AB Lüfter',
+        caption: 'AB-Lüfter',
         color: '#36759e',
         credits: 7000,
         coins: 12,
