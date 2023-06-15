@@ -88,7 +88,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 expansion.querySelector('.label-danger')?.textContent ??
                 '';
         } else {
-            label.classList.add('label-default');
+            label.classList.add('label-info');
             label.textContent = $m('expansions.notBuild').toString();
         }
         expansionIndex[name].push(label);
