@@ -1,5 +1,6 @@
 {
     "description": "Zeigt eine Konfigurierbare Uhr an verschiedenen Stellen nach Bedarf an.",
+    "localTime": "Ortszeit",
     "name": "Uhr",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Hier kannst du das Format der Uhr festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">hier</a>.",
             "title": "Format der Uhr als overlay"
+        },
+        "timeZone": {
+            "description": "Hier kannst du die Zeitzone der Uhr(en) festlegen.",
+            "title": "Zeitzone"
         }
     }
 }

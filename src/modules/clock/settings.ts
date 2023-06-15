@@ -1,7 +1,9 @@
-import type { ModuleSettingFunction } from 'typings/Module';
-import type { Text, Toggle } from 'typings/Setting';
+import moment from 'moment-timezone';
 
-export default (() => ({
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Select, Text, Toggle } from 'typings/Setting';
+
+export default ((_, __, $m) => ({
     displayNav: <Toggle>{
         type: 'toggle',
         default: true,
@@ -19,5 +21,11 @@ export default (() => ({
         type: 'text',
         default: 'LTS',
         dependsOn: '.displayOverlay',
+    },
+    timeZone: <Select>{
+        type: 'select',
+        values: ['', ...moment.tz.names()],
+        labels: [`[${$m('localTime')}]`, ...moment.tz.names()],
+        default: '',
     },
 })) as ModuleSettingFunction;

@@ -1731,7 +1731,8 @@ export default Vue.extend<
                           building.building_type
                         : building.building_type;
 
-                    const buildingType = this.buildingTypes[realBuildingType];
+                    const buildingType =
+                        this.buildingTypes[realBuildingType] ?? {};
 
                     const buildingAttrs = {
                         alliance: isAllianceBuilding,
@@ -1746,7 +1747,7 @@ export default Vue.extend<
                                     })
                                     ?.replace(/_other(?=\.png$)/u, '')
                             ),
-                        typeName: buildingType.caption,
+                        typeName: buildingType?.caption ?? '🦥',
                         name: building.caption,
                         extensions: building.extensions,
                         leitstelle: building.leitstelle_building_id,
@@ -1776,7 +1777,7 @@ export default Vue.extend<
                         if (
                             !(
                                 'newCells' in
-                                (buildingType.extensions[extension.type_id] ??
+                                (buildingType.extensions?.[extension.type_id] ??
                                     {})
                             )
                         )
@@ -1810,7 +1811,7 @@ export default Vue.extend<
                         if (
                             !(
                                 'newClassrooms' in
-                                (buildingType.extensions[extension.type_id] ??
+                                (buildingType.extensions?.[extension.type_id] ??
                                     {})
                             )
                         )
@@ -2164,155 +2165,160 @@ export default Vue.extend<
                         .sort()
                         .reverse();
 
-                    return buildingType.extensions
-                        .map<AttributedExtension | null>(
-                            (extensionType, index) => {
-                                if (!extensionType) return null;
-                                const boughtExtension = extensions.find(
-                                    ({ type_id }) => index === type_id
-                                );
-                                if (
-                                    !boughtExtension &&
-                                    extensionType.maxExtensionsFunction
-                                ) {
-                                    maxExtensionsFunctionResults[
-                                        buildingTypeId
-                                    ][index] ??=
-                                        extensionType.maxExtensionsFunction(
-                                            this.apiStore.buildingsByType
-                                        );
-                                }
-
-                                const requiredExtensions =
-                                    extensionType.requiredExtensions;
-
-                                const allRequiredExtensionsBought =
-                                    requiredExtensions?.every(extension =>
-                                        extensions.find(
-                                            ({ type_id }) =>
-                                                extension === type_id
-                                        )
+                    return (
+                        buildingType?.extensions
+                            ?.map<AttributedExtension | null>(
+                                (extensionType, index) => {
+                                    if (!extensionType) return null;
+                                    const boughtExtension = extensions.find(
+                                        ({ type_id }) => index === type_id
                                     );
-
-                                const canBuyByAmount =
-                                    extensionType.canBuyByAmount?.(
-                                        this.boughtExtensionsAmountByType,
+                                    if (
+                                        !boughtExtension &&
+                                        extensionType.maxExtensionsFunction
+                                    ) {
                                         maxExtensionsFunctionResults[
                                             buildingTypeId
-                                        ][index]
-                                    );
+                                        ][index] ??=
+                                            extensionType.maxExtensionsFunction(
+                                                this.apiStore.buildingsByType
+                                            );
+                                    }
 
-                                const canBuy =
-                                    allRequiredExtensionsBought ??
-                                    canBuyByAmount ??
-                                    true;
+                                    const requiredExtensions =
+                                        extensionType.requiredExtensions;
 
-                                const available =
-                                    boughtExtension?.available ?? false;
-                                const availableAt =
-                                    boughtExtension &&
-                                    !boughtExtension.available
-                                        ? boughtExtension.available_at
-                                        : '';
-                                const canBeAborted =
-                                    availableAt === availableAtSorted[0];
+                                    const allRequiredExtensionsBought =
+                                        requiredExtensions?.every(extension =>
+                                            extensions.find(
+                                                ({ type_id }) =>
+                                                    extension === type_id
+                                            )
+                                        );
 
-                                const countdownId =
-                                    this.rootStore.nodeAttribute(
-                                        `buildingComplexes-extensions-${buildingId}-${index}-countdown`,
-                                        true
-                                    );
+                                    const canBuyByAmount =
+                                        extensionType.canBuyByAmount?.(
+                                            this.boughtExtensionsAmountByType,
+                                            maxExtensionsFunctionResults[
+                                                buildingTypeId
+                                            ][index]
+                                        );
 
-                                return {
-                                    allianceBuilding: alliance,
-                                    buildingId,
-                                    buildingName,
-                                    name: extensionType.caption,
-                                    type: index,
-                                    ...(boughtExtension
-                                        ? {
-                                              bought: true,
-                                              ...(available
-                                                  ? { available }
-                                                  : {
-                                                        available,
-                                                        availableAt,
-                                                        availableAtReadable:
-                                                            this.moment(
-                                                                availableAt
-                                                            ).calendar(),
-                                                        canBeAborted,
-                                                        countdownId,
-                                                        initCountdown: () =>
-                                                            this.$utils.countdown(
-                                                                countdownId,
-                                                                Math.floor(
-                                                                    (new Date(
-                                                                        availableAt
-                                                                    ).getTime() -
-                                                                        Date.now()) /
-                                                                        1000
+                                    const canBuy =
+                                        allRequiredExtensionsBought ??
+                                        canBuyByAmount ??
+                                        true;
+
+                                    const available =
+                                        boughtExtension?.available ?? false;
+                                    const availableAt =
+                                        boughtExtension &&
+                                        !boughtExtension.available
+                                            ? boughtExtension.available_at
+                                            : '';
+                                    const canBeAborted =
+                                        availableAt === availableAtSorted[0];
+
+                                    const countdownId =
+                                        this.rootStore.nodeAttribute(
+                                            `buildingComplexes-extensions-${buildingId}-${index}-countdown`,
+                                            true
+                                        );
+
+                                    return {
+                                        allianceBuilding: alliance,
+                                        buildingId,
+                                        buildingName,
+                                        name: extensionType.caption,
+                                        type: index,
+                                        ...(boughtExtension
+                                            ? {
+                                                  bought: true,
+                                                  ...(available
+                                                      ? { available }
+                                                      : {
+                                                            available,
+                                                            availableAt,
+                                                            availableAtReadable:
+                                                                this.moment(
+                                                                    availableAt
+                                                                ).calendar(),
+                                                            canBeAborted,
+                                                            countdownId,
+                                                            initCountdown: () =>
+                                                                this.$utils.countdown(
+                                                                    countdownId,
+                                                                    Math.floor(
+                                                                        (new Date(
+                                                                            availableAt
+                                                                        ).getTime() -
+                                                                            Date.now()) /
+                                                                            1000
+                                                                    ),
+                                                                    true
                                                                 ),
-                                                                true
-                                                            ),
-                                                    }),
-                                              enabled: boughtExtension.enabled,
-                                              canToggle:
-                                                  !extensionType.cannotDisable,
-                                          }
-                                        : {
-                                              ...(canBuy
-                                                  ? {
-                                                        canBuy: true,
-                                                    }
-                                                  : {
-                                                        canBuy: false,
-                                                        requirements: [
-                                                            ...(requiredExtensions?.map(
-                                                                id =>
-                                                                    buildingType
-                                                                        .extensions[
-                                                                        id
-                                                                    ]
-                                                                        ?.caption ??
-                                                                    ''
-                                                            ) ?? []),
-                                                            ...(canBuyByAmount ||
-                                                            typeof canBuyByAmount ===
-                                                                'undefined'
-                                                                ? []
-                                                                : [
-                                                                      this.$mc(
-                                                                          'overview.extensions.limit',
-                                                                          maxExtensionsFunctionResults[
-                                                                              buildingTypeId
-                                                                          ][
-                                                                              index
-                                                                          ]
-                                                                      ).toString(),
-                                                                  ]),
-                                                        ],
-                                                    }),
-                                              duration: extensionType.duration,
-                                              credits: extensionType.credits,
-                                              coins: extensionType.coins,
-                                              enoughCredits:
-                                                  (alliance
-                                                      ? this.apiStore
-                                                            .allianceinfo
-                                                            ?.credits_current ??
-                                                        0
-                                                      : this.rootStore
-                                                            .credits) >=
-                                                  extensionType.credits,
-                                              enoughCoins:
-                                                  this.rootStore.coins >=
-                                                  extensionType.coins,
-                                          }),
-                                };
-                            }
-                        )
-                        .filter(removeNull);
+                                                        }),
+                                                  enabled:
+                                                      boughtExtension.enabled,
+                                                  canToggle:
+                                                      !extensionType.cannotDisable,
+                                              }
+                                            : {
+                                                  ...(canBuy
+                                                      ? {
+                                                            canBuy: true,
+                                                        }
+                                                      : {
+                                                            canBuy: false,
+                                                            requirements: [
+                                                                ...(requiredExtensions?.map(
+                                                                    id =>
+                                                                        buildingType
+                                                                            .extensions[
+                                                                            id
+                                                                        ]
+                                                                            ?.caption ??
+                                                                        ''
+                                                                ) ?? []),
+                                                                ...(canBuyByAmount ||
+                                                                typeof canBuyByAmount ===
+                                                                    'undefined'
+                                                                    ? []
+                                                                    : [
+                                                                          this.$mc(
+                                                                              'overview.extensions.limit',
+                                                                              maxExtensionsFunctionResults[
+                                                                                  buildingTypeId
+                                                                              ][
+                                                                                  index
+                                                                              ]
+                                                                          ).toString(),
+                                                                      ]),
+                                                            ],
+                                                        }),
+                                                  duration:
+                                                      extensionType.duration,
+                                                  credits:
+                                                      extensionType.credits,
+                                                  coins: extensionType.coins,
+                                                  enoughCredits:
+                                                      (alliance
+                                                          ? this.apiStore
+                                                                .allianceinfo
+                                                                ?.credits_current ??
+                                                            0
+                                                          : this.rootStore
+                                                                .credits) >=
+                                                      extensionType.credits,
+                                                  enoughCoins:
+                                                      this.rootStore.coins >=
+                                                      extensionType.coins,
+                                              }),
+                                    };
+                                }
+                            )
+                            .filter(removeNull) ?? []
+                    );
                 }
             );
         },

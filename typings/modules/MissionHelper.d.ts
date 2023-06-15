@@ -26,6 +26,8 @@ export interface MissionHelper {
     faExpandAlt: IconDefinition;
     faSuperscript: IconDefinition;
     faSubscript: IconDefinition;
+    id: string;
+    collapseBtnId: string;
     isReloading: boolean;
     isDiyMission: boolean;
     missionSpecs: Mission | undefined;

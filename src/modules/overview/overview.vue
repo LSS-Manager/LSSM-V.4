@@ -337,7 +337,15 @@ export default Vue.extend<
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = translationStore.vehicles;
+        const vehicleTypes = Object.fromEntries(
+            Object.entries(translationStore.vehicles).map(([id, vehicle]) => [
+                id,
+                {
+                    ...vehicle,
+                    id: parseInt(id),
+                },
+            ])
+        );
         const resolvedVehicleCategories = {} as Record<
             string,
             ResolvedVehicleCategory
@@ -434,6 +442,7 @@ export default Vue.extend<
                         index,
                         {
                             ...building,
+                            id: parseInt(index),
                             extensions: minifiedExtensions,
                         },
                     ];
@@ -456,6 +465,7 @@ export default Vue.extend<
             >,
             vehiclesTab: {
                 head: {
+                    id: { title: '#' },
                     caption: { title: this.$m('titles.vehicles.caption') },
                     minPersonnel: {
                         title: this.$m('titles.vehicles.minPersonnel'),
@@ -483,7 +493,7 @@ export default Vue.extend<
                               },
                           }
                         : null),
-                    ...(['de_DE'].includes(locale)
+                    ...(['de_DE', 'fr_FR'].includes(locale)
                         ? {
                               pumpCapacity: {
                                   title: this.$m('titles.vehicles.pumpcap'),
@@ -522,6 +532,7 @@ export default Vue.extend<
             >,
             buildingsTab: {
                 head: {
+                    id: { title: '#' },
                     caption: { title: this.$m('titles.buildings.caption') },
                     cost: { title: this.$m('titles.buildings.cost') },
                     maxLevel: { title: this.$m('titles.buildings.maxLevel') },

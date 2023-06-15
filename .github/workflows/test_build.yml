@@ -3,7 +3,11 @@ run-name: '[🧪] Test build on `${{ github.ref }}`'
 
 on:
     push:
+        branches:
+            - master
+            - dev
     pull_request:
+    workflow_dispatch:
 
 jobs:
     build:

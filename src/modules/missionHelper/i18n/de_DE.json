@@ -5,7 +5,7 @@
     "generated_by": "Generiert von",
     "mission_categories": {
         "airport": "Flughafenfeuerwehr-Einsätze",
-        "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung",
+        "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung)",
         "ambulance": "Rettungseinsätze",
         "criminal_investigation": "Kriminalpolizei-Einsätze",
         "energy_supply": "NEA50-Einsätze",
@@ -63,6 +63,7 @@
         "thw_gkw_count": "THW-Ausbau: Technischer Zug | THW-Ausbauten: Technische Züge",
         "thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
         "title": "Vorraussetzung | Vorraussetzungen",
+        "ventilation": "Lüfter-Erweiterung | Lüfter-Erweiterungen",
         "wasserrettung": "Wasserrettung | Wasserrettungen",
         "water_cannon": "Technischer Zug: Wasserwerfer| Technische Züge: Wasserwerfer",
         "water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
@@ -132,6 +133,7 @@
             "thw_mzkw": "MzGW (FGr N)",
             "turboloescher": "Turbolöscher",
             "ulf": "ULF mit Löscharm",
+            "ventilation": "Lüfter",
             "wasserwerfer": "WaWe 10",
             "water_damage_pump": "Feuerlöschpumpe | Feuerlöschpumpen",
             "water_tankers": "Schlauchwagen"

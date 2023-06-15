@@ -40,13 +40,14 @@
     "vehicles": {
         "captions": {
             "ambulances": "Ambulanssi | Ambulanssia",
-            "arff": "Lentokenttäpaloauto | ARFF Lentokenttäpaloautoa",
+            "arff": "ARFF Lentokenttäpaloauto | ARFF Lentokenttäpaloautoa",
             "battalion_chief_vehicles": "Johtoauto | Johtoautoa",
             "civil_patrolcar": "Tutkintayksikkö | Tutkintayksikköä",
             "coastal_boat": "RVL Partiovene | RVL Partiovenettä",
             "coastal_helicopter": "H215 | H215:sta",
             "coastal_plane": "Do228 | Do228:sia",
             "coastal_rescue": "RVL Partioauto | RVL Partioautoa",
+            "elw_airport": "Lentokentän Johtoauto | Lentokentän Johtoautoa",
             "firetrucks": "Paloauto | Paloautoa",
             "hazmat_vehicles": "Kemikaalitorjunta-auto | Kemikaalitorjunta-autoa",
             "heavy_rescue_vehicles": "Raskas pelastusauto | Raskasta pelastusautoa",
