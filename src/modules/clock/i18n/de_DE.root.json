@@ -1,6 +1,6 @@
 {
     "description": "Zeigt eine Konfigurierbare Uhr an verschiedenen Stellen nach Bedarf an.",
-    "localTime": "Lokale Zeit",
+    "localTime": "Ortszeit",
     "name": "Uhr",
     "settings": {
         "displayNav": {
