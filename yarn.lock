@@ -1291,12 +1291,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.20.7":
-  version: 7.20.7
-  resolution: "@babel/runtime@npm:7.20.7"
+"@babel/runtime@npm:7.21.0":
+  version: 7.21.0
+  resolution: "@babel/runtime@npm:7.21.0"
   dependencies:
     regenerator-runtime: ^0.13.11
-  checksum: 4629ce5c46f06cca9cfb9b7fc00d48003335a809888e2b91ec2069a2dcfbfef738480cff32ba81e0b7c290f8918e5c22ddcf2b710001464ee84ba62c7e32a3a3
+  checksum: 7b33e25bfa9e0e1b9e8828bb61b2d32bdd46b41b07ba7cb43319ad08efc6fda8eb89445193e67d6541814627df0ca59122c0ea795e412b99c5183a0540d338ab
   languageName: node
   linkType: hard
 
@@ -3878,16 +3878,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broadcast-channel@npm:4.20.2":
-  version: 4.20.2
-  resolution: "broadcast-channel@npm:4.20.2"
+"broadcast-channel@npm:5.1.0":
+  version: 5.1.0
+  resolution: "broadcast-channel@npm:5.1.0"
   dependencies:
-    "@babel/runtime": 7.20.7
+    "@babel/runtime": 7.21.0
     oblivious-set: 1.1.1
     p-queue: 6.6.2
     rimraf: 3.0.2
     unload: 2.4.1
-  checksum: 9b266b88c0cf8393ea9b181d168a88918481504b28caca755b21a1788fcc81d06f27c2ff1e71c2e9a8fafca30caba8919027bf9b617ea5545254427e90ca7563
+  checksum: c1b93a3f463a44f1857ace9f8bf46aa00021515311c4e02ff7b92b2f72ac817970213f0265e6b1011c2ca443a1b8c64075e8ff81aaa9e8b95ab1d045850d54ae
   languageName: node
   linkType: hard
 
@@ -6986,7 +6986,7 @@ __metadata:
     acorn: 8.8.2
     acorn-walk: 8.2.0
     all-contributors-cli: 6.26.0
-    broadcast-channel: 4.20.2
+    broadcast-channel: 5.1.0
     copy-dir: 1.3.0
     css-loader: 6.8.1
     emoji-toolkit: 7.0.1
