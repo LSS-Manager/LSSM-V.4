@@ -75,7 +75,7 @@
         "eslint-plugin-regexp": "1.15.0",
         "eslint-plugin-tsdoc": "0.2.17",
         "eslint-plugin-unicorn": "47.0.0",
-        "eslint-plugin-vue": "9.14.1",
+        "eslint-plugin-vue": "9.15.0",
         "html-loader": "4.2.0",
         "js-yaml": "4.1.0",
         "moment-timezone": "0.5.43",
