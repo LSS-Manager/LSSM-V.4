@@ -2,7 +2,7 @@
 	"name": "lss-manager-v4-docs",
 	"license": "CC-BY-NC-SA-4.0",
 	"dependencies": {
-		"@primer/octicons": "19.3.0",
+		"@primer/octicons": "19.4.0",
 		"@vuepress/client": "2.0.0-beta.63",
 		"@vuepress/plugin-pwa": "2.0.0-beta.63",
 		"@vuepress/plugin-pwa-popup": "2.0.0-beta.63",
