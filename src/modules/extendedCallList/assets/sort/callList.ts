@@ -182,48 +182,59 @@ export default (
     );
     sortSelectionList.classList.add('dropdown-menu', 'pull-right');
     sorts.forEach(sort => {
-        const liAsc = document.createElement('li');
-        liAsc.dataset.sort = sort;
-        liAsc.dataset.direction = 'asc';
-        const liDesc = document.createElement('li');
-        liDesc.dataset.sort = sort;
-        liDesc.dataset.direction = 'desc';
-        const aAsc = document.createElement('a');
-        aAsc.setAttribute('href', '#');
-        liAsc.append(aAsc);
-        const title = document.createTextNode(
-            $m(`sort.types.${sort}`).toString()
-        );
-        const directionIcon = document.createElement('i');
-        directionIcon.classList.add('fas', `fa-${faDirectionIcon['asc']}`);
-        const aDesc = document.createElement('a');
-        aDesc.setAttribute('href', '#');
-        liDesc.append(aDesc);
+        const listElement = document.createElement('li');
+        listElement.dataset.sort = sort;
+        const link = document.createElement('a');
+        link.setAttribute('href', '#');
+
         const icon = document.createElement('i');
         icon.classList.add('fas', `fa-${faSortIcon[sort]}`, 'fa-fw');
         icon.style.setProperty('margin-right', '0.2em');
-        directionIcon.style.setProperty('margin-left', '0.2em');
-        aAsc.append(icon, title, directionIcon.cloneNode(true));
-        directionIcon.classList.replace(
-            `fa-${faDirectionIcon['asc']}`,
-            `fa-${faDirectionIcon['desc']}`
-        );
-        aDesc.append(
-            icon.cloneNode(true),
-            title.cloneNode(true),
-            directionIcon
-        );
-        sortSelectionList.append(liAsc, liDesc);
+
+        const ascBtn = document.createElement('button');
+        ascBtn.classList.add('btn', 'btn-xs', 'btn-default');
+        ascBtn.dataset.direction = 'asc';
+        const ascIcon = document.createElement('i');
+        ascIcon.classList.add('fas', `fa-${faDirectionIcon['asc']}`);
+        ascBtn.append(ascIcon);
+
+        const descBtn = document.createElement('button');
+        descBtn.classList.add('btn', 'btn-xs', 'btn-default');
+        descBtn.dataset.direction = 'desc';
+        const descIcon = document.createElement('i');
+        descIcon.classList.add('fas', `fa-${faDirectionIcon['desc']}`);
+        descBtn.append(descIcon);
+
+        const btnGroup = document.createElement('div');
+        btnGroup.classList.add('btn-group', 'pull-right');
+        btnGroup.append(ascBtn, descBtn);
+        btnGroup.style.setProperty('margin-left', '1em');
+
+        if (sort === sortingType) {
+            if (sortingDirection === 'asc') ascBtn.setAttribute('disabled', '');
+            else descBtn.setAttribute('disabled', '');
+        }
+
+        link.append(icon, $m(`sort.types.${sort}`).toString(), btnGroup);
+        listElement.append(link);
+        sortSelectionList.append(listElement);
     });
     sortSelectionList.addEventListener('click', async event => {
         event.preventDefault();
         const target = event.target as HTMLElement | null;
-        const sorter = target?.closest<HTMLLIElement>(
-            'li[data-sort][data-direction]'
+        const sorter = target?.closest<HTMLLIElement>('li[data-sort]');
+        const directionBtn = target?.closest<HTMLButtonElement>(
+            'li[data-sort] button[data-direction]'
         );
         if (!sorter) return;
+        sortSelectionList
+            .querySelector<HTMLButtonElement>('button[data-direction]:disabled')
+            ?.removeAttribute('disabled');
+
         sortingType = sorter.dataset.sort as Sort;
-        const sortDirection = sorter.dataset.direction as 'asc' | 'desc';
+        const sortDirection = (directionBtn?.dataset.direction ?? 'asc') as
+            | 'asc'
+            | 'desc';
         panelBody.classList[sortDirection === 'desc' ? 'add' : 'remove'](
             reverseClass
         );
@@ -233,6 +244,11 @@ export default (
         document
             .querySelector<SVGElement>(`#${directionIcon.id}`)
             ?.setAttribute('data-icon', faDirectionIcon[sortDirection]);
+        sorter
+            .querySelector<HTMLButtonElement>(
+                `button[data-direction="${sortDirection}"]`
+            )
+            ?.setAttribute('disabled', 'disabled');
         await setSetting('sortMissionsType', sortingType);
         await setSetting('sortMissionsDirection', sortDirection);
         if (updateOrderListTimeout) window.clearTimeout(updateOrderListTimeout);
