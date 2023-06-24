@@ -1977,9 +1977,9 @@ __metadata:
   linkType: hard
 
 "@mdn/browser-compat-data@npm:^5.2.34, @mdn/browser-compat-data@npm:^5.2.47":
-  version: 5.2.64
-  resolution: "@mdn/browser-compat-data@npm:5.2.64"
-  checksum: ba3778fe837c2e6eb22e9fb2b8510d94b3f02e7e9105f2720725c71d47b6b62a4aec1f5fb83da9f156fc45469f0741930746b26707aecd6c719fa36625bb71c8
+  version: 5.2.67
+  resolution: "@mdn/browser-compat-data@npm:5.2.67"
+  checksum: 952776adf0ea4dc379185e95103784ba6b5b4093b15232ec3760a2f95b31585a5486f2d2a5aaff396b0a8875315f4ae8960105288dd62cff81e72990204070a6
   languageName: node
   linkType: hard
 
@@ -4626,9 +4626,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.431":
-  version: 1.4.433
-  resolution: "electron-to-chromium@npm:1.4.433"
-  checksum: 106e3bc2fb4ee5eddd4b141363900d5cd731c7579aa6bebd02509c52d6b598a1684aba1b75791e838dfa54dec0a40ddd17ea01199041ea46310aafb206395e43
+  version: 1.4.440
+  resolution: "electron-to-chromium@npm:1.4.440"
+  checksum: 702f8f045492a15bc6eee408987c986de1e78a568b34fc68ed6a21e1fc03f3a3019e7e6a6d88c1f4468fbe788045425e70104ec9b481825d0bce00e3841418b8
   languageName: node
   linkType: hard
 
@@ -4717,11 +4717,11 @@ __metadata:
   linkType: hard
 
 "envinfo@npm:^7.8.1":
-  version: 7.8.1
-  resolution: "envinfo@npm:7.8.1"
+  version: 7.9.0
+  resolution: "envinfo@npm:7.9.0"
   bin:
     envinfo: dist/cli.js
-  checksum: de736c98d6311c78523628ff127af138451b162e57af5293c1b984ca821d0aeb9c849537d2fde0434011bed33f6bca5310ca2aab8a51a3f28fc719e89045d648
+  checksum: 133583b07510309374b91c943f436c12cecc2d7b8520d65b699a80713773d130ccccb55fe6204d5b6a700b85357b6106d8d0dcf6ac24809cb44b24841e40543f
   languageName: node
   linkType: hard
 
@@ -5706,8 +5706,8 @@ __metadata:
   linkType: hard
 
 "glob@npm:^10.2.2":
-  version: 10.2.7
-  resolution: "glob@npm:10.2.7"
+  version: 10.3.0
+  resolution: "glob@npm:10.3.0"
   dependencies:
     foreground-child: ^3.1.0
     jackspeak: ^2.0.3
@@ -5716,7 +5716,7 @@ __metadata:
     path-scurry: ^1.7.0
   bin:
     glob: dist/cjs/src/bin.js
-  checksum: 555205a74607d6f8d9874ba888924b305b5ea1abfaa2e9ccb11ac713d040aac7edbf7d8702a2f4a1cd81b2d7666412170ce7ef061d33cddde189dae8c1a1a054
+  checksum: 6fa4ac0a86ffec1c5715a2e6fbdd63e1e7f1c2c8f5db08cc3256cdfcb81093678e7c80a3d100b502a1b9d141369ecf87bc24fe2bcb72acec7b14626d358a4eb0
   languageName: node
   linkType: hard
 
@@ -5774,15 +5774,15 @@ __metadata:
   linkType: hard
 
 "globby@npm:^13.1.3, globby@npm:^13.1.4":
-  version: 13.1.4
-  resolution: "globby@npm:13.1.4"
+  version: 13.2.0
+  resolution: "globby@npm:13.2.0"
   dependencies:
     dir-glob: ^3.0.1
     fast-glob: ^3.2.11
     ignore: ^5.2.0
     merge2: ^1.4.1
     slash: ^4.0.0
-  checksum: e8bc13879972082d590cd1b0e27080d90d2e12fff7eeb2cee9329c29115ace14cc5b9f899e3d6beb136ba826307a727016658919a6f383e1511d698acee81741
+  checksum: 0a3dd786571788adef1c894f22112834cff5bbe061ae6e0a01c5118c39d44b3f1937ef1dae3f8b9bc24756eba84a0923e565b1ad9a4ec52831d7e2a04c035e75
   languageName: node
   linkType: hard
 
@@ -7240,11 +7240,11 @@ __metadata:
   linkType: hard
 
 "minimatch@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "minimatch@npm:9.0.1"
+  version: 9.0.2
+  resolution: "minimatch@npm:9.0.2"
   dependencies:
     brace-expansion: ^2.0.1
-  checksum: 97f5f5284bb57dc65b9415dec7f17a0f6531a33572193991c60ff18450dcfad5c2dad24ffeaf60b5261dccd63aae58cc3306e2209d57e7f88c51295a532d8ec3
+  checksum: 2eb12e2047a062fdb973fb51b9803f2455e3a00977858c038d66646d303a5a15bbcbc6ed5a2fc403bc869b1309f829ed3acd881d3246faf044ea7a494974b924
   languageName: node
   linkType: hard
 
@@ -8569,7 +8569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.63.6":
+"sass@npm:1.63.6, sass@npm:^1.63.2":
   version: 1.63.6
   resolution: "sass@npm:1.63.6"
   dependencies:
@@ -8579,19 +8579,6 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 3372319904658eeafaf78a09a6fcb3368a68e6d76fe3c43c2d009f4f72e475ab22b82ef483ef5c00fcda3ab00066846c0bd88c36b42771b855f6ab80c7eda541
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.63.2":
-  version: 1.63.4
-  resolution: "sass@npm:1.63.4"
-  dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
-    immutable: ^4.0.0
-    source-map-js: ">=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 12bde5beff85a7018157d90c8b9d5aec8b56832f89fcfeca146f10936eecf97e669d22fd41f812b3407ed259bbb114d69c9ecbfc7ee9b15308211fb910cdf5eb
   languageName: node
   linkType: hard
 
@@ -8654,7 +8641,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.5.3":
+"semver@npm:7.5.3, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.6, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.1, semver@npm:^7.5.2":
   version: 7.5.3
   resolution: "semver@npm:7.5.3"
   dependencies:
@@ -8671,17 +8658,6 @@ __metadata:
   bin:
     semver: ./bin/semver.js
   checksum: 1b26ecf6db9e8292dd90df4e781d91875c0dcc1b1909e70f5d12959a23c7eebb8f01ea581c00783bbee72ceeaad9505797c381756326073850dc36ed284b21b9
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.6, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.1, semver@npm:^7.5.2":
-  version: 7.5.2
-  resolution: "semver@npm:7.5.2"
-  dependencies:
-    lru-cache: ^6.0.0
-  bin:
-    semver: bin/semver.js
-  checksum: 3fdf5d1e6f170fe8bcc41669e31787649af91af7f54f05c71d0865bb7aa27e8b92f68b3e6b582483e2c1c648008bc84249d2cd86301771fe5cbf7621d1fe5375
   languageName: node
   linkType: hard
 
@@ -9217,7 +9193,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.18.1":
+"terser@npm:5.18.1, terser@npm:^5.0.0, terser@npm:^5.15.1, terser@npm:^5.16.8":
   version: 5.18.1
   resolution: "terser@npm:5.18.1"
   dependencies:
@@ -9228,20 +9204,6 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: 15d1af05aae451ce844f7dc3627db09ec79f842fa9a3cf2b40221a639249d70fcd91fd3baa9c970842d75e1dd2fb957eb1afd8a0fcfc9b2a3296076a4e72528a
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.0.0, terser@npm:^5.15.1, terser@npm:^5.16.8":
-  version: 5.18.0
-  resolution: "terser@npm:5.18.0"
-  dependencies:
-    "@jridgewell/source-map": ^0.3.3
-    acorn: ^8.8.2
-    commander: ^2.20.0
-    source-map-support: ~0.5.20
-  bin:
-    terser: bin/terser
-  checksum: d01eb9805a978b3338b68fd2d9e35c1cd4cad78ea093dc92c7b3c38965232f0af0f95e0c6d90920ecf600a74135c608aebae26302c036c01393a590e1918bb90
   languageName: node
   linkType: hard
 
