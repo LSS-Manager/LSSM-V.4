@@ -13,6 +13,10 @@ export function getCityFromAddress(address: string): string {
     return addressSplit.at(-1)?.trim() ?? '–';
 }
 
+// matches all Zip-styles of the countries supported by LSSM
+const ZIP_REGEX =
+    /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([\dA-Z]{2,4} [\dA-Z]{3}))/u;
+
 /**
  * A method to remove the ZIP Code from a city name.
  * All ZIP-Styles of countries supported by LSSM are detected.
@@ -20,13 +24,17 @@ export function getCityFromAddress(address: string): string {
  * @returns - The City name without ZIP Code.
  */
 export function removeZipFromCity(city: string): string {
-    return city
-        .replace(
-            // matches all Zip-styles of the countries supported by LSSM
-            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([\dA-Z]{2,4} [\dA-Z]{3}))/u,
-            ''
-        )
-        .trim();
+    return city.replace(ZIP_REGEX, '').trim();
+}
+
+/**
+ * A method to extract the ZIP Code from a city name.
+ * All ZIP-Styles of countries supported by LSSM are detected.
+ * @param city - The City (including ZIP Code) to extract the ZIP Code from.
+ * @returns - The ZIP Code as a string.
+ */
+export function getZipFromCity(city: string): string {
+    return city.match(ZIP_REGEX)?.[0].trim() ?? '';
 }
 
 /**

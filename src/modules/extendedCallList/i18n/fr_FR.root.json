@@ -177,7 +177,8 @@
             "distance_station": "Distance jusqu'à la prochaine station",
             "id": "Age",
             "remaining_patients": "Patients actuels",
-            "remaining_prisoners": "Prisonniers actuels"
+            "remaining_prisoners": "Prisonniers actuels",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }

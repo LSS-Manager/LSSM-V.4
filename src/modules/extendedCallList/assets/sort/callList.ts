@@ -1,11 +1,16 @@
-import type { Building } from 'typings/Building';
+import {
+    getCityFromAddress,
+    getZipFromCity,
+} from '../../../shareAlliancePost/assets/util';
+
 import type { LatLng } from 'leaflet';
-import type { $m, ModuleMainFunction } from 'typings/Module';
+import type { Building } from 'typings/Building';
 import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
     PatientMarkerAddCombined,
 } from 'typings/Ingame';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export type Sort =
     | 'alphabet'
@@ -15,7 +20,13 @@ export type Sort =
     | 'distance_station'
     | 'id'
     | 'remaining_patients'
-    | 'remaining_prisoners';
+    | 'remaining_prisoners'
+    | 'zip_code';
+
+interface StringSorting {
+    items: string[];
+    order: number[];
+}
 
 export default (
     LSSM: Vue,
@@ -37,6 +48,7 @@ export default (
         'alphabet',
         'distance_dispatch',
         'distance_station',
+        'zip_code',
     ];
     let sortingType = sort;
     const sortingDirection = direction;
@@ -117,6 +129,8 @@ export default (
     const maxCSSInteger = Number(getComputedStyle(cssMaxIntDummy).order);
     cssMaxIntDummy.remove();
 
+    const maxListOrderDistance = Math.floor(Math.sqrt(maxCSSInteger));
+
     const numToCSSRange = (num: number): number => {
         let rangedNum = num;
         while (rangedNum > maxCSSInteger) rangedNum -= maxCSSInteger;
@@ -131,6 +145,44 @@ export default (
     const distanceToCSSRange = (distance: number) =>
         Math.floor((maxWorldDistance / maxCSSInteger) * distance);
 
+    const zipCodes: StringSorting = {
+        items: [],
+        order: [],
+    };
+
+    const findStringOrder = (str: string, sorting: StringSorting) => {
+        if (sorting.items.includes(str))
+            return sorting.order[sorting.items.indexOf(str)];
+
+        if (sorting.items.length === 0) {
+            sorting.items.push(str);
+            sorting.order.push(maxListOrderDistance);
+            return maxListOrderDistance;
+        }
+
+        for (let i = 0; i < sorting.items.length; i++) {
+            const item = sorting.items[i];
+            if (str.localeCompare(item) < 0) {
+                const lastOrderNr = i ? sorting.order[i - 1] : 0;
+                const nextOrderNr = sorting.order[i];
+                let thisOrderNr = Math.floor(
+                    lastOrderNr + (nextOrderNr - lastOrderNr) / 2
+                );
+                if (Number.isNaN(thisOrderNr))
+                    thisOrderNr = lastOrderNr + maxListOrderDistance;
+                sorting.items.splice(i, 0, str);
+                sorting.order.splice(i, 0, thisOrderNr);
+                return thisOrderNr;
+            }
+        }
+
+        const lastOrderNr = sorting.order.at(-1) ?? 0;
+        const nextOrderNr = lastOrderNr + maxListOrderDistance;
+        sorting.items.push(str);
+        sorting.order.push(nextOrderNr);
+        return nextOrderNr;
+    };
+
     enum faSortIcon {
         alphabet = 'font',
         credits = 'dollar-sign',
@@ -140,6 +192,7 @@ export default (
         id = 'clock-rotate-left',
         remaining_patients = 'user-injured',
         remaining_prisoners = 'handcuffs',
+        zip_code = 'map-location-dot',
     }
 
     enum faDirectionIcon {
@@ -302,16 +355,16 @@ export default (
             parseFloat(mission.getAttribute('longitude') ?? '0')
         );
 
-    const orderFunctions: Record<Sort, (mission: HTMLDivElement) => string> = {
-        default: () => '0',
-        id: mission =>
-            numToCSSRange(
-                parseInt(mission.getAttribute('mission_id') ?? '0')
-            ).toString(),
+    const orderFunctions: Record<
+        Sort,
+        (mission: HTMLDivElement) => number | undefined
+    > = {
+        default: () => 0,
+        id: mission => parseInt(mission.getAttribute('mission_id') ?? '0'),
         credits: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
             if (missionType === '-1' || missionType === 'null')
-                return (maxCSSInteger - 1).toString();
+                return maxCSSInteger - 1;
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex && overlayIndex !== 'null')
@@ -320,20 +373,16 @@ export default (
                 mission.getAttribute('data-additive-overlays') ?? 'null';
             if (additionalOverlay && additionalOverlay !== 'null')
                 missionType += `/${additionalOverlay}`;
-            return numToCSSRange(
-                missionsById[missionType]?.average_credits ?? 0
-            ).toString();
+            return missionsById[missionType]?.average_credits;
         },
         remaining_patients: mission => {
             if (
                 mission.querySelector(
                     '[id^="mission_patients_"] [id^="patient_"]'
                 )
-            ) {
-                return mission
-                    .querySelectorAll('.patient_progress')
-                    .length.toString();
-            }
+            )
+                return mission.querySelectorAll('.patient_progress').length;
+
             if (
                 mission
                     .querySelector<HTMLDivElement>(
@@ -341,25 +390,17 @@ export default (
                     )
                     ?.style.getPropertyValue('display') !== 'none'
             ) {
-                return LSSM.$utils
-                    .getNumberFromText(
-                        mission.querySelector(
-                            '.mission_list_patient_icon + strong'
-                        )?.textContent ?? '0'
-                    )
-                    .toString();
+                return LSSM.$utils.getNumberFromText(
+                    mission.querySelector('.mission_list_patient_icon + strong')
+                        ?.textContent ?? '0'
+                );
             }
-            return '0';
+            return 0;
         },
         remaining_prisoners: mission => {
-            return (
-                mission
-                    .querySelector(
-                        '.mission_prisoners[id^="mission_prisoners_"]'
-                    )
-                    ?.querySelectorAll('.small[id^="prisoner_"]')
-                    .length.toString() ?? '0'
-            );
+            return mission
+                .querySelector('.mission_prisoners[id^="mission_prisoners_"]')
+                ?.querySelectorAll('.small[id^="prisoner_"]').length;
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
@@ -371,9 +412,7 @@ export default (
                 mission.getAttribute('data-additive-overlays') ?? 'null';
             if (additionalOverlay && additionalOverlay !== 'null')
                 missionType += `/${additionalOverlay}`;
-            return numToCSSRange(
-                missionIdsByAlphabet[missionType] ?? 0
-            ).toString();
+            return missionIdsByAlphabet[missionType];
         },
         distance_dispatch: mission => {
             const latLng = getLatLngFromMission(mission);
@@ -381,7 +420,7 @@ export default (
                 Math.min(
                     ...dispatchCenterLatLngs.map(dc => latLng.distanceTo(dc))
                 )
-            ).toString();
+            );
         },
         distance_station: mission => {
             const latLng = getLatLngFromMission(mission);
@@ -389,7 +428,18 @@ export default (
                 Math.min(
                     ...vehicleBuildingLatLngs.map(dc => latLng.distanceTo(dc))
                 )
-            ).toString();
+            );
+        },
+        zip_code: mission => {
+            const address =
+                mission
+                    .querySelector<HTMLSpanElement>(
+                        `#mission_address_${mission.getAttribute('mission_id')}`
+                    )
+                    ?.textContent?.trim() ?? '–';
+            const zip = getZipFromCity(getCityFromAddress(address));
+
+            return findStringOrder(zip, zipCodes);
         },
     };
 
@@ -441,10 +491,12 @@ export default (
 
     const setMissionOrder = (mission: HTMLDivElement) => {
         const missionId = mission.getAttribute('mission_id') ?? '0';
-        const orderValue =
+        const order = numToCSSRange(
             orderFunctions[sortingType]?.(mission) ??
-            orderFunctions.id(mission);
-        mission.style.setProperty('order', orderValue);
+                orderFunctions.id(mission) ??
+                0
+        );
+        mission.style.setProperty('order', order.toString());
         const list =
             mission.parentElement?.id?.replace(/^mission_list_?/u, '') ?? '';
         if (!missionOrderValuesById.hasOwnProperty(list))
@@ -453,11 +505,10 @@ export default (
             delete missionOrderValuesById[list][missionId];
         } else if (
             !missionOrderValuesById[list].hasOwnProperty(missionId) ||
-            missionOrderValuesById[list][missionId].order !==
-                parseInt(orderValue)
+            missionOrderValuesById[list][missionId].order !== order
         ) {
             missionOrderValuesById[list][missionId] = {
-                order: parseInt(orderValue),
+                order,
                 el: mission,
             };
             if (updateOrderListTimeout)
