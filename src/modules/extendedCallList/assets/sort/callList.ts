@@ -3,14 +3,14 @@ import {
     getZipFromCity,
 } from '../../../shareAlliancePost/assets/util';
 
-import type { LatLng } from 'leaflet';
 import type { Building } from 'typings/Building';
+import type { LatLng } from 'leaflet';
+import type { $m, ModuleMainFunction } from 'typings/Module';
 import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
     PatientMarkerAddCombined,
 } from 'typings/Ingame';
-import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export type Sort =
     | 'alphabet'
