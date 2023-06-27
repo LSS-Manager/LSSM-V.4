@@ -492,9 +492,7 @@ export default (
     const setMissionOrder = (mission: HTMLDivElement) => {
         const missionId = mission.getAttribute('mission_id') ?? '0';
         const order = numToCSSRange(
-            orderFunctions[sortingType]?.(mission) ??
-                orderFunctions.id(mission) ??
-                0
+            orderFunctions[sortingType]?.(mission) ?? 0
         );
         mission.style.setProperty('order', order.toString());
         const list =
