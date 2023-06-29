@@ -230,6 +230,8 @@ export default {
         'Mine',
         'Beach',
         'Aged Care Home',
+        'Dam',
+        'Silo',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

@@ -232,6 +232,8 @@ export default {
         'Silos',
         'Centrum Miasta',
         'Hangar lotniczy',
+        'Tama',
+        'Biblioteki',
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],
