@@ -114,8 +114,8 @@ export default async (LSSM: Vue) => {
         dispatchCenterFilter,
         searchLabel
     );
-    document
-        .querySelector<HTMLHeadingElement>('form h3')
+    Array.from(document.querySelectorAll<HTMLHeadingElement>('form h3'))
+        .find(h3 => h3.nextElementSibling?.id === 'accordion')
         ?.before(filterWrapper);
 
     const filter = () => {
