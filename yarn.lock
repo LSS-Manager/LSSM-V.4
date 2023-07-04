@@ -5924,13 +5924,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts-vue@npm:1.4.2":
-  version: 1.4.2
-  resolution: "highcharts-vue@npm:1.4.2"
+"highcharts-vue@npm:1.4.3":
+  version: 1.4.3
+  resolution: "highcharts-vue@npm:1.4.3"
   peerDependencies:
     highcharts: ">=5.0.0"
     vue: ">=1.0.0"
-  checksum: 9340547d80531c6cf7e4c867b60e9593233e9a8b793bbf109448f5cbbdfa7b5c91f32d10569c703f1b4fbfc7980dbb899f630e218f57bb00f7735774b2d6f035
+  checksum: bd649b654e839e065e2c861148ca18df2de23c6bc7892bb2353749e886d3549ee4f8a6bfbcc2b314fffd0a9a4d1fa0790fcd60162725bb6442a35946e1ac4091
   languageName: node
   linkType: hard
 
@@ -6999,7 +6999,7 @@ __metadata:
     eslint-plugin-vue: 9.15.1
     he: 1.2.0
     highcharts: 11.1.0
-    highcharts-vue: 1.4.2
+    highcharts-vue: 1.4.3
     html-loader: 4.2.0
     js-yaml: 4.1.0
     leaflet.heat: 0.2.0
