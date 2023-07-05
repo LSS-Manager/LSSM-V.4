@@ -426,7 +426,6 @@ export default {
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
-                isVehicleExtension: false,
                 //givesBeds: 10,
                 cannotDisable: true,
             },
@@ -1113,8 +1112,6 @@ export default {
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
-                isVehicleExtension: false,
-                givesParkingLots: 0,
                 //givesCells: 10,
                 cannotDisable: true,
             },
