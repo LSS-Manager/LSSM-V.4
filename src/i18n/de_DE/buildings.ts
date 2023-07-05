@@ -272,7 +272,27 @@ export default {
             credits: [10_000, 50_000, ...Array(12).fill(100_000)],
             coins: [10, 15, ...Array(12).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Großwache',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Tage',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) /
+                        10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            }
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Keine Grenze',
         maxLevel: 14,
@@ -392,6 +412,24 @@ export default {
                 requiredExtensions: [1],
                 cannotDisable: true,
             },
+            {
+                caption: 'Großkrankenhaus',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Tage',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 4)) /
+                        5
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: false,
+                //givesBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'Keine Grenze',
@@ -493,6 +531,47 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [95],
                 parkingLotReservations: [[95], [95]],
+            },
+            {
+                caption: 'Großwache',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Tage',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                        10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Großgewahrsam',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Tage',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                        10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                //givesCells: 10,
+                cannotDisable: true,
+                unlocksVehicleTypes: [52],
+                parkingLotReservations: [[52]],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
@@ -1020,6 +1099,25 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Großgewahrsam',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Tage',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[16]?.length ?? 0)) /
+                        5
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: false,
+                givesParkingLots: 0,
+                //givesCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'Keine Grenze',

@@ -689,7 +689,7 @@ export default {
         coins: 25,
         staff: { min: 1, max: 2 },
         icon: 'bus-alt',
-        possibleBuildings: [11],
+        possibleBuildings: [6, 11],
     },
     53: {
         caption: 'Dekon-P',
