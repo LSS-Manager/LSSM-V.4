@@ -58,8 +58,9 @@ Die Antwort lautet: Ja – über Umwege – allerdings bieten wir keinen Support
 Wie geht das?
 
 1. Firefox für Android installieren (Muss mindestens Version 110 sein)
-2. Firefox starten und auf das Kontextmenü (drei Punkte in der Menüleiste) öffnen
-3. Unter empfohlene Addons sollte jetzt Tampermonkey vorgeschlagen werden
+2. Firefox starten und das Kontextmenü (drei Punkte in der Menüleiste) öffnen
+3. Unter "empfohlene Addons" sollte jetzt Tampermonkey vorgeschlagen werden
+4. Weiter mit der normalen [Installationsanleitung][docs] fortfahren
 
 Trotzdem weisen wir nochmals explizit darauf hin, dass der LSSM nicht für mobile Endgeräte gedacht ist und unser Support somit, wenn überhaupt, nur sehr eingeschränkt vorhanden ist.
 
@@ -70,7 +71,7 @@ Ja, das geht. Klicke dazu einfach in den [Einstellungen][docs.settings] auf `Exp
 ## Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
-## Wo seh ich, ob die LSSM-Server grad online sind? 
+## Wo seh ich, ob die LSSM-Server grad online sind?
 Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Oder im <discord-channel channel="uptime"/> auf unserem <discord/>
