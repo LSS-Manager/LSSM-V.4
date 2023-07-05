@@ -46,6 +46,18 @@ These two browsers can be described as the "problem children" of a modern web de
 We don't see the point of doing this everywhere and officially **do not** support these two browsers.
 :::
 
+### Using the LSSM on a smartphone
+We regularly receive requests asking whether the LSSM can also be used on cell phones.
+
+The answer is: Yes - through detours - but we do not offer any support for this. Activation is at your own risk.
+
+How does it work?
+
+1. Install Firefox for Android (Must be at least version 110)
+2. Start Firefox and open the context menu (three dots in the menu bar)
+3. Under "recommended addons" Tampermonkey should now be suggested.
+4. continue with the normal [installation instructions][docs]
+
 ## I want to share my setup with friends or use it on multiple devices. Is that possible?
 Yes, it is. Just open the [settings][docs.settings] and click `Export`, to download a config-file. `Import` lets you choose a config-file to import the settings.
 
