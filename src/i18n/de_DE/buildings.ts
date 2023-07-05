@@ -422,7 +422,7 @@ export default {
                 ): number => Math.floor((buildingsByType[0]?.length ?? 4) / 5),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
-                //givesBeds: 10,
+                newBeds: 10,
                 cannotDisable: true,
             },
         ],
@@ -563,7 +563,7 @@ export default {
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                //givesCells: 10,
+                newCells: 10,
                 cannotDisable: true,
                 unlocksVehicleTypes: [52],
                 parkingLotReservations: [[52]],
@@ -1104,7 +1104,7 @@ export default {
                 ): number => Math.floor((buildingsByType[16]?.length ?? 0) / 5),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
-                //givesCells: 10,
+                newCells: 10,
                 cannotDisable: true,
             },
         ],
