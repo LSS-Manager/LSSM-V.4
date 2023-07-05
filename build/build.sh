@@ -157,7 +157,7 @@ if [[ $_RUN_STEP_YARN_SYMLINK = true ]]; then
     start_time=$(now)
     echo "### [🔗] symlink yarn executable ###"
     enable_debugging
-    ln -s "$(find ./.yarn/releases/ -name 'yarn-*.cjs')" ./yarn
+    ln -sf "$(find ./.yarn/releases/ -name 'yarn-*.cjs')" ./yarn
     disable_debugging
     end_time=$(now)
     echo "=== [🔗] symlink yarn executable: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="

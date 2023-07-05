@@ -67,7 +67,7 @@ jobs:
             - name: '[🔗] symlink yarn executable'
               id: yarn_symlink
               run: |
-                  ln -s "$(find ./.yarn/releases/ -name 'yarn-*.cjs')" ./yarn
+                  ln -sf "$(find ./.yarn/releases/ -name 'yarn-*.cjs')" ./yarn
 
             - name: '[ℹ] print versions (node, yarn, git)'
               id: versions
