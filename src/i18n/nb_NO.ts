@@ -210,6 +210,8 @@ export default {
         'Kirke',
         'Fengsel',
         'Strand',
+        'Demning',
+        'Bibliotek',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [306, 307],

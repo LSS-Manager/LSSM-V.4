@@ -105,8 +105,6 @@ export default async (LSSM: Vue) => {
     const searchLabel = document.createElement('label');
     const searchInput = document.createElement('input');
     searchInput.setAttribute('type', 'search');
-    const clearfix = document.createElement('div');
-    clearfix.classList.add('clearfix');
 
     searchLabel.append(searchInput);
 
@@ -116,7 +114,9 @@ export default async (LSSM: Vue) => {
         dispatchCenterFilter,
         searchLabel
     );
-    accordion.prepend(filterWrapper, clearfix);
+    Array.from(document.querySelectorAll<HTMLHeadingElement>('form h3'))
+        .find(h3 => h3.nextElementSibling?.id === 'accordion')
+        ?.before(filterWrapper);
 
     const filter = () => {
         const search = searchInput.value.trim().toLowerCase();

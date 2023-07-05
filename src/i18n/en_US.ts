@@ -247,6 +247,7 @@ export default {
         'Library',
         'Launderette',
         'Pipeline',
+        'Silo',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

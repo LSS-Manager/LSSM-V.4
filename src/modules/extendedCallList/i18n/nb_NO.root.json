@@ -130,7 +130,8 @@
             "distance_station": "Distance to next station",
             "id": "Alder",
             "remaining_patients": "Nåværende pasienter",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Current prisoners",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }
