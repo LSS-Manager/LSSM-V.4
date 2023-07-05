@@ -41,8 +41,10 @@ export default (
         }
 
         const searchAttr = panel.getAttribute('search_attribute') ?? '';
-        if (!searchAttr.includes(prefix))
+        if (!searchAttr.includes(prefix)) {
             panel.setAttribute('search_attribute', `${searchAttr} ${prefix}`);
+            window.searchMission();
+        }
     };
 
     document
