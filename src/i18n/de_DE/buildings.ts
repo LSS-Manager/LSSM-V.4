@@ -284,14 +284,14 @@ export default {
                     Math.floor(
                         ((buildingsByType[2]?.length ?? 0) +
                             (buildingsByType[20]?.length ?? 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
-            }
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Keine Grenze',
@@ -419,11 +419,7 @@ export default {
                 duration: '7 Tage',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number =>
-                    Math.floor(
-                        ((buildingsByType[0]?.length ?? 4)) /
-                        5
-                    ),
+                ): number => Math.floor((buildingsByType[0]?.length ?? 4) / 5),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 //givesBeds: 10,
@@ -542,7 +538,7 @@ export default {
                     Math.floor(
                         ((buildingsByType[6]?.length ?? 0) +
                             (buildingsByType[19]?.length ?? 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
@@ -561,7 +557,7 @@ export default {
                     Math.floor(
                         ((buildingsByType[6]?.length ?? 0) +
                             (buildingsByType[19]?.length ?? 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
@@ -1105,11 +1101,7 @@ export default {
                 duration: '7 Tage',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number =>
-                    Math.floor(
-                        ((buildingsByType[16]?.length ?? 0)) /
-                        5
-                    ),
+                ): number => Math.floor((buildingsByType[16]?.length ?? 0) / 5),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 //givesCells: 10,
