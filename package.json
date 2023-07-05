@@ -16,7 +16,7 @@
         "@fortawesome/fontawesome-svg-core": "6.4.0",
         "@fortawesome/free-solid-svg-icons": "6.4.0",
         "@fortawesome/vue-fontawesome": "2.0.10",
-        "acorn": "8.9.0",
+        "acorn": "8.10.0",
         "acorn-walk": "8.2.0",
         "broadcast-channel": "4.20.2",
         "emoji-toolkit": "7.0.1",
