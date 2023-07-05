@@ -204,6 +204,8 @@ export default {
         'Ufficio Postale',
         'Raffineria di Petrolio',
         'Impianto Chimico',
+        'Hangar',
+        'Biblioteca',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [214],

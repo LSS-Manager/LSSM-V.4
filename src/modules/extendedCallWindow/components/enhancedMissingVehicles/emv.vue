@@ -22,6 +22,7 @@
             {{ $m('tip.textMode') }}
         </div>
         <font-awesome-icon
+            :id="collapseBtnId"
             class="pull-right"
             :class="{ 'hover-tip': hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
@@ -155,6 +156,7 @@ export default Vue.extend<
             ),
     },
     data() {
+        const rootStore = useRootStore();
         return {
             faAngleDoubleUp,
             faAngleDoubleDown,
@@ -165,7 +167,8 @@ export default Vue.extend<
             faExpandAlt,
             faTable,
             faParagraph,
-            id: useRootStore().nodeAttribute('missing_text', true),
+            id: rootStore.nodeAttribute('missing_text', true),
+            collapseBtnId: rootStore.nodeAttribute('emv-collapse-btn', true),
             missingRequirementsSearch: '',
             sort: 'vehicle',
             sortDir: 'asc',

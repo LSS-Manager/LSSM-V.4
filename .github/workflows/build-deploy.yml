@@ -4,6 +4,10 @@ run-name: '[👷🚀] Build on `${{ github.ref }}`${{ (github.repository_owner =
 
 on:
     push:
+        branches:
+            - master
+            - dev
+    workflow_dispatch:
 
 jobs:
     build:

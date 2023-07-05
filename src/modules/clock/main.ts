@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import type { ModuleMainFunction } from 'typings/Module';
 
@@ -62,11 +62,16 @@ export default <ModuleMainFunction>(async ({
     }
 
     const clocks = document.querySelectorAll(`.${className}`);
+
+    const timezone = await getSetting<string>('timeZone');
+
     setInterval(() => {
         clocks.forEach(clock => {
-            clock.textContent = moment().format(
-                clock.getAttribute('format')?.toString()
-            );
+            clock.textContent = timezone
+                ? moment()
+                      .tz(timezone)
+                      .format(clock.getAttribute('format')?.toString())
+                : moment().format(clock.getAttribute('format')?.toString());
         });
     }, 1000);
 });

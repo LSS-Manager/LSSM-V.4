@@ -17,8 +17,8 @@ export default {
         coins: 30,
         credits: 100_000,
         levelPrices: {
-            credits: [10_000, 50_000, ...Array(14).fill(100_000)],
-            coins: [10, 15, ...Array(14).fill(20)],
+            credits: [10_000, 50_000, ...Array(17).fill(100_000)],
+            coins: [10, 15, ...Array(17).fill(20)],
         },
         extensions: [
             {
@@ -151,6 +151,15 @@ export default {
                 parkingLotReservations: [[113]],
                 unlocksVehicleTypes: [113],
             },
+            {
+                caption: 'Lüfter-Erweiterung',
+                credits: 75_000,
+                coins: 15,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [114, 115, 116],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -201,9 +210,9 @@ export default {
                 requiredStorageUpgrades: ['additional_containers_4'],
             },
         },
-        levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: '6.000 mit kleinen Feuerwachen zusammen',
-        maxLevel: 16,
+        maxLevel: 19,
         special:
             'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
         startPersonnel: 10,
@@ -1175,6 +1184,15 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [111],
+            },
+            {
+                caption: 'Lüfter-Erweiterung',
+                credits: 75_000,
+                coins: 15,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [114, 115, 116],
             },
         ],
         storageUpgrades: {

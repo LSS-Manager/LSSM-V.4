@@ -59,6 +59,7 @@
                 589,
                 590
             ],
+            "💐": [360, 742, 743, 744, 745, 746, 747, 748],
             "🥅": [371, 372, 373, 374, 375, 376, 641, 642],
             "🥚": [
                 284,
@@ -227,7 +228,8 @@
             "distance_station": "Entfernung zur nächsten Wache",
             "id": "Alter",
             "remaining_patients": "aktuelle Patienten",
-            "remaining_prisoners": "aktuelle Gefangene"
+            "remaining_prisoners": "aktuelle Gefangene",
+            "zip_code": "Postleitzahl (weltweit)"
         }
     }
 }

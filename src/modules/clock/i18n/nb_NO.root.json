@@ -1,5 +1,6 @@
 {
     "description": "Viser en konfigurerbar klokke i diverse menyer.",
+    "localTime": "local time",
     "name": "Klokke",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Her kan du stille inn formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#konfiguration\">her</a>.",
             "title": "Klokkeformat som overlegg"
+        },
+        "timeZone": {
+            "description": "Here, you can set time timezone of the clock(s).",
+            "title": "Timezone"
         }
     }
 }

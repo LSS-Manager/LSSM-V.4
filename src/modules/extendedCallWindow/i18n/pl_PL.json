@@ -12,7 +12,7 @@
             "selection": "wybór pojazdów"
         }
     },
-    "arrHighlight": { "removeBeforeParsing": "" },
+    "arrHighlight": { "removeBeforeParsing": ["(możliwy alarm fałszywy)"] },
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Pojazd WRD",

@@ -14,7 +14,7 @@
             </li>
         </ul>
         <div>
-            {{ settingsText }}:
+            {{ settingsTextProp }}:
             <ul>
                 <li
                     v-for="(settings, module) in variables.noMapkitSettings"
@@ -63,7 +63,7 @@ const props = defineProps({
     },
 });
 
-const { settingsText } = toRefs(props);
+const { settingsText: settingsTextProp } = toRefs(props);
 
 const lang = computed(() => pageData.value.lang.replace(/-/gu, '_'));
 const noMapkitModules = computed(() =>

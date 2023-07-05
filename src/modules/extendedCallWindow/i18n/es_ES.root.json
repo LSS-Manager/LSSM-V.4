@@ -142,6 +142,10 @@
             "title": "categoría de vehículos",
             "vehicles": "tipo de vehículos"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Muestra el tipo de vehículo en la lista de unidades disponibles.",
             "title": "Mostrar tipo de vehículo"

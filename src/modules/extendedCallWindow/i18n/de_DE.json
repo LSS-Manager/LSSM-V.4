@@ -106,13 +106,14 @@
             "thw_lkw_7_lkr_19_tm": "LKW 7 Lkr 19 tm",
             "thw_mlw5": "Mannschaftslastwagen Typ V (MLW 5)",
             "thw_mtw": "Mannschaftstransportwagen Technischer Zug (MTW-TZ - THW)",
-            "thw_mzkw": "Mehrzweckkraftwagen (MzKW)",
+            "thw_mzkw": "Mehrzweck-Gerätewagen (FGr N)",
             "thw_tauchkraftwagen": "Tauchkraftwagen",
             "thw_tauchkraftwagen_or_gw_taucher": "Tauchkraftwagen oder GW-Taucher",
             "tlf_only": "Tanklöschfahrzeuge",
             "tm50": "TM 50",
             "turboloescher": "Turbolöscher",
             "ulf": "ULF mit Löscharm",
+            "ventilation": "Lüfter",
             "wasser_amount": "Liter Wasser",
             "wasser_amount_tlf": "Liter Wasser - Nur TLF",
             "wasserwerfer": "Wasserwerfer",
@@ -182,7 +183,8 @@
             "92": [93],
             "96": [61],
             "110": [41],
-            "112": [99]
+            "112": [99],
+            "116": [46]
         },
         "vehicle": "Fahrzeugtyp",
         "vehiclesByRequirement": [
@@ -333,9 +335,10 @@
             { "texts": ["Wasserwerfer"], "vehicles": [72] },
             { "texts": ["Zivilstreifenwagen"], "vehicles": [98] },
             { "texts": ["leBefKw"], "vehicles": [35] },
-            { "texts": ["NEA50"], "vehicles": [110, 111] },
+            { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
-            { "texts": ["MzGW SB"], "vehicles": [109] }
+            { "texts": ["MzGW SB"], "vehicles": [109] },
+            { "texts": ["Lüfter"], "vehicles": [114, 115, 116] }
         ],
         "water": "l. Wasser"
     },

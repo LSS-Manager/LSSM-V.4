@@ -71,7 +71,8 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     .map(
                         ({ max_personnel_override, vehicle_type }) =>
                             max_personnel_override ??
-                            vehicleTypes[vehicle_type].staff.max
+                            vehicleTypes[vehicle_type]?.staff.max ??
+                            0
                     )
                     .reduce((a, b) => a + b, 0)}`;
                 if (
@@ -92,7 +93,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     }">${vehicle.fms_show}</span></td><td>${
                         vehicle.caption
                     }</td><td>(&nbsp;${
-                        vehicleTypes[vehicle.vehicle_type].caption
+                        vehicleTypes[vehicle.vehicle_type]?.caption ?? '🦄'
                     }${
                         vehicle.vehicle_type_caption
                             ? `&nbsp;<small>[&nbsp;${vehicle.vehicle_type_caption}&nbsp;]</small>`

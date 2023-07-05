@@ -124,7 +124,8 @@
             "distance_station": "Dle vzdálenosti ke stanici",
             "id": "Dle stáří",
             "remaining_patients": "Dle pacientů",
-            "remaining_prisoners": "Current prisoners"
+            "remaining_prisoners": "Current prisoners",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }

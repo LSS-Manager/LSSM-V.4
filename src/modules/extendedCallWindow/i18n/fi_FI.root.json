@@ -49,8 +49,8 @@
             "title": "Harmaanna liittymättömät hälytysjärjestelyt"
         },
         "arrMatchHighlightAllWords": {
-            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
-            "title": "Use all words"
+            "description": "Käyttää kaikkia tehtävän nimen sanoja \"Harmaanna liittymättömät hälytysjärjestelyt\" -ominaisuutta varten.",
+            "title": "Käytä kaikkia sanoja"
         },
         "arrSearch": {
             "description": "Näyttää hälytysjärjestelyjen yläpuolella olevan hakupalkin, joka mahdollistaa ARR:ien suodattamisen.",
@@ -200,6 +200,10 @@
             "success": "Vihreä",
             "title": "Ajoneuvolaskuri: väri",
             "warning": "oranssi"
+        },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
         },
         "vehicleTypeInList": {
             "description": "Näyttää ajoneuvotyypin Käytettävissä olevat yksiköt -luettelossa.",

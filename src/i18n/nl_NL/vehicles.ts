@@ -1228,4 +1228,23 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
     },
+    84: {
+        caption: 'Waterwerper',
+        color: '#00788c',
+        credits: 50_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                Politie: {
+                    police_wasserwerfer: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'shower',
+        possibleBuildings: [0, 17],
+    },
 } satisfies Record<number, InternalVehicle>;

@@ -45,6 +45,10 @@
             "description": "Skryje VEA a zobrazí pouze MOS",
             "title": "Skrýt VEA"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "hoverTip": {
             "description": "Popisky pro tlačítka",
             "title": "Popisky"

@@ -6,6 +6,7 @@
         :id="id"
     >
         <font-awesome-icon
+            :id="collapseBtnId"
             class="pull-right"
             :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
@@ -523,6 +524,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-missionHelper',
     data() {
+        const rootStore = useRootStore();
         return {
             faSyncAlt,
             faAngleDoubleUp,
@@ -532,7 +534,11 @@ export default Vue.extend<
             faExpandAlt,
             faSuperscript,
             faSubscript,
-            id: useRootStore().nodeAttribute('missionHelper', true),
+            id: rootStore.nodeAttribute('missionHelper', true),
+            collapseBtnId: rootStore.nodeAttribute(
+                'missionHelper-collapse-btn',
+                true
+            ),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,

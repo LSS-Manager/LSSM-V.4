@@ -50,6 +50,10 @@
             "description": "Całkowicie ukrywa Strażaka i pokazuje tylko SDł.",
             "title": "Ukryj straż pożarną"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "hoverTip": {
             "description": "Etykietki narzędzi, na przykład przycisk nakładki.",
             "title": "Podpowiedzi"

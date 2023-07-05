@@ -55,6 +55,10 @@
             "description": "Hides Support Vehicle completely and shows only MCV.",
             "title": "Hide Support Vehicle"
         },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
+        },
         "hoverTip": {
             "description": "Tooltips for as example the overlay button.",
             "title": "Tooltips"
