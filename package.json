@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.6+20230706.0500",
+    "version": "4.7.6+20230706.0928",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -11,7 +11,6 @@
         "eslint:fix": "./build/build.sh --eslint",
         "check-tsc": "./build/build.sh --tsc",
         "pre-commit": "./build/build.sh --pre-commit",
-
         "prepare": "husky install",
         "postinstall": "husky install"
     },

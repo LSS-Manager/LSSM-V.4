@@ -242,6 +242,10 @@
         "url": "https://github.com/webpack-contrib/html-loader",
         "version": "4.2.0"
     },
+    "husky": {
+        "url": "https://typicode.github.io/husky",
+        "version": "8.0.3"
+    },
     "js-yaml": {
         "version": "4.1.0"
     },
