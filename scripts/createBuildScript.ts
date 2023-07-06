@@ -24,9 +24,10 @@ const excludedSteps = [
     'git_push',
 ];
 const shortcuts = {
-    dependencies: ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
-    quick: ['env', 'format', 'eslint', 'tsc', 'webpack'],
-    full: [],
+    'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
+    'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
+    'pre-commit': ['format', 'eslint', 'tsc'],
+    'full': [],
 };
 const extraConditions: Record<string, string[]> = {
     git_diff: ['$GIT_REPO = true'],

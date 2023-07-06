@@ -74,6 +74,10 @@ while :; do
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true
           _RUN_STEP_WEBPACK=true ;;
+        --pre-commit)
+          _RUN_STEP_FORMAT=true
+          _RUN_STEP_ESLINT=true
+          _RUN_STEP_TSC=true ;;
         --full)
           _RUN_STEP_NODE=true
           _RUN_STEP_YARN_SETUP=true
