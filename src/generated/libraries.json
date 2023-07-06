@@ -105,11 +105,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.60.1"
+        "version": "5.61.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "5.60.1"
+        "version": "5.61.0"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -138,7 +138,7 @@
     },
     "acorn": {
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.9.0"
+        "version": "8.10.0"
     },
     "acorn-walk": {
         "url": "https://github.com/acornjs/acorn",

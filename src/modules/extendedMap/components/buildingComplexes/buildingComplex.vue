@@ -208,6 +208,16 @@
                                 <td v-if="hasBedBuildings">
                                     <template v-if="building.hasBeds">
                                         {{ building.beds }}
+                                        <template
+                                            v-if="building.bedsUnavailable"
+                                        >
+                                            ({{
+                                                $mc(
+                                                    'overview.buildings.inConstruction',
+                                                    building.bedsUnavailable
+                                                )
+                                            }})
+                                        </template>
 
                                         <template
                                             v-if="
@@ -1294,6 +1304,7 @@ type MaybeInterface<
 
 type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & {
     beds: number;
+    bedsUnavailable: number;
     is_alliance_shared: boolean;
     alliance_share_credits_percentage: 0 | 10 | 20 | 30 | 40 | 50;
 };
@@ -1753,11 +1764,29 @@ export default Vue.extend<
                         leitstelle: building.leitstelle_building_id,
                     };
 
+                    const bedExtensions = {
+                        beds:
+                            'startBeds' in buildingType
+                                ? buildingType.startBeds + building.level
+                                : 0,
+                        bedsUnavailable: 0,
+                    };
+                    building.extensions.forEach(extension => {
+                        const extensionType =
+                            buildingType.extensions?.[extension.type_id] ?? {};
+                        if ('newBeds' in extensionType) {
+                            if (!extension.available) {
+                                bedExtensions.bedsUnavailable +=
+                                    extensionType.newBeds;
+                            }
+                            bedExtensions.beds += extensionType.newBeds;
+                        }
+                    });
                     const beds: AttributedBuildingBeds =
                         'startBeds' in buildingType
                             ? {
                                   hasBeds: true,
-                                  beds: buildingType.startBeds + building.level,
+                                  ...bedExtensions,
                                   is_alliance_shared:
                                       building.is_alliance_shared ?? false,
                                   alliance_share_credits_percentage:
@@ -1774,17 +1803,15 @@ export default Vue.extend<
                         cellsUnavailable: 0,
                     };
                     building.extensions.forEach(extension => {
-                        if (
-                            !(
-                                'newCells' in
-                                (buildingType.extensions?.[extension.type_id] ??
-                                    {})
-                            )
-                        )
-                            return;
-                        if (!extension.available)
-                            cellExtensions.cellsUnavailable++;
-                        cellExtensions.cells++;
+                        const extensionType =
+                            buildingType.extensions?.[extension.type_id] ?? {};
+                        if ('newCells' in extensionType) {
+                            if (!extension.available) {
+                                cellExtensions.cellsUnavailable +=
+                                    extensionType.newCells;
+                            }
+                            cellExtensions.cells += extensionType.newCells;
+                        }
                     });
 
                     const cells: AttributedBuildingCells =

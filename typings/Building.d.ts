@@ -97,8 +97,13 @@ interface CellExtension extends BaseExtension {
     newCells: number;
 }
 
+interface BedExtension extends BaseExtension {
+    newBeds: number;
+}
+
 type InternalExtension =
     | BaseExtension
+    | BedExtension
     | CellExtension
     | ClassroomExtension
     | VehicleExtension;

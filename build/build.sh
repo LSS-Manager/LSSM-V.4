@@ -26,6 +26,7 @@ now () {
 # default values of variables set from params
 _RUN_STEP_NODE=false
 _RUN_STEP_YARN_SETUP=false
+_RUN_STEP_YARN_SYMLINK=false
 _RUN_STEP_VERSIONS=false
 _RUN_STEP_YARN_INSTALL=false
 _RUN_STEP_BROWSERSLIST=false
@@ -47,6 +48,7 @@ while :; do
     case "${1-}" in
         --node) _RUN_STEP_NODE=true ;;
         --yarn_setup) _RUN_STEP_YARN_SETUP=true ;;
+        --yarn_symlink) _RUN_STEP_YARN_SYMLINK=true ;;
         --versions) _RUN_STEP_VERSIONS=true ;;
         --yarn_install) _RUN_STEP_YARN_INSTALL=true ;;
         --browserslist) _RUN_STEP_BROWSERSLIST=true ;;
@@ -79,6 +81,7 @@ while :; do
         --full)
           _RUN_STEP_NODE=true
           _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_YARN_SYMLINK=true
           _RUN_STEP_VERSIONS=true
           _RUN_STEP_YARN_INSTALL=true
           _RUN_STEP_BROWSERSLIST=true
@@ -151,6 +154,17 @@ if [[ $_RUN_STEP_YARN_SETUP = true ]]; then
     disable_debugging
     end_time=$(now)
     echo "=== [⬆] setup yarn: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+fi
+
+# [🔗] symlink yarn executable
+if [[ $_RUN_STEP_YARN_SYMLINK = true ]]; then
+    start_time=$(now)
+    echo "### [🔗] symlink yarn executable ###"
+    enable_debugging
+    ln -sf "$(find ./.yarn/releases/ -name 'yarn-*.cjs')" ./yarn
+    disable_debugging
+    end_time=$(now)
+    echo "=== [🔗] symlink yarn executable: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
 fi
 
 # [ℹ] print versions (node, yarn, git)
