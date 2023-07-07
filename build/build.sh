@@ -4,12 +4,13 @@
 # exit script when any command fails
 set -e
 
-# set output style only if terminal type is set and a tty
+# Use tput for enhanced styling only if terminal type is set and a tty.
+# ESC is directly included in the string to avoid the -e flag on echo calls.
 if [[ -z "$TERM" ]] || [[ ! -t 1 ]]; then
-    normal=""
-    bold=""
-    blue=""
-    green=""
+    normal="[0m"
+    bold="[1m"
+    blue="[34m"
+    green="[32m"
 else
     normal=$(tput -T "$TERM" sgr0)
     bold=$(tput -T "$TERM" bold)

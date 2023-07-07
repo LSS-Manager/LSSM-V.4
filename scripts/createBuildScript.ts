@@ -47,12 +47,13 @@ const script = [
 
 # exit script when any command fails
 set -e`,
-    `# set output style only if terminal type is set and a tty
+    `# Use tput for enhanced styling only if terminal type is set and a tty.
+# ESC is directly included in the string to avoid the -e flag on echo calls.
 if [[ -z "$TERM" ]] || [[ ! -t 1 ]]; then
-    normal=""
-    bold=""
-    blue=""
-    green=""
+    normal="\x1b[0m"
+    bold="\x1b[1m"
+    blue="\x1b[34m"
+    green="\x1b[32m"
 else
     normal=$(tput -T "$TERM" sgr0)
     bold=$(tput -T "$TERM" bold)
