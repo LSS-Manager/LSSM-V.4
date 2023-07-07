@@ -62,6 +62,17 @@ set -e`,
     timestamp="$(date +%s%N)"
     echo "\${timestamp/N/000000000}"
 }`,
+    `ms_elapsed() {
+    local timestamp_now
+    timestamp_now=$(now)
+    echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
+}`,
+    `print_start_message() {
+    echo "### $1 ###"
+}`,
+    `print_end_message() {
+    echo "=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ==="
+}`,
 ];
 
 const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
@@ -132,7 +143,7 @@ ${Object.entries(shortcuts)
     esac
     shift
 done`,
-        'total_start_time=$(date +%s%N)',
+        'total_start_time=$(now)',
         `NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
 if [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
@@ -157,7 +168,7 @@ fi`,
                     step.id ?? ''
                 )} = true ]]${getExtraConditionsString(step.id ?? '')}; then
     start_time=$(now)
-    echo "### ${step.name} ###"
+    print_start_message "${step.name}"
     enable_debugging
     ${
         (step.id === 'env'
@@ -176,10 +187,7 @@ fi`,
             .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
     }
     disable_debugging
-    end_time=$(now)
-    echo "=== ${
-        step.name
-    }: $(((10#$end_time - 10#$start_time) / 1000000))ms [$(date +"%Y-%m-%d %H:%M:%S %Z")] ==="
+    print_end_message "${step.name}" "$start_time"
 fi`,
             ]
                 .join('\n')
@@ -188,8 +196,7 @@ fi`,
                     ''
                 )
         ),
-        'total_end_time=$(date +%s%N)',
-        'echo "=== Total: $(((10#$total_end_time - 10#$total_start_time) / 1000000))ms ==="',
+        'print_end_message "Total" "$total_start_time"',
         'exit 0'
     );
 
