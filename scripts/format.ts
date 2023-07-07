@@ -7,7 +7,7 @@ import sortJSON from './utils/sortJSON';
 
 const ROOT_PATH = path.join(__dirname, '..');
 
-const format = (content: string, format: 'json' | 'yaml'): string =>
+const format = (content: string, format: 'json' | 'yaml'): Promise<string> =>
     prettier
         .format(content, {
             arrowParens: 'avoid',
@@ -18,9 +18,13 @@ const format = (content: string, format: 'json' | 'yaml'): string =>
             tabWidth: 4,
             trailingComma: 'es5',
         })
-        .trimEnd();
+        .then(res => res.trimEnd());
 
-const formatJSON = (json: object, sortArray: boolean, top: string[]): string =>
+const formatJSON = (
+    json: object,
+    sortArray: boolean,
+    top: string[]
+): Promise<string> =>
     format(JSON.stringify(sortJSON(json, sortArray, top)), 'json');
 
 const excluded = [path.join(ROOT_PATH, 'src', 'generated')];
@@ -69,53 +73,68 @@ let currentFile = '';
 try {
     let fileCounterJSON = 0;
     let fileCounterYAML = 0;
-    ['tsconfig.json', 'renovate.json', '.yarnrc.yml'].forEach(file => {
-        const filePath = path.join(ROOT_PATH, file);
-        const src = fs.readFileSync(filePath).toString();
-        const isJson = file.endsWith('.json');
-        const formatted = isJson
-            ? formatJSON(JSON.parse(src), true, tops(file))
-            : format(src, 'yaml');
-        fs.writeFileSync(filePath, formatted);
+    Promise.all(
+        ['tsconfig.json', 'renovate.json', '.yarnrc.yml']
+            .map(file => {
+                const filePath = path.join(ROOT_PATH, file);
+                const src = fs.readFileSync(filePath).toString();
+                const isJson = file.endsWith('.json');
 
-        if (isJson) fileCounterJSON++;
-        else fileCounterYAML++;
-    });
-    [
-        '.github',
-        'build',
-        'docs',
-        'lssmaql',
-        'prebuild',
-        'scripts',
-        'src',
-        'static',
-        'typings',
-    ].forEach(folder => {
-        getJsons(path.join(ROOT_PATH, folder)).forEach(file => {
-            currentFile = file;
-            const sortArray = file.endsWith('tsconfig.json');
-            fs.writeFileSync(
-                file,
-                formatJSON(
-                    JSON.parse(fs.readFileSync(file).toString()),
-                    sortArray,
-                    tops(file)
-                )
-            );
-            fileCounterJSON++;
-        });
-        getYamls(path.join(ROOT_PATH, folder)).forEach(file => {
-            currentFile = file;
-            fs.writeFileSync(
-                file,
-                format(fs.readFileSync(file).toString(), 'yaml')
-            );
-            fileCounterYAML++;
-        });
-    });
-    console.log(
-        `✨ formatted ${fileCounterJSON} JSON and ${fileCounterYAML} YAML files!`
+                if (isJson) fileCounterJSON++;
+                else fileCounterYAML++;
+
+                return (
+                    isJson
+                        ? formatJSON(JSON.parse(src), true, tops(file))
+                        : format(src, 'yaml')
+                ).then(formatted => fs.promises.writeFile(filePath, formatted));
+            })
+            .concat(
+                ...[
+                    '.github',
+                    'build',
+                    'docs',
+                    'lssmaql',
+                    'prebuild',
+                    'scripts',
+                    'src',
+                    'static',
+                    'typings',
+                ].flatMap(folder => {
+                    const promises: Promise<void>[] = [];
+                    getJsons(path.join(ROOT_PATH, folder)).forEach(file => {
+                        currentFile = file;
+                        const sortArray = file.endsWith('tsconfig.json');
+                        promises.push(
+                            formatJSON(
+                                JSON.parse(fs.readFileSync(file).toString()),
+                                sortArray,
+                                tops(file)
+                            ).then(formatted =>
+                                fs.promises.writeFile(file, formatted)
+                            )
+                        );
+                        fileCounterJSON++;
+                    });
+                    getYamls(path.join(ROOT_PATH, folder)).forEach(file => {
+                        currentFile = file;
+                        promises.push(
+                            format(
+                                fs.readFileSync(file).toString(),
+                                'yaml'
+                            ).then(formatted =>
+                                fs.promises.writeFile(file, formatted)
+                            )
+                        );
+                        fileCounterYAML++;
+                    });
+                    return promises;
+                })
+            )
+    ).then(() =>
+        console.log(
+            `✨ formatted ${fileCounterJSON} JSON and ${fileCounterYAML} YAML files!`
+        )
     );
 } catch (e) {
     console.error(currentFile, e);

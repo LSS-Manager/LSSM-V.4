@@ -5059,18 +5059,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:4.2.1":
-  version: 4.2.1
-  resolution: "eslint-plugin-prettier@npm:4.2.1"
+"eslint-plugin-prettier@npm:5.0.0-alpha.2":
+  version: 5.0.0-alpha.2
+  resolution: "eslint-plugin-prettier@npm:5.0.0-alpha.2"
   dependencies:
     prettier-linter-helpers: ^1.0.0
+    synckit: ^0.8.5
   peerDependencies:
-    eslint: ">=7.28.0"
-    prettier: ">=2.0.0"
+    "@types/eslint": ">=8.0.0"
+    eslint: ">=8.0.0"
+    prettier: ">=3.0.0"
   peerDependenciesMeta:
+    "@types/eslint":
+      optional: true
     eslint-config-prettier:
       optional: true
-  checksum: b9e839d2334ad8ec7a5589c5cb0f219bded260839a857d7a486997f9870e95106aa59b8756ff3f37202085ebab658de382b0267cae44c3a7f0eb0bcc03a4f6d6
+  checksum: 612798739d498244e16031b1c8cf4617db9c0526b134afea2e8b6960fcab6bcde403e2e60e3647854ebefc2374ce5ce6453cba89649a5bdf66ab9045beb4d666
   languageName: node
   linkType: hard
 
@@ -7024,7 +7028,7 @@ __metadata:
     eslint-plugin-import: 2.27.5
     eslint-plugin-jsdoc: 46.4.3
     eslint-plugin-markdownlint: 0.4.1
-    eslint-plugin-prettier: 4.2.1
+    eslint-plugin-prettier: 5.0.0-alpha.2
     eslint-plugin-regexp: 1.15.0
     eslint-plugin-tsdoc: 0.2.17
     eslint-plugin-unicorn: 47.0.0
@@ -7042,7 +7046,7 @@ __metadata:
     moment: 2.29.4
     moment-timezone: 0.5.43
     pinia: 2.1.4
-    prettier: 2.8.8
+    prettier: 3.0.0
     qrcode: 1.5.3
     sass: 1.63.6
     sass-loader: 13.3.2
@@ -8098,7 +8102,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.8, prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2":
+"prettier@npm:3.0.0":
+  version: 3.0.0
+  resolution: "prettier@npm:3.0.0"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 6a832876a1552dc58330d2467874e5a0b46b9ccbfc5d3531eb69d15684743e7f83dc9fbd202db6270446deba9c82b79d24383d09924c462b457136a759425e33
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
