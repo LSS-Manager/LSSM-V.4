@@ -4,6 +4,19 @@
 # exit script when any command fails
 set -e
 
+# set output style only if terminal type is set and a tty
+if [[ -z "$TERM" ]] || [[ ! -t 1 ]]; then
+    normal=""
+    bold=""
+    blue=""
+    green=""
+else
+    normal=$(tput -T "$TERM" sgr0)
+    bold=$(tput -T "$TERM" bold)
+    blue=$(tput -T "$TERM" setaf 4)
+    green=$(tput -T "$TERM" setaf 2)
+fi
+
 enable_debugging () {
     if [[ $DEBUG = true ]]; then
         set -x
@@ -29,11 +42,11 @@ ms_elapsed() {
 }
 
 print_start_message() {
-    echo "### $1 ###"
+    echo "${bold}${blue}### $1 ###${normal}"
 }
 
 print_end_message() {
-    echo "=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ==="
+    echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
 }
 
 
