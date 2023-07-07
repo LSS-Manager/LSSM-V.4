@@ -158,7 +158,7 @@ interface StagingAreaBuilding extends BaseBuilding {
 }
 
 type CanHaveVehiclesBuilding<
-    BaseBuildingType extends BaseBuilding | InternalBuilding
+    BaseBuildingType extends BaseBuilding | InternalBuilding,
 > = BaseBuildingType & {
     schoolingTypes: string[];
     startPersonnel: number;

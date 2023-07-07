@@ -14,7 +14,7 @@ export default <
             'vehicleList',
             'backalarm',
             'missionHelper',
-            'emv'
+            'emv',
         ],
         [
             'transport_request',
@@ -23,7 +23,7 @@ export default <
             'next',
             'alert_share_next',
             'share',
-            'alert'
+            'alert',
         ],
         true
     >

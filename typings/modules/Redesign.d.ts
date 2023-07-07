@@ -161,7 +161,7 @@ interface Data<T extends RedesignKey | '' | 'default'> {
 }
 
 export interface RedesignLightbox<
-    Type extends RedesignKey | '' | 'default' = RedesignKey | '' | 'default'
+    Type extends RedesignKey | '' | 'default' = RedesignKey | '' | 'default',
 > {
     Data: Data<Type>;
     Methods: {
@@ -187,7 +187,8 @@ export interface RedesignLightbox<
         copyUrl(): void;
         setHotkeyRedesignParam<
             Component extends RedesignComponent<string, RedesignKey>,
-            VueInstance extends RedesignVueInstance<Component> = RedesignVueInstance<Component>
+            VueInstance extends
+                RedesignVueInstance<Component> = RedesignVueInstance<Component>,
         >(
             scope:
                 | `${RootScopeWithoutAll}.${string}`
@@ -236,7 +237,7 @@ interface ParserParam<Type extends RedesignKey = RedesignKey> {
 
 export type RedesignParser<
     Window extends RedesignWindow = RedesignWindow,
-    Type extends RedesignKey = RedesignKey
+    Type extends RedesignKey = RedesignKey,
 > = (data: ParserParam<Type>) => Promise<Window> | Window;
 
 export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
@@ -254,7 +255,7 @@ export interface RedesignComponent<
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
-    Props = DefaultProps
+    Props = DefaultProps,
 > {
     Data: Data;
     Methods: Methods;
@@ -275,7 +276,7 @@ export interface RedesignComponent<
 }
 
 export type RedesignVueInstance<
-    Component extends RedesignComponent<string, RedesignKey>
+    Component extends RedesignComponent<string, RedesignKey>,
 > = CombinedVueInstance<
     Vue,
     Component['Data'],
@@ -290,7 +291,7 @@ export type RedesignSubComponent<
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
-    Props = DefaultProps
+    Props = DefaultProps,
 > = RedesignComponent<
     DataName,
     Type,

@@ -219,7 +219,7 @@ type MissionEntry = Omit<Mission, 'prerequisites'> & {
     main_building_extensions: Mission['prerequisites']['main_building_extensions'];
     unfullfilled_prerequisites: [
         string,
-        Record<'diff' | 'have' | 'need', number>
+        Record<'diff' | 'have' | 'need', number>,
     ][];
     date_not_fitting: boolean;
 };

@@ -73,10 +73,8 @@ export default (
                 )
                 ?.getTooltip()
                 ?.setContent(
-                    `${
-                        mission.querySelector(`a[id^="mission_caption_"]`)
-                            ?.innerHTML
-                    }<i class="fa fa-user-injured" style="margin-left: 0.2em; width: 0.875em"></i> ${amount.toLocaleString()}`
+                    `${mission.querySelector(`a[id^="mission_caption_"]`)
+                        ?.innerHTML}<i class="fa fa-user-injured" style="margin-left: 0.2em; width: 0.875em"></i> ${amount.toLocaleString()}`
                 );
         }
     };

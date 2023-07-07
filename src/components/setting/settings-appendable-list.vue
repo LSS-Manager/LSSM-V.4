@@ -377,8 +377,8 @@ export default Vue.extend<
                 value: v,
             }));
             if (unique) {
-                const usedValues = this.updateValues.flatMap((item, rowIndex) =>
-                    index === rowIndex ? [] : item[name]
+                const usedValues = this.updateValues.flatMap(
+                    (item, rowIndex) => (index === rowIndex ? [] : item[name])
                 );
                 return options.filter(
                     ({ value }) =>

@@ -108,7 +108,7 @@ interface Types {
 
 type ItemChooser<
     Type extends keyof Types[keyof Types],
-    Window = RedesignVehicleComponent['Props']['vehicle']
+    Window = RedesignVehicleComponent['Props']['vehicle'],
 > = (Window extends TransportRequestWindow
     ? Types[KebabToCamelCase<Window['transportRequestType']>]
     : Types['mission'])[Type];

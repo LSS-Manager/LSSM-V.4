@@ -1295,7 +1295,7 @@ type HasNotInterface<HasAttribute extends string> = Record<HasAttribute, false>;
 type MaybeInterface<
     HasInterface,
     HasNotInterface,
-    Has extends Maybe = unknown
+    Has extends Maybe = unknown,
 > = Has extends true
     ? HasInterface
     : Has extends false
@@ -1379,7 +1379,7 @@ type AttributedBuilding<
     HasClassrooms extends Maybe = unknown,
     HasLevel extends Maybe = unknown,
     HasStaff extends Maybe = unknown,
-    HasVehicles extends Maybe = unknown
+    HasVehicles extends Maybe = unknown,
 > = AttributedBuildingBeds<HasBeds> &
     AttributedBuildingCells<HasCells> &
     AttributedBuildingClassrooms<HasClassrooms> &
@@ -1920,7 +1920,7 @@ export default Vue.extend<
                         ...vehicles,
                     };
                 })
-                .filter(<S>(value: S | null): value is S => !!value);
+                .filter(<S,>(value: S | null): value is S => !!value);
         },
         sortedBuildingsByName() {
             const buildings = this.attributedBuildings;
@@ -2181,7 +2181,7 @@ export default Vue.extend<
                     )
                         maxExtensionsFunctionResults[buildingTypeId] = {};
 
-                    const removeNull = <S>(value: S | null): value is S =>
+                    const removeNull = <S,>(value: S | null): value is S =>
                         !!value;
 
                     const availableAtSorted = extensions
@@ -2993,7 +2993,7 @@ export default Vue.extend<
             ) {
                 this.extensionsTable.filters.buildings = 'all';
             } else {
-                const removeAllElement = <S>(
+                const removeAllElement = <S,>(
                     building: S | '*'
                 ): building is S => building !== '*';
                 this.extensionsTable.filters.buildings =
@@ -3004,7 +3004,7 @@ export default Vue.extend<
             if (states.indexOf('*') === states.length - 1 || !states.length) {
                 this.extensionsTable.filters.states = 'all';
             } else {
-                const removeAllElement = <S>(state: S | '*'): state is S =>
+                const removeAllElement = <S,>(state: S | '*'): state is S =>
                     state !== '*';
                 this.extensionsTable.filters.states =
                     states.filter(removeAllElement);
@@ -3077,11 +3077,12 @@ export default Vue.extend<
                                             node =>
                                                 node.nodeType === Node.TEXT_NODE
                                         )
-                                        .map(node =>
-                                            node.textContent
-                                                ?.trim()
-                                                .replace(/^-|\.$/gu, '')
-                                                .trim()
+                                        .map(
+                                            node =>
+                                                node.textContent
+                                                    ?.trim()
+                                                    .replace(/^-|\.$/gu, '')
+                                                    .trim()
                                         )
                                         .join(' ');
                                     const buildingId = parseInt(

@@ -134,7 +134,7 @@ export default Vue.extend<
                     color,
                     rows: Object.fromEntries(
                         Object.values(buildings).flatMap(buildingType => {
-                            const removeNull = <S>(
+                            const removeNull = <S,>(
                                 value: S | null
                             ): value is S => !!value;
                             const buildingsOfType =
