@@ -137,10 +137,12 @@
         "version": "2.0.0-beta.64"
     },
     "acorn": {
+        "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
         "version": "8.10.0"
     },
     "acorn-walk": {
+        "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
         "version": "8.2.0"
     },
@@ -291,7 +293,7 @@
         "version": "1.5.3"
     },
     "sass": {
-        "icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
+        "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
         "version": "1.63.6"
     },
