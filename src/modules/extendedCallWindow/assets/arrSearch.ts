@@ -59,7 +59,7 @@ export default (
         );
 
         searchField.addEventListener('input', () => {
-            const search = searchField.value.replace(/"/gu, '\\"');
+            const search = searchField.value.trim();
             if (search && !styleAdded) {
                 document.head.append(hideStyle);
                 styleAdded = true;
@@ -71,7 +71,7 @@ export default (
             const searchAttributeSelectors = Array.from(
                 new Set(
                     [search.toLowerCase(), search.toUpperCase()].map(
-                        s => `[search_attribute*="${s}" i]`
+                        s => `[search_attribute*="${CSS.escape(s)}" i]`
                     )
                 )
             );
