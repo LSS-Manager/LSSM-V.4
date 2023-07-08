@@ -158,6 +158,10 @@
                 "title": "Voertuigenlijst"
             }
         },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
+        },
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Alarmeer naar eerste teammelding",

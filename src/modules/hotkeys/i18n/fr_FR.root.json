@@ -164,6 +164,10 @@
                 "title": "Liste des véhicules"
             }
         },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
+        },
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Signal d'alarme pour la première mission de l'alliance",

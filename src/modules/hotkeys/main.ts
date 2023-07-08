@@ -20,13 +20,14 @@ type HotkeySetting = {
     hotkey: string;
 }[];
 
-const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
+const rootCommandScopes: [
     '*',
     'main',
     'mission',
     'building',
+    'schoolings',
     'vehicles',
-];
+] = ['*', 'main', 'mission', 'building', 'schoolings', 'vehicles'];
 
 export const hotkeyUtility = new HotkeyUtility();
 
@@ -190,6 +191,11 @@ export default (async ({ LSSM, $m, getSetting }) => {
         window.location.pathname.match(/^\/vehicles\/\d+\/?/u)
     )
         rootScopes.push('vehicles');
+    if (
+        hotkeys.some(({ command }) => command.startsWith('schoolings.')) &&
+        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+    )
+        rootScopes.push('schoolings');
 
     const commands = await resolveCommands(rootScopes);
 

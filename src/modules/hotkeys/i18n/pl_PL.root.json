@@ -161,6 +161,10 @@
                 "title": "Lista pojazdów"
             }
         },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
+        },
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Wyślij na pierwszą misję sojuszu",

@@ -165,6 +165,10 @@
                 "title": "Fahrzeugliste"
             }
         },
+        "schoolings": {
+            "educate": "\"Ausbilden\"-Knopf drücken",
+            "title": "Lehrgänge"
+        },
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Alarmiere zu erstem Verbandseinsatz",
