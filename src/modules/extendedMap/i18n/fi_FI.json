@@ -37,6 +37,7 @@
                 "title": "liitetyt rakennukset"
             },
             "classrooms": {
+                "startTraining": "Start a new Training",
                 "subtitle": "{total} yhteensä, joista {unavailable} rakenteilla ja {free} ilmainen",
                 "table": {
                     "countdown": "aikaa jäljellä",

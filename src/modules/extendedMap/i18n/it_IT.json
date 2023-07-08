@@ -37,6 +37,7 @@
                 "title": "Edifici collegati"
             },
             "classrooms": {
+                "startTraining": "Start a new Training",
                 "subtitle": "{total} in totale, delle quali {unavailable} in costruzione e {free} libere",
                 "table": {
                     "countdown": "Tempo rimanente",

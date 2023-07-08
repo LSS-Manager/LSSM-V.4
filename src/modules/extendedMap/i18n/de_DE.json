@@ -37,6 +37,7 @@
                 "title": "angehängte Gebäude"
             },
             "classrooms": {
+                "startTraining": "Neuen Lehrgang starten",
                 "subtitle": "insgesamt {total}, davon {unavailable} im Bau und {free} frei",
                 "table": {
                     "countdown": "fertig in",

@@ -37,6 +37,7 @@
                 "title": "attached buildings"
             },
             "classrooms": {
+                "startTraining": "Start a new Training",
                 "subtitle": "{total} in total, thereof {unavailable} under construction and {free} free",
                 "table": {
                     "countdown": "time left",

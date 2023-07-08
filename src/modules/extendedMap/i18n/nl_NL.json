@@ -37,6 +37,7 @@
                 "title": "gekoppelde gebouwen"
             },
             "classrooms": {
+                "startTraining": "Start a new Training",
                 "subtitle": "{total} in totaal, daarvan {unavailable} in aanbouw en {free} vrij",
                 "table": {
                     "countdown": "tijd over",

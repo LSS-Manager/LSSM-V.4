@@ -949,6 +949,13 @@
                     >
                         <h2 class="indented-title">
                             {{ $m('overview.classrooms.title') }}
+                            <button
+                                class="btn btn-success pull-right"
+                                :disabled="classroomStats.free === 0"
+                                @click="openAvailableSchool"
+                            >
+                                {{ $m('overview.classrooms.startTraining') }}
+                            </button>
                             <br />
                             <small>
                                 {{
@@ -1566,6 +1573,7 @@ export default Vue.extend<
         toggleInCellOptions($event: MouseEvent): void;
         toggleAllianceShare(buildingId: number): void;
         setAllianceTax(buildingId: number, tax: number): void;
+        openAvailableSchool(): void;
     },
     {
         buildings: Record<number, Building>;
@@ -3199,6 +3207,12 @@ export default Vue.extend<
                     feature,
                 })
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
+        },
+        openAvailableSchool() {
+            const buildingId = this.schoolingBuildings.find(
+                building => building.freeClassrooms
+            )?.id;
+            if (buildingId) window.lightboxOpen(`/buildings/${buildingId}`);
         },
     },
     props: {
