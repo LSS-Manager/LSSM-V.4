@@ -60,7 +60,7 @@ Wie geht das?
 1. Firefox für Android installieren (Muss mindestens Version 110 sein)
 2. Firefox starten und das Kontextmenü (drei Punkte in der Menüleiste) öffnen
 3. Unter "empfohlene Addons" sollte jetzt Tampermonkey vorgeschlagen werden
-4. Weiter mit der normalen [Installationsanleitung][docs] fortfahren
+4. Weiter mit der normalen [Installationsanleitung][docs.home] fortfahren
 
 Trotzdem weisen wir nochmals explizit darauf hin, dass der LSSM nicht für mobile Endgeräte gedacht ist und unser Support somit, wenn überhaupt, nur sehr eingeschränkt vorhanden ist.
 
@@ -82,6 +82,7 @@ Oder im <discord-channel channel="uptime"/> auf unserem <discord/>
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /de_DE/
 [docs.apps]: /de_DE/apps.md
 [docs.appstore]: /de_DE/appstore.md
 [docs.bugs]: /de_DE/bugs.md

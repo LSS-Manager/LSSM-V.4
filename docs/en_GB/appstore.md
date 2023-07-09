@@ -23,6 +23,7 @@ For the same reason, there are also some minor restrictions for MapKit users.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /en_GB/
 [docs.apps]: /en_GB/apps.md
 [docs.appstore]: /en_GB/appstore.md
 [docs.bugs]: /en_GB/bugs.md

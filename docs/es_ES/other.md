@@ -94,6 +94,7 @@ Here are some more or less interesting facts and stats about LSSM and its source
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /es_ES/
 [docs.apps]: /es_ES/apps.md
 [docs.appstore]: /es_ES/appstore.md
 [docs.bugs]: /es_ES/bugs.md

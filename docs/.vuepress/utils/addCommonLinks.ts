@@ -15,6 +15,7 @@ const commonLinks = {
     'lssm.donations': config.urls.donations,
     // Docs
     'docs': config.urls.docs,
+    'docs.home': (lang: Locale) => `/${lang}/`,
     'docs.apps': (lang: Locale) => `/${lang}/apps.md`,
     'docs.appstore': (lang: Locale) => `/${lang}/appstore.md`,
     'docs.bugs': (lang: Locale) => `/${lang}/bugs.md`,

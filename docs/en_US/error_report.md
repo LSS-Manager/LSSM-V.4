@@ -38,6 +38,7 @@ Now you can send us your bug report. To do this, open an issue on [GitHub][githu
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /en_US/
 [docs.apps]: /en_US/apps.md
 [docs.appstore]: /en_US/appstore.md
 [docs.bugs]: /en_US/bugs.md

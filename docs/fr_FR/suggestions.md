@@ -21,6 +21,7 @@ Vous pouvez √©galement ouvrir une issue sur [GitHub][github.issues]. Veuillez v√
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /fr_FR/
 [docs.apps]: /fr_FR/apps.md
 [docs.appstore]: /fr_FR/appstore.md
 [docs.bugs]: /fr_FR/bugs.md

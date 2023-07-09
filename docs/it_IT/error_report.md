@@ -33,6 +33,7 @@ Ora potete mandarci il problema ricordandovi di includere il Nome utente o Numer
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /it_IT/
 [docs.apps]: /it_IT/apps.md
 [docs.appstore]: /it_IT/appstore.md
 [docs.bugs]: /it_IT/bugs.md
