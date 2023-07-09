@@ -219,6 +219,7 @@ export default {
         'Věznice',
         'Přehrada',
         'Knihovna',
+        'Akvárium',
     ],
     only_alliance_missions: [57, 74],
 };

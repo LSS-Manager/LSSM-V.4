@@ -232,6 +232,8 @@ export default {
         'Aged Care Home',
         'Dam',
         'Silo',
+        'Aquarium',
+        'Prison',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

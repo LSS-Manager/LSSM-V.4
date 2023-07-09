@@ -206,6 +206,8 @@ export default {
         'Impianto Chimico',
         'Hangar',
         'Biblioteca',
+        'Aquarium',
+        'Prison',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [214],

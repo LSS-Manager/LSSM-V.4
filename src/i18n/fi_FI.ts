@@ -230,6 +230,8 @@ export default {
         'Halli',
         'Pato',
         'Kirjaston',
+        'Akvaario',
+        'Vankila',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

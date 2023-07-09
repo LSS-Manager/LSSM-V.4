@@ -234,6 +234,8 @@ export default {
         'Hangar lotniczy',
         'Tama',
         'Biblioteki',
+        'Park wodny',
+        'Vankila',
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],

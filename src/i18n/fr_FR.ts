@@ -228,6 +228,8 @@ export default {
         'Plage',
         'Hangar à avions',
         'Bibliothèque',
+        'Aquarium',
+        'Prison',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],

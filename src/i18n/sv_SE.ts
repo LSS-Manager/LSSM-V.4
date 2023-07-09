@@ -203,6 +203,8 @@ export default {
         'Kust',
         'Damm',
         'Bibliotek',
+        'Akvarium',
+        'Fängelse',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],

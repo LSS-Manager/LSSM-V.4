@@ -248,6 +248,8 @@ export default {
         'Launderette',
         'Pipeline',
         'Silo',
+        'Aquarium',
+        'Prison',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],
