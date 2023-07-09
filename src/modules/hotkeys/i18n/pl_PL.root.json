@@ -162,8 +162,8 @@
             }
         },
         "schoolings": {
-            "educate": "Press \"Educate\"-Button",
-            "title": "Schoolings"
+            "educate": "Naciśnij przycisk \"Edukuj\"",
+            "title": "Kursy"
         },
         "vehicles": {
             "alarm": {

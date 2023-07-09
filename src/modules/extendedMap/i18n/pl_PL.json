@@ -37,7 +37,7 @@
                 "title": "Wybrane budynki"
             },
             "classrooms": {
-                "startTraining": "Start a new Training",
+                "startTraining": "Rozpocznij nowy kurs",
                 "subtitle": "{total} łącznie | {unavailable} w budowie | {free} wolnych",
                 "table": {
                     "countdown": "Pozostały czas",

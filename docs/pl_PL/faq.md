@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 # FAQ ❓
 
-## Ile kosztuje Menedżer LSS?
+## Ile kosztuje Menedżer LSSM?
 LSS-Manager to bezpłatne rozszerzenie. - nie zamierzamy tego zmieniać.
 
 Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][lssm.donations]. We are happy about any support!
@@ -19,7 +19,7 @@ Donations have no direct influence on the development of the LSSM! We will not i
 Of course, we are happy about any donation, but we would still like to point out that we would like to keep the project running as before even without the donations.
 :::
 
-## Jak mogę przyczynić się do rozwoju Menedżera LSS?
+## Jak mogę przyczynić się do rozwoju Menedżera LSSM?
 Użytkownik końcowy może: [zgłaszać błędy][docs.error_report] lub [dawać sugestie][docs.suggestions] dotyczące rozwoju.
 
 Obecnie projektujemy przewodnik po stylu dla programistów, aby oni również mogli łatwo dodawać własne wtyczki do LSSM. Staraliśmy się, aby struktura naszego kodu była przejrzysta i zrozumiała. Jednak dodanie wtyczki w żaden sposób nie oznacza dołączenia do zespołu.
@@ -45,6 +45,18 @@ Te dwie przeglądarki można opisać jako „problematyczne dzieci” współcze
 
 Nie widzimy sensu robienia tego i oficjalnie **nie** obsługujemy tych dwóch przeglądarek.
 :::
+
+### Używanie LSSM na smartfonach
+Regularnie otrzymujemy zapytania, czy LSSM może być również używany w telefonach komórkowych.
+
+Odpowiedź brzmi: tak – przez \"obejścia\" – ale nie oferujemy w tym zakresie żadnego wsparcia. Aktywacja odbywa się na własne ryzyko.
+
+Jak to działa?
+
+1. Zainstaluj Firefox dla Androida (musi być co najmniej w wersji 110)
+2. Uruchom Firefoksa i otwórz menu kontekstowe (trzy kropki na pasku menu)
+3. W sekcji „zalecane dodatki” powinien znajdować się \"Tampermonkey\".
+4. Kontunuuj zgodnie z [instrukcjami][docs.home]
 
 ## Czy mogę zapisać, przenieść lub podzielić się
 z kimś moją konfiguracją?
