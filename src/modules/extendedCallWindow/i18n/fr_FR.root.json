@@ -109,8 +109,8 @@
             "title": "Personnel maximum"
         },
         "enhancedMissingVehicles": {
-            "description": "Change l'affichage des véhicules requis additionnels vers un tableau plus clair.",
-            "title": "Vue améliorée des véhicules requis"
+            "description": "Convertit l'affichage des véhicules supplémentaires requis en un tableau plus clair..",
+            "title": "Vue améliorée des véhicules"
         },
         "generationDate": {
             "description": "Affiche la date et heure de génération de mission à côté de son titre.",

@@ -178,7 +178,7 @@
             "id": "Age",
             "remaining_patients": "Patients actuels",
             "remaining_prisoners": "Prisonniers actuels",
-            "zip_code": "ZIP-Codes (globally)"
+            "zip_code": "Codes postaux (globalement)"
         }
     }
 }

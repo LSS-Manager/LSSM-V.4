@@ -1,6 +1,6 @@
 {
     "description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
-    "name": "Aide à la mission",
+    "name": "Aide-mission",
     "noVehicleRequirements": {
         "average_min_fire_personnel": {
             "badge": false,
