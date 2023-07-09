@@ -57,10 +57,10 @@ La réponse est oui - de manière détournée - mais nous ne proposons pas de su
 
 Comment cela fonctionne-t-il ?
 
-1. Installez Firefox pour Android (au moins la version 110).
-2. Lancez Firefox et ouvrez le menu contextuel (trois points dans la barre de menu).
-3. Sous "addons recommandés", Tampermonkey devrait maintenant être suggéré.
-4. continuez avec les [instructions d'installation][docs.home] normales.
+1. Installer Firefox pour Android (au moins la version 110).
+2. Lancer Firefox et ouvrez le menu contextuel (trois points dans la barre de menu).
+3. Sous "Modules complementaires", Tampermonkey devrait maintenant être propposer.
+4. Continuer avec les [instructions d'installation][docs.home] normales.
 
 ## Je souhaite partager ma configuration avec des amis ou l'utiliser sur plusieurs appareils. Est-ce possible ?
 Oui, c'est possible. Pour cela, il te suffit de cliquer dans les [paramètres][docs.settings] sur `Export` pour télécharger un fichier et `Import` pour importer les paramètres depuis un fichier.
