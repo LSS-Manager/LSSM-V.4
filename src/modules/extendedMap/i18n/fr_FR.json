@@ -37,7 +37,7 @@
                 "title": "Bâtiments rattachés"
             },
             "classrooms": {
-                "startTraining": "Start a new Training",
+                "startTraining": "Commencer une nouvelle formation",
                 "subtitle": "{total} au total, dont {unavailable} en construction et {free} disponible",
                 "table": {
                     "countdown": "temps restant",
