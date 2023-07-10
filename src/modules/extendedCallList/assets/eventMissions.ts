@@ -28,24 +28,22 @@ export default (
             panel.getAttribute('data-additive-overlays') ?? 'null';
         if (additionalOverlay && additionalOverlay !== 'null')
             mission += `/${additionalOverlay}`;
-        if (
-            !eventsById.hasOwnProperty(mission) ||
-            !title ||
-            panel.querySelector(`.${wrapperClass}`)
-        )
-            return;
-        const wrapper = document.createElement('span');
-        wrapper.textContent = `[${eventsById[mission].join(' ')}]`;
-        wrapper.classList.add(wrapperClass);
-        wrapper.style.setProperty('margin-right', '0.5rem');
-        title.before(wrapper);
+        if (!eventsById.hasOwnProperty(mission) || !title) return;
+
+        const prefix = `[${eventsById[mission].join(' ')}]`;
+
+        if (!panel.querySelector(`.${wrapperClass}`)) {
+            const wrapper = document.createElement('span');
+            wrapper.textContent = prefix;
+            wrapper.classList.add(wrapperClass);
+            wrapper.style.setProperty('margin-right', '0.5rem');
+            title.before(wrapper);
+        }
 
         const searchAttr = panel.getAttribute('search_attribute') ?? '';
-        if (!searchAttr.includes(wrapper.textContent)) {
-            panel.setAttribute(
-                'search_attribute',
-                `${searchAttr} ${wrapper.textContent}`
-            );
+        if (!searchAttr.includes(prefix)) {
+            panel.setAttribute('search_attribute', `${searchAttr} ${prefix}`);
+            window.searchMission();
         }
     };
 

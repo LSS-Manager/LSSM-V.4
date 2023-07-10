@@ -132,7 +132,8 @@
             "distance_station": "Distanza dalla prossima stazione",
             "id": "Cronologico",
             "remaining_patients": "Pazienti",
-            "remaining_prisoners": "Prigionieri rimanenti"
+            "remaining_prisoners": "Prigionieri rimanenti",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }

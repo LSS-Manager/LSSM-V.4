@@ -138,12 +138,12 @@
                 "title": "Signal de retour"
             },
             "emv": {
-                "title": "Enhanced missing vehicles",
-                "toggleCollapse": "Collapse / Uncollapse"
+                "title": "Vue améliorée des véhicules",
+                "toggleCollapse": "Réduire / Déplier"
             },
             "missionHelper": {
-                "title": "MissionHelper",
-                "toggleCollapse": "Collapse / Uncollapse"
+                "title": "Aide-mission",
+                "toggleCollapse": "Réduire / Déplier"
             },
             "next": "mission suivante",
             "prev": "mission précédente",
@@ -163,6 +163,10 @@
                 "previous": "Onglet Précédent",
                 "title": "Liste des véhicules"
             }
+        },
+        "schoolings": {
+            "educate": "Appuyer sur le bouton \"formation\".",
+            "title": "Formations"
         },
         "vehicles": {
             "alarm": {

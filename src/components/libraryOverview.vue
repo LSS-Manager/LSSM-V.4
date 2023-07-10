@@ -11,9 +11,8 @@
         </label>
         <ul class="auto-sized-grid">
             <li
-                v-for="libraryName in librariesFiltered"
-                :key="libraryName"
-                :library="(lib = libraries[libraryName])"
+                v-for="lib in librariesFiltered"
+                :key="lib.package"
                 class="card"
             >
                 <a :href="lib.url" class="lightbox-open">
@@ -22,18 +21,18 @@
                             lib.icon ||
                             'https://github.githubassets.com/pinned-octocat.svg'
                         "
-                        :alt="libraryName"
+                        :alt="lib.package"
                     />
                 </a>
                 <div class="linebreak"></div>
                 <a
                     :href="
-                        lib.url || `https://yarnpkg.com/package/${libraryName}`
+                        lib.url || `https://yarnpkg.com/package/${lib.package}`
                     "
                     class="lightbox-open"
                 >
                     <h4>
-                        <b>{{ libraryName }}</b>
+                        <b>{{ lib.package }}</b>
                     </h4>
                 </a>
                 <div class="linebreak"></div>
@@ -46,50 +45,32 @@
     </lightbox>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+import { computed, ref } from 'vue';
 
 import libraries from '../generated/libraries.json';
+import Lightbox from './lightbox.vue';
 
-import type { DefaultMethods, DefaultProps } from 'vue/types/options';
-import type {
-    LibraryOverviewComputed,
-    LibraryOverviewData,
-} from 'typings/components/LibraryOverview';
+const librarySearch = ref('');
 
-export default Vue.extend<
-    LibraryOverviewData,
-    DefaultMethods<Vue>,
-    LibraryOverviewComputed,
-    DefaultProps
->({
-    name: 'libraryOverview',
-    components: {
-        Lightbox: () =>
-            import(
-                /* webpackChunkName: "components/lightbox" */ './lightbox.vue'
-            ),
-    },
-    data() {
-        return {
-            librarySearch: '',
-            libraries,
-        };
-    },
-    computed: {
-        librariesFiltered(): string[] {
-            return Object.keys(libraries)
-                .sort()
-                .filter(m =>
-                    this.librarySearch.length > 0
-                        ? m
-                              .toLowerCase()
-                              .match(this.librarySearch.toLowerCase())
-                        : true
-                );
-        },
-    },
-});
+const libraryNames = Object.keys(
+    libraries
+).sort() as (keyof typeof libraries)[];
+
+const librariesFiltered = computed(() =>
+    libraryNames
+        .filter(m =>
+            librarySearch.value.length > 0
+                ? m.toLowerCase().match(librarySearch.value.toLowerCase())
+                : true
+        )
+        .map(libraryName => ({
+            url: '',
+            icon: '',
+            ...libraries[libraryName],
+            package: libraryName,
+        }))
+);
 </script>
 
 <style scoped lang="sass">

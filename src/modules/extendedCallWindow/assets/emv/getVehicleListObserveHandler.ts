@@ -268,15 +268,16 @@ export default (
                 );
             });
         });
-        Object.entries(selectedEquipment).forEach(([equipment, amount]) =>
-            requirementsByEquipment[equipment]?.forEach(requirement =>
-                setSelected(
-                    requirement,
-                    typeof requirement.selected === 'number'
-                        ? requirement.selected + amount
-                        : requirement.selected
+        Object.entries(selectedEquipment).forEach(
+            ([equipment, amount]) =>
+                requirementsByEquipment[equipment]?.forEach(requirement =>
+                    setSelected(
+                        requirement,
+                        typeof requirement.selected === 'number'
+                            ? requirement.selected + amount
+                            : requirement.selected
+                    )
                 )
-            )
         );
         Object.entries(specialRequirements).forEach(([key, requirement]) =>
             setSelected(requirement, getProgressBarSelected(key))

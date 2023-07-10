@@ -1,5 +1,7 @@
 import type { Building } from 'typings/Building';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { useAPIStore } from '@stores/api';
+import type { useTranslationStore } from '@stores/translationUtilities';
 import type VueI18n from 'vue-i18n';
 
 interface buildingWithExtension extends Building {
@@ -8,12 +10,23 @@ interface buildingWithExtension extends Building {
     extension_unavailable: number;
 }
 
+type Headings = Record<string, { title: string; noSort?: boolean }>;
+
 export interface BuildingList {
     buildingTypeNames: Record<number, string>;
     search: string;
     sort: string;
     sortDir: string;
+    faPencilAlt: IconDefinition;
+    headingsExtensions: Headings;
+    headingsAll: Headings;
+    headingsHospital: Headings;
+    dispatchBuildings: Building[];
+    dispatchCenterBuildings: number[];
+    bedBuildings: Building[];
+    bedBuildingsType: number[];
     apiStore: ReturnType<typeof useAPIStore>;
+    translationStore: ReturnType<typeof useTranslationStore>;
 }
 
 export interface BuildingListMethods {
@@ -27,6 +40,7 @@ export interface BuildingListMethods {
         dispatchBuildings: Building[],
         building: Building
     ): string;
+    getTotalBeds(building: Building | buildingWithExtension): number;
 }
 
 export interface BuildingListComputed {

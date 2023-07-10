@@ -217,6 +217,9 @@ export default {
         'Hangár',
         'Pojezdové dráha',
         'Věznice',
+        'Přehrada',
+        'Knihovna',
+        'Akvárium',
     ],
     only_alliance_missions: [57, 74],
 };

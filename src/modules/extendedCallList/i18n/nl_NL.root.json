@@ -147,7 +147,8 @@
             "distance_station": "Afstand tot dichtstbijzijnde post",
             "id": "Generatietijd",
             "remaining_patients": "Huidige patiënten",
-            "remaining_prisoners": "Huidige arrestanten"
+            "remaining_prisoners": "Huidige arrestanten",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }

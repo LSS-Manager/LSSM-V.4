@@ -516,18 +516,19 @@ export default async ({
                                     }
                                 })
                         )
-                        .then(() =>
-                            document
-                                .querySelector<HTMLAnchorElement>(
-                                    liElement.closest(
-                                        `#${alarmSharePostGroup.id}`
+                        .then(
+                            () =>
+                                document
+                                    .querySelector<HTMLAnchorElement>(
+                                        liElement.closest(
+                                            `#${alarmSharePostGroup.id}`
+                                        )
+                                            ? '#mission_alarm_btn'
+                                            : missionsSorted
+                                            ? `.${sortedMissionClass}`
+                                            : '#alert_next_btn'
                                     )
-                                        ? '#mission_alarm_btn'
-                                        : missionsSorted
-                                        ? `.${sortedMissionClass}`
-                                        : '#alert_next_btn'
-                                )
-                                ?.click()
+                                    ?.click()
                         );
                 }
             )

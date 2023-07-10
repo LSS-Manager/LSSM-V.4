@@ -97,8 +97,13 @@ interface CellExtension extends BaseExtension {
     newCells: number;
 }
 
+interface BedExtension extends BaseExtension {
+    newBeds: number;
+}
+
 type InternalExtension =
     | BaseExtension
+    | BedExtension
     | CellExtension
     | ClassroomExtension
     | VehicleExtension;
@@ -153,7 +158,7 @@ interface StagingAreaBuilding extends BaseBuilding {
 }
 
 type CanHaveVehiclesBuilding<
-    BaseBuildingType extends BaseBuilding | InternalBuilding
+    BaseBuildingType extends BaseBuilding | InternalBuilding,
 > = BaseBuildingType & {
     schoolingTypes: string[];
     startPersonnel: number;

@@ -228,7 +228,8 @@
             "distance_station": "Entfernung zur nächsten Wache",
             "id": "Alter",
             "remaining_patients": "aktuelle Patienten",
-            "remaining_prisoners": "aktuelle Gefangene"
+            "remaining_prisoners": "aktuelle Gefangene",
+            "zip_code": "Postleitzahl (weltweit)"
         }
     }
 }

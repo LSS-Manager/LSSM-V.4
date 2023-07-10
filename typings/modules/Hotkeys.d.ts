@@ -9,7 +9,7 @@ export type Scope<
     Scopes extends string[] = [],
     Commands extends string[] = [],
     Root extends boolean = false,
-    RedesignType extends RedesignKey | undefined = undefined
+    RedesignType extends RedesignKey | undefined = undefined,
 > = Id<
     Partial<{ [scope in Scopes[number]]: Scope<This> }> &
         (Root extends false

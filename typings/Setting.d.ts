@@ -103,7 +103,7 @@ type Location = LocationWithoutZoom | LocationWithZoom;
 
 type CustomProps<
     ModuleOrAList extends Record<string, unknown> = Record<string, unknown>,
-    AListKey extends keyof ModuleOrAList = keyof ModuleOrAList
+    AListKey extends keyof ModuleOrAList = keyof ModuleOrAList,
 > = DefaultProps &
     Partial<
         | {
@@ -120,7 +120,7 @@ interface Custom<
     ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     ComponentComputed extends DefaultComputed = DefaultComputed,
-    ComponentProps extends CustomProps = DefaultProps
+    ComponentProps extends CustomProps = DefaultProps,
 > extends SettingTemplate {
     type: 'custom';
     default: Data;
@@ -183,7 +183,7 @@ type SettingType<
     CustomComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     CustomComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     CustomComponentComputed extends DefaultComputed = DefaultComputed,
-    CustomComponentProps extends DefaultProps = DefaultProps
+    CustomComponentProps extends DefaultProps = DefaultProps,
 > =
     | AppendableList
     | Color

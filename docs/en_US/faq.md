@@ -20,8 +20,8 @@ If you want LSSM to work in your game, you can help us by adding the translation
 
 In that case, please refer to [report bugs][docs.error_report] or [support][docs.support].
 
-## How much does LSS Manager cost?
-LSS-Manager is a free extension. - we do not intend to change this.
+## What does LSS Manager cost?
+LSS-Manager is a free offer - we do not intend to change this.
 
 Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][lssm.donations]. We are happy about any support!
 
@@ -60,6 +60,18 @@ These two browsers can be described as the "problem children" of a modern web de
 We don't see the point of doing this everywhere and officially **do not** support these two browsers.
 :::
 
+### Using LSSM on a smartphone
+We regularly receive requests asking whether the LSSM can also be used on mobile devices.
+
+The answer is: Yes - through detours - but we do not offer any support for this. Activation is at your own risk.
+
+How does it work?
+
+1. Install Firefox for Android (Must be at least version 110)
+2. Start Firefox and open the context menu (three dots in the menu bar)
+3. Under "recommended addons" Tampermonkey should now be suggested.
+4. continue with the normal [installation instructions][docs.home]
+
 ## I want to share my setup with friends or use it on multiple devices. Is that possible?
 Yes, it is. Just open the [settings][docs.settings] and click `Export`, to download a config-file. `Import` lets you choose a config-file to import the settings.
 
@@ -79,6 +91,7 @@ Or in the <discord-channel channel="uptime"/> on our <discord/>
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /en_US/
 [docs.apps]: /en_US/apps.md
 [docs.appstore]: /en_US/appstore.md
 [docs.bugs]: /en_US/bugs.md

@@ -25,6 +25,7 @@ Varning: Om du återställer inställningarna, kan de inte återställas utan ti
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /sv_SE/
 [docs.apps]: /sv_SE/apps.md
 [docs.appstore]: /sv_SE/appstore.md
 [docs.bugs]: /sv_SE/bugs.md

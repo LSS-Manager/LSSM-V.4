@@ -100,10 +100,12 @@ export default async (
                 counterNode = document.createElement('span');
                 counterNode.classList.add(counterClass);
                 counterNode.setAttribute('data-amount', '0');
-                arr.querySelector('.label')?.insertAdjacentElement(
-                    counterBadge ? 'beforebegin' : 'afterend',
-                    counterNode
-                );
+                arr
+                    .querySelector('.label')
+                    ?.insertAdjacentElement(
+                        counterBadge ? 'beforebegin' : 'afterend',
+                        counterNode
+                    );
                 counterNodes[arrId] = counterNode;
             }
 

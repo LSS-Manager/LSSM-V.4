@@ -24,9 +24,10 @@ const excludedSteps = [
     'git_push',
 ];
 const shortcuts = {
-    dependencies: ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
-    quick: ['env', 'format', 'eslint', 'tsc', 'webpack'],
-    full: [],
+    'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
+    'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
+    'pre-commit': ['format', 'eslint', 'tsc'],
+    'full': [],
 };
 const extraConditions: Record<string, string[]> = {
     git_diff: ['$GIT_REPO = true'],
@@ -46,6 +47,19 @@ const script = [
 
 # exit script when any command fails
 set -e`,
+    `# Use tput for enhanced styling only if terminal type is set and a tty.
+# ESC is directly included in the string to avoid the -e flag on echo calls.
+if [[ -z "$TERM" ]] || [[ ! -t 1 ]]; then
+    normal="\x1b[0m"
+    bold="\x1b[1m"
+    blue="\x1b[34m"
+    green="\x1b[32m"
+else
+    normal=$(tput -T "$TERM" sgr0)
+    bold=$(tput -T "$TERM" bold)
+    blue=$(tput -T "$TERM" setaf 4)
+    green=$(tput -T "$TERM" setaf 2)
+fi`,
     `enable_debugging () {
     if [[ $DEBUG = true ]]; then
         set -x
@@ -60,6 +74,17 @@ set -e`,
     local timestamp
     timestamp="$(date +%s%N)"
     echo "\${timestamp/N/000000000}"
+}`,
+    `ms_elapsed() {
+    local timestamp_now
+    timestamp_now=$(now)
+    echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
+}`,
+    `print_start_message() {
+    echo "\${bold}$\{blue}### $1 ###$\{normal}"
+}`,
+    `print_end_message() {
+    echo "\${bold}$\{green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===$\{normal}"
 }`,
 ];
 
@@ -131,24 +156,24 @@ ${Object.entries(shortcuts)
     esac
     shift
 done`,
-        'total_start_time=$(date +%s%N)',
-        "NODE_VERSION=$(grep '\"node\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')\n" +
-            "YARN_VERSION=$(grep '\"packageManager\":' ./package.json | awk -F: '{ print $2 }' | sed 's/[\",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')\n" +
-            'if [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then\n' +
-            '    GIT_REPO=true\n' +
-            'fi\n' +
-            'if [[ $GIT_REPO = true ]]; then\n' +
-            '    GIT_BRANCH=$(git branch --show-current)\n' +
-            '    # Set ref to latest commit hash if HEAD is detached otherwise use branch name\n' +
-            '    if [[ -z "$GIT_BRANCH" ]]; then\n' +
-            '        REF=$(git rev-parse --short HEAD)\n' +
-            '    else\n' +
-            '        # | xargs to remove leading and trailing whitespaces\n' +
-            '        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Eo " .*$" --color=never | xargs)\n' +
-            '    fi\n' +
-            'else\n' +
-            '    REF="dev"\n' +
-            'fi',
+        'total_start_time=$(now)',
+        `NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')
+YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
+if [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
+    GIT_REPO=true
+fi
+if [[ $GIT_REPO = true ]]; then
+    GIT_BRANCH=$(git branch --show-current)
+    # Set ref to latest commit hash if HEAD is detached otherwise use branch name
+    if [[ -z "$GIT_BRANCH" ]]; then
+        REF=$(git rev-parse --short HEAD)
+    else
+        # | xargs to remove leading and trailing whitespaces
+        REF=$(git show-ref --heads --abbrev "$GIT_BRANCH" | grep -Eo " .*$" --color=never | xargs)
+    fi
+else
+    REF="dev"
+fi`,
         ...steps.map(step =>
             [
                 `# ${step.name}`,
@@ -156,7 +181,7 @@ done`,
                     step.id ?? ''
                 )} = true ]]${getExtraConditionsString(step.id ?? '')}; then
     start_time=$(now)
-    echo "### ${step.name} ###"
+    print_start_message "${step.name}"
     enable_debugging
     ${
         (step.id === 'env'
@@ -175,10 +200,7 @@ done`,
             .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
     }
     disable_debugging
-    end_time=$(now)
-    echo "=== ${
-        step.name
-    }: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "${step.name}" "$start_time"
 fi`,
             ]
                 .join('\n')
@@ -187,8 +209,7 @@ fi`,
                     ''
                 )
         ),
-        'total_end_time=$(date +%s%N)',
-        'echo "=== Total: $(((10#$total_end_time - 10#$total_start_time) / 1000000))ms ==="',
+        'print_end_message "Total" "$total_start_time"',
         'exit 0'
     );
 

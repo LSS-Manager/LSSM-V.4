@@ -12,10 +12,9 @@ const switchBtnState = (
     const btnClassReplace: [string, string] = ['btn-default', 'btn-warning'];
     if (starred) btnClassReplace.reverse();
     btn.classList.replace(...btnClassReplace);
-    btn.querySelector('svg')?.setAttribute(
-        'data-prefix',
-        starred ? 'far' : 'fas'
-    );
+    btn
+        .querySelector('svg')
+        ?.setAttribute('data-prefix', starred ? 'far' : 'fas');
     if (triggeredInMissionWindow) {
         (window[PREFIX] as Vue).$stores.event.createAndDispatchEvent({
             name: 'ecl_starrable-missions_toggle',

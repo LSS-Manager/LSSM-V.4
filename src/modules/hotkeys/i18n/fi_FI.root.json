@@ -162,6 +162,10 @@
                 "title": "ajoneuvo lista"
             }
         },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
+        },
         "vehicles": {
             "alarm": {
                 "firstAllianceMission": "Lähetä ensimmäiselle liittoutuma tehtävälle",

@@ -77,7 +77,7 @@ export interface VehicleTypesComputed {
             {
                 name: string;
                 data: { name: string; y: number; value: string }[];
-            }
+            },
         ];
     };
 }

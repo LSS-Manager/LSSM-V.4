@@ -682,7 +682,7 @@ export default Vue.extend<
                         (
                             scope.split('.') as [
                                 RootScopeWithoutAll,
-                                ...string[]
+                                ...string[],
                             ]
                         )[0],
                     ]).then(commands => ({

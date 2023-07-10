@@ -4,6 +4,20 @@
 # exit script when any command fails
 set -e
 
+# Use tput for enhanced styling only if terminal type is set and a tty.
+# ESC is directly included in the string to avoid the -e flag on echo calls.
+if [[ -z "$TERM" ]] || [[ ! -t 1 ]]; then
+    normal="[0m"
+    bold="[1m"
+    blue="[34m"
+    green="[32m"
+else
+    normal=$(tput -T "$TERM" sgr0)
+    bold=$(tput -T "$TERM" bold)
+    blue=$(tput -T "$TERM" setaf 4)
+    green=$(tput -T "$TERM" setaf 2)
+fi
+
 enable_debugging () {
     if [[ $DEBUG = true ]]; then
         set -x
@@ -22,10 +36,25 @@ now () {
     echo "${timestamp/N/000000000}"
 }
 
+ms_elapsed() {
+    local timestamp_now
+    timestamp_now=$(now)
+    echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
+}
+
+print_start_message() {
+    echo "${bold}${blue}### $1 ###${normal}"
+}
+
+print_end_message() {
+    echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
+}
+
 
 # default values of variables set from params
 _RUN_STEP_NODE=false
 _RUN_STEP_YARN_SETUP=false
+_RUN_STEP_YARN_SYMLINK=false
 _RUN_STEP_VERSIONS=false
 _RUN_STEP_YARN_INSTALL=false
 _RUN_STEP_BROWSERSLIST=false
@@ -47,6 +76,7 @@ while :; do
     case "${1-}" in
         --node) _RUN_STEP_NODE=true ;;
         --yarn_setup) _RUN_STEP_YARN_SETUP=true ;;
+        --yarn_symlink) _RUN_STEP_YARN_SYMLINK=true ;;
         --versions) _RUN_STEP_VERSIONS=true ;;
         --yarn_install) _RUN_STEP_YARN_INSTALL=true ;;
         --browserslist) _RUN_STEP_BROWSERSLIST=true ;;
@@ -72,9 +102,14 @@ while :; do
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true
           _RUN_STEP_WEBPACK=true ;;
+        --pre-commit)
+          _RUN_STEP_FORMAT=true
+          _RUN_STEP_ESLINT=true
+          _RUN_STEP_TSC=true ;;
         --full)
           _RUN_STEP_NODE=true
           _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_YARN_SYMLINK=true
           _RUN_STEP_VERSIONS=true
           _RUN_STEP_YARN_INSTALL=true
           _RUN_STEP_BROWSERSLIST=true
@@ -99,7 +134,7 @@ while :; do
     shift
 done
 
-total_start_time=$(date +%s%N)
+total_start_time=$(now)
 
 NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
@@ -122,7 +157,7 @@ fi
 # [⬆️] Setup Node.js
 if [[ $_RUN_STEP_NODE = true ]]; then
     start_time=$(now)
-    echo "### [⬆️] Setup Node.js ###"
+    print_start_message "[⬆️] Setup Node.js"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     if [[ -n "${NVM_DIR-}" ]]; then
         NVM_DIR="$NVM_DIR"
@@ -133,59 +168,64 @@ if [[ $_RUN_STEP_NODE = true ]]; then
     fi
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install "$NODE_VERSION"
-    end_time=$(now)
-    echo "=== [⬆️] Setup Node.js: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[⬆️] Setup Node.js" "$start_time"
 fi
 
 # [⬆] setup yarn
 if [[ $_RUN_STEP_YARN_SETUP = true ]]; then
     start_time=$(now)
-    echo "### [⬆] setup yarn ###"
+    print_start_message "[⬆] setup yarn"
     enable_debugging
     corepack enable
     yarn set version "$YARN_VERSION"
     disable_debugging
-    end_time=$(now)
-    echo "=== [⬆] setup yarn: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[⬆] setup yarn" "$start_time"
+fi
+
+# [🔗] symlink yarn executable
+if [[ $_RUN_STEP_YARN_SYMLINK = true ]]; then
+    start_time=$(now)
+    print_start_message "[🔗] symlink yarn executable"
+    enable_debugging
+    ln -sf "$(find ./.yarn/releases/ -name 'yarn-*.cjs')" ./yarn
+    disable_debugging
+    print_end_message "[🔗] symlink yarn executable" "$start_time"
 fi
 
 # [ℹ] print versions (node, yarn, git)
 if [[ $_RUN_STEP_VERSIONS = true ]]; then
     start_time=$(now)
-    echo "### [ℹ] print versions (node, yarn, git) ###"
+    print_start_message "[ℹ] print versions (node, yarn, git)"
     enable_debugging
     echo "node: $(node -v) – yarn: $(yarn -v) – git: $(git --version)"
     disable_debugging
-    end_time=$(now)
-    echo "=== [ℹ] print versions (node, yarn, git): $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[ℹ] print versions (node, yarn, git)" "$start_time"
 fi
 
 # [🍱] yarn install
 if [[ $_RUN_STEP_YARN_INSTALL = true ]]; then
     start_time=$(now)
-    echo "### [🍱] yarn install ###"
+    print_start_message "[🍱] yarn install"
     enable_debugging
     yarn install --immutable
     disable_debugging
-    end_time=$(now)
-    echo "=== [🍱] yarn install: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[🍱] yarn install" "$start_time"
 fi
 
 # [⬆] update browserslist
 if [[ $_RUN_STEP_BROWSERSLIST = true ]]; then
     start_time=$(now)
-    echo "### [⬆] update browserslist ###"
+    print_start_message "[⬆] update browserslist"
     enable_debugging
     npx -y browserslist@latest --update-db
     disable_debugging
-    end_time=$(now)
-    echo "=== [⬆] update browserslist: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[⬆] update browserslist" "$start_time"
 fi
 
 # [🌳] set env variables
 if [[ $_RUN_STEP_ENV = true ]]; then
     start_time=$(now)
-    echo "### [🌳] set env variables ###"
+    print_start_message "[🌳] set env variables"
     enable_debugging
     ref="$REF"
     BRANCH="dummy"
@@ -203,36 +243,33 @@ if [[ $_RUN_STEP_ENV = true ]]; then
       BRANCH="${BRANCH//"/"/"-"}"
     fi
     disable_debugging
-    end_time=$(now)
-    echo "=== [🌳] set env variables: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[🌳] set env variables" "$start_time"
 fi
 
 # [⬆] update emojis
 if [[ $_RUN_STEP_UPDATE_EMOJIS = true ]]; then
     start_time=$(now)
-    echo "### [⬆] update emojis ###"
+    print_start_message "[⬆] update emojis"
     enable_debugging
     yarn ts-node scripts/utils/fetchEmojis.ts
     disable_debugging
-    end_time=$(now)
-    echo "=== [⬆] update emojis: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[⬆] update emojis" "$start_time"
 fi
 
 # [🎨] format files not covered by ESLint
 if [[ $_RUN_STEP_FORMAT = true ]]; then
     start_time=$(now)
-    echo "### [🎨] format files not covered by ESLint ###"
+    print_start_message "[🎨] format files not covered by ESLint"
     enable_debugging
     yarn ts-node scripts/format.ts || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [🎨] format files not covered by ESLint: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[🎨] format files not covered by ESLint" "$start_time"
 fi
 
 # [🚨] run ESLint
 if [[ $_RUN_STEP_ESLINT = true ]]; then
     start_time=$(now)
-    echo "### [🚨] run ESLint ###"
+    print_start_message "[🚨] run ESLint"
     enable_debugging
     yarn eslint \
     ./docs/.vuepress/ \
@@ -250,92 +287,82 @@ if [[ $_RUN_STEP_ESLINT = true ]]; then
     --fix \
     || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [🚨] run ESLint: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[🚨] run ESLint" "$start_time"
 fi
 
 # [🚨] check TypeScript
 if [[ $_RUN_STEP_TSC = true ]]; then
     start_time=$(now)
-    echo "### [🚨] check TypeScript ###"
+    print_start_message "[🚨] check TypeScript"
     enable_debugging
     yarn tsc -b --pretty "./" || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [🚨] check TypeScript: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[🚨] check TypeScript" "$start_time"
 fi
 
 # [📜] build userscript
 if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
     start_time=$(now)
-    echo "### [📜] build userscript ###"
+    print_start_message "[📜] build userscript"
     enable_debugging
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [📜] build userscript: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[📜] build userscript" "$start_time"
 fi
 
 # [📜] build buildscript
 if [[ $_RUN_STEP_BUILDSCRIPT = true ]]; then
     start_time=$(now)
-    echo "### [📜] build buildscript ###"
+    print_start_message "[📜] build buildscript"
     enable_debugging
     yarn ts-node scripts/createBuildScript.ts || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [📜] build buildscript: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[📜] build buildscript" "$start_time"
 fi
 
 # [🚧] run prebuild
 if [[ $_RUN_STEP_PREBUILD = true ]]; then
     start_time=$(now)
-    echo "### [🚧] run prebuild ###"
+    print_start_message "[🚧] run prebuild"
     enable_debugging
     yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [🚧] run prebuild: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[🚧] run prebuild" "$start_time"
 fi
 
 # [👷] webpack
 if [[ $_RUN_STEP_WEBPACK = true ]]; then
     start_time=$(now)
-    echo "### [👷] webpack ###"
+    print_start_message "[👷] webpack"
     enable_debugging
     yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
     disable_debugging
-    end_time=$(now)
-    echo "=== [👷] webpack: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[👷] webpack" "$start_time"
 fi
 
 # [📝] build docs
 if [[ $_RUN_STEP_DOCS = true ]]; then
     start_time=$(now)
-    echo "### [📝] build docs ###"
+    print_start_message "[📝] build docs"
     enable_debugging
     "$(yarn workspace lss-manager-v4-docs bin vuepress)" build docs || exit 1
     mkdir -p ./dist/docs
     rm -rdf ./dist/docs/*
     cp -r ./docs/.vuepress/dist/* ./dist/docs
     disable_debugging
-    end_time=$(now)
-    echo "=== [📝] build docs: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[📝] build docs" "$start_time"
 fi
 
 # [ℹ️] git diff
 if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     start_time=$(now)
-    echo "### [ℹ️] git diff ###"
+    print_start_message "[ℹ️] git diff"
     enable_debugging
     git --no-pager diff --color-words
     disable_debugging
-    end_time=$(now)
-    echo "=== [ℹ️] git diff: $(((10#$end_time - 10#$start_time) / 1000000))ms ==="
+    print_end_message "[ℹ️] git diff" "$start_time"
 fi
 
-total_end_time=$(date +%s%N)
-
-echo "=== Total: $(((10#$total_end_time - 10#$total_start_time) / 1000000))ms ==="
+print_end_message "Total" "$total_start_time"
 
 exit 0

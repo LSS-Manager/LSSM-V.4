@@ -66,6 +66,7 @@ If you have any problems you can always contact [Support][docs.support].
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /fi_FI/
 [docs.apps]: /fi_FI/apps.md
 [docs.appstore]: /fi_FI/appstore.md
 [docs.bugs]: /fi_FI/bugs.md

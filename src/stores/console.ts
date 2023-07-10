@@ -21,25 +21,24 @@ const isComplexMessage = (
 export const defineConsoleStore = defineStore('console', {
     state: () => ({}),
     getters: {
-        prefixed: () => (messages: unknown[]) =>
-            [
-                `%cLSSM V${VERSION}%c: ${messages
-                    .map(message => {
-                        switch (typeof message) {
-                            case 'string':
-                                return '%s';
-                            case 'number':
-                            case 'bigint':
-                                return Number.isInteger(message) ? '%i' : '%f';
-                            default:
-                                return '%o';
-                        }
-                    })
-                    .join(' ')}`,
-                'font-weight: bold;',
-                'font-weight: normal;',
-                ...messages,
-            ],
+        prefixed: () => (messages: unknown[]) => [
+            `%cLSSM V${VERSION}%c: ${messages
+                .map(message => {
+                    switch (typeof message) {
+                        case 'string':
+                            return '%s';
+                        case 'number':
+                        case 'bigint':
+                            return Number.isInteger(message) ? '%i' : '%f';
+                        default:
+                            return '%o';
+                    }
+                })
+                .join(' ')}`,
+            'font-weight: bold;',
+            'font-weight: normal;',
+            ...messages,
+        ],
     },
     actions: {
         _writeToConsole(

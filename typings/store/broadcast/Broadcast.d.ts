@@ -23,7 +23,7 @@ interface BroadcastMessage<
         | APIResponseData<StorageAPIKey>
         | string
         | unknown
-        | null = unknown
+        | null = unknown,
 > {
     type: Type;
     sender: string;

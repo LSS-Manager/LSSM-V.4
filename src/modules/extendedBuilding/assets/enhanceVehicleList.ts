@@ -150,9 +150,8 @@ export default async (
                             'disabled'
                         );
                         vehicleTypeNode.textContent =
-                            internalVehicleTypes[
-                                storedVehicle.vehicle_type
-                            ]?.caption;
+                            internalVehicleTypes[storedVehicle.vehicle_type]
+                                ?.caption;
                         typeWrapper.append(vehicleTypeNode);
                     }
                     if (storedVehicle.vehicle_type_caption) {
@@ -225,16 +224,16 @@ export default async (
                             vehicle.lastElementChild.innerHTML = `(${lastRowItems
                                 .map(
                                     item =>
-                                        ((
-                                            {
+                                        (
+                                            ({
                                                 vehiclesPersonnelCurrent:
                                                     currentPersonnel,
                                                 vehiclesPersonnelMax:
                                                     maxPersonnel,
                                                 vehiclesPersonnelAssigned:
                                                     assignedPersonnel,
-                                            } as Record<string, number>
-                                        )[item])
+                                            }) as Record<string, number>
+                                        )[item]
                                 )
                                 .join(' / ')})`;
                         }

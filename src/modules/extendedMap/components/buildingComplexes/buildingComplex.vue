@@ -208,6 +208,16 @@
                                 <td v-if="hasBedBuildings">
                                     <template v-if="building.hasBeds">
                                         {{ building.beds }}
+                                        <template
+                                            v-if="building.bedsUnavailable"
+                                        >
+                                            ({{
+                                                $mc(
+                                                    'overview.buildings.inConstruction',
+                                                    building.bedsUnavailable
+                                                )
+                                            }})
+                                        </template>
 
                                         <template
                                             v-if="
@@ -939,6 +949,13 @@
                     >
                         <h2 class="indented-title">
                             {{ $m('overview.classrooms.title') }}
+                            <button
+                                class="btn btn-success pull-right"
+                                :disabled="classroomStats.free === 0"
+                                @click="openAvailableSchool"
+                            >
+                                {{ $m('overview.classrooms.startTraining') }}
+                            </button>
                             <br />
                             <small>
                                 {{
@@ -1285,7 +1302,7 @@ type HasNotInterface<HasAttribute extends string> = Record<HasAttribute, false>;
 type MaybeInterface<
     HasInterface,
     HasNotInterface,
-    Has extends Maybe = unknown
+    Has extends Maybe = unknown,
 > = Has extends true
     ? HasInterface
     : Has extends false
@@ -1294,6 +1311,7 @@ type MaybeInterface<
 
 type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & {
     beds: number;
+    bedsUnavailable: number;
     is_alliance_shared: boolean;
     alliance_share_credits_percentage: 0 | 10 | 20 | 30 | 40 | 50;
 };
@@ -1368,7 +1386,7 @@ type AttributedBuilding<
     HasClassrooms extends Maybe = unknown,
     HasLevel extends Maybe = unknown,
     HasStaff extends Maybe = unknown,
-    HasVehicles extends Maybe = unknown
+    HasVehicles extends Maybe = unknown,
 > = AttributedBuildingBeds<HasBeds> &
     AttributedBuildingCells<HasCells> &
     AttributedBuildingClassrooms<HasClassrooms> &
@@ -1555,6 +1573,7 @@ export default Vue.extend<
         toggleInCellOptions($event: MouseEvent): void;
         toggleAllianceShare(buildingId: number): void;
         setAllianceTax(buildingId: number, tax: number): void;
+        openAvailableSchool(): void;
     },
     {
         buildings: Record<number, Building>;
@@ -1753,11 +1772,29 @@ export default Vue.extend<
                         leitstelle: building.leitstelle_building_id,
                     };
 
+                    const bedExtensions = {
+                        beds:
+                            'startBeds' in buildingType
+                                ? buildingType.startBeds + building.level
+                                : 0,
+                        bedsUnavailable: 0,
+                    };
+                    building.extensions.forEach(extension => {
+                        const extensionType =
+                            buildingType.extensions?.[extension.type_id] ?? {};
+                        if ('newBeds' in extensionType) {
+                            if (!extension.available) {
+                                bedExtensions.bedsUnavailable +=
+                                    extensionType.newBeds;
+                            }
+                            bedExtensions.beds += extensionType.newBeds;
+                        }
+                    });
                     const beds: AttributedBuildingBeds =
                         'startBeds' in buildingType
                             ? {
                                   hasBeds: true,
-                                  beds: buildingType.startBeds + building.level,
+                                  ...bedExtensions,
                                   is_alliance_shared:
                                       building.is_alliance_shared ?? false,
                                   alliance_share_credits_percentage:
@@ -1774,17 +1811,15 @@ export default Vue.extend<
                         cellsUnavailable: 0,
                     };
                     building.extensions.forEach(extension => {
-                        if (
-                            !(
-                                'newCells' in
-                                (buildingType.extensions?.[extension.type_id] ??
-                                    {})
-                            )
-                        )
-                            return;
-                        if (!extension.available)
-                            cellExtensions.cellsUnavailable++;
-                        cellExtensions.cells++;
+                        const extensionType =
+                            buildingType.extensions?.[extension.type_id] ?? {};
+                        if ('newCells' in extensionType) {
+                            if (!extension.available) {
+                                cellExtensions.cellsUnavailable +=
+                                    extensionType.newCells;
+                            }
+                            cellExtensions.cells += extensionType.newCells;
+                        }
                     });
 
                     const cells: AttributedBuildingCells =
@@ -1893,7 +1928,7 @@ export default Vue.extend<
                         ...vehicles,
                     };
                 })
-                .filter(<S>(value: S | null): value is S => !!value);
+                .filter(<S,>(value: S | null): value is S => !!value);
         },
         sortedBuildingsByName() {
             const buildings = this.attributedBuildings;
@@ -2154,7 +2189,7 @@ export default Vue.extend<
                     )
                         maxExtensionsFunctionResults[buildingTypeId] = {};
 
-                    const removeNull = <S>(value: S | null): value is S =>
+                    const removeNull = <S,>(value: S | null): value is S =>
                         !!value;
 
                     const availableAtSorted = extensions
@@ -2966,7 +3001,7 @@ export default Vue.extend<
             ) {
                 this.extensionsTable.filters.buildings = 'all';
             } else {
-                const removeAllElement = <S>(
+                const removeAllElement = <S,>(
                     building: S | '*'
                 ): building is S => building !== '*';
                 this.extensionsTable.filters.buildings =
@@ -2977,7 +3012,7 @@ export default Vue.extend<
             if (states.indexOf('*') === states.length - 1 || !states.length) {
                 this.extensionsTable.filters.states = 'all';
             } else {
-                const removeAllElement = <S>(state: S | '*'): state is S =>
+                const removeAllElement = <S,>(state: S | '*'): state is S =>
                     state !== '*';
                 this.extensionsTable.filters.states =
                     states.filter(removeAllElement);
@@ -3050,11 +3085,12 @@ export default Vue.extend<
                                             node =>
                                                 node.nodeType === Node.TEXT_NODE
                                         )
-                                        .map(node =>
-                                            node.textContent
-                                                ?.trim()
-                                                .replace(/^-|\.$/gu, '')
-                                                .trim()
+                                        .map(
+                                            node =>
+                                                node.textContent
+                                                    ?.trim()
+                                                    .replace(/^-|\.$/gu, '')
+                                                    .trim()
                                         )
                                         .join(' ');
                                     const buildingId = parseInt(
@@ -3171,6 +3207,12 @@ export default Vue.extend<
                     feature,
                 })
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
+        },
+        openAvailableSchool() {
+            const buildingId = this.schoolingBuildings.find(
+                building => building.freeClassrooms
+            )?.id;
+            if (buildingId) window.lightboxOpen(`/buildings/${buildingId}`);
         },
     },
     props: {

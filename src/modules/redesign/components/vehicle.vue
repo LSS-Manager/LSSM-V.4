@@ -1140,7 +1140,7 @@ export default Vue.extend<
             const btnClass = useRootStore().nodeAttribute(
                 'extendedCallList_starrable-missions_btn'
             );
-            const getSetting = <T = boolean>(
+            const getSetting = <T = boolean,>(
                 settingId: string,
                 defaultValue?: T
             ) =>
@@ -1149,7 +1149,7 @@ export default Vue.extend<
                     settingId,
                     defaultValue,
                 });
-            const setSetting = <T = boolean>(settingId: string, value: T) =>
+            const setSetting = <T = boolean,>(settingId: string, value: T) =>
                 this.settingsStore.setSetting<T>({
                     moduleId: 'extendedCallList',
                     settingId,

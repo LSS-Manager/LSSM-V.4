@@ -57,15 +57,10 @@ La réponse est oui - de manière détournée - mais nous ne proposons pas de su
 
 Comment cela fonctionne-t-il ?
 
-*Nous nous sommes inspirés de l'article suivant : [How to use Tampermonkey on Firefox mobile](https://enux.pl/article/en/2021-03-14/how-use-tampermonkey-firefox-mobile)*.
-
-1. Installer Firefox Nightly pour Android : [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.fenix)
-2. Dans Firefox Nightly, aller dans les paramètres, descendre jusqu'à "A propos de Firefox Nightly".
-3. Cliquer 5 fois sur le logo Firefox. Il y a un petit message en bas qui indique l'activation du menu de débogage.
-4. Retourner dans les paramètres. Dans la zone "Avancé", un point "Collection de modules complémentaires personnalisés" est apparu. En cliquant dessus, on peut entrer un ID utilisateur et un nom de collection. Nous nous sommes donné la peine de rassembler dans une collection tous les modules complémentaires disponibles par défaut dans Firefox Nightly pour Android, ainsi que Tampermonkey : [https://addons.mozilla.org/en-US/firefox/collections/16048019/tampermonkey/](https://addons.mozilla.org/en-US/firefox/collections/16048019/tampermonkey/)
-5. Indiquez `16048019` sous "ID utilisateur" et `Tampermonkey` sous "Nom de la collection". Bien entendu, chacun est libre d'utiliser d'autres collections ou de créer les siennes. Malheureusement, il ne semble pas y avoir de "collection" officielle où l'on puisse simplement naviguer à travers les collections. De plus, les add-ons standard ne sont disponibles que s'ils sont dans la collection (comme dans la collection liée ci-dessus).
-
-Néanmoins, nous attirons encore une fois explicitement votre attention sur le fait que LSSM n'est pas conçu pour les terminaux mobiles et que notre support est donc très limité, voire inexistant.
+1. Installer Firefox pour Android (au moins la version 110).
+2. Lancer Firefox et ouvrez le menu contextuel (trois points dans la barre de menu).
+3. Sous "Modules complementaires", Tampermonkey devrait maintenant être propposer.
+4. Continuer avec les [instructions d'installation][docs.home] normales.
 
 ## Je souhaite partager ma configuration avec des amis ou l'utiliser sur plusieurs appareils. Est-ce possible ?
 Oui, c'est possible. Pour cela, il te suffit de cliquer dans les [paramètres][docs.settings] sur `Export` pour télécharger un fichier et `Import` pour importer les paramètres depuis un fichier.
@@ -84,6 +79,7 @@ Ou dans sur <discord-channel channel="uptime"/> sur notre <discord/>.
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /fr_FR/
 [docs.apps]: /fr_FR/apps.md
 [docs.appstore]: /fr_FR/appstore.md
 [docs.bugs]: /fr_FR/bugs.md

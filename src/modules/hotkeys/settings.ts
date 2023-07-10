@@ -100,6 +100,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'vehicles.alarm.firstAllianceMission',
         'vehicles.other.moveVehicle',
         'vehicles.other.toggleFMS',
+        'schoolings.educate',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)

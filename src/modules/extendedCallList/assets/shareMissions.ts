@@ -96,19 +96,21 @@ export default async (
                     attributeFilter: ['class'],
                 });
             }
-            btn.addEventListener('click', () =>
-                sapMissionList?.(
-                    LSSM,
-                    btn,
-                    mission,
-                    sapMessages,
-                    missionType,
-                    missionsById[missionType],
-                    sapNoMessage,
-                    authToken,
-                    updateShareBtn,
-                    stayMode
-                )
+            btn.addEventListener(
+                'click',
+                () =>
+                    sapMissionList?.(
+                        LSSM,
+                        btn,
+                        mission,
+                        sapMessages,
+                        missionType,
+                        missionsById[missionType],
+                        sapNoMessage,
+                        authToken,
+                        updateShareBtn,
+                        stayMode
+                    )
             );
             mission.btnGroup.append(group);
         } else {

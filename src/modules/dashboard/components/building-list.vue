@@ -118,10 +118,7 @@
                         bedBuildingsType.includes(building.building_type)
                     "
                 >
-                    {{
-                        translationStore.buildings[building.building_type]
-                            .startBeds + building.level
-                    }}
+                    {{ getTotalBeds(building) }}
                 </td>
                 <td
                     v-if="
@@ -129,12 +126,7 @@
                         bedBuildingsType.includes(building.building_type)
                     "
                 >
-                    {{
-                        translationStore.buildings[building.building_type]
-                            .startBeds +
-                        building.level -
-                        building.patient_count
-                    }}
+                    {{ getTotalBeds(building) - building.patient_count }}
                 </td>
             </tr>
         </enhanced-table>
@@ -148,7 +140,11 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { useAPIStore } from '@stores/api';
 import { useTranslationStore } from '@stores/translationUtilities';
 
-import type { Building } from 'typings/Building';
+import type {
+    BedExtension,
+    Building,
+    InternalBuilding,
+} from 'typings/Building';
 import type {
     BuildingList,
     BuildingListComputed,
@@ -342,6 +338,48 @@ export default Vue.extend<
                 dispatchBuildings.find(
                     b => b.id === (building.leitstelle_building_id ?? 0)
                 )?.caption ?? ''
+            );
+        },
+        getTotalBeds(building) {
+            const buildingType: InternalBuilding =
+                this.translationStore.buildings[building.building_type];
+            if (!('startBeds' in buildingType)) return 0;
+            const removeNull = <S,>(value: S | null): value is S => !!value;
+            const bedExtensions = buildingType.extensions
+                .map<
+                    | (Exclude<InternalBuilding['extensions'][0], null> & {
+                          typeId: number;
+                      })
+                    | null
+                >((extension, index) =>
+                    extension ? { ...extension, typeId: index } : null
+                )
+                .filter(removeNull)
+                .filter(
+                    (
+                        extension
+                    ): extension is BedExtension & { typeId: number } =>
+                        'newBeds' in extension
+                );
+            const bedExtensionIds = bedExtensions.map(
+                extension => extension.typeId
+            );
+            return (
+                buildingType.startBeds +
+                building.level +
+                building.extensions
+                    .filter(extension =>
+                        bedExtensionIds.includes(extension.type_id)
+                    )
+                    .reduce(
+                        (total, extension) =>
+                            total +
+                            (bedExtensions.find(
+                                bedExtension =>
+                                    bedExtension.typeId === extension.type_id
+                            )?.newBeds ?? 0),
+                        0
+                    )
             );
         },
     },

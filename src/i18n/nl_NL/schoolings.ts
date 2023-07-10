@@ -118,6 +118,12 @@ export default {
             staffList: 'Bereden Brigade',
             key: 'police_horse',
         },
+        {
+            caption: 'ME - Waterwerper',
+            duration: '5 Dagen',
+            staffList: 'Waterwerper',
+            key: 'police_wasserwerfer',
+        },
     ],
     Ambulance: [
         {

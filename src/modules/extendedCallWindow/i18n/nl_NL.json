@@ -187,7 +187,10 @@
                 ],
                 "vehicles": [35]
             },
-            { "texts": ["Politiehelikopter"], "vehicles": [28] },
+            {
+                "texts": ["Politiehelikopter", "Politiehelikopters"],
+                "vehicles": [28]
+            },
             {
                 "texts": ["Hondengeleider", "Hondengeleiders"],
                 "vehicles": [47, 48]

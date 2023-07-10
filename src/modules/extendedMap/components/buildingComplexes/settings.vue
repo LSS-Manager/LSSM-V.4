@@ -510,7 +510,7 @@ export default Vue.extend<
     mounted() {
         this.name = this.complex.name;
         this.icon = this.complex.icon;
-        const removeUndefined = <S>(value: S | undefined): value is S =>
+        const removeUndefined = <S,>(value: S | undefined): value is S =>
             !!value;
         this.buildingIds = this.complex.buildings
             .map(id => this.buildingOptions.find(({ value }) => id === value))

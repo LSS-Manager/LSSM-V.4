@@ -11,7 +11,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                 'building',
                 'edit',
                 'personalAssigment',
-                'statistics'
+                'statistics',
             ],
             false,
             'vehicle'

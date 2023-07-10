@@ -31,7 +31,7 @@ interface ChartOptions extends BasicChartOptions {
         {
             name: string;
             data: { name: string; y: number }[];
-        }
+        },
     ];
 }
 
