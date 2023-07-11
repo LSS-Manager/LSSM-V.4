@@ -184,7 +184,7 @@ export default Vue.extend<
     components: {
         ARR: () =>
             import(
-                /* webpackChunkName: "components/arr" */ '../../../components/arr.vue'
+                /* webpackChunkName: "components/arr" */ '../../../components/arrEntry.vue'
             ),
     },
     data() {
