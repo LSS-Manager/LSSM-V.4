@@ -56,6 +56,11 @@ export interface DailyCreditsSummaryComputed {
     sorted: Category[];
     filtered: Category[];
     creditsTypeSum: Category[];
+    exports: {
+        json: string;
+        jsonPretty: string;
+        csv: string;
+    };
     incomeChartOptions: ChartOptions;
     expensesChartOptions: ChartOptions;
 }

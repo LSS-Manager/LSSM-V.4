@@ -82,7 +82,7 @@
                                     <a
                                         download="credits.json"
                                         :href="`data:application/json;charset=utf-8,${encodeURIComponent(
-                                            JSON.stringify(creditsTypeSum)
+                                            exports.jsonPretty
                                         )}`"
                                     >
                                         {{ $m('export.json.raw') }}
@@ -92,14 +92,20 @@
                                     <a
                                         download="credits.json"
                                         :href="`data:application/json;charset=utf-8,${encodeURIComponent(
-                                            JSON.stringify(
-                                                creditsTypeSum,
-                                                null,
-                                                4
-                                            )
+                                            exports.jsonPretty
                                         )}`"
                                     >
                                         {{ $m('export.json.prettified') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        download="credits.csv"
+                                        :href="`data:text/csv;charset=utf-8,${encodeURIComponent(
+                                            exports.csv
+                                        )}`"
+                                    >
+                                        {{ $m('export.csv') }}
                                     </a>
                                 </li>
                             </ul>
@@ -262,6 +268,30 @@ export default Vue.extend<
                 });
             });
             return Object.values(result).filter(({ amount }) => amount > 0);
+        },
+        exports() {
+            return {
+                json: JSON.stringify(this.creditsTypeSum),
+                jsonPretty: JSON.stringify(this.creditsTypeSum, null, 4),
+                csv: `${[
+                    'desc',
+                    'total',
+                    'amount',
+                    'backgroundColor',
+                    'textColor',
+                ].join(',')}\n${this.creditsTypeSum
+                    .map(
+                        ({ desc, total, amount, backgroundColor, textColor }) =>
+                            [
+                                desc,
+                                total,
+                                amount,
+                                backgroundColor,
+                                textColor,
+                            ].join(',')
+                    )
+                    .join('\n')}`,
+            };
         },
         incomeChartOptions() {
             return {
